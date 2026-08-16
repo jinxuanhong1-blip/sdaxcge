@@ -1,0 +1,8 @@
+cohort	split	n_samples	n_high	n_low	tacstd2_low_threshold	tacstd2_high_threshold	mean_TACSTD2_high	mean_TACSTD2_low	note
+TCGA_LUAD	tertile	515	172	172	12.203966666666666	13.000533333333333	13.61240988372093	11.200422674418604	PRIMARY: TCGA-LUAD primary solid tumors (barcode -01).
+TCGA_LUAD	median	515	257	257	12.6291	12.6291	13.347422957198443	11.60025680933852	SENSITIVITY: median split (not the primary call).
+TCGA_LUSC	tertile	502	168	168	12.5074	13.6931	14.384839285714284	11.21679761904762	PRIMARY: TCGA-LUSC primary solid tumors (barcode -01).
+TCGA_LUSC	median	502	251	251	13.1084	13.1084	14.056714541832669	11.738509960159362	SENSITIVITY: median split (not the primary call).
+TCGA_NSCLC_pooled	tertile	1017	339	339	12.334266666666668	13.307533333333334	14.053501917404132	11.190362831858405	SENSITIVITY ONLY: pooled LUAD+LUSC. TACSTD2-high is LUSC-enriched; not the primary test.
+OncoSG_LUAD	tertile	169	57	57	-0.3584	0.4002	1.0124122807017544	-1.0466508771929826	INDEPENDENT: OncoSG LUAD 2020, cBioPortal z-scored RNA. Spearman is invariant to the z-transform. Partial uses OncoSG PURITY (stored as CPE column).
+DepMap24Q4_lung_cell_lines	tertile	214	72	72	0.7398481026993275	6.179909090014935	8.055287441512531	0.34433960066734876	SENSITIVITY: DepMap Public 24Q4 lung cell lines only (no stroma). log2(TPM+1).

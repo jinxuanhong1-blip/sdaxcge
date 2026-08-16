@@ -1,0 +1,183 @@
+{
+  "task": "A9_F11R_PARD3",
+  "question": "Are F11R and PARD3 higher / co-expressed in TACSTD2-high public lung tumors?",
+  "claim_genes": [
+    "F11R",
+    "PARD3"
+  ],
+  "primary_cohorts": [
+    "TCGA_LUAD",
+    "TCGA_LUSC"
+  ],
+  "call_rule": "spearman_rho>0 AND tertile_log2FC>0 AND welch_fdr_claim<0.05",
+  "did_we_tune_to_a_positive_call": false,
+  "honest_verdict": {
+    "F11R": {
+      "gene": "F11R",
+      "label": "TCGA_CALL_NO_INDEPENDENT_REPLICATION",
+      "primary_calls": {
+        "TCGA_LUAD": true,
+        "TCGA_LUSC": true
+      },
+      "primary_rho": {
+        "TCGA_LUAD": 0.18204252886903163,
+        "TCGA_LUSC": 0.2479028062989408
+      },
+      "oncosg_call": false,
+      "oncosg_rho": 0.11667495400527077,
+      "statement": "F11R meets the pre-specified TCGA call in both histologies (TCGA_LUAD \u03c1=0.182, TCGA_LUSC \u03c1=0.248), but the independent OncoSG LUAD cohort does not replicate (\u03c1=0.117, n=169, no-call). Treat the TCGA call as histology-detectable, not as a confirmed public-lung partner. Also: OncoSG LUAD \u03c1=0.117 (n=169), no-call; DepMap lung lines \u03c1=0.437 (n=214); pooled NSCLC \u03c1=0.296 (n=1017) \u2014 sensitivity only."
+    },
+    "PARD3": {
+      "gene": "PARD3",
+      "label": "NOT_A_HISTOLOGY_INDEPENDENT_PARTNER",
+      "primary_calls": {
+        "TCGA_LUAD": false,
+        "TCGA_LUSC": true
+      },
+      "primary_rho": {
+        "TCGA_LUAD": -0.019941307854869632,
+        "TCGA_LUSC": 0.15114478237840873
+      },
+      "oncosg_call": false,
+      "oncosg_rho": 0.06228937184800677,
+      "statement": "PARD3 meets the call only in TCGA_LUSC and fails in TCGA_LUAD (TCGA_LUAD \u03c1=-0.020). A pooled LUAD+LUSC correlation is not evidence of a shared partner: TACSTD2-high is LUSC-enriched. Do not treat this gene as histology-independent. Also: OncoSG LUAD \u03c1=0.062 (n=169), no-call; DepMap lung lines \u03c1=0.187 (n=214); pooled NSCLC \u03c1=0.164 (n=1017) \u2014 sensitivity only."
+    }
+  },
+  "purity_partial": {
+    "F11R:TCGA_LUAD": {
+      "rho": 0.18204252886903163,
+      "partial_CPE": 0.18371795360073473,
+      "partial_ESTIMATE": 0.1861960084743677
+    },
+    "F11R:TCGA_LUSC": {
+      "rho": 0.2479028062989408,
+      "partial_CPE": 0.25392849981021287,
+      "partial_ESTIMATE": 0.21759472657116355
+    },
+    "PARD3:TCGA_LUAD": {
+      "rho": -0.019941307854869632,
+      "partial_CPE": -0.02504504137941323,
+      "partial_ESTIMATE": -0.015133433508227476
+    },
+    "PARD3:TCGA_LUSC": {
+      "rho": 0.15114478237840873,
+      "partial_CPE": 0.15206373396269313,
+      "partial_ESTIMATE": 0.11431014174758929
+    }
+  },
+  "cohorts": [
+    {
+      "cohort": "TCGA_LUAD",
+      "split": "tertile",
+      "n_samples": 515,
+      "n_high": 172,
+      "n_low": 172,
+      "tacstd2_low_threshold": 12.203966666666666,
+      "tacstd2_high_threshold": 13.000533333333333,
+      "mean_TACSTD2_high": 13.61240988372093,
+      "mean_TACSTD2_low": 11.200422674418604,
+      "note": "PRIMARY: TCGA-LUAD primary solid tumors (barcode -01)."
+    },
+    {
+      "cohort": "TCGA_LUAD",
+      "split": "median",
+      "n_samples": 515,
+      "n_high": 257,
+      "n_low": 257,
+      "tacstd2_low_threshold": 12.6291,
+      "tacstd2_high_threshold": 12.6291,
+      "mean_TACSTD2_high": 13.347422957198443,
+      "mean_TACSTD2_low": 11.60025680933852,
+      "note": "SENSITIVITY: median split (not the primary call)."
+    },
+    {
+      "cohort": "TCGA_LUSC",
+      "split": "tertile",
+      "n_samples": 502,
+      "n_high": 168,
+      "n_low": 168,
+      "tacstd2_low_threshold": 12.5074,
+      "tacstd2_high_threshold": 13.6931,
+      "mean_TACSTD2_high": 14.384839285714284,
+      "mean_TACSTD2_low": 11.21679761904762,
+      "note": "PRIMARY: TCGA-LUSC primary solid tumors (barcode -01)."
+    },
+    {
+      "cohort": "TCGA_LUSC",
+      "split": "median",
+      "n_samples": 502,
+      "n_high": 251,
+      "n_low": 251,
+      "tacstd2_low_threshold": 13.1084,
+      "tacstd2_high_threshold": 13.1084,
+      "mean_TACSTD2_high": 14.056714541832669,
+      "mean_TACSTD2_low": 11.738509960159362,
+      "note": "SENSITIVITY: median split (not the primary call)."
+    },
+    {
+      "cohort": "TCGA_NSCLC_pooled",
+      "split": "tertile",
+      "n_samples": 1017,
+      "n_high": 339,
+      "n_low": 339,
+      "tacstd2_low_threshold": 12.334266666666668,
+      "tacstd2_high_threshold": 13.307533333333334,
+      "mean_TACSTD2_high": 14.053501917404132,
+      "mean_TACSTD2_low": 11.190362831858405,
+      "note": "SENSITIVITY ONLY: pooled LUAD+LUSC. TACSTD2-high is LUSC-enriched; not the primary test."
+    },
+    {
+      "cohort": "OncoSG_LUAD",
+      "split": "tertile",
+      "n_samples": 169,
+      "n_high": 57,
+      "n_low": 57,
+      "tacstd2_low_threshold": -0.3584,
+      "tacstd2_high_threshold": 0.4002,
+      "mean_TACSTD2_high": 1.0124122807017544,
+      "mean_TACSTD2_low": -1.0466508771929826,
+      "note": "INDEPENDENT: OncoSG LUAD 2020, cBioPortal z-scored RNA. Spearman is invariant to the z-transform. Partial uses OncoSG PURITY (stored as CPE column)."
+    },
+    {
+      "cohort": "DepMap24Q4_lung_cell_lines",
+      "split": "tertile",
+      "n_samples": 214,
+      "n_high": 72,
+      "n_low": 72,
+      "tacstd2_low_threshold": 0.7398481026993275,
+      "tacstd2_high_threshold": 6.179909090014935,
+      "mean_TACSTD2_high": 8.055287441512531,
+      "mean_TACSTD2_low": 0.34433960066734876,
+      "note": "SENSITIVITY: DepMap Public 24Q4 lung cell lines only (no stroma). log2(TPM+1)."
+    }
+  ],
+  "oncosg_ok": true,
+  "depmap_ok": true,
+  "figures": [
+    "results/w200/A9_F11R_PARD3/figures/fig_scatter_claim_tcga.png",
+    "results/w200/A9_F11R_PARD3/figures/fig_rho_forest_tcga.png",
+    "results/w200/A9_F11R_PARD3/figures/fig_box_high_low_tcga.png"
+  ],
+  "methods": {
+    "expression": "UCSC Xena HiSeqV2 log2(norm_count+1); primary tumors only",
+    "tacstd2_high": "within-cohort tertiles (low<=Q1/3, high>=Q2/3)",
+    "purity": "Aran et al. 2015 CPE/ESTIMATE/ABSOLUTE; first-order partial Spearman on ranks",
+    "oncosg": "luad_oncosg_2020 luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores",
+    "comparators": {
+      "tj_context": [
+        "CLDN1",
+        "CLDN4",
+        "CLDN7"
+      ],
+      "epithelial": [
+        "EPCAM",
+        "KRT8"
+      ],
+      "immune": [
+        "PTPRC",
+        "CD8A"
+      ]
+    }
+  },
+  "generated_utc": "2026-08-16T20:09:47.820264+00:00"
+}
