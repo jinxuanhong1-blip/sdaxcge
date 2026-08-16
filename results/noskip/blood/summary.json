@@ -1,0 +1,20 @@
+{
+  "n_series_in_catalog": 15,
+  "series_with_both_genes_absent": [
+    "GSE216297",
+    "GSE310370",
+    "GSE207715"
+  ],
+  "series_with_cldn4_absent_tacstd2_present": [
+    "GSE235048"
+  ],
+  "series_tested_vs_response": [
+    "GSE285888",
+    "GSE111414",
+    "GSE202417"
+  ],
+  "series_with_response_labels_but_genes_absent": [
+    "GSE216297"
+  ],
+  "note": "No series was dropped because it is blood. Absent genes are recorded as absent."
+}

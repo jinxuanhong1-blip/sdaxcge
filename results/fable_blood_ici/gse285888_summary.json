@@ -1,0 +1,21 @@
+{
+  "dataset": "GSE285888",
+  "n_cells": 222144,
+  "n_patients": 33,
+  "response_groups": {
+    "PD": 13,
+    "DR": 8,
+    "CR": 7,
+    "irAE": 5
+  },
+  "targets": {
+    "TACSTD2": {
+      "pct_cells_detected": 0.0806,
+      "mean_cp10k": 0.0012
+    },
+    "CLDN4": {
+      "pct_cells_detected": 0.1819,
+      "mean_cp10k": 0.0039
+    }
+  }
+}
