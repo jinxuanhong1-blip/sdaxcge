@@ -1,0 +1,24 @@
+{
+  "_comment": "Curated module gene sets. Fill 'genes' with sourced symbols only (see tacstd2_cldn4_modules.md). Anchor gene must be present. No genes are provided here on purpose.",
+  "_comment_zh": "整理后的模块基因集。'genes' 只填有来源的基因符号（见 tacstd2_cldn4_modules.md）。必须包含锚基因。此处有意不预置任何基因。",
+  "modules": {
+    "TACSTD2_module": {
+      "anchor": "TACSTD2",
+      "genes": [],
+      "source_type": "",
+      "source": "",
+      "version": "",
+      "date": "",
+      "curator": ""
+    },
+    "CLDN4_module": {
+      "anchor": "CLDN4",
+      "genes": [],
+      "source_type": "",
+      "source": "",
+      "version": "",
+      "date": "",
+      "curator": ""
+    }
+  }
+}
