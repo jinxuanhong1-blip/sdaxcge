@@ -1,0 +1,171 @@
+{
+  "generated_utc": "2026-08-16T20:13:19+00:00",
+  "cohort": "TCGA-UCS",
+  "expression_dataset": "UCSC Xena GDC hub TCGA-UCS.star_tpm.tsv.gz (log2(TPM+1), GENCODE v36)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 57,
+  "n_patients": 57,
+  "histology": {
+    "Mullerian mixed tumor": 45,
+    "Carcinosarcoma, NOS": 11,
+    "Mesodermal mixed tumor": 1
+  },
+  "surface_gene_universe": 2671,
+  "surfaceome_match": {
+    "surfy_n": 2882,
+    "matched_ensembl": 2541,
+    "matched_symbol_only": 301,
+    "unmatched": 40,
+    "universe_incl_anchor": 2759,
+    "zero_variance_dropped": 87
+  },
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": true,
+    "spearman_rank": 3,
+    "spearman_r": 0.8347161005963184,
+    "spearman_p": 7.152743637167264e-16,
+    "spearman_q": 6.36832608495792e-13,
+    "spearman_percentile": 99.925,
+    "pearson_rank": 1,
+    "pearson_r": 0.8632405688565078,
+    "pearson_q": 1.4945249096266055e-14,
+    "pearson_percentile": 100.0
+  },
+  "direct_coexpression": {
+    "subset": "all_primary_tumors",
+    "n": 57,
+    "pearson_r": 0.8632405688565079,
+    "pearson_p": 5.7850218300532335e-18,
+    "spearman_rho": 0.8347161005963184,
+    "spearman_p": 7.152743637167335e-16,
+    "spearman_rho_ci95_lo": 0.7047744397159863,
+    "spearman_rho_ci95_hi": 0.9134386948448826,
+    "median_log2tpm1_TACSTD2": 5.913846824263042,
+    "median_log2tpm1_CLDN4": 6.339805474572737
+  },
+  "purity": [
+    {
+      "quantity": "spearman_unadjusted_purity_subset",
+      "n": 56,
+      "rho": 0.8289815447710186,
+      "p": 3.0446434202322985e-15
+    },
+    {
+      "quantity": "spearman_partial_given_ABSOLUTE_purity",
+      "n": 56,
+      "rho": 0.8185814197722724,
+      "p": 1.3005336773588386e-14
+    },
+    {
+      "quantity": "spearman_TACSTD2_vs_purity",
+      "n": 56,
+      "rho": -0.26070460082471264,
+      "p": 0.05230232244130184
+    },
+    {
+      "quantity": "spearman_CLDN4_vs_purity",
+      "n": 56,
+      "rho": -0.2290916019845506,
+      "p": 0.0894384715345623
+    }
+  ],
+  "cldn4_rank_bootstrap": {
+    "n_boot": 1000,
+    "median_rank": 8,
+    "mean_rank": 9.305,
+    "ci95_lo": 1,
+    "ci95_hi": 28,
+    "frac_rank1": 0.085,
+    "frac_top5": 0.394,
+    "frac_top10": 0.661,
+    "frac_top20": 0.909
+  },
+  "transcriptome_wide": {
+    "n_expressed_genes": 21774,
+    "CLDN4_rank": 20,
+    "CLDN4_percentile": 99.91
+  },
+  "hiseqv2_robustness": {
+    "n_samples": 57,
+    "surface_gene_universe": 2618,
+    "spearman_rank": 6,
+    "spearman_r": 0.8231786362457869,
+    "spearman_q": 1.4833119672530178e-12,
+    "pearson_rank": 2,
+    "pearson_r": 0.8525142137311202,
+    "top1": "CRB3",
+    "top1_rho": 0.8323178636245787
+  },
+  "top10_spearman": [
+    {
+      "gene": "CRB3",
+      "spearman_rank": 1,
+      "spearman_r": 0.8512444905366865,
+      "spearman_q": 1.3237828502216592e-13
+    },
+    {
+      "gene": "EPHA1",
+      "spearman_rank": 2,
+      "spearman_r": 0.8350401866735805,
+      "spearman_q": 6.36832608495792e-13
+    },
+    {
+      "gene": "CLDN4",
+      "spearman_rank": 3,
+      "spearman_r": 0.8347161005963184,
+      "spearman_q": 6.36832608495792e-13
+    },
+    {
+      "gene": "SCNN1A",
+      "spearman_rank": 4,
+      "spearman_r": 0.8327067669172933,
+      "spearman_q": 6.476054452785677e-13
+    },
+    {
+      "gene": "SLC44A4",
+      "spearman_rank": 5,
+      "spearman_r": 0.8306974332382681,
+      "spearman_q": 6.996634757471122e-13
+    },
+    {
+      "gene": "MFSD6L",
+      "spearman_rank": 6,
+      "spearman_r": 0.8292200743257859,
+      "spearman_q": 7.253812404719488e-13
+    },
+    {
+      "gene": "CLDN7",
+      "spearman_rank": 7,
+      "spearman_r": 0.8271973036038371,
+      "spearman_q": 8.356808388044777e-13
+    },
+    {
+      "gene": "F11R",
+      "spearman_rank": 8,
+      "spearman_r": 0.8260305937256935,
+      "spearman_q": 8.657008498136936e-13
+    },
+    {
+      "gene": "VTCN1",
+      "spearman_rank": 9,
+      "spearman_r": 0.8161783769769251,
+      "spearman_q": 3.051091001693571e-12
+    },
+    {
+      "gene": "PRSS8",
+      "spearman_rank": 10,
+      "spearman_r": 0.8146227638060669,
+      "spearman_q": 3.3876216714795975e-12
+    }
+  ]
+}
