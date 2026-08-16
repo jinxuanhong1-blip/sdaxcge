@@ -1,0 +1,8 @@
+data/estimate.tar.gz
+data/estimate/*
+!data/estimate/inst/
+data/estimate/inst/*
+!data/estimate/inst/extdata/
+data/estimate/inst/extdata/*
+!data/estimate/inst/extdata/SI_geneset.gmt
+__pycache__/
