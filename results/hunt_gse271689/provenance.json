@@ -1,0 +1,27 @@
+{
+  "series": "GSE271689",
+  "paper": {
+    "title": "Spatial signatures for predicting immunotherapy outcomes using multi-omics in non-small cell lung cancer",
+    "journal": "Nature Genetics",
+    "year": 2025,
+    "pmid": "41073787",
+    "doi": "10.1038/s41588-025-02351-7"
+  },
+  "public_inputs": {
+    "geo_raw_tar": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE271nnn/GSE271689/suppl/GSE271689_RAW.tar",
+    "geo_series_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE271nnn/GSE271689/matrix/GSE271689_series_matrix.txt.gz",
+    "wta_pkc_zenodo": "https://zenodo.org/records/12752405/files/Hs_R_NGS_WTA_v1.0.pkc?download=1",
+    "source_data_fig6": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41588-025-02351-7/MediaObjects/41588_2025_2351_MOESM10_ESM.xlsx",
+    "author_github_ck_matrix": "https://raw.githubusercontent.com/tznaung/NSCLC_SpatialOmics/main/data/CK_av_3B.csv"
+  },
+  "not_in_git": [
+    "DCC files (GSE271689_RAW.tar, 35 MB)",
+    "Q3-log2 gene x AOI matrix (~50 MB)",
+    "raw count matrix (~12 MB)",
+    "paper source-data XLSX (26 MB)",
+    "WTA PKC (16 MB)"
+  ],
+  "primary_n": {"yale": 37, "yale_os_events": 17, "uq": 30, "greek": 61},
+  "user_prior": "high TROP2 worse on ICI OS",
+  "honest_call": "Yale continuous Cox agrees nominally; Greek WTA OS is null; UQ same direction NS. Not a confirmed biomarker."
+}
