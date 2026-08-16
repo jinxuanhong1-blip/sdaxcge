@@ -56,4 +56,13 @@ From the two extracted MTX columns, joined to metadata `sampleID` and `total_cou
 
 Two-sided Mann–Whitney U, normal approximation with tie correction and continuity correction. Effect size: Cliff's delta and AUC = 0.5 + 0.5 × delta. No multiple-testing claim beyond reporting all pre-specified gene × metric × contrast tests.
 
-Script: `scripts/analyze_gse243013_tacstd2_cldn4_mpr.py`.
+## Extract
+
+C streamer `scripts/extract_mtx_two_genes.c` reads the gzipped MTX and keeps columns 1057 and 11797. Declared nnz equaled scanned nnz (2,010,550,708). Output: `extracted_tacstd2_cldn4_cells.tsv`.
+
+Python `scripts/analyze_gse243013_tacstd2_cldn4_mpr.py` aggregates to `sampleID` and runs the tests. Cell-level GEO metadata is required for that step and is not committed (39 MiB); re-download:
+
+`https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_NSCLC_immune_scRNA_metadata.csv.gz`
+
+Patient-level clinical fields collapsed from that file are in `source/patient_metadata_from_geo.tsv`.
+
