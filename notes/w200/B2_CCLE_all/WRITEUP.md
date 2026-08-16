@@ -1,6 +1,6 @@
 # B2 CCLE all cancers: TACSTD2 vs CLDN4 rank among claudins / 全癌种 CCLE 中 TACSTD2 与 CLDN4 在 claudin 家族中的位次
 
-Analysis commit / 分析提交: `7967ace7b0243b64f0b3c240c72e697d2da8f109`  
+Analysis commit / 分析提交: `50815d24227d053ad11aa613c2e09f4cdae94e88`  
 Run UTC / 运行 UTC: `2026-08-16T19:48:55Z`  
 Catalog / 数据目录: `results/w200/B2_CCLE_all/catalog.tsv`  
 Seed / 随机种子: `20260816`
