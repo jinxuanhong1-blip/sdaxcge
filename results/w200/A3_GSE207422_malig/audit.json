@@ -1,0 +1,377 @@
+{
+  "dataset": "GSE207422",
+  "n_cells": 92330,
+  "n_samples": 15,
+  "genes_found": [
+    "TACSTD2",
+    "CLDN4",
+    "EPCAM",
+    "KRT7",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "KRT17",
+    "CDH1",
+    "DST",
+    "SFTPA2",
+    "AGER",
+    "SCGB1A1",
+    "SCGB3A1",
+    "TPPP3",
+    "S100P",
+    "CD3D",
+    "CD3E",
+    "CD2",
+    "TRAC",
+    "CD8A",
+    "CD8B",
+    "NKG7",
+    "GNLY",
+    "KLRD1",
+    "KLRF1",
+    "NCAM1",
+    "FGFBP2",
+    "PTPRC",
+    "LYZ",
+    "CD68",
+    "CD14",
+    "LST1",
+    "CSF3R",
+    "CD79A",
+    "MS4A1",
+    "MZB1",
+    "IGHG1",
+    "COL1A1",
+    "DCN",
+    "PECAM1",
+    "VWF",
+    "KIT",
+    "LILRA4",
+    "MKI67",
+    "PCNA",
+    "TOP2A",
+    "SERPINB9",
+    "CX3CL1",
+    "CD74",
+    "HLA-DRA",
+    "HLA-DRB1",
+    "AKR1C1",
+    "AKR1C2",
+    "AKR1C3",
+    "AKR1B1",
+    "AKR1B10"
+  ],
+  "genes_missing": [],
+  "n_malig_like": 6627,
+  "n_T_NK": 36323,
+  "n_eligible_all": 10,
+  "n_eligible_post": 7,
+  "n_post_mpr": 4,
+  "n_post_nmpr": 8,
+  "author_cell_labels_used": false,
+  "compartment_definition": "Marker-based compartments, not author Seurat/CopyKAT labels. Malignant-like = epithelial argmax AND zero UMI for SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3.",
+  "expression_metric": "mean log1p(raw UMI), % UMI>0, and mean log1p(CP10k)",
+  "min_cells": {
+    "malig_like": 10,
+    "T_NK": 20
+  },
+  "paper_groups": "TN=pre-biopsy (n=3); post MPR includes pCR P06 (n=4); post NMPR (n=8)",
+  "associations": [
+    {
+      "contrast": "all eligible samples: malig-like TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.13939393939393938,
+      "spearman_p": 0.7009318849100584,
+      "note": ""
+    },
+    {
+      "contrast": "all eligible samples: malig-like TACSTD2 %pos vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.10303030303030303,
+      "spearman_p": 0.7769984634438898,
+      "note": ""
+    },
+    {
+      "contrast": "all eligible samples: malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.04242424242424241,
+      "spearman_p": 0.9073638178128159,
+      "note": ""
+    },
+    {
+      "contrast": "all eligible samples: all-epithelial TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.11515151515151514,
+      "spearman_p": 0.7514196523258485,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment eligible (paper MPR/NMPR): malig-like TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 7,
+      "spearman_rho": 0.1785714285714286,
+      "spearman_p": 0.7016579425162727,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment eligible (paper MPR/NMPR): malig-like TACSTD2 %pos vs T/NK fraction",
+      "n": 7,
+      "spearman_rho": 0.1785714285714286,
+      "spearman_p": 0.7016579425162727,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment eligible (paper MPR/NMPR): malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction",
+      "n": 7,
+      "spearman_rho": 0.1785714285714286,
+      "spearman_p": 0.7016579425162727,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment eligible (paper MPR/NMPR): all-epithelial TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 7,
+      "spearman_rho": 0.1785714285714286,
+      "spearman_p": 0.7016579425162727,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment all (no cell-count filter): malig-like TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.16363636363636364,
+      "spearman_p": 0.6514773427962428,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment all (no cell-count filter): malig-like TACSTD2 %pos vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": 0.024316221747202587,
+      "spearman_p": 0.9468397049085097,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment all (no cell-count filter): malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.29696969696969694,
+      "spearman_p": 0.40470167127015705,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment all (no cell-count filter): all-epithelial TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 12,
+      "spearman_rho": -0.04895104895104895,
+      "spearman_p": 0.8799185788786748,
+      "note": ""
+    },
+    {
+      "contrast": "all samples with \u226510 epithelial cells: malig-like TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 13,
+      "spearman_rho": -0.23076923076923078,
+      "spearman_p": 0.4481273823153657,
+      "note": ""
+    },
+    {
+      "contrast": "all samples with \u226510 epithelial cells: malig-like TACSTD2 %pos vs T/NK fraction",
+      "n": 13,
+      "spearman_rho": -0.06877585598509119,
+      "spearman_p": 0.8233398751292708,
+      "note": ""
+    },
+    {
+      "contrast": "all samples with \u226510 epithelial cells: malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction",
+      "n": 13,
+      "spearman_rho": -0.23076923076923078,
+      "spearman_p": 0.4481273823153657,
+      "note": ""
+    },
+    {
+      "contrast": "all samples with \u226510 epithelial cells: all-epithelial TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 15,
+      "spearman_rho": -0.12857142857142856,
+      "spearman_p": 0.6479163294665076,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment with \u226510 epithelial cells: malig-like TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.16363636363636364,
+      "spearman_p": 0.6514773427962428,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment with \u226510 epithelial cells: malig-like TACSTD2 %pos vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": 0.024316221747202587,
+      "spearman_p": 0.9468397049085097,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment with \u226510 epithelial cells: malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction",
+      "n": 10,
+      "spearman_rho": -0.29696969696969694,
+      "spearman_p": 0.40470167127015705,
+      "note": ""
+    },
+    {
+      "contrast": "post-treatment with \u226510 epithelial cells: all-epithelial TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 12,
+      "spearman_rho": -0.04895104895104895,
+      "spearman_p": 0.8799185788786748,
+      "note": ""
+    },
+    {
+      "contrast": "all 15 samples (no cell-count filter): malig-like TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 13,
+      "spearman_rho": -0.23076923076923078,
+      "spearman_p": 0.4481273823153657,
+      "note": ""
+    },
+    {
+      "contrast": "all 15 samples (no cell-count filter): malig-like TACSTD2 %pos vs T/NK fraction",
+      "n": 13,
+      "spearman_rho": -0.06877585598509119,
+      "spearman_p": 0.8233398751292708,
+      "note": ""
+    },
+    {
+      "contrast": "all 15 samples (no cell-count filter): malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction",
+      "n": 13,
+      "spearman_rho": -0.23076923076923078,
+      "spearman_p": 0.4481273823153657,
+      "note": ""
+    },
+    {
+      "contrast": "all 15 samples (no cell-count filter): all-epithelial TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 15,
+      "spearman_rho": -0.12857142857142856,
+      "spearman_p": 0.6479163294665076,
+      "note": ""
+    },
+    {
+      "contrast": "all samples: malig-like TACSTD2 mean_log1p vs residual tumor fraction",
+      "n": 12,
+      "spearman_rho": -0.04232968820516252,
+      "spearman_p": 0.8960777530753088,
+      "note": ""
+    },
+    {
+      "contrast": "all samples: all-epithelial TACSTD2 mean_log1p vs residual tumor fraction",
+      "n": 14,
+      "spearman_rho": 0.046409548089225705,
+      "spearman_p": 0.8748177262026693,
+      "note": ""
+    }
+  ],
+  "group_tests": [
+    {
+      "contrast": "post: NMPR vs MPR malig-like TACSTD2 mean_log1p (sample-level)",
+      "n_a": 8,
+      "n_b": 2,
+      "median_a": 1.6239618140615306,
+      "median_b": 1.5614652921422874,
+      "mwu_u": 9.0,
+      "mwu_p": 0.888888888888889,
+      "note": ""
+    },
+    {
+      "contrast": "post: NMPR vs MPR malig-like TACSTD2 %pos (sample-level)",
+      "n_a": 8,
+      "n_b": 2,
+      "median_a": 76.7156862745098,
+      "median_b": 85.656836461126,
+      "mwu_u": 5.5,
+      "mwu_p": 0.6004018480969686,
+      "note": ""
+    },
+    {
+      "contrast": "post: NMPR vs MPR malig-like TACSTD2 mean log1p(CP10k) (sample-level)",
+      "n_a": 8,
+      "n_b": 2,
+      "median_a": 1.86519092489887,
+      "median_b": 1.4662638232835294,
+      "mwu_u": 8.0,
+      "mwu_p": 1.0,
+      "note": ""
+    },
+    {
+      "contrast": "post: NMPR vs MPR all-epithelial TACSTD2 mean_log1p (sample-level)",
+      "n_a": 8,
+      "n_b": 4,
+      "median_a": 1.6365460354834918,
+      "median_b": 1.5749635627620457,
+      "mwu_u": 19.0,
+      "mwu_p": 0.6828282828282828,
+      "note": ""
+    },
+    {
+      "contrast": "post: NMPR vs MPR T/NK fraction (sanity vs paper Fig 1D)",
+      "n_a": 8,
+      "n_b": 4,
+      "median_a": 0.3433845954354122,
+      "median_b": 0.5070339257634807,
+      "mwu_u": 12.0,
+      "mwu_p": 0.5696969696969697,
+      "note": ""
+    },
+    {
+      "contrast": "post: NMPR vs MPR malig-like CX3CL1 mean_log1p (paper: MPR higher)",
+      "n_a": 8,
+      "n_b": 2,
+      "median_a": 0.1625492997446577,
+      "median_b": 0.29908688982362774,
+      "mwu_u": 8.5,
+      "mwu_p": 1.0,
+      "note": ""
+    },
+    {
+      "contrast": "post: NMPR vs MPR malig-like HLA-DRA mean_log1p (paper: MPR higher)",
+      "n_a": 8,
+      "n_b": 2,
+      "median_a": 0.9598867139838364,
+      "median_b": 2.9899542097494387,
+      "mwu_u": 4.0,
+      "mwu_p": 0.4,
+      "note": ""
+    },
+    {
+      "contrast": "post: NMPR vs MPR malig-like AKR1C1 mean_log1p (paper: NMPR higher)",
+      "n_a": 8,
+      "n_b": 2,
+      "median_a": 0.7170722199440936,
+      "median_b": 0.8373361684418592,
+      "mwu_u": 7.5,
+      "mwu_p": 1.0,
+      "note": ""
+    }
+  ],
+  "paired_compartment": {
+    "contrast": "paired samples: malig-like TACSTD2 > T/NK TACSTD2 (Wilcoxon signed-rank)",
+    "n": 10,
+    "wilcoxon_stat": 55.0,
+    "wilcoxon_p": 0.0009765625,
+    "median_malig_mean_log1p": 1.3041283810688737,
+    "median_tnk_mean_log1p": 0.015445353789315323,
+    "median_malig_pct_pos": 74.87252273563581,
+    "median_tnk_pct_pos": 1.6125817782448566
+  },
+  "rejected_cell_level": {
+    "note": "Rejected as primary: cell-level Spearman is compositional (TACSTD2 is epithelial-restricted; T/NK score is not) and pseudoreplicates 92k cells. Shown only to test whether the user \u03c1 \u22120.40 to \u22120.50 could have come from this mistake.",
+    "all_cells_TACSTD2_vs_TNK_score": {
+      "rho": -0.16150930773747407,
+      "p": 0.0
+    },
+    "malig_like_TACSTD2_vs_TNK_score": {
+      "rho": 0.2114620900082198,
+      "p": 7.1335168369896625e-68
+    },
+    "epithelial_TACSTD2_vs_TNK_score": {
+      "rho": 0.24120512483073087,
+      "p": 1.2598650957609116e-145
+    }
+  },
+  "samples_without_malig_like": [
+    "BD_immune06",
+    "BD_immune11",
+    "BD_immune13",
+    "BD_immune14",
+    "BD_immune15"
+  ]
+}
