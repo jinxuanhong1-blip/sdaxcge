@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ProteomeXchangeDataset id="PXD019061" formatVersion="1.4.0" xsi:noNamespaceSchemaLocation="proteomeXchange-1.4.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CvList>
+    <Cv id="MS" fullName="PSI-MS" uri="https://raw.githubusercontent.com/HUPO-PSI/psi-ms-Cv/master/psi-ms.obo"/>
+    <Cv id="MOD" fullName="PSI-MOD" uri="https://raw.githubusercontent.com/HUPO-PSI/psi-mod-CV/master/PSI-MOD.obo"/>
+    <Cv id="UNIMOD" fullName="UNIMOD" uri="http://www.unimod.org/obo/unimod.obo"/>
+  </CvList>
+  <DatasetSummary announceDate="2020-06-22" hostingRepository="PanoramaPublic" title="Analysis of Immune Checkpoint Drug Targets and Tumor Proteotypes in Non-Small Cell Lung Cancer">
+    <Description>New therapeutics targeting immune checkpoint proteins have significantly advanced treatment of non-small cell lung cancer (NSCLC), but protein level quantitation of drug targets presents a critical problem.  We used multiplexed, targeted mass spectrometry (MS) to quantify the immunotherapy target proteins PD-1, PD-L1, PD-L2, IDO1, LAG3, TIM-3, VISTA, GITR, and CD40 in formalin-fixed, paraffin-embedded (FFPE) NSCLC specimens.  Immunohistochemistry (IHC) and MS measurements for PD-L1 were weakly correlated, but IHC did not distinguish protein abundance differences detected by MS.  PD-L2 abundance exceeded PD-L1 in over half the specimens and the drug target proteins all displayed different abundance patterns.  mRNA correlated with protein abundance only for PD-1, PD-L1, and IDO1 and tumor mutation burden did not predict abundance of any protein targets.  Global proteome analyses identified distinct proteotypes associated with high PD-L1-expressing and high IDO1-expressing NSCLC.  MS quantification of multiple drug targets and tissue proteotypes can improve clinical evaluation of immunotherapies for NSCLC.</Description>
+    <ReviewLevel>
+      <cvParam cvRef="MS" accession="MS:1002854" name="Peer-reviewed dataset"/>
+    </ReviewLevel>
+    <RepositorySupport>
+      <cvParam cvRef="MS" accession="MS:1002856" name="Supported dataset by repository"/>
+    </RepositorySupport>
+  </DatasetSummary>
+  <DatasetIdentifierList>
+    <DatasetIdentifier>
+      <cvParam cvRef="MS" accession="MS:1001919" name="ProteomeXchange accession number" value="PXD019061"/>
+    </DatasetIdentifier>
+    <DatasetIdentifier>
+      <cvParam cvRef="MS" accession="MS:1002872" name="Panorama Public dataset identifier" value="https://panoramaweb.org/hULkB7.url"/>
+    </DatasetIdentifier>
+  </DatasetIdentifierList>
+  <DatasetOriginList>
+    <DatasetOrigin>
+      <cvParam cvRef="MS" accession="MS:1002868" name="Original data"/>
+    </DatasetOrigin>
+  </DatasetOriginList>
+  <SpeciesList>
+    <Species>
+      <cvParam cvRef="MS" accession="MS:1001469" name="taxonomy: scientific name" value="Homo sapiens"/>
+      <cvParam cvRef="MS" accession="MS:1001467" name="taxonomy: NCBI TaxID" value="9606"/>
+    </Species>
+  </SpeciesList>
+  <InstrumentList>
+    <Instrument id="instrument_1">
+      <cvParam cvRef="MS" accession="MS:1002732" name="Orbitrap Fusion Lumos"/>
+    </Instrument>
+  </InstrumentList>
+  <ModificationList>
+    <cvParam cvRef="UNIMOD" accession="UNIMOD:4" name="Carbamidomethyl"/>
+    <cvParam cvRef="UNIMOD" accession="UNIMOD:259" name="Label:13C(6)15N(2)"/>
+    <cvParam cvRef="UNIMOD" accession="UNIMOD:267" name="Label:13C(6)15N(4)"/>
+  </ModificationList>
+  <ContactList>
+    <Contact id="lab_head">
+      <cvParam cvRef="MS" accession="MS:1002332" name="lab head"/>
+      <cvParam cvRef="MS" accession="MS:1000586" name="contact name" value="Daniel Liebler"/>
+      <cvParam cvRef="MS" accession="MS:1000589" name="contact email" value="daniel.liebler@protypia.com"/>
+      <cvParam cvRef="MS" accession="MS:1000590" name="contact affiliation" value="Protypia, Inc"/>
+    </Contact>
+    <Contact id="dataset_submitter">
+      <cvParam cvRef="MS" accession="MS:1002037" name="dataset submitter"/>
+      <cvParam cvRef="MS" accession="MS:1000586" name="contact name" value="Ryan Morrison"/>
+      <cvParam cvRef="MS" accession="MS:1000589" name="contact email" value="ryan.morrison@protypia.com"/>
+      <cvParam cvRef="MS" accession="MS:1000590" name="contact affiliation" value="Protypia, Inc"/>
+    </Contact>
+  </ContactList>
+  <PublicationList>
+    <Publication id="PMID32555523">
+      <cvParam cvRef="MS" accession="MS:1000879" name="PubMed identifier" value="32555523"/>
+      <cvParam cvRef="MS" accession="MS:1002866" name="Reference" value="Liebler DC, Holzer TR, Haragan A, Morrison RD, O’Neill Reising L, Ackermann BL, Fill JA, Schade AE, Gruver AM. Analysis of Immune Checkpoint Drug Targets and Tumor Proteotypes in Non-Small Cell Lung Cancer. Sci Rep [Internet]. 2020;10(1):9805. Available from: https://doi.org/10.1038/s41598-020-66902-0"/>
+    </Publication>
+  </PublicationList>
+  <KeywordList>
+    <cvParam cvRef="MS" accession="MS:1001925" name="submitter keyword" value="FFPE NSCLC PRM"/>
+  </KeywordList>
+  <FullDatasetLinkList>
+    <FullDatasetLink>
+      <cvParam cvRef="MS" accession="MS:1002873" name="Panorama Public dataset URI" value="https://panoramaweb.org/hULkB7.url"/>
+    </FullDatasetLink>
+  </FullDatasetLinkList>
+</ProteomeXchangeDataset>

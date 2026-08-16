@@ -1,0 +1,111 @@
+{
+  "PXD042091": {
+    "n_tf": 6364,
+    "n_p_lt_0.05": 323,
+    "signature": [
+      {
+        "id": "O15020_SPTN2",
+        "gene": "SPTBN2",
+        "p_val": "0.0012434134739765",
+        "foldchange": "1.11153931861111",
+        "median_R": "13.4882683",
+        "median_NR": "12.565897825"
+      },
+      {
+        "id": "Q92696_PGTA",
+        "gene": "RABGGTA",
+        "p_val": "0.00103877111315452",
+        "foldchange": "1.02765094944444",
+        "median_R": "12.930972735000001",
+        "median_NR": "12.11510106"
+      },
+      {
+        "id": "Q4L180_FIL1L",
+        "gene": "FILIP1L",
+        "p_val": "0.00108646444949354",
+        "foldchange": "-1.29264141",
+        "median_R": "13.83586219",
+        "median_NR": "15.31038708"
+      },
+      {
+        "id": "Q7Z3C6_ATG9A",
+        "gene": "ATG9A",
+        "p_val": "0.00306767683429797",
+        "foldchange": "-0.836679581666667",
+        "median_R": "13.81748837",
+        "median_NR": "14.639136425"
+      },
+      {
+        "id": "Q9NQ48_LZTL1",
+        "gene": "LZTFL1",
+        "p_val": "0.00500544959899907",
+        "foldchange": "-1.29410988684444",
+        "median_R": "12.194665409999999",
+        "median_NR": "13.510201365"
+      },
+      {
+        "id": "Q9UPZ3_HPS5",
+        "gene": "HPS5",
+        "p_val": "0.00867981627631891",
+        "foldchange": "-0.851058282633334",
+        "median_R": "11.779938195",
+        "median_NR": "12.49099507"
+      },
+      {
+        "id": "Q9UHG0_DCDC2",
+        "gene": "DCDC2",
+        "p_val": "0.00254153978408669",
+        "foldchange": "-1.26296021851111",
+        "median_R": "11.313496775",
+        "median_NR": "12.615062025"
+      }
+    ],
+    "tacstd2": false,
+    "cldn4": false
+  },
+  "PXD019061": {
+    "tacstd2_detected": 24,
+    "tacstd2_n": 26,
+    "tacstd2_median": 10.0,
+    "cldn4_in_tableS6": false,
+    "spearman_tacstd2_pdl1": 0.28315949842658533,
+    "n_pairs": 23,
+    "by_histology": {
+      "Squamous cell carcinoma": {
+        "n": 10,
+        "median": 15.5,
+        "mean": 15.9,
+        "detected": 9
+      },
+      "Adenocarcinoma": {
+        "n": 11,
+        "median": 8.0,
+        "mean": 8.090909090909092,
+        "detected": 10
+      },
+      "Pleomorphic sarcomatoid carcinoma": {
+        "n": 1,
+        "median": 2.0,
+        "mean": 2.0,
+        "detected": 1
+      },
+      "NA": {
+        "n": 3,
+        "median": 10.0,
+        "mean": 11.0,
+        "detected": 3
+      },
+      "Carcinoma": {
+        "n": 1,
+        "median": 10.0,
+        "mean": 10.0,
+        "detected": 1
+      }
+    }
+  },
+  "PXD039141": {
+    "n_protein_tokens": 119,
+    "tacstd2": false,
+    "cldn4": false
+  }
+}

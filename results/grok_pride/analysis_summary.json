@@ -1,0 +1,107 @@
+{
+  "datasets": {
+    "PXD042091": {
+      "n_proteins_all": 7115,
+      "n_proteins_tf": 6364,
+      "tacstd2_present": false,
+      "cldn4_present": false,
+      "hits_all": [],
+      "hits_tf": [],
+      "related_n": 12,
+      "related": [
+        {
+          "protein": "P16422_EPCAM",
+          "p_val": 0.352379876501279,
+          "foldchange": -0.401889587888888,
+          "median_R": 14.791301555,
+          "median_NR": 15.42358317
+        },
+        {
+          "protein": "P43121_MUC18",
+          "p_val": 0.0956424515617731,
+          "foldchange": 0.65532329878889,
+          "median_R": 12.863787575,
+          "median_NR": 12.23234729
+        },
+        {
+          "protein": "Q92764_KRT35",
+          "p_val": 0.615164376185112,
+          "foldchange": -0.291695740644444,
+          "median_R": 12.09479308,
+          "median_NR": 12.58123606
+        },
+        {
+          "protein": "P15941_MUC1",
+          "p_val": 0.252136581588374,
+          "foldchange": -0.524649711755556,
+          "median_R": 11.948889350000002,
+          "median_NR": 12.072279
+        },
+        {
+          "protein": "Q9H3R2_MUC13",
+          "p_val": 0.306511635941428,
+          "foldchange": -0.323124134744445,
+          "median_R": 12.87053373,
+          "median_NR": 13.23715058
+        },
+        {
+          "protein": "Q9UKN1_MUC12",
+          "p_val": 0.868768726929555,
+          "foldchange": 0.0591147695555545,
+          "median_R": 13.801207565,
+          "median_NR": 13.39404577
+        },
+        {
+          "protein": "O00501_CLD5",
+          "p_val": 0.299698063038723,
+          "foldchange": 0.513492999222223,
+          "median_R": 13.638131175000002,
+          "median_NR": 13.173013405
+        },
+        {
+          "protein": "O76013_KRT36",
+          "p_val": 0.517366652614355,
+          "foldchange": 0.289116576377779,
+          "median_R": 12.25917187,
+          "median_NR": 11.56339028
+        },
+        {
+          "protein": "Q16625_OCLN",
+          "p_val": 0.748624267924517,
+          "foldchange": 0.142669825422223,
+          "median_R": 12.075842734999998,
+          "median_NR": 12.060334725
+        },
+        {
+          "protein": "Q9NY35_CLDN1",
+          "p_val": 0.526960434691425,
+          "foldchange": -0.304266889622223,
+          "median_R": 11.645463745,
+          "median_NR": 12.564700465
+        },
+        {
+          "protein": "Q8WXI7_MUC16",
+          "p_val": 0.628066507935331,
+          "foldchange": -0.25366821061111,
+          "median_R": 12.35302992,
+          "median_NR": 12.539736675
+        },
+        {
+          "protein": "P56856_CLD18",
+          "p_val": 0.347031556598915,
+          "foldchange": -0.441197830244445,
+          "median_R": 12.18937285,
+          "median_NR": 12.2792672
+        }
+      ]
+    },
+    "PXD059688": {
+      "n_prt": 93,
+      "tacstd2_present": false,
+      "cldn4_present": false,
+      "hits": []
+    }
+  },
+  "target_hits": [],
+  "notes": []
+}
