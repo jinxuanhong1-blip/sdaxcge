@@ -1,0 +1,4 @@
+gene_set,n_in_list,n_measured_ge2_arrays,n_missing_or_lt2,missing_or_lt2,n_mean_up,n_mean_down,median_set_mean_log2,mean_set_mean_log2,median_background_mean_log2,mannwhitney_U,mannwhitney_p,set_shift
+PRIORITY,6,6,0,,3,3,-0.1748,-0.3099,-0.0265,42793.0,0.6719,DOWN
+APM,16,12,4,"NLRC5,ERAP1,ERAP2,PDIA3",3,9,-0.4536,-0.2609,-0.0265,72639.5,0.1574,DOWN
+IFN_IMMUNE,73,58,15,"MX2,RSAD2,IFITM1,IFITM3,IFI44L,DDX60,XAF1,CMPK2,EIF2AK2,IRF9,NLRC5,CXCL9,CCL5,IL32,IFNL1",25,33,-0.2320,-0.1304,-0.0265,421591.0,0.2946,DOWN
