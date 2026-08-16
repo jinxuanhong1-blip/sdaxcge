@@ -217,11 +217,21 @@ def make_plots(
         fig.savefig(outdir / f"scatter_{anchor}_vs_{focus}.png", dpi=150)
         plt.close(fig)
 
-    # 2) Top-N bar chart, focus highlighted.
-    topn = df.head(min(20, window)).iloc[::-1]
+    # 2) Top-N bar chart. If the focus gene is outside the window, append it
+    # so the figure still shows its honest rank (STAD: CLDN4 is #33).
+    n_bars = min(20, window)
+    topn = df.head(n_bars).copy()
+    if focus in df["gene"].values and focus not in set(topn["gene"]):
+        topn = pd.concat([topn, df[df["gene"] == focus]], ignore_index=True)
+    topn = topn.iloc[::-1]
     colors = ["#d62728" if g == focus else "#4c78a8" for g in topn["gene"]]
-    fig, ax = plt.subplots(figsize=(6, 7))
-    ax.barh(topn["gene"], topn["spearman_r"], color=colors)
+    labels = [
+        f"{g}  (#{int(r)})" if g == focus else g
+        for g, r in zip(topn["gene"], topn["spearman_rank"])
+    ]
+    fig, ax = plt.subplots(figsize=(6, 7.4))
+    ax.barh(range(len(topn)), topn["spearman_r"], color=colors)
+    ax.set_yticks(range(len(topn)), labels)
     ax.set_xlabel(f"Spearman rho with {anchor}")
     ax.set_title(f"Top surface-gene co-expression with {anchor}\n{COHORT} (focus: {focus})")
     fig.tight_layout()
