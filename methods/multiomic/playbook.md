@@ -229,7 +229,7 @@ These are “apples and oranges.” Present them as a stratified evidence matrix
 Suggested command:
 
 ```bash
-python methods/multiomic/combine_results.py \
+python3 methods/multiomic/combine_results.py \
   --input results/bulk.csv results/scrna.tsv results/protein.csv results/spatial.csv \
   --outdir combined_multiomic
 ```
