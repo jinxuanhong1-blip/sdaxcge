@@ -50,6 +50,12 @@ NON_IMMUNE_NON_MALIGNANT = {
     "Fibroblasts", "Myofibroblasts", "SMC", "Endothelial", "Epithelial",
     "AT1", "AT2", "Alveolar", "Oligodendrocyte", "OPC", "Others",
     "Melanocytes", "Hepatocytes", "Ciliated", "Club", "Pericytes",
+    "Basal",
+}
+# Residual non-malignant lung epithelium (used for the epithelial-restriction
+# contrast: malignant vs leftover epithelial vs immune).
+NONMALIGNANT_EPITHELIAL = {
+    "Epithelial", "Alveolar", "AT1", "AT2", "Basal", "Ciliated", "Club",
 }
 MIN_CELLS_PER_LINEAGE = 30      # drop tiny lineages from per-lineage stats
 MIN_CELLS_PER_PATIENT = 20      # per compartment, for pseudobulk pairing
@@ -145,7 +151,7 @@ def main() -> None:
     keep = meta[lineage_col].notna().to_numpy()
     mat = mat[keep]
     meta = meta.loc[keep]
-    lineage = meta[lineage_col].astype(str).to_numpy()
+    lineage = meta[lineage_col].astype(str).str.strip().to_numpy()
 
     # -- define the malignant compartment --------------------------------
     # Preferred: the explicit TISCH2 "Malignant" major lineage.
@@ -155,6 +161,36 @@ def main() -> None:
     # tissue the epithelial compartment is dominated by cancer cells, but we
     # label it transparently as a proxy.
     source_col = next((c for c in meta.columns if c.lower() in ("source", "tissue")), None)
+
+    # Tumor-tissue vs normal-tissue epithelial (same lineage, different Source).
+    # Computed on the un-restricted object so GSE131907 keeps its Normal lung
+    # epithelial cells as a true non-malignant epithelial comparator.
+    tumor_vs_normal_epithelial = {}
+    if source_col is not None and "Epithelial" in set(lineage):
+        src0 = meta[source_col].astype(str).str.lower().to_numpy()
+        in_tumor0 = np.char.find(src0.astype(str), "tumor") >= 0
+        in_normal0 = np.char.find(src0.astype(str), "normal") >= 0
+        epi0 = lineage == "Epithelial"
+        if (epi0 & in_tumor0).sum() >= MIN_CELLS_PER_LINEAGE and (epi0 & in_normal0).sum() >= MIN_CELLS_PER_LINEAGE:
+            for g in GENES:
+                v = gene_vector(mat, genes, g)
+                if v is None:
+                    continue
+                a, b = v[epi0 & in_tumor0], v[epi0 & in_normal0]
+                u, p = stats.mannwhitneyu(a, b, alternative="two-sided")
+                eps = 1e-9
+                tumor_vs_normal_epithelial[g] = {
+                    "n_tumor_epithelial": int(len(a)),
+                    "n_normal_epithelial": int(len(b)),
+                    "mean_tumor_epithelial": float(a.mean()),
+                    "mean_normal_epithelial": float(b.mean()),
+                    "pct_pos_tumor_epithelial": float((a > 0).mean() * 100),
+                    "pct_pos_normal_epithelial": float((b > 0).mean() * 100),
+                    "log2FC_of_means": float(np.log2((a.mean() + eps) / (b.mean() + eps))),
+                    "auroc": auroc_from_u(u, len(a), len(b)),
+                    "p_value": float(p),
+                }
+
     if "Malignant" in set(lineage):
         malignant_name = "Malignant"
         malignant_definition = 'TISCH2 major-lineage == "Malignant"'
@@ -283,6 +319,94 @@ def main() -> None:
     if pseudo_rows:
         pd.DataFrame(pseudo_rows).to_csv(os.path.join(out_dir, "per_patient_pseudobulk.csv"), index=False)
 
+    # ---------------- epithelial restriction ----------------
+    # Three-way contrast: malignant / residual non-malignant epithelium / immune.
+    # Also: among TACSTD2+ (or CLDN4+) cells, what fraction sit in each
+    # compartment? That is the "restriction" of the positive population.
+    epi_mask = np.isin(lineage, list(NONMALIGNANT_EPITHELIAL))
+    # if we already remapped Epithelial -> malignant_name, epi_mask is empty
+    # unless Alveolar/Basal/etc. remain.
+    n_epi = int(epi_mask.sum())
+    epi_restriction = {"n_nonmalignant_epithelial": n_epi,
+                       "nonmalignant_epithelial_lineages": sorted(set(lineage[epi_mask]))}
+    if n_epi >= MIN_CELLS_PER_LINEAGE:
+        for g, v in expr.items():
+            a, e, b = v[mal_mask], v[epi_mask], v[imm_mask]
+            u_me, p_me = stats.mannwhitneyu(a, e, alternative="two-sided")
+            u_ei, p_ei = stats.mannwhitneyu(e, b, alternative="two-sided")
+            eps = 1e-9
+            epi_restriction[g] = {
+                "n_malignant": int(len(a)),
+                "n_nonmalignant_epithelial": int(len(e)),
+                "n_immune": int(len(b)),
+                "mean_malignant": float(a.mean()),
+                "mean_nonmalignant_epithelial": float(e.mean()),
+                "mean_immune": float(b.mean()),
+                "pct_pos_malignant": float((a > 0).mean() * 100),
+                "pct_pos_nonmalignant_epithelial": float((e > 0).mean() * 100),
+                "pct_pos_immune": float((b > 0).mean() * 100),
+                "log2FC_malignant_vs_nonmalig_epi": float(np.log2((a.mean() + eps) / (e.mean() + eps))),
+                "log2FC_nonmalig_epi_vs_immune": float(np.log2((e.mean() + eps) / (b.mean() + eps))),
+                "auroc_malignant_vs_nonmalig_epi": auroc_from_u(u_me, len(a), len(e)),
+                "p_malignant_vs_nonmalig_epi": float(p_me),
+                "auroc_nonmalig_epi_vs_immune": auroc_from_u(u_ei, len(e), len(b)),
+                "p_nonmalig_epi_vs_immune": float(p_ei),
+            }
+
+    # composition of the gene-positive population (epithelial restriction)
+    pos_composition = {}
+    for g, v in expr.items():
+        pos = v > 0
+        n_pos = int(pos.sum())
+        if n_pos == 0:
+            continue
+        pos_composition[g] = {
+            "n_positive": n_pos,
+            "pct_of_positive_in_malignant": float((pos & mal_mask).sum() / n_pos * 100),
+            "pct_of_positive_in_nonmalignant_epithelial": float((pos & epi_mask).sum() / n_pos * 100),
+            "pct_of_positive_in_immune": float((pos & imm_mask).sum() / n_pos * 100),
+            "pct_of_positive_in_other": float((pos & ~(mal_mask | epi_mask | imm_mask)).sum() / n_pos * 100),
+        }
+
+    # ---------------- per-patient immune fraction ----------------
+    # For each patient with enough malignant + immune cells, record the
+    # immune infiltrate fraction and the malignant-compartment gene means,
+    # then Spearman-correlate the two. This asks whether TACSTD2/CLDN4
+    # tumor expression tracks immune content (it should not, if the signal
+    # is epithelial-restricted rather than an infiltrate artifact).
+    immune_fraction_rows, immune_fraction_corr = [], {}
+    if patient_col is not None:
+        patients = meta[patient_col].astype(str).to_numpy()
+        for pt in sorted(set(patients)):
+            pm = (patients == pt) & mal_mask
+            pi = (patients == pt) & imm_mask
+            p_all = patients == pt
+            if pm.sum() < MIN_CELLS_PER_PATIENT or pi.sum() < MIN_CELLS_PER_PATIENT:
+                continue
+            row = {
+                "patient": pt,
+                "n_cells": int(p_all.sum()),
+                "n_malignant": int(pm.sum()),
+                "n_immune": int(pi.sum()),
+                "immune_fraction": float(pi.sum() / p_all.sum()),
+                "malignant_fraction": float(pm.sum() / p_all.sum()),
+            }
+            for g, v in expr.items():
+                row[f"{g}_mean_malignant"] = float(v[pm].mean())
+                row[f"{g}_pct_pos_malignant"] = float((v[pm] > 0).mean() * 100)
+            immune_fraction_rows.append(row)
+        if immune_fraction_rows:
+            if_df = pd.DataFrame(immune_fraction_rows)
+            if_df.to_csv(os.path.join(out_dir, "per_patient_immune_fraction.csv"), index=False)
+            if len(if_df) >= 5:
+                for g in expr:
+                    rho, pr = stats.spearmanr(if_df["immune_fraction"], if_df[f"{g}_mean_malignant"])
+                    immune_fraction_corr[g] = {
+                        "n_patients": int(len(if_df)),
+                        "spearman_rho_immune_frac_vs_malignant_mean": float(rho),
+                        "p_value": float(pr),
+                    }
+
     # ---------------- sensitivity: tumor-tissue cells only ----------------
     # GSE131907 also contains normal lung / lymph node / effusion / metastasis
     # samples; check that the malignant-vs-immune contrast holds when we
@@ -325,6 +449,10 @@ def main() -> None:
         },
         "per_patient_paired_wilcoxon": paired_stats,
         "tumor_tissue_only_sensitivity": tumor_tissue_sensitivity,
+        "epithelial_restriction": epi_restriction,
+        "positive_population_composition": pos_composition,
+        "immune_fraction_spearman": immune_fraction_corr,
+        "tumor_vs_normal_epithelial": tumor_vs_normal_epithelial,
     }
     with open(os.path.join(out_dir, "stats_summary.json"), "w") as fh:
         json.dump(summary, fh, indent=2)
@@ -411,6 +539,55 @@ def main() -> None:
     fig.tight_layout()
     fig.savefig(os.path.join(out_dir, "dotplot_summary.png"), dpi=160)
     plt.close(fig)
+
+    # three-way epithelial-restriction violins
+    if n_epi >= MIN_CELLS_PER_LINEAGE:
+        fig, axes = plt.subplots(1, len(TARGET_GENES), figsize=(8, 4), sharey=False)
+        labels = ["malignant", "non-malig.\nepithelial", "immune"]
+        colors = ["#c0392b", "#27ae60", "#2980b9"]
+        for ax, g in zip(np.atleast_1d(axes), TARGET_GENES):
+            if g not in expr:
+                ax.set_visible(False)
+                continue
+            v = expr[g]
+            data = [v[mal_mask], v[epi_mask], v[imm_mask]]
+            parts = ax.violinplot(data, showmeans=False, showextrema=False, widths=0.8)
+            for pc, c in zip(parts["bodies"], colors):
+                pc.set_facecolor(c)
+                pc.set_alpha(0.7)
+            ax.scatter([1, 2, 3], [d.mean() for d in data], s=16, c="k", zorder=3)
+            ax.set_xticks([1, 2, 3])
+            ax.set_xticklabels(labels)
+            ax.set_ylabel(f"{g} log(TPM/10+1)")
+            st = epi_restriction.get(g, {})
+            ax.set_title(
+                f"{g}\nmalig vs epi p={st.get('p_malignant_vs_nonmalig_epi', float('nan')):.1e}\n"
+                f"epi vs imm p={st.get('p_nonmalig_epi_vs_immune', float('nan')):.1e}",
+                fontsize=9,
+            )
+        fig.suptitle(f"{ds}: epithelial restriction (malignant / leftover epithelium / immune)")
+        fig.tight_layout()
+        fig.savefig(os.path.join(out_dir, "epithelial_restriction.png"), dpi=160)
+        plt.close(fig)
+
+    if immune_fraction_rows and len(immune_fraction_rows) >= 5:
+        if_df = pd.DataFrame(immune_fraction_rows)
+        fig, axes = plt.subplots(1, len(TARGET_GENES), figsize=(8, 4), sharey=False)
+        for ax, g in zip(np.atleast_1d(axes), TARGET_GENES):
+            ax.scatter(if_df["immune_fraction"], if_df[f"{g}_mean_malignant"],
+                       s=28, c="#c0392b", alpha=0.8)
+            st = immune_fraction_corr.get(g, {})
+            ax.set_xlabel("patient immune fraction")
+            ax.set_ylabel(f"malignant {g} mean")
+            ax.set_title(
+                f"{g}  Spearman ρ={st.get('spearman_rho_immune_frac_vs_malignant_mean', float('nan')):.2f}"
+                f"  p={st.get('p_value', float('nan')):.2e}",
+                fontsize=9,
+            )
+        fig.suptitle(f"{ds}: malignant gene mean vs immune infiltrate fraction")
+        fig.tight_layout()
+        fig.savefig(os.path.join(out_dir, "immune_fraction_scatter.png"), dpi=160)
+        plt.close(fig)
 
     print(f"done -> {out_dir}")
 
