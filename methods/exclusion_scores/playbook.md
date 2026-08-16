@@ -154,6 +154,31 @@ events per parameter, and cohort/trial stratification before inference.
 This answers a distinct mechanistic question: does higher epithelial TACSTD2
 track a more excluded/stromal microenvironment?
 
+There are two distinct “exclusion” extensions:
+
+- **Transcriptomic:** canonical TIDE `Exclusion`, as described below.
+- **Spatial:** a later Bessede-coauthored SITC poster defined a CD8 compartment
+  IES and associated it with DDR1, not TACSTD2. No primary source reports a
+  direct TACSTD2–IES test, and the exact IES formula/signature was not disclosed.
+
+For exploratory spatial data, `score_spatial_ies.py` implements the declared
+reconstruction
+`[log2(stromal+epsilon)−log2(epithelial+epsilon)]/sqrt(2)`, where positive
+values indicate stromal enrichment:
+
+```bash
+python3 methods/exclusion_scores/scripts/score_spatial_ies.py \
+  compartment_cd8.tsv spatial_ies.tsv
+```
+
+Input columns are `sample`, `epithelial_cd8_density`, and
+`stromal_cd8_density`. The default pseudocount is half the smallest positive
+density and is written to output. Preserve density units and segmentation
+rules. The output is labeled `reconstruction_not_author_exact`; never present
+it as the poster's exact IES. Test continuous TACSTD2 against this IES by
+Spearman correlation, then model IES with histology, PD-L1, tumor purity, batch,
+and total CD8 density to distinguish redistribution from an immune desert.
+
 1. Primary score: canonical TIDE `Exclusion`.
 2. Sensitivity scores: TIDE `CAF`, `CAF_collagen3_mean`, `HALLMARK_EMT_mean`.
 3. Positive immune-accessibility controls: `CTL5_mean`,
@@ -296,6 +321,22 @@ histology, CD274, TLS`。只有治疗 × TACSTD2 交互得到支持时，才能�
 ### 5. TACSTD2 与排斥的扩展检验
 
 该问题与论文复现不同：它检验 TACSTD2 是否伴随更强的免疫排斥/基质状态。
+
+“排斥”还需区分转录组 TIDE Exclusion 与空间 CD8 IES。后者来自 Bessede
+共同署名的 SITC 2024 poster，研究对象是 DDR1，并未直接检验 TACSTD2；
+作者也未公开完整公式或 RNA 签名。探索性空间数据可运行：
+
+```bash
+python3 methods/exclusion_scores/scripts/score_spatial_ies.py \
+  compartment_cd8.tsv spatial_ies.tsv
+```
+
+脚本明确采用重建公式
+`[log2(基质密度+epsilon)−log2(上皮密度+epsilon)]/sqrt(2)`，正值表示 CD8
+偏留于基质。输入列为 `sample、epithelial_cd8_density、
+stromal_cd8_density`；输出会标记 `reconstruction_not_author_exact`，不得
+写成作者原始 IES。调整模型应加入组织学、PD-L1、纯度、批次和总 CD8
+密度，以区分真正的空间重分布与免疫荒漠。
 
 1. 主要指标预先指定为规范 TIDE `Exclusion`。
 2. 敏感性指标为 TIDE `CAF`、`CAF_collagen3_mean` 和

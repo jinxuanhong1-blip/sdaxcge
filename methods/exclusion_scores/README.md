@@ -7,6 +7,7 @@ Reproducible research methods for NSCLC immune-checkpoint inhibitor analyses:
 - sourced IFNG, CTL, CAF, EMT, Bindea and public TIS gene summaries;
 - exact Thompson NSCLC EMT/inflammation and GSVA/ssGSEA stromal models;
 - TACSTD2-versus-exclusion permutation tests;
+- explicitly reconstructed spatial CD8 exclusion scoring;
 - Bessede-style survival and treatment-interaction models.
 
 Start with the bilingual [`playbook.md`](playbook.md). Provenance and method

@@ -26,6 +26,7 @@ def load_script(name: str):
 score = load_script("score_signatures")
 tacstd2_test = load_script("test_tacstd2_exclusion")
 thompson = load_script("score_thompson_emt")
+spatial = load_script("score_spatial_ies")
 
 
 class ScoreTests(unittest.TestCase):
@@ -135,6 +136,18 @@ class ThompsonTests(unittest.TestCase):
             rows[2]["Thompson_inflammation"] - rows[2]["Thompson_EMT"],
         )
         self.assertEqual(coverage["Thompson_EMT_coverage"], "12/12")
+
+
+class SpatialIesTests(unittest.TestCase):
+    def test_signed_distance_direction(self):
+        excluded, total = spatial.calculate(10.0, 40.0, 1.0)
+        infiltrated, _ = spatial.calculate(40.0, 10.0, 1.0)
+        balanced, _ = spatial.calculate(20.0, 20.0, 1.0)
+        self.assertGreater(excluded, 0)
+        self.assertLess(infiltrated, 0)
+        self.assertEqual(balanced, 0)
+        self.assertEqual(total, 50.0)
+        self.assertAlmostEqual(excluded, -infiltrated)
 
 
 if __name__ == "__main__":
