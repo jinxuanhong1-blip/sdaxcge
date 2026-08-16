@@ -1,0 +1,9 @@
+dataset,gene,comparison,n_treated,n_control,log2FC,welch_p,mwu_p,note,welch_fdr
+GSE309199,Tacstd2,aPD1_vs_Ctrl,3,3,0.4913,0.4742225607157797,0.1840386271964254,RPM SCLC lung tumor; treatment (not per-mouse ICB response),0.4742225607157797
+GSE309199,Tacstd2,entinostat_vs_Ctrl,3,3,1.0348,0.1353513654223439,0.1840386271964254,RPM SCLC lung tumor; treatment (not per-mouse ICB response),0.2522785310067991
+GSE309199,Tacstd2,aPD1_entinostat_vs_Ctrl,3,3,1.0313,0.16818568733786607,0.37582508748869836,RPM SCLC lung tumor; treatment (not per-mouse ICB response),0.2522785310067991
+GSE309199,Cldn4,aPD1_vs_Ctrl,3,3,0.2541,0.6063662451785281,0.7,RPM SCLC lung tumor; treatment (not per-mouse ICB response),0.6063662451785281
+GSE309199,Cldn4,entinostat_vs_Ctrl,3,3,1.7981,0.04901412390327136,0.1,RPM SCLC lung tumor; treatment (not per-mouse ICB response),0.07352118585490704
+GSE309199,Cldn4,aPD1_entinostat_vs_Ctrl,3,3,1.4673,0.03362858546372131,0.1,RPM SCLC lung tumor; treatment (not per-mouse ICB response),0.07352118585490704
+GSE330941,Tacstd2,Ago2KO_ICI_sensitized_vs_WT_ICI_refractory,4,4,1.4796,0.0816779523268935,0.11428571428571428,"LLC tumor d12, no ICI on these RNA samples; model-level ICI sensitivity (WT refractory vs Ago2KO sensitized), NOT per-mouse R vs NR",0.0816779523268935
+GSE330941,Cldn4,Ago2KO_ICI_sensitized_vs_WT_ICI_refractory,4,4,1.3518,0.013217048209865311,0.02857142857142857,"LLC tumor d12, no ICI on these RNA samples; model-level ICI sensitivity (WT refractory vs Ago2KO sensitized), NOT per-mouse R vs NR",0.013217048209865311

@@ -17,12 +17,19 @@ Rule: processed matrices only; skip FASTQ / raw MS; skip files > 2 GB; no invent
 | GSE297630 | GEO | LLC subcutaneous; lung tumor cells (recovered post-treatment) | microarray (Clariom S Mouse) | anti-PD-1 (tolerant/surviving cells vs control) | Control (C, n=3); anti-PD-1 tolerant (P, n=3) | GSE297630_processed_data.xlsx (5.3 MB, per-sample log2 RMA + author stats) | ANALYZED (core, replicated) |
 | GSE297632 | GEO | LLC subcutaneous; lung tumor (whole) | scRNA-seq (10x) | anti-PD-1 (tolerant vs control) | Control (~8.4k cells); anti-PD-1 (~9.4k cells) | GSE297632_RAW.tar -> per-sample barcodes/features/matrix (232 MB) | ANALYZED (scRNA pseudobulk + single-cell; companion of GSE297630) |
 | PXD059688 | PRIDE | NSCLC syngeneic (C57BL/6J); lung tumor | LC-MS/MS proteomics | anti-PD-1 +/- high-dose ascorbic acid (Con/P/AA/AP) | Con, P(aPD1), AA(ascorbic acid), AP(AA+aPD1) x ~3 (raw MS only) | Only raw .raw/.mgf/.msf (>2GB each) + one single-condition 93-protein mzTab (0.3 MB, no Tacstd2/Cldn4) | CATALOGED, NOT ANALYZED (no <2GB cross-condition protein-quant table; raw MS skipped per rules) |
+| GSE309199 | GEO | RPM SCLC (Rb1/Trp53/MycT58A) lung tumor in situ | bulk RNA-seq | anti-PD-1 +/- HDAC inhibitor entinostat | Ctrl (n=3); aPD-1 (n=3); entinostat (n=3); aPD-1+ent (n=3) | GSE309199_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz (0.5 MB) | ANALYZED (treatment, n=3; NOT per-mouse ICB R/NR) |
+| GSE330941 | GEO | LLC subcutaneous (ICI-refractory WT vs Ago2KO ICI-sensitized) | bulk RNA-seq | model-level ICI sensitivity; RNA at d12 **without ICI on these samples** | WT (n=4); Ago2KO (n=4) | GSE330941_filtered_tablecounts_tpm.csv.gz (0.7 MB) | ANALYZED (model-level ICI-sensitivity proxy, NOT R vs NR) |
+| GSE261890 | GEO | mouse NSCLC, immunotherapy-sensitive vs resistant | spatial RNA | ICI-sensitive vs resistant + veh/aPD-1 | 2 spatial slides | RAW.tar 1.8 GB; rds 730 MB | CATALOGED, NOT ANALYZED (spatial, n=2; not a bulk R/NR matrix) |
+| GSE76628 | GEO | **EXCLUDED** — Ad-VEGF-A164 flank angiogenesis / gastric-cancer stromal signatures | microarray | anti-VEGFR (DC101/G6), not PD-1/PD-L1 | flank angiogenic sites (n=78) | CEL only | **EXCLUDED: not lung, not ICI, not ICB response** |
 
 ## Notes
 - **ANALYZED (core, replicated)**: E-MTAB-13704, GSE239485, GSE297630 — replicated treated-vs-control designs used for formal statistics.
 - **ANALYZED (scRNA)**: GSE129297, GSE133604, GSE297632, GSE222158 — pseudobulk + single-cell correlations.
 - **ANALYZED (descriptive)**: GSE330658 (n=2/arm), GSE197260 (n=1/arm) — reported as fold changes/trends, underpowered for p-values.
+- **ANALYZED (added for ICB-response search)**: GSE309199 (treatment), GSE330941 (model-level ICI sensitivity).
 - **SUPPORTING**: GSE241978 — AhR-KO (genetic checkpoint-pathway perturbation), DE table only.
-- **NOT ANALYZED**: PXD059688 — all quantitative MS files are raw and >2 GB; the only <2 GB processed file is a single-condition 93-protein identification report that does not contain Tacstd2/Cldn4.
+- **NOT ANALYZED**: PXD059688 (raw MS >2 GB); GSE261890 (spatial only).
+- **EXCLUDED**: GSE76628 — gastric/flank VEGF stroma, not mouse lung ICI RNA.
+- **Honest ICB-response gap**: no public mouse *lung* ICI RNA with per-mouse responder vs non-responder labels was found. Search log: `notes/mouse/icb_response_search.md`.
 
 Provenance: metadata in `notes/mouse/raw_meta/`; download URLs + sizes + checksums in `notes/mouse/data/MANIFEST.tsv`; gene ID map in `notes/mouse/gene_map.json`.

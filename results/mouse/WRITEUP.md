@@ -12,10 +12,13 @@
 
 - **目标基因 / Target genes:** `Tacstd2` (TROP2, ENSMUSG00000051397)、`Cldn4` (ENSMUSG00000047501)。
 - **范围 / Scope:** 仅小鼠 (Mus musculus) 肺肿瘤、免疫检查点抑制 (ICI) 相关数据集；仅下载处理后的矩阵；跳过 FASTQ / 原始质谱及 >2 GB 文件。
-- **编目 / Catalog:** 对 11 个登录号完成分类（见 `notes/mouse/catalog.md`）：9 个进行了定量分析（5 个 bulk + 4 个 scRNA），1 个作为支持性证据（GSE241978，AhR 敲除），1 个无法分析（PXD059688，仅有 >2 GB 原始质谱）。
-- **核心结论 / Key finding:**
-  - **Tacstd2/TROP2 在以抗 PD-1/PD-L1 为基础的治疗后一致性上调**，并在 bulk 肿瘤中与"T 细胞炎症/细胞毒"免疫评分**正相关**。
-    Tacstd2/TROP2 is **consistently up-regulated after anti-PD-1/PD-L1–based therapy** and **positively correlates** with a cytotoxic/T-cell-inflamed immune score in bulk tumors.
+- **编目 / Catalog:** 原 11 个登录号 + 本轮补充的 GSE309199 / GSE330941（见 `notes/mouse/catalog.md`）。**GSE76628 已核实并排除**（胃/侧腹 Ad-VEGF 基质，非肺、非 ICI）。
+- **对 ICB 应答（responder vs non-responder）的诚实结论 / Honest ICB-response finding:**
+  **未找到任何带有逐鼠 ICB 应答/不应答标签的公开小鼠肺癌 RNA 处理矩阵。** 公开的小鼠 R vs NR RNA 存在于 CT26 结肠、SCC、MC38、黑色素瘤，**不是肺**。检索记录见 `notes/mouse/icb_response_search.md`。
+  **No public mouse *lung* ICI RNA matrix with per-mouse ICB responder vs non-responder labels was found.** Public mouse R vs NR RNA exists for CT26 colon, SCC, MC38, and melanoma — not lung.
+- **核心结论（治疗 ≠ 应答） / Key finding (treatment ≠ response):**
+  - **Tacstd2/TROP2 在以抗 PD-1/PD-L1 为基础的治疗后一致性上调**，并在 bulk 肿瘤中与"T 细胞炎症/细胞毒"免疫评分**正相关**。这是**治疗/免疫表型**关联，**不能**外推为 ICB 临床应答。
+    Tacstd2/TROP2 is **up-regulated after anti-PD-1/PD-L1–based therapy** and **positively correlates** with a cytotoxic/T-cell-inflamed immune score in bulk tumors. This is a **treatment / immune-phenotype** association, **not** ICB response.
   - **Cldn4 无一致上调**，在多个 ICI 联合臂中反而趋于下降，且与免疫评分无正相关。
     Cldn4 shows **no consistent induction**, trends downward in several ICI-combination arms, and is not positively associated with the immune score.
 
@@ -112,23 +115,45 @@
 - **GSE197260 (EGFR-TKI + aPD1/aVEGFR2, n=1/臂):** 仅描述性 log2FC；相对 gef_vehicle_d21，anti-PD-1 (4H2) 臂中 Tacstd2 与 Cldn4 均较低（分别 -5.6、-6.5 log2），但无重复无法检验。
 - **GSE241978 (CMT167 LUAD, AhR 敲除):** 属基因层面的检查点通路（PD-L1/IDO1）扰动而非 ICI 药物治疗。DE 表中 Cldn4 fold change=-6.27（线性）、p=0.40（NS）；Tacstd2 未进入过滤后 DE 表。
 - **PXD059688 (anti-PD-1 ± 高剂量维生素C, 蛋白质组):** 全部定量质谱文件为 >2 GB 原始数据（.raw/.mgf/.msf），按规则跳过；唯一 <2 GB 的处理文件为单一条件 (AA) 的 93 蛋白鉴定报告，**不含 Tacstd2/Cldn4**，无跨条件蛋白定量表，故**仅编目、无法分析**。
+- **GSE76628:** **排除**。GEO 标题为 *Stromal-Based Signatures for the Classification of Gastric Cancer [part II]*；实验为侧腹 Ad-VEGF-A164 血管生成 + 抗 VEGFR，**不是肺肿瘤、不是 PD-1/PD-L1 ICB**。
+
+### 5.1 本轮补充：最接近 ICB 应答的肺 RNA / Closest lung ICI RNA added for the ICB-response question
+
+完整检索见 `notes/mouse/icb_response_search.md`。结果表：`results/mouse/icb_proxy_*.csv`。
+
+| Dataset | Comparison | Gene | n | log2FC | Welch p | MWU p | What this is |
+|---|---|---|---|---|---|---|---|
+| GSE309199 | aPD-1 vs Ctrl | Tacstd2 | 3/3 | +0.491 | 0.474 | 0.184 | treatment, not R vs NR |
+| GSE309199 | aPD-1 vs Ctrl | Cldn4 | 3/3 | +0.254 | 0.606 | 0.700 | treatment, not R vs NR |
+| GSE309199 | aPD-1+entinostat vs Ctrl | Tacstd2 | 3/3 | +1.031 | 0.168 | 0.376 | treatment, not R vs NR |
+| GSE309199 | aPD-1+entinostat vs Ctrl | Cldn4 | 3/3 | +1.467 | 0.034 | 0.100* | treatment; FDR 0.074 |
+| GSE330941 | Ago2KO (ICI-sensitized) vs WT (ICI-refractory) | Tacstd2 | 4/4 | +1.480 | 0.082 | 0.114 | **no ICI on these RNA samples** |
+| GSE330941 | Ago2KO vs WT | Cldn4 | 4/4 | +1.352 | **0.013** | 0.029 | model-level sensitivity proxy |
+
+\* n=3 时 MWU 最小双侧 p=0.1。
+
+**解读 / Interpretation:**
+- GSE309199 中 Tacstd2 在 aPD-1 后方向与先前队列一致（升高），但 n=3 **不显著**。不能把“治疗后升高”写成“预测 ICB 应答”。
+- GSE330941 中 Tacstd2 与 Cldn4 在 **ICI 敏感化（Ago2KO）** 模型中均高于难治 WT（Cldn4 Welch p=0.013）。RNA 取自接种后第 12 天、**未做 ICI**。这只说明 ICI 敏感基因型的基线转录，**不是**治疗后 R vs NR。
+- 因此：**不能声称 Tacstd2 或 Cldn4 预测小鼠肺癌 ICB 应答**——公开数据里没有该标签。
 
 ---
 
 ## 6. 结论 / Conclusions
 
-1. **满足完成标准 / Done-criteria met:** 已建立小鼠 ICI 数据目录（11 个登录号），并对 **远超两个** 的处理队列做了带真实统计的分析（3 个含重复的核心 bulk 队列 + 4 个 scRNA 队列 + 2 个描述性队列）。
-2. **Tacstd2/TROP2** 在抗 PD-1/PD-L1（尤其联合治疗或治疗后存活肿瘤）背景下**上调**，且**标记更 T 细胞炎症的小鼠肺肿瘤**——为 TROP2 导向 ADC 与 ICI 联用提供小鼠层面的转录组学依据。
-   Tacstd2/TROP2 is induced under anti-PD-1/PD-L1 (especially combinations / post-therapy tolerant tumors) and marks more T-cell-inflamed mouse lung tumors — transcriptomic rationale for TROP2-directed ADC + ICI combinations.
-3. **Cldn4** 与 ICI 应答**无正向关联**，在部分联合臂中下降，行为与 Tacstd2 解耦。
-   Cldn4 is not positively associated with ICI response and decreases in some combination arms.
+1. **完成标准 / Done-criteria:** 小鼠肺 ICI 目录已建立；≥2 个处理队列已用真实统计量分析。本轮补做了 **ICB 应答**专项检索。
+2. **ICB 应答（诚实）:** **没有**公开的小鼠肺癌 RNA 处理矩阵带有逐鼠 ICB responder vs non-responder 标签。GSE76628 不是肺 ICI，已排除。公开 R/NR RNA 在 CT26 / SCC / MC38 / 黑色素瘤，不在肺。
+   **No public mouse lung ICI RNA with per-mouse ICB R vs NR labels.** GSE76628 is gastric/flank VEGF stroma, excluded.
+3. **Tacstd2/TROP2** 在抗 PD-1/PD-L1 **治疗**后上调，并标记更 T 细胞炎症的小鼠肺肿瘤。这是治疗/免疫表型，**不是 ICB 应答**。
+4. **Cldn4** 在治疗臂中无一致上调；在 GSE330941 的 ICI 敏感化模型中反而更高。不能写成“Cldn4 与 ICB 应答负相关”——没有 R/NR 标签。
 
 ## 7. 局限 / Limitations
 
-- 部分队列每臂样本量小（GSE297630 n=3、GSE330658 n=2、GSE197260/scRNA n=1），限制统计功效。
-- 不同平台/归一化方式差异，log2FC 绝对值不可跨数据集直接比较（相关分析已用 z 分数消除尺度）。
-- 免疫评分为转录模块代理，非实测细胞比例或临床结局；"免疫结局"应理解为肿瘤 T 细胞炎症/细胞毒转录特征。
+- 部分队列每臂样本量小（GSE297630 / GSE309199 n=3、GSE330658 n=2、GSE197260/scRNA n=1），限制统计功效。
+- 不同平台/归一化方式差异，log2FC 绝对值不可跨数据集直接比较。
+- 免疫评分为转录模块代理，非实测细胞比例或临床结局。
 - scRNA 的负相关来自区室互斥，勿与 bulk 样本层面正相关混淆。
+- **最大缺口 / Main gap:** 缺小鼠肺癌逐鼠 ICB 应答标签；不能用治疗 vs 对照代替应答。
 
 ## 8. 产物清单 / Output files
 
@@ -138,6 +163,8 @@
 - `results/mouse/immune_correlation.csv` — 与免疫评分的 Spearman/Pearson
 - `results/mouse/scrna_pseudobulk.csv` — scRNA pseudobulk 与阳性细胞比例
 - `results/mouse/scrna_singlecell_immune_corr.csv` — 单细胞相关
+- `results/mouse/icb_proxy_group_summary.csv` / `icb_proxy_stats.csv` / `icb_proxy_immune_corr.csv` — GSE309199 + GSE330941
+- `notes/mouse/icb_response_search.md` — ICB 应答检索（含 GSE76628 排除理由）
 - `notes/mouse/catalog.md` / `catalog.json` — 数据目录 / dataset catalog
 - `notes/mouse/data/MANIFEST.tsv` — 下载来源/大小/校验 / download provenance
 - `scripts/mouse/*.py` — 可重复流程 / reproducible pipeline

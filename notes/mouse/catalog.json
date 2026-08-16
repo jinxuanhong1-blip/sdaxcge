@@ -141,5 +141,57 @@
     "processed_file": "Only raw .raw/.mgf/.msf (>2GB each) + one single-condition 93-protein mzTab (0.3 MB, no Tacstd2/Cldn4)",
     "size_ok": false,
     "decision": "CATALOGED, NOT ANALYZED (no <2GB cross-condition protein-quant table; raw MS skipped per rules)"
+  },
+  {
+    "accession": "GSE309199",
+    "source": "GEO",
+    "species": "Mus musculus",
+    "model": "RPM SCLC (Rb1/Trp53/MycT58A) lung tumor",
+    "tissue": "lung tumor",
+    "assay": "bulk RNA-seq",
+    "ici": "anti-PD-1 +/- entinostat",
+    "groups": "Ctrl(3); aPD1(3); entinostat(3); aPD1+ent(3)",
+    "processed_file": "GSE309199_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz (0.5 MB)",
+    "size_ok": true,
+    "decision": "ANALYZED (treatment, n=3; NOT per-mouse ICB R/NR)"
+  },
+  {
+    "accession": "GSE330941",
+    "source": "GEO",
+    "species": "Mus musculus",
+    "model": "LLC WT (ICI-refractory) vs Ago2KO (ICI-sensitized)",
+    "tissue": "subcutaneous lung tumor",
+    "assay": "bulk RNA-seq",
+    "ici": "model-level ICI sensitivity; RNA d12 without ICI",
+    "groups": "WT(4); Ago2KO(4)",
+    "processed_file": "GSE330941_filtered_tablecounts_tpm.csv.gz (0.7 MB)",
+    "size_ok": true,
+    "decision": "ANALYZED (model-level ICI-sensitivity proxy, NOT R vs NR)"
+  },
+  {
+    "accession": "GSE261890",
+    "source": "GEO",
+    "species": "Mus musculus",
+    "model": "mouse NSCLC immunotherapy-sensitive vs resistant",
+    "tissue": "lung tumor (spatial)",
+    "assay": "spatial RNA",
+    "ici": "ICI-sensitive vs resistant + veh/aPD-1",
+    "groups": "2 spatial slides",
+    "processed_file": "RAW.tar 1.8GB; rds 730MB",
+    "size_ok": true,
+    "decision": "CATALOGED, NOT ANALYZED (spatial, n=2)"
+  },
+  {
+    "accession": "GSE76628",
+    "source": "GEO",
+    "species": "Mus musculus",
+    "model": "EXCLUDED: Ad-VEGF-A164 flank / gastric stromal signatures",
+    "tissue": "flank angiogenic sites (not lung)",
+    "assay": "microarray",
+    "ici": "anti-VEGFR DC101/G6 \u2014 NOT PD-1/PD-L1",
+    "groups": "n=78 flank sites",
+    "processed_file": "CEL only",
+    "size_ok": true,
+    "decision": "EXCLUDED: not lung, not ICI, not ICB response"
   }
 ]
