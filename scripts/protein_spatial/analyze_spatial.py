@@ -48,13 +48,18 @@ def load_pkc_rts_map(pkc_path: Path, genes: list[str]) -> dict[str, str]:
     return rts_to_gene, panel_has, obj.get("Name"), len(obj["Targets"])
 
 
-def parse_dcc_counts(path: Path, rts_map: dict[str, str]) -> dict[str, int]:
-    counts = {g: 0 for g in set(rts_map.values())}
+def parse_dcc_counts(path: Path, rts_map: dict[str, str]) -> dict[str, float]:
+    counts = {g: 0.0 for g in set(rts_map.values())}
+    aligned = raw = None
     opener = gzip.open if path.suffix == ".gz" else open
     in_sum = False
     with opener(path, "rt", errors="ignore") as f:
         for line in f:
             line = line.strip()
+            if line.startswith("Raw,"):
+                raw = float(line.split(",", 1)[1])
+            elif line.startswith("Aligned,"):
+                aligned = float(line.split(",", 1)[1])
             if line == "<Code_Summary>":
                 in_sum = True
                 continue
@@ -65,9 +70,11 @@ def parse_dcc_counts(path: Path, rts_map: dict[str, str]) -> dict[str, int]:
             rts, _, rest = line.partition(",")
             if rts in rts_map:
                 try:
-                    counts[rts_map[rts]] = int(float(rest))
+                    counts[rts_map[rts]] = float(rest)
                 except ValueError:
                     pass
+    counts["_aligned"] = aligned if aligned is not None else float("nan")
+    counts["_raw"] = raw if raw is not None else float("nan")
     return counts
 
 
@@ -129,6 +136,10 @@ def geomx_analysis() -> dict:
         df = df[~df["spotid"].astype(str).str.contains("No Template", case=False, na=False)]
     if "cell type" in df.columns:
         df = df[df["cell type"].astype(str).str.upper() != "NA"]
+    aligned = pd.to_numeric(df["_aligned"], errors="coerce")
+    for g in [c for c in df.columns if c in GEOMX_GENES]:
+        raw_c = pd.to_numeric(df[g], errors="coerce")
+        df[f"{g}_cpm"] = np.where(aligned > 0, raw_c / aligned * 1e6, np.nan)
     df.to_csv(RESULTS / "gse271689_geomx_target_counts.tsv", sep="\t", index=False)
 
     # compartment comparison
@@ -137,6 +148,7 @@ def geomx_analysis() -> dict:
         for gene in (TACSTD2_SYMBOL, CLDN4_SYMBOL):
             for ct, sub in df.groupby("cell type"):
                 x = pd.to_numeric(sub[gene], errors="coerce")
+                xc = pd.to_numeric(sub[f"{gene}_cpm"], errors="coerce")
                 comp_rows.append(
                     {
                         "gene": gene,
@@ -144,6 +156,7 @@ def geomx_analysis() -> dict:
                         "n_AOI": int(x.notna().sum()),
                         "median_count": float(x.median()),
                         "mean_count": float(x.mean()),
+                        "median_cpm": float(xc.median()),
                         "pct_AOI_count_gt0": float((x > 0).mean() * 100),
                     }
                 )
@@ -153,21 +166,23 @@ def geomx_analysis() -> dict:
     for ct, sub in df.groupby(df.get("cell type", pd.Series(["all"] * len(df)))):
         for x in (TACSTD2_SYMBOL, CLDN4_SYMBOL):
             for y in VISIUM_IMMUNE_GENES:
-                if x not in sub.columns or y not in sub.columns:
+                xc, yc = f"{x}_cpm", f"{y}_cpm"
+                if xc not in sub.columns or yc not in sub.columns:
                     continue
-                pair = sub[[x, y]].apply(pd.to_numeric, errors="coerce").dropna()
+                pair = sub[[xc, yc]].apply(pd.to_numeric, errors="coerce").dropna()
                 if len(pair) < 8:
                     rho = p = np.nan
                 else:
-                    rho, p = stats.spearmanr(pair[x], pair[y])
+                    rho, p = stats.spearmanr(pair[xc], pair[yc])
                 corr_rows.append(
                     {
                         "cell_type": ct,
                         "x": x,
                         "y": y,
                         "n": int(len(pair)),
-                        "spearman_rho": rho,
+                        "spearman_rho_cpm": rho,
                         "p": p,
+                        "normalization": "count_per_million_aligned",
                     }
                 )
     corr = pd.DataFrame(corr_rows)
@@ -180,11 +195,12 @@ def geomx_analysis() -> dict:
     if "cell type" in df.columns:
         fig, axes = plt.subplots(1, 2, figsize=(10.2, 4.6))
         for ax, gene in zip(axes, (TACSTD2_SYMBOL, CLDN4_SYMBOL)):
-            plot_df = df[["cell type", gene]].copy()
-            plot_df[gene] = np.log1p(pd.to_numeric(plot_df[gene], errors="coerce"))
-            sns.boxplot(data=plot_df, x="cell type", y=gene, ax=ax, color="#4c6ef5")
-            sns.stripplot(data=plot_df, x="cell type", y=gene, ax=ax, color="k", size=3, alpha=0.35)
-            ax.set_ylabel(f"log1p({gene} DCC count)")
+            col = f"{gene}_cpm"
+            plot_df = df[["cell type", col]].copy()
+            plot_df[col] = np.log1p(pd.to_numeric(plot_df[col], errors="coerce"))
+            sns.boxplot(data=plot_df, x="cell type", y=col, ax=ax, color="#4c6ef5")
+            sns.stripplot(data=plot_df, x="cell type", y=col, ax=ax, color="k", size=3, alpha=0.35)
+            ax.set_ylabel(f"log1p({gene} CPM)")
             ax.set_title(f"GSE271689 GeoMx WTA {gene}")
         fig.tight_layout()
         fig.savefig(FIGDIR / "gse271689_compartment_box.png")

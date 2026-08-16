@@ -281,7 +281,8 @@ def plot_corr_heatmap(corr: pd.DataFrame) -> None:
         if sub.empty:
             continue
         mat = sub.pivot(index="y", columns="x", values="spearman_rho")
-        fig, ax = plt.subplots(figsize=(5.2, 8.4))
+        mat.index = [s.replace("CIBERSORT_", "CB_").replace("ESTIMATE_", "EST_").replace("xCell_", "xC_") for s in mat.index]
+        fig, ax = plt.subplots(figsize=(6.4, 8.8))
         sns.heatmap(
             mat,
             ax=ax,
@@ -291,12 +292,12 @@ def plot_corr_heatmap(corr: pd.DataFrame) -> None:
             vmax=0.6,
             annot=True,
             fmt=".2f",
+            annot_kws={"size": 8},
             cbar_kws={"label": "Spearman ρ"},
         )
         ax.set_title(f"{cohort} protein vs freeze immune scores")
-        fig.tight_layout()
-        fig.savefig(FIGDIR / f"cptac_{cohort}_corr_heatmap.png")
-        fig.savefig(FIGDIR / f"cptac_{cohort}_corr_heatmap.pdf")
+        fig.savefig(FIGDIR / f"cptac_{cohort}_corr_heatmap.png", bbox_inches="tight")
+        fig.savefig(FIGDIR / f"cptac_{cohort}_corr_heatmap.pdf", bbox_inches="tight")
         plt.close(fig)
 
 

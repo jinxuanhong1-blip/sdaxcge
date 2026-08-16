@@ -1,0 +1,5 @@
+dataset	file	role	n_unique_protein_name	TACSTD2_present	CLDN4_present	note	n_proteins
+PXD042091	NSClibrary.txt	spectral_library	11625.0	True	True	Library contains TACD2_HUMAN and CLD4_HUMAN peptide entries; this is not quantification.	
+PXD042091	6_data_tf_response.txt	SWATH_quant_response_table		False	False	protein column is UniProt_Gene (e.g. P0CG40_SP9). Neither P09758 nor O14493 is present.	6364.0
+PXD042091	2_dat_cs_all.txt	SWATH_quant_all_samples		False	False	Same accessions scheme as 6_data_tf_response.txt; TACSTD2/CLDN4 absent.	7115.0
+PXD059688	20230904_Tumor_AA.mzTab.gz	processed_mzTab_quantification		False	False	Only open processed table <2GB. 93 PRT rows are almost entirely methyltransferases (export of 20230904_Tumor_AA.pdResult). Tacstd2/Cldn4 are absent from this table. Full proteome is in skipped 8.5GB mgf / 37.9GB msf — presence in the full LLC proteome cannot be confirmed from allowed files.	93.0
