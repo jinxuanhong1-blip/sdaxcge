@@ -1,0 +1,1783 @@
+{
+  "GSE120028": {
+    "taxon": "Homo sapiens",
+    "title": "Transcriptomic analysis of advanced solid tumors in first-in-human phase 1 study of IT1208, a defucosylated humanized anti-CD4 depleting antibody  [3'SAGE-seq]",
+    "n_samples": 19,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE120028_RAW.tar",
+        "size_str": "2.5M",
+        "size_bytes": 2621440
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "1.4K",
+        "size_bytes": 1433
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE120101": {
+    "taxon": "Homo sapiens",
+    "title": "T-cell receptor repertoire analysis of advanced solid tumors in first-in-human phase 1 study of IT1208, a defucosylated humanized anti-CD4 depleting antibody [TCR-seq]",
+    "n_samples": 105,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE120101_RAW.tar",
+        "size_str": "27M",
+        "size_bytes": 28311552
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "7.7K",
+        "size_bytes": 7884
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE124885": {
+    "taxon": "Homo sapiens",
+    "title": "A CD4 T cell population expand and reshape autoreactive B cells, contributing to autoimmune lung pathology and post-infection autoimmunity in children",
+    "n_samples": 4,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE124885_B_5prime_raw_gene_expression.csv.gz",
+        "size_str": "14M",
+        "size_bytes": 14680064
+      },
+      {
+        "name": "GSE124885_B_5prime_vloupe_BCR.vloupe.tar.gz",
+        "size_str": "11M",
+        "size_bytes": 11534336
+      },
+      {
+        "name": "GSE124885_B_5rime_normalized_gene_expression.csv.gz",
+        "size_str": "108M",
+        "size_bytes": 113246208
+      },
+      {
+        "name": "GSE124885_T_5prime_normalized_gene_expression.csv.gz",
+        "size_str": "114M",
+        "size_bytes": 119537664
+      },
+      {
+        "name": "GSE124885_T_5prime_raw_gene_expression.csv.gz",
+        "size_str": "15M",
+        "size_bytes": 15728640
+      },
+      {
+        "name": "GSE124885_T_5prime_vloupe_TCR.vloupe.tar.gz",
+        "size_str": "37M",
+        "size_bytes": 38797312
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE124885_B_5prime_raw_gene_expression.csv.gz",
+        "size_str": "14M",
+        "size_bytes": 14680064
+      },
+      {
+        "name": "GSE124885_B_5rime_normalized_gene_expression.csv.gz",
+        "size_str": "108M",
+        "size_bytes": 113246208
+      },
+      {
+        "name": "GSE124885_T_5prime_normalized_gene_expression.csv.gz",
+        "size_str": "114M",
+        "size_bytes": 119537664
+      },
+      {
+        "name": "GSE124885_T_5prime_raw_gene_expression.csv.gz",
+        "size_str": "15M",
+        "size_bytes": 15728640
+      }
+    ]
+  },
+  "GSE127825": {
+    "taxon": "Homo sapiens",
+    "title": "Noncoding regions are the main source of targetable tumor-specific antigens",
+    "n_samples": 6,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE127825_RAW.tar",
+        "size_str": "2.3M",
+        "size_bytes": 2411724
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "504",
+        "size_bytes": 504
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE139327": {
+    "taxon": "Homo sapiens",
+    "title": "Contrasting inflammatory signatures in peripheral blood and bronchoalveolar cells reveal compartment-specific effects of HIV infection",
+    "n_samples": 28,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE139327_bal_pos_vs_neg_cd8_gene_exp.diff.gz",
+        "size_str": "722K",
+        "size_bytes": 739328
+      },
+      {
+        "name": "GSE139327_bulk_cells_gene_exp.diff.gz",
+        "size_str": "5.7M",
+        "size_bytes": 5976883
+      },
+      {
+        "name": "GSE139327_hiv_neg_bal_vs_pbmcs_cd8_gene_exp.diff.gz",
+        "size_str": "722K",
+        "size_bytes": 739328
+      },
+      {
+        "name": "GSE139327_hiv_pos_bal_vs_pbmcs_cd8_gene_exp.diff.gz",
+        "size_str": "736K",
+        "size_bytes": 753664
+      },
+      {
+        "name": "GSE139327_pbmcs_pos_vs_neg_cd8_gene_exp.diff.gz",
+        "size_str": "722K",
+        "size_bytes": 739328
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE139327_bal_pos_vs_neg_cd8_gene_exp.diff.gz",
+        "size_str": "722K",
+        "size_bytes": 739328
+      },
+      {
+        "name": "GSE139327_bulk_cells_gene_exp.diff.gz",
+        "size_str": "5.7M",
+        "size_bytes": 5976883
+      },
+      {
+        "name": "GSE139327_hiv_neg_bal_vs_pbmcs_cd8_gene_exp.diff.gz",
+        "size_str": "722K",
+        "size_bytes": 739328
+      },
+      {
+        "name": "GSE139327_hiv_pos_bal_vs_pbmcs_cd8_gene_exp.diff.gz",
+        "size_str": "736K",
+        "size_bytes": 753664
+      },
+      {
+        "name": "GSE139327_pbmcs_pos_vs_neg_cd8_gene_exp.diff.gz",
+        "size_str": "722K",
+        "size_bytes": 739328
+      }
+    ]
+  },
+  "GSE141479": {
+    "taxon": "Homo sapiens",
+    "title": "Combination of host immune metabolic biomarkers for the PD-1 blockade cancer immunotherapy",
+    "n_samples": 74,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE141479_RAW.tar",
+        "size_str": "1.8G",
+        "size_bytes": 1932735283
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "6.0K",
+        "size_bytes": 6144
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE148944": {
+    "taxon": "Homo sapiens",
+    "title": "Characterization of the immune profile of oral tongue squamous cell carcinomas with advancing disease",
+    "n_samples": 67,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE148944_data_worksheets.xlsx",
+        "size_str": "968K",
+        "size_bytes": 991232
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE150972": {
+    "taxon": "Homo sapiens",
+    "title": "Identification of clonal neoantigens derived from driver mutations in an EGFR mutated lung cancer patient benefitting from anti-PD-1",
+    "n_samples": 1,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE150972_RAW.tar",
+        "size_str": "570K",
+        "size_bytes": 583680
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "217",
+        "size_bytes": 217
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE154286": {
+    "taxon": "Homo sapiens",
+    "title": "Chemotherapy negatively impacts the tumor immune microenvironment in NSCLC: An analysis of pre- and post-treatment biopsies in the multi-center SAKK19/09 study",
+    "n_samples": 133,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE154286_RAW.tar",
+        "size_str": "470K",
+        "size_bytes": 481280
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "11K",
+        "size_bytes": 11264
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE159785": {
+    "taxon": "Homo sapiens",
+    "title": "Temporal and Spatial Heterogeneity of Host Response to SARS-CoV-2 Pulmonary Infection [GeoMx human protein]",
+    "n_samples": 363,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE159785_PKC_files.tar.gz",
+        "size_str": "9.0K",
+        "size_bytes": 9216
+      },
+      {
+        "name": "GSE159785_RCC_files.tar.gz",
+        "size_str": "164K",
+        "size_bytes": 167936
+      },
+      {
+        "name": "GSE159785_analyzed_count_matrix.txt.gz",
+        "size_str": "158K",
+        "size_bytes": 161792
+      },
+      {
+        "name": "GSE159785_raw_calibrated_count_matrix.txt.gz",
+        "size_str": "79K",
+        "size_bytes": 80896
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE159785_analyzed_count_matrix.txt.gz",
+        "size_str": "158K",
+        "size_bytes": 161792
+      },
+      {
+        "name": "GSE159785_raw_calibrated_count_matrix.txt.gz",
+        "size_str": "79K",
+        "size_bytes": 80896
+      }
+    ]
+  },
+  "GSE159787": {
+    "taxon": "Severe acute respiratory syndrome coronavirus 2; Homo sapiens",
+    "title": "Temporal and Spatial Heterogeneity of Host Response to SARS-CoV-2 Pulmonary Infection [gene expression]",
+    "n_samples": 363,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE159787_DCC_files.tar.gz",
+        "size_str": "9.2M",
+        "size_bytes": 9646899
+      },
+      {
+        "name": "GSE159787_GeoMx_COVID19_v1.0.pkc.txt.gz",
+        "size_str": "9.2K",
+        "size_bytes": 9420
+      },
+      {
+        "name": "GSE159787_GeoMx_Images.zip.gz",
+        "size_str": "407M",
+        "size_bytes": 426770432
+      },
+      {
+        "name": "GSE159787_analyzed_counts.txt.gz",
+        "size_str": "3.6M",
+        "size_bytes": 3774873
+      },
+      {
+        "name": "GSE159787_cell_deconvolution.txt.gz",
+        "size_str": "22K",
+        "size_bytes": 22528
+      },
+      {
+        "name": "GSE159787_collapsed_target_counts.txt.gz",
+        "size_str": "3.6M",
+        "size_bytes": 3774873
+      },
+      {
+        "name": "GSE159787_raw_counts.txt.gz",
+        "size_str": "4.1M",
+        "size_bytes": 4299161
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE159787_analyzed_counts.txt.gz",
+        "size_str": "3.6M",
+        "size_bytes": 3774873
+      },
+      {
+        "name": "GSE159787_collapsed_target_counts.txt.gz",
+        "size_str": "3.6M",
+        "size_bytes": 3774873
+      },
+      {
+        "name": "GSE159787_raw_counts.txt.gz",
+        "size_str": "4.1M",
+        "size_bytes": 4299161
+      }
+    ]
+  },
+  "GSE168707": {
+    "taxon": "Homo sapiens",
+    "title": "RT-PCR profiling analysis of microRNA expression in cisplatin-resistant cancer",
+    "n_samples": 6,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE168707_fold-change.txt.gz",
+        "size_str": "1.4K",
+        "size_bytes": 1433
+      },
+      {
+        "name": "GSE168707_non-normalized_data.txt.gz",
+        "size_str": "1.4K",
+        "size_bytes": 1433
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE168707_non-normalized_data.txt.gz",
+        "size_str": "1.4K",
+        "size_bytes": 1433
+      }
+    ]
+  },
+  "GSE171650": {
+    "taxon": "Homo sapiens",
+    "title": "PD-L1 alteration in lung cancer affects tumorigenicity lung tumors",
+    "n_samples": 30,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE171650_PC9ER_cells-_PD-L1_expression_in_wt_vs_ox_lung_cancer_cells_DEoutput_All.xlsx",
+        "size_str": "2.7M",
+        "size_bytes": 2831155
+      },
+      {
+        "name": "GSE171650_PC9ER_cells_-Scramble_vs_si-PD-L1_DEoutput_all_04032019_PDL1_KD.xlsx",
+        "size_str": "2.7M",
+        "size_bytes": 2831155
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE171650_PC9ER_cells-_PD-L1_expression_in_wt_vs_ox_lung_cancer_cells_DEoutput_All.xlsx",
+        "size_str": "2.7M",
+        "size_bytes": 2831155
+      }
+    ]
+  },
+  "GSE173351": {
+    "taxon": "Homo sapiens",
+    "title": "Distinct transcriptional programs characterize neoantigen-specific T cells in lung cancers treated with neoadjuvant PD-1 blockade",
+    "n_samples": 212,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE173351_RAW.tar",
+        "size_str": "4.1G",
+        "size_bytes": 4402341478
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "23K",
+        "size_bytes": 23552
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE180347": {
+    "taxon": "Homo sapiens",
+    "title": "Transcriptomic analysis of PD-L1 positive and negative hot lung adenocarcinomas identifies a different molecular immunogenic landscape",
+    "n_samples": 144,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE180347_RAW.tar",
+        "size_str": "1.3M",
+        "size_bytes": 1363148
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "8.7K",
+        "size_bytes": 8908
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE181820": {
+    "taxon": "Homo sapiens",
+    "title": "Highly Immunogenic Cancer Cells Require Activation of the WNT Pathway for Immunological Escape",
+    "n_samples": 22,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE181820_RNAseq_NSCLC.txt.gz",
+        "size_str": "2.0M",
+        "size_bytes": 2097152
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE184053": {
+    "taxon": "Homo sapiens",
+    "title": "CD8+ TILs in NSCLC differentiate into TEMRA via a bifurcated trajectory, deciphering immunogenicity of tumor-antigens",
+    "n_samples": 9,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE184053_raw_gene_counts_1.txt.gz",
+        "size_str": "418K",
+        "size_bytes": 428032
+      },
+      {
+        "name": "GSE184053_raw_gene_counts_2.txt.gz",
+        "size_str": "387K",
+        "size_bytes": 396288
+      },
+      {
+        "name": "GSE184053_raw_gene_counts_3.txt.gz",
+        "size_str": "376K",
+        "size_bytes": 385024
+      },
+      {
+        "name": "GSE184053_transcripts_1.fa.gz",
+        "size_str": "76M",
+        "size_bytes": 79691776
+      },
+      {
+        "name": "GSE184053_transcripts_2.fa.gz",
+        "size_str": "71M",
+        "size_bytes": 74448896
+      },
+      {
+        "name": "GSE184053_transcripts_3.fa.gz",
+        "size_str": "69M",
+        "size_bytes": 72351744
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE184053_raw_gene_counts_1.txt.gz",
+        "size_str": "418K",
+        "size_bytes": 428032
+      },
+      {
+        "name": "GSE184053_raw_gene_counts_2.txt.gz",
+        "size_str": "387K",
+        "size_bytes": 396288
+      },
+      {
+        "name": "GSE184053_raw_gene_counts_3.txt.gz",
+        "size_str": "376K",
+        "size_bytes": 385024
+      }
+    ]
+  },
+  "GSE190265": {
+    "taxon": "Homo sapiens",
+    "title": "MEK inhibition overcomes chemoimmunotherapy resistance by inducing CXCL10 in cancer cells [France3]",
+    "n_samples": 34,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE190265_TPM_France3.csv.gz",
+        "size_str": "3.9M",
+        "size_bytes": 4089446
+      },
+      {
+        "name": "GSE190265_samples_info_France3.csv.gz",
+        "size_str": "418",
+        "size_bytes": 418
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE190265_TPM_France3.csv.gz",
+        "size_str": "3.9M",
+        "size_bytes": 4089446
+      }
+    ]
+  },
+  "GSE190266": {
+    "taxon": "Homo sapiens",
+    "title": "MEK inhibition overcomes chemoimmunotherapy resistance by inducing CXCL10 in cancer cells [France4]",
+    "n_samples": 70,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE190266_TPM_France4.csv.gz",
+        "size_str": "2.0M",
+        "size_bytes": 2097152
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE190266_TPM_France4.csv.gz",
+        "size_str": "2.0M",
+        "size_bytes": 2097152
+      }
+    ]
+  },
+  "GSE99995": {
+    "taxon": "Homo sapiens",
+    "title": "Whole-transcriptome analysis of tumor tissues of lung adenocarcinoma reveals molecular changes under the influence of IFN-\u03b3",
+    "n_samples": 12,
+    "category": "LUNG_ICI_other",
+    "reason": "lung+ICI; needs case-by-case review (small n, targeted, or no per-sample outcome)",
+    "files": [
+      {
+        "name": "GSE99995_RAW.tar",
+        "size_str": "149M",
+        "size_bytes": 156237824
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "873",
+        "size_bytes": 873
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE117570": {
+    "taxon": "Homo sapiens",
+    "title": "Reprogramming of Tumor-infiltrating Immune Cells in Early Stage of NSCLC",
+    "n_samples": 8,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE117570_RAW.tar",
+        "size_str": "19M",
+        "size_bytes": 19922944
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "727",
+        "size_bytes": 727
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE127465": {
+    "taxon": "Mus musculus; Homo sapiens",
+    "title": "Single cell transcriptomics of human and mouse lung cancers reveals conserved myeloid populations across individuals and species",
+    "n_samples": 40,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE127465_RAW.tar",
+        "size_str": "160M",
+        "size_bytes": 167772160
+      },
+      {
+        "name": "GSE127465_gene_names_human_41861.tsv.gz",
+        "size_str": "102K",
+        "size_bytes": 104448
+      },
+      {
+        "name": "GSE127465_gene_names_mouse_28205.tsv.gz",
+        "size_str": "72K",
+        "size_bytes": 73728
+      },
+      {
+        "name": "GSE127465_human_cell_metadata_54773x25.tsv.gz",
+        "size_str": "3.9M",
+        "size_bytes": 4089446
+      },
+      {
+        "name": "GSE127465_human_counts_normalized_54773x41861.mtx.gz",
+        "size_str": "504M",
+        "size_bytes": 528482304
+      },
+      {
+        "name": "GSE127465_load_human_data_align_with_unfiltered.html.gz",
+        "size_str": "238K",
+        "size_bytes": 243712
+      },
+      {
+        "name": "GSE127465_mouse_cell_metadata_15939x12.tsv.gz",
+        "size_str": "442K",
+        "size_bytes": 452608
+      },
+      {
+        "name": "GSE127465_mouse_counts_normalized_15939x28205.mtx.gz",
+        "size_str": "166M",
+        "size_bytes": 174063616
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "3.1K",
+        "size_bytes": 3174
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE128822": {
+    "taxon": "Homo sapiens",
+    "title": "High-dimensional single cell analysis reveals an effector Treg molecular program that correlates with lung cancer progression",
+    "n_samples": 10,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE128822_ICOSpCCRp_ICOSmCCR8m_raw_counts.csv.gz",
+        "size_str": "255K",
+        "size_bytes": 261120
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE128822_ICOSpCCRp_ICOSmCCR8m_raw_counts.csv.gz",
+        "size_str": "255K",
+        "size_bytes": 261120
+      }
+    ]
+  },
+  "GSE131933": {
+    "taxon": "Homo sapiens",
+    "title": "Effects of durvalumab alone or combined with tremelimumab on preexisting cells in the tumor microenvironment",
+    "n_samples": 8,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE131933_T1D7_gene_count.txt.gz",
+        "size_str": "914M",
+        "size_bytes": 958398464
+      },
+      {
+        "name": "GSE131933_T1T3D0_gene_count.txt.gz",
+        "size_str": "25M",
+        "size_bytes": 26214400
+      },
+      {
+        "name": "GSE131933_T3D11_gene_count.txt.gz",
+        "size_str": "86M",
+        "size_bytes": 90177536
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE131933_T1D7_gene_count.txt.gz",
+        "size_str": "914M",
+        "size_bytes": 958398464
+      },
+      {
+        "name": "GSE131933_T1T3D0_gene_count.txt.gz",
+        "size_str": "25M",
+        "size_bytes": 26214400
+      },
+      {
+        "name": "GSE131933_T3D11_gene_count.txt.gz",
+        "size_str": "86M",
+        "size_bytes": 90177536
+      }
+    ]
+  },
+  "GSE141383": {
+    "taxon": "Homo sapiens",
+    "title": "Single-cell characterization of macrophages in glioblastoma reveals MARCO as a mesenchymal pro-tumor marker",
+    "n_samples": 9,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE141383_RAW.tar",
+        "size_str": "50M",
+        "size_bytes": 52428800
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "731",
+        "size_bytes": 731
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE144945": {
+    "taxon": "Homo sapiens",
+    "title": "Dysregulation of TFH-B-TRM lymphocyte cooperation is associated with unfavorable anti-PD-1 responses in EGFR-mutant lung cancer",
+    "n_samples": 10,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE144945_RAW.tar",
+        "size_str": "98M",
+        "size_bytes": 102760448
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "2.0K",
+        "size_bytes": 2048
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE145896": {
+    "taxon": "Homo sapiens",
+    "title": "PD-1 blockade-unresponsive human tumor-infiltrating CD8+ T cells are marked by loss of CD28 expression and rescued by IL-15",
+    "n_samples": 8,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE145896_countData.csv.gz",
+        "size_str": "303K",
+        "size_bytes": 310272
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE145896_countData.csv.gz",
+        "size_str": "303K",
+        "size_bytes": 310272
+      }
+    ]
+  },
+  "GSE146100": {
+    "taxon": "Homo sapiens",
+    "title": "Distinct Immune-microenvironment Construction Diversely Responded to Induction Immunotherapy among Multiple Primary Lung Adenocarcinoma",
+    "n_samples": 3,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE146100_NormData.txt.gz",
+        "size_str": "219M",
+        "size_bytes": 229638144
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE146100_NormData.txt.gz",
+        "size_str": "219M",
+        "size_bytes": 229638144
+      }
+    ]
+  },
+  "GSE152590": {
+    "taxon": "Homo sapiens",
+    "title": "RNA seq data of CD8+ T cells in peripheral blood lymphocytes from melanoma and lung cancer patients",
+    "n_samples": 8,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE152590_TPM_matrix.xlsx",
+        "size_str": "1.4M",
+        "size_bytes": 1468006
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE152590_TPM_matrix.xlsx",
+        "size_str": "1.4M",
+        "size_bytes": 1468006
+      }
+    ]
+  },
+  "GSE154826": {
+    "taxon": "Homo sapiens",
+    "title": "CITEseq analysis of non-small-cell lung cancer lesions",
+    "n_samples": 166,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE154826_amp_batch_ID_1.tar.gz",
+        "size_str": "17M",
+        "size_bytes": 17825792
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_10.tar.gz",
+        "size_str": "41M",
+        "size_bytes": 42991616
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_11.tar.gz",
+        "size_str": "27M",
+        "size_bytes": 28311552
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_14.tar.gz",
+        "size_str": "23M",
+        "size_bytes": 24117248
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_15.tar.gz",
+        "size_str": "30M",
+        "size_bytes": 31457280
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_16.tar.gz",
+        "size_str": "28M",
+        "size_bytes": 29360128
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_17.tar.gz",
+        "size_str": "35M",
+        "size_bytes": 36700160
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_18.tar.gz",
+        "size_str": "39M",
+        "size_bytes": 40894464
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_19.tar.gz",
+        "size_str": "39M",
+        "size_bytes": 40894464
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_2.tar.gz",
+        "size_str": "15M",
+        "size_bytes": 15728640
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_22.tar.gz",
+        "size_str": "8.0M",
+        "size_bytes": 8388608
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_23.tar.gz",
+        "size_str": "9.0M",
+        "size_bytes": 9437184
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_230.tar.gz",
+        "size_str": "14M",
+        "size_bytes": 14680064
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_231.tar.gz",
+        "size_str": "10M",
+        "size_bytes": 10485760
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_24.tar.gz",
+        "size_str": "10M",
+        "size_bytes": 10485760
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_244.tar.gz",
+        "size_str": "26M",
+        "size_bytes": 27262976
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_245.tar.gz",
+        "size_str": "39M",
+        "size_bytes": 40894464
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_25.tar.gz",
+        "size_str": "9.3M",
+        "size_bytes": 9751756
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_26.tar.gz",
+        "size_str": "6.0M",
+        "size_bytes": 6291456
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_27.tar.gz",
+        "size_str": "6.4M",
+        "size_bytes": 6710886
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_28.tar.gz",
+        "size_str": "22M",
+        "size_bytes": 23068672
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_29.tar.gz",
+        "size_str": "22M",
+        "size_bytes": 23068672
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_292.tar.gz",
+        "size_str": "19M",
+        "size_bytes": 19922944
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_293.tar.gz",
+        "size_str": "23M",
+        "size_bytes": 24117248
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_3.tar.gz",
+        "size_str": "22M",
+        "size_bytes": 23068672
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_30.tar.gz",
+        "size_str": "24M",
+        "size_bytes": 25165824
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_307.tar.gz",
+        "size_str": "32M",
+        "size_bytes": 33554432
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_308.tar.gz",
+        "size_str": "34M",
+        "size_bytes": 35651584
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_309.tar.gz",
+        "size_str": "72M",
+        "size_bytes": 75497472
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_31.tar.gz",
+        "size_str": "36M",
+        "size_bytes": 37748736
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_32.tar.gz",
+        "size_str": "15M",
+        "size_bytes": 15728640
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_33.tar.gz",
+        "size_str": "11M",
+        "size_bytes": 11534336
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_342.tar.gz",
+        "size_str": "109M",
+        "size_bytes": 114294784
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_343.tar.gz",
+        "size_str": "109M",
+        "size_bytes": 114294784
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_344.tar.gz",
+        "size_str": "108M",
+        "size_bytes": 113246208
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_345.tar.gz",
+        "size_str": "103M",
+        "size_bytes": 108003328
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_346.tar.gz",
+        "size_str": "110M",
+        "size_bytes": 115343360
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_347.tar.gz",
+        "size_str": "107M",
+        "size_bytes": 112197632
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_348.tar.gz",
+        "size_str": "112M",
+        "size_bytes": 117440512
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_350.tar.gz",
+        "size_str": "29M",
+        "size_bytes": 30408704
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_351.tar.gz",
+        "size_str": "32M",
+        "size_bytes": 33554432
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_36.tar.gz",
+        "size_str": "35M",
+        "size_bytes": 36700160
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_37.tar.gz",
+        "size_str": "39M",
+        "size_bytes": 40894464
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_38.tar.gz",
+        "size_str": "49M",
+        "size_bytes": 51380224
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_39.tar.gz",
+        "size_str": "17M",
+        "size_bytes": 17825792
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_4.tar.gz",
+        "size_str": "33M",
+        "size_bytes": 34603008
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_40.tar.gz",
+        "size_str": "21M",
+        "size_bytes": 22020096
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_41.tar.gz",
+        "size_str": "26M",
+        "size_bytes": 27262976
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_42.tar.gz",
+        "size_str": "20M",
+        "size_bytes": 20971520
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_43.tar.gz",
+        "size_str": "28M",
+        "size_bytes": 29360128
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_44.tar.gz",
+        "size_str": "27M",
+        "size_bytes": 28311552
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_45.tar.gz",
+        "size_str": "33M",
+        "size_bytes": 34603008
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_46.tar.gz",
+        "size_str": "23M",
+        "size_bytes": 24117248
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_47.tar.gz",
+        "size_str": "33M",
+        "size_bytes": 34603008
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_48.tar.gz",
+        "size_str": "34M",
+        "size_bytes": 35651584
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_49.tar.gz",
+        "size_str": "30M",
+        "size_bytes": 31457280
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_5.tar.gz",
+        "size_str": "25M",
+        "size_bytes": 26214400
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_50.tar.gz",
+        "size_str": "25M",
+        "size_bytes": 26214400
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_51.tar.gz",
+        "size_str": "31M",
+        "size_bytes": 32505856
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_52.tar.gz",
+        "size_str": "31M",
+        "size_bytes": 32505856
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_53.tar.gz",
+        "size_str": "71M",
+        "size_bytes": 74448896
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_54.tar.gz",
+        "size_str": "45M",
+        "size_bytes": 47185920
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_55.tar.gz",
+        "size_str": "44M",
+        "size_bytes": 46137344
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_56.tar.gz",
+        "size_str": "123M",
+        "size_bytes": 128974848
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_6.tar.gz",
+        "size_str": "13M",
+        "size_bytes": 13631488
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_668.tar.gz",
+        "size_str": "48M",
+        "size_bytes": 50331648
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_7.tar.gz",
+        "size_str": "60M",
+        "size_bytes": 62914560
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_8.tar.gz",
+        "size_str": "40M",
+        "size_bytes": 41943040
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_88.tar.gz",
+        "size_str": "146M",
+        "size_bytes": 153092096
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_89.tar.gz",
+        "size_str": "91M",
+        "size_bytes": 95420416
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_9.tar.gz",
+        "size_str": "36M",
+        "size_bytes": 37748736
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_90.tar.gz",
+        "size_str": "122M",
+        "size_bytes": 127926272
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_91.tar.gz",
+        "size_str": "123M",
+        "size_bytes": 128974848
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_92.tar.gz",
+        "size_str": "121M",
+        "size_bytes": 126877696
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_93.tar.gz",
+        "size_str": "123M",
+        "size_bytes": 128974848
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_94.tar.gz",
+        "size_str": "34M",
+        "size_bytes": 35651584
+      },
+      {
+        "name": "GSE154826_amp_batch_ID_95.tar.gz",
+        "size_str": "21M",
+        "size_bytes": 22020096
+      },
+      {
+        "name": "GSE154826_sample_annots.csv.gz",
+        "size_str": "1.3K",
+        "size_bytes": 1331
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE162154": {
+    "taxon": "Homo sapiens",
+    "title": "RNA-seq of human small airawy epithelial cells in patients with COPD and Never-smoker",
+    "n_samples": 6,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE162154_processed_data.xls.gz",
+        "size_str": "4.4M",
+        "size_bytes": 4613734
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE167235": {
+    "taxon": "Homo sapiens",
+    "title": "A burned-out CD8+ T-cell subset expands in the tumor microenvironment and curbs\u00a0cancer\u00a0immunotherapy",
+    "n_samples": 9,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE167235_RAW.tar",
+        "size_str": "2.5M",
+        "size_bytes": 2621440
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "632",
+        "size_bytes": 632
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE173896": {
+    "taxon": "Homo sapiens",
+    "title": "Single-cell Transcriptome Analysis Reveals an Anomalous Epithelial Variation and Ectopic Inflammatory Response in Chronic Obstructive Pulmonary Disease",
+    "n_samples": 16,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE173896_Arzamasov_raw_count_matrix.txt.gz",
+        "size_str": "212K",
+        "size_bytes": 217088
+      },
+      {
+        "name": "GSE173896_COPD.rds.gz",
+        "size_str": "12G",
+        "size_bytes": 12884901888
+      },
+      {
+        "name": "GSE173896_COPD_meta_new.xlsx",
+        "size_str": "6.2M",
+        "size_bytes": 6501171
+      },
+      {
+        "name": "GSE173896_RAW.tar",
+        "size_str": "332M",
+        "size_bytes": 348127232
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "2.1K",
+        "size_bytes": 2150
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE173896_Arzamasov_raw_count_matrix.txt.gz",
+        "size_str": "212K",
+        "size_bytes": 217088
+      }
+    ]
+  },
+  "GSE176021": {
+    "taxon": "Homo sapiens",
+    "title": "Distinct transcriptional programs characterize neoantigen-specific T cells in lung cancers treated with neoadjuvant PD-1 blockade [single-cell RNA-seq]",
+    "n_samples": 110,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE176021_CD3_annotations.rds.gz",
+        "size_str": "13M",
+        "size_bytes": 13631488
+      },
+      {
+        "name": "GSE176021_CD8_annotations.rds.gz",
+        "size_str": "5.5M",
+        "size_bytes": 5767168
+      },
+      {
+        "name": "GSE176021_RAW.tar",
+        "size_str": "4.1G",
+        "size_bytes": 4402341478
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "16K",
+        "size_bytes": 16384
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE176022": {
+    "taxon": "Homo sapiens",
+    "title": "Distinct transcriptional programs characterize neoantigen-specific T cells in   lung cancers treated with neoadjuvant PD-1 blockade [bulk TCR-seq]",
+    "n_samples": 102,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE176022_RAW.tar",
+        "size_str": "11M",
+        "size_bytes": 11534336
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "7.0K",
+        "size_bytes": 7168
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE179994": {
+    "taxon": "Homo sapiens",
+    "title": "Temporal single cell tracing reveals clonal revival and expansion of precursor exhausted T cells during anti-PD-1 therapy in lung cancer",
+    "n_samples": 47,
+    "category": "LUNG_ICI_single_cell",
+    "reason": "lung+ICI but single-cell (not patient-level bulk outcome)",
+    "files": [
+      {
+        "name": "GSE179994_PBMC.bulkTCR.tsv.gz",
+        "size_str": "2.6M",
+        "size_bytes": 2726297
+      },
+      {
+        "name": "GSE179994_RAW.tar",
+        "size_str": "44M",
+        "size_bytes": 46137344
+      },
+      {
+        "name": "GSE179994_Tcell.metadata.tsv.gz",
+        "size_str": "914K",
+        "size_bytes": 935936
+      },
+      {
+        "name": "GSE179994_all.Tcell.rawCounts.rds.gz",
+        "size_str": "421M",
+        "size_bytes": 441450496
+      },
+      {
+        "name": "GSE179994_all.scTCR.tsv.gz",
+        "size_str": "6.5M",
+        "size_bytes": 6815744
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "258",
+        "size_bytes": 258
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE179994_all.Tcell.rawCounts.rds.gz",
+        "size_str": "421M",
+        "size_bytes": 441450496
+      }
+    ]
+  },
+  "GSE115246": {
+    "taxon": "Homo sapiens",
+    "title": "Epigenetic prediction of response to anti-PD-1 treatment in non-small-cell lung cancer: a multicenter, retrospective analysis",
+    "n_samples": 81,
+    "category": "LUNG_ICI_methylation",
+    "reason": "lung+ICI but methylation/epigenetic assay",
+    "files": [
+      {
+        "name": "GSE115246_RAW.tar",
+        "size_str": "161M",
+        "size_bytes": 168820736
+      },
+      {
+        "name": "GSE115246_methylated_unmethylated_signal_intensities.txt.gz",
+        "size_str": "1.1G",
+        "size_bytes": 1181116006
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "180",
+        "size_bytes": 180
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE119144": {
+    "taxon": "Homo sapiens",
+    "title": "DNA methylation loss coupled with mitotic cell division promotes immune evasion of tumours with high mutation load",
+    "n_samples": 60,
+    "category": "LUNG_ICI_methylation",
+    "reason": "lung+ICI but methylation/epigenetic assay",
+    "files": [
+      {
+        "name": "GSE119144_RAW.tar",
+        "size_str": "854M",
+        "size_bytes": 895483904
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "9.6K",
+        "size_bytes": 9830
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE126043": {
+    "taxon": "Homo sapiens",
+    "title": "Genome-wide identification of differentially methylated promoters and enhancers associated with response to anti-PD-1 therapy in non-small cell lung cancer",
+    "n_samples": 18,
+    "category": "LUNG_ICI_methylation",
+    "reason": "lung+ICI but methylation/epigenetic assay",
+    "files": [
+      {
+        "name": "GSE126043_RAW.tar",
+        "size_str": "416M",
+        "size_bytes": 436207616
+      },
+      {
+        "name": "GSE126043_norm_beta.txt.gz",
+        "size_str": "61M",
+        "size_bytes": 63963136
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "3.0K",
+        "size_bytes": 3072
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE126043_norm_beta.txt.gz",
+        "size_str": "61M",
+        "size_bytes": 63963136
+      }
+    ]
+  },
+  "GSE126045": {
+    "taxon": "Homo sapiens",
+    "title": "Genome-wide identification of differentially methylated promoters and enhancers associated with response to anti-PD-1 therapy in non-small cell lung cancer",
+    "n_samples": 34,
+    "category": "LUNG_ICI_methylation",
+    "reason": "lung+ICI but methylation/epigenetic assay",
+    "files": [
+      {
+        "name": "GSE126045_RAW.tar",
+        "size_str": "416M",
+        "size_bytes": 436207616
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "3.0K",
+        "size_bytes": 3072
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE138571": {
+    "taxon": "Homo sapiens; Mus musculus",
+    "title": "In vivo epigenetic CRISPR screen identifies Asf1a as an immunotherapeutic target in Kras-mutant lung adenocarcinoma",
+    "n_samples": 10,
+    "category": "LUNG_ICI_methylation",
+    "reason": "lung+ICI but methylation/epigenetic assay",
+    "files": [
+      {
+        "name": "GSE138571_RAW.tar",
+        "size_str": "3.5G",
+        "size_bytes": 3758096384
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "770",
+        "size_bytes": 770
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE142620": {
+    "taxon": "Homo sapiens",
+    "title": "Chronic IL-1\u03b2-induced inflammation regulates epithelial-to-mesenchymal transition memory phenotypes via epigenetic modifications in non-small cell lung cancer",
+    "n_samples": 36,
+    "category": "LUNG_ICI_methylation",
+    "reason": "lung+ICI but methylation/epigenetic assay",
+    "files": [
+      {
+        "name": "GSE142620_RAW.tar",
+        "size_str": "7.5M",
+        "size_bytes": 7864320
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "2.6K",
+        "size_bytes": 2662
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE118933": {
+    "taxon": "Homo sapiens",
+    "title": "Immune Checkpoint Regulation of Pulmonary Fibrosis [bulk RNA-seq]",
+    "n_samples": 18,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE118933_IPF_invasive_non-invasive_RPKM.txt.gz",
+        "size_str": "1.8M",
+        "size_bytes": 1887436
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE118933_IPF_invasive_non-invasive_RPKM.txt.gz",
+        "size_str": "1.8M",
+        "size_bytes": 1887436
+      }
+    ]
+  },
+  "GSE129380": {
+    "taxon": "Homo sapiens; Mus musculus; Sarcophilus harrisii",
+    "title": "An evolutionarily conserved function of polycomb silences the MHC class I antigen presentation pathway and enables immune evasion in cancer [ChIP-Seq]",
+    "n_samples": 24,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE129380_RAW.tar",
+        "size_str": "13M",
+        "size_bytes": 13631488
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "1.9K",
+        "size_bytes": 1945
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE129381": {
+    "taxon": "Homo sapiens; Mus musculus",
+    "title": "An evolutionarily conserved function of polycomb silences the MHC class I antigen presentation pathway and enables immune evasion in cancer [RNA-Seq]",
+    "n_samples": 30,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE129381_counts_filtered_anno.txt.gz",
+        "size_str": "353K",
+        "size_bytes": 361472
+      },
+      {
+        "name": "GSE129381_quantseq_counts.txt.gz",
+        "size_str": "687K",
+        "size_bytes": 703488
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE129381_counts_filtered_anno.txt.gz",
+        "size_str": "353K",
+        "size_bytes": 361472
+      },
+      {
+        "name": "GSE129381_quantseq_counts.txt.gz",
+        "size_str": "687K",
+        "size_bytes": 703488
+      }
+    ]
+  },
+  "GSE129968": {
+    "taxon": "Homo sapiens",
+    "title": "EIF5B drives integrated stress response-dependent translation of PD-L1 in lung cancer",
+    "n_samples": 12,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE129968_PDL1.totalnorm.txt.gz",
+        "size_str": "2.4M",
+        "size_bytes": 2516582
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE129968_PDL1.totalnorm.txt.gz",
+        "size_str": "2.4M",
+        "size_bytes": 2516582
+      }
+    ]
+  },
+  "GSE133715": {
+    "taxon": "Homo sapiens",
+    "title": "Transcriptional profiling of HCC515 lung cells with dox-inducible KEAP1 knockdown and/or STK11 re-addition, under different metabolic tstress conditions",
+    "n_samples": 24,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE133715_RAW.tar",
+        "size_str": "107M",
+        "size_bytes": 112197632
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "2.3K",
+        "size_bytes": 2355
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE135976": {
+    "taxon": "Homo sapiens",
+    "title": "MET regulates expression of co-stimulatory and co-inhibitory molecules in tumor cells and contributes to suppression of immune cell function",
+    "n_samples": 4,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE135976_RAW.tar",
+        "size_str": "8.7M",
+        "size_bytes": 9122611
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "376",
+        "size_bytes": 376
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE136932": {
+    "taxon": "Homo sapiens",
+    "title": "Effect of Pirfenidone on NSCLC [A549/H1975 0.75 mg/ml Pirf]",
+    "n_samples": 24,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE136932_RAW.tar",
+        "size_str": "219M",
+        "size_bytes": 229638144
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "3.2K",
+        "size_bytes": 3276
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE136933": {
+    "taxon": "Homo sapiens",
+    "title": "Effect of Pirfenidone on NSCLC  [A549 1.5 mg/ml Pirf 6hrs]",
+    "n_samples": 6,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE136933_RAW.tar",
+        "size_str": "13M",
+        "size_bytes": 13631488
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "864",
+        "size_bytes": 864
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE136934": {
+    "taxon": "Homo sapiens",
+    "title": "Effect of Pirfenidone on NSCLC [A549 1.5 mg/ml Pirf 24hrs]",
+    "n_samples": 8,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE136934_RAW.tar",
+        "size_str": "17M",
+        "size_bytes": 17825792
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "1.1K",
+        "size_bytes": 1126
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE153051": {
+    "taxon": "Homo sapiens",
+    "title": "PD-L1 lncRNA splice promotes lung adenocarcinoma proliferation and metastasis via enhancing c-Myc activity",
+    "n_samples": 2,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE153051_RAW.tar",
+        "size_str": "25M",
+        "size_bytes": 26214400
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "237",
+        "size_bytes": 237
+      }
+    ],
+    "processed_candidates": []
+  },
+  "GSE179934": {
+    "taxon": "Homo sapiens",
+    "title": "The immune heterogeneity between pulmonary adenocarcinoma and squamous cell carcinoma: a comprehensive analysis based on lncRNA model",
+    "n_samples": 9,
+    "category": "LUNG_ICI_cellline_invitro",
+    "reason": "lung+ICI but cell-line/in-vitro",
+    "files": [
+      {
+        "name": "GSE179934_RAW.tar",
+        "size_str": "3.0M",
+        "size_bytes": 3145728
+      },
+      {
+        "name": "GSE179934_Raw_gene_counts_matrix.txt.gz",
+        "size_str": "2.4M",
+        "size_bytes": 2516582
+      },
+      {
+        "name": "filelist.txt",
+        "size_str": "638",
+        "size_bytes": 638
+      }
+    ],
+    "processed_candidates": [
+      {
+        "name": "GSE179934_Raw_gene_counts_matrix.txt.gz",
+        "size_str": "2.4M",
+        "size_bytes": 2516582
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+accession,category,n_samples,n_suppl,n_processed_candidates,status,title
+GSE115246,LUNG_ICI_methylation,81,3,0,Methylation anti-PD-1; not mRNA of target genes.,"Epigenetic prediction of response to anti-PD-1 treatment in non-small-cell lung cancer: a multicenter, retrospective analysis"
+GSE117570,LUNG_ICI_single_cell,8,2,0,RAW.tar only; treatment-naive early NSCLC. Not computed.,Reprogramming of Tumor-infiltrating Immune Cells in Early Stage of NSCLC
+GSE118933,LUNG_ICI_cellline_invitro,18,1,1,"IPF fibroblasts, not ICI.",Immune Checkpoint Regulation of Pulmonary Fibrosis [bulk RNA-seq]
+GSE119144,LUNG_ICI_methylation,60,2,0,Methylation; not mRNA.,DNA methylation loss coupled with mitotic cell division promotes immune evasion of tumours with high mutation load
+GSE120028,LUNG_ICI_other,19,2,0,3'SAGE mixed tumors; RAW.tar only. Not computed.,"Transcriptomic analysis of advanced solid tumors in first-in-human phase 1 study of IT1208, a defucosylated humanized anti-CD4 depleting antibody  [3'SAGE-seq]"
+GSE120101,LUNG_ICI_other,105,2,0,TCR-seq. Not gene expression.,"T-cell receptor repertoire analysis of advanced solid tumors in first-in-human phase 1 study of IT1208, a defucosylated humanized anti-CD4 depleting antibody [TCR-seq]"
+GSE124885,LUNG_ICI_other,4,6,4,Pediatric autoimmune BAL; not ICI.,"A CD4 T cell population expand and reshape autoreactive B cells, contributing to autoimmune lung pathology and post-infection autoimmunity in children"
+GSE126043,LUNG_ICI_methylation,18,3,1,Methylation beta; not mRNA.,Genome-wide identification of differentially methylated promoters and enhancers associated with response to anti-PD-1 therapy in non-small cell lung cancer
+GSE126045,LUNG_ICI_methylation,34,2,0,SuperSeries methylation; not mRNA.,Genome-wide identification of differentially methylated promoters and enhancers associated with response to anti-PD-1 therapy in non-small cell lung cancer
+GSE127465,LUNG_ICI_single_cell,40,9,0,scRNA mtx (myeloid atlas); not ICI-outcome cohort.,Single cell transcriptomics of human and mouse lung cancers reveals conserved myeloid populations across individuals and species
+GSE127825,LUNG_ICI_other,6,2,0,RAW.tar only.,Noncoding regions are the main source of targetable tumor-specific antigens
+GSE128822,LUNG_ICI_single_cell,10,1,1,Treg subset counts; TACSTD2/CLDN4 absent.,High-dimensional single cell analysis reveals an effector Treg molecular program that correlates with lung cancer progression
+GSE129380,LUNG_ICI_cellline_invitro,24,2,0,ChIP-seq; not mRNA.,An evolutionarily conserved function of polycomb silences the MHC class I antigen presentation pathway and enables immune evasion in cancer [ChIP-Seq]
+GSE129381,LUNG_ICI_cellline_invitro,30,2,2,Mouse/human cell-line counts; TACSTD2 all-zero in human QuantSeq row; not patient ICI.,An evolutionarily conserved function of polycomb silences the MHC class I antigen presentation pathway and enables immune evasion in cancer [RNA-Seq]
+GSE129968,LUNG_ICI_cellline_invitro,12,1,1,H358 cell-line PD-L1 high/low; not patient ICI.,EIF5B drives integrated stress response-dependent translation of PD-L1 in lung cancer
+GSE131933,LUNG_ICI_single_cell,8,3,3,"COMPUTED descriptive: tumor-cell means at D0; T1D7 958MB downloaded, genes absent there. Ex-vivo, not clinical survival.",Effects of durvalumab alone or combined with tremelimumab on preexisting cells in the tumor microenvironment
+GSE133715,LUNG_ICI_cellline_invitro,24,2,0,Cell-line KEAP1; RAW.tar.,"Transcriptional profiling of HCC515 lung cells with dox-inducible KEAP1 knockdown and/or STK11 re-addition, under different metabolic tstress conditions"
+GSE135976,LUNG_ICI_cellline_invitro,4,2,0,Cell-line; RAW.tar.,MET regulates expression of co-stimulatory and co-inhibitory molecules in tumor cells and contributes to suppression of immune cell function
+GSE136932,LUNG_ICI_cellline_invitro,24,2,0,Cell-line pirfenidone; RAW.tar.,Effect of Pirfenidone on NSCLC [A549/H1975 0.75 mg/ml Pirf]
+GSE136933,LUNG_ICI_cellline_invitro,6,2,0,Cell-line; RAW.tar.,Effect of Pirfenidone on NSCLC  [A549 1.5 mg/ml Pirf 6hrs]
+GSE136934,LUNG_ICI_cellline_invitro,8,2,0,Cell-line; RAW.tar.,Effect of Pirfenidone on NSCLC [A549 1.5 mg/ml Pirf 24hrs]
+GSE138571,LUNG_ICI_methylation,10,2,0,CRISPR screen; not patient ICI expression.,In vivo epigenetic CRISPR screen identifies Asf1a as an immunotherapeutic target in Kras-mutant lung adenocarcinoma
+GSE139327,LUNG_ICI_other,28,5,5,HIV BAL/PBMC DE tables; not ICI.,Contrasting inflammatory signatures in peripheral blood and bronchoalveolar cells reveal compartment-specific effects of HIV infection
+GSE141383,LUNG_ICI_single_cell,9,2,0,Glioblastoma; not lung.,Single-cell characterization of macrophages in glioblastoma reveals MARCO as a mesenchymal pro-tumor marker
+GSE141479,LUNG_ICI_other,74,2,0,"REVISITED blood: 57MB series_matrix downloaded; probe IDs, gene symbols absent; no response/PFS.",Combination of host immune metabolic biomarkers for the PD-1 blockade cancer immunotherapy
+GSE142620,LUNG_ICI_methylation,36,2,0,In-vitro EMT; RAW.tar.,Chronic IL-1β-induced inflammation regulates epithelial-to-mesenchymal transition memory phenotypes via epigenetic modifications in non-small cell lung cancer
+GSE144945,LUNG_ICI_single_cell,10,2,0,RAW.tar only. Not computed.,Dysregulation of TFH-B-TRM lymphocyte cooperation is associated with unfavorable anti-PD-1 responses in EGFR-mutant lung cancer
+GSE145896,LUNG_ICI_single_cell,8,1,1,COMPUTED: genes in PD-1+ TIL CD28+/- subsets (not patient ICI endpoint).,PD-1 blockade-unresponsive human tumor-infiltrating CD8+ T cells are marked by loss of CD28 expression and rescued by IL-15
+GSE146100,LUNG_ICI_single_cell,3,1,1,"COMPUTED descriptive: scRNA per-nodule means, n=3/1 patient. No inferential test.",Distinct Immune-microenvironment Construction Diversely Responded to Induction Immunotherapy among Multiple Primary Lung Adenocarcinoma
+GSE148944,LUNG_ICI_other,67,1,0,Oral tongue SCC; not lung ICI outcome.,Characterization of the immune profile of oral tongue squamous cell carcinomas with advancing disease
+GSE150972,LUNG_ICI_other,1,2,0,n=1 neoantigen; RAW.tar.,Identification of clonal neoantigens derived from driver mutations in an EGFR mutated lung cancer patient benefitting from anti-PD-1
+GSE152590,LUNG_ICI_single_cell,8,1,1,REVISITED blood: processed TPM downloaded; TACSTD2 and CLDN4 absent.,RNA seq data of CD8+ T cells in peripheral blood lymphocytes from melanoma and lung cancer patients
+GSE153051,LUNG_ICI_cellline_invitro,2,2,0,n=2 cell-line; RAW.tar.,PD-L1 lncRNA splice promotes lung adenocarcinoma proliferation and metastasis via enhancing c-Myc activity
+GSE154286,LUNG_ICI_other,133,2,0,Chemo (not ICI) + RAW.tar only. Not computed.,Chemotherapy negatively impacts the tumor immune microenvironment in NSCLC: An analysis of pre- and post-treatment biopsies in the multi-center SAKK19/09 study
+GSE154826,LUNG_ICI_single_cell,166,78,0,CITE-seq batches; not a single processed gene matrix.,CITEseq analysis of non-small-cell lung cancer lesions
+GSE159785,LUNG_ICI_other,363,4,2,COVID GeoMx protein; not ICI.,Temporal and Spatial Heterogeneity of Host Response to SARS-CoV-2 Pulmonary Infection [GeoMx human protein]
+GSE159787,LUNG_ICI_other,363,7,3,COVID GeoMx RNA; TACSTD2 present; not ICI.,Temporal and Spatial Heterogeneity of Host Response to SARS-CoV-2 Pulmonary Infection [gene expression]
+GSE162154,LUNG_ICI_single_cell,6,1,0,COPD airway epithelium; not ICI.,RNA-seq of human small airawy epithelial cells in patients with COPD and Never-smoker
+GSE167235,LUNG_ICI_single_cell,9,2,0,RAW.tar only.,A burned-out CD8+ T-cell subset expands in the tumor microenvironment and curbs cancer immunotherapy
+GSE168707,LUNG_ICI_other,6,2,1,miRNA cisplatin; not ICI / not these genes.,RT-PCR profiling analysis of microRNA expression in cisplatin-resistant cancer
+GSE171650,LUNG_ICI_other,30,2,1,Cell-line DE xlsx; not a gene matrix with TACSTD2/CLDN4.,PD-L1 alteration in lung cancer affects tumorigenicity lung tumors
+GSE173351,LUNG_ICI_other,212,2,0,NO processed matrix (RAW.tar only). Not computed.,Distinct transcriptional programs characterize neoantigen-specific T cells in lung cancers treated with neoadjuvant PD-1 blockade
+GSE173896,LUNG_ICI_single_cell,16,5,1,COPD lung counts; TACSTD2/CLDN4 not in file.,Single-cell Transcriptome Analysis Reveals an Anomalous Epithelial Variation and Ectopic Inflammatory Response in Chronic Obstructive Pulmonary Disease
+GSE176021,LUNG_ICI_single_cell,110,4,0,Response status deposited but NO processed gene matrix. Not computed.,Distinct transcriptional programs characterize neoantigen-specific T cells in lung cancers treated with neoadjuvant PD-1 blockade [single-cell RNA-seq]
+GSE176022,LUNG_ICI_single_cell,102,2,0,TCR-seq / RAW.tar only. Not a gene-expression leftover compute.,Distinct transcriptional programs characterize neoantigen-specific T cells in   lung cancers treated with neoadjuvant PD-1 blockade [bulk TCR-seq]
+GSE179934,LUNG_ICI_cellline_invitro,9,3,1,A549 cell-line counts; not patient ICI.,The immune heterogeneity between pulmonary adenocarcinoma and squamous cell carcinoma: a comprehensive analysis based on lncRNA model
+GSE179994,LUNG_ICI_single_cell,47,6,1,REVISITED large: 441MB T-cell RDS downloaded; TACSTD2 string present; no patient-level stats extracted; no response/PFS.,Temporal single cell tracing reveals clonal revival and expansion of precursor exhausted T cells during anti-PD-1 therapy in lung cancer
+GSE180347,LUNG_ICI_other,144,2,0,NO processed matrix (RAW.tar only). Metadata has PD-L1 group. Not computed.,Transcriptomic analysis of PD-L1 positive and negative hot lung adenocarcinomas identifies a different molecular immunogenic landscape
+GSE181820,LUNG_ICI_other,22,1,0,COMPUTED: both genes vs GEO groups A/B/C (not a deposited ICI response).,Highly Immunogenic Cancer Cells Require Activation of the WNT Pathway for Immunological Escape
+GSE184053,LUNG_ICI_other,9,6,3,COMPUTED: TACSTD2 ~0 in Temra; no ICI endpoint. CLDN4 Ensembl not in those count files.,"CD8+ TILs in NSCLC differentiate into TEMRA via a bifurcated trajectory, deciphering immunogenicity of tumor-antigens"
+GSE190265,LUNG_ICI_other,34,2,1,COMPUTED: both genes vs histology only (no ICI endpoint deposited).,MEK inhibition overcomes chemoimmunotherapy resistance by inducing CXCL10 in cancer cells [France3]
+GSE190266,LUNG_ICI_other,70,1,1,COMPUTED: CLDN4 vs 6-month PFS (n=70). TACSTD2 absent from TPM matrix.,MEK inhibition overcomes chemoimmunotherapy resistance by inducing CXCL10 in cancer cells [France4]
+GSE99995,LUNG_ICI_other,12,2,0,"IFN-γ / PD-L1 levels, not ICI treatment; series_matrix has no TACSTD2/CLDN4 symbols.",Whole-transcriptome analysis of tumor tissues of lung adenocarcinoma reveals molecular changes under the influence of IFN-γ
