@@ -1,0 +1,22 @@
+id	status	lane	citation	year	doi	pmid	pmcid	adc_or_ligand	cldn_assayed	lysosome_assay	after_adc	note
+NONE_direct	NONE	c2_direct	No qualifying paper	2026					CLDN4	yes	yes	Zero papers meet: ADC treatment AND CLDN4 protein down AND lysosome-dependent.
+wu2020_cells	near_miss	trop2_claudin_lyso	Wu CJ et al. Cells 9:1027	2020	10.3390/cells9041027	32326212	PMC7226414	matriptase (not ADC)	CLDN1, CLDN7	chloroquine rescue	no	Closest mechanistic analog: TROP2 destabilization sends associated claudins to lysosomes. Not CLDN4, not ADC.
+wu2017_jci	near_miss	trop2_claudin_lyso	Wu CJ et al. J Clin Invest 127:623	2017	10.1172/jci88428	28094766	PMC5272188	matriptase / EpCAM	CLDN7	implied lysosomal/turnover	no	EpCAM cleavage destabilizes intestinal claudins.
+zhao2026_jitc	near_miss	c2_trop2_adc	Wu/Zhao et al. JITC 14:e012265	2026	10.1136/jitc-2025-012265	41932810	PMC13052784	hRS7 (naked SG mAb)	CLDN7, OCLN	no	no	Antibody, not ADC; CLDN7 not CLDN4.
+okajima2021_mct	near_miss	adc_lysosome_general	Okajima et al. Mol Cancer Ther 20:2329	2021	10.1158/1535-7163.mct-21-0206	34413126	PMC9398094	Dato-DXd	none (TROP2)	ADC lysosomal payload release	yes_adc_not_cldn4	TROP2/ADC to lysosome. No CLDN4 readout.
+cardillo2011_ccr	near_miss	adc_lysosome_general	Cardillo et al. Clin Cancer Res 17:3157	2011	10.1158/1078-0432.ccr-10-2939	21372224	PMC10766325	SG / hRS7-SN-38	none	internalization implied	yes_adc_not_cldn4	SG efficacy. No CLDN4.
+goldenberg2015_ot	near_miss	adc_lysosome_general	Goldenberg et al. Oncotarget 6:22496	2015	10.18632/oncotarget.4318	26101915	PMC4673178	SG / IMMU-132	none	Trop-2 internalization	yes_adc_not_cldn4	SG characterization.
+nakatsukasa2010_ajp	near_miss	trop2_cldn4_proximity	Nakatsukasa et al. Am J Pathol 177:1344	2010	10.2353/ajpath.2010.100149	20651236	PMC2928967	none	CLDN4 (PLA)	no	no	TACSTD2–CLDN4 proximity; Co-IP negative.
+vanitallie2015_pone	near_miss	trop2_cldn4_proximity	Fredriksson/Van Itallie et al. PLOS ONE 10:e0117074	2015	10.1371/journal.pone.0117074	25789658	PMC4366163	none	CLDN4-BioID lists TROP-2	no	no	Neighborhood, not degradation.
+cong2015_jcs	near_miss	cldn4_endo_lyso_not_adc	Cong et al. J Cell Sci 128:2271	2015	10.1242/jcs.165878	25948584		carbachol / mAChR	CLDN4	clathrin endocytosis; ubiquitin degradation	no	CLDN4 can leave the membrane and be degraded. Not ADC.
+li2021_faseb	near_miss	cldn4_endo_lyso_not_adc	Li et al. FASEB J 35:e21356	2021	10.1096/fj.202002098r	33484473		nutrient starvation	CLDN1/3/4	lysosome inhibitors	no	CLDN4 lysosomal degradation under starvation.
+li2021_at	near_miss	cldn4_endo_lyso_not_adc	Li et al. Arch Toxicol 95:1753	2021	10.1007/s00204-021-03044-w	33847777		deoxynivalenol	CLDN3/4, ZO-1	lysosomal degradation; dynasore	no	Mycotoxin, not ADC.
+ogawa2012_hcb	near_miss	cldn4_endo_lyso_not_adc	Ogawa et al. Histochem Cell Biol 138:323	2012	10.1007/s00418-012-0956-x	22544349		EGF	CLDN4	post-translational down via MEK/ERK	no	Ovarian lines. Not ADC.
+ikari2019_srep	near_miss	cldn4_endo_lyso_not_adc	Ikari et al. Sci Rep 9:10254	2019	10.1038/s41598-019-46250-4	31273276	PMC6611903	none (constitutive)	CLDN2, CLDN4	chloroquine raises CLDN4	no	Constitutive lysosomal turnover of CLDN4.
+saeki2011_bmc	near_miss	cldn4_ligand_lysosome	Yuan/Saeki et al. BMC Cancer 11:61	2011	10.1186/1471-2407-11-61	21303546	PMC3045987	CPE-rGel	CLDN3/4 as receptors	cargo trapped in endosome/lysosome	no	Cargo fate, not CLDN4 protein fate.
+hashimoto2013_ijo	near_miss	cldn4_ligand_lysosome	Hashimoto et al. Int J Oncol 42:1911	2013	10.3892/ijo.2013.1881	23563899		CPE-ETA'	CLDN4 as receptor	ETA Golgi/ER route	no	Immunotoxin, not ADC lysosome.
+mcdermott2023_cldn6	near_miss	c2_cldn4_adc	McDermott et al. Clin Cancer Res	2023	10.1158/1078-0432.ccr-22-2981	36884217		CLDN6-23-ADC	CLDN6	ADC internalization	yes_wrong_claudin	CLDN6 ADC, not CLDN4.
+jco2026_e13006	near_miss	c2_trop2_adc	ASCO abstract e13006	2026	10.1200/jco.2026.44.16_suppl.e13006			SG	Trop2/TOPO/HER/Nectin4/SLFN11	paired MS	yes_adc_no_tj	No claudin/TJ proteins reported.
+wo2016175551	excluded_patent	c2_cldn4_adc	WO2016175551A2	2016				CLDN4 Ab–dendron–dox	not reported	claimed acidic endosome/lysosome release	claimed	Patent only.
+sun2026_npj	near_miss	c2_trop2_adc	Sun et al. npj Precis Oncol	2026	10.1038/s41698-026-01523-w	42297906		TROP2 ADC context	CLDN4 RNA co-expression	no	no	Multi-omic association, not protein fate.
+pmtpv2020	near_miss	cldn4_endo_lyso_not_adc	Nasako et al. Int J Mol Sci 21:5909	2020	10.3390/ijms21165909	32824620	PMC7460848	PMTPV peptide	CLDN1	lysosome-dependent	no	Wrong claudin.
