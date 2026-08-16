@@ -1,24 +1,24 @@
 dataset	analysis	comparison	metric	n	stat	value	p_value	note
 GSE207422	response_mpr_post	NMPR vs MPR (post, n_mal>=10)	mal_TACSTD2_mean	2+7	mannwhitney_u	4.0	0.5	MPR median=0.4317 (n=2); NMPR median=1.1029 (n=7); primary unit=sample; pCR counted as MPR
-GSE207422	spearman_post	malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	9	spearman_rho	0.16666666666666669	0.668231040071504	post-treatment samples with >=10 malignant-like cells
-GSE207422	spearman_post	malignant TACSTD2 vs CD8-like fraction	mal_TACSTD2_mean	9	spearman_rho	-0.016666666666666666	0.9660548039946862	post-treatment samples with >=10 malignant-like cells
-GSE207422	spearman_post	malignant TACSTD2 vs B/Plasma fraction	mal_TACSTD2_mean	9	spearman_rho	0.06666666666666667	0.8646897846262036	post-treatment samples with >=10 malignant-like cells
+GSE207422	spearman_post	malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	9	spearman_rho	0.1666666666666666	0.668231040071504	post-treatment samples with >=10 malignant-like cells
+GSE207422	spearman_post	malignant TACSTD2 vs CD8-like fraction	mal_TACSTD2_mean	9	spearman_rho	-0.0166666666666666	0.9660548039946862	post-treatment samples with >=10 malignant-like cells
+GSE207422	spearman_post	malignant TACSTD2 vs B/Plasma fraction	mal_TACSTD2_mean	9	spearman_rho	0.0666666666666666	0.8646897846262036	post-treatment samples with >=10 malignant-like cells
 GSE207422	spearman_post	malignant TACSTD2 vs TLS chemokine score	mal_TACSTD2_mean	9	spearman_rho	0.25	0.5164895523012261	post-treatment samples with >=10 malignant-like cells
 GSE207422	response_mpr_post	NMPR vs MPR (post, n_mal>=10)	mal_CLDN4_mean	2+7	mannwhitney_u	5.0	0.6666666666666666	MPR median=0.4941 (n=2); NMPR median=0.7332 (n=7); primary unit=sample; pCR counted as MPR
-GSE207422	spearman_post	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	9	spearman_rho	0.03333333333333333	0.9321567355405039	post-treatment samples with >=10 malignant-like cells
-GSE207422	spearman_post	malignant CLDN4 vs CD8-like fraction	mal_CLDN4_mean	9	spearman_rho	-0.13333333333333333	0.7323675052362973	post-treatment samples with >=10 malignant-like cells
+GSE207422	spearman_post	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	9	spearman_rho	0.0333333333333333	0.932156735540504	post-treatment samples with >=10 malignant-like cells
+GSE207422	spearman_post	malignant CLDN4 vs CD8-like fraction	mal_CLDN4_mean	9	spearman_rho	-0.1333333333333333	0.7323675052362973	post-treatment samples with >=10 malignant-like cells
 GSE207422	spearman_post	malignant CLDN4 vs B/Plasma fraction	mal_CLDN4_mean	9	spearman_rho	0.15	0.7000942309691418	post-treatment samples with >=10 malignant-like cells
-GSE207422	spearman_post	malignant CLDN4 vs TLS chemokine score	mal_CLDN4_mean	9	spearman_rho	0.3	0.43284532670948234	post-treatment samples with >=10 malignant-like cells
-GSE207422	sensitivity_mpr_post	NMPR vs MPR (malignant-like min1)	mal1_TACSTD2	4+8	mannwhitney_u	7.0	0.14598627771734832	MPR med=0.0428 (n=4); NMPR med=0.7936 (n=8)
-GSE207422	sensitivity_spearman_post	malignant-like min1 TACSTD2 vs T/NK fraction	mal1_TACSTD2	12	spearman_rho	0.19718798825711964	0.5390267201932187	post-tx sensitivity
+GSE207422	spearman_post	malignant CLDN4 vs TLS chemokine score	mal_CLDN4_mean	9	spearman_rho	0.3	0.4328453267094823	post-treatment samples with >=10 malignant-like cells
+GSE207422	sensitivity_mpr_post	NMPR vs MPR (malignant-like min1)	mal1_TACSTD2	4+8	mannwhitney_u	7.0	0.1459862777173483	MPR med=0.0428 (n=4); NMPR med=0.7936 (n=8)
+GSE207422	sensitivity_spearman_post	malignant-like min1 TACSTD2 vs T/NK fraction	mal1_TACSTD2	12	spearman_rho	0.1971879882571196	0.5390267201932187	post-tx sensitivity
 GSE207422	sensitivity_mpr_post	NMPR vs MPR (all epithelial min1)	epi_TACSTD2	4+8	mannwhitney_u	13.0	0.6828282828282828	MPR med=1.0134 (n=4); NMPR med=1.2469 (n=8)
 GSE207422	sensitivity_spearman_post	all epithelial min1 TACSTD2 vs T/NK fraction	epi_TACSTD2	12	spearman_rho	0.1258741258741259	0.696683109395766	post-tx sensitivity
 GSE207422	sensitivity_mpr_post	NMPR vs MPR (malignant-like min1)	mal1_CLDN4	4+8	mannwhitney_u	7.5	0.1666255757371301	MPR med=0.0000 (n=4); NMPR med=0.5589 (n=8)
-GSE207422	sensitivity_spearman_post	malignant-like min1 CLDN4 vs T/NK fraction	mal1_CLDN4	12	spearman_rho	0.07830421195446947	0.8088649739542916	post-tx sensitivity
+GSE207422	sensitivity_spearman_post	malignant-like min1 CLDN4 vs T/NK fraction	mal1_CLDN4	12	spearman_rho	0.0783042119544694	0.8088649739542916	post-tx sensitivity
 GSE207422	sensitivity_mpr_post	NMPR vs MPR (all epithelial min1)	epi_CLDN4	4+8	mannwhitney_u	19.0	0.6828282828282828	MPR med=1.1956 (n=4); NMPR med=1.1701 (n=8)
-GSE207422	sensitivity_spearman_post	all epithelial min1 CLDN4 vs T/NK fraction	epi_CLDN4	12	spearman_rho	0.11188811188811189	0.729194990751066	post-tx sensitivity
-GSE207422	spearman_post	malignant TACSTD2 vs residual tumor fraction	mal_TACSTD2_mean	9	spearman_rho	0.41004543029030427	0.27302974714377237	post-tx; residual tumor from GEO metadata
-GSE207422	spearman_post	malignant CLDN4 vs residual tumor fraction	mal_CLDN4_mean	9	spearman_rho	0.39330888211518983	0.2949902441700331	post-tx; residual tumor from GEO metadata
+GSE207422	sensitivity_spearman_post	all epithelial min1 CLDN4 vs T/NK fraction	epi_CLDN4	12	spearman_rho	0.1118881118881118	0.729194990751066	post-tx sensitivity
+GSE207422	spearman_post	malignant TACSTD2 vs residual tumor fraction	mal_TACSTD2_mean	9	spearman_rho	0.4100454302903042	0.2730297471437723	post-tx; residual tumor from GEO metadata
+GSE207422	spearman_post	malignant CLDN4 vs residual tumor fraction	mal_CLDN4_mean	9	spearman_rho	0.3933088821151898	0.2949902441700331	post-tx; residual tumor from GEO metadata
 GSE207422	immune_vs_mpr_post	NMPR vs MPR T/NK fraction	frac_tnk	4+8	mannwhitney_u	19.0	0.6828282828282828	MPR med=0.5304; NMPR med=0.3891
 GSE207422	immune_vs_mpr_post	NMPR vs MPR CD8-like fraction	frac_cd8	4+8	mannwhitney_u	23.0	0.2828282828282829	MPR med=0.2430; NMPR med=0.1400
 GSE207422	immune_vs_mpr_post	NMPR vs MPR B/Plasma fraction	frac_b_plasma	4+8	mannwhitney_u	19.0	0.6828282828282828	MPR med=0.1428; NMPR med=0.0557
@@ -26,21 +26,48 @@ GSE207422	response_mpr_all_timing	NMPR vs MPR (pre+post)	mal_TACSTD2_mean	2+9	ma
 GSE207422	response_mpr_all_timing	NMPR vs MPR (pre+post)	mal_CLDN4_mean	2+9	mannwhitney_u	7.0	0.7272727272727273	exploratory: mixes pre-biopsy and post-surgery
 GSE207422	compartment	malignant vs T/NK TACSTD2 (paired sample)	mal_TACSTD2_mean	9	wilcoxon_w	0.0	0.00390625	mal med=0.7777; T/NK med=0.0093
 GSE205335	response_recist	NR (SD/PD) vs R (PR)	mal_TACSTD2_mean	6+10	mannwhitney_u	29.0	0.9577922077922078	R median=1.0978 (n=6); NR median=0.9105 (n=10); RECIST not MPR; unit=patient; min 20 malignant cells
-GSE205335	spearman_all_evaluable	malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	22	spearman_rho	0.2840203274985884	0.20019815279526967	tumor tissues; patients with >=20 malignant cells; includes NE
+GSE205335	spearman_all_evaluable	malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	22	spearman_rho	0.2840203274985884	0.2001981527952696	tumor tissues; patients with >=20 malignant cells; includes NE
 GSE205335	spearman_recist_r_nr	malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	16	spearman_rho	0.4558823529411765	0.0759454911674118	R+NR only
-GSE205335	spearman_all_evaluable	malignant TACSTD2 vs CD8 fraction	mal_TACSTD2_mean	22	spearman_rho	0.409373235460192	0.05850104223477929	tumor tissues; patients with >=20 malignant cells; includes NE
-GSE205335	spearman_recist_r_nr	malignant TACSTD2 vs CD8 fraction	mal_TACSTD2_mean	16	spearman_rho	0.38235294117647056	0.14385924954389048	R+NR only
-GSE205335	spearman_all_evaluable	malignant TACSTD2 vs B/Plasma fraction	mal_TACSTD2_mean	22	spearman_rho	0.02992659514398645	0.8948231841333145	tumor tissues; patients with >=20 malignant cells; includes NE
-GSE205335	spearman_recist_r_nr	malignant TACSTD2 vs B/Plasma fraction	mal_TACSTD2_mean	16	spearman_rho	0.10294117647058824	0.7044103818167708	R+NR only
+GSE205335	spearman_all_evaluable	malignant TACSTD2 vs CD8 fraction	mal_TACSTD2_mean	22	spearman_rho	0.409373235460192	0.0585010422347792	tumor tissues; patients with >=20 malignant cells; includes NE
+GSE205335	spearman_recist_r_nr	malignant TACSTD2 vs CD8 fraction	mal_TACSTD2_mean	16	spearman_rho	0.3823529411764705	0.1438592495438904	R+NR only
+GSE205335	spearman_all_evaluable	malignant TACSTD2 vs B/Plasma fraction	mal_TACSTD2_mean	22	spearman_rho	0.0299265951439864	0.8948231841333145	tumor tissues; patients with >=20 malignant cells; includes NE
+GSE205335	spearman_recist_r_nr	malignant TACSTD2 vs B/Plasma fraction	mal_TACSTD2_mean	16	spearman_rho	0.1029411764705882	0.7044103818167708	R+NR only
 GSE205335	response_recist	NR (SD/PD) vs R (PR)	mal_CLDN4_mean	6+10	mannwhitney_u	36.0	0.5621878121878122	R median=1.3966 (n=6); NR median=0.9548 (n=10); RECIST not MPR; unit=patient; min 20 malignant cells
-GSE205335	spearman_all_evaluable	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	22	spearman_rho	-0.20045172219085267	0.3710825718233011	tumor tissues; patients with >=20 malignant cells; includes NE
-GSE205335	spearman_recist_r_nr	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	16	spearman_rho	-0.34705882352941175	0.18783442010629955	R+NR only
-GSE205335	spearman_all_evaluable	malignant CLDN4 vs CD8 fraction	mal_CLDN4_mean	22	spearman_rho	-0.17786561264822137	0.42841247523808007	tumor tissues; patients with >=20 malignant cells; includes NE
-GSE205335	spearman_recist_r_nr	malignant CLDN4 vs CD8 fraction	mal_CLDN4_mean	16	spearman_rho	-0.4294117647058823	0.09693648522272376	R+NR only
-GSE205335	spearman_all_evaluable	malignant CLDN4 vs B/Plasma fraction	mal_CLDN4_mean	22	spearman_rho	0.0005646527385657821	0.998010198944439	tumor tissues; patients with >=20 malignant cells; includes NE
-GSE205335	spearman_recist_r_nr	malignant CLDN4 vs B/Plasma fraction	mal_CLDN4_mean	16	spearman_rho	0.13823529411764704	0.6096659407501827	R+NR only
+GSE205335	spearman_all_evaluable	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	22	spearman_rho	-0.2004517221908526	0.3710825718233011	tumor tissues; patients with >=20 malignant cells; includes NE
+GSE205335	spearman_recist_r_nr	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	16	spearman_rho	-0.3470588235294117	0.1878344201062995	R+NR only
+GSE205335	spearman_all_evaluable	malignant CLDN4 vs CD8 fraction	mal_CLDN4_mean	22	spearman_rho	-0.1778656126482213	0.42841247523808	tumor tissues; patients with >=20 malignant cells; includes NE
+GSE205335	spearman_recist_r_nr	malignant CLDN4 vs CD8 fraction	mal_CLDN4_mean	16	spearman_rho	-0.4294117647058823	0.0969364852227237	R+NR only
+GSE205335	spearman_all_evaluable	malignant CLDN4 vs B/Plasma fraction	mal_CLDN4_mean	22	spearman_rho	0.0005646527385657	0.998010198944439	tumor tissues; patients with >=20 malignant cells; includes NE
+GSE205335	spearman_recist_r_nr	malignant CLDN4 vs B/Plasma fraction	mal_CLDN4_mean	16	spearman_rho	0.138235294117647	0.6096659407501827	R+NR only
 GSE205335	response_recist_nsclc	NR vs R (ADC+SQ only)	mal_TACSTD2_mean	4+8	mannwhitney_u	22.0	0.3676767676767677	sensitivity; SCLC/NUT excluded
-GSE205335	spearman_nsclc	malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	12	spearman_rho	-0.02097902097902098	0.9484022252365222	ADC+SQ R+NR
-GSE205335	response_recist_nsclc	NR vs R (ADC+SQ only)	mal_CLDN4_mean	4+8	mannwhitney_u	17.0	0.9333333333333333	sensitivity; SCLC/NUT excluded
-GSE205335	spearman_nsclc	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	12	spearman_rho	-0.08391608391608392	0.7954145018538978	ADC+SQ R+NR
+GSE205335	spearman_nsclc	malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	12	spearman_rho	-0.0209790209790209	0.9484022252365222	ADC+SQ R+NR
+GSE205335	response_recist_nsclc	NR vs R (ADC+SQ only)	mal_CLDN4_mean	4+8	mannwhitney_u	17.0	0.9333333333333332	sensitivity; SCLC/NUT excluded
+GSE205335	spearman_nsclc	malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	12	spearman_rho	-0.0839160839160839	0.7954145018538978	ADC+SQ R+NR
 GSE205335	compartment	malignant vs T/NK TACSTD2 (paired patient)	mal_TACSTD2_mean	22	wilcoxon_w	0.0	4.76837158203125e-07	mal med=0.9292; T/NK med=0.0207
+GSE131907	compartment_cell	epithelial vs T/NK	TACSTD2_log1p_umi	36467+91227	mannwhitney_u	2891819584.5	0.0	exploratory cell-level; TACSTD2 epi/mal med=1.099 T/NK med=0.000; %pos 74.5 vs 1.6
+GSE131907	compartment_cell	malignant vs T/NK	TACSTD2_log1p_umi	24784+91227	mannwhitney_u	1937102774.5	0.0	exploratory cell-level; TACSTD2 epi/mal med=1.099 T/NK med=0.000; %pos 72.1 vs 1.6
+GSE131907	compartment_cell	epithelial vs T/NK (tLung)	TACSTD2_log1p_umi	7270+19591	mannwhitney_u	131847047.5	0.0	exploratory cell-level; TACSTD2 epi/mal med=1.792 T/NK med=0.000; %pos 86.0 vs 3.2
+GSE131907	compartment_cell	epithelial vs T/NK	CLDN4_log1p_umi	36467+91227	mannwhitney_u	3045919508.5	0.0	exploratory cell-level; CLDN4 epi/mal med=1.609 T/NK med=0.000; %pos 83.6 vs 1.7
+GSE131907	compartment_cell	malignant vs T/NK	CLDN4_log1p_umi	24784+91227	mannwhitney_u	2089379553.0	0.0	exploratory cell-level; CLDN4 epi/mal med=1.792 T/NK med=0.000; %pos 85.2 vs 1.7
+GSE131907	compartment_cell	epithelial vs T/NK (tLung)	CLDN4_log1p_umi	7270+19591	mannwhitney_u	132010415.0	0.0	exploratory cell-level; CLDN4 epi/mal med=1.609 T/NK med=0.000; %pos 86.2 vs 3.0
+GSE131907	spearman_sample	tLung epithelial TACSTD2 vs T/NK fraction	epi_TACSTD2_mean	11	spearman_rho	0.0909090909090909	0.7903727377532903	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tLung epithelial TACSTD2 vs CD8 fraction	epi_TACSTD2_mean	11	spearman_rho	0.3818181818181818	0.2465595757789701	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tLung epithelial TACSTD2 vs B fraction	epi_TACSTD2_mean	11	spearman_rho	0.0272727272727272	0.936558448192612	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tLung epithelial CLDN4 vs T/NK fraction	epi_CLDN4_mean	11	spearman_rho	-0.0454545454545454	0.8944269969053026	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tLung epithelial CLDN4 vs CD8 fraction	epi_CLDN4_mean	11	spearman_rho	0.3363636363636363	0.3118243139003863	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tLung epithelial CLDN4 vs B fraction	epi_CLDN4_mean	11	spearman_rho	0.009090909090909	0.9788365001441937	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tumor_sites epithelial TACSTD2 vs T/NK fraction	epi_TACSTD2_mean	36	spearman_rho	0.168479310471792	0.325979079499522	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tumor_sites epithelial TACSTD2 vs CD8 fraction	epi_TACSTD2_mean	36	spearman_rho	0.2472488582248376	0.1459961038284803	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tumor_sites epithelial TACSTD2 vs B fraction	epi_TACSTD2_mean	36	spearman_rho	-0.0166033850655929	0.9234323922545452	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tumor_sites epithelial CLDN4 vs T/NK fraction	epi_CLDN4_mean	36	spearman_rho	-0.2102960102960103	0.218297133789915	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tumor_sites epithelial CLDN4 vs CD8 fraction	epi_CLDN4_mean	36	spearman_rho	-0.0944658944658944	0.5836780479358336	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tumor_sites epithelial CLDN4 vs B fraction	epi_CLDN4_mean	36	spearman_rho	-0.3003861003861004	0.0750636626165563	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	tumor_sites malignant TACSTD2 vs T/NK fraction	mal_TACSTD2_mean	21	spearman_rho	0.0818181818181818	0.7244098408074375	author Malignant cells subtype; mostly mets/PE
+GSE131907	spearman_sample	tumor_sites malignant CLDN4 vs T/NK fraction	mal_CLDN4_mean	21	spearman_rho	-0.396103896103896	0.0754763779504724	author Malignant cells subtype; mostly mets/PE
+GSE131907	spearman_sample	nLung epithelial TACSTD2 vs T/NK fraction	epi_TACSTD2_mean	11	spearman_rho	-0.2090909090909091	0.5372209352113227	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	nLung epithelial TACSTD2 vs CD8 fraction	epi_TACSTD2_mean	11	spearman_rho	0.0727272727272727	0.831716405381337	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	nLung epithelial TACSTD2 vs B fraction	epi_TACSTD2_mean	11	spearman_rho	0.6363636363636364	0.0352869812200623	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	nLung epithelial CLDN4 vs T/NK fraction	epi_CLDN4_mean	11	spearman_rho	0.2363636363636363	0.4840911622253965	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	nLung epithelial CLDN4 vs CD8 fraction	epi_CLDN4_mean	11	spearman_rho	0.4000000000000001	0.22286835013352	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	spearman_sample	nLung epithelial CLDN4 vs B fraction	epi_CLDN4_mean	11	spearman_rho	0.5	0.1173068030142381	not ICI-labeled; author annotations; log1p UMI; >=20 epi cells
+GSE131907	compartment_paired	tumor-site epithelial vs T/NK TACSTD2	epi_TACSTD2_mean	36	wilcoxon_w	1.0	2.703123552440088e-07	mal/epi med=1.348; T/NK med=0.020

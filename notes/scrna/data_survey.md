@@ -16,8 +16,8 @@ Only processed matrices. Files >2 GB skipped. T-sorted-only series skipped (GSE1
 
 | Accession | Why not primary |
 |---|---|
-| GSE131907 | NSCLC atlas (Kim/Lee). Treatment-naive / mixed; **not ICI-response labeled**. Raw UMI txt 390 MB OK; log2TPM txt **2.9 GB skipped**. |
-| GSE154826 | LCAM (Leader). MARS-seq amp_batch tarballs; not an ICI-response trial. |
+| GSE131907 | NSCLC atlas (Kim/Lee). Treatment-naive / mixed; **not ICI-response labeled**. Raw UMI txt 390 MB used as epithelial vs T/NK reference; log2TPM txt **2.9 GB skipped**. |
+| GSE154826 | LCAM (Leader). Sample annots have no ICI/RECIST/MPR; CD45-enriched LUAD/LUSC. Not an ICI-response trial. |
 
 ## Skipped by instruction
 

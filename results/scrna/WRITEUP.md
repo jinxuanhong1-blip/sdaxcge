@@ -1,13 +1,14 @@
 # Malignant TACSTD2 / CLDN4 vs T/NK and ICI response (scRNA)
 
-**Verdict:** TACSTD2 is **epithelial / malignant-restricted** (real, both cohorts). It is **not** significantly higher in ICI non-responders, and it is **not** anti-correlated with T/NK or CD8 at the claimed ρ ≈ −0.4 to −0.5. GSE207422 (MPR) is underpowered after the <10 malignant-cell rule (MPR n=2). GSE205335 (RECIST) is a null response test; TACSTD2 vs T/NK is weakly **positive** (ρ = +0.28 to +0.46), opposite the claim.
+**Verdict:** TACSTD2 is **epithelial / malignant-restricted** (real in GSE207422, GSE205335, and the GSE131907 atlas). It is **not** significantly higher in ICI non-responders, and it is **not** anti-correlated with T/NK or CD8 at the claimed ρ ≈ −0.4 to −0.5. GSE207422 (MPR) is underpowered after the <10 malignant-cell rule (MPR n=2). GSE205335 (RECIST) is a null response test; TACSTD2 vs T/NK is weakly **positive** (ρ = +0.28 to +0.46), opposite the claim. GSE131907 (no ICI labels) sample-level epi TACSTD2 vs T/NK is also null (tLung n=11 ρ=+0.09; tumor sites n=36 ρ=+0.17).
 
 ## 中文摘要
 
 在两个公开人 NSCLC ICI 单细胞队列里，**TACSTD2 明确限制在恶性/上皮细胞**（相对 T/NK：GSE207422 n=9，Wilcoxon p=0.0039；GSE205335 n=22，p=4.8×10⁻⁷）。  
 **GSE207422（新辅助 PD-1+化疗，MPR）**：术后样本中恶性样细胞 TACSTD2，MPR n=2 vs NMPR n=7，Mann–Whitney p=0.50；与 T/NK 分数 Spearman n=9，ρ=+0.17，p=0.67。不支持 ρ≈−0.4～−0.5。MPR 样本恶性细胞很少，按作者 <10 细胞规则会丢掉 2/4 个 MPR，检验力不足。  
 **GSE205335（姑息 ICI，仅 RECIST，不是 MPR）**：恶性 TACSTD2，PR n=6 vs SD/PD n=10，p=0.96；与 T/NK n=22，ρ=+0.28，p=0.20。CLDN4 与 CD8 在 R+NR（n=16）有负向趋势（ρ=−0.43，p=0.097），未过 0.05。  
-数字全部从 GEO 处理后的 UMI 矩阵当场计算，没有编造 accession 或 p 值。
+**GSE131907（LUAD 图谱，无 ICI 标签）**：上皮 vs T/NK TACSTD2 %pos 74.5 vs 1.6；样本水平 tLung n=11 ρ=+0.09，p=0.79。  
+GSE271689 GEO 只有 RTS 探针 DCC，没有基因注释和 OS；GSE154826 无 ICI 疗效标签。数字全部从 GEO 处理后的矩阵当场计算。
 
 ## Question
 
@@ -19,8 +20,9 @@ In **malignant / epithelial cells only**, is TACSTD2 (Trop-2) or CLDN4 (i) highe
 |---|---|---|---|---|
 | **GSE207422** | Neoadjuvant PD-1 + chemo, stage IIIA NSCLC (Hu et al. *Genome Med* 2023, PMID 36869384) | **MPR / pCR / NMPR** (+ RECIST) | 92,330 (all UMI ≥ 200) | Marker proxy: epithelial-lineage **and** normal-lung score ≤ 75th percentile of epithelial cells. GEO has **no** CopyKAT labels. |
 | **GSE205335** | Palliative lung ICI atlas | **RECIST** PR / SD / PD / NE. **No MPR field** | 96,505 | Authors’ published `lineage.sub == Malignant cells` (28,512 cells). Normal tissues excluded from tests. |
+| **GSE131907** | LUAD atlas (Kim et al. *Nat Commun* 2020, PMID 32385277) | **None** (treatment-naive / mixed; not an ICI trial) | 208,506 | Author `Cell_type == Epithelial cells` (36,467) and `Cell_subtype == Malignant cells` (24,784; mets/PE). |
 
-Skipped as instructed: T-sorted-only (GSE176022, GSE99254); files >2 GB (GSE131907 log2TPM txt 2.9 GB; LuCA h5ad). GSE131907 atlas and GSE154826 LCAM are not ICI-response labeled. GSE271689 GEO suppl is NanoString **DCC-only** (no processed gene × ROI matrix + OS table in the series), so it was not forced into a fake survival analysis.
+Skipped as instructed: T-sorted-only (GSE176022, GSE99254); files >2 GB (GSE131907 log2TPM txt 2.9 GB; LuCA h5ad). **GSE154826** LCAM annots have no ICI/RECIST/MPR field (CD45-enriched LUAD/LUSC). **GSE271689** GEO SOFT has `treatment=Immunotherapy` and CK/CD45/CD68 segments, but DCC rows are **RTS probe IDs** with no gene map and **no OS/PFS** — not analyzed.
 
 ## Methods (sample / patient is the unit)
 
@@ -30,6 +32,7 @@ Skipped as instructed: T-sorted-only (GSE176022, GSE99254); files >2 GB (GSE1319
 - GSE205335: **patient** unit; ≥20 malignant cells; PR = R, SD/PD = NR; NE kept only in “all evaluable” Spearman.
 - Tests: two-sided Mann–Whitney U and Spearman. Cell-level tests are exploratory (pseudoreplication).
 - GSE207422 lineages are a marker argmax, **not** CopyKAT. That is a real limitation.
+- GSE131907: author annotations; metric = mean **log1p(raw UMI)** and %pos (library-size CP10K not computed; panel-only extract). Not an ICI-response test.
 
 ## GSE207422 results (MPR)
 
@@ -79,6 +82,23 @@ RECIST is **not** substituted for MPR. Cohort includes SCLC and NUT; NSCLC-only 
 1. **Compartment:** TACSTD2 (and CLDN4) live in malignant / epithelial cells, not T/NK. This is the only robust result.
 2. **Response and infiltration claims are not supported** at sample/patient level with honest n. GSE207422 is too small after the malignant-cell gate. GSE205335 TACSTD2–T/NK/CD8 trends are **positive**, not negative.
 3. CLDN4 vs CD8 in GSE205335 R+NR (ρ=−0.43, p=0.097) is the only infiltration trend in the claimed direction; it is not significant and was not pre-specified as the primary.
+4. GSE131907 confirms compartment restriction in a large annotated atlas and again fails to show sample-level TACSTD2–T/NK anti-correlation.
+
+## GSE131907 results (atlas; not ICI)
+
+208,506 cells, author labels. Epithelial 36,467; malignant subtype 24,784 (almost all mets/PE, **none in tLung**); T/NK 91,227. EPCAM %pos 82.5 (epi) vs 1.5 (T/NK); PTPRC 3.2 vs 67.7.
+
+| Test | n | Stat | p |
+|---|---|---|---|
+| Epithelial vs T/NK TACSTD2 (cells) | 36,467+91,227 | %pos 74.5 vs 1.6; med log1p UMI 1.10 vs 0 | **<1e-300** (exploratory) |
+| tLung epi vs T/NK TACSTD2 (cells) | 7,270+19,591 | %pos 86.0 vs 3.2 | **<1e-300** (exploratory) |
+| Paired tumor-site epi vs T/NK TACSTD2 | 36 samples | W=1; med 1.35 vs 0.02 | **2.7×10⁻⁷** |
+| tLung epi TACSTD2 vs T/NK fraction | 11 | ρ = **+0.091** | 0.79 |
+| Tumor-site epi TACSTD2 vs T/NK | 36 | ρ = **+0.168** | 0.33 |
+| Tumor-site malignant TACSTD2 vs T/NK | 21 | ρ = +0.082 | 0.72 |
+| Tumor-site malignant CLDN4 vs T/NK | 21 | ρ = −0.396 | 0.076 |
+
+No ICI / MPR / RECIST labels. Does not support ρ ≈ −0.4 vs T/NK at the sample level.
 
 ## Figures
 
@@ -90,8 +110,11 @@ RECIST is **not** substituted for MPR. Cohort includes SCLC and NUT; NSCLC-only 
 - `gse205335_mal_tacstd2_cldn4_vs_recist.png`
 - `gse205335_mal_tacstd2_vs_immune.png`
 - `gse205335_mal_cldn4_vs_immune.png`
+- `gse131907_compartment.png`
+- `gse131907_epi_tacstd2_vs_tnk.png`
+- `gse131907_tacstd2_by_celltype.png`
 
-Tables: `gse207422_sample_table.tsv`, `gse205335_patient_table.tsv`, `stats.tsv`.
+Tables: `gse207422_sample_table.tsv`, `gse205335_patient_table.tsv`, `gse131907_sample_table.tsv`, `stats.tsv`.
 
 ## Reproducibility
 
@@ -100,6 +123,7 @@ bash scripts/scrna/00_download.sh
 python3 scripts/scrna/01_extract_gse207422.py
 python3 scripts/scrna/02_extract_gse205335.py
 python3 scripts/scrna/03_analyze.py
+python3 scripts/scrna/04_gse131907_atlas.py
 ```
 
 Raw matrices stay in `/tmp/scrna_data/` (not committed). Gene panel: `scripts/scrna/gene_panel.tsv`.
