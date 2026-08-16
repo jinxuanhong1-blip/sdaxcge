@@ -1,0 +1,53 @@
+{
+  "ici_labels": "none \u2014 CPTAC LUAD/LSCC discovery cohorts are treatment-naive surgical resections",
+  "protein_matrix": "gene abundance log2 reference-intensity normalized Tumor, freeze v1.2",
+  "immune_scores": "same-freeze phenotype table (ESTIMATE/xCell/CIBERSORT; RNA-derived)",
+  "n_LUAD": 110,
+  "n_LSCC": 108,
+  "missingness": [
+    {
+      "cohort": "LSCC",
+      "gene": "TACSTD2",
+      "n_tumor": 108,
+      "n_observed": 108,
+      "n_NA": 0,
+      "pct_NA": 0.0,
+      "min": 24.7263245301587,
+      "median": 26.86571246167705,
+      "max": 28.783787445002
+    },
+    {
+      "cohort": "LSCC",
+      "gene": "CLDN4",
+      "n_tumor": 108,
+      "n_observed": 78,
+      "n_NA": 30,
+      "pct_NA": 27.77777777777778,
+      "min": 21.5292435671238,
+      "median": 23.34019422656705,
+      "max": 24.7252071327146
+    },
+    {
+      "cohort": "LUAD",
+      "gene": "TACSTD2",
+      "n_tumor": 110,
+      "n_observed": 110,
+      "n_NA": 0,
+      "pct_NA": 0.0,
+      "min": 25.2510764671596,
+      "median": 26.533548728417998,
+      "max": 28.1376722108752
+    },
+    {
+      "cohort": "LUAD",
+      "gene": "CLDN4",
+      "n_tumor": 110,
+      "n_observed": 79,
+      "n_NA": 31,
+      "pct_NA": 28.181818181818183,
+      "min": 21.4349671016967,
+      "median": 23.0710721901358,
+      "max": 24.9609243822922
+    }
+  ]
+}

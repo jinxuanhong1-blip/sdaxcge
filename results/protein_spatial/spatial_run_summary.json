@@ -1,0 +1,35 @@
+{
+  "GSE271689": {
+    "panel_name": "Human NGS Whole Transcriptome Atlas RNA",
+    "n_WTA_targets": 18677,
+    "panel_has_TACSTD2": true,
+    "panel_has_CLDN4": true,
+    "rts_TACSTD2": [
+      "RTS0027086"
+    ],
+    "rts_CLDN4": [
+      "RTS0026256"
+    ],
+    "n_AOI_after_NTC_filter": 579,
+    "cell_types": [
+      "CD45",
+      "CD68",
+      "CK"
+    ],
+    "treatment_values": [
+      "Immunotherapy"
+    ],
+    "OS_fields_in_GEO": [],
+    "OS_available": false,
+    "note": "GEO series matrix/SOFT have spotid, tissue, cell type, treatment=immunotherapy only. No OS/PFS columns."
+  },
+  "E-MTAB-13530": {
+    "n_h5_sections": 40,
+    "both_genes_in_WTA_matrix": true,
+    "n_tumor_sections": 20,
+    "n_adjacent_sections": 16,
+    "n_healthy_sections": 4,
+    "ICI_labels": false,
+    "note": "Visium WTA processed Space Ranger h5. Study is NSCLC lesions + adjacent + donors; no ICI labels in SDRF."
+  }
+}
