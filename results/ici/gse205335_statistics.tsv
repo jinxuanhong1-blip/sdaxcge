@@ -1,0 +1,16 @@
+analysis	feature	n	n_group1	n_group2	effect	effect_definition	rho	hr	p	q_bh
+core malignant score; non-responder vs PR	TACSTD2	11	7.0	4.0	-0.3894556257774582	median(SD+PD)-median(PR), mean log1p UMI/cell			0.4121212121212121	0.9709714427595814
+core malignant score; PD vs PR	TACSTD2	9	5.0	4.0	-0.3894556257774582	median(PD)-median(PR), mean log1p UMI/cell			0.5555555555555556	0.9709714427595814
+core malignant TACSTD2 vs tnk_fraction_all_cells	TACSTD2	11				Spearman rho	-0.06363636363636364		0.8525390725425217	0.9709714427595814
+core malignant TACSTD2 vs tnk_fraction_non_malignant	TACSTD2	11				Spearman rho	0.17272727272727276		0.6115423848512369	0.9709714427595814
+core malignant TACSTD2 vs malignant_ifn_mhci_mean_log1p	TACSTD2	11				Spearman rho	-0.46363636363636374		0.15090149929248592	0.7545074964624296
+core malignant score; PFS Cox per SD	TACSTD2	11	8.0			Cox HR per 1 SD		0.9852458957197495	0.9709714427595814	0.9709714427595814
+core malignant score; PFS median-split log-rank	TACSTD2	11	6.0	5.0		log-rank high vs low			0.5648884756588274	0.9709714427595814
+core malignant score; non-responder vs PR	CLDN4	11	7.0	4.0	0.05326599133958054	median(SD+PD)-median(PR), mean log1p UMI/cell			0.7878787878787878	0.9709714427595814
+core malignant score; PD vs PR	CLDN4	9	5.0	4.0	0.05326599133958054	median(PD)-median(PR), mean log1p UMI/cell			0.7301587301587302	0.9709714427595814
+core malignant CLDN4 vs tnk_fraction_all_cells	CLDN4	11				Spearman rho	-0.02727272727272728		0.9365584481926121	0.9709714427595814
+core malignant CLDN4 vs tnk_fraction_non_malignant	CLDN4	11				Spearman rho	0.02727272727272728		0.9365584481926121	0.9709714427595814
+core malignant CLDN4 vs malignant_ifn_mhci_mean_log1p	CLDN4	11				Spearman rho	-0.5181818181818182		0.1024915397909638	0.7545074964624296
+core malignant score; PFS Cox per SD	CLDN4	11	8.0			Cox HR per 1 SD		1.3213199947791014	0.4407515542190181	0.9709714427595814
+core malignant score; PFS median-split log-rank	CLDN4	11	6.0	5.0		log-rank high vs low			0.5554245630568342	0.9709714427595814
+core malignant TACSTD2 vs CLDN4	TACSTD2~CLDN4	11				Spearman rho	0.7727272727272727		0.005299487178643862	0.07949230767965793

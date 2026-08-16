@@ -1,0 +1,16 @@
+dataset	analysis	feature	n	n_group1	n_group2	effect	effect_definition	rho	p	q_bh
+GSE207422 scRNA	post-treatment epithelial/PTPRC-negative gate; NMPR vs MPR/pCR	TACSTD2	12	8.0	4.0	0.15362532077560065	median(NMPR)-median(MPR/pCR), mean log1p UMI/cell		0.5696969696969697	0.6573426573426573
+GSE207422 scRNA	post-treatment epithelial/PTPRC-negative gate; NMPR vs MPR/pCR	CLDN4	12	8.0	4.0	-0.1379848639535921	median(NMPR)-median(MPR/pCR), mean log1p UMI/cell		0.2828282828282829	0.3535353535353536
+GSE207422 scRNA	post-treatment patient-level TACSTD2_malignant_mean_log1p vs tnk_fraction_all_cells	TACSTD2	12				Spearman rho	-0.06993006993006995	0.8290236405313092	0.8290236405313092
+GSE207422 scRNA	post-treatment patient-level CLDN4_malignant_mean_log1p vs tnk_fraction_all_cells	CLDN4	12				Spearman rho	-0.1188811188811189	0.712884219214772	0.7638045205872557
+GSE207422 scRNA	post-treatment patient-level TACSTD2_malignant_mean_log1p vs malignant_ifn_mhci_mean_log1p	TACSTD2	12				Spearman rho	0.5944055944055945	0.04152149441031857	0.06920249068386428
+GSE207422 scRNA	post-treatment patient-level CLDN4_malignant_mean_log1p vs malignant_ifn_mhci_mean_log1p	CLDN4	12				Spearman rho	0.5244755244755246	0.08001937592027474	0.1200290638804121
+TCGA-LUAD	partial Spearman; adjusted for ABSOLUTE purity	TACSTD2	497				partial Spearman rho	-0.1016678451644142	0.023549052476961436	0.044154473394302694
+TCGA-LUAD	partial Spearman; adjusted for ABSOLUTE purity	CLDN4	497				partial Spearman rho	-0.13727959516500904	0.0021827706144517413	0.0046773656023965885
+TCGA-LUAD	partial Spearman; adjusted for ABSOLUTE purity	TACSTD2~CLDN4	497				partial Spearman rho	0.4544590950328295	1.1958645542639708e-26	1.7937968313959562e-25
+TCGA-LUSC	partial Spearman; adjusted for ABSOLUTE purity	TACSTD2	479				partial Spearman rho	-0.20714940412698604	4.954145617228699e-06	1.2385364043071747e-05
+TCGA-LUSC	partial Spearman; adjusted for ABSOLUTE purity	CLDN4	479				partial Spearman rho	-0.058854605582309094	0.1989686976893572	0.271320951394578
+TCGA-LUSC	partial Spearman; adjusted for ABSOLUTE purity	TACSTD2~CLDN4	479				partial Spearman rho	0.39078575416948974	6.875025441571484e-19	5.156269081178613e-18
+OncoSG-LUAD	unadjusted Spearman; TACSTD2 vs T/NK z-score	TACSTD2	169				Spearman rho	-0.42799462980458464	6.460660767653445e-09	1.9381982302960334e-08
+OncoSG-LUAD	unadjusted Spearman; CLDN4 vs T/NK z-score	CLDN4	169				Spearman rho	-0.52615732683606	2.0339350507773347e-13	1.0169675253886673e-12
+OncoSG-LUAD	unadjusted Spearman; TACSTD2 vs CLDN4	TACSTD2~CLDN4	169				Spearman rho	0.5046094177315896	2.6471173177242266e-12	9.92668994146585e-12
