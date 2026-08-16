@@ -1,0 +1,104 @@
+{
+  "tacstd2_official_64": {
+    "n": 64,
+    "n_up": 49,
+    "n_down": 15,
+    "n_tie": 0,
+    "frac_up": 0.765625,
+    "binom_two_sided_p": 2.436457216293327e-05,
+    "binom_greater_p": 1.2182286081466635e-05,
+    "wilcoxon_two_sided_p": 5.8398482923347564e-05,
+    "mean_delta": 0.25596508868510365,
+    "median_delta": 0.11606931339508711,
+    "n_models": 17,
+    "n_studies": 22,
+    "n_lung_groups": 2
+  },
+  "tacstd2_lung_only": {
+    "n": 2,
+    "n_up": 2,
+    "n_down": 0,
+    "n_tie": 0,
+    "frac_up": 1.0,
+    "binom_two_sided_p": 0.5,
+    "binom_greater_p": 0.25,
+    "wilcoxon_two_sided_p": 0.5,
+    "mean_delta": 0.4286117432612462,
+    "median_delta": 0.4286117432612462
+  },
+  "tacstd2_non_lung": {
+    "n": 62,
+    "n_up": 47,
+    "n_down": 15,
+    "n_tie": 0,
+    "frac_up": 0.7580645161290323,
+    "binom_two_sided_p": 5.778372004920304e-05,
+    "binom_greater_p": 2.889186002460152e-05,
+    "wilcoxon_two_sided_p": 0.00013479478335565954,
+    "mean_delta": 0.25039584176329255,
+    "median_delta": 0.08763152728891055
+  },
+  "tacstd2_collapse_cell_line": {
+    "n": 17,
+    "n_up": 14,
+    "n_down": 3,
+    "n_tie": 0,
+    "frac_up": 0.8235294117647058,
+    "binom_two_sided_p": 0.012725830078125,
+    "binom_greater_p": 0.0063629150390625,
+    "wilcoxon_two_sided_p": 0.00384521484375,
+    "mean_delta": 0.28574080434076615,
+    "median_delta": 0.1613987199705567
+  },
+  "tacstd2_collapse_study": {
+    "n": 22,
+    "n_up": 18,
+    "n_down": 4,
+    "n_tie": 0,
+    "frac_up": 0.8181818181818182,
+    "binom_two_sided_p": 0.004343509674072266,
+    "binom_greater_p": 0.002171754837036133,
+    "wilcoxon_two_sided_p": 0.004151344299316406,
+    "mean_delta": 0.21949744948069813,
+    "median_delta": 0.11718060627460714
+  },
+  "cldn4_native_groups": {
+    "n": 65,
+    "n_up": 34,
+    "n_down": 29,
+    "n_tie": 2,
+    "frac_up": 0.5230769230769231,
+    "binom_two_sided_p": 0.6146550157654618,
+    "binom_greater_p": 0.3073275078827309,
+    "wilcoxon_two_sided_p": 0.1234693559268815,
+    "mean_delta": 0.11283222629348492,
+    "median_delta": 0.017317774064741366,
+    "extra_vs_tacstd2": [
+      "MOC22_RU31562203_antiPD1"
+    ]
+  },
+  "cldn4_on_tacstd2_64_stems": {
+    "n": 64,
+    "n_up": 34,
+    "n_down": 28,
+    "n_tie": 2,
+    "frac_up": 0.53125,
+    "binom_two_sided_p": 0.52577336017565,
+    "binom_greater_p": 0.262886680087825,
+    "wilcoxon_two_sided_p": 0.07785245359948166,
+    "mean_delta": 0.12519646640198,
+    "median_delta": 0.03995156983503673
+  },
+  "cldn4_lung_only": {
+    "n": 2,
+    "n_up": 2,
+    "n_down": 0,
+    "n_tie": 0,
+    "frac_up": 1.0,
+    "binom_two_sided_p": 0.5,
+    "binom_greater_p": 0.25,
+    "wilcoxon_two_sided_p": 0.5,
+    "mean_delta": 0.20714677084783334,
+    "median_delta": 0.20714677084783334
+  }
+}
