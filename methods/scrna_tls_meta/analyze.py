@@ -52,6 +52,38 @@ def log1p_cp10k(umi: np.ndarray, lib: np.ndarray) -> np.ndarray:
     return out
 
 
+def partial_spearman(x, y, z, contrast: str, cohort: str) -> dict:
+    """Spearman of residuals after OLS of ranks(x), ranks(y) on ranks(z)."""
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    z = np.asarray(z, dtype=float)
+    m = np.isfinite(x) & np.isfinite(y) & np.isfinite(z)
+    x, y, z = x[m], y[m], z[m]
+    rec = {
+        "cohort": cohort,
+        "contrast": contrast,
+        "n": int(len(x)),
+        "spearman_rho": np.nan,
+        "spearman_p": np.nan,
+        "note": "partial_on_epi_fraction",
+    }
+    if len(x) < MIN_N_SPEARMAN:
+        rec["note"] = "underpowered; inconclusive"
+        return rec
+    rx, ry, rz = stats.rankdata(x), stats.rankdata(y), stats.rankdata(z)
+    A = np.column_stack([np.ones(len(x)), rz])
+    bx, *_ = np.linalg.lstsq(A, rx, rcond=None)
+    by, *_ = np.linalg.lstsq(A, ry, rcond=None)
+    ex, ey = rx - A @ bx, ry - A @ by
+    if np.unique(ex).size < 2 or np.unique(ey).size < 2:
+        rec["note"] = "no_variance"
+        return rec
+    rho, p = stats.pearsonr(ex, ey)
+    rec["spearman_rho"] = float(rho)
+    rec["spearman_p"] = float(p)
+    return rec
+
+
 def spearman(x, y, contrast: str, cohort: str) -> dict:
     x = np.asarray(x, dtype=float)
     y = np.asarray(y, dtype=float)
@@ -160,7 +192,14 @@ def patient_table(df: pd.DataFrame, cohort: str) -> pd.DataFrame:
         mal = g[g["is_malignant"].astype(bool)]
         epi = g[g["lineage"].astype(str).eq("epithelial") | g["lineage"].astype(str).eq("gate")]
         use = mal if len(mal) >= MIN_MAL else epi
-        compartment = "malignant" if len(mal) >= MIN_MAL else ("epithelial_or_gate" if len(use) >= MIN_MAL else "insufficient")
+        if len(use) < MIN_MAL:
+            compartment = "insufficient"
+        elif (use["lineage"].astype(str) == "gate").mean() >= 0.5:
+            compartment = "gate"
+        elif len(mal) >= MIN_MAL:
+            compartment = "malignant"
+        else:
+            compartment = "epithelial"
         n_b = int((g["lineage"].astype(str) == "B").sum())
         n_plasma = int((g["lineage"].astype(str) == "plasma").sum())
         rec = {
@@ -173,6 +212,7 @@ def patient_table(df: pd.DataFrame, cohort: str) -> pd.DataFrame:
             "n_plasma": n_plasma,
             "frac_B": n_b / n if n else np.nan,
             "frac_B_plasma": (n_b + n_plasma) / n if n else np.nan,
+            "frac_epithelial": float(((g["lineage"].astype(str) == "epithelial") | (g["lineage"].astype(str) == "gate")).mean()) if n else np.nan,
             "compartment": compartment,
             "eligible": compartment != "insufficient",
         }
@@ -271,6 +311,14 @@ def forest_plot(stats_df: pd.DataFrame, contrast: str, meta: dict, dest: Path) -
     for i, (lab, rho, n) in enumerate(zip(labels, rhos, ns)):
         color = "#1f4e79" if i < len(sub) else "#8b1e1e"
         if np.isfinite(rho):
+            # Fisher-z 95% CI for cohort rows; meta CI if present
+            if i < len(sub) and n >= 4:
+                se = 1.0 / math.sqrt(n - 3.0)
+                lo, hi = math.tanh(fisher_z(rho) - 1.96 * se), math.tanh(fisher_z(rho) + 1.96 * se)
+            else:
+                lo, hi = meta.get("ci_lo", rho), meta.get("ci_hi", rho)
+            if np.isfinite(lo) and np.isfinite(hi):
+                ax.plot([lo, hi], [y[i], y[i]], color=color, lw=1.4)
             ax.plot(rho, y[i], "o", color=color, ms=7)
             ax.text(1.02, y[i], f"n={int(n)}  ρ={rho:.3f}", va="center", fontsize=8, transform=ax.get_yaxis_transform())
         else:
@@ -301,6 +349,24 @@ def writeup(text_path: Path, payload: dict) -> None:
     lines.append("**Slice:** `methods|scripts|results/scrna_tls_meta/` only.")
     lines.append("**Additive.** User A6 / B6 immune-cold is taken as given and is not re-cut.")
     lines.append("**ICI labels:** not the estimand. This slice cannot test ICI benefit or histologic TLS.")
+    lines.append("")
+    lines.append("### TL;DR (per-feature, not a pooled overclaim)")
+    lines.append("")
+    t2b = payload["meta"]["TACSTD2 vs B fraction"]
+    t2t = payload["meta"]["TACSTD2 vs TLS12"]
+    c4b = payload["meta"]["CLDN4 vs B fraction"]
+    c4t = payload["meta"]["CLDN4 vs TLS12"]
+
+    def _meta_s(m):
+        if not np.isfinite(m.get("rho", np.nan)):
+            return "NA"
+        return f"k={m['k']} n={m['n_total']} ρ={m['rho']:+.3f} (95% CI {m['ci_lo']:+.3f} to {m['ci_hi']:+.3f}) p={m['p']:.3g} τ²={m['tau2']:.3f}"
+
+    lines.append(f"- TACSTD2 vs B fraction RE-meta: {_meta_s(t2b)}. Heterogeneous; not a general inverse.")
+    lines.append(f"- TACSTD2 vs TLS12 RE-meta: {_meta_s(t2t)}. Not a general inverse.")
+    lines.append(f"- CLDN4 vs B fraction RE-meta: {_meta_s(c4b)}.")
+    lines.append(f"- CLDN4 vs TLS12 RE-meta: {_meta_s(c4t)}.")
+    lines.append("- A6/B6 T-cell immune-cold is taken as given and is not tested here.")
     lines.append("")
     lines.append("### What was tested")
     lines.append("")
@@ -338,13 +404,41 @@ def writeup(text_path: Path, payload: dict) -> None:
         ci = ""
         if np.isfinite(m.get("ci_lo", np.nan)):
             ci = f" (95% CI {m['ci_lo']:+.3f} to {m['ci_hi']:+.3f})"
-        lines.append(f"| RE meta k={m.get('k')} n={m.get('n_total')} | {m.get('n_total')} | {rho_s}{ci} | {p_s} | τ²={m.get('tau2')} {m.get('note','')} |")
+        tau = m.get("tau2")
+        tau_s = "" if not np.isfinite(tau) else f"τ²={tau:.3f}"
+        lines.append(f"| RE meta k={m.get('k')} n={m.get('n_total')} | {m.get('n_total')} | {rho_s}{ci} | {p_s} | {tau_s} {m.get('note','')} |")
         lines.append("")
+    lines.append("### Sensitivity: partial Spearman residualizing epithelial fraction")
+    lines.append("")
+    lines.append("Composition check. `frac_B` can fall when more epithelial cells are captured. Ranks of x and y are residualized on ranks of epithelial/gate fraction.")
+    lines.append("")
+    lines.append("| Contrast | Cohort | n | ρ | p |")
+    lines.append("|---|---|---:|---:|---:|")
+    for r in payload["stats"]:
+        if "given epi fraction" not in r["contrast"]:
+            continue
+        rho = r["spearman_rho"]
+        p = r["spearman_p"]
+        rho_s = "NA" if not np.isfinite(rho) else f"{rho:+.3f}"
+        p_s = "NA" if not np.isfinite(p) else f"{p:.3g}"
+        lines.append(f"| {r['contrast']} | {r['cohort']} | {r['n']} | {rho_s} | {p_s} |")
+    lines.append("")
     lines.append("### Extra: TLS at single-cell")
     lines.append("")
     lines.append("CXCL13+ / MS4A1+ detection by lineage. This is not a follicle or spatial TLS call.")
     lines.append("")
-    lines.append("See `tables/tls_single_cell.tsv`.")
+    lines.append("See `tables/tls_single_cell.tsv`. CXCL13+ is T-enriched in mixed TME objects; MS4A1+ is B-restricted. GSE154826 TLS12 is scored inside a CD45-bead library (immune-internal), not a dissociated whole-tumor fraction.")
+    lines.append("")
+    lines.append("| Cohort | lineage | n_cells | CXCL13 %pos | MS4A1 %pos |")
+    lines.append("|---|---|---:|---:|---:|")
+    for r in payload.get("tls_sc", []):
+        if r.get("lineage") not in {"T", "B", "ALL", "gate"}:
+            continue
+        c13 = r.get("CXCL13_pct_pos")
+        ms = r.get("MS4A1_pct_pos")
+        c13s = "NA" if c13 is None or (isinstance(c13, float) and (c13 != c13)) else f"{float(c13):.2f}"
+        mss = "NA" if ms is None or (isinstance(ms, float) and (ms != ms)) else f"{float(ms):.2f}"
+        lines.append(f"| {r['cohort']} | {r['lineage']} | {r['n_cells']} | {c13s} | {mss} |")
     lines.append("")
     lines.append("### Caveats")
     lines.append("")
@@ -451,6 +545,24 @@ def main() -> int:
             stats_rows.append(spearman(use["cldn4_mal_mean_log1p_cp10k"], use["cxcl13_mean_log1p_cp10k"], "CLDN4 vs CXCL13 mean", cohort))
             stats_rows.append(spearman(use["cldn4_mal_mean_log1p_cp10k"], use["ms4a1_mean_log1p_cp10k"], "CLDN4 vs MS4A1 mean", cohort))
             stats_rows.append(spearman(use["tacstd2_mal_mean_log1p_cp10k"], use["frac_B_plasma"], "TACSTD2 vs B+plasma fraction", cohort))
+            stats_rows.append(
+                partial_spearman(
+                    use["tacstd2_mal_mean_log1p_cp10k"],
+                    use["frac_B"],
+                    use["frac_epithelial"],
+                    "TACSTD2 vs B fraction given epi fraction",
+                    cohort,
+                )
+            )
+            stats_rows.append(
+                partial_spearman(
+                    use["cldn4_mal_mean_log1p_cp10k"],
+                    use["tls12_z"],
+                    use["frac_epithelial"],
+                    "CLDN4 vs TLS12 given epi fraction",
+                    cohort,
+                )
+            )
 
     stats_df = pd.DataFrame(stats_rows)
     # FDR on primary only
@@ -523,6 +635,7 @@ def main() -> int:
         return o
 
     (out / "summary.json").write_text(json.dumps(_clean(payload), indent=2) + "\n")
+    payload["tls_sc"] = sc.to_dict(orient="records") if not sc.empty else []
     writeup(out / "WRITEUP.md", payload)
     # also drop a pointer in methods/
     (ROOT / "methods" / "scrna_tls_meta" / "RESULTS_POINTER.md").write_text(

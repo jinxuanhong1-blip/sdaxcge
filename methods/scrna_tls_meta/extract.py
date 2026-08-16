@@ -261,15 +261,16 @@ def extract_gse207422(data: Path, out: Path) -> None:
     )
 
 
-def _map_241934_lineage(major: str) -> str:
-    t = str(major).lower()
+def _map_241934_lineage(major: str, fine: str = "") -> str:
+    fine_l = str(fine).lower()
+    if "plasma" in fine_l:
+        return "plasma"
+    t = str(major).strip().lower()
     if t in {"epi", "epithelial", "cancer", "tumor", "malig", "malignant"}:
         return "epithelial"
-    if t.startswith("b") or "bcell" in t or t in {"b", "b_cell", "b-cell"}:
+    if t in {"b", "bcell", "b_cell", "b-cell"} or t.startswith("b"):
         return "B"
-    if "plasma" in t:
-        return "plasma"
-    if t in {"t", "tcell", "t_cell"} or t.startswith("t "):
+    if t in {"t", "tcell", "t_cell"} or t.startswith("t"):
         return "T"
     if t in {"nk", "nkcell"}:
         return "NK"
@@ -334,6 +335,7 @@ def extract_gse241934_split(data: Path, out: Path, split: str) -> None:
         if c in meta.columns:
             major_col = c
             break
+    fine_col = "cell.type" if "cell.type" in meta.columns else None
     meta_idx = meta.set_index(meta[key].astype(str))
     # also index by barcode suffix
     if "cellID" in meta.columns:
@@ -368,8 +370,9 @@ def extract_gse241934_split(data: Path, out: Path, split: str) -> None:
         patient.append(str(row[sid_col]))
         sample.append(str(row[sid_col]))
         maj = str(row[major_col]) if major_col else ""
+        fine = str(row[fine_col]) if fine_col else ""
         major_vals.append(maj)
-        lin = _map_241934_lineage(maj)
+        lin = _map_241934_lineage(maj, fine)
         lineage.append(lin)
         is_mal.append(lin == "epithelial")
         lib2.append(float(row["nCount_RNA"]) if "nCount_RNA" in row.index else float("nan"))
@@ -413,7 +416,11 @@ def extract_gse148071(data: Path, out: Path) -> None:
                 text_fh = io.TextIOWrapper(io.BytesIO(raw), encoding="utf-8")
             first = text_fh.readline().rstrip("\n")
             cols = first.split("\t")
-            cells = cols[1:]
+            # Wu GSE148071: header is barcodes only (no gene column).
+            if cols and cols[0] not in {"", "Index", "gene", "Gene", "GENE", "symbol"}:
+                cells = cols
+            else:
+                cells = cols[1:]
             n = len(cells)
             lib = np.zeros(n, dtype=np.float64)
             expr: dict[str, np.ndarray] = {}
