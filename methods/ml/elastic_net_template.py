@@ -9,6 +9,7 @@ guards is not evidence that the sample size is adequate.
 from __future__ import annotations
 
 import argparse
+import inspect
 import json
 from pathlib import Path
 
@@ -147,6 +148,21 @@ def validate_data(
 
 
 def make_pipeline() -> Pipeline:
+    model_options: dict[str, object] = {
+        "solver": "saga",
+        "l1_ratio": 0.5,
+        "class_weight": None,
+        "max_iter": 20_000,
+        "random_state": RANDOM_SEED,
+    }
+    # scikit-learn <1.8 requires this explicit value; >=1.8 infers the
+    # elastic-net penalty from l1_ratio and deprecates the penalty argument.
+    penalty_default = inspect.signature(LogisticRegression).parameters[
+        "penalty"
+    ].default
+    if penalty_default != "deprecated":
+        model_options["penalty"] = "elasticnet"
+
     return Pipeline(
         steps=[
             ("impute", SimpleImputer(strategy="median")),
@@ -154,13 +170,7 @@ def make_pipeline() -> Pipeline:
             ("scale", StandardScaler()),
             (
                 "model",
-                LogisticRegression(
-                    penalty="elasticnet",
-                    solver="saga",
-                    class_weight=None,
-                    max_iter=20_000,
-                    random_state=RANDOM_SEED,
-                ),
+                LogisticRegression(**model_options),
             ),
         ]
     )

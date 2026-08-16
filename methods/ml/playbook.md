@@ -157,8 +157,7 @@ outer test fold.
 临床相关阈值下的敏感度/特异度。置信区间可对完整折外预测台账进行患者级 bootstrap
 （或重复完整嵌套流程）；需说明 CV 预测彼此相关。禁止在外层测试折上选择阈值。
 
-## 5. Why a 20-gene signature should not be trained on n=16
-/ 为什么不应在 n=16 上训练 20 基因签名
+## 5. Why not train a 20-gene signature on n=16? / 为什么不应在 n=16 上训练 20 基因签名？
 
 This is not solved by choosing a penalized model. Sixteen patients provide at
 most 16 independent outcome observations, often fewer effective observations
