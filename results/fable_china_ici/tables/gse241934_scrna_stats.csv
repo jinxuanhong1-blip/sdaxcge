@@ -1,0 +1,5 @@
+dataset,gene,unit,group_pos,n_pos,median_pos,group_neg,n_neg,median_neg,mannwhitney_p,auc_pos_high,note
+"GSE241934 IIT (EGFR-mut, sintilimab+chemo) scRNA epithelial (post-tx)",TACSTD2,mean log1p CP10K per patient,MPR(incl pCR),4,1.839,non-MPR,7,1.653,0.3152,0.714,"author 'Epi' annotation, patients with >=20 epithelial cells"
+"GSE241934 IIT (EGFR-mut, sintilimab+chemo) scRNA epithelial (post-tx)",CLDN4,mean log1p CP10K per patient,MPR(incl pCR),4,1.951,non-MPR,7,1.517,0.3152,0.714,"author 'Epi' annotation, patients with >=20 epithelial cells"
+"GSE241934 Real-world (EGFR-WT, immunochemo) scRNA epithelial (post-tx)",TACSTD2,mean log1p CP10K per patient,MPR(incl pCR),6,1.767,non-MPR,18,1.553,0.4537,0.611,"author 'Epi' annotation, patients with >=20 epithelial cells"
+"GSE241934 Real-world (EGFR-WT, immunochemo) scRNA epithelial (post-tx)",CLDN4,mean log1p CP10K per patient,MPR(incl pCR),6,1.632,non-MPR,18,1.654,0.6261,0.426,"author 'Epi' annotation, patients with >=20 epithelial cells"
