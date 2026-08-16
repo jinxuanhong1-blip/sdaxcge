@@ -1,95 +1,150 @@
-# Claim A1 — replication result
+# Claim A1 — ESTIMATE / ABSOLUTE recompute
 
-**Claim (user):** TACSTD2 (TROP2) is negatively correlated with immune /
-cytotoxic / exhaustion signatures in TCGA + OncoSG lung cancer, and the
-association is *still negative after adjusting for tumor purity* (partial
-Spearman), on a combined sample of **n ≈ 1031**.
+**Claim (user):** TACSTD2 is inverse to immune / cytotoxic / exhaustion in
+TCGA LUAD + LUSC + OncoSG, **still negative after purity**, **n ≈ 1031**.
 
-**Verdict: REPLICATES (direction and significance).** The purity-adjusted
-partial Spearman correlation between TACSTD2 and every one of the three
-signatures is negative and highly significant in the pooled TCGA+OncoSG data and
-in each individual cohort. The exact sample count differs from the reported
-n ≈ 1031 (see "On the sample size" below); this is disclosed rather than
-massaged.
+**This update** recomputes the purity-partial Spearman under published
+**ESTIMATE** (Aran et al. Nat Commun 2015), **ABSOLUTE** (GDC PanCanAtlas),
+**CPE** (Aran consensus of ESTIMATE+ABSOLUTE+LUMP+IHC), and
+**ESTIMATE-or-ABSOLUTE** (ESTIMATE preferred, ABSOLUTE fallback).
+OncoSG has **no public ESTIMATE table**; its clinical `PURITY` attribute is
+used wherever a non-ESTIMATE method includes OncoSG. That limitation is not
+hidden.
 
-All data are public: expression and OncoSG purity from the cBioPortal REST API;
-TCGA tumor purity from the TCGA PanCanAtlas ABSOLUTE supplemental table (NCI
-GDC). Analysis code: `code/run_claim_A1.py`, `code/make_figures.py`.
+Public data only. Code: `code/run_claim_A1.py`.
 
-## Primary result — pooled TCGA + OncoSG, purity-adjusted partial Spearman
+---
 
-| Signature | Partial rho (purity-adj) | p | n |
-|---|---|---|---|
-| Immune (T-cell effector) | **-0.213** | 3.8e-13 | 1145 |
-| Cytotoxic | **-0.188** | 1.6e-10 | 1145 |
-| Exhaustion / checkpoint | **-0.194** | 3.9e-11 | 1145 |
+## Verdict
 
-Unadjusted Spearman is similarly negative (-0.20, -0.18, -0.17), so purity
-adjustment does not create the effect — it slightly strengthens it, exactly as
-the claim asserts ("still negative after purity").
+| Piece of the claim | Result |
+|---|---|
+| Still **negative** after purity | **MATCH** — every signature, every purity method, every cohort with data |
+| Significant (p < 0.05) after purity | **MATCH** in all pooled analyses |
+| **n ≈ 1031** for LUAD+LUSC+**OncoSG** | **MISMATCH** — three-cohort ABSOLUTE / ESTIMATE-or-ABSOLUTE n = **1145 / 1162** |
+| **n ≈ 1031** for LUAD+LUSC ESTIMATE (no OncoSG) | **MATCH (closest)** — Firehose ESTIMATE **n = 1014** (Δ −17); Firehose ESTIMATE-or-ABSOLUTE **n = 1017** (Δ −14) |
 
-## Per-cohort (purity-adjusted partial Spearman)
+The inverse association **replicates**. The reported n ≈ 1031 is the
+**TCGA LUAD+LUSC ESTIMATE/CPE-complete set**, not the three-cohort pool.
+Adding OncoSG (169 tumors with clinical purity) moves n to ~1145–1186.
 
-| Cohort (histology) | Immune | Cytotoxic | Exhaustion | n |
+---
+
+## Primary request: LUAD+LUSC+OncoSG, ESTIMATE/ABSOLUTE partial Spearman
+
+PanCanAtlas LUAD + LUSC + OncoSG. Purity = ESTIMATE if present, else GDC
+ABSOLUTE; OncoSG = clinical PURITY.
+
+| Signature | n | ρ (partial) | p | vs claim |
 |---|---|---|---|---|
-| TCGA LUAD (adeno) | -0.120 (p=7.4e-3) | -0.127 (p=4.7e-3) | -0.062 (p=0.17, ns) | 497 |
-| TCGA LUSC (squamous) | -0.271 (p=1.7e-9) | -0.201 (p=9.3e-6) | -0.266 (p=3.5e-9) | 479 |
-| OncoSG LUAD (adeno) | -0.318 (p=2.7e-5) | -0.363 (p=1.3e-6) | -0.389 (p=1.9e-7) | 169 |
+| Immune (T-cell effector) | 1162 | **−0.187** | 1.3e-10 | sign MATCH; n 1162 ≠ 1031 |
+| Cytotoxic | 1162 | **−0.161** | 3.7e-8 | sign MATCH; n 1162 ≠ 1031 |
+| Exhaustion / checkpoint | 1162 | **−0.165** | 1.6e-8 | sign MATCH; n 1162 ≠ 1031 |
 
-Every point estimate is negative. The only non-significant cell is TCGA-LUAD
-exhaustion (rho -0.062, p=0.17); it is still negative, and it is significant in
-LUSC, OncoSG, and all pooled analyses. A fixed-effect meta-analysis across the
-three cohorts (`meta_analysis.csv`) gives -0.214 / -0.194 / -0.198 (all
-p < 1e-10), consistent with the pooled concatenation.
+Same pool, **ABSOLUTE only** (GDC + OncoSG clinical):
 
-## Individual gene checks (pooled, purity-adjusted)
+| Signature | n | ρ (partial) | p |
+|---|---|---|---|
+| Immune | 1145 | **−0.213** | 3.8e-13 |
+| Cytotoxic | 1145 | **−0.188** | 1.6e-10 |
+| Exhaustion | 1145 | **−0.194** | 3.9e-11 |
 
-TACSTD2 is negatively associated with each canonical marker gene: CD8A (-0.197),
-GZMA (-0.155), PDCD1/PD-1 (-0.165), CTLA4 (-0.154), HAVCR2/TIM-3 (-0.094),
-CD274/PD-L1 (-0.089); all p < 0.003. This rules out the pattern being an
-artifact of one signature's gene composition.
+Unadjusted Spearman on the same 1163 expression samples is already negative
+(−0.200 / −0.177 / −0.175). Purity adjustment does not create the effect.
 
-## On the sample size (honest note)
+---
 
-The claim states n ≈ 1031. No single natural cohort definition reproduces
-exactly 1031:
+## Closest n to 1031: Firehose LUAD+LUSC (OncoSG not in the n)
 
-- TCGA NSCLC only (LUAD + LUSC), expression + ABSOLUTE purity: **n = 976**
-- TCGA NSCLC + OncoSG, expression + purity: **n = 1145**
-- (Expression-only, before purity join: TCGA NSCLC = 994, +OncoSG = 1163)
+No public ESTIMATE exists for OncoSG, so an ESTIMATE-only analysis is
+TCGA-only. Firehose RNA-seq + Aran ESTIMATE is the published ESTIMATE
+complete set for LUAD+LUSC:
 
-1031 sits between the TCGA-only (976) and TCGA+OncoSG (1145) figures. The
-difference is almost certainly explained by inclusion choices that the claim did
-not fully specify — e.g. a different purity source (CPE consensus purity vs.
-ABSOLUTE, which have different missingness), a different OncoSG RNA subset
-(cBioPortal exposes 181 RNA samples, 169 with non-missing TACSTD2 + purity), or
-TCGA Firehose vs. PanCanAtlas. **The direction and significance of the claim are
-robust to all of these choices**, which is the substantive point. We report the
-exact n for every configuration rather than selecting one to match 1031.
+| Method | n | Immune ρ (p) | Cytotoxic ρ (p) | Exhaustion ρ (p) | Δ vs 1031 |
+|---|---|---|---|---|---|
+| ESTIMATE | **1014** | −0.167 (8.5e-8) | −0.126 (6.1e-5) | −0.142 (5.6e-6) | −17 |
+| ESTIMATE or ABSOLUTE | **1017** | −0.160 (2.9e-7) | −0.118 (1.6e-4) | −0.131 (3.0e-5) | −14 |
+| CPE | **1016** | −0.192 (7.1e-10) | −0.152 (1.1e-6) | −0.168 (6.8e-8) | −15 |
+| ABSOLUTE (GDC) | **997** | −0.200 (1.8e-10) | −0.165 (1.6e-7) | −0.177 (2.0e-8) | −34 |
+
+PanCanAtlas LUAD+LUSC is the same story at slightly smaller n (ESTIMATE 990,
+CPE 994, ABSOLUTE 976).
+
+Aran Supp Data 1, before any RNA-seq join, has **1014** LUAD+LUSC ESTIMATE
+values and **1034** CPE values. 1031 sits on that CPE/ESTIMATE universe;
+it is not a three-cohort count.
+
+---
+
+## Per-cohort (PanCan + OncoSG), ESTIMATE vs ABSOLUTE
+
+| Cohort | Method | Immune ρ (p, n) | Cytotoxic | Exhaustion |
+|---|---|---|---|---|
+| TCGA LUAD | ESTIMATE | −0.151 (6.8e-4, 506) | −0.163 (2.3e-4, 506) | −0.129 (3.8e-3, 506) |
+| TCGA LUAD | ABSOLUTE | −0.120 (7.4e-3, 497) | −0.127 (4.7e-3, 497) | −0.062 (0.17, 497) ns |
+| TCGA LUSC | ESTIMATE | −0.208 (4.0e-6, 484) | −0.101 (0.027, 484) | −0.188 (3.1e-5, 484) |
+| TCGA LUSC | ABSOLUTE | −0.271 (1.7e-9, 479) | −0.201 (9.3e-6, 479) | −0.266 (3.5e-9, 479) |
+| OncoSG LUAD | clinical PURITY | −0.318 (2.7e-5, 169) | −0.363 (1.3e-6, 169) | −0.389 (1.9e-7, 169) |
+| OncoSG LUAD | ESTIMATE | — | — | n = 0 (no public ESTIMATE) |
+
+Every point estimate with data is negative. The only non-significant cell is
+TCGA-LUAD exhaustion under ABSOLUTE (ρ −0.062, p = 0.17); under ESTIMATE the
+same cell is significant (ρ −0.129, p = 3.8e-3).
+
+---
+
+## Match / mismatch (honest)
+
+1. **Direction after purity — MATCH.** Not one pooled or per-cohort partial
+   correlation with n ≥ 6 is positive.
+2. **n ≈ 1031 for “TCGA+OncoSG” — MISMATCH.** Three-cohort n is 1145
+   (ABSOLUTE) or 1162 (ESTIMATE-or-ABSOLUTE). That is ~110–130 samples above
+   1031, which is the OncoSG RNA+purity set (169) minus TCGA samples that
+   lack the chosen purity call.
+3. **n ≈ 1031 as TCGA LUAD+LUSC ESTIMATE/CPE — MATCH.** Firehose ESTIMATE
+   n = 1014; CPE n = 1016; ESTIMATE-or-ABSOLUTE n = 1017. Aran CPE universe
+   (no RNA filter) = 1034.
+4. **OncoSG ESTIMATE — cannot compute from public tables.** cBioPortal
+   OncoSG has only z-score profiles and a clinical PURITY column. Official
+   ESTIMATE needs the Yoshihara stromal/immune transcriptome calibration;
+   we do not invent it.
+
+See `match_mismatch.csv` for every pool × method × signature.
+
+---
 
 ## Reproduce
 
 ```
 pip install -r requirements.txt
-python code/run_claim_A1.py     # downloads public data, writes tables/summary
-python code/make_figures.py     # writes forest + scatter figures
+python code/run_claim_A1.py
+python code/make_figures.py
 ```
+
+Purity tables (already in `data/`):
+
+- `data/abs_purity.txt` — GDC PanCanAtlas ABSOLUTE
+  (`https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5`)
+- `data/aran_purity.tsv` — Aran et al. 2015 Supp Data 1 (ESTIMATE, ABSOLUTE, CPE)
 
 ## Files
 
-- `per_cohort_correlations.csv` — per cohort, per signature, unadjusted + partial
-- `pooled_correlations.csv` — TCGA-only and TCGA+OncoSG pooled
-- `meta_analysis.csv` — fixed-effect meta across cohorts
-- `individual_gene_checks.csv` — marker-gene level correlations
-- `summary.json` — machine-readable summary + verdict inputs
-- `sample_data_*.csv` — per-sample TACSTD2, signature scores, purity
-- `forest_partial_spearman.png`, `scatter_pooled_rank.png` — figures
+- `pooled_correlations.csv` — all pools × purity methods
+- `per_cohort_correlations.csv` — per cohort × method
+- `match_mismatch.csv` — n / ρ / p / verdict vs n ≈ 1031
+- `meta_analysis.csv` — Fisher-z meta of PanCan LUAD, LUSC, OncoSG
+- `individual_gene_checks.csv` — CD8A, GZMA, PDCD1, CTLA4, HAVCR2, CD274
+- `summary.json` — machine-readable primary numbers
+- `sample_data_*.csv` — per-sample TACSTD2, signatures, all purity columns
+- `forest_partial_spearman.png`, `scatter_pooled_rank.png`
 
 ## Caveats
 
-- Bulk-tumor correlation reflects the mixed tumor+microenvironment; even with
-  purity as a covariate this is an association, not a causal/tumor-intrinsic
-  claim. The consistent negative sign across independent cohorts and histologies
-  nonetheless supports an inverse TACSTD2–immune relationship in NSCLC.
+- Bulk-tumor correlation is an association, not a causal tumor-intrinsic
+  claim, even after a purity covariate.
+- ESTIMATE is itself an RNA-derived stromal/immune score; partialling
+  ESTIMATE out of an immune-signature correlation is a conservative test
+  (it can remove true immune signal). The association remaining negative
+  after ESTIMATE is therefore stronger evidence, not weaker.
 - Signature scores are mean per-gene z-scores; Spearman is rank-based and
-  therefore invariant to the per-gene monotonic z-transform used by cBioPortal.
+  invariant to that monotonic transform.

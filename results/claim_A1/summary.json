@@ -1,43 +1,143 @@
 {
   "target_gene": "TACSTD2",
+  "claimed_n": 1031,
   "cohorts": [
     {
-      "cohort": "TCGA_LUAD",
+      "cohort": "TCGA_LUAD_PanCan",
       "study_id": "luad_tcga_pan_can_atlas_2018",
       "histology": "lung adenocarcinoma",
+      "atlas": "PanCanAtlas",
       "n_expression": 510,
-      "n_expr_and_purity": 497
+      "n_ESTIMATE_Aran": 506,
+      "n_ABSOLUTE_Aran": 348,
+      "n_CPE_Aran": 510,
+      "n_ABSOLUTE_GDC": 497,
+      "n_ESTIMATE_or_ABSOLUTE": 509
     },
     {
-      "cohort": "TCGA_LUSC",
+      "cohort": "TCGA_LUSC_PanCan",
       "study_id": "lusc_tcga_pan_can_atlas_2018",
       "histology": "lung squamous cell carcinoma",
+      "atlas": "PanCanAtlas",
       "n_expression": 484,
-      "n_expr_and_purity": 479
+      "n_ESTIMATE_Aran": 484,
+      "n_ABSOLUTE_Aran": 318,
+      "n_CPE_Aran": 484,
+      "n_ABSOLUTE_GDC": 479,
+      "n_ESTIMATE_or_ABSOLUTE": 484
+    },
+    {
+      "cohort": "TCGA_LUAD_Firehose",
+      "study_id": "luad_tcga",
+      "histology": "lung adenocarcinoma",
+      "atlas": "Firehose",
+      "n_expression": 517,
+      "n_ESTIMATE_Aran": 513,
+      "n_ABSOLUTE_Aran": 353,
+      "n_CPE_Aran": 515,
+      "n_ABSOLUTE_GDC": 504,
+      "n_ESTIMATE_or_ABSOLUTE": 516
+    },
+    {
+      "cohort": "TCGA_LUSC_Firehose",
+      "study_id": "lusc_tcga",
+      "histology": "lung squamous cell carcinoma",
+      "atlas": "Firehose",
+      "n_expression": 501,
+      "n_ESTIMATE_Aran": 501,
+      "n_ABSOLUTE_Aran": 329,
+      "n_CPE_Aran": 501,
+      "n_ABSOLUTE_GDC": 493,
+      "n_ESTIMATE_or_ABSOLUTE": 501
     },
     {
       "cohort": "OncoSG_LUAD",
       "study_id": "luad_oncosg_2020",
       "histology": "lung adenocarcinoma",
+      "atlas": "OncoSG",
       "n_expression": 169,
-      "n_expr_and_purity": 169
+      "n_OncoSG_clinical_PURITY": 169
     }
   ],
-  "primary_pool": "TCGA_plus_OncoSG",
-  "primary_pool_n_partial": {
-    "immune_tcell_effector": 1145,
-    "cytotoxic": 1145,
-    "exhaustion": 1145
+  "primary_request": "LUAD+LUSC+OncoSG, ESTIMATE/ABSOLUTE purity-partial Spearman",
+  "primary_pool": "PanCan_plus_OncoSG",
+  "primary_purity_method": "ESTIMATE_or_ABSOLUTE",
+  "primary": {
+    "immune_tcell_effector": {
+      "n": 1162,
+      "partial_rho": -0.18722672722136408,
+      "partial_p": 1.2800350031879404e-10
+    },
+    "cytotoxic": {
+      "n": 1162,
+      "partial_rho": -0.16072080838920236,
+      "partial_p": 3.665665220978819e-08
+    },
+    "exhaustion": {
+      "n": 1162,
+      "partial_rho": -0.16476866924447933,
+      "partial_p": 1.634369211597626e-08
+    }
   },
-  "primary_pool_partial_rho": {
-    "immune_tcell_effector": -0.2125111776904755,
-    "cytotoxic": -0.1876779197873145,
-    "exhaustion": -0.19374968374313048
+  "absolute_only_PanCan_plus_OncoSG": {
+    "immune_tcell_effector": {
+      "n": 1145,
+      "partial_rho": -0.2125111776904755,
+      "partial_p": 3.7849401234246004e-13
+    },
+    "cytotoxic": {
+      "n": 1145,
+      "partial_rho": -0.1876779197873145,
+      "partial_p": 1.5759484502019744e-10
+    },
+    "exhaustion": {
+      "n": 1145,
+      "partial_rho": -0.19374968374313048,
+      "partial_p": 3.875418018286586e-11
+    }
   },
-  "primary_pool_partial_p": {
-    "immune_tcell_effector": 3.7849401234246004e-13,
-    "cytotoxic": 1.5759484502019744e-10,
-    "exhaustion": 3.875418018286586e-11
+  "estimate_only_PanCan_LUAD_LUSC": {
+    "immune_tcell_effector": {
+      "n": 990,
+      "partial_rho": -0.16973512312548258,
+      "partial_p": 7.866922130070045e-08
+    },
+    "cytotoxic": {
+      "n": 990,
+      "partial_rho": -0.13014807727079797,
+      "partial_p": 4.038932850775364e-05
+    },
+    "exhaustion": {
+      "n": 990,
+      "partial_rho": -0.14640147909127518,
+      "partial_p": 3.778707206057551e-06
+    }
   },
-  "all_partial_negative_after_purity": true
+  "estimate_only_Firehose_LUAD_LUSC": {
+    "immune_tcell_effector": {
+      "n": 1014,
+      "partial_rho": -0.16727801202194081,
+      "partial_p": 8.542843593688336e-08
+    },
+    "cytotoxic": {
+      "n": 1014,
+      "partial_rho": -0.12561442950060886,
+      "partial_p": 6.0985105026447384e-05
+    },
+    "exhaustion": {
+      "n": 1014,
+      "partial_rho": -0.14211254881575508,
+      "partial_p": 5.609719976264936e-06
+    }
+  },
+  "closest_n_to_1031": {
+    "pool": "Firehose_LUAD_LUSC",
+    "purity_method": "ESTIMATE_or_ABSOLUTE",
+    "signature": "immune_tcell_effector",
+    "n": 1017,
+    "n_delta": -14
+  },
+  "all_primary_partial_negative": true,
+  "n_match_primary_vs_1031": false,
+  "verdict": "MATCH_sign_MISMATCH_n"
 }

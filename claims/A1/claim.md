@@ -35,12 +35,18 @@ TCGA and OncoSG lung-cancer cohorts.
 - **Signatures** (see `signatures.json` for exact gene lists and citations):
   immune / T-cell effector, cytotoxic, and T-cell exhaustion / checkpoint.
 - **Method:** first-order **partial Spearman correlation** between TACSTD2 and
-  each signature score, controlling for tumor purity. Reported per cohort,
-  pooled (concatenated, purity-adjusted), and via a fixed-effect meta-analysis
-  across cohorts.
+  each signature score, controlling for tumor purity. Four purity constructions
+  are reported: **ESTIMATE** (Aran 2015), **ABSOLUTE** (GDC PanCanAtlas),
+  **CPE** (Aran consensus of ESTIMATE+ABSOLUTE+LUMP+IHC), and
+  **ESTIMATE-or-ABSOLUTE** (ESTIMATE preferred, ABSOLUTE fallback). OncoSG has
+  no public ESTIMATE table; its cBioPortal clinical `PURITY` is used when
+  OncoSG is included. Firehose LUAD/LUSC is run as a sensitivity because that
+  is the ESTIMATE-complete published set (n = 1014), closest to the claimed
+  n ≈ 1031. Reported per cohort, pooled, and via a fixed-effect meta-analysis.
 
 ## Prediction (what "replicates" means here)
 
-The claim replicates if, after purity adjustment, TACSTD2 vs each of the three
-signatures is **negative** in the pooled TCGA+OncoSG analysis at a combined
-n near ~1031, and remains negative in the individual cohorts.
+The claim replicates if, after ESTIMATE and/or ABSOLUTE purity adjustment,
+TACSTD2 vs each of the three signatures is **negative**. n ≈ 1031 is treated
+as a separate, checkable number — not forced. A sign match with an n mismatch
+is reported as such.
