@@ -1,0 +1,24 @@
+item	value
+primary_cohort	Gide 2019 pretreatment anti-PD-1 RNA
+primary_endpoint	ORR CR/PR vs SD/PD
+primary_contrast	CLDN4-high vs low (median log2(TPM+1))
+primary_ORR_fisher_OR_high_vs_low	0.503
+primary_ORR_fisher_OR_95CI	0.145-1.750
+primary_ORR_fisher_p	0.3543
+primary_ORR_n_eval	41
+primary_ORR_n_high_resp_over_n_high	8/21
+primary_ORR_n_low_resp_over_n_low	11/20
+primary_ORR_rate_high	0.381
+primary_ORR_rate_low	0.550
+primary_MW_p	0.1403
+primary_logit_OR_per_SD	0.719
+primary_logit_p	0.339
+primary_PFS_HR_high_vs_low	2.061
+primary_PFS_HR_95CI	0.965-4.401
+primary_PFS_cox_p	0.0618
+primary_OS_HR_high_vs_low	1.253
+primary_OS_cox_p	0.5827
+CLDN4_median_log2_tpm_plus_1	0.088721
+n_primary_patients	41
+n_CLDN4_zero_primary	13
+spearman_liulab_vs_orcestra	0.910
