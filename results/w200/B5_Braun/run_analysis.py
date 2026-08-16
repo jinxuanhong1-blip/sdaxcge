@@ -16,7 +16,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import openpyxl
-from scipy.stats import mannwhitneyu
+from scipy.stats import fisher_exact, mannwhitneyu, norm
 
 
 SOURCE_URL = (
@@ -150,6 +150,51 @@ def bootstrap_median_difference(
     return float(lower), float(upper)
 
 
+def woolf_odds_ratio(high_resp: int, high_non: int, low_resp: int, low_non: int) -> dict:
+    if min(high_resp, high_non, low_resp, low_non) == 0:
+        raise RuntimeError("Odds ratio is undefined for a zero cell")
+    odds_ratio = (high_resp / high_non) / (low_resp / low_non)
+    log_or = np.log(odds_ratio)
+    se = np.sqrt(1 / high_resp + 1 / high_non + 1 / low_resp + 1 / low_non)
+    return {
+        "odds_ratio": float(odds_ratio),
+        "odds_ratio_95_ci": [
+            float(np.exp(log_or - 1.96 * se)),
+            float(np.exp(log_or + 1.96 * se)),
+        ],
+    }
+
+
+def fit_logistic(x: np.ndarray, y: np.ndarray) -> dict:
+    design = np.column_stack([np.ones(x.size), x])
+    beta = np.zeros(2)
+    for _ in range(50):
+        linear = design @ beta
+        linear = np.clip(linear, -30, 30)
+        fitted = 1.0 / (1.0 + np.exp(-linear))
+        weights = fitted * (1.0 - fitted)
+        information = design.T @ (weights[:, None] * design)
+        score = design.T @ (y - fitted)
+        try:
+            step = np.linalg.solve(information, score)
+        except np.linalg.LinAlgError as exc:
+            raise RuntimeError("Logistic information matrix is singular") from exc
+        beta = beta + step
+        if np.max(np.abs(step)) < 1e-10:
+            break
+    se = np.sqrt(np.diag(np.linalg.inv(information)))
+    odds_ratio = float(np.exp(beta[1]))
+    return {
+        "log_odds_per_sd": float(beta[1]),
+        "odds_ratio_per_sd": odds_ratio,
+        "odds_ratio_per_sd_95_ci": [
+            float(np.exp(beta[1] - 1.96 * se[1])),
+            float(np.exp(beta[1] + 1.96 * se[1])),
+        ],
+        "wald_p_value_two_sided": float(2 * (1 - norm.cdf(abs(beta[1] / se[1])))),
+    }
+
+
 def calculate_results(records: list[dict], exclusion_counts: dict) -> dict:
     responder = np.array(
         [
@@ -170,6 +215,48 @@ def calculate_results(records: list[dict], exclusion_counts: dict) -> dict:
     )
     median_difference = float(np.median(responder) - np.median(nonresponder))
     ci_lower, ci_upper = bootstrap_median_difference(responder, nonresponder)
+
+    expression = np.array(
+        [record["cldn4_normalized_expression"] for record in records]
+    )
+    response = np.array([record["response_binary"] for record in records])
+    split = float(np.median(expression))
+    high = expression >= split
+    high_resp = int((high & (response == 1)).sum())
+    high_non = int((high & (response == 0)).sum())
+    low_resp = int((~high & (response == 1)).sum())
+    low_non = int((~high & (response == 0)).sum())
+    fisher = fisher_exact(
+        [[low_resp, low_non], [high_resp, high_non]], alternative="two-sided"
+    )
+    dichotomized = {
+        "cut": "pre-specified median of included CLDN4 values; high = at or above median",
+        "median_cut": split,
+        "n": len(records),
+        "n_high": int(high.sum()),
+        "n_low": int((~high).sum()),
+        "high_responder": high_resp,
+        "high_nonresponder": high_non,
+        "low_responder": low_resp,
+        "low_nonresponder": low_non,
+        **woolf_odds_ratio(high_resp, high_non, low_resp, low_non),
+        "fisher_p_value_two_sided": float(fisher.pvalue),
+        "odds_ratio_definition": (
+            "odds of CR/PR in CLDN4-high versus CLDN4-low"
+        ),
+    }
+    z_expression = (expression - expression.mean()) / expression.std(ddof=1)
+    continuous_or = fit_logistic(z_expression, response.astype(float))
+    headline = {
+        "cohort": "open RCC ICI (Braun 2020 CheckMate 009/010/025 nivolumab RNA)",
+        "endpoint": "objective response CR/PR vs SD/PD",
+        "exposure": "CLDN4 high vs low (median split)",
+        "OR": dichotomized["odds_ratio"],
+        "OR_95_ci": dichotomized["odds_ratio_95_ci"],
+        "n": dichotomized["n"],
+        "p": dichotomized["fisher_p_value_two_sided"],
+        "p_test": "two-sided Fisher exact",
+    }
 
     cohort_results = []
     for cohort in sorted({record["cohort"] for record in records}):
@@ -227,6 +314,7 @@ def calculate_results(records: list[dict], exclusion_counts: dict) -> dict:
             ),
             "excluded": exclusion_counts,
         },
+        "headline_or_n_p": headline,
         "pooled_result": {
             "responder": quantiles(responder),
             "nonresponder": quantiles(nonresponder),
@@ -237,6 +325,8 @@ def calculate_results(records: list[dict], exclusion_counts: dict) -> dict:
             "common_language_effect_probability": float(
                 test.statistic / (responder.size * nonresponder.size)
             ),
+            "median_split_odds_ratio": dichotomized,
+            "logistic_odds_ratio_per_sd": continuous_or,
         },
         "cohort_descriptive_results": cohort_results,
     }
@@ -294,12 +384,14 @@ def make_figure(records: list[dict], results: dict, output_path: Path) -> None:
         patch.set_facecolor(color)
         patch.set_alpha(0.18)
         patch.set_edgecolor(color)
-    pooled = results["pooled_result"]
+    headline = results["headline_or_n_p"]
     axis.set_title(
         (
-            "Braun 2020 RCC: CLDN4 vs objective response\n"
-            f"Two-sided Mann–Whitney p={pooled['p_value_two_sided']:.3f}; "
-            f"n={results['analysis_set']['included_n']}"
+            "Open RCC ICI (Braun 2020): CLDN4 vs objective response\n"
+            f"OR={headline['OR']:.2f} "
+            f"({headline['OR_95_ci'][0]:.2f}–{headline['OR_95_ci'][1]:.2f}); "
+            f"n={headline['n']}; "
+            f"p={headline['p']:.2f}"
         ),
         loc="left",
         fontsize=12,
@@ -344,8 +436,32 @@ def main() -> None:
     with (args.output_dir / "results.json").open("w") as handle:
         json.dump(results, handle, indent=2)
         handle.write("\n")
+    headline = results["headline_or_n_p"]
+    with (args.output_dir / "or_n_p.json").open("w") as handle:
+        json.dump(headline, handle, indent=2)
+        handle.write("\n")
+    with (args.output_dir / "or_n_p.tsv").open("w", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["cohort", "endpoint", "exposure", "OR", "OR_lo", "OR_hi", "n", "p", "p_test"],
+            delimiter="\t",
+        )
+        writer.writeheader()
+        writer.writerow(
+            {
+                "cohort": headline["cohort"],
+                "endpoint": headline["endpoint"],
+                "exposure": headline["exposure"],
+                "OR": f"{headline['OR']:.6f}",
+                "OR_lo": f"{headline['OR_95_ci'][0]:.6f}",
+                "OR_hi": f"{headline['OR_95_ci'][1]:.6f}",
+                "n": headline["n"],
+                "p": f"{headline['p']:.6f}",
+                "p_test": headline["p_test"],
+            }
+        )
     make_figure(records, results, args.output_dir / "CLDN4_vs_ORR.png")
-    print(json.dumps(results["pooled_result"], indent=2))
+    print(json.dumps(headline, indent=2))
 
 
 if __name__ == "__main__":
