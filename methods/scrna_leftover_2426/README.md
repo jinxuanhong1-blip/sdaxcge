@@ -38,7 +38,7 @@ No leftover series is a powered public lung-ICI scRNA cohort with malignant cell
 - **GSE267108** (n=8 LUAD, treatment-naïve, PD-L1 inferred from published cell counts): epi TACSTD2 vs T/NK ρ=−0.14, p=0.74; CLDN4 ρ=−0.36, p=0.39. PD-L1 pos/high vs neg is not significant (TACSTD2 p=0.11).
 - **GSE274595** (n=8 resected NSCLC, HLA/NKEV paper, not ICI-treated): epi TACSTD2 vs T/NK ρ=+0.75, p=0.052 (n=7). Direction is **positive**, opposite a TROP2-high = immune-cold claim. Tissue-only n=2 after T/NK filter.
 - **GSE337519**: n=1 paired neoadjuvant chemo-IO; descriptive only.
-- **E-MTAB-13526**: Cvejic atlas, extra n, **not ICI**.
+- **E-MTAB-13526** (Cvejic atlas, not ICI; CD235a− n=11): epi TACSTD2 vs T/NK ρ=−0.018, p=0.96; CLDN4 ρ=+0.33, p=0.33.
 - **GSE176021**: GEO processed object is CD3/CD8 T cells (lymphocytes) with MPR labels; no epithelium.
 - **GSE186446**: scRNA is T cells from 3 ICB patients. The only GEO expression matrix is bulk `fcount_aggr` (not scRNA).
 - **GSE308745**: PBMC; skipped (no epithelium).
