@@ -1,0 +1,108 @@
+{
+  "generated_utc": "2026-08-16T20:09:48+00:00",
+  "cohort": "TCGA-READ",
+  "expression_dataset": "UCSC Xena TCGA.READ.sampleMap/HiSeqV2 (log2 norm_count+1)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 94,
+  "n_matrix_genes": 20530,
+  "n_matrix_samples": 105,
+  "surface_gene_universe": 2618,
+  "n_undefined_spearman": 169,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "anchor_expression": {
+    "mean": 8.145075531914895,
+    "median": 7.60045,
+    "min": 3.5822,
+    "max": 13.7193,
+    "pct_gt0": 100.0
+  },
+  "focus_expression": {
+    "mean": 14.035340425531917,
+    "median": 14.0894,
+    "min": 12.3571,
+    "max": 15.1969,
+    "pct_gt0": 100.0
+  },
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 1579,
+    "spearman_r": -0.006653903117436694,
+    "spearman_q": 0.9922240842517255,
+    "spearman_percentile": 39.725,
+    "pearson_rank": 951,
+    "pearson_r": 0.05981768353965035,
+    "pearson_q": 0.9277598645828258,
+    "pearson_percentile": 63.713
+  },
+  "top10_spearman": [
+    {
+      "gene": "PVRL4",
+      "spearman_rank": 1,
+      "spearman_r": 0.6044792833146696,
+      "spearman_q": 2.7160431661070563e-07
+    },
+    {
+      "gene": "LYPD3",
+      "spearman_rank": 2,
+      "spearman_r": 0.4652458187335188,
+      "spearman_q": 0.00200499183438276
+    },
+    {
+      "gene": "AMIGO2",
+      "spearman_rank": 3,
+      "spearman_r": 0.4636419463208467,
+      "spearman_q": 0.00200499183438276
+    },
+    {
+      "gene": "TSPAN14",
+      "spearman_rank": 4,
+      "spearman_r": 0.4589837047449111,
+      "spearman_q": 0.00200499183438276
+    },
+    {
+      "gene": "GPR87",
+      "spearman_rank": 5,
+      "spearman_r": 0.44143447135877745,
+      "spearman_q": 0.0037042376045535244
+    },
+    {
+      "gene": "ALPP",
+      "spearman_rank": 6,
+      "spearman_r": 0.4400604065913717,
+      "spearman_q": 0.0037042376045535244
+    },
+    {
+      "gene": "MSLN",
+      "spearman_rank": 7,
+      "spearman_r": 0.43552360654553335,
+      "spearman_q": 0.004018019351151152
+    },
+    {
+      "gene": "SLC26A9",
+      "spearman_rank": 8,
+      "spearman_r": 0.4213933239824723,
+      "spearman_q": 0.007166186429797039
+    },
+    {
+      "gene": "DRD1",
+      "spearman_rank": 9,
+      "spearman_r": 0.39875720617201005,
+      "spearman_q": 0.014097738889908147
+    },
+    {
+      "gene": "GRIK2",
+      "spearman_rank": 10,
+      "spearman_r": 0.39697276234268597,
+      "spearman_q": 0.014097738889908147
+    }
+  ]
+}

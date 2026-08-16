@@ -146,9 +146,13 @@ def compute_ranking(
     df["spearman_q"] = _bh_fdr(df["spearman_p"].to_numpy())
     df["pearson_q"] = _bh_fdr(df["pearson_p"].to_numpy())
 
-    df = df.sort_values("spearman_r", ascending=False, kind="mergesort").reset_index(drop=True)
+    # Constant (zero-variance) genes yield NaN correlations. Keep them in the
+    # table; they sort to the bottom and do not receive a Pearson rank.
+    df = df.sort_values(
+        "spearman_r", ascending=False, kind="mergesort", na_position="last"
+    ).reset_index(drop=True)
     df.insert(1, "spearman_rank", np.arange(1, len(df) + 1))
-    df["pearson_rank"] = df["pearson_r"].rank(ascending=False, method="min").astype(int)
+    df["pearson_rank"] = df["pearson_r"].rank(ascending=False, method="min").astype("Int64")
     return df
 
 
@@ -266,6 +270,19 @@ def main(argv: list[str] | None = None) -> int:
 
     report = focus_report(df, args.focus, n_universe)
 
+    def _expr_stats(gene: str) -> dict:
+        v = expr.loc[gene, samples].to_numpy(dtype=float)
+        return {
+            "mean": float(np.mean(v)),
+            "median": float(np.median(v)),
+            "min": float(np.min(v)),
+            "max": float(np.max(v)),
+            "pct_gt0": float((v > 0).mean() * 100.0),
+        }
+
+    anchor_stats = _expr_stats(args.anchor)
+    focus_stats = _expr_stats(args.focus) if args.focus in expr.index else None
+
     summary = {
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "cohort": COHORT,
@@ -278,8 +295,11 @@ def main(argv: list[str] | None = None) -> int:
         "n_matrix_genes": int(expr.shape[0]),
         "n_matrix_samples": int(expr.shape[1]),
         "surface_gene_universe": n_universe,
+        "n_undefined_spearman": int(df["spearman_r"].isna().sum()),
         "correlation_primary": "spearman",
         "window": args.window,
+        "anchor_expression": anchor_stats,
+        "focus_expression": focus_stats,
         "focus_result": report,
         "top10_spearman": df.head(10)[["gene", "spearman_rank", "spearman_r", "spearman_q"]].to_dict("records"),
     }
@@ -288,13 +308,23 @@ def main(argv: list[str] | None = None) -> int:
     # Human-readable answer.
     q = report
     if q.get("in_universe"):
-        verdict = (
-            f"NO -- {args.focus} is NOT the single top surface-gene co-expression "
-            f"partner of {args.anchor}."
-            if not q["is_top_spearman"]
-            else f"YES -- {args.focus} is the top surface-gene co-expression partner of {args.anchor}."
-        )
+        if q["is_top_spearman"]:
+            verdict = (
+                f"YES -- {args.focus} is the top surface-gene co-expression partner of {args.anchor}."
+            )
+        elif q["spearman_rank"] <= 20 and abs(q["spearman_r"]) >= 0.25:
+            verdict = (
+                f"NO -- {args.focus} is NOT the single top surface-gene co-expression "
+                f"partner of {args.anchor}, but it is a genuine top-20 partner."
+            )
+        else:
+            verdict = (
+                f"NO -- {args.focus} is not a {args.anchor} surface-gene partner in this cohort. "
+                f"Spearman rho is {q['spearman_r']:.3f} (FDR q={q['spearman_q']:.2e}); "
+                f"rank #{q['spearman_rank']} of {n_universe} is mid-pack / null, not a near-miss."
+            )
         top_gene = df.iloc[0]["gene"]
+        n_undef = int(df["spearman_r"].isna().sum())
         lines = [
             f"# {args.focus} vs {args.anchor} co-expression in {COHORT} (honest ranking)",
             "",
@@ -304,10 +334,25 @@ def main(argv: list[str] | None = None) -> int:
             f"**Answer:** {verdict}",
             "",
             f"- Cohort: {COHORT}, {len(samples)} primary-tumour samples "
-            f"(sample-type {sample_types}).",
+            f"(sample-type {sample_types}; matrix is {expr.shape[0]} genes × "
+            f"{expr.shape[1]} samples).",
             f"- Surface-gene universe: {n_universe} surfaceome genes present in the "
-            f"matrix (anchor removed).",
+            f"matrix (anchor removed). {n_undef} genes had undefined Spearman "
+            f"(zero variance across the cohort) and sort to the bottom.",
             f"- Primary metric: Spearman correlation.",
+            f"- `{args.anchor}` {EXPR_LABEL}: mean {anchor_stats['mean']:.2f}, "
+            f"range {anchor_stats['min']:.2f}–{anchor_stats['max']:.2f}.",
+            (
+                f"- `{args.focus}` {EXPR_LABEL}: mean {focus_stats['mean']:.2f}, "
+                f"range {focus_stats['min']:.2f}–{focus_stats['max']:.2f}"
+                + (
+                    " (constitutively high; little dynamic range)."
+                    if (focus_stats["max"] - focus_stats["min"] < 4 and focus_stats["mean"] > 10)
+                    else "."
+                )
+                if focus_stats
+                else None
+            ),
             "",
             "| metric | value |",
             "| --- | --- |",
@@ -324,6 +369,7 @@ def main(argv: list[str] | None = None) -> int:
             "| rank | gene | spearman_rho | pearson_rho | FDR q |",
             "| --- | --- | --- | --- | --- |",
         ]
+        lines = [ln for ln in lines if ln is not None]
         for _, r in df.head(15).iterrows():
             star = "  <-- focus" if r["gene"] == args.focus else ""
             lines.append(
