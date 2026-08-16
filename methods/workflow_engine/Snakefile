@@ -1,0 +1,256 @@
+# Draft Snakefile — GEO processed → TACSTD2/CLDN4 → deconv → stats → figures
+# METHODS ONLY. No FASTQ/SRA. See playbook.md (zh+en).
+#
+# Usage (from this directory, after scripts exist):
+#   snakemake -n -p --configfile config.yaml
+#   snakemake -j 4 --use-conda --configfile config.yaml
+
+from pathlib import Path
+
+configfile: "config.yaml"
+
+def _as_bool(value, default=True):
+    """YAML/CLI-safe bool. The string 'false' must not become True."""
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() in {"1", "true", "yes", "on"}
+
+
+WORKDIR = config.get("workdir", "results/workflow_engine")
+MAX_BYTES = int(config.get("max_file_bytes", 2 * 1024**3))
+REFUSE_FASTQ = _as_bool(config.get("refuse_fastq", True), default=True)
+COHORTS = list(config["cohorts"])
+SCRIPT_DIR = Path(workflow.basedir) / "scripts"
+
+if not REFUSE_FASTQ:
+    raise ValueError(
+        "config.refuse_fastq must stay true; this engine does not fetch SRA/FASTQ"
+    )
+
+
+rule all:
+    """Terminal contract: manifest + per-cohort extracts + pooled stats + figure index."""
+    input:
+        f"{WORKDIR}/manifest.tsv",
+        expand(f"{WORKDIR}/{{cohort}}/genes.tsv", cohort=COHORTS),
+        expand(f"{WORKDIR}/{{cohort}}/deconv.tsv", cohort=COHORTS),
+        f"{WORKDIR}/stats/associations.tsv",
+        f"{WORKDIR}/figures/figure_index.tsv",
+
+
+rule download_geo_processed:
+    """Stage 1: SOFT + author processed matrix. Size-gated. Never SRA/FASTQ."""
+    output:
+        matrix=f"{WORKDIR}/{{cohort}}/processed/matrix.bin",
+        soft=f"{WORKDIR}/{{cohort}}/processed/family.soft.gz",
+        qc=f"{WORKDIR}/{{cohort}}/download_qc.json",
+    params:
+        script=str(SCRIPT_DIR / "download_geo.py"),
+        gse=lambda w: config["cohorts"][w.cohort]["gse"],
+        processed_url=lambda w: config["cohorts"][w.cohort]["processed_url"],
+        soft_url=lambda w: config["cohorts"][w.cohort]["soft_url"],
+        max_bytes=MAX_BYTES,
+    conda:
+        "envs/environment.yaml"
+    shell:
+        r"""
+        set -euo pipefail
+        if [ ! -f {params.script} ]; then
+            echo "SKELETON: implement {params.script}" >&2
+            echo "  cohort={wildcards.cohort} gse={params.gse}" >&2
+            echo "  processed_url={params.processed_url}" >&2
+            echo "  soft_url={params.soft_url}" >&2
+            echo "  max_bytes={params.max_bytes} refuse_fastq=1" >&2
+            echo "  Forbidden: prefetch fasterq-dump fastq-dump kingfisher ffq SRA RAW FASTQ" >&2
+            exit 2
+        fi
+        python3 {params.script} \
+            --cohort {wildcards.cohort} \
+            --gse {params.gse} \
+            --processed-url {params.processed_url:q} \
+            --soft-url {params.soft_url:q} \
+            --max-bytes {params.max_bytes} \
+            --refuse-fastq \
+            --matrix-out {output.matrix} \
+            --soft-out {output.soft} \
+            --qc-out {output.qc}
+        """
+
+
+rule extract_genes:
+    """Stage 2: TACSTD2/CLDN4 (+ aliases/Ensembl) and phenotype join."""
+    input:
+        matrix=f"{WORKDIR}/{{cohort}}/processed/matrix.bin",
+        soft=f"{WORKDIR}/{{cohort}}/processed/family.soft.gz",
+        qc=f"{WORKDIR}/{{cohort}}/download_qc.json",
+    output:
+        genes=f"{WORKDIR}/{{cohort}}/genes.tsv",
+        symbol_matrix=f"{WORKDIR}/{{cohort}}/matrix_symbols.tsv.gz",
+        extract_qc=f"{WORKDIR}/{{cohort}}/extract_qc.json",
+    params:
+        script=str(SCRIPT_DIR / "extract_genes.py"),
+        unit=lambda w: config["cohorts"][w.cohort]["unit"],
+        panel=lambda w: config["cohorts"][w.cohort]["panel"],
+        collapse=config.get("collapse_duplicate_genes", "max_mean"),
+    conda:
+        "envs/environment.yaml"
+    shell:
+        r"""
+        set -euo pipefail
+        if [ ! -f {params.script} ]; then
+            echo "SKELETON: implement {params.script}" >&2
+            echo "  resolve TACSTD2=ENSG00000184292 CLDN4=ENSG00000189143" >&2
+            echo "  unit={params.unit} panel={params.panel} collapse={params.collapse}" >&2
+            echo "  if genes missing: genes_present=false; do not impute" >&2
+            exit 2
+        fi
+        python3 {params.script} \
+            --cohort {wildcards.cohort} \
+            --matrix {input.matrix} \
+            --soft {input.soft} \
+            --unit {params.unit} \
+            --panel {params.panel} \
+            --collapse {params.collapse} \
+            --config config.yaml \
+            --genes-out {output.genes} \
+            --symbol-matrix-out {output.symbol_matrix} \
+            --qc-out {output.extract_qc}
+        """
+
+
+rule deconv:
+    """Stage 3: immunedeconv on HUGO / non-log TPM-like matrix. Skip narrow panels."""
+    input:
+        symbol_matrix=f"{WORKDIR}/{{cohort}}/matrix_symbols.tsv.gz",
+        extract_qc=f"{WORKDIR}/{{cohort}}/extract_qc.json",
+    output:
+        deconv=f"{WORKDIR}/{{cohort}}/deconv.tsv",
+        deconv_qc=f"{WORKDIR}/{{cohort}}/deconv_qc.json",
+    params:
+        script=str(SCRIPT_DIR / "deconv.R"),
+        unit=lambda w: config["cohorts"][w.cohort]["unit"],
+        panel=lambda w: config["cohorts"][w.cohort]["panel"],
+        methods=",".join(
+            config.get("deconv_methods", ["quantiseq", "epic", "mcp_counter", "xcell"])
+        ),
+    conda:
+        "envs/environment.yaml"
+    shell:
+        r"""
+        set -euo pipefail
+        if [ "{params.panel}" = "oncomine_immune" ] || [ "{params.panel}" = "ncounter" ]; then
+            echo "panel_too_narrow: skip immunedeconv for {wildcards.cohort}" >&2
+        fi
+        if [ ! -f {params.script} ]; then
+            echo "SKELETON: implement {params.script}" >&2
+            echo "  methods={params.methods} unit={params.unit}" >&2
+            echo "  invert log2tpm; do not treat xCell/MCP as percentages" >&2
+            echo "  cibersort remains off unless license paths are set" >&2
+            exit 2
+        fi
+        Rscript {params.script} \
+            --cohort {wildcards.cohort} \
+            --matrix {input.symbol_matrix} \
+            --unit {params.unit} \
+            --panel {params.panel} \
+            --methods {params.methods} \
+            --deconv-out {output.deconv} \
+            --qc-out {output.deconv_qc}
+        """
+
+
+rule stats:
+    """Stage 4: MWU / Spearman / Cox + BH within cohort family. No cutpoint scan."""
+    input:
+        genes=expand(f"{WORKDIR}/{{cohort}}/genes.tsv", cohort=COHORTS),
+        deconv=expand(f"{WORKDIR}/{{cohort}}/deconv.tsv", cohort=COHORTS),
+    output:
+        associations=f"{WORKDIR}/stats/associations.tsv",
+    params:
+        script=str(SCRIPT_DIR / "stats.py"),
+    conda:
+        "envs/environment.yaml"
+    shell:
+        r"""
+        set -euo pipefail
+        if [ ! -f {params.script} ]; then
+            echo "SKELETON: implement {params.script}" >&2
+            echo "  tests: MWU+rank-biserial, Spearman, Cox+median log-rank" >&2
+            echo "  BH FDR within cohort family; n>=4 per arm; no fabricated p" >&2
+            exit 2
+        fi
+        python3 {params.script} \
+            --genes {input.genes} \
+            --deconv {input.deconv} \
+            --out {output.associations}
+        """
+
+
+rule figures:
+    """Stage 5: PNG + figure_index.tsv from tables only."""
+    input:
+        associations=f"{WORKDIR}/stats/associations.tsv",
+        genes=expand(f"{WORKDIR}/{{cohort}}/genes.tsv", cohort=COHORTS),
+        deconv=expand(f"{WORKDIR}/{{cohort}}/deconv.tsv", cohort=COHORTS),
+    output:
+        index=f"{WORKDIR}/figures/figure_index.tsv",
+    params:
+        script=str(SCRIPT_DIR / "figures.py"),
+        figdir=f"{WORKDIR}/figures",
+    conda:
+        "envs/environment.yaml"
+    shell:
+        r"""
+        set -euo pipefail
+        if [ ! -f {params.script} ]; then
+            echo "SKELETON: implement {params.script}" >&2
+            echo "  gene-by-response, deconv heatmap, TACSTD2 vs CD8, KM if survival" >&2
+            exit 2
+        fi
+        python3 {params.script} \
+            --stats {input.associations} \
+            --genes {input.genes} \
+            --deconv {input.deconv} \
+            --outdir {params.figdir} \
+            --index {output.index}
+        """
+
+
+rule manifest:
+    """One row per configured cohort: URLs, unit, panel, refuse_fastq."""
+    output:
+        f"{WORKDIR}/manifest.tsv",
+    run:
+        Path(output[0]).parent.mkdir(parents=True, exist_ok=True)
+        cols = [
+            "cohort",
+            "gse",
+            "species",
+            "assay",
+            "unit",
+            "panel",
+            "processed_url",
+            "soft_url",
+            "max_file_bytes",
+            "refuse_fastq",
+            "note",
+        ]
+        lines = ["\t".join(cols)]
+        for name, meta in config["cohorts"].items():
+            row = [
+                name,
+                str(meta.get("gse", "")),
+                str(meta.get("species", "")),
+                str(meta.get("assay", "")),
+                str(meta.get("unit", "")),
+                str(meta.get("panel", "")),
+                str(meta.get("processed_url", "")),
+                str(meta.get("soft_url", "")),
+                str(MAX_BYTES),
+                "true" if REFUSE_FASTQ else "false",
+                str(meta.get("note", "")).replace("\t", " "),
+            ]
+            lines.append("\t".join(row))
+        Path(output[0]).write_text("\n".join(lines) + "\n", encoding="utf-8")
