@@ -1,0 +1,1049 @@
+[
+  {
+    "accession": "GSE108417",
+    "platform": "GPL6246",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 1,
+        "probes": [
+          "10545168"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM2897926": 7.52604237,
+          "GSM2897927": 7.628657093,
+          "GSM2897928": 7.456372012,
+          "GSM2897929": 6.50336328,
+          "GSM2897930": 7.54935673,
+          "GSM2897931": 6.545689934,
+          "GSM2897932": 8.457951056,
+          "GSM2897933": 7.623568886,
+          "GSM2897934": 7.427766268,
+          "GSM2897935": 6.706362235,
+          "GSM2897936": 7.27087956,
+          "GSM2897937": 8.285630944
+        },
+        "group_stats": {
+          "control_I": {
+            "n": 3,
+            "mean": 7.5370238249999995,
+            "median": 7.52604237,
+            "sd": 0.08666591919106333
+          },
+          "eosinophilic asthma_II": {
+            "n": 3,
+            "mean": 6.866136648000001,
+            "median": 6.545689934,
+            "sd": 0.5920643096368621
+          },
+          "mixed asthma_III": {
+            "n": 3,
+            "mean": 7.836428736666666,
+            "median": 7.623568886,
+            "sd": 0.5470851500233106
+          },
+          "neutrophilic asthma_IV": {
+            "n": 3,
+            "mean": 7.420957579666667,
+            "median": 7.27087956,
+            "sd": 0.8002593159700999
+          }
+        }
+      },
+      "CLDN4": {
+        "n_probes": 1,
+        "probes": [
+          "10534395"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM2897926": 6.100111727,
+          "GSM2897927": 6.158163645,
+          "GSM2897928": 6.015015451,
+          "GSM2897929": 4.228648548,
+          "GSM2897930": 6.416039169,
+          "GSM2897931": 5.302951423,
+          "GSM2897932": 8.267177913,
+          "GSM2897933": 8.024297513,
+          "GSM2897934": 7.417121021,
+          "GSM2897935": 7.405248019,
+          "GSM2897936": 8.357535197,
+          "GSM2897937": 9.511368186
+        },
+        "group_stats": {
+          "control_I": {
+            "n": 3,
+            "mean": 6.091096941,
+            "median": 6.100111727,
+            "sd": 0.07199861898908036
+          },
+          "eosinophilic asthma_II": {
+            "n": 3,
+            "mean": 5.3158797133333335,
+            "median": 5.302951423,
+            "sd": 1.0937526172439083
+          },
+          "mixed asthma_III": {
+            "n": 3,
+            "mean": 7.902865482333333,
+            "median": 8.024297513,
+            "sd": 0.4378452734277801
+          },
+          "neutrophilic asthma_IV": {
+            "n": 3,
+            "mean": 8.424717134,
+            "median": 8.357535197,
+            "sd": 1.0546661078063195
+          }
+        }
+      }
+    },
+    "scale_guess": "log2-like",
+    "n_probes_mapped": 25023,
+    "sample_titles": [
+      "control_I_1",
+      "control_I_2",
+      "control_I_3",
+      "eosinophilic asthma_II_7",
+      "eosinophilic asthma_II_8",
+      "eosinophilic asthma_II_9",
+      "mixed asthma_III_15",
+      "mixed asthma_III_16",
+      "mixed asthma_III_17",
+      "neutrophilic asthma_IV_23",
+      "neutrophilic asthma_IV_24",
+      "neutrophilic asthma_IV_25"
+    ],
+    "group_labels": [
+      "control_I",
+      "control_I",
+      "control_I",
+      "eosinophilic asthma_II",
+      "eosinophilic asthma_II",
+      "eosinophilic asthma_II",
+      "mixed asthma_III",
+      "mixed asthma_III",
+      "mixed asthma_III",
+      "neutrophilic asthma_IV",
+      "neutrophilic asthma_IV",
+      "neutrophilic asthma_IV"
+    ],
+    "status": "analyzed"
+  },
+  {
+    "accession": "GSE33348",
+    "platform": "GPL6246",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 1,
+        "probes": [
+          "10545168"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM824875": 1.4033824,
+          "GSM824876": 1.0361917,
+          "GSM824877": 1.4985409,
+          "GSM824878": -0.7263081,
+          "GSM824879": -0.4640745,
+          "GSM824880": -0.6746903,
+          "GSM824881": -0.6657574,
+          "GSM824882": -0.5040851,
+          "GSM824883": -0.90319955,
+          "GSM824884": -1.4132539,
+          "GSM824885": -1.6057612,
+          "GSM824886": -1.6312171,
+          "GSM824887": 0.53570557,
+          "GSM824888": 0.48440993,
+          "GSM824889": 0.42883557
+        },
+        "group_stats": {
+          "4T1 cells harboring the empty pLKO.1puro lentiviral vector": {
+            "n": 3,
+            "mean": 1.312705,
+            "median": 1.4033824,
+            "sd": 0.24414849751376722
+          },
+          "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts": {
+            "n": 6,
+            "mean": -1.1205457083333334,
+            "median": -1.158226725,
+            "sd": 0.49315167416415046
+          },
+          "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts": {
+            "n": 3,
+            "mean": -0.6216909666666667,
+            "median": -0.6746903,
+            "sd": 0.13891836538979765
+          },
+          "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus": {
+            "n": 3,
+            "mean": 0.48298368999999997,
+            "median": 0.48440993,
+            "sd": 0.05344927357226848
+          }
+        }
+      },
+      "CLDN4": {
+        "n_probes": 1,
+        "probes": [
+          "10534395"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM824875": 1.2009047,
+          "GSM824876": 1.2981544,
+          "GSM824877": 1.4736744,
+          "GSM824878": -0.7685499,
+          "GSM824879": -0.48814568,
+          "GSM824880": -0.6962228,
+          "GSM824881": -0.7958593,
+          "GSM824882": -0.5629922,
+          "GSM824883": -0.66096365,
+          "GSM824884": -1.3722935,
+          "GSM824885": -1.544944,
+          "GSM824886": -1.4790162,
+          "GSM824887": 0.077330045,
+          "GSM824888": 0.25333548,
+          "GSM824889": 0.07655687
+        },
+        "group_stats": {
+          "4T1 cells harboring the empty pLKO.1puro lentiviral vector": {
+            "n": 3,
+            "mean": 1.3242445,
+            "median": 1.2981544,
+            "sd": 0.13824379659872627
+          },
+          "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts": {
+            "n": 6,
+            "mean": -1.0693448083333335,
+            "median": -1.0840764,
+            "sd": 0.44356862101880523
+          },
+          "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts": {
+            "n": 3,
+            "mean": -0.6509727933333335,
+            "median": -0.6962228,
+            "sd": 0.14557576713159417
+          },
+          "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus": {
+            "n": 3,
+            "mean": 0.13574079833333333,
+            "median": 0.077330045,
+            "sd": 0.1018407154192696
+          }
+        }
+      }
+    },
+    "scale_guess": "log2-like",
+    "n_probes_mapped": 25023,
+    "sample_titles": [
+      "4T1 cells harboring the empty pLKO.1puro lentiviral vector, biological rep1, Exp 1",
+      "4T1 cells harboring the empty pLKO.1puro lentiviral vector, biological rep2, Exp 1",
+      "4T1 cells harboring the empty pLKO.1puro lentiviral vector, biological rep3, Exp 1",
+      "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep1, Exp 1",
+      "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep2, Exp 1",
+      "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep3, Exp 1",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep1, Exp 1",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep2, Exp 1",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep3, Exp 1",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep4, Exp 2",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep5, Exp 2",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts, biological rep6, Exp 2",
+      "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus, biological rep1, Exp 2",
+      "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus, biological rep2, Exp 2",
+      "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus, biological rep3, Exp 2"
+    ],
+    "group_labels": [
+      "4T1 cells harboring the empty pLKO.1puro lentiviral vector",
+      "4T1 cells harboring the empty pLKO.1puro lentiviral vector",
+      "4T1 cells harboring the empty pLKO.1puro lentiviral vector",
+      "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone B, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "Clone A, 4T1 cells transduced with lentivirus encoding shRNAs to mouse Vav2 and Vav3 transcripts",
+      "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus",
+      "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus",
+      "KD2/3(A) cells, with Vav2 and Vav3 reexpressed using lentivirus"
+    ],
+    "status": "analyzed"
+  },
+  {
+    "accession": "GSE48443",
+    "platform": "GPL6885",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 1,
+        "probes": [
+          "ILMN_1231513"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM1178811": 12.59095338,
+          "GSM1178812": 12.61537021,
+          "GSM1178813": 12.25314273,
+          "GSM1178814": 11.56098732,
+          "GSM1178815": 12.00548953,
+          "GSM1178816": 12.08916685,
+          "GSM1178817": 11.79350904
+        },
+        "group_stats": {
+          "CLDN18_KnockOut": {
+            "n": 3,
+            "mean": 12.486488773333335,
+            "median": 12.59095338,
+            "sd": 0.20245203716264146
+          },
+          "WildType": {
+            "n": 4,
+            "mean": 11.862288185,
+            "median": 11.899499285000001,
+            "sd": 0.23628608075711252
+          }
+        },
+        "comparison": {
+          "group_a": "CLDN18_KnockOut",
+          "group_b": "WildType",
+          "mean_a": 12.486488773333335,
+          "mean_b": 11.862288185,
+          "log2FC_b_vs_a": -0.6242,
+          "mannwhitney_p": 0.05714
+        }
+      },
+      "CLDN4": {
+        "n_probes": 1,
+        "probes": [
+          "ILMN_1223949"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM1178811": 10.12594711,
+          "GSM1178812": 10.30716839,
+          "GSM1178813": 9.685111157,
+          "GSM1178814": 9.555662647,
+          "GSM1178815": 9.67338853,
+          "GSM1178816": 9.468335281,
+          "GSM1178817": 9.296870822
+        },
+        "group_stats": {
+          "CLDN18_KnockOut": {
+            "n": 3,
+            "mean": 10.039408885666667,
+            "median": 10.12594711,
+            "sd": 0.31993038068457763
+          },
+          "WildType": {
+            "n": 4,
+            "mean": 9.498564320000002,
+            "median": 9.511998964,
+            "sd": 0.15855365577900585
+          }
+        },
+        "comparison": {
+          "group_a": "CLDN18_KnockOut",
+          "group_b": "WildType",
+          "mean_a": 10.039408885666667,
+          "mean_b": 9.498564320000002,
+          "log2FC_b_vs_a": -0.5408,
+          "mannwhitney_p": 0.05714
+        }
+      }
+    },
+    "scale_guess": "log2-like",
+    "n_probes_mapped": 24790,
+    "sample_titles": [
+      "CLDN18_KnockOut_1",
+      "CLDN18_KnockOut_2",
+      "CLDN18_KnockOut_3",
+      "WildType_1",
+      "WildType_2",
+      "WildType_3",
+      "WildType_4"
+    ],
+    "group_labels": [
+      "CLDN18_KnockOut",
+      "CLDN18_KnockOut",
+      "CLDN18_KnockOut",
+      "WildType",
+      "WildType",
+      "WildType",
+      "WildType"
+    ],
+    "status": "analyzed"
+  },
+  {
+    "accession": "GSE206613",
+    "platform": "GPL32069",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 0,
+        "probes": [],
+        "status": "gene_not_on_platform"
+      },
+      "CLDN4": {
+        "n_probes": 0,
+        "probes": [],
+        "status": "gene_not_on_platform"
+      }
+    },
+    "scale_guess": "log2-like",
+    "n_probes_mapped": 0,
+    "sample_titles": [
+      "mCRC_001",
+      "mCRC_002",
+      "mCRC_003",
+      "mCRC_004",
+      "mCRC_005",
+      "mCRC_006",
+      "mCRC_007",
+      "mCRC_008",
+      "mCRC_009",
+      "mCRC_010",
+      "mCRC_011",
+      "mCRC_012",
+      "mCRC_013",
+      "mCRC_014",
+      "mCRC_015",
+      "mCRC_016",
+      "mCRC_017",
+      "mCRC_018",
+      "mCRC_019",
+      "mCRC_020",
+      "mCRC_021",
+      "mCRC_022",
+      "mCRC_023",
+      "mCRC_024",
+      "mCRC_025",
+      "mCRC_026",
+      "mCRC_027",
+      "mCRC_028",
+      "mCRC_029",
+      "mCRC_030",
+      "mCRC_031",
+      "mCRC_032",
+      "mCRC_033",
+      "mCRC_034",
+      "mCRC_035",
+      "mCRC_036",
+      "mCRC_037",
+      "mCRC_038",
+      "mCRC_039",
+      "mCRC_040",
+      "mCRC_041",
+      "mCRC_042",
+      "mCRC_043",
+      "mCRC_044",
+      "mCRC_045",
+      "mCRC_046",
+      "mCRC_047",
+      "mCRC_048",
+      "mCRC_049",
+      "mCRC_050",
+      "mCRC_051",
+      "mCRC_052",
+      "mCRC_053",
+      "mCRC_054",
+      "mCRC_055",
+      "mCRC_056",
+      "mCRC_057",
+      "mCRC_058",
+      "mCRC_059",
+      "mCRC_060",
+      "mCRC_061",
+      "mCRC_062",
+      "mCRC_063",
+      "mCRC_064",
+      "mCRC_065",
+      "mCRC_066",
+      "mCRC_067",
+      "mCRC_068",
+      "mCRC_069",
+      "mCRC_070",
+      "mCRC_071",
+      "mCRC_072",
+      "mCRC_073",
+      "mCRC_074",
+      "mCRC_075",
+      "mCRC_076",
+      "mCRC_077"
+    ],
+    "group_labels": [
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC",
+      "mCRC"
+    ],
+    "status": "analyzed"
+  },
+  {
+    "accession": "GSE210340",
+    "platform": "GPL20775",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 1,
+        "probes": [
+          "TC0600002427.mm.1"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM6428668": 5.54,
+          "GSM6428669": 5.0,
+          "GSM6428670": 5.4,
+          "GSM6428671": 5.13,
+          "GSM6428672": 5.57,
+          "GSM6428673": 5.02,
+          "GSM6428674": 5.28,
+          "GSM6428675": 5.37,
+          "GSM6428676": 5.6,
+          "GSM6428677": 4.96,
+          "GSM6428678": 5.26,
+          "GSM6428679": 5.01,
+          "GSM6428680": 5.18,
+          "GSM6428681": 5.49,
+          "GSM6428682": 4.91,
+          "GSM6428683": 5.01,
+          "GSM6428684": 5.38,
+          "GSM6428685": 5.47,
+          "GSM6428686": 5.17,
+          "GSM6428687": 4.96,
+          "GSM6428688": 5.1,
+          "GSM6428689": 5.14,
+          "GSM6428690": 5.4,
+          "GSM6428691": 5.21,
+          "GSM6428692": 4.86,
+          "GSM6428693": 4.95,
+          "GSM6428694": 5.01,
+          "GSM6428695": 5.23,
+          "GSM6428696": 5.06
+        },
+        "group_stats": {
+          "BMDMs treated with A549 conditioned medium": {
+            "n": 4,
+            "mean": 5.1475,
+            "median": 5.095,
+            "sd": 0.2540833196676503
+          },
+          "BMDMs treated with Calu-1 conditioned medium": {
+            "n": 4,
+            "mean": 5.15,
+            "median": 5.119999999999999,
+            "sd": 0.18366636418607904
+          },
+          "BMDMs treated with NCI-H1299 conditioned medium": {
+            "n": 4,
+            "mean": 5.2575,
+            "median": 5.275,
+            "sd": 0.2074246851269154
+          },
+          "BMDMs treated with NCI-H460 conditioned medium": {
+            "n": 4,
+            "mean": 5.3100000000000005,
+            "median": 5.325,
+            "sd": 0.22818121453499804
+          },
+          "BMDMs treated with PC-9 conditioned medium": {
+            "n": 3,
+            "mean": 5.2733333333333325,
+            "median": 5.26,
+            "sd": 0.3202082655606086
+          },
+          "Control BMDMs (M0)": {
+            "n": 4,
+            "mean": 5.2675,
+            "median": 5.265000000000001,
+            "sd": 0.24649205531483845
+          },
+          "M1 BMDMs": {
+            "n": 3,
+            "mean": 5.006666666666667,
+            "median": 4.95,
+            "sd": 0.18175074506954098
+          },
+          "M2 BMDMs": {
+            "n": 3,
+            "mean": 5.1000000000000005,
+            "median": 5.06,
+            "sd": 0.11532562594670835
+          }
+        }
+      },
+      "CLDN4": {
+        "n_probes": 1,
+        "probes": [
+          "TC0500003384.mm.1"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM6428668": 5.13,
+          "GSM6428669": 5.13,
+          "GSM6428670": 4.9,
+          "GSM6428671": 5.27,
+          "GSM6428672": 5.31,
+          "GSM6428673": 5.37,
+          "GSM6428674": 5.28,
+          "GSM6428675": 5.18,
+          "GSM6428676": 5.13,
+          "GSM6428677": 5.08,
+          "GSM6428678": 4.86,
+          "GSM6428679": 5.32,
+          "GSM6428680": 5.04,
+          "GSM6428681": 5.31,
+          "GSM6428682": 5.01,
+          "GSM6428683": 5.06,
+          "GSM6428684": 5.09,
+          "GSM6428685": 5.1,
+          "GSM6428686": 4.81,
+          "GSM6428687": 5.21,
+          "GSM6428688": 5.06,
+          "GSM6428689": 4.95,
+          "GSM6428690": 4.99,
+          "GSM6428691": 5.19,
+          "GSM6428692": 5.39,
+          "GSM6428693": 4.87,
+          "GSM6428694": 4.93,
+          "GSM6428695": 5.07,
+          "GSM6428696": 4.92
+        },
+        "group_stats": {
+          "BMDMs treated with A549 conditioned medium": {
+            "n": 4,
+            "mean": 5.17,
+            "median": 5.175,
+            "sd": 0.1679285562374667
+          },
+          "BMDMs treated with Calu-1 conditioned medium": {
+            "n": 4,
+            "mean": 5.0525,
+            "median": 5.025,
+            "sd": 0.11441882129556588
+          },
+          "BMDMs treated with NCI-H1299 conditioned medium": {
+            "n": 4,
+            "mean": 5.015,
+            "median": 5.074999999999999,
+            "sd": 0.1377195217340907
+          },
+          "BMDMs treated with NCI-H460 conditioned medium": {
+            "n": 4,
+            "mean": 5.285,
+            "median": 5.295,
+            "sd": 0.07937253933193783
+          },
+          "BMDMs treated with PC-9 conditioned medium": {
+            "n": 3,
+            "mean": 5.023333333333333,
+            "median": 5.08,
+            "sd": 0.14364307617610142
+          },
+          "Control BMDMs (M0)": {
+            "n": 4,
+            "mean": 5.1075,
+            "median": 5.13,
+            "sd": 0.15326991442114973
+          },
+          "M1 BMDMs": {
+            "n": 3,
+            "mean": 5.1499999999999995,
+            "median": 5.19,
+            "sd": 0.26229754097207986
+          },
+          "M2 BMDMs": {
+            "n": 3,
+            "mean": 4.973333333333334,
+            "median": 4.93,
+            "sd": 0.08386497083606109
+          }
+        }
+      }
+    },
+    "scale_guess": "log2-like",
+    "n_probes_mapped": 39654,
+    "sample_titles": [
+      "Control BMDMs (M0) replicate 1",
+      "Control BMDMs (M0) replicate 2",
+      "Control BMDMs (M0) replicate 3",
+      "Control BMDMs (M0) replicate 4",
+      "BMDMs treated with NCI-H460 conditioned medium replicate 1",
+      "BMDMs treated with NCI-H460 conditioned medium replicate 2",
+      "BMDMs treated with NCI-H460 conditioned medium replicate 3",
+      "BMDMs treated with NCI-H460 conditioned medium replicate 4",
+      "BMDMs treated with PC-9 conditioned medium replicate 1",
+      "BMDMs treated with PC-9 conditioned medium replicate 2",
+      "BMDMs treated with PC-9 conditioned medium replicate 3",
+      "BMDMs treated with A549 conditioned medium replicate 1",
+      "BMDMs treated with A549 conditioned medium replicate 2",
+      "BMDMs treated with A549 conditioned medium replicate 3",
+      "BMDMs treated with A549 conditioned medium replicate 4",
+      "BMDMs treated with NCI-H1299 conditioned medium replicate 1",
+      "BMDMs treated with NCI-H1299 conditioned medium replicate 2",
+      "BMDMs treated with NCI-H1299 conditioned medium replicate 3",
+      "BMDMs treated with NCI-H1299 conditioned medium replicate 4",
+      "BMDMs treated with Calu-1 conditioned medium replicate 1",
+      "BMDMs treated with Calu-1 conditioned medium replicate 2",
+      "BMDMs treated with Calu-1 conditioned medium replicate 3",
+      "BMDMs treated with Calu-1 conditioned medium replicate 4",
+      "M1 BMDMs replicate 1",
+      "M1 BMDMs replicate 2",
+      "M1 BMDMs replicate 3",
+      "M2 BMDMs replicate 1",
+      "M2 BMDMs replicate 2",
+      "M2 BMDMs replicate 3"
+    ],
+    "group_labels": [
+      "Control BMDMs (M0)",
+      "Control BMDMs (M0)",
+      "Control BMDMs (M0)",
+      "Control BMDMs (M0)",
+      "BMDMs treated with NCI-H460 conditioned medium",
+      "BMDMs treated with NCI-H460 conditioned medium",
+      "BMDMs treated with NCI-H460 conditioned medium",
+      "BMDMs treated with NCI-H460 conditioned medium",
+      "BMDMs treated with PC-9 conditioned medium",
+      "BMDMs treated with PC-9 conditioned medium",
+      "BMDMs treated with PC-9 conditioned medium",
+      "BMDMs treated with A549 conditioned medium",
+      "BMDMs treated with A549 conditioned medium",
+      "BMDMs treated with A549 conditioned medium",
+      "BMDMs treated with A549 conditioned medium",
+      "BMDMs treated with NCI-H1299 conditioned medium",
+      "BMDMs treated with NCI-H1299 conditioned medium",
+      "BMDMs treated with NCI-H1299 conditioned medium",
+      "BMDMs treated with NCI-H1299 conditioned medium",
+      "BMDMs treated with Calu-1 conditioned medium",
+      "BMDMs treated with Calu-1 conditioned medium",
+      "BMDMs treated with Calu-1 conditioned medium",
+      "BMDMs treated with Calu-1 conditioned medium",
+      "M1 BMDMs",
+      "M1 BMDMs",
+      "M1 BMDMs",
+      "M2 BMDMs",
+      "M2 BMDMs",
+      "M2 BMDMs"
+    ],
+    "status": "analyzed"
+  },
+  {
+    "accession": "GSE266384",
+    "platform": "GPL11202",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 1,
+        "probes": [
+          "A_51_P257938"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM8246078": 0.19752312,
+          "GSM8246079": -0.14426136,
+          "GSM8246080": -0.046396255,
+          "GSM8246081": 0.04639721
+        },
+        "group_stats": {
+          "3LL IFNG": {
+            "n": 1,
+            "mean": 0.04639721,
+            "median": 0.04639721,
+            "sd": null
+          },
+          "3LL con": {
+            "n": 1,
+            "mean": -0.046396255,
+            "median": -0.046396255,
+            "sd": null
+          },
+          "AB1-HA IFNG": {
+            "n": 1,
+            "mean": -0.14426136,
+            "median": -0.14426136,
+            "sd": null
+          },
+          "AB1-HA con": {
+            "n": 1,
+            "mean": 0.19752312,
+            "median": 0.19752312,
+            "sd": null
+          }
+        }
+      },
+      "CLDN4": {
+        "n_probes": 2,
+        "probes": [
+          "A_51_P356467",
+          "A_55_P2183453"
+        ],
+        "status": "ok",
+        "per_sample": {
+          "GSM8246078": 0.011736394999999997,
+          "GSM8246079": 0.56647827,
+          "GSM8246080": -0.488996985,
+          "GSM8246081": 0.18838834999999998
+        },
+        "group_stats": {
+          "3LL IFNG": {
+            "n": 1,
+            "mean": 0.18838834999999998,
+            "median": 0.18838834999999998,
+            "sd": null
+          },
+          "3LL con": {
+            "n": 1,
+            "mean": -0.488996985,
+            "median": -0.488996985,
+            "sd": null
+          },
+          "AB1-HA IFNG": {
+            "n": 1,
+            "mean": 0.56647827,
+            "median": 0.56647827,
+            "sd": null
+          },
+          "AB1-HA con": {
+            "n": 1,
+            "mean": 0.011736394999999997,
+            "median": 0.011736394999999997,
+            "sd": null
+          }
+        }
+      }
+    },
+    "scale_guess": "log2-like",
+    "n_probes_mapped": 33244,
+    "sample_titles": [
+      "AB1-HA con",
+      "AB1-HA IFNG",
+      "3LL con",
+      "3LL IFNG"
+    ],
+    "group_labels": [
+      "AB1-HA con",
+      "AB1-HA IFNG",
+      "3LL con",
+      "3LL IFNG"
+    ],
+    "status": "analyzed"
+  },
+  {
+    "accession": "GSE310370",
+    "platform": "GPL21572",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 0,
+        "probes": [],
+        "status": "gene_not_on_platform"
+      },
+      "CLDN4": {
+        "n_probes": 0,
+        "probes": [],
+        "status": "gene_not_on_platform"
+      }
+    },
+    "scale_guess": "log2-like",
+    "n_probes_mapped": 0,
+    "sample_titles": [
+      "NSCLC patient1_OAA captured miRNA_pre nivolumab treatment_PD",
+      "NSCLC patient2_OAA captured miRNA_pre nivolumab treatment_PD",
+      "NSCLC patient1_OAA captured miRNA_post nivolumab treatment_PD",
+      "NSCLC patient2_OAA captured miRNA_post nivolumab treatment_PD"
+    ],
+    "group_labels": [
+      "NSCLC patient1_OAA captured miRNA_pre nivolumab treatment_PD",
+      "NSCLC patient2_OAA captured miRNA_pre nivolumab treatment_PD",
+      "NSCLC patient1_OAA captured miRNA_post nivolumab treatment_PD",
+      "NSCLC patient2_OAA captured miRNA_post nivolumab treatment_PD"
+    ],
+    "status": "analyzed"
+  },
+  {
+    "accession": "GSE317352",
+    "platform": "GPL32057",
+    "genes": {
+      "TACSTD2": {
+        "n_probes": 0,
+        "probes": [],
+        "status": "gene_not_on_platform"
+      },
+      "CLDN4": {
+        "n_probes": 0,
+        "probes": [],
+        "status": "gene_not_on_platform"
+      }
+    },
+    "scale_guess": "linear",
+    "n_probes_mapped": 799,
+    "sample_titles": [
+      "Uninfected_None_Day 7_Rep-1",
+      "Uninfected_None_Day 7_Rep-2",
+      "Uninfected_None_Day 7_Rep-3",
+      "Aspergillus fumigatus_None_Day 7_Rep-1",
+      "Aspergillus fumigatus_None_Day 7_Rep-2",
+      "Aspergillus fumigatus_None_Day 7_Rep-3",
+      "Rhizopus arrhizus_None_Day 7_Rep-1",
+      "Rhizopus arrhizus_None_Day 7_Rep-2",
+      "Rhizopus arrhizus_None_Day 7_Rep-3",
+      "Fusarium solani_None_Day 7_Rep-1",
+      "Fusarium solani_None_Day 7_Rep-2",
+      "Fusarium solani_None_Day 7_Rep-3",
+      "Uninfected_None_Day 4_Rep-1",
+      "Uninfected_None_Day 4_Rep-2",
+      "Uninfected_None_Day 4_Rep-3",
+      "Rhizopus arrhizus_None_Day 4_Rep-1",
+      "Rhizopus arrhizus_None_Day 4_Rep-2",
+      "Rhizopus arrhizus_None_Day 4_Rep-3",
+      "Uninfected_None_Day 10_Rep-1",
+      "Uninfected_None_Day 10_Rep-2",
+      "Uninfected_None_Day 10_Rep-3",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 10_Rep-1",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 10_Rep-2",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 10_Rep-3",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 late_Day 10_Rep-1",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 late_Day 10_Rep-2",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 late_Day 10_Rep-3",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 10_Rep-1",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 10_Rep-2",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 10_Rep-3",
+      "Uninfected_None_Day 4_Rep-1b",
+      "Uninfected_None_Day 4_Rep-2b",
+      "Uninfected_None_Day 4_Rep-3b",
+      "Aspergillus fumigatus_None_Day 4_Rep-1",
+      "Aspergillus fumigatus_None_Day 4_Rep-2",
+      "Aspergillus fumigatus_None_Day 4_Rep-3",
+      "Aspergillus fumigatus_None_Day 4_Rep-4",
+      "Fusarium solani_None_Day 4_Rep-1",
+      "Fusarium solani_None_Day 4_Rep-2",
+      "Fusarium solani_None_Day 4_Rep-3",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 7 _Rep-1",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 7 _Rep-2",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 7 _Rep-3",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 7 _Rep-1",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 7 _Rep-2",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 7 _Rep-3"
+    ],
+    "group_labels": [
+      "Uninfected_None_Day 7",
+      "Uninfected_None_Day 7",
+      "Uninfected_None_Day 7",
+      "Aspergillus fumigatus_None_Day 7",
+      "Aspergillus fumigatus_None_Day 7",
+      "Aspergillus fumigatus_None_Day 7",
+      "Rhizopus arrhizus_None_Day 7",
+      "Rhizopus arrhizus_None_Day 7",
+      "Rhizopus arrhizus_None_Day 7",
+      "Fusarium solani_None_Day 7",
+      "Fusarium solani_None_Day 7",
+      "Fusarium solani_None_Day 7",
+      "Uninfected_None_Day 4",
+      "Uninfected_None_Day 4",
+      "Uninfected_None_Day 4",
+      "Rhizopus arrhizus_None_Day 4",
+      "Rhizopus arrhizus_None_Day 4",
+      "Rhizopus arrhizus_None_Day 4",
+      "Uninfected_None_Day 10",
+      "Uninfected_None_Day 10",
+      "Uninfected_None_Day 10",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 10",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 10",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 10",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 late_Day 10",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 late_Day 10",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 late_Day 10",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 10",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 10",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 10",
+      "Uninfected_None_Day 4_Rep-1b",
+      "Uninfected_None_Day 4_Rep-2b",
+      "Uninfected_None_Day 4_Rep-3b",
+      "Aspergillus fumigatus_None_Day 4",
+      "Aspergillus fumigatus_None_Day 4",
+      "Aspergillus fumigatus_None_Day 4",
+      "Aspergillus fumigatus_None_Day 4",
+      "Fusarium solani_None_Day 4",
+      "Fusarium solani_None_Day 4",
+      "Fusarium solani_None_Day 4",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 7",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 7",
+      "Rhizopus arrhizus_Isavuconazole + isotype _Day 7",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 7",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 7",
+      "Rhizopus arrhizus_Isavuconazole + anti-PD-L1 early_Day 7"
+    ],
+    "status": "analyzed"
+  }
+]
