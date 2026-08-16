@@ -1,0 +1,13 @@
+# Local rebuild artifacts — not part of the hunt report
+data/dcc/
+data/paper/
+data/processed/
+data/repo/
+data/*.tar
+data/*.pkc
+data/*.gz
+data/filelist.txt
+results/hunt_gse271689/data/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

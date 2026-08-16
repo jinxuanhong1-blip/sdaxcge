@@ -1,0 +1,65 @@
+GSE271689 GeoMx WTA tumour-segment TACSTD2/CLDN4 vs ICI OS
+
+PRIMARY Yale (GSE271689 DCC reprocessed; Q3-log2; mean of tumour AOIs)
+  n=37 OS events=17 PFS events=23
+  all first-line ICI, pre-treatment biopsy; adeno=25 sq=7
+  TACSTD2 OS  HR=1.711 [1.017-2.878] p=0.0432 n=37 ev=17 c=0.628
+  CLDN4   OS  HR=1.379 [0.892-2.131] p=0.148 n=37 ev=17 c=0.634
+  CD8A    OS  HR=0.922 [0.590-1.439] p=0.72 n=37 ev=17 c=0.562
+  cd8sig  OS  HR=1.041 [0.655-1.653] p=0.865 n=37 ev=17 c=0.511
+  ayers   OS  HR=0.816 [0.496-1.343] p=0.424 n=37 ev=17 c=0.555
+  TACSTD2 PFS HR=1.483 [0.956-2.299] p=0.0783 n=37 ev=23 c=0.588
+  CLDN4   PFS HR=1.209 [0.830-1.760] p=0.322 n=37 ev=23 c=0.537
+  TACSTD2 OS median-split HR_hi/lo=2.158 logrank_p=0.121 n_hi=18 n_lo=19
+  Yale LUAD-only TACSTD2 OS HR=1.666 [0.953-2.913] p=0.0734 n=25 ev=12 c=0.652
+
+CORRELATIONS Yale
+  TACSTD2 vs CLDN4: rho=0.573 p=0.000212 n=37
+  TACSTD2 vs CD8A: rho=-0.187 p=0.269 n=37
+  TACSTD2 vs cd8_cytotoxic: rho=-0.078 p=0.648 n=37
+  TACSTD2 vs ayers_ifng: rho=0.009 p=0.958 n=37
+  TACSTD2 vs CXCL9: rho=0.037 p=0.826 n=37
+  CLDN4 vs CD8A: rho=-0.393 p=0.0162 n=37
+  CLDN4 vs cd8_cytotoxic: rho=-0.262 p=0.118 n=37
+  CLDN4 vs ayers_ifng: rho=-0.161 p=0.341 n=37
+  signature genes used: {'cd8_cytotoxic': ['CD8A', 'CD8B', 'GZMA', 'GZMB', 'PRF1', 'NKG7'], 'ayers_ifng': ['CXCL9', 'CXCL10', 'STAT1', 'HLA-DRA', 'IDO1', 'IFNG'], 'tcell': ['CD3D', 'CD3E', 'CD2', 'CD8A']}
+
+REPLICATION UQ (paper Source Data Fig.6c; CTA panel; CLDN4 absent)
+  n=30 OS events=15  1st-line n=10
+  TACSTD2 OS  HR=1.370 [0.867-2.165] p=0.178 n=30 ev=15 c=0.645
+  CD8A    OS  HR=0.520 [0.312-0.865] p=0.0118 n=30 ev=15 c=0.697
+  cd8sig  OS  HR=0.471 [0.234-0.948] p=0.035 n=30 ev=15 c=0.671
+  UQ 1st-line TACSTD2 OS HR=nan [nan-nan] p=nan n=10 ev=3 c=nan
+  TACSTD2 vs CD8A: rho=0.077 p=0.687
+  TACSTD2 vs cd8_cytotoxic: rho=0.300 p=0.107
+  TACSTD2 vs ayers_ifng: rho=0.282 p=0.131
+  TACSTD2 vs CXCL9: rho=0.243 p=0.195
+  signature genes used: {'cd8_cytotoxic': ['CD8A', 'CD8B', 'GZMA', 'GZMB', 'PRF1', 'NKG7'], 'ayers_ifng': ['CXCL9', 'CXCL10', 'STAT1', 'HLA.DRA', 'IDO1', 'IFNG'], 'tcell': ['CD3D', 'CD3E', 'CD2', 'CD8A']}
+
+REPLICATION Greek (paper Source Data Fig.6d; WTA tumour ROI ≈ patient)
+  n=61 OS events=33
+  TACSTD2 OS  HR=0.923 [0.692-1.230] p=0.585 n=61 ev=33 c=0.536
+  CLDN4   OS  HR=1.105 [0.754-1.617] p=0.609 n=61 ev=33 c=0.407
+  CD8A    OS  HR=1.184 [0.878-1.597] p=0.27 n=61 ev=33 c=0.628
+  Greek LUAD TACSTD2 OS HR=0.962 [0.641-1.444] p=0.851 n=42 ev=26 c=0.487
+  TACSTD2 vs CLDN4: rho=0.347 p=0.00614
+  TACSTD2 vs CD8A: rho=-0.220 p=0.0889
+  TACSTD2 vs cd8_cytotoxic: rho=-0.303 p=0.0176
+  TACSTD2 vs ayers_ifng: rho=-0.208 p=0.108
+  TACSTD2 vs CXCL9: rho=-0.196 p=0.13
+  CLDN4 vs CD8A: rho=-0.035 p=0.786
+  CLDN4 vs cd8_cytotoxic: rho=-0.071 p=0.586
+  CLDN4 vs ayers_ifng: rho=0.181 p=0.163
+  signature genes used: {'cd8_cytotoxic': ['CD8A', 'CD8B', 'GZMA', 'GZMB', 'PRF1', 'NKG7'], 'ayers_ifng': ['CXCL9', 'STAT1', 'HLA.DRA', 'IDO1'], 'tcell': ['CD8A']}
+
+YALE multivariable OS ~ TACSTD2_z + CD8A_z + adeno
+  TACSTD2_z: HR=1.841 [1.040-3.259] p=0.0361
+  CD8A_z: HR=0.988 [0.592-1.648] p=0.962
+  adeno: HR=1.506 [0.464-4.889] p=0.496
+
+DIRECTION vs user prior (high TROP2 worse):
+  Yale TACSTD2: WORSE (HR>1), nominal p<0.05, HR=1.711 [1.017-2.878] p=0.0432 n=37 ev=17 c=0.628
+  Yale CLDN4: WORSE (HR>1), not significant, HR=1.379 [0.892-2.131] p=0.148 n=37 ev=17 c=0.634
+  UQ TACSTD2: WORSE (HR>1), not significant, HR=1.370 [0.867-2.165] p=0.178 n=30 ev=15 c=0.645
+  Greek TACSTD2: BETTER (HR<1), not significant, HR=0.923 [0.692-1.230] p=0.585 n=61 ev=33 c=0.536
+  Greek CLDN4: WORSE (HR>1), not significant, HR=1.105 [0.754-1.617] p=0.609 n=61 ev=33 c=0.407
