@@ -1,0 +1,11 @@
+accession	agent	is_adc_treatment	tissue	lung	label	note	usable_adc_vs_ctrl
+GSE312098	IMMU132 (sacituzumab govitecan)	True	CRC cell line CX-1	False	non-lung analog	SG analog, not SKB264. FPKM, n=3 vs 3.	True
+GSE311016	IMMU132 (sacituzumab govitecan)	True	CRC PDX (5 models, day 29)	False	non-lung analog	SG analog, not SKB264. Paired PDX FPKM, n=5 pairs.	True
+GSE304294	IMMU132 (sacituzumab govitecan)	True	ESCC cell line KYSE30	False	non-lung analog	SG analog, not SKB264. IMMU arm n=2 vs control n=3. Underpowered.	True
+GSE334497	none (Trop2 knockout)	False	4T1 mouse TNBC tumors	False	non-lung TROP2-loss analog (NOT ADC)	TROP2 KO, not sacituzumab / not SKB264. Mouse 4T1, n=5 vs 5.	False
+GSE289287	none (TACSTD2 knockout)	False	T-47D luminal breast xenografts	False	non-lung TROP2-loss analog (NOT ADC; not TNBC)	TROP2 KO, not sacituzumab / not SKB264. Author DESeq2 + Welch on normCounts. n=4 KO vs 3 WT.	False
+GSE235812	none (untreated breast tumor vs PDX)	False	breast tumor P0 and matching PDX P1	False	non-lung untreated analog (NOT ADC)	Paper used SG in other experiments; deposited RNA is untreated P0/P1. No ADC vs control.	False
+GSE245459	none (shTACSTD2)	False	SKOV3 ovarian	False	already covered as C4 TACSTD2-KD analog	Not ADC. See results/w200/C4_GSE245459/. Not re-analysed here.	False
+GSE302284	none in deposited omics (osimertinib / residual tissue)	False	EGFR-mutant NSCLC	True	not an SG treatment contrast	Paper mentions TROP2 CAR-T / SG context; GEO samples are LN/tumor and osi vs vehicle. Sibling slice owns this accession. Not scored as ADC vs control.	False
+GSE278664	none (prexasertib trial baseline)	False	HGSOC biopsies	False	SG paper, deposited RNA is CHK1i trial	Cannot test SG vs control. Treatment field is Prexasertib.	False
+public GEO search	sac-TMT / SKB264 / MK-2870	False			no public expression series found	esearch SKB264 / sac-TMT / tirumotecan / datopotamab returned 0 GSE records (2026-08-16).	False
