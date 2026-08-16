@@ -1,0 +1,41 @@
+dataset,gene,measure,n,n_NR,n_R,spearman_vs_NR,p,endpoint,note
+GSE126044,TACSTD2,raw,16,11,5,0.2193817272381392,0.4142938543203427,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,TACSTD2,partial_epi,16,11,5,0.05761610809668162,0.8383883265196806,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,TACSTD2,partial_leuk,16,11,5,0.16864713284914928,0.5479518690773104,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,TACSTD2,resid_epithelial,16,11,5,-0.19013083027305397,0.48061960759846534,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,TACSTD2,resid_leukocyte,16,11,5,0.07312724241271305,0.7878211152427436,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,CLDN4,raw,16,11,5,0.42413800599373574,0.10156528811170308,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,CLDN4,partial_epi,16,11,5,0.2591687534316149,0.3509479550812484,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,CLDN4,partial_leuk,16,11,5,0.05056258342307274,0.8579752440338319,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,CLDN4,resid_epithelial,16,11,5,0.2778835211683096,0.29737720112071514,binary responder/non-responder,positive rho => higher expr in NR
+GSE126044,CLDN4,resid_leukocyte,16,11,5,0.10237813937779829,0.7059598561700697,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,TACSTD2,raw,22,15,7,-0.19227925073505914,0.3912976786279109,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,TACSTD2,partial_epi,22,15,7,-0.22535184923398863,0.32601718356805104,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,TACSTD2,partial_leuk,22,15,7,-0.16812334691578965,0.46632486451478344,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,TACSTD2,resid_epithelial,22,15,7,-0.20766159079386387,0.35375601367374404,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,TACSTD2,resid_leukocyte,22,15,7,-0.1307498904998402,0.5619331849898298,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,CLDN4,raw,22,15,7,-0.023073510088207093,0.9188200097099768,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,CLDN4,partial_epi,22,15,7,0.039188268168377005,0.86607123145992,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,CLDN4,partial_leuk,22,15,7,-0.10193042745667197,0.6601907166481911,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,CLDN4,resid_epithelial,22,15,7,-0.20766159079386387,0.35375601367374404,binary responder/non-responder,positive rho => higher expr in NR
+GSE166449,CLDN4,resid_leukocyte,22,15,7,-0.05383819020581655,0.8119157324724849,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,TACSTD2,raw,24,15,9,0.205151057812869,0.33622053270223873,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,TACSTD2,partial_epi,24,15,9,0.015488428523059952,0.9440810506367135,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,TACSTD2,partial_leuk,24,15,9,-0.053290199972460504,0.8091755498891167,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,TACSTD2,resid_epithelial,24,15,9,0.018650096164806274,0.9310720028666998,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,TACSTD2,resid_leukocyte,24,15,9,-0.16785086548325648,0.4330476560912909,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,CLDN4,raw,24,15,9,0.24245125014248153,0.2536661216692377,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,CLDN4,partial_epi,24,15,9,0.08229843516577195,0.7089152850676289,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,CLDN4,partial_leuk,24,15,9,0.0545211557940472,0.8048492445376585,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,CLDN4,resid_epithelial,24,15,9,-0.09325048082403137,0.6647305272060023,binary responder/non-responder,positive rho => higher expr in NR
+GSE207422,CLDN4,resid_leukocyte,24,15,9,-0.0808170833808272,0.7073626157748426,binary responder/non-responder,positive rho => higher expr in NR
+GSE135222_DCB,TACSTD2,raw,27,20,7,0.10850778933039285,0.5900671818753503,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,TACSTD2,partial_epi,27,20,7,0.10634080910567593,0.6051308683295433,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,TACSTD2,partial_leuk,27,20,7,0.06257102412386151,0.7613890736330591,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,TACSTD2,resid_epithelial,27,20,7,0.043403115732157146,0.8297997167919988,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,TACSTD2,resid_leukocyte,27,20,7,0.13020934719647143,0.5174136656048341,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,CLDN4,raw,27,20,7,-0.08680623146431429,0.6668107204476752,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,CLDN4,partial_epi,27,20,7,-0.1803791243860841,0.377892225426471,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,CLDN4,partial_leuk,27,20,7,-0.12640206369819867,0.5383539384898607,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,CLDN4,resid_epithelial,27,20,7,-0.08680623146431429,0.6668107204476752,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
+GSE135222_DCB,CLDN4,resid_leukocyte,27,20,7,-0.11935856826343214,0.5531916898906105,DCB=PFS>=180d (published 6-month convention on this series),positive rho => higher expr in NR
