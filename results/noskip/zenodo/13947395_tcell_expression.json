@@ -1,0 +1,50 @@
+[
+  {
+    "file": "Bischoff_2021_lung_cancer_patient_data_processed_tcells_BO_gated.h5ad",
+    "var_source": "var/_index",
+    "n_var": 25797,
+    "n_obs": 14808,
+    "TACSTD2_present": true,
+    "CLDN4_present": true,
+    "n": 14808,
+    "TACSTD2_pct": 1.7423014586709886,
+    "CLDN4_pct": 2.2420313344138303,
+    "TACSTD2_mean": 0.01345323314885234,
+    "CLDN4_mean": 0.017181737837998014,
+    "rho": 0.021715749763620226,
+    "p": 0.008226307779805498,
+    "p_raw_float": 0.008226307779805498
+  },
+  {
+    "file": "HTAN_MSK_tcells.h5ad",
+    "var_source": "var/feature_name",
+    "n_var": 25090,
+    "n_obs": null,
+    "TACSTD2_present": true,
+    "CLDN4_present": true,
+    "n": 26877,
+    "TACSTD2_pct": 1.0157383636566581,
+    "CLDN4_pct": 1.3543178182088773,
+    "TACSTD2_mean": 0.013113578202185382,
+    "CLDN4_mean": 0.017725676346930487,
+    "rho": 0.010482532081077323,
+    "p": 0.08570632610820782,
+    "p_raw_float": 0.08570632610820782
+  },
+  {
+    "file": "Laughney_et_al_tcells.h5ad",
+    "var_source": "var/_index",
+    "n_var": 12604,
+    "n_obs": 7042,
+    "TACSTD2_present": true,
+    "CLDN4_present": true,
+    "n": 7042,
+    "TACSTD2_pct": 1.363249076966771,
+    "CLDN4_pct": 1.235444476001136,
+    "TACSTD2_mean": 0.01616083986547243,
+    "CLDN4_mean": 0.014982982098768463,
+    "rho": 0.04174835117269625,
+    "p": 0.00045783244417827985,
+    "p_raw_float": 0.00045783244417827985
+  }
+]

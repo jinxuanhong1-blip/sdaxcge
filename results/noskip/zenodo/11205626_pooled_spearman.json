@@ -1,0 +1,32 @@
+{
+  "normal": {
+    "subset": "normal_cell_protocol",
+    "n": 39733,
+    "rho": 0.5631210756268152,
+    "p": "<1e-300",
+    "p_raw_float": 0.0,
+    "method": "scipy.stats.spearmanr two-sided",
+    "TACSTD2_pct": 6.629250245387965,
+    "CLDN4_pct": 6.505927063146504
+  },
+  "tumor": {
+    "subset": "tumor_cell_protocol",
+    "n": 34290,
+    "rho": 0.6107274786248412,
+    "p": "<1e-300",
+    "p_raw_float": 0.0,
+    "method": "scipy.stats.spearmanr two-sided",
+    "TACSTD2_pct": 8.579760863225431,
+    "CLDN4_pct": 10.551181102362204
+  },
+  "all": {
+    "subset": "all_cell_protocol",
+    "n": 74023,
+    "rho": 0.5874194659224535,
+    "p": "<1e-300",
+    "p_raw_float": 0.0,
+    "method": "scipy.stats.spearmanr two-sided",
+    "TACSTD2_pct": 7.532793861367412,
+    "CLDN4_pct": 8.379827891331072
+  }
+}

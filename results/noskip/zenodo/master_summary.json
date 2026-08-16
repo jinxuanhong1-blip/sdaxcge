@@ -1,0 +1,492 @@
+{
+  "10731914_human": {
+    "doi": "10.5281/zenodo.10731914",
+    "n_cells": 28457,
+    "n_epithelial": 9517,
+    "n_non_epithelial": 18940,
+    "TACSTD2_present": true,
+    "CLDN4_present": true,
+    "spearman_all_cells": {
+      "subset": "all_cells_cp10k",
+      "n": 28457,
+      "rho": 0.7593102480600927,
+      "p": 0.0,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    "spearman_epithelial": {
+      "subset": "epithelial_cp10k",
+      "n": 9517,
+      "rho": 0.38831806142091274,
+      "p": 0.0,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    "mw_TACSTD2_epi_vs_rest_p": 0.0,
+    "mw_CLDN4_epi_vs_rest_p": 0.0,
+    "note": "\u03c1 is Spearman on CP10K (or raw UMI where labelled). p is two-sided. No multiple-testing correction applied to the five Spearman tests."
+  },
+  "2635194_nanostring": {
+    "doi": "10.5281/zenodo.2635194",
+    "assay": "Nanostring nCounter, advanced NSCLC anti-PD-1",
+    "n_learn": 55,
+    "n_validate": 36,
+    "n_genes_in_panel": 784,
+    "TACSTD2_present": false,
+    "CLDN4_present": false,
+    "TROP2_present": false,
+    "rho": null,
+    "p": null,
+    "note": "TACSTD2 and CLDN4 are not on this immune-focused nCounter panel. Spearman was not computed."
+  },
+  "17535424_i3lung": {
+    "doi": "10.64898/2026.01.16.25342913",
+    "files": [
+      "cb.csv",
+      "outcomes.csv",
+      "genomics.csv",
+      "fmrad.csv",
+      "digital_pathology.csv"
+    ],
+    "TACSTD2_present": false,
+    "CLDN4_present": false,
+    "rho": null,
+    "p": null,
+    "note": "I3LUNG_DATA.zip is clinical / radiomics / driver-mutation tables (KRAS/P53/STK11). No expression matrix. results.zip (1.9 GB) was not needed after this negative."
+  },
+  "8417887_visium": {
+    "per_sample": [
+      {
+        "sample": "P01",
+        "n_spots": 4576,
+        "n_features": 36601,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 78.19055944055944,
+        "CLDN4_pct": 90.14423076923077,
+        "TACSTD2_mean": 2.601617132867133,
+        "CLDN4_mean": 4.801354895104895,
+        "rho": 0.6273260028540325,
+        "p": "<1e-300",
+        "n": 4576
+      },
+      {
+        "sample": "P02",
+        "n_spots": 4014,
+        "n_features": 36601,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 81.58943697060289,
+        "CLDN4_pct": 85.45092177379173,
+        "TACSTD2_mean": 2.6325361235675135,
+        "CLDN4_mean": 3.0707523667164924,
+        "rho": 0.5013981461633824,
+        "p": 1.3955815348896559e-254,
+        "n": 4014
+      },
+      {
+        "sample": "P03",
+        "n_spots": 4200,
+        "n_features": 36601,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 97.11904761904762,
+        "CLDN4_pct": 99.23809523809524,
+        "TACSTD2_mean": 8.813571428571429,
+        "CLDN4_mean": 13.337857142857143,
+        "rho": 0.6959388766106985,
+        "p": "<1e-300",
+        "n": 4200
+      },
+      {
+        "sample": "P04",
+        "n_spots": 3235,
+        "n_features": 36601,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 75.05409582689336,
+        "CLDN4_pct": 94.15765069551777,
+        "TACSTD2_mean": 2.408964451313756,
+        "CLDN4_mean": 7.106646058732612,
+        "rho": 0.6387183163195345,
+        "p": "<1e-300",
+        "n": 3235
+      },
+      {
+        "sample": "P11",
+        "n_spots": 3458,
+        "n_features": 36601,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 72.20936957779062,
+        "CLDN4_pct": 75.01445922498554,
+        "TACSTD2_mean": 4.102949681897051,
+        "CLDN4_mean": 3.957779063042221,
+        "rho": 0.6887411364862379,
+        "p": "<1e-300",
+        "n": 3458
+      },
+      {
+        "sample": "P13",
+        "n_spots": 3914,
+        "n_features": 36601,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 88.7583035258048,
+        "CLDN4_pct": 93.61267245784364,
+        "TACSTD2_mean": 5.4808380173735305,
+        "CLDN4_mean": 6.754215636177824,
+        "rho": 0.6564290945801152,
+        "p": "<1e-300",
+        "n": 3914
+      },
+      {
+        "sample": "P14",
+        "n_spots": 3595,
+        "n_features": 36601,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 84.33936022253128,
+        "CLDN4_pct": 90.43115438108484,
+        "TACSTD2_mean": 6.568567454798331,
+        "CLDN4_mean": 9.581084840055633,
+        "rho": 0.769166169580457,
+        "p": "<1e-300",
+        "n": 3595
+      }
+    ],
+    "pooled": {
+      "subset": "all_visium_spots_raw_counts",
+      "n": 26992,
+      "rho": 0.7170294745604864,
+      "p": "<1e-300",
+      "p_raw_float": 0.0,
+      "method": "scipy.stats.spearmanr two-sided",
+      "TACSTD2_pct": 82.8504742145821,
+      "CLDN4_pct": 89.94516893894487
+    }
+  },
+  "8417887_scrna": {
+    "malignant": {
+      "table": "malignant",
+      "n_cells_header": 3321,
+      "TACSTD2_present": true,
+      "CLDN4_present": true,
+      "genes_found": [
+        "CLDN4",
+        "TACSTD2"
+      ],
+      "n": 3321,
+      "TACSTD2_pct": 75.85064739536284,
+      "CLDN4_pct": 76.15176151761518,
+      "TACSTD2_mean": 1.9485055927068076,
+      "CLDN4_mean": 1.9727060549895035,
+      "spearman": {
+        "subset": "malignant_raw",
+        "n": 3321,
+        "rho": 0.3976004904315449,
+        "p": 3.3337646175184935e-126,
+        "p_raw_float": 3.3337646175184935e-126,
+        "method": "scipy.stats.spearmanr two-sided"
+      },
+      "meta_n": 3321,
+      "meta_cols": [
+        "cell_barcode",
+        "tissue_type"
+      ]
+    },
+    "immune": {
+      "table": "immune",
+      "n_cells_header": 34544,
+      "TACSTD2_present": true,
+      "CLDN4_present": true,
+      "genes_found": [
+        "CLDN4",
+        "TACSTD2"
+      ],
+      "n": 34544,
+      "TACSTD2_pct": 2.831171838814266,
+      "CLDN4_pct": 2.396943029180176,
+      "TACSTD2_mean": 0.04174964741411819,
+      "CLDN4_mean": 0.027265224184763584,
+      "spearman": {
+        "subset": "immune_raw",
+        "n": 34544,
+        "rho": 0.04507447371561327,
+        "p": 5.2254922288934595e-17,
+        "p_raw_float": 5.2254922288934595e-17,
+        "method": "scipy.stats.spearmanr two-sided"
+      },
+      "meta_n": 34544,
+      "meta_cols": [
+        "cell_barcode",
+        "celltype"
+      ]
+    }
+  },
+  "11205626_paired_luad": {
+    "per_sample": [
+      {
+        "sample": "10-CST-0901_all_GRCh38_v43_primary_outs",
+        "tissue": "Normal",
+        "patient": "10",
+        "method": "Cell",
+        "n_cells": 11855,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 7.0856178827498955,
+        "CLDN4_pct": 6.21678616617461,
+        "TACSTD2_mean": 0.23998312948123154,
+        "CLDN4_mean": 0.1247574862927035,
+        "rho": 0.5098194956967906,
+        "p": "<1e-300",
+        "n": 11855
+      },
+      {
+        "sample": "10-CTT-0902_all_GRCh38_v43_primary_outs",
+        "tissue": "Tumor",
+        "patient": "10",
+        "method": "Cell",
+        "n_cells": 8617,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 2.8896367645352212,
+        "CLDN4_pct": 4.5839619357084835,
+        "TACSTD2_mean": 0.0762446327027968,
+        "CLDN4_mean": 0.2271092027387722,
+        "rho": 0.583100500482468,
+        "p": "<1e-300",
+        "n": 8617
+      },
+      {
+        "sample": "4-CST-3018_all_GRCh38_v43_primary_outs",
+        "tissue": "Normal",
+        "patient": "4",
+        "method": "Cell",
+        "n_cells": 9174,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 3.597122302158273,
+        "CLDN4_pct": 2.921299324177022,
+        "TACSTD2_mean": 0.09243514279485503,
+        "CLDN4_mean": 0.07859167211685197,
+        "rho": 0.549003808409305,
+        "p": "<1e-300",
+        "n": 9174
+      },
+      {
+        "sample": "4-CTT-3019_all_GRCh38_v43_primary_outs",
+        "tissue": "Tumor",
+        "patient": "4",
+        "method": "Cell",
+        "n_cells": 5123,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 14.210423579933632,
+        "CLDN4_pct": 13.546749951200468,
+        "TACSTD2_mean": 2.9699394885809096,
+        "CLDN4_mean": 1.9148936170212767,
+        "rho": 0.6648326010623016,
+        "p": "<1e-300",
+        "n": 5123
+      },
+      {
+        "sample": "6-CST-3027_all_GRCh38_v43_primary_outs",
+        "tissue": "Normal",
+        "patient": "6",
+        "method": "Cell",
+        "n_cells": 7222,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 7.698698421489893,
+        "CLDN4_pct": 7.657158681805594,
+        "TACSTD2_mean": 0.3158404873996123,
+        "CLDN4_mean": 0.24522292993630573,
+        "rho": 0.5430672601955477,
+        "p": "<1e-300",
+        "n": 7222
+      },
+      {
+        "sample": "6-CTT-3028_all_GRCh38_v43_primary_outs",
+        "tissue": "Tumor",
+        "patient": "6",
+        "method": "Cell",
+        "n_cells": 11525,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 8.859002169197398,
+        "CLDN4_pct": 12.728850325379609,
+        "TACSTD2_mean": 0.32815618221258136,
+        "CLDN4_mean": 0.7039479392624729,
+        "rho": 0.5764576322067603,
+        "p": "<1e-300",
+        "n": 11525
+      },
+      {
+        "sample": "8-CST-0892_all_GRCh38_v43_primary_outs",
+        "tissue": "Normal",
+        "patient": "8",
+        "method": "Cell",
+        "n_cells": 11482,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 7.908029959937293,
+        "CLDN4_pct": 8.944434767462115,
+        "TACSTD2_mean": 0.28409684723915696,
+        "CLDN4_mean": 0.3353074377286187,
+        "rho": 0.6206143410326906,
+        "p": "<1e-300",
+        "n": 11482
+      },
+      {
+        "sample": "8-CTT-0893_all_GRCh38_v43_primary_outs",
+        "tissue": "Tumor",
+        "patient": "8",
+        "method": "Cell",
+        "n_cells": 9025,
+        "TACSTD2_present": true,
+        "CLDN4_present": true,
+        "TACSTD2_pct": 10.45983379501385,
+        "CLDN4_pct": 11.767313019390583,
+        "TACSTD2_mean": 0.5491412742382271,
+        "CLDN4_mean": 0.7480332409972299,
+        "rho": 0.6345011275440359,
+        "p": "<1e-300",
+        "n": 9025
+      }
+    ],
+    "pooled": {
+      "normal": {
+        "subset": "normal_cell_protocol",
+        "n": 39733,
+        "rho": 0.5631210756268152,
+        "p": "<1e-300",
+        "p_raw_float": 0.0,
+        "method": "scipy.stats.spearmanr two-sided",
+        "TACSTD2_pct": 6.629250245387965,
+        "CLDN4_pct": 6.505927063146504
+      },
+      "tumor": {
+        "subset": "tumor_cell_protocol",
+        "n": 34290,
+        "rho": 0.6107274786248412,
+        "p": "<1e-300",
+        "p_raw_float": 0.0,
+        "method": "scipy.stats.spearmanr two-sided",
+        "TACSTD2_pct": 8.579760863225431,
+        "CLDN4_pct": 10.551181102362204
+      },
+      "all": {
+        "subset": "all_cell_protocol",
+        "n": 74023,
+        "rho": 0.5874194659224535,
+        "p": "<1e-300",
+        "p_raw_float": 0.0,
+        "method": "scipy.stats.spearmanr two-sided",
+        "TACSTD2_pct": 7.532793861367412,
+        "CLDN4_pct": 8.379827891331072
+      }
+    }
+  },
+  "10731914_mouse": {
+    "n_cells": 63987,
+    "TACSTD2_present": true,
+    "CLDN4_present": true,
+    "symbol_note": "mouse symbols Tacstd2 / Cldn4",
+    "Tacstd2_pct": 0.21723162517386344,
+    "Cldn4_pct": 0.0015628174472939816,
+    "spearman_all": {
+      "subset": "mouse_all_raw",
+      "n": 63987,
+      "rho": -0.0001844553216412916,
+      "p": 0.962785593974817,
+      "p_raw_float": 0.962785593974817,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    "meta_n": 63987,
+    "meta_cols": [
+      "Unnamed: 0",
+      "nCount_RNA",
+      "nFeature_RNA",
+      "pMT",
+      "treatmentGroup"
+    ],
+    "by_treatment": [
+      {
+        "treatmentGroup": "EAD_Ctrl",
+        "n": 7918,
+        "Tacstd2_pct": 0.3915130083354383,
+        "Cldn4_pct": 0.0,
+        "subset": "EAD_Ctrl",
+        "rho": null,
+        "p": null,
+        "p_raw_float": null,
+        "method": "scipy.stats.spearmanr two-sided"
+      },
+      {
+        "treatmentGroup": "EAD_PD1",
+        "n": 24327,
+        "Tacstd2_pct": 0.2260862416245324,
+        "Cldn4_pct": 0.0,
+        "subset": "EAD_PD1",
+        "rho": null,
+        "p": null,
+        "p_raw_float": null,
+        "method": "scipy.stats.spearmanr two-sided"
+      },
+      {
+        "treatmentGroup": "EAE_Ctrl",
+        "n": 9977,
+        "Tacstd2_pct": 0.18041495439510874,
+        "Cldn4_pct": 0.0,
+        "subset": "EAE_Ctrl",
+        "rho": null,
+        "p": null,
+        "p_raw_float": null,
+        "method": "scipy.stats.spearmanr two-sided"
+      },
+      {
+        "treatmentGroup": "EAE_PD1",
+        "n": 21765,
+        "Tacstd2_pct": 0.16080863772111187,
+        "Cldn4_pct": 0.004594532506317483,
+        "subset": "EAE_PD1",
+        "rho": -0.0002720412552496174,
+        "p": 0.9679880103618028,
+        "p_raw_float": 0.9679880103618028,
+        "method": "scipy.stats.spearmanr two-sided"
+      }
+    ]
+  },
+  "13947395_tcells": [
+    {
+      "file": "Bischoff_2021_lung_cancer_patient_data_processed_tcells_BO_gated.h5ad",
+      "n_obs": 14808,
+      "n_var_checked": 25797,
+      "TACSTD2_present": true,
+      "CLDN4_present": true
+    },
+    {
+      "file": "HTAN_MSK_tcells.h5ad",
+      "n_obs": null,
+      "n_var_checked": 0,
+      "TACSTD2_present": false,
+      "CLDN4_present": false
+    },
+    {
+      "file": "Laughney_et_al_tcells.h5ad",
+      "n_obs": 7042,
+      "n_var_checked": 12604,
+      "TACSTD2_present": true,
+      "CLDN4_present": true
+    }
+  ],
+  "8041882_imc": {
+    "doi": "10.5281/zenodo.8041882",
+    "TACSTD2_present": false,
+    "CLDN4_present": false,
+    "n_cells": 99659,
+    "n_markers": 41,
+    "rho": null,
+    "p": null,
+    "note": "IMC protein panel; TACSTD2/CLDN4 not among 41 antibodies. No \u03c1 computed."
+  }
+}

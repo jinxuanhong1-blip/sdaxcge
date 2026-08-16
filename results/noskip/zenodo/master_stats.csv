@@ -1,0 +1,31 @@
+dataset,doi,modality,subset,n,TACSTD2_present,CLDN4_present,TACSTD2_pct,CLDN4_pct,rho,p,note
+8-LUAD human scRNA-seq,10.5281/zenodo.10731914,"scRNA-seq counts, CP10K for ρ",all_cells_cp10k,28457.0,True,True,26.88,27.53,0.7593102480600927,<1e-300,p=0.0 from scipy underflow reported as <1e-300
+8-LUAD human scRNA-seq,10.5281/zenodo.10731914,"scRNA-seq counts, CP10K for ρ",epithelial_cp10k,9517.0,True,True,73.48,79.97,0.38831806142091274,<1e-300,p=0.0 from scipy underflow reported as <1e-300
+early LUAD Visium,10.5281/zenodo.8417887,"10x Visium filtered_feature_bc_matrix.h5, raw counts",P01,4576.0,True,True,78.19055944055944,90.14423076923076,0.6273260028540325,<1e-300,
+early LUAD Visium,10.5281/zenodo.8417887,"10x Visium filtered_feature_bc_matrix.h5, raw counts",P02,4014.0,True,True,81.58943697060289,85.45092177379173,0.5013981461633824,1.3955815348896559e-254,
+early LUAD Visium,10.5281/zenodo.8417887,"10x Visium filtered_feature_bc_matrix.h5, raw counts",P03,4200.0,True,True,97.11904761904762,99.23809523809524,0.6959388766106985,<1e-300,
+early LUAD Visium,10.5281/zenodo.8417887,"10x Visium filtered_feature_bc_matrix.h5, raw counts",P04,3235.0,True,True,75.05409582689336,94.15765069551776,0.6387183163195345,<1e-300,
+early LUAD Visium,10.5281/zenodo.8417887,"10x Visium filtered_feature_bc_matrix.h5, raw counts",P11,3458.0,True,True,72.20936957779062,75.01445922498554,0.6887411364862379,<1e-300,
+early LUAD Visium,10.5281/zenodo.8417887,"10x Visium filtered_feature_bc_matrix.h5, raw counts",P13,3914.0,True,True,88.7583035258048,93.61267245784364,0.6564290945801152,<1e-300,
+early LUAD Visium,10.5281/zenodo.8417887,"10x Visium filtered_feature_bc_matrix.h5, raw counts",P14,3595.0,True,True,84.33936022253128,90.43115438108484,0.769166169580457,<1e-300,
+early LUAD Visium,10.5281/zenodo.8417887,10x Visium raw counts,all_spots_pooled,26992.0,True,True,82.8504742145821,89.94516893894487,0.7170294745604864,<1e-300,
+early LUAD scRNA malignant,10.5281/zenodo.8417887,"dense gene x cell txt, raw",malignant,3321.0,True,True,75.85064739536284,76.15176151761518,0.3976004904315449,3.334e-126,
+early LUAD scRNA immune,10.5281/zenodo.8417887,"dense gene x cell txt, raw",immune,34544.0,True,True,2.831171838814266,2.396943029180176,0.04507447371561327,5.225e-17,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Normal patient 10,11855.0,True,True,7.085617882749896,6.21678616617461,0.5098194956967906,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Tumor patient 10,8617.0,True,True,2.889636764535221,4.583961935708484,0.583100500482468,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Normal patient 4,9174.0,True,True,3.597122302158273,2.921299324177022,0.549003808409305,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Tumor patient 4,5123.0,True,True,14.210423579933632,13.546749951200468,0.6648326010623016,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Normal patient 6,7222.0,True,True,7.698698421489893,7.657158681805594,0.5430672601955477,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Tumor patient 6,11525.0,True,True,8.859002169197398,12.728850325379607,0.5764576322067603,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Normal patient 8,11482.0,True,True,7.908029959937293,8.944434767462115,0.6206143410326906,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,Tumor patient 8,9025.0,True,True,10.45983379501385,11.767313019390585,0.6345011275440359,<1e-300,
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,normal_cell_protocol,39733.0,True,True,6.629250245387965,6.505927063146504,0.5631210756268152,<1e-300,SN and immune-depleted libraries excluded to avoid double-counting
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,tumor_cell_protocol,34290.0,True,True,8.579760863225431,10.551181102362204,0.6107274786248412,<1e-300,SN and immune-depleted libraries excluded to avoid double-counting
+paired normal-LUAD 10x (Cell protocol only),10.5281/zenodo.11205626,10x h5 raw counts,all_cell_protocol,74023.0,True,True,7.532793861367412,8.379827891331072,0.5874194659224535,<1e-300,SN and immune-depleted libraries excluded to avoid double-counting
+mouse LUAD scRNA-seq,10.5281/zenodo.10731914,scRNA-seq raw UMI (symbols Tacstd2/Cldn4),all_cells,63987.0,True,True,0.21723162517386344,0.0015628174472939816,-0.0001844553216412916,0.962786,Cldn4 detected in ~1/64000 cells; ρ is not interpretable
+Fig6 processed T-cell objects,10.5281/zenodo.13947395,h5ad X (cells x genes),Bischoff_2021_lung_cancer_patient_data_processed_tcells_BO_gated.h5ad,14808.0,True,True,1.7423014586709886,2.2420313344138303,0.021715749763620226,0.00822631,T-cell-only objects; both genes nearly absent (1–2% cells)
+Fig6 processed T-cell objects,10.5281/zenodo.13947395,h5ad X (cells x genes),HTAN_MSK_tcells.h5ad,26877.0,True,True,1.0157383636566581,1.3543178182088773,0.010482532081077323,0.0857063,T-cell-only objects; both genes nearly absent (1–2% cells)
+Fig6 processed T-cell objects,10.5281/zenodo.13947395,h5ad X (cells x genes),Laughney_et_al_tcells.h5ad,7042.0,True,True,1.363249076966771,1.235444476001136,0.04174835117269625,0.000457832,T-cell-only objects; both genes nearly absent (1–2% cells)
+Nanostring nCounter NSCLC anti-PD1,10.5281/zenodo.2635194,nCounter 784-gene immune panel,learn+validate n=55+36,91.0,False,False,,,,,Neither gene is on the panel. ρ not computed.
+I3LUNG clinical/radiomics,10.64898/2026.01.16.25342913,clinical + genomics drivers + radiomics,I3LUNG_DATA.zip,,False,False,,,,,No expression matrix.
+anti-PD1 NSCLC IMC,10.5281/zenodo.8041882,41-marker IMC protein panel,all cells,99659.0,False,False,,,,,Protein panel; TACSTD2/CLDN4 not among antibodies. ρ not computed.

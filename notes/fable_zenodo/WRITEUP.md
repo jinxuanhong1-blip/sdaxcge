@@ -209,3 +209,61 @@ python3 scripts/fable_zenodo/analyze_ici_imc.py
 - CP10K 归一化使用作者提供的 `nCount_RNA`；除作者已有处理外未再做额外 QC 过滤。
 - IMC 治疗前/后比较为汇总的细胞级均值（非患者级混合模型），量级仅供描述性参考。
 - 未下载任何原始/受限文件，仅使用开放的 CC-BY 处理矩阵。
+
+---
+
+## Addendum — no size skip (`results/noskip/zenodo/`)
+
+The 2 GB cap was lifted for any open processed matrix that can contain TACSTD2 or
+CLDN4. Full honest n / ρ / p table: `results/noskip/zenodo/master_stats.csv` and
+`results/noskip/zenodo/HONEST.md`. Restricted Zenodo is still skipped.
+
+### English (computed, not invented)
+
+| Dataset | n | TACSTD2 / CLDN4 | Spearman ρ | p |
+|---------|---|-----------------|------------|---|
+| 8-LUAD all cells (CP10K) | 28457 | both present; 26.9% / 27.5% | 0.759 | <1e-300 |
+| 8-LUAD epithelial (CP10K) | 9517 | 73.5% / 80.0% | 0.388 | <1e-300 |
+| Early LUAD Visium, 7 samples pooled | 26992 spots | 82.9% / 89.9% | 0.717 | <1e-300 |
+| Early LUAD malignant cells | 3321 | 75.9% / 76.2% | 0.398 | 3.33e-126 |
+| Early LUAD immune cells | 34544 | 2.83% / 2.40% | 0.045 | 5.23e-17 |
+| Paired normal–LUAD 10x, Cell protocol | 74023 | 7.5% / 8.4% | 0.587 | <1e-300 |
+| Mouse LUAD (Tacstd2 / Cldn4) | 63987 | 0.22% / 0.0016% | −0.00018 | 0.963 |
+| T-cell h5ad (Bischoff / HTAN / Laughney) | 14808 / 26877 / 7042 | ~1–2% each | 0.022 / 0.010 / 0.042 | 0.008 / 0.086 / 0.00046 |
+| Nanostring NSCLC anti-PD1 (n=91) | 91 | **absent from 784-gene panel** | not computed | — |
+| I3LUNG clinical/radiomics | — | **no expression matrix** | not computed | — |
+| Anti-PD1 NSCLC IMC | 99659 | **not on 41-protein panel** | not computed | — |
+
+`p = 0.0` from scipy underflow is reported as `<1e-300`. Immune / T-cell ρ values
+are near zero; large-n p-values should not be read as co-expression biology.
+Mouse Cldn4 is essentially undetected.
+
+Downloaded without a size cap: `Immune_cell_data.txt` (2.67 GB),
+`Fig6_processed_scRNAseq.zip` (1.5 GB), `24samples.h5.tar.gz` (761 MB).
+Not downloaded: 14–66 GB neutrophil-atlas tarballs (7227571), LuCaS+ 4.6 GB Cell
+Ranger zip, osteosarcoma / melanoma records, restricted Zenodo.
+
+### 中文（实测，未编造）
+
+| 数据集 | n | TACSTD2 / CLDN4 | Spearman ρ | p |
+|--------|---|-----------------|------------|---|
+| 8-LUAD 全细胞（CP10K） | 28457 | 均存在；26.9% / 27.5% | 0.759 | <1e-300 |
+| 8-LUAD 上皮（CP10K） | 9517 | 73.5% / 80.0% | 0.388 | <1e-300 |
+| 早期 LUAD Visium，7 例合并 | 26992 spots | 82.9% / 89.9% | 0.717 | <1e-300 |
+| 早期 LUAD 恶性细胞 | 3321 | 75.9% / 76.2% | 0.398 | 3.33e-126 |
+| 早期 LUAD 免疫细胞 | 34544 | 2.83% / 2.40% | 0.045 | 5.23e-17 |
+| 配对正常–LUAD 10x（仅 Cell 文库） | 74023 | 7.5% / 8.4% | 0.587 | <1e-300 |
+| 小鼠 LUAD（Tacstd2 / Cldn4） | 63987 | 0.22% / 0.0016% | −0.00018 | 0.963 |
+| T 细胞 h5ad（Bischoff / HTAN / Laughney） | 14808 / 26877 / 7042 | 各约 1–2% | 0.022 / 0.010 / 0.042 | 0.008 / 0.086 / 0.00046 |
+| Nanostring NSCLC anti-PD1（n=91） | 91 | **784 基因面板中不存在** | 未计算 | — |
+| I3LUNG 临床/组学 | — | **无表达矩阵** | 未计算 | — |
+| Anti-PD1 NSCLC IMC | 99659 | **不在 41 蛋白面板中** | 未计算 | — |
+
+scipy 下溢得到的 `p = 0.0` 记为 `<1e-300`。免疫/T 细胞的 ρ 接近 0，大样本带来的
+小 p 值不能解读为共表达。小鼠 Cldn4 几乎检测不到。
+
+未设体积上限而下载：`Immune_cell_data.txt`（2.67 GB）、
+`Fig6_processed_scRNAseq.zip`（1.5 GB）、`24samples.h5.tar.gz`（761 MB）。
+未下载：14–66 GB 中性粒细胞图谱（7227571）、LuCaS+ 4.6 GB Cell Ranger、
+骨肉瘤/黑色素瘤记录、受限 Zenodo。
+

@@ -1,0 +1,5 @@
+# Raw downloads are reproducible via scripts/fable_zenodo/download_noskip.py
+# Several files exceed GitHub's 100 MB limit (Immune_cell_data.txt 2.7 GB,
+# Fig6 zip 1.5 GB, 24samples.h5.tar.gz 761 MB).
+*
+!.gitignore

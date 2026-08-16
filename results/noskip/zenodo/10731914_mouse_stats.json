@@ -1,0 +1,70 @@
+{
+  "n_cells": 63987,
+  "TACSTD2_present": true,
+  "CLDN4_present": true,
+  "symbol_note": "mouse symbols Tacstd2 / Cldn4",
+  "Tacstd2_pct": 0.21723162517386344,
+  "Cldn4_pct": 0.0015628174472939816,
+  "spearman_all": {
+    "subset": "mouse_all_raw",
+    "n": 63987,
+    "rho": -0.0001844553216412916,
+    "p": 0.962785593974817,
+    "p_raw_float": 0.962785593974817,
+    "method": "scipy.stats.spearmanr two-sided"
+  },
+  "meta_n": 63987,
+  "meta_cols": [
+    "Unnamed: 0",
+    "nCount_RNA",
+    "nFeature_RNA",
+    "pMT",
+    "treatmentGroup"
+  ],
+  "by_treatment": [
+    {
+      "treatmentGroup": "EAD_Ctrl",
+      "n": 7918,
+      "Tacstd2_pct": 0.3915130083354383,
+      "Cldn4_pct": 0.0,
+      "subset": "EAD_Ctrl",
+      "rho": null,
+      "p": null,
+      "p_raw_float": null,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    {
+      "treatmentGroup": "EAD_PD1",
+      "n": 24327,
+      "Tacstd2_pct": 0.2260862416245324,
+      "Cldn4_pct": 0.0,
+      "subset": "EAD_PD1",
+      "rho": null,
+      "p": null,
+      "p_raw_float": null,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    {
+      "treatmentGroup": "EAE_Ctrl",
+      "n": 9977,
+      "Tacstd2_pct": 0.18041495439510874,
+      "Cldn4_pct": 0.0,
+      "subset": "EAE_Ctrl",
+      "rho": null,
+      "p": null,
+      "p_raw_float": null,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    {
+      "treatmentGroup": "EAE_PD1",
+      "n": 21765,
+      "Tacstd2_pct": 0.16080863772111187,
+      "Cldn4_pct": 0.004594532506317483,
+      "subset": "EAE_PD1",
+      "rho": -0.0002720412552496174,
+      "p": 0.9679880103618028,
+      "p_raw_float": 0.9679880103618028,
+      "method": "scipy.stats.spearmanr two-sided"
+    }
+  ]
+}
