@@ -1,0 +1,85 @@
+dataset	contrast	gene_set	human_symbol	assayed_symbol	log2FC	pvalue	FDR	n	note
+GSE22493	SKOV-3 KD	CLAIM6	IFI27	IFI27	-0.7079333333333332	0.7289076553654441	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	CLAIM6	OAS2	OAS2	0.8787333333333334	0.46184826980459703	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	CLAIM6	IFIT1	IFIT1	-2.0257	0.055391903334707976	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	CLAIM6	MX1	MX1	0.3584	0.5593994377922237	0.9994726191160785	2.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	CLAIM6	ISG15	ISG15	0.48323333333333335	0.6200350302535708	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	CLAIM6	HLA-A	HLA-A	-0.8463333333333333	0.4118322751102467	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	MHC_APM	B2M	B2M	-1.1704	0.5642884359828393	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	MHC_APM	HLA-B	HLA-B	-0.4496666666666666	0.7782518979587414	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	MHC_APM	HLA-C	HLA-C	-0.48213333333333336	0.5948749301527572	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	MHC_APM	NLRC5	NLRC5	NA	NA	NA	NA	not assayed or below expression filter
+GSE22493	SKOV-3 KD	MHC_APM	PSMB8	PSMB8	0.4172833333333334	0.3517506635480519	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	MHC_APM	PSMB9	PSMB9	1.8998666666666668	0.09144333838702307	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	MHC_APM	TAP1	TAP1	-0.34031666666666677	0.8248597563644622	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE22493	SKOV-3 KD	MHC_APM	TAP2	TAP2	-1.2611333333333332	0.2984570403049446	0.9994726191160785	3.0	paired two-colour log2(KD/control); probes median-collapsed
+GSE50927	baseline KO vs WT	CLAIM6	IFI27	Ifi27l2a	0.6236121	0.016289737	0.219629205	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	CLAIM6	OAS2	Oas2	1.488747185	1.7297e-05	0.001526145	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	CLAIM6	IFIT1	Ifit1	0.57577684	0.000719541	0.02824166	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	CLAIM6	MX1	Mx1	0.626672753	0.11907033	0.648233013	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	CLAIM6	ISG15	Isg15	1.075372735	3.92718e-05	0.003095569	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	CLAIM6	HLA-A	H2-K1	-0.070918061	0.724031147	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	MHC_APM	B2M	B2m	0.655249264	0.000930043	0.033588316	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	MHC_APM	HLA-B	H2-D1	0.354590336	0.066866018	0.48248859	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	MHC_APM	HLA-C		NA	NA	NA	NA	not assayed or below expression filter
+GSE50927	baseline KO vs WT	MHC_APM	NLRC5	Nlrc5	0.747974933	0.004173122	0.092615153	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	MHC_APM	PSMB8	Psmb8	0.431991771	0.026174502	0.290707433	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	MHC_APM	PSMB9	Psmb9	0.901806032	0.001094233	0.037343278	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	MHC_APM	TAP1	Tap1	0.183633493	0.441394482	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	baseline KO vs WT	MHC_APM	TAP2	Tap2	-0.008632457	0.962929036	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	CLAIM6	IFI27	Ifi27l2a	-0.208694572	0.6103443	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	CLAIM6	OAS2	Oas2	-0.168681835	0.775697168	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	CLAIM6	IFIT1	Ifit1	-0.285238286	0.315524667	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	CLAIM6	MX1	Mx1	0.150025444	0.885669335	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	CLAIM6	ISG15	Isg15	0.632695112	0.187050332	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	CLAIM6	HLA-A	H2-K1	-0.192842004	0.291189093	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	B2M	B2m	0.117873459	0.496582024	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	HLA-B	H2-D1	0.038504585	0.828040382	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	HLA-C		NA	NA	NA	NA	not assayed or below expression filter
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	NLRC5	Nlrc5	0.115220898	0.704053184	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	PSMB8	Psmb8	-0.057674291	0.798396847	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	PSMB9	Psmb9	-0.055878992	0.847360316	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	TAP1	Tap1	-0.442483089	0.033810608	0.774915713	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MHC_APM	TAP2	Tap2	-0.272173438	0.143481432	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	CLAIM6	IFI27	Ifi27l2a	0.940760797	0.013761887	0.30329292	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	CLAIM6	OAS2	Oas2	0.168681835	0.792977445	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	CLAIM6	IFIT1	Ifit1	-0.124626655	0.726927068	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	CLAIM6	MX1	Mx1	0.081300102	1.0	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	CLAIM6	ISG15	Isg15	1.129691077	0.020188724	0.375530071	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	CLAIM6	HLA-A	H2-K1	0.08004717	0.726386677	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	B2M	B2m	0.314736017	0.142421797	0.904672256	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	HLA-B	H2-D1	0.26127267	0.197242283	0.994782963	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	HLA-C		NA	NA	NA	NA	not assayed or below expression filter
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	NLRC5	Nlrc5	0.726434927	0.047238014	0.584386121	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	PSMB8	Psmb8	0.442213088	0.066659186	0.677576656	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	PSMB9	Psmb9	0.135683598	0.654673681	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	TAP1	Tap1	0.006282841	0.989067122	1.0	2.0	submitter edgeR; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MHC_APM	TAP2	Tap2	-0.105665781	0.614696459	1.0	2.0	submitter edgeR; whole mouse lung
+GSE207704	MCF-7 KO vs WT	CLAIM6	IFI27	IFI27	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	CLAIM6	OAS2	OAS2	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	CLAIM6	IFIT1	IFIT1	-1.0908987879882557	NA	NA	2.0	log2 ratio of submitted mean FPKM; genes with mean FPKM < 0.5 dropped
+GSE207704	MCF-7 KO vs WT	CLAIM6	MX1	MX1	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	CLAIM6	ISG15	ISG15	0.10503758976610425	NA	NA	2.0	log2 ratio of submitted mean FPKM; genes with mean FPKM < 0.5 dropped
+GSE207704	MCF-7 KO vs WT	CLAIM6	HLA-A	HLA-A	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	MHC_APM	B2M	B2M	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	MHC_APM	HLA-B	HLA-B	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	MHC_APM	HLA-C	HLA-C	1.2867577638082508	NA	NA	2.0	log2 ratio of submitted mean FPKM; genes with mean FPKM < 0.5 dropped
+GSE207704	MCF-7 KO vs WT	MHC_APM	NLRC5	NLRC5	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	MHC_APM	PSMB8	PSMB8	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	MHC_APM	PSMB9	PSMB9	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	MHC_APM	TAP1	TAP1	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	MCF-7 KO vs WT	MHC_APM	TAP2	TAP2	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	CLAIM6	IFI27	IFI27	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	CLAIM6	OAS2	OAS2	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	CLAIM6	IFIT1	IFIT1	-0.029861165758550638	NA	NA	2.0	log2 ratio of submitted mean FPKM; genes with mean FPKM < 0.5 dropped
+GSE207704	T47D KO vs WT	CLAIM6	MX1	MX1	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	CLAIM6	ISG15	ISG15	-1.905566472904706	NA	NA	2.0	log2 ratio of submitted mean FPKM; genes with mean FPKM < 0.5 dropped
+GSE207704	T47D KO vs WT	CLAIM6	HLA-A	HLA-A	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	MHC_APM	B2M	B2M	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	MHC_APM	HLA-B	HLA-B	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	MHC_APM	HLA-C	HLA-C	-0.49893653488167977	NA	NA	2.0	log2 ratio of submitted mean FPKM; genes with mean FPKM < 0.5 dropped
+GSE207704	T47D KO vs WT	MHC_APM	NLRC5	NLRC5	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	MHC_APM	PSMB8	PSMB8	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	MHC_APM	PSMB9	PSMB9	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	MHC_APM	TAP1	TAP1	NA	NA	NA	NA	not assayed or below expression filter
+GSE207704	T47D KO vs WT	MHC_APM	TAP2	TAP2	NA	NA	NA	NA	not assayed or below expression filter
