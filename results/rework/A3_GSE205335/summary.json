@@ -1,0 +1,184 @@
+{
+  "verdict": "NO \u2014 MPR not labeled; after dropping 0-malignant patients, malignant TACSTD2 is still null at every pre-specified %positive cutoff",
+  "mpr_labeled": false,
+  "n_patients_geo": 26,
+  "n_dropped_zero_malignant": 4,
+  "dropped_zero_malignant": [
+    "P2001",
+    "P2009",
+    "P2016",
+    "P3032"
+  ],
+  "dropped_asymmetric": {
+    "R": 3,
+    "NR": 1,
+    "NE": 0
+  },
+  "n_patients_1_to_19_malignant": 0,
+  "primary": {
+    "set": "patients with >0 author-annotated malignant cells; RECIST R vs NR; NE excluded",
+    "n_R": 6,
+    "n_NR": 10,
+    "pct_pos_umi_ge_1": {
+      "analysis_set": "primary_drop0_RvsNR",
+      "metric": "pct_pos_umi_ge_1",
+      "cutoff_family": "cell_pct_positive",
+      "n_R": 6,
+      "n_NR": 10,
+      "median_R": 70.85072764952696,
+      "median_NR": 51.98663042177429,
+      "U": 34.0,
+      "p": 0.7127872127872128,
+      "cliffs_delta_R_minus_NR": 0.1333333333333333,
+      "cell_cutoff": "umi_ge_1",
+      "cell_cutoff_label": "UMI \u2265 1 (detection)",
+      "bh_fdr_5cellcutoffs": 1.0
+    },
+    "mean_log1p_cp10k": {
+      "analysis_set": "primary_drop0_RvsNR",
+      "metric": "mean_log1p_cp10k",
+      "cutoff_family": "continuous",
+      "n_R": 6,
+      "n_NR": 10,
+      "median_R": 1.0978388323807038,
+      "median_NR": 0.9104557428014888,
+      "U": 29.0,
+      "p": 0.9577922077922078,
+      "cliffs_delta_R_minus_NR": -0.033333333333333326,
+      "cell_cutoff": NaN,
+      "cell_cutoff_label": NaN,
+      "bh_fdr_5cellcutoffs": NaN
+    },
+    "pseudobulk_cpm": {
+      "analysis_set": "primary_drop0_RvsNR",
+      "metric": "pseudobulk_cpm",
+      "cutoff_family": "continuous",
+      "n_R": 6,
+      "n_NR": 10,
+      "median_R": 481.2537280090064,
+      "median_NR": 574.3485249583143,
+      "U": 25.0,
+      "p": 0.6353646353646354,
+      "cliffs_delta_R_minus_NR": -0.16666666666666663,
+      "cell_cutoff": NaN,
+      "cell_cutoff_label": NaN,
+      "bh_fdr_5cellcutoffs": NaN
+    }
+  },
+  "nsclc_only": {
+    "pct_pos_umi_ge_1": {
+      "analysis_set": "nsclc_drop0_RvsNR",
+      "metric": "pct_pos_umi_ge_1",
+      "cutoff_family": "cell_pct_positive",
+      "n_R": 4,
+      "n_NR": 8,
+      "median_R": 74.14662517066671,
+      "median_NR": 51.98663042177429,
+      "U": 28.0,
+      "p": 0.04848484848484849,
+      "cliffs_delta_R_minus_NR": 0.75,
+      "cell_cutoff": "umi_ge_1",
+      "cell_cutoff_label": "UMI \u2265 1 (detection)",
+      "bh_fdr_5cellcutoffs": NaN
+    },
+    "mean_log1p_cp10k": {
+      "analysis_set": "nsclc_drop0_RvsNR",
+      "metric": "mean_log1p_cp10k",
+      "cutoff_family": "continuous",
+      "n_R": 4,
+      "n_NR": 8,
+      "median_R": 1.672818156212887,
+      "median_NR": 0.9104557428014888,
+      "U": 22.0,
+      "p": 0.3676767676767677,
+      "cliffs_delta_R_minus_NR": 0.375,
+      "cell_cutoff": NaN,
+      "cell_cutoff_label": NaN,
+      "bh_fdr_5cellcutoffs": NaN
+    }
+  },
+  "core_malignant": {
+    "analysis_set": "core_malignant_RvsNR",
+    "metric": "pct_pos_umi_ge_1",
+    "cutoff_family": "cell_pct_positive",
+    "n_R": 4,
+    "n_NR": 7,
+    "median_R": 74.14662517066671,
+    "median_NR": 56.550580431177444,
+    "U": 24.0,
+    "p": 0.07272727272727272,
+    "cliffs_delta_R_minus_NR": 0.7142857142857142,
+    "cell_cutoff": "umi_ge_1",
+    "cell_cutoff_label": "UMI \u2265 1 (detection)",
+    "bh_fdr_5cellcutoffs": NaN
+  },
+  "PRvsPD": {
+    "analysis_set": "PRvsPD_drop0",
+    "metric": "pct_pos_umi_ge_1",
+    "cutoff_family": "cell_pct_positive",
+    "n_R": 6,
+    "n_NR": 7,
+    "median_R": 70.85072764952696,
+    "median_NR": 47.42268041237113,
+    "U": 24.0,
+    "p": 0.7307692307692307,
+    "cliffs_delta_R_minus_NR": 0.1428571428571428,
+    "cell_cutoff": "umi_ge_1",
+    "cell_cutoff_label": "UMI \u2265 1 (detection)",
+    "bh_fdr_5cellcutoffs": NaN
+  },
+  "paired_malignant_vs_tnk": {
+    "mean_log1p_cp10k": {
+      "n_pairs": 22,
+      "median_malignant": 0.9291986572138183,
+      "median_tnk": 0.02074731090292969,
+      "W": 0.0,
+      "p": 4.76837158203125e-07
+    },
+    "pct_umi_ge_1": {
+      "n_pairs": 22,
+      "median_malignant": 58.421487938973016,
+      "median_tnk": 1.2080414180214634,
+      "W": 0.0,
+      "p": 4.76837158203125e-07
+    }
+  },
+  "spearman_tnk_fraction": [
+    {
+      "analysis_set": "drop0_any_response",
+      "x": "malignant_pct_umi_ge_1",
+      "y": "TNK_fraction_among_mal_plus_TNK",
+      "n": 22,
+      "spearman_rho": 0.18464144551101075,
+      "p": 0.41073511956150655
+    },
+    {
+      "analysis_set": "primary_drop0_RvsNR",
+      "x": "malignant_pct_umi_ge_1",
+      "y": "TNK_fraction_among_mal_plus_TNK",
+      "n": 16,
+      "spearman_rho": 0.3058823529411765,
+      "p": 0.24925429892891854
+    },
+    {
+      "analysis_set": "nsclc_drop0",
+      "x": "malignant_pct_umi_ge_1",
+      "y": "TNK_fraction_among_mal_plus_TNK",
+      "n": 17,
+      "spearman_rho": -0.26470588235294124,
+      "p": 0.3045422200057607
+    }
+  ],
+  "sanity": {
+    "n_cells": 96505,
+    "n_malignant": 28512,
+    "n_tnk": 39875,
+    "epcam_pos_malignant": 69.31116722783389,
+    "epcam_pos_tnk": 2.485266457680251,
+    "ptprc_pos_malignant": 4.219276094276094,
+    "ptprc_pos_tnk": 80.87272727272727,
+    "tacstd2_pos_all_cells": 17.32449095901767
+  },
+  "any_primary_cell_cutoff_p_lt_0.05": false,
+  "any_primary_fisher_p_lt_0.05": false
+}

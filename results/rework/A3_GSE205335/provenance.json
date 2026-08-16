@@ -1,0 +1,73 @@
+{
+  "accession": "GSE205335",
+  "series_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE205335",
+  "paper": "Ahn/Lee et al., eLife reviewed preprint 98366 (Unveiling the influence of tumor and immune signatures on immune checkpoint therapy in advanced lung cancer)",
+  "processed_files": {
+    "cell_identity": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE205nnn/GSE205335/suppl/GSE205335_Lung_IO_CellIdentity.txt.gz",
+    "umi_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE205nnn/GSE205335/suppl/GSE205335_Lung_IO_UMI_matrix.rds.gz"
+  },
+  "raw_not_used": "EGAD00001008703 (controlled; not downloaded)",
+  "hashes": {
+    "GSE205335_Lung_IO_CellIdentity.txt.gz": {
+      "bytes": 735956,
+      "md5": "1e2fed44e20d506421b172fa48134248"
+    },
+    "percell_tacstd2.csv.gz": {
+      "bytes": 948453,
+      "md5": "40b065d663f2bbb0888ea09dc53d11c6"
+    },
+    "GSE205335_Lung_IO_UMI_matrix.rds": {
+      "bytes": 527329673,
+      "md5": "1be51e4206ed9ab51798f3bb98a5ce2f"
+    }
+  },
+  "cell_cutoffs_locked": [
+    {
+      "id": "umi_ge_1",
+      "label": "UMI \u2265 1 (detection)",
+      "kind": "umi",
+      "thr": 1
+    },
+    {
+      "id": "umi_ge_2",
+      "label": "UMI \u2265 2",
+      "kind": "umi",
+      "thr": 2
+    },
+    {
+      "id": "umi_ge_3",
+      "label": "UMI \u2265 3",
+      "kind": "umi",
+      "thr": 3
+    },
+    {
+      "id": "log1p_ge_0.5",
+      "label": "log1p(CP10K) \u2265 0.5",
+      "kind": "log1p",
+      "thr": 0.5
+    },
+    {
+      "id": "log1p_ge_1.0",
+      "label": "log1p(CP10K) \u2265 1.0",
+      "kind": "log1p",
+      "thr": 1.0
+    }
+  ],
+  "patient_pct_cutoffs_locked": [
+    10.0,
+    25.0,
+    50.0,
+    75.0
+  ],
+  "primary_cell_cutoff": "umi_ge_1",
+  "response_map": {
+    "PR": "R",
+    "CR": "R",
+    "SD": "NR",
+    "PD": "NR",
+    "NE": "NE"
+  },
+  "mpr_labeled": false,
+  "mpr_hit_columns": [],
+  "malignant_definition": "authors lineage.sub == 'Malignant cells' (no CNV re-inference)"
+}

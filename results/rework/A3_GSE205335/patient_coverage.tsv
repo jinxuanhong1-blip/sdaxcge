@@ -1,0 +1,27 @@
+patient	recist	cancer_subtype	tumor_stage	n_samples	tissues	response	n_malignant	n_tnk	n_malignant_core	zero_malignant	in_primary	is_nsclc	has_core_malignant
+P0031	NE	ADC	IIIA	2	Lung;Normal Lung	NE	319	5182	0	False	False	True	False
+P1006	PR	ADC	IV	2	Effusion;Lung	R	1282	2998	1282	False	True	True	True
+P1015	PD	ADC	IIIA	1	LN	NR	291	473	0	False	True	True	False
+P1016	PR	SCLC	ED	2	LN;Liver	R	5336	763	0	False	True	False	False
+P1017	SD	SQ	IV	2	LN;Liver	NR	2186	2370	2186	False	True	True	True
+P1018	NE	ADC	IV	1	Bronchus	NE	1180	2546	0	False	False	True	False
+P1025	PD	SCLC	IV	1	LN	NR	980	128	0	False	True	False	False
+P1027	PR	ADC	IV	1	LN	R	1318	2619	1318	False	True	True	True
+P1030	PD	ADC	IV	1	LN	NR	603	140	603	False	True	True	True
+P1037	PR	SQ	IVA	1	LN	R	3671	611	3671	False	True	True	True
+P1056	SD	NUT	IV	2	LN;Liver	NR	2386	1354	0	False	True	False	False
+P1062	PD	ADC	IV	1	LN	NR	188	1934	188	False	True	True	True
+P1063	NE	ADC	IV	2	Bronchus;LN	NE	131	3144	0	False	False	True	False
+P1072	NE	SCLC	ED	1	LN	NE	406	586	0	False	False	False	False
+P1076	PD	ADC	IV	2	LN	NR	849	2089	849	False	True	True	True
+P1079	NE	ADC	IV	1	LN	NE	543	501	0	False	False	True	False
+P1084	NE	ADC	IV	1	LN	NE	196	2350	0	False	False	True	False
+P1089	PD	ADC	IV	1	LN	NR	1063	272	1063	False	True	True	True
+P1090	PR	SQ	IIIA	1	LN	R	566	247	566	False	True	True	True
+P1115	PR	SCLC	ED	1	Liver	R	3769	271	0	False	True	False	False
+P1119	PD	ADC	IV	1	LN	NR	1222	621	1222	False	True	True	True
+P2001	PR	ADC	IIB	1	Normal LN	R	0	2365	0	True	False	True	False
+P2009	PR	ADC	IB	1	Normal LN	R	0	606	0	True	False	True	False
+P2016	PD	SQ	IIB	1	Normal LN	NR	0	3652	0	True	False	True	False
+P3032	PR	ADC	IV	1	Normal Brain	R	0	252	0	True	False	True	False
+P4001	SD	ADC	IV	1	Lung	NR	27	1801	27	False	True	True	True
