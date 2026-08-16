@@ -1,0 +1,20 @@
+{
+  "mpr_labeled": false,
+  "endpoint_available": "RECIST 1.1 only (PR/SD/PD/NE)",
+  "reason": "GSE205335 is a palliative ICI biopsy/effusion cohort. GEO sample characteristics and the author cell table have no MPR/NMPR or residual-viable-tumor field. MPR requires a resected primary and is not substituted from RECIST.",
+  "fields_present": [
+    "cancer_subtype",
+    "description",
+    "gsm",
+    "orig.ident",
+    "patient",
+    "platform",
+    "recist",
+    "tissue",
+    "title",
+    "tumor_stage"
+  ],
+  "table_hits": [],
+  "soft_text_hits": [],
+  "do_not_substitute_recist_for_mpr": true
+}

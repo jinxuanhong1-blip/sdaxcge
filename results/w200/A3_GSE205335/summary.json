@@ -1,6 +1,8 @@
 {
   "dataset": "GSE205335",
   "primary_contrast": "malignant_vs_tnk_paired_within_patient",
+  "mpr_labeled": false,
+  "mpr_contrast": "not run; MPR/NMPR unlabeled",
   "min_cells_per_compartment": 20,
   "n_total_cells": 96505,
   "n_malignant_cells": 28512,
@@ -55,11 +57,101 @@
       "p_value": 0.6353646353646354
     }
   },
+  "nsclc_recist_sensitivity": {
+    "mean_log1p_cp10k": {
+      "n_r": 4,
+      "n_nr": 8,
+      "r_median": 1.672818156212887,
+      "nr_median": 0.9104557428014888,
+      "mannwhitney_u": 22.0,
+      "p_value": 0.3676767676767677
+    },
+    "pct_pos": {
+      "n_r": 4,
+      "n_nr": 8,
+      "r_median": 74.14662517066671,
+      "nr_median": 51.98663042177429,
+      "mannwhitney_u": 28.0,
+      "p_value": 0.04848484848484849
+    },
+    "pseudobulk_cpm": {
+      "n_r": 4,
+      "n_nr": 8,
+      "r_median": 1006.8192420874575,
+      "nr_median": 574.3485249583143,
+      "mannwhitney_u": 18.0,
+      "p_value": 0.8080808080808081
+    }
+  },
+  "tnk_fraction_spearman": [
+    {
+      "cohort": "all_evaluable_pairs",
+      "exposure": "mean_log1p_cp10k",
+      "n": 22,
+      "spearman_rho": 0.23433088650479958,
+      "p_value": 0.29387603877735996
+    },
+    {
+      "cohort": "all_evaluable_pairs",
+      "exposure": "pct_pos",
+      "n": 22,
+      "spearman_rho": 0.18464144551101075,
+      "p_value": 0.41073511956150655
+    },
+    {
+      "cohort": "recist_r_vs_nr",
+      "exposure": "mean_log1p_cp10k",
+      "n": 16,
+      "spearman_rho": 0.3852941176470588,
+      "p_value": 0.14054417737367633
+    },
+    {
+      "cohort": "recist_r_vs_nr",
+      "exposure": "pct_pos",
+      "n": 16,
+      "spearman_rho": 0.3058823529411765,
+      "p_value": 0.24925429892891854
+    },
+    {
+      "cohort": "nsclc_adc_sq",
+      "exposure": "mean_log1p_cp10k",
+      "n": 17,
+      "spearman_rho": -0.20098039215686278,
+      "p_value": 0.4392338761888678
+    },
+    {
+      "cohort": "nsclc_adc_sq",
+      "exposure": "pct_pos",
+      "n": 17,
+      "spearman_rho": -0.26470588235294124,
+      "p_value": 0.3045422200057607
+    }
+  ],
   "marker_sanity": {
     "epcam_positive_malignant_pct": 69.31116722783389,
     "epcam_positive_tnk_pct": 2.485266457680251,
     "ptprc_positive_malignant_pct": 4.219276094276094,
     "ptprc_positive_tnk_pct": 80.87272727272727
   },
-  "raw_data": "not accessed; controlled EGA raw intentionally skipped"
+  "raw_data": "not accessed; controlled EGA raw intentionally skipped",
+  "mpr_gate": {
+    "mpr_labeled": false,
+    "endpoint_available": "RECIST 1.1 only (PR/SD/PD/NE)",
+    "reason": "GSE205335 is a palliative ICI biopsy/effusion cohort. GEO sample characteristics and the author cell table have no MPR/NMPR or residual-viable-tumor field. MPR requires a resected primary and is not substituted from RECIST.",
+    "fields_present": [
+      "cancer_subtype",
+      "description",
+      "gsm",
+      "orig.ident",
+      "patient",
+      "platform",
+      "recist",
+      "tissue",
+      "title",
+      "tumor_stage"
+    ],
+    "table_hits": [],
+    "soft_text_hits": [],
+    "do_not_substitute_recist_for_mpr": true
+  }
 }

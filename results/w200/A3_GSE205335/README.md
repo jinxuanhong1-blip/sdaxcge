@@ -28,8 +28,9 @@ is underpowered and is not the verdict. These small, heterogeneous groups
 cannot exclude a moderate response association.
 
 An exploratory Spearman of malignant TACSTD2 versus T/NK fraction among
-(malignant + T/NK) cells was also null (n = 22, ρ ≈ 0.18, p ≈ 0.41). That is
-not the GSE207422 MPR claim and is not used as a substitute MPR test.
+(malignant + T/NK) cells was also null (n = 22; mean log1p ρ = 0.23, p = 0.29;
+percent-positive ρ = 0.18, p = 0.41). That is not the GSE207422 MPR claim and
+is not used as a substitute MPR test.
 
 ## Data and methods
 
