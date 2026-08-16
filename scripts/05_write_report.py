@@ -322,7 +322,7 @@ def main():
     A("")
 
     text = "\n".join(lines) + "\n"
-    path = os.path.join(C.OUT, "REPORT.md")
+    path = os.path.join(C.OUT, "TABLES_DUMP.md")
     with open(path, "w") as fh:
         fh.write(text)
     print("wrote", path, flush=True)

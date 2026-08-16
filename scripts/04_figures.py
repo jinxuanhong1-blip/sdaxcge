@@ -199,35 +199,28 @@ def fig_perturbation():
     df = _load("perturbation_contrasts.csv")
     if df is None or df.empty:
         return
-    genes = C.CLAIM_GENES_H + [g for g in C.CLAIM_GENES_M if g not in C.CLAIM_GENES_H]
-    # keep unique dataset+comparison
-    keys = df[["dataset", "comparison"]].drop_duplicates()
-    if keys.empty:
-        return
-    fig, ax = plt.subplots(figsize=(8.5, max(3.5, 0.35 * len(keys) * 3)))
-    y = 0
-    yticks, ylabels = [], []
-    cmap = {"ELF3": "#4c78a8", "Elf3": "#4c78a8", "GRHL1": "#f58518", "Grhl1": "#f58518",
-            "KLF4": "#54a24b", "Klf4": "#54a24b", "TFAP2A": "#e45756", "Tfap2a": "#e45756",
-            "TACSTD2": "#b279a2", "Tacstd2": "#b279a2", "CLDN4": "#72b7b2", "Cldn4": "#72b7b2",
-            "NKX2-1": "#000000", "Nkx2-1": "#000000"}
-    for _, k in keys.iterrows():
-        sub = df[(df.dataset == k.dataset) & (df.comparison == k.comparison)]
-        for g in list(dict.fromkeys(list(C.CLAIM_GENES_H) + list(C.CLAIM_GENES_M))):
-            r = sub[sub.gene == g]
-            if r.empty or not np.isfinite(r.iloc[0].get("log2fc_low_minus_high", np.nan)):
-                continue
-            v = r.iloc[0].log2fc_low_minus_high
-            ax.plot(v, y, "o", color=cmap.get(g, "0.4"), ms=5)
-            yticks.append(y)
-            ylabels.append(f"{k.dataset} | {g}")
-            y -= 1
-        y -= 0.4
-    ax.axvline(0, color="0.5", lw=0.8)
-    ax.set_yticks(yticks)
-    ax.set_yticklabels(ylabels, fontsize=7)
-    ax.set_xlabel("log2FC (NKX-low − NKX-high/control)")
-    ax.set_title("P4: experimental / model NKX2-1 loss (positive = claim direction)")
+    gene_order = ["ELF3", "Elf3", "GRHL1", "Grhl1", "KLF4", "Klf4",
+                  "TFAP2A", "Tfap2a", "TACSTD2", "Tacstd2", "CLDN4", "Cldn4",
+                  "NKX2-1", "Nkx2-1"]
+    genes = [g for g in gene_order if g in set(df.gene)]
+    ds = list(df.dataset.unique())
+    M = pd.DataFrame(index=ds, columns=genes, dtype=float)
+    for _, r in df.iterrows():
+        M.loc[r.dataset, r.gene] = r.log2fc_low_minus_high
+    fig, ax = plt.subplots(figsize=(8.2, max(4.0, 0.32 * len(ds) + 1.5)))
+    im = ax.imshow(M.to_numpy(dtype=float), vmin=-2, vmax=2, cmap="RdBu_r", aspect="auto")
+    ax.set_xticks(range(len(genes)))
+    ax.set_xticklabels(genes, rotation=45, ha="right")
+    ax.set_yticks(range(len(ds)))
+    ax.set_yticklabels(ds, fontsize=8)
+    for i in range(M.shape[0]):
+        for j in range(M.shape[1]):
+            v = M.iloc[i, j]
+            if np.isfinite(v):
+                ax.text(j, i, f"{v:.2f}", ha="center", va="center", fontsize=6,
+                        color="white" if abs(v) > 1.1 else "black")
+    fig.colorbar(im, ax=ax, shrink=0.7, label="log2FC (NKX-low − control)")
+    ax.set_title("P4: NKX2-1 loss/low vs control (red = claim direction)")
     fig.savefig(os.path.join(C.FIGURES, "fig6_perturbation_log2fc.png"))
     plt.close(fig)
 

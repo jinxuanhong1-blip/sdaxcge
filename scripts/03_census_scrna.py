@@ -61,7 +61,8 @@ RNG = np.random.default_rng(C.RNG_SEED)
 
 
 def _quote_list(xs):
-    return "(" + ",".join(f'"{x}"' for x in xs) + ")"
+    # tiledbsoma QueryCondition requires `attr in ['a', 'b']` (square brackets).
+    return "[" + ", ".join(repr(x) for x in xs) + "]"
 
 
 def fetch(organism: str, genes: list[str], cell_types: list[str] | None,
@@ -82,21 +83,25 @@ def fetch(organism: str, genes: list[str], cell_types: list[str] | None,
             measurement_name="RNA",
             obs_value_filter=obs_filter,
             var_value_filter=var_filter,
-            column_names={"obs": ["cell_type", "disease", "assay", "dataset_id",
-                                  "tissue", "suspension_type"]},
+            obs_column_names=["cell_type", "disease", "assay", "dataset_id",
+                              "tissue", "suspension_type", "raw_sum"],
         )
     print(f"[{organism}] got {adata.n_obs} cells x {adata.n_vars} genes", flush=True)
     return adata
 
 
 def to_log1p_cpm(adata):
-    """Library-size normalise from raw counts stored in X (sparse)."""
+    """Library-size normalise from raw counts using Census `raw_sum`.
+
+    `raw_sum` is the full-transcriptome UMI/count total. Using the 20-gene
+    subset sum as a library size would inflate CPM in cells that express only
+    the claim genes and produce NaNs in cells that express none of them.
+    """
     X = adata.X
-    if hasattr(X, "toarray"):
-        # keep sparse until we need columns
-        lib = np.asarray(X.sum(axis=1)).ravel()
+    if "raw_sum" in adata.obs.columns:
+        lib = pd.to_numeric(adata.obs["raw_sum"], errors="coerce").to_numpy(dtype=float)
     else:
-        lib = X.sum(axis=1)
+        lib = np.asarray(X.sum(axis=1)).ravel() if hasattr(X, "toarray") else X.sum(axis=1)
     lib = np.where(lib > 0, lib, np.nan)
     return X, lib, list(adata.var["feature_name"].astype(str))
 
@@ -110,7 +115,10 @@ def gene_col(X, lib, var_names, gene):
         col = np.asarray(col.toarray()).ravel()
     else:
         col = np.asarray(col).ravel()
-    return np.log1p(col / lib * 1e4)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        out = np.log1p(col / lib * 1e4)
+    out = np.where(np.isfinite(out), out, 0.0)
+    return out
 
 
 def celltype_means(adata, genes, organism):
@@ -151,7 +159,7 @@ def within_type_corrs(adata, genes, organism, diseases_keep):
                 x, y = mat[ga], mat[gb]
                 if np.nanstd(x) == 0 or np.nanstd(y) == 0:
                     continue
-                rho, p = stats.spearmanr(x, y)
+                rho, p = stats.spearmanr(x, y, nan_policy="omit")
                 rows.append({"organism": organism, "cell_type": ct, "disease": dis,
                              "n_cells": int(len(idx)), "gene_a": ga, "gene_b": gb,
                              "spearman_rho": float(rho), "p_value": float(p),
