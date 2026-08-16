@@ -1,0 +1,147 @@
+{
+  "cohort": "CPTAC LSCC (LUSC synonym)",
+  "citation": "Satpathy et al. Cell 2021 PMID 34358469",
+  "treatment": "treatment-naive surgical resections; no prior chemo/RT; no ICI labels",
+  "n_protein_tumor": 108,
+  "n_protein_normal": 99,
+  "n_rna_tumor": 108,
+  "n_rna_normal": 94,
+  "n_aligned_tumor_cases": 108,
+  "n_protein_genes": 12760,
+  "n_rna_genes": 60669,
+  "targets": {
+    "TACSTD2": "ENSG00000184292",
+    "CLDN4": "ENSG00000189143"
+  },
+  "missingness": [
+    {
+      "layer": "protein_tumor",
+      "gene": "TACSTD2",
+      "n_samples_in_matrix": 108,
+      "ensembl": "ENSG00000184292",
+      "row": "ENSG00000184292.7",
+      "n": 108,
+      "n_na": 0,
+      "min": 24.7263245301587,
+      "median": 26.86571246167705,
+      "max": 28.783787445002
+    },
+    {
+      "layer": "protein_tumor",
+      "gene": "CLDN4",
+      "n_samples_in_matrix": 108,
+      "ensembl": "ENSG00000189143",
+      "row": "ENSG00000189143.9",
+      "n": 78,
+      "n_na": 30,
+      "min": 21.5292435671238,
+      "median": 23.34019422656705,
+      "max": 24.7252071327146
+    },
+    {
+      "layer": "protein_normal",
+      "gene": "TACSTD2",
+      "n_samples_in_matrix": 99,
+      "ensembl": "ENSG00000184292",
+      "row": "ENSG00000184292.7",
+      "n": 99,
+      "n_na": 0,
+      "min": 25.8582306460225,
+      "median": 26.4960591333991,
+      "max": 27.2990019575655
+    },
+    {
+      "layer": "protein_normal",
+      "gene": "CLDN4",
+      "n_samples_in_matrix": 99,
+      "ensembl": "ENSG00000189143",
+      "row": "ENSG00000189143.9",
+      "n": 72,
+      "n_na": 27,
+      "min": 21.6933831379381,
+      "median": 23.24516300351405,
+      "max": 24.8674387772782
+    },
+    {
+      "layer": "rna_tumor",
+      "gene": "TACSTD2",
+      "n_samples_in_matrix": 108,
+      "ensembl": "ENSG00000184292",
+      "row": "ENSG00000184292.7",
+      "n": 108,
+      "n_na": 0,
+      "min": 7.3128,
+      "median": 12.69275,
+      "max": 14.9216
+    },
+    {
+      "layer": "rna_tumor",
+      "gene": "CLDN4",
+      "n_samples_in_matrix": 108,
+      "ensembl": "ENSG00000189143",
+      "row": "ENSG00000189143.9",
+      "n": 108,
+      "n_na": 0,
+      "min": 9.6415,
+      "median": 12.00155,
+      "max": 14.2516
+    },
+    {
+      "layer": "rna_normal",
+      "gene": "TACSTD2",
+      "n_samples_in_matrix": 94,
+      "ensembl": "ENSG00000184292",
+      "row": "ENSG00000184292.7",
+      "n": 94,
+      "n_na": 0,
+      "min": 9.2615,
+      "median": 11.42165,
+      "max": 12.5917
+    },
+    {
+      "layer": "rna_normal",
+      "gene": "CLDN4",
+      "n_samples_in_matrix": 94,
+      "ensembl": "ENSG00000189143",
+      "row": "ENSG00000189143.9",
+      "n": 94,
+      "n_na": 0,
+      "min": 10.4317,
+      "median": 11.42675,
+      "max": 12.6518
+    }
+  ],
+  "signature_coverage_rna": {
+    "GEP_Tcell_inflamed": "18/18",
+    "IFNG_6gene": "6/6",
+    "CD8_Tcell": "3/3",
+    "Cytotoxic_effector": "6/6",
+    "CYT_cytolytic": "2/2",
+    "TLS_12chemokine": "12/12",
+    "TGFB_exclusion": "6/6",
+    "Immune_general": "8/8"
+  },
+  "signature_coverage_protein": {
+    "GEP_Tcell_inflamed": "16/18",
+    "IFNG_6gene": "5/6",
+    "CD8_Tcell": "3/3",
+    "Cytotoxic_effector": "4/6",
+    "CYT_cytolytic": "2/2",
+    "TLS_12chemokine": "9/12",
+    "TGFB_exclusion": "6/6",
+    "Immune_general": "8/8"
+  },
+  "n_os_events": 25,
+  "n_pfs_events": 20,
+  "meta_sex": {
+    "Male": 86,
+    "Female": 22
+  },
+  "meta_stage": {
+    "Stage II": 44,
+    "Stage I": 39,
+    "Stage III": 21,
+    "NaN": 3,
+    "Stage IV": 1
+  }
+}
