@@ -29,7 +29,7 @@ def main() -> None:
     assert audit["GSE131907"]["matrix_cells"] == 208_506
     assert audit["GSE131907"]["tumor_bearing_specimens"] == 21
     assert audit["GSE148071"]["matrix_cells"] == 89_887
-    assert audit["GSE154826"]["status"] == "excluded before analysis"
+    assert audit["GSE154826"]["status"] == "excluded_before_analysis"
     assert audit["GSE154826"]["author_hca_rds_bytes"] > 2_000_000_000
     assert manifest.loc[manifest["used_for_statistics"], "bytes"].max() < 2_000_000_000
 

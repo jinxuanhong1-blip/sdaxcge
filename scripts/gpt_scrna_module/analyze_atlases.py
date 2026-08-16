@@ -577,7 +577,7 @@ def main() -> None:
                 "GSE131907": audit131,
                 "GSE148071": audit148,
                 "GSE154826": {
-                    "status": "excluded_before analysis",
+                    "status": "excluded_before_analysis",
                     "reason": "No complete open processed representation below 2,000,000,000 bytes",
                     "author_hca_rds_bytes": 2_123_085_302,
                     "geo_processed_archives_aggregate_bytes": 3_567_029_508,
