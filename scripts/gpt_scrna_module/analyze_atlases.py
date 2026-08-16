@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import gzip
 import hashlib
+import itertools
 import json
 import math
 import re
@@ -68,10 +69,24 @@ def read_dense_gene_rows(path: Path) -> tuple[list[str], dict[str, np.ndarray], 
     selected = {}
     with open_text(path) as handle:
         header = handle.readline().rstrip("\r\n").split("\t")
-        cell_ids = header[1:]
+        first_line = handle.readline()
+        first_gene, sep, first_values = first_line.partition("\t")
+        if not sep:
+            raise ValueError(f"{path}: first data row is not tab-delimited")
+        n_values = first_values.count("\t") + 1
+        if n_values == len(header):
+            # GSE148071 has no gene-column label in the header.
+            cell_ids = header
+        elif n_values == len(header) - 1:
+            # GSE131907 labels the leading gene column.
+            cell_ids = header[1:]
+        else:
+            raise ValueError(
+                f"{path}: first row has {n_values} values for a {len(header)}-field header"
+            )
         totals = np.zeros(len(cell_ids), dtype=np.float64)
         n_genes = 0
-        for line in handle:
+        for line in itertools.chain([first_line], handle):
             gene, sep, values = line.partition("\t")
             if not sep:
                 continue
@@ -478,8 +493,29 @@ def main() -> None:
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
-    g131, audit131 = process_gse131907(args.source)
-    g148, audit148 = process_gse148071(args.source)
+    cache131 = args.output / "_cache_gse131907_scores.csv"
+    audit_cache131 = args.output / "_cache_gse131907_audit.json"
+    if cache131.exists() and audit_cache131.exists():
+        g131 = pd.read_csv(cache131)
+        with audit_cache131.open() as handle:
+            audit131 = json.load(handle)
+    else:
+        g131, audit131 = process_gse131907(args.source)
+        g131.to_csv(cache131, index=False)
+        with audit_cache131.open("w") as handle:
+            json.dump(audit131, handle, indent=2)
+
+    cache148 = args.output / "_cache_gse148071_scores.csv"
+    audit_cache148 = args.output / "_cache_gse148071_audit.json"
+    if cache148.exists() and audit_cache148.exists():
+        g148 = pd.read_csv(cache148)
+        with audit_cache148.open() as handle:
+            audit148 = json.load(handle)
+    else:
+        g148, audit148 = process_gse148071(args.source)
+        g148.to_csv(cache148, index=False)
+        with audit_cache148.open("w") as handle:
+            json.dump(audit148, handle, indent=2)
     samples = pd.concat([g131, g148], ignore_index=True)
     statistics, meta = run_statistics(samples, args.seed)
     samples.to_csv(args.output / "sample_scores.csv", index=False)
