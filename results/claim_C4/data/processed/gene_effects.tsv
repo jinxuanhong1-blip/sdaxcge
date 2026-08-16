@@ -1,0 +1,43 @@
+dataset	contrast	gene	assayed_symbol	log2FC_KD_or_KO_vs_control	pvalue	FDR	nominal_n_per_condition	note
+GSE22493	SKOV-3 KD	CLDN4	CLDN4	-1.22505	0.8739993672167784	0.972304048332646	2.0	1 probe(s); paired two-colour arrays
+GSE22493	SKOV-3 KD	IFI27	IFI27	-0.7079333333333332	0.635546172317278	0.972304048332646	3.0	1 probe(s); paired two-colour arrays
+GSE22493	SKOV-3 KD	OAS2	OAS2	0.8787333333333334	0.23092413490229852	0.7233742019624992	3.0	1 probe(s); paired two-colour arrays
+GSE22493	SKOV-3 KD	IFIT1	IFIT1	-2.0257	0.972304048332646	0.972304048332646	3.0	1 probe(s); paired two-colour arrays
+GSE22493	SKOV-3 KD	MX1	MX1	0.3584	0.27969971889611184	0.7233742019624992	2.0	1 probe(s); paired two-colour arrays
+GSE22493	SKOV-3 KD	ISG15	ISG15	0.48323333333333335	0.3100175151267854	0.7233742019624992	3.0	1 probe(s); paired two-colour arrays
+GSE22493	SKOV-3 KD	HLA-A	HLA-A	-0.8463333333333333	0.7940838624448766	0.972304048332646	3.0	11 probe(s); paired two-colour arrays
+GSE50927	baseline KO vs WT	CLDN4	Cldn4	-6.061296179	1.7663000000000002e-29	4.0673e-26	2.0	submitter edgeR result; whole mouse lung
+GSE50927	baseline KO vs WT	IFI27	Ifi27l2a	0.6236121	0.016289737	0.219629205	2.0	submitter edgeR result; whole mouse lung
+GSE50927	baseline KO vs WT	OAS2	Oas2	1.488747185	1.7297e-05	0.001526145	2.0	submitter edgeR result; whole mouse lung
+GSE50927	baseline KO vs WT	IFIT1	Ifit1	0.57577684	0.000719541	0.02824166	2.0	submitter edgeR result; whole mouse lung
+GSE50927	baseline KO vs WT	MX1	Mx1	0.626672753	0.11907033	0.648233013	2.0	submitter edgeR result; whole mouse lung
+GSE50927	baseline KO vs WT	ISG15	Isg15	1.075372735	3.92718e-05	0.003095569	2.0	submitter edgeR result; whole mouse lung
+GSE50927	baseline KO vs WT	HLA-A	H2-K1	-0.070918061	0.724031147	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	CLDN4	Cldn4	-12.69283342	1.77e-126	3.84e-122	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	IFI27	Ifi27l2a	-0.208694572	0.6103443	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	OAS2	Oas2	-0.168681835	0.775697168	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	IFIT1	Ifit1	-0.285238286	0.315524667	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	MX1	Mx1	0.150025444	0.885669335	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	ISG15	Isg15	0.632695112	0.187050332	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-low KO vs WT VILI	HLA-A	H2-K1	-0.192842004	0.291189093	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	CLDN4	Cldn4	-10.16213953	1.33054e-98	2.8879500000000004e-94	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	IFI27	Ifi27l2a	0.940760797	0.013761887	0.30329292	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	OAS2	Oas2	0.168681835	0.792977445	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	IFIT1	Ifit1	-0.124626655	0.726927068	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	MX1	Mx1	0.081300102	1.0	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	ISG15	Isg15	1.129691077	0.020188724	0.375530071	2.0	submitter edgeR result; whole mouse lung
+GSE50927	VILI-high KO vs WT VILI	HLA-A	H2-K1	0.08004717	0.726386677	1.0	2.0	submitter edgeR result; whole mouse lung
+GSE207704	MCF-7 KO vs WT	CLDN4	CLDN4	-0.7217067785892088	NA	NA	2.0	log2 ratio of submitted mean FPKM; replicate values unavailable
+GSE207704	MCF-7 KO vs WT	IFI27	IFI27	NA	NA	NA	NA	omitted from submitted processed table
+GSE207704	MCF-7 KO vs WT	OAS2	OAS2	NA	NA	NA	NA	omitted from submitted processed table
+GSE207704	MCF-7 KO vs WT	IFIT1	IFIT1	-1.0908987879882557	NA	NA	2.0	log2 ratio of submitted mean FPKM; replicate values unavailable
+GSE207704	MCF-7 KO vs WT	MX1	MX1	NA	NA	NA	NA	omitted from submitted processed table
+GSE207704	MCF-7 KO vs WT	ISG15	ISG15	0.10503758976610425	NA	NA	2.0	log2 ratio of submitted mean FPKM; replicate values unavailable
+GSE207704	MCF-7 KO vs WT	HLA-A	HLA-A	NA	NA	NA	NA	omitted from submitted processed table
+GSE207704	T47D KO vs WT	CLDN4	CLDN4	-1.05864609406019	NA	NA	2.0	log2 ratio of submitted mean FPKM; replicate values unavailable
+GSE207704	T47D KO vs WT	IFI27	IFI27	NA	NA	NA	NA	omitted from submitted processed table
+GSE207704	T47D KO vs WT	OAS2	OAS2	NA	NA	NA	NA	omitted from submitted processed table
+GSE207704	T47D KO vs WT	IFIT1	IFIT1	-0.029861165758550638	NA	NA	2.0	log2 ratio of submitted mean FPKM; replicate values unavailable
+GSE207704	T47D KO vs WT	MX1	MX1	NA	NA	NA	NA	omitted from submitted processed table
+GSE207704	T47D KO vs WT	ISG15	ISG15	-1.905566472904706	NA	NA	2.0	log2 ratio of submitted mean FPKM; replicate values unavailable
+GSE207704	T47D KO vs WT	HLA-A	HLA-A	NA	NA	NA	NA	omitted from submitted processed table
