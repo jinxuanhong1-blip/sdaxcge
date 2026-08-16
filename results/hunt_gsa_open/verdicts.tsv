@@ -1,0 +1,14 @@
+source	accession	bioproject	access	title	processed	has_TACSTD2	has_CLDN4	has_MPR	has_ICI_response_on_same_samples	usable_TACSTD2_vs_MPR	usable_CLDN4_vs_MPR	note
+OMIX	OMIX001548	PRJCA011037	Open	BRAF-mutant NSCLC TIME Nanostring (cohort A, n=57)	yes (Nanostring counts + signatures)	0	0	0	0	0	0	Immune-panel Nanostring. TACSTD2/CLDN4 not on panel. No ICI response labels on these 57 samples.
+OMIX	OMIX001549	PRJCA011037	Open	BRAF-mutant NSCLC ICI efficacy (cohort B, n=417)	yes (clinical table)	0	0	0	1	0	0	Open PFS/OS/effect for advanced ICI. No expression. Not neoadjuvant/MPR. effect 1=272, 0=145.
+OMIX	OMIX002797	PRJCA014383	Open	HLX10 (serplulimab) PK/ADA including ES-SCLC / NSCLC trials	yes (PK/ADA tables)	0	0	0	0	0	0	Pharmacology / ADA. Nested NSCLC303 zips are PK/PD-L1, not transcriptome.
+OMIX	OMIX002798	PRJCA014383	Open	HLX10 ES-SCLC TMB/MSI	yes (TMB/MSI csv)	0	0	0	0	0	0	TMB/MSI only.
+OMIX	OMIX004639	PRJCA018645	Open	Sintilimab + chemo first-line advanced LUSC (Phase II CRF)	yes (clinical workbook)	0	0	0	0	0	0	Advanced first-line, not resectable/MPR. No expression matrix.
+OMIX	OMIX010537	PRJCA041569	Open	SWI/SNF + ICB in KRAS-mutant NSCLC (NGS n~922 + 7 cell-line RNA)	yes (mutation xlsx + cell FPKM)	1	1	0	0	0	0	TACSTD2/CLDN4 only in 7 untreated cell-line FPKMs. Patient file is mutations, no TACSTD2/CLDN4, no MPR.
+OMIX	OMIX013717	PRJCA053654	Open-labeled	LINC00467 KD LUAD cell processed counts	claimed, not downloadable	0	0	0	0	0	0	Page has no HTTPS file. Likely blocked pending MOST HGRMP registration. Not actually open.
+OMIX	OMIX014319	PRJCA055741	Open	Mouse LCBM RNA-seq after RT fractionation (PD-1 context)	yes (counts xlsx)	1	1	0	0	0	0	Mouse Tacstd2/Cldn4 present. Not human, not MPR. Low counts across 12 samples.
+OMIX	OMIX014557	PRJCA055284	Open	Low-dose gut irradiation + PD-1 in mNSCLC	metabolome .tar (not downloaded)	0	0	0	0	0	0	Open metabolome archive, not a gene-expression matrix.
+OMIX	OMIX019394	PRJCA071131	Open	Mouse PDAC TROP2-ADC RNA-seq	yes (csv counts)	1	1	0	0	0	0	Pancreas, not lung. TROP2-ADC, not ICI/MPR.
+HRA	HRA003748	PRJCA009346	Open	NSCLC pre-anti-PD-1 bulk RNA-seq (n=65)	NO — raw FASTQ only	0	0	0	0	0	0	Closest human lung ICI RNA-seq that is Open. ~5GB/sample FASTQ. Metadata Treatment/Stage/Survival empty. No processed matrix on NGDC. Not MPR (advanced ICI).
+HRA	HRA011882	PRJCA041484	Open	Trop2 upregulation in EGFR-TKI DTP cells (PC9, H1975)	NO — raw FASTQ only	0	0	0	0	0	0	TACSTD2 is the paper topic. Cell-line TKI, not ICI, not MPR. 16 FASTQ runs.
+HRA	HRA006427	PRJCA022531	Open	CDK4/6 + LDRT + PD-1 in Rb-deficient SCLC (cell line)	NO — raw FASTQ only	0	0	0	0	0	0	6 cell-line RNA-seq runs. Not patient MPR.

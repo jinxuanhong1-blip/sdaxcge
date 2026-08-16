@@ -61,6 +61,9 @@ PROCESSED_RE = re.compile(
     re.I,
 )
 RAWSEQ_RE = re.compile(r"\.(fq|fastq|bam|cram|sra)(\.gz)?$", re.I)
+# Only table-like processed files. Never pull raw-seq or vendor mass-spec dumps.
+TABLE_RE = re.compile(r"\.(xlsx|xls|csv|tsv|txt|zip)$", re.I)
+SKIP_ARCHIVE_RE = re.compile(r"\.(tar|tar\.gz|tgz|d\.tar\.gz)$", re.I)
 
 GENE_ALIASES = {
     "TACSTD2": [
@@ -485,7 +488,13 @@ def main() -> None:
 
         for fi in parsed.get("files") or []:
             nbytes, disp = parse_size_token(page.get("text") or "", fi["name"])
-            if RAWSEQ_RE.search(fi["name"]):
+            if RAWSEQ_RE.search(fi["name"]) or SKIP_ARCHIVE_RE.search(fi["name"]):
+                rec.setdefault("skipped_non_table", "")
+                rec["skipped_non_table"] = (rec.get("skipped_non_table") or "") + fi["name"] + ";"
+                continue
+            if not TABLE_RE.search(fi["name"]):
+                rec.setdefault("skipped_non_table", "")
+                rec["skipped_non_table"] = (rec.get("skipped_non_table") or "") + fi["name"] + ";"
                 continue
             if nbytes and nbytes > MAX_DOWNLOAD_BYTES:
                 rec.setdefault("skipped_large", "")
