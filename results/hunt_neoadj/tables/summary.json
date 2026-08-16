@@ -1,0 +1,49 @@
+{
+  "question": "Which public lung neoadjuvant IO scRNA/bulk datasets can recover (A) malignant TACSTD2 higher in NMPR than MPR and (B) per-patient TACSTD2 vs T/NK Spearman rho negative?",
+  "rules": [
+    "Accessions were taken from GEO E-utilities or the four user-specified seeds. None were invented.",
+    "Only public processed matrices were used (GEO supplementary TSV/MTX/FPKM). No FASTQ.",
+    "pCR is grouped with MPR. Two-sided Mann-Whitney and one-sided NMPR>MPR are both reported.",
+    "scRNA malignant TACSTD2 uses epithelial cells (author Epi or EPCAM/KRT+ PTPRC-). Bulk/GeoMx are mixture proxies and are labeled as such."
+  ],
+  "search": {
+    "geo_title_restricted_2023_2026": "results/hunt_neoadj/metadata/geo_search_gse.tsv",
+    "geo_broader_2023_2026": "results/hunt_neoadj/metadata/geo_search_broader.tsv",
+    "n_GSE_title_search": 16,
+    "n_GSE_broader_search": 61
+  },
+  "tested_with_numbers": {
+    "GSE207422_bulk": {
+      "findingA": {"n_NMPR": 15, "n_MPR": 9, "median_NMPR": 6.222, "median_MPR": 4.999, "p_two_sided": 0.340, "direction_NMPR_gt_MPR": true},
+      "findingB": {"n": 24, "spearman_rho": -0.506, "spearman_p": 0.0116, "direction_negative": true}
+    },
+    "GSE207422_scrna": {
+      "findingA": {"n_NMPR": 10, "n_MPR": 4, "median_NMPR": 1.349, "median_MPR": 1.213, "p_two_sided": 0.635, "direction_NMPR_gt_MPR": true},
+      "findingB": {"n": 15, "spearman_rho": -0.264, "spearman_p": 0.341, "direction_negative": true}
+    },
+    "GSE241934_scrna_combined_minEpi20": {
+      "findingA": {"n_NMPR": 25, "n_MPR": 10, "median_NMPR": 1.498, "median_MPR": 1.665, "p_two_sided": 0.956, "direction_NMPR_gt_MPR": false},
+      "findingB": {"n": 35, "spearman_rho": -0.014, "spearman_p": 0.935, "direction_negative": true}
+    },
+    "GSE291670_scrna": {
+      "findingA": {"n_NMPR": 3, "n_MPR": 3, "median_NMPR": 0.039, "median_MPR": 0.171, "p_two_sided": 0.40, "direction_NMPR_gt_MPR": false},
+      "findingB": {"n": 4, "spearman_rho": -1.0, "spearman_p": 0.0, "note": "n=4 after T/NK>=20 filter; T/NK fractions 0.2-2%; not interpretable as confirmation"}
+    },
+    "GSE329813_geomx_tumorbed": {
+      "findingA": {"n_NMPR": 11, "n_MPR": 11, "median_NMPR": 4.799, "median_MPR": 3.936, "p_two_sided": 0.00203, "direction_NMPR_gt_MPR": true},
+      "findingB": {"n": 22, "spearman_rho": -0.512, "spearman_p": 0.0148, "direction_negative": true},
+      "caveat": "GeoMx tumor-bed ROI is a mixture, not malignant-cell isolation"
+    },
+    "GSE248378_bulk": {
+      "findingA": "not_tested_no_public_MPR",
+      "findingB": {"n": 29, "spearman_rho": -0.781, "spearman_p": 5.83e-7, "direction_negative": true}
+    }
+  },
+  "honest_answer": {
+    "scRNA_malignant_TACSTD2_NMPR_gt_MPR": "NOT recovered at p<0.05 in any tested scRNA series. GSE207422 matches direction (underpowered). GSE241934 (best n) is null/opposite. GSE291670 n=3v3 is opposite.",
+    "scRNA_perpatient_vs_TNK_negative": "NOT recovered at p<0.05 in scRNA. GSE207422 rho=-0.26 p=0.34. GSE241934 rho~0. GSE291670 n=4 rho=-1 is not a real confirmation.",
+    "bulk_or_spatial_mixture": "YES for Finding B in GSE207422 bulk and GSE248378 bulk. YES for both findings in GSE329813 GeoMx tumor-bed (mixture, not scRNA malignant).",
+    "datasets_that_can_in_principle_test_both_on_scRNA": ["GSE207422", "GSE241934", "GSE291670"],
+    "seed_series_that_cannot_test_malignant_TACSTD2": ["GSE243013", "GSE229353", "GSE146100"]
+  }
+}

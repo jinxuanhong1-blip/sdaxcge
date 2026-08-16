@@ -1,0 +1,19 @@
+accession	year	assay	compartment	n_evaluable	public_processed_matrix	MPR_labels_public	can_test_malignant_TACSTD2	can_test_perpatient_TNK_rho	findingA_NMPR_gt_MPR	findingB_rho_negative	notes
+GSE207422	2023	bulk RNA-seq log2TPM	pre-tx tumor biopsy	24 patients	yes	yes	proxy_only	yes	direction_only_p=0.34	yes_rho=-0.51_p=0.012	Seed. Hu et al. PMID 36869384. One biopsy/patient.
+GSE207422	2023	scRNA UMI matrix	tumor (mixed)	14-15 patients	yes	yes	yes_marker_EPCAM/KRT_PTPRCneg	yes	direction_only_p=0.64	direction_only_rho=-0.26_p=0.34	Seed. 92330 cells. Underpowered MPR n=4.
+GSE243013	2025	scRNA immune MTX	CD45-like immune only	243 patients	yes_7.1GB_not_downloaded	yes	no	no	not_tested	not_tested	Seed. Liu et al. PMID 40147443. Author labels T/NK,B,Myeloid only. No epithelial compartment.
+GSE146100	2021	scRNA NormData	1 patient 3 nodules	1 patient	yes_229MB_not_downloaded	per_nodule_not_MPR	possible	n=3_not_meaningful	not_tested	not_tested	Seed. Pre-2023. n=1 patient. Cannot test MPR vs NMPR.
+GSE229353	2023	scRNA 10x MTX	CD45+ sorted	7 samples	yes_in_RAW.tar	no_MPR_on_GEO	no	no	not_tested	not_tested	Seed. PMID 37231145. Chemo vs PD1+chemo only. No MPR field.
+GSE241934	2024	scRNA MTX	tumor (author Epi/T/NK)	35 patients minEpi20; 45 pts	yes	yes	yes_author_Epi	yes	no_combined_opposite	null_rho~-0.01	NEOTIDE/CTONG2104 + real-world. PMID 38897205. Best-powered scRNA test. Does not recover either claim.
+GSE248378	2023	bulk FPKM	post-tx resected tumor	29 samples	yes	no	proxy_only	yes	not_tested_no_MPR	yes_rho=-0.78_p=5.8e-7	Durvalumab +/- SBRT. PMID 38114518. Arm only on GEO.
+GSE291670	2025	scRNA 10x MTX	tumor (marker Epi)	6 patients	yes_in_RAW.tar	yes	yes	yes_n=4_after_filter	no_opposite_n=3v3	rho=-1_n=4_not_interpretable	Camrelizumab+anlotinib. PMID 40281576. Underpowered. T/NK fractions 0.2-2%.
+GSE329813	2026	GeoMx DSP	tumor-bed ROI mixture	22 patients	yes	yes	no_not_single_cell	yes_bulk_like	yes_p=0.002	yes_rho=-0.51_p=0.015	NOT scRNA. Pembrolizumab+chemo. Strongest public recovery of both directions, but ROI mixture not malignant isolation.
+GSE225620	2024	bulk featureCounts	whole blood	43 samples	yes	responder_not_MPR	no	blood_not_tumor	not_tested	not_tested	Blood, not tumor. Cannot recover malignant TACSTD2.
+GSE260770	2024	bulk FPKM	blood exosome	50 samples	yes	response_to_sintilimab	no	no	not_tested	not_tested	Exosomal RNA, not tumor.
+GSE280232	2024	scRNA 10x MTX	sorted T cells	13 patients	yes_in_1.3GB_RAW.tar	no_MPR_on_GEO	no	T_only	not_tested	not_tested	KRAS neoadjuvant nivo+ipi. Sorted T cells. No malignant cells.
+GSE337519	2026	scRNA RAW.tar	1 patient paired	1 patient	yes_34MB	no	n=1	n=1	not_tested	not_tested	n=1. No group statistics possible.
+GSE274934	2025	scRNA RAW.tar	ALK+ IO	23 samples	RAW.tar_15GB	unknown	unknown	unknown	not_tested	not_tested	ALK+ immunotherapy, not standard neoadjuvant chemoIO. 15GB archive not pulled.
+GSE299111	2025	scRNA RAW.tar	sorted immune	7 samples	yes	no	no	chemo_not_IO	not_tested	not_tested	Neoadjuvant chemotherapy only.
+GSE300685	2025	scRNA RAW.tar	NK-focused resectable	8 samples	yes	unknown	unlikely	unknown	not_tested	not_tested	NK profiling; not a malignant+MPR resource.
+GSE249568	2024	GeoMx CTA	1 patient MET	94 ROIs	yes	no	n=1	n=1	not_tested	not_tested	Tepotinib, not IO.
+GSE240033	2023	bulk RNA-seq	canine osteosarcoma	69	yes	n/a	n/a	n/a	n/a	n/a	Not human lung. Title-search false positive.

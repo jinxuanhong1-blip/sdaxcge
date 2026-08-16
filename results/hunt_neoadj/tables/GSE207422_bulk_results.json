@@ -1,0 +1,49 @@
+{
+  "dataset": "GSE207422",
+  "assay": "bulk RNA-seq (log2 TPM), all pre-treatment biopsies, 1 sample/patient",
+  "findingA_TACSTD2_NMPR_vs_MPR": {
+    "n_NMPR": 15,
+    "n_MPR": 9,
+    "median_TACSTD2_NMPR": 6.22219707106702,
+    "median_TACSTD2_MPR": 4.9991896090022,
+    "mean_TACSTD2_NMPR": 5.9960698211943155,
+    "mean_TACSTD2_MPR": 5.285527827404026,
+    "mannwhitney_U": 84.0,
+    "p_two_sided": 0.3400554635028641,
+    "p_one_sided_NMPR_gt_MPR": 0.17002773175143204,
+    "rank_biserial_NMPR_vs_MPR": 0.24444444444444446,
+    "direction_matches_expected(NMPR>MPR)": true
+  },
+  "findingB_TACSTD2_vs_TNK_spearman": {
+    "n_samples": 24,
+    "n_patients": 24,
+    "tnk_markers_used": [
+      "CD3D",
+      "CD3E",
+      "CD3G",
+      "CD2",
+      "TRAC",
+      "TRBC2",
+      "CD8A",
+      "CD8B",
+      "CD4",
+      "IL7R",
+      "NKG7",
+      "GNLY",
+      "KLRD1",
+      "KLRF1",
+      "NCAM1",
+      "GZMB",
+      "GZMK",
+      "PRF1"
+    ],
+    "tnk_markers_missing": [
+      "TRBC1"
+    ],
+    "spearman_rho": -0.5060869565217391,
+    "spearman_p": 0.011627528283361442,
+    "pearson_r": -0.5468966053971988,
+    "pearson_p": 0.005683306260111465,
+    "direction_matches_expected(negative)": true
+  }
+}

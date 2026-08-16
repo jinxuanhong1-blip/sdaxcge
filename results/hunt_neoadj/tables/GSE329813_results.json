@@ -1,0 +1,39 @@
+{
+  "dataset": "GSE329813",
+  "assay": "GeoMx DSP normalized counts (NOT scRNA); primary tumor-bed ROIs aggregated per patient",
+  "genes_missing": [],
+  "findingA": {
+    "n_NMPR": 11,
+    "n_MPR": 11,
+    "n_patients": 22,
+    "median_NMPR": 4.798925861921557,
+    "median_MPR": 3.935727237694693,
+    "mean_NMPR": 4.75621020582334,
+    "mean_MPR": 3.727981921506165,
+    "mannwhitney_U": 108.0,
+    "p_two_sided": 0.002026945646972707,
+    "p_one_sided_NMPR_gt_MPR": 0.0010134728234863534,
+    "direction_matches_expected(NMPR>MPR)": true
+  },
+  "findingB": {
+    "n_patients": 22,
+    "tnk_markers_used": [
+      "CD3D",
+      "CD3E",
+      "CD3G",
+      "CD2",
+      "CD8A",
+      "CD8B",
+      "NKG7",
+      "GNLY",
+      "KLRD1",
+      "GZMB",
+      "PRF1"
+    ],
+    "spearman_rho": -0.5121400338791644,
+    "spearman_p": 0.014820252429627789,
+    "pearson_r": -0.5890863650810134,
+    "pearson_p": 0.003918026220579904,
+    "direction_matches_expected(negative)": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "dataset": "GSE248378",
+  "assay": "bulk FPKM, post-neoadjuvant durvalumab +/- SBRT resected tumors",
+  "findingA": {
+    "tested": false,
+    "reason": "GEO GSM characteristics have treatment arm and histology only; no MPR/NMPR/pCR labels"
+  },
+  "findingB": {
+    "n_samples": 29,
+    "tnk_markers_used": [
+      "CD3D",
+      "CD3E",
+      "CD3G",
+      "CD2",
+      "CD8A",
+      "CD8B",
+      "CD4",
+      "IL7R",
+      "NKG7",
+      "GNLY",
+      "KLRD1",
+      "NCAM1",
+      "GZMB",
+      "GZMK",
+      "PRF1"
+    ],
+    "tnk_markers_missing": [
+      "KLRF1"
+    ],
+    "spearman_rho": -0.7807881773399012,
+    "spearman_p": 5.827627235778552e-07,
+    "pearson_r": -0.6349144382595696,
+    "pearson_p": 0.00021578782714221887,
+    "direction_matches_expected(negative)": true
+  }
+}

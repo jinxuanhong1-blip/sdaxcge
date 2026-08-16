@@ -1,0 +1,26 @@
+{
+  "dataset": "GSE291670",
+  "assay": "scRNA 10x MTX from GSE291670_RAW.tar; marker-based Epi vs T/NK",
+  "n_samples": 6,
+  "findingA": {
+    "n_NMPR": 3,
+    "n_MPR": 3,
+    "median_NMPR": 0.039284348487854004,
+    "median_MPR": 0.1705116331577301,
+    "mean_NMPR": 0.062495836367209755,
+    "mean_MPR": 0.12983970964948335,
+    "mannwhitney_U": 2.0,
+    "p_two_sided": 0.4,
+    "p_one_sided_NMPR_gt_MPR": 0.9,
+    "direction_matches_expected(NMPR>MPR)": false
+  },
+  "findingB": {
+    "n_patients": 4,
+    "spearman_rho": -1.0,
+    "spearman_p": 0.0,
+    "pearson_r": -0.8453519767035406,
+    "pearson_p": 0.15464802329645932,
+    "direction_matches_expected(negative)": true
+  },
+  "note": "n=3 vs 3. Mann-Whitney p-values are reported but have almost no power."
+}
