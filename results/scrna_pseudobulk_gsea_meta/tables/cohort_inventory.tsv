@@ -1,0 +1,7 @@
+cohort	usable	n_patients_gated	n_malignant_cells	n_genes	rule	reason	n_IIT	n_RWC	n_patients_series	note
+GSE207422	True	10	9714.0	24243	marker_epithelial_low_normal_lung	ok				
+GSE131907	True	21	24784.0	27226	author_malignant_tumor_met	ok				
+GSE241934	True	35	14406.0	26164	author_Epi_IIT+RWC	ok	11.0	24.0		
+GSE205335	True	21	28485.0	33714	author_malignant_tumor	ok				
+GSE291670	True	6	13802.0	33694	marker_epithelial_low_normal_lung	ok				
+GSE253013	False	0		0	not_run	rds_9.3GB_not_loaded_and_n_patients_below_meta_gate			9.0	9.3 GB Garnett RDS not loaded (16 GB RAM). Public series: 9 treatment-naive LUAD (tumor+adjacent), no ICI/MPR labels. Prior public marker extract: MRC004/007 <30 malignant-like cells → ≤7 gated patients, below meta n gate.

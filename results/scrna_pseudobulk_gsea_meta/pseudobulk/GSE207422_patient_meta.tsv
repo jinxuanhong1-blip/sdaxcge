@@ -1,0 +1,11 @@
+Sample	patient	Resource	Sex	Age	Clinical Stage	Pathology	PD1 Antibody	Chemotherapy	Pathologic Response	Residual Tumor	RECIST	n_malignant	malignant_rule	cohort
+BD_immune01	P01	Pre-treatment biopsy	Male	68.0	IIIA	Squamous	Toripalimab	Carboplatin+Docetaxel	NE	NE	SD	878	marker_epithelial_low_normal_lung	GSE207422
+BD_immune03	P03	Post-treatment surgery	Male	66.0	IIIA	Squamous	Toripalimab	Carboplatin+Gemcitabine	MPR	0.05	PR	1244	marker_epithelial_low_normal_lung	GSE207422
+BD_immune04	P04	Post-treatment surgery	Male	66.0	IIIA	Adeno	Toripalimab	Carboplatin+Pemetrexed	NMPR	0.2	PR	69	marker_epithelial_low_normal_lung	GSE207422
+BD_immune05	P05	Pre-treatment biopsy	Female	34.0	IIIA	Adeno	Toripalimab	Carboplatin+Pemetrexed	NMPR	0.78	PR	1443	marker_epithelial_low_normal_lung	GSE207422
+BD_immune07	P07	Post-treatment surgery	Male	57.0	IIIA	Squamous	Toripalimab	Carboplatin+Gemcitabine	NMPR	0.9	SD	4483	marker_epithelial_low_normal_lung	GSE207422
+BD_immune09	P09	Post-treatment surgery	Male	66.0	IIIA	Squamous	Sintilimab	Carboplatin+Gemcitabine	NMPR	0.95	PR	292	marker_epithelial_low_normal_lung	GSE207422
+BD_immune10	P10	Post-treatment surgery	Male	70.0	IIIA	Squamous	Sintilimab	Carboplatin+Gemcitabine	NMPR	0.7	PR	428	marker_epithelial_low_normal_lung	GSE207422
+BD_immune12	P12	Post-treatment surgery	Male	77.0	IIIA	Adeno	Sintilimab	Carboplatin+Pemetrexed	NMPR	0.8	SD	682	marker_epithelial_low_normal_lung	GSE207422
+BD_immune13	P13	Post-treatment surgery	Male	59.0	IIIA	Squamous	Sintilimab	Carboplatin+Gemcitabine	NMPR	0.4	PR	89	marker_epithelial_low_normal_lung	GSE207422
+BD_immune15	P15	Post-treatment surgery	Male	55.0	IIIA	Adeno	Sintilimab	Carboplatin+Pemetrexed	NMPR	0.95	SD	106	marker_epithelial_low_normal_lung	GSE207422

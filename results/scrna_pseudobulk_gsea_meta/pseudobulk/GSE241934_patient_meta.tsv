@@ -1,0 +1,36 @@
+patient	n_malignant	Histology	Pathological_Response	EGFR	PD1	slice	malignant_rule	cohort
+P343	188	LUAD	non-MPR	L858R	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P438	63	LUAD	non-MPR	G719A	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P519	41	LUAD	non-MPR	exon19del	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P529	61	LUAD	non-MPR	exon20ins	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P531	32	LUAD	non-MPR	exon19del	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P547	394	LUAD	non-MPR	exon19del	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P549	298	ASC	MPR	exon19del	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P586	106	LUAD	MPR	G719S;L861Q	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P589	368	LUAD	MPR	exon20ins	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P590	72	LUAD	MPR	exon19del	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P591	76	LUAD	non-MPR	KDD	Sintilimab	IIT	author_major.cell.type==Epi	GSE241934
+P105	266	LUAD	non-MPR		Pembrolizumab	RWC	author_major.cell.type==Epi	GSE241934
+P130	105	LUAD	MPR		Nivolumab	RWC	author_major.cell.type==Epi	GSE241934
+P172	213	LUAD	MPR		Camrelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P209	64	LUAD	non-MPR		Sintilimab	RWC	author_major.cell.type==Epi	GSE241934
+P218	96	LUAD	MPR		Sintilimab	RWC	author_major.cell.type==Epi	GSE241934
+P223	5587	LUAD	non-MPR		Sintilimab	RWC	author_major.cell.type==Epi	GSE241934
+P266	2175	LUAD	non-MPR		Camrelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P269	645	ASC	non-MPR		Tislelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P270	863	LUAD	non-MPR		Tislelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P293	613	LUAD	pCR		Nivolumab	RWC	author_major.cell.type==Epi	GSE241934
+P390	432	LUAD	non-MPR		Tislelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P399	331	LUAD	MPR		Sintilimab(C2-C3)	RWC	author_major.cell.type==Epi	GSE241934
+P509	192	LUAD	non-MPR		Sintilimab	RWC	author_major.cell.type==Epi	GSE241934
+P52	96	LUAD	non-MPR		Sintilimab(C1)	RWC	author_major.cell.type==Epi	GSE241934
+P523	91	LUAD	non-MPR		Nivolumab	RWC	author_major.cell.type==Epi	GSE241934
+P528	212	LUAD	non-MPR		Nivolumab	RWC	author_major.cell.type==Epi	GSE241934
+P533	45	LUAD	MPR		Tislelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P551	94	LUAD	non-MPR		Camrelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P574	130	LUAD	non-MPR		Tislelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P592	36	LUAD	non-MPR		Nivolumab	RWC	author_major.cell.type==Epi	GSE241934
+P603	49	LUAD	non-MPR		Sintilimab	RWC	author_major.cell.type==Epi	GSE241934
+P609	76	LUAD	non-MPR		Tislelizumab	RWC	author_major.cell.type==Epi	GSE241934
+P64	48	LUAD	non-MPR		Pembrolizumab	RWC	author_major.cell.type==Epi	GSE241934
+P70	248	LUAD	non-MPR		Sintilimab	RWC	author_major.cell.type==Epi	GSE241934

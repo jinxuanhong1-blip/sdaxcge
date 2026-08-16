@@ -1,0 +1,60 @@
+[
+  {
+    "cohort": "GSE207422",
+    "usable": true,
+    "n_patients_gated": 10,
+    "n_malignant_cells": 9714,
+    "n_genes": 24243,
+    "rule": "marker_epithelial_low_normal_lung",
+    "reason": "ok"
+  },
+  {
+    "cohort": "GSE131907",
+    "usable": true,
+    "n_patients_gated": 21,
+    "n_malignant_cells": 24784,
+    "n_genes": 27226,
+    "rule": "author_malignant_tumor_met",
+    "reason": "ok"
+  },
+  {
+    "cohort": "GSE241934",
+    "usable": true,
+    "n_patients_gated": 35,
+    "n_malignant_cells": 14406,
+    "n_genes": 26164,
+    "rule": "author_Epi_IIT+RWC",
+    "reason": "ok",
+    "n_IIT": 11,
+    "n_RWC": 24
+  },
+  {
+    "cohort": "GSE205335",
+    "usable": true,
+    "n_patients_gated": 21,
+    "n_malignant_cells": 28485,
+    "n_genes": 33714,
+    "rule": "author_malignant_tumor",
+    "reason": "ok"
+  },
+  {
+    "cohort": "GSE291670",
+    "usable": true,
+    "n_patients_gated": 6,
+    "n_malignant_cells": 13802,
+    "n_genes": 33694,
+    "rule": "marker_epithelial_low_normal_lung",
+    "reason": "ok"
+  },
+  {
+    "cohort": "GSE253013",
+    "usable": false,
+    "n_patients_gated": 0,
+    "n_malignant_cells": null,
+    "n_genes": 0,
+    "rule": "not_run",
+    "reason": "rds_9.3GB_not_loaded_and_n_patients_below_meta_gate",
+    "n_patients_series": 9,
+    "note": "9.3 GB Garnett RDS not loaded (16 GB RAM). Public series: 9 treatment-naive LUAD (tumor+adjacent), no ICI/MPR labels. Prior public marker extract: MRC004/007 <30 malignant-like cells \u2192 \u22647 gated patients, below meta n gate."
+  }
+]
