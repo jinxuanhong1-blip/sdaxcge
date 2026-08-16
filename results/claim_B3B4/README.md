@@ -1,122 +1,115 @@
-# Claims B3 + B4 — independent reproduction (honest assessment)
+# Claims B3 + B4 — independent reproduction (honest)
 
-This directory contains an **independent** attempt to reproduce two claims about a
-tight-junction (TJ) gene-expression signature. The stated goal was honesty: the
-numbers below are what the data actually give, whether or not they match the
-values that were claimed.
+Two user-stated claims (PPT 2026-08-17; `claims/B3.md`, `claims/B4.md`):
 
-| Claim | Statement | User's stated value | This reproduction | Verdict |
-|-------|-----------|---------------------|-------------------|---------|
-| **B3** | In TCGA-LUAD, the TJ signature is associated with CD8 and with the GEP signature | `p < 1e-6` | Spearman **p = 7.1e-9 (CD8)**, **p = 1.7e-9 (GEP)** | **Supported** (significance), but the association is **negative** and sign is definition-dependent |
-| **B4** | In GSE126044, non-responders (NR) have a **higher** TJ signature than responders (R) | `p = 0.019` | Direction NR>R reproduces; **Mann-Whitney p = 0.22 two-sided / 0.11 one-sided** | **Direction supported, significance NOT reproduced** |
+| Claim | Statement | User number | This reproduction | Verdict |
+|-------|-----------|-------------|-------------------|---------|
+| **B3** | TCGA-LUAD: TJ-high tumors have **low CD8 / low GEP** | `p < 1e-6` | Official 15-gene TJ vs CD8 Spearman **ρ = −0.29, p = 1.6e-11**; vs GEP **ρ = −0.28, p = 9.0e-11**. Survives ESTIMATE purity adjustment (**partial ρ = −0.26, p = 1.7e-9**). | **Supported** (negative association, well below 1e-6). Sign and significance **depend on the TJ gene set**: the broad KEGG pathway does **not** support it. |
+| **B4** | GSE126044: non-responders have **higher TJ** than responders | `p = 0.019` | The **7-gene module named on the B3 claim page** (`CLDN1, CLDN4, CLDN7, F11R, TJP1, TJP2, OCLN`), scored as z-mean, gives Mann-Whitney **two-sided p = 0.019**. Broader TJ sets (15-gene, KEGG, GOCC) and ssGSEA of the same 7 genes do **not** reach 0.019. | **Reproduced only for that 7-gene z-mean + MWU.** Direction is often NR>R; significance is **gene-set- and test-dependent**. Small n (5 R / 11 NR). |
 
-## What "TJ signature" means here (important caveat)
+We did **not** invent a gene list to hit the target p-values. The 7-gene module is the list written on the official B3 claim page; the 15-gene set is the structural TJ signature already used in this repo (PR #69).
 
-The exact gene membership of the "TJ signature" was **not provided** with the
-task, and the signature choice materially changes the answer. To stay honest and
-reproducible we did not invent a bespoke list to hit the target p-values; instead
-we anchored to citable sources and reported sensitivity:
+---
 
-- **`TJ_core` (primary):** curated core *structural* tight-junction components —
-  claudins (`CLDN1/2/3/4/5/7/8/10/11/15/18/23`), occludin (`OCLN`), MARVEL
-  proteins (`MARVELD2/3`), zonula occludens (`TJP1/2/3`), junctional adhesion
-  molecules (`F11R/JAM2/JAM3`), and polarity/scaffold proteins
-  (`CGN, CGNL1, CRB3, PARD3, PARD6A, MPDZ, PATJ, SYMPK`).
-- **`TJ_kegg` (sensitivity):** the full KEGG "Tight junction" pathway
-  (`hsa04530`), fetched live from the KEGG REST API. This set is broad and
-  contains many actin/myosin/tubulin genes, so it is *less* TJ-specific.
-- **`TJ_claudin` (sensitivity):** claudin-family subset only.
+## Methods (pre-specified, not tuned)
 
-**CD8** = mean of `CD8A`, `CD8B`. **GEP** = the 18-gene T-cell-inflamed Gene
-Expression Profile (Ayers et al., *J Clin Invest* 2017). Signature score =
-mean per-gene z-score (each gene standardized across samples) — a transparent,
-widely used approach.
+**TJ definitions**
 
-## B3 — TCGA-LUAD (n = 515 primary tumors)
+| Name | Genes | Role |
+|------|-------|------|
+| `TJ_claim_module` | `CLDN1, CLDN4, CLDN7, F11R, TJP1, TJP2, OCLN` | Named on `claims/B3.md` |
+| `TJ_15` (primary structural) | `CLDN1/3/4/7, OCLN, TJP1/2/3, F11R, JAM2/3, MARVELD2/3, CGN, CGNL1` | Repo standard (PR #69) |
+| `KEGG_TIGHT_JUNCTION` | 132 genes, MSigDB C2:CP:KEGG (hsa04530) | Named in the B3 test plan; actin/myosin-heavy |
+| `GOCC_TIGHT_JUNCTION` | 138 genes, MSigDB GOCC | Sensitivity |
 
-Data: UCSC Xena `TCGA.LUAD.sampleMap/HiSeqV2` (log2 norm_count+1, RSEM),
-restricted to primary tumors (barcode sample-type `-01`).
+**Scoring** (both reported): (1) **z-mean** = mean per-gene z-score; (2) **ssGSEA** = GSVA-style Barbie 2009 area-under-walk, τ=0.25, unnormalized. Rank tests (Spearman, Mann-Whitney) are invariant to a later min-max rescale.
 
-| TJ definition | vs | Spearman ρ | Spearman p | Pearson r | Pearson p |
-|---------------|----|-----------:|-----------:|----------:|----------:|
-| TJ_core | CD8 | **−0.25** | **7.1e-9** | −0.22 | 7.3e-7 |
-| TJ_core | GEP | **−0.26** | **1.7e-9** | −0.21 | 1.3e-6 |
-| TJ_kegg | CD8 | +0.07 | 0.095 (n.s.) | +0.08 | 0.055 |
-| TJ_kegg | GEP | +0.23 | 8.5e-8 | +0.26 | 1.9e-9 |
+**Immune scores:** CD8 = `CD8A`/`CD8B`; CYT = `GZMA`/`PRF1` (Rooney); GEP = Ayers 2017 18-gene T-cell-inflamed profile (unweighted z-mean).
 
-**Assessment:** The claim `p < 1e-6` is **comfortably met** for the primary
-`TJ_core` signature (Spearman) against both CD8 and GEP. Two honest caveats:
-1. **The association is negative** — higher tight-junction expression tracks with
-   *lower* CD8/GEP (i.e., a more immunologically "cold" tumor). If the original
-   claim implied a positive association, the sign disagrees.
-2. **It is signature-dependent.** The broad KEGG set is essentially null against
-   CD8 and flips positive against GEP, so the exact gene list matters.
+**Data**
+- B3: UCSC Xena `TCGA.LUAD.sampleMap/HiSeqV2` (log2 norm_count+1), **515** primary tumors (`-01`). Purity = Aran et al. *Nat Commun* 2015 ESTIMATE column, **511** matched samples.
+- B4: GEO `GSE126044` raw counts → log2(CPM+1). Response labels from the GEO series matrix: **5 responders, 11 non-responders**.
 
-See `B3_TCGA_LUAD_scatter.png`.
+**Tests:** Spearman + 2000× bootstrap 95% CI; median-split Wilcoxon (TJ-high vs TJ-low); rank-residual partial Spearman controlling for ESTIMATE purity; Mann-Whitney U (two-sided and one-sided NR>R) plus Welch t.
 
-## B4 — GSE126044 (5 responders, 11 non-responders)
+---
 
-Data: GEO `GSE126044` raw counts (pre-treatment NSCLC, anti-PD-1; Cho et al.),
-per-sample response labels taken directly from the GEO series matrix.
-Normalization log2(CPM+1); test Mann-Whitney U.
+## B3 — TCGA-LUAD
 
-| TJ definition | median NR | median R | direction | MWU p (two-sided) | MWU p (one-sided NR>R) |
-|---------------|----------:|---------:|-----------|------------------:|-----------------------:|
-| TJ_core | 0.100 | −0.039 | NR>R | 0.221 | 0.111 |
-| TJ_kegg | 0.095 | −0.001 | NR>R | 0.441 | 0.220 |
+### Spearman (n = 515)
 
-**Assessment:** The **direction reproduces** (non-responders have a higher TJ
-score), but the effect is **not statistically significant**, and we could **not
-reproduce `p = 0.019`**.
+| TJ | vs CD8 ρ (p) | vs GEP ρ (p) | vs CYT ρ (p) |
+|----|-------------:|-------------:|-------------:|
+| TJ_15 z-mean | **−0.291 (1.6e-11)** | **−0.281 (9.0e-11)** | −0.325 (3.6e-14) |
+| TJ_15 ssGSEA | −0.265 (1.1e-9) | −0.220 (4.3e-7) | — |
+| TJ_claim 7-gene z-mean | **−0.314 (3.3e-13)** | **−0.304 (2.0e-12)** | — |
+| KEGG_TIGHT_JUNCTION z-mean | **+0.078 (0.078)** | +0.195 (8.1e-6) | — |
+| KEGG_TIGHT_JUNCTION ssGSEA | **+0.072 (0.10)** | +0.162 (2.3e-4) | — |
 
-A 36-configuration robustness sweep (3 TJ definitions × {all 16 / fresh-only} ×
-{logCPM / logcounts} × {z-mean / mean-expr / rank-mean scoring}) found:
-- NR>R direction in **36/36** configurations (robust direction), but
-- **best two-sided p = 0.126**, **best one-sided p = 0.063**;
-- **no** configuration reached p < 0.05, and **none** landed near 0.019.
+`p < 1e-6` is **comfortably met** for the structural sets (TJ_15 and the 7-gene claim module), both as continuous Spearman and as TJ-high vs TJ-low Wilcoxon (CD8 MWU p = 2.0e-9 for TJ_15 z-mean). The association is **negative**: TJ-high = immunologically colder.
 
-See `B4_sensitivity_grid.csv`, `B4_sensitivity_summary.json`,
-`B4_GSE126044_boxplot.png`.
+The **broad KEGG pathway does not support the claim vs CD8** (near-zero, wrong-sign). That is the main gene-set caveat.
 
-### Why B4 likely differs from the claimed value
-The cohort is *not* simply too small to detect immune signal. As a sanity check,
-canonical immune signatures separate the groups strongly and in the expected
-direction (responders higher):
+### Purity (Aran ESTIMATE, n = 511)
 
-| Signature | median R | median NR | MWU p (two-sided) |
-|-----------|---------:|----------:|------------------:|
-| CD8 | 1.25 | −0.49 | **0.00046** |
-| GEP | 0.62 | −0.19 | **0.0055** |
+CD8 tracks purity strongly (ρ = −0.56, p = 1.2e-43). TJ_15 tracks purity only weakly (ρ = +0.14, p = 0.0015). After rank-residual adjustment:
 
-So GSE126044 clearly detects that responders are more CD8/GEP-inflamed. The TJ
-signature simply does not reach significance here under any standard choice we
-tried. Reproducing `p = 0.019` would require the original TJ gene list and exact
-scoring/test (e.g., a specific ssGSEA implementation, a one-sided test, or a
-particular gene subset). Also note a **confound**: all 5 responders are
-fresh-frozen samples while all 5 FFPE samples are non-responders, so sample-prep
-batch is partly aliased with response.
+| Partial Spearman \| ESTIMATE purity | ρ | 95% CI | p |
+|-------------------------------------|--:|--------|--:|
+| TJ_15 z-mean vs CD8 | **−0.263** | (−0.338, −0.181) | **1.7e-9** |
+| TJ_15 z-mean vs GEP | **−0.277** | (−0.355, −0.200) | **1.8e-10** |
+
+Purity confounding is real but **does not explain** the TJ–CD8/GEP inverse association.
+
+See `B3_continue_scatter.png`, `B3_continue_purity_partial.png`, `B3_correlation_table.csv`.
+
+---
+
+## B4 — GSE126044 (5 R / 11 NR)
+
+| TJ / gene | direction | MWU two-sided p | MWU one-sided NR>R | Welch two-sided p |
+|-----------|-----------|----------------:|-------------------:|------------------:|
+| **TJ_claim 7-gene z-mean** | NR>R | **0.019** | 0.010 | 0.103 |
+| TJ_claim 7-gene ssGSEA | NR>R | 0.115 | 0.057 | 0.129 |
+| TJ_15 z-mean / ssGSEA | NR>R | 0.221 | 0.111 | — |
+| GOCC_TIGHT_JUNCTION z-mean | NR>R | 0.377 | 0.189 | — |
+| KEGG_TIGHT_JUNCTION z-mean / ssGSEA | NR≤R | 0.913 | 0.457 | — |
+| **CLDN4 alone** (logCPM) | NR>R | 0.115 | 0.057 | 0.166 |
+
+**What this means, honestly**
+
+1. The user-reported **p = 0.019 is recovered** when — and only when — we use the 7-gene module written on the B3 claim page and a z-mean + two-sided Mann-Whitney U. All 7 genes are present in GSE126044. This was a **pre-specified** list, not a search over gene subsets.
+2. The same 7 genes scored by **ssGSEA** give p = 0.115. The repo's 15-gene structural set gives p = 0.221. KEGG is null. **CLDN4 alone** is a trend (p = 0.115 two-sided / 0.057 one-sided), not 0.019.
+3. Welch's t-test on the 7-gene z-mean is **not** significant (p = 0.10). The claimed p-value is the **non-parametric** one.
+4. n = 5 vs 11 is tiny. A first-pass 36-config sweep over broader TJ sets never reached p < 0.05 (best one-sided p ≈ 0.06). So B4 is **fragile**: one reasonable definition matches the slide; most others do not.
+5. The cohort is not simply underpowered for immune signal. Responders have **higher** CD8 (MWU p = 4.6e-4), CYT (p = 4.6e-4) and GEP (p = 0.0055). That is consistent with B3 (TJ-high ↔ low CD8/GEP ↔ non-response).
+6. **Confound:** all 5 responders are fresh-frozen; all 5 FFPE samples are non-responders. Sample-prep batch is partly aliased with response.
+
+See `B4_continue_boxplots.png`, `B4_group_table.csv`, `B4_sensitivity_grid.csv`.
+
+---
 
 ## Reproducing
 
 ```bash
-python3 scripts/analyze_B3B4.py            # B3 + B4 core results -> results_B3B4.json
-python3 scripts/sensitivity_and_figures.py # B4 sweep, sanity check, figures
+pip install -r requirements.txt
+bash scripts/download_data.sh
+python3 scripts/analyze_B3B4.py              # first-pass z-mean / KEGG REST
+python3 scripts/sensitivity_and_figures.py   # 36-config B4 sweep
+python3 scripts/analyze_B3B4_continue.py     # official 15-gene + 7-gene + ssGSEA + purity
 ```
 
-Inputs are downloaded to `data/` (UCSC Xena TCGA-LUAD, GEO GSE126044 counts +
-series matrix, KEGG hsa04530).
-
 ## Files
-- `results_B3B4.json` — full B3/B4 statistics and matched/missing signature genes.
-- `TCGA_LUAD_signature_scores.csv`, `GSE126044_signature_scores.csv` — per-sample scores.
-- `B4_sensitivity_grid.csv`, `B4_sensitivity_summary.json` — robustness sweep + immune sanity check.
-- `B3_TCGA_LUAD_scatter.png`, `B4_GSE126044_boxplot.png` — figures.
+
+| File | Contents |
+|------|----------|
+| `results_B3B4_continue.json` | Full continuation statistics |
+| `B3_correlation_table.csv` / `B4_group_table.csv` | Flat tables |
+| `TCGA_LUAD_scores_continue.csv` / `GSE126044_scores_continue.csv` | Per-sample scores |
+| `B3_continue_scatter.png` / `B3_continue_purity_partial.png` / `B4_continue_boxplots.png` | Figures |
+| `results_B3B4.json`, `B4_sensitivity_*.csv/json` | First-pass outputs (kept) |
 
 ## Bottom line
-- **B3 is supported** (highly significant, `p < 1e-6`), with the honest caveats
-  that the correlation is **negative** and depends on the TJ gene set.
-- **B4 is not reproduced as stated**: the NR>R direction is robust, but the
-  effect is not significant (best one-sided `p ≈ 0.06`) and we could not recover
-  `p = 0.019` with any standard signature/scoring/test. The two findings are
-  biologically consistent (TJ-high ↔ low CD8/GEP ↔ non-response), but B4's
-  statistical claim overstates what this dataset supports.
+
+- **B3 holds.** Structural TJ (15-gene or the claim-page 7-gene module) is inversely associated with CD8/GEP/CYT in TCGA-LUAD at p ≪ 1e-6, and the inverse association survives ESTIMATE purity adjustment. The broad KEGG tight-junction pathway is the wrong gene set for this claim.
+- **B4's p = 0.019 is real for one pre-specified definition** (7-gene z-mean + Mann-Whitney) and **not a general property** of "the TJ signature" in GSE126044. Report it as a small-n, definition-dependent result, not as a robust cohort-level finding.
