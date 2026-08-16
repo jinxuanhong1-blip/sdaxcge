@@ -1,0 +1,9 @@
+data/**/*.gz
+data/**/*.tar
+data/**/*.mtx
+data/**/*.xlsx
+data/**/*.txt
+!data/**/*.md
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
