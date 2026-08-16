@@ -1,0 +1,17 @@
+# Conda env for the workflow *engines* (Snakemake / Nextflow).
+# immunedeconv is installed in R after the env exists:
+#   Rscript -e 'remotes::install_github("omnideconv/immunedeconv")'
+# Do not add sra-tools, parallel-fastq-dump, or kingfisher.
+name: trop2-workflow-engine
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python >=3.10
+  - pyyaml
+  - snakemake-minimal >=7.32
+  - nextflow >=23.04
+  - r-base >=4.2
+  - r-remotes
+  - curl
+  - wget

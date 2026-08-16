@@ -1,0 +1,95 @@
+# TACSTD2 / CLDN4 GEO processed workflow — config draft
+# 仅已处理 GEO；禁止 FASTQ/SRA。单文件 >2 GiB 跳过。
+# Processed GEO only. No FASTQ/SRA. Skip any single file >2 GiB.
+
+workdir: "results/workflow_engine"
+max_file_bytes: 2147483648   # 2 GiB
+refuse_fastq: true
+collapse_duplicate_genes: "max_mean"   # or sum_counts
+
+genes:
+  TACSTD2:
+    ensembl: "ENSG00000184292"
+    aliases: ["TACSTD2", "TROP2", "M1S1", "GA733-1", "EGP-1", "EGP1", "GP50"]
+  CLDN4:
+    ensembl: "ENSG00000189143"
+    aliases: ["CLDN4", "CPE-R", "CPETR1", "WBSCR8", "hCPE-R"]
+
+# immunedeconv method keys. cibersort* stay off until a local license path is set.
+deconv_methods:
+  - quantiseq
+  - epic
+  - mcp_counter
+  - xcell
+cibersort_binary: null
+cibersort_mat: null
+
+# Frozen response synonyms. Unmapped labels remain unknown.
+response_map:
+  responder: ["responder", "response", "R", "CR", "PR", "DCR", "DCB", "CBR"]
+  nonresponder: ["nonresponder", "non-responder", "NR", "PD", "SD", "NCB"]
+  mpr: ["MPR", "major pathologic response"]
+  non_mpr: ["non-MPR", "nonMPR", "no MPR"]
+
+# Accessions below were opened on NCBI GEO HTML (2026-08-16).
+# Do not add a GSE without opening its official page.
+cohorts:
+  GSE126044:
+    species: human
+    assay: bulk_rnaseq
+    unit: count
+    panel: genome_wide
+    gse: GSE126044
+    soft_url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/soft/GSE126044_family.soft.gz"
+    processed_url: "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE126044&format=file&file=GSE126044_counts.txt.gz"
+    processed_name: "GSE126044_counts.txt.gz"
+    pheno_url: null
+    note: "NSCLC anti-PD-1; author counts. Verify response in SOFT."
+
+  GSE135222:
+    species: human
+    assay: bulk_rnaseq
+    unit: unknown
+    panel: genome_wide
+    gse: GSE135222
+    soft_url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/soft/GSE135222_family.soft.gz"
+    processed_url: "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE135222&format=file&file=GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz"
+    processed_name: "GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz"
+    pheno_url: null
+    note: "NSCLC ICI; PFS often in characteristics. Confirm expression unit from header."
+
+  GSE166449:
+    species: human
+    assay: bulk_rnaseq
+    unit: tpm
+    panel: genome_wide
+    gse: GSE166449
+    soft_url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/soft/GSE166449_family.soft.gz"
+    processed_url: "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE166449&format=file&file=GSE166449_Raw_gene_TPM_matrix.txt.gz"
+    processed_name: "GSE166449_Raw_gene_TPM_matrix.txt.gz"
+    pheno_url: null
+    note: "SMC_IO TPM. Restrict to lung samples if the series is multi-cancer."
+
+  GSE207422:
+    species: human
+    assay: bulk_rnaseq
+    unit: log2tpm
+    panel: genome_wide
+    gse: GSE207422
+    soft_url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/soft/GSE207422_family.soft.gz"
+    processed_url: "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE207422&format=file&file=GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz"
+    processed_name: "GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz"
+    pheno_url: "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE207422&format=file&file=GSE207422_NSCLC_bulk_RNAseq_metadata.xlsx"
+    note: "Neoadjuvant PD-1+chemo; MPR in xlsx. Invert log2TPM before deconv. Do not ingest the scRNA UMI matrix in this engine."
+
+  GSE136961:
+    species: human
+    assay: targeted_panel
+    unit: tpm
+    panel: oncomine_immune
+    gse: GSE136961
+    soft_url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE136nnn/GSE136961/soft/GSE136961_family.soft.gz"
+    processed_url: "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE136961&format=file&file=GSE136961_TPM.tsv.gz"
+    processed_name: "GSE136961_TPM.tsv.gz"
+    pheno_url: null
+    note: "Oncomine Immune Response panel. Expect missing TACSTD2/CLDN4; skip deconv (panel_too_narrow)."
