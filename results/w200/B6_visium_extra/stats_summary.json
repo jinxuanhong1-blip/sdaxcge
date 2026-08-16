@@ -1,0 +1,70 @@
+{
+  "spearman_CLDN4_vs_immune_score": {
+    "rho": -0.25115044625370536,
+    "p": 5.615023988173891e-56
+  },
+  "fisher_cldn4high_x_immuneniche": {
+    "odds_ratio": 0.6767675012597084,
+    "p": 0.0010321274214328572
+  },
+  "mannwhitney_CLDN4_immune_vs_other": {
+    "U": 351369.5,
+    "p": 4.098058943895662e-22
+  },
+  "nhood_zscore_CLDN4high_vs_ImmuneNiche": -14.055458270734263,
+  "nhood_zscore_CLDN4high_self": 8.864851602950479,
+  "nhood_zscore_ImmuneNiche_self": 51.03482346471586,
+  "dist_to_immune_um": {
+    "cldn4_high_median": 283.48333757089983,
+    "other_median": 284.16239094553254,
+    "mannwhitney_p": 0.34975085228450287
+  },
+  "top10_up_in_CLDN4high": [
+    "CLDN4",
+    "CES1",
+    "FXYD3",
+    "CD9",
+    "PERP",
+    "TXNRD1",
+    "KRT8",
+    "SOX2",
+    "KRT19",
+    "GCLC"
+  ],
+  "top10_up_in_immune_niche": [
+    "IGKC",
+    "IGHG1",
+    "IGHA1",
+    "JCHAIN",
+    "MGP",
+    "VIM",
+    "DCN",
+    "PIM2",
+    "MMP2",
+    "MZB1"
+  ],
+  "dataset": {
+    "name": "10x Genomics Human Lung Cancer (FFPE), CytAssist Visium, Squamous Cell Carcinoma",
+    "source": "https://www.10xgenomics.com/datasets/human-lung-cancer-ffpe-2-standard",
+    "spaceranger": "2.0.0",
+    "license": "CC BY 4.0",
+    "not_emtab13530": true
+  },
+  "qc": "QC: 3858 -> 3816 spots (min_counts=500, min_genes=250); 18053 genes kept (min_cells=5)",
+  "n_spots_by_niche": {
+    "Other": 2460,
+    "CLDN4-high": 859,
+    "Immune niche": 402,
+    "CLDN4-high & immune": 95
+  },
+  "immune_clusters_leiden": [
+    "5",
+    "7",
+    "13",
+    "16"
+  ],
+  "thresholds": {
+    "cldn4_lognorm_q75": 1.0443819761276245,
+    "immune_score_q75": 0.36584789277515617
+  }
+}
