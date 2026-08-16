@@ -1,0 +1,134 @@
+# =============================================================================
+# Spatial methods playbook — central configuration
+# 空间转录组方法手册 — 中央配置
+# -----------------------------------------------------------------------------
+# All templates read defaults from this file. Nothing here fabricates results;
+# these are parameters/thresholds you review and tune per study.
+# 所有模板从此文件读取默认参数。此处不产生任何结果，仅为可复核、可调整的阈值。
+# =============================================================================
+
+project:
+  name: "spatial-tme"
+  # Scope of this playbook. 手册适用范围。
+  #   supported: 10x Visium, NanoString GeoMx DSP-WTA
+  #   NOT covered by default: CosMx-1K, Xenium IO  (see panel_gate below)
+  platforms_supported: ["visium", "geomx_wta"]
+  random_seed: 0
+
+paths:
+  # Fill in per run. Relative paths resolve from the repo root.
+  visium_input: "methods/spatial/demo/data/EMTAB13530"     # 10x spaceranger 'outs' dirs or .h5ad
+  geomx_dcc_dir: "methods/spatial/demo/data/GSE271689"     # extracted *.dcc(.gz) files
+  geomx_pkc: "methods/spatial/demo/data/pkc/Hs_R_NGS_WTA_v1.0.pkc"  # from NanoString, not in GEO RAW.tar
+  geomx_annotation: "methods/spatial/demo/data/geomx_annotation.csv" # AOI-level metadata (see geomx section)
+  scrna_reference: ""                                       # reference .h5ad for cell2location (optional)
+  output_dir: "methods/spatial/demo/out"
+
+# -----------------------------------------------------------------------------
+# Panel gate. 面板门控。
+# The neighborhood/niche question centres on TACSTD2 (TROP2) and CLDN4.
+# 邻域/生态位分析以 TACSTD2 (TROP2) 与 CLDN4 为中心。
+# Whole-transcriptome assays (Visium, GeoMx-WTA) always contain both genes, so
+# they are always in scope. Targeted imaging panels (CosMx-1K, Xenium IO) are
+# analysed ONLY IF BOTH genes are present on that specific panel.
+# 全转录组平台（Visium、GeoMx-WTA）必含这两个基因，始终纳入分析；靶向成像
+# 面板（CosMx-1K、Xenium IO）仅当面板同时包含这两个基因时才分析。
+# -----------------------------------------------------------------------------
+panel_gate:
+  required_genes: ["TACSTD2", "CLDN4"]
+  # If a targeted panel lacks either gene, templates raise and stop (no silent proxy).
+  # 若靶向面板缺少任一基因，模板报错并停止（不使用替代基因静默替换）。
+  abort_if_missing_on_targeted_panel: true
+
+# -----------------------------------------------------------------------------
+# Marker sets for niche / compartment scoring.
+# 生态位/区室评分所用的标记基因集。
+# These are widely-used canonical markers; adjust to your annotation.
+# 均为常用经典标记，可按你的注释调整。
+# -----------------------------------------------------------------------------
+markers:
+  tumor_epithelial: ["TACSTD2", "CLDN4", "EPCAM", "KRT8", "KRT18", "KRT19"]
+  t_cell:  ["CD3D", "CD3E", "CD2", "CD8A", "CD4", "IL7R"]
+  b_cell:  ["MS4A1", "CD79A", "CD79B", "CD19", "BANK1"]
+  # TLS = tertiary lymphoid structure signature. 三级淋巴结构特征。
+  tls:     ["CXCL13", "CCL19", "CCL21", "CR2", "CXCR5", "SELL", "LAMP3", "CCL17", "CCL22"]
+  plasma:  ["MZB1", "IGHG1", "JCHAIN", "DERL3"]
+
+# -----------------------------------------------------------------------------
+# QC thresholds — starting points, always inspect distributions before applying.
+# QC 阈值 — 仅为起点，应用前务必先查看分布。
+# -----------------------------------------------------------------------------
+qc:
+  visium:
+    min_counts_per_spot: 500
+    min_genes_per_spot: 250
+    max_pct_mito: 20.0          # % counts in mitochondrial genes
+    min_spots_per_gene: 3
+    mito_prefix: "MT-"
+  geomx:
+    # GeoMx segment (AOI) QC — GeomxTools default-style gates.
+    min_segment_reads: 1000
+    pct_trimmed_min: 80.0
+    pct_stitched_min: 80.0
+    pct_aligned_min: 75.0
+    pct_saturation_min: 50.0     # sequencing saturation
+    min_nuclei: 20               # AOIs with too few nuclei are unreliable
+    min_area_um2: 1600
+    loq_n_sd: 2.0                # limit of quantification = geomean(neg) * SD^n
+    gene_detection_rate_min: 0.05  # fraction of segments above LOQ to keep a gene
+
+# -----------------------------------------------------------------------------
+# Normalization choices. 归一化选择。
+# -----------------------------------------------------------------------------
+normalization:
+  visium:
+    method: "lognorm"           # one of: lognorm, sctransform (R), pearson_residuals
+    target_sum: 10000
+    n_hvg: 2000
+  geomx:
+    method: "q3"                # Q3 (upper-quartile) is the GeoMx standard; alt: quantile
+
+# -----------------------------------------------------------------------------
+# Deconvolution. 去卷积。
+# -----------------------------------------------------------------------------
+deconvolution:
+  visium:
+    tool: "cell2location"       # alt: stereoscope, RCTD (R), destVI
+    cell2location:
+      n_cells_per_location: 8   # tissue-dependent prior; NSCLC Visium ~ 5-10
+      detection_alpha: 20
+      max_epochs_ref: 250
+      max_epochs_map: 30000
+  geomx:
+    tool: "spatialdecon"        # SpatialDecon with a matched cell profile matrix
+
+# -----------------------------------------------------------------------------
+# Niche / neighborhood analysis. 生态位/邻域分析。
+# -----------------------------------------------------------------------------
+niche:
+  n_neighs: 6                   # Visium hex grid = 6 neighbours
+  coord_type: "grid"            # 'grid' for Visium, 'generic' for imaging/GeoMx ROI centroids
+  n_niches: 8                   # k for niche clustering on neighbourhood composition
+  cluster_key: "cell_type"      # obs key holding dominant cell type / deconvolution argmax
+  focus_labels: ["tumor_TACSTD2_CLDN4", "T_cell", "B_cell", "TLS"]
+
+# -----------------------------------------------------------------------------
+# Spatially variable genes. 空间可变基因。
+# -----------------------------------------------------------------------------
+svg:
+  tool: "spatialde2"            # alt: squidpy Moran's I, sepal
+  fdr_alpha: 0.05
+  n_top_report: 200
+
+# -----------------------------------------------------------------------------
+# ICI overall-survival modelling. ICI 总生存建模。
+# Runs ONLY when clinical labels are supplied; otherwise skipped, never faked.
+# 仅当提供临床标签时运行；否则跳过，绝不伪造。
+# -----------------------------------------------------------------------------
+survival:
+  enabled: false                # set true only after you provide the columns below
+  time_col: "os_months"
+  event_col: "os_event"         # 1 = death, 0 = censored
+  group_col: "response"         # e.g. responder vs non-responder, or signature-high/low
+  covariates: ["age", "sex", "stage", "histology"]  # for multivariable Cox
+  alpha: 0.05
