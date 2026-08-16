@@ -1,0 +1,32 @@
+{
+  "accession": "GSE213902",
+  "matrix_files": [
+    "GSE213902_series_matrix.txt.gz"
+  ],
+  "n_samples": 6,
+  "characteristics": {
+    "antibodies/tags": [
+      "Dose_0--/TotalSeq-C0251 ; Dose_1--/TotalSeq-C0252 ; Dose_3--/TotalSeq-C0253 ; Dose_4--/TotalSeq-C0254"
+    ],
+    "cell type": [
+      "PBMC"
+    ],
+    "cell type (sorted)": [
+      "CD45+CD19-CD3+CD56- cells"
+    ],
+    "disease state": [
+      "NSCLC"
+    ],
+    "library type": [
+      "HTO",
+      "VDJ",
+      "mRNA"
+    ],
+    "treatment": [
+      "pre-treatment and on-treatment at 3, 6, 9 weeks"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

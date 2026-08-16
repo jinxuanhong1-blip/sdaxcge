@@ -1,0 +1,81 @@
+{
+  "accession": "GSE248830",
+  "matrix_files": [
+    "GSE248830_series_matrix.txt.gz"
+  ],
+  "n_samples": 44,
+  "characteristics": {
+    "age at diagnosis": [
+      "37",
+      "40",
+      "41",
+      "42",
+      "44",
+      "46",
+      "47",
+      "48",
+      "49",
+      "50",
+      "51",
+      "53",
+      "55",
+      "57",
+      "58",
+      "59",
+      "60",
+      "63",
+      "64",
+      "65",
+      "66",
+      "69",
+      "70",
+      "74",
+      "n.a."
+    ],
+    "histology": [
+      "ER+ PR+ HER2-",
+      "ER+ PR- HER2-",
+      "ER+ PR-HER2+",
+      "ER- PR+ HER2-",
+      "ER- PR- HER2+",
+      "TNBC",
+      "Unknown",
+      "adenocaricnoma"
+    ],
+    "sex": [
+      "female",
+      "male"
+    ],
+    "smoking status": [
+      "Never smoking",
+      "former-roker",
+      "former-smoker",
+      "n.a",
+      "smoker",
+      "unknown"
+    ],
+    "treatment after surgery of bm": [
+      "Chemoterapy",
+      "No treatment",
+      "Other",
+      "Radiotherapy",
+      "Radiotherapy & Chemoterapy",
+      "SRT",
+      "Surgery & Chemotherapy & Radiotherapy",
+      "WBRT",
+      "surgery",
+      "surgery & Radiochemotherapy",
+      "surgery & Radiotherapy",
+      "surgery +  chemotherapy + Radiotherapy",
+      "surgery +  chemotherpy + Radiotherapy",
+      "surgery + chemotheapy + Radiotherapy",
+      "surgery + chemotherapy",
+      "surgery + chemotherapy + Radiotherapy",
+      "surgery + chemotherpy",
+      "surgery + chemotherpy + Radiotherapy"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 755,
+  "error": ""
+}

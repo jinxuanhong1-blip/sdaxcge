@@ -1,0 +1,25 @@
+{
+  "accession": "GSE150255",
+  "matrix_files": [
+    "GSE150255_series_matrix.txt.gz"
+  ],
+  "n_samples": 8,
+  "characteristics": {
+    "cell line": [
+      "A549",
+      "HCC827"
+    ],
+    "ifn-g treatment time": [
+      "0h",
+      "1h",
+      "24h",
+      "8h"
+    ],
+    "tissue": [
+      "lung adenocarcinoma"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

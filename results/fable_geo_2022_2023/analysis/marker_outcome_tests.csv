@@ -1,0 +1,9 @@
+cohort,gene,outcome,group1,n1,median1,group2,n2,median2,mannwhitney_U,p_value,cliffs_delta
+GSE207422,TACSTD2,pathologic_response,MPR,9,4.999,NMPR,15,6.222,51.0,0.3401,-0.244
+GSE207422,TACSTD2,RECIST,CR/PR,17,6.052,SD/PD,7,6.222,65.0,0.7565,0.092
+GSE207422,TACSTD2,residual_tumor_frac,spearman,24,,,,,,0.2345,0.252
+GSE207422,CLDN4,pathologic_response,MPR,9,5.854,NMPR,15,6.272,48.0,0.2572,-0.289
+GSE207422,CLDN4,RECIST,CR/PR,17,5.874,SD/PD,7,6.493,43.0,0.3176,-0.277
+GSE207422,CLDN4,residual_tumor_frac,spearman,24,,,,,,0.3122,0.215
+GSE243238,TACSTD2,clinical_benefit,Yes,3,0.402,No,11,3.546,9.0,0.2912,-0.455
+GSE243238,CLDN4,clinical_benefit,Yes,3,0.038,No,11,0.644,5.0,0.0854,-0.697

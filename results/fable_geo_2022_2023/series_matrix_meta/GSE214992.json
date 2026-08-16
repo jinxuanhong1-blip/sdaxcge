@@ -1,0 +1,51 @@
+{
+  "accession": "GSE214992",
+  "matrix_files": [
+    "GSE214992_series_matrix.txt.gz"
+  ],
+  "n_samples": 50,
+  "characteristics": {
+    "cell line": [
+      "A549",
+      "EBC-1",
+      "HCC4006",
+      "HCC827",
+      "LCLC-103H",
+      "NCI-H1299",
+      "NCI-H1944",
+      "NCI-H1975",
+      "NCI-H2030",
+      "NCI-H2122",
+      "NCI-H3122",
+      "NCI-H358",
+      "NCI-H441",
+      "NCI-H460",
+      "NCI-H520",
+      "NCI-H538",
+      "SW1573",
+      "T-cells"
+    ],
+    "cell type": [
+      "NSCLC cell line (epithelial)",
+      "NSCLC cell line (epithelial/mesenchymal)",
+      "NSCLC cell line (mesenchymal)",
+      "T-cell"
+    ],
+    "time": [
+      "0h",
+      "16h"
+    ],
+    "tissue": [
+      "Lung",
+      "T-cell",
+      "T-cells"
+    ],
+    "treatment": [
+      "Baseline",
+      "T-cell exposure"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

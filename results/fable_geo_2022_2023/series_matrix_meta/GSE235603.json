@@ -1,0 +1,30 @@
+{
+  "accession": "GSE235603",
+  "matrix_files": [
+    "GSE235603-GPL24247_series_matrix.txt.gz",
+    "GSE235603-GPL24676_series_matrix.txt.gz"
+  ],
+  "n_samples": 86,
+  "characteristics": {
+    "cell line": [
+      "41BBL-293T",
+      "EV-293T",
+      "GITRL-293T",
+      "OX40L-293T"
+    ],
+    "cell type": [
+      "T cell"
+    ],
+    "tissue": [
+      "Lung",
+      "Lung tumor",
+      "Lymph node",
+      "MC38GP Tumor",
+      "MC38WT Tumor",
+      "Spleen"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

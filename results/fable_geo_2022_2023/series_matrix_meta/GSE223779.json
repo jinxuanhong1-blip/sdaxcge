@@ -1,0 +1,36 @@
+{
+  "accession": "GSE223779",
+  "matrix_files": [
+    "GSE223779_series_matrix.txt.gz"
+  ],
+  "n_samples": 6,
+  "characteristics": {
+    "cell line": [
+      "Tumor organoid"
+    ],
+    "cell type": [
+      "Adenocarcinoma"
+    ],
+    "disease": [
+      "Non-small cell lung cancer"
+    ],
+    "genotype": [
+      "EML4-ALK"
+    ],
+    "sex": [
+      "Female",
+      "Male"
+    ],
+    "stage": [
+      "IIA",
+      "IV"
+    ],
+    "treatment": [
+      "Metastatic pleural effusion",
+      "Resected primary tumor"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}
