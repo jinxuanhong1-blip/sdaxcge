@@ -1,0 +1,416 @@
+{
+  "task": "B6_radius",
+  "note": "Processed files only. Tumor Visium sections + GeoMx WTA. FASTQ/SRA not downloaded.",
+  "data_dir": "/tmp/b6_radius_data",
+  "n_files": 45,
+  "n_accepted": 45,
+  "n_refused": 0,
+  "total_accepted_bytes": 436784906,
+  "files": [
+    {
+      "file_name": "gse271689/GSE271689_series_matrix.txt.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE271nnn/GSE271689/matrix/GSE271689_series_matrix.txt.gz",
+      "path": "/tmp/b6_radius_data/gse271689/GSE271689_series_matrix.txt.gz",
+      "bytes": 37851,
+      "sha256": "689fa4b46eb537f2869d10777c2dd39301fd0f8c96cf859774060294c1ead5ed",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "gse271689/GSE271689_RAW.tar",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE271nnn/GSE271689/suppl/GSE271689_RAW.tar",
+      "path": "/tmp/b6_radius_data/gse271689/GSE271689_RAW.tar",
+      "bytes": 36823040,
+      "sha256": "088d73869f21c77746f87896288b56d8ea373d5541a90fde7bd8c4c187d3f0df",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "geomx_pkc/Hs_R_NGS_WTA_v1.0.pkc",
+      "url": "https://zenodo.org/records/12752405/files/Hs_R_NGS_WTA_v1.0.pkc?download=1",
+      "path": "/tmp/b6_radius_data/geomx_pkc/Hs_R_NGS_WTA_v1.0.pkc",
+      "bytes": 16005573,
+      "sha256": "44c079773c5d1ea2366f802550fa2f656f4b74fa5cde1c1f5d31d18fe468c971",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "gse271689/41588_2025_2351_MOESM10_ESM.xlsx",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41588-025-02351-7/MediaObjects/41588_2025_2351_MOESM10_ESM.xlsx",
+      "path": "/tmp/b6_radius_data/gse271689/41588_2025_2351_MOESM10_ESM.xlsx",
+      "bytes": 26116585,
+      "sha256": "5bd36caba9bdae4569459f3ea38d1881fcaf662c7537a5f71951bd3fa8b5b3d3",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/E-MTAB-13530.sdrf.txt",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/E-MTAB-13530.sdrf.txt",
+      "path": "/tmp/b6_radius_data/emtab13530/E-MTAB-13530.sdrf.txt",
+      "bytes": 138346,
+      "sha256": "0144c9a8f96f85ce68afcb1cb43bfde8c850d50b61d28752cef11bc923043124",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 8676888,
+      "sha256": "ce3d625b9ef75f945c3af753975c911a3e189940b4923ee5ece98d19f7d95313",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T1-spatial.tar",
+      "bytes": 9758720,
+      "sha256": "2128842d4f3b83147848920217d8f40a85b59cdb723ba4183257674a0ed1f036",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 8117672,
+      "sha256": "1d711dda39038a77f3525c545ce86d94d7e7f7af9d3c5c2e227317ed8dcbe080",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T2-spatial.tar",
+      "bytes": 9400320,
+      "sha256": "5a1e10f7fe85c8763e46f2b6e35ac9f5de40d19f87762f6b93bd80eddcd2aaa3",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T3-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T3-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T3-filtered_feature_bc_matrix.h5",
+      "bytes": 9578928,
+      "sha256": "fdc0ab2f0097ede628b6cfca4e839087bc01132712660cea87ffebcf061c04f7",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T3-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T3-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T3-spatial.tar",
+      "bytes": 10342400,
+      "sha256": "1a125ef958e6cc7df2d32cd7314badd00dc8c7812bf39bbea2057839889caba0",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T4-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T4-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T4-filtered_feature_bc_matrix.h5",
+      "bytes": 6578612,
+      "sha256": "c17a048573c117f361056adc4ff1bd5e43e22765a6b2e44929dcb98c3e71260f",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P10_T4-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P10_T4-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P10_T4-spatial.tar",
+      "bytes": 10076160,
+      "sha256": "66ac614805f3ee89bcd238adbc3ac4840d7ee1e3167fff55e03bed273ed6db9d",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 2949271,
+      "sha256": "58829374e495578338858bc79856ba25d16a58e7c91760cd2e33d369748b0c24",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T1-spatial.tar",
+      "bytes": 8826880,
+      "sha256": "29d694b227b75cb655cea8abee5cdfc11f606200fa32825fc90fed55402534d9",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 3366092,
+      "sha256": "d582b719b80a06d011351e82ebbaa4c272b1e2a90224cc65550c93558de209a3",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T2-spatial.tar",
+      "bytes": 8878080,
+      "sha256": "23f7300d209ebff1e764b20ea4a91c364daefa1fc2907d0d2e3cd9786cd31258",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T3-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T3-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T3-filtered_feature_bc_matrix.h5",
+      "bytes": 2897816,
+      "sha256": "fb3f118719227c6e4877ad95c2c910dad8d93d61c8b8a06b4ce63c921300dde5",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T3-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T3-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T3-spatial.tar",
+      "bytes": 10158080,
+      "sha256": "dfd2f24d0e2ae0370d7e4c12083e71757ddfb754a38caa83c5710684c1a6a280",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T4-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T4-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T4-filtered_feature_bc_matrix.h5",
+      "bytes": 2619276,
+      "sha256": "6e84026e584e56c0af27920813ff3bd1e9cf6882eac29e28f9e96f7e9462e638",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P11_T4-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P11_T4-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P11_T4-spatial.tar",
+      "bytes": 11325440,
+      "sha256": "a615afdbba3cc97a4e9bdc2c72ea455ff2f303af6404765878e06f40986b36dd",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P15_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P15_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P15_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 9842464,
+      "sha256": "32556c82590d3ae684c740e82266b09dc961702fb344db32b9cd351d2d1b9666",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P15_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P15_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P15_T1-spatial.tar",
+      "bytes": 11632640,
+      "sha256": "4b33017b3a6e659b8db1c644f379efbb11c4459988171585522c5ca667e556e1",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P15_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P15_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P15_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 10374093,
+      "sha256": "de1f2d6fa94e75b05af756a092533d46a58bb4cf595f9ff584822d0fe0ef6d98",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P15_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P15_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P15_T2-spatial.tar",
+      "bytes": 11847680,
+      "sha256": "763f8d9c0b92b93b8f8387782b5f5796d1cf8304c0ae5f1f5a10f778ed5069e4",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P16_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P16_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P16_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 7234026,
+      "sha256": "06dfc6f769f014804a67a67a323f71f9ba27024df39ec43662976418196d6b26",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P16_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P16_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P16_T1-spatial.tar",
+      "bytes": 10444800,
+      "sha256": "d793cda8fa6968b0c9a28b8d459a55681749f42f676a6253d066e7b93ae2e8b8",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P16_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P16_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P16_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 6963283,
+      "sha256": "fe96eeec877cb6dc9a9ef8bc7d742657a0c2a746e71b2f18241335e85463bbf0",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P16_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P16_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P16_T2-spatial.tar",
+      "bytes": 10332160,
+      "sha256": "5330453d674bea6e319ea02f11c14065a7d37530f93dfafddc65944e1a342897",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P17_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P17_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P17_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 13496737,
+      "sha256": "34c64364ab3ae201513c30e3987cfc2904000e19bac836e7dd60f459316c0545",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P17_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P17_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P17_T1-spatial.tar",
+      "bytes": 10967040,
+      "sha256": "d4db01a4c6c984567918e57bfa659853fdc93ebe4a1e619173e8400ff8f5c3a4",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P17_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P17_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P17_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 13531522,
+      "sha256": "fe80522f34785bb52e20e005b1f4475c215d6cf218bdcd4f6eb1b6c460077c48",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P17_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P17_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P17_T2-spatial.tar",
+      "bytes": 11223040,
+      "sha256": "6c28651e0400ba360d0350386f503a7dfe6b7635f91fe40821a0df7a4f3d7f8f",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P19_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P19_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P19_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 9809365,
+      "sha256": "22d32dab00d39a97ed55cffa3967452bf6af4557c6081c540a9b846d1d6d9581",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P19_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P19_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P19_T1-spatial.tar",
+      "bytes": 11141120,
+      "sha256": "084505691301bd50945da27f678dbf5a744feaa33916059bab03cf92d20768dd",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P19_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P19_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P19_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 7983903,
+      "sha256": "a48bee56f4b55ec59a82ed376a5df3e427171334870d2677c677ef65cc46dc61",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P19_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P19_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P19_T2-spatial.tar",
+      "bytes": 10956800,
+      "sha256": "727e5ef125b148826dbc17f89c29344b9541c9e62b4a0a0141213ba31752404d",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P24_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P24_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P24_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 8822571,
+      "sha256": "57adfbe39c75c355e03a7487ddc55a97722c8c071e4b4ffd2f28c5cb1f94c1d2",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P24_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P24_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P24_T1-spatial.tar",
+      "bytes": 11479040,
+      "sha256": "1d010018a24daeb4b7aa42c05fb71e20e1e61f29380fd970ba79f6ef2ca08d60",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P24_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P24_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P24_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 7814548,
+      "sha256": "b1071af536c4928519b95a589a0039fabd80b1d75299381133cfb0c76ea1e08e",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P24_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P24_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P24_T2-spatial.tar",
+      "bytes": 11509760,
+      "sha256": "6565648e268b12cae7d1f6ad1a4ba3e795354dfc31ea849b086238936f10c0dc",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P25_T1-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P25_T1-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P25_T1-filtered_feature_bc_matrix.h5",
+      "bytes": 5076655,
+      "sha256": "c71e26b8c5a438122792f9dc3374f5f0f41dc7c66675dc99d78e751677ff8dc4",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P25_T1-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P25_T1-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P25_T1-spatial.tar",
+      "bytes": 8058880,
+      "sha256": "6369fbc8638f476b49cda8d9ec6afde4289eab4923776ba7deb9c6a216849bc3",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P25_T2-filtered_feature_bc_matrix.h5",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P25_T2-filtered_feature_bc_matrix.h5",
+      "path": "/tmp/b6_radius_data/emtab13530/P25_T2-filtered_feature_bc_matrix.h5",
+      "bytes": 5348029,
+      "sha256": "57beb19f2e41a8fea07aa674ed59842841bc33fb4f8a2fb089c6893fe2ffafa7",
+      "decision": "accepted",
+      "note": "downloaded"
+    },
+    {
+      "file_name": "emtab13530/P25_T2-spatial.tar",
+      "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/530/E-MTAB-13530/Files/P25_T2-spatial.tar",
+      "path": "/tmp/b6_radius_data/emtab13530/P25_T2-spatial.tar",
+      "bytes": 8222720,
+      "sha256": "7592854bc2db47862a06a3bbaa2b0ec1ce8db8f2a9c0c7ef983f48e7d93dfae7",
+      "decision": "accepted",
+      "note": "downloaded"
+    }
+  ]
+}
