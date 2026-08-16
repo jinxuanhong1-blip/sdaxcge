@@ -1,0 +1,3 @@
+# Keep evidence matrices that are small. Ignore any future RAW.tar dumps.
+**/*_RAW.tar
+**/*.tar
