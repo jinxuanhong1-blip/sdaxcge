@@ -56,7 +56,7 @@ run_method <- function(method, network, network_name) {
   )
   result <- runner(
     mat = expr,
-    network = network,
+    net = network,
     .source = "source",
     .target = "target",
     .mor = "weight",
