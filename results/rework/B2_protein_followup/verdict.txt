@@ -1,0 +1,9 @@
+USER_CORRECTION: rho=0.69 is CCLE NSCLC protein n=118, not DepMap RNA
+N_118: CCLE RPPA 20180123 lung-not-SCLC headcount (117 NSCLC + 1 carcinoid). No TACSTD2/TROP2 or CLDN4 antibodies.
+RHO_0.69: Gygi/Nusinow CCLE MS, _LUNG complete cases, Spearman 0.6931 (n=45, Pearson 0.687). CI95 [0.483, 0.822].
+SAME_COHORT: no
+NSCLC_ONLY_MS: n=36 Spearman 0.731 (not 0.69, not n=118)
+PROCAN_8498: TACSTD2 yes, CLDN4 no
+PRIOR_RNA: DepMap 24Q4 lung RNA Spearman 0.61 n=214 was the wrong modality
+DID_WE_TUNE: no
+VERDICT: n=118 and rho=0.69 do not come from one complete-case protein table
