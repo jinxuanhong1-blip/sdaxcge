@@ -1,0 +1,122 @@
+{
+  "GSE157881": {
+    "title": "Radiation-activated secretome of Scgb1a1+ club cells increase the efficacy of immune checkpoint blockade in lung cancer (0Gy4Gy scRNA-seq)",
+    "summary": "We report that airway epithelial club cells harbor the genes specifically up-regulated by 4Gy-RT",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 4,
+    "suppfile": "TXT",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157881/",
+    "pdat": "2021/06/08",
+    "gpl": "24247",
+    "gse": "157881"
+  },
+  "GSE157882": {
+    "title": "Radiation-activated secretome of Scgb1a1+ club cells increase the efficacy of immune checkpoint blockade in lung cancer (iDTR scRNA-seq)",
+    "summary": "We report that airway epithelial club cells affected the immune landscaping in HKP1 lungs",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 2,
+    "suppfile": "TXT",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157882/",
+    "pdat": "2021/06/08",
+    "gpl": "24247",
+    "gse": "157882"
+  },
+  "GSE176091": {
+    "title": "Inhibition of lung tumorigenesis by a small molecule CA170 targeting the immune checkpoint protein VISTA",
+    "summary": "Expressed on cells of the myeloid and lymphoid lineages, V-domain Ig Suppressor of T cell Activation (VISTA) is an emerging target for cancer immunotherapy. Blocking VISTA activates both innate and adaptive immunity to eradicate tumors in mice. Using a tripeptide small molecule antagonist of VISTA CA170, we found that it exhibited potent anticancer efficacy on carcinogen-induced mouse lung tumorigenesis. Remarkably, lung tumor development was almost completely suppressed when CA170 was combined with an MHCII-directed Kras peptide vaccine. Flow cytometry and single-cell RNA sequencing (scRNA-seq) revealed that CA170 increased CD8+ T cell infiltration and enhanced their effector functions by decreasing the tumor infiltration of myeloid-derived suppressor cells (MDSCs) and Regulatory T (Treg) cells, while the Kras vaccine primarily induced expansion of CD4+ effector T cells. VISTA antagonism by CA170 revealed strong efficacy against lung tumorigenesis with broad immunoregulatory functions that influence effector, memory and regulatory T cells, and drives an adaptive T cell tumor-specific immune response that enhances the efficacy of the Kras vaccine.",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 20,
+    "suppfile": "MTX, TSV",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176091/",
+    "pdat": "2021/06/04",
+    "gpl": "21103",
+    "gse": "176091"
+  },
+  "GSE267557": {
+    "title": "Gene expression profile at single cell level of CD45+ cells that were isolated from the lung of anti-PD-1 Ab-treated young or aged mice",
+    "summary": "In tumor-bearing aged mice, abberant immune cells are expected to be accumulated in damaged lung of aged mice in response to anti-PD-1 therapy. To identify subpopulation responsible for the lung damage, we analyzed for differences in CD45+ immune cell components isolated from the lung of young and aged mice, using single-cell RNA sequencing (scRNA-seq).",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 2,
+    "suppfile": "TAR",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE267nnn/GSE267557/",
+    "pdat": "2024/12/31",
+    "gpl": "24247",
+    "gse": "267557"
+  },
+  "GSE268525": {
+    "title": "SFRP2+ CAFs Hinder Abscopal Effect from Combined Radiotherapy and Immunotherapy by Forming a Hostile Perivascular Niche (scRNA-Seq)",
+    "summary": "Despite accumulating cases of radiotherapy-induced abscopal effect in the lung cancer with the introduction of immune checkpoint inhibitors (ICIs), the occurrence of this effect remains infrequent and unpredictable to be a therapeutic goal. Here, we showed that the combination of radiotherapy (8Gy*3F) and ICI alleviated the tumor burden at the irradiated site whereas no discernible benefit was observed in the abscopal tumors. RNA-sequencing data showed that extracellular structure organization pathways were enriched in the abscopal tumors after combined therapy, with Sfrp2 being identified as a central hub. SFRP2 expression was observed in cancer-associated fibroblasts (CAFs) and was elevated in abscopal tumors after combined therapy. Blockade of SFRP2 followed by combined radiotherapy and ICI reinvigorated infiltration and cytotoxicity of CD8+ T cells, and elicited regression of abscopal tumors, which was abrogated by CD8\u03b1 depletion. Mechanistically, in vitro experiments demonstrated that SFRP2+ CAFs induced apoptosis of CD8+ T cells. The spatial transcriptome analysis showed that SFRP2+ CAFs were located in proximity to the vessels and surrounded by abundant macrophages and limited CD8Tex, thereby creating an immunosuppressive perivascular niche, which was validated in paraffin sections of human lung cancer. Lineage-tracing assays showed SFRP2+ CAFs were derived from pericytes. IGF-1 released by irradiated tumors facilitated the transition of pericytes into fibroblasts and stimulated the expression of SFRP2. In summary, SFRP2+ CAFs hijack the abscopal effect from combined radiotherapy and immunotherapy via inducing apoptosis of CD8+ T cells and orchestrating a hostile perivascular niche in the lung cancer. Targeting SFRP2+ CAF may recondition the TME and promote the abscopal effect.",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 3,
+    "suppfile": "MTX, TSV",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE268nnn/GSE268525/",
+    "pdat": "2025/02/06",
+    "gpl": "21273",
+    "gse": "268525"
+  },
+  "GSE283827": {
+    "title": "ERBB2 signaling drives immune cell evasion and resistance against immunotherapy in small cell lung cancer [scRNA-Seq]",
+    "summary": "Small cell lung cancer (SCLC) represents ~15% of all lung cancers and is characterized by its highly aggressive phenotype and its dismal outcome. Though the addition of immune checkpoint blockade to carboplatin and etoposide treatment has improved outcome in SCLC patients, SCLC cells finally acquire the ability to evade immunosurveillance and resistance against immune check point blockade. To elaborate molecular mechanisms that mediate SCLC immune cell evasion we performed high dimensional profiling of human and murine SCLC specimens. We herein comprehensively analyzed matched human samples of primary and metastatic SCLC and found a loss of MHC-I in SCLC metastases indicating that MHC-I loss mediates SCLC immune cell evasion. Silencing MHC-I in SCLC cells drastically diminished immune cell infiltration and facilitated the formation of metastasis in mice by circumventing immune surveillance. Using mass spectrometry and phospho tyrosine kinase analysis we discovered that ERBB2 signaling suppresses MHC-I expression in SCLC cells and stimulates immune modulating transcripts. Mechanistically, genetic and/or pharmacologic blockade of the ERBB2 signaling axis was sufficient to induce MHC-I expression and to prevent immune evasion in autochthonous murine SCLC in a STING dependent manner. Finally, we demonstrate that ERBB2 signaling axis regulates MHC-I expression on SCLC cells and is critical in maintaining immune evasion in SCLC. Most strikingly, we here uncover synergistic treatment efficacy by combining ERBB2 with anti-PD-1 targeted treatment that elicits profound responses in preclinical SCLC models suggesting this combination for future clinical trials in patients with SCLC.",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 5,
+    "suppfile": "MTX, TSV",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE283nnn/GSE283827/",
+    "pdat": "2025/10/09",
+    "gpl": "21103",
+    "gse": "283827"
+  },
+  "GSE303943": {
+    "title": "XIAP-coordinated PKC signaling overcomes immunotherapy resistance via immunogenic rewiring to empower therapeutic rechallenge [scRNA-seq]",
+    "summary": "Immune-checkpoint blockade (ICB) against PD-1/PD-L1 has transformed cancer care, yet primary and acquired resistance limit its reach. By profiling substrate-based protein kinase C (PKC) activity, rather than pan-PKC expression, we uncover a superior biomarker predicting survival and anti-PD-1 responsiveness in non-small cell lung cancer (NSCLC). Critically, pharmacological pan-PKC inhibition overcomes anti-PD-1 resistance across diverse preclinical models through a coordinated immunologic program. Specifically, PKC blockade triggers Caspase-3/GSDME-dependent immunogenic cell death (ICD) with ATP/HMGB1 release. It concurrently reprograms the tumor microenvironment (TME) by enriching CD8+ T cells and regulatory T cells (Tregs) in a CCR5-dependent manner, while inducing tumor-intrinsic PD-L1 degradation to sustain CD8+ T cell function. Mechanistically, targeting PKC destabilizes XIAP, whose degradation not only unleashes caspase-mediated ICD and PD-L1 degradation but also licenses CCL4 secretion for CCR5-centric TME rewiring. Importantly, PKC blockade synergizes exclusively with anti-CTLA4 by selectively depleting intratumoral Tregs, providing a rational rechallenge regimen for anti-PD-1-refractory malignancies. Our findings establish PKC activity as a crucial biomarker and validate PKC inhibition as a translatable strategy to dismantle ICB resistance.",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 2,
+    "suppfile": "MTX, TSV",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE303nnn/GSE303943/",
+    "pdat": "2026/05/16",
+    "gpl": "24247",
+    "gse": "303943"
+  },
+  "GSE129297": {
+    "title": "Single-cell transcriptomic profiling of mouse lung tumor in response to CDK7 inhibitor, anti-PD-1 and combination treatment (Experiment 1)",
+    "summary": "We performed single-cell RNA sequencing (scRNAseq) analysis on the mouse lung tissues from small cell lung tumor-bearing mice treated with CDK7 inhibitor YKL, anti-PD-1 and combination treatment",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 4,
+    "suppfile": "MTX, TSV",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129297/",
+    "pdat": "2019/12/27",
+    "gpl": "21103",
+    "gse": "129297"
+  },
+  "GSE232730": {
+    "title": "CXCL9/10-engineered dendritic cells promote T cell activation and enhances immune checkpoint blockade for lung cancer.",
+    "summary": "Immune checkpoint blockade (ICB), notably Programmed Death-1/Programmed Death-Ligand 1 (PD-1/PD-L1) inhibition, has revolutionized the treatment of non-small cell lung cancer (NSCLC). However, durable responses are only observed in a subpopulation of patients. Defective antigen presentation and an immunosuppressive tumor microenvironment can lead to deficient T-cell recruitment and ICB resistance. We evaluated in situ vaccination with CXCL9 and CXCL10-engineered dendritic cells (CXCL9/10-DC) as a novel strategy to overcome resistance to ICB using Lkb1-null murine NSCLC model. We utilized single-cell RNA-seq to evaluate alterations of immune infiltration associated with the new therapy, which combines intratumoral CXCL9/10-DC administration and PD-1 inhibition.",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 4,
+    "suppfile": "MTX, TSV",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE232nnn/GSE232730/",
+    "pdat": "2023/05/22",
+    "gpl": "24247",
+    "gse": "232730"
+  },
+  "GSE222158": {
+    "title": "Gene expression of immune cells in a lung cancer mouse model",
+    "summary": "We used in situ vaccination with autologous dendritic cell secreting CCL21, in combination with immune checkpoint inhibitor, anti-PD-1, to treat oncogene-driven non-small cell lung cancer in a murine model. The single cell transcriptome of the treated cancer tissues were measured.",
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "n_samples": 6,
+    "suppfile": "MTX, TSV",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE222nnn/GSE222158/",
+    "pdat": "2024/01/03",
+    "gpl": "24247",
+    "gse": "222158"
+  }
+}
