@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-08-16T20:22:16.311930+00:00",
+  "geo": "GSE285029",
+  "pmid": "40050048",
+  "n": 234,
+  "public_only": true,
+  "no_response_labels_in_geo": true,
+  "A11_and_C_taken_as_given": true,
+  "TACSTD2_vs_CD274": {
+    "rho": 0.15738499153215751,
+    "p": 0.01596688805258333,
+    "n": 234,
+    "label": "WEAK_POSITIVE",
+    "q4_frac_in_feature_q4": 0.2542372881355932,
+    "q4_or": 1.0149793388429753,
+    "q4_fisher_p": 1.0
+  },
+  "TACSTD2_vs_IFN_compact": {
+    "rho": 0.09709023616783888,
+    "p": 0.13867529158823838,
+    "n": 234,
+    "label": "NULL",
+    "q4_frac_in_feature_q4": 0.1864406779661017,
+    "q4_or": 0.6063368055555556,
+    "q4_fisher_p": 0.22535801211200007
+  },
+  "TACSTD2_vs_GEP18": {
+    "rho": 0.007811583516926528,
+    "p": 0.90538931097224,
+    "n": 234,
+    "label": "NULL",
+    "q4_frac_in_feature_q4": 0.13559322033898305,
+    "q4_or": 0.3813917723952326,
+    "q4_fisher_p": 0.023317681295303726
+  },
+  "TACSTD2_vs_CD8A": {
+    "rho": -0.08428917600395103,
+    "p": 0.1988764156283171,
+    "n": 234,
+    "label": "NULL",
+    "q4_frac_in_feature_q4": 0.11864406779661017,
+    "q4_or": 0.3184171597633136,
+    "q4_fisher_p": 0.005575385689527545
+  },
+  "TACSTD2_vs_IL6": {
+    "rho": -0.0459641834756165,
+    "p": 0.48410124257818354,
+    "n": 234,
+    "label": "NULL",
+    "q4_frac_in_feature_q4": 0.2542372881355932,
+    "q4_or": 1.0149793388429753,
+    "q4_fisher_p": 1.0
+  },
+  "CLDN4_vs_CD274": {
+    "rho": 0.16697477567788896,
+    "p": 0.010511517152007823,
+    "n": 234,
+    "label": "WEAK_POSITIVE",
+    "q4_frac_in_feature_q4": 0.3220338983050847,
+    "q4_or": 1.603125,
+    "q4_fisher_p": 0.16747524432661498
+  },
+  "CLDN4_vs_IFN_compact": {
+    "rho": 0.20352754685378213,
+    "p": 0.001750911561898865,
+    "n": 234,
+    "label": "ASSOCIATED_POSITIVE",
+    "q4_frac_in_feature_q4": 0.423728813559322,
+    "q4_or": 3.0493079584775087,
+    "q4_fisher_p": 0.0008536204046737195
+  },
+  "CLDN4_vs_GEP18": {
+    "rho": 0.1895745336327716,
+    "p": 0.0036045242594330744,
+    "n": 234,
+    "label": "WEAK_POSITIVE",
+    "q4_frac_in_feature_q4": 0.3559322033898305,
+    "q4_or": 1.992382271468144,
+    "q4_fisher_p": 0.038628548515971216
+  },
+  "TACSTD2_CLDN4_rho": 0.52567572409822,
+  "sit_on_high_PDL1_or_IFN": {
+    "TACSTD2": "NO",
+    "CLDN4": "PARTIAL_IFN_NOT_CD274_Q4"
+  },
+  "transform_primary": "log2(pmax(x,0)+1) of author WTS matrix"
+}
