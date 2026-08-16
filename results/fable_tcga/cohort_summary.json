@@ -30,5 +30,13 @@
     "TACSTD2_vs_CLDN4_spearman_rho": 0.391,
     "TACSTD2_vs_CLDN4_p": 8.587182907798453e-20,
     "n_with_cdr_clinical": 501
+  },
+  "POOLED": {
+    "n_tumor_total": 1017,
+    "n_with_purity_used_for_partial": 996,
+    "covariates": [
+      "ABSOLUTE purity",
+      "cohort (LUSC vs LUAD)"
+    ]
   }
 }

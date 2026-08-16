@@ -66,6 +66,9 @@ CHECKPOINTS = [
     "CD8A", "GZMB", "CXCL9",
 ]
 KEY_SCORES = ["T cells", "CD8 T cells", "Cytotoxic lymphocytes", "GEP18", "CYT", "CD274"]
+# tight-junction programme genes co-analysed with TACSTD2 (TROP2 physically
+# engages claudins; Nakatsukasa et al. Am J Pathol 2010)
+TJ_GENES = ["CLDN1", "CLDN4", "CLDN7", "F11R", "PARD3"]
 
 
 def load_mcp_signatures():
@@ -117,17 +120,24 @@ def bh(pvals):
     return multipletests(pvals, method="fdr_bh")[1]
 
 
-def partial_spearman(x, y, z):
-    """Spearman correlation of x and y controlling for z (rank-based partial
-    correlation). Returns (rho, p) with p from a t-test on n-3 df."""
-    xr, yr, zr = (stats.rankdata(v) for v in (x, y, z))
-    rxy = np.corrcoef(xr, yr)[0, 1]
-    rxz = np.corrcoef(xr, zr)[0, 1]
-    ryz = np.corrcoef(yr, zr)[0, 1]
-    r = (rxy - rxz * ryz) / np.sqrt((1 - rxz**2) * (1 - ryz**2))
-    n = len(x)
-    t = r * np.sqrt((n - 3) / (1 - r**2))
-    p = 2 * stats.t.sf(abs(t), df=n - 3)
+def partial_spearman(x, y, Z):
+    """Rank-based partial correlation of x and y controlling for one or more
+    covariates Z (1-D array or 2-D array with covariates in columns).
+    Ranks of x and y are residualized on the ranks of Z (plus intercept);
+    Pearson correlation of the residuals is returned with a t-test on
+    n - 2 - k degrees of freedom."""
+    Z = np.asarray(Z, dtype=float)
+    if Z.ndim == 1:
+        Z = Z[:, None]
+    xr, yr = stats.rankdata(x), stats.rankdata(y)
+    Zr = np.column_stack([stats.rankdata(Z[:, j]) for j in range(Z.shape[1])])
+    design = np.column_stack([np.ones(len(xr)), Zr])
+    rx = xr - design @ np.linalg.lstsq(design, xr, rcond=None)[0]
+    ry = yr - design @ np.linalg.lstsq(design, yr, rcond=None)[0]
+    r = np.corrcoef(rx, ry)[0, 1]
+    n, k = len(xr), Zr.shape[1]
+    t = r * np.sqrt((n - 2 - k) / (1 - r**2))
+    p = 2 * stats.t.sf(abs(t), df=n - 2 - k)
     return r, p
 
 
@@ -140,7 +150,7 @@ def stage_group(s):
 
 def main():
     mcp = load_mcp_signatures()
-    needed = set(TARGETS) | set(GEP18) | set(CYT_GENES) | set(CHECKPOINTS)
+    needed = set(TARGETS) | set(GEP18) | set(CYT_GENES) | set(CHECKPOINTS) | set(TJ_GENES)
     for genes in mcp.values():
         needed |= set(genes)
 
@@ -300,7 +310,73 @@ def main():
                         "p_value": s["p"],
                     })
 
-        figs[cohort] = {"tum": tum, "nor": nor, "feat": feat_df, "km": km_data}
+        figs[cohort] = {"tum": tum, "nor": nor, "feat": feat_df, "km": km_data,
+                        "pur": pur}
+
+    # ---- pooled LUAD+LUSC purity-partial analysis ---------------------------
+    # Primary statistic: rank-based partial Spearman controlling ABSOLUTE
+    # purity AND histology (LUAD/LUSC indicator). GEP18 z-scores were computed
+    # within cohort, so pooling with a cohort covariate keeps them centred.
+    pool_expr = pd.concat(
+        [figs[c]["tum"].loc[sorted(needed & set(figs[c]["tum"].index))] for c in COHORTS],
+        axis=1)
+    pool_feat = pd.concat([figs[c]["feat"] for c in COHORTS], axis=0)
+    pool_cohort = pd.Series(
+        np.concatenate([[c] * figs[c]["tum"].shape[1] for c in COHORTS]),
+        index=pool_expr.columns)
+    pool_pur = pd.concat([figs[c]["pur"] for c in COHORTS])
+    idx = pool_pur.index  # patients with purity available
+    is_lusc = (pool_cohort[idx] == "LUSC").astype(float).values
+    Z = np.column_stack([pool_pur.values, is_lusc])
+    summary["POOLED"] = {
+        "n_tumor_total": int(pool_expr.shape[1]),
+        "n_with_purity_used_for_partial": int(len(idx)),
+        "covariates": ["ABSOLUTE purity", "cohort (LUSC vs LUAD)"],
+    }
+    for g in TARGETS:
+        x = pool_expr.loc[g]
+        block = []
+        for fname, fvals in pool_feat.items():
+            rho, p = stats.spearmanr(x, fvals.loc[x.index])
+            pr, pp = partial_spearman(x[idx].values, fvals[idx].values, Z)
+            block.append({
+                "cohort": "POOLED", "gene": g, "immune_feature": fname,
+                "spearman_rho": rho, "p_value": p, "n": len(x),
+                "purity_adj_partial_rho": pr, "purity_adj_p": pp,
+                "n_purity_adj": len(idx),
+            })
+        block = pd.DataFrame(block)
+        block["fdr_bh"] = bh(block["p_value"])
+        block["purity_adj_fdr_bh"] = bh(block["purity_adj_p"])
+        corr_rows.append(block)
+
+    # ---- tight-junction genes vs TACSTD2 ------------------------------------
+    tj_rows = []
+    for scope in COHORTS + ["POOLED"]:
+        if scope == "POOLED":
+            mat, pidx, zmat = pool_expr, idx, Z
+        else:
+            mat = figs[scope]["tum"]
+            pidx = figs[scope]["pur"].index
+            zmat = figs[scope]["pur"].values
+        x = mat.loc["TACSTD2"]
+        block = []
+        for tj in TJ_GENES:
+            y = mat.loc[tj]
+            rho, p = stats.spearmanr(x, y)
+            pr, pp = partial_spearman(x[pidx].values, y[pidx].values, zmat)
+            block.append({
+                "cohort": scope, "gene": "TACSTD2", "tj_gene": tj,
+                "spearman_rho": rho, "p_value": p, "n": len(x),
+                "purity_adj_partial_rho": pr, "purity_adj_p": pp,
+                "n_purity_adj": len(pidx),
+            })
+        block = pd.DataFrame(block)
+        block["fdr_bh"] = bh(block["p_value"])
+        block["purity_adj_fdr_bh"] = bh(block["purity_adj_p"])
+        tj_rows.append(block)
+    tj_df = pd.concat(tj_rows, ignore_index=True)
+    tj_df.to_csv(os.path.join(OUT, "tj_correlations.csv"), index=False)
 
     # ---- tables -------------------------------------------------------------
     pd.DataFrame(tn_rows).to_csv(os.path.join(OUT, "tumor_vs_normal.csv"), index=False)
@@ -348,8 +424,8 @@ def main():
         ("spearman_rho", "fdr_bh", "Marginal Spearman"),
         ("purity_adj_partial_rho", "purity_adj_fdr_bh", "Purity-adjusted (ABSOLUTE)"),
     ]
-    fig, axes = plt.subplots(1, 2, figsize=(13.5, 8))
-    fig.subplots_adjust(wspace=0.65)
+    fig, axes = plt.subplots(1, 2, figsize=(16, 8))
+    fig.subplots_adjust(wspace=0.55)
     for ax, (vcol, fcol, title) in zip(axes, panels):
         piv = corr_df.pivot_table(index="immune_feature", values=vcol,
                                   columns=["cohort", "gene"]).loc[order]
@@ -410,6 +486,33 @@ def main():
             ax.set_title(f"{cohort}: rho={rho:.2f}, p={p:.1e}")
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "fig5_scatter_cytotoxic.png"), bbox_inches="tight")
+    plt.close(fig)
+
+    # fig 6: tight-junction genes vs TACSTD2 (marginal + purity-adjusted)
+    fig, axes = plt.subplots(1, 2, figsize=(8, 4.2))
+    fig.subplots_adjust(wspace=0.45)
+    for ax, (vcol, fcol, title) in zip(axes, [
+            ("spearman_rho", "fdr_bh", "Marginal Spearman"),
+            ("purity_adj_partial_rho", "purity_adj_fdr_bh",
+             "Purity(-and-cohort)-adjusted")]):
+        piv = tj_df.pivot_table(index="tj_gene", values=vcol, columns="cohort")
+        piv = piv[["LUAD", "LUSC", "POOLED"]].loc[TJ_GENES]
+        fdr = tj_df.pivot_table(index="tj_gene", values=fcol, columns="cohort")
+        fdr = fdr[["LUAD", "LUSC", "POOLED"]].loc[TJ_GENES]
+        im = ax.imshow(piv.values, cmap="RdBu_r", vmin=-0.8, vmax=0.8, aspect="auto")
+        ax.set_xticks(range(3))
+        ax.set_xticklabels(piv.columns)
+        ax.set_yticks(range(len(TJ_GENES)))
+        ax.set_yticklabels(piv.index)
+        for r in range(piv.shape[0]):
+            for c in range(piv.shape[1]):
+                star = "*" if fdr.values[r, c] < 0.05 else ""
+                ax.text(c, r, f"{piv.values[r, c]:.2f}{star}", ha="center",
+                        va="center", fontsize=8)
+        ax.set_title(title, fontsize=9)
+    fig.colorbar(im, ax=axes, label="rho", shrink=0.7)
+    fig.suptitle("Tight-junction genes vs TACSTD2  (* BH-FDR < 0.05)", y=1.0)
+    fig.savefig(os.path.join(OUT, "fig6_tj_correlations.png"), bbox_inches="tight")
     plt.close(fig)
 
     print(json.dumps(summary, indent=2))
