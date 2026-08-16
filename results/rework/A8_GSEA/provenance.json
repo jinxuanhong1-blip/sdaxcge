@@ -1,0 +1,46 @@
+{
+  "urls": {
+    "expr_LUAD": {
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap%2FHiSeqV2.gz",
+      "file": "TCGA.LUAD.HiSeqV2.gz",
+      "desc": "UCSC Xena TCGA-LUAD HiSeqV2, log2(RSEM normalized_count + 1)",
+      "min_bytes": 1000000
+    },
+    "expr_LUSC": {
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUSC.sampleMap%2FHiSeqV2.gz",
+      "file": "TCGA.LUSC.HiSeqV2.gz",
+      "desc": "UCSC Xena TCGA-LUSC HiSeqV2, log2(RSEM normalized_count + 1)",
+      "min_bytes": 1000000
+    },
+    "absolute": {
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "file": "TCGA_mastercalls.abs_tables_JSedit.fixed.txt",
+      "desc": "PanCanAtlas ABSOLUTE purity/ploidy (Taylor et al.)",
+      "min_bytes": 50000
+    }
+  },
+  "md5": {
+    "expr_LUAD": "bcff7dfabf3da82ce215bd2649c4dd4a",
+    "expr_LUSC": "594933f312363abbe4e31710c7e95e6f",
+    "absolute": "8ea2ca92c8ae58350538999dfa1174da"
+  },
+  "gene_sets": "/workspace/data/genesets/a8_sets.json",
+  "n_sets": 60,
+  "primary_sets": [
+    "HALLMARK_APICAL_JUNCTION",
+    "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+    "KEGG_TIGHT_JUNCTION",
+    "GOBP_BICELLULAR_TIGHT_JUNCTION_ASSEMBLY",
+    "GOBP_EPIDERMAL_CELL_DIFFERENTIATION",
+    "GOBP_EPITHELIAL_TO_MESENCHYMAL_TRANSITION",
+    "GOBP_ESTABLISHMENT_OF_SKIN_BARRIER",
+    "GOBP_KERATINOCYTE_DIFFERENTIATION",
+    "GOBP_KERATINIZATION",
+    "GOBP_CORNIFICATION",
+    "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+    "KRT_EPITHELIAL"
+  ],
+  "nperm": 1000,
+  "seed": 42,
+  "gsea": "prerank weighted KS p=1, gene-set permutation, BH-FDR"
+}

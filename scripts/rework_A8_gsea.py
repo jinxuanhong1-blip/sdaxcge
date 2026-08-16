@@ -488,19 +488,39 @@ def bucket_hits(gsea: pd.DataFrame, bucket: str, want_up: bool, fdr_col: str, cu
     return bool(((sub["nes"] < 0) & (sub[fdr_col] < cut)).any())
 
 
+def _signed_hit(df: pd.DataFrame, fdr_col: str, cut: float) -> str:
+    """Return 'up', 'down', or 'ns' for a single-set GSEA row."""
+    if df.empty:
+        return "missing"
+    r = df.iloc[0]
+    if pd.isna(r["nes"]) or pd.isna(r[fdr_col]) or r[fdr_col] >= cut:
+        return "ns"
+    return "up" if r["nes"] > 0 else "down"
+
+
 def make_verdict(gsea: pd.DataFrame, cut: float = 0.05, fdr_col: str = "fdr_primary") -> dict:
+    """Verdict uses Hallmark EMT as the claim EMT set, not any EMT-named set.
+
+    GOBP EMT is a smaller process set (TFs/signaling) and can disagree with
+    Hallmark EMT (stromal/ECM). Calling LUAD 'supportive' because GOBP EMT
+    is down while Hallmark EMT is up would hide the claim-level result.
+    """
     prim = gsea[gsea["primary"] == True].copy()  # noqa: E712
     tj_up = bucket_hits(prim, "TJ", True, fdr_col, cut)
     krt_up = bucket_hits(prim, "KERATIN_BARRIER", True, fdr_col, cut)
-    emt_down = bucket_hits(prim, "EMT", False, fdr_col, cut)
     tj_opp = bucket_hits(prim, "TJ", False, fdr_col, cut)
     krt_opp = bucket_hits(prim, "KERATIN_BARRIER", False, fdr_col, cut)
-    emt_opp = bucket_hits(prim, "EMT", True, fdr_col, cut)
 
     hm_emt = prim[prim["term"] == "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION"]
+    go_emt = prim[prim["term"] == "GOBP_EPITHELIAL_TO_MESENCHYMAL_TRANSITION"]
     hm_aj = prim[prim["term"] == "HALLMARK_APICAL_JUNCTION"]
     krt = prim[prim["term"] == "GOBP_KERATINIZATION"]
     kegg = prim[prim["term"] == "KEGG_TIGHT_JUNCTION"]
+
+    hm_emt_dir = _signed_hit(hm_emt, fdr_col, cut)
+    go_emt_dir = _signed_hit(go_emt, fdr_col, cut)
+    emt_down = hm_emt_dir == "down"
+    emt_opp = hm_emt_dir == "up"
 
     def row_call(df: pd.DataFrame) -> str:
         if df.empty:
@@ -508,12 +528,14 @@ def make_verdict(gsea: pd.DataFrame, cut: float = 0.05, fdr_col: str = "fdr_prim
         r = df.iloc[0]
         return f"NES={r['nes']:+.3f} p={r['nom_p']:.4g} FDR={r[fdr_col]:.4g}"
 
-    if emt_opp and not emt_down:
-        label = "contradicts_EMT"
-    elif (tj_opp and not tj_up) and (krt_opp and not krt_up):
+    if (tj_opp and not tj_up) and (krt_opp and not krt_up):
         label = "contradicts_TJ_KRT"
     elif tj_up and krt_up and emt_down:
         label = "supportive"
+    elif tj_up and krt_up and emt_opp:
+        label = "keratin_TJ_up_Hallmark_EMT_opposite"
+    elif tj_up and krt_up and not emt_down:
+        label = "keratin_TJ_up_Hallmark_EMT_null"
     elif (tj_up or krt_up) and emt_down:
         label = "partial"
     elif tj_up or krt_up or emt_down:
@@ -526,10 +548,13 @@ def make_verdict(gsea: pd.DataFrame, cut: float = 0.05, fdr_col: str = "fdr_prim
         "tj_up": tj_up,
         "krt_up": krt_up,
         "emt_down": emt_down,
+        "hallmark_emt_dir": hm_emt_dir,
+        "gobp_emt_dir": go_emt_dir,
         "tj_opposite": tj_opp,
         "krt_opposite": krt_opp,
         "emt_opposite": emt_opp,
         "hallmark_emt": row_call(hm_emt),
+        "gobp_emt": row_call(go_emt),
         "hallmark_apical_junction": row_call(hm_aj),
         "gobp_keratinization": row_call(krt),
         "kegg_tight_junction": row_call(kegg),
@@ -694,18 +719,18 @@ def write_report(results: list[dict], gsea_all: pd.DataFrame, sig_all: pd.DataFr
     lines.append("**Self-contained. Public data only. Written to be read without the rest of the repo.**")
     lines.append("")
     lines.append(
-        f"**Verdict: {v_luad['label'].upper()} in LUAD; {v_lusc['label'].upper()} in LUSC "
+        f"**Verdict: {v_luad['label']} in LUAD; {v_lusc['label']} in LUSC "
         f"(quartile split, BH-FDR<0.05 within the 12 primary sets).**"
     )
     lines.append("")
     lines.append(
-        "Hallmark EMT is depleted in TACSTD2-high tumors in both histologies "
-        f"(LUAD {luad_emt}, LUSC {lusc_emt}). Keratinization is enriched in TACSTD2-high "
-        f"(LUAD {luad_krt}, LUSC {lusc_krt}). KEGG tight junction is "
-        f"{'enriched' if luad_tj=='YES' else 'not significantly enriched'} in LUAD and "
-        f"{'enriched' if lusc_tj=='YES' else 'not significantly enriched'} in LUSC. "
-        "Read the NES table before quoting a slogan. EMT-down is partly tautological: "
-        "TACSTD2 is an epithelial surface gene."
+        "Keratin / tight-junction programs are enriched in TACSTD2-high tumors in "
+        f"**both** histologies (keratinization LUAD {luad_krt}, LUSC {lusc_krt}; "
+        f"KEGG TJ LUAD {luad_tj}, LUSC {lusc_tj}). Hallmark EMT-down is **not** a "
+        f"shared fact: LUSC {lusc_emt} (NES −1.35), LUAD {luad_emt} — Hallmark EMT "
+        "is significantly **up** in TACSTD2-high LUAD (NES +1.55). The smaller GOBP "
+        "EMT process set is down in both. Do not write “TROP2-high = EMT-down” for "
+        "LUAD. Do not quote a pooled NSCLC NES."
     )
     lines.append("")
     lines.append("## Why this rework exists")
@@ -750,10 +775,19 @@ def write_report(results: list[dict], gsea_all: pd.DataFrame, sig_all: pd.DataFr
     lines.append("")
     lines.append(f"- **LUAD verdict:** `{v_luad['label']}` at FDR<0.05 on primary sets.")
     lines.append(f"- **LUSC verdict:** `{v_lusc['label']}` at FDR<0.05 on primary sets.")
-    lines.append(f"- **Hallmark EMT down:** LUAD {luad_emt}; LUSC {lusc_emt}.")
+    lines.append(
+        f"- **Hallmark EMT (the claim set):** LUAD {v_luad['hallmark_emt_dir']} "
+        f"({v_luad['hallmark_emt']}); LUSC {v_lusc['hallmark_emt_dir']} "
+        f"({v_lusc['hallmark_emt']})."
+    )
+    lines.append(
+        f"- **GOBP EMT (secondary process set):** LUAD {v_luad['gobp_emt_dir']} "
+        f"({v_luad['gobp_emt']}); LUSC {v_lusc['gobp_emt_dir']} ({v_lusc['gobp_emt']})."
+    )
     lines.append(f"- **GOBP keratinization up:** LUAD {luad_krt}; LUSC {lusc_krt}.")
     lines.append(f"- **KEGG tight junction up:** LUAD {luad_tj}; LUSC {lusc_tj}.")
     lines.append("- **Do not quote a pooled NSCLC NES.** LUAD and LUSC are different diseases.")
+    lines.append("- **Do not collapse Hallmark EMT and GOBP EMT.** They disagree in LUAD.")
     lines.append("")
     lines.append("## Primary NES (quartile split)")
     lines.append("")
@@ -786,12 +820,14 @@ def write_report(results: list[dict], gsea_all: pd.DataFrame, sig_all: pd.DataFr
     lines.append("")
     lines.append("### How to read the verdict labels")
     lines.append("")
-    lines.append("- `supportive`: at least one primary TJ set up, one primary KRT/barrier set up, and one primary EMT set down, all FDR<0.05.")
-    lines.append("- `partial`: EMT-down plus TJ-up **or** KRT-up, not both.")
+    lines.append("- `supportive`: Hallmark EMT down **and** a primary TJ set up **and** a primary KRT/barrier set up (FDR<0.05).")
+    lines.append("- `keratin_TJ_up_Hallmark_EMT_opposite`: TJ+KRT up, but Hallmark EMT is significantly **up** (claim EMT arm fails).")
+    lines.append("- `keratin_TJ_up_Hallmark_EMT_null`: TJ+KRT up, Hallmark EMT not significant.")
+    lines.append("- `partial`: Hallmark EMT-down plus TJ-up **or** KRT-up, not both.")
     lines.append("- `mixed`: only one of the three arms.")
     lines.append("- `null`: none of the three arms at FDR<0.05.")
-    lines.append("- `contradicts_EMT`: a primary EMT set is significantly **up** in TACSTD2-high and none is down.")
     lines.append("- `contradicts_TJ_KRT`: TJ and KRT/barrier are significantly **down** and none is up.")
+    lines.append("- GOBP EMT is recorded but **does not** decide the verdict. Hallmark EMT is the user-claim set.")
     lines.append("")
     lines.append("## Complementary: signature Spearman (no split)")
     lines.append("")
@@ -883,35 +919,47 @@ def write_report(results: list[dict], gsea_all: pd.DataFrame, sig_all: pd.DataFr
             lines.append(f"| top {i} | {term} | {val:+.3f} |")
         for i, (term, val) in enumerate(mean_nes.tail(5).items(), 1):
             lines.append(f"| bottom {i} | {term} | {val:+.3f} |")
+        lines.append("")
+        lines.append("TACSTD2-high is not a quiet barrier-only state. Across both histologies")
+        lines.append("the strongest Hallmark enrichments include p53, TNF-α, apoptosis, and")
+        lines.append("interferon; the strongest depletions include E2F / G2M / MYC targets.")
+        lines.append("That is stress / interferon / less-proliferative, not “EMT off, done”.")
     lines.append("")
     lines.append("## Honest interpretation")
     lines.append("")
-    lines.append("1. **Headline.** Report the NES table, not a slogan. Keratin/TJ-up plus")
-    lines.append("   EMT-down in TACSTD2-high is the user claim. This run tests it in")
-    lines.append("   TCGA-LUAD and TCGA-LUSC with official sets. LUAD is the cleaner test")
-    lines.append("   because LUSC is already a squamous keratin program.")
-    lines.append("2. **EMT-down is partly tautological.** TACSTD2 (TROP2) is an epithelial")
-    lines.append("   surface protein. Tumors with more epithelial / less mesenchymal RNA")
-    lines.append("   will look TACSTD2-high and Hallmark-EMT-low even if TACSTD2 does")
-    lines.append("   nothing to junctions. The non-trivial part is whether **TJ / keratin**")
-    lines.append("   sets ride along *inside* LUAD, not just inside LUSC.")
-    lines.append("3. **Hallmark apical junction is a mixed set.** It contains claudins and")
+    lines.append("1. **Headline.** Keratin/TJ-up holds in both LUAD and LUSC. Hallmark")
+    lines.append("   EMT-down holds in LUSC only. In LUAD, Hallmark EMT is significantly")
+    lines.append("   **enriched** in TACSTD2-high (NES +1.55, FDR 0.003). The continuous")
+    lines.append("   Hallmark-EMT z-mean Spearman in LUAD is near zero (see table). GSEA")
+    lines.append("   “up” there is a leading-edge / tail effect (LAMC2, SDC1, TNC, TGFBI),")
+    lines.append("   not a cohort-wide VIM/FN1/COL mesenchymal program. Still: the claim")
+    lines.append("   “EMT down” is **false for Hallmark EMT in LUAD**.")
+    lines.append("2. **Two EMT sets, two answers.** Hallmark EMT is an ECM/stromal module.")
+    lines.append("   GOBP EMT is a smaller TF/signaling process set and is down in both")
+    lines.append("   histologies. Quoting only GOBP EMT would manufacture support for A8")
+    lines.append("   in LUAD. The user claim named Hallmark EMT. That is the number to quote.")
+    lines.append("3. **EMT-down is still partly tautological where it occurs.** TACSTD2")
+    lines.append("   is an epithelial surface gene. LUSC Hallmark EMT-down (NES −1.35) is")
+    lines.append("   modest. VIM/ZEB1 track TACSTD2 negatively in LUSC, not in LUAD.")
+    lines.append("4. **Hallmark apical junction is a mixed set.** It contains claudins and")
     lines.append("   also mesenchymal/immune junction genes (VCAN, VCAM1, THY1, PTPRC).")
     lines.append("   A weak or null apical-junction NES is not a failed tight-junction test.")
     lines.append("   KEGG tight junction and the GO TJ sets are the cleaner TJ readouts.")
-    lines.append("4. **Keratinization is a squamous/cornified set.** GOBP_KERATINIZATION is")
-    lines.append("   skin-barrier keratins (KRT1/5/6/16/17, SPRRs, LCEs), not the simple")
-    lines.append("   keratins of LUAD (KRT7/8/18/19). `KRT_EPITHELIAL` mixes both. If")
-    lines.append("   keratinization is LUSC-only, that is differentiation, not a universal")
-    lines.append("   TROP2-high barrier state.")
-    lines.append("5. **Purity.** TACSTD2 vs ABSOLUTE is reported above. A near-zero rho")
+    lines.append("5. **Keratinization is a squamous/cornified set, but it is up in LUAD too.**")
+    lines.append("   GOBP_KERATINIZATION is skin-barrier keratins (KRT1/5/6/16/17, SPRRs,")
+    lines.append("   LCEs), not only the simple keratins of LUAD (KRT7/8/18/19). NES is")
+    lines.append("   larger in LUSC (+3.18) than LUAD (+2.70), as expected for squamous")
+    lines.append("   tissue, but LUAD is not null. Focal genes: LUAD tracks simple KRTs")
+    lines.append("   (KRT7/19) more than KRT5; LUSC tracks KRT5. That is histology-shaped")
+    lines.append("   keratin, not one barrier state.")
+    lines.append("6. **Purity.** TACSTD2 vs ABSOLUTE is reported above. A near-zero rho")
     lines.append("   means the high/low split is not a purity split. It does not make the")
     lines.append("   GSEA tumor-cell-intrinsic.")
-    lines.append("6. **Bulk RNA.** These are mixed-tissue tumors. GSEA cannot say TACSTD2")
+    lines.append("7. **Bulk RNA.** These are mixed-tissue tumors. GSEA cannot say TACSTD2")
     lines.append("   *causes* tight junctions or blocks EMT.")
-    lines.append("7. **Not protein, not ADC, not ICI.** TROP2 protein (the ADC target) was")
+    lines.append("8. **Not protein, not ADC, not ICI.** TROP2 protein (the ADC target) was")
     lines.append("   not measured. This is not a response analysis.")
-    lines.append("8. **NES implementation.** This is a documented prerank GSEA, not the")
+    lines.append("9. **NES implementation.** This is a documented prerank GSEA, not the")
     lines.append("   Broad desktop GUI. Do not compare NES magnitudes to a paper that used")
     lines.append("   a different ranking or a different MSigDB freeze without re-running.")
     lines.append("")
@@ -1034,7 +1082,10 @@ def main() -> int:
                 "tj_up_fdr0.05": v05["tj_up"],
                 "krt_up_fdr0.05": v05["krt_up"],
                 "emt_down_fdr0.05": v05["emt_down"],
+                "hallmark_emt_dir": v05["hallmark_emt_dir"],
+                "gobp_emt_dir": v05["gobp_emt_dir"],
                 "hallmark_emt": v05["hallmark_emt"],
+                "gobp_emt": v05["gobp_emt"],
                 "hallmark_apical_junction": v05["hallmark_apical_junction"],
                 "gobp_keratinization": v05["gobp_keratinization"],
                 "kegg_tight_junction": v05["kegg_tight_junction"],
