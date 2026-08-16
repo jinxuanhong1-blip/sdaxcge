@@ -1,0 +1,10 @@
+dataset,included,reason
+DepMap 24Q4,False,No IFN-treated transcriptome; basal RNA/CRISPR only
+GSE5542,True,"A549 IFNA-con1 / IFNG 6h and 24h, n=4, processed series matrix"
+GSE60572,True,A549 IFNB 100/1000 IU; only 6h has matched untreated samples
+GSE156295,True,"A549 and HTBE type I IFN vs mock, n=2, processed counts"
+GSE178640,True,"A549 IFN-alpha2 after DMSO, n=3, processed Ensembl counts"
+GSE215771,True,"A549 IFNG 24h WT/IRF1KO/NF2KO, n=3, processed TPM"
+GSE109720,True,EBC-1/H1573/H1993/H596 IFNG; ISG QC applied because some lines do not induce ISGs
+GSE241977,False,A549 AhR KO vs control; no IFN-versus-mock contrast in the deposited samples
+GSE261920,False,lncRNA-focused A549 IFN series; not used as a coding-gene TACSTD2 test
