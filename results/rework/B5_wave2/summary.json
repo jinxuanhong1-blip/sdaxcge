@@ -1,0 +1,104 @@
+{
+  "user_claim": {
+    "or": 0.42,
+    "lo": 0.18,
+    "hi": 0.95,
+    "k": 11
+  },
+  "locked_primary": {
+    "lung_DCB_CLDN4_residual_median": {
+      "k": 3.0,
+      "n_total": 139.0,
+      "re_or": 0.9407090791157253,
+      "re_or_lo": 0.4443597950759247,
+      "re_or_hi": 1.9914798353427845,
+      "re_p": 0.8730932975871499,
+      "I2": 0.0,
+      "cohorts": "GSE135222,GSE190265,GSE190266"
+    },
+    "lung_ORR_CLDN4_residual_median": {
+      "k": 2.0,
+      "n_total": 51.0,
+      "re_or": 0.6430494858201161,
+      "re_or_lo": 0.13978015360906623,
+      "re_or_hi": 2.958307245605252,
+      "re_p": 0.5706793105605592,
+      "I2": 29.127306882469302,
+      "cohorts": "GSE207422,GSE283829"
+    },
+    "all_open_DCB_CLDN4_residual_median": {
+      "k": 8.0,
+      "n_total": 510.0,
+      "re_or": 0.945892076464596,
+      "re_or_lo": 0.655523068005621,
+      "re_or_hi": 1.36488228101659,
+      "re_p": 0.7662164342930562,
+      "I2": 0.0,
+      "cohorts": "GSE135222,GSE190265,GSE190266,Gide,Liu,Braun,Snyder,Miao1"
+    },
+    "all_open_ORR_CLDN4_residual_median": {
+      "k": 13.0,
+      "n_total": 921.0,
+      "re_or": 0.8478408651407966,
+      "re_or_lo": 0.6306943915253022,
+      "re_or_hi": 1.1397503168915624,
+      "re_p": 0.2741941738860536,
+      "I2": 0.0,
+      "cohorts": "GSE207422,GSE283829,IMvigor210,Gide,Liu,Riaz,Braun,Hugo,Snyder,Shiuan,Puch,Miao1,Kim"
+    },
+    "lung_DCB_TACSTD2_residual_median": {
+      "k": 2.0,
+      "n_total": 70.0,
+      "re_or": 1.059509037982539,
+      "re_or_lo": 0.3771248404530336,
+      "re_or_hi": 2.976625459670526,
+      "re_p": 0.9126621808429602,
+      "I2": 0.0,
+      "cohorts": "GSE135222,GSE190265"
+    },
+    "lung_ORR_TACSTD2_residual_median": {
+      "k": 2.0,
+      "n_total": 51.0,
+      "re_or": 0.6390392936514216,
+      "re_or_lo": 0.18470796447688828,
+      "re_or_hi": 2.210902058214201,
+      "re_p": 0.47949347703851375,
+      "I2": 0.0,
+      "cohorts": "GSE207422,GSE283829"
+    },
+    "all_open_DCB_TACSTD2_residual_median": {
+      "k": 7.0,
+      "n_total": 441.0,
+      "re_or": 0.9222962113040343,
+      "re_or_lo": 0.557132519651469,
+      "re_or_hi": 1.526800664800384,
+      "re_p": 0.7531199124920533,
+      "I2": 24.75113015848815,
+      "cohorts": "GSE135222,GSE190265,Gide,Liu,Braun,Snyder,Miao1"
+    },
+    "all_open_ORR_TACSTD2_residual_median": {
+      "k": 13.0,
+      "n_total": 921.0,
+      "re_or": 0.9035067906816869,
+      "re_or_lo": 0.6549389743236499,
+      "re_or_hi": 1.2464131053598286,
+      "re_p": 0.5364766862764774,
+      "I2": 7.655880934909316,
+      "cohorts": "GSE207422,GSE283829,IMvigor210,Gide,Liu,Riaz,Braun,Hugo,Snyder,Shiuan,Puch,Miao1,Kim"
+    }
+  },
+  "closest_to_user_0.42_not_adopted": {
+    "subset": "lung_ORR",
+    "gene": "CLDN4",
+    "measure": "raw",
+    "cutoff": "median",
+    "endpoint": "ORR",
+    "re_or": 0.4295978831584346,
+    "k": 2,
+    "abs_diff": 0.009597883158434628,
+    "adopted": false,
+    "note": "Listed only to document that we saw the closest cell and did not select it."
+  },
+  "did_we_pick_cutoff_to_hit_0.42": false,
+  "independent_note": "ICB_Jung excluded as duplicate of GSE135222; CTLA-4 cohorts excluded from PD-1 metas"
+}
