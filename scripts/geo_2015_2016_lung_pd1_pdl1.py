@@ -495,6 +495,10 @@ RNASEQ_HANDLERS = {
 
 # -------------------------------------------------------------------- driver
 def summarize(acc: str, rows):
+    # GSE81258/GSE81257 is a DESeq contrast table. Do not average log2FC
+    # with p-values; numeric summary uses baseMean only.
+    if acc == "GSE81258":
+        rows = [r for r in rows if str(r[3]).endswith(":baseMean")]
     stats = []
     for gene in TARGETS:
         vals = []

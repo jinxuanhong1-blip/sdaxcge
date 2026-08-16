@@ -39,6 +39,22 @@ True lung × PD-1/PD-L1 expression leftovers in this window are **GSE84789** (NS
 
 Ensembl IDs used for mapping are written to `ensembl_id_lookup.tsv` as returned by Ensembl REST. If a gene is missing from a platform or supplementary file, the status line says so. No imputed values.
 
+## Measured leftovers (this run)
+
+Ensembl REST `xrefs/symbol` returned:
+
+| species | symbol | Ensembl ID |
+|---|---|---|
+| human | TACSTD2 | ENSG00000184292 |
+| human | CLDN4 | ENSG00000189143 |
+| mouse | Tacstd2 | ENSMUSG00000051397 |
+| mouse | Cldn4 | ENSMUSG00000047501 |
+
+- **GSE84789** (NSCLC B-cell featureCounts, 192 libraries): `ENSG00000184292.5` / `ENSG00000189143.8`. TACSTD2 counts are almost all 0 (mean 0.005, max 1). CLDN4 mean 0.15, max 26. Expected for B cells; not a tumor-epithelium matrix.
+- **GSE76356** (7 macrophage samples): Tacstd2 Unique_RPKM 0.17–1.95. Cldn4 / `ENSMUSG00000047501` is **not in the file**.
+- **GSE84797** (29 NSCLC NanoString): header-only TSV. TACSTD2 and CLDN4 are not on GPL19965.
+- **GSE81258 → GSE81257** (DESeq, not counts): Tacstd2 `baseMean` = 0 in all four contrasts. Cldn4 `baseMean` = 391.3. Summary stats for this SuperSeries use `baseMean` only.
+
 ## Outputs
 
 - `series_metadata.tsv` — NCBI esummary for every hit
