@@ -2,21 +2,17 @@
 
 **Question:** Is `CLDN4` the top co-expression partner of `TACSTD2` among surface genes?
 
-**Answer:** NO -- CLDN4 is NOT the single top surface-gene co-expression partner of TACSTD2.
+**Answer:** NO — CLDN4 ranks **#4 of 2618** surface genes (Spearman ρ = 0.348). #1 is EFNA1. Genes ahead of CLDN4: EFNA1, PVRL4, EFNA4.
 
-- Cohort: TCGA-BRCA, 1097 primary-tumour samples (sample-type ['01']).
-- Surface-gene universe: 2618 surfaceome genes present in the matrix (anchor removed).
-- Primary metric: Spearman correlation.
+- Main cohort: 1097 primary tumours, one sample per patient (all-vial n = 1097 gives the same rank #4).
+- Pair-wise TACSTD2–CLDN4 Spearman ρ = 0.348 [0.29, 0.40].
+- Transcriptome-wide rank: #30 of 17659.
+- Claudin-family rank: #1 (top claudin = CLDN4).
+- Purity-partial ρ = 0.343 (unadjusted on the same n = 1047: 0.346).
 
-| metric | value |
-| --- | --- |
-| CLDN4 Spearman rank | **#4 of 2618** (99.885th percentile) |
-| CLDN4 Spearman rho | 0.348 (FDR q=1.11e-29) |
-| CLDN4 Pearson rank | #3 of 2618 |
-| CLDN4 Pearson rho | 0.386 |
-| Actual #1 (Spearman) | EFNA1 (rho=0.429) |
+See `README.md` in this folder for the full bilingual write-up.
 
-## Top 15 surface-gene partners of TACSTD2 (Spearman)
+## Top 15 surface-gene partners (one-per-patient, Spearman)
 
 | rank | gene | spearman_rho | pearson_rho | FDR q |
 | --- | --- | --- | --- | --- |

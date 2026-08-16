@@ -1,18 +1,36 @@
 {
-  "generated_utc": "2026-08-16T19:48:00+00:00",
+  "generated_utc": "2026-08-16T20:08:29+00:00",
   "cohort": "TCGA-BRCA",
   "expression_dataset": "UCSC Xena TCGA.BRCA.sampleMap/HiSeqV2 (log2 norm_count+1)",
   "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
   "anchor_gene": "TACSTD2",
   "focus_gene": "CLDN4",
-  "sample_type_codes": [
-    "01"
-  ],
-  "n_samples": 1097,
-  "surface_gene_universe": 2618,
+  "n_primary_all_vials": 1097,
+  "n_primary_one_per_patient": 1097,
+  "n_adjacent_normal": 114,
+  "n_with_ABSOLUTE_purity": 1047,
+  "n_surface_universe": 2618,
   "correlation_primary": "spearman",
   "window": 200,
-  "focus_result": {
+  "question": "Is CLDN4 the top surface-gene co-expression partner of TACSTD2 in TCGA-BRCA?",
+  "answer": "NO",
+  "focus_surfaceome_one_per_patient": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 4,
+    "spearman_r": 0.34755119623109015,
+    "spearman_q": 1.107649268002731e-29,
+    "spearman_percentile": 99.885,
+    "pearson_rank": 3,
+    "pearson_r": 0.38610344261775476,
+    "pearson_q": 2.235024953725877e-37,
+    "pearson_percentile": 99.924,
+    "top1_spearman": "EFNA1",
+    "top1_spearman_r": 0.42884745155965065
+  },
+  "focus_surfaceome_all_vials": {
     "gene": "CLDN4",
     "in_universe": true,
     "is_top_spearman": false,
@@ -24,9 +42,186 @@
     "pearson_rank": 3,
     "pearson_r": 0.3861034426177551,
     "pearson_q": 2.2350249537255015e-37,
-    "pearson_percentile": 99.924
+    "pearson_percentile": 99.924,
+    "top1_spearman": "EFNA1",
+    "top1_spearman_r": 0.42884745155965065
   },
-  "top10_spearman": [
+  "genes_ahead_of_cldn4": [
+    "EFNA1",
+    "PVRL4",
+    "EFNA4"
+  ],
+  "tacstd2_cldn4_rho": [
+    {
+      "subset": "primary_one_per_patient",
+      "n": 1097,
+      "pearson_r": 0.3861,
+      "pearson_p": 2.5611439500290737e-40,
+      "spearman_rho": 0.3476,
+      "spearman_p": 1.6923594621890979e-32,
+      "spearman_rho_ci95_lo": 0.2938,
+      "spearman_rho_ci95_hi": 0.4009
+    },
+    {
+      "subset": "primary_all_vials",
+      "n": 1097,
+      "pearson_r": 0.3861,
+      "pearson_p": 2.5611439500290737e-40,
+      "spearman_rho": 0.3476,
+      "spearman_p": 1.6923594621890979e-32,
+      "spearman_rho_ci95_lo": 0.2922,
+      "spearman_rho_ci95_hi": 0.403
+    },
+    {
+      "subset": "adjacent_normal",
+      "n": 114,
+      "pearson_r": 0.946,
+      "pearson_p": 1.3076041957031343e-56,
+      "spearman_rho": 0.8043,
+      "spearman_p": 4.52045849350917e-27,
+      "spearman_rho_ci95_lo": 0.6944,
+      "spearman_rho_ci95_hi": 0.8824
+    },
+    {
+      "subset": "PAM50_LumA",
+      "n": 421,
+      "pearson_r": 0.2653,
+      "pearson_p": 3.254068988465522e-08,
+      "spearman_rho": 0.2759,
+      "spearman_p": 8.624118571300054e-09,
+      "spearman_rho_ci95_lo": 0.1843,
+      "spearman_rho_ci95_hi": 0.359
+    },
+    {
+      "subset": "PAM50_LumB",
+      "n": 192,
+      "pearson_r": 0.2046,
+      "pearson_p": 0.004411067163390861,
+      "spearman_rho": 0.2357,
+      "spearman_p": 0.0009960913222706682,
+      "spearman_rho_ci95_lo": 0.0984,
+      "spearman_rho_ci95_hi": 0.3647
+    },
+    {
+      "subset": "PAM50_Her2",
+      "n": 67,
+      "pearson_r": 0.2659,
+      "pearson_p": 0.029636203890675516,
+      "spearman_rho": 0.3361,
+      "spearman_p": 0.0054239154198217334,
+      "spearman_rho_ci95_lo": 0.0752,
+      "spearman_rho_ci95_hi": 0.5692
+    },
+    {
+      "subset": "PAM50_Basal",
+      "n": 141,
+      "pearson_r": 0.6341,
+      "pearson_p": 3.143937881336712e-17,
+      "spearman_rho": 0.4676,
+      "spearman_p": 5.0381681335982525e-09,
+      "spearman_rho_ci95_lo": 0.3178,
+      "spearman_rho_ci95_hi": 0.5955
+    },
+    {
+      "subset": "PAM50_Normal",
+      "n": 23,
+      "pearson_r": 0.5874,
+      "pearson_p": 0.003205732220620492,
+      "spearman_rho": 0.5514,
+      "spearman_p": 0.006387234738839675,
+      "spearman_rho_ci95_lo": 0.0825,
+      "spearman_rho_ci95_hi": 0.8472
+    }
+  ],
+  "purity": [
+    {
+      "quantity": "spearman_unadjusted_purity_subset",
+      "n": 1047,
+      "rho": 0.3464,
+      "p": 6.9687186593133e-31
+    },
+    {
+      "quantity": "spearman_partial_given_ABSOLUTE_purity",
+      "n": 1047,
+      "rho": 0.3434,
+      "p": 2.4501662868934956e-30
+    },
+    {
+      "quantity": "spearman_TACSTD2_vs_purity",
+      "n": 1047,
+      "rho": -0.094,
+      "p": 0.002316871018145725
+    },
+    {
+      "quantity": "spearman_CLDN4_vs_purity",
+      "n": 1047,
+      "rho": -0.0539,
+      "p": 0.0811426768800293
+    }
+  ],
+  "transcriptome_wide": {
+    "n_expressed_genes": 17659,
+    "cldn4_rank": 30,
+    "cldn4_percentile": 99.836,
+    "cldn4_rho": 0.34755119623109015,
+    "top1_gene": "SLPI",
+    "top1_rho": 0.42983437626292875
+  },
+  "claudin_family": {
+    "n_claudins_measured": 22,
+    "cldn4_rank_among_claudins": 1,
+    "cldn4_r": 0.34755119623109015,
+    "top_claudin": "CLDN4",
+    "top_claudin_r": 0.34755119623109015
+  },
+  "cldn4_rank_by_pam50": [
+    {
+      "subset": "PAM50_LumA",
+      "n": 421,
+      "n_universe": 2618,
+      "cldn4_surface_rank": 23,
+      "cldn4_spearman_r": 0.2759,
+      "top1_gene": "EFNA1",
+      "top1_r": 0.3807
+    },
+    {
+      "subset": "PAM50_LumB",
+      "n": 192,
+      "n_universe": 2618,
+      "cldn4_surface_rank": 54,
+      "cldn4_spearman_r": 0.2357,
+      "top1_gene": "RHBDL2",
+      "top1_r": 0.4049
+    },
+    {
+      "subset": "PAM50_Her2",
+      "n": 67,
+      "n_universe": 2618,
+      "cldn4_surface_rank": 28,
+      "cldn4_spearman_r": 0.3361,
+      "top1_gene": "MUC21",
+      "top1_r": 0.5292
+    },
+    {
+      "subset": "PAM50_Basal",
+      "n": 141,
+      "n_universe": 2618,
+      "cldn4_surface_rank": 2,
+      "cldn4_spearman_r": 0.4676,
+      "top1_gene": "SLC39A2",
+      "top1_r": 0.4789
+    },
+    {
+      "subset": "PAM50_Normal",
+      "n": 23,
+      "n_universe": 2618,
+      "cldn4_surface_rank": 28,
+      "cldn4_spearman_r": 0.5514,
+      "top1_gene": "EFNA1",
+      "top1_r": 0.7569
+    }
+  ],
+  "top10_surface_spearman": [
     {
       "gene": "EFNA1",
       "spearman_rank": 1,
