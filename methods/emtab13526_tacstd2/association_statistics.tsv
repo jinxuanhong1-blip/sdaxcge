@@ -1,0 +1,24 @@
+contrast	n	spearman_rho	spearman_p	note
+tumor malig-like TACSTD2 mean_log1p vs T/NK fraction (eligible)	10	0.4545454545454545	0.18690481034933196	
+tumor malig-like TACSTD2 mean_log1p vs T/NK fraction (all CD235a- tumor patients)	12	-0.024518426391842117	0.9397100223231515	
+tumor malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction (eligible)	10	0.16363636363636364	0.6514773427962428	
+tumor malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction (all CD235a- tumor patients)	12	-0.19965004347642867	0.5338670484331345	
+tumor malig-like TACSTD2 %pos vs T/NK fraction (eligible)	10	0.2727272727272727	0.4458383415427516	
+tumor malig-like TACSTD2 %pos vs T/NK fraction (all CD235a- tumor patients)	12	-0.143607926009361	0.6561292074448724	
+tumor epithelial TACSTD2 mean_log1p vs T/NK fraction (eligible)	11	0.09090909090909091	0.7903727377532903	
+tumor epithelial TACSTD2 mean_log1p vs T/NK fraction (all CD235a- tumor patients)	12	-0.16083916083916086	0.6175234895401425	
+tumor malig-like TACSTD2 mean_log1p vs T/NK (n_malig>=50)	9	0.5	0.1704706607870538	
+tumor malig-like TACSTD2 vs T/NK (LUAD eligible)	3			too_few_samples
+tumor malig-like TACSTD2 vs T/NK (LUSC eligible)	5	0.7	0.1881204043741873	
+tumor malig-like CLDN4 mean_log1p vs T/NK fraction (eligible)	10	0.41818181818181815	0.22911284098281892	
+tumor malig-like CLDN4 mean_log1p vs T/NK fraction (all CD235a- tumor patients)	12	-0.04553422044199251	0.8882523316528931	
+tumor malig-like CLDN4 mean log1p(CP10k) vs T/NK fraction (eligible)	10	0.13939393939393938	0.7009318849100584	
+tumor malig-like CLDN4 mean log1p(CP10k) vs T/NK fraction (all CD235a- tumor patients)	12	-0.21366057284319562	0.5049126875860395	
+tumor malig-like CLDN4 %pos vs T/NK fraction (eligible)	10	0.309090909090909	0.38484123026128353	
+tumor malig-like CLDN4 %pos vs T/NK fraction (all CD235a- tumor patients)	12	-0.10858160259244368	0.7369437083547932	
+tumor epithelial CLDN4 mean_log1p vs T/NK fraction (eligible)	11	0.05454545454545456	0.8734465775233149	
+tumor epithelial CLDN4 mean_log1p vs T/NK fraction (all CD235a- tumor patients)	12	-0.18881118881118883	0.5567370561768314	
+tumor malig-like CLDN4 mean_log1p vs T/NK (n_malig>=50)	9	0.25	0.5164895523012261	
+tumor malig-like CLDN4 vs T/NK (LUAD eligible)	3			too_few_samples
+tumor malig-like CLDN4 vs T/NK (LUSC eligible)	5	0.6	0.28475697986529386	
+response / MPR / R vs TACSTD2 or CLDN4	0			no_public_response_labels_treatment_naive_not_ICI

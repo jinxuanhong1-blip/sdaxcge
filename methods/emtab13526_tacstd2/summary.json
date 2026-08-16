@@ -1,0 +1,102 @@
+{
+  "dataset": "E-MTAB-13526",
+  "pmid": "38782901",
+  "citation": "De Zuani, Xue, Park, et al. Nat Commun 2024 (Cvejic NSCLC atlas)",
+  "n_patients_paper": 25,
+  "n_patients_arrayexpress": 24,
+  "treatment": "treatment-naive NSCLC tumor + matched non-involved lung",
+  "is_blood_only": false,
+  "is_ici_response_cohort": false,
+  "public_mpr_r_labels": false,
+  "gse207422_reanalyzed": false,
+  "subset_used": "CD235a- tumor Cell Ranger mtx (15 lanes / 12 patients)",
+  "skipped_full_atlas": "Author annotated h5ads are 45.5 GB (background/healthy) + 58.7 GB (tumour). CD45+/MDSC-sorted tumor lanes omitted because they lack malignant epithelium and inflate T/NK fractions.",
+  "label_search": {
+    "sdrf_response_fields": [],
+    "note": "ArrayExpress SDRF has disease, FACS, sampling site, TNM. No ICI, MPR, pCR, R/NR, or DCB labels. Paper states treatment-naive resections."
+  },
+  "genes_present": [
+    "AGER",
+    "CD14",
+    "CD2",
+    "CD3D",
+    "CD3E",
+    "CD68",
+    "CD79A",
+    "CLDN4",
+    "COL1A1",
+    "DCN",
+    "EPCAM",
+    "FGFBP2",
+    "GNLY",
+    "KRT18",
+    "KRT19",
+    "KRT8",
+    "LYZ",
+    "MS4A1",
+    "NKG7",
+    "PECAM1",
+    "SCGB1A1",
+    "SCGB3A1",
+    "SFTPA2",
+    "TACSTD2",
+    "TPPP3",
+    "VWF"
+  ],
+  "TACSTD2_present": true,
+  "CLDN4_present": true,
+  "n_cells": 276018,
+  "library_size": "Cell Ranger total UMI after author-like QC",
+  "n_tumor_patients": 12,
+  "n_eligible_malig_tumor": 10,
+  "primary_TACSTD2_vs_tnk": {
+    "contrast": "tumor malig-like TACSTD2 mean_log1p vs T/NK fraction (eligible)",
+    "n": 10,
+    "spearman_rho": 0.4545454545454545,
+    "spearman_p": 0.18690481034933196,
+    "note": ""
+  },
+  "primary_CLDN4_vs_tnk": {
+    "contrast": "tumor malig-like CLDN4 mean_log1p vs T/NK fraction (eligible)",
+    "n": 10,
+    "spearman_rho": 0.41818181818181815,
+    "spearman_p": 0.22911284098281892,
+    "note": ""
+  },
+  "response_test": "not_possible_no_public_labels",
+  "honest_unit": "patient",
+  "restriction": [
+    {
+      "gene": "TACSTD2",
+      "subset": "all_cd235a_tumor",
+      "n": 12,
+      "median_pct_pos_malig_like": 37.61566094560761,
+      "median_pct_pos_tnk": 2.7064364800730156,
+      "wilcoxon_greater_p": 0.001220703125
+    },
+    {
+      "gene": "TACSTD2",
+      "subset": "eligible_malig",
+      "n": 10,
+      "median_pct_pos_malig_like": 45.5291454442558,
+      "median_pct_pos_tnk": 2.7064364800730156,
+      "wilcoxon_greater_p": 0.0009765625
+    },
+    {
+      "gene": "CLDN4",
+      "subset": "all_cd235a_tumor",
+      "n": 12,
+      "median_pct_pos_malig_like": 25.509815305344897,
+      "median_pct_pos_tnk": 1.787451663769211,
+      "wilcoxon_greater_p": 0.001708984375
+    },
+    {
+      "gene": "CLDN4",
+      "subset": "eligible_malig",
+      "n": 10,
+      "median_pct_pos_malig_like": 32.600688633433016,
+      "median_pct_pos_tnk": 1.787451663769211,
+      "wilcoxon_greater_p": 0.0009765625
+    }
+  ]
+}
