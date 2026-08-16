@@ -9,8 +9,10 @@ The requested direction can be recovered in public data, but at different eviden
 3. **Independent Asian LUAD direction, strong but not purity-adjusted:** OncoSG TACSTD2 versus T/NK ρ=−0.428 (p=6.46×10⁻⁹, q=1.94×10⁻⁸; n=169).
 4. **Tight-junction/CLDN4 correlative program:** TACSTD2 and CLDN4 remained positively correlated after ABSOLUTE-purity adjustment in TCGA-LUAD (ρ=0.454, p=1.20×10⁻²⁶) and TCGA-LUSC (ρ=0.391, p=6.88×10⁻¹⁹), and were correlated in OncoSG (ρ=0.505, p=2.65×10⁻¹²). CLDN4 was negatively associated with T/NK in purity-adjusted TCGA-LUAD (ρ=−0.137, p=0.00218) and unadjusted OncoSG (ρ=−0.526, p=2.03×10⁻¹³), but not in TCGA-LUSC (ρ=−0.059, p=0.199).
 5. **Largest direct neoadjuvant scRNA check disagrees for TACSTD2 response:** in the GSE241934 real-world cohort, after requiring at least 10 author-annotated epithelial cells per patient, TACSTD2 was nearly identical and slightly higher in MPR/pCR (NMPR−MPR median difference −0.011, p=0.630; 19 versus 10 patients). CLDN4 followed the requested NMPR-high direction (+0.215) but was non-significant (p=0.261).
+6. **Author-labeled malignant ICI scRNA also disagrees for TACSTD2 response:** in the GSE205335 Core set (11 patients; 4 PR versus 7 SD+PD), malignant-cell TACSTD2 was lower, not higher, in non-responders (median difference −0.389 mean-log1p UMI, p=0.412). CLDN4 was only trivially higher in non-responders (+0.053, p=0.788). TACSTD2 versus CLDN4 remained positively correlated (ρ=0.773, p=0.00530, BH q=0.0795).
+7. **Neoadjuvant durvalumab bulk recovers immune-exclusion, not worse MPR:** in pretreatment GSE253564 (n=32), TACSTD2 was higher in MPR than NMPR (NMPR−MPR=−1.415 log2(FPKM+1), p=0.0155, q=0.0598). The same matrix showed the requested inverse T-cell-proxy correlations (TACSTD2 ρ=−0.568, p=0.000700, q=0.00945; CLDN4 ρ=−0.476, p=0.00587, q=0.0317) and a TACSTD2–CLDN4 correlation (ρ=0.687, p=1.39×10⁻⁵, q=0.000375). The dual-therapy arm alone also had higher TACSTD2 in MPR (NMPR−MPR=−2.447, p=0.0225, q=0.0759; 6 versus 10).
 
-These results support a **correlative epithelial/TJ immune-exclusion model**. They do not prove that TACSTD2 or CLDN4 causes immune exclusion, and TCGA/OncoSG have no ICI endpoint.
+These results support a **correlative epithelial/TJ immune-exclusion model**. They do not prove that TACSTD2 or CLDN4 causes immune exclusion, and they do **not** recover a general TACSTD2-high → worse ICI-response rule in the open malignant-cell or durvalumab datasets. TCGA/OncoSG have no ICI endpoint.
 
 ## GSE207422 malignant-compartment analysis
 
@@ -52,6 +54,37 @@ Thus, GSE241934 independently supports a linked TACSTD2/CLDN4 epithelial program
 
 ![GSE241934 response](gse241934_response.png)
 
+## GSE205335 author-labeled malignant ICI check
+
+GSE205335 deposits 96,505 cells from 33 samples / 26 patients with official `lineage.sub` labels, including 28,512 **Malignant cells**. Patient-level RECIST, PFS, and OS were taken from the open eLife Supplementary file 1 (DOI [10.7554/eLife.98366](https://doi.org/10.7554/eLife.98366)), not from GEO sample metadata. Following the paper, outcome tests used only the **Core** set: 14 pretreatment NSCLC samples from 11 patients (4 PR, 2 SD, 5 PD). Multiple biopsies from the same patient were collapsed by cell-count-weighted means. Add-on samples (adjuvant, post-treatment, non-evaluable, non-NSCLC, or no tumor content) were excluded. TACSTD2/CLDN4 and an IFN/MHC-I score were computed as mean log1p UMI inside author-labeled malignant cells. T/NK fractions used the author `lineage.total=T/NK cells` label.
+
+- TACSTD2 median(SD+PD) − median(PR)=−0.389, p=0.412. This disagrees with the requested NMPR/non-responder-high direction.
+- CLDN4 difference=+0.053, p=0.788.
+- TACSTD2 versus T/NK among non-malignant cells: ρ=+0.173, p=0.612.
+- TACSTD2 versus malignant IFN/MHC-I: ρ=−0.464, p=0.151; CLDN4 versus IFN/MHC-I: ρ=−0.518, p=0.102. These two point toward the requested “high TJ / low IFN-MHC-I” direction but are not significant at n=11.
+- TACSTD2 versus CLDN4: ρ=+0.773, p=0.00530, q=0.0795.
+- Exploratory PFS (8 events): TACSTD2 HR per SD=0.985 (p=0.971); CLDN4 HR=1.32 (p=0.441).
+
+This is the first open ICI cohort here with author malignant calls rather than an operational epithelial gate. It supports the linked TACSTD2/CLDN4 program and gives only a non-significant hint for the IFN/MHC-I direction. It does not recover TACSTD2-high resistance. Results are in [`gse205335_statistics.tsv`](gse205335_statistics.tsv) and [`gse205335_patient_scores.tsv`](gse205335_patient_scores.tsv).
+
+![GSE205335 core response](gse205335_response.png)
+
+## GSE253564 neoadjuvant durvalumab ± SBRT
+
+GSE253564 is pretreatment bulk FPKM from NCT02904954 (32 tumors). GEO stores Arm1/Arm2 plus histology only. MPR and PFS were joined from the open Nature Communications source-data workbook (DOI [10.1038/s41467-023-44195-x](https://doi.org/10.1038/s41467-023-44195-x)): Figure 2e `Path Response_2Group=Major` versus other resected patients, and Figure 2b PFS time/status. The same join shows GEO Arm1=durvalumab monotherapy (16 tumors, 1 MPR) and Arm2=durvalumab+SBRT (16 tumors, 10 MPR), matching the published MPR imbalance. Expression was analyzed as log2(FPKM+1). The T-cell proxy is the mean within-cohort z-score of CD3D, CD3E, and CD8A. Post-treatment GSE248378 was **not** tested for recurrence because GEO titles are not a verified patient-outcome map.
+
+- All pretreatment TACSTD2 NMPR−MPR=−1.415, p=0.0155, q=0.0598 (21 versus 11). TACSTD2 is higher in MPR; this disagrees with the requested resistance direction.
+- Dual-therapy arm only: TACSTD2 NMPR−MPR=−2.447, p=0.0225, q=0.0759 (6 versus 10). The monotherapy MPR contrast is uninformative (1 MPR).
+- CLDN4 NMPR−MPR=−0.315, p=0.341.
+- TACSTD2 versus T-cell proxy: ρ=−0.568, p=0.000700, q=0.00945.
+- CLDN4 versus T-cell proxy: ρ=−0.476, p=0.00587, q=0.0317.
+- TACSTD2 versus CLDN4: ρ=+0.687, p=1.39×10⁻⁵, q=0.000375.
+- PFS (10 events coded as recurrence or death): TACSTD2 HR per SD=0.721 (p=0.299); CLDN4 HR=0.823 (p=0.502). High expression was not associated with worse PFS.
+
+The immune-exclusion correlations are the same direction as TCGA/OncoSG and GSE207422 bulk. The MPR direction is opposite and is a bulk measurement, so tumor-content confounding remains possible; this analysis does not treat the T-cell proxy as a purity correction. Results are in [`gse253564_statistics.tsv`](gse253564_statistics.tsv) and [`gse253564_patient_scores.tsv`](gse253564_patient_scores.tsv).
+
+![GSE253564 pretreatment MPR](durvalumab_mpr.png)
+
 ## Purity-corrected bulk method
 
 For TCGA-LUAD/LUSC, selected-gene RSEM values were obtained from the public cBioPortal PanCancer Atlas profiles. Tumor purity came from the open GDC PanCanAtlas ABSOLUTE file `TCGA_mastercalls.abs_tables_JSedit.fixed.txt` (GDC UUID `4f277128-f793-4354-a13d-30cc7fe9f6b5`). The T/NK score was the mean within-cohort z-score of log2 expression for CD3D, CD3E, CD8A, NKG7, GNLY, and KLRD1. Partial Spearman correlations were calculated by correlating rank residuals after regression on ABSOLUTE purity. Thus “purity-corrected” here uses a measured genomic purity estimate, not an epithelial-expression surrogate.
@@ -72,8 +105,8 @@ The defensible current thesis is therefore narrower: **TACSTD2/CLDN4 mark a corr
 
 ## Ranked public follow-up sets
 
-1. **GSE205335 (scRNA, palliative ICI):** open 499.5 MB RDS plus official cell identities and an open publication supplement with RECIST/PFS/OS. Best next malignant-cell patient-pseudobulk validation. Restrict to pretreatment core samples, collapse multiple biopsies within patient, and model biopsy site.
-2. **GSE253564 + GSE248378 (neoadjuvant durvalumab ± radiation):** 32 pretreatment and 28/29 deposited post-treatment bulk profiles from the randomized NCT02904954 trial. Open paper Table S1 supplies MPR mapping. Analyze treatment arms separately and adjust for purity/histology because radiation strongly changes response and immunity.
+1. **GSE205335:** now analyzed at patient level with author malignant labels and the Core clinical table. Remaining limits are n=11, mixed biopsy sites, and no copy-number re-derivation beyond the deposited malignant call.
+2. **GSE253564:** now analyzed for pretreatment MPR/PFS with arm-confirmed source-data labels. Remaining limits are bulk purity/histology confounding and a single monotherapy MPR in the RNA-seq subset. GSE248378 remains unused for recurrence.
 3. **GSE271689 (GeoMx WTA):** 586 compartmented AOIs with a 36.8 MB DCC archive and an external clinical supplement. CK AOIs plus patient-level aggregation are the appropriate test; never analyze AOIs as independent patients.
 4. **GSE146100 (neoadjuvant pembrolizumab):** three lesions from one patient, one responding and two nonresponding. Useful only as a within-patient illustration, not independent clinical replication.
 5. **GSE243013:** deliberately excluded from malignant-TACSTD2 analysis because its released large matrix is CD45-positive immune-cell selected; it cannot measure the proposed malignant program.
@@ -88,6 +121,8 @@ Run:
 
 ```bash
 python3 scripts/ici/analyze_alignment.py
+python3 scripts/ici/analyze_gse205335.py
+python3 scripts/ici/analyze_durvalumab.py
 ```
 
-The script streams only selected genes from the open GSE207422 processed matrix, retrieves selected public TCGA/OncoSG expression values, joins open ABSOLUTE purity, and regenerates the TSVs and figure. It does not use FASTQ/SRA data.
+`analyze_alignment.py` streams selected genes from the open GSE207422 processed matrix, retrieves selected public TCGA/OncoSG expression values, joins open ABSOLUTE purity, and regenerates those TSVs and figure. `analyze_gse205335.py` downloads the open identity table, UMI RDS, and eLife Supplementary file 1, extracts selected genes from the RDS with `scripts/ici/extract_gse205335_genes.R`, and collapses Core samples to patients. `analyze_durvalumab.py` downloads pretreatment FPKM, the GEO SOFT file, and the Nature Communications source-data workbook. None of these scripts use FASTQ/SRA data. GSE205335 extraction requires R (`Rscript`) because the deposited object is a `dgCMatrix` RDS.

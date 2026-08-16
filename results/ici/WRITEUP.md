@@ -1,6 +1,6 @@
 # Lung-cancer ICI: TACSTD2 (TROP2) and CLDN4
 
-Targeted follow-up on malignant-cell scoring, ABSOLUTE-purity-adjusted TCGA, OncoSG, and concordant/discordant evidence: [`user_align.md`](user_align.md).
+Targeted follow-up on malignant-cell scoring, ABSOLUTE-purity-adjusted TCGA, OncoSG, GSE205335 author-labeled malignant ICI scores, neoadjuvant durvalumab MPR, and concordant/discordant evidence: [`user_align.md`](user_align.md).
 
 ## English
 
@@ -8,12 +8,14 @@ Targeted follow-up on malignant-cell scoring, ABSOLUTE-purity-adjusted TCGA, Onc
 
 This analysis uses only open, processed human lung-cancer expression data with immune-checkpoint-inhibitor labels. GEO accessions and files were verified on their GEO records; no FASTQ/SRA data were used and no file larger than 2 GB was downloaded. The complete inventory, exclusions, exact file sizes, and controlled resources are in [`notes/ici_catalog.tsv`](../../notes/ici_catalog.tsv). Download URLs and SHA-256 checksums are in [`data/manifest.tsv`](data/manifest.tsv).
 
-Four open cohorts were analyzed:
+Open cohorts analyzed for ICI endpoints now include:
 
 - **GSE126044:** pre-treatment bulk RNA-seq, anti-PD-1, 5 GEO-labeled responders versus 11 non-responders.
 - **GSE166449:** pre-treatment bulk RNA-seq, immunotherapy, 7 GEO-labeled responders versus 15 non-responders.
 - **GSE207422:** pre-treatment bulk RNA-seq before anti-PD-1 plus chemotherapy, 9 MPR versus 15 NMPR; RECIST also permits 17 CR/PR versus 7 SD.
 - **GSE135222:** bulk RNA-seq from 27 anti-PD-1/PD-L1-treated patients, 21 PFS events.
+- **GSE205335:** scRNA-seq with author malignant labels; 11 Core patients (4 PR, 2 SD, 5 PD) after collapsing paired biopsies.
+- **GSE253564:** pretreatment bulk FPKM from NCT02904954 neoadjuvant durvalumab ± SBRT, 21 NMPR versus 11 MPR.
 
 ### Methods
 
@@ -41,6 +43,14 @@ The open-cohort test here does **not consistently replicate** the response compo
 
 ![TACSTD2 and bulk T-cell proxy](tacstd2_tcell_proxy.png)
 
+**GSE205335 malignant-cell ICI test.** Using author `Malignant cells` labels and the eLife Core clinical table, TACSTD2 was lower in SD+PD than in PR (median difference −0.389 mean-log1p UMI, p=0.412; 7 versus 4 patients). CLDN4 differed by +0.053 (p=0.788). Neither gene was associated with PFS (TACSTD2 HR per SD 0.985, p=0.971; CLDN4 1.32, p=0.441; 8 events). TACSTD2 and CLDN4 remained correlated (ρ=0.773, p=0.00530, q=0.0795). This does not recover TACSTD2-high resistance. Full table: [`gse205335_statistics.tsv`](gse205335_statistics.tsv).
+
+![GSE205335 core malignant scores](gse205335_response.png)
+
+**GSE253564 durvalumab MPR.** Pretreatment TACSTD2 was higher in MPR than NMPR (median difference NMPR−MPR=−1.415 log2(FPKM+1), p=0.0155, q=0.0598; 21 versus 11). The dual-therapy arm alone showed the same opposite-to-requested direction (−2.447, p=0.0225, q=0.0759). CLDN4 was not significant. Both genes correlated inversely with the CD3D/CD3E/CD8A T-cell proxy (TACSTD2 ρ=−0.568, p=0.000700, q=0.00945; CLDN4 ρ=−0.476, p=0.00587, q=0.0317). PFS was not significant (TACSTD2 HR per SD 0.721, p=0.299). GEO Arm1/Arm2 were confirmed as monotherapy versus SBRT+durvalumab by the paper source-data join. Full table: [`gse253564_statistics.tsv`](gse253564_statistics.tsv).
+
+![GSE253564 pretreatment MPR](durvalumab_mpr.png)
+
 ### Caveats
 
 - These are small retrospective cohorts; confidence intervals are wide and a non-significant result is not evidence of no effect.
@@ -51,6 +61,8 @@ The open-cohort test here does **not consistently replicate** the response compo
 - The controlled OAK/POPLAR comparison has a chemotherapy control arm and 891 tumors; these open cohorts do not provide an equivalent treatment-by-biomarker interaction test.
 - The Bessede high/low threshold was selected using PFS and its numerical cutoff was not reported, limiting exact independent reproduction even with controlled access.
 - CLDN4 and TACSTD2 are correlated epithelial-state markers in some settings; these univariable analyses do not establish causality or independence from histology, tumor purity, PD-L1, or other covariates.
+- GSE205335 Core n=11 is too small for a confident negative; biopsy sites are mixed, and Add-on samples were excluded by the paper’s own criteria.
+- GSE253564 is bulk RNA-seq. Higher TACSTD2 in MPR can reflect tumor content or histology as well as a malignant program; the inverse T-cell-proxy correlation is not a purity-adjusted test. The monotherapy RNA-seq subset contains only one MPR.
 
 ## 中文
 
@@ -58,7 +70,7 @@ The open-cohort test here does **not consistently replicate** the response compo
 
 本分析仅使用开放的、人肺癌且带有免疫检查点抑制剂（ICI）标签的处理后表达数据。所有 GEO 编号和文件均在 GEO 页面核实；未使用 FASTQ/SRA，未下载大于 2 GB 的文件。完整目录、排除原因、文件大小和受控数据资源见 [`notes/ici_catalog.tsv`](../../notes/ici_catalog.tsv)，下载地址及 SHA-256 校验值见 [`data/manifest.tsv`](data/manifest.tsv)。
 
-分析包括四个开放队列：GSE126044（抗 PD-1，5 名应答者/11 名非应答者）、GSE166449（免疫治疗，7/15）、GSE207422（抗 PD-1 联合化疗，9 MPR/15 NMPR；另有 17 CR/PR 对 7 SD）及 GSE135222（抗 PD-1/PD-L1，27 例、21 个 PFS 事件）。
+分析包括开放队列：GSE126044（抗 PD-1，5 名应答者/11 名非应答者）、GSE166449（免疫治疗，7/15）、GSE207422（抗 PD-1 联合化疗，9 MPR/15 NMPR；另有 17 CR/PR 对 7 SD）、GSE135222（抗 PD-1/PD-L1，27 例、21 个 PFS 事件）、GSE205335（作者标注恶性细胞，11 例 Core：4 PR / 2 SD / 5 PD）及 GSE253564（新辅助 durvalumab ± SBRT，预处理 21 NMPR / 11 MPR）。
 
 ### 方法
 
@@ -76,6 +88,10 @@ GSE126044 采用 log2(CPM+0.5)，GSE135222 采用 log2(value+1)，其余使用 G
 
 **对 Bessede 等人结论的检验：** 该研究报道 OAK/POPLAR 中 TACSTD2 高表达与阿替利珠单抗治疗期间较差结局及较低的推算 T 细胞浸润相关（PMID 38048058；DOI 同上）；其受控数据 EGAS00001005013 仅列出，未下载。论文未报告治疗×TACSTD2 交互作用检验，因此不能仅凭阿替利珠单抗组显著而多西他赛组不显著，就认定 TACSTD2 已是“降低阿替利珠单抗相对获益”的预测标志物；主要浸润证据也来自 bulk RNA 去卷积，而非直接 T 细胞计数。本次开放队列分析未一致复现应答方向：GSE126044 和 GSE207422 中 TACSTD2 在获益组较低，而 GSE166449 中较高，且均不显著。TACSTD2 与 T 细胞代理指标仅在 GSE207422 呈显著负相关（rho=−0.568，p=0.00380，BH q=0.0152）；GSE126044、GSE166449 和 GSE135222 均不显著。因此结果只是在一个联合化疗队列中部分支持“较少 T 细胞浸润”的方向，不能视为独立验证。
 
+**GSE205335：** 按作者恶性细胞标签和 eLife Core 临床表，TACSTD2 在 SD+PD 中低于 PR（中位数差 −0.389，p=0.412），CLDN4 差值为 +0.053（p=0.788），PFS 均不显著。TACSTD2 与 CLDN4 仍正相关（ρ=0.773，p=0.00530）。该队列未复现“TACSTD2 高→ICI 抵抗”。
+
+**GSE253564：** 预处理 TACSTD2 在 MPR 中更高（NMPR−MPR=−1.415，p=0.0155，q=0.0598），双药臂单独分析方向相同（−2.447，p=0.0225）。两基因与 T 细胞代理指标负相关（TACSTD2 ρ=−0.568，p=0.000700，q=0.00945；CLDN4 ρ=−0.476，p=0.00587，q=0.0317）。PFS 不显著。GEO Arm1/Arm2 已通过论文 source data 确认为单药 / SBRT+durvalumab。GSE248378 术后样本标题未作为复发标签使用。
+
 ### 局限性
 
 - 样本量小、回顾性强、置信区间宽；未显著不等于无效应。
@@ -86,3 +102,5 @@ GSE126044 采用 log2(CPM+0.5)，GSE135222 采用 log2(value+1)，其余使用 G
 - 开放队列没有 OAK/POPLAR 那样的化疗对照臂，不能检验治疗×生物标志物交互作用。
 - Bessede 研究按 PFS 优化高/低阈值且未报告数值 cutoff，即使获得受控数据也难以精确复现。
 - 单因素结果未校正组织学、肿瘤纯度、PD-L1 等因素，不能推出 TACSTD2 或 CLDN4 的因果作用。
+- GSE205335 Core 仅 11 例，活检部位混杂；未显著不能视为否定。
+- GSE253564 为 bulk，MPR 组 TACSTD2 更高可能受肿瘤含量/组织学影响；T 细胞代理负相关不是纯度校正。单药 RNA-seq 子集中仅 1 例 MPR。
