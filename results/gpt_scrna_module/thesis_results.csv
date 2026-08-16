@@ -1,0 +1,25 @@
+atlas,hypothesis,exposure,outcome,n,metric,estimate,p,match
+GSE131907,TROP2-high -> immune-low after purity,tacstd2,immune_score_purity_adjusted,18,partial_spearman_rho,0.2802907612495602,0.265842365359759,inconclusive
+GSE131907,TROP2-high -> immune-low after purity,tacstd2,immune_low_given_high_exposure,18,OR,0.64,1.0,inconclusive
+GSE131907,TROP2-high -> immune-low after purity,tacstd2,immune_fraction_high_vs_low_exposure,18,log2FC,-0.11550911821943094,0.7239320396139757,inconclusive
+GSE131907,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_score_purity_adjusted,18,partial_spearman_rho,-0.1565523852365899,0.3360485840828808,inconclusive
+GSE131907,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_low_given_high_exposure,18,OR,1.5625,1.0,inconclusive
+GSE131907,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_fraction_high_vs_low_exposure,18,log2FC,-0.34880333679901104,0.42677673653298365,inconclusive
+GSE131907,CLDN4 tracks tight-junction barrier,cldn4,tj_module,18,spearman_rho,0.691918020774252,0.0014655328239969213,match
+GSE131907,CLDN4 co-occurs with TROP2 epithelial state,cldn4,tacstd2,18,spearman_rho,0.2977059436913451,0.2302068712809871,inconclusive
+GSE148071,TROP2-high -> immune-low after purity,tacstd2,immune_score_purity_adjusted,25,partial_spearman_rho,-0.28605629224330387,0.17241494018483733,inconclusive
+GSE148071,TROP2-high -> immune-low after purity,tacstd2,immune_low_given_high_exposure,25,OR,2.24,0.43375266811530094,inconclusive
+GSE148071,TROP2-high -> immune-low after purity,tacstd2,immune_fraction_high_vs_low_exposure,25,log2FC,-0.4590246698190512,0.10858440161427453,inconclusive
+GSE148071,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_score_purity_adjusted,25,partial_spearman_rho,-0.4928382485278836,0.011430230641267866,match
+GSE148071,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_low_given_high_exposure,25,OR,2.24,0.43375266811530094,inconclusive
+GSE148071,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_fraction_high_vs_low_exposure,25,log2FC,0.34440387746255535,0.4302896916456853,inconclusive
+GSE148071,CLDN4 tracks tight-junction barrier,cldn4,tj_module,25,spearman_rho,0.5839004345114176,0.002180902494732389,match
+GSE148071,CLDN4 co-occurs with TROP2 epithelial state,cldn4,tacstd2,25,spearman_rho,0.37403579013677996,0.06548353620734747,inconclusive
+GSE154826,TROP2-high -> immune-low after purity,tacstd2,immune_score_purity_adjusted,19,partial_spearman_rho,0.15155632417671266,0.7198391434384253,inconclusive
+GSE154826,TROP2-high -> immune-low after purity,tacstd2,immune_low_given_high_exposure,19,OR,0.3333333333333333,0.36984996427720884,inconclusive
+GSE154826,TROP2-high -> immune-low after purity,tacstd2,immune_fraction_high_vs_low_exposure,19,log2FC,-0.10331401673905197,0.055013832353979004,inconclusive
+GSE154826,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_score_purity_adjusted,19,partial_spearman_rho,0.18826080150567198,0.9544440295789053,inconclusive
+GSE154826,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_low_given_high_exposure,19,OR,0.3333333333333333,0.36984996427720884,inconclusive
+GSE154826,CLDN4 TJ barrier -> immune-low after purity,cldn4,immune_fraction_high_vs_low_exposure,19,log2FC,-0.035677462742971656,0.437942822899974,inconclusive
+GSE154826,CLDN4 tracks tight-junction barrier,cldn4,tj_module,19,spearman_rho,0.7328658066696925,0.00035809537724250265,match
+GSE154826,CLDN4 co-occurs with TROP2 epithelial state,cldn4,tacstd2,19,spearman_rho,0.6725531078744854,0.0016051384073948085,match

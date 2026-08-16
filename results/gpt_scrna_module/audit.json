@@ -1,0 +1,1056 @@
+{
+  "seed": 20260816,
+  "gene_sets": {
+    "epi_class": [
+      "EPCAM",
+      "KRT8",
+      "KRT18",
+      "KRT19",
+      "KRT7",
+      "MUC1",
+      "TACSTD2",
+      "CLDN4"
+    ],
+    "t_class": [
+      "CD3D",
+      "CD3E",
+      "TRBC1",
+      "TRBC2",
+      "LCK",
+      "PTPRC"
+    ],
+    "b_class": [
+      "CD79A",
+      "CD79B",
+      "MS4A1",
+      "CD37",
+      "CD74",
+      "CD22",
+      "CD19"
+    ],
+    "myeloid_class": [
+      "LST1",
+      "TYROBP",
+      "FCER1G",
+      "CTSS",
+      "AIF1",
+      "LYZ"
+    ],
+    "endothelial_class": [
+      "VWF",
+      "PECAM1",
+      "EMCN",
+      "KDR"
+    ],
+    "fibroblast_class": [
+      "COL1A1",
+      "COL1A2",
+      "DCN",
+      "COL3A1",
+      "COL6A1"
+    ],
+    "epithelial_module": [
+      "TACSTD2",
+      "CLDN4"
+    ],
+    "tacstd2": [
+      "TACSTD2"
+    ],
+    "cldn4": [
+      "CLDN4"
+    ],
+    "tj_barrier": [
+      "CLDN3",
+      "CLDN7",
+      "OCLN",
+      "TJP1",
+      "F11R"
+    ],
+    "cd8": [
+      "CD8A",
+      "CD8B",
+      "CCL5",
+      "NKG7",
+      "GZMK"
+    ],
+    "tls_b": [
+      "MS4A1",
+      "CD79A",
+      "CD74",
+      "CD37"
+    ],
+    "tls_tfh": [
+      "CXCL13",
+      "CXCR5",
+      "ICOS",
+      "PDCD1",
+      "TOX"
+    ],
+    "tls_mregdc": [
+      "LAMP3",
+      "CCL19",
+      "CCL22",
+      "CD274"
+    ],
+    "lcam_t": [
+      "PDCD1",
+      "CXCL13",
+      "TOX",
+      "HAVCR2"
+    ],
+    "lcam_plasma": [
+      "IGHG1",
+      "IGHG3",
+      "MZB1",
+      "JCHAIN"
+    ],
+    "lcam_mac": [
+      "SPP1",
+      "APOC1",
+      "APOE",
+      "LPL"
+    ]
+  },
+  "minimum_lineage_cells": {
+    "epithelial": 20,
+    "T": 20,
+    "B": 10,
+    "myeloid": 20
+  },
+  "GSE131907": {
+    "matrix_cells": 208506,
+    "matrix_genes": 29634,
+    "tumor_bearing_specimen_cells": 62612,
+    "tumor_bearing_specimens": 21,
+    "classification": "published major immune cell types; published Malignant cells subtype for tumor epithelium",
+    "genes_found": [
+      "AIF1",
+      "APOC1",
+      "APOE",
+      "CCL19",
+      "CCL22",
+      "CCL5",
+      "CD19",
+      "CD22",
+      "CD274",
+      "CD37",
+      "CD3D",
+      "CD3E",
+      "CD74",
+      "CD79A",
+      "CD79B",
+      "CD8A",
+      "CD8B",
+      "CLDN3",
+      "CLDN4",
+      "CLDN7",
+      "COL1A1",
+      "COL1A2",
+      "COL3A1",
+      "COL6A1",
+      "CTSS",
+      "CXCL13",
+      "CXCR5",
+      "DCN",
+      "EMCN",
+      "EPCAM",
+      "F11R",
+      "FCER1G",
+      "GZMK",
+      "HAVCR2",
+      "ICOS",
+      "IGHG1",
+      "IGHG3",
+      "JCHAIN",
+      "KDR",
+      "KRT18",
+      "KRT19",
+      "KRT7",
+      "KRT8",
+      "LAMP3",
+      "LCK",
+      "LPL",
+      "LST1",
+      "LYZ",
+      "MS4A1",
+      "MUC1",
+      "MZB1",
+      "NKG7",
+      "OCLN",
+      "PDCD1",
+      "PECAM1",
+      "PTPRC",
+      "SPP1",
+      "TACSTD2",
+      "TJP1",
+      "TOX",
+      "TRBC1",
+      "TRBC2",
+      "TYROBP",
+      "VWF"
+    ],
+    "genes_missing": []
+  },
+  "GSE148071": {
+    "matrix_cells": 89887,
+    "tumor_samples": 42,
+    "classification": "predeclared marker argmax (no published cell labels in GEO archive)",
+    "sample_audit": [
+      {
+        "file": "GSM4453576_P1_exp.txt.gz",
+        "sample": "P1",
+        "cells": 5317,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 3804,
+          "T": 101,
+          "B": 79,
+          "myeloid": 887,
+          "endothelial": 153,
+          "fibroblast": 281,
+          "unclassified": 12
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453577_P2_exp.txt.gz",
+        "sample": "P2",
+        "cells": 306,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 283,
+          "T": 1,
+          "B": 3,
+          "myeloid": 16,
+          "endothelial": 2,
+          "fibroblast": 1,
+          "unclassified": 0
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453578_P3_exp.txt.gz",
+        "sample": "P3",
+        "cells": 7835,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 7596,
+          "T": 13,
+          "B": 7,
+          "myeloid": 93,
+          "endothelial": 16,
+          "fibroblast": 50,
+          "unclassified": 60
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453579_P4_exp.txt.gz",
+        "sample": "P4",
+        "cells": 4558,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 543,
+          "T": 283,
+          "B": 221,
+          "myeloid": 1661,
+          "endothelial": 87,
+          "fibroblast": 1747,
+          "unclassified": 16
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453580_P5_exp.txt.gz",
+        "sample": "P5",
+        "cells": 2454,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 1645,
+          "T": 26,
+          "B": 43,
+          "myeloid": 658,
+          "endothelial": 26,
+          "fibroblast": 51,
+          "unclassified": 5
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453581_P6_exp.txt.gz",
+        "sample": "P6",
+        "cells": 3119,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 2359,
+          "T": 57,
+          "B": 71,
+          "myeloid": 474,
+          "endothelial": 19,
+          "fibroblast": 117,
+          "unclassified": 22
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453582_P7_exp.txt.gz",
+        "sample": "P7",
+        "cells": 3059,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 260,
+          "T": 1102,
+          "B": 530,
+          "myeloid": 983,
+          "endothelial": 98,
+          "fibroblast": 60,
+          "unclassified": 26
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453583_P8_exp.txt.gz",
+        "sample": "P8",
+        "cells": 1342,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 491,
+          "T": 67,
+          "B": 141,
+          "myeloid": 584,
+          "endothelial": 14,
+          "fibroblast": 39,
+          "unclassified": 6
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453584_P9_exp.txt.gz",
+        "sample": "P9",
+        "cells": 3520,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 2190,
+          "T": 40,
+          "B": 77,
+          "myeloid": 304,
+          "endothelial": 271,
+          "fibroblast": 637,
+          "unclassified": 1
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453585_P10_exp.txt.gz",
+        "sample": "P10",
+        "cells": 3740,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 2595,
+          "T": 53,
+          "B": 50,
+          "myeloid": 347,
+          "endothelial": 44,
+          "fibroblast": 647,
+          "unclassified": 4
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453586_P11_exp.txt.gz",
+        "sample": "P11",
+        "cells": 574,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 11,
+          "T": 42,
+          "B": 206,
+          "myeloid": 240,
+          "endothelial": 12,
+          "fibroblast": 60,
+          "unclassified": 3
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453587_P12_exp.txt.gz",
+        "sample": "P12",
+        "cells": 891,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 422,
+          "T": 41,
+          "B": 155,
+          "myeloid": 201,
+          "endothelial": 32,
+          "fibroblast": 34,
+          "unclassified": 6
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453588_P13_exp.txt.gz",
+        "sample": "P13",
+        "cells": 938,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 167,
+          "T": 83,
+          "B": 250,
+          "myeloid": 395,
+          "endothelial": 10,
+          "fibroblast": 30,
+          "unclassified": 3
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453589_P14_exp.txt.gz",
+        "sample": "P14",
+        "cells": 1808,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 1373,
+          "T": 41,
+          "B": 73,
+          "myeloid": 209,
+          "endothelial": 57,
+          "fibroblast": 41,
+          "unclassified": 14
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453590_P15_exp.txt.gz",
+        "sample": "P15",
+        "cells": 3606,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 2883,
+          "T": 28,
+          "B": 75,
+          "myeloid": 469,
+          "endothelial": 55,
+          "fibroblast": 27,
+          "unclassified": 69
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453591_P16_exp.txt.gz",
+        "sample": "P16",
+        "cells": 1148,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 955,
+          "T": 2,
+          "B": 6,
+          "myeloid": 140,
+          "endothelial": 9,
+          "fibroblast": 33,
+          "unclassified": 3
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453592_P17_exp.txt.gz",
+        "sample": "P17",
+        "cells": 8700,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 8354,
+          "T": 0,
+          "B": 9,
+          "myeloid": 25,
+          "endothelial": 9,
+          "fibroblast": 105,
+          "unclassified": 198
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453593_P18_exp.txt.gz",
+        "sample": "P18",
+        "cells": 3314,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 1871,
+          "T": 68,
+          "B": 27,
+          "myeloid": 577,
+          "endothelial": 253,
+          "fibroblast": 514,
+          "unclassified": 4
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453594_P19_exp.txt.gz",
+        "sample": "P19",
+        "cells": 453,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 193,
+          "T": 53,
+          "B": 25,
+          "myeloid": 169,
+          "endothelial": 9,
+          "fibroblast": 1,
+          "unclassified": 3
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453595_P20_exp.txt.gz",
+        "sample": "P20",
+        "cells": 429,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 401,
+          "T": 2,
+          "B": 4,
+          "myeloid": 19,
+          "endothelial": 1,
+          "fibroblast": 2,
+          "unclassified": 0
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453596_P21_exp.txt.gz",
+        "sample": "P21",
+        "cells": 1968,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 1818,
+          "T": 14,
+          "B": 41,
+          "myeloid": 66,
+          "endothelial": 18,
+          "fibroblast": 11,
+          "unclassified": 0
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453597_P22_exp.txt.gz",
+        "sample": "P22",
+        "cells": 644,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 152,
+          "T": 218,
+          "B": 16,
+          "myeloid": 206,
+          "endothelial": 0,
+          "fibroblast": 45,
+          "unclassified": 7
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453598_P23_exp.txt.gz",
+        "sample": "P23",
+        "cells": 2387,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 1699,
+          "T": 35,
+          "B": 60,
+          "myeloid": 265,
+          "endothelial": 26,
+          "fibroblast": 293,
+          "unclassified": 9
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453599_P24_exp.txt.gz",
+        "sample": "P24",
+        "cells": 386,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 96,
+          "T": 72,
+          "B": 62,
+          "myeloid": 119,
+          "endothelial": 8,
+          "fibroblast": 8,
+          "unclassified": 21
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453600_P25_exp.txt.gz",
+        "sample": "P25",
+        "cells": 4029,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 3379,
+          "T": 2,
+          "B": 39,
+          "myeloid": 86,
+          "endothelial": 114,
+          "fibroblast": 325,
+          "unclassified": 84
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453601_P26_exp.txt.gz",
+        "sample": "P26",
+        "cells": 570,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 77,
+          "T": 100,
+          "B": 32,
+          "myeloid": 299,
+          "endothelial": 10,
+          "fibroblast": 29,
+          "unclassified": 23
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453602_P27_exp.txt.gz",
+        "sample": "P27",
+        "cells": 707,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 35,
+          "T": 87,
+          "B": 15,
+          "myeloid": 543,
+          "endothelial": 4,
+          "fibroblast": 0,
+          "unclassified": 23
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453603_P28_exp.txt.gz",
+        "sample": "P28",
+        "cells": 2373,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 706,
+          "T": 67,
+          "B": 69,
+          "myeloid": 1381,
+          "endothelial": 20,
+          "fibroblast": 121,
+          "unclassified": 9
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453604_P29_exp.txt.gz",
+        "sample": "P29",
+        "cells": 969,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 300,
+          "T": 2,
+          "B": 57,
+          "myeloid": 123,
+          "endothelial": 0,
+          "fibroblast": 487,
+          "unclassified": 0
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453605_P30_exp.txt.gz",
+        "sample": "P30",
+        "cells": 742,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 526,
+          "T": 4,
+          "B": 0,
+          "myeloid": 168,
+          "endothelial": 0,
+          "fibroblast": 44,
+          "unclassified": 0
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453606_P31_exp.txt.gz",
+        "sample": "P31",
+        "cells": 387,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 342,
+          "T": 5,
+          "B": 8,
+          "myeloid": 26,
+          "endothelial": 2,
+          "fibroblast": 2,
+          "unclassified": 2
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453607_P32_exp.txt.gz",
+        "sample": "P32",
+        "cells": 595,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 398,
+          "T": 82,
+          "B": 42,
+          "myeloid": 71,
+          "endothelial": 1,
+          "fibroblast": 0,
+          "unclassified": 1
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453608_P33_exp.txt.gz",
+        "sample": "P33",
+        "cells": 350,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 316,
+          "T": 0,
+          "B": 1,
+          "myeloid": 32,
+          "endothelial": 0,
+          "fibroblast": 1,
+          "unclassified": 0
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453609_P34_exp.txt.gz",
+        "sample": "P34",
+        "cells": 972,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 432,
+          "T": 13,
+          "B": 14,
+          "myeloid": 506,
+          "endothelial": 5,
+          "fibroblast": 1,
+          "unclassified": 1
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453610_P35_exp.txt.gz",
+        "sample": "P35",
+        "cells": 1079,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 833,
+          "T": 19,
+          "B": 43,
+          "myeloid": 158,
+          "endothelial": 5,
+          "fibroblast": 19,
+          "unclassified": 2
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453611_P36_exp.txt.gz",
+        "sample": "P36",
+        "cells": 500,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 172,
+          "T": 23,
+          "B": 8,
+          "myeloid": 273,
+          "endothelial": 0,
+          "fibroblast": 11,
+          "unclassified": 13
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453612_P37_exp.txt.gz",
+        "sample": "P37",
+        "cells": 2486,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 14,
+          "T": 34,
+          "B": 36,
+          "myeloid": 2392,
+          "endothelial": 1,
+          "fibroblast": 7,
+          "unclassified": 2
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453613_P38_exp.txt.gz",
+        "sample": "P38",
+        "cells": 1358,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 183,
+          "T": 115,
+          "B": 23,
+          "myeloid": 1018,
+          "endothelial": 1,
+          "fibroblast": 18,
+          "unclassified": 0
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453614_P39_exp.txt.gz",
+        "sample": "P39",
+        "cells": 1896,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 576,
+          "T": 219,
+          "B": 164,
+          "myeloid": 903,
+          "endothelial": 21,
+          "fibroblast": 5,
+          "unclassified": 8
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453615_P40_exp.txt.gz",
+        "sample": "P40",
+        "cells": 1155,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 288,
+          "T": 369,
+          "B": 118,
+          "myeloid": 353,
+          "endothelial": 5,
+          "fibroblast": 7,
+          "unclassified": 15
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453616_P41_exp.txt.gz",
+        "sample": "P41",
+        "cells": 6222,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 5701,
+          "T": 3,
+          "B": 3,
+          "myeloid": 157,
+          "endothelial": 15,
+          "fibroblast": 324,
+          "unclassified": 19
+        },
+        "genes_missing": []
+      },
+      {
+        "file": "GSM4453617_P42_exp.txt.gz",
+        "sample": "P42",
+        "cells": 1001,
+        "genes": 29527,
+        "class_counts": {
+          "epithelial": 76,
+          "T": 446,
+          "B": 154,
+          "myeloid": 195,
+          "endothelial": 5,
+          "fibroblast": 100,
+          "unclassified": 25
+        },
+        "genes_missing": []
+      }
+    ]
+  },
+  "GSE154826": {
+    "status": "included_per_sample_geo_mtx",
+    "matrix_cells": 164000,
+    "tumor_samples": 29,
+    "classification": "author immune lineages; marker argmax for gated epi/endo/fibro cells; clustering-used tumor samples only",
+    "batch_audit": [
+      {
+        "batch": 2,
+        "matched_cells": 1631,
+        "tumor_cells": 1631,
+        "genes_missing": []
+      },
+      {
+        "batch": 4,
+        "matched_cells": 6315,
+        "tumor_cells": 6315,
+        "genes_missing": []
+      },
+      {
+        "batch": 6,
+        "matched_cells": 1998,
+        "tumor_cells": 1998,
+        "genes_missing": []
+      },
+      {
+        "batch": 8,
+        "matched_cells": 5248,
+        "tumor_cells": 5248,
+        "genes_missing": []
+      },
+      {
+        "batch": 9,
+        "matched_cells": 5014,
+        "tumor_cells": 5014,
+        "genes_missing": []
+      },
+      {
+        "batch": 11,
+        "matched_cells": 3540,
+        "tumor_cells": 3540,
+        "genes_missing": []
+      },
+      {
+        "batch": 15,
+        "matched_cells": 3983,
+        "tumor_cells": 3983,
+        "genes_missing": []
+      },
+      {
+        "batch": 17,
+        "matched_cells": 5237,
+        "tumor_cells": 5237,
+        "genes_missing": []
+      },
+      {
+        "batch": 19,
+        "matched_cells": 6009,
+        "tumor_cells": 6009,
+        "genes_missing": []
+      },
+      {
+        "batch": 29,
+        "matched_cells": 3279,
+        "tumor_cells": 3279,
+        "genes_missing": []
+      },
+      {
+        "batch": 31,
+        "matched_cells": 5699,
+        "tumor_cells": 5699,
+        "genes_missing": []
+      },
+      {
+        "batch": 33,
+        "matched_cells": 2309,
+        "tumor_cells": 2309,
+        "genes_missing": []
+      },
+      {
+        "batch": 36,
+        "matched_cells": 4031,
+        "tumor_cells": 4031,
+        "genes_missing": []
+      },
+      {
+        "batch": 38,
+        "matched_cells": 10248,
+        "tumor_cells": 10248,
+        "genes_missing": []
+      },
+      {
+        "batch": 40,
+        "matched_cells": 3641,
+        "tumor_cells": 3641,
+        "genes_missing": []
+      },
+      {
+        "batch": 42,
+        "matched_cells": 2614,
+        "tumor_cells": 2614,
+        "genes_missing": []
+      },
+      {
+        "batch": 43,
+        "matched_cells": 6129,
+        "tumor_cells": 6129,
+        "genes_missing": []
+      },
+      {
+        "batch": 45,
+        "matched_cells": 5696,
+        "tumor_cells": 5696,
+        "genes_missing": []
+      },
+      {
+        "batch": 47,
+        "matched_cells": 6235,
+        "tumor_cells": 6235,
+        "genes_missing": []
+      },
+      {
+        "batch": 50,
+        "matched_cells": 5002,
+        "tumor_cells": 5002,
+        "genes_missing": []
+      },
+      {
+        "batch": 51,
+        "matched_cells": 4384,
+        "tumor_cells": 2817,
+        "genes_missing": []
+      },
+      {
+        "batch": 53,
+        "matched_cells": 11149,
+        "tumor_cells": 2097,
+        "genes_missing": []
+      },
+      {
+        "batch": 54,
+        "matched_cells": 7457,
+        "tumor_cells": 3746,
+        "genes_missing": []
+      },
+      {
+        "batch": 56,
+        "matched_cells": 11567,
+        "tumor_cells": 5896,
+        "genes_missing": []
+      },
+      {
+        "batch": 88,
+        "matched_cells": 12624,
+        "tumor_cells": 6768,
+        "genes_missing": []
+      },
+      {
+        "batch": 90,
+        "matched_cells": 7875,
+        "tumor_cells": 4058,
+        "genes_missing": []
+      },
+      {
+        "batch": 292,
+        "matched_cells": 2938,
+        "tumor_cells": 2938,
+        "genes_missing": []
+      },
+      {
+        "batch": 308,
+        "matched_cells": 5662,
+        "tumor_cells": 5662,
+        "genes_missing": []
+      },
+      {
+        "batch": 342,
+        "matched_cells": 6486,
+        "tumor_cells": 3498,
+        "genes_missing": []
+      }
+    ],
+    "genes_present": true
+  }
+}
