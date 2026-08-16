@@ -1,0 +1,101 @@
+{
+  "source": "Gandara et al. Nat Med 2018 doi:10.1038/s41591-018-0134-3",
+  "file": "41591_2018_134_MOESM3_ESM.xlsx",
+  "can_test_TACSTD2": false,
+  "reason": "blood TMB + mutations + clinical (arm/PFS/OS); no RNA-seq, 0 TACSTD2 variants",
+  "sheets": {
+    "OAK_POPLAR_btmb_variants": {
+      "n_rows": 12022,
+      "columns": [
+        "PtID",
+        "Study",
+        "chromosome",
+        "position",
+        "reference_sequence",
+        "alternate_sequence",
+        "status",
+        "depth",
+        "af",
+        "start",
+        "end",
+        "gene_name",
+        "transcript_name",
+        "cds_syntax",
+        "protein_syntax",
+        "effect",
+        "omitted_driver_mutation"
+      ],
+      "treatment_arm_counts": null
+    },
+    "POPLAR_Clinical_Data": {
+      "n_rows": 287,
+      "columns": [
+        "PtID",
+        "cfDNA_Input_ng",
+        "MSAF",
+        "Median_exon_coverage",
+        "btmb",
+        "BEP",
+        "QC_Status",
+        "BAGE",
+        "race2",
+        "SEX",
+        "HIST",
+        "ECOGGR",
+        "PRIORTX",
+        "TOBHX",
+        "blSLD",
+        "METSITES",
+        "KRASMUT",
+        "EGFRMUT",
+        "EMLAMUT",
+        "PFS",
+        "PFS.CNSR",
+        "OS",
+        "OS.CNSR",
+        "TRT01P",
+        "BCOR"
+      ],
+      "treatment_arm_counts": {
+        "Docetaxel": 143,
+        "MPDL3280A": 144
+      }
+    },
+    "OAK_Clinical_Data": {
+      "n_rows": 850,
+      "columns": [
+        "PtID",
+        "cfDNA_input_ng",
+        "MSAF",
+        "Median_exon_coverage",
+        "btmb",
+        "BEP",
+        "btmb_QC",
+        "BAGE",
+        "race2",
+        "SEX",
+        "HIST",
+        "ECOGGR",
+        "PRIORTXC",
+        "TOBHX",
+        "blSLD",
+        "METSITES",
+        "KRASMUT",
+        "EGFRMUT",
+        "EML4MUT",
+        "PFS",
+        "PFS.CNSR",
+        "OS",
+        "OS.CNSR",
+        "TRT01P",
+        "BCOR",
+        "TC1IC1",
+        "TC3IC3"
+      ],
+      "treatment_arm_counts": {
+        "Docetaxel": 425,
+        "MPDL3280A": 425
+      }
+    }
+  }
+}
