@@ -1,0 +1,5 @@
+accession	paper	public_tcr	n_patients_meta	n_tcr_cells	response_in_geo	mpr_in_geo	tacstd2	use
+GSE179994	Liu et al. Nat Cancer 2022 PMID 35121991	GSE179994_all.scTCR.tsv.gz	36	86402.0	False	False	not in T-cell tables	leftover open TCR; combinatorial Tex vs expansion; not vs MPR
+GSE185204	Pai et al. Cancer Cell 2023 PMID 36787796 (lung ICB regions)	per-region MTX + TCR in GSE185204_RAW.tar (~900 MB)	3		False	False	possible in GEX MTX; n=3 descriptive only	SKIPPED download (n=3; 900 MB). Listed only.
+GSE236581	CRC ICB spatiotemporal	GSE236581_VDJ_merge.txt.gz	22			False	CRC, not lung	not lung; excluded
+GSE162025	NPC tumour-blood pairs	filtered_contig_annotations_TCR.csv.gz	10		False	False	NPC, not lung ICI	not lung ICI; excluded

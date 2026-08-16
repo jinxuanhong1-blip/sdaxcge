@@ -1,0 +1,27 @@
+{
+  "dataset": "GSE243013",
+  "pmid": 40147443,
+  "compartment": "CD45+ immune only; no malignant epithelium",
+  "unit": "sample/patient",
+  "n_tcr_cells": 434458,
+  "n_tcr_samples": 231,
+  "n_pass_depth": 231,
+  "min_tcr_cells": 50,
+  "n_MPR_any_pass": 126,
+  "n_nonMPR_pass": 104,
+  "cxcl13_clusters": [
+    "CD4T_Tfh_CXCL13",
+    "CD4T_Th1-like_CXCL13"
+  ],
+  "cd8_tex_clusters": [
+    "CD8T_Tex_HAVCR2",
+    "CD8T_terminal_Tex_LAYN"
+  ],
+  "note_no_CD8T_Tex_CXCL13": true,
+  "clone_key": "TRA_cdr3|TRB_cdr3 amino-acid, within sample",
+  "expansion_primary": "clone_size >= 2",
+  "e2_tumor_tacstd2": "not estimable: no paired tumor-epithelial score",
+  "residual_tacstd2_source": "/workspace/methods/scrna_tcr/data/gse243013_residual_tacstd2_cldn4.tsv",
+  "residual_is_not_tumor_score": true,
+  "forbidden": "Wilcoxon on cells labeled MPR; using residual TACSTD2 as E2"
+}
