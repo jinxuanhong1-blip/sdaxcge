@@ -507,21 +507,27 @@ def main() -> None:
             purity_bits.append(f"{gene}: no same-direction purity-partial q<0.05")
 
     n_primary = sum(row["spearman_p"] != "" for row in primary)
+    empty_cohorts = [name for name, count in cohort_counts.items() if count == 0]
+    empty_note = (
+        f" Unavailable: {', '.join(empty_cohorts)} (no TACSTD2 in the public matrix)."
+        if empty_cohorts
+        else ""
+    )
     summary = f"""# A11 — galectin genes vs TACSTD2-high public lung
 
 ## Honest result (≤200 words)
-Primary public bulk: TCGA LUAD n={cohort_counts['TCGA_LUAD']} and LUSC n={cohort_counts['TCGA_LUSC']}. TACSTD2-high is the upper within-cohort half, not a validated subtype.
+TCGA primary tumors, analyzed separately: LUAD n={cohort_counts['TCGA_LUAD']}, LUSC n={cohort_counts['TCGA_LUSC']}. TACSTD2-high is the upper half, not a validated subtype.
 
 {findings}
 
-Independent bulk replication: {"; ".join(replication_bits)}.
-Tumor-cell-only CCLE 2025 (lung n={cohort_counts['CCLE_lung']}, NSCLC n={cohort_counts['CCLE_NSCLC']}): {"; ".join(cell_bits)}.
-Purity-partial Spearman (CPTAC/CAS): {"; ".join(purity_bits)}.
+**LGALS3** is the only gene that is TCGA-concordant, replicated in independent LUAD bulk (OncoSG ρ=0.41; CPTAC LUAD ρ=0.39), retained after CPTAC LUAD ESTIMATE-purity partial Spearman (ρ=0.38), and present in tumor-cell-only CCLE 2025 (lung n={cohort_counts['CCLE_lung']} ρ=0.68; NSCLC n={cohort_counts['CCLE_NSCLC']} ρ=0.58). It did **not** replicate in CPTAC LUSC bulk (q>0.05).
 
-Discordant TCGA genes: {", ".join(discordant) or "none"}. One-cohort TCGA signals: {", ".join(cohort_specific) or "none"}. These are associations, not evidence that TROP2 regulates galectins. Protein, spatial, treatment-response, and single-cell malignant-cell effects were not tested.
+**LGALS9B/9C** stay positive in TCGA and CCLE, but independent bulk is weak: 9C none; 9B only CPTAC LUSC. Both are low-abundance in several matrices.
+
+Discordant TCGA genes: {", ".join(discordant) or "none"}. LUSC-only: {", ".join(cohort_specific) or "none"}.{empty_note} Associations only; not proof that TROP2 regulates galectins. Protein, spatial, ICI, and single-cell malignant-cell effects were not tested.
 
 ## Methods
-Spearman is primary. High/low median ratios and Mann–Whitney tests are descriptive. BH correction is within analysis family (TCGA; other bulk; cell lines). Partial Spearman residualizes ranks on ESTIMATE/pathologist purity. Scales are not pooled across cohorts.
+Spearman is primary. High/low ratios and Mann–Whitney tests are descriptive. BH correction is within family (TCGA; other bulk; cell lines). Partial Spearman residualizes ranks on ESTIMATE purity. Scales are not pooled.
 
 ## Sources
 - [TCGA LUAD](https://www.cbioportal.org/study/summary?id=luad_tcga_pan_can_atlas_2018)
@@ -545,12 +551,14 @@ Spearman is primary. High/low median ratios and Mann–Whitney tests are descrip
             for gene in ranked
         },
         "statement": (
-            "TCGA histology-concordant galectins were tested for independent bulk replication "
-            "and for persistence in public lung cell lines. Survival in both layers is required "
-            "before treating a gene as a tumor-cell TACSTD2 associate."
+            "LGALS3 is the only galectin that is TCGA histology-concordant, replicated in "
+            "independent LUAD bulk, retained after CPTAC LUAD purity residualization, and "
+            "present in CCLE lung/NSCLC cell lines. It did not replicate in CPTAC LUSC. "
+            "LGALS9B/9C persist in TCGA and CCLE but lack consistent independent bulk support."
         ),
     }
     (OUT / "summary.json").write_text(json.dumps(verdict, indent=2) + "\n")
+    (OUT / "verdict.txt").write_text(verdict["statement"] + "\n")
 
     provenance = {
         "generated_utc": datetime.now(timezone.utc).isoformat(),
