@@ -1,0 +1,5 @@
+gene_name	antibody_id	n_patients	high	medium	low	not_detected	xml_counts	knowledge_cancer_data_counts	matches_knowledge_table	histology_from_snomed	note
+TACSTD2	HPA043104	10	0	2	3	5	H0/M2/L3/ND5	H0/M2/L3/ND5	yes	Adenocarcinoma, NOS=5; Squamous cell carcinoma, NOS=5	Recount of official gene XML patient staining. Knowledge table is a single collective score, not the mean of all antibodies.
+TACSTD2	HPA055067	12	2	3	0	7	H2/M3/L0/ND7	H0/M2/L3/ND5	no	Adenocarcinoma, NOS=6; Squamous cell carcinoma, NOS=6	Recount of official gene XML patient staining. Knowledge table is a single collective score, not the mean of all antibodies.
+TACSTD2	CAB072852	12	5	2	2	3	H5/M2/L2/ND3	H0/M2/L3/ND5	no	Adenocarcinoma, NOS=6; Squamous cell carcinoma, NOS=6	Recount of official gene XML patient staining. Knowledge table is a single collective score, not the mean of all antibodies.
+CLDN4	CAB002610	11	0	9	2	0	H0/M9/L2/ND0	H0/M9/L2/ND0	yes	Adenocarcinoma, NOS=6; Squamous cell carcinoma, NOS=3; Neoplasm, malignant, NOS=1; Carcinoid, malignant, NOS=1	Recount of official gene XML patient staining. Knowledge table is a single collective score, not the mean of all antibodies.

@@ -1,0 +1,7 @@
+source	url	what_was_kept	output
+HPA v25.1 normal_ihc_data.tsv	https://www.proteinatlas.org/download/tsv/normal_ihc_data.tsv.zip	TACSTD2/CLDN4 rows for lung, bronchus, nasopharynx	tables/02_normal_ihc_knowledge_respiratory.tsv
+HPA v25.1 cancer_data.tsv	https://www.proteinatlas.org/download/tsv/cancer_data.tsv.zip	TACSTD2/CLDN4 lung cancer ordinal counts	tables/03_cancer_ihc_knowledge_lung.tsv
+HPA gene XML ENSG00000184292 / ENSG00000189143	https://www.proteinatlas.org/ENSG00000184292.xml ; https://www.proteinatlas.org/ENSG00000189143.xml	Per-antibody respiratory IHC, lung-cancer patient ordinal scores + public image URLs, antibody vs knowledge recount	tables/06_antibody_normal_ihc_respiratory.tsv ; tables/07_antibody_cancer_ihc_patients.tsv ; tables/14_cancer_ihc_counts_by_antibody.tsv
+HPA v25.1 ms_tissue.tsv / ms_tissue_sample_data.tsv	https://www.proteinatlas.org/download/tsv/ms_tissue.tsv.zip	TACSTD2/CLDN4 lung MS intensities	tables/08_ms_tissue_lung.tsv ; tables/09_ms_tissue_lung_replicates.tsv
+HPA v25.1 cancer_cptac.tsv	https://www.proteinatlas.org/download/tsv/cancer_cptac.tsv.zip	Lung rows if present; explicit absence for CLDN4 lung	tables/10_cptac_hpa_lung.tsv
+HPA v23 normal_tissue.tsv / pathology.tsv	https://v23.proteinatlas.org/download/normal_tissue.tsv.zip	Lung IHC comparison only; full archives not committed	tables/04_v23_vs_v25_lung_ihc.tsv

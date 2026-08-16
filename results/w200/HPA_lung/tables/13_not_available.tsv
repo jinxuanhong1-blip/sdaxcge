@@ -1,0 +1,6 @@
+requested	status	detail
+Paired TACSTD2 + CLDN4 IHC on the same lung cores	not_in_HPA_tables	HPA publishes each gene separately. Patient IDs do not overlap between TACSTD2 antibodies and CLDN4 CAB002610 in the lung-cancer XML extract.
+Numeric H-score or mIF co-localization	not_in_HPA_tables	Public HPA IHC is ordinal (not detected / low / medium / high) plus intensity/quantity/location. No H-score column.
+ICI / PD-1 / PD-L1 outcome labels	not_in_HPA_tables	HPA normal and cancer IHC TMAs have no immunotherapy annotation.
+CLDN4 CPTAC lung tumor-vs-normal in HPA cancer_cptac.tsv	absent	Official file has TACSTD2 Lung AC and Lung SQCC rows only. CLDN4 appears in other cancers, not lung.
+Current-site standalone normal_tissue.tsv / pathology.tsv	retired_on_v25_site	v25 uses normal_ihc_data.tsv and cancer_data.tsv. v23 copies remain at v23.proteinatlas.org and match these lung IHC calls.
