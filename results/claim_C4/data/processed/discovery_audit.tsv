@@ -1,0 +1,12 @@
+record	source	status	reason
+GSE22493	GEO	included	Direct CLDN4 lentiviral KD; paired two-colour arrays in SKOV-3
+GSE50927	GEO	included	Direct germline Cldn4 KO; whole-lung RNA-seq at baseline and after VILI
+GSE207704	GEO	included	Direct CRISPR CLDN4 KO; RNA-seq in MCF-7 and T47D; processed matrix is incomplete
+LINCS CRISPR KO consensus	LINCS/CFDE	excluded	No CLDN4 perturbation signature in the downloaded consensus GMT
+GSE99415/16/17	GEO	excluded	CLDN4-related ncRNA study; deposited assays are not direct CLDN4-loss transcriptomes
+GSE60885	GEO	excluded	CLDN4 is a study result; deposited assay is DNA methylation
+GSE84742	GEO	excluded	CLDN4 mentioned in a differentiation study, not directly perturbed
+GSE48443 / GDS4961	GEO	excluded	Cldn18 knockout, not Cldn4
+GSE26055	GEO	excluded	CLDN7 overexpression, not CLDN4 loss
+Kashiwagi et al. 2025, PMID 41016339	publication/web search	excluded	H1688 CLDN4-KO RNA-seq reported; no public expression accession located
+Other CLDN4 KD/KO papers	PubMed/web search	excluded	Targeted or phenotypic assays only; no public genome-wide expression matrix located
