@@ -1,0 +1,83 @@
+feature	method	role	source
+ESTIMATE_ImmuneScore	ESTIMATE	primary	MD Anderson official RNAseqV2 table
+ESTIMATE_StromalScore	ESTIMATE	secondary	MD Anderson official RNAseqV2 table
+ESTIMATE_Score	ESTIMATE	secondary	MD Anderson official RNAseqV2 table
+GEP18_ssGSEA	GEP18	primary	ssGSEA tau=0.25 on Ayers 18 genes, Xena matrix
+GEP18_zmean	GEP18	sensitivity	unweighted mean of within-LUAD z-scores (histology-rework definition)
+GEP18_logmean	GEP18	sensitivity	mean of log2(RSEM+1) of 18 genes
+xCell_Myeloid_dendritic_cell_activated	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_B_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD4_memory	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD4_naive	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD4_non_regulatory	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD4_central_memory	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD4_effector_memory	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD8_naive	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD8	xCell	primary	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD8_central_memory	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD8_effector_memory	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Class_switched_memory_B_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Common_lymphoid_progenitor	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Common_myeloid_progenitor	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Myeloid_dendritic_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Endothelial_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Eosinophil	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Cancer_associated_fibroblast	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Granulocyte_monocyte_progenitor	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Hematopoietic_stem_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Macrophage	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Macrophage_M1	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Macrophage_M2	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Mast_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_B_cell_memory	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Monocyte	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_B_cell_naive	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Neutrophil	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_NK_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_NK	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_Plasmacytoid_dendritic_cell	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_B_cell_plasma	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_gamma_delta	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD4_Th1	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_CD4_Th2	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_T_cell_regulatory_Tregs	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_immune_score	xCell	primary	TIMER2.0 immunedeconv precomputed
+xCell_stroma_score	xCell	all_populations	TIMER2.0 immunedeconv precomputed
+xCell_microenvironment_score	xCell	primary	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_T_cell	MCP-counter	primary	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_T_cell_CD8	MCP-counter	primary	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_cytotoxicity_score	MCP-counter	primary	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_NK_cell	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_B_cell	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_Monocyte	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_Macrophage_Monocyte	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_Myeloid_dendritic_cell	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_Neutrophil	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_Endothelial_cell	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+TIMER2_MCP_Cancer_associated_fibroblast	MCP-counter	all_populations	TIMER2.0 immunedeconv precomputed
+Xena_MCP_T_cells	MCP-counter	primary	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_CD8_T_cells	MCP-counter	primary	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_Cytotoxic_lymphocytes	MCP-counter	primary	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_B_lineage	MCP-counter	all_populations	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_NK_cells	MCP-counter	all_populations	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_Monocytic_lineage	MCP-counter	all_populations	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_Myeloid_dendritic_cells	MCP-counter	all_populations	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_Neutrophils	MCP-counter	all_populations	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_Endothelial_cells	MCP-counter	all_populations	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Xena_MCP_Fibroblasts	MCP-counter	all_populations	Becht 2016 markers, mean log2(RSEM+1) on Xena
+Danaher_B_cells	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_CD45	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Cytotoxic_cells	Danaher	primary	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_DC	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Exhausted_CD8	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Macrophages	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Mast_cells	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Neutrophils	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_NK_CD56dim	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_NK_cells	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_T_cells	Danaher	primary	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Th1_cells	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Treg	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_CD8_T_cells	Danaher	primary	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Total_TILs	Danaher	primary	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena
+Danaher_Total_TILs_empirical	Danaher	all_populations	Danaher JITC 2017 Table 1, mean log2(RSEM+1) on Xena

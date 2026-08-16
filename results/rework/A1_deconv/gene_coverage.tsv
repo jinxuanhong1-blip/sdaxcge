@@ -1,0 +1,26 @@
+method	population	n_official	n_present	present_genes	missing_genes	score_column
+MCP-counter (Xena recompute)	T cells	15	14	CD28,CD3D,CD3G,CD5,CD6,CTLA4,FLT3LG,ICOS,MAL,PBX4,SIRPG,THEMIS,TNFRSF25,TRAT1	CHRM3-AS2	Xena_MCP_T_cells
+MCP-counter (Xena recompute)	CD8 T cells	1	1	CD8B		Xena_MCP_CD8_T_cells
+MCP-counter (Xena recompute)	Cytotoxic lymphocytes	7	7	CD8A,EOMES,FGFBP2,GNLY,KLRC3,KLRC4,KLRD1		Xena_MCP_Cytotoxic_lymphocytes
+MCP-counter (Xena recompute)	B lineage	9	8	BANK1,CD19,CD22,CD79A,CR2,FCRL2,MS4A1,PAX5	IGKC	Xena_MCP_B_lineage
+MCP-counter (Xena recompute)	NK cells	9	8	CD160,KIR2DL1,KIR2DL3,KIR2DL4,KIR3DL1,NCR1,PTGDR,SH2D1B	KIR3DS1	Xena_MCP_NK_cells
+MCP-counter (Xena recompute)	Monocytic lineage	7	7	ADAP2,CSF1R,FPR3,KYNU,PLA2G7,RASSF4,TFEC		Xena_MCP_Monocytic_lineage
+MCP-counter (Xena recompute)	Myeloid dendritic cells	6	5	CD1A,CD1B,CD1E,CLEC10A,CLIC2	WFDC21P	Xena_MCP_Myeloid_dendritic_cells
+MCP-counter (Xena recompute)	Neutrophils	15	15	CA4,CEACAM3,CXCR1,CXCR2,CYP4F3,FCGR3B,HAL,KCNJ15,MEGF9,SLC25A37,STEAP4,TECPR2,TLE3,TNFRSF10C,VNN3		Xena_MCP_Neutrophils
+MCP-counter (Xena recompute)	Endothelial cells	33	33	ACVRL1,APLN,BCL6B,BMP6,BMX,CDH5,CLEC14A,CXorf36,EDN1,ELTD1,EMCN,ESAM,ESM1,FAM124B,HECW2,HHIP,KDR,MMRN1,MMRN2,MYCT1,PALMD,PEAR1,PGF,PLXNA2,PTPRB,ROBO4,SOX18,SHANK3,SHE,TEK,TIE1,VEPH1,VWF		Xena_MCP_Endothelial_cells
+MCP-counter (Xena recompute)	Fibroblasts	8	8	COL1A1,COL3A1,COL6A1,COL6A2,DCN,GREM1,PAMR1,TAGLN		Xena_MCP_Fibroblasts
+Danaher 2017	B-cells	9	9	BLK,CD19,FCRL2,MS4A1,KIAA0125,TNFRSF17,TCL1A,SPIB,PNOC		Danaher_B_cells
+Danaher 2017	CD45	1	1	PTPRC		Danaher_CD45
+Danaher 2017	Cytotoxic cells	10	10	PRF1,GZMA,GZMB,NKG7,GZMH,KLRK1,KLRB1,KLRD1,CTSW,GNLY		Danaher_Cytotoxic_cells
+Danaher 2017	DC	3	3	CCL13,CD209,HSD11B1		Danaher_DC
+Danaher 2017	Exhausted CD8	4	4	LAG3,CD244,EOMES,PTGER4		Danaher_Exhausted_CD8
+Danaher 2017	Macrophages	4	4	CD68,CD84,CD163,MS4A4A		Danaher_Macrophages
+Danaher 2017	Mast cells	5	5	TPSB2,TPSAB1,CPA3,MS4A2,HDC		Danaher_Mast_cells
+Danaher 2017	Neutrophils	7	7	FPR1,SIGLEC5,CSF3R,FCAR,FCGR3B,CEACAM3,S100A12		Danaher_Neutrophils
+Danaher 2017	NK CD56dim	4	4	KIR2DL3,KIR3DL1,KIR3DL2,IL21R		Danaher_NK_CD56dim
+Danaher 2017	NK cells	3	3	XCL1,XCL2,NCR1		Danaher_NK_cells
+Danaher 2017	T-cells	6	6	CD6,CD3D,CD3E,SH2D1A,TRAT1,CD3G		Danaher_T_cells
+Danaher 2017	Th1 cells	1	1	TBX21		Danaher_Th1_cells
+Danaher 2017	Treg	1	1	FOXP3		Danaher_Treg
+Danaher 2017	CD8 T cells	2	2	CD8A,CD8B		Danaher_CD8_T_cells
+GEP18	T-cell-inflamed GEP	18	18	CCL5,CD27,CD274,CD276,CD8A,CMKLR1,CXCL9,CXCR6,HLA-DQA1,HLA-DRB1,HLA-E,IDO1,LAG3,NKG7,PDCD1LG2,PSMB10,STAT1,TIGIT		GEP18_ssGSEA
