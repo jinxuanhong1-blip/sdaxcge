@@ -1,0 +1,22 @@
+{
+  "data_source": "TISMO live API https://tismo.pku-genomics.org/",
+  "values": "TISMO gene-module export; Actb\u224811.6 implies log2(TPM+1)",
+  "files_used": [
+    "actb_llc.csv",
+    "cd274_llc.csv",
+    "cd8a_llc.csv",
+    "cldn4_icb_all.csv",
+    "epcam_llc.csv",
+    "fetch_manifest.json",
+    "gzmb_llc.csv",
+    "ifng_llc.csv",
+    "tacstd2_icb_all.csv",
+    "vivo_meta.json"
+  ],
+  "outlier_handling": "Primary stats keep SRX8918393; sensitivity drops it",
+  "what_was_not_done": [
+    "No in-vitro cytokine arm (A4 lung task is paired ICB).",
+    "No GEO raw FASTQ reprocessing; TISMO uniformly processed values used.",
+    "Did not treat KPB25L / p53-* as lung; TISMO annotates them Mammary cancer, NOS."
+  ]
+}

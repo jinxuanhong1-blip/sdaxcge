@@ -1,0 +1,25 @@
+{
+  "source": "https://tismo.pku-genomics.org/",
+  "paper": "Zeng et al. Nucleic Acids Res 2022; PMID 34534350",
+  "icb_treatments": [
+    "antiCTLA4",
+    "antiCTLA4&antiPD1",
+    "antiCTLA4&antiPDL1",
+    "antiPD1",
+    "antiPDL1",
+    "antiPDL2"
+  ],
+  "target_genes": [
+    "Tacstd2",
+    "Cldn4"
+  ],
+  "control_genes": [
+    "Actb",
+    "Cd8a",
+    "Ifng",
+    "Gzmb",
+    "Cd274",
+    "Epcam"
+  ],
+  "note": "type=3 is TISMO's per-sample table export from /rtismo/gene/downVivoExprn. Querying tumorList=['All'] is required for Tacstd2/Cldn4 so that SRX8918393 (present in the All-models table, dropped by the LLC-only Tacstd2 query) is retained."
+}
