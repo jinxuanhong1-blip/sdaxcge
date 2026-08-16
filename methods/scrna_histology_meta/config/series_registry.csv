@@ -1,0 +1,12 @@
+series,histology_on_geo,tacstd2_in_epithelium,cldn4_in_epithelium,public_processed,used_in_primary_meta,reason
+GSE207422,yes_mixed_LUAD_LUSC,yes,yes,yes,no_n_lt_6,Hu 2023 neoadjuvant PD-1+chemo; author Pathology Adeno/Squamous; post n_mal>=10 is LUAD n=4 LUSC n=5
+GSE241934,yes_LUAD_and_ASC,yes,yes,yes,yes_LUAD,Zhang/Zhong NEOTIDE IIT + WT real-world; Histology=LUAD or ASC; no LUSC; extracted from public MTX
+GSE131907,yes_LUAD_only,yes,yes,yes,yes_LUAD,Kim 2020 LUAD atlas; tLung primary; no LUSC
+GSE253013,yes_LUAD_only,yes,yes,yes,yes_LUAD,Sze/Xiang 2024 treatment-naive LUAD; no ICI labels
+GSE205335,yes_mixed_ADC_SQ_SCLC_NUT,yes,yes,yes,yes_LUAD,Park/Ahn ICI atlas; ADC n=14 SQ n=3 after n_mal>=20
+GSE291670,no_NSCLC_only,yes,yes,yes,no,Xia 2025 neoadjuvant anlotinib+camrelizumab n=6; GEO says patient diagnosis NSCLC; no LUAD/LUSC field
+GSE148071,not_on_SOFT,yes,yes,yes,no,Wu 2021 advanced NSCLC mixed LUAD/LUSC in paper supplement; GEO SOFT has age/sex only; not harvested here
+GSE154826,yes_LUAD_LUSC,not_usable,not_usable,partial,no,Leader 2021 CD45-enriched CITE-seq; epithelium gated out of compact objects
+GSE146100,unknown,unknown,unknown,skip,no,nodule series; not a histology-split TACSTD2 vs T/NK matrix in this slice
+LuCA_Salcher,yes_mixed,yes,yes,too_large,no,Salcher Cancer Cell 2022 h5ad 12.9-17.6 GB; skipped
+HLCA,healthy_or_mixed,yes,yes,too_large,no,Sikkema 2023 integrated objects >2 GB
