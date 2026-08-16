@@ -1,0 +1,136 @@
+accession	twoway	has_timepoint	has_response	malignant_matrix	t_cell_only	public_processed	is_lung	is_scrna	n_samples	note	title
+GSE207422	True	True	True	True	False	True	True	True	39	3 pre-biopsy + 12 post-surgery; MPR/NMPR/pCR/NE and RECIST on the same GEO xlsx. Pre patients are not paired to the 12 post patients.	Tumor microenvironment remodeling after neoadjuvant immunotherapy in non-small cell lung cancer revealed by single-cell RNA sequencing
+GSE102106	False	False	True	False	False	False	True	False	12	Response labels without a public pre/post axis.	Gene Expression of Primary Human Type I Alveolar Epithelial Cells Exposed to Bacillus anthracis, Sterne endospores
+GSE103352	False	False	True	False	False	False	True	False	21	Response labels without a public pre/post axis.	Non-coding mechanisms of tolerance, persistence and resistance to EGFR inhibition in lung cancer [microRNA-seq]
+GSE123814	False	False	True	False	False	False	False	False	124	Response labels without a public pre/post axis.	Clonal replacement of tumor-specific T cells following PD-1 blockade
+GSE124885	False	False	True	False	False	False	True	False	4	Response labels without a public pre/post axis.	A CD4 T cell population expand and reshape autoreactive B cells, contributing to autoimmune lung pathology and post-infection autoimmunity in children
+GSE131933	False	False	True	True	False	False	True	True	8	Response labels without a public pre/post axis.	Effects of durvalumab alone or combined with tremelimumab on preexisting cells in the tumor microenvironment
+GSE144945	False	False	True	True	False	False	True	True	10	Response labels without a public pre/post axis.	Dysregulation of TFH-B-TRM lymphocyte cooperation is associated with unfavorable anti-PD-1 responses in EGFR-mutant lung cancer
+GSE146100	False	False	True	True	False	True	True	True	3	One patient, three post-pembrolizumab nodules with different radiographic responses. No pre-treatment scRNA.	Distinct Immune-microenvironment Construction Diversely Responded to Induction Immunotherapy among Multiple Primary Lung Adenocarcinoma
+GSE160673	False	False	True	True	False	False	True	True	12	Response labels without a public pre/post axis.	Secretory Cells Dominate Airway CFTR Expression and Function in Human Airway Superficial Epithelia [single-cell RNA-seq]
+GSE160674	False	False	True	True	False	False	True	True	20	Response labels without a public pre/post axis.	Secretory Cells Dominate Airway CFTR Expression and Function in Human Airway Superficial Epithelia [bulk RNA]
+GSE172421	False	False	True	False	False	False	True	False	18	Response labels without a public pre/post axis.	Long and short-read transcriptome profiling of human lung cancer cell lines
+GSE176021	False	False	True	True	False	True	True	True	110	Response labels without a public pre/post axis.	Distinct transcriptional programs characterize neoantigen-specific T cells in lung cancers treated with neoadjuvant PD-1 blockade [single-cell RNA-seq]
+GSE176022	False	False	True	True	False	False	True	True	102	Response labels without a public pre/post axis.	Distinct transcriptional programs characterize neoantigen-specific T cells in   lung cancers treated with neoadjuvant PD-1 blockade [bulk TCR-seq]
+GSE179994	False	True	True	False	True	True	True	True	47	Paired pre/post + good/poor response, but deposited matrix is T cells only. No malignant TACSTD2/CLDN4.	Temporal single cell tracing reveals clonal revival and expansion of precursor exhausted T cells during anti-PD-1 therapy in lung cancer
+GSE183590	False	False	True	True	False	False	True	True	1456	Response labels without a public pre/post axis.	Single-cell RNA sequencing for the identification of early-stage lung cancer biomarkers from circulating blood
+GSE192591	False	False	True	True	False	False	True	True	6	Response labels without a public pre/post axis.	PD-L1+CD8+ T cells enrichment in lung cancer exerted regulatory function and tumor-promoting tolerance
+GSE194070	False	False	True	True	False	False	True	True	16	Response labels without a public pre/post axis.	Tumor-intrinsic CD74 expression mediates immune evasion in lung cancer with COPD
+GSE205335	False	False	True	True	False	True	True	True	33	RECIST on 14 core pre-ICI samples / 11 patients. Post-ICI / neoadjuvant samples were excluded from the response core. Raw in EGA.	Single-cell transcriptome profiles of tumor tissues from lung cancer patients receiving immune checkpoint inhibitors.
+GSE213590	False	False	True	True	False	False	True	True	6	Response labels without a public pre/post axis.	FOS deficiency activates NRF2 signaling and CAF-mediated metabolic symbiosis to induce ferroptosis resistance in lung cancer initiation and brain metastasis
+GSE213902	False	True	True	True	False	False	True	True	6		The utility of circulating CX3CR1+ CD8+ T cells as a predictive correlate of response to chemo-immunotherapy in patients with non-small cell lung cancer
+GSE227000	False	False	True	False	False	False	True	False	5	Response labels without a public pre/post axis.	Long-read transcriptome profiling of human lung cancer cell lines
+GSE229353	False	False	True	False	False	True	True	True	7	scRNA is post-surgery CD45+ immune cells (n=7). Paired pre/post in the paper is FFPE IHC, not scRNA. No malignant compartment.	PD-1 blockade potentiates neoadjuvant chemotherapy in NSCLC via increasing CD127+ and KLRG1+ CD8 T cells
+GSE235500	False	True	True	True	False	False	True	True	34		Lung tumor-infiltrating Treg have divergent transcriptional profiles and function linked to checkpoint blockade response [human]
+GSE241977	False	False	True	True	False	False	True	True	6	Response labels without a public pre/post axis.	IFN    -induced treatment of a Human Lung Adenocarcinoma Cell Line is Mediated by an Environmental Chemical Receptor (AhR) through PD-L1 and IDO Control (a549 bulk RNA)
+GSE242780	False	False	True	True	False	False	True	True	6	Response labels without a public pre/post axis.	Single-cell RNA sequencing analysis of peripheral blood mononuclear cells in PD-1-induced renal toxicity in patients with lung cancer
+GSE243013	False	False	True	False	False	False	True	True	243	234 post-neoadjuvant NSCLC; response exists in the paper. Public GEO record is metadata-oriented; no usable public UMI + response table for malignant cells at hunt time.	A single-cell atlas of immune heterogeneity  in anti-PD1-treated non-small cell lung cancer
+GSE248378	False	False	True	False	False	False	True	False	29	Response labels without a public pre/post axis.	Neoadjuvant durvalumab plus radiation versus durvalumab alone in stages I-III non-small cell lung cancer: survival outcomes and molecular correlates of a randomized phase II trial
+GSE264196	False	False	True	True	False	False	True	True	20	Response labels without a public pre/post axis.	A 50-gene high-risk profile predictive of COVID-19 and Idiopathic Pulmonary Fibrosis mortality originates from a molecular imbalance in monocyte and T-cell subsets that reverses in survivors with post-COVID-19 Interstitial Lung Disease
+GSE266035	False	False	True	True	False	False	True	True	9	Response labels without a public pre/post axis.	Divergent gene expression and kinetics of circulating tumor-infiltrating lymphocytes with highly homologous T-cell receptor sequences during immunotherapy
+GSE267026	False	False	True	False	True	False	True	True	24	Response labels without a public pre/post axis.	The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[S1-S3]
+GSE267027	False	False	True	False	True	False	True	True	9	Response labels without a public pre/post axis.	The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[P5]
+GSE270431	False	False	True	True	False	False	True	True	12	Response labels without a public pre/post axis.	Neutrophils recruited by NKX2-1 suppression via activation of CXCLs/CXCR2 axis promote lung adenocarcinoma progression
+GSE271689	False	False	True	True	False	False	True	True	586	Response labels without a public pre/post axis.	Enhancing Immunotherapy Outcomes: Spatial Multi-Omics Predictive Models for Non-Small Cell Lung Cancer
+GSE27584	False	False	True	False	False	False	False	False	202	Response labels without a public pre/post axis.	DNA Methylation by Reduced Representation Bisulfite Seq from ENCODE/HudsonAlpha
+GSE283829	False	False	True	False	False	False	True	False	27	Response labels without a public pre/post axis.	In situ detection of PD1–PD-L1 interactions as a functional predictor for response to immune checkpoint inhibition in NSCLC.
+GSE285029	False	True	True	False	False	False	True	False	234		Cell-intrinsic PD-L1 signaling drives immunosuppression by myeloid-derived suppressor cells through IL-6/Jak/Stat3 in PD-L1-high lung cance
+GSE291670	False	False	True	True	False	True	True	True	6	GEO deposit is 6 post-treatment NSCLC (3 MPR + 3 Non-MPR). The 3 treatment-naive samples used in the paper are HRA001033 (GSA), not in this public series.	Neoadjuvant anlotinib combined with PD-1 blockade therapy remodeling the microenvironment in advanced non-small cell lung cancer
+GSE293914	False	False	True	True	False	False	True	True	1	Response labels without a public pre/post axis.	CCL20 Released by Drug-Tolerant Persisters Impairs Immunotherapy in EGFR-Mutated Lung Adenocarcinoma
+GSE295601	False	False	True	False	True	False	True	True	18	Response labels without a public pre/post axis.	The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment. [P6]
+GSE295977	False	False	True	False	True	False	True	True	2	Response labels without a public pre/post axis.	The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[multiome]
+GSE298300	False	False	True	False	False	False	True	False	4	Response labels without a public pre/post axis.	HE4 regulates anticancer immune evasion by upregulating PD-L1 expression on macrophages through the IFN-γR-STAT3 axis
+GSE303680	False	False	True	True	False	False	True	True	10	Response labels without a public pre/post axis.	PD1-targeted cis-delivery of an IL-2 variant induces a multifaceted anti-tumoral T cell response in human lung cancer
+GSE303762	False	False	True	True	False	False	True	True	38	Response labels without a public pre/post axis.	Benchmarking long-read RNA-sequencing technologies with LongBench: a cross-platform reference dataset profiling cancer cell lines with bulk and single-cell approaches
+GSE308745	False	False	True	False	True	False	True	True	87	Response labels without a public pre/post axis.	The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[PB cohort2]
+GSE312336	False	False	True	False	True	False	True	True	9	Response labels without a public pre/post axis.	The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[renal cancer]
+GSE313754	False	False	True	True	False	False	True	True	8	Response labels without a public pre/post axis.	Stromal MTHFD2 orchestrates a fibrotic–inflammatory niche driving tumor growth and immune evasion
+GSE317309	False	True	True	True	False	False	True	True	64		Combination of a CCL21-gene modified dendritic cell vaccine and pembrolizumab induces immune responses in non-small cell lung cancer
+GSE320009	False	True	True	True	False	False	True	True	18		Synergistic role of riboflavin-auxotrophic Enterococcus for MR1 expression and in-tra-tumoral mucosal associated invariant T (MAIT) cell activation
+GSE341473	False	True	True	False	False	False	False	True	20		RNA-seq datasets of Blood transcriptomics reveals the value of Hub genes in patients with NTM - PD
+GSE52714	False	False	True	True	False	False	True	True	22	Response labels without a public pre/post axis.	Flexible multiplatform RNA profiling at the single cell level applied to enriched cancer initiating cells: RT-PCR
+GSE100556	False	False	False	False	False	False	True	False	22		Shared αβ T Cell Receptor Usage in Lungs of Sarcoidosis Patients with Löfgren’s Syndrome [ePCR]
+GSE100557	False	False	False	False	False	False	True	False	384		Shared αβ T Cell Receptor Usage in Lungs of Sarcoidosis Patients with Löfgren’s Syndrome [scPCR]
+GSE100558	False	False	False	False	False	False	True	False	429		Shared αβ T Cell Receptor Usage in Lungs of Sarcoidosis Patients with Löfgren’s Syndrome
+GSE107109	False	False	False	False	False	False	False	False	6		Asparagine availability governs metastasis in a model of breast cancer
+GSE117450	False	False	False	False	False	False	False	True	5		Designing a single cell RNA sequencing benchmark dataset to compare protocols and analysis methods (9 cell mixture dataset).
+GSE117570	False	False	False	True	False	False	True	True	8		Reprogramming of Tumor-infiltrating Immune Cells in Early Stage of NSCLC
+GSE117617	False	False	False	False	False	False	False	True	1		Designing a single cell RNA sequencing benchmark dataset to compare protocols and analysis methods (RNAmix_CEL-seq2 )
+GSE117618	False	False	False	False	False	False	False	True	1		Designing a single cell RNA sequencing benchmark dataset to compare protocols and analysis methods (RNAmix_Sort-seq)
+GSE118704	False	False	False	False	False	False	False	True	1		Designing a single cell RNA sequencing benchmark dataset to compare protocols and analysis methods (Cel_Seq)
+GSE118706	False	False	False	False	False	False	False	True	1		Designing a single cell RNA sequencing benchmark dataset to compare protocols and analysis methods (Drop-Seq)
+GSE120261	False	False	False	False	False	False	False	True	168		In situ 10-cell RNA sequencing in tissue and tumor biopsy samples
+GSE124253	False	False	False	False	False	False	True	False	28		Characterization of an Immortalized Human Small Airway Basal Stem/Progenitor Cell Line with Airway Region-specific Differentiation Capacity [array]
+GSE124258	False	False	False	False	False	False	True	False	2		Characterization of an Immortalized Human Small Airway Basal Stem/Progenitor Cell Line with Airway Region-specific Differentiation Capacity [RNA-Seq]
+GSE127462	False	False	False	False	False	False	False	True	302		High-throughput tissue dissection and cell purification with digital cytometry [Affymetrix]
+GSE127465	False	False	False	True	False	False	True	True	40		Single cell transcriptomics of human and mouse lung cancers reveals conserved myeloid populations across individuals and species
+GSE127471	False	False	False	False	False	False	False	True	1		High-throughput tissue dissection and cell purification with digital cytometry [scRNA-Seq]
+GSE131907	False	False	False	True	False	True	True	True	58	Early LUAD atlas; not an ICI response series.	Single cell RNA sequencing of lung adenocarcinoma
+GSE135851	False	False	False	True	False	False	True	True	8		Identification of the lymphangioleiomyomatosis cell and its uterine origin
+GSE139555	False	False	False	False	True	False	False	True	32		Peripheral clonal expansion of T lymphocytes associates with tumour infiltration and response to cancer immunotherapy
+GSE141141	False	False	False	False	False	False	True	False	20		Identification of human endogenous retroviruses working as enhancers in cancer cells
+GSE143791	False	False	False	False	False	False	False	True	41		Human prostate cancer bone metastases have an actionable immunosuppressive microenvironment
+GSE146712	False	False	False	False	False	False	False	True	4		Inference of single-cell phylogenies from lineage tracing data using Cassiopeia
+GSE148071	False	False	False	True	False	False	True	True	42		Comprehensive Profiling of Cancer Cells and Their Microenvironment in Advanced NSCLC
+GSE148466	False	False	False	True	False	False	True	True	3		Single cell RNA sequencing analysis of freshly resected non-small cell lung carcinoma (NSCLC) tissues
+GSE149383	False	False	False	False	False	False	False	True	33		Drug resistant changes at the level of single cells
+GSE154826	False	False	False	True	False	False	True	True	166		CITEseq analysis of non-small-cell lung cancer lesions
+GSE161363	False	False	False	False	False	False	False	True	9		Single-cell lineages reveal the rates, routes, and drivers of metastasis in cancer xenografts
+GSE161824	False	False	False	True	False	False	True	True	64		Massively parallel phenotyping of coding variants in cancer with Perturb-seq
+GSE162498	False	True	False	False	True	True	True	True	17	Timepoints without a public MPR/RECIST axis.	Contribution of resident and circulating precursors to tumor-infiltrating CD8+ T cell populations in lung cancer [scRNA-Seq]
+GSE171145	False	False	False	True	False	False	True	True	9		Single-cell Transcriptome Analysis Revealed that EGFR Mutation Leads to a Suppressive Tumor Immune Microenvironment in Lung Adenocarcinoma
+GSE174374	False	False	False	False	False	False	True	False	44		5-methylcytosine (m5C) RNA modification controls the innate immune response to virus infection by regulating type I interferons
+GSE179326	False	False	False	False	False	False	True	False	1		Gene expression profiling study by RNA-seq for identifying genes associated with epithelial-mesenchymal transition and acquired resistance to ALK inhibitors.
+GSE179373	False	False	False	False	False	False	False	True	21		Single cell RNA-sequencing of human brain metastasis-infiltrating T cells
+GSE189357	False	True	False	True	False	False	True	True	9	Timepoints without a public MPR/RECIST axis.	Spatiotemporal transcriptional atlas of lung adenocarcinoma from adenocarcinoma in situ to invasive carcinoma [scRNA-seq]
+GSE192402	False	False	False	False	False	False	False	True	74		Multi-modal single-cell and whole-genome sequencing of minute, frozen specimens to propel clinical applications
+GSE200981	False	False	False	False	False	False	False	True	8		Expression data from MCF10A cells treated with TGFβ for multiple time points [scRNA-seq]
+GSE201460	False	False	False	True	False	False	True	True	4		­The proteasome regulator PSME4 reduces the response to immunotherapy by abrogating tumor immunogenicity in NSCLC
+GSE202371	False	False	False	True	False	False	True	True	14		Single-cell RNA sequencing reveals cellular and molecular reprograming landscape of brain tumors
+GSE211068	False	False	False	True	False	False	True	True	9		Integrated multiomics profiling identifies the differentiation program of regulatory T cells in human tumors [scRNA-seq]
+GSE216069	False	True	False	True	False	False	True	True	71	Timepoints without a public MPR/RECIST axis.	Multi-modal single-cell and whole-genome sequencing of minute, frozen specimens to propel clinical applications [scRNA and snRNA]
+GSE217557	False	False	False	False	False	False	False	False	100		Chemical inhibition of immune signaling rescues defects during heart development in Down syndrome via regulating canonical Wnt pathway
+GSE221647	False	False	False	False	False	False	False	False			
+GSE222859	False	False	False	False	False	False	False	True	51		Gene expression profile at single cell level of lymphocytes cells for Pan-T cell analysis
+GSE224099	False	True	False	True	False	False	True	True	12	Timepoints without a public MPR/RECIST axis.	A Population of Tumor-Infiltrating CD4+ T-cells Co-expressing CD38 and CD39  is Associated with Checkpoint Inhibitor Resistance
+GSE231385	False	False	False	False	False	False	False	True	1		SDePER: a hybrid machine learning and regression method for cell-type deconvolution of spatial barcoding-based transcriptomic data
+GSE233203	False	False	False	True	False	False	True	True	7		The single-cell level molecular characteristics according to combination immunotherapy response of non-small cell lung cancer patients.
+GSE235916	False	False	False	False	False	False	False	True			
+GSE240361	False	False	False	True	False	False	True	True	5		Neoantigen-targeted DC vaccine generates durable T cell responses exhibiting the full spectrum of differentiation states in NSCLC patients
+GSE241934	False	False	False	True	False	False	True	True	88		Neoadjuvant sintilimab plus chemotherapy in early-stage EGFR-mutant NSCLC: phase 2 trial interim results (NEOTIDE/CTONG2104)
+GSE243765	False	False	False	False	False	False	False	False	99		Mechanoresponsive genomic enhancers potentiate the cellular response to matrix stiffness
+GSE253013	False	False	False	True	False	True	True	True	89	Treatment-naive LUAD atlas. No public MPR/RECIST.	Single-cell RNA sequencing identifies dysregulated NOTCH3 signaling in tumor stroma of lung adenocarcinoma
+GSE253718	False	False	False	True	False	False	True	True	6		Single-cell transcriptome reveals drug-resistance signature and immunosuppressive microenvironment in lung adenocarcinoma harboring EGFR mutation
+GSE262069	False	True	False	False	False	False	False	False	16	Timepoints without a public MPR/RECIST axis.	Adventitial fibroblasts direct smooth muscle cell-state transition in pulmonary vascular disease
+GSE263248	False	False	False	False	False	False	True	False	148		Human γδ T cells in diverse tissues exhibit site-specific maturation dynamics across the lifespan
+GSE270148	False	True	False	False	False	False	True	False	85	Timepoints without a public MPR/RECIST axis.	Myeloid progenitor dysregulation fuels immunosuppressive macrophages in tumours
+GSE271543	False	False	False	True	False	False	True	True	5		UCPVax, a CD4 helper peptide vaccine induces polyfunctional Th1 cells, antibody response and epitope spreading to improve antitumor immunity  [scRNA-seq]
+GSE272174	False	False	False	True	False	False	True	True	9		Characteristics of a CCL21-gene modified dendritic cell vaccine utilized for a clinical trial in non-small cell lung cancer
+GSE274934	False	False	False	True	False	False	True	True	23		Single-cell multi-omics reveals tumor microenvironment factors underlying poor immunotherapy responses in ALK-positive lung cancer
+GSE278119	False	False	False	False	False	False	False	True	44		Clonally expanded effector CD4+ cytotoxic T lymphocytes are associated with severe neurological adverse events after immune checkpoint inhibitor therapy
+GSE280232	False	False	False	True	False	False	True	True	42		Divergent clinical and immunologic outcomes based on STK11 co-mutation status in resectable KRAS-mutant lung cancers following neoadjuvant immune checkpoint blockade
+GSE285888	False	True	False	True	False	False	True	True	1	Timepoints without a public MPR/RECIST axis.	Single-Cell RNA Sequencing of Baseline PBMCs Predicts ICI efficacy and irAE Severity in NSCLC Patients
+GSE287798	False	False	False	True	False	False	True	True	4		Epigenetic modulation of polyamine biosynthetic pathways rectifies T cell dysfunction to enhance anti-tumor immunity in lung cancer [ATAC-seq]
+GSE287799	False	False	False	True	False	False	True	True	6		Epigenetic modulation of polyamine biosynthetic pathways rectifies T cell dysfunction to enhance anti-tumor immunity in lung cancer [RNA-seq]
+GSE287930	False	False	False	True	False	False	True	True	2		Epigenetic modulation of polyamine biosynthetic pathways rectifies T cell dysfunction to enhance anti-tumor immunity in lung cancer
+GSE290255	False	False	False	False	False	False	False	True	12		Key Regulatory Elements of the TGFβ-LRRC15 Axis Predict Disease Progression and Immunotherapy Resistance Across Cancer Types
+GSE292700	False	False	False	False	True	False	True	True	12		Molecular architecture of the tumor microenvironment caused by BRCA1 and BRCA2 somatic mutations in human lung adenocarcinoma
+GSE298054	False	False	False	True	False	False	True	True	6		Non-viral CISH locus-specific integrated IL-15-armored CAR-NK cells achieve potent anti-tumor efficacy via adaptive NK cell differentiation
+GSE299111	False	False	False	False	False	False	True	False	7		Regulatory T cells in lung tumor shape an anti-inflammatory myeloid-landscape recovery after chemotherapy
+GSE300685	False	False	False	True	False	False	True	True	8		Tumor-infiltrating natural killer cell profiling for therapeutic stratification in smokers with resectable non-small cell lung cancer
+GSE302284	False	False	False	False	False	False	True	False	6		Eradicating Drug Tolerant Persister Cells in EGFR-Mutated Non-Small Cell Lung Cancer by Targeting TROP2 with CAR-T cellular therapy
+GSE303152	False	False	False	False	False	False	True	False	36		Neuronal-Activity Dependent Mechanisms of Small Cell Lung Cancer Pathogenesis
+GSE303483	False	False	False	True	False	False	True	True	4		Ki-67 promotes circulating tumor cell intravasation and metastasis in breast cancer
+GSE305372	False	True	False	True	False	False	True	True	91	Timepoints without a public MPR/RECIST axis.	Human lungs maintain tissue-resident memory T cells against a broad spectrum of pathogens.
+GSE310170	False	False	False	False	False	False	True	False	93		Embryonic stem cell factors DPPA2/4 amplify active H3K4me3-H2AK119ub chromatin domains in non-small cell lung cancer (RNA-seq)
+GSE310173	False	False	False	False	False	False	True	False	300		Embryonic stem cell factors DPPA2/4 amplify active H3K4me3-H2AK119ub chromatin domains in non-small cell lung cancer
+GSE310962	False	True	False	True	False	False	True	True	8	Timepoints without a public MPR/RECIST axis.	EGFR-mutant transformed small cell lung cancer harbors intratumoral heterogeneity targetable with MEK inhibitor combination therapy
+GSE311521	False	False	False	False	False	False	False	True	15		Single-cell multimodal profiling of pan-cancer cell lines uncovers gene regulatory principles underlying intrinsic cell states and environmental features
+GSE315510	False	True	False	True	False	False	True	True	30	Timepoints without a public MPR/RECIST axis.	Mitochondrial potential as a biomarker of T cell fitness and function in cancer immunotherapy
+GSE335847	False	True	False	False	False	False	True	False	13	Timepoints without a public MPR/RECIST axis.	TrAEL-seq of osimertinib-treated PC9 cells in specific cell cycle stages
+GSE337162	False	False	False	False	False	False	False	True	6		Single-cell variant landscape of the human mitochondrial genome reveals cell type-specific and disease-associated changes
+GSE337519	False	True	False	True	False	False	True	True	1	Timepoints without a public MPR/RECIST axis.	Single-cell transcriptomic landscape of neoadjuvant chemo-immunotherapy response in lung cancer
+GSE52717	False	False	False	False	False	False	False	True	64		Flexible multiplatform RNA profiling at the single cell level applied to enriched cancer initiating cells
+GSE70552	False	False	False	False	False	False	False	True	1022		Single-cell analysis reveals a stem cell program in human metastatic breast cancer cells (PDX mice - cancer cells)
+GSE70555	False	False	False	False	False	False	False	True	1293		Single-cell analysis reveals a stem cell program in human metastatic breast cancer cells
+GSE99254	False	True	False	True	False	False	True	True	14	Timepoints without a public MPR/RECIST axis.	T cell landscape of non-small cell lung cancer revealed by deep single-cell RNA sequencing

@@ -1,0 +1,49 @@
+n_a	n_b	median_a	median_b	mean_a	mean_b	U	p	note	scope	metric	gene	kind	group_a	group_b	patients_a	patients_b
+8	4	1.71936332752181	1.3333168592657318	1.6880533260629353	1.327938470472299	24.0	0.21414141414141416		cnv_or_program|post_NMPR_vs_MPR	mal_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	post_NMPR	post_MPR	P02,P04,P07,P09,P10,P12,P13,P15	P03,P06,P11,P14
+2	0	1.7454012696545766		1.7454012696545766				need_n>=2_per_group	cnv_or_program|pre_NMPR_vs_MPR	mal_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	pre_NMPR	pre_MPR	P05,P08	
+8	2	1.71936332752181	1.7454012696545766	1.6880533260629353	1.7454012696545766	7.0	0.888888888888889		cnv_or_program|NMPR_post_vs_pre	mal_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	NMPR_post	NMPR_pre	P02,P04,P07,P09,P10,P12,P13,P15	P05,P08
+4	0	1.3333168592657318		1.327938470472299				need_n>=2_per_group	cnv_or_program|MPR_post_vs_pre	mal_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	MPR_post	MPR_pre	P03,P06,P11,P14	
+4	8	1.5790093451618632	1.6731074924733456	1.5834733088472348	1.5602859068754673	16.0	1.0		cnv_or_program|post_SD_vs_PR	mal_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	post_SD	post_PR	P07,P11,P12,P15	P02,P03,P04,P06,P09,P10,P13,P14
+2	1	1.6976360551626857	1.8608246138287787	1.6976360551626857	1.8608246138287787			need_n>=2_per_group	cnv_or_program|pre_SD_vs_PR	mal_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	pre_SD	pre_PR	P01,P08	P05
+8	4	88.35937114977084	86.08663132906247	84.29075572842254	85.20578706041223	14.0	0.8080808080808081		cnv_or_program|post_NMPR_vs_MPR	mal_tacstd2_pct_pos	TACSTD2	pct_pos	post_NMPR	post_MPR	P02,P04,P07,P09,P10,P12,P13,P15	P03,P06,P11,P14
+2	0	87.21866090287142		87.21866090287142				need_n>=2_per_group	cnv_or_program|pre_NMPR_vs_MPR	mal_tacstd2_pct_pos	TACSTD2	pct_pos	pre_NMPR	pre_MPR	P05,P08	
+8	2	88.35937114977084	87.21866090287142	84.29075572842254	87.21866090287142	7.0	0.888888888888889		cnv_or_program|NMPR_post_vs_pre	mal_tacstd2_pct_pos	TACSTD2	pct_pos	NMPR_post	NMPR_pre	P02,P04,P07,P09,P10,P12,P13,P15	P05,P08
+4	0	86.08663132906247		85.20578706041223				need_n>=2_per_group	cnv_or_program|MPR_post_vs_pre	mal_tacstd2_pct_pos	TACSTD2	pct_pos	MPR_post	MPR_pre	P03,P06,P11,P14	
+4	8	91.00512929545275	83.44087318338057	85.78127786998797	84.00301032363465	18.0	0.8080808080808081		cnv_or_program|post_SD_vs_PR	mal_tacstd2_pct_pos	TACSTD2	pct_pos	post_SD	post_PR	P07,P11,P12,P15	P02,P03,P04,P06,P09,P10,P13,P14
+2	1	85.45600394915463	84.34723171565277	85.45600394915463	84.34723171565277			need_n>=2_per_group	cnv_or_program|pre_SD_vs_PR	mal_tacstd2_pct_pos	TACSTD2	pct_pos	pre_SD	pre_PR	P01,P08	P05
+8	4	1.6456847055967914	1.5991258095668777	1.5152898194565991	1.5468854294171028	15.0	0.9333333333333333		cnv_or_program|post_NMPR_vs_MPR	mal_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	post_NMPR	post_MPR	P02,P04,P07,P09,P10,P12,P13,P15	P03,P06,P11,P14
+2	0	1.226277702608668		1.226277702608668				need_n>=2_per_group	cnv_or_program|pre_NMPR_vs_MPR	mal_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	pre_NMPR	pre_MPR	P05,P08	
+8	2	1.6456847055967914	1.226277702608668	1.5152898194565991	1.226277702608668	12.0	0.4		cnv_or_program|NMPR_post_vs_pre	mal_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	NMPR_post	NMPR_pre	P02,P04,P07,P09,P10,P12,P13,P15	P05,P08
+4	0	1.5991258095668777		1.5468854294171028				need_n>=2_per_group	cnv_or_program|MPR_post_vs_pre	mal_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	MPR_post	MPR_pre	P03,P06,P11,P14	
+4	8	1.5831673813685723	1.6346935640438673	1.4827275992483075	1.5473687345409968	15.0	0.9333333333333333		cnv_or_program|post_SD_vs_PR	mal_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	post_SD	post_PR	P07,P11,P12,P15	P02,P03,P04,P06,P09,P10,P13,P14
+2	1	1.8056792919450135	0.8920555531279605	1.8056792919450135	0.8920555531279605			need_n>=2_per_group	cnv_or_program|pre_SD_vs_PR	mal_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	pre_SD	pre_PR	P01,P08	P05
+8	4	87.12539951118632	91.46779993461915	82.8646622153054	90.19266457945992	12.0	0.5696969696969697		cnv_or_program|post_NMPR_vs_MPR	mal_cldn4_pct_pos	CLDN4	pct_pos	post_NMPR	post_MPR	P02,P04,P07,P09,P10,P12,P13,P15	P03,P06,P11,P14
+2	0	72.93017556175451		72.93017556175451				need_n>=2_per_group	cnv_or_program|pre_NMPR_vs_MPR	mal_cldn4_pct_pos	CLDN4	pct_pos	pre_NMPR	pre_MPR	P05,P08	
+8	2	87.12539951118632	72.93017556175451	82.8646622153054	72.93017556175451	12.0	0.4		cnv_or_program|NMPR_post_vs_pre	mal_cldn4_pct_pos	CLDN4	pct_pos	NMPR_post	NMPR_pre	P02,P04,P07,P09,P10,P12,P13,P15	P05,P08
+4	0	91.46779993461915		90.19266457945992				need_n>=2_per_group	cnv_or_program|MPR_post_vs_pre	mal_cldn4_pct_pos	CLDN4	pct_pos	MPR_post	MPR_pre	P03,P06,P11,P14	
+4	8	91.50528187493964	87.06234184495054	85.29452575422374	85.31373162792349	18.0	0.8080808080808081		cnv_or_program|post_SD_vs_PR	mal_cldn4_pct_pos	CLDN4	pct_pos	post_SD	post_PR	P07,P11,P12,P15	P02,P03,P04,P06,P09,P10,P13,P14
+2	1	85.2361779587807	61.17566643882434	85.2361779587807	61.17566643882434			need_n>=2_per_group	cnv_or_program|pre_SD_vs_PR	mal_cldn4_pct_pos	CLDN4	pct_pos	pre_SD	pre_PR	P01,P08	P05
+6	1	1.9548695719237124	0.7725452704573997	1.848868373743383	0.7725452704573997			need_n>=2_per_group	epi_minus_normal|post_NMPR_vs_MPR	malb_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	post_NMPR	post_MPR	P04,P07,P09,P10,P12,P15	P03
+1	0	1.8629719707437675		1.8629719707437675				need_n>=2_per_group	epi_minus_normal|pre_NMPR_vs_MPR	malb_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	pre_NMPR	pre_MPR	P05	
+6	1	1.9548695719237124	1.8629719707437675	1.848868373743383	1.8629719707437675			need_n>=2_per_group	epi_minus_normal|NMPR_post_vs_pre	malb_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	NMPR_post	NMPR_pre	P04,P07,P09,P10,P12,P15	P05
+1	0	0.7725452704573997		0.7725452704573997				need_n>=2_per_group	epi_minus_normal|MPR_post_vs_pre	malb_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	MPR_post	MPR_pre	P03	
+3	4	2.2793181024996043	1.6665709978843082	1.8876918311331743	1.5506700048795437	9.0	0.4		epi_minus_normal|post_SD_vs_PR	malb_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	post_SD	post_PR	P07,P12,P15	P03,P04,P09,P10
+1	1	1.7634415236091485	1.8629719707437675	1.7634415236091485	1.8629719707437675			need_n>=2_per_group	epi_minus_normal|pre_SD_vs_PR	malb_tacstd2_mean_log1p_cp10k	TACSTD2	mean_log1p_cp10k	pre_SD	pre_PR	P01	P05
+6	1	87.37726098191214	74.03846153846155	84.33302428751625	74.03846153846155			need_n>=2_per_group	epi_minus_normal|post_NMPR_vs_MPR	malb_tacstd2_pct_pos	TACSTD2	pct_pos	post_NMPR	post_MPR	P04,P07,P09,P10,P12,P15	P03
+1	0	84.39226519337016		84.39226519337016				need_n>=2_per_group	epi_minus_normal|pre_NMPR_vs_MPR	malb_tacstd2_pct_pos	TACSTD2	pct_pos	pre_NMPR	pre_MPR	P05	
+6	1	87.37726098191214	84.39226519337016	84.33302428751625	84.39226519337016			need_n>=2_per_group	epi_minus_normal|NMPR_post_vs_pre	malb_tacstd2_pct_pos	TACSTD2	pct_pos	NMPR_post	NMPR_pre	P04,P07,P09,P10,P12,P15	P05
+1	0	74.03846153846155		74.03846153846155				need_n>=2_per_group	epi_minus_normal|MPR_post_vs_pre	malb_tacstd2_pct_pos	TACSTD2	pct_pos	MPR_post	MPR_pre	P03	
+3	4	99.13103132860736	79.241452991453	86.35955843588833	80.23948298897352	8.0	0.6285714285714286		epi_minus_normal|post_SD_vs_PR	malb_tacstd2_pct_pos	TACSTD2	pct_pos	post_SD	post_PR	P07,P12,P15	P03,P04,P09,P10
+1	1	80.76256499133449	84.39226519337016	80.76256499133449	84.39226519337016			need_n>=2_per_group	epi_minus_normal|pre_SD_vs_PR	malb_tacstd2_pct_pos	TACSTD2	pct_pos	pre_SD	pre_PR	P01	P05
+6	1	1.5260534141973632	1.056998229559981	1.4098439253229655	1.056998229559981			need_n>=2_per_group	epi_minus_normal|post_NMPR_vs_MPR	malb_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	post_NMPR	post_MPR	P04,P07,P09,P10,P12,P15	P03
+1	0	0.8901589315097462		0.8901589315097462				need_n>=2_per_group	epi_minus_normal|pre_NMPR_vs_MPR	malb_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	pre_NMPR	pre_MPR	P05	
+6	1	1.5260534141973632	0.8901589315097462	1.4098439253229655	0.8901589315097462			need_n>=2_per_group	epi_minus_normal|NMPR_post_vs_pre	malb_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	NMPR_post	NMPR_pre	P04,P07,P09,P10,P12,P15	P05
+1	0	1.056998229559981		1.056998229559981				need_n>=2_per_group	epi_minus_normal|MPR_post_vs_pre	malb_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	MPR_post	MPR_pre	P03	
+3	4	1.7098487287443802	1.1996281646051634	1.4565626866063583	1.2865934304196749	7.0	0.8571428571428571		epi_minus_normal|post_SD_vs_PR	malb_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	post_SD	post_PR	P07,P12,P15	P03,P04,P09,P10
+1	1	2.0447867610169066	0.8901589315097462	2.0447867610169066	0.8901589315097462			need_n>=2_per_group	epi_minus_normal|pre_SD_vs_PR	malb_cldn4_mean_log1p_cp10k	CLDN4	mean_log1p_cp10k	pre_SD	pre_PR	P01	P05
+6	1	76.74418604651163	80.08241758241759	77.56688848554863	80.08241758241759			need_n>=2_per_group	epi_minus_normal|post_NMPR_vs_MPR	malb_cldn4_pct_pos	CLDN4	pct_pos	post_NMPR	post_MPR	P04,P07,P09,P10,P12,P15	P03
+1	0	61.11878453038674		61.11878453038674				need_n>=2_per_group	epi_minus_normal|pre_NMPR_vs_MPR	malb_cldn4_pct_pos	CLDN4	pct_pos	pre_NMPR	pre_MPR	P05	
+6	1	76.74418604651163	61.11878453038674	77.56688848554863	61.11878453038674			need_n>=2_per_group	epi_minus_normal|NMPR_post_vs_pre	malb_cldn4_pct_pos	CLDN4	pct_pos	NMPR_post	NMPR_pre	P04,P07,P09,P10,P12,P15	P05
+1	0	80.08241758241759		80.08241758241759				need_n>=2_per_group	epi_minus_normal|MPR_post_vs_pre	malb_cldn4_pct_pos	CLDN4	pct_pos	MPR_post	MPR_pre	P03	
+3	4	95.08346672764692	73.37454212454213	83.3524295723919	73.8566149446334	8.0	0.6285714285714286		epi_minus_normal|post_SD_vs_PR	malb_cldn4_pct_pos	CLDN4	pct_pos	post_SD	post_PR	P07,P12,P15	P03,P04,P09,P10
+1	1	85.6152512998267	61.11878453038674	85.6152512998267	61.11878453038674			need_n>=2_per_group	epi_minus_normal|pre_SD_vs_PR	malb_cldn4_pct_pos	CLDN4	pct_pos	pre_SD	pre_PR	P01	P05
