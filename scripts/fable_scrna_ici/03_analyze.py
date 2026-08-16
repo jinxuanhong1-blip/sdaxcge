@@ -1,17 +1,24 @@
 #!/usr/bin/env python3
-"""Main analysis: tumor-cell TACSTD2/CLDN4 vs CD8 infiltration, TLS
-(12-chemokine) score, and ICI response in GSE207422 (MPR) and GSE205335
-(RECIST).
+"""Malignant-restricted TACSTD2 vs T/NK fraction and ICI response.
 
-Inputs (produced by 00/01/02 scripts):
-  /tmp/data_scrna_ici/gse207422_panel_cells.tsv.gz
-  /tmp/data_scrna_ici/gse205335_panel_cells.tsv.gz
-  /tmp/data_scrna_ici/GSE207422_NSCLC_scRNAseq_metadata.xlsx
-  /tmp/data_scrna_ici/GSE205335_Lung_IO_CellIdentity.txt.gz
-  results/fable_scrna_ici/gse205335_sample_table.tsv
+GSE207422 (Hu et al. Genome Med 2023, PMID 36869384):
+  Authors identified malignant epithelium with CopyKAT (stromal reference).
+  GEO does not provide per-cell CopyKAT labels, so malignant-like cells are
+  approximated as epithelial-lineage cells that lack normal-lung markers
+  (alveolar SFTPA1/SFTPA2/SFTPB/AGER, club SCGB1A1, ciliated TPPP3/FOXJ1)
+  used by the paper to annotate non-malignant clusters. TACSTD2 is scored
+  only in those cells. pCR is grouped with MPR (authors' grouping). Samples
+  with <10 malignant-like cells are dropped from TACSTD2 means (authors
+  dropped one NMPR sample with <10 malignant cells).
 
-Outputs under results/fable_scrna_ici/.
+GSE205335 (Park/Ahn/Lee lung ICI atlas):
+  Uses the authors' published 'Malignant cells' labels. RECIST PR = R,
+  SD/PD = NR. Normal tissues excluded from response tests.
+
+No numbers are invented; all statistics are computed from the processed
+UMI matrices downloaded from GEO.
 """
+import os
 import numpy as np
 import pandas as pd
 from scipy import stats
@@ -21,15 +28,17 @@ import matplotlib.pyplot as plt
 
 DATA = "/tmp/data_scrna_ici"
 RES = "/workspace/results/fable_scrna_ici"
+os.makedirs(RES, exist_ok=True)
 PANEL = pd.read_csv("/workspace/scripts/fable_scrna_ici/gene_panel.tsv", sep="\t")
-
 TLS12 = PANEL.loc[PANEL.category == "tls12", "gene"].tolist()
-MIN_TUMOR_CELLS = 30
-MIN_TOTAL_UMI = 200
+
+MIN_UMI = 200
+MIN_MALIG = 10          # Hu et al. dropped samples with <10 malignant cells
+MIN_MALIG_STRICT = 30
 
 LINEAGE_MARKERS = {
     "Epithelial": ["EPCAM", "KRT8", "KRT18", "KRT19", "KRT5", "KRT7", "KRT17",
-                    "ELF3", "CDH1", "MUC1"],
+                   "ELF3", "CDH1", "MUC1"],
     "T/NK": ["CD3D", "CD3E", "CD3G", "TRAC", "CD2", "NKG7", "GNLY", "KLRD1"],
     "B/Plasma": ["CD79A", "CD79B", "MS4A1", "JCHAIN", "MZB1", "IGHM"],
     "Myeloid": ["LYZ", "CD68", "CD14", "C1QA", "C1QB", "FCN1", "ITGAX"],
@@ -37,137 +46,203 @@ LINEAGE_MARKERS = {
     "Endothelial": ["PECAM1", "VWF", "CLDN5", "CDH5", "RAMP2"],
     "Fibroblast": ["COL1A1", "COL1A2", "COL3A1", "DCN", "LUM", "TAGLN"],
 }
+NORMAL_LUNG = ["SFTPA1", "SFTPA2", "SFTPB", "SFTPD", "AGER", "NAPSA",
+               "SCGB1A1", "SCGB3A2", "TPPP3", "FOXJ1", "CAPS"]
+TUMOR_EPI = ["EPCAM", "KRT8", "KRT18", "KRT19", "KRT7", "CEACAM5",
+             "CEACAM6", "MUC1", "ELF3"]
 
 stats_rows = []
 
 
-def add_stat(dataset, analysis, group_or_x, metric, n, stat_name, stat, p, note=""):
+def add_stat(dataset, analysis, comparison, metric, n, stat_name, value, p, note=""):
     stats_rows.append(dict(dataset=dataset, analysis=analysis,
-                           comparison=group_or_x, metric=metric, n=n,
-                           stat=stat_name, value=stat, p_value=p, note=note))
+                           comparison=comparison, metric=metric, n=n,
+                           stat=stat_name, value=value, p_value=p, note=note))
 
 
-def lognorm(counts, total):
-    """log1p CP10K."""
-    return np.log1p(counts / total.values[:, None] * 1e4)
-
-
-def pseudobulk_tls(df_counts, sample_col, genes):
-    """Per-sample pseudobulk log2-CPM mean over TLS genes + CXCL13 alone."""
-    agg = df_counts.groupby(sample_col)[genes + ["total_umi"]].sum()
-    cpm = agg[genes].div(agg["total_umi"], axis=0) * 1e6
-    out = pd.DataFrame(index=agg.index)
-    out["tls12_score"] = np.log2(cpm[genes] + 1).mean(axis=1)
-    out["cxcl13_log2cpm"] = np.log2(cpm["CXCL13"] + 1)
-    return out
+def log1p_cp10k(counts, total):
+    return np.log1p(np.asarray(counts, float) / np.asarray(total, float)[:, None] * 1e4)
 
 
 def mwu(a, b):
     a, b = np.asarray(a, float), np.asarray(b, float)
+    a, b = a[np.isfinite(a)], b[np.isfinite(b)]
     if len(a) < 2 or len(b) < 2:
         return np.nan, np.nan
-    u, p = stats.mannwhitneyu(a, b, alternative="two-sided")
-    return u, p
+    return stats.mannwhitneyu(a, b, alternative="two-sided")
 
 
 def spear(x, y):
+    x, y = np.asarray(x, float), np.asarray(y, float)
     m = np.isfinite(x) & np.isfinite(y)
     if m.sum() < 4:
         return np.nan, np.nan, int(m.sum())
     r, p = stats.spearmanr(x[m], y[m])
-    return r, p, int(m.sum())
+    return float(r), float(p), int(m.sum())
 
 
-# ----------------------------------------------------------------------
-# GSE207422 (neoadjuvant anti-PD-1 + chemo NSCLC, MPR endpoint)
-# ----------------------------------------------------------------------
+def present(genes, columns):
+    return [g for g in genes if g in columns]
+
+
+# ======================================================================
+# GSE207422
+# ======================================================================
 print("=== GSE207422 ===", flush=True)
 cells7 = pd.read_csv(f"{DATA}/gse207422_panel_cells.tsv.gz", sep="\t")
+extra_path = f"{DATA}/gse207422_extra_genes.tsv.gz"
+if os.path.exists(extra_path):
+    extra = pd.read_csv(extra_path, sep="\t")
+    newcols = [c for c in extra.columns if c != "barcode" and c not in cells7.columns]
+    cells7 = cells7.merge(extra[["barcode"] + newcols], on="barcode", how="left")
+    print("merged extra genes:", newcols)
+else:
+    print("WARNING: extra-gene file missing; normal-lung filter uses panel genes only")
+
 cells7["sample"] = cells7["barcode"].str.rsplit("_", n=1).str[0]
-cells7 = cells7[cells7.total_umi >= MIN_TOTAL_UMI].copy()
-genes7 = [g for g in PANEL.gene if g in cells7.columns]
+cells7 = cells7.loc[cells7.total_umi >= MIN_UMI].copy()
+count_genes = [c for c in cells7.columns
+               if c not in ("barcode", "total_umi", "sample")]
 
 meta7 = pd.read_excel(f"{DATA}/GSE207422_NSCLC_scRNAseq_metadata.xlsx").iloc[:15]
 meta7 = meta7.rename(columns={"Sample": "sample"})
+# authors: pCR counted as MPR; P01 pre-tx is NE
 meta7["mpr_group"] = meta7["Pathologic Response"].map(
-    {"MPR": "MPR", "pCR": "MPR", "NMPR": "NMPR", "NE": np.nan})
+    {"MPR": "MPR", "pCR": "MPR", "NMPR": "NMPR"})
+meta7["timing"] = meta7["Resource"].map({
+    "Pre-treatment biopsy": "pre", "Post-treatment surgery": "post"})
 
-# marker-score lineage assignment
-ln = lognorm(cells7[genes7], cells7["total_umi"])
-ln = pd.DataFrame(ln, columns=genes7, index=cells7.index)
-scores = pd.DataFrame({lin: ln[[g for g in gs if g in ln.columns]].mean(axis=1)
+ln7 = pd.DataFrame(log1p_cp10k(cells7[count_genes], cells7["total_umi"]),
+                   columns=count_genes, index=cells7.index)
+scores = pd.DataFrame({lin: ln7[present(gs, ln7.columns)].mean(axis=1)
                        for lin, gs in LINEAGE_MARKERS.items()})
 cells7["lineage"] = scores.idxmax(axis=1)
 cells7["max_score"] = scores.max(axis=1)
 cells7.loc[cells7["max_score"] <= 0, "lineage"] = "Unassigned"
+cells7["is_tnk"] = cells7["lineage"] == "T/NK"
+cd8s = ln7[present(["CD8A", "CD8B"], ln7.columns)].mean(axis=1)
+ts = ln7[present(["CD3D", "CD3E", "TRAC", "CD2"], ln7.columns)].mean(axis=1)
+cells7["is_cd8t"] = cells7["is_tnk"] & (ts > 0) & (cd8s > 0)
 
-tscore = ln[["CD3D", "CD3E", "TRAC", "CD2"]].mean(axis=1)
-cd8score = ln[["CD8A", "CD8B"]].mean(axis=1)
-is_t = (cells7["lineage"] == "T/NK") & (tscore > 0)
-cells7["is_cd8t"] = is_t & (cd8score > 0)
+norm_g = present(NORMAL_LUNG, ln7.columns)
+tum_g = present(TUMOR_EPI, ln7.columns)
+print("normal-lung genes used:", norm_g)
+print("tumor-epi genes used:", tum_g)
+cells7["normal_lung_score"] = ln7[norm_g].mean(axis=1) if norm_g else 0
+cells7["tumor_epi_score"] = ln7[tum_g].mean(axis=1)
+# malignant-like: epithelial + tumor-epi program exceeds normal-lung program
+cells7["is_epithelial"] = cells7["lineage"] == "Epithelial"
+cells7["is_malignant"] = (cells7["is_epithelial"]
+                          & (cells7["tumor_epi_score"] > cells7["normal_lung_score"])
+                          & (cells7["normal_lung_score"] < 0.4))
+cells7["is_normal_epi"] = cells7["is_epithelial"] & ~cells7["is_malignant"]
 
-# classification QC: mean marker expression per lineage
-qc = ln[["PTPRC", "EPCAM", "CD3E", "CD8A", "LYZ", "COL1A1", "PECAM1",
-         "MS4A1", "TACSTD2", "CLDN4"]].groupby(cells7["lineage"]).mean().round(3)
+qc_genes = present(["PTPRC", "EPCAM", "CD3E", "CD8A", "LYZ", "COL1A1",
+                    "PECAM1", "MS4A1", "TACSTD2", "CLDN4", "SFTPA1",
+                    "SFTPB", "NAPSA"] + norm_g, ln7.columns)
+qc = ln7[qc_genes].groupby(cells7["lineage"]).mean().round(3)
 qc.insert(0, "n_cells", cells7.groupby("lineage").size())
 qc.to_csv(f"{RES}/gse207422_lineage_marker_qc.tsv", sep="\t")
 print(qc.to_string())
 
-epi7 = cells7[cells7.lineage == "Epithelial"].copy()
-epi_ln7 = ln.loc[epi7.index]
+epi_qc = (ln7.loc[cells7.is_epithelial, present(
+    ["TACSTD2", "CLDN4", "EPCAM"] + norm_g, ln7.columns)]
+          .groupby(cells7.loc[cells7.is_epithelial, "is_malignant"])
+          .mean().round(3))
+epi_qc.insert(0, "n_cells",
+              cells7.loc[cells7.is_epithelial].groupby("is_malignant").size())
+epi_qc.to_csv(f"{RES}/gse207422_malignant_vs_normal_epi_qc.tsv", sep="\t")
+print("malignant vs normal epi:\n", epi_qc.to_string())
+
+mal7 = cells7[cells7.is_malignant]
+epi7 = cells7[cells7.is_epithelial]
+mal_ln = ln7.loc[mal7.index]
+epi_ln = ln7.loc[epi7.index]
 
 samp7 = pd.DataFrame(index=sorted(cells7["sample"].unique()))
 samp7["n_cells"] = cells7.groupby("sample").size()
-samp7["n_epithelial"] = epi7.groupby("sample").size()
+samp7["n_epithelial"] = cells7.groupby("sample")["is_epithelial"].sum()
+samp7["n_malignant"] = cells7.groupby("sample")["is_malignant"].sum()
+samp7["n_normal_epi"] = cells7.groupby("sample")["is_normal_epi"].sum()
+samp7["n_tnk"] = cells7.groupby("sample")["is_tnk"].sum()
 samp7["n_cd8t"] = cells7.groupby("sample")["is_cd8t"].sum()
-samp7["cd8_frac_all"] = samp7["n_cd8t"] / samp7["n_cells"]
+samp7["tnk_frac"] = samp7["n_tnk"] / samp7["n_cells"]
+samp7["cd8_frac"] = samp7["n_cd8t"] / samp7["n_cells"]
 for g in ["TACSTD2", "CLDN4"]:
-    samp7[f"tumor_{g}_mean"] = epi_ln7[g].groupby(epi7["sample"]).mean()
-    samp7[f"tumor_{g}_pct_pos"] = (epi7[g] > 0).groupby(epi7["sample"]).mean()
-samp7 = samp7.join(pseudobulk_tls(cells7, "sample", TLS12))
-samp7 = samp7.merge(meta7[["sample", "Patient", "Resource",
-                           "Pathologic Response", "mpr_group", "RECIST"]],
+    samp7[f"malig_{g}_mean"] = mal_ln[g].groupby(mal7["sample"]).mean()
+    samp7[f"malig_{g}_pct"] = (mal7[g] > 0).groupby(mal7["sample"]).mean()
+    samp7[f"epi_{g}_mean"] = epi_ln[g].groupby(epi7["sample"]).mean()
+# TLS 12-chemokine pseudobulk
+agg = cells7.groupby("sample")[TLS12 + ["total_umi"]].sum()
+cpm = agg[TLS12].div(agg["total_umi"], axis=0) * 1e6
+samp7["tls12_score"] = np.log2(cpm[TLS12] + 1).mean(axis=1)
+samp7["cxcl13_log2cpm"] = np.log2(cpm["CXCL13"] + 1)
+samp7 = samp7.merge(meta7[["sample", "Patient", "Resource", "timing",
+                           "Pathologic Response", "mpr_group", "RECIST",
+                           "Pathology"]],
                     left_index=True, right_on="sample").set_index("sample")
-enough = samp7["n_epithelial"].fillna(0) >= MIN_TUMOR_CELLS
-samp7.loc[~enough, [c for c in samp7.columns if c.startswith("tumor_")]] = np.nan
+
+# mask TACSTD2 means when too few malignant cells (authors used <10)
+low = samp7["n_malignant"].fillna(0) < MIN_MALIG
+for c in [c for c in samp7.columns if c.startswith("malig_")]:
+    samp7.loc[low, c] = np.nan
 samp7.round(4).to_csv(f"{RES}/gse207422_sample_metrics.tsv", sep="\t")
 print(samp7.round(3).to_string())
 
-post7 = samp7[samp7.Resource == "Post-treatment surgery"]
-for metric in ["tumor_TACSTD2_mean", "tumor_TACSTD2_pct_pos",
-               "tumor_CLDN4_mean", "tumor_CLDN4_pct_pos",
-               "cd8_frac_all", "tls12_score", "cxcl13_log2cpm"]:
-    a = post7.loc[post7.mpr_group == "MPR", metric].dropna()
-    b = post7.loc[post7.mpr_group == "NMPR", metric].dropna()
+# --- tests ---
+def report_mwu(df, group_col, g1, g2, metric, analysis, note=""):
+    a = df.loc[df[group_col] == g1, metric].dropna()
+    b = df.loc[df[group_col] == g2, metric].dropna()
     u, p = mwu(a, b)
-    add_stat("GSE207422", "MPR_vs_NMPR_posttreat", "MPR vs NMPR", metric,
+    add_stat("GSE207422", analysis, f"{g1} vs {g2}", metric,
              f"{len(a)}v{len(b)}", "MannWhitneyU", u, p,
-             f"median MPR={a.median():.3f} NMPR={b.median():.3f}"
-             if len(a) and len(b) else "")
+             (f"median {g1}={a.median():.4f} {g2}={b.median():.4f}; "
+              f"mean {g1}={a.mean():.4f} {g2}={b.mean():.4f}; {note}").strip("; "))
+    return a, b, u, p
 
-for g in ["TACSTD2", "CLDN4"]:
-    for target in ["cd8_frac_all", "tls12_score", "cxcl13_log2cpm"]:
-        r, p, n = spear(samp7[f"tumor_{g}_mean"].values, samp7[target].values)
-        add_stat("GSE207422", "spearman_sample", f"tumor_{g}_mean~{target}",
-                 target, n, "spearman_rho", r, p)
 
-# cell-level (exploratory; pseudoreplicated)
-epi_post = epi7.merge(samp7[["mpr_group", "Resource"]], left_on="sample",
+post = samp7[samp7.timing == "post"]
+for metric in ["malig_TACSTD2_mean", "malig_TACSTD2_pct", "malig_CLDN4_mean",
+               "epi_TACSTD2_mean", "tnk_frac", "cd8_frac", "tls12_score"]:
+    report_mwu(post, "mpr_group", "NMPR", "MPR", metric,
+               "post_NMPR_vs_MPR",
+               "post-treatment surgery only; pCR counted as MPR")
+
+# direction check for the claimed NMPR > MPR TACSTD2
+a, b, u, p = report_mwu(post, "mpr_group", "NMPR", "MPR", "malig_TACSTD2_mean",
+                        "CLAIM_NMPR_gt_MPR_malig_TACSTD2",
+                        "one-sided claim NMPR>MPR is supported only if median/mean NMPR>MPR")
+
+# Spearman: per-patient malignant TACSTD2 vs T/NK (1 sample / patient)
+for subset_name, dfx in [
+    ("all_with_malig", samp7),
+    ("post_with_malig", post),
+    ("post_n_malig_ge30", post[post.n_malignant.fillna(0) >= MIN_MALIG_STRICT]),
+]:
+    for xv, yv in [("malig_TACSTD2_mean", "tnk_frac"),
+                   ("malig_TACSTD2_mean", "cd8_frac"),
+                   ("malig_TACSTD2_mean", "tls12_score"),
+                   ("malig_CLDN4_mean", "tnk_frac"),
+                   ("epi_TACSTD2_mean", "tnk_frac")]:
+        r, p, n = spear(dfx[xv], dfx[yv])
+        add_stat("GSE207422", f"spearman_{subset_name}", f"{xv}~{yv}",
+                 yv, n, "spearman_rho", r, p)
+
+# cell-level exploratory (pseudoreplicated)
+mal_post = mal7.merge(samp7[["mpr_group", "timing"]], left_on="sample",
                       right_index=True)
-epi_post = epi_post[epi_post.Resource == "Post-treatment surgery"]
-for g in ["TACSTD2", "CLDN4"]:
-    vals = np.log1p(epi_post[g] / epi_post["total_umi"] * 1e4)
-    a = vals[epi_post.mpr_group == "MPR"]
-    b = vals[epi_post.mpr_group == "NMPR"]
-    u, p = mwu(a, b)
-    add_stat("GSE207422", "cell_level_MPR_vs_NMPR", "MPR vs NMPR",
-             f"epi_{g}_lognorm", f"{len(a)}v{len(b)}", "MannWhitneyU", u, p,
-             "pseudoreplicated, exploratory; "
-             f"median MPR={a.median():.3f} NMPR={b.median():.3f}")
+mal_post = mal_post[mal_post.timing == "post"]
+vals = np.log1p(mal_post["TACSTD2"] / mal_post["total_umi"] * 1e4)
+aa = vals[mal_post.mpr_group == "NMPR"]
+bb = vals[mal_post.mpr_group == "MPR"]
+u, p = mwu(aa, bb)
+add_stat("GSE207422", "cell_level_exploratory", "NMPR vs MPR",
+         "malig_TACSTD2_lognorm", f"{len(aa)}v{len(bb)}", "MannWhitneyU", u, p,
+         f"PSEUDOREPLICATED; median NMPR={aa.median():.4f} MPR={bb.median():.4f}")
 
-# ----------------------------------------------------------------------
-# GSE205335 (lung cancer ICI, RECIST endpoint, authors' annotations)
-# ----------------------------------------------------------------------
+# ======================================================================
+# GSE205335 — author malignant labels
+# ======================================================================
 print("=== GSE205335 ===", flush=True)
 cells5 = pd.read_csv(f"{DATA}/gse205335_panel_cells.tsv.gz", sep="\t")
 ident5 = pd.read_csv(f"{DATA}/GSE205335_Lung_IO_CellIdentity.txt.gz", sep="\t")
@@ -175,139 +250,156 @@ cells5 = cells5.merge(ident5, on="barcode", how="inner")
 samp_tab5 = pd.read_csv(f"{RES}/gse205335_sample_table.tsv", sep="\t")
 cells5 = cells5.merge(samp_tab5[["orig.ident", "patient", "tissue", "recist",
                                  "cancer_subtype"]], on="orig.ident")
-cells5 = cells5[cells5.total_umi >= MIN_TOTAL_UMI].copy()
-genes5 = [g for g in PANEL.gene if g in cells5.columns]
-
-cells5["is_tumor"] = cells5["lineage.sub"] == "Malignant cells"
+cells5 = cells5.loc[cells5.total_umi >= MIN_UMI].copy()
+cells5["is_malignant"] = cells5["lineage.sub"] == "Malignant cells"
+cells5["is_tnk"] = cells5["lineage.total"] == "T/NK cells"
 cells5["is_cd8t"] = cells5["lineage.sub"] == "CD8+ T cells"
-cells5["is_cd8tex"] = cells5["celltype"] == "CD8+ TEX"
 
-tum5 = cells5[cells5.is_tumor].copy()
-tum_ln5 = pd.DataFrame(lognorm(tum5[["TACSTD2", "CLDN4"]], tum5["total_umi"]),
-                       columns=["TACSTD2", "CLDN4"], index=tum5.index)
+mal5 = cells5[cells5.is_malignant]
+mal_ln5 = pd.DataFrame(log1p_cp10k(mal5[["TACSTD2", "CLDN4"]], mal5["total_umi"]),
+                       columns=["TACSTD2", "CLDN4"], index=mal5.index)
 
 samp5 = pd.DataFrame(index=sorted(cells5["orig.ident"].unique()))
 samp5["n_cells"] = cells5.groupby("orig.ident").size()
-samp5["n_tumor"] = tum5.groupby("orig.ident").size()
+samp5["n_malignant"] = cells5.groupby("orig.ident")["is_malignant"].sum()
+samp5["n_tnk"] = cells5.groupby("orig.ident")["is_tnk"].sum()
 samp5["n_cd8t"] = cells5.groupby("orig.ident")["is_cd8t"].sum()
-samp5["n_cd8tex"] = cells5.groupby("orig.ident")["is_cd8tex"].sum()
-samp5["cd8_frac_all"] = samp5["n_cd8t"] / samp5["n_cells"]
-samp5["cd8tex_frac_all"] = samp5["n_cd8tex"] / samp5["n_cells"]
+samp5["tnk_frac"] = samp5["n_tnk"] / samp5["n_cells"]
+samp5["cd8_frac"] = samp5["n_cd8t"] / samp5["n_cells"]
 for g in ["TACSTD2", "CLDN4"]:
-    samp5[f"tumor_{g}_mean"] = tum_ln5[g].groupby(tum5["orig.ident"]).mean()
-    samp5[f"tumor_{g}_pct_pos"] = (tum5[g] > 0).groupby(tum5["orig.ident"]).mean()
-samp5 = samp5.join(pseudobulk_tls(cells5, "orig.ident", TLS12))
+    samp5[f"malig_{g}_mean"] = mal_ln5[g].groupby(mal5["orig.ident"]).mean()
+    samp5[f"malig_{g}_pct"] = (mal5[g] > 0).groupby(mal5["orig.ident"]).mean()
+agg5 = cells5.groupby("orig.ident")[TLS12 + ["total_umi"]].sum()
+cpm5 = agg5[TLS12].div(agg5["total_umi"], axis=0) * 1e6
+samp5["tls12_score"] = np.log2(cpm5[TLS12] + 1).mean(axis=1)
+samp5["cxcl13_log2cpm"] = np.log2(cpm5["CXCL13"] + 1)
 samp5 = samp5.merge(samp_tab5.set_index("orig.ident")[["patient", "tissue",
                     "recist", "cancer_subtype"]], left_index=True,
                     right_index=True)
-enough5 = samp5["n_tumor"].fillna(0) >= MIN_TUMOR_CELLS
-samp5.loc[~enough5, [c for c in samp5.columns if c.startswith("tumor_")]] = np.nan
-samp5["is_tumor_tissue"] = ~samp5["tissue"].str.startswith("Normal")
+low5 = samp5["n_malignant"].fillna(0) < MIN_MALIG
+for c in [c for c in samp5.columns if c.startswith("malig_")]:
+    samp5.loc[low5, c] = np.nan
+samp5["is_tumor_tissue"] = ~samp5["tissue"].astype(str).str.startswith("Normal")
 samp5["response"] = samp5["recist"].map({"PR": "R", "SD": "NR", "PD": "NR"})
 samp5.round(4).to_csv(f"{RES}/gse205335_sample_metrics.tsv", sep="\t")
 print(samp5.round(3).to_string())
 
-ana5 = samp5[samp5.is_tumor_tissue & samp5.response.notna()]
-# patient-level aggregation (samples per patient are not independent)
+ana5 = samp5[samp5.is_tumor_tissue & samp5.response.notna()].copy()
 pat5 = ana5.groupby("patient").agg(
-    response=("response", "first"), cancer_subtype=("cancer_subtype", "first"),
+    response=("response", "first"),
+    cancer_subtype=("cancer_subtype", "first"),
+    n_samples=("n_cells", "size"),
+    n_malignant=("n_malignant", "sum"),
     **{c: (c, "mean") for c in
-       ["tumor_TACSTD2_mean", "tumor_TACSTD2_pct_pos", "tumor_CLDN4_mean",
-        "tumor_CLDN4_pct_pos", "cd8_frac_all", "cd8tex_frac_all",
-        "tls12_score", "cxcl13_log2cpm"]})
+       ["malig_TACSTD2_mean", "malig_TACSTD2_pct", "malig_CLDN4_mean",
+        "malig_CLDN4_pct", "tnk_frac", "cd8_frac", "tls12_score",
+        "cxcl13_log2cpm"]})
 pat5.round(4).to_csv(f"{RES}/gse205335_patient_metrics.tsv", sep="\t")
+print(pat5.round(3).to_string())
 
-for level, dfx in [("patient", pat5), ("sample", ana5)]:
-    for metric in ["tumor_TACSTD2_mean", "tumor_TACSTD2_pct_pos",
-                   "tumor_CLDN4_mean", "tumor_CLDN4_pct_pos", "cd8_frac_all",
-                   "cd8tex_frac_all", "tls12_score", "cxcl13_log2cpm"]:
-        a = dfx.loc[dfx.response == "R", metric].dropna()
-        b = dfx.loc[dfx.response == "NR", metric].dropna()
+for level, dfx, ds_note in [
+    ("patient", pat5, "mean of tumor-tissue samples per patient"),
+    ("sample", ana5, "tumor tissues only; samples not independent"),
+]:
+    for metric in ["malig_TACSTD2_mean", "malig_TACSTD2_pct",
+                   "malig_CLDN4_mean", "tnk_frac", "cd8_frac", "tls12_score"]:
+        a = dfx.loc[dfx.response == "NR", metric].dropna()
+        b = dfx.loc[dfx.response == "R", metric].dropna()
         u, p = mwu(a, b)
-        add_stat("GSE205335", f"R_vs_NR_{level}", "PR vs SD/PD", metric,
+        add_stat("GSE205335", f"NR_vs_R_{level}", "SD/PD vs PR", metric,
                  f"{len(a)}v{len(b)}", "MannWhitneyU", u, p,
-                 f"median R={a.median():.3f} NR={b.median():.3f}"
-                 if len(a) and len(b) else "")
+                 f"median NR={a.median():.4f} R={b.median():.4f}; {ds_note}"
+                 if len(a) and len(b) else ds_note)
 
-# NSCLC-only sensitivity (exclude SCLC/NUT)
 nsclc = pat5[pat5.cancer_subtype.isin(["ADC", "SQ"])]
-for metric in ["tumor_TACSTD2_mean", "tumor_CLDN4_mean", "cd8_frac_all",
-               "tls12_score"]:
-    a = nsclc.loc[nsclc.response == "R", metric].dropna()
-    b = nsclc.loc[nsclc.response == "NR", metric].dropna()
+for metric in ["malig_TACSTD2_mean", "tnk_frac", "tls12_score"]:
+    a = nsclc.loc[nsclc.response == "NR", metric].dropna()
+    b = nsclc.loc[nsclc.response == "R", metric].dropna()
     u, p = mwu(a, b)
-    add_stat("GSE205335", "R_vs_NR_patient_NSCLConly", "PR vs SD/PD", metric,
+    add_stat("GSE205335", "NR_vs_R_patient_NSCLC", "SD/PD vs PR", metric,
              f"{len(a)}v{len(b)}", "MannWhitneyU", u, p,
-             f"median R={a.median():.3f} NR={b.median():.3f}"
-             if len(a) and len(b) else "")
+             f"median NR={a.median():.4f} R={b.median():.4f}; ADC+SQ only"
+             if len(a) and len(b) else "ADC+SQ only")
 
-for g in ["TACSTD2", "CLDN4"]:
-    for target in ["cd8_frac_all", "cd8tex_frac_all", "tls12_score",
-                   "cxcl13_log2cpm"]:
-        sub = samp5[samp5.is_tumor_tissue]
-        r, p, n = spear(sub[f"tumor_{g}_mean"].values, sub[target].values)
-        add_stat("GSE205335", "spearman_sample_tumor_tissue",
-                 f"tumor_{g}_mean~{target}", target, n, "spearman_rho", r, p)
+for subset_name, dfx in [
+    ("patient_tumor_tissue", pat5),
+    ("patient_NSCLC", nsclc),
+    ("sample_tumor_tissue", ana5),
+]:
+    for xv, yv in [("malig_TACSTD2_mean", "tnk_frac"),
+                   ("malig_TACSTD2_mean", "cd8_frac"),
+                   ("malig_TACSTD2_mean", "tls12_score"),
+                   ("malig_CLDN4_mean", "tnk_frac")]:
+        r, p, n = spear(dfx[xv], dfx[yv])
+        add_stat("GSE205335", f"spearman_{subset_name}", f"{xv}~{yv}",
+                 yv, n, "spearman_rho", r, p)
 
-# cell-level exploratory
-tumx = tum5.merge(samp5[["response", "is_tumor_tissue"]],
+malx = mal5.merge(samp5[["response", "is_tumor_tissue"]],
                   left_on="orig.ident", right_index=True)
-tumx = tumx[tumx.is_tumor_tissue & tumx.response.notna()]
-for g in ["TACSTD2", "CLDN4"]:
-    vals = np.log1p(tumx[g] / tumx["total_umi"] * 1e4)
-    a = vals[tumx.response == "R"]
-    b = vals[tumx.response == "NR"]
-    u, p = mwu(a, b)
-    add_stat("GSE205335", "cell_level_R_vs_NR", "PR vs SD/PD",
-             f"tumor_{g}_lognorm", f"{len(a)}v{len(b)}", "MannWhitneyU", u, p,
-             "pseudoreplicated, exploratory; "
-             f"median R={a.median():.3f} NR={b.median():.3f}")
+malx = malx[malx.is_tumor_tissue & malx.response.notna()]
+vals = np.log1p(malx["TACSTD2"] / malx["total_umi"] * 1e4)
+aa = vals[malx.response == "NR"]
+bb = vals[malx.response == "R"]
+u, p = mwu(aa, bb)
+add_stat("GSE205335", "cell_level_exploratory", "SD/PD vs PR",
+         "malig_TACSTD2_lognorm", f"{len(aa)}v{len(bb)}", "MannWhitneyU", u, p,
+         f"PSEUDOREPLICATED; median NR={aa.median():.4f} R={bb.median():.4f}")
 
 stats_df = pd.DataFrame(stats_rows)
 stats_df.to_csv(f"{RES}/stats_summary.tsv", sep="\t", index=False)
+print("\n=== STATS ===")
 print(stats_df.to_string())
 
-# ----------------------------------------------------------------------
+# ======================================================================
 # Figures
-# ----------------------------------------------------------------------
+# ======================================================================
+rng = np.random.default_rng(0)
+
+
 def box_strip(ax, df, group_col, val_col, groups, title):
-    data = [df.loc[df[group_col] == g, val_col].dropna() for g in groups]
-    ax.boxplot(data, labels=[f"{g}\n(n={len(d)})" for g, d in zip(groups, data)],
-               showfliers=False)
+    data = [df.loc[df[group_col] == g, val_col].dropna().to_numpy()
+            for g in groups]
+    labels = [f"{g}\n(n={len(d)})" for g, d in zip(groups, data)]
+    ax.boxplot([d if len(d) else [np.nan] for d in data],
+               labels=labels, showfliers=False)
     for i, d in enumerate(data):
-        ax.scatter(np.random.normal(i + 1, 0.06, len(d)), d, s=25, alpha=0.8,
-                   zorder=3)
+        if len(d):
+            ax.scatter(rng.normal(i + 1, 0.06, len(d)), d, s=28, alpha=0.85,
+                       zorder=3)
     ax.set_title(title, fontsize=9)
 
 
-fig, axes = plt.subplots(2, 4, figsize=(16, 8))
-for j, metric in enumerate(["tumor_TACSTD2_mean", "tumor_CLDN4_mean",
-                            "cd8_frac_all", "tls12_score"]):
-    box_strip(axes[0, j], post7.reset_index(), "mpr_group", metric,
-              ["MPR", "NMPR"], f"GSE207422 post-tx\n{metric}")
-    box_strip(axes[1, j], pat5.reset_index(), "response", metric,
-              ["R", "NR"], f"GSE205335 patient-level\n{metric}")
-fig.suptitle("Tumor TACSTD2/CLDN4, CD8 fraction, TLS score vs ICI response")
+fig, axes = plt.subplots(2, 3, figsize=(12, 7.5))
+box_strip(axes[0, 0], post.reset_index(), "mpr_group", "malig_TACSTD2_mean",
+          ["MPR", "NMPR"], "GSE207422 post-tx\nmalignant TACSTD2")
+box_strip(axes[0, 1], post.reset_index(), "mpr_group", "tnk_frac",
+          ["MPR", "NMPR"], "GSE207422 post-tx\nT/NK fraction")
+box_strip(axes[0, 2], post.reset_index(), "mpr_group", "tls12_score",
+          ["MPR", "NMPR"], "GSE207422 post-tx\nTLS12 score")
+box_strip(axes[1, 0], pat5.reset_index(), "response", "malig_TACSTD2_mean",
+          ["R", "NR"], "GSE205335 patient\nmalignant TACSTD2")
+box_strip(axes[1, 1], pat5.reset_index(), "response", "tnk_frac",
+          ["R", "NR"], "GSE205335 patient\nT/NK fraction")
+box_strip(axes[1, 2], pat5.reset_index(), "response", "tls12_score",
+          ["R", "NR"], "GSE205335 patient\nTLS12 score")
+fig.suptitle("Malignant-restricted TACSTD2 and T/NK vs ICI response")
 fig.tight_layout()
 fig.savefig(f"{RES}/fig1_response_boxplots.png", dpi=150)
 
-fig, axes = plt.subplots(2, 4, figsize=(16, 8))
-pairs = [("tumor_TACSTD2_mean", "cd8_frac_all"),
-         ("tumor_TACSTD2_mean", "tls12_score"),
-         ("tumor_CLDN4_mean", "cd8_frac_all"),
-         ("tumor_CLDN4_mean", "tls12_score")]
-for j, (xv, yv) in enumerate(pairs):
-    for i, (name, dfx) in enumerate([("GSE207422", samp7),
-                                     ("GSE205335 tumor tissues",
-                                      samp5[samp5.is_tumor_tissue])]):
-        ax = axes[i, j]
-        m = dfx[[xv, yv]].dropna()
-        ax.scatter(m[xv], m[yv], s=30)
-        r, p, n = spear(dfx[xv].values, dfx[yv].values)
-        ax.set_xlabel(xv, fontsize=8)
-        ax.set_ylabel(yv, fontsize=8)
-        ax.set_title(f"{name}\nrho={r:.2f} p={p:.3g} n={n}", fontsize=9)
-fig.suptitle("Sample-level Spearman: tumor TACSTD2/CLDN4 vs CD8 / TLS")
+fig, axes = plt.subplots(1, 2, figsize=(10, 4.5))
+for ax, (name, dfx, xv, yv) in zip(axes, [
+    ("GSE207422 patients (1 sample each)", samp7,
+     "malig_TACSTD2_mean", "tnk_frac"),
+    ("GSE205335 patients (tumor tissues)", pat5,
+     "malig_TACSTD2_mean", "tnk_frac"),
+]):
+    m = dfx[[xv, yv]].dropna()
+    ax.scatter(m[xv], m[yv], s=36)
+    r, p, n = spear(dfx[xv], dfx[yv])
+    ax.set_xlabel("malignant TACSTD2 mean (log1p CP10K)")
+    ax.set_ylabel("T/NK fraction")
+    ax.set_title(f"{name}\nSpearman ρ={r:.3f}  p={p:.3g}  n={n}")
+fig.suptitle("Per-patient malignant TACSTD2 vs T/NK fraction")
 fig.tight_layout()
-fig.savefig(f"{RES}/fig2_correlations.png", dpi=150)
+fig.savefig(f"{RES}/fig2_tacstd2_vs_tnk.png", dpi=150)
 print("figures written")
