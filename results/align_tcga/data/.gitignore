@@ -1,0 +1,4 @@
+# Do not commit large / raw downloaded matrices; regenerate via download_data.sh
+*.gz
+*.xlsx
+luad_genes.txt
