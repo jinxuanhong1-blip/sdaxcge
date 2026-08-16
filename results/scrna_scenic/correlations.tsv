@@ -1,0 +1,529 @@
+unit	split	compartment	regulon	gene	rho	p	n	note
+cell	all	epithelial	ELF3_prior	TACSTD2	0.17748396054939053	9.017333620826789e-93	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_prior	CLDN4	0.08218908804705191	5.3794762097902954e-21	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_pearson	TACSTD2	0.5340203641989208	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_pearson	CLDN4	0.4827109878951109	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_prior	TACSTD2	-0.012156126262562317	0.16506999346262677	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_prior	CLDN4	-0.011655607066964618	0.18317013801581705	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_pearson	TACSTD2	0.5648175847932453	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_pearson	CLDN4	0.4690529951120173	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_prior	TACSTD2	0.44624186154655976	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_prior	CLDN4	0.3114740506882088	2.301866566924845e-291	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_pearson	TACSTD2	0.45651987480371203	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_pearson	CLDN4	0.3754550321117659	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_intersect	TACSTD2	0.458532668135721	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_intersect	CLDN4	0.36185635106883285	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_prior	TACSTD2	0.2707067510240982	7.811427318188825e-218	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_prior	CLDN4	0.14563918887254748	9.295578291078218e-63	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_pearson	TACSTD2	0.506210578415665	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_pearson	CLDN4	0.21168215187568137	4.956645590005044e-132	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_intersect	TACSTD2	0.4313164210634841	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_intersect	CLDN4	0.23901783082317776	7.58239938268334e-169	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_prior	TACSTD2	-0.33027881612139526	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_prior	CLDN4	-0.1793516249855107	1.0028530612512986e-94	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_pearson	TACSTD2	-0.2205825372324532	1.7714046838415842e-143	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_pearson	CLDN4	-0.03733333507894558	2.0011076278532453e-05	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_intersect	TACSTD2	-0.10432209671608118	6.839841950536959e-33	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_intersect	CLDN4	0.06530417317561392	8.305963444423064e-14	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.45077454377799403	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.30865341707447747	7.017395371803623e-286	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.5259279318190159	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.4698601251177062	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_RNA	TACSTD2	0.371086941665036	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	ELF3_RNA	CLDN4	0.36285516279895297	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_RNA	TACSTD2	0.23657994054453185	2.314277096741436e-165	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	GRHL1_RNA	CLDN4	0.236497370195867	3.0320706574024665e-165	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_RNA	TACSTD2	0.47845285914119556	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	KLF4_RNA	CLDN4	0.4018627152498074	0.0	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_RNA	TACSTD2	0.29153531174999425	7.041038531549612e-254	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	TFAP2A_RNA	CLDN4	0.15831102400019903	5.8464346662412145e-74	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_RNA	TACSTD2	-0.08622698599269486	5.899423785420032e-23	13043	exploratory; cells are not independent (pseudoreplication)
+cell	all	epithelial	NKX2-1_RNA	CLDN4	0.0904771843067122	4.0438057103710683e-25	13043	exploratory; cells are not independent (pseudoreplication)
+sample	all	epithelial	ELF3_prior	TACSTD2	0.2785714285714285	0.3147094732307908	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_prior	CLDN4	-0.06428571428571428	0.8199479653196377	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_pearson	TACSTD2	0.5535714285714285	0.03228710377012361	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_pearson	CLDN4	0.7	0.00366606789880138	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_intersect	TACSTD2			0	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_intersect	CLDN4			0	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_prior	TACSTD2	-0.4330127018922193	0.10690753957629572	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_prior	CLDN4	-0.4330127018922193	0.10690753957629572	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_pearson	TACSTD2	0.557142857142857	0.030961086755812137	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_pearson	CLDN4	0.5285714285714286	0.04279728930945039	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_intersect	TACSTD2			0	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_intersect	CLDN4			0	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_prior	TACSTD2	0.8428571428571429	7.96719525272486e-05	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_prior	CLDN4	0.47142857142857136	0.07607042915033116	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_pearson	TACSTD2	0.5285714285714286	0.04279728930945039	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_pearson	CLDN4	0.4642857142857142	0.08125098075549499	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_intersect	TACSTD2	0.5607142857142856	0.02967649609447474	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_intersect	CLDN4	0.5607142857142856	0.02967649609447474	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_prior	TACSTD2	0.20357142857142854	0.4667950724891123	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_prior	CLDN4	-0.16785714285714282	0.5498555542278021	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_pearson	TACSTD2	0.6249999999999999	0.012727453511233677	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_pearson	CLDN4	0.1928571428571428	0.4910487016052232	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_intersect	TACSTD2	0.3857142857142856	0.15563079458596027	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_intersect	CLDN4	-0.2607142857142857	0.3479794598627936	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_prior	TACSTD2	-0.4678571428571427	0.07863023115438063	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_prior	CLDN4	0.007142857142857141	0.9798442277615982	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_pearson	TACSTD2	-0.4142857142857142	0.12471544223657087	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_pearson	CLDN4	0.11071428571428568	0.6944626472070964	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_intersect	TACSTD2	-0.3127793920987215	0.25634615301096636	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_intersect	CLDN4	0.27167124342288956	0.327339919919453	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.8142857142857142	0.00021936582772710199	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.33928571428571425	0.2160289253419548	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.5357142857142856	0.03956697222954946	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.5821428571428571	0.02279368712641428	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_RNA	TACSTD2	0.41785714285714276	0.12117253602187843	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	ELF3_RNA	CLDN4	0.6107142857142855	0.015592831421175632	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_RNA	TACSTD2	0.5107142857142856	0.051725498368269354	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	GRHL1_RNA	CLDN4	0.3714285714285714	0.17284974708034007	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_RNA	TACSTD2	0.43214285714285705	0.1076930375463979	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	KLF4_RNA	CLDN4	0.10357142857142855	0.7133796306287293	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_RNA	TACSTD2	0.6357142857142856	0.010860746168789803	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	TFAP2A_RNA	CLDN4	0.08214285714285713	0.7710285652881773	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_RNA	TACSTD2	-0.3378017434666193	0.21817294569292991	15	primary unit=sample; min 20 epithelial cells
+sample	all	epithelial	NKX2-1_RNA	CLDN4	0.23949964880702104	0.3899429158666544	15	primary unit=sample; min 20 epithelial cells
+cell	all	malignant_like	ELF3_prior	TACSTD2	0.169031836701414	1.3053691861592116e-63	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_prior	CLDN4	0.1120432804177269	1.059026454913827e-28	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_pearson	TACSTD2	0.5490622715648846	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_pearson	CLDN4	0.5474319963512426	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_prior	TACSTD2	-0.014014741893536646	0.16574541584650085	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_prior	CLDN4	-0.013137601867919782	0.1938576980771631	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_pearson	TACSTD2	0.609002129968043	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_pearson	CLDN4	0.6052723150775237	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_prior	TACSTD2	0.44350263257860806	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_prior	CLDN4	0.39416343696463696	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_pearson	TACSTD2	0.48795994002319926	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_pearson	CLDN4	0.5155505181846558	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_intersect	TACSTD2	0.47423553881263275	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_intersect	CLDN4	0.4586484660018861	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_prior	TACSTD2	0.24928870496244562	1.7917353047581232e-138	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_prior	CLDN4	0.23236580587402286	4.5839125957927055e-120	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_pearson	TACSTD2	0.5090211672920307	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_pearson	CLDN4	0.311766101601615	1.8182986765773096e-219	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_intersect	TACSTD2	0.4455151606432352	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_intersect	CLDN4	0.34280118644010427	7.689286260419488e-268	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_prior	TACSTD2	-0.356990705156092	6.871699691126571e-292	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_prior	CLDN4	-0.3392678977563556	4.8083365710593097e-262	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_pearson	TACSTD2	-0.20411943828074772	1.6453729747115095e-92	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_pearson	CLDN4	-0.20655019085466605	9.951143930437143e-95	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_intersect	TACSTD2	-0.010106496891662774	0.31756673043055944	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_intersect	CLDN4	-0.011747347557994782	0.24533654364354915	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.44421710252082175	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.38733042929900124	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.5523538180668903	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.5631313011938006	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_RNA	TACSTD2	0.42294797443327586	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	ELF3_RNA	CLDN4	0.3983676159865589	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_RNA	TACSTD2	0.23048798556509323	4.121259563914271e-118	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	GRHL1_RNA	CLDN4	0.2910943069072883	2.536829675738313e-190	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_RNA	TACSTD2	0.5023986376231161	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	KLF4_RNA	CLDN4	0.511712187142644	0.0	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_RNA	TACSTD2	0.2767542006205569	1.7256577583852236e-171	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	TFAP2A_RNA	CLDN4	0.22003875725258265	1.4706512908191348e-107	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_RNA	TACSTD2	0.006863647473751653	0.4972877936898314	9782	exploratory; cells are not independent (pseudoreplication)
+cell	all	malignant_like	NKX2-1_RNA	CLDN4	0.026933607812860784	0.0077221191118765934	9782	exploratory; cells are not independent (pseudoreplication)
+sample	all	malignant_like	ELF3_prior	TACSTD2	0.08391608391608392	0.7954145018538978	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_prior	CLDN4	0.006993006993006993	0.9827917689028476	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_pearson	TACSTD2	0.8251748251748254	0.0009513628555555001	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_pearson	CLDN4	0.9370629370629372	6.9931649532105415e-06	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_intersect	TACSTD2			0	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_intersect	CLDN4			0	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_prior	TACSTD2	-0.4803844614152615	0.11393741215192031	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_prior	CLDN4	-0.39304183206703214	0.20625575661998338	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_pearson	TACSTD2	0.8531468531468532	0.0004181179404149967	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_pearson	CLDN4	0.9720279720279721	1.2868115751495027e-07	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_intersect	TACSTD2			0	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_intersect	CLDN4			0	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_prior	TACSTD2	0.6013986013986015	0.03858845292201946	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_prior	CLDN4	0.6713286713286714	0.016831456186893416	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_pearson	TACSTD2	0.6713286713286714	0.016831456186893416	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_pearson	CLDN4	0.8391608391608393	0.0006428259886278203	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_intersect	TACSTD2	0.6643356643356644	0.01845271802844544	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_intersect	CLDN4	0.6923076923076924	0.012593030496094112	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_prior	TACSTD2	0.17482517482517487	0.5868236643627043	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_prior	CLDN4	0.2937062937062937	0.3541476412329215	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_pearson	TACSTD2	0.8951048951048951	8.366586429091718e-05	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_pearson	CLDN4	0.8881118881118882	0.00011413359814618021	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_intersect	TACSTD2	0.7622377622377624	0.003950448972542647	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_intersect	CLDN4	0.7902097902097903	0.0022231354099909177	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_prior	TACSTD2	-0.7622377622377624	0.003950448972542647	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_prior	CLDN4	-0.8671328671328673	0.00025981184986148103	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_pearson	TACSTD2	-0.7762237762237763	0.002992863680185982	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_pearson	CLDN4	-0.7832167832167832	0.00258621483336259	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_intersect	TACSTD2	-0.2183565733705734	0.49536675951629733	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_intersect	CLDN4	-0.2183565733705734	0.49536675951629733	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.7342657342657343	0.006543490146837884	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.7202797202797203	0.008239768712338435	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.7552447552447553	0.004508435484294223	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.8951048951048951	8.366586429091718e-05	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_RNA	TACSTD2	0.8321678321678322	0.0007854416778536133	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	ELF3_RNA	CLDN4	0.7972027972027973	0.0019003677255282697	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_RNA	TACSTD2	0.8266212326392487	0.0009150112679836907	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	GRHL1_RNA	CLDN4	0.9632238939652261	4.980487485963565e-07	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_RNA	TACSTD2	0.6083916083916086	0.03580599705202923	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	KLF4_RNA	CLDN4	0.7832167832167832	0.00258621483336259	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_RNA	TACSTD2	0.9211923058649254	2.0949776212051884e-05	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	TFAP2A_RNA	CLDN4	0.8896686147896998	0.00010670024787795761	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_RNA	TACSTD2	-0.121015600293271	0.7079272414616193	12	primary unit=sample; min 20 malignant_like cells
+sample	all	malignant_like	NKX2-1_RNA	CLDN4	-0.03915210597723474	0.9038457694604446	12	primary unit=sample; min 20 malignant_like cells
+cell	LUAD	epithelial	ELF3_prior	TACSTD2	0.1761144938247909	1.4260965864035876e-30	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_prior	CLDN4	-0.0033272942729981785	0.8294232767611052	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_pearson	TACSTD2	0.3351025671097164	1.2918731985802013e-110	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_pearson	CLDN4	0.5429228006792193	0.0	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_prior	TACSTD2			4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_prior	CLDN4			4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_pearson	TACSTD2	0.4205770330964845	1.6953238947619226e-179	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_pearson	CLDN4	0.4139607372993212	2.105971544383125e-173	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_prior	TACSTD2	0.3740161723878156	2.0492553180277325e-139	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_prior	CLDN4	0.2507343843146439	3.719450910184947e-61	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_pearson	TACSTD2	0.22028756243007364	2.845934837814498e-47	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_pearson	CLDN4	0.238897353699834	1.6033994467600685e-55	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_intersect	TACSTD2	0.24455561952874966	3.545630041617996e-58	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_intersect	CLDN4	0.2313150094111997	4.519917403215052e-52	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_prior	TACSTD2	0.13582818974855518	9.939727102986225e-19	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_prior	CLDN4	-0.035818042933486886	0.02034383236750197	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_pearson	TACSTD2	0.49933128270842086	1.8569823574769364e-263	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_pearson	CLDN4	0.08120062301558371	1.3912561749760339e-07	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_intersect	TACSTD2	0.17720842746071977	6.1410673954852805e-31	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_intersect	CLDN4	-0.08645572430076998	2.0412325204827868e-08	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_prior	TACSTD2	-0.025782141596534115	0.0949868987130051	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_prior	CLDN4	0.21728933269625775	5.184546528875742e-46	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_pearson	TACSTD2	-0.009372084010403441	0.5439496362889417	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_pearson	CLDN4	0.3691601999410869	1.3474565565984242e-135	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_intersect	TACSTD2	-0.009620213666718176	0.5333380096674207	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_intersect	CLDN4	0.2822914376357621	1.0671390745319118e-77	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.3921396047602277	2.9674097850832236e-154	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.22625134981784006	7.776433483810765e-50	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.36901873247018707	1.736832606830445e-135	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.5408373736230079	0.0	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_RNA	TACSTD2	0.29803214853385174	8.362464072949214e-87	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	ELF3_RNA	CLDN4	0.4317983841392174	3.7642030493937195e-190	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_RNA	TACSTD2	0.20881215615886184	1.5035277533442193e-42	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	GRHL1_RNA	CLDN4	0.19823442641345776	1.9463919651181323e-38	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_RNA	TACSTD2	0.18602818049619202	5.635846134872832e-34	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	KLF4_RNA	CLDN4	0.21814265765266366	2.2797227903932078e-46	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_RNA	TACSTD2	0.3596926303367314	2.432408030859308e-128	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	TFAP2A_RNA	CLDN4	0.10323401334683076	2.0521246320831438e-11	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_RNA	TACSTD2	0.03717472718217685	0.016045546292365886	4195	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	epithelial	NKX2-1_RNA	CLDN4	0.3241285515455687	3.278713126604566e-103	4195	exploratory; cells are not independent (pseudoreplication)
+sample	LUAD	epithelial	ELF3_prior	TACSTD2	0.19047619047619052	0.6514014957024814	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_prior	CLDN4	-0.4523809523809524	0.2604047674368853	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_pearson	TACSTD2	0.30952380952380953	0.4556448907375822	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_pearson	CLDN4	0.8333333333333335	0.010175540123456752	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_intersect	TACSTD2			0	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_intersect	CLDN4			0	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_prior	TACSTD2			8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_prior	CLDN4			8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_pearson	TACSTD2	0.523809523809524	0.1827207505397148	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_pearson	CLDN4	0.7142857142857144	0.046528232284167255	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_intersect	TACSTD2			0	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_intersect	CLDN4			0	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_prior	TACSTD2	0.8571428571428572	0.0065300172547152905	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_prior	CLDN4	0.4047619047619048	0.3198886412288163	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_pearson	TACSTD2	0.3571428571428572	0.38512064355625614	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_pearson	CLDN4	0.6428571428571429	0.08555889101267325	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_intersect	TACSTD2	0.28571428571428575	0.49272624501695717	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_intersect	CLDN4	0.7142857142857144	0.046528232284167255	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_prior	TACSTD2	0.4523809523809524	0.2604047674368853	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_prior	CLDN4	0.023809523809523815	0.9553740118158806	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_pearson	TACSTD2	0.38095238095238104	0.35181255311756476	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_pearson	CLDN4	0.023809523809523815	0.9553740118158806	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_intersect	TACSTD2	0.14285714285714288	0.735764859879812	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_intersect	CLDN4	-0.7857142857142858	0.020815127253525273	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_prior	TACSTD2	-0.4523809523809524	0.2604047674368853	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_prior	CLDN4	0.30952380952380953	0.4556448907375822	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_pearson	TACSTD2	-0.38095238095238104	0.35181255311756476	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_pearson	CLDN4	0.3571428571428572	0.38512064355625614	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_intersect	TACSTD2	-0.4761904761904762	0.23293553465009798	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_intersect	CLDN4	0.4047619047619048	0.3198886412288163	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.8333333333333335	0.010175540123456752	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.3333333333333334	0.4197530864197532	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.3571428571428572	0.38512064355625614	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.880952380952381	0.0038503204637324005	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_RNA	TACSTD2	0.4047619047619048	0.3198886412288163	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	ELF3_RNA	CLDN4	0.7857142857142858	0.020815127253525273	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_RNA	TACSTD2	0.5476190476190477	0.16002564253889653	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	GRHL1_RNA	CLDN4	0.11904761904761905	0.7788857260523796	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_RNA	TACSTD2	0.04761904761904763	0.9108491685195836	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	KLF4_RNA	CLDN4	-0.261904761904762	0.530922861565801	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_RNA	TACSTD2	0.523809523809524	0.1827207505397148	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	TFAP2A_RNA	CLDN4	-0.30952380952380953	0.4556448907375822	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_RNA	TACSTD2	-0.4047619047619048	0.3198886412288163	8	primary unit=sample; min 20 epithelial cells
+sample	LUAD	epithelial	NKX2-1_RNA	CLDN4	0.3571428571428572	0.38512064355625614	8	primary unit=sample; min 20 epithelial cells
+cell	LUAD	malignant_like	ELF3_prior	TACSTD2	0.23465206035369132	6.963457528891626e-31	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_prior	CLDN4	0.20088173395737396	6.570968252815035e-23	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_pearson	TACSTD2	0.47704629900352485	2.0905206449087496e-134	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_pearson	CLDN4	0.38702150538542773	3.4743307549171773e-85	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_prior	TACSTD2			2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_prior	CLDN4			2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_pearson	TACSTD2	0.4971827813728093	1.3493398027568654e-147	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_pearson	CLDN4	0.3297713863321284	5.569975841363306e-61	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_prior	TACSTD2	0.4266774180314197	4.867211710752751e-105	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_prior	CLDN4	0.36265279608883316	2.8476913079549286e-74	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_pearson	TACSTD2	0.21558940212044933	3.226932408631982e-26	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_pearson	CLDN4	0.22512713957851882	1.6908393731379284e-28	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_intersect	TACSTD2	0.27083318530042744	5.941992237476662e-41	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_intersect	CLDN4	0.22371383395961167	3.7396216663038867e-28	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_prior	TACSTD2	0.1629025898234118	1.6814530209380623e-15	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_prior	CLDN4	0.008437521343353446	0.6820381375001734	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_pearson	TACSTD2	0.6198297508686219	1.5193440813697527e-250	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_pearson	CLDN4	0.42650734548313457	6.001764851531157e-105	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_intersect	TACSTD2	0.2579503036806514	3.509836353863833e-37	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_intersect	CLDN4	0.1292942249385965	2.8960859375623835e-10	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_prior	TACSTD2	-0.08900862536293908	1.4888593123143792e-05	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_prior	CLDN4	-0.07839870692933049	0.00013759768377439013	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_pearson	TACSTD2	-0.12366323472656157	1.6651027064056207e-09	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_pearson	CLDN4	-0.042209732654673635	0.04032842576262649	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_intersect	TACSTD2	-0.011551716566377424	0.5748644512167169	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_intersect	CLDN4	-0.002887785469653406	0.8884908319731016	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.46261531136191864	1.7558598584286638e-125	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.39139174300131907	3.042151741048023e-87	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.4957037519710693	1.346676387869027e-146	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.4063820882129987	1.528739516254985e-94	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_RNA	TACSTD2	0.36094469632888226	1.5300631673237977e-73	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	ELF3_RNA	CLDN4	0.41475809468129576	8.703620209914124e-99	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_RNA	TACSTD2	0.21639352344640847	2.0923488939977358e-26	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	GRHL1_RNA	CLDN4	0.2382575198061828	8.157315850859015e-32	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_RNA	TACSTD2	0.20909759047274917	1.0003988648700845e-24	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	KLF4_RNA	CLDN4	0.33755918401717255	5.511886296513603e-64	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_RNA	TACSTD2	0.45483419927351715	7.6104218576071535e-121	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	TFAP2A_RNA	CLDN4	0.3918940102508703	1.7566582632137523e-87	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_RNA	TACSTD2	0.038972079495227456	0.05836144266255983	2360	exploratory; cells are not independent (pseudoreplication)
+cell	LUAD	malignant_like	NKX2-1_RNA	CLDN4	0.053227086414180544	0.009703319521522015	2360	exploratory; cells are not independent (pseudoreplication)
+sample	LUAD	malignant_like	ELF3_prior	TACSTD2	-0.2571428571428572	0.6227871720116619	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_prior	CLDN4	-0.14285714285714288	0.7871720116618076	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_pearson	TACSTD2	0.6	0.208	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_pearson	CLDN4	0.7714285714285715	0.07239650145772594	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_intersect	TACSTD2			0	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_intersect	CLDN4			0	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_prior	TACSTD2			6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_prior	CLDN4			6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_pearson	TACSTD2	0.7142857142857143	0.11078717201166179	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_pearson	CLDN4	0.8285714285714287	0.04156268221574335	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_intersect	TACSTD2			0	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_intersect	CLDN4			0	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_prior	TACSTD2	0.14285714285714288	0.7871720116618076	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_prior	CLDN4	0.4285714285714286	0.3965014577259473	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_pearson	TACSTD2	0.028571428571428574	0.9571545189504373	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_pearson	CLDN4	0.3142857142857143	0.5440932944606415	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_intersect	TACSTD2	-0.08571428571428573	0.8717434402332361	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_intersect	CLDN4	0.14285714285714288	0.7871720116618076	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_prior	TACSTD2	-0.3714285714285715	0.4684781341107872	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_prior	CLDN4	-0.2571428571428572	0.6227871720116619	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_pearson	TACSTD2	0.7714285714285715	0.07239650145772594	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_pearson	CLDN4	0.8857142857142858	0.01884548104956266	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_intersect	TACSTD2	0.7142857142857143	0.11078717201166179	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_intersect	CLDN4	0.7714285714285715	0.07239650145772594	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_prior	TACSTD2	-0.3142857142857143	0.5440932944606415	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_prior	CLDN4	-0.3714285714285715	0.4684781341107872	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_pearson	TACSTD2	0.028571428571428574	0.9571545189504373	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_pearson	CLDN4	0.08571428571428573	0.8717434402332361	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_intersect	TACSTD2	-0.13093073414159545	0.8047261622231062	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_intersect	CLDN4	-0.13093073414159545	0.8047261622231062	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.4285714285714286	0.3965014577259473	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.6571428571428573	0.1561749271137024	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.14285714285714288	0.7871720116618076	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.4285714285714286	0.3965014577259473	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_RNA	TACSTD2	0.8857142857142858	0.01884548104956266	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	ELF3_RNA	CLDN4	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_RNA	TACSTD2	0.8285714285714287	0.04156268221574335	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	GRHL1_RNA	CLDN4	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_RNA	TACSTD2	-0.14285714285714288	0.7871720116618076	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	KLF4_RNA	CLDN4	0.14285714285714288	0.7871720116618076	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_RNA	TACSTD2	0.9856107606091624	0.0003090856678496653	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	TFAP2A_RNA	CLDN4	0.9856107606091624	0.0003090856678496653	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_RNA	TACSTD2	-0.028571428571428574	0.9571545189504373	6	primary unit=sample; min 20 malignant_like cells
+sample	LUAD	malignant_like	NKX2-1_RNA	CLDN4	0.14285714285714288	0.7871720116618076	6	primary unit=sample; min 20 malignant_like cells
+cell	LUSC	epithelial	ELF3_prior	TACSTD2	0.1463041563536586	1.578707708616197e-43	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_prior	CLDN4	0.09286764375587339	2.074407036565314e-18	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_pearson	TACSTD2	0.600581307768749	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_pearson	CLDN4	0.4062711989452507	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_prior	TACSTD2	-0.015665135865621984	0.1406419845175928	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_prior	CLDN4	-0.01534828446251084	0.14885176861373417	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_pearson	TACSTD2	0.6858145538774516	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_pearson	CLDN4	0.48991209904754396	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_prior	TACSTD2	0.4188891803202249	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_prior	CLDN4	0.2647861076897769	7.48860523631177e-142	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_pearson	TACSTD2	0.5674176057252301	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_pearson	CLDN4	0.37123641927249446	3.282081990534318e-287	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_intersect	TACSTD2	0.48785593389138143	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_intersect	CLDN4	0.3263842675660513	1.1175292427747488e-218	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_prior	TACSTD2	0.21787146949486585	1.4920342652984725e-95	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_prior	CLDN4	0.08738068289371295	1.8113755723700962e-16	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_pearson	TACSTD2	0.48968323172829864	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_pearson	CLDN4	0.25736390287825	7.512073166189562e-134	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_intersect	TACSTD2	0.4739247805175893	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_intersect	CLDN4	0.28682348489040377	3.658589178721335e-167	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_prior	TACSTD2	-0.4036488525305291	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_prior	CLDN4	-0.2560916880130713	1.6642284152696763e-132	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_pearson	TACSTD2	-0.20810615862724716	3.6646246588356283e-87	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_pearson	CLDN4	-0.07175303058219239	1.4076145371690494e-11	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_intersect	TACSTD2	-0.11010272367205168	2.847186433589222e-25	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_intersect	CLDN4	-0.0073511658882874885	0.48932029593135756	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.41094960625842447	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.2653720216961765	1.7047856421078503e-142	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.6272515284678084	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.432331039205729	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_RNA	TACSTD2	0.39115181865136966	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	ELF3_RNA	CLDN4	0.3068649614640566	2.930557933480308e-192	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_RNA	TACSTD2	0.21317572084524386	1.8224746324573243e-91	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	GRHL1_RNA	CLDN4	0.20824091057511515	2.82552719881358e-87	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_RNA	TACSTD2	0.5427874134586247	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	KLF4_RNA	CLDN4	0.4110698536664132	0.0	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_RNA	TACSTD2	0.23019925654755538	9.514258290740833e-107	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	TFAP2A_RNA	CLDN4	0.16070756797936087	2.8724910177590593e-52	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_RNA	TACSTD2	-0.1092357948379299	6.7218961927674815e-25	8848	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	epithelial	NKX2-1_RNA	CLDN4	0.004170039746133268	0.69491332186338	8848	exploratory; cells are not independent (pseudoreplication)
+sample	LUSC	epithelial	ELF3_prior	TACSTD2	0.21428571428571433	0.6445115810207203	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_prior	CLDN4	0.03571428571428572	0.9394082054712856	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_pearson	TACSTD2	0.7500000000000002	0.0521814004570578	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_pearson	CLDN4	0.7142857142857144	0.07134356146753766	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_intersect	TACSTD2			0	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_intersect	CLDN4			0	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_prior	TACSTD2	-0.6123724356957946	0.14381080871160382	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_prior	CLDN4	-0.6123724356957946	0.14381080871160382	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_pearson	TACSTD2	0.8928571428571429	0.006807187408935393	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_pearson	CLDN4	0.8571428571428573	0.013697326615325618	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_intersect	TACSTD2			0	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_intersect	CLDN4			0	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_prior	TACSTD2	1.0	0.0	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_prior	CLDN4	0.8571428571428573	0.013697326615325618	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_pearson	TACSTD2	0.9285714285714288	0.0025194724037946887	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_pearson	CLDN4	0.7500000000000002	0.0521814004570578	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_intersect	TACSTD2	0.6785714285714287	0.09375025395983135	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_intersect	CLDN4	0.5357142857142858	0.21521745567801298	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_prior	TACSTD2	0.07142857142857144	0.879048193148154	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_prior	CLDN4	-0.28571428571428575	0.5345092286010406	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_pearson	TACSTD2	0.7500000000000002	0.0521814004570578	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_pearson	CLDN4	0.6785714285714287	0.09375025395983135	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_intersect	TACSTD2	0.8214285714285715	0.0234488083456915	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_intersect	CLDN4	0.5357142857142858	0.21521745567801298	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_prior	TACSTD2	-0.8571428571428573	0.013697326615325618	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_prior	CLDN4	-0.7857142857142859	0.03623846267982715	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_pearson	TACSTD2	-0.6785714285714287	0.09375025395983135	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_pearson	CLDN4	-0.5714285714285715	0.18020198891152767	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_intersect	TACSTD2	-0.43244998209386837	0.33252677821284443	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_intersect	CLDN4	-0.2702812388086677	0.5577307488053694	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.9642857142857145	0.00045414916919416935	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.7857142857142859	0.03623846267982715	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.9285714285714288	0.0025194724037946887	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.8571428571428573	0.013697326615325618	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_RNA	TACSTD2	0.39285714285714296	0.3833168704269727	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	ELF3_RNA	CLDN4	0.3214285714285715	0.48207203829967776	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_RNA	TACSTD2	0.6071428571428572	0.14823116148116164	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	GRHL1_RNA	CLDN4	0.7142857142857144	0.07134356146753766	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_RNA	TACSTD2	0.8571428571428573	0.013697326615325618	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	KLF4_RNA	CLDN4	0.642857142857143	0.11939237342741109	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_RNA	TACSTD2	0.7500000000000002	0.0521814004570578	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	TFAP2A_RNA	CLDN4	0.6785714285714287	0.09375025395983135	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_RNA	TACSTD2	-0.43244998209386837	0.33252677821284443	7	primary unit=sample; min 20 epithelial cells
+sample	LUSC	epithelial	NKX2-1_RNA	CLDN4	-0.2702812388086677	0.5577307488053694	7	primary unit=sample; min 20 epithelial cells
+cell	LUSC	malignant_like	ELF3_prior	TACSTD2	0.15438343313521308	8.094626570467712e-41	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_prior	CLDN4	0.1011807001893922	2.3772726121136214e-18	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_pearson	TACSTD2	0.5990331390999352	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_pearson	CLDN4	0.4367545849962372	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_prior	TACSTD2	-0.017117315258816143	0.14033787486829186	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_prior	CLDN4	-0.016702420906003875	0.1502103817073905	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_pearson	TACSTD2	0.7149255667951122	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_pearson	CLDN4	0.5549626801953145	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_intersect	TACSTD2			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_intersect	CLDN4			0	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_prior	TACSTD2	0.4003870396958581	7.010946948059411e-284	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_prior	CLDN4	0.2826578616280036	2.2422985064611653e-136	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_pearson	TACSTD2	0.5721590888854958	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_pearson	CLDN4	0.4183661894287465	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_intersect	TACSTD2	0.48286372598315314	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_intersect	CLDN4	0.35074616701099354	8.086889905511267e-214	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_prior	TACSTD2	0.18095471358531284	1.1618302579659893e-55	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_prior	CLDN4	0.09046734634803591	5.784605800592895e-15	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_pearson	TACSTD2	0.47289061675191535	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_pearson	CLDN4	0.28293053798154133	1.2027849615508782e-136	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_intersect	TACSTD2	0.46249798856124835	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_intersect	CLDN4	0.3119265411762824	3.479950313088113e-167	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_prior	TACSTD2	-0.4043724619150545	4.735716269015648e-290	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_prior	CLDN4	-0.3064742702046346	3.598537691450278e-161	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_pearson	TACSTD2	-0.15751363575641392	1.937810384965863e-42	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_pearson	CLDN4	-0.09894282909972417	1.3014789400913985e-17	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_intersect	TACSTD2			7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_intersect	CLDN4			7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_GRHL1_KLF4_prior_union	TACSTD2	0.38954753040456147	1.6016127906898536e-267	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.2778223869732102	1.2505656624091102e-131	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.6380905361795344	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.4779489737985518	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_RNA	TACSTD2	0.4129638428162109	1.2114805855105735e-303	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	ELF3_RNA	CLDN4	0.32712376542709276	1.237285296273879e-184	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_RNA	TACSTD2	0.197936438947807	1.8736055383457936e-66	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	GRHL1_RNA	CLDN4	0.22735462213185412	1.2429879888981813e-87	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_RNA	TACSTD2	0.5444600994228392	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	KLF4_RNA	CLDN4	0.44626682730777256	0.0	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_RNA	TACSTD2	0.20666628686249464	2.0893618482001943e-72	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	TFAP2A_RNA	CLDN4	0.17175459136238203	3.047625296767864e-50	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_RNA	TACSTD2	-0.004943005276534832	0.6702711700095298	7422	exploratory; cells are not independent (pseudoreplication)
+cell	LUSC	malignant_like	NKX2-1_RNA	CLDN4	0.016482936174009463	0.15564285088978663	7422	exploratory; cells are not independent (pseudoreplication)
+sample	LUSC	malignant_like	ELF3_prior	TACSTD2	0.5428571428571429	0.26570262390670546	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_prior	CLDN4	0.48571428571428577	0.3287230320699708	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_pearson	TACSTD2	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_pearson	CLDN4	0.8857142857142858	0.01884548104956266	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_intersect	TACSTD2			0	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_intersect	CLDN4			0	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_prior	TACSTD2	-0.6546536707079772	0.15830242337545788	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_prior	CLDN4	-0.6546536707079772	0.15830242337545788	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_pearson	TACSTD2	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_pearson	CLDN4	1.0	0.0	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_intersect	TACSTD2			0	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_intersect	CLDN4			0	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_prior	TACSTD2	1.0	0.0	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_prior	CLDN4	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_pearson	TACSTD2	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_pearson	CLDN4	0.8857142857142858	0.01884548104956266	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_intersect	TACSTD2	0.8285714285714287	0.04156268221574335	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_intersect	CLDN4	0.7142857142857143	0.11078717201166179	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_prior	TACSTD2	0.2	0.7040000000000001	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_prior	CLDN4	0.028571428571428574	0.9571545189504373	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_pearson	TACSTD2	0.7714285714285715	0.07239650145772594	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_pearson	CLDN4	0.8285714285714287	0.04156268221574335	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_intersect	TACSTD2	0.8857142857142858	0.01884548104956266	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_intersect	CLDN4	0.7142857142857143	0.11078717201166179	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_prior	TACSTD2	-0.7142857142857143	0.11078717201166179	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_prior	CLDN4	-0.8285714285714287	0.04156268221574335	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_pearson	TACSTD2	-1.0	0.0	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_pearson	CLDN4	-0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_intersect	TACSTD2			6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_intersect	CLDN4			6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_GRHL1_KLF4_prior_union	TACSTD2	1.0	0.0	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_GRHL1_KLF4_prior_union	CLDN4	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_GRHL1_KLF4_pearson_union	TACSTD2	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_GRHL1_KLF4_pearson_union	CLDN4	0.8857142857142858	0.01884548104956266	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_RNA	TACSTD2	0.6571428571428573	0.1561749271137024	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	ELF3_RNA	CLDN4	0.6	0.208	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_RNA	TACSTD2	0.6571428571428573	0.1561749271137024	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	GRHL1_RNA	CLDN4	0.8285714285714287	0.04156268221574335	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_RNA	TACSTD2	0.942857142857143	0.004804664723032055	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	KLF4_RNA	CLDN4	0.8857142857142858	0.01884548104956266	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_RNA	TACSTD2	0.7714285714285715	0.07239650145772594	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	TFAP2A_RNA	CLDN4	0.8285714285714287	0.04156268221574335	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_RNA	TACSTD2	0.15179418517972906	0.7740575031656568	6	primary unit=sample; min 20 malignant_like cells
+sample	LUSC	malignant_like	NKX2-1_RNA	CLDN4	0.33394720739540396	0.5177002083054396	6	primary unit=sample; min 20 malignant_like cells

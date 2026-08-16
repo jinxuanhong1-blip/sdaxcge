@@ -64,4 +64,13 @@ python3 methods/scrna_scenic/scripts/download_priors.py
 
 ## Results
 
-Filled after the run. See `results/scrna_scenic/summary.json` and `correlations.tsv`.
+**Verdict: `PARTIAL`.** Full table: [`results/scrna_scenic/README.md`](../../results/scrna_scenic/README.md).
+
+| split | n samples | call | one-line |
+| --- | ---: | --- | --- |
+| all (Adeno+Squamous) | 12 | SUPPORT | Pearson regulons and KLF4/combinatorial priors track both genes; **ELF3_prior does not** (ρ=0.08 / 0.01) |
+| LUAD-only | 6 | PARTIAL | ELF3 RNA still tracks (A10); regulon AUCell mostly fails p<0.05 |
+
+Honest n: sample-level is the claim. Cell-level malignant-like n=9782 (all) / 2360 (LUAD) inflates p (ELF3_prior vs CLDN4: cell ρ=0.11 p=1e-28 vs sample ρ=0.007 n=12).
+
+GRNBoost2 did not run (arboreto/dask `diagnostics_port` error on this stack). Intersection ELF3 prior ∩ Pearson = 0 genes.
