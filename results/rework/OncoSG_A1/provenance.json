@@ -1,0 +1,25 @@
+{
+  "study_id": "luad_oncosg_2020",
+  "study_page": "https://www.cbioportal.org/study/summary?id=luad_oncosg_2020",
+  "datahub_revision": "165bd77077b03038f9c2ee104959eb474770b2a9",
+  "files": {
+    "expression": {
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/165bd77077b03038f9c2ee104959eb474770b2a9/public/luad_oncosg_2020/data_mrna_seq_v2_rsem_zscores_ref_all_samples.txt",
+      "sha256": "44093dbc6633e5280d0fcd18fb07f5c6ee5c2cff175cd76b48b3665c3d4ff54f",
+      "bytes": 23493696
+    },
+    "clinical_sample": {
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/165bd77077b03038f9c2ee104959eb474770b2a9/public/luad_oncosg_2020/data_clinical_sample.txt",
+      "sha256": "55739b69bf4f2e8e624aab51a0b5903ea797751905219b7bf6581afb4c96f368",
+      "bytes": 50145
+    },
+    "clinical_patient": {
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/165bd77077b03038f9c2ee104959eb474770b2a9/public/luad_oncosg_2020/data_clinical_patient.txt",
+      "sha256": "cbc100a8afeddab35ce0dea51086c52996a9ccf9e36a37ea0ac2eed794450536",
+      "bytes": 38274
+    }
+  },
+  "expression_profile_id": "luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores",
+  "purity_field": "PURITY",
+  "paper": "Chen et al., Nat Genet 2020 (OncoSG East-Asian LUAD)"
+}

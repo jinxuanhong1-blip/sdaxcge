@@ -1,0 +1,122 @@
+{
+  "study": "luad_oncosg_2020",
+  "datahub_sha": "165bd77077b03038f9c2ee104959eb474770b2a9",
+  "generated_at": "2026-08-16T20:06:34.698283+00:00",
+  "n": 169,
+  "tacstd2_vs_purity": {
+    "rho": 0.2378964909710367,
+    "p": 0.0018423150526558094
+  },
+  "primary": [
+    {
+      "feature": "CD8",
+      "role": "primary",
+      "n": 169,
+      "n_raw": 169,
+      "raw_rho": -0.3803664661130725,
+      "raw_p": 3.376491109743246e-07,
+      "partial_rho": -0.30865764191436074,
+      "partial_p": 4.688545063105847e-05,
+      "partial_ci_low": -0.4395266845505271,
+      "partial_ci_high": -0.16495691362187448,
+      "partial_t": -4.180916286406989,
+      "partial_df": 166,
+      "partial_fdr_primary3": 4.688545063105847e-05,
+      "partial_fdr_imsig8": null
+    },
+    {
+      "feature": "GEP18",
+      "role": "primary",
+      "n": 169,
+      "n_raw": 169,
+      "raw_rho": -0.41367410869673316,
+      "raw_p": 2.2666428565721818e-08,
+      "partial_rho": -0.34868954117947826,
+      "partial_p": 3.6214259128479746e-06,
+      "partial_ci_low": -0.4750206129360893,
+      "partial_ci_high": -0.20827566731157393,
+      "partial_t": -4.793391971786346,
+      "partial_df": 166,
+      "partial_fdr_primary3": 1.0864277738543925e-05,
+      "partial_fdr_imsig8": null
+    },
+    {
+      "feature": "immune_tcell_effector",
+      "role": "primary",
+      "n": 169,
+      "n_raw": 169,
+      "raw_rho": -0.3872333548804137,
+      "raw_p": 1.9818179340487578e-07,
+      "partial_rho": -0.3177689432608657,
+      "partial_p": 2.7009241614612864e-05,
+      "partial_ci_low": -0.4476412236675076,
+      "partial_ci_high": -0.17476781478000375,
+      "partial_t": -4.3179749342328275,
+      "partial_df": 166,
+      "partial_fdr_primary3": 4.0513862421919296e-05,
+      "partial_fdr_imsig8": null
+    }
+  ],
+  "prior_neutrophils_anchor": {
+    "claimed": {
+      "n": 169,
+      "partial_rho": -0.456,
+      "source": "PR82 IMSIG neutrophils"
+    },
+    "recomputed": {
+      "n": 169,
+      "partial_rho": -0.4563716697941499,
+      "partial_p": 5.061157875249851e-10,
+      "partial_fdr_imsig8": 4.048926300199881e-09,
+      "raw_rho": -0.5030008453085376
+    },
+    "matches_3dp": true
+  },
+  "cannot_compute": [
+    "ESTIMATE ImmuneScore / StromalScore / TumorPurity (no raw RSEM; only z-scores)",
+    "xCell (needs counts/TPM + spillover calibration)",
+    "MCP-counter as published (marker means on log2 TPM, not z-scores)",
+    "GEP18 gene CCL5 (absent from public matrix and REST API)"
+  ],
+  "coverage": {
+    "expression_matrix_samples": 169,
+    "cbioportal_rna_sample_list_n": 181,
+    "rna_list_not_in_public_zscore_matrix": [
+      "A008",
+      "A114",
+      "A122",
+      "A136",
+      "A139",
+      "A147",
+      "A184",
+      "A302",
+      "A435",
+      "A484",
+      "A489",
+      "A507"
+    ],
+    "clinical_samples": 305,
+    "clinical_purity_non_na": 302,
+    "clinical_imsig_t_non_na": 172,
+    "analysis_n_complete_tacstd2_purity": 169,
+    "genes_in_matrix": 18782,
+    "CCL5_in_matrix": false,
+    "GEP18_genes_used": 17,
+    "GEP18_genes_missing": [
+      "CCL5"
+    ],
+    "ESTIMATE_status": "skipped_no_raw_RSEM",
+    "api_vs_file_tacstd2": {
+      "ok": true,
+      "note": "max|API-file|=0.00e+00 on 8 samples"
+    }
+  },
+  "methods": {
+    "expression": "cBioPortal log RNA-seq V2 RSEM z-scores vs all samples",
+    "purity": "published sample PURITY clinical attribute (not ABSOLUTE, not ESTIMATE)",
+    "partial_spearman": "Pearson on average-ranks of (x,y,z); t-test df=n-3; Fisher-z 95% CI SE=1/sqrt(n-4)",
+    "signature_score": "unweighted mean of per-gene z-scores; Spearman invariant to monotone per-gene transform",
+    "fdr": "BH within the 3 primary tests; separately BH within 8 IMSIG immune scores",
+    "did_we_tune_to_minus_0.456": false
+  }
+}
