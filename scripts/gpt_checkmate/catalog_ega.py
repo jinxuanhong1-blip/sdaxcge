@@ -129,17 +129,19 @@ def main() -> int:
             writer.writerow(
                 [
                     trial,
-                    ";".join(str(row["accession_id"]) for row in studies),
-                    ";".join(dataset_accessions),
+                    ";".join(str(row["accession_id"]) for row in studies) or "-",
+                    ";".join(dataset_accessions) or "-",
                     ";".join(
                         str(item["dataset"].get("access_type") or "") for item in summaries
-                    ),
+                    )
+                    or "-",
                     sum(int(item["dataset"].get("num_samples") or 0) for item in summaries),
                     sum(int(item["file_summary"]["count"]) for item in summaries),
                     sum(int(item["file_summary"]["total_bytes"]) for item in summaries),
                     ";".join(
                         ",".join(item["file_summary"]["extensions"]) for item in summaries
-                    ),
+                    )
+                    or "-",
                 ]
             )
 
