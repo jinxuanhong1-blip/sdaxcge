@@ -1,0 +1,45 @@
+{
+  "files": {
+    "GSE126044_counts.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/suppl/GSE126044_counts.txt.gz",
+      "sha256": "97abe0c051a5a80d5fc61e6d47c6611795484797e65843391b312672f0929607",
+      "bytes": 559926
+    },
+    "GSE126044_series_matrix.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/matrix/GSE126044_series_matrix.txt.gz",
+      "sha256": "bb965af83e095836ae5a02b553706338983242c17475e92b2b28e21d0bfaeaa9",
+      "bytes": 2076
+    },
+    "GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/suppl/GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz",
+      "sha256": "8b122e610492e88fb0aa0a759b8e380b04f26f2f58ddc581f9c050e54d0990a0",
+      "bytes": 1663896
+    },
+    "GSE135222_series_matrix.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/matrix/GSE135222_series_matrix.txt.gz",
+      "sha256": "df7dfda28692cca0daf5797cc6e39c8f6c0d5505506371f218526dd5e3cf37ef",
+      "bytes": 2829
+    },
+    "kegg_hsa04530.txt": {
+      "url": "https://rest.kegg.jp/get/hsa04530",
+      "sha256": "878ac421996497a3af974b791a251f920d18081349f487e77c101ce62d5176bf",
+      "bytes": 21786
+    }
+  },
+  "urls": {
+    "GSE126044_counts.txt.gz": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/suppl/GSE126044_counts.txt.gz",
+    "GSE126044_series_matrix.txt.gz": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/matrix/GSE126044_series_matrix.txt.gz",
+    "GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/suppl/GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz",
+    "GSE135222_series_matrix.txt.gz": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/matrix/GSE135222_series_matrix.txt.gz",
+    "kegg_hsa04530.txt": "https://rest.kegg.jp/get/hsa04530"
+  },
+  "msigdb_reactome_tj": {
+    "url": "https://www.gsea-msigdb.org/gsea/msigdb/human/geneset/REACTOME_TIGHT_JUNCTION_INTERACTIONS",
+    "download": "https://www.gsea-msigdb.org/gsea/msigdb/human/download_geneset.jsp?geneSetName=REACTOME_TIGHT_JUNCTION_INTERACTIONS&fileType=json",
+    "sha256": "553ae2544f9f6206024355aa980f9a8f9e6c678c27fab03076a99d8ce97342f0",
+    "n_genes": 30,
+    "matches_frozen": true
+  },
+  "kegg_hsa04530_n_genes": 171,
+  "n_symbol_mapped": 178
+}

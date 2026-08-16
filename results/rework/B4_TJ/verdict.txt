@@ -1,0 +1,15 @@
+VERDICT: DIRECTION_ONLY_NS
+User claim: GSE126044 NR higher TJ p=0.019
+did_we_tune_to_0.019: false
+
+GSE126044 n= 5 R / 11 NR  (FFPE n=5, all NR)
+  CLDN4 log2(CPM+1)     median NR=3.7712 R=2.5423  MWU two-sided p=0.1149  one-sided NR>R p=0.05746
+  Reactome TJ mean-z    median NR=0.1064 R=-0.2690  MWU two-sided p=0.08974  one-sided NR>R p=0.04487
+  KEGG hsa04530 mean-z  median NR=0.0921 R=0.0081  MWU two-sided p=0.5096  one-sided NR>R p=0.2548
+  CD8A log2(CPM+1)      median NR=3.2593 R=5.8072  MWU two-sided p=0.0009158
+
+GSE135222 n= 7 DCB / 20 NDB  (DCB = PFS>=183d)
+  CLDN4 log2(TPM+1)     median NDB=7.1264 DCB=7.6894  MWU two-sided p=0.685
+  Reactome TJ mean-z    median NDB=-0.0096 DCB=0.0409  MWU two-sided p=0.6456
+
+p=0.019 is NOT recovered for CLDN4 or the documented Reactome TJ score.
