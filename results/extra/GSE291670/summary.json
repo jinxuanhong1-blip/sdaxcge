@@ -1,0 +1,142 @@
+{
+  "series": "GSE291670",
+  "role": "EXTRA figure \u2014 second public neoadjuvant ICI lung scRNA",
+  "not": "GSE207422 audit; author CopyKAT numbers are taken as given",
+  "regimen": "neoadjuvant anlotinib + camrelizumab (PD-1)",
+  "citation": "Xia et al. J Transl Med 2025; PMID from GEO GSE291670",
+  "n_patients": 6,
+  "n_MPR": 3,
+  "n_NMPR": 3,
+  "n_cells_qc": 28847,
+  "n_malignant": 6335,
+  "n_epithelial": 8448,
+  "n_lineage_tnk": 1755,
+  "author_cell_labels_public": false,
+  "why_not_preferred_alternatives": {
+    "GSE253013": "No such live GEO series used. Closest name is GSE243013 (234 NSCLC post chemo-IO): CD45+ immune-only, 0 epithelial/malignant cells, 6.6 GB MTX.",
+    "GSE266035": "Circulating T cells from one NSCLC patient on PD-1/CTLA-4. No tumor epithelium.",
+    "GSE131907_tLung": "Treatment-naive LUAD atlas. No ICI / MPR labels. Already scored as leftover epithelial TACSTD2 vs T/NK (n=11, \u03c1=+0.09)."
+  },
+  "primary_tests": [
+    {
+      "family": "NMPR_vs_MPR",
+      "gene": "TACSTD2",
+      "metric": "mal_TACSTD2_mean_log1p_cp10k",
+      "tnk_def": "",
+      "n": 6,
+      "mean_NMPR": 0.09932343165079753,
+      "mean_MPR": 0.22604035337766012,
+      "delta_NMPR_minus_MPR": -0.1267169217268626,
+      "rho": NaN,
+      "p": 0.2
+    },
+    {
+      "family": "NMPR_vs_MPR",
+      "gene": "TACSTD2",
+      "metric": "mal_TACSTD2_pct_pos",
+      "tnk_def": "",
+      "n": 6,
+      "mean_NMPR": 0.07159011260123604,
+      "mean_MPR": 0.11008726913442117,
+      "delta_NMPR_minus_MPR": -0.038497156533185126,
+      "rho": NaN,
+      "p": 0.7
+    },
+    {
+      "family": "vs_TNK",
+      "gene": "TACSTD2",
+      "metric": "mal_TACSTD2_mean_log1p_cp10k",
+      "tnk_def": "lineage_TNK",
+      "n": 6,
+      "mean_NMPR": NaN,
+      "mean_MPR": NaN,
+      "delta_NMPR_minus_MPR": NaN,
+      "rho": -0.5428571428571429,
+      "p": 0.26570262390670546
+    },
+    {
+      "family": "vs_TNK",
+      "gene": "TACSTD2",
+      "metric": "mal_TACSTD2_mean_log1p_cp10k",
+      "tnk_def": "umi_CD3E_CD8A_NKG7",
+      "n": 6,
+      "mean_NMPR": NaN,
+      "mean_MPR": NaN,
+      "delta_NMPR_minus_MPR": NaN,
+      "rho": -0.3714285714285715,
+      "p": 0.4684781341107872
+    },
+    {
+      "family": "vs_TNK",
+      "gene": "TACSTD2",
+      "metric": "mal_TACSTD2_pct_pos",
+      "tnk_def": "lineage_TNK",
+      "n": 6,
+      "mean_NMPR": NaN,
+      "mean_MPR": NaN,
+      "delta_NMPR_minus_MPR": NaN,
+      "rho": -0.4285714285714286,
+      "p": 0.3965014577259473
+    },
+    {
+      "family": "NMPR_vs_MPR",
+      "gene": "CLDN4",
+      "metric": "mal_CLDN4_mean_log1p_cp10k",
+      "tnk_def": "",
+      "n": 6,
+      "mean_NMPR": 0.12103709951043129,
+      "mean_MPR": 0.20936544239521027,
+      "delta_NMPR_minus_MPR": -0.08832834288477898,
+      "rho": NaN,
+      "p": 0.4
+    },
+    {
+      "family": "NMPR_vs_MPR",
+      "gene": "CLDN4",
+      "metric": "mal_CLDN4_pct_pos",
+      "tnk_def": "",
+      "n": 6,
+      "mean_NMPR": 0.0949554221531435,
+      "mean_MPR": 0.10739846792926659,
+      "delta_NMPR_minus_MPR": -0.012443045776123096,
+      "rho": NaN,
+      "p": 0.7
+    },
+    {
+      "family": "vs_TNK",
+      "gene": "CLDN4",
+      "metric": "mal_CLDN4_mean_log1p_cp10k",
+      "tnk_def": "lineage_TNK",
+      "n": 6,
+      "mean_NMPR": NaN,
+      "mean_MPR": NaN,
+      "delta_NMPR_minus_MPR": NaN,
+      "rho": -0.8285714285714287,
+      "p": 0.04156268221574335
+    },
+    {
+      "family": "vs_TNK",
+      "gene": "CLDN4",
+      "metric": "mal_CLDN4_mean_log1p_cp10k",
+      "tnk_def": "umi_CD3E_CD8A_NKG7",
+      "n": 6,
+      "mean_NMPR": NaN,
+      "mean_MPR": NaN,
+      "delta_NMPR_minus_MPR": NaN,
+      "rho": -0.5428571428571429,
+      "p": 0.26570262390670546
+    },
+    {
+      "family": "vs_TNK",
+      "gene": "CLDN4",
+      "metric": "mal_CLDN4_pct_pos",
+      "tnk_def": "lineage_TNK",
+      "n": 6,
+      "mean_NMPR": NaN,
+      "mean_MPR": NaN,
+      "delta_NMPR_minus_MPR": NaN,
+      "rho": -0.8857142857142858,
+      "p": 0.01884548104956266
+    }
+  ]
+}

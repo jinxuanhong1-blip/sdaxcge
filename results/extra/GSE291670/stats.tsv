@@ -1,0 +1,21 @@
+family	gene	compartment	metric	n	n_NMPR	n_MPR	mean_NMPR	mean_MPR	delta_NMPR_minus_MPR	U	p	rho	tnk_def	note
+NMPR_vs_MPR	TACSTD2	malignant	mal_TACSTD2_mean_log1p_cp10k	6	3	3	0.09932343165079753	0.22604035337766012	-0.1267169217268626	1.0	0.2			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+NMPR_vs_MPR	TACSTD2	malignant	mal_TACSTD2_pct_pos	6	3	3	0.07159011260123604	0.11008726913442117	-0.038497156533185126	3.0	0.7			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+vs_TNK	TACSTD2	malignant	mal_TACSTD2_mean_log1p_cp10k	6	3	3					0.26570262390670546	-0.5428571428571429	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	TACSTD2	malignant	mal_TACSTD2_mean_log1p_cp10k	6	3	3					0.4684781341107872	-0.3714285714285715	umi_CD3E_CD8A_NKG7	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	TACSTD2	malignant	mal_TACSTD2_pct_pos	6	3	3					0.3965014577259473	-0.4285714285714286	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+NMPR_vs_MPR	CLDN4	malignant	mal_CLDN4_mean_log1p_cp10k	6	3	3	0.12103709951043129	0.20936544239521027	-0.08832834288477898	2.0	0.4			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+NMPR_vs_MPR	CLDN4	malignant	mal_CLDN4_pct_pos	6	3	3	0.0949554221531435	0.10739846792926659	-0.012443045776123096	3.0	0.7			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+vs_TNK	CLDN4	malignant	mal_CLDN4_mean_log1p_cp10k	6	3	3					0.04156268221574335	-0.8285714285714287	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	CLDN4	malignant	mal_CLDN4_mean_log1p_cp10k	6	3	3					0.26570262390670546	-0.5428571428571429	umi_CD3E_CD8A_NKG7	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	CLDN4	malignant	mal_CLDN4_pct_pos	6	3	3					0.01884548104956266	-0.8857142857142858	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+NMPR_vs_MPR	TACSTD2	all_epithelial	epi_TACSTD2_mean_log1p_cp10k	6	3	3	0.08775749057531357	0.2757686624924342	-0.18801117191712063	1.0	0.2			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+NMPR_vs_MPR	TACSTD2	all_epithelial	epi_TACSTD2_pct_pos	6	3	3	0.06202063683678643	0.13244003749979896	-0.07041940066301253	3.0	0.7			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+vs_TNK	TACSTD2	all_epithelial	epi_TACSTD2_mean_log1p_cp10k	6	3	3					0.208	-0.6	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	TACSTD2	all_epithelial	epi_TACSTD2_mean_log1p_cp10k	6	3	3					0.3965014577259473	-0.4285714285714286	umi_CD3E_CD8A_NKG7	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	TACSTD2	all_epithelial	epi_TACSTD2_pct_pos	6	3	3					0.3965014577259473	-0.4285714285714286	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+NMPR_vs_MPR	CLDN4	all_epithelial	epi_CLDN4_mean_log1p_cp10k	6	3	3	0.11172495658198993	0.21395755310853323	-0.1022325965265433	2.0	0.4			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+NMPR_vs_MPR	CLDN4	all_epithelial	epi_CLDN4_pct_pos	6	3	3	0.08411304517469352	0.1098866399938644	-0.02577359481917088	3.0	0.7			exact C(6,3)=20; two-sided min p at 3v3 is 0.10
+vs_TNK	CLDN4	all_epithelial	epi_CLDN4_mean_log1p_cp10k	6	3	3					0.04156268221574335	-0.8285714285714287	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	CLDN4	all_epithelial	epi_CLDN4_mean_log1p_cp10k	6	3	3					0.26570262390670546	-0.5428571428571429	umi_CD3E_CD8A_NKG7	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
+vs_TNK	CLDN4	all_epithelial	epi_CLDN4_pct_pos	6	3	3					0.01884548104956266	-0.8857142857142858	lineage_TNK	patient-level Spearman; n=6 is underpowered for |ρ|≈0.45
