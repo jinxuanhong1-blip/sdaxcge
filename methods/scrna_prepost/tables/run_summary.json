@@ -1,0 +1,91 @@
+{
+  "testable_tumor_cell_cohorts": [
+    "GSE207422"
+  ],
+  "primary": "epithelial 3 pre vs 12 post, unmatched MWU",
+  "malignant_like_floor": 10,
+  "dropped_below_10_malignant": [
+    {
+      "Patient": "P02",
+      "timepoint": "post",
+      "response_paper": "NMPR",
+      "n_epithelial": 107,
+      "n_malignant": 1
+    },
+    {
+      "Patient": "P06",
+      "timepoint": "post",
+      "response_paper": "MPR",
+      "n_epithelial": 64,
+      "n_malignant": 3
+    },
+    {
+      "Patient": "P08",
+      "timepoint": "pre",
+      "response_paper": "NMPR",
+      "n_epithelial": 190,
+      "n_malignant": 6
+    },
+    {
+      "Patient": "P11",
+      "timepoint": "post",
+      "response_paper": "MPR",
+      "n_epithelial": 439,
+      "n_malignant": 0
+    },
+    {
+      "Patient": "P13",
+      "timepoint": "post",
+      "response_paper": "NMPR",
+      "n_epithelial": 35,
+      "n_malignant": 1
+    },
+    {
+      "Patient": "P14",
+      "timepoint": "post",
+      "response_paper": "MPR",
+      "n_epithelial": 186,
+      "n_malignant": 1
+    }
+  ],
+  "combined": [
+    {
+      "n_studies": 1,
+      "n_up": 0,
+      "n_down": 1,
+      "n_flat": 0,
+      "stouffer_z": -1.192750674728636,
+      "stouffer_p": 0.23296703296703292,
+      "note": "one_independent_tumor_cell_cohort",
+      "gene": "TACSTD2",
+      "metric": "epithelial mean log1p(CP10K)",
+      "studies": "GSE207422"
+    },
+    {
+      "n_studies": 1,
+      "n_up": 0,
+      "n_down": 1,
+      "n_flat": 0,
+      "stouffer_z": -0.20245576135382634,
+      "stouffer_p": 0.8395604395604395,
+      "note": "one_independent_tumor_cell_cohort",
+      "gene": "CLDN4",
+      "metric": "epithelial mean log1p(CP10K)",
+      "studies": "GSE207422"
+    }
+  ],
+  "gse337519": {
+    "accession": "GSE337519",
+    "n_cells": 8612,
+    "n_epithelial": 461,
+    "n_malignant": 460,
+    "pairing_deposited": "series text claims 1 paired patient; GEO deposits 1 unlabeled library (GSM9856929, 'one sample')",
+    "pre_vs_post_testable": false,
+    "mal_TACSTD2_n": 460,
+    "mal_TACSTD2_pct_pos": 53.91304347826087,
+    "mal_TACSTD2_mean_log1p": 0.7994893755426759,
+    "mal_CLDN4_n": 460,
+    "mal_CLDN4_pct_pos": 21.956521739130437,
+    "mal_CLDN4_mean_log1p": 0.22617450943440648
+  }
+}

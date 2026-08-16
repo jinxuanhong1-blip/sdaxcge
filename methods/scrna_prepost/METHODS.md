@@ -12,7 +12,9 @@ Hu et al., *Genome Medicine* 2023 (PMID 36869384). Author UMI matrix `GSE207422_
 
 Lineages were scored from canonical marker modules (T, NK, B, plasma, myeloid, neutrophil, mast, epithelial, fibroblast, endothelial) on log1p(CP10K). Malignant-like cells = epithelial lineage and not a clear normal-lung program (alveolar SFTPA/SFTPC/AGER, club SCGB1A1/SCGB3A2, or ciliated TPPP3/FOXJ1/CAPS log1p ≥ 1). GEO does not deposit barcode-level author annotations or CopyKAT objects.
 
-**Unit = sample / patient** (one library per patient). Samples with fewer than 10 malignant-like cells are dropped, matching the source paper. For each remaining sample, TACSTD2 and CLDN4 were summarized as (i) mean log1p(CP10K), (ii) percent positive (UMI > 0), (iii) pseudobulk CPM. Pre vs post used two-sided Mann–Whitney U (unpaired). A residual-tumor sensitivity compared the three pre samples to NMPR post only. An epithelial-wide sensitivity dropped the normal-lung filter.
+**Unit = sample / patient** (one library per patient). GEO does not deposit CopyKAT objects, so the primary tumor-cell compartment is **all epithelial cells** (every library has ≥35 epithelial cells; 3 pre vs 12 post). TACSTD2 and CLDN4 were summarized as mean log1p(CP10K), percent positive (UMI > 0), and (where stored) pseudobulk CPM. Pre vs post used two-sided Mann–Whitney U (unpaired).
+
+A residual-tumor sensitivity keeps NMPR post only (3 vs 8). A stricter malignant-like call (epithelial minus alveolar / club / ciliated log1p ≥ 1) is reported separately; samples with fewer than 10 such cells are dropped (P08 pre has 6; several MPR/NMPR posts have 0–3), leaving 2 vs 7.
 
 ## GSE337519
 

@@ -255,29 +255,56 @@ def analyze_gse207422(matrix: Path, metadata: Path, outdir: Path) -> list[dict]:
             rec[f"mal_{gene}_pb_cpm"] = mal["pb_cpm"]
             rec[f"epi_{gene}_mean_log1p"] = epi_s["mean_log1p_cp10k"]
             rec[f"epi_{gene}_pct_pos"] = epi_s["pct_pos"]
+            rec[f"epi_{gene}_pb_cpm"] = epi_s["pb_cpm"]
         rows.append(rec)
     sample_df = pd.DataFrame(rows)
     sample_df.to_csv(outdir / "gse207422_per_sample.tsv", sep="\t", index=False)
 
     tests = []
-    usable = sample_df[sample_df["n_malignant"] >= MIN_MAL].copy()
+    mal_ok = sample_df[sample_df["n_malignant"] >= MIN_MAL].copy()
+    epi_ok = sample_df[sample_df["n_epithelial"] >= MIN_MAL].copy()
     contrasts = [
-        ("all_post_vs_pre", usable, "unmatched 3 pre vs all post with ≥10 malignant cells"),
         (
-            "nmpr_post_vs_pre",
-            usable[usable["timepoint"].eq("pre") | usable["response_paper"].eq("NMPR")],
-            "unmatched pre vs NMPR post only (residual tumor)",
+            "epi_all_post_vs_pre",
+            epi_ok,
+            "epi",
+            "unmatched 3 pre vs 12 post; epithelial compartment (CopyKAT not deposited)",
+        ),
+        (
+            "epi_nmpr_post_vs_pre",
+            epi_ok[epi_ok["timepoint"].eq("pre") | epi_ok["response_paper"].eq("NMPR")],
+            "epi",
+            "unmatched pre vs NMPR post; epithelial compartment",
+        ),
+        (
+            "mal_all_post_vs_pre",
+            mal_ok,
+            "mal",
+            "unmatched pre vs post with ≥10 malignant-like cells (epithelial minus alveolar/club/ciliated)",
+        ),
+        (
+            "mal_nmpr_post_vs_pre",
+            mal_ok[mal_ok["timepoint"].eq("pre") | mal_ok["response_paper"].eq("NMPR")],
+            "mal",
+            "unmatched pre vs NMPR post; ≥10 malignant-like cells",
         ),
     ]
-    for contrast, sub, note in contrasts:
+    for contrast, sub, prefix, note in contrasts:
         pre = sub[sub["timepoint"] == "pre"]
         post = sub[sub["timepoint"] == "post"]
         for gene in GENES:
-            for metric, col in [
-                ("mean_log1p_cp10k", f"mal_{gene}_mean_log1p"),
-                ("pct_pos", f"mal_{gene}_pct_pos"),
-                ("pb_cpm", f"mal_{gene}_pb_cpm"),
+            for metric, suffix in [
+                ("mean_log1p_cp10k", "mean_log1p"),
+                ("pct_pos", "pct_pos"),
+                ("pb_cpm", "pb_cpm"),
             ]:
+                col = f"{prefix}_{gene}_{suffix}" if suffix != "mean_log1p" else f"{prefix}_{gene}_mean_log1p"
+                if suffix == "pct_pos":
+                    col = f"{prefix}_{gene}_pct_pos"
+                elif suffix == "pb_cpm":
+                    col = f"{prefix}_{gene}_pb_cpm"
+                if col not in sub.columns:
+                    continue
                 stat = mw(pre[col], post[col])
                 stat.update(
                     {
@@ -285,6 +312,7 @@ def analyze_gse207422(matrix: Path, metadata: Path, outdir: Path) -> list[dict]:
                         "contrast": contrast,
                         "gene": gene,
                         "metric": metric,
+                        "compartment": "epithelial" if prefix == "epi" else "malignant-like",
                         "pairing": "unmatched",
                         "n_pre_patients": int(pre["Patient"].nunique()),
                         "n_post_patients": int(post["Patient"].nunique()),
@@ -294,37 +322,18 @@ def analyze_gse207422(matrix: Path, metadata: Path, outdir: Path) -> list[dict]:
                     }
                 )
                 tests.append(stat)
-        # epithelial sensitivity, primary metric only
-        for gene in GENES:
-            stat = mw(pre[f"epi_{gene}_mean_log1p"], post[f"epi_{gene}_mean_log1p"])
-            stat.update(
-                {
-                    "accession": "GSE207422",
-                    "contrast": contrast + "_epithelial",
-                    "gene": gene,
-                    "metric": "mean_log1p_cp10k",
-                    "pairing": "unmatched",
-                    "n_pre_patients": int(pre["Patient"].nunique()),
-                    "n_post_patients": int(post["Patient"].nunique()),
-                    "pre_patients": ",".join(pre["Patient"].astype(str)),
-                    "post_patients": ",".join(post["Patient"].astype(str)),
-                    "design_note": note + "; all epithelial (no normal-lung filter)",
-                }
-            )
-            tests.append(stat)
 
     tests_df = pd.DataFrame(tests)
     tests_df.to_csv(outdir / "gse207422_pre_vs_post.tsv", sep="\t", index=False)
 
-    # figure: primary malignant mean log1p
+    # figure: primary epithelial mean log1p (all 15 libraries)
     fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.4), sharey=False)
-    plot_df = usable.copy()
-    plot_df["arm"] = plot_df["timepoint"].map({"pre": "pre (n=3)", "post": "post"})
+    plot_df = epi_ok.copy()
     for ax, gene in zip(axes, GENES):
-        col = f"mal_{gene}_mean_log1p"
+        col = f"epi_{gene}_mean_log1p"
         pre_v = plot_df.loc[plot_df["timepoint"] == "pre", col]
         post_v = plot_df.loc[plot_df["timepoint"] == "post", col]
-        ax.boxplot([pre_v, post_v], labels=["pre", "post"], widths=0.45)
+        ax.boxplot([pre_v, post_v], tick_labels=["pre", "post"], widths=0.45)
         rng = np.random.default_rng(1)
         ax.scatter(1 + rng.uniform(-0.08, 0.08, len(pre_v)), pre_v, c="#1f77b4", s=36, zorder=3)
         colors = plot_df.loc[plot_df["timepoint"] == "post", "response_paper"].map(
@@ -333,8 +342,8 @@ def analyze_gse207422(matrix: Path, metadata: Path, outdir: Path) -> list[dict]:
         ax.scatter(2 + rng.uniform(-0.08, 0.08, len(post_v)), post_v, c=colors, s=36, zorder=3)
         stat = mw(pre_v, post_v)
         ax.set_title(f"{gene}\nMWU p={stat['p']:.3g}" if stat["p"] is not None else gene)
-        ax.set_ylabel("malignant mean log1p(CP10K)")
-    fig.suptitle("GSE207422 unmatched pre vs post (sample unit, ≥10 malignant cells)", fontsize=10)
+        ax.set_ylabel("epithelial mean log1p(CP10K)")
+    fig.suptitle("GSE207422 unmatched pre vs post (sample unit, epithelial, all 15 libraries)", fontsize=10)
     fig.tight_layout()
     fig.savefig(outdir / "fig_gse207422_malignant_pre_post.png", dpi=160)
     plt.close(fig)
@@ -405,7 +414,7 @@ def main() -> None:
         primary = next(
             r
             for r in tests
-            if r["gene"] == gene and r["contrast"] == "all_post_vs_pre" and r["metric"] == "mean_log1p_cp10k"
+            if r["gene"] == gene and r["contrast"] == "epi_all_post_vs_pre" and r["metric"] == "mean_log1p_cp10k"
         )
         paper_rows.append(
             {
@@ -416,14 +425,14 @@ def main() -> None:
                 "n_pre": primary["n_pre"],
                 "n_post": primary["n_post"],
                 "gene": gene,
-                "metric": "malignant mean log1p(CP10K)",
+                "metric": "epithelial mean log1p(CP10K)",
                 "median_pre": primary["median_pre"],
                 "median_post": primary["median_post"],
                 "direction": primary["direction"],
                 "test": primary["test"],
                 "U": primary["U"],
                 "p": primary["p"],
-                "note": "3 pre biopsies vs 12 post resections; sample unit; ≥10 malignant cells",
+                "note": "3 pre biopsies vs 12 post resections; sample unit; GEO has no CopyKAT labels",
             }
         )
     paper = pd.DataFrame(paper_rows)
