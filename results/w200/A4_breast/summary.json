@@ -1,0 +1,102 @@
+{
+  "task": "A4 TISMO breast models Tacstd2 after ICB",
+  "gene": "Tacstd2",
+  "source": "TISMO Gene module in vivo (tismo.cistrome.org -> tismo.pku-genomics.org/rtismo)",
+  "value_units": "TISMO quantile-normalised ComBat-corrected log-scale TPM (served table)",
+  "models_in_gene_module": [
+    "4T1",
+    "E0771",
+    "EMT6",
+    "T11",
+    "KPB25L",
+    "p53-2225L",
+    "p53-2336R"
+  ],
+  "mammary_models_with_any_ICB_flag": [
+    "4T1",
+    "E0771",
+    "EMT6",
+    "KPB25L",
+    "T11",
+    "p53-2225L",
+    "p53-2336R"
+  ],
+  "mammary_models_without_ICB": [
+    "4T07",
+    "67NR",
+    "6DT1",
+    "D2A1",
+    "F311",
+    "HRM1",
+    "M6",
+    "Met1",
+    "Mvt1",
+    "NDL(UCD)",
+    "Py230",
+    "Py8119",
+    "R3T",
+    "TSAE1",
+    "p53-2153F",
+    "p53-2224",
+    "p53-2245",
+    "p53-9263-3",
+    "p53-T1",
+    "p53-T12",
+    "p53-T2",
+    "p53-T6",
+    "p53-T7"
+  ],
+  "n_sample_rows": 317,
+  "n_unique_samples": 303,
+  "n_cohorts": 29,
+  "n_latest_timepoint_contrasts": 15,
+  "n_studies": [
+    "GSE107801",
+    "GSE124821",
+    "GSE130472",
+    "GSE132529",
+    "GSE137818",
+    "GSE174053"
+  ],
+  "honest_calls_all_cohorts": {
+    "null": 29
+  },
+  "honest_calls_latest_timepoint": {
+    "null": 15
+  },
+  "cohorts_with_both_R_and_NR": [],
+  "tismo_p_reused": {
+    "0.022387195755": [
+      "EMT6_GSE107801_antiPDL1",
+      "EMT6_GSE107801_antiTGFb_trap_antiPDL1"
+    ],
+    "0.482356121608": [
+      "4T1_GSE130472_young_antiCTLA4",
+      "4T1_GSE130472_young_antiPDL1"
+    ]
+  },
+  "latest_timepoint_paired": {
+    "n": 15,
+    "n_up": 8,
+    "n_down": 7,
+    "mean_baseline": 1.9709197226542239,
+    "mean_treated": 1.9935430654910269,
+    "mean_delta": 0.022623342836802923,
+    "paired_t_p": 0.9034202085882176,
+    "wilcoxon_p": 0.97796630859375,
+    "sign_test_p": 1.0,
+    "note": "Do not treat as a breast-wide ICB effect. Contrasts are still clustered in GSE124821 and GSE130472."
+  },
+  "cell_line_cluster_bootstrap": {
+    "n_models": 7,
+    "observed_mean_delta": 0.022623342836802916,
+    "ci95": [
+      -0.31435166312767804,
+      0.617039315361293
+    ],
+    "p_two_sided": 0.8976
+  },
+  "n_mwu_p_lt_0.05": 1,
+  "n_mwu_q_lt_0.05": 0,
+  "headline": "No consistent Tacstd2 change after ICB in TISMO mammary models. 0/29 independent Mann-Whitney tests survive BH-FDR. Unadjusted, only p53-2336R end-stage non-responders vs baseline is p<0.05 (MWU p=0.045; TISMO DESeq2 p=2.3e-4), and that mean shift is carried by 2 of 5 treated tumors. TISMO stars both EMT6 GSE107801 arms with one reused p=0.022; the anti-PDL1-only arm is null on the displayed values (\u0394=+0.045). High-baseline models (4T1, KPB25L, p53-2225L) stay high; low-baseline models (T11, EMT6, E0771) stay low. Fifteen latest-timepoint paired means: 8 up / 7 down, Wilcoxon p=0.98, model-clustered bootstrap p=0.90."
+}
