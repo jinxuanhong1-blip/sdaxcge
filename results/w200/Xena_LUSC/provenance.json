@@ -1,0 +1,45 @@
+{
+  "downloaded_utc": "2026-08-16T20:09:34Z",
+  "files": [
+    {
+      "key": "expr_LUSC",
+      "file": "TCGA.LUSC.HiSeqV2.gz",
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUSC.sampleMap%2FHiSeqV2.gz",
+      "description": "UCSC Xena TCGA-LUSC HiSeqV2, log2(RSEM normalized_count + 1)",
+      "bytes": 30037912,
+      "sha256": "baa2b486d38cb68be6921b72dd798dd71a08a560ce3d4b5e690aa8c2a77bfa0d"
+    },
+    {
+      "key": "estimate_LUSC",
+      "file": "ESTIMATE_LUSC_RNAseqV2.txt",
+      "url": "https://ibl.mdanderson.org/estimate/tables/lung_squamous_cell_carcinoma_RNAseqV2.txt",
+      "description": "Official ESTIMATE RNAseqV2 scores, TCGA-LUSC (Yoshihara 2013 / MD Anderson)",
+      "bytes": 19605,
+      "sha256": "5844aaad93eba1081899c0900ff1ccd6eb315c0d0e9eb5fadad628608333cc35"
+    },
+    {
+      "key": "absolute",
+      "file": "TCGA_mastercalls.abs_tables_JSedit.fixed.txt",
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "description": "PanCanAtlas ABSOLUTE purity/ploidy (Taylor et al.; DNA/SNP6, not RNA)",
+      "bytes": 901812,
+      "sha256": "f430a975433d82e0098d7405619d4f12a0c765fcd97e7d63cc9b1de7f2d763cd"
+    },
+    {
+      "key": "leuk",
+      "file": "TCGA_all_leuk_estimate.masked.20170107.tsv",
+      "url": "https://api.gdc.cancer.gov/data/6f75c9d7-5134-4ed1-b8f3-72856c98a4e8",
+      "description": "PanImmune DNA-methylation leukocyte fraction (not expression-derived)",
+      "bytes": 560473,
+      "sha256": "5a8268caedbf8dc98a75be0528d583238d7355761d9fc746e42002f223a982d9"
+    },
+    {
+      "key": "estimate_gmt",
+      "file": "ESTIMATE_SI_geneset.gmt",
+      "url": "https://raw.githubusercontent.com/jinxuanhong1-blip/sdaxcge/cursor/rework-a2-immune-defs-357c/data/estimate/inst/extdata/SI_geneset.gmt",
+      "description": "Official ESTIMATE stromal/immune gene sets (SI_geneset.gmt, ESTIMATE v1.0.13)",
+      "bytes": 1738,
+      "sha256": "bfd34f3f811656a5781521d9e59b513bc34c45692ad35afdd81c3879d7a187ca"
+    }
+  ]
+}
