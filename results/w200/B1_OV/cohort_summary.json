@@ -1,0 +1,24 @@
+{
+  "cohort": "OV",
+  "n_tumor_primary_01": 421,
+  "sample_type_code_counts_in_matrix": {
+    "01": 422,
+    "02": 7
+  },
+  "n_adjacent_normal_11": 0,
+  "tumor_vs_normal": "NOT PERFORMED: TCGA-OV STAR-TPM matrix contains no solid-tissue-normal (-11) samples, so the B1 tumor-vs-normal comparison is impossible for this cohort.",
+  "signature_genes_missing_from_matrix": [
+    "KIR3DS1",
+    "MGC40069"
+  ],
+  "n_with_absolute_purity": 409,
+  "TACSTD2_vs_purity_spearman_rho": -0.121,
+  "TACSTD2_vs_purity_p": 0.014475756491776627,
+  "CLDN4_vs_purity_spearman_rho": 0.091,
+  "CLDN4_vs_purity_p": 0.06505055725846058,
+  "TACSTD2_vs_CLDN4_spearman_rho": 0.32,
+  "TACSTD2_vs_CLDN4_p": 1.6397821685467657e-11,
+  "n_with_cdr_clinical": 421,
+  "n_stage_III_IV": 393,
+  "n_stage_I_II": 25
+}

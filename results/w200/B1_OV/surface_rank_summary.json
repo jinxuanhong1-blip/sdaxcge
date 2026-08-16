@@ -1,0 +1,147 @@
+{
+  "generated_utc": "2026-08-16T20:08:52+00:00",
+  "cohort": "TCGA-OV",
+  "expression_dataset": "Xena GDC hub TCGA-OV.star_tpm (log2(TPM+1), GENCODE v36)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_rule": "primary tumor (-01), one sample per patient",
+  "n_samples": 421,
+  "n_surfaceome_table_unique_genes": 2799,
+  "n_surfaceome_in_matrix": 2686,
+  "n_surfaceome_missing_from_matrix": 113,
+  "n_zero_variance_dropped": 8,
+  "zero_variance_genes": [
+    "CLDN22",
+    "GP1BB",
+    "ICAM4",
+    "LRRC24",
+    "OR14I1",
+    "OR4N4",
+    "OR5M9",
+    "SERINC4"
+  ],
+  "surface_gene_universe": 2677,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "n_samples": 421,
+    "n_surface_universe": 2677,
+    "spearman_rank": 27,
+    "spearman_rho": 0.32049638398435554,
+    "spearman_p": 1.6397821685467657e-11,
+    "spearman_q": 1.5136885742067902e-09,
+    "spearman_percentile": 99.029,
+    "pearson_rank": 10,
+    "pearson_r": 0.4073554612639099,
+    "pearson_q": 7.838068122603097e-16
+  },
+  "top10_spearman": [
+    {
+      "gene": "TGFA",
+      "spearman_rank": 1,
+      "spearman_r": 0.4703129698930714,
+      "spearman_q": 3.9507357709842244e-21
+    },
+    {
+      "gene": "UNC93B1",
+      "spearman_rank": 2,
+      "spearman_r": 0.44990165916982006,
+      "spearman_q": 3.0393178214439707e-19
+    },
+    {
+      "gene": "ITGB8",
+      "spearman_rank": 3,
+      "spearman_r": 0.43148273527420444,
+      "spearman_q": 1.43789292815932e-17
+    },
+    {
+      "gene": "EVA1C",
+      "spearman_rank": 4,
+      "spearman_r": 0.4084019896529043,
+      "spearman_q": 1.577206979225465e-15
+    },
+    {
+      "gene": "CXCL16",
+      "spearman_rank": 5,
+      "spearman_r": 0.4028569498743199,
+      "spearman_q": 3.95053520765562e-15
+    },
+    {
+      "gene": "SLC37A1",
+      "spearman_rank": 6,
+      "spearman_r": 0.3974696735534731,
+      "spearman_q": 9.777886977735586e-15
+    },
+    {
+      "gene": "PROM2",
+      "spearman_rank": 7,
+      "spearman_r": 0.3751278913249397,
+      "spearman_q": 6.222712136297921e-13
+    },
+    {
+      "gene": "CDCP1",
+      "spearman_rank": 8,
+      "spearman_r": 0.35731750659760025,
+      "spearman_q": 1.3406590420266906e-11
+    },
+    {
+      "gene": "GPR132",
+      "spearman_rank": 9,
+      "spearman_r": 0.3560555079754592,
+      "spearman_q": 1.4842288064735306e-11
+    },
+    {
+      "gene": "NIPAL2",
+      "spearman_rank": 10,
+      "spearman_r": 0.3551966253737032,
+      "spearman_q": 1.5501855213508166e-11
+    }
+  ],
+  "surfaceome_genes_missing_from_matrix_head": [
+    "ACPT",
+    "ALPPL2",
+    "AMICA1",
+    "BAI1",
+    "BAI2",
+    "BAI3",
+    "C10orf54",
+    "C14orf37",
+    "C16orf52",
+    "C1orf101",
+    "C1orf233",
+    "C1orf85",
+    "CD8BP",
+    "CD97",
+    "DIRC2",
+    "DPCR1",
+    "ELTD1",
+    "EMR1",
+    "EMR2",
+    "EMR3",
+    "EMR4P",
+    "ERVFC1",
+    "ERVK-18",
+    "ERVK-19",
+    "ERVK-21",
+    "ERVK-24",
+    "ERVK-25",
+    "ERVK-6",
+    "ERVK-7",
+    "ERVK-8",
+    "ERVK-9",
+    "ERVPABLB-1",
+    "ERVS71-1",
+    "FAM26E",
+    "FCGR1C",
+    "G6B",
+    "GPR110",
+    "GPR111",
+    "GPR112",
+    "GPR113"
+  ]
+}
