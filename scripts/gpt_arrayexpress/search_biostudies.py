@@ -26,13 +26,23 @@ ICI_TERMS = [
     "pembrolizumab", "atezolizumab", "durvalumab", "cemiplimab",
     "ipilimumab",
 ]
-TARGET_TERMS = ["TACSTD2", "TROP2", '"TROP-2"', "CLDN4", '"claudin 4"', '"claudin-4"']
+TARGET_TERMS = [
+    "TACSTD2", "TROP2", '"TROP-2"', '"trophoblast cell surface antigen 2"',
+    '"sacituzumab govitecan"', "Trodelvy",
+    "CLDN4", '"claudin 4"', '"claudin-4"',
+]
 
 # These decisions are intentionally explicit and auditable. They are applied only
 # after API discovery; the script never manufactures an accession.
 DECISIONS = {
+    "E-MTAB-11377": ("metadata_only_target", "Trop2-associated mouse intestinal hyperplasia; no processed files"),
+    "E-MTAB-11382": ("metadata_only_target", "Trop2-positive/negative mouse intestinal adenomas; no processed files"),
+    "E-MTAB-11466": ("include_target", "human colorectal TROP2-positive/negative cells; open processed counts and TPM"),
     "E-MTAB-13704": ("include", "in-situ lung GEMM anti-PD-L1 combination experiment; processed counts"),
     "E-MTAB-15883": ("include", "direct lung-cancer-model anti-PD-1 experiment; processed data"),
+    "E-MTAB-16433": ("include_target", "TROP2-targeting sacituzumab govitecan versus vehicle in colorectal PDOX; processed single-cell data"),
+    "E-MTAB-16843": ("include_target", "TROP2-targeting ADC time course in colorectal organoids; only ancillary processed files are under 2GB"),
+    "E-MTAB-16849": ("include_target", "TROP2-targeting ADC time course in colorectal liver-metastasis models; eligible split count matrices"),
     "E-MTAB-9451": ("include_context", "NSCLC immune profiling motivated by checkpoint response; no ICI-treated samples"),
     "E-MTAB-10633": ("metadata_only", "whole-lung anti-PD-L1/TGF-beta-trap experiment; no processed files"),
     "E-MTAB-8867": ("metadata_only", "three NSCLC patients in ICI-myocarditis cohort; no processed files"),

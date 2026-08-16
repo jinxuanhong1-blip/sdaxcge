@@ -11,8 +11,8 @@ import urllib.request
 from pathlib import Path
 
 LIMIT = 2_000_000_000
-DOWNLOAD_DECISIONS = {"include", "include_context"}
-METADATA_DECISIONS = DOWNLOAD_DECISIONS | {"metadata_only"}
+DOWNLOAD_DECISIONS = {"include", "include_context", "include_target"}
+METADATA_DECISIONS = DOWNLOAD_DECISIONS | {"metadata_only", "metadata_only_target"}
 
 
 def sha256(path: Path) -> str:
