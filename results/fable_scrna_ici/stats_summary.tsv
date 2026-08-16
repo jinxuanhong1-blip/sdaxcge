@@ -1,0 +1,53 @@
+dataset	analysis	comparison	metric	n	stat	value	p_value	note
+GSE207422	post_NMPR_vs_MPR	NMPR vs MPR	malig_TACSTD2_mean	6v1	MannWhitneyU			median NMPR=1.7463 MPR=0.8061; mean NMPR=1.7090 MPR=0.8061; post-treatment surgery only; pCR counted as MPR
+GSE207422	post_NMPR_vs_MPR	NMPR vs MPR	malig_TACSTD2_pct	6v1	MannWhitneyU			median NMPR=0.7795 MPR=0.7100; mean NMPR=0.7840 MPR=0.7100; post-treatment surgery only; pCR counted as MPR
+GSE207422	post_NMPR_vs_MPR	NMPR vs MPR	malig_CLDN4_mean	6v1	MannWhitneyU			median NMPR=1.3543 MPR=1.0127; mean NMPR=1.3090 MPR=1.0127; post-treatment surgery only; pCR counted as MPR
+GSE207422	post_NMPR_vs_MPR	NMPR vs MPR	epi_TACSTD2_mean	8v4	MannWhitneyU	26.0	0.1090909090909091	median NMPR=1.5339 MPR=1.2508; mean NMPR=1.5216 MPR=1.2033; post-treatment surgery only; pCR counted as MPR
+GSE207422	post_NMPR_vs_MPR	NMPR vs MPR	tnk_frac	8v4	MannWhitneyU	13.0	0.6828282828282828	median NMPR=0.3891 MPR=0.5304; mean NMPR=0.4060 MPR=0.5358; post-treatment surgery only; pCR counted as MPR
+GSE207422	post_NMPR_vs_MPR	NMPR vs MPR	cd8_frac	8v4	MannWhitneyU	9.0	0.2828282828282829	median NMPR=0.1420 MPR=0.2475; mean NMPR=0.1928 MPR=0.2654; post-treatment surgery only; pCR counted as MPR
+GSE207422	post_NMPR_vs_MPR	NMPR vs MPR	tls12_score	8v4	MannWhitneyU	18.0	0.8080808080808081	median NMPR=6.2694 MPR=5.7517; mean NMPR=6.1106 MPR=5.8883; post-treatment surgery only; pCR counted as MPR
+GSE207422	CLAIM_NMPR_gt_MPR_malig_TACSTD2	NMPR vs MPR	malig_TACSTD2_mean	6v1	MannWhitneyU			median NMPR=1.7463 MPR=0.8061; mean NMPR=1.7090 MPR=0.8061; one-sided claim NMPR>MPR is supported only if median/mean NMPR>MPR
+GSE207422	spearman_all_with_malig	malig_TACSTD2_mean~tnk_frac	tnk_frac	9	spearman_rho	-0.09999999999999999	0.797971695234851	
+GSE207422	spearman_all_with_malig	malig_TACSTD2_mean~cd8_frac	cd8_frac	9	spearman_rho	-0.3666666666666667	0.3317398014330152	
+GSE207422	spearman_all_with_malig	malig_TACSTD2_mean~tls12_score	tls12_score	9	spearman_rho	-0.33333333333333337	0.38071318167686347	
+GSE207422	spearman_all_with_malig	malig_CLDN4_mean~tnk_frac	tnk_frac	9	spearman_rho	-0.08333333333333334	0.831214097710308	
+GSE207422	spearman_all_with_malig	epi_TACSTD2_mean~tnk_frac	tnk_frac	15	spearman_rho	-0.20357142857142854	0.4667950724891123	
+GSE207422	spearman_post_with_malig	malig_TACSTD2_mean~tnk_frac	tnk_frac	7	spearman_rho	-0.03571428571428572	0.9394082054712856	
+GSE207422	spearman_post_with_malig	malig_TACSTD2_mean~cd8_frac	cd8_frac	7	spearman_rho	-0.39285714285714296	0.3833168704269727	
+GSE207422	spearman_post_with_malig	malig_TACSTD2_mean~tls12_score	tls12_score	7	spearman_rho	-0.21428571428571433	0.6445115810207203	
+GSE207422	spearman_post_with_malig	malig_CLDN4_mean~tnk_frac	tnk_frac	7	spearman_rho	0.25	0.5887244480896832	
+GSE207422	spearman_post_with_malig	epi_TACSTD2_mean~tnk_frac	tnk_frac	12	spearman_rho	-0.04195804195804196	0.8969858708195542	
+GSE207422	spearman_post_n_malig_ge30	malig_TACSTD2_mean~tnk_frac	tnk_frac	6	spearman_rho	0.028571428571428574	0.9571545189504373	
+GSE207422	spearman_post_n_malig_ge30	malig_TACSTD2_mean~cd8_frac	cd8_frac	6	spearman_rho	-0.3714285714285715	0.4684781341107872	
+GSE207422	spearman_post_n_malig_ge30	malig_TACSTD2_mean~tls12_score	tls12_score	6	spearman_rho	-0.14285714285714288	0.7871720116618076	
+GSE207422	spearman_post_n_malig_ge30	malig_CLDN4_mean~tnk_frac	tnk_frac	6	spearman_rho	0.4285714285714286	0.3965014577259473	
+GSE207422	spearman_post_n_malig_ge30	epi_TACSTD2_mean~tnk_frac	tnk_frac	6	spearman_rho	0.08571428571428573	0.8717434402332361	
+GSE207422	cell_level_exploratory	NMPR vs MPR	malig_TACSTD2_lognorm	5993v1214	MannWhitneyU	6308724.5	0.0	PSEUDOREPLICATED; median NMPR=2.2022 MPR=0.7916
+GSE205335	NR_vs_R_patient	SD/PD vs PR	malig_TACSTD2_mean	10v6	MannWhitneyU	32.0	0.8748751248751249	median NR=0.9105 R=1.0978; mean of tumor-tissue samples per patient
+GSE205335	NR_vs_R_patient	SD/PD vs PR	malig_TACSTD2_pct	10v6	MannWhitneyU	26.0	0.7127872127872128	median NR=0.5166 R=0.7085; mean of tumor-tissue samples per patient
+GSE205335	NR_vs_R_patient	SD/PD vs PR	malig_CLDN4_mean	10v6	MannWhitneyU	25.0	0.6353646353646354	median NR=0.9683 R=1.3633; mean of tumor-tissue samples per patient
+GSE205335	NR_vs_R_patient	SD/PD vs PR	tnk_frac	10v6	MannWhitneyU	39.0	0.3676323676323677	median NR=0.2924 R=0.1878; mean of tumor-tissue samples per patient
+GSE205335	NR_vs_R_patient	SD/PD vs PR	cd8_frac	10v6	MannWhitneyU	31.0	0.9577922077922078	median NR=0.0997 R=0.1095; mean of tumor-tissue samples per patient
+GSE205335	NR_vs_R_patient	SD/PD vs PR	tls12_score	10v6	MannWhitneyU	38.0	0.42782217782217785	median NR=4.5044 R=3.5080; mean of tumor-tissue samples per patient
+GSE205335	NR_vs_R_sample	SD/PD vs PR	malig_TACSTD2_mean	13v8	MannWhitneyU	59.0	0.6452012383900929	median NR=0.9539 R=1.0978; tumor tissues only; samples not independent
+GSE205335	NR_vs_R_sample	SD/PD vs PR	malig_TACSTD2_pct	13v8	MannWhitneyU	50.0	0.9155339328713942	median NR=0.5655 R=0.6907; tumor tissues only; samples not independent
+GSE205335	NR_vs_R_sample	SD/PD vs PR	malig_CLDN4_mean	13v8	MannWhitneyU	41.0	0.45580618212197166	median NR=1.0557 R=1.4086; tumor tissues only; samples not independent
+GSE205335	NR_vs_R_sample	SD/PD vs PR	tnk_frac	13v8	MannWhitneyU	73.0	0.14025259226497616	median NR=0.3015 R=0.1657; tumor tissues only; samples not independent
+GSE205335	NR_vs_R_sample	SD/PD vs PR	cd8_frac	13v8	MannWhitneyU	54.0	0.9155339328713942	median NR=0.1023 R=0.0724; tumor tissues only; samples not independent
+GSE205335	NR_vs_R_sample	SD/PD vs PR	tls12_score	13v8	MannWhitneyU	67.0	0.30112536242567206	median NR=4.7640 R=3.1426; tumor tissues only; samples not independent
+GSE205335	NR_vs_R_patient_NSCLC	SD/PD vs PR	malig_TACSTD2_mean	8v4	MannWhitneyU	10.0	0.3676767676767677	median NR=0.9105 R=1.6437; ADC+SQ only
+GSE205335	NR_vs_R_patient_NSCLC	SD/PD vs PR	tnk_frac	8v4	MannWhitneyU	18.0	0.8080808080808081	median NR=0.3298 R=0.3313; ADC+SQ only
+GSE205335	NR_vs_R_patient_NSCLC	SD/PD vs PR	tls12_score	8v4	MannWhitneyU	16.0	1.0	median NR=5.1133 R=5.0835; ADC+SQ only
+GSE205335	spearman_patient_tumor_tissue	malig_TACSTD2_mean~tnk_frac	tnk_frac	16	spearman_rho	0.44705882352941173	0.08253692339537141	
+GSE205335	spearman_patient_tumor_tissue	malig_TACSTD2_mean~cd8_frac	cd8_frac	16	spearman_rho	0.32647058823529407	0.21715949057922937	
+GSE205335	spearman_patient_tumor_tissue	malig_TACSTD2_mean~tls12_score	tls12_score	16	spearman_rho	0.38823529411764707	0.1372816236727813	
+GSE205335	spearman_patient_tumor_tissue	malig_CLDN4_mean~tnk_frac	tnk_frac	16	spearman_rho	-0.32647058823529407	0.21715949057922937	
+GSE205335	spearman_patient_NSCLC	malig_TACSTD2_mean~tnk_frac	tnk_frac	12	spearman_rho	-0.02097902097902098	0.9484022252365222	
+GSE205335	spearman_patient_NSCLC	malig_TACSTD2_mean~cd8_frac	cd8_frac	12	spearman_rho	0.0	1.0	
+GSE205335	spearman_patient_NSCLC	malig_TACSTD2_mean~tls12_score	tls12_score	12	spearman_rho	0.055944055944055944	0.8628980736949713	
+GSE205335	spearman_patient_NSCLC	malig_CLDN4_mean~tnk_frac	tnk_frac	12	spearman_rho	-0.08391608391608392	0.7954145018538978	
+GSE205335	spearman_sample_tumor_tissue	malig_TACSTD2_mean~tnk_frac	tnk_frac	21	spearman_rho	0.40389610389610386	0.06939949544788349	
+GSE205335	spearman_sample_tumor_tissue	malig_TACSTD2_mean~cd8_frac	cd8_frac	21	spearman_rho	0.34155844155844156	0.12967786415595978	
+GSE205335	spearman_sample_tumor_tissue	malig_TACSTD2_mean~tls12_score	tls12_score	21	spearman_rho	0.37922077922077924	0.08999962703369178	
+GSE205335	spearman_sample_tumor_tissue	malig_CLDN4_mean~tnk_frac	tnk_frac	21	spearman_rho	-0.3220779220779221	0.15449229891803334	
+GSE205335	cell_level_exploratory	SD/PD vs PR	malig_TACSTD2_lognorm	9795v15942	MannWhitneyU	102124658.5	0.0	PSEUDOREPLICATED; median NR=1.0782 R=0.0000

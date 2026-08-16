@@ -360,8 +360,8 @@ def box_strip(ax, df, group_col, val_col, groups, title):
     data = [df.loc[df[group_col] == g, val_col].dropna().to_numpy()
             for g in groups]
     labels = [f"{g}\n(n={len(d)})" for g, d in zip(groups, data)]
-    ax.boxplot([d if len(d) else [np.nan] for d in data],
-               labels=labels, showfliers=False)
+    ax.boxplot([d if len(d) else [np.nan] for d in data], showfliers=False)
+    ax.set_xticklabels(labels)
     for i, d in enumerate(data):
         if len(d):
             ax.scatter(rng.normal(i + 1, 0.06, len(d)), d, s=28, alpha=0.85,
