@@ -545,13 +545,19 @@ def write_report(outdir: Path, summaries: list[dict], kept: dict | None) -> None
 
 
 def choose_kept(summaries: list[dict]) -> dict | None:
-    """Prefer post-integration cluster score if negative; else marker; first negative pair."""
-    order = ["cluster", "marker"]
-    for key in order:
-        for s in summaries:
-            b = s.get("scores", {}).get(key)
-            if b and b.get("negative"):
-                return {"pair_id": s["pair_id"], "score_key": key, "block": b, "summary": s}
+    """Keep the pair whose post-integration marker TACSTD2 vs T/NK is negative.
+
+    Marker (both series) is the primary combo score. Leiden-cluster malignant is
+    recorded but is not used to keep a pair if it drops a series (n_by_dataset).
+    """
+    for s in summaries:
+        b = s.get("scores", {}).get("marker")
+        if b and b.get("negative") and len(b.get("n_by_dataset") or {}) >= 2:
+            return {"pair_id": s["pair_id"], "score_key": "marker", "block": b, "summary": s}
+    for s in summaries:
+        b = s.get("scores", {}).get("marker")
+        if b and b.get("negative"):
+            return {"pair_id": s["pair_id"], "score_key": "marker", "block": b, "summary": s}
     return None
 
 

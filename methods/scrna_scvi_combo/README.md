@@ -41,4 +41,12 @@ python3 methods/scrna_scvi_combo/integrate_score.py \
 - Spearman ρ / p. Cell-level correlations are not reported.
 - Keep the pair (or the post-integration score) where malignant TACSTD2 vs T/NK is negative. All contrasts stay in `results/stats.tsv`.
 
-Numbers after the public run live in `results/WRITEUP.md`.
+## Result (public run)
+
+Kept **GSE207422 + GSE241934 IIT**. scVI trained (no Harmony fallback).
+
+Primary marker score after scVI: **n=26, ρ=−0.169, p=0.41**. Negative, not significant.
+
+Leiden-cluster malignant is n=7, ρ=−0.50, p=0.25 and drops GSE241934. Not the combo score.
+
+Details: `results/WRITEUP.md`, `results/stats.tsv`.

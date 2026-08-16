@@ -1,0 +1,126 @@
+{
+  "pair_id": "GSE207422_GSE241934IIT",
+  "objects": [
+    "GSE207422",
+    "GSE241934_IIT"
+  ],
+  "n_cells": 171021,
+  "n_genes_shared": 18913,
+  "n_hvg": 2000,
+  "method": "scVI",
+  "integrator": {
+    "method": "scVI",
+    "scvi_version": "1.5.0.post1",
+    "n_latent": 10,
+    "max_epochs": 40,
+    "n_hvg": 2000,
+    "n_cells": 171021,
+    "batch_key": "batch"
+  },
+  "normal_lung_cut": 0.38333397605087055,
+  "lineage_counts": {
+    "T/NK": 78146,
+    "Myeloid": 33842,
+    "B/Plasma": 26951,
+    "Epithelial": 16434,
+    "Fibroblast": 7393,
+    "Endothelial": 6225,
+    "Mast": 2030
+  },
+  "cluster_lineage_counts": {
+    "T/NK": 79086,
+    "Myeloid": 38150,
+    "B/Plasma": 26257,
+    "Epithelial": 14023,
+    "Fibroblast": 8384,
+    "Endothelial": 3535,
+    "Mast": 1586
+  },
+  "scores": {
+    "marker_pre": {
+      "contrast": "GSE207422_GSE241934IIT marker lineage (pre-latent, same cells)",
+      "n": 26,
+      "rho": -0.1692307692307692,
+      "p": 0.4085443954184591,
+      "n_samples_total": 26,
+      "n_eligible": 26,
+      "n_by_dataset": {
+        "GSE207422": 15,
+        "GSE241934": 11
+      },
+      "negative": true
+    },
+    "marker": {
+      "contrast": "GSE207422_GSE241934IIT marker lineage after scVI",
+      "n": 26,
+      "rho": -0.1692307692307692,
+      "p": 0.4085443954184591,
+      "n_samples_total": 26,
+      "n_eligible": 26,
+      "n_by_dataset": {
+        "GSE207422": 15,
+        "GSE241934": 11
+      },
+      "negative": true
+    },
+    "cluster": {
+      "contrast": "GSE207422_GSE241934IIT scVI/Harmony Leiden lineage after scVI",
+      "n": 7,
+      "rho": -0.5,
+      "p": 0.2531699951003227,
+      "n_samples_total": 26,
+      "n_eligible": 7,
+      "n_by_dataset": {
+        "GSE207422": 7
+      },
+      "negative": true
+    },
+    "marker_GSE207422": {
+      "contrast": "GSE207422_GSE241934IIT marker, GSE207422 only",
+      "n": 15,
+      "rho": -0.05357142857142857,
+      "p": 0.8496099367776072,
+      "n_samples_total": 15,
+      "n_eligible": 15,
+      "n_by_dataset": {
+        "GSE207422": 15
+      },
+      "negative": true
+    },
+    "marker_GSE241934": {
+      "contrast": "GSE207422_GSE241934IIT marker, GSE241934 only",
+      "n": 11,
+      "rho": -0.4090909090909091,
+      "p": 0.21154501034209602,
+      "n_samples_total": 11,
+      "n_eligible": 11,
+      "n_by_dataset": {
+        "GSE241934": 11
+      },
+      "negative": true
+    },
+    "cluster_GSE207422": {
+      "contrast": "GSE207422_GSE241934IIT cluster, GSE207422 only",
+      "n": 7,
+      "rho": -0.5,
+      "p": 0.2531699951003227,
+      "n_samples_total": 15,
+      "n_eligible": 7,
+      "n_by_dataset": {
+        "GSE207422": 7
+      },
+      "negative": true
+    },
+    "cluster_GSE241934": {
+      "contrast": "GSE207422_GSE241934IIT cluster, GSE241934 only",
+      "n": 0,
+      "rho": NaN,
+      "p": NaN,
+      "n_samples_total": 11,
+      "n_eligible": 0,
+      "n_by_dataset": {},
+      "negative": false
+    }
+  },
+  "TACSTD2_present": true
+}

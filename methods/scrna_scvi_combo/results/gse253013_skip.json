@@ -1,0 +1,7 @@
+{
+  "series": "GSE253013",
+  "used_in_scvi": false,
+  "reason": "GEO deposits only GSE253013_all_luad_garnett_temp.rds.gz (9.3 GB, double-gzipped Seurat/XDR). A full count matrix for scVI/Harmony HVG training does not fit this 16 GB session. The series is also treatment-naive LUAD on HiSeq 2500, whereas GSE207422 and GSE241934 IIT are neoadjuvant PD-1 + chemo NSCLC on NovaSeq 6000. Not forced.",
+  "public_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253013",
+  "pmid": "38335304"
+}
