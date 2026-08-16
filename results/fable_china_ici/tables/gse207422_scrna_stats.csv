@@ -1,0 +1,5 @@
+dataset,gene,unit,group_pos,n_pos,median_pos,group_neg,n_neg,median_neg,mannwhitney_p,auc_pos_high,note
+GSE207422 scRNA epithelial (post-treatment),TACSTD2,mean log1p CP10K per sample,MPR,4,1.239,NMPR,8,1.651,0.1535,0.219,"EPCAM+/PTPRC- proxy, samples with >=20 epithelial cells"
+GSE207422 scRNA epithelial (post-treatment),CLDN4,mean log1p CP10K per sample,MPR,4,1.483,NMPR,8,1.544,0.8081,0.562,"EPCAM+/PTPRC- proxy, samples with >=20 epithelial cells"
+GSE207422 scRNA epithelial (pre-treatment),TACSTD2,mean log1p CP10K per sample,MPR,0,,NMPR,2,,,,too few samples for testing (descriptive only)
+GSE207422 scRNA epithelial (pre-treatment),CLDN4,mean log1p CP10K per sample,MPR,0,,NMPR,2,,,,too few samples for testing (descriptive only)
