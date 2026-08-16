@@ -1,6 +1,8 @@
 # B2 · DepMap/CCLE lung lines only · TACSTD2–CLDN4 ρ
 
-**Honest verdict: the user-claimed ρ = 0.69 is not reproduced.**
+**Follow-up (protein, not RNA):** the 0.69 claim is CCLE **protein**, not this RNA slice. See `results/rework/B2_protein_followup/`. n=118 is RPPA lung-not-SCLC (no TACSTD2/CLDN4 antibodies). ρ=0.69 is Gygi MS lung complete cases **n=45**. This RNA page remains: 24Q4 lung RNA ρ=0.61 (n=214).
+
+**Honest verdict (RNA only): the user-claimed ρ = 0.69 is not reproduced on DepMap RNA.**
 
 On the pre-specified public slice — **DepMap Public 24Q4**, `OncotreeLineage == Lung`, complete RNA cases — Spearman **ρ = 0.607** (n = 214). That rounds to **0.61**, not 0.69. Pearson r = 0.562. A 5,000-resample bootstrap 95% CI is **[0.513, 0.687]**; **0.69 is outside that interval**.
 
