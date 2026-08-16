@@ -9,6 +9,29 @@ The public cohorts can be identified without inventing accessions:
 3. **GSE76628** is real, but it is **not KL lung cancer**. It is a 78-sample Ad-VEGF-A164 flank-tissue time course in **athymic nude mice**, with DC101/G6 interventions, from a gastric-cancer stromal-signature paper. It can be analyzed alone, but it must not be relabeled as a KRAS/LKB1 tumor cohort.
 4. No open PACIFIC tumor-RNA accession was found. PACIFIC is **NCT02125461**; its publications direct researchers to AstraZeneca's request-based data-sharing process.
 
+## Continued search (Grok 4.6): additional public TACSTD2 RNA
+
+A second-pass census of **all 44 GEO durvalumab expression series**, OncoSG/cBioPortal, and BioStudies did **not** find another patient NSCLC bulk RNA matrix that both (a) is open/processed and (b) contains TACSTD2.
+
+**Confirmed TACSTD2 RNA that already existed or was newly verified**
+
+| Resource | TACSTD2 in open processed data? | Use |
+|---|---|---|
+| OncoSG GIS031 / `luad_oncosg_2020` | Yes, 169 tumors | Only public OncoSG LUAD RNA study |
+| GSE248378 | Yes | Slide-matching bulk ρ = −0.658 |
+| GSE253564 | Yes | Pretreatment companion |
+| GSE131933 | Yes, sparse scRNA | Mechanistic only; 991/4458 cells nonzero in the 25.5 MB T1T3D0 file |
+| GSE190731 | Yes, 4 HG-U133 Plus 2.0 probes | Xenograft, not patient bulk; immune correlations null |
+
+**Documented none / not usable**
+
+- **No second OncoSG LUAD RNA study.** GEO `OncoSG` and `GIS031` searches returned 0 series. The only other public OncoSG study on cBioPortal is `stad_oncosg_2018` (gastric WGS; RNA sample counts = 0).
+- **Native OncoSG count download is not retrievable here.** `https://src.gisapps.org/OncoSG_public/study/summary?id=GIS031` returned HTTP 403. Raw FASTQ remains controlled at EGAD00001004421. The open usable RNA is the cBioPortal z-score profile already analyzed.
+- **GSE110390:** open processed matrix is 21 immune genes and **does not include TACSTD2**.
+- **PACIFIC / COAST / NeoCOAST:** no open sample-level RNA accession with TACSTD2.
+- **GSE190731** has TACSTD2 but is an EGFR-mutant xenograft. In T-cell-engrafted samples (n=20), TACSTD2 vs CD8/NK/pan-immune Spearman ρ = 0.27 / 0.11 / 0.00 (all p > 0.25). This is **not** the −0.65 patient-tumor result.
+- The remaining GEO durvalumab series are HNSCC, HCC, ovarian, CRC, breast, CTCL, RCC, mesothelioma, esophageal, pancreas, or in-vitro. Full list: `provenance/geo_durvalumab_expression_census.tsv`. Decision table: `durvalumab_oncosg_tacstd2_census.tsv`.
+
 No slide file was present in the repository, so “exact” means an accession-level match to the cohort descriptions and a numerical reproduction of the reported correlation.
 
 ## Downloaded processed data
@@ -25,6 +48,8 @@ All files are below 2 GB and stored in `data/`:
 | GSE110390 | `GSE110390_series_matrix.txt.gz` | Series metadata |
 | GSE248378 | `GSE248378_Durva_Post_FPKMs.txt.gz` | Post-treatment bulk RNA FPKM, 29 tumors |
 | GSE253564 | `GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz` | Pretreatment bulk RNA FPKM, 32 tumors |
+| GSE190731 | `GSE190731_series_matrix.txt.gz` | Xenograft Affymetrix processed matrix, 23 samples |
+| GSE131933 | `GSE131933_T1T3D0_gene_count.txt.gz` | Smallest open scRNA count file used only to confirm TACSTD2 |
 
 The OncoSG downloader records every API URL and the exact molecular profile in `provenance/oncosg_api_manifest.json`. `provenance/sha256sums.txt` provides checksums.
 
@@ -80,14 +105,28 @@ Adjustment includes epithelial content, collection day, and anti-VEGFR treatment
 
 The CD8 result requires an especially strong caveat: these are **Foxn1-null athymic nude mice**, so conventional T-cell biology is abnormal, and the samples are flank tissue rather than tumors. A “CD8 signature” here is an expression summary, not evidence of ordinary CD8 T-cell infiltration. These data cannot validate a KL-lung mechanism.
 
+### GSE190731 xenograft (continued search)
+
+TACSTD2 is on GPL570 (probes `202285_s_at`, `202286_s_at`, `202287_s_at`, `227128_s_at`). Using the NM_002353 probe `202287_s_at` in T-cell-engrafted xenografts only (n=20):
+
+| Outcome | Raw ρ | p | Epithelial-proxy-adjusted partial ρ | p |
+|---|---:|---:|---:|---:|
+| CD8 score | 0.269 | 0.251 | 0.059 | 0.805 |
+| NK score | 0.105 | 0.659 | −0.130 | 0.586 |
+| Pan-immune score | 0.005 | 0.985 | −0.216 | 0.360 |
+
+This open durvalumab NSCLC RNA has TACSTD2, but it is a xenograft and does not reproduce the patient-tumor inverse correlation.
+
 ## PACIFIC and other open durvalumab lung RNA
 
-See `durvalumab_rna_catalog.tsv`.
+See `durvalumab_rna_catalog.tsv` and `durvalumab_oncosg_tacstd2_census.tsv`.
 
 - **PACIFIC / NCT02125461:** no public sample-level RNA accession identified; request-based sponsor data only.
+- **COAST / NCT03822351:** no public RNA accession identified.
 - **GSE110390:** 97 advanced NSCLC biopsies from CP1108/NCT01693562, but only a 21-gene processed matrix is open and TACSTD2 is absent.
-- **GSE131933:** open longitudinal NSCLC scRNA-seq after durvalumab or durvalumab+tremelimumab; mechanistic and very small, not PACIFIC.
-- **GSE248378/GSE253564:** open post/pre bulk RNA from NCT02904954; the relevant sample-level matrices.
+- **GSE131933:** open longitudinal NSCLC scRNA-seq after durvalumab or durvalumab+tremelimumab; TACSTD2 is present but sparse; not PACIFIC and not the bulk −0.65 cohort.
+- **GSE190731:** open xenograft array with TACSTD2; not patient bulk and does not reproduce ρ = −0.65.
+- **GSE248378/GSE253564:** open post/pre bulk RNA from NCT02904954; the only patient NSCLC bulk matrices with TACSTD2.
 - **NeoCOAST / NCT03794544:** open aggregate differential-expression supplement, but no comprehensive open sample-level matrix or RNA accession found.
 
 ## Reproduce
