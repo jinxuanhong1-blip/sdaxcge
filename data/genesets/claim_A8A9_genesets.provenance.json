@@ -1,0 +1,93 @@
+{
+  "panel": [
+    "CLDN1",
+    "CLDN4",
+    "CLDN7",
+    "F11R",
+    "PARD3"
+  ],
+  "sets": [
+    {
+      "set": "GOCC_KERATIN_FILAMENT",
+      "category": "keratin",
+      "library": "GO_Cellular_Component_2021",
+      "term": "keratin filament (GO:0045095)",
+      "n_genes": 15,
+      "panel_members": []
+    },
+    {
+      "set": "REACTOME_KERATINIZATION",
+      "category": "keratin",
+      "library": "Reactome_2022",
+      "term": "Keratinization R-HSA-6805567",
+      "n_genes": 208,
+      "panel_members": []
+    },
+    {
+      "set": "GOCC_CORNIFIED_ENVELOPE",
+      "category": "keratin",
+      "library": "GO_Cellular_Component_2021",
+      "term": "cornified envelope (GO:0001533)",
+      "n_genes": 43,
+      "panel_members": []
+    },
+    {
+      "set": "GOBP_KERATINOCYTE_DIFFERENTIATION",
+      "category": "keratin",
+      "library": "GO_Biological_Process_2021",
+      "term": "keratinocyte differentiation (GO:0030216)",
+      "n_genes": 41,
+      "panel_members": []
+    },
+    {
+      "set": "KEGG_TIGHT_JUNCTION",
+      "category": "tight_junction",
+      "library": "KEGG_2021_Human",
+      "term": "Tight junction",
+      "n_genes": 169,
+      "panel_members": [
+        "CLDN1",
+        "CLDN4",
+        "CLDN7",
+        "F11R",
+        "PARD3"
+      ]
+    },
+    {
+      "set": "REACTOME_TIGHT_JUNCTION_INTERACTIONS",
+      "category": "tight_junction",
+      "library": "Reactome_2022",
+      "term": "Tight Junction Interactions R-HSA-420029",
+      "n_genes": 30,
+      "panel_members": [
+        "CLDN1",
+        "CLDN4",
+        "CLDN7",
+        "F11R",
+        "PARD3"
+      ]
+    },
+    {
+      "set": "GOCC_BICELLULAR_TIGHT_JUNCTION",
+      "category": "tight_junction",
+      "library": "GO_Cellular_Component_2021",
+      "term": "bicellular tight junction (GO:0005923)",
+      "n_genes": 78,
+      "panel_members": [
+        "CLDN1",
+        "CLDN4",
+        "CLDN7",
+        "F11R",
+        "PARD3"
+      ]
+    },
+    {
+      "set": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+      "category": "tight_junction",
+      "library": "GO_Biological_Process_2021",
+      "term": "tight junction organization (GO:0120193)",
+      "n_genes": 5,
+      "panel_members": []
+    }
+  ]
+}
