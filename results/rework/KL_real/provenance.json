@@ -1,0 +1,54 @@
+{
+  "generated_by": "analysis/kl_real/run_kl_real.py",
+  "sources": {
+    "GSE180963": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE180963",
+    "GSE179502": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179502",
+    "GSE280232": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE280232",
+    "GSE179500": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179500",
+    "GSE76628": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE76628"
+  },
+  "files": [
+    {
+      "path": "data/kl_real/GSE179500_DESeq2norm_Counts.txt.gz",
+      "bytes": 5048703,
+      "md5_1MB": "b2fc7fc7ab3bfd5e4345cdfe530e36d5"
+    },
+    {
+      "path": "data/kl_real/GSE179500_RestoredvNon-Restored.csv.gz",
+      "bytes": 793794,
+      "md5_1MB": "e4c2dbcdadc5a0368f2c2a79fc3f04e3"
+    },
+    {
+      "path": "data/kl_real/GSE179500_family.soft.gz",
+      "bytes": 5639,
+      "md5_1MB": "b4c71d415929b8ceb599bbf84578b50d"
+    },
+    {
+      "path": "data/kl_real/GSE179502_XTR_sorted_scRNAseq_barcodes.tsv.gz",
+      "bytes": 416442,
+      "md5_1MB": "7f2e160b6a5a610b6d07dbe76fd853b3"
+    },
+    {
+      "path": "data/kl_real/GSE179502_XTR_sorted_scRNAseq_features.tsv.gz",
+      "bytes": 279387,
+      "md5_1MB": "885c7e0571e64e45fc26483d9da64d57"
+    },
+    {
+      "path": "data/kl_real/GSE179502_XTR_sorted_scRNAseq_matrix.mtx.gz",
+      "bytes": 191416581,
+      "md5_1MB": "4c1c2488498cc4254181d83ca8f251d7"
+    },
+    {
+      "path": "data/kl_real/GSE180963_RAW.tar",
+      "bytes": 92119040,
+      "md5_1MB": "17c23c298a864aa29bff816df9b99713"
+    },
+    {
+      "path": "data/kl_real/GSE280232_RAW.tar",
+      "bytes": 1323796480,
+      "md5_1MB": "c3963f1baeaad0a901d69dbd8b6fea51"
+    }
+  ],
+  "normalization": "scRNA: log1p(CP10k); positivity = log1p(CP10k)>0 (UMI>=1). Bulk: author DESeq2-normalized counts.",
+  "inferential_unit": "mouse or patient, never cell, unless explicitly labeled PSEUDOREPLICATION"
+}
