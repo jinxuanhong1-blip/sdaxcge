@@ -1,0 +1,6 @@
+# The raw/processed GEO downloads (multi-GB) are reproducible and are NOT tracked
+# in git. See download_manifest.tsv (one level up) for the exact file list, byte
+# sizes, and source URLs, and scripts/fable_geo_2015_2018/03_download.py to fetch.
+*
+!.gitignore
+!README.md

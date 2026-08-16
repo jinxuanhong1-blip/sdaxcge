@@ -1,0 +1,255 @@
+{
+ "gene_availability": [
+  {
+   "accession": "GSE109010",
+   "file": "GSE109010_Non-normalized_data.txt.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE110390",
+   "file": "GSE110390_CP1108_NSCLC_21gene_expression.txt.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": true
+  },
+  {
+   "accession": "GSE110390",
+   "file": "GSE110390_CP1108_UBC_21gene_expression.txt.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": true
+  },
+  {
+   "accession": "GSE115305",
+   "file": "GSE115305_siglec9_counts_all.txt.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE121682",
+   "file": "GSE121682_1_processed_22rv1_NT_vs_olaparib_6h_RatioData.csv.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE121682",
+   "file": "GSE121682_2_processed_22rv1_NT_vs_olaparib_12h_RatioData.csv.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE121682",
+   "file": "GSE121682_3_processed_22rv1_NT_vs_olaparib_18h_RatioData.csv.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE121682",
+   "file": "GSE121682_4_processed_DU145_NT_vs_olaparib_6h_RatioData.csv.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE121682",
+   "file": "GSE121682_5_processed_DU145_NT_vs_olaprib_12h_RatioData.csv.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE121682",
+   "file": "GSE121682_6_processed_DU145_NT_vs_olaparib_18h_RatioData.csv.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE124199",
+   "file": "GSE124199_Processed_data_matrix_Human_DCsubsets_LungCancer.txt.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE81089",
+   "file": "GSE81089_FPKM_cufflinks.tsv.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE81089",
+   "file": "GSE81089_readcounts_featurecounts.tsv.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE84789",
+   "file": "GSE84789_fcount_primary_output.txt.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": false
+  },
+  {
+   "accession": "GSE91061",
+   "file": "GSE91061_BMS038109Sample.hg19KnownGene.fpkm.csv.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE91061",
+   "file": "GSE91061_BMS038109Sample.hg19KnownGene.raw.csv.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE91061",
+   "file": "GSE91061_BMS038109Sample.hg19KnownGene.rld.csv.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE93157",
+   "file": "GSE93157_raw_data_values.txt.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": true
+  },
+  {
+   "accession": "GSE99254",
+   "file": "GSE99254_NSCLC.TCell.S11769.norm.centered.txt.gz",
+   "TACSTD2": false,
+   "CLDN4": false,
+   "CD274": true
+  },
+  {
+   "accession": "GSE99254",
+   "file": "GSE99254_NSCLC.TCell.S12346.TPM.txt.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  },
+  {
+   "accession": "GSE99254",
+   "file": "GSE99254_NSCLC.TCell.S12346.count.txt.gz",
+   "TACSTD2": true,
+   "CLDN4": true,
+   "CD274": true
+  }
+ ],
+ "GSE91061": {
+  "dataset": "GSE91061",
+  "type": "MELANOMA nivolumab (RECIST response)",
+  "n_pre": 49,
+  "genes": {
+   "TACSTD2": {
+    "n_responder": 10,
+    "n_nonresponder": 23,
+    "n_SD": 16,
+    "median_responder_log2fpkm": 0.42524752233483437,
+    "median_nonresponder_log2fpkm": 0.7163145004072854,
+    "mannwhitney_U": 97.0,
+    "p_value": 0.4926489958635444
+   },
+   "CLDN4": {
+    "n_responder": 10,
+    "n_nonresponder": 23,
+    "n_SD": 16,
+    "median_responder_log2fpkm": 0.24573033210732517,
+    "median_nonresponder_log2fpkm": 0.15463037987909917,
+    "mannwhitney_U": 133.0,
+    "p_value": 0.4928661109279533
+   },
+   "CD274": {
+    "n_responder": 10,
+    "n_nonresponder": 23,
+    "n_SD": 16,
+    "median_responder_log2fpkm": 1.8317950635274038,
+    "median_nonresponder_log2fpkm": 1.5783753784653525,
+    "mannwhitney_U": 129.0,
+    "p_value": 0.5969192192431503
+   }
+  }
+ },
+ "GSE72094": {
+  "dataset": "GSE72094",
+  "type": "LUAD resected cohort \u2014 OVERALL SURVIVAL (not ICI). log2 array intensity",
+  "n": 398,
+  "n_events": 113,
+  "genes": {
+   "TACSTD2": {
+    "median_expr": 12.430925,
+    "logrank_chi2": 0.6893898918683529,
+    "logrank_p": 0.40637197864394003,
+    "n_high": 199,
+    "n_low": 199,
+    "spearman_vs_CD274_rho": -0.015904222153561624,
+    "spearman_vs_CD274_p": 0.7517670002667431
+   },
+   "CLDN4": {
+    "median_expr": 10.166656,
+    "logrank_chi2": 0.3137080150458852,
+    "logrank_p": 0.5754136628581754,
+    "n_high": 199,
+    "n_low": 199,
+    "spearman_vs_CD274_rho": -0.014308298371461862,
+    "spearman_vs_CD274_p": 0.7759763461082562
+   },
+   "CD274": {
+    "median_expr": 5.791905833333334,
+    "logrank_chi2": 0.453974445983645,
+    "logrank_p": 0.5004535712355636,
+    "n_high": 199,
+    "n_low": 199,
+    "spearman_vs_CD274_rho": 0.9999999999999999,
+    "spearman_vs_CD274_p": 0.0
+   }
+  }
+ },
+ "GSE81089": {
+  "dataset": "GSE81089",
+  "type": "NSCLC resected cohort \u2014 OVERALL SURVIVAL (not ICI). log2(FPKM+1)",
+  "n": 196,
+  "n_events": 93,
+  "genes": {
+   "TACSTD2": {
+    "median_expr": 6.453913614761436,
+    "logrank_chi2": 0.9619358315169567,
+    "logrank_p": 0.32669962789567364,
+    "n_high": 98,
+    "n_low": 98,
+    "spearman_vs_CD274_rho": -0.0045677310361864395,
+    "spearman_vs_CD274_p": 0.9493368823069342
+   },
+   "CLDN4": {
+    "median_expr": 5.742817582910128,
+    "logrank_chi2": 0.11958302244825639,
+    "logrank_p": 0.729487175995075,
+    "n_high": 98,
+    "n_low": 98,
+    "spearman_vs_CD274_rho": -0.11240188383045527,
+    "spearman_vs_CD274_p": 0.11675616367687068
+   },
+   "CD274": {
+    "median_expr": 3.1710962741623043,
+    "logrank_chi2": 0.6975799089695396,
+    "logrank_p": 0.4035980766773165,
+    "n_high": 98,
+    "n_low": 98,
+    "spearman_vs_CD274_rho": 1.0,
+    "spearman_vs_CD274_p": 0.0
+   }
+  }
+ }
+}
