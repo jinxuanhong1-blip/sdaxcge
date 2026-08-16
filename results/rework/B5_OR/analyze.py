@@ -59,15 +59,21 @@ USER_HI = 0.95
 USER_K = 11
 
 
-def log_expr(raw: pd.Series, assay: str) -> pd.Series:
+def log_expr(raw: pd.Series, assay: str) -> tuple[pd.Series, str]:
+    """Return (expression used for cutoffs, scale label).
+
+    Zenodo ICB TPM/FPKM objects are already log-scale (negative values).
+    Applying log2(x+1) would clip those to 0 and collapse the median split.
+    """
     x = pd.to_numeric(raw, errors="coerce")
     assay = (assay or "").lower()
     if assay in {"log2tpm", "log2(tpm)", "log2_tpm"}:
-        return x
+        return x, "already_log2tpm"
+    if x.notna().any() and float(x.min()) < 0:
+        return x, "already_log_detected"
     if assay == "counts":
-        # library-size CPM if we only have one gene; fall back to log2(count+1)
-        return np.log2(x.clip(lower=0) + 1.0)
-    return np.log2(x.clip(lower=0) + 1.0)
+        return np.log2(x.clip(lower=0) + 1.0), "log2_count_plus1"
+    return np.log2(x.clip(lower=0) + 1.0), "log2_plus1"
 
 
 def recode_recist(s: pd.Series) -> pd.Series:
@@ -248,7 +254,7 @@ def load_processed(proc: Path) -> dict[str, pd.DataFrame]:
 def analyze_one(df: pd.DataFrame, cutoff: str, endpoint: str) -> dict:
     assay = str(df["assay"].iloc[0]) if "assay" in df.columns else ""
     work = df.copy()
-    work["cldn4_log"] = log_expr(work["cldn4_raw"], assay)
+    work["cldn4_log"], scale = log_expr(work["cldn4_raw"], assay)
     work["y"] = binary_from_cohort(work, endpoint)
     work = work.loc[work["y"].isin(["R", "NR"]) & work["cldn4_log"].notna()].copy()
     base = {
@@ -260,6 +266,7 @@ def analyze_one(df: pd.DataFrame, cutoff: str, endpoint: str) -> dict:
         "n_with_binary": int(work.shape[0]),
         "n_R": int((work["y"] == "R").sum()),
         "n_NR": int((work["y"] == "NR").sum()),
+        "expr_scale": scale,
     }
     if cutoff == "continuous":
         stats = logistic_or_per_sd(work["y"], work["cldn4_log"])
@@ -286,8 +293,9 @@ def forest(df: pd.DataFrame, meta: dict, title: str, out: Path) -> None:
         return
     d = d.sort_values("cohort")
     labels = [
-        f"{r.cohort}  {r.n_R}/{r.n_NR}  {r.or:.2f} [{r.or_lo:.2f}–{r.or_hi:.2f}]"
-        for r in d.itertuples()
+        f"{row['cohort']}  {int(row['n_R'])}/{int(row['n_NR'])}  "
+        f"{row['or']:.2f} [{row['or_lo']:.2f}–{row['or_hi']:.2f}]"
+        for _, row in d.iterrows()
     ]
     ys = np.arange(len(d))
     fig, ax = plt.subplots(figsize=(9, 0.45 * (len(d) + 3) + 1.5))
@@ -337,7 +345,9 @@ def write_writeup(out_dir: Path, per: pd.DataFrame, pooled: pd.DataFrame, unusab
     lines.append("## Locked methods")
     lines.append("")
     lines.append("- Gene: CLDN4 (`ENSG00000189143` / symbol).")
-    lines.append("- Expression: `log2(x+1)` except GSE207422 which is already log2TPM.")
+    lines.append("- Expression: `log2(x+1)` for raw counts/TPM/FPKM. If the public matrix")
+    lines.append("  already contains negative values (Zenodo ICB log-scale), it is used as-is.")
+    lines.append("  GSE207422 is already log2TPM. Scale is in `tables/per_cohort_or.csv`.")
     lines.append("- Cutoffs (cohort-internal, on the analysis subset):")
     lines.append("  - median: High = ≥ median")
     lines.append("  - tertile: High = T3 vs Low = T1 (middle tertile dropped)")
@@ -378,8 +388,7 @@ def write_writeup(out_dir: Path, per: pd.DataFrame, pooled: pd.DataFrame, unusab
         for _, r in unusable.iterrows():
             lines.append(f"| {r.cohort} | {r.cancer} | public panel | **no** | — | {r.reason} |")
     lines.append("")
-    lines.append("Independent studies with CLDN4 + binary response: **k = ")
-    lines.append(f"{len(PRIMARY_COHORTS)}**, not 11.")
+    lines.append(f"Independent studies with CLDN4 + binary response: **k = {len(PRIMARY_COHORTS)}**, not 11.")
     lines.append("")
     lines.append("## All pooled ORs (do not cherry-pick)")
     lines.append("")
@@ -451,7 +460,7 @@ def write_writeup(out_dir: Path, per: pd.DataFrame, pooled: pd.DataFrame, unusab
             continue
         lines.append(
             f"| {r.cohort} | {r.n_used} ({r.n_R}/{r.n_NR}) | {int(r.n_high_R)}/{int(r.n_high_NR)} | "
-            f"{int(r.n_low_R)}/{int(r.n_low_NR)} | {fmt_or(r.or, r.or_lo, r.or_hi)} | {r.fisher_p:.3g} | "
+            f"{int(r.n_low_R)}/{int(r.n_low_NR)} | {fmt_or(r['or'], r.or_lo, r.or_hi)} | {r.fisher_p:.3g} | "
             f"{'yes' if r.haldane else 'no'} |"
         )
     lines.append("")
@@ -464,6 +473,7 @@ def write_writeup(out_dir: Path, per: pd.DataFrame, pooled: pd.DataFrame, unusab
     lines.append("- Small lung n (16–27) makes lung-only ORs unstable; tertile/quartile drop the middle and are even smaller.")
     lines.append("- Cross-cancer pooling (bladder + melanoma + RCC + lung) is not a lung-specific test.")
     lines.append("- Neoadjuvant GSE207422 is ICI+chemo pathologic response, not metastatic ORR.")
+    lines.append("- Median splits that land everyone on one side (empty High or Low arm) are reported as not estimable, not recoded after the fact to force an OR.")
     lines.append("")
     lines.append("## Reproduction")
     lines.append("")

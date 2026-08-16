@@ -29,3 +29,18 @@ Stats and forest plots go to `tables/` and `figures/`.
 
 All other cutoff × endpoint × subset cells are still reported in
 `tables/pooled_or.csv`.
+
+## Honest result (this run)
+
+| Pool | Cutoff | Endpoint | k | RE OR [95% CI] | p |
+|---|---|---|---:|---|---:|
+| all independent (locked primary) | median | curated R vs NR | 9 | **0.70 [0.41–1.18]** | 0.18 |
+| all independent | continuous | curated R vs NR | 9 | 0.92 [0.78–1.09] | 0.35 |
+| all independent | tertile T3 vs T1 | curated R vs NR | 9 | 0.79 [0.51–1.22] | 0.28 |
+| all independent | quartile Q4 vs Q1 | curated R vs NR | 9 | 0.80 [0.49–1.29] | 0.35 |
+| lung only | median | curated R vs NR | 4 | 0.40 [0.15–1.04] | 0.059 |
+
+The lung-only median OR (0.40) is the cell closest to the user 0.42. It is
+**not adopted**. It is NS, k=4 not 11, and the locked primary is 0.70.
+IMvigor210 median OR is 1.63 (opposite direction). Public k=9, not 11.
+No pooled cell matches 0.42 at 2 decimal places.
