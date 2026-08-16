@@ -1,0 +1,11 @@
+table,cohort,setting,gene,n_hi,n_lo,group_hi,group_lo,median_hi,median_lo,p,test
+S_response,GSE253564 pretreatment,neoadjuvant durvalumab±SBRT biopsy,TACSTD2,11,21,MPR,NMPR,156.9 FPKM,58.2 FPKM,0.016,Mann-Whitney U
+S_response,GSE253564 pretreatment,neoadjuvant durvalumab±SBRT biopsy,CLDN4,11,21,MPR,NMPR,61.9 FPKM,49.5 FPKM,0.34,Mann-Whitney U
+S_response,GSE207422 bulk pretreatment,neoadjuvant PD-1+chemo biopsy,TACSTD2,9,15,MPR,NMPR,5.00 log2TPM,6.22 log2TPM,0.34,Mann-Whitney U
+S_response,GSE207422 bulk pretreatment,neoadjuvant PD-1+chemo biopsy,CLDN4,9,15,MPR,NMPR,5.85 log2TPM,6.27 log2TPM,0.26,Mann-Whitney U
+S_response,GSE207422 scRNA post (unpaired),epithelial EPCAM>0 mean log1p UMI,TACSTD2,4,8,MPR,NMPR,1.27,1.41,0.57,Mann-Whitney U
+S_response,GSE207422 scRNA post (unpaired),epithelial EPCAM>0 mean log1p UMI,CLDN4,4,8,MPR,NMPR,1.44,1.15,0.46,Mann-Whitney U
+S_response,GSE207422 scRNA unpaired,epithelial EPCAM>0 post vs pre,TACSTD2,12,3,post,pre,1.33,1.87,0.36,Mann-Whitney U
+S_response,GSE207422 scRNA unpaired,epithelial EPCAM>0 post vs pre,CLDN4,12,3,post,pre,1.27,1.25,0.73,Mann-Whitney U
+S_response,GSE166449 pretreatment,advanced LUAD pembrolizumab RECIST,TACSTD2,7,15,R,NR,2.12 log2(TPM+1),1.78 log2(TPM+1),0.41,Mann-Whitney U
+S_response,GSE166449 pretreatment,advanced LUAD pembrolizumab RECIST,CLDN4,7,15,R,NR,1.21 log2(TPM+1),1.33 log2(TPM+1),0.95,Mann-Whitney U

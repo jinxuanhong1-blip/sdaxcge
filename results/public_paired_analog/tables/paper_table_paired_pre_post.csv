@@ -1,0 +1,13 @@
+table,cohort,setting,gene,n,n_up,n_down,median_pre,median_post,median_delta,p,test,note
+S_paired,GSE253564+GSE248378 Altorki NCT02904954,neoadjuvant durvalumab±SBRT; all joinable pairs (all NMPR),TACSTD2,20,14,6,47.8 FPKM,45.4 FPKM,+16.2 FPKM,0.11,Wilcoxon signed-rank,MPR posts not in GSE248378
+S_paired,GSE253564+GSE248378 Altorki NCT02904954,same; Arm1 durvalumab alone NMPR,TACSTD2,14,8,6,63.0 FPKM,44.3 FPKM,+2.0 FPKM,0.71,Wilcoxon signed-rank,
+S_paired,GSE253564+GSE248378 Altorki NCT02904954,same; Arm2 durvalumab+SBRT NMPR,TACSTD2,6,6,0,27.6 FPKM,101.3 FPKM,+40.3 FPKM,0.031,Wilcoxon signed-rank,minimum p for n=6 all same sign; one pair 1.2→123 FPKM
+S_paired,GSE253564+GSE248378 Altorki NCT02904954,neoadjuvant durvalumab±SBRT; all joinable pairs (all NMPR),CLDN4,20,14,6,50.7 FPKM,63.7 FPKM,+7.5 FPKM,0.12,Wilcoxon signed-rank,
+S_paired,GSE253564+GSE248378 Altorki NCT02904954,same; Arm1 durvalumab alone NMPR,CLDN4,14,8,6,50.7 FPKM,48.5 FPKM,+2.5 FPKM,0.81,Wilcoxon signed-rank,
+S_paired,GSE253564+GSE248378 Altorki NCT02904954,same; Arm2 durvalumab+SBRT NMPR,CLDN4,6,6,0,42.4 FPKM,121.9 FPKM,+37.3 FPKM,0.031,Wilcoxon signed-rank,same n=6 caveat
+S_paired,GSE248249 Memon Cancer Cell 2024,advanced PD-(L)1; post=acquired resistance; all pairs,TACSTD2,13,6,7,4.84 RMA,4.75 RMA,-0.16,0.95,Wilcoxon signed-rank,12/13 not lung-to-lung
+S_paired,GSE248249 Memon Cancer Cell 2024,same; same anatomic site,TACSTD2,4,2,2,4.43 RMA,4.08 RMA,-0.02,1.00,Wilcoxon signed-rank,
+S_paired,GSE248249 Memon Cancer Cell 2024,same; lung-to-lung,TACSTD2,1,1,0,5.81 RMA,6.41 RMA,+0.60,NA,descriptive,single pair
+S_paired,GSE248249 Memon Cancer Cell 2024,advanced PD-(L)1; post=acquired resistance; all pairs,CLDN4,13,2,11,5.66 RMA,4.83 RMA,-0.89,0.017,Wilcoxon signed-rank,
+S_paired,GSE248249 Memon Cancer Cell 2024,same; same anatomic site,CLDN4,4,0,4,5.20 RMA,4.74 RMA,-0.74,0.13,Wilcoxon signed-rank,
+S_paired,GSE248249 Memon Cancer Cell 2024,same; lung-to-lung,CLDN4,1,0,1,5.57 RMA,4.66 RMA,-0.91,NA,descriptive,single pair
