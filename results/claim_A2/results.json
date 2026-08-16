@@ -1,0 +1,81 @@
+{
+  "claim": {
+    "rho_raw": -0.65,
+    "rho_purity_adj": -0.46,
+    "p": 0.0002
+  },
+  "datasets": [
+    {
+      "dataset": "GSE253564_pretreatment",
+      "n_samples": 32,
+      "geneset_overlap": {
+        "StromalSignature": 136,
+        "ImmuneSignature": 138
+      },
+      "n_purity_formula_out_of_bounds": 23,
+      "purity_adjustment_note": "partial Spearman controls for ESTIMATEScore ranks, which are rank-identical to ESTIMATE TumorPurity (monotone transform); avoids dropping samples where the Affymetrix purity formula is out of bounds on FPKM data",
+      "metrics": {
+        "ESTIMATE_ImmuneScore": {
+          "spearman_rho_raw": -0.7163,
+          "p_raw": 4.026e-06,
+          "spearman_rho_purity_adjusted": -0.5295,
+          "p_purity_adjusted": 0.00219
+        },
+        "log2_PTPRC": {
+          "spearman_rho_raw": -0.7694,
+          "p_raw": 2.656e-07,
+          "spearman_rho_purity_adjusted": -0.6569,
+          "p_purity_adjusted": 5.971e-05
+        },
+        "log2_CD8A": {
+          "spearman_rho_raw": -0.5363,
+          "p_raw": 0.001557,
+          "spearman_rho_purity_adjusted": -0.2425,
+          "p_purity_adjusted": 0.1886
+        },
+        "CYT_gzma_prf1": {
+          "spearman_rho_raw": -0.4611,
+          "p_raw": 0.007898,
+          "spearman_rho_purity_adjusted": -0.1652,
+          "p_purity_adjusted": 0.3745
+        }
+      }
+    },
+    {
+      "dataset": "GSE248378_posttreatment",
+      "n_samples": 29,
+      "geneset_overlap": {
+        "StromalSignature": 133,
+        "ImmuneSignature": 138
+      },
+      "n_purity_formula_out_of_bounds": 6,
+      "purity_adjustment_note": "partial Spearman controls for ESTIMATEScore ranks, which are rank-identical to ESTIMATE TumorPurity (monotone transform); avoids dropping samples where the Affymetrix purity formula is out of bounds on FPKM data",
+      "metrics": {
+        "ESTIMATE_ImmuneScore": {
+          "spearman_rho_raw": -0.665,
+          "p_raw": 8.298e-05,
+          "spearman_rho_purity_adjusted": -0.4739,
+          "p_purity_adjusted": 0.01085
+        },
+        "log2_PTPRC": {
+          "spearman_rho_raw": -0.7138,
+          "p_raw": 1.377e-05,
+          "spearman_rho_purity_adjusted": -0.5641,
+          "p_purity_adjusted": 0.001769
+        },
+        "log2_CD8A": {
+          "spearman_rho_raw": -0.7059,
+          "p_raw": 1.885e-05,
+          "spearman_rho_purity_adjusted": -0.5773,
+          "p_purity_adjusted": 0.001298
+        },
+        "CYT_gzma_prf1": {
+          "spearman_rho_raw": -0.8059,
+          "p_raw": 1.323e-07,
+          "spearman_rho_purity_adjusted": -0.7103,
+          "p_purity_adjusted": 2.293e-05
+        }
+      }
+    }
+  ]
+}
