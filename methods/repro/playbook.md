@@ -196,7 +196,7 @@ Capture after the final successful run, from the same activated environment:
 ```bash
 mkdir -p repro
 conda list --explicit > repro/conda-explicit.txt
-python -m pip freeze --all > repro/pip-freeze.txt
+python3 -m pip freeze --all > repro/pip-freeze.txt
 ```
 
 Do not hand-edit either file. `conda list --explicit` captures exact platform builds; `pip freeze --all` captures packages pip sees, including packaging tools. In `WRITEUP.md`, also report OS/architecture, Python version, Conda environment name, key external tool versions, and accelerator/driver details when relevant.
@@ -207,7 +207,7 @@ Useful commands / 常用命令:
 
 ```bash
 uname -a
-python --version
+python3 --version
 conda info --envs
 git rev-parse HEAD
 ```
@@ -359,7 +359,7 @@ Run from the project root:
 在项目根目录运行：
 
 ```bash
-python methods/repro/check_repro.py --root .
+python3 methods/repro/check_repro.py --root .
 ```
 
 The script uses only the Python standard library. It checks required catalog columns and values, accession syntax, saved verification evidence, accepted/refused state, the 2,000,000,000-byte FASTQ limit, accepted-file SHA-256 shape, local oversized FASTQs, seed format, Conda/pip captures, bilingual headings, `n`/multiple-testing sections, and unresolved placeholders.

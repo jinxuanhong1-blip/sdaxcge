@@ -194,7 +194,10 @@ def check_environment(root: Path, result: Check) -> None:
         if not pip_text:
             result.error("repro/pip-freeze.txt is empty")
         elif pip_text.startswith("NOT_USED"):
-            result.error("repro/pip-freeze.txt must be produced by `python -m pip freeze --all`")
+            result.error(
+                "repro/pip-freeze.txt must be produced by "
+                "`python3 -m pip freeze --all`"
+            )
 
 
 def check_writeup(root: Path, result: Check) -> None:
