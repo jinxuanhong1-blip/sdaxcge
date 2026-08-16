@@ -1,0 +1,37 @@
+# Freeze this file before EDA. Copy to a local workdir; do not invent scores.
+dataset_class: gse243013   # caushi | gse243013
+population: NSCLC neoadjuvant PD-1 ± chemo, resection
+unit: patient
+
+# E1
+primary_endpoint: exp_cxcl13_per_k
+primary_contrast: path_response_bin   # (pCR or MPR) vs non-MPR
+path_response_bin_rule: pcr_or_mpr_vs_nonmpr
+# alternatives to run as sensitivity only:
+#   pcr_vs_nonpcr
+#   mpr_only_vs_nonmpr   # drop pCR
+
+cxcl13_rule: author_cluster_cd8_tex   # author_cluster_cd8_tex | rna_gate | intersection
+cxcl13_author_clusters:
+  - CD8T_Tex_CXCL13
+  # optional CD8 sensitivity:
+  # - CD8T_terminal_Tex_LAYN
+# CD4 Tfh is a pre-registered secondary, not the primary:
+cxcl13_cd4_secondary_clusters:
+  - CD4T_Tfh_CXCL13
+  - CD4T_Th1-like_CXCL13
+
+clone_key: nt_identity_both_arms
+expansion_rule: size_ge_2
+min_tcr_cells: 50
+min_cd8_tcr_cells: 20
+stratify_by:
+  - cancer_type
+
+# E2 — leave source=none unless a real tumor-epithelial table exists
+e2:
+  enabled: false
+  tacstd2_source: none   # paired_bulk_rna | paired_epithelial_scrna | ihc | none
+  tumor_score_table: data/public/optional/tumor_tacstd2_cldn4.tsv
+  split: tertiles_high_vs_low
+  genes: [TACSTD2, CLDN4]
