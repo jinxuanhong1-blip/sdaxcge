@@ -1,0 +1,123 @@
+{
+  "slice": "B2_CCLE_all",
+  "run_utc": "2026-08-16T19:50:34Z",
+  "git_sha": "7967ace7b0243b64f0b3c240c72e697d2da8f109",
+  "rna_release": "DepMap Public 24Q2",
+  "protein_source": "Nusinow et al. Cell 2020 / Gygi protein_quant_current_normalized",
+  "accessions": [
+    "10.25452/figshare.plus.25880521",
+    "MSV000085836"
+  ],
+  "n_rna_matrix": 1517,
+  "n_rna_mapped": 1512,
+  "n_prot_matrix": 375,
+  "n_prot_mapped": 375,
+  "protein_parse": {
+    "n_rows": 12755,
+    "n_cols": 426,
+    "columns_head": [
+      "Protein_Id",
+      "Gene_Symbol",
+      "Description",
+      "Group_ID",
+      "Uniprot",
+      "Uniprot_Acc",
+      "TenPx01_Peptides",
+      "TenPx02_Peptides",
+      "TenPx03_Peptides",
+      "TenPx04_Peptides",
+      "TenPx06_Peptides",
+      "TenPx07_Peptides"
+    ],
+    "gene_col": "Gene_Symbol",
+    "n_sample_cols": 378,
+    "n_unique_lines": 375,
+    "n_genes": 12196
+  },
+  "s1_meta": {
+    "used_sheet": "Guide",
+    "sheets": [
+      "Guide",
+      "Sample_Information"
+    ]
+  },
+  "rna_all": {
+    "layer": "RNA",
+    "cohort": "ALL_CANCERS",
+    "n_lines": 1517,
+    "n_TACSTD2": 1517,
+    "n_CLDN4": 1517,
+    "n_pairwise_TACSTD2_CLDN4": 1517,
+    "rho_TACSTD2_CLDN4": 0.7140260754208457,
+    "p_TACSTD2_CLDN4": 7.818927175482941e-237,
+    "CLDN4_rank_rho_among_claudins": 2,
+    "CLDN4_rank_median_among_claudins": 4,
+    "n_claudins_tested": 24,
+    "top_claudin_by_rho": "CLDN7",
+    "top_rho": 0.7256020094184968
+  },
+  "prot_all": {
+    "layer": "protein",
+    "cohort": "ALL_CANCERS",
+    "n_lines": 375,
+    "n_TACSTD2": 375,
+    "n_CLDN4": 197,
+    "n_pairwise_TACSTD2_CLDN4": 197,
+    "rho_TACSTD2_CLDN4": 0.6185563288536458,
+    "p_TACSTD2_CLDN4": 3.4747719907650856e-22,
+    "CLDN4_rank_rho_among_claudins": 1,
+    "CLDN4_rank_median_among_claudins": 2,
+    "n_claudins_tested": 9,
+    "top_claudin_by_rho": "CLDN4",
+    "top_rho": 0.6185563288536458
+  },
+  "overlap": {
+    "n_overlap": 369,
+    "n_tacstd2": 369,
+    "rho_tacstd2": 0.7328180849427663,
+    "p_tacstd2": 2.4186427249011532e-63,
+    "n_cldn4": 195,
+    "rho_cldn4": 0.7980659948914898,
+    "p_cldn4": 2.4931895568990463e-44
+  },
+  "n_rna_pass_q": 18,
+  "n_prot_pass_q": 6,
+  "rna_claudins": [
+    "CLDN1",
+    "CLDN2",
+    "CLDN3",
+    "CLDN4",
+    "CLDN5",
+    "CLDN6",
+    "CLDN7",
+    "CLDN8",
+    "CLDN9",
+    "CLDN10",
+    "CLDN11",
+    "CLDN12",
+    "CLDN14",
+    "CLDN15",
+    "CLDN16",
+    "CLDN17",
+    "CLDN18",
+    "CLDN19",
+    "CLDN20",
+    "CLDN22",
+    "CLDN23",
+    "CLDN24",
+    "CLDN25",
+    "CLDN34"
+  ],
+  "protein_claudins": [
+    "CLDN1",
+    "CLDN2",
+    "CLDN3",
+    "CLDN4",
+    "CLDN6",
+    "CLDN7",
+    "CLDN11",
+    "CLDN12",
+    "CLDN16",
+    "CLDN18"
+  ]
+}
