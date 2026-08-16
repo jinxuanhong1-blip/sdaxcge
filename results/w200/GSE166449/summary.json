@@ -2,7 +2,8 @@
   "task": "GSE166449_TACSTD2_CLDN4_vs_pembrolizumab_response",
   "cohort": {
     "disease": "advanced lung adenocarcinoma",
-    "treatment": "pembrolizumab",
+    "treatment_from_paper": "pembrolizumab",
+    "treatment_from_geo": "immunotherapy",
     "biopsy_timing": "pretreatment",
     "response_definition": "RECIST 1.1; CR/PR responder, SD/PD non-responder",
     "n_total": 22,
@@ -12,36 +13,52 @@
   "expression_scale": "deposited log2(TPM + 1); no additional transform",
   "primary_gene_results": {
     "TACSTD2": {
-      "mean_responder": 3.2947565087996558,
-      "mean_non_responder": 2.7749272201909436,
+      "median_responder": 3.34624777408278,
+      "median_non_responder": 2.43562859405209,
+      "median_difference_R_minus_NR": 0.91061918003069,
       "mean_difference_R_minus_NR": 0.5198292886087121,
       "mean_difference_ci95": [
         -1.2039705510792982,
         2.2436291282967225
       ],
+      "hedges_g": 0.3175875953995465,
       "mann_whitney_p_exact_two_sided": 0.4068627450980391,
       "mann_whitney_bh_q_two_genes": 0.8137254901960782,
       "auc_higher_expression_predicts_response": 0.6190476190476191,
       "auc_bootstrap_ci95": [
         0.3333333333333333,
         0.8666666666666667
-      ]
+      ],
+      "median_split_or_high_vs_low": 3.75,
+      "median_split_or_ci95": [
+        0.5399147451110786,
+        26.045778759212943
+      ],
+      "median_split_fisher_p_two_sided": 0.3614551083591332
     },
     "CLDN4": {
-      "mean_responder": 1.5386100002805756,
-      "mean_non_responder": 1.4021359694405369,
+      "median_responder": 1.31034012061215,
+      "median_non_responder": 1.51096191927738,
+      "median_difference_R_minus_NR": -0.2006217986652299,
       "mean_difference_R_minus_NR": 0.13647403084003873,
       "mean_difference_ci95": [
         -0.7330330819189493,
         1.0059811435990267
       ],
+      "hedges_g": 0.1639928855527045,
       "mann_whitney_p_exact_two_sided": 0.9452106201332205,
       "mann_whitney_bh_q_two_genes": 0.9452106201332205,
       "auc_higher_expression_predicts_response": 0.5142857142857142,
       "auc_bootstrap_ci95": [
         0.23809523809523808,
         0.780952380952381
-      ]
+      ],
+      "median_split_or_high_vs_low": 0.65625,
+      "median_split_or_ci95": [
+        0.10758122195734238,
+        4.0031527311593935
+      ],
+      "median_split_fisher_p_two_sided": 1.0
     }
   },
   "exploratory_equal_weight_two_gene_score": {
@@ -52,8 +69,26 @@
     ],
     "exact_label_permutation_p_two_sided": 0.5455014541701848
   },
+  "tcell_proxy": {
+    "genes": [
+      "CD3D",
+      "CD3E",
+      "CD8A"
+    ],
+    "auc_higher_score_predicts_response": 0.6666666666666666,
+    "mann_whitney_p_exact_two_sided": 0.2371939206304531,
+    "exact_label_permutation_p_two_sided": 0.13947133877474435,
+    "spearman_vs_TACSTD2": {
+      "rho": -0.009599096555618296,
+      "p_two_sided": 0.9661826982649288
+    },
+    "spearman_vs_CLDN4": {
+      "rho": -0.1643139469226426,
+      "p_two_sided": 0.46496089385223976
+    }
+  },
   "gene_correlation": {
-    "spearman_rho": 0.4748729531338228,
+    "TACSTD2_vs_CLDN4_spearman_rho": 0.4748729531338228,
     "p_two_sided_unadjusted": 0.025531919822233972,
     "status": "descriptive_exploratory"
   },
@@ -61,15 +96,20 @@
     "supports_TACSTD2_response_association": false,
     "supports_CLDN4_response_association": false,
     "supports_two_gene_response_association": false,
+    "supports_TACSTD2_immune_cold_in_this_cohort": false,
+    "supports_CLDN4_high_worse_response_in_this_cohort": false,
     "supports_treatment_specific_predictive_biomarker": false,
-    "statement": "No persuasive association was detected for either gene or the equal-weight score. TACSTD2 was numerically higher in responders, opposite to a simple high-TROP2 resistance hypothesis, but with wide uncertainty. A single-arm cohort cannot estimate a biomarker-by-treatment interaction.",
+    "statement": "No persuasive association was detected for TACSTD2, CLDN4, the equal-weight score, or the CD3D/CD3E/CD8A T-cell proxy. TACSTD2 was numerically higher in responders, opposite a simple high-TROP2 resistance hypothesis, with wide uncertainty. TACSTD2 vs T-cell proxy rho is near zero. A single-arm cohort cannot estimate a biomarker-by-treatment interaction.",
     "limitations": [
       "7 responders and 15 non-responders",
       "single-arm observational treatment-outcome association",
-      "binary labels only in GEO; no patient-level RECIST category",
+      "GEO names immunotherapy; pembrolizumab is from the paper",
+      "binary labels only; no patient-level RECIST category",
       "no public clinical covariates for adjustment",
       "bulk RNA-seq is sensitive to tumor purity and cell composition",
-      "exploratory two-gene score has no external validation"
+      "T-cell proxy is not a measured cell count",
+      "exploratory two-gene score has no external validation",
+      "median-split OR is descriptive and loses information"
     ]
   }
 }
