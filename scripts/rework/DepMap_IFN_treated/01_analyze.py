@@ -163,49 +163,26 @@ def bh(pvals: list[float]) -> list[float]:
 
 
 def parse_proteomics(path: Path) -> tuple[pd.DataFrame, list[str]]:
-    """Return proteins x ModelID matrix (gene symbols as index, mean if dup)."""
-    opener = gzip.open if str(path).endswith(".gz") else open
-    with opener(path, "rt") as f:
-        header = f.readline().rstrip("\n").split(",")
-    # find gene-symbol column and ACH- / CCLE sample columns
-    gene_col = None
-    for cand in ("Gene_Symbol", "gene_symbol", "GeneSymbol", "Gene", "gene"):
-        if cand in header:
-            gene_col = cand
-            break
-    if gene_col is None:
-        # Nusinow file often has Gene_Symbol as col 1
-        for i, h in enumerate(header):
-            if "gene" in h.lower() and "symbol" in h.lower():
-                gene_col = h
-                break
-    if gene_col is None:
-        raise RuntimeError(f"no gene symbol column in proteomics header: {header[:20]}")
-
-    sample_cols = [c for c in header if c.startswith("ACH-")]
-    ccle_like = [c for c in header if c.endswith("_TenTen") or "_BREAST" in c or c.count("_") >= 1]
-    # Prefer ACH- IDs. If absent, keep columns that look like CCLE names (contain underscore + tissue).
+    """Return proteins x sample-column matrix (gene symbols as index)."""
+    header = list(pd.read_csv(path, nrows=0).columns)
+    if "Gene_Symbol" not in header:
+        raise RuntimeError(f"no Gene_Symbol in proteomics header: {header[:12]}")
+    meta = {
+        "Protein_Id", "Gene_Symbol", "Description", "Group_ID", "Uniprot",
+        "Uniprot_Acc",
+    }
+    sample_cols = [
+        c for c in header
+        if c not in meta and not c.endswith("_Peptides") and not c.startswith("TenPx")
+    ]
     if not sample_cols:
-        skip = {
-            gene_col, "Protein_Id", "Description", "Group_ID", "Uniprot",
-            "First.TenTen", "Protein", "Protein.Id",
-        }
-        sample_cols = [c for c in header if c not in skip and c and "TenTen" not in c and not c.startswith("Uniprot")]
-        # too greedy — restrict to columns with a tissue suffix
-        sample_cols = [c for c in sample_cols if any(x in c for x in (
-            "_LUNG", "_BREAST", "_SKIN", "_OVARY", "_KIDNEY", "_COLON",
-            "_PANCREAS", "_LIVER", "_STOMACH", "_PROSTATE", "_THYROID",
-            "_ESOPHAGUS", "_SOFT_TISSUE", "_HAEMATOPOIETIC", "_CENTRAL",
-            "_UPPER_AERODIGESTIVE", "_URINARY", "_ENDOMETRIUM", "_BONE",
-            "_PLEURA", "_AUTONOMIC", "_BILIARY", "_CERVIX",
-        )) or c.startswith("ACH-")]
-
-    usecols = [gene_col] + sample_cols
-    df = pd.read_csv(path, usecols=lambda c: c in set(usecols))
-    df = df.rename(columns={gene_col: "gene"})
+        raise RuntimeError("no sample columns in proteomics file")
+    usecols = ["Gene_Symbol"] + sample_cols
+    df = pd.read_csv(path, usecols=usecols)
+    df = df.rename(columns={"Gene_Symbol": "gene"})
     df["gene"] = df["gene"].astype(str).str.split(" ").str[0]
-    df = df[df["gene"].isin(set(PROTEIN_ISG + MHC1 + ["TACSTD2", "CLDN4"]))]
-    # mean duplicate genes
+    keep = set(PROTEIN_ISG + MHC1 + ["TACSTD2", "CLDN4"])
+    df = df[df["gene"].isin(keep)]
     num = df.drop(columns=["gene"]).apply(pd.to_numeric, errors="coerce")
     num["gene"] = df["gene"].values
     prot = num.groupby("gene").mean(numeric_only=True)
@@ -213,21 +190,17 @@ def parse_proteomics(path: Path) -> tuple[pd.DataFrame, list[str]]:
 
 
 def map_proteomics_columns(sample_cols: list[str], model: pd.DataFrame) -> dict[str, str]:
-    """Map proteomics sample column -> ModelID."""
+    """Map Nusinow columns (CCLEName_TenPxNN) -> ModelID."""
+    import re
     out: dict[str, str] = {}
-    ccle = model["CCLEName"].dropna()
-    ccle_map = {str(v): i for i, v in ccle.items()}
-    stripped = model["StrippedCellLineName"].dropna()
-    stripped_map = {str(v).upper(): i for i, v in stripped.items()}
+    ccle_map = {str(v): i for i, v in model["CCLEName"].dropna().items()}
+    stripped_map = {str(v).upper(): i for i, v in model["StrippedCellLineName"].dropna().items()}
+    tenpx = re.compile(r"_TenPx\d+$")
     for c in sample_cols:
         if c.startswith("ACH-"):
             out[c] = c.split("_")[0]
             continue
-        if c in ccle_map:
-            out[c] = ccle_map[c]
-            continue
-        # strip TenTen / extra suffixes
-        base = c.replace("_TenTen", "")
+        base = tenpx.sub("", c)
         if base in ccle_map:
             out[c] = ccle_map[base]
             continue

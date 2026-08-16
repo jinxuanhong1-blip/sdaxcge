@@ -1,9 +1,16 @@
 # DepMap IFN-treated conceptual rework
 
-Self-contained write-up: `WRITEUP.md`.
+Self-contained write-up: [`WRITEUP.md`](WRITEUP.md).
 
-This folder exists because the unstimulated DepMap NSCLC test
-(**TACSTD2 vs Hallmark IFN-α RNA ρ = +0.377, not negative**) is a
-mismatch, not a confirmation. The RNA test is closed. The files here
-re-ask the question with IFN-pathway PRISM drugs, CRISPR IFN-gene
-effects, protein ISG scores, and MHC-I protein.
+**Closed mismatch:** unstimulated NSCLC TACSTD2 vs Hallmark IFN-α RNA
+was **ρ = +0.377**, not negative. That RNA test is not recomputed.
+
+**Verdict:** the leftover layers do not rescue “TROP2 suppresses IFN.”
+PRISM JAK / IFN-inducer viability, CRISPR IFN/APM gene effects, and
+MHC-I protein are null. ISG protein vs TACSTD2 protein is **positive**
+(ρ = +0.363), same sign as the RNA mismatch.
+
+```
+figures/   fig1–fig8
+tables/    key_stats.json and TSVs
+```
