@@ -125,6 +125,23 @@ Pre-specified set (n=7): GSE239485 PolyIC+aPD1; GSE297630 aPD1; E-MTAB-13704 aPD
 
 So: **GSE239485-style Tacstd2 rise on IO is consistent with that one well-powered LLC experiment**, but **this public mouse-lung slice does not reproduce a TISMO-like 49/64 consensus**. Anti-PD-1/PD-L1 monotherapy in GEMM/SCLC/LLC-array data is mixed and under-powered. Tables: [`primary_icb_tacstd2.csv`](primary_icb_tacstd2.csv), [`combined_icb_tacstd2.json`](combined_icb_tacstd2.json), figure [`figures/primary_icb_tacstd2.png`](figures/primary_icb_tacstd2.png).
 
+### Sensitivity (same primary table, pre-specified subsets)
+
+| Set | n | Tacstd2 up | Sign p (up) | Stouffer p (up) |
+|---|---|---|---|---|
+| All 7 primary | 7 | 4 | 0.50 | 0.20 |
+| Drop GSE239485 (Poly I:C confounder) | 6 | 3 | 0.66 | 0.68 |
+| **Monotherapy only** | 5 | **2** | **0.81** | **0.73** |
+| Monotherapy with n≥3/arm | 3 | 1 | 0.88 | 0.79 |
+
+Dropping the Poly I:C experiment **removes the only significant Tacstd2-up call**. Monotherapy alone is 2 up / 3 down. [`sensitivity_combined.json`](sensitivity_combined.json), [`figures/sensitivity_tacstd2.png`](figures/sensitivity_tacstd2.png).
+
+**Radiation caveat (GSE157880):** PD-1 + 4 Gy vs IgG 0 Gy looks like Tacstd2 up (+1.42, p=0.003), but IgG + 4 Gy vs IgG 0 Gy is also up (+1.78, p=0.013). That rise is **radiation, not ICB**. The primary contrast correctly uses the 0 Gy pair.
+
+**Cldn4 on the same 7 primary contrasts:** 6 / 7 down; up-direction sign p=0.99; down-direction sign p=**0.062** (trend, not <0.05). Only GSE297630 is individually significant. [`primary_icb_cldn4.csv`](primary_icb_cldn4.csv), [`figures/primary_icb_cldn4.png`](figures/primary_icb_cldn4.png).
+
+TISMO download was retried (current SPA + `/tismo` `/rtismo` `/datadownload` APIs all 404; GitHub has scripts only). **49/64 was not recomputed.**
+
 ### TROP2-high / immune-low
 Immune score = mean log-expression of Cd8a, Cd3e, Cd3d, Gzmb, Prf1, Ifng, Cd274, Pdcd1, Cxcl9, Cxcl10, Nkg7 (whichever present).
 
@@ -152,6 +169,8 @@ TISMO 的 49/64、p=5.8e-5 作为**外部（全癌种）先验**引用；当前 
 Tacstd2 升高 **4/7**；符号检验 p=**0.50**；Stouffer（单侧上调）Z=0.85，p=**0.20**。主对比里唯一双侧显著的是 GSE239485（+2.09，p=6.3e-4）。
 
 结论：**GSE239485 式的 IO 后 Tacstd2 升高在该实验中成立**，但**本公开小鼠肺切片不能复现 TISMO 式的 49/64 共识**；单药 anti-PD-1/PD-L1 方向混杂且功效不足。
+
+敏感性：去掉 GSE239485（Poly I:C 混杂）后 3/6 升高（符号 p=0.66，Stouffer p=0.68）；**仅单药**为 2/5 升高（p=0.81 / 0.73）。GSE157880 的 4 Gy 升高是放疗而非 ICB（IgG 4 Gy 同样升高）。同一 7 个主对比上 Cldn4 为 6/7 下降（下降方向符号 p=0.062，趋势未过 0.05）。TISMO 接口仍 404，49/64 **未重算**。
 
 ### TROP2 高 / 免疫低
 免疫评分 = Cd8a/Cd3e/Cd3d/Gzmb/Prf1/Ifng/Cd274/Pdcd1/Cxcl9/Cxcl10/Nkg7 的均值。GSE239485 与 E-MTAB 的 Spearman 为**显著正相关**（治疗同时抬高两者）；对照子集与其余数据集为弱负或近零、均不显著。**这些 bulk 肺矩阵中没有稳健的 TROP2-high / immune-low 亚群证据。**

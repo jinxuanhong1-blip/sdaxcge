@@ -36,6 +36,8 @@ dl $B/GSE114nnn/GSE114601/suppl/GSE114601_counts.normalized.csv.gz GSE114601_cou
 dl $B/GSE157nnn/GSE157880/suppl/GSE157880_Bulk048.txt.gz GSE157880_Bulk048.txt.gz
 dl $B/GSE309nnn/GSE309199/suppl/GSE309199_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz GSE309199_raw_counts.tsv.gz
 dl $B/GSE169nnn/GSE169196/suppl/GSE169196_RAW.tar GSE169196_RAW.tar
+# then: python3 scripts/fable_mouse_ici/extend_icb_immune.py
+#       python3 scripts/fable_mouse_ici/sensitivity_and_figures.py
 
 echo "=== downloaded ==="
 ls -lh "$D"

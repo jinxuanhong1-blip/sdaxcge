@@ -19,3 +19,9 @@ Queried NCBI GEO for mouse lung + anti-PD-1/PD-L1 RNA series. Processed files <2
 - GSE194166: scRNA/TCR, 238 MB, n=1/arm
 - GSE129298: scRNA n=1/arm (companion of already-included GSE129297)
 - GSE157883: parent SuperSeries of GSE157880 (used the processed Bulk048)
+
+## TISMO re-try (2026-08-16, second pass)
+Probed `https://tismo.pku-genomics.org/` (SPA), frontend routes `/datadownload` `/gene` `/internaldata`, and backends `/tismo` `/rtismo` — all API paths returned 404. GitHub `zexian/TISMO_data` is processing scripts only. **49/64 Tacstd2-up after ICB was not independently recomputed.**
+
+## Radiation confounder (keep 0 Gy as primary)
+GSE157880 Tacstd2 PD-1 4Gy vs IgG 0Gy = +1.42 (p=0.003) but IgG 4Gy vs IgG 0Gy = +1.78 (p=0.013). Rise is radiation, not ICB.
