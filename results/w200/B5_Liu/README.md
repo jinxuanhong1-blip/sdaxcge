@@ -2,48 +2,71 @@
 
 ## Bottom line
 
-There is **no evidence that higher pretreatment tumor `CLDN4` RNA predicts
-response** in this cohort. In the paper's primary comparison (CR/PR versus PD),
-responders had slightly lower, not higher, `CLDN4`, but the difference was
-small and compatible with no association:
+Open Liu 2019 melanoma anti-PD-1 RNA cohort. **No evidence that higher
+pretreatment `CLDN4` predicts response.**
+
+Primary OR/n/p (CR/PR vs PD; `CLDN4` above vs at-or-below the primary-cohort
+median TPM):
+
+- **OR = 0.70**
+- **n = 103** (47 responders, 56 progressors; 2x2 = 21/30/26/26)
+- **p = 0.431**
+- 95% CI 0.33–1.52
+
+The point estimate is in the opposite direction from a positive biomarker
+(high `CLDN4` had *lower* response odds). The interval includes 1. Detection
+and continuous logistic models are the same story.
+
+## OR / n / p
+
+| analysis | n | OR | 95% CI | p |
+|---|---:|---:|---|---:|
+| Primary median-split high vs low | 103 | 0.700 | 0.326–1.524 | 0.431 |
+| Primary detected vs undetected | 103 | 0.688 | 0.316–1.518 | 0.421 |
+| Primary top-quartile vs rest | 103 | 0.676 | 0.282–1.677 | 0.496 |
+| Primary logistic per +1 log2(TPM+1) | 103 | 0.931 | 0.302–2.864 | 0.900 |
+| All RNA median-split (CR/PR vs PD/SD/MR) | 121 | 0.630 | 0.306–1.318 | 0.264 |
+
+2x2 cells are high-CLDN4 responder / high-CLDN4 nonresponder / low-CLDN4
+responder / low-CLDN4 nonresponder. Odds ratios are Fisher exact except the
+logistic row. Confidence intervals for 2x2 tests use the Haldane–Anscombe
+correction.
+
+Ipilimumab-stratified and melanoma-subtype median-splits are also null (all
+OR 95% CIs include 1; all Holm-adjusted p = 1). The lowest point estimate is
+skin/occult (OR = 0.51, n = 91, p = 0.144). That is not a validated subgroup
+finding.
+
+## Continuous test
+
+The paper's published single-gene test is two-sided Mann–Whitney on expression
+in CR/PR versus PD. That result is reproduced exactly:
 
 - Responders: n = 47, median = 0.0261 TPM
 - Progressors: n = 56, median = 0.0356 TPM
-- Mann–Whitney U = 1178, two-sided p = 0.347
-- Rank-biserial correlation = -0.105 (bootstrap 95% CI -0.315 to 0.114)
-- AUC if higher `CLDN4` predicts response = 0.448
+- U = 1178, two-sided p = 0.347
+- Rank-biserial = -0.105 (bootstrap 95% CI -0.315 to 0.114)
 
-`CLDN4` was low and zero-inflated: it was detected above zero in 26/47
-responders and 36/56 progressors (Fisher p = 0.421). The data therefore do not
-support `CLDN4` as a standalone response biomarker here.
+`CLDN4` is low and zero-inflated (detected in 26/47 responders and 36/56
+progressors). The data do not support `CLDN4` as a standalone ICI-response
+biomarker in this cohort.
 
-## Cohort and analysis
+## Cohort
 
-The analysis uses the authors' public patient-by-gene TPM matrix and clinical
-Supplementary Table 1 from Liu, Schilling, et al. Response is best RECIST
-response to anti-PD-1. The prespecified primary contrast follows the paper:
-CR/PR ("responders") versus PD ("progressors"), excluding 16 SD and 2 MR cases
-among the 121 RNA-profiled patients.
-
-The two-sided Mann–Whitney test is appropriate for the strongly skewed,
-zero-inflated expression values. The test on `log2(TPM + 1)` has the same ranks
-and p-value as a test on TPM. The computed p-value exactly reproduces the
-published `CLDN4` entry in Supplementary Table 4.
-
-Sensitivity analyses do not change the main conclusion. The conventional
-CR/PR-versus-PD/SD/MR contrast gives p = 0.216. Ipilimumab-stratified and
-skin/occult analyses are also null. A post hoc skin-only subset gives a nominal
-p = 0.027 in the opposite direction (lower `CLDN4` in responders), but it does
-not survive Holm adjustment over the five listed sensitivity checks
-(adjusted p = 0.136). It should not be treated as a validated subgroup finding.
+Public patient-by-gene TPM matrix and Supplementary Table 1 from Liu,
+Schilling, et al. Response is best RECIST response to anti-PD-1. The
+prespecified primary contrast follows the paper: CR/PR versus PD, excluding
+16 SD and 2 MR cases among 121 RNA-profiled patients.
 
 ## Files
 
-- `cldn4_vs_response.png` / `.svg`: primary comparison
-- `primary_result.json`: primary test, effect size, and bootstrap intervals
-- `sensitivity_results.csv`: alternative outcome and subgroup checks
-- `cldn4_patient_data.csv`: public sample-level values used in the analysis
-- `source_manifest.json`: source URLs, SHA-256 hashes, software, and validation
+- `or_n_p.csv` / `or_n_p.md`: odds ratio, n, p, 2x2 counts, and CIs
+- `or_n_p.png` / `.svg`: forest plot of binary ORs
+- `cldn4_vs_response.png` / `.svg`: primary expression comparison
+- `primary_result.json`: headline OR/n/p plus the Mann–Whitney result
+- `sensitivity_results.csv`: alternative outcome and subgroup rank tests
+- `cldn4_patient_data.csv`: public sample-level values
+- `source_manifest.json`: source URLs, SHA-256 hashes, software, validation
 - `analyze_cldn4.py`: complete reproducible analysis
 
 ## Reproduce

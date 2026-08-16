@@ -1,0 +1,11 @@
+analysis,predictor,outcome,n,n_high_responder,n_high_nonresponder,n_low_responder,n_low_nonresponder,odds_ratio,or_ci_low,or_ci_high,p,method,holm_p_across_listed_ORs
+Primary median-split high vs low,CLDN4 > cohort median TPM,CR/PR vs PD,103,21,30,26,26,0.7,0.32603838846986977,1.5240825943232545,0.43080126059928525,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+Primary detected vs undetected,CLDN4 TPM > 0,CR/PR vs PD,103,26,36,21,20,0.6878306878306878,0.3157443975067231,1.5177532376011846,0.42066104412352034,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+Primary top-quartile vs rest,CLDN4 > 75th percentile TPM,CR/PR vs PD,103,10,16,37,40,0.6756756756756757,0.28162208622974727,1.6772257033404496,0.49610110639802335,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+Primary logistic per +1 log2(TPM+1),continuous log2(TPM+1),CR/PR vs PD,103,,,,,0.9305096079092008,0.30231837991801636,2.864027422501199,0.9000793811777774,univariate logistic OR per +1 log2(TPM+1),1.0
+All RNA median-split high vs low,CLDN4 > cohort median TPM,CR/PR vs PD/SD/MR,121,20,40,27,34,0.6296296296296297,0.30594172049627066,1.3180496602447318,0.2642515058732976,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+All RNA detected vs undetected,CLDN4 TPM > 0,CR/PR vs PD/SD/MR,121,26,48,21,26,0.6706349206349206,0.321273693908372,1.411717934410406,0.34076268551412947,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+Ipilimumab-naive median-split,CLDN4 > subgroup median TPM,CR/PR vs PD,64,14,18,17,15,0.6862745098039216,0.2632953176984886,1.8303608193408876,0.6173015225853759,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+Post-ipilimumab median-split,CLDN4 > subgroup median TPM,CR/PR vs PD,27,5,8,6,8,0.8333333333333334,0.19242707852663907,3.720767039872867,1.0,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+Skin/occult median-split,CLDN4 > subgroup median TPM,CR/PR vs PD,91,18,27,26,20,0.5128205128205128,0.22819264055160796,1.186840641190819,0.14363086732297092,Fisher exact OR; Haldane–Anscombe 95% CI,1.0
+Skin-only median-split,CLDN4 > subgroup median TPM,CR/PR vs PD,73,15,21,21,16,0.54421768707483,0.2215012409082657,1.3819784838115816,0.2447332402885098,Fisher exact OR; Haldane–Anscombe 95% CI,1.0

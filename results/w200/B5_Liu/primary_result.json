@@ -28,5 +28,15 @@
   "detection_odds_ratio": 0.6878306878306878,
   "detection_fisher_p_two_sided": 0.42066104412352034,
   "bootstrap_seed": 2019,
-  "bootstrap_replicates": 20000
+  "bootstrap_replicates": 20000,
+  "n": 103,
+  "odds_ratio": 0.7,
+  "or_ci_low": 0.32603838846986977,
+  "or_ci_high": 1.5240825943232545,
+  "or_p": 0.43080126059928525,
+  "or_definition": "response odds if CLDN4 > primary-cohort median TPM versus below/equal",
+  "or_2x2_high_responder": 21,
+  "or_2x2_high_progressor": 30,
+  "or_2x2_low_responder": 26,
+  "or_2x2_low_progressor": 26
 }
