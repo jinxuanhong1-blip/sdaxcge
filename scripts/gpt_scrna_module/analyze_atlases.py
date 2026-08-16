@@ -137,6 +137,21 @@ def robust_z(values: pd.Series) -> pd.Series:
     return (values - median) / (1.4826 * mad)
 
 
+def finalize_scores(frame: pd.DataFrame) -> pd.DataFrame:
+    out = frame.copy()
+    component_cols = [c for c in out if c.endswith("_component")]
+    for col in component_cols:
+        out[f"{col}_z"] = robust_z(out[col])
+    out["cd8_score"] = out["cd8_component_z"]
+    out["tls_score"] = out[
+        ["tls_b_component_z", "tls_tfh_component_z", "tls_mregdc_component_z"]
+    ].mean(axis=1)
+    out["lcam_score"] = out[
+        ["lcam_t_component_z", "lcam_plasma_component_z", "lcam_mac_component_z"]
+    ].mean(axis=1)
+    return out
+
+
 def sample_summaries(
     atlas: str,
     samples: np.ndarray,
@@ -187,17 +202,7 @@ def sample_summaries(
             row[name] = float(np.mean(values[mask])) if mask.any() else np.nan
         rows.append(row)
     out = pd.DataFrame(rows)
-    component_cols = [c for c in out if c.endswith("_component")]
-    for col in component_cols:
-        out[f"{col}_z"] = robust_z(out[col])
-    out["cd8_score"] = out["cd8_component_z"]
-    out["tls_score"] = out[
-        ["tls_b_component_z", "tls_tfh_component_z", "tls_mregdc_component_z"]
-    ].mean(axis=1)
-    out["lcam_score"] = out[
-        ["lcam_t_component_z", "lcam_plasma_component_z", "lcam_mac_component_z"]
-    ].mean(axis=1)
-    return out
+    return finalize_scores(out)
 
 
 def process_gse131907(source: Path) -> tuple[pd.DataFrame, dict]:
@@ -275,7 +280,7 @@ def process_gse148071(source: Path) -> tuple[pd.DataFrame, dict]:
                 "genes_missing": sorted(set(SELECTED_GENES) - set(selected)),
             }
         )
-    result = pd.concat(frames, ignore_index=True)
+    result = finalize_scores(pd.concat(frames, ignore_index=True))
     audit = {
         "matrix_cells": sum(x["cells"] for x in audits),
         "tumor_samples": len(audits),
@@ -307,6 +312,8 @@ def bootstrap_ci(x: np.ndarray, y: np.ndarray, rng, n_boot=20_000) -> tuple[floa
         idx = rng.integers(0, n, n)
         estimates[i] = stats.spearmanr(x[idx], y[idx]).statistic
     estimates = estimates[np.isfinite(estimates)]
+    if estimates.size == 0:
+        return np.nan, np.nan
     return tuple(np.quantile(estimates, [0.025, 0.975]))
 
 
@@ -516,6 +523,9 @@ def main() -> None:
         g148.to_csv(cache148, index=False)
         with audit_cache148.open("w") as handle:
             json.dump(audit148, handle, indent=2)
+    # Recompute atlas-level z scores even when loading an earlier raw-summary cache.
+    g131 = finalize_scores(g131)
+    g148 = finalize_scores(g148)
     samples = pd.concat([g131, g148], ignore_index=True)
     statistics, meta = run_statistics(samples, args.seed)
     samples.to_csv(args.output / "sample_scores.csv", index=False)
