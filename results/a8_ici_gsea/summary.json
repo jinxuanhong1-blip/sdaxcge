@@ -1,0 +1,270 @@
+{
+  "question": "In leftover public pre-treatment ICI lung bulk, do TACSTD2-high tumors enrich keratin/TJ and deplete Hallmark EMT?",
+  "tcga_a8": "taken_as_given_not_rerun",
+  "cohorts": [
+    {
+      "cohort": "GSE126044",
+      "usable": true,
+      "reason": "ok",
+      "n": 16,
+      "n_with_TACSTD2": 16,
+      "n_R": 5,
+      "n_NR": 11,
+      "n_genes": 18745,
+      "tacstd2_median": 6.228149585913375,
+      "label": "Cho 2020 anti-PD-1 NSCLC",
+      "scale": "log2(CPM+1) from deposited counts",
+      "pubmed": "PMID 32879421",
+      "leftover_note": "core open ICI bulk; not in the TCGA A8 slide"
+    },
+    {
+      "cohort": "GSE135222",
+      "usable": true,
+      "reason": "ok",
+      "n": 27,
+      "n_with_TACSTD2": 27,
+      "n_R": 7,
+      "n_NR": 20,
+      "n_genes": 57820,
+      "tacstd2_median": 7.576673292516575,
+      "label": "Jung/Kim 2019\u20132020 anti-PD-(L)1 NSCLC",
+      "scale": "log2(TPM+1) from deposited TPM; Ensembl mapped via HGNC",
+      "pubmed": "PMID 31537801",
+      "leftover_note": "core open ICI bulk; DCB is GEO PFS>=180 d"
+    },
+    {
+      "cohort": "GSE166449",
+      "usable": true,
+      "reason": "ok",
+      "n": 22,
+      "n_with_TACSTD2": 22,
+      "n_R": 7,
+      "n_NR": 15,
+      "n_genes": 20182,
+      "tacstd2_median": 2.648944189782945,
+      "label": "Lee/Hwang 2021 pembrolizumab LUAD",
+      "scale": "deposited matrix kept if already log2, else log2(TPM+1)",
+      "pubmed": "PMID 33857424",
+      "leftover_note": "core open ICI bulk; response from GEO sample titles"
+    },
+    {
+      "cohort": "GSE253564",
+      "usable": true,
+      "reason": "ok",
+      "n": 32,
+      "n_with_TACSTD2": 32,
+      "n_R": 0,
+      "n_NR": 0,
+      "n_genes": 20187,
+      "tacstd2_median": 6.320684590678216,
+      "label": "Altorki leftover neoadjuvant durvalumab \u00b1 SBRT, pre-treatment",
+      "scale": "log2(FPKM+1) from deposited pre-treatment FPKM",
+      "pubmed": "PMID 38401548",
+      "leftover_note": "leftover whole-transcriptome ICI tumor matrix; MPR not deposited on GEO"
+    },
+    {
+      "cohort": "GSE190265",
+      "usable": true,
+      "reason": "ok",
+      "n": 43,
+      "n_with_TACSTD2": 43,
+      "n_R": 14,
+      "n_NR": 29,
+      "n_genes": 31720,
+      "tacstd2_median": 6.104372307362254,
+      "label": "CGFL Dijon France3 anti-PD-1 NSCLC",
+      "scale": "log2(TPM+1) from deposited France3 TPM",
+      "pubmed": "PMID 35051357",
+      "leftover_note": "France4 (GSE190266) omitted: TACSTD2 absent from the deposited TPM cap"
+    },
+    {
+      "cohort": "GSE283829",
+      "usable": true,
+      "reason": "ok",
+      "n": 27,
+      "n_with_TACSTD2": 27,
+      "n_R": 7,
+      "n_NR": 10,
+      "n_genes": 61552,
+      "tacstd2_median": 7.385907045798221,
+      "label": "Lindberg 2025 leftover ICI NSCLC",
+      "scale": "log2(CPM+1) from supplementary raw counts; Ensembl mapped via HGNC",
+      "pubmed": "PMID 39743139",
+      "leftover_note": "2025 leftover; R vs NR is CR vs PD (SD held out)"
+    }
+  ],
+  "verdicts": [
+    {
+      "cohort": "GSE126044",
+      "contrast": "tacstd2_median",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_null",
+      "n_high": 8,
+      "n_low": 8
+    },
+    {
+      "cohort": "GSE126044",
+      "contrast": "tacstd2_quartile",
+      "verdict": "n_too_small",
+      "n_high": 4,
+      "n_low": 4
+    },
+    {
+      "cohort": "GSE126044",
+      "contrast": "tacstd2_spearman",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_null",
+      "n_high": 16,
+      "n_low": 16
+    },
+    {
+      "cohort": "GSE126044",
+      "contrast": "response_R_vs_NR",
+      "verdict": "mixed",
+      "n_high": 5,
+      "n_low": 11
+    },
+    {
+      "cohort": "GSE135222",
+      "contrast": "tacstd2_median",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "n_high": 13,
+      "n_low": 13
+    },
+    {
+      "cohort": "GSE135222",
+      "contrast": "tacstd2_quartile",
+      "verdict": "mixed",
+      "n_high": 7,
+      "n_low": 7
+    },
+    {
+      "cohort": "GSE135222",
+      "contrast": "tacstd2_spearman",
+      "verdict": "mixed",
+      "n_high": 27,
+      "n_low": 27
+    },
+    {
+      "cohort": "GSE135222",
+      "contrast": "response_R_vs_NR",
+      "verdict": "contradicts_TJ_KRT",
+      "n_high": 7,
+      "n_low": 20
+    },
+    {
+      "cohort": "GSE166449",
+      "contrast": "tacstd2_median",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "n_high": 11,
+      "n_low": 11
+    },
+    {
+      "cohort": "GSE166449",
+      "contrast": "tacstd2_quartile",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_null",
+      "n_high": 6,
+      "n_low": 6
+    },
+    {
+      "cohort": "GSE166449",
+      "contrast": "tacstd2_spearman",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "n_high": 22,
+      "n_low": 22
+    },
+    {
+      "cohort": "GSE166449",
+      "contrast": "response_R_vs_NR",
+      "verdict": "null",
+      "n_high": 7,
+      "n_low": 15
+    },
+    {
+      "cohort": "GSE253564",
+      "contrast": "tacstd2_median",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "n_high": 16,
+      "n_low": 16
+    },
+    {
+      "cohort": "GSE253564",
+      "contrast": "tacstd2_quartile",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "n_high": 8,
+      "n_low": 8
+    },
+    {
+      "cohort": "GSE253564",
+      "contrast": "tacstd2_spearman",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "n_high": 32,
+      "n_low": 32
+    },
+    {
+      "cohort": "GSE253564",
+      "contrast": "response_R_vs_NR",
+      "verdict": "no_deposited_response_label",
+      "n_high": 0,
+      "n_low": 0
+    },
+    {
+      "cohort": "GSE190265",
+      "contrast": "tacstd2_median",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "n_high": 21,
+      "n_low": 21
+    },
+    {
+      "cohort": "GSE190265",
+      "contrast": "tacstd2_quartile",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_null",
+      "n_high": 11,
+      "n_low": 11
+    },
+    {
+      "cohort": "GSE190265",
+      "contrast": "tacstd2_spearman",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_null",
+      "n_high": 43,
+      "n_low": 43
+    },
+    {
+      "cohort": "GSE190265",
+      "contrast": "response_R_vs_NR",
+      "verdict": "mixed",
+      "n_high": 14,
+      "n_low": 29
+    },
+    {
+      "cohort": "GSE283829",
+      "contrast": "tacstd2_median",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_null",
+      "n_high": 13,
+      "n_low": 13
+    },
+    {
+      "cohort": "GSE283829",
+      "contrast": "tacstd2_quartile",
+      "verdict": "supportive",
+      "n_high": 7,
+      "n_low": 7
+    },
+    {
+      "cohort": "GSE283829",
+      "contrast": "tacstd2_spearman",
+      "verdict": "keratin_TJ_up_Hallmark_EMT_null",
+      "n_high": 27,
+      "n_low": 27
+    },
+    {
+      "cohort": "GSE283829",
+      "contrast": "response_R_vs_NR",
+      "verdict": "mixed",
+      "n_high": 7,
+      "n_low": 10
+    }
+  ],
+  "nperm": 1000,
+  "seed": 42,
+  "fdr_rule": "BH within 12 primary sets per contrast",
+  "honest": "small-n ICI bulk is hypothesis-generating; do not quote a pooled NES; Hallmark EMT not GOBP EMT decides the EMT arm"
+}

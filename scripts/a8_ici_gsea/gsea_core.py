@@ -139,11 +139,11 @@ def gsea_prerank(
             null_es[i] = es_from_hits(deck[:n_hit], abs_s, n)
         if es >= 0:
             pos = null_es[null_es >= 0]
-            nes = float(es / pos.mean()) if len(pos) and pos.mean() != 0 else 0.0
+            nes = float(es / pos.mean()) if len(pos) and pos.mean() != 0 else np.nan
             nom_p = float((np.sum(null_es >= es) + 1) / (nperm + 1))
         else:
             neg = null_es[null_es < 0]
-            nes = float(es / abs(neg.mean())) if len(neg) and neg.mean() != 0 else 0.0
+            nes = float(es / abs(neg.mean())) if len(neg) and neg.mean() != 0 else np.nan
             nom_p = float((np.sum(null_es <= es) + 1) / (nperm + 1))
         rows.append(
             {

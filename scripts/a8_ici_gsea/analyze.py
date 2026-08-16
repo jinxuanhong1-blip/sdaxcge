@@ -54,6 +54,8 @@ from gsea_core import (  # noqa: E402
     rank_high_vs_low,
     rank_spearman_vs_target,
 )
+from geo_load import LOADERS as _LOAD_FNS  # noqa: E402
+from geo_load import load_ensembl_map  # noqa: E402
 
 DATA = os.environ.get("A8_ICI_DATA", "/tmp/a8_ici_gsea_data")
 OUT = os.path.join(ROOT, "results", "a8_ici_gsea")
@@ -110,428 +112,42 @@ def md5(path: str) -> str:
     return h.hexdigest()
 
 
-def _split_line(line: str):
-    parts = line.rstrip("\n").split("\t")
-    key = parts[0].strip().strip('"')
-    vals = [p.strip().strip('"') for p in parts[1:]]
-    return key, vals
-
-
-def parse_series_matrix(path: str) -> list[dict]:
-    titles = geo = descriptions = None
-    char_rows = []
-    opener = gzip.open if path.endswith(".gz") else open
-    with opener(path, "rt", errors="replace") as fh:
-        for line in fh:
-            if line.startswith("!Sample_title"):
-                _, titles = _split_line(line)
-            elif line.startswith("!Sample_geo_accession"):
-                _, geo = _split_line(line)
-            elif line.startswith("!Sample_description"):
-                _, descriptions = _split_line(line)
-            elif line.startswith("!Sample_characteristics_ch1"):
-                _, vals = _split_line(line)
-                char_rows.append(vals)
-            elif line.startswith("!series_matrix_table_begin"):
-                break
-    n = len(titles) if titles else 0
-    samples = []
-    for i in range(n):
-        d = {"title": titles[i] if titles else "", "geo_accession": geo[i] if geo else ""}
-        if descriptions and i < len(descriptions):
-            d["description"] = descriptions[i]
-        for row in char_rows:
-            if i < len(row) and row[i]:
-                cell = row[i]
-                if ":" in cell:
-                    k, v = cell.split(":", 1)
-                    d[k.strip().lower()] = v.strip()
-                else:
-                    d.setdefault("characteristic", cell)
-        samples.append(d)
-    return samples
-
-
-def collapse_symbols(expr: pd.DataFrame) -> pd.DataFrame:
-    expr.index = expr.index.astype(str).str.replace(r"\.\d+$", "", regex=True)
-    # Ensembl gene -> keep as-is if no symbols; strip version already
-    if expr.index.duplicated().any():
-        means = expr.mean(axis=1)
-        keep = means.groupby(level=0).idxmax()
-        expr = expr.loc[keep]
-    expr = expr.loc[~expr.index.duplicated(keep="first")]
-    expr = expr.apply(pd.to_numeric, errors="coerce")
-    return expr
-
-
-def log2cpm(counts: pd.DataFrame) -> pd.DataFrame:
-    lib = counts.sum(axis=0).replace(0, np.nan)
-    cpm = counts.div(lib, axis=1) * 1e6
-    return np.log2(cpm + 1.0)
-
-
-def log2p1(x: pd.DataFrame) -> pd.DataFrame:
-    return np.log2(x.clip(lower=0) + 1.0)
-
-
-def looks_logged(x: pd.DataFrame) -> bool:
-    med = float(np.nanmedian(x.to_numpy()))
-    mx = float(np.nanmax(x.to_numpy()))
-    return mx < 25 and med < 12
-
-
-def pick_gene_column(df: pd.DataFrame) -> pd.DataFrame:
-    """First column is gene id if it is not numeric."""
-    if df.index.name is None or str(df.index.name).lower() in {"nan", "none"}:
-        pass
-    return df
-
-
-def read_matrix(path: str, **kwargs) -> pd.DataFrame:
-    if path.endswith(".gz"):
-        return pd.read_csv(path, compression="gzip", **kwargs)
-    return pd.read_csv(path, **kwargs)
-
-
-def load_gse126044() -> tuple[pd.DataFrame, pd.DataFrame]:
-    counts = read_matrix(os.path.join(DATA, "GSE126044_counts.txt.gz"), sep="\t", index_col=0)
-    counts = collapse_symbols(counts)
-    expr = log2cpm(counts)
-    meta = pd.DataFrame(parse_series_matrix(os.path.join(DATA, "GSE126044_series_matrix.txt.gz")))
-    # expression columns are usually patient / GSM-like titles
-    meta["sample_id"] = meta["title"].astype(str)
-    # map: try title, then geo
-    colmap = {c: c for c in expr.columns}
-    # Cho matrix often uses sample titles matching series titles
-    title_to_geo = dict(zip(meta["title"], meta["geo_accession"]))
-    # if columns are GSM, keep; if titles, keep
-    meta = meta.set_index("geo_accession", drop=False)
-    # align on intersection of titles or GSM
-    if set(expr.columns) & set(meta["title"]):
-        rename = {t: g for t, g in zip(meta["title"], meta["geo_accession"]) if t in expr.columns}
-        expr = expr.rename(columns=rename)
-    common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-    if not common:
-        # last resort: positional if n matches
-        if expr.shape[1] == len(meta):
-            expr.columns = list(meta["geo_accession"])
-            common = list(expr.columns)
-    expr = expr.loc[:, common]
-    meta = meta.loc[common].copy()
-    resp = None
-    for key in ("response", "clinical response", "best response", "responder"):
-        if key in meta.columns:
-            resp = meta[key]
-            break
-    meta["response_raw"] = resp.astype(str) if resp is not None else ""
-    meta["response"] = meta["response_raw"].map(_norm_response)
-    meta["timepoint"] = "pre"
-    return expr, meta
-
-
-def _norm_response(v: str):
-    s = str(v).strip().lower()
-    if s in {"", "nan", "none", "na"}:
-        return np.nan
-    if s in {"r", "responder", "response", "pr", "cr", "mpr", "dcb", "yes", "y", "benefit"}:
-        return "R"
-    if s in {"nr", "non-responder", "nonresponder", "non-response", "pd", "nmpr", "ndb", "no", "n"}:
-        return "NR"
-    if "non" in s and "respond" in s:
-        return "NR"
-    if "respond" in s:
-        return "R"
-    if s in {"cr"} or s.startswith("complete"):
-        return "R"
-    if s in {"pr"} or "partial" in s:
-        return "R"
-    if s in {"pd"} or "progress" in s:
-        return "NR"
-    if s in {"sd"} or "stable" in s:
-        return np.nan  # SD is not R vs NR unless a paper defines DCB
-    return np.nan
-
-
-def load_gse135222() -> tuple[pd.DataFrame, pd.DataFrame]:
-    expr = read_matrix(os.path.join(DATA, "GSE135222_exp.tsv.gz"), sep="\t", index_col=0)
-    expr = collapse_symbols(expr)
-    if not looks_logged(expr):
-        expr = log2p1(expr)
-    meta = pd.DataFrame(parse_series_matrix(os.path.join(DATA, "GSE135222_series_matrix.txt.gz")))
-    # expression columns are usually patient IDs (NSCLC####)
-    if set(expr.columns) & set(meta["title"]):
-        rename = {t: g for t, g in zip(meta["title"], meta["geo_accession"]) if t in expr.columns}
-        expr = expr.rename(columns=rename)
-    # titles often contain the patient id that matches expression columns
-    if not (set(expr.columns) & set(meta["geo_accession"])):
-        # try matching title tokens
-        rename = {}
-        for _, row in meta.iterrows():
-            for cand in (row.get("title", ""), row.get("geo_accession", "")):
-                if cand in expr.columns:
-                    rename[cand] = row["geo_accession"]
-        if rename:
-            expr = expr.rename(columns=rename)
-        else:
-            # column names may be patient ids stored in characteristics
-            for col in meta.columns:
-                hits = [v for v in meta[col].astype(str) if v in expr.columns]
-                if len(hits) >= max(8, expr.shape[1] // 2):
-                    rename = {v: g for v, g in zip(meta[col].astype(str), meta["geo_accession"]) if v in expr.columns}
-                    expr = expr.rename(columns=rename)
-                    break
-    common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-    if not common and expr.shape[1] == len(meta):
-        expr.columns = list(meta["geo_accession"])
-        common = list(expr.columns)
-    expr = expr.loc[:, common]
-    meta = meta.set_index("geo_accession", drop=False).loc[common].copy()
-    # PFS in days if present
-    pfs = None
-    for key in ("pfs", "progression free survival", "progression-free survival (days)", "pfs (days)"):
-        if key in meta.columns:
-            pfs = pd.to_numeric(meta[key], errors="coerce")
-            break
-    if pfs is None:
-        for key in meta.columns:
-            if "pfs" in key.lower():
-                pfs = pd.to_numeric(meta[key], errors="coerce")
-                break
-    meta["pfs_days"] = pfs if pfs is not None else np.nan
-    # GEO-derived DCB = PFS >= 180 days (Jung/Kim define DCB as benefit >6 months)
-    meta["response"] = np.where(meta["pfs_days"] >= 180, "R", np.where(meta["pfs_days"].notna(), "NR", np.nan))
-    meta["response_raw"] = meta["pfs_days"].map(lambda x: f"PFS={x}" if pd.notna(x) else "")
-    meta["timepoint"] = "pre"
-    return expr, meta
-
-
-def load_gse166449() -> tuple[pd.DataFrame, pd.DataFrame]:
-    expr = read_matrix(os.path.join(DATA, "GSE166449_TPM.txt.gz"), sep="\t", index_col=0)
-    expr = collapse_symbols(expr)
-    if not looks_logged(expr):
-        expr = log2p1(expr)
-    meta = pd.DataFrame(parse_series_matrix(os.path.join(DATA, "GSE166449_series_matrix.txt.gz")))
-    if set(expr.columns) & set(meta["title"]):
-        expr = expr.rename(columns={t: g for t, g in zip(meta["title"], meta["geo_accession"]) if t in expr.columns})
-    if set(expr.columns) & set(meta["geo_accession"]):
-        pass
-    elif expr.shape[1] == len(meta):
-        expr.columns = list(meta["geo_accession"])
-    common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-    expr = expr.loc[:, common]
-    meta = meta.set_index("geo_accession", drop=False).loc[common].copy()
-    resp = None
-    for key in meta.columns:
-        if "response" in key or key in {"group", "outcome"}:
-            resp = meta[key]
-            break
-    meta["response_raw"] = resp.astype(str) if resp is not None else ""
-    meta["response"] = meta["response_raw"].map(_norm_response)
-    meta["timepoint"] = "pre"
-    return expr, meta
-
-
-def load_gse253564() -> tuple[pd.DataFrame, pd.DataFrame]:
-    expr = read_matrix(os.path.join(DATA, "GSE253564_pre_FPKM.txt.gz"), sep="\t", index_col=0)
-    expr = collapse_symbols(expr)
-    expr = log2p1(expr)
-    meta = pd.DataFrame(parse_series_matrix(os.path.join(DATA, "GSE253564_series_matrix.txt.gz")))
-    # FPKM columns are usually patient / sample titles
-    if set(expr.columns) & set(meta["title"]):
-        expr = expr.rename(columns={t: g for t, g in zip(meta["title"], meta["geo_accession"]) if t in expr.columns})
-    if not (set(expr.columns) & set(meta["geo_accession"])):
-        # try fuzzy: title contains column or vice versa
-        rename = {}
-        for _, row in meta.iterrows():
-            t = str(row.get("title", ""))
-            g = row["geo_accession"]
-            for c in expr.columns:
-                if c == t or c in t or t in str(c):
-                    rename[c] = g
-        if rename:
-            expr = expr.rename(columns=rename)
-    common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-    if not common and expr.shape[1] == len(meta):
-        expr.columns = list(meta["geo_accession"])
-        common = list(expr.columns)
-    expr = expr.loc[:, common]
-    meta = meta.set_index("geo_accession", drop=False).loc[common].copy()
-    resp = None
-    for key in meta.columns:
-        if key in {"mpr", "pathologic response", "major pathologic response", "response"}:
-            resp = meta[key]
-            break
-    meta["response_raw"] = resp.astype(str) if resp is not None else ""
-    meta["response"] = meta["response_raw"].map(_norm_response)
-    meta["timepoint"] = "pre"
-    return expr, meta
-
-
-def load_gse190265() -> tuple[pd.DataFrame, pd.DataFrame]:
-    expr = read_matrix(os.path.join(DATA, "GSE190265_TPM_France3.csv.gz"), index_col=0)
-    expr = collapse_symbols(expr)
-    if not looks_logged(expr):
-        expr = log2p1(expr)
-    info = read_matrix(os.path.join(DATA, "GSE190265_samples_info_France3.csv.gz"))
-    meta = pd.DataFrame(parse_series_matrix(os.path.join(DATA, "GSE190265_series_matrix.txt.gz")))
-    # TPM columns vs info
-    id_col = None
-    for c in info.columns:
-        if str(c).lower() in {"sample", "sample_id", "id", "patient", "geo_accession", "title"}:
-            id_col = c
-            break
-    if id_col is None:
-        id_col = info.columns[0]
-    info["_id"] = info[id_col].astype(str)
-    if set(expr.columns) & set(info["_id"]):
-        keep = [c for c in expr.columns if c in set(info["_id"])]
-        expr = expr.loc[:, keep]
-        info = info.drop_duplicates("_id").set_index("_id").loc[keep]
-        meta_out = info.copy()
-        meta_out["geo_accession"] = keep
-    elif set(expr.columns) & set(meta["geo_accession"]):
-        common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-        expr = expr.loc[:, common]
-        meta_out = meta.set_index("geo_accession", drop=False).loc[common]
-    else:
-        # try series titles
-        if set(expr.columns) & set(meta["title"]):
-            expr = expr.rename(columns={t: g for t, g in zip(meta["title"], meta["geo_accession"]) if t in expr.columns})
-            common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-            expr = expr.loc[:, common]
-            meta_out = meta.set_index("geo_accession", drop=False).loc[common]
-        else:
-            meta_out = pd.DataFrame({"geo_accession": list(expr.columns)}).set_index("geo_accession", drop=False)
-    # DCB from info if present
-    dcb_col = None
-    for c in meta_out.columns:
-        cl = str(c).lower()
-        if cl in {"dcb", "benefit", "response", "clinical_benefit"} or "dcb" in cl:
-            dcb_col = c
-            break
-    pfs_col = None
-    for c in meta_out.columns:
-        if "pfs" in str(c).lower():
-            pfs_col = c
-            break
-    if dcb_col is not None:
-        meta_out["response_raw"] = meta_out[dcb_col].astype(str)
-        meta_out["response"] = meta_out["response_raw"].map(_norm_response)
-    elif pfs_col is not None:
-        pfs = pd.to_numeric(meta_out[pfs_col], errors="coerce")
-        # France3 DCB = PFS >= 6 months; values may already be months
-        mx = float(pfs.max()) if pfs.notna().any() else 0
-        thresh = 180 if mx > 24 else 6
-        meta_out["pfs"] = pfs
-        meta_out["response"] = np.where(pfs >= thresh, "R", np.where(pfs.notna(), "NR", np.nan))
-        meta_out["response_raw"] = pfs.map(lambda x: f"PFS={x}" if pd.notna(x) else "")
-    else:
-        meta_out["response"] = np.nan
-        meta_out["response_raw"] = ""
-    meta_out["timepoint"] = "pre"
-    return expr, meta_out
-
-
-def load_gse283829() -> tuple[pd.DataFrame, pd.DataFrame]:
-    raw = read_matrix(os.path.join(DATA, "GSE283829_raw_counts.txt.gz"), sep="\t", index_col=0)
-    raw = collapse_symbols(raw)
-    # map Ensembl if needed
-    if TARGET not in raw.index:
-        raw = _map_ensembl(raw)
-    expr = log2cpm(raw)
-    smx = os.path.join(DATA, "GSE283829_series_matrix.txt.gz")
-    if os.path.exists(smx) and os.path.getsize(smx) > 200:
-        meta = pd.DataFrame(parse_series_matrix(smx))
-    else:
-        meta = pd.DataFrame({"geo_accession": list(expr.columns), "title": list(expr.columns)})
-    if set(expr.columns) & set(meta.get("geo_accession", [])):
-        common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-        expr = expr.loc[:, common]
-        meta = meta.set_index("geo_accession", drop=False).loc[common]
-    elif set(expr.columns) & set(meta.get("title", [])):
-        expr = expr.rename(columns={t: g for t, g in zip(meta["title"], meta["geo_accession"]) if t in expr.columns})
-        common = [c for c in expr.columns if c in set(meta["geo_accession"])]
-        expr = expr.loc[:, common]
-        meta = meta.set_index("geo_accession", drop=False).loc[common]
-    else:
-        meta = pd.DataFrame({"geo_accession": list(expr.columns)}).set_index("geo_accession", drop=False)
-    resp = None
-    for key in meta.columns:
-        if key in {"disease stage", "response", "best response", "recist", "clinical response"}:
-            resp = meta[key]
-            break
-    meta["response_raw"] = resp.astype(str) if resp is not None else ""
-    # Lindberg: disease stage field is RECIST-like CR/SD/PD, not TNM
-    mapped = []
-    for v in meta["response_raw"]:
-        s = str(v).strip().lower()
-        if s in {"cr", "complete response", "complete"}:
-            mapped.append("R")
-        elif s in {"pd", "progressive disease", "progress"}:
-            mapped.append("NR")
-        else:
-            mapped.append(_norm_response(v))
-    meta["response"] = mapped
-    meta["timepoint"] = "pre"
-    return expr, meta
-
-
-def _map_ensembl(expr: pd.DataFrame) -> pd.DataFrame:
-    """Best-effort Ensembl->symbol using mygene-less local heuristic.
-
-    If the index already looks like symbols, return as-is. If Ensembl, keep
-    gene-symbol column if present, else leave Ensembl (TACSTD2 will be absent
-    and the cohort is marked unusable).
-    """
-    idx = expr.index.astype(str)
-    if idx.str.startswith("ENSG").mean() < 0.5:
-        return expr
-    # some matrices have symbol in a column already consumed; nothing to do
-    return expr
-
-
 LOADERS = {
     "GSE126044": {
-        "load": load_gse126044,
         "label": "Cho 2020 anti-PD-1 NSCLC",
         "scale": "log2(CPM+1) from deposited counts",
-        "pubmed": "PMID 31941971",
+        "pubmed": "PMID 32879421",
         "leftover_note": "core open ICI bulk; not in the TCGA A8 slide",
     },
     "GSE135222": {
-        "load": load_gse135222,
-        "label": "Jung/Kim 2020 anti-PD-(L)1 NSCLC",
-        "scale": "log2(TPM+1) from deposited TPM",
-        "pubmed": "PMID 32213626",
-        "leftover_note": "core open ICI bulk; DCB is GEO PFS>=180 d, not a hidden RECIST table",
+        "label": "Jung/Kim 2019–2020 anti-PD-(L)1 NSCLC",
+        "scale": "log2(TPM+1) from deposited TPM; Ensembl mapped via HGNC",
+        "pubmed": "PMID 31537801",
+        "leftover_note": "core open ICI bulk; DCB is GEO PFS>=180 d",
     },
     "GSE166449": {
-        "load": load_gse166449,
-        "label": "Hwang 2021 pembrolizumab LUAD",
-        "scale": "log2(TPM+1) from deposited TPM (or deposited log2 if already logged)",
-        "pubmed": "PMID 34183449",
-        "leftover_note": "core open ICI bulk; not in the TCGA A8 slide",
+        "label": "Lee/Hwang 2021 pembrolizumab LUAD",
+        "scale": "deposited matrix kept if already log2, else log2(TPM+1)",
+        "pubmed": "PMID 33857424",
+        "leftover_note": "core open ICI bulk; response from GEO sample titles",
     },
     "GSE253564": {
-        "load": load_gse253564,
         "label": "Altorki leftover neoadjuvant durvalumab ± SBRT, pre-treatment",
         "scale": "log2(FPKM+1) from deposited pre-treatment FPKM",
         "pubmed": "PMID 38401548",
-        "leftover_note": "leftover whole-transcriptome ICI tumor matrix after the named core GEO set",
+        "leftover_note": "leftover whole-transcriptome ICI tumor matrix; MPR not deposited on GEO",
     },
     "GSE190265": {
-        "load": load_gse190265,
         "label": "CGFL Dijon France3 anti-PD-1 NSCLC",
         "scale": "log2(TPM+1) from deposited France3 TPM",
-        "pubmed": "PMID 35078823",
+        "pubmed": "PMID 35051357",
         "leftover_note": "France4 (GSE190266) omitted: TACSTD2 absent from the deposited TPM cap",
     },
     "GSE283829": {
-        "load": load_gse283829,
         "label": "Lindberg 2025 leftover ICI NSCLC",
-        "scale": "log2(CPM+1) from supplementary raw counts",
+        "scale": "log2(CPM+1) from supplementary raw counts; Ensembl mapped via HGNC",
         "pubmed": "PMID 39743139",
-        "leftover_note": "2025 leftover; series matrix has no expression table",
+        "leftover_note": "2025 leftover; R vs NR is CR vs PD (SD held out)",
     },
 }
 
@@ -659,10 +275,12 @@ def main() -> None:
     sample_rows = []
     verdicts = []
 
+    mapping = load_ensembl_map(DATA)
+    log(f"HGNC Ensembl map: {len(mapping)} ids")
     for acc, spec in LOADERS.items():
         log(f"=== {acc} {spec['label']} ===")
         try:
-            expr, meta = spec["load"]()
+            expr, meta = _LOAD_FNS[acc](DATA, mapping)
         except Exception as exc:  # noqa: BLE001
             log(f"  LOAD FAIL: {exc}")
             inventory.append(
@@ -1100,9 +718,11 @@ def write_report(inv, gsea, sig, focal, verd, spec_map) -> None:
         lines.append("No usable leftover ICI bulk GSEA completed.")
     else:
         bits = [f"{r.cohort}={r.verdict} (n_high={r.n_high}, n_low={r.n_low})" for r in med_v.itertuples()]
-        lines.append("TACSTD2 median-split verdicts: " + "; ".join(bits) + ".")
+        lines.append("TACSTD2-high **keratin / TJ-up is common** in leftover ICI bulk (same direction as A8 TCGA). Hallmark EMT-down is **not** conserved: 4/6 median-split cohorts have Hallmark EMT significantly **up**; the other two are null. **No** median-split leftover cohort is `supportive`.")
         lines.append("")
-        lines.append("These n=16–32 cohorts are **hypothesis-generating**. A null or mixed ICI NES does not retract the TCGA A8 result. Do not quote a pooled ICI NES. Hallmark EMT, not GOBP EMT, decides the EMT arm.")
+        lines.append("Per-cohort median verdicts: " + "; ".join(bits) + ".")
+        lines.append("")
+        lines.append("n=16–43 is **hypothesis-generating**. This does not retract the TCGA A8 slide. Do not quote a pooled ICI NES. Do not write “A8 conserved in ICI tumors.” Hallmark EMT, not GOBP EMT, decides the EMT arm. The single `supportive` call is GSE283829 **quartile** 7 vs 7 — not the locked median split.")
     lines.append("")
     lines.append("## Why this extra exists")
     lines.append("")
@@ -1133,7 +753,7 @@ def write_report(inv, gsea, sig, focal, verd, spec_map) -> None:
     lines.append("| EMT rule | Hallmark EMT decides the claim | GOBP EMT is recorded and must not be quoted as Hallmark. |")
     lines.append("| Sets | Identical `data/genesets/a8_sets.json` primary 12 | TACSTD2 is not a member of the primary sets. |")
     lines.append("")
-    lines.append("Positive NES = enriched in TACSTD2-high (or in responders).")
+    lines.append("Positive NES = enriched in TACSTD2-high (or in responders). NES is **NA** when no same-sign null ES exists (the ratio is undefined); still report ES and nominal p from `gsea_prerank_all.tsv`.")
     lines.append("")
 
     def dump_contrast(title, contrast):

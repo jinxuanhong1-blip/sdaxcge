@@ -51,5 +51,8 @@ dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190265/suppl/GSE190265_
 dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE283nnn/GSE283829/matrix/GSE283829_series_matrix.txt.gz" GSE283829_series_matrix.txt.gz
 dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE283nnn/GSE283829/suppl/GSE283829_raw_express_matrix_all_samples.txt.gz" GSE283829_raw_counts.txt.gz
 
+# Ensembl -> HGNC for GSE135222 / GSE283829
+dl "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.tsv" hgnc_complete_set.tsv
+
 echo "Done. Files in $DEST"
 ls -lh "$DEST"
