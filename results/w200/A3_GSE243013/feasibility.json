@@ -1,0 +1,23 @@
+{
+  "dataset": "GSE243013",
+  "task": "W200-A3: TACSTD2 in malignant cells, MPR vs non-MPR",
+  "n_geo_samples": 243,
+  "n_cells": 1254749,
+  "major_cell_types": {
+    "T/NK cell": 766574,
+    "B cell": 297076,
+    "Myeloid cell": 191099
+  },
+  "n_malignant_or_epithelial_cells": 0,
+  "mpr_labels_available": true,
+  "tacstd2_in_gene_index": true,
+  "counts_matrix_bytes": 7123039063,
+  "counts_matrix_gb": 6.63,
+  "size_budget_gb": 2.0,
+  "counts_within_budget": false,
+  "decision": "SKIP",
+  "reasons": [
+    "The only expression file (GSE243013_NSCLC_immune_scRNA_counts.mtx.gz) is 6.6 GB gzipped, exceeding the 2 GB processed-data budget.",
+    "The atlas is CD45+/immune-only: cell metadata contains exclusively T/NK, B and Myeloid cells, with zero epithelial or malignant cells, so malignant-cell TACSTD2 cannot be measured from this dataset at any size."
+  ]
+}
