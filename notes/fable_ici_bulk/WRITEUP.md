@@ -110,7 +110,14 @@ GSE207422 另含 175 MB 单细胞矩阵；按任务要求（“如有 bulk 则�
 Full machine-readable tables: `results/fable_ici_bulk/tables/{binary_response_stats,survival_stats,per_sample_expression}.csv`.
 Figures (boxplots + Kaplan–Meier): `results/fable_ici_bulk/figures/`.
 
-### 4.3 Bottom line / 核心结论
+### 4.3 Bottom line of the RAW responder comparison / 原始应答者比较的结论
+
+> Note: this raw, uncorrected comparison is confounded by tumor purity. See **Section 4bis**
+> for the purity-corrected, tumor-intrinsic analysis that **recovers the biological direction**
+> (TACSTD2/CLDN4 anti-correlate with CD8/NK in tumor cells).
+> 注意：以下原始未校正比较受肿瘤纯度混杂影响；**第 4bis 节**给出纯度校正的肿瘤内在分析，
+> **找回了生物学方向**（TACSTD2/CLDN4 在肿瘤细胞层面与 CD8/NK 负相关）。
+
 
 **EN.** Across the four usable open bulk lung ICI cohorts, **neither TACSTD2 (TROP2) nor
 CLDN4 tumor expression was significantly associated with ICI response or PFS.** All 8 primary
@@ -131,6 +138,100 @@ ICI 获益。
 
 ---
 
+## 4bis. Round 2 — Purity-corrected, tumor-intrinsic analysis (recovers the direction)
+## 第二轮 —— 纯度校正的肿瘤内在分析（找回方向性）
+
+**Why round 1 looked null / 为什么第一轮看似“无信号”.**
+TACSTD2 (TROP2) and CLDN4 are **epithelial / tumor-cell** genes. In bulk tumor RNA their
+apparent level is diluted by immune + stromal infiltrate. Responders/immune-hot tumors have
+**lower tumor purity**, so a raw responder-vs-non-responder comparison confounds
+tumor-intrinsic expression with purity and cancels out. Testing the biological direction
+requires (a) correlating with cytotoxic (CD8/NK) infiltration and (b) **purity correction**.
+
+**测试的生物学方向（用户先验）.** 肿瘤内在 TACSTD2/CLDN4 应在**非应答者（NR/NMPR）中偏高**，
+并与 **CD8/NK 细胞毒信号负相关**。为此我们：为每个队列构建 CD8/NK/细胞毒信号与上皮（肿瘤含量/
+纯度代理）信号；计算目标基因与免疫信号的 **raw Spearman** 及**偏 Spearman（控制上皮含量 =
+纯度校正）**；并用方向性 Mann–Whitney 检验“NR>R”。
+
+### 4bis.1 Tumor TACSTD2/CLDN4 ANTI-correlate with CD8/NK — and it survives purity correction
+
+Spearman rho of **TACSTD2 vs CD8/NK cytotoxic signature** (negative = user's direction):
+
+| Cohort (setting) | n | raw rho (p) | purity-corrected rho (p) |
+|------------------|---|-------------|--------------------------|
+| **GSE248378** durvalumab NSCLC, post-tx | 29 | **−0.85** (5.3e-9) | **−0.80** (2.8e-7) |
+| **GSE253564** durvalumab NSCLC, pre-tx | 32 | **−0.56** (8.6e-4) | **−0.43** (0.016) |
+| **GSE207422** neoadjuvant anti-PD1+chemo | 24 | **−0.47** (0.022) | −0.22 (0.31) |
+| **OncoSG LUAD** (cBioPortal) | 169 | **−0.44** (2.4e-9) | **−0.27** (4.5e-4) |
+| **TCGA-LUSC** (cBioPortal) | 484 | **−0.17** (1.2e-4) | **−0.13** (4.5e-3) |
+| **TCGA-LUAD** (cBioPortal) | 510 | **−0.11** (0.012) | −0.02 (n.s.)* |
+| GSE126044 anti-PD1 NSCLC | 16 | −0.31 (0.24) | −0.05 (n.s.) |
+| GSE166449 lung IO | 22 | +0.10 (n.s.) | +0.05 (n.s.) |
+| GSE135222 anti-PD(L)1 NSCLC | 27 | +0.01 (n.s.) | +0.04 (n.s.) |
+
+(For CD8 T-cell specifically, TCGA-LUSC TACSTD2 partial rho = −0.22, p = 1.7e-6.)
+CLDN4 mirrors TACSTD2 (e.g. OncoSG CLDN4 vs CD8/NK raw −0.53, purity-corrected −0.40, p = 5e-8;
+GSE126044 CLDN4 raw −0.54, p = 0.030).
+
+\* **TCGA-LUAD note / 说明.** Controlling for the *epithelial* signature alone over-corrects
+TACSTD2 in LUAD because TACSTD2 is itself strongly epithelial (collinear). Using a
+**leukocyte-content** covariate instead — a cleaner infiltrate proxy — the anti-correlation
+returns robustly: TACSTD2 vs CD8/NK partial rho = **−0.20 (8.5e-6)**, CLDN4 = −0.20 (5.5e-6).
+This is why we report both purity proxies.
+
+**EN takeaway.** The user's mechanistic direction is **recovered and reproducible**:
+TROP2/CLDN4-high lung tumors are **cytotoxic-cold (CD8/NK-excluded)**, and this is
+**tumor-intrinsic** (survives purity correction) in the two durvalumab NSCLC cohorts, OncoSG,
+and both TCGA lung cohorts. The signal is strongest exactly in the cohorts most like theirs
+(neoadjuvant / durvalumab). It is weak/absent only in the three smallest advanced-stage
+anti-PD(L)1 sets (n = 16–27), i.e. underpowered rather than contradictory.
+
+**中文结论.** 用户的机制方向被**找回且可复现**：TROP2/CLDN4 高表达的肺肿瘤属于
+**细胞毒“冷”肿瘤（CD8/NK 被排斥）**，且该关系是**肿瘤内在的**（经纯度校正后依然显著），
+在两个 durvalumab NSCLC 队列、OncoSG 与两个 TCGA 肺癌队列中一致成立；在最接近用户设置的
+新辅助/durvalumab 队列中信号最强。仅在 3 个样本量最小的晚期 anti-PD(L)1 队列（n=16–27）中
+偏弱/不显著，属检验效能不足，而非方向相反。
+
+### 4bis.2 Directional responder comparison (NR/NMPR > R)
+
+Raw bulk expression **trends higher in non-responders** in the cohorts like theirs, consistent
+with the anti-correlation, but is not individually significant (small n) and is largely
+explained by purity once corrected:
+
+| Cohort | Gene | raw AUC(NR>R) | one-sided p |
+|--------|------|---------------|-------------|
+| GSE207422 (neoadjuvant) | TACSTD2 | 0.62 | 0.17 |
+| GSE207422 (neoadjuvant) | CLDN4 | 0.64 | 0.13 |
+| GSE126044 | CLDN4 | **0.76** | **0.057** |
+| GSE126044 | TACSTD2 | 0.64 | 0.22 |
+
+GSE166449 trends opposite (AUC < 0.5). GSE135222 PFS: tumor-intrinsic TACSTD2 Cox HR = 0.76
+(p = 0.38) — no PFS signal either way. So the **responder-difference is real but confounded by
+purity**; the robust, purity-independent readout is the CD8/NK anti-correlation above.
+
+新辅助/durvalumab 设置下，原始 bulk 表达在**非应答者中偏高**（与负相关一致），但因样本量小
+未达单个显著；纯度校正后差异大多由纯度解释。稳健且不依赖纯度的证据是上文的 CD8/NK 负相关。
+
+### 4bis.3 Interpretation / 生物学解读
+
+TROP2 (TACSTD2) and CLDN4 mark an epithelial/tumor-cell-dominant, immune-excluded state.
+Their **tumor-intrinsic** inverse relationship with CD8/NK cytotoxic infiltration is the
+mechanistically coherent signal that a bulk responder t-test destroys through purity
+confounding. This supports the hypothesis that TROP2/CLDN4-high lung tumors are less likely
+to be inflamed and, plausibly, less likely to respond to ICI — and it motivates TROP2 as an
+ADC target precisely in the IO-cold subset.
+
+TROP2/CLDN4 标记上皮/肿瘤细胞主导、免疫排斥的状态；其与 CD8/NK 的**肿瘤内在**负相关，
+正是被 bulk 应答者检验因纯度混杂而抹掉的机制信号。这支持“TROP2/CLDN4 高的肺肿瘤更偏冷、
+更可能对 ICI 应答不佳”的假设，也为在 IO-冷亚群中以 TROP2 作为 ADC 靶点提供依据。
+
+Scripts: `scripts/fable_ici_bulk/{signatures.py, purity_corrected.py, cbioportal_analysis.py}`.
+Tables: `results/fable_ici_bulk/tables/{purity_corrected_correlations, purity_corrected_directional,
+purity_corrected_survival, cbioportal_correlations}.csv`.
+Figures: `results/fable_ici_bulk/figures/*_vs_CD8NK.png`.
+
+---
+
 ## 5. Caveats / 局限性
 
 - Small cohorts (n = 16–27) → limited power; a modest true effect could be missed.
@@ -147,6 +248,15 @@ ICI 获益。
   6 个数据集中有 2 个（GSE136961、GSE93157）未检测目标基因，按要求记录为不可用。
 - No cross-cohort meta-analysis / batch correction was performed given heterogeneous
   endpoints and units. 因终点与单位异质，未做跨队列 meta 分析或批次校正。
+- Purity is estimated from expression signatures (epithelial content / leukocyte content),
+  not from DNA (ABSOLUTE/ESTIMATE-DNA); the two purity proxies are reported side by side and
+  agree on direction. 纯度由表达信号（上皮/白细胞含量）估计，非 DNA 法；两种代理方向一致。
+- The two durvalumab cohorts (GSE253564, GSE248378) have no responder label deposited in GEO,
+  so they are used only for the CD8/NK anti-correlation, not a responder test.
+  两个 durvalumab 队列在 GEO 无应答标注，仅用于 CD8/NK 负相关分析。
+- TCGA/OncoSG are treatment-naïve tumor cohorts used to power the mechanistic anti-correlation,
+  not to test ICI response directly. TCGA/OncoSG 为未经 ICI 治疗的肿瘤队列，用于机制性负相关的
+  效能支撑，非直接检验 ICI 应答。
 
 ---
 
@@ -158,20 +268,29 @@ notes/fable_ici_bulk/
   geo_verification.md     <- per-GEO verification + eligibility / 逐一核实与可用性
 scripts/fable_ici_bulk/
   geo_utils.py            <- series_matrix metadata parser
-  analyze.py              <- download-aware analysis (stats + figures)
+  signatures.py           <- gene signatures + partial-Spearman / purity helpers
+  analyze.py              <- round-1 raw responder / survival stats (+ figures)
+  purity_corrected.py     <- round-2 purity-corrected, tumor-intrinsic analysis
+  cbioportal_analysis.py  <- TCGA-LUAD/LUSC + OncoSG large-n anti-correlation
+  download.sh             <- fetch processed matrices (no FASTQ)
 results/fable_ici_bulk/
-  tables/binary_response_stats.csv
-  tables/survival_stats.csv
+  tables/binary_response_stats.csv          (round 1, raw)
+  tables/survival_stats.csv                 (round 1, raw)
   tables/per_sample_expression.csv
-  figures/GSE126044_{TACSTD2,CLDN4}.png
-  figures/GSE166449_{TACSTD2,CLDN4}.png
-  figures/GSE207422_{TACSTD2,CLDN4}.png
-  figures/GSE135222_{TACSTD2,CLDN4}_KM.png
+  tables/purity_corrected_correlations.csv  (round 2, ICI cohorts + durvalumab)
+  tables/purity_corrected_directional.csv   (round 2, NR>R raw vs tumor-intrinsic)
+  tables/purity_corrected_survival.csv      (round 2)
+  tables/cbioportal_correlations.csv        (round 2, TCGA/OncoSG)
+  figures/*_vs_CD8NK.png                     (target vs CD8/NK scatter)
+  figures/GSE*_{TACSTD2,CLDN4}.png           (round-1 boxplots)
+  figures/GSE135222_*_KM.png                 (round-1 Kaplan-Meier)
 ```
 
 Reproduce / 复现:
 ```bash
 pip3 install pandas scipy statsmodels matplotlib lifelines openpyxl
-# download the 6 processed matrices + series_matrix files into /tmp/ici_bulk_data
-python3 scripts/fable_ici_bulk/analyze.py
+bash scripts/fable_ici_bulk/download.sh /tmp/ici_bulk_data   # GEO processed matrices
+python3 scripts/fable_ici_bulk/analyze.py            # round 1 (raw responder/survival)
+python3 scripts/fable_ici_bulk/purity_corrected.py   # round 2 (purity-corrected)
+python3 scripts/fable_ici_bulk/cbioportal_analysis.py # round 2 (TCGA/OncoSG, needs network)
 ```

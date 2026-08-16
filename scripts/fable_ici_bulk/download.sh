@@ -26,4 +26,11 @@ dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93157/suppl/GSE93157_raw
 dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz" GSE207422_log2TPM.txt.gz
 dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_metadata.xlsx" GSE207422_metadata.xlsx
 
+# round-2 matching cohorts: neoadjuvant durvalumab NSCLC (correlation-only)
+dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/matrix/GSE253564_series_matrix.txt.gz" GSE253564_series_matrix.txt.gz
+dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/matrix/GSE248378_series_matrix.txt.gz" GSE248378_series_matrix.txt.gz
+dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/suppl/GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz" GSE253564_pre_FPKM.txt.gz
+dl "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/suppl/GSE248378_Durva_Post_FPKMs.txt.gz" GSE248378_post_FPKM.txt.gz
+
 echo "Done. Files in $DEST"
+echo "Note: cbioportal_analysis.py fetches TCGA-LUAD/LUSC + OncoSG live from cbioportal.org."

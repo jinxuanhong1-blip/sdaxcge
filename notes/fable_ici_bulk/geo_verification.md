@@ -27,3 +27,26 @@ All processed files are well under 2 GB; no FASTQ used.
 
 Confirmed by grep: GSE136961 and GSE93157 contain no TACSTD/CLDN/TROP-family symbols at all. Both are targeted immune-oncology panels that simply do not include the epithelial markers TACSTD2 (TROP2) or CLDN4, so they cannot be analyzed for this question regardless of sample size.
 
+## Additional matching cohorts (hunted via NCBI eutils, round 2)
+
+Goal per user direction: prefer cohorts like theirs (neoadjuvant IO, **durvalumab**, TCGA/OncoSG),
+and use tumor-only / purity-corrected expression. `esearch` on GEO DataSets for
+`durvalumab lung` and `neoadjuvant NSCLC immunotherapy RNA-seq`.
+
+| GSE | Cohort | Platform / file | TACSTD2/CLDN4? | Response label in GEO? | Use |
+|-----|--------|-----------------|----------------|------------------------|-----|
+| **GSE253564** | Neoadjuvant **durvalumab ± SBRT**, early NSCLC, **pre-treatment** resected tumor | NovaSeq bulk RNA-seq, `Pre-treatment_Samples_Pubs_FPKMs` (n=32) | **Yes** | No (outcome only in paper) | **Correlation-only** (TACSTD2/CLDN4 vs CD8/NK, purity-corrected) |
+| **GSE248378** | Neoadjuvant **durvalumab ± SBRT**, NSCLC, **post-treatment** resected tumor | NovaSeq bulk RNA-seq, `Durva_Post_FPKMs` (n=29) | **Yes** | No (outcome only in paper) | **Correlation-only** |
+| GSE110390 | Durvalumab NSCLC + urothelial (IFN-γ signature) | NextSeq, **21-gene** `*_21gene_expression` panel | **No** (21-gene IFN-γ panel) | best RECIST in SRA | **Skip** (panel without TACSTD2) |
+| GSE243013 | Anti-PD1 NSCLC single-cell atlas | scRNA-seq | — | — | Not bulk; out of scope |
+
+cBioPortal (public) large-n tumor cohorts used for the mechanistic anti-correlation test:
+- **TCGA-LUAD** `luad_tcga_pan_can_atlas_2018` (510 RNA-seq samples)
+- **TCGA-LUSC** `lusc_tcga_pan_can_atlas_2018` (484)
+- **OncoSG LUAD** `luad_oncosg_2020` (169 with mRNA)
+
+The two durvalumab series carry only tissue / histology / treatment-arm in their GEO
+`series_matrix`; no responder label is deposited (outcomes are in the trial paper). They are
+therefore used to test the **anti-correlation with CD8/NK** (which needs no response label),
+not a responder comparison.
+
