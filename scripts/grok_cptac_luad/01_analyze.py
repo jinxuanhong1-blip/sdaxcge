@@ -146,6 +146,8 @@ def spearman(x: pd.Series, y: pd.Series) -> dict:
     n = len(d)
     if n < 4:
         return {"n": n, "rho": np.nan, "p": np.nan}
+    if d.iloc[:, 0].nunique() < 2 or d.iloc[:, 1].nunique() < 2:
+        return {"n": n, "rho": np.nan, "p": np.nan}
     rho, p = stats.spearmanr(d.iloc[:, 0], d.iloc[:, 1])
     return {"n": int(n), "rho": float(rho), "p": float(p)}
 
@@ -209,7 +211,7 @@ def partial_spearman(x: pd.Series, y: pd.Series, z: pd.Series) -> dict:
     d = pd.concat([x, y, z], axis=1).dropna()
     d.columns = ["x", "y", "z"]
     n = len(d)
-    if n < 6:
+    if n < 6 or d["x"].nunique() < 2 or d["y"].nunique() < 2 or d["z"].nunique() < 2:
         return {"n": n, "rho": np.nan, "p": np.nan}
     rx = d["x"].rank()
     ry = d["y"].rank()
@@ -633,7 +635,7 @@ def main() -> int:
     for ax, tcol, ncol, title in pairs:
         d = core[[tcol, ncol]].dropna()
         data_box = [d[ncol].to_numpy(), d[tcol].to_numpy()]
-        bp = ax.boxplot(data_box, labels=["NAT", "Tumor"], widths=0.55, patch_artist=True, showfliers=False)
+        bp = ax.boxplot(data_box, tick_labels=["NAT", "Tumor"], widths=0.55, patch_artist=True, showfliers=False)
         for patch, color in zip(bp["boxes"], ["#9bb7d4", "#d4896a"]):
             patch.set_facecolor(color)
             patch.set_alpha(0.85)
@@ -780,7 +782,7 @@ def main() -> int:
     ax = axes[0]
     a = core.loc[core["STK11_mutation"].astype(str) == "1", "TACSTD2_protein"].dropna()
     b = core.loc[core["STK11_mutation"].astype(str) == "0", "TACSTD2_protein"].dropna()
-    bp = ax.boxplot([b, a], labels=["STK11 WT", "STK11 mut"], widths=0.55, patch_artist=True, showfliers=True)
+    bp = ax.boxplot([b, a], tick_labels=["STK11 WT", "STK11 mut"], widths=0.55, patch_artist=True, showfliers=True)
     for patch, color in zip(bp["boxes"], ["#9bb7d4", "#d4896a"]):
         patch.set_facecolor(color)
     r = mannwhitney(a, b)
@@ -790,7 +792,7 @@ def main() -> int:
     ax = axes[1]
     never = core.loc[core["Tobacco_smoking_history"].astype(str).str.contains("non-smoker", case=False, na=False), "TACSTD2_protein"].dropna()
     ever = core.loc[core["Tobacco_smoking_history"].isin(["current smoker", "past smoker"]), "TACSTD2_protein"].dropna()
-    bp = ax.boxplot([never, ever], labels=["Never", "Ever"], widths=0.55, patch_artist=True, showfliers=True)
+    bp = ax.boxplot([never, ever], tick_labels=["Never", "Ever"], widths=0.55, patch_artist=True, showfliers=True)
     for patch, color in zip(bp["boxes"], ["#9bb7d4", "#d4896a"]):
         patch.set_facecolor(color)
     r = mannwhitney(ever, never)
