@@ -1,0 +1,10 @@
+dataset,subset,n,n_immune_genes,immune_genes,spearman_rho,spearman_p
+E-MTAB-13704,all_samples,27,10,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10",0.5842490842490842,0.001374609876618133
+E-MTAB-13704,control_only,5,10,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10",0.49999999999999994,0.3910022189557703
+GSE114601,all_samples,8,11,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10,Nkg7",0.2142857142857143,0.6103444156452669
+GSE157880,all_samples,16,11,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10,Nkg7",-0.19999999999999998,0.45768790507519996
+GSE169196,all_samples,9,10,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10",0.0,1.0
+GSE197260,all_samples,7,11,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10,Nkg7",-0.21428571428571433,0.6445115810207203
+GSE239485,all_samples,24,11,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10,Nkg7",0.5556521739130434,0.004817401046333086
+GSE239485,control_only,8,11,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10,Nkg7",-0.09523809523809526,0.8225054302036114
+GSE309199,all_samples,12,11,"Cd8a,Cd3e,Cd3d,Gzmb,Prf1,Ifng,Cd274,Pdcd1,Cxcl9,Cxcl10,Nkg7",0.19614741113473694,0.5412137259515318

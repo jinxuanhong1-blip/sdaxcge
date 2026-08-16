@@ -68,10 +68,11 @@ figures in [`figures/`](figures/) (per-dataset box/strip plots plus
 - **Cldn4 tends to fall with anti-PD-1**: significantly in GSE297630 (matching
   the authors' own statistic) and non-significantly in AhR-KO (GSE241978) and
   the GSE239485 anti-PD-1 arm.
-- Net picture from the datasets that permit inference: **anti-PD-1/PD-L1
-  treatment is associated with up-regulation of Tacstd2/Trop2 and mild
-  down-regulation of Cldn4** in mouse lung tumours, though effect sizes and
-  significance vary by model and combination partner.
+- Honest net from the original ten: the **GSE239485-style Tacstd2 rise on IO
+  is real in that dataset** (and the E-MTAB VEGFRi/aPD-L1 combo), but
+  anti-PD-1/PD-L1 **monotherapy is not uniformly Tacstd2-up** (GSE297630 and
+  E-MTAB aPD-L1 monotherapy are slightly down, ns). See the hunt extension
+  below for a pre-specified combined test.
 
 ### Caveats
 Single-replicate arms (GSE197260 and all four single-cell series) are
@@ -89,7 +90,71 @@ python3 scripts/fable_mouse_ici/fetch_sample_metadata.py
 bash   scripts/fable_mouse_ici/download_data.sh
 python3 scripts/fable_mouse_ici/analyze.py
 python3 scripts/fable_mouse_ici/stats_and_plots.py
+python3 scripts/fable_mouse_ici/hunt_new_accessions.py
+python3 scripts/fable_mouse_ici/extend_icb_immune.py
 ```
+
+---
+
+## Extension — more paired ICB sets, combined Tacstd2-up test, TROP2-high / immune-low
+
+### Hunt (processed, <2 GB)
+GEO was re-queried for mouse lung + anti-PD-1/PD-L1 RNA. New **tumour** RNA series with a control-vs-ICB arm and a processed file <2 GB:
+
+| Accession | Model | Primary ICB contrast | n | Tacstd2 log2FC | Welch p (two-sided) |
+|---|---|---|---|---|---|
+| GSE114601 | GEMM NSCLC | anti-PD1 vs Vehicle | 2 vs 2 | **−1.16** | 0.45 |
+| GSE157880 | KP lung | PD-1 0 Gy vs IgG 0 Gy | 2 vs 3 | +0.35 | 0.43 |
+| GSE309199 | RPM SCLC | aPD1 vs Ctrl | 3 vs 3 | +0.49 | 0.47 |
+| GSE169196 | KPM total tumour | A2V+aPD1 vs IgG *(no aPD1-mono arm)* | 3 vs 3 | +0.13 | 0.84 |
+
+Skipped on purpose (see `notes/fable_mouse_ici/hunt_triage.md`): GSE190264 (in-vitro chemo/MEK, no ICB), GSE114300 / GSE277610 (sorted T cells), GSE184000 (irAE whole lung, not tumour), GSE315010 (RAS inhibitors, no ICB antibody), GSE194166 / GSE129298 (scRNA n=1/arm).
+
+TISMO 49/64 Tacstd2-up after ICB (p=5.8e-5) is treated as an **external all-cancer prior**. The current TISMO site is a SPA; the GitHub repo (`zexian/TISMO_data`) has processing scripts only. We **did not independently recompute** that 49/64 count.
+
+### Combined Tacstd2-up test (one primary contrast per independent tumour dataset)
+
+Pre-specified set (n=7): GSE239485 PolyIC+aPD1; GSE297630 aPD1; E-MTAB-13704 aPD-L1 monotherapy; GSE114601 aPD1; GSE157880 PD-1 0 Gy; GSE309199 aPD1; GSE169196 A2V+aPD1.
+
+| Metric | Result |
+|---|---|
+| Direction | **4 / 7** Tacstd2 log2FC > 0 |
+| Sign test (greater) | **p = 0.50** |
+| Stouffer Z on one-sided Welch p (up) | Z = 0.85, **p = 0.20** |
+| Only two-sided p<0.05 in the primary set | GSE239485 (+2.09, p=6.3e-4) |
+
+So: **GSE239485-style Tacstd2 rise on IO is consistent with that one well-powered LLC experiment**, but **this public mouse-lung slice does not reproduce a TISMO-like 49/64 consensus**. Anti-PD-1/PD-L1 monotherapy in GEMM/SCLC/LLC-array data is mixed and under-powered. Tables: [`primary_icb_tacstd2.csv`](primary_icb_tacstd2.csv), [`combined_icb_tacstd2.json`](combined_icb_tacstd2.json), figure [`figures/primary_icb_tacstd2.png`](figures/primary_icb_tacstd2.png).
+
+### TROP2-high / immune-low
+Immune score = mean log-expression of Cd8a, Cd3e, Cd3d, Gzmb, Prf1, Ifng, Cd274, Pdcd1, Cxcl9, Cxcl10, Nkg7 (whichever present).
+
+| Dataset | Spearman ρ (Tacstd2 vs immune, all samples) | p | Median-split: Tacstd2-high has lower immune? |
+|---|---|---|---|
+| GSE239485 | **+0.56** | 0.0048 | no (treatment-driven: IO raises both) |
+| GSE239485 control-only | −0.10 | 0.82 | — |
+| E-MTAB-13704 | **+0.58** | 0.0014 | no |
+| GSE157880 | −0.20 | 0.46 | yes, ns |
+| GSE197260 | −0.21 | 0.64 | yes, ns (n=7, 1/arm) |
+| GSE114601 / GSE309199 / GSE169196 | ~0 | >0.5 | no |
+
+**No robust TROP2-high / immune-low subset in these bulk lung matrices.** The two significant correlations are **positive** (Tacstd2 tracks with the immune score), largely because IO/combo arms move both. Baseline-only splits are under-powered and non-significant. [`tacstd2_immune_correlation.csv`](tacstd2_immune_correlation.csv), [`trop2_high_immune_split.csv`](trop2_high_immune_split.csv), [`figures/tacstd2_vs_immune.png`](figures/tacstd2_vs_immune.png).
+
+---
+
+## 增补 — 更多配对 ICB 集、Tacstd2 上调合并检验、TROP2 高 / 免疫低
+
+### 检索
+在 GEO 中补检小鼠肺 + anti-PD-1/PD-L1 RNA。新增符合“处理后、<2 GB、肿瘤 RNA、对照 vs ICB”的：GSE114601、GSE157880、GSE309199、GSE169196（后者无 aPD1 单药、只有 A2V+aPD1）。刻意跳过的编号见 `notes/fable_mouse_ici/hunt_triage.md`。
+
+TISMO 的 49/64、p=5.8e-5 作为**外部（全癌种）先验**引用；当前 TISMO 站点为前端 SPA，GitHub 仅有处理脚本，**未能独立重算**该 49/64。
+
+### 合并检验（每个独立肿瘤数据集只取一个主对比，共 7 个）
+Tacstd2 升高 **4/7**；符号检验 p=**0.50**；Stouffer（单侧上调）Z=0.85，p=**0.20**。主对比里唯一双侧显著的是 GSE239485（+2.09，p=6.3e-4）。
+
+结论：**GSE239485 式的 IO 后 Tacstd2 升高在该实验中成立**，但**本公开小鼠肺切片不能复现 TISMO 式的 49/64 共识**；单药 anti-PD-1/PD-L1 方向混杂且功效不足。
+
+### TROP2 高 / 免疫低
+免疫评分 = Cd8a/Cd3e/Cd3d/Gzmb/Prf1/Ifng/Cd274/Pdcd1/Cxcl9/Cxcl10/Nkg7 的均值。GSE239485 与 E-MTAB 的 Spearman 为**显著正相关**（治疗同时抬高两者）；对照子集与其余数据集为弱负或近零、均不显著。**这些 bulk 肺矩阵中没有稳健的 TROP2-high / immune-low 亚群证据。**
 
 ---
 
@@ -142,8 +207,9 @@ python3 scripts/fable_mouse_ici/stats_and_plots.py
   （GSE297632 略降；GSE129297 combo 降），因此该诱导主要由有重复的 bulk 数据支持。
 - **Cldn4 在 anti-PD-1 下倾向下降**：在 GSE297630 中显著（与作者统计一致），在 AhR-KO（GSE241978）
   与 GSE239485 的 anti-PD-1 组呈非显著下降。
-- 综合可推断的数据集：**在小鼠肺肿瘤中，anti-PD-1/PD-L1 治疗与 Tacstd2/Trop2 上调、Cldn4 轻度下调相关**，
-  但效应量与显著性因模型与联合用药而异。
+- 诚实综合：GSE239485 式的 IO 后 Tacstd2 升高在该数据集中是真实的（E-MTAB 的 VEGFRi/aPD-L1
+  联合组也升高），但 **anti-PD-1/PD-L1 单药并不一律上调 Tacstd2**（GSE297630 与 E-MTAB aPD-L1
+  单药略降、不显著）。预指定的合并检验见下方增补。
 
 ### 注意事项
 单样本组（GSE197260 及四个单细胞系列）仅作描述。GSE129297 使用未过滤的 10x 矩阵（pseudobulk 更嘈杂）。

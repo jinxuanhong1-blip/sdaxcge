@@ -55,3 +55,17 @@ FASTQ).
 - **Cldn4** (claudin-4; Ensembl `ENSMUSG00000041378`; RefSeq NM_009903)
 Matched case-insensitively on symbol/alias (Tacstd2/Trop2, Cldn4) for symbol-
 keyed tables and by Ensembl ID for E-MTAB-13704.
+
+## Hunt extension (2026-08-16)
+
+Additional paired tumour RNA (processed, <2 GB) added in `extend_icb_immune.py`:
+
+| Accession | Model | ICB contrast used | n | Notes |
+|---|---|---|---|---|
+| GSE114601 | GEMM NSCLC | anti-PD1 vs Vehicle | 2 vs 2 | also JQ1 / combo arms |
+| GSE157880 | KP lung | PD-1 0 Gy vs IgG 0 Gy | 2 vs 3 | RT arms exist; 0 Gy is the clean ICB pair |
+| GSE309199 | RPM SCLC | aPD1 vs Ctrl | 3 vs 3 | also entinostat / combo |
+| GSE169196 | KPM total viable cells | A2V+aPD1 vs IgG | 3 vs 3 | **no aPD1-monotherapy total-tumour arm**; sorted myeloid/T cells ignored for Tacstd2 |
+
+Triage of other GEO hits (skipped): `hunt_triage.md`, raw JSON `hunt_candidates.json`.
+TISMO 49/64 was **not** recomputed (site is a SPA; `zexian/TISMO_data` has scripts only).

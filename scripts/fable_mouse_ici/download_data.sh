@@ -31,5 +31,11 @@ dl $B/GSE297nnn/GSE297632/suppl/GSE297632_RAW.tar GSE297632_RAW.tar
 dl https://www.ebi.ac.uk/biostudies/files/E-MTAB-13704/GEMMS_raw_counts.csv E-MTAB-13704_GEMMS_raw_counts.csv
 dl https://www.ebi.ac.uk/biostudies/files/E-MTAB-13704/E-MTAB-13704.sdrf.txt E-MTAB-13704.sdrf.txt
 
+# Extra paired ICB tumour RNA found in the hunt (all < 2 GB)
+dl $B/GSE114nnn/GSE114601/suppl/GSE114601_counts.normalized.csv.gz GSE114601_counts.normalized.csv.gz
+dl $B/GSE157nnn/GSE157880/suppl/GSE157880_Bulk048.txt.gz GSE157880_Bulk048.txt.gz
+dl $B/GSE309nnn/GSE309199/suppl/GSE309199_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz GSE309199_raw_counts.tsv.gz
+dl $B/GSE169nnn/GSE169196/suppl/GSE169196_RAW.tar GSE169196_RAW.tar
+
 echo "=== downloaded ==="
 ls -lh "$D"

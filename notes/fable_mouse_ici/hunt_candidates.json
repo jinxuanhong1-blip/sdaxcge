@@ -1,0 +1,426 @@
+[
+  {
+    "accession": "GSE114300",
+    "exists": true,
+    "title": "Systematic immune reprogramming via PD-1 inhibition enhances early-stage lung cancer survival.",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "Success of immune checkpoint inhibitors in advanced non-small cell lung cancer (NSCLC) has invigorated their use in neo-adjuvant setting for early-stage disease. However, the cellular and molecular mechanisms of the early immune responses to therapy remain poorly understood. Through an integrated analysis of early-stage NSCLC patients and a Kras-mutant mouse model, we show a prevalent programmed cell death 1/ programmed cell death 1 ligand 1 (PD-1/PD-L1) axis exemplified by increased intratumoral PD-1+ T cells and PD-L1 expression. Notably, tumor progression was associated with spatiotemporal ",
+    "overall_design": "CD4 and CD8 lung tumor infiltrating lymphocytes were sorted into RLT lysis buffer from IgG antibody or anti-PD1 antibody treated C57Bl/6 mice at day 14, 17 or 24 for mRNA-Sequencing.",
+    "n_samples": 62,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE114300/suppl/GSE114300_RAW.tar"
+    ],
+    "files": [
+      {
+        "name": "GSE114300_RAW.tar",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE114300/suppl/GSE114300_RAW.tar",
+        "size_bytes": 7424000,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "filelist.txt",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE114300/suppl/filelist.txt",
+        "size_bytes": 4030,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE114601",
+    "exists": true,
+    "title": "Therapeutic efficacy of BET bromodomain protein inhhibitor and PD-1 blockade in genetically engineered mouse model of non-small cell lung cancer",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "KRAS mutation is present in about 30% of human lung adenocarcinomas. While recent advances in targeted therapy have shown great promise, KRAS remains undruggable and concurrent alterations in tumor suppressors render KRAS mutant tumors even more resistant to existing therapies. Contributing to the refractoriness of KRAS mutant tumors harboring these co-mutations are immunosuppressive mechanisms such as increased presence of suppressive Tregs in tumors and elevated expression of the inhibitory receptor PD-1 on tumor-infiltrating T cells. BET bromodomain inhibitors demonstrate clinical benefit i",
+    "overall_design": "Gene expression analyses of tumor nodules in lung tumor-bearing mice treated with Vehicle (control), JQ1 (Bromodomain inhibitor) and/or anti-PD-1 antibody",
+    "n_samples": 8,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE114601/suppl/GSE114601_counts.normalized.csv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE114601/suppl/GSE114601_counts.raw.csv.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE114601_counts.normalized.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE114601/suppl/GSE114601_counts.normalized.csv.gz",
+        "size_bytes": 544669,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "GSE114601_counts.raw.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE114nnn/GSE114601/suppl/GSE114601_counts.raw.csv.gz",
+        "size_bytes": 403883,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE169196",
+    "exists": true,
+    "title": "Overcoming microenvironmental resistance to anti-PD-1 immunotherapy in lung cancer models",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing",
+      "Other"
+    ],
+    "summary": "This SuperSeries is composed of the SubSeries listed below.",
+    "overall_design": "Refer to individual Series",
+    "n_samples": 48,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE169nnn/GSE169196/suppl/GSE169196_RAW.tar"
+    ],
+    "files": [
+      {
+        "name": "GSE169196_RAW.tar",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE169nnn/GSE169196/suppl/GSE169196_RAW.tar",
+        "size_bytes": 22364160,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "filelist.txt",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE169nnn/GSE169196/suppl/filelist.txt",
+        "size_bytes": 5626,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE190264",
+    "exists": true,
+    "title": "MEK inhibition overcomes chemoimmunotherapy resistance by inducing CXCL10 in cancer cells [LLC1]",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "Chemotherapy with anti PD-1/PD-L1 mAb has become the standard of care for patients with metastatic non-small cell lung cancer (NSCLC). Using lung tumor models, where pemetrexed-platinum chemotherapy (PEM/CDDP) remains unable to synergize with immune checkpoint inhibitors (ICI), we linked failure of this treatment with its inability to induce CXCL10 expression and CD8+ T cell recruitment. Using drug screening, we showed that combining a MEK inhibitor (MEKi) with PEM/CDDP triggers CXCL10 secretion by cancer cells and CD8+ T cell recruitment, and restores ICI efficacy. PEM/CDDP plus MEKi promotes",
+    "overall_design": "All conditions are in triplicat and analyszed at two times after treatment (6 (T6) and 24hrs (T24)). Control LLC1 cells (NT) were treated only with 0,1% DMSO. CP cells were treated with cisplatin (2.5\u00b5M) and pemetrexed (2.5 \u00b5M). T cells were treated with trametinib (MEK inhibiteur, 10 nM). TCP cells were treated with both cisplatin, pemetrexed and trametinib. Total RNA from tumor cells was extracted with TriReagent (Fisher Scientific), RNA Sequencing was performed by the GenomEast platform, a member of the \u201cFrance G\u00e9nomique\u201d consortium (ANR-10-INBS- 0009). Differential expression analysis was ",
+    "n_samples": 24,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190264/suppl/GSE190264_TPM_LLC1.csv.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE190264_TPM_LLC1.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190264/suppl/GSE190264_TPM_LLC1.csv.gz",
+        "size_bytes": 5068692,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE157880",
+    "exists": true,
+    "title": "Radiation-activated secretome of Scgb1a1+ club cells increase the efficacy of immune checkpoint blockade in lung cancer (Bulk048 RNA-seq)",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "We uncovered an essential role of radiationtherapy (RT)-activated lung residential Scgb1a1+ club cells in synergizing efficacy of immuno-checkpoint inhibitors. We explored the mechanisms underlying RT by analyzing the differentially-regulated genes in tumor micro-environment.",
+    "overall_design": "mRNA profiling of bulk HKP1-bearing lungs which received different does of RT with or without anti-PD-1 antibody. Each sample was pooled from 3-4 mice, 5-6 samples/RT dose.",
+    "n_samples": 16,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157880/suppl/GSE157880_Bulk048.txt.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE157880_Bulk048.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157880/suppl/GSE157880_Bulk048.txt.gz",
+        "size_bytes": 2171840,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE157883",
+    "exists": true,
+    "title": "Radiation-activated secretome of Scgb1a1+ club cells increase the efficacy of immune checkpoint blockade in lung cancer",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "This SuperSeries is composed of the SubSeries listed below.",
+    "overall_design": "Refer to individual Series",
+    "n_samples": 22,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157883/suppl/GSE157883_RAW.tar"
+    ],
+    "files": [
+      {
+        "name": "GSE157883_RAW.tar",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157883/suppl/GSE157883_RAW.tar",
+        "size_bytes": 101263360,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "filelist.txt",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE157nnn/GSE157883/suppl/filelist.txt",
+        "size_bytes": 543,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE194166",
+    "exists": true,
+    "title": "AXL targeting restores PD-1 blockade sensitivity of STK11/LKB1 mutant NSCLC through expansion of TCF1+ CD8 T cells",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing",
+      "Genome binding/occupancy profiling by high throughput sequencing"
+    ],
+    "summary": "Mutations in STK11/LKB1 in non-small cell lung cancer (NSCLC) are associated with poor patient responses to immune checkpoint blockade (ICB) and introduction of a Stk11/Lkb1 (L) mutation into murine lung adenocarcinomas driven by mutant Kras and Trp53 loss (KP) resulted in an ICB refractory syngeneic KPL tumor. Mechanistically this occurred because KPL mutant NSCLCs lacked TCF1-expressing CD8 T cells, a phenotype recapitulated in human STK11/LKB1 mutant NSCLCs. Systemic inhibition of Axl results in increased type I interferon secretion from dendritic cells that expanded tumor-associated TCF1+ ",
+    "overall_design": "scRNAseq paired with scTCRseq for immune cells sorted from KP tumors, KPL tumors undergone different treatment.",
+    "n_samples": 10,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE194nnn/GSE194166/suppl/GSE194166_RAW.tar"
+    ],
+    "files": [
+      {
+        "name": "GSE194166_RAW.tar",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE194nnn/GSE194166/suppl/GSE194166_RAW.tar",
+        "size_bytes": 249436160,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "filelist.txt",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE194nnn/GSE194166/suppl/filelist.txt",
+        "size_bytes": 1925,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE277610",
+    "exists": true,
+    "title": "Endothelial PD-L1 brakes CD8+ T cell exhaustion, empowering anti-tumor immunity in non-small cell lung cancer",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "Cancer immunotherapies targeting PD-(L)1 offer therapeutic potential but suffer resistance. The role of PD-L1 in tumor and myeloid cells has been extensively studied, while its function in tumor endothelial cells (ECs) is overlooked. Surprisingly, we identified an unknown role of EC-specific PD-L1 in delaying the exhaustion of tumor-infiltrating CD8+ T cells in a non-small cell lung cancer mouse model. Loss of endothelial PD-L1 reduces T cell activation and exac-erbates tumor growth. Initial inhibition of CD8+ T cells by endothelial PD-L1, prior to encoun-tering cancer cells, prevents T cells ",
+    "overall_design": "To better characterize the phenotypes of CD8 T cells in lung tumors from WT mice and mice lacking endothelial PDL1 (PDL1DEC mice), CD8 T cells were FACS-isolated and we performed bulk RNA sequencing. CD8 T cells were isolated either from (a) macropscopic lung nodules (core-enriched), or (b) paranchymal nodules (rim-enriched) in both WT and PDL1DEC mice",
+    "n_samples": 17,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE277nnn/GSE277610/suppl/GSE277610_Counts.csv.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE277610_Counts.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE277nnn/GSE277610/suppl/GSE277610_Counts.csv.gz",
+        "size_bytes": 718377,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE309199",
+    "exists": true,
+    "title": "HDAC inhibition unlocks tumor plasticity and enhances immunotherapy response in Myc- Driven Small Cell Lung Cancer.",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "Small Cell Lung Cancer (SCLC) is a highly aggressive malignancy, accounting for approximately 15% of all lung cancer cases. Characterized by low immunogenicity, SCLC may utilize epigenetic mechanisms to evade immune detection. Here, we demonstrate that entinostat, a class I histone deacetylase inhibitor (HDACi) upregulates immune-related genes in human SCLC cells. In vivo, we confirmed entinostat treatment increased expression of immunecheckpoint ligands and antigen presentation machinery in Myc-driven tumors in a Rb1/Trp53/MycT58A (RPM) SCLC mouse model, while shifting tumors from a neuroendo",
+    "overall_design": "RNA-seq profiling of Rb1/Trp53/MycT58A (RPM) induced lung tunor and normal lung tissue (GSE309192). The induced tumors treated with vehicle, IgG, anti-PD-1 antibody, entinostat and the combination of anti-PD-1 and entinostat.",
+    "n_samples": 12,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309199/suppl/GSE309199_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE309199_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309199/suppl/GSE309199_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz",
+        "size_bytes": 519484,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE309192",
+    "exists": true,
+    "title": "HDAC inhibition unlocks tumor plasticity and enhances immunotherapy response in Myc- Driven Small Cell Lung Cancer",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "Small Cell Lung Cancer (SCLC) is a highly aggressive malignancy, accounting for approximately 15% of all lung cancer cases. Characterized by low immunogenicity, SCLC may utilize epigenetic mechanisms to evade immune detection. Here, we demonstrate that entinostat, a class I histone deacetylase inhibitor (HDACi) upregulates immune-related genes in human SCLC cells. In vivo, we confirmed entinostat treatment increased expression of immunecheckpoint ligands and antigen presentation machinery in Myc-driven tumors in a Rb1/Trp53/MycT58A (RPM) SCLC mouse model, while shifting tumors from a neuroendo",
+    "overall_design": "RNA-seq profiling of Rb1/Trp53/MycT58A (RPM) induced lung tumor and normal lung tissue.",
+    "n_samples": 6,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309192/suppl/GSE309192_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE309192_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309192/suppl/GSE309192_Mouse_Azam.TPMcalculator.raw_counts.tsv.gz",
+        "size_bytes": 333378,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE184000",
+    "exists": true,
+    "title": "transcriptome analysis  of whole lung tissue from anti-PD-1 therapy-treated mice",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "IIn contrast to the young mice treated with anti-PD-1 therapy, aged mice exhibited immune-related adverse event (irAE)-like symptoms in the lung when treated with anti-PD-1 therapy. To understand the molecular events underlying the development of anti-PD-1 therapy-induced irAE, we employed deep RNA sequencing of whole lung transcript from anti-PD-1 therapy-treated young and aged mice. In order to further evaluate the effect of IL-21 signal on PD-1-blockade-mediated immune response, gene expression profile in lung tissue from aged mice twith the blockade of IL-21 activity was also assessed.",
+    "overall_design": "Whole lung transcripts were obtained from melanoma-bearing young or aged mice treated anti-PD-1 Ab, aged mice treated with rat control Ab, and aged mice similtaneously treated with anti-PD-1 Ab and anti-IL-21 receptor in vivo. Each gene expression profile was analyzed by RNA sequencing, and the differential gene expressions in whole lung tissues among those stimulatory conditions were assessed.",
+    "n_samples": 12,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184000/suppl/GSE184000_RAW.tar",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184000/suppl/GSE184000_RawCount_Matrix_ann.txt.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE184000_RAW.tar",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184000/suppl/GSE184000_RAW.tar",
+        "size_bytes": 588134400,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "GSE184000_RawCount_Matrix_ann.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184000/suppl/GSE184000_RawCount_Matrix_ann.txt.gz",
+        "size_bytes": 5146023,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "filelist.txt",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184000/suppl/filelist.txt",
+        "size_bytes": 841,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE129298",
+    "exists": true,
+    "title": "Single-cell transcriptomic profiling of mouse lung tumor in response to CDK7 inhibitor, anti-PD-1 and combination treatment (Experiment 2)",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "We performed single-cell RNA sequencing (scRNAseq) analysis on the mouse lung tissues from small cell lung tumor-bearing mice treated with CDK7 inhibitor YKL, anti-PD-1 and combination treatment",
+    "overall_design": "Single-cell RNA-sequencing libraries of mouse tissues using 10x Genomics technology.",
+    "n_samples": 4,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129298/suppl/GSE129298_RAW.tar",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129298/suppl/GSE129298_barcodes.tsv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129298/suppl/GSE129298_features.tsv.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE129298_RAW.tar",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129298/suppl/GSE129298_RAW.tar",
+        "size_bytes": 326481920,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "GSE129298_barcodes.tsv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129298/suppl/GSE129298_barcodes.tsv.gz",
+        "size_bytes": 2550196,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "GSE129298_features.tsv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129298/suppl/GSE129298_features.tsv.gz",
+        "size_bytes": 279361,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "filelist.txt",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129298/suppl/filelist.txt",
+        "size_bytes": 366,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE315010",
+    "exists": true,
+    "title": "Abrogation of Oncogenic RAS Signaling by a RAS(ON) Inhibitor Doublet Primes Immune-refractory KRASG12C-mutant NSCLC for Immune Checkpoint Blockade",
+    "organism": [
+      "Homo sapiens",
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "To address RAS pathway hyperactivation and targeted therapy resistance in KRASG12C-mutant NSCLC, we evaluated the potential of the RAS(ON) G12C-selective covalent inhibitor elironrasib and the RAS(ON) multi-selective inhibitor daraxonrasib combination to maximize RAS pathway suppression and forestall pathway reactivation in a series of preclinical models. We demonstrate that the RAS(ON) inhibitor doublet induces profound and sustained tumor regressions and overcomes the increased RAS pathway oncogenic flux that underlies resistance to inactive state\u2013selective KRASG12C inhibitors in NSCLC. Addi",
+    "overall_design": "Mice bearing NCI-H2122 subcutaneous xenograft tumors were treated with 7 consecutive daily doses of elironrasib at 100 mg/kg and daraxonrasib at 25 mg/kg as single agents or in combination. Tumors were harvested at 8 and 24 hours post the last dose (n = 3 per time point) for bulk RNA sequencing analysis.  Mice bearing 3LL-\u0394NRAS subcutaneous syngeneic tumors were treated for 8 consecutive daily doses of elironrasib at 30 mg/kg and daraxonrasib at 25 mg/kg as single agents or in combination. Tumors were harvested at 24 hours post the last dose (n = 5 per time point) for bulk RNA sequencing analy",
+    "n_samples": 44,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE315nnn/GSE315010/suppl/GSE315010_NCI_H2122_merged_raw_counts.csv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE315nnn/GSE315010/suppl/GSE315010_e3LL_merged_raw_counts.csv.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE315010_NCI_H2122_merged_raw_counts.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE315nnn/GSE315010/suppl/GSE315010_NCI_H2122_merged_raw_counts.csv.gz",
+        "size_bytes": 1617045,
+        "skip_gt_2gb": false
+      },
+      {
+        "name": "GSE315010_e3LL_merged_raw_counts.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE315nnn/GSE315010/suppl/GSE315010_e3LL_merged_raw_counts.csv.gz",
+        "size_bytes": 1718898,
+        "skip_gt_2gb": false
+      }
+    ]
+  },
+  {
+    "accession": "GSE303940",
+    "exists": true,
+    "title": "XIAP-coordinated PKC signaling overcomes immunotherapy resistance via immunogenic rewiring to empower therapeutic rechallenge [RNA-Seq]",
+    "organism": [
+      "Mus musculus"
+    ],
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "summary": "Immune-checkpoint blockade (ICB) against PD-1/PD-L1 has transformed cancer care, yet primary and acquired resistance limit its reach. By profiling substrate-based protein kinase C (PKC) activity, rather than pan-PKC expression, we uncover a superior biomarker predicting survival and anti-PD-1 responsiveness in non-small cell lung cancer (NSCLC). Critically, pharmacological pan-PKC inhibition overcomes anti-PD-1 resistance across diverse preclinical models through a coordinated immunologic program. Specifically, PKC blockade triggers Caspase-3/GSDME-dependent immunogenic cell death (ICD) with A",
+    "overall_design": "RNA-seq profiling of CMT167R cells treated with 50 nM PKCi for 24 hours and untreated CMT167R cells.",
+    "n_samples": 2,
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE303nnn/GSE303940/suppl/GSE303940_FPKMs_allSamples.txt.gz"
+    ],
+    "files": [
+      {
+        "name": "GSE303940_FPKMs_allSamples.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE303nnn/GSE303940/suppl/GSE303940_FPKMs_allSamples.txt.gz",
+        "size_bytes": 2035617,
+        "skip_gt_2gb": false
+      }
+    ]
+  }
+]
