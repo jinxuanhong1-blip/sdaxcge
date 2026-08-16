@@ -267,7 +267,7 @@ def write_svg(path: Path, gene: str, rows: list[dict[str, object]]) -> None:
         f'<line x1="{left}" y1="{height-bottom}" x2="{width-right}" '
         f'y2="{height-bottom}" stroke="#333"/>',
     ]
-    for tick in range(math.floor(lower), math.ceil(upper) + 1):
+    for tick in range(math.ceil(lower), math.floor(upper) + 1):
         tick_y = y(tick)
         elements.extend(
             [
