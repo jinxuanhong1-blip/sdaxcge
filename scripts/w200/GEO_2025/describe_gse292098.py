@@ -151,11 +151,15 @@ def main() -> None:
                 }
             )
     with (OUT / "GSE292098_compartment_long.tsv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(long_rows[0]), delimiter="\t")
+        writer = csv.DictWriter(
+            handle, fieldnames=list(long_rows[0]), delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(long_rows)
     with (OUT / "GSE292098_compartment_summary.tsv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(summary_rows[0]), delimiter="\t")
+        writer = csv.DictWriter(
+            handle, fieldnames=list(summary_rows[0]), delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(summary_rows)
     existing = []
@@ -166,7 +170,9 @@ def main() -> None:
     existing = [row for row in existing if row.get("accession") != "GSE292098"]
     existing.extend(manifest)
     with manifest_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(existing[0]), delimiter="\t")
+        writer = csv.DictWriter(
+            handle, fieldnames=list(existing[0]), delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(existing)
     print(f"Wrote {len(long_rows)} leftover GeoMx rows without outcome tests")

@@ -262,7 +262,9 @@ def holm_adjust(p_values: list[float]) -> list[float]:
 
 def write_tsv(path: Path, rows: list[dict[str, object]], fields: list[str]) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields, delimiter="\t")
+        writer = csv.DictWriter(
+            handle, fieldnames=fields, delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 

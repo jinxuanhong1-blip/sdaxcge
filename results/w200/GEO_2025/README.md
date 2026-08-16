@@ -4,104 +4,93 @@
 
 ### Scope
 
-This is a strict **GEO-public-in-2025** follow-up of human lung-cancer ICI
-series not in the previously analyzed reference set (GSE126044, GSE135222,
-GSE136961, GSE166449, GSE93157, GSE207422, and GSE205335). A series was
+This is a leftover slice: **GEO-public-in-2025** human lung ICI series that
+were not in the previously analyzed reference set (GSE126044, GSE135222,
+GSE136961, GSE166449, GSE93157, GSE207422, GSE205335). A leftover series was
 eligible for an outcome test only if:
 
 1. the deposited material contained tumor/epithelial cells;
 2. both TACSTD2 and CLDN4 were measured; and
 3. GEO supplied a patient-level ICI outcome without an inferred join.
 
-The focused audit is in `series_audit.tsv`. Of 13 plausible series checked,
-**GSE233203 was the only eligible series**. Exclusions are results, not missing
-work: for example, GSE309652 has a clean 72-patient R/NR endpoint but its
-768-gene panel measures neither target, while GSE292098 measures both targets
-but supplies no per-ROI clinical outcome key.
+The first pass searched only `anti-PD-1` phrasing and therefore missed
+`GSE291670` (`PD-1 blockade` / camrelizumab). This continuation catalogs 61
+leftover accessions in `leftover_catalog.tsv` and adds that series.
 
-### GSE233203 analysis
+### Outcome tests
 
-GSE233203 contains pleural-fluid scRNA-seq from seven stage-IV lung
-adenocarcinoma patients (3 Response, 4 Non-response) receiving an
-atezolizumab-containing combination. Raw 10x counts were summed across all
-cells within each patient, converted to log2(CPM + 1), and tested at the
-patient—not cell—level. P-values are exact two-sided permutation
-Mann-Whitney values. Holm values adjust the two prespecified gene tests.
-
-| Gene | Median Response | Median Non-response | Cliff's delta | Exact p | Holm p |
-|---|---:|---:|---:|---:|---:|
-| TACSTD2 | 5.743 | 3.702 | 0.833 | 0.114 | 0.229 |
-| CLDN4 | 5.543 | 3.184 | 0.500 | 0.400 | 0.400 |
+| Dataset | Setting | Gene | n | Median pos | Median neg | Cliff's δ | Exact p | Holm p |
+|---|---|---|---:|---:|---:|---:|---:|---:|
+| GSE233203 | pleural fluid, Response vs Non-response | TACSTD2 | 3 vs 4 | 5.743 | 3.702 | 0.833 | 0.114 | 0.229 |
+| GSE233203 | pleural fluid, Response vs Non-response | CLDN4 | 3 vs 4 | 5.543 | 3.184 | 0.500 | 0.400 | 0.400 |
+| GSE291670 | post-treatment lung, MPR vs Non-MPR | TACSTD2 | 3 vs 3 | 6.356 | 3.902 | 0.778 | 0.200 | 0.400 |
+| GSE291670 | post-treatment lung, MPR vs Non-MPR | CLDN4 | 3 vs 3 | 5.563 | 3.864 | 0.556 | 0.400 | 0.400 |
 
 ### Honest conclusion
 
-Both point estimates are higher in responders, but **neither gene has
-statistically supported evidence of association with response**. The cohort is
-too small to distinguish a reproducible biomarker signal from chance.
+**No leftover 2025 series supports TACSTD2 or CLDN4 as an ICI-response
+biomarker.** Both eligible leftover cohorts are n≤7. All four exact tests are
+nonsignificant after a two-gene Holm correction.
 
-More importantly, these are whole-pleural-fluid pseudobulks, not
-malignant-cell pseudobulks. Target detection varies sharply among patients:
-TACSTD2-positive cells range from 2.3% to 48.7%, and CLDN4-positive cells from
-2.3% to 48.3%. The largest responding sample drives much of the separation and
-likely also differs in epithelial-cell abundance. Therefore, the observed
-direction is hypothesis-generating and cannot be interpreted as a
-tumor-cell-intrinsic ICI-response effect.
+GSE291670 is leftover-important and leftover-limited at the same time. It is
+post-treatment surgical tissue after four cycles of camrelizumab plus
+anlotinib. Epithelial genes in MPR versus Non-MPR are therefore sensitive to
+residual tumor burden. The observed direction is higher, not lower, in MPR,
+so a simple “MPR has fewer tumor cells” explanation does not fit these six
+pseudobulks. That still does not make a biomarker: n=3 versus 3, exact
+p=0.20/0.40, and detection fractions still vary from 2.5% to 10.6%.
 
-No pooled effect was calculated across excluded cohorts, no response labels
-were reconstructed from paper figures, and no blood epithelial signal was
-treated as tumor expression.
+GSE233203 remains composition-sensitive pleural-fluid leftover. One high
+epithelial-fraction responder still drives most of the separation.
+
+### Leftover series that were not outcome-tested
+
+GSE309652 remains the cleanest leftover R/NR lung cohort (n=72), but GPL31904
+measures neither gene. GSE206127 is leftover nivolumab response at n=213, but
+it is serum miRNA. Blood leftover series (GSE202417, GSE295969, GSE285888,
+GSE190905) were not treated as tumor expression.
+
+GSE292098 leftover GeoMx WTA does measure both genes. GEO has no per-ROI
+outcome key, so no response test was performed. Compartment medians are
+honest leftover biology only:
+
+| Compartment | TACSTD2 median raw | CLDN4 median raw | n segments |
+|---|---:|---:|---:|
+| CK (tumor) | 245 | 199 | 81 |
+| CD45 (immune) | 10 | 10 | 72 |
+| CD68 (macrophage) | 11 | 10 | 81 |
+
+Both genes are about 20-fold higher in CK than in immune compartments. That
+supports leftover epithelial restriction. It is not an ICI-outcome result.
 
 ### Files and reproduction
 
-- `series_audit.tsv`: reviewed series and explicit inclusion/exclusion reasons
-- `GSE233203_pseudobulk.tsv`: patient-level expression and detection fractions
-- `marker_outcome_tests.tsv`: exact tests and effect sizes
-- `input_manifest.tsv`: source URLs, byte sizes, and SHA-256 checksums
-- `GSE233203_*_response.svg`: individual patient values with medians
-
-Run from repository root:
-
 ```bash
-python3 scripts/w200/GEO_2025/analyze_gse233203.py
+python3 scripts/w200/GEO_2025/analyze_scrna_leftovers.py
+python3 scripts/w200/GEO_2025/describe_gse292098.py
 ```
 
-The script uses only the Python standard library. It downloads 545 MB into the
-ignored `data/` directory and streams the sparse matrices without treating
-cells as independent replicates.
+Standard library only. Large raw archives stay in ignored `data/`.
 
 ## 中文
 
 ### 范围
 
-本分析严格限定为 **2025 年在 GEO 公开**、且未进入既往参考集的人类肺癌 ICI
-系列。只有同时满足以下条件的数据才做疗效检验：样本含肿瘤/上皮细胞、平台同时检测
-TACSTD2 与 CLDN4、GEO 直接提供患者级 ICI 疗效标签且无需猜测式拼接。
+本切片是 **2025 年 GEO 公开**、且未进入既往参考集的人类肺癌 ICI **剩余系列**。
+只有同时满足肿瘤/上皮样本、平台同时检测 TACSTD2 与 CLDN4、以及 GEO
+直接提供患者级疗效标签的剩余系列才做疗效检验。
 
-`series_audit.tsv` 记录了 13 个重点候选及排除理由。最终只有 **GSE233203**
-满足全部条件。排除本身也是结果：例如 GSE309652 有 72 例清晰 R/NR 标签，但
-768 基因面板不含两个目标；GSE292098 检测两个目标，却没有公开 ROI 到临床结局的
-对应键。
-
-### 结果
-
-GSE233203 含 7 例 IV 期肺腺癌胸水单细胞数据（缓解 3 例、未缓解 4 例）。
-按患者汇总全部细胞原始计数，转为 log2(CPM + 1)，并在患者层面进行精确双侧置换
-Mann-Whitney 检验；Holm P 值校正两个预设基因检验。
-
-| 基因 | 缓解组中位数 | 未缓解组中位数 | Cliff's delta | 精确 P | Holm P |
-|---|---:|---:|---:|---:|---:|
-| TACSTD2 | 5.743 | 3.702 | 0.833 | 0.114 | 0.229 |
-| CLDN4 | 5.543 | 3.184 | 0.500 | 0.400 | 0.400 |
+第一轮检索只用了 `anti-PD-1` 措辞，因此漏掉了 `GSE291670`（`PD-1 blockade` /
+卡瑞利珠单抗）。本轮补全 61 个剩余编号，并补做该系列。
 
 ### 诚实结论
 
-两个基因的点估计都在缓解组较高，但**均无统计学支持的疗效关联证据**。样本量只有
-7 例，无法区分可重复的标志物信号与随机波动。
+**没有一个 2025 剩余系列能支持 TACSTD2 或 CLDN4 作为 ICI 疗效标志物。**
+两个合格剩余队列都只有 ≤7 例；四个精确检验在两基因 Holm 校正后均不显著。
 
-此外，这里是全胸水样本拟 bulk，而不是恶性细胞拟 bulk。不同患者 TACSTD2
-阳性细胞比例为 2.3%–48.7%，CLDN4 为 2.3%–48.3%；一个高表达缓解样本对组间
-差异影响很大，也很可能反映上皮细胞比例差异。因此当前方向仅能生成假设，不能解释
-为肿瘤细胞内在的 ICI 疗效效应。
+GSE291670 是治疗后手术标本。按常理，MPR 残存肿瘤细胞更少，上皮基因应更低；
+这 6 个拟 bulk 的点估计却是 MPR 更高。这不能用“残瘤更少”一句话解释，但也
+不能当成标志物：n=3 vs 3，精确 P=0.20/0.40。
 
-本分析未合并不合格队列、未从论文图片反推疗效标签，也未把血液中的上皮信号当作
-肿瘤表达。
+GSE292098 剩余 GeoMx 能测到两个基因，但 GEO 没有 ROI 级疗效键，因此只报告
+隔室中位数：CK 约比 CD45/CD68 高 20 倍。这只说明上皮限制，不是疗效结果。
