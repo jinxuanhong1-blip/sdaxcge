@@ -128,15 +128,10 @@ def exact_spearman(values: list[float], outcomes: list[float]) -> tuple[float, f
 
 def benjamini_hochberg(p_values: list[float]) -> list[float]:
     count = len(p_values)
-    order = sorted(range(count), key=p_values.__getitem__, reverse=True)
+    order = sorted(range(count), key=p_values.__getitem__)
     adjusted = [1.0] * count
     running = 1.0
-    for index in order:
-        running = min(running, p_values[index] * count / (order.index(index) + 1))
-        adjusted[index] = running
-    # Recompute with explicit ascending ranks to avoid relying on the reverse index above.
-    running = 1.0
-    for rank, index in reversed(list(enumerate(sorted(range(count), key=p_values.__getitem__), 1))):
+    for rank, index in reversed(list(enumerate(order, 1))):
         running = min(running, p_values[index] * count / rank)
         adjusted[index] = min(running, 1.0)
     return adjusted
@@ -245,7 +240,7 @@ def main() -> None:
         "objective_responders_n": len(responder_indices),
         "objective_nonresponders_n": len(hnsc) - len(responder_indices),
         "complete_case_genes_n": len(gene_rows),
-        "minimum_possible_two_sided_or_p": 0.2,
+        "minimum_possible_two_sided_or_p": 0.1,
         "genes_or_bh_q_below_0_05_n": sum(
             float(row["or_bh_q"]) < 0.05 for row in gene_rows
         ),

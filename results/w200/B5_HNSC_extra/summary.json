@@ -1,0 +1,113 @@
+{
+  "accession": "GSE93157",
+  "platform": "NanoString PanCancer Immune Profiling Panel",
+  "hnsc_n": 5,
+  "objective_responders_n": 2,
+  "objective_nonresponders_n": 3,
+  "complete_case_genes_n": 725,
+  "minimum_possible_two_sided_or_p": 0.2,
+  "genes_or_bh_q_below_0_05_n": 0,
+  "genes_pfs_bh_q_below_0_05_n": 0,
+  "cytolytic_score": {
+    "genes": [
+      "GZMA",
+      "PRF1"
+    ],
+    "or_minus_non_or_log2": 0.0003501638333327506,
+    "or_exact_p": 1.0,
+    "pfs_spearman_rho": -0.5,
+    "pfs_exact_p": 0.45
+  },
+  "top_or_effects": [
+    {
+      "gene": "S100A7",
+      "or_minus_non_or_log2": -8.690419273333333,
+      "or_exact_p": 0.2,
+      "pfs_spearman_rho": -0.9,
+      "pfs_exact_p": 0.08333333333333333,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "DMBT1",
+      "or_minus_non_or_log2": 3.844110402666665,
+      "or_exact_p": 0.4,
+      "pfs_spearman_rho": 0.5,
+      "pfs_exact_p": 0.45,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "MAGEA3",
+      "or_minus_non_or_log2": -3.6681610954999995,
+      "or_exact_p": 0.2,
+      "pfs_spearman_rho": -0.7,
+      "pfs_exact_p": 0.23333333333333334,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "S100A12",
+      "or_minus_non_or_log2": -3.524979037333333,
+      "or_exact_p": 0.3,
+      "pfs_spearman_rho": -0.7,
+      "pfs_exact_p": 0.23333333333333334,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "CCL8",
+      "or_minus_non_or_log2": 3.094747305833333,
+      "or_exact_p": 0.1,
+      "pfs_spearman_rho": 0.6,
+      "pfs_exact_p": 0.35,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "NOS2A",
+      "or_minus_non_or_log2": -3.0382541803333325,
+      "or_exact_p": 0.5,
+      "pfs_spearman_rho": -1.0,
+      "pfs_exact_p": 0.016666666666666666,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "C3",
+      "or_minus_non_or_log2": 2.8295352783333314,
+      "or_exact_p": 0.3,
+      "pfs_spearman_rho": 0.7,
+      "pfs_exact_p": 0.23333333333333334,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "CCL2",
+      "or_minus_non_or_log2": 2.734174270666667,
+      "or_exact_p": 0.1,
+      "pfs_spearman_rho": 0.8,
+      "pfs_exact_p": 0.13333333333333333,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "HLA-DQA1",
+      "or_minus_non_or_log2": -2.7078806056666664,
+      "or_exact_p": 0.7,
+      "pfs_spearman_rho": -0.4,
+      "pfs_exact_p": 0.5166666666666667,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    },
+    {
+      "gene": "CXCL11",
+      "or_minus_non_or_log2": 2.596876957666667,
+      "or_exact_p": 0.6,
+      "pfs_spearman_rho": -0.2,
+      "pfs_exact_p": 0.7833333333333333,
+      "or_bh_q": 1.0,
+      "pfs_bh_q": 1.0
+    }
+  ]
+}
