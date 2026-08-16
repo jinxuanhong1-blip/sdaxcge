@@ -1,0 +1,8 @@
+# do not commit large objects or local GEO copies
+*.h5ad
+*.h5
+*_scvi_model/
+demo_run.log
+GSE*.txt.gz
+GSE*.rds.gz
+GSE*.xlsx
