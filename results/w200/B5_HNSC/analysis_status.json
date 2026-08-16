@@ -1,0 +1,107 @@
+{
+  "question": "Pretreatment tumor CLDN4 expression versus RECIST ORR in public HNSCC ICI data",
+  "estimable": false,
+  "association_tests_run": 0,
+  "primary_result": "NOT ESTIMABLE FROM ELIGIBLE PUBLIC DATA",
+  "why": "No screened public cohort simultaneously provides a CLDN4 measurement and a patient-level RECIST response label that can be joined without inference.",
+  "anti_p_hacking_guardrail": "No alternate gene, disease-control endpoint, survival endpoint, pathologic response endpoint, inferred labels, or outcome-optimized expression cutoff was substituted for the primary RECIST-ORR claim.",
+  "verified_facts": {
+    "GSE159067_response_counts": {
+      "CR": 5,
+      "PR": 6,
+      "SD": 27,
+      "PD": 64
+    },
+    "GSE159067_CLDN4_row_present": false,
+    "GSE93157_HNSCC_n": 5,
+    "GSE93157_CLDN4_row_present": false,
+    "GSE190575_CLDN4_row_present": false,
+    "GSE212549_CLDN4_probe": "TC0700007993.hg.1",
+    "GSE212549_CLDN4_n": 80,
+    "GSE212549_CLDN4_range": [
+      3.47,
+      7.53
+    ],
+    "GSE212549_response_like_fields": 0,
+    "GSE212550_CLDN4_n": 20,
+    "GSE212550_CLDN4_range": [
+      2.82,
+      4.78
+    ],
+    "GSE212550_LTS_STS_counts": {
+      "LTS": 12,
+      "STS": 8
+    },
+    "GSE212550_response_like_fields": 0,
+    "GSE179730_CLDN4_row_present": true,
+    "GSE179730_GEO_response_fields": 0,
+    "GSE179730_column_sum_min": 999739.78830732,
+    "GSE179730_column_sum_max": 999975.4673774759,
+    "GSE179730_pretreatment_n": 11,
+    "GSE179730_table_s2_counts_all_12": {
+      "Responder": 4,
+      "Stable": 3,
+      "Progressor": 5
+    },
+    "GSE179730_RNA_outcome_counts": {
+      "Responder": 3,
+      "Stable": 3,
+      "Progressor": 5
+    },
+    "GSE179730_CLDN4_nonzero_pretreatment_n": 6,
+    "GSE179730_radiographic_RECIST_PR_among_RNA": 0,
+    "GSE179730_radiographic_RECIST_PD_among_RNA": 3,
+    "GSE179730_Pt06_responder_lacks_pretreatment_RNA": true
+  },
+  "leftover": {
+    "accession": "GSE179730",
+    "role": "neoadjuvant leftover; not the primary RECIST-ORR analysis",
+    "association_tests_run": 2,
+    "gene": "CLDN4",
+    "substitute_gene_used": false,
+    "label_source": "liu_table_s2.tsv independently verified from PMC8561238 mmc1.pdf Table S2",
+    "pathologic_orr_analog": {
+      "dataset": "GSE179730",
+      "gene": "CLDN4",
+      "unit": "log2(CPM+1)",
+      "contrast": "leftover_pathologic_orr_analog",
+      "definition": "Table S2 Responder versus Stable+Progressor (pathologic/hybrid ORR analog; not radiographic RECIST)",
+      "is_b5_primary": "no",
+      "is_leftover_primary": "yes",
+      "is_recist_orr": "no",
+      "n_positive": 3,
+      "n_negative": 8,
+      "positive_median": 0.0,
+      "negative_median": 0.2237685158654404,
+      "positive_mean": 0.03904714362909719,
+      "negative_mean": 0.254005782021898,
+      "mann_whitney_u": 6.0,
+      "auc_positive_gt_negative": 0.25,
+      "rank_biserial": -0.5,
+      "exact_permutation_p": 0.24848484848484848,
+      "n_permutations": 165
+    },
+    "clinical_benefit_not_orr": {
+      "dataset": "GSE179730",
+      "gene": "CLDN4",
+      "unit": "log2(CPM+1)",
+      "contrast": "leftover_clinical_benefit_not_orr",
+      "definition": "Table S2 Responder+Stable versus Progressor (clinical benefit / DCR analog; not ORR)",
+      "is_b5_primary": "no",
+      "is_leftover_primary": "no",
+      "is_recist_orr": "no",
+      "n_positive": 6,
+      "n_negative": 5,
+      "positive_median": 0.0,
+      "negative_median": 0.45126611983869735,
+      "positive_mean": 0.04259272614004982,
+      "negative_mean": 0.3787262660444353,
+      "mann_whitney_u": 4.0,
+      "auc_positive_gt_negative": 0.13333333333333333,
+      "rank_biserial": -0.7333333333333334,
+      "exact_permutation_p": 0.045454545454545456,
+      "n_permutations": 462
+    },
+    "honest_leftover_verdict": "Leftover pathologic-ORR analog is inconclusive (n=3 vs 8, AUC=0.25, exact p=0.24848484848484848). Radiographic RECIST ORR is not testable here (0 RNA-profiled cases meet -30% PR). The clinical-benefit contrast is DCR, not ORR, and is not the B5 primary claim."
+  }
+}
