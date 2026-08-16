@@ -1,0 +1,42 @@
+{
+  "accession": "GSE126044",
+  "pdat": "2020/02/03",
+  "n_samples": 16,
+  "title": "Genome-wide identification of differentially methylated promoters and enhancers associated with response to anti-PD-1 therapy in non-small cell lung cancer",
+  "matrix_files": "GSE126044_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE126044_counts.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 0,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": true,
+  "characteristic_snippets": "!Sample_characteristics_ch1\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient respons",
+  "suppl_gene_hits": "{\"GSE126044_counts.txt.gz\": [\"CLDN4\", \"TACSTD2\"]}",
+  "verdict": "ALREADY_ANALYZED",
+  "why": "Prior 2019-2021 / ici-bulk waves already tested both genes vs anti-PD-1 response",
+  "header_info": {
+    "n_samples_matrix": 16,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 0,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": true,
+    "characteristic_snippets": [
+      "!Sample_characteristics_ch1\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient response: non-responder\"\t\"patient respons"
+    ],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE126044_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE126044_counts.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044"
+}

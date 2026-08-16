@@ -1,0 +1,44 @@
+{
+  "accession": "GSE139327",
+  "pdat": "2020/05/26",
+  "n_samples": 28,
+  "title": "Contrasting inflammatory signatures in peripheral blood and bronchoalveolar cells reveal compartment-specific effects of HIV infection",
+  "matrix_files": "GSE139327_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE139327_bal_pos_vs_neg_cd8_gene_exp.diff.gz;GSE139327_bulk_cells_gene_exp.diff.gz;GSE139327_hiv_neg_bal_vs_pbmcs_cd8_gene_exp.diff.gz;GSE139327_hiv_pos_bal_vs_pbmcs_cd8_gene_exp.diff.gz;GSE139327_pbmcs_pos_vs_neg_cd8_gene_exp.diff.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 0,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": false,
+  "characteristic_snippets": "",
+  "suppl_gene_hits": "{\"GSE139327_bal_pos_vs_neg_cd8_gene_exp.diff.gz\": [\"CLDN4\", \"TACSTD2\"], \"GSE139327_bulk_cells_gene_exp.diff.gz\": [\"TACSTD2\"], \"GSE139327_hiv_neg_bal_vs_pbmcs_cd8_gene_exp.diff.gz\": [\"CLDN4\", \"TACSTD2\"], \"GSE139327_hiv_pos_bal_vs_pbmcs_cd8_gene_exp.diff.gz\": [\"CLDN4\", \"TACSTD2\"], \"GSE139327_pbmcs_pos_vs_neg_cd8_gene_exp.diff.gz\": [\"CLDN4\", \"TACSTD2\"]}",
+  "verdict": "NOT_LUNG_ICI",
+  "why": "Title/summary is not a lung-cancer ICI treatment cohort",
+  "header_info": {
+    "n_samples_matrix": 28,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 0,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": false,
+    "characteristic_snippets": [],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE139327_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE139327_bal_pos_vs_neg_cd8_gene_exp.diff.gz",
+      "GSE139327_bulk_cells_gene_exp.diff.gz",
+      "GSE139327_hiv_neg_bal_vs_pbmcs_cd8_gene_exp.diff.gz",
+      "GSE139327_hiv_pos_bal_vs_pbmcs_cd8_gene_exp.diff.gz",
+      "GSE139327_pbmcs_pos_vs_neg_cd8_gene_exp.diff.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE139nnn/GSE139327"
+}

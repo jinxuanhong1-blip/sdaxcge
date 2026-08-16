@@ -1,0 +1,41 @@
+{
+  "accession": "GSE99995",
+  "pdat": "2020/01/01",
+  "n_samples": 12,
+  "title": "Whole-transcriptome analysis of tumor tissues of lung adenocarcinoma reveals molecular changes under the influence of IFN-\u03b3",
+  "matrix_files": "GSE99995_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE99995_RAW.tar;filelist.txt;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 40001,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": false,
+  "characteristic_snippets": "",
+  "suppl_gene_hits": "{\"filelist.txt\": []}",
+  "verdict": "NOT_ANALYZABLE",
+  "why": "No confirmed target genes and no per-sample ICI outcome in the open GEO record",
+  "header_info": {
+    "n_samples_matrix": 12,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 40001,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": false,
+    "characteristic_snippets": [],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE99995_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE99995_RAW.tar",
+      "filelist.txt",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE99nnn/GSE99995"
+}

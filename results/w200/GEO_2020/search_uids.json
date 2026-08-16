@@ -1,0 +1,74 @@
+{
+  "query": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields]) AND (\"immune checkpoint\"[All Fields] OR \"checkpoint inhibitor\"[All Fields] OR \"checkpoint blockade\"[All Fields] OR \"immunotherapy\"[All Fields] OR \"PD-1\"[All Fields] OR \"PD1\"[All Fields] OR \"PD-L1\"[All Fields] OR \"PDL1\"[All Fields] OR \"CTLA-4\"[All Fields] OR \"CTLA4\"[All Fields] OR \"anti-PD-1\"[All Fields] OR \"anti-PD-L1\"[All Fields] OR \"nivolumab\"[All Fields] OR \"pembrolizumab\"[All Fields] OR \"atezolizumab\"[All Fields] OR \"durvalumab\"[All Fields] OR \"avelumab\"[All Fields] OR \"ipilimumab\"[All Fields] OR \"cemiplimab\"[All Fields]) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2020/01/01\"[PDAT] : \"2020/12/31\"[PDAT])",
+  "date_window": "2020/01/01-2020/12/31",
+  "organism": "Homo sapiens",
+  "entry_type": "gse",
+  "n_uids": 28,
+  "per_drug": {
+    "nivolumab": {
+      "count": "2",
+      "n": 2,
+      "new": 0
+    },
+    "pembrolizumab": {
+      "count": "1",
+      "n": 1,
+      "new": 0
+    },
+    "atezolizumab": {
+      "count": "0",
+      "n": 0,
+      "new": 0
+    },
+    "durvalumab": {
+      "count": "1",
+      "n": 1,
+      "new": 0
+    },
+    "ipilimumab": {
+      "count": "0",
+      "n": 0,
+      "new": 0
+    },
+    "avelumab": {
+      "count": "0",
+      "n": 0,
+      "new": 0
+    },
+    "cemiplimab": {
+      "count": "0",
+      "n": 0,
+      "new": 0
+    }
+  },
+  "uids": [
+    "200085352",
+    "200099995",
+    "200124885",
+    "200126043",
+    "200126044",
+    "200126045",
+    "200128822",
+    "200129968",
+    "200133715",
+    "200136961",
+    "200139327",
+    "200141383",
+    "200141479",
+    "200145550",
+    "200145552",
+    "200145896",
+    "200148466",
+    "200148944",
+    "200149383",
+    "200150956",
+    "200150972",
+    "200153051",
+    "200154286",
+    "200154826",
+    "200158403",
+    "200159785",
+    "200159787",
+    "200162353"
+  ]
+}

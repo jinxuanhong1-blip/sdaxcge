@@ -1,0 +1,43 @@
+{
+  "accession": "GSE136961",
+  "pdat": "2020/02/03",
+  "n_samples": 21,
+  "title": "Immune gene signatures for predicting durable clinical benefit of anti-PD-1 immunotherapy in patients with non-small cell lung cancer",
+  "matrix_files": "GSE136961_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE136961_TPM.tsv.gz;GSE136961_raw_count.tsv.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 0,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": true,
+  "characteristic_snippets": "!Sample_characteristics_ch1\t\"survival: recurrence:1, progression-free-survival_days:144, live, overall-survival_days:234\"\t\"survival: recurrence:0, progression-free-survival_days:1088, live, overall-survival_days:1088\"\t\"survival: recurrence:1, progression-free-survival_days:253, dead, overall-survival_days:262\"\t\"survival: recurrence:1, progression-free-survival_days:259, dead, overall-survival_days:259\"\t\"survival: recurrence:1, progression-free-survival_days:191, dead, overall-survival_days:376\"\t",
+  "suppl_gene_hits": "{\"GSE136961_TPM.tsv.gz\": [], \"GSE136961_raw_count.tsv.gz\": []}",
+  "verdict": "NO_TARGET_GENES",
+  "why": "Oncomine Immune Response 395-gene panel; TACSTD2/CLDN4 absent (reconfirmed by prior waves)",
+  "header_info": {
+    "n_samples_matrix": 21,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 0,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": true,
+    "characteristic_snippets": [
+      "!Sample_characteristics_ch1\t\"survival: recurrence:1, progression-free-survival_days:144, live, overall-survival_days:234\"\t\"survival: recurrence:0, progression-free-survival_days:1088, live, overall-survival_days:1088\"\t\"survival: recurrence:1, progression-free-survival_days:253, dead, overall-survival_days:262\"\t\"survival: recurrence:1, progression-free-survival_days:259, dead, overall-survival_days:259\"\t\"survival: recurrence:1, progression-free-survival_days:191, dead, overall-survival_days:376\"\t"
+    ],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE136961_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE136961_TPM.tsv.gz",
+      "GSE136961_raw_count.tsv.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE136nnn/GSE136961"
+}

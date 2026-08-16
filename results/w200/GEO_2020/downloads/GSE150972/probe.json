@@ -1,0 +1,43 @@
+{
+  "accession": "GSE150972",
+  "pdat": "2020/06/30",
+  "n_samples": 1,
+  "title": "Identification of clonal neoantigens derived from driver mutations in an EGFR mutated lung cancer patient benefitting from anti-PD-1",
+  "matrix_files": "GSE150972_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE150972_RAW.tar;filelist.txt;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 0,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": true,
+  "characteristic_snippets": "!Sample_characteristics_ch1\t\"treatment: treated with anti-PD-1\"",
+  "suppl_gene_hits": "{\"filelist.txt\": []}",
+  "verdict": "OUTCOME_BUT_GENES_UNCONFIRMED",
+  "why": "Outcome-like characteristics; gene presence not confirmed in the first 1.5 MB of processed files",
+  "header_info": {
+    "n_samples_matrix": 1,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 0,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": true,
+    "characteristic_snippets": [
+      "!Sample_characteristics_ch1\t\"treatment: treated with anti-PD-1\""
+    ],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE150972_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE150972_RAW.tar",
+      "filelist.txt",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150972"
+}
