@@ -12,6 +12,7 @@ from pathlib import Path
 
 LIMIT = 2_000_000_000
 DOWNLOAD_DECISIONS = {"include", "include_context"}
+METADATA_DECISIONS = DOWNLOAD_DECISIONS | {"metadata_only"}
 
 
 def sha256(path: Path) -> str:
@@ -54,10 +55,15 @@ def main() -> None:
     search = json.loads(args.manifest.read_text())
     records = []
     for study in search["studies"]:
-        if study["decision"] not in DOWNLOAD_DECISIONS:
+        if study["decision"] not in METADATA_DECISIONS:
             continue
         accession = study["accession"]
-        for item in study["processed_files"]:
+        eligible = []
+        for item in study["all_files"]:
+            is_metadata = item["path"].endswith((".idf.txt", ".sdrf.txt"))
+            if item["processed"] and study["decision"] in DOWNLOAD_DECISIONS or is_metadata:
+                eligible.append({**item, "role": "processed" if item["processed"] else "metadata"})
+        for item in eligible:
             if not (0 < item["size"] < LIMIT):
                 records.append({**item, "accession": accession, "status": "skipped_size"})
                 continue

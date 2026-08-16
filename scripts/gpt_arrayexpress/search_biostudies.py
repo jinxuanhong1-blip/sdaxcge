@@ -17,11 +17,12 @@ API = "https://www.ebi.ac.uk/biostudies/api/v1"
 PAGE_SIZE = 100
 GEO_RE = re.compile(r"\b(?:GSE|E-GEOD-)\d+\b", re.I)
 
-LUNG_TERMS = ['lung', '"lung cancer"', '"non-small cell lung"', NSCLC, LLC]
+LUNG_TERMS = ['lung', '"lung cancer"', '"non-small cell lung"', "NSCLC", "LLC"]
 ICI_TERMS = [
     '"anti-PD-1"', "anti-PD1", '"anti-PD-L1"', "anti-PDL1",
-    '"PD-1"', "PD1", '"PD-L1"', "PDL1", '"checkpoint inhibitor"',
-    '"immune checkpoint blockade"', "immunotherapy", "nivolumab",
+    "aPD1", "aPDL1", '"PD-1"', "PD1", '"PD-L1"', "PDL1", "ICI",
+    "checkpoint", '"checkpoint inhibitor"', '"immune checkpoint inhibitors"',
+    '"checkpoint blockade"', '"immune checkpoint blockade"', "immunotherapy", "nivolumab",
     "pembrolizumab", "atezolizumab", "durvalumab", "cemiplimab",
     "ipilimumab",
 ]
@@ -30,8 +31,10 @@ TARGET_TERMS = ["TACSTD2", "TROP2", '"TROP-2"', "CLDN4", '"claudin 4"', '"claudi
 # These decisions are intentionally explicit and auditable. They are applied only
 # after API discovery; the script never manufactures an accession.
 DECISIONS = {
+    "E-MTAB-13704": ("include", "in-situ lung GEMM anti-PD-L1 combination experiment; processed counts"),
     "E-MTAB-15883": ("include", "direct lung-cancer-model anti-PD-1 experiment; processed data"),
     "E-MTAB-9451": ("include_context", "NSCLC immune profiling motivated by checkpoint response; no ICI-treated samples"),
+    "E-MTAB-10633": ("metadata_only", "whole-lung anti-PD-L1/TGF-beta-trap experiment; no processed files"),
     "E-MTAB-8867": ("metadata_only", "three NSCLC patients in ICI-myocarditis cohort; no processed files"),
     "E-MTAB-13708": ("exclude", "lung cancer immunotherapy, but vector immunotherapy rather than ICI"),
     "E-MTAB-10027": ("exclude", "breast-cancer model; lung appears only as metastatic site"),
