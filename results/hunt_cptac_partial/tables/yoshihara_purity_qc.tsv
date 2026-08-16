@@ -1,0 +1,3 @@
+cohort	note
+LUAD	Yoshihara cos(a+b*ESTIMATEScore) on ESTIMATE_ESTIMATEScore: n_wrap(score>17280.7)=24, n_negative_purity=110, usable=False. This freeze's ESTIMATE scores are too large for the 2013 cosine (non-monotonic / unphysical).
+LSCC	Yoshihara cos(a+b*ESTIMATEScore) on ESTIMATE_ESTIMATEScore: n_wrap(score>17280.7)=30, n_negative_purity=107, usable=False. This freeze's ESTIMATE scores are too large for the 2013 cosine (non-monotonic / unphysical).
