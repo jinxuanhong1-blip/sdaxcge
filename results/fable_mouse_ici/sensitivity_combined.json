@@ -1,0 +1,60 @@
+{
+  "all_7_primary": {
+    "set": "all_7_primary",
+    "n": 7,
+    "n_up": 4,
+    "n_down": 3,
+    "sign_test_p_greater": 0.5,
+    "stouffer_Z": 0.85272072122795,
+    "stouffer_p_up": 0.19690709853668237,
+    "datasets": "GSE239485, GSE297630, E-MTAB-13704, GSE114601, GSE157880, GSE309199, GSE169196"
+  },
+  "monotherapy_only": {
+    "set": "monotherapy_only",
+    "n": 5,
+    "n_up": 2,
+    "n_down": 3,
+    "sign_test_p_greater": 0.8125,
+    "stouffer_Z": -0.6122534984230276,
+    "stouffer_p_up": 0.7298149745726381,
+    "datasets": "GSE297630, E-MTAB-13704, GSE114601, GSE157880, GSE309199"
+  },
+  "exclude_polyIC_GSE239485": {
+    "set": "exclude_polyIC_GSE239485",
+    "n": 6,
+    "n_up": 3,
+    "n_down": 3,
+    "sign_test_p_greater": 0.65625,
+    "stouffer_Z": -0.4743230038399057,
+    "stouffer_p_up": 0.6823652050796876,
+    "datasets": "GSE297630, E-MTAB-13704, GSE114601, GSE157880, GSE309199, GSE169196"
+  },
+  "monotherapy_n_ge_3": {
+    "set": "monotherapy_n_ge_3",
+    "n": 3,
+    "n_up": 1,
+    "n_down": 2,
+    "sign_test_p_greater": 0.875,
+    "stouffer_Z": -0.8061078406524989,
+    "stouffer_p_up": 0.7899096644699665,
+    "datasets": "GSE297630, E-MTAB-13704, GSE309199"
+  },
+  "cldn4_all_7_primary": {
+    "set": "cldn4_all_7_primary",
+    "n": 7,
+    "n_up": 1,
+    "n_down": 6,
+    "sign_test_p_greater": 0.9921875,
+    "sign_test_p_down": 0.0625,
+    "stouffer_Z": -2.971502629804949,
+    "stouffer_p_up": 0.9985182683203053,
+    "datasets": "GSE239485, GSE297630, E-MTAB-13704, GSE114601, GSE157880, GSE309199, GSE169196",
+    "note": "6/7 Cldn4 log2FC < 0; down-direction sign test p=0.0625 (trend, not <0.05). Only GSE297630 is individually significant down."
+  },
+  "notes": {
+    "GSE239485": "Poly I:C + anti-PD-1 (Poly I:C confounder); only well-powered UP",
+    "GSE169196": "A2V+aPD1 combo; no aPD1-monotherapy total-tumour arm",
+    "GSE157880_4Gy": "PD-1 4Gy vs IgG 0Gy Tacstd2 +1.42 p=0.003 is radiation-confounded: IgG 4Gy vs IgG 0Gy is +1.78 p=0.013. Primary contrast correctly uses the 0 Gy pair.",
+    "TISMO": "49/64 p=5.8e-5 remains an external all-cancer prior; expression matrix not independently re-downloadable."
+  }
+}

@@ -1,0 +1,187 @@
+[
+  {
+    "accession": "GSE239485",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE239485&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "Effects of the  C5aR1 blockade, Poly I:C and anti/PD1 combined  treatment in the gene expression  in LLC tumors",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "In syngeneic solid tumor models, C5aR1 inhibition significantly enhanced the effectiveness of poly I:C, a toll-like receptor 3 (TLR3) agonist, combined with Programmed cell death protein 1 (PD-1)/Programmed cell death ligand-1 (PD-L1) blockade. In this experiment we aim to determine the effects of C5aR1 inhibition in the genes expression of Lewis Lung Cancer (LLC) tumors treated with poly I:C and PD-1 blockade combined treatment.",
+    "overall_design": "To analyze distinct transcriptomic profile of tumors treated with vehicle, the poly I:C and PD-1 blockade or the poly I:C, PD-1 blockade and C5aR1 blockade.",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE239nnn/GSE239485/suppl/GSE239485_Processed_data.xlsx"
+    ],
+    "n_samples": 24
+  },
+  {
+    "accession": "GSE133604",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE133604&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "Single-cell transcriptomic profiling of mouse KrasG12DP53-/- (KP) lung tumors in response to tumor cell intrinsic Asf1a knockout (KO), anti-PD-1 or combination treatment (Asf1a KO + anti-PD-1).",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "We performed single-cell RNA sequencing (scRNAseq) analysis on the mouse lung tissues from KP tumor-bearing mice treated with tumor cell intrinsic Asf1a KO, anti-PD-1 or combination treatment",
+    "overall_design": "Single-cell RNA-sequencing libraries of mouse tissues using 10x Genomics technology.",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE133nnn/GSE133604/suppl/GSE133604_RAW.tar",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE133nnn/GSE133604/suppl/GSE133604_barcodes.tsv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE133nnn/GSE133604/suppl/GSE133604_genes.tsv.gz"
+    ],
+    "n_samples": 4
+  },
+  {
+    "accession": "GSE222158",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE222158&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "Gene expression of immune cells in a lung cancer mouse model",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "We used in situ vaccination with autologous dendritic cell secreting CCL21, in combination with immune checkpoint inhibitor, anti-PD-1, to treat oncogene-driven non-small cell lung cancer in a murine model. The single cell transcriptome of the treated cancer tissues were measured.",
+    "overall_design": "Cells were stained with Zombie-NIR LIVE/DEAD stain and CD45 antibody for 20 min a 4oC. Viable leukocytes were sorted using BD Biosceinces Aria II cell sorter with 100-mm nozzle. The 10X Genomics platform (10X Genomics, Pleasanton, CA) was utilized for assessing single-cell transcriptomic. In brief, sorted immune cells were loaded into 10X Genomics Chromium microfluidic chips with 3\u2019 v3 chemistry to generate single-cell gelbead emulsions (GEMs).",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE222nnn/GSE222158/suppl/GSE222158_RAW.tar"
+    ],
+    "n_samples": 6
+  },
+  {
+    "accession": "GSE129297",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE129297&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "Single-cell transcriptomic profiling of mouse lung tumor in response to CDK7 inhibitor, anti-PD-1 and combination treatment (Experiment 1)",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "We performed single-cell RNA sequencing (scRNAseq) analysis on the mouse lung tissues from small cell lung tumor-bearing mice treated with CDK7 inhibitor YKL, anti-PD-1 and combination treatment",
+    "overall_design": "Single-cell RNA-sequencing libraries of mouse tissues using 10x Genomics technology.",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129297/suppl/GSE129297_RAW.tar",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129297/suppl/GSE129297_barcodes.tsv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE129nnn/GSE129297/suppl/GSE129297_features.tsv.gz"
+    ],
+    "n_samples": 4
+  },
+  {
+    "accession": "GSE241978",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE241978&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "IFN\ud835\udefe-induced Immunosuppression in Lung Carcinoma is Mediated by an Environmental Chemical Receptor (AhR) through PD-L1 and IDO Control (cm167 bulk RNA)",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "While immunotherapy has shown efficacy in non-small cell lung cancer (NSCLC) patients, many respond only partially or not at all. One limitation in improving outcomes is the lack of a complete understanding of factors regulating immune checkpoint targets. Here, we sought to address a possible link between an environmental chemical receptor implicated in NSCLC and immune regulation, the aryl hydrocarbon receptor (AhR), and a known but counterintuitive mediator of immunosuppression, IFN\ud835\udefe, in regulation of two immune checkpoints, PD-L1 and the IDO1, in lung adenocarcinoma (LUAD). To this end we used AhR, PD-L1, and IFN\ud835\udefeR gene-edited LUAD cell lines, a syngeneic LUAD mouse model, bulk- and single cell-RNA sequencing of LUADs and tumor-infiltrating leukocytes, and existing human transcriptomic databases. The data demonstrate that: 1) the AhR regulates both PD-L1 and IDO1 in murine and human LUAD cells, 2) AhR-driven IDO1 results in production of Kyn which likely mediates an AhR\u2192IDO1\u2192Kyn\u2192AhR amplification loop, 3) the previously characterized induction by IFN\ud835\udefeof PD-L1 and IDO is mediated by the AhR, 4) transplantation of LUAD cells in which the AhR is deleted results in long-term tumor immunity in approximately half of the mice; slow growing tumors in the other half exhibit significantly higher densities of CD4+ and CD8+ T cells expressing immunocompetence markers, and 5) deletion of either IFN\ud835\udefeR1 or PD-L1 does not provide the same level of immune protection as AhR deletion. The data definitively link IFN\ud835\udefe- mediated immunosuppression to the AhR and support the targeting of the AhR in the context of LUAD.",
+    "overall_design": "The experiment is comprised of 6 samples, profiling RNA extracted from mouse CMT 167 (C57 mouse tumor; referred to herein as CMT) cell lines. Each cell line was either unmodified (naive, or \"wild-type\"), subjected to CRISPR with a non-targeting control sgRNA, or subjected to CRISPR with an sgRNA designed to knock out the aryl hydrocarbon receptor (Ahr) gene. Each experimental group was represented in triplicate.",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241978/suppl/GSE241978_2020-07-21_Sherr_analysis_CMT_KO_vs_Cas9Ctrl.xlsx"
+    ],
+    "n_samples": 6
+  },
+  {
+    "accession": "GSE330658",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE330658&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "Limited Immune-Mediated Efficacy of Anti-PD-L1/VEGF in EGFR-TKI-Na\u00efve Egfr-Mutant Lung Cancer with Non-Inflamed Tumor Microenvironment",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "Patients with EGFR-mutated lung cancer show limited response to immune checkpoint inhibitors. In this study, we found that anti-PD-L1/VEGF combination therapy failed to activate tumor immunity in a syngeneic Egfr-mutant lung cancer mouse model. Unlike the combination of paclitaxel (PTX) and anti-PD-L1, the combination of PTX and anti-VEGF enhanced anti-tumor effects and altered the tumor microenvironment (TME), showing potential to activate anti-tumor immunity. To investigate these mechanisms, we profiled the transcriptomes of tumors treated with PTX and/or anti-VEGF. The data suggested a potential trend where the combination of PTX and anti-VEGF therapy might be associated with a modest increase in natural killer (NK) cell populations within the TME.",
+    "overall_design": "Total RNA was extracted from subcutaneous Egfr-mutant lung tumors harvested from C57BL/6J mice on day 8 post-treatment with PBS (control), paclitaxel (PTX), anti-PD-L1, and/or anti-VEGF antibodies. RNA-seq was performed to evaluate treatment-induced changes in gene expression profiles and the tumor immune microenvironment.",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE330nnn/GSE330658/suppl/GSE330658_RAW.tar"
+    ],
+    "n_samples": 8
+  },
+  {
+    "accession": "GSE197260",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE197260&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "CD8+ T cell-1 dependent antitumor response boosted by dual blockade of PD-1 and VGFR2 following EGFR-tyrosine kinase inhibitors against lung cancer with Egfr mutation",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "We showed that CD8+ T cell-dependent antitumor response was induced by an EGFR-tyrosine kinase inhibitor (TKI) against syngeneic Egfr-mutant NSCLC tumors and that the effect was further pronounced by the sequential dual blockade of PD-1 and vascular endothelial growth factor receptor 2 (VEGFR2).",
+    "overall_design": "The subcutaneous tumors harboring Egfr exon 19 deletions were passaged using C57BL/6J mice, then the mice were randomly assigned to groups that were treated with the vehicle, gefitinib, DC101, and/or 4H2. The tumor volume (width2 \u00d7 length/2) was determined periodically.",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE197nnn/GSE197260/suppl/GSE197260_RNAseqTPM_MM_EGFR-TKI-CD8.txt.gz"
+    ],
+    "n_samples": 7
+  },
+  {
+    "accession": "GSE297630",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE297630&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "Expression data of control or anti-PD-1 antibody tolerant LLC cells",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "Even after anti-PD-1 antibody is administrated to subcutaneous model mouse using LLC cells, there are a few cells which survive, and these tolerant cells are considered to be the source of later recurrence. We used microarray analysis to explore the mechanism behind the tolerance to anti-PD-1 antibody in LLC cells",
+    "overall_design": "LLC cells surviving 7 days after treatment with anti-PD-1 antibody (P) and control LLC cells without treatment (C) were collected and RNA was extracted and hybridized on Affymetrix microarrays",
+    "type": [
+      "Expression profiling by array"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE297nnn/GSE297630/suppl/GSE297630_RAW.tar",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE297nnn/GSE297630/suppl/GSE297630_processed_data.xlsx"
+    ],
+    "n_samples": 6
+  },
+  {
+    "accession": "GSE297632",
+    "source": "GEO",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE297632&targ=self&form=text&view=quick",
+    "exists": true,
+    "title": "Single-cell RNA sequencing data of anti-PD-1 antibody tolerant LLC cells",
+    "organism": [
+      "Mus musculus"
+    ],
+    "summary": "Even after anti-PD-1 antibody is administrated to subcutaneous model mouse using LLC cells, there are a few cells which survive, and these tolerant cells are considered to be the source of later recurrence. We performed single-cell analysis to explore the mechanism behind the tolerance to anti-PD-1 antibody in LLC cells",
+    "overall_design": "LLC cells surviving 7 days after treatment with anti-PD-1 antibody (PD-1 treatment) and control LLC cells without treatment (Control) were collected and  analyzed using scRNA-seq.",
+    "type": [
+      "Expression profiling by high throughput sequencing"
+    ],
+    "supplementary_files": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE297nnn/GSE297632/suppl/GSE297632_RAW.tar"
+    ],
+    "n_samples": 2
+  },
+  {
+    "accession": "E-MTAB-13704",
+    "source": "ArrayExpress/BioStudies",
+    "exists": true,
+    "title": null,
+    "n_files": 3,
+    "file_size_bytes": null,
+    "release_date": 1706486400000
+  }
+]

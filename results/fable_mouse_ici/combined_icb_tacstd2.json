@@ -1,0 +1,9 @@
+{
+  "n_primary_contrasts": 7,
+  "n_tacstd2_up": 4,
+  "sign_test_p_greater": 0.5,
+  "stouffer_Z": 0.852720721227947,
+  "stouffer_p_up": 0.1969070985366832,
+  "datasets": "GSE239485, GSE297630, E-MTAB-13704, GSE114601, GSE157880, GSE309199, GSE169196",
+  "note": "One primary ICB-vs-control contrast per independent tumour RNA dataset. GSE239485 ICB arm is Poly I:C + anti-PD-1 (Poly I:C confounder). GSE169196 has no aPD1-monotherapy total-tumour arm (A2V+aPD1 vs IgG). TISMO 49/64 p=5.8e-5 is an external prior; the TISMO expression matrix was not independently re-downloadable from the current site (SPA + github scripts only)."
+}
