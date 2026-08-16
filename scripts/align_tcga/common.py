@@ -97,6 +97,22 @@ def spearman(x: np.ndarray, y: np.ndarray) -> tuple[float, float, int]:
     return float(r), float(p), int(len(x))
 
 
+def bh_fdr(pvals: list[float]) -> list[float]:
+    """Benjamini–Hochberg FDR. NaNs stay NaN."""
+    q = [np.nan] * len(pvals)
+    finite_idx = [i for i, p in enumerate(pvals) if np.isfinite(p)]
+    if not finite_idx:
+        return q
+    finite_idx.sort(key=lambda i: pvals[i])
+    m = len(finite_idx)
+    prev = 1.0
+    for rank, i in enumerate(reversed(finite_idx), start=0):
+        k = m - rank  # 1-based rank of this p among finite values
+        prev = min(prev, pvals[i] * m / k)
+        q[i] = min(prev, 1.0)
+    return q
+
+
 def partial_spearman(x: np.ndarray, y: np.ndarray, z: np.ndarray
                      ) -> tuple[float, float, int]:
     """First-order partial Spearman correlation of x,y controlling for z.
