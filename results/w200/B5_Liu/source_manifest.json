@@ -1,0 +1,27 @@
+{
+  "study": "Liu, Schilling, et al., Nature Medicine (2019)",
+  "doi": "10.1038/s41591-019-0654-5",
+  "sources": [
+    {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-019-0654-5/MediaObjects/41591_2019_654_MOESM3_ESM.txt",
+      "sha256": "80d3a6e6ec7a2c89101ed9f1c9078dda32c2f7152fb20d0e24edcadf37871553",
+      "role": "RNA-seq TPM matrix"
+    },
+    {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-019-0654-5/MediaObjects/41591_2019_654_MOESM4_ESM.xlsx",
+      "sha256": "5bb2d19d5a73869d508d67323e84adccf00f948ec36a034e68efc1bb47b9e899",
+      "role": "response and clinical annotations"
+    }
+  ],
+  "software": {
+    "python": "3.12.3",
+    "numpy": "2.4.4",
+    "pandas": "3.0.5",
+    "scipy": "1.18.0",
+    "matplotlib": "3.11.1"
+  },
+  "validation": {
+    "published_supplementary_table_4_CLDN4_p": 0.346944947791477,
+    "reproduced_primary_p": 0.346944947791477
+  }
+}

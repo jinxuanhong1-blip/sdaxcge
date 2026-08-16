@@ -1,0 +1,32 @@
+{
+  "analysis": "Primary: CR/PR vs PD",
+  "n_responder": 47,
+  "n_comparator": 56,
+  "responder_median_log2_TPM_plus_1": 0.037164777285246794,
+  "comparator_median_log2_TPM_plus_1": 0.050520541295746436,
+  "median_difference": -0.013355764010499642,
+  "rank_biserial": -0.10486322188449848,
+  "auc_higher_CLDN4_predicts_response": 0.44756838905775076,
+  "mann_whitney_U": 1178.0,
+  "p_value_two_sided": 0.346944947791477,
+  "rank_biserial_95pct_percentile_CI": [
+    -0.31534954407294835,
+    0.1136018237082066
+  ],
+  "median_difference_95pct_percentile_CI": [
+    -0.09247970322955333,
+    0.03137091275459588
+  ],
+  "mean_difference_95pct_percentile_CI": [
+    -0.13471400768917255,
+    0.14090830226804474
+  ],
+  "responder_median_TPM": 0.0260953340315999,
+  "progressor_median_TPM": 0.0356388084989,
+  "responder_detected_n": 26,
+  "progressor_detected_n": 36,
+  "detection_odds_ratio": 0.6878306878306878,
+  "detection_fisher_p_two_sided": 0.42066104412352034,
+  "bootstrap_seed": 2019,
+  "bootstrap_replicates": 20000
+}
