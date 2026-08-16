@@ -1,0 +1,42 @@
+{
+  "claim": "A4 TISMO Tacstd2 after ICB, all 64 slices",
+  "n_slices": 64,
+  "primary_median_sign_test": {
+    "n_models": 64,
+    "n_up": 40,
+    "n_down": 18,
+    "n_tie": 6,
+    "n_tested": 58,
+    "sign_p_two_sided": 0.005354859650800294,
+    "sign_p_greater": 0.002677429825400147
+  },
+  "mean_sign_test_user_count": {
+    "n_models": 64,
+    "n_up": 49,
+    "n_down": 15,
+    "n_tie": 0,
+    "n_tested": 64,
+    "sign_p_two_sided": 2.436457216293327e-05,
+    "sign_p_greater": 1.2182286081466635e-05
+  },
+  "wilcoxon_mean_deltas_user_p": {
+    "n": 64,
+    "statistic": 439.0,
+    "p_two_sided": 5.8398482923347564e-05
+  },
+  "wilcoxon_median_deltas": {
+    "n": 58,
+    "statistic": 508.0,
+    "p_two_sided": 0.007135232107466571
+  },
+  "cancer_groups": {
+    "Colorectal": 10,
+    "Gastric": 5,
+    "Liver": 2,
+    "Lung": 2,
+    "Mammary": 29,
+    "Melanoma": 14,
+    "Sarcoma": 2
+  },
+  "verdict": "User 49/64 is the mean-based sign count. User p=5.8e-5 is Wilcoxon signed-rank on the 64 mean differences, not a sign test. Honest median sign test is 40 up / 18 down / 6 ties (p=5.35e-3). No cancer type is significant on its own; mammary (29 slices) is 16/12/1, p=0.57."
+}
