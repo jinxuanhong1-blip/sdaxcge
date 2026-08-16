@@ -1,0 +1,49 @@
+{
+  "retrieved": "2026-08-16",
+  "panel": [
+    "TACSTD2",
+    "CLDN4",
+    "CD8A"
+  ],
+  "panel_ensembl_ids": {
+    "TACSTD2": "ENSG00000184292",
+    "CLDN4": "ENSG00000189143",
+    "CD8A": "ENSG00000153563"
+  },
+  "time_unit_note": {
+    "GSE135222": "pfs.time is in days; converted with 365.25/12 days per month",
+    "GSE190265": "time_PFS is already in months as deposited"
+  },
+  "files": {
+    "GSE135222_series_matrix": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/matrix/GSE135222_series_matrix.txt.gz",
+      "bytes": 2829,
+      "sha256": "df7dfda28692cca0daf5797cc6e39c8f6c0d5505506371f218526dd5e3cf37ef"
+    },
+    "GSE135222_tpm": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/suppl/GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz",
+      "bytes": 1663896,
+      "sha256": "8b122e610492e88fb0aa0a759b8e380b04f26f2f58ddc581f9c050e54d0990a0"
+    },
+    "GSE190265_clinical": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190265/suppl/GSE190265_samples_info_France3.csv.gz",
+      "bytes": 418,
+      "sha256": "9a7e7f7f2f126e3c31a75af9016054fbec8c49725886ed3adc5711acc1d7ad67"
+    },
+    "GSE190265_tpm": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190265/suppl/GSE190265_TPM_France3.csv.gz",
+      "bytes": 4139455,
+      "sha256": "7fc89dd8979c62192d89866e090ecfd396603cf45c4412093cd6699b08f48f3e"
+    }
+  },
+  "cohorts": {
+    "GSE135222": {
+      "n": 27,
+      "events": 21
+    },
+    "GSE190265": {
+      "n": 43,
+      "events": 35
+    }
+  }
+}
