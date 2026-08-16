@@ -1,6 +1,6 @@
 # TACSTD2 → CD8 → ICI resistance: causal-analysis playbook
 
-> **Scope / 范围**  
+> **Scope / 范围**
 > Methods only. This document specifies when and how the hypothesis “TACSTD2 alters CD8 infiltration/function and thereby causes immune-checkpoint inhibitor (ICI) resistance” may be evaluated. It does not report results.
 
 > 仅限方法。本文件说明何时以及如何评估“TACSTD2 改变 CD8 浸润/功能，进而导致免疫检查点抑制剂（ICI）耐药”这一假设，不报告任何研究结果。
