@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-"""Audit target coverage in the leftover processed Zenodo NSCLC ICI cohort."""
+"""Audit leftover Zenodo/figshare lung ICI records for TACSTD2/CLDN4."""
 
 from __future__ import annotations
 
 import csv
 import hashlib
 import json
-from collections import Counter
+import statistics
+from collections import Counter, defaultdict
 from pathlib import Path
 
 
@@ -20,6 +21,8 @@ EXPECTED_MD5 = {
     "validate-data.csv": "69d0f9ca7472ff459eebdc467e166764",
     "validate-metadata.csv": "4a9016ad18ce0cda0cad352182ddc382",
 }
+GEOMX_EXTRACT = ROOT / "geomx_tacstd2_rois.csv"
+ROI_ORDER = ("immunity hub", "hybrid hub", "bystander TLS", "non-hub", "exclude")
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -48,7 +51,7 @@ def count_text(rows: list[dict[str, str]], field: str) -> str:
     return json.dumps(dict(sorted(counts.items())), sort_keys=True)
 
 
-def main() -> None:
+def audit_nanostring() -> dict[str, object]:
     manifest_rows: list[dict[str, object]] = []
     for name, expected in EXPECTED_MD5.items():
         observed = md5(DATA / name)
@@ -99,11 +102,7 @@ def main() -> None:
             }
         )
 
-    write_csv(
-        ROOT / "source_manifest.csv",
-        manifest_rows,
-        ["file", "md5", "bytes", "verified"],
-    )
+    write_csv(ROOT / "source_manifest.csv", manifest_rows, ["file", "md5", "bytes", "verified"])
     write_csv(
         ROOT / "target_coverage.csv",
         coverage_rows,
@@ -122,8 +121,7 @@ def main() -> None:
             "metadata_columns",
         ],
     )
-
-    result = {
+    return {
         "record": "10.5281/zenodo.2635194",
         "assay": "NanoString nCounter PanCancer Immune Profiling panel",
         "population": "advanced NSCLC treated with anti-PD-1 immunotherapy",
@@ -150,9 +148,165 @@ def main() -> None:
         "reason": "Neither requested gene is measured by the deposited targeted panel.",
         "surrogate_analysis_performed": False,
     }
-    (ROOT / "result.json").write_text(
-        json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+
+
+def group_stats(rows: list[dict[str, str]], key: str) -> list[dict[str, object]]:
+    grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for row in rows:
+        grouped[row[key]].append(row)
+    out: list[dict[str, object]] = []
+    for name in sorted(grouped, key=lambda item: (ROI_ORDER.index(item) if item in ROI_ORDER else 99, item)):
+        subset = grouped[name]
+        values = [float(row["q_norm"]) for row in subset]
+        loqs = [float(row["LOQ.Hs_R_NGS_CTA_v1.0"]) for row in subset]
+        above = sum(row["above_LOQ"] == "TRUE" for row in subset)
+        out.append(
+            {
+                key: name,
+                "n_rois": len(subset),
+                "n_above_loq": above,
+                "frac_above_loq": round(above / len(subset), 6),
+                "median_q_norm": statistics.median(values),
+                "median_loq": statistics.median(loqs),
+                "q_norm_used_as_quantitative_endpoint": False,
+            }
+        )
+    return out
+
+
+def write_detection_svg(by_roi: list[dict[str, object]], by_slide: list[dict[str, object]]) -> None:
+    def bars(rows: list[dict[str, object]], label_key: str, x0: float, title: str) -> str:
+        width = 360
+        height = 220
+        max_frac = max((float(row["frac_above_loq"]) for row in rows), default=0) or 1
+        bar_w = 48
+        gap = 18
+        parts = [
+            f'<text x="{x0}" y="18" font-family="DejaVu Sans, Arial, sans-serif" font-size="13">{title}</text>'
+        ]
+        for idx, row in enumerate(rows):
+            frac = float(row["frac_above_loq"])
+            h = 140 * frac / max_frac
+            x = x0 + 20 + idx * (bar_w + gap)
+            y = 180 - h
+            parts.append(
+                f'<rect x="{x}" y="{y:.1f}" width="{bar_w}" height="{h:.1f}" fill="#4C78A8"/>'
+            )
+            parts.append(
+                f'<text x="{x + bar_w / 2:.1f}" y="198" text-anchor="middle" font-size="9" '
+                f'font-family="DejaVu Sans, Arial, sans-serif">{row[label_key]}</text>'
+            )
+            parts.append(
+                f'<text x="{x + bar_w / 2:.1f}" y="{y - 6:.1f}" text-anchor="middle" font-size="10" '
+                f'font-family="DejaVu Sans, Arial, sans-serif">{row["n_above_loq"]}/{row["n_rois"]}</text>'
+            )
+        return "\n".join(parts)
+
+    roi_rows = [row for row in by_roi if row["ROI_Type"] != "exclude"]
+    svg = [
+        '<svg xmlns="http://www.w3.org/2000/svg" width="920" height="260" viewBox="0 0 920 260">',
+        '<rect width="920" height="260" fill="white"/>',
+        '<text x="16" y="20" font-family="DejaVu Sans, Arial, sans-serif" font-size="14">'
+        "Leftover GeoMx TACSTD2 above LOQ (not an ICI-response test)</text>",
+        bars(roi_rows, "ROI_Type", 16, "By ROI type"),
+        bars(by_slide, "Slide_ID", 470, "By slide"),
+        "</svg>",
+        "",
+    ]
+    (ROOT / "geomx_tacstd2_above_loq.svg").write_text("\n".join(svg), encoding="utf-8")
+
+
+def analyze_geomx() -> dict[str, object]:
+    fields, rows = read_csv(GEOMX_EXTRACT)
+    required = {
+        "SampleName",
+        "Slide_ID",
+        "roi",
+        "ROI_Type",
+        "q_norm",
+        "LOQ.Hs_R_NGS_CTA_v1.0",
+        "above_LOQ",
+    }
+    missing = required.difference(fields)
+    if missing:
+        raise RuntimeError(f"GeoMx extract missing columns: {sorted(missing)}")
+    if len(rows) != 285:
+        raise RuntimeError(f"Expected 285 TACSTD2 ROI rows, found {len(rows)}")
+
+    by_roi = group_stats(rows, "ROI_Type")
+    by_slide = group_stats(rows, "Slide_ID")
+    write_csv(
+        ROOT / "geomx_detection_by_roi_type.csv",
+        by_roi,
+        [
+            "ROI_Type",
+            "n_rois",
+            "n_above_loq",
+            "frac_above_loq",
+            "median_q_norm",
+            "median_loq",
+            "q_norm_used_as_quantitative_endpoint",
+        ],
     )
+    write_csv(
+        ROOT / "geomx_detection_by_slide.csv",
+        by_slide,
+        [
+            "Slide_ID",
+            "n_rois",
+            "n_above_loq",
+            "frac_above_loq",
+            "median_q_norm",
+            "median_loq",
+            "q_norm_used_as_quantitative_endpoint",
+        ],
+    )
+    write_detection_svg(by_roi, by_slide)
+
+    n_above = sum(row["above_LOQ"] == "TRUE" for row in rows)
+    slide_above = Counter(row["Slide_ID"] for row in rows if row["above_LOQ"] == "TRUE")
+    dominant_slide, dominant_n = slide_above.most_common(1)[0]
+    return {
+        "record": "10.5281/zenodo.11198494",
+        "file": "geomx.csv",
+        "source_md5": "8421f72c459e8aa6eb06fa48ba974501",
+        "assay": "GeoMx Cancer Transcriptome Atlas plus TCR module",
+        "population": "immunotherapy-naive primary NSCLC spatial ROIs from a PD-1-response spatial study",
+        "n_features_in_long_table": 2018,
+        "n_rois": len(rows),
+        "n_slides": len({row["Slide_ID"] for row in rows}),
+        "targets": {
+            "TACSTD2": {"present": True, "n_rois_above_loq": n_above},
+            "CLDN4": {"present": False, "n_rois_above_loq": None},
+        },
+        "valid_ici_outcome_analysis": False,
+        "valid_quantitative_expression_analysis": False,
+        "reason": (
+            "TACSTD2 is measured but above LOQ in only "
+            f"{n_above}/{len(rows)} ROIs, and {dominant_n}/{n_above} detections "
+            f"come from one slide ({dominant_slide}). The GeoMx table has no ICI "
+            "response labels. CLDN4 is absent."
+        ),
+        "surrogate_analysis_performed": False,
+    }
+
+
+def main() -> None:
+    nanostring = audit_nanostring()
+    geomx = analyze_geomx()
+    result = {
+        "question": "leftover processed Zenodo/figshare lung ICI matrices for TACSTD2/CLDN4 not analyzed in PR42",
+        "valid_target_vs_ici_result": False,
+        "nanostring_zenodo_2635194": nanostring,
+        "geomx_zenodo_11198494": geomx,
+        "honest_conclusion": (
+            "No leftover open compact matrix supports a TACSTD2 or CLDN4 comparison "
+            "against ICI outcome. The NanoString ICI cohort lacks both genes. The "
+            "leftover GeoMx table measures TACSTD2 but not CLDN4, is mostly below "
+            "LOQ, is slide-confounded, and has no response labels."
+        ),
+    }
+    (ROOT / "result.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
