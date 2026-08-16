@@ -1,0 +1,10 @@
+# Ignore large raw downloads; only derived tables/figures are committed
+*.gz
+*.tar
+*.mtx
+*.xlsx
+*.txt
+*.tsv
+*.csv
+*.h5
+!.gitignore

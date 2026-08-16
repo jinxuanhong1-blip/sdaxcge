@@ -1,0 +1,9 @@
+{
+  "dataset": "GSE207422_scRNA_malig_post",
+  "n_samples_total": 15,
+  "n_post_qc": 12,
+  "n_MPR": 4,
+  "n_nonMPR": 8,
+  "gate": "EPCAM>0 & PTPRC==0 (no published malignant labels on GEO)",
+  "timing": "mostly post-treatment residual tumor"
+}
