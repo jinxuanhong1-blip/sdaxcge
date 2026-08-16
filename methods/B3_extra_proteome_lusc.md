@@ -57,7 +57,7 @@ CPTAC matrices are Ensembl-indexed. Symbols are mapped to GENCODE Ensembl IDs (`
 
 - **Mean z-score:** each gene is z-scored across samples in that matrix; the sample score is the mean of available z-values.
 - TJ-15 requires ≥5 member genes with ≥8 non-missing samples; TJ-7 requires ≥4; GEP18 requires ≥10; CD8/CYT require both genes.
-- **CLDN4 protein** is the single TMT row. Missing values are left missing (MNAR-typical for a small tetraspan). No RNA imputation.
+- **CLDN4 protein** is the single TMT row. Missing values are left missing (MNAR-typical for a small tetraspan). No RNA imputation. In CPTAC LUAD, CLDN1 protein is observed in 9 tumors and CLDN7 in 17; they enter the TJ-15 mean only where measured.
 - CPTAC immune endpoints are the freeze phenotype columns: ESTIMATE ImmuneScore / StromalScore, CIBERSORT CD8, xCell CD8, xCell immune score, WES purity when present.
 - CPTAC freeze ESTIMATE scores are **not** converted with the Yoshihara cosine purity formula (those scores sit outside the Affymetrix calibration range). WES purity is the DNA residual covariate when present.
 - TCGA-LUSC purity = `cos(0.6049872018 + 0.0001467884 · ESTIMATEScore)` (Yoshihara 2013), same formula as B3.

@@ -520,14 +520,14 @@ def analyze_lusc(data: Path, out: Path) -> dict:
 # ---------------------------------------------------------------------------
 # Figures
 # ---------------------------------------------------------------------------
-def _scatter(ax, x, y, title, xlabel, ylabel, color=None):
+def _scatter(ax, x, y, title, xlabel, ylabel, color=None, color_label=None):
     d = pd.concat([x, y], axis=1).dropna()
     d.columns = ["x", "y"]
     sp = spearman(d["x"], d["y"])
     c = color.reindex(d.index) if color is not None else None
     if c is not None and c.notna().sum() > 10:
         sc = ax.scatter(d["x"], d["y"], c=c, cmap="viridis", s=18, alpha=0.75, edgecolors="none")
-        plt.colorbar(sc, ax=ax, fraction=0.046, pad=0.04).set_label("covariate")
+        plt.colorbar(sc, ax=ax, fraction=0.046, pad=0.04).set_label(color_label or "covariate")
     else:
         ax.scatter(d["x"], d["y"], s=18, alpha=0.7, c="#2c5aa0", edgecolors="none")
     if len(d) >= 6:
@@ -559,13 +559,15 @@ def fig_luad(luad: dict, figdir: Path) -> None:
         "CPTAC LUAD  ·  CLDN4 protein vs ImmuneScore",
         "CLDN4 protein (log2 TMT)", "ESTIMATE ImmuneScore",
         s.get("WES_purity"),
+        "WES purity",
     )
     cd8 = s["CD8_xCell"] if "CD8_xCell" in s.columns else s.get("CD8_CIBERSORT")
     _scatter(
         axes[1], s["CLDN4_protein"], cd8,
         "CPTAC LUAD  ·  CLDN4 protein vs CD8",
-        "CLDN4 protein (log2 TMT)", "CD8 (xCell or CIBERSORT)",
+        "CLDN4 protein (log2 TMT)", "CD8 (xCell)",
         s.get("WES_purity"),
+        "WES purity",
     )
     fig.savefig(figdir / "fig1_luad_cldn4_protein.png", dpi=160)
     fig.savefig(figdir / "fig1_luad_cldn4_protein.pdf")
@@ -577,12 +579,14 @@ def fig_luad(luad: dict, figdir: Path) -> None:
         "CPTAC LUAD  ·  TJ-15 protein vs ImmuneScore",
         "TJ-15 protein (mean z)", "ESTIMATE ImmuneScore",
         s.get("WES_purity"),
+        "WES purity",
     )
     _scatter(
         axes[1], s["TJ15_protein"], s["CD8_RNA"],
         "CPTAC LUAD  ·  TJ-15 protein vs CD8 RNA",
         "TJ-15 protein (mean z)", "CD8A/CD8B RNA (mean z)",
         s.get("WES_purity"),
+        "WES purity",
     )
     fig.savefig(figdir / "fig2_luad_tj15_protein.png", dpi=160)
     fig.savefig(figdir / "fig2_luad_tj15_protein.pdf")
@@ -666,12 +670,14 @@ def fig_lusc(lusc: dict, figdir: Path) -> None:
         "TCGA-LUSC  ·  TJ-15 vs CD8",
         "TJ-15 RNA (mean z)", "CD8A/CD8B (mean z)",
         s["purity"],
+        "ESTIMATE purity",
     )
     _scatter(
         axes[1], s["TJ15"], s["GEP18"],
         "TCGA-LUSC  ·  TJ-15 vs GEP18",
         "TJ-15 RNA (mean z)", "Ayers GEP18 (mean z)",
         s["purity"],
+        "ESTIMATE purity",
     )
     fig.savefig(figdir / "fig5_lusc_tj_cd8_gep.png", dpi=160)
     fig.savefig(figdir / "fig5_lusc_tj_cd8_gep.pdf")
@@ -688,7 +694,7 @@ def fig_lusc(lusc: dict, figdir: Path) -> None:
         hi = d.loc[d["tj"] > med, "y"]
         lo = d.loc[d["tj"] <= med, "y"]
         hl = high_low(s["TJ15"], s[end])
-        ax.boxplot([lo.values, hi.values], labels=["TJ-low", "TJ-high"], widths=0.55,
+        ax.boxplot([lo.values, hi.values], tick_labels=["TJ-low", "TJ-high"], widths=0.55,
                    patch_artist=True,
                    boxprops=dict(facecolor="#d6e4f0", edgecolor="#1f4e79"),
                    medianprops=dict(color="#c0392b", lw=1.6))
