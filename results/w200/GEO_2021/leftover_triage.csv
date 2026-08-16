@@ -1,0 +1,9 @@
+accession,decision,target_coverage,outcome_usable,honest_reason
+GSE168707,exclude,neither (miRNA qPCR),no,"Cisplatin-sensitive/resistant samples; not an ICI-treated mRNA cohort."
+GSE171650,exclude,both likely measurable by RNA-seq,no,"PD-L1 perturbation in erlotinib-resistant PC9 cells; no patients or ICI outcome."
+GSE173351,exclude,not evaluated,no,"Superseries of single-cell RNA-seq and bulk TCR-seq focused on T cells; no patient-level bulk-tumor target expression matched to outcome."
+GSE180347,exclude,neither in deposited Nanostring matrix,no,"PD-L1-positive/negative hot tumors, but no ICI outcome and the panel omits both targets."
+GSE181820,exclude,both,no,"Twenty-two NSCLC tumors grouped by TMB/immune infiltration; no deposited ICI response or survival endpoint."
+GSE184053,exclude,both technically measurable but inappropriate,no,"Sorted tumor/peripheral TEMRA CD8 T cells; epithelial target expression is not tumor expression and no ICI outcome is deposited."
+GSE190265,analyze,both,yes,"Deposited tumor TPM and PFS event/time align for 43 samples; analyze univariate PFS associations."
+GSE190266,analyze,CLDN4 only,yes,"Deposited tumor TPM and six-month PFS align for 70 samples; TACSTD2 is absent, so analyze CLDN4 only."
