@@ -1,0 +1,32 @@
+accession	compartment	assay	lung_ici_blood	TACSTD2_or_CLDN4_in_public_matrix	public_response_label	disposition	reason
+GSE216297	platelet	RNA-seq (filtered 3805-gene count matrix)	Y	N	Y	ABSENT_GENES	286 baseline nivolumab platelet RNA samples have Responder/nonResponder in GEO characteristics, but the public TEP_Count_Matrix keeps only 3805 genes after low-abundance filtering. ENSG00000184292 (TACSTD2) and ENSG00000184347 (CLDN4) are not in that matrix (PTPRC/CD3D/GZMB are). Cannot compute vs response from public processed data.
+GSE152590	PBMC CD8	RNA-seq TPM	Y (4/8 lung)	N	N	ABSENT_GENES	TPM matrix (24530 rows) has no TACSTD2, CLDN4, or EPCAM (only EPCAM-DT). Immune genes present. No response labels. 4 lung + 4 melanoma.
+GSE235048	PBMC	RNA-seq TPM	Y	PARTIAL	N	ABSENT_RESPONSE	TACSTD2 is in the TPM matrix (near-zero); CLDN4 is not. GEO has drug/timepoint only, no RECIST. Pre vs post computed; not a response test.
+GSE225620	whole blood	RNA-seq featureCounts	Y	Y	N	ABSENT_RESPONSE	TACSTD2 and CLDN4 are in the count matrix. Series text says responders exist; GEO characteristics have only pre/post, sex, age. No public responder map. Pre vs post computed.
+GSE305086	whole blood	Affymetrix GPL570	Y	Y	N	ABSENT_RESPONSE	Both genes on the array. 76 baseline + 76 follow-up + 21 controls. No public ICI response/PFS. Detectability only (TACSTD2 near background; CLDN4 probe-discordant).
+GSE266219	PBMC / CD8 scRNA	10x GEX Seurat RDS	Y	LIKELY_YES_NOT_EXTRACTED	Y	ABSENT_EXTRACT	NSCLC anti-PD-1 ± JAK inhibitor; sample titles encode NR / aPD1.R / JAKi.R. Public data are per-patient Seurat RDS (double-gzipped; class Seurat). Not extracted here (SeuratObject/Seurat not in the default environment). Not dropped for being blood.
+GSE306542	circulating cells	scRNA MTX/TSV	Y	UNKNOWN	Y (paper 22R/11NR)	ABSENT_MATRIX	GEO lists n=2; processed MTX/TSV not turned into a gene×patient table in this pass. Paper describes circulating predictors. Not dropped for being blood.
+GSE295969	blood	CyTOF + limited RNA	Y	UNLIKELY	Y	ABSENT_ASSAY	Blood immunomap is mass cytometry of immune subsets. Transcriptomics in the paper is of a CD8+PD-L1+ subset, not a TACSTD2/CLDN4 matrix. No usable gene matrix for these targets.
+GSE310370	plasma	miRNA array	Y	N	Y	ABSENT_ASSAY	Plasma miRNA (OAA capture), nivolumab. TACSTD2/CLDN4 mRNA not measured.
+GSE207715	plasma/EV	miRNA array	Y	N	Y	ABSENT_ASSAY	EV miR-574-5p / miR-181a-5p, nivolumab n=282. Not mRNA of TACSTD2/CLDN4.
+GSE237087	plasma cfDNA	5hmC methylation	Y	N	Y	ABSENT_ASSAY	cfDNA 5-hydroxymethylcytosine, not gene expression.
+GSE244416	platelet EV	small RNA	Y	N	N	ABSENT_ASSAY	Platelet-dust small RNA, not TACSTD2/CLDN4 mRNA.
+GSE206127	circulating	ncRNA	Y	N	Y	ABSENT_ASSAY	Machine-learning exceptional-response prediction from circulating ncRNA, not these mRNAs.
+GSE213902	PBMC T cells	hashed scRNA	Y	LIKELY_YES_NOT_EXTRACTED	N	ABSENT_LABELS	CX3CR1+ CD8 chemo-IO study; 6 libraries, no per-patient RECIST in GEO.
+GSE242780	PBMC	scRNA	Y	LIKELY_YES	N	ABSENT_LABELS	PD-1 renal irAE, n=6. Not ICI tumor-response labels.
+GSE190905	PBMC	scRNA+TCR	Y	LIKELY_YES	N	ABSENT_LABELS	SBRT ± prior PD-1; no RECIST in GEO.
+GSE247754	PBMC CD8	scRNA	Y	LIKELY_YES	N	ABSENT_MATRIX	n=2 GEO records; paper links systemic CD8 state to ICI outcome but no public per-patient response table joined to a gene matrix.
+GSE274588	PBMC	scRNA NK-EV study	borderline	LIKELY_YES	N	ABSENT_LABELS	NK-derived EV therapy, not standard ICI response.
+GSE278119	PBMC	scRNA	not lung-specific	LIKELY_YES	N	ABSENT_COHORT	Neurological irAE after ICI; mixed cancers.
+GSE315510	T cells	scRNA	mixed	LIKELY_YES	N	ABSENT_LABELS	T-cell fitness / mitochondrial potential; not a lung ICI response series.
+GSE136961	tumor	Oncomine Immune panel	N (tumor)	panel-limited	Y	ABSENT_NOT_BLOOD	Tumor tissue, not blood. Listed because search hit "immune".
+GSE93157	tumor	NanoString	N (tumor)	panel-limited	Y	ABSENT_NOT_BLOOD	Tumor biopsies (Prat), not blood.
+GSE161537	tumor	RNA-seq	N (tumor)	Y	Y	ABSENT_NOT_BLOOD	HOT-score tumor RNA, second-line PD-1. Not blood.
+GSE311200	tumor	RNA-seq	N (tumor)	Y	mixed Tx	ABSENT_NOT_BLOOD	Title mentions circulating biomarkers; deposited matrix is tumor tissue.
+GSE100860	T cells	RNA-seq	likely blood	UNKNOWN	N	ABSENT_NOT_PROBED_HERE	Nivolumab-binding T-cell profile; small n; not completed in this pass.
+GSE165383	mouse blood	other	mouse	N	Y	ABSENT_ORGANISM	Mouse CX3CR1 blood biomarker, not human.
+GSE260575	mouse + human PBMC	RNA-seq	mouse xenograft	N/A	N	ABSENT_ORGANISM	Human PBMC-injected H460 mice, not a patient ICI series.
+GSE249262	CTC	microarray	Y	Y	Y (stable vs progression)	ANALYZED	Kept. CRT + durvalumab (PMID 38261515). Only blood compartment where epithelial genes are biologically expected.
+GSE111414	PBMC CD8	RNA-seq	Y	Y	Y	ANALYZED	Kept. Genes present, essentially zero.
+GSE202417	PBMC CD8	Clariom array	Y	Y	Y	ANALYZED	Kept. Genes on array; CD8 compartment.
+GSE285888	PBMC scRNA	10x	Y	Y	Y	ANALYZED	Kept. Ambient-level detection; no response association.
