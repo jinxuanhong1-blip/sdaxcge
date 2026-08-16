@@ -2,6 +2,7 @@ data/*.gz
 data/*.txt
 data/*.csv
 data/*.tsv
+data/extra_luad/**
 !data/signatures/**
 __pycache__/
 *.pyc
