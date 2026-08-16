@@ -1,5 +1,7 @@
 {
   "B2": {
+    "claim_as_corrected": "Gygi/Nusinow CCLE TMT-MS, Tissue of Origin = Lung, complete CLDN4\u2013TACSTD2 pairs, n=45, Spearman \u03c1\u22480.69",
+    "verdict": "supported",
     "protein_data_availability": {
       "Sanger_DIA_MS_949_line_panel": {
         "TROP2/TACSTD2": {
@@ -19,16 +21,40 @@
       "conclusion": "The pair cannot be computed in these two additional public protein matrices: CLDN4 is absent from Sanger DIA-MS and both analytes are absent from CCLE RPPA500."
     },
     "Gygi_CCLE_protein_result": {
-      "dataset": "Nusinow et al. 2020 CCLE TMT mass spectrometry",
-      "source": "https://gygi.hms.harvard.edu/data/ccle/protein_quant_current_normalized.csv.gz",
-      "models_total": 375,
-      "NSCLC_definition": "DepMap 20Q2 lineage_subtype == 'NSCLC'",
-      "NSCLC_models_in_protein_matrix": 64,
-      "NSCLC_complete_pairs": 36,
-      "spearman_rho": 0.7305019305019306,
-      "spearman_p": 4.2438356941709085e-07,
-      "pearson_r": 0.7428213656767325,
-      "pearson_p": 2.1285725730711783e-07
+      "definition": "Gygi Tissue of Origin == Lung; complete pairs",
+      "note": "This is the n=45 pairing that yields \u03c1\u22480.69. It is all Gygi lung, not NSCLC-only.",
+      "models_in_subset": 77,
+      "complete_pairs": 45,
+      "spearman_rho": 0.6931488801054019,
+      "spearman_p": 1.3117431950020398e-07,
+      "pearson_r": 0.6871878120527253,
+      "pearson_p": 1.853557014326504e-07
+    },
+    "Gygi_protein_sensitivities": [
+      {
+        "definition": "Gygi Tissue of Origin == Lung; complete pairs",
+        "note": "This is the n=45 pairing that yields \u03c1\u22480.69. It is all Gygi lung, not NSCLC-only.",
+        "models_in_subset": 77,
+        "complete_pairs": 45,
+        "spearman_rho": 0.6931488801054019,
+        "spearman_p": 1.3117431950020398e-07,
+        "pearson_r": 0.6871878120527253,
+        "pearson_p": 1.853557014326504e-07
+      },
+      {
+        "definition": "DepMap 20Q2 lineage_subtype == NSCLC within Gygi lung",
+        "note": "Stricter NSCLC filter. n drops because CLDN4 is missing in 28 NSCLC models.",
+        "models_in_subset": 64,
+        "complete_pairs": 36,
+        "spearman_rho": 0.7305019305019306,
+        "spearman_p": 4.2438356941709085e-07,
+        "pearson_r": 0.7428213656767325,
+        "pearson_p": 2.1285725730711783e-07
+      }
+    ],
+    "lineage_in_n45": {
+      "NSCLC": 36,
+      "SCLC": 9
     },
     "RNA_sensitivity_checks": [
       {

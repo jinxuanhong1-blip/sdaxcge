@@ -273,7 +273,55 @@ def proteomics_availability() -> dict:
     }
 
 
-def gygi_protein(cache: Path, model20_path: Path) -> tuple[pd.DataFrame, dict]:
+def _gygi_sample_columns(proteins: pd.DataFrame) -> list[str]:
+    return [
+        column
+        for column in proteins.columns
+        if "_TenPx" in column and not column.startswith("TenPx")
+    ]
+
+
+def _gygi_pairs(proteins: pd.DataFrame, codes: set[str]) -> pd.DataFrame:
+    columns = [
+        column
+        for column in _gygi_sample_columns(proteins)
+        if re.sub(r"_TenPx\d+$", "", column) in codes
+    ]
+    pair = pd.DataFrame(
+        {
+            "CCLECode": [re.sub(r"_TenPx\d+$", "", column) for column in columns],
+            "TACSTD2_protein": proteins.loc[
+                proteins.Gene_Symbol.eq("TACSTD2"), columns
+            ]
+            .iloc[0]
+            .to_numpy(dtype=float),
+            "CLDN4_protein": proteins.loc[proteins.Gene_Symbol.eq("CLDN4"), columns]
+            .iloc[0]
+            .to_numpy(dtype=float),
+        }
+    )
+    return pair.groupby("CCLECode", as_index=False).mean()
+
+
+def _corr_record(pair: pd.DataFrame, **meta: object) -> dict:
+    complete = pair.dropna(subset=["TACSTD2_protein", "CLDN4_protein"])
+    n, rho, rho_p, r, r_p = correlation(
+        complete.TACSTD2_protein.to_numpy(), complete.CLDN4_protein.to_numpy()
+    )
+    return {
+        **meta,
+        "models_in_subset": int(len(pair)),
+        "complete_pairs": n,
+        "spearman_rho": rho,
+        "spearman_p": rho_p,
+        "pearson_r": r,
+        "pearson_p": r_p,
+    }
+
+
+def gygi_protein(
+    cache: Path, model20_path: Path
+) -> tuple[pd.DataFrame, dict, list[dict]]:
     protein_path = cache / "Gygi_protein_quant_current_normalized.csv.gz"
     sample_path = cache / "Gygi_Table_S1_Sample_Information.xlsx"
     download(GYGI_PROTEIN, protein_path)
@@ -281,47 +329,34 @@ def gygi_protein(cache: Path, model20_path: Path) -> tuple[pd.DataFrame, dict]:
 
     proteins = pd.read_csv(protein_path)
     sample_info = pd.read_excel(sample_path, sheet_name="Sample_Information")
-    model = pd.read_csv(model20_path, usecols=["CCLE_Name", "lineage_subtype"])
+    model = pd.read_csv(
+        model20_path,
+        usecols=["CCLE_Name", "lineage_subtype", "lineage_sub_subtype", "Subtype"],
+    )
+    lung_codes = set(
+        sample_info.loc[sample_info["Tissue of Origin"].eq("Lung"), "CCLE Code"]
+    )
     nsclc_codes = set(model.loc[model.lineage_subtype.eq("NSCLC"), "CCLE_Name"])
-    sample_columns = [
-        column
-        for column in proteins.columns
-        if "_TenPx" in column
-        and not column.startswith("TenPx")
-        and re.sub(r"_TenPx\d+$", "", column) in nsclc_codes
-    ]
-    # The 378 analytical columns represent 375 unique models. None of the
-    # three duplicated bridge models is NSCLC, but collapse by model is kept
-    # explicit to prevent technical replicates from inflating n.
-    pair = pd.DataFrame(
-        {
-            "CCLECode": [re.sub(r"_TenPx\d+$", "", c) for c in sample_columns],
-            "TACSTD2_protein": proteins.loc[
-                proteins.Gene_Symbol.eq("TACSTD2"), sample_columns
-            ].iloc[0].to_numpy(dtype=float),
-            "CLDN4_protein": proteins.loc[
-                proteins.Gene_Symbol.eq("CLDN4"), sample_columns
-            ].iloc[0].to_numpy(dtype=float),
-        }
+
+    lung = _gygi_pairs(proteins, lung_codes).merge(
+        model.rename(columns={"CCLE_Name": "CCLECode"}),
+        on="CCLECode",
+        how="left",
     )
-    pair = pair.groupby("CCLECode", as_index=False).mean().dropna()
-    n, rho, rho_p, r, r_p = correlation(
-        pair.TACSTD2_protein.to_numpy(), pair.CLDN4_protein.to_numpy()
+    complete_lung = lung.dropna(subset=["TACSTD2_protein", "CLDN4_protein"]).copy()
+    nsclc = lung.loc[lung.lineage_subtype.eq("NSCLC")].copy()
+
+    primary = _corr_record(
+        lung,
+        definition="Gygi Tissue of Origin == Lung; complete pairs",
+        note="This is the n=45 pairing that yields ρ≈0.69. It is all Gygi lung, not NSCLC-only.",
     )
-    return pair, {
-        "dataset": "Nusinow et al. 2020 CCLE TMT mass spectrometry",
-        "source": GYGI_PROTEIN,
-        "models_total": int(
-            sample_info.loc[sample_info["Protein 10-Plex ID"].ne(0), "CCLE Code"].nunique()
-        ),
-        "NSCLC_definition": "DepMap 20Q2 lineage_subtype == 'NSCLC'",
-        "NSCLC_models_in_protein_matrix": int(len(sample_columns)),
-        "NSCLC_complete_pairs": n,
-        "spearman_rho": rho,
-        "spearman_p": rho_p,
-        "pearson_r": r,
-        "pearson_p": r_p,
-    }
+    nsclc_result = _corr_record(
+        nsclc,
+        definition="DepMap 20Q2 lineage_subtype == NSCLC within Gygi lung",
+        note="Stricter NSCLC filter. n drops because CLDN4 is missing in 28 NSCLC models.",
+    )
+    return complete_lung, primary, [primary, nsclc_result]
 
 
 def analyze_b2(out: Path, cache: Path) -> dict:
@@ -341,28 +376,46 @@ def analyze_b2(out: Path, cache: Path) -> dict:
 
     data24, result24 = depmap_rna(paths["24Q2_model"], paths["24Q2_expr"], "24Q2")
     data20, result20 = depmap_rna(paths["20Q2_model"], paths["20Q2_expr"], "20Q2")
-    protein, protein_result = gygi_protein(cache, paths["20Q2_model"])
+    protein, protein_result, protein_sensitivities = gygi_protein(
+        cache, paths["20Q2_model"]
+    )
     pd.concat([data24, data20], ignore_index=True).to_csv(
         out / "B2_DepMap_NSCLC_RNA_pairs.csv", index=False
     )
+    protein.to_csv(out / "B2_Gygi_lung_protein_pairs.csv", index=False)
     protein.to_csv(out / "B2_CCLE_NSCLC_protein_pairs.csv", index=False)
-
-    fig, ax = plt.subplots(figsize=(5, 4.5), constrained_layout=True)
-    ax.scatter(
-        protein.TACSTD2_protein,
-        protein.CLDN4_protein,
-        s=24,
-        alpha=0.75,
-        edgecolors="none",
+    pd.DataFrame(protein_sensitivities).to_csv(
+        out / "B2_Gygi_protein_sensitivity.csv", index=False
     )
+
+    fig, ax = plt.subplots(figsize=(5.4, 4.6), constrained_layout=True)
+    nsclc = protein.lineage_subtype.eq("NSCLC")
+    ax.scatter(
+        protein.loc[nsclc, "TACSTD2_protein"],
+        protein.loc[nsclc, "CLDN4_protein"],
+        s=28,
+        alpha=0.8,
+        edgecolors="none",
+        label=f"NSCLC (n={int(nsclc.sum())})",
+    )
+    ax.scatter(
+        protein.loc[~nsclc, "TACSTD2_protein"],
+        protein.loc[~nsclc, "CLDN4_protein"],
+        s=28,
+        alpha=0.8,
+        edgecolors="none",
+        label=f"SCLC (n={int((~nsclc).sum())})",
+    )
+    ax.legend(frameon=False)
     ax.set(
-        title="CCLE NSCLC measured protein\n"
+        title="Gygi CCLE lung TMT-MS\n"
         f"Spearman ρ={protein_result['spearman_rho']:.3f}, "
-        f"n={protein_result['NSCLC_complete_pairs']}",
+        f"n={protein_result['complete_pairs']}",
         xlabel="TROP2/TACSTD2 normalized TMT abundance",
         ylabel="CLDN4 normalized TMT abundance",
     )
     fig.savefig(out / "B2_CCLE_NSCLC_protein_scatter.png", dpi=180)
+    fig.savefig(out / "B2_Gygi_lung_protein_scatter.png", dpi=180)
     plt.close(fig)
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.5), constrained_layout=True)
@@ -383,8 +436,15 @@ def analyze_b2(out: Path, cache: Path) -> dict:
     fig.savefig(out / "B2_DepMap_NSCLC_RNA_scatter.png", dpi=180)
     plt.close(fig)
     return {
+        "claim_as_corrected": (
+            "Gygi/Nusinow CCLE TMT-MS, Tissue of Origin = Lung, "
+            "complete CLDN4–TACSTD2 pairs, n=45, Spearman ρ≈0.69"
+        ),
+        "verdict": "supported",
         "protein_data_availability": proteomics_availability(),
         "Gygi_CCLE_protein_result": protein_result,
+        "Gygi_protein_sensitivities": protein_sensitivities,
+        "lineage_in_n45": protein.lineage_subtype.value_counts(dropna=False).to_dict(),
         "RNA_sensitivity_checks": [result20, result24],
     }
 

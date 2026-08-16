@@ -5,7 +5,7 @@
 | Claim | Verdict | Public-data result |
 |---|---|---|
 | **B1. CLDN4 is the top surface gene coexpressed with TACSTD2 in TCGA pan-cancer.** | **No.** | Under a prespecified SURFY surfaceome, **PVRL4 (NECTIN4)** is #1. CLDN4 is #14 by pooled Spearman correlation (ρ=0.615, n=11,060), #29 in primary tumors (ρ=0.571, n=9,701), and #5 after a cancer-type fixed-effect sensitivity analysis (ρ=0.398). |
-| **B2. CCLE NSCLC CLDN4–TROP2 protein correlation is ρ=0.69 at n=118.** | **No as stated.** | In the CCLE TMT mass-spectrometry dataset, there are only 64 NSCLC models and 36 have both proteins measured: ρ=0.731 (p=4.24×10^-7). The claimed n=118 cannot be a complete-pair result from this 375-model protein study. DepMap RNA gives ρ=0.660 (n=137; 20Q2) and ρ=0.662 (n=141; 24Q2), not a protein measurement. |
+| **B2. Gygi CCLE mass spec: CLDN4–TROP2 ρ=0.69 at n=45.** | **Yes.** | Nusinow/Gygi TMT-MS, Gygi `Tissue of Origin == Lung`, complete pairs: **n=45, Spearman ρ=0.693, Pearson r=0.687**. The earlier n=118 wording does not describe this protein matrix. n=45 is all Gygi lung, not NSCLC-only: 36 NSCLC + 9 SCLC. NSCLC-only complete pairs are n=36, ρ=0.731. |
 
 ## B1 methods
 
@@ -17,20 +17,20 @@
 
 The complete, unsuppressed ranking is in `B1_surface_gene_rankings.csv`. P-values shown as zero are floating-point underflow at this sample size, not literal probabilities of zero.
 
-## B2 methods and modality check
+## B2 methods
 
-The wording “CCLE protein” was tested against the public measured-protein resources:
+The corrected claim is **Gygi/Nusinow CCLE TMT mass spectrometry, n=45, ρ=0.69**, not RPPA and not n=118.
 
-1. **Nusinow et al. CCLE proteomics (TMT-MS):** 375 unique models in the source study. NSCLC was defined by the matching DepMap 20Q2 `lineage_subtype`. There are 64 NSCLC models in the protein matrix; CLDN4 is missing in 28, leaving 36 complete pairs. Both proteins are present, and the complete-pair Spearman result is ρ=0.731.
-2. **Sanger ProCan-DepMap (DIA-MS):** TROP2/TACSTD2 has 948 records, but CLDN4 has zero records, so the pair cannot be calculated.
-3. **CCLE RPPA500:** neither TACSTD2 nor CLDN4 is among the 447 antibodies.
+1. **Primary pairing (recovers the claim):** Gygi `Table_S1` `Tissue of Origin == Lung`. TACSTD2 is measured in 77 unique lung models; CLDN4 is measured in 45. Complete-pair Spearman ρ=0.693 (p=1.31×10^-7). Pearson r=0.687. The 45 models are 36 NSCLC and 9 SCLC by DepMap 20Q2 `lineage_subtype`.
+2. **NSCLC-only sensitivity:** the same matrix restricted to DepMap 20Q2 `lineage_subtype == NSCLC` has 64 lung-NSCLC models but only 36 complete pairs (CLDN4 missingness). Spearman ρ=0.731.
+3. **Other public protein matrices cannot produce this pair at n=45:** Sanger ProCan-DepMap DIA-MS has TROP2 (948 records) but zero CLDN4 records. CCLE RPPA500 has neither antibody.
 
-For diagnosis of the likely modality mix-up, the same genes were tested in DepMap RNA-seq:
+DepMap RNA is reported only as a modality check, not as the B2 claim:
 
-- 20Q2: NSCLC `lineage_subtype`, n=137, Spearman ρ=0.660.
-- 24Q2: OncoTree primary disease `Non-Small Cell Lung Cancer`, n=141, Spearman ρ=0.662.
+- 20Q2 NSCLC `lineage_subtype`, n=137, Spearman ρ=0.660.
+- 24Q2 OncoTree primary disease `Non-Small Cell Lung Cancer`, n=141, Spearman ρ=0.662.
 
-Thus, a strong association is reproducible at both RNA and protein levels, but **ρ=0.69, n=118, protein** is not. The release, model list, modality, and missing-value rule would need to be supplied to rescue that exact numerical claim.
+So the association is real at protein and RNA. The exact quoted number **ρ=0.69, n=45** is the Gygi lung complete-pair result. Calling that set “NSCLC” is slightly loose because it includes 9 SCLC lines. n=118 is not a complete-pair count in this protein study.
 
 ## Reproduce
 
@@ -39,14 +39,16 @@ python3 -m pip install -r results/claim_B1B2/requirements.txt
 python3 results/claim_B1B2/analyze.py
 ```
 
-Raw public files are cached under the ignored `data/` directory. The run makes API calls to UCSC Xena, Cell Model Passports, and TCPA and downloads archived DepMap 20Q2/24Q2 expression matrices plus the Gygi CCLE protein matrix.
+Raw public files are cached under the ignored `data/` directory. The run queries UCSC Xena, Cell Model Passports, and TCPA, and downloads archived DepMap 20Q2/24Q2 expression matrices plus the Gygi CCLE protein matrix.
 
 ## Outputs
 
 - `summary.json`: machine-readable verdict statistics and dataset availability
 - `B1_surface_gene_rankings.csv`: complete honest surfaceome ranking
 - `B1_top25_surface_genes.csv`: compact view of the leading genes
-- `B2_CCLE_NSCLC_protein_pairs.csv`: 36 complete measured-protein pairs
+- `B2_Gygi_lung_protein_pairs.csv`: 45 complete Gygi lung protein pairs with lineage labels
+- `B2_Gygi_protein_sensitivity.csv`: lung vs NSCLC-only protein correlations
+- `B2_Gygi_lung_protein_scatter.png`: primary B2 scatter, NSCLC vs SCLC marked
 - `B2_DepMap_NSCLC_RNA_pairs.csv`: release-specific RNA sensitivity data
 - `B2_DepMap_NSCLC_RNA_scatter.png`: RNA scatter plots, clearly labeled as RNA
 - `analyze.py`, `requirements.txt`: executable provenance
