@@ -1,0 +1,58 @@
+{
+  "malignant": {
+    "table": "malignant",
+    "n_cells_header": 3321,
+    "TACSTD2_present": true,
+    "CLDN4_present": true,
+    "genes_found": [
+      "CLDN4",
+      "TACSTD2"
+    ],
+    "n": 3321,
+    "TACSTD2_pct": 75.85064739536284,
+    "CLDN4_pct": 76.15176151761518,
+    "TACSTD2_mean": 1.9485055927068076,
+    "CLDN4_mean": 1.9727060549895035,
+    "spearman": {
+      "subset": "malignant_raw",
+      "n": 3321,
+      "rho": 0.3976004904315449,
+      "p": 3.3337646175184935e-126,
+      "p_raw_float": 3.3337646175184935e-126,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    "meta_n": 3321,
+    "meta_cols": [
+      "cell_barcode",
+      "tissue_type"
+    ]
+  },
+  "immune": {
+    "table": "immune",
+    "n_cells_header": 34544,
+    "TACSTD2_present": true,
+    "CLDN4_present": true,
+    "genes_found": [
+      "CLDN4",
+      "TACSTD2"
+    ],
+    "n": 34544,
+    "TACSTD2_pct": 2.831171838814266,
+    "CLDN4_pct": 2.396943029180176,
+    "TACSTD2_mean": 0.04174964741411819,
+    "CLDN4_mean": 0.027265224184763584,
+    "spearman": {
+      "subset": "immune_raw",
+      "n": 34544,
+      "rho": 0.04507447371561327,
+      "p": 5.2254922288934595e-17,
+      "p_raw_float": 5.2254922288934595e-17,
+      "method": "scipy.stats.spearmanr two-sided"
+    },
+    "meta_n": 34544,
+    "meta_cols": [
+      "cell_barcode",
+      "celltype"
+    ]
+  }
+}

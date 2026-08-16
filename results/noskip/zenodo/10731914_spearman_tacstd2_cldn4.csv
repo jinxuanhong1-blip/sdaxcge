@@ -1,0 +1,6 @@
+subset,n,rho,p,method
+all_cells_cp10k,28457,0.7593102480600927,0.0,scipy.stats.spearmanr two-sided
+epithelial_cp10k,9517,0.38831806142091274,0.0,scipy.stats.spearmanr two-sided
+non_epithelial_cp10k,18940,0.14855187469948056,6.675559439102441e-94,scipy.stats.spearmanr two-sided
+both_genes_detected_cp10k,6304,0.2586657601096786,6.614810625493668e-97,scipy.stats.spearmanr two-sided
+all_cells_raw_UMI,28457,0.7780703596905977,0.0,scipy.stats.spearmanr two-sided

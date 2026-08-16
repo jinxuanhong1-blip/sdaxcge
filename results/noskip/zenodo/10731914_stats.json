@@ -1,0 +1,25 @@
+{
+  "doi": "10.5281/zenodo.10731914",
+  "n_cells": 28457,
+  "n_epithelial": 9517,
+  "n_non_epithelial": 18940,
+  "TACSTD2_present": true,
+  "CLDN4_present": true,
+  "spearman_all_cells": {
+    "subset": "all_cells_cp10k",
+    "n": 28457,
+    "rho": 0.7593102480600927,
+    "p": 0.0,
+    "method": "scipy.stats.spearmanr two-sided"
+  },
+  "spearman_epithelial": {
+    "subset": "epithelial_cp10k",
+    "n": 9517,
+    "rho": 0.38831806142091274,
+    "p": 0.0,
+    "method": "scipy.stats.spearmanr two-sided"
+  },
+  "mw_TACSTD2_epi_vs_rest_p": 0.0,
+  "mw_CLDN4_epi_vs_rest_p": 0.0,
+  "note": "\u03c1 is Spearman on CP10K (or raw UMI where labelled). p is two-sided. No multiple-testing correction applied to the five Spearman tests."
+}

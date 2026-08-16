@@ -1,0 +1,50 @@
+{
+  "verified_at": "2026-08-16",
+  "method": "HTTP HEAD/GET via https://doi.org/<doi> with redirect following; HTTP 200 = resolves",
+  "downloaded_records": [
+    {
+      "doi": "10.5281/zenodo.10731914",
+      "doi_url": "https://doi.org/10.5281/zenodo.10731914",
+      "resolves_http": 200,
+      "title": "Single-cell RNA-seq profiles of lung adenocarcinoma patients and tumor-bearing mice",
+      "license": "cc-by-4.0",
+      "access_right": "open",
+      "used": true,
+      "note": "Human 8-LUAD scRNA-seq count matrix used for TACSTD2/CLDN4 analysis"
+    },
+    {
+      "doi": "10.5281/zenodo.8041882",
+      "doi_url": "https://doi.org/10.5281/zenodo.8041882",
+      "resolves_http": 200,
+      "title": "Acquired resistance to anti-PD1 therapy in patients with NSCLC associates with immunosuppressive T cell phenotype",
+      "license": "cc-by-4.0",
+      "access_right": "open",
+      "used": true,
+      "note": "Imaging Mass Cytometry SCE (41 markers x 99,659 cells); used for pre/post anti-PD1 analysis. TACSTD2/CLDN4 not in protein panel."
+    }
+  ],
+  "verified_but_not_downloaded": [
+    {
+      "doi": "10.5281/zenodo.11205626",
+      "resolves_http": 200,
+      "title": "Single-cell and single-nucleus RNA-sequencing from paired normal-adenocarcinoma lung samples",
+      "license": "cc-by-4.0",
+      "access_right": "open",
+      "reason": "On-topic LUAD scRNA (h5, 761MB) but redundant with 10731914 for TACSTD2/CLDN4; left as candidate."
+    },
+    {
+      "doi": "10.5281/zenodo.13947395",
+      "resolves_http": 200,
+      "title": "IMC and scRNA-seq raw data of paired lung adenocarcinoma and healthy lung samples",
+      "license": "cc-by-4.0",
+      "access_right": "open",
+      "reason": "Processed scRNA zip is 1.5GB (<2GB, eligible) but healthy/tumor (no ICI); candidate only."
+    }
+  ],
+  "restricted_skipped": [
+    {"doi": "10.5281/zenodo.18488822", "title": "Vascular STING activation facilitates NK cell anti-tumor immunity in small cell lung cancer", "access_right": "restricted"},
+    {"doi": "10.5281/zenodo.18729311", "title": "Multiomic profiling of the tumor immune microenvironment following bronchoscopic ...", "access_right": "restricted"},
+    {"doi": "10.5281/zenodo.10911472", "title": "Resolving the single-cell and spatial transcriptomic architecture of inflammatory ...", "access_right": "restricted"},
+    {"doi": "10.5281/zenodo.7990870", "title": "Data associated with Spatial predictors of immunotherapy response in triple negative ...", "access_right": "restricted"}
+  ]
+}
