@@ -1,0 +1,189 @@
+n_pos	n_neg	median_pos	median_neg	U	p	cliffs_delta	note	series	timepoint	gene	covariate	adjustment	endpoint	test	n	rho	n_events	hr	hr_ci_low	hr_ci_high	logrank_p
+11.0	21.0	7.302456147992687	5.88774458270931	177.0	0.015510489089653818	0.5324675324675324		GSE253564	pre	TACSTD2	none	unadjusted	MPR	Mann-Whitney U							
+7.0	25.0	5.88774458270931	6.541446692688694	90.0	0.9290260783586702	0.02857142857142857		GSE253564	pre	TACSTD2	none	unadjusted	recurrence	Mann-Whitney U							
+					0.07182821943096084		depth = −Pathology Response %	GSE253564	pre	TACSTD2	none	unadjusted	pathologic_depth	Spearman	32.0	0.3225013088200406					
+					0.8519075126724186		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	TACSTD2	none	unadjusted	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.0474379565891232	0.6438813820159185	1.7039260701538257	0.15472366874525084
+					0.007898022011171834			GSE253564	pre	TACSTD2	none	unadjusted	CYT	Spearman unadjusted	32.0	-0.46114369501466274					
+					0.0015565579652786856			GSE253564	pre	TACSTD2	none	unadjusted	CD8A	Spearman unadjusted	32.0	-0.5362903225806451					
+					4.0257287446347355e-06			GSE253564	pre	TACSTD2	none	unadjusted	ImmuneScore	Spearman unadjusted	32.0	-0.7162756598240468					
+11.0	21.0	0.8258529736888827	0.5635099608358285	145.0	0.24989542486306515	0.2554112554112554		GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	MPR	Mann-Whitney U							
+7.0	25.0	0.7071378969245856	0.6051653740493759	104.0	0.474416612000038	0.18857142857142858		GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	recurrence	Mann-Whitney U							
+					0.4882356417211246		depth = −Pathology Response %	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	pathologic_depth	Spearman	32.0	0.12708503888396802					
+					0.43413228943505533		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.262757252414006	0.7037566233181178	2.265777437384608	0.7681607516720157
+					0.0005353506135290711		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.5777126099706744					
+					0.00047330504316108417		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.5902785648791828					
+					5.393230905027556e-05		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.6513929618768328					
+					2.3489517368550475e-05		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.6824269500097763					
+					1.3381744675506559e-06		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.7393695014662756					
+					8.603030366441276e-07		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.7562907160039187					
+11.0	21.0	1.0811591851826927	-0.07830581121604396	166.0	0.04727825143275227	0.43722943722943725		GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	MPR	Mann-Whitney U							
+7.0	25.0	-0.07830581121604396	0.6581290008007317	78.0	0.6882065067548939	-0.10857142857142857		GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	recurrence	Mann-Whitney U							
+					0.05998052281168924		depth = −Pathology Response %	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	pathologic_depth	Spearman	32.0	0.3361307187873067					
+					0.734784082570094		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	PFS	Cox PH continuous + log-rank median split	32.0		7.0	0.9051252607800299	0.5084455253730364	1.6112871425135429	0.15472366874525084
+					0.1808214841725284		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.24266862170087974					
+					0.3745144181413529		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.16518684151777113					
+					0.09417524956007502		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.30095307917888564					
+					0.18863470023799292		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.24253755120388606					
+					0.013327938879964713		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.4329178885630498					
+					0.0021903059823752524		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.5294960162414778					
+11.0	21.0	0.8182418020372655	-0.60015901132968	163.0	0.062213501151392014	0.41125541125541126		GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	MPR	Mann-Whitney U							
+7.0	25.0	0.2686021619180803	-0.60015901132968	111.0	0.3017853407870093	0.26857142857142857		GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	recurrence	Mann-Whitney U							
+					0.25733135269970725		depth = −Pathology Response %	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	pathologic_depth	Spearman	32.0	0.20628296166673066					
+					0.42080367050693235		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.261556079593193	0.7165293800879887	2.2211562933582853	0.23336854898006318
+					0.02057281144111158		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.40762463343108496					
+					0.01208415007797361		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.445194815916162					
+					0.008836437012335751		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.4552785923753665					
+					0.004480848285578352		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.4966757599816725					
+					0.00010845104115657993		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.6308651026392961					
+					4.965093634017785e-06		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.7200248543756284					
+11.0	21.0	0.888048332119256	-0.4562073800133799	156.0	0.11250376629419434	0.35064935064935066		GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	MPR	Mann-Whitney U							
+7.0	25.0	0.09994840941215521	-0.4385358079930972	94.0	0.7892048857705143	0.07428571428571429		GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	recurrence	Mann-Whitney U							
+					0.18583644271313715		depth = −Pathology Response %	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	pathologic_depth	Spearman	32.0	0.2399881241533483					
+					0.8451494939550459		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.0572292508423529	0.6048243854618498	1.8480301318922026	0.7874298004007212
+					0.05967410614682277		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.33651026392961875					
+					0.021456539296127845		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.4114860436119706					
+					0.07701517054547916		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.3170821114369501					
+					0.009486434500833188		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.4584824586028576					
+					0.0019194677346263114		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.5274926686217009					
+					3.6800788443275234e-05		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.6704446249499759					
+11.0	21.0	5.974549961597188	5.659125376228163	140.0	0.34098363467259285	0.21212121212121213		GSE253564	pre	CLDN4	none	unadjusted	MPR	Mann-Whitney U							
+7.0	25.0	5.730830129169041	5.872225458861675	92.0	0.8585857505490432	0.05142857142857143		GSE253564	pre	CLDN4	none	unadjusted	recurrence	Mann-Whitney U							
+					0.9393900146861058		depth = −Pathology Response %	GSE253564	pre	CLDN4	none	unadjusted	pathologic_depth	Spearman	32.0	0.01399777239881387					
+					0.7495588049539219		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	CLDN4	none	unadjusted	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.1010053755624722	0.6098307936393061	1.9877855458615008	0.6045513461782464
+					0.028614193160533406			GSE253564	pre	CLDN4	none	unadjusted	CYT	Spearman unadjusted	32.0	-0.3870967741935483					
+					0.012237262024570398			GSE253564	pre	CLDN4	none	unadjusted	CD8A	Spearman unadjusted	32.0	-0.43768328445747795					
+					0.007199217494525947			GSE253564	pre	CLDN4	none	unadjusted	ImmuneScore	Spearman unadjusted	32.0	-0.4659090909090909					
+11.0	21.0	0.5035315285471267	0.10360227497913588	144.0	0.26659958263091776	0.24675324675324675		GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	MPR	Mann-Whitney U							
+7.0	25.0	0.1556131962942171	0.42787249038511543	92.0	0.8585857505490432	0.05142857142857143		GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	recurrence	Mann-Whitney U							
+					0.816377598400617		depth = −Pathology Response %	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	pathologic_depth	Spearman	32.0	0.04273004205953707					
+					0.7959032652521221		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.0806927371437538	0.6002338540957391	1.9457362895245416	0.6045513461782464
+					0.01876995494865317		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.4131231671554252					
+					0.04025217351210807		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.37039937303832315					
+					0.008653623563026984		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.45637829912023453					
+					0.017991996991399844		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.42217515539391504					
+					0.0035969274495796927		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.499633431085044					
+					0.007205040646484874		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.4729891465783519					
+11.0	21.0	0.34981101373178003	0.08254511046380841	123.0	0.7812182013981818	0.06493506493506493		GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	MPR	Mann-Whitney U							
+7.0	25.0	0.32567180583245836	0.08254511046380841	89.0	0.9644791696376792	0.017142857142857144		GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	recurrence	Mann-Whitney U							
+					0.763138159377732		depth = −Pathology Response %	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	pathologic_depth	Spearman	32.0	-0.055438545947933876					
+					0.9008663721050896		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.038416490113728	0.573822574420191	1.8791676295232416	0.6993765853148182
+					0.13869246028698645		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.26759530791788855					
+					0.11781898082248624		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.2867495035938437					
+					0.10559965044268481		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.2914222873900293					
+					0.05162671766983313		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.3527211993898722					
+					0.11556451027978869		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.28372434017595305					
+					0.027841677966935506		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.3950516771438231					
+11.0	21.0	0.23022261828724755	-0.026308381213522303	122.0	0.8118377535461077	0.05627705627705628		GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	MPR	Mann-Whitney U							
+7.0	25.0	0.3075690991772495	-0.07456446844912135	125.0	0.09211326925453732	0.42857142857142855		GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	recurrence	Mann-Whitney U							
+					0.6254100666434463		depth = −Pathology Response %	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	pathologic_depth	Spearman	32.0	-0.08969625208187308					
+					0.18942096979114295		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	PFS	Cox PH continuous + log-rank median split	32.0		7.0	2.030687761196084	0.7049619713326111	5.84952515335887	0.22195766618432955
+					0.002495742031769407		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.5161290322580645					
+					0.03442911685996172		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.381061131097614					
+					0.006136384749900885		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.47397360703812313					
+					0.031555774571407395		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.3868696807405031					
+					0.0037125028515206087		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.49816715542521983					
+					0.011836702375861426		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.44635078668988015					
+11.0	21.0	-0.04273025042578027	0.09733703698684426	105.0	0.6915445973404196	-0.09090909090909091		GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	MPR	Mann-Whitney U							
+7.0	25.0	0.07283071410313902	0.09733703698684426	97.0	0.6882065067548939	0.10857142857142857		GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	recurrence	Mann-Whitney U							
+					0.6404528771890413		depth = −Pathology Response %	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	pathologic_depth	Spearman	32.0	-0.08582844655062187					
+					0.6542207737741781		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	PFS	Cox PH continuous + log-rank median split	32.0		7.0	1.2222824423196108	0.5078356951257968	2.941845922100292	0.5662148597067767
+					0.04438479929950285		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.3577712609970674					
+					0.08016999637448496		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.3190941882298394					
+					0.11264853113507983		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.2859237536656891					
+					0.08637447527222118		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.3130632267314638					
+					0.08371628398335729		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.3104838709677419					
+					0.05488531704391881		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.3482336855361225					
+0.0	29.0		5.552131108253784				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	TACSTD2	none	unadjusted	MPR	Mann-Whitney U							
+9.0	20.0	6.34002810238993	5.424327273967702	131.0	0.05623780387727592	0.45555555555555555		GSE248378	post	TACSTD2	none	unadjusted	recurrence	Mann-Whitney U							
+					0.5039290350882094		depth = −Pathology Response %	GSE248378	post	TACSTD2	none	unadjusted	pathologic_depth	Spearman	29.0	-0.1292678217817696					
+					0.016007248921903104		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	TACSTD2	none	unadjusted	PFS	Cox PH continuous + log-rank median split	29.0		9.0	2.2357172003841628	1.1617203459873582	4.302611568574518	0.16555517236890738
+					1.3231068664533325e-07			GSE248378	post	TACSTD2	none	unadjusted	CYT	Spearman unadjusted	29.0	-0.8059113300492609					
+					1.885111591438741e-05			GSE248378	post	TACSTD2	none	unadjusted	CD8A	Spearman unadjusted	29.0	-0.7059113300492609					
+					8.298085015678566e-05			GSE248378	post	TACSTD2	none	unadjusted	ImmuneScore	Spearman unadjusted	29.0	-0.6650246305418718					
+0.0	29.0		0.07156777113817281				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	MPR	Mann-Whitney U							
+9.0	20.0	0.2621966743248265	-0.14943181795675997	117.0	0.21158389479778583	0.3		GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	recurrence	Mann-Whitney U							
+					0.3599736714304131		depth = −Pathology Response %	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	pathologic_depth	Spearman	29.0	-0.17640963778663757					
+					0.009552249762194268		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	PFS	Cox PH continuous + log-rank median split	29.0		9.0	2.07330676138399	1.194486854051147	3.5987009084459185	0.13723159408846872
+					1.5204459028251589e-05		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.7113300492610837					
+					9.524504495853245e-07		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.7807292220920161					
+					0.00022515817218428648		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.6334975369458127					
+					4.145321623497626e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.694395351199671					
+					1.5816162079999293e-05		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.7103448275862068					
+					1.1294367413987317e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.7279934253933188					
+0.0	29.0		-0.020122996684677652				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	MPR	Mann-Whitney U							
+9.0	20.0	0.0014051565124333365	-0.04233195710125104	106.0	0.46497646294543604	0.17777777777777778		GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	recurrence	Mann-Whitney U							
+					0.8560206383571767		depth = −Pathology Response %	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	pathologic_depth	Spearman	29.0	-0.035232304593111864					
+					0.17366741108568462		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	PFS	Cox PH continuous + log-rank median split	29.0		9.0	1.6746845014662999	0.796771550036994	3.519915061376393	0.5202110515208564
+					0.002121955242574287		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.5472906403940886					
+					2.2934674545048468e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.7102675745610266					
+					0.007216293767846512		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.48817733990147766					
+					0.0012975994197135252		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.5772996609207868					
+					0.10834226185615385		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.30443349753694576					
+					0.010852252464636945		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.47388201775941824					
+0.0	29.0		-0.1980826020101416				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	MPR	Mann-Whitney U							
+9.0	20.0	0.4526099525282161	-0.261949907142752	118.0	0.19485064860886958	0.3111111111111111		GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	recurrence	Mann-Whitney U							
+					0.6607090841517147		depth = −Pathology Response %	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	pathologic_depth	Spearman	29.0	0.08510338362984063					
+					0.004589618009192408		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	PFS	Cox PH continuous + log-rank median split	29.0		9.0	2.7608322315449842	1.3679689383878737	5.571906201116141	0.41793898825836995
+					4.806892883338089e-06		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.7384236453201969					
+					6.350394470735889e-08		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.825670576936984					
+					0.0001430062163294667		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.6482758620689654					
+					1.286555235223284e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.7248320727814777					
+					0.0018967092690696736		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.5522167487684727					
+					0.0004141649834926707		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.6216181238282268					
+0.0	29.0		-0.10857446841087359				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	MPR	Mann-Whitney U							
+9.0	20.0	0.2048659883103312	-0.13990094592669378	113.0	0.2888443663464849	0.25555555555555554		GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	recurrence	Mann-Whitney U							
+					0.5460339130794767		depth = −Pathology Response %	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	pathologic_depth	Spearman	29.0	0.11686208072785695					
+					0.053528517189335316		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	PFS	Cox PH continuous + log-rank median split	29.0		9.0	2.4230969011593553	0.9866437628759632	5.950879956199752	0.41793898825836995
+					0.00015450010900257616		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.6458128078817732					
+					1.0729804575462065e-06		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.77847354098411					
+					0.004492807118898387		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.5123152709359605					
+					0.00020231490707003347		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.646386309461361					
+					0.029118460333571947		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.4054187192118226					
+					0.0035373145279469567		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.5324444738377595					
+0.0	29.0		5.74416109557041				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	CLDN4	none	unadjusted	MPR	Mann-Whitney U							
+9.0	20.0	6.2922295919049525	5.32077698830221	112.0	0.3108119818682441	0.24444444444444444		GSE248378	post	CLDN4	none	unadjusted	recurrence	Mann-Whitney U							
+					0.1555253582229484		depth = −Pathology Response %	GSE248378	post	CLDN4	none	unadjusted	pathologic_depth	Spearman	29.0	-0.2706932697963736					
+					0.1699482708772254		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	CLDN4	none	unadjusted	PFS	Cox PH continuous + log-rank median split	29.0		9.0	1.4095234109768215	0.8633227959997011	2.3012901492901405	0.25087510575849437
+					0.003201641670700184			GSE248378	post	CLDN4	none	unadjusted	CYT	Spearman unadjusted	29.0	-0.5285714285714285					
+					0.011222659676377032			GSE248378	post	CLDN4	none	unadjusted	CD8A	Spearman unadjusted	29.0	-0.46403940886699496					
+					0.038243465173561794			GSE248378	post	CLDN4	none	unadjusted	ImmuneScore	Spearman unadjusted	29.0	-0.3866995073891625					
+0.0	29.0		-0.07466414357352846				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	MPR	Mann-Whitney U							
+9.0	20.0	0.14033144030945088	-0.1142241116681344	111.0	0.33385443443022034	0.23333333333333334		GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	recurrence	Mann-Whitney U							
+					0.00664445547270622		depth = −Pathology Response %	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	pathologic_depth	Spearman	29.0	-0.4925079198403313					
+					0.16917651712716886		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	PFS	Cox PH continuous + log-rank median split	29.0		9.0	1.5517955422587422	0.8294397244505148	2.9032482216467206	0.26763494022034906
+					0.05255491020099633		residualise gene only (leftover-style)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.36354679802955653					
+					0.02151025354552195		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.4325475528331126					
+					0.06864282672986495		residualise gene only (leftover-style)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.34285714285714275					
+					0.028369848195167132		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.41434210129364074					
+					0.020684131644173924		residualise gene only (leftover-style)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.4275862068965517					
+					0.01653054223718856		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.44903790569349983					
+0.0	29.0		0.12194521348056497				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	MPR	Mann-Whitney U							
+9.0	20.0	0.12194521348056497	0.045849641830010945	102.0	0.5877391489586028	0.13333333333333333		GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	recurrence	Mann-Whitney U							
+					0.43167778766002274		depth = −Pathology Response %	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	pathologic_depth	Spearman	29.0	-0.15184627049989058					
+					0.429910274954146		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	PFS	Cox PH continuous + log-rank median split	29.0		9.0	1.21570446696462	0.7485105469499608	1.9745043767519996	0.7976673393655823
+					0.042713801649729176		residualise gene only (leftover-style)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.3788177339901477					
+					0.03172144840078885		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.40672507287691695					
+					0.08278682478282441		residualise gene only (leftover-style)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.32758620689655166					
+					0.08429536687472867		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.3320474849234444					
+					0.3725188052949502		residualise gene only (leftover-style)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.1719211822660098					
+					0.505896885697417		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.13115335528820637					
+0.0	29.0		0.09364616978225548				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	MPR	Mann-Whitney U							
+9.0	20.0	0.25049535670296397	-0.005898750171361211	103.0	0.5556897902827946	0.14444444444444443		GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	recurrence	Mann-Whitney U							
+					0.8101167662428693		depth = −Pathology Response %	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	pathologic_depth	Spearman	29.0	-0.04664558636271148					
+					0.10959056788750132		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	PFS	Cox PH continuous + log-rank median split	29.0		9.0	2.789978382472239	0.7938933577648801	9.804817358060978	0.4358282377365833
+					0.0013090106716126919		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.5679802955665022					
+					0.0012103147748925118		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.5801927180544483					
+					0.0017119846447076288		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.5566502463054185					
+					0.003640883071227387		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.5310577576034894					
+					0.1738372900192245		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.2596059113300492					
+					0.2534660970553775		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.2232532276863144					
+0.0	29.0		0.2206992383855262				MPR not estimable (0 MPR cases in deposited matrix)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	MPR	Mann-Whitney U							
+9.0	20.0	0.14692138251441822	0.26065404013214133	84.0	0.7954250063905932	-0.06666666666666667		GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	recurrence	Mann-Whitney U							
+					0.498166321414298		depth = −Pathology Response %	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	pathologic_depth	Spearman	29.0	0.13100462552931735					
+					0.7819543058814586		HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	PFS	Cox PH continuous + log-rank median split	29.0		9.0	1.0951294975977015	0.5754285651992274	2.084200696733511	0.9325668289886349
+					0.03905175930801555		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.3852216748768472					
+					0.027636255834243176		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.4161057825126967					
+					0.11762338310073175		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.2970443349753694					
+					0.10523599212419026		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.3126712858197119					
+					0.6769689753216956		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.08078817733990146					
+					0.7872698772827177		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.053396374692340924					

@@ -566,17 +566,15 @@ def hunt_open_matrices() -> list[dict]:
         rows.append(kw)
 
     queries = [
-        ("gds", "PACIFIC[All Fields] AND Homo sapiens[Organism]"),
+        ("gds", "PACIFIC[All Fields] AND durvalumab[All Fields] AND Homo sapiens[Organism]"),
+        ("gds", "NCT02125461[All Fields]"),
         ("gds", "ADRIATIC[All Fields] AND Homo sapiens[Organism]"),
         ("gds", "ADRIA[All Fields] AND durvalumab[All Fields]"),
         ("gds", "WJOG11518L[All Fields] OR SUBMARINE[All Fields] AND Homo sapiens[Organism]"),
-        ("gds", "durvalumab[All Fields] AND (NSCLC[All Fields] OR \"non-small cell lung\"[All Fields] OR \"lung cancer\"[All Fields]) AND Homo sapiens[Organism]"),
+        ("gds", "durvalumab[All Fields] AND (NSCLC[All Fields] OR \"non-small cell lung\"[All Fields] OR \"lung cancer\"[All Fields] OR SCLC[All Fields]) AND Homo sapiens[Organism]"),
         ("gds", "GSE333537[Accession]"),
-        ("gds", "GSE110390[Accession]"),
-        ("gds", "GSE131933[Accession]"),
-        ("gds", "GSE183924[Accession]"),
-        ("gds", "GSE253564[Accession]"),
-        ("gds", "GSE248378[Accession]"),
+        ("gds", "GSE261345[Accession]"),
+        ("gds", "GSE190731[Accession]"),
         ("pubmed", "PACIFIC[Title] AND durvalumab AND (RNA-seq OR transcriptome OR NanoString OR GEO)"),
         ("pubmed", "ADRIATIC AND durvalumab AND (RNA-seq OR transcriptome OR GEO)"),
         ("pubmed", "WJOG11518L OR SUBMARINE AND durvalumab AND (NanoString OR RNA)"),
@@ -625,6 +623,8 @@ def hunt_open_matrices() -> list[dict]:
         for uid in ids:
             doc = docs.get(uid, {})
             acc = str(doc.get("accession", "") or uid)
+            if not acc.startswith("GSE"):
+                continue
             if acc in seen_gds:
                 continue
             seen_gds.add(acc)
@@ -633,12 +633,12 @@ def hunt_open_matrices() -> list[dict]:
             gdstype = str(doc.get("gdstype", "") or "")
             taxon = str(doc.get("taxon", "") or "")
             add(
-                resource="GEO series (live Entrez)",
+                resource="GEO series (live Entrez, GSE only)",
                 accession_or_id=acc,
                 status="VERIFIED_EXISTS",
                 open_per_patient_matrix="unknown_pending_triage",
-                notes=f"{title[:180]} | type={gdstype} | taxon={taxon} | n={n_samp}",
-                url=f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={acc}" if acc.startswith("GSE") else "",
+                notes=f"{title[:220]} | type={gdstype} | taxon={taxon} | n={n_samp}",
+                url=f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={acc}",
                 query=term,
             )
 
@@ -717,12 +717,30 @@ def hunt_open_matrices() -> list[dict]:
             query="targeted",
         ),
         dict(
-            resource="OmicsDI neighbor listed as GSE333537",
+            resource="VCN-01 + durvalumab HNSCC RNA-seq",
             accession_or_id="GSE333537",
-            status="NOT_A_DURVA_MATRIX",
-            open_per_patient_matrix="no",
-            notes="Live Entrez GSE333537[Accession] check recorded above. Not treated as a PACIFIC/ADRIA matrix unless Entrez returns a matching human durvalumab lung series.",
+            status="EXCLUDED_WRONG_DISEASE",
+            open_per_patient_matrix="yes_but_not_lung",
+            notes="Live Entrez: Phase I VCN-01 oncolytic adenovirus + durvalumab in metastatic HNSCC (n=35). Real durvalumab RNA, but head-and-neck — not PACIFIC/ADRIA/NSCLC. Not used as a substitute.",
             url="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE333537",
+            query="targeted",
+        ),
+        dict(
+            resource="CANTABRICO ES-SCLC GeoMx CTA (chemo-IO)",
+            accession_or_id="GSE261345",
+            status="EXCLUDED_WRONG_ASSAY",
+            open_per_patient_matrix="no",
+            notes="Live Entrez: GeoMx DSP Cancer Transcriptome Atlas, 121 ROIs / ~26 ES-SCLC patients. Not PACIFIC, not bulk whole-transcriptome, not NSCLC. CTA panel ≠ full TACSTD2/CLDN4 residualisation matrix. Near-miss only.",
+            url="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE261345",
+            query="targeted",
+        ),
+        dict(
+            resource="Durvalumab/oleclumab NSCLC xenograft array",
+            accession_or_id="GSE190731",
+            status="EXCLUDED_NOT_PATIENT",
+            open_per_patient_matrix="no",
+            notes="Live Entrez: expression array from durvalumab/oleclumab-treated xenograft NSCLC tumors (n=23). Not a human per-patient matrix.",
+            url="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE190731",
             query="targeted",
         ),
         dict(
@@ -1059,7 +1077,11 @@ def write_report(
     t_imm_est = cell("GSE248378", "TACSTD2", "ESTIMATEScore", "ImmuneScore", test_contains="partial Spearman")
 
     open_yes = hunt[hunt["open_per_patient_matrix"] == "yes"]
-    hunt_n = len(hunt[hunt["status"] == "VERIFIED_EXISTS"])
+    gse_hits = hunt[
+        (hunt["status"] == "VERIFIED_EXISTS")
+        & hunt["accession_or_id"].astype(str).str.startswith("GSE")
+    ]
+    hunt_n = len(gse_hits)
 
     verdict = (
         "PARTLY — leftover MPR gap is real but not residual-robust; "
@@ -1132,9 +1154,11 @@ def write_report(
     lines.append("")
     lines.append(
         "1. **PACIFIC / ADRIATIC per-patient matrix: still none open.** This re-hunt verified that live. "
-        f"Entrez returned {hunt_n} GEO series hits across the durvalumab/PACIFIC/ADRIA queries; none is a new "
-        "PACIFIC or ADRIATIC per-patient whole-transcriptome matrix. Open usable lung durvalumab RNA remains "
-        f"the two NCT02904954 series ({len(open_yes)} rows marked `yes` in `hunt_manifest.tsv`)."
+        f"Entrez returned {hunt_n} unique GSE accessions after dropping GSM/GPL children. "
+        "The bare keyword PACIFIC without durvalumab is polluted by PacBio / Pacific-Islander series and was not used as a hit list. "
+        "None of the GSE hits is a new PACIFIC or ADRIATIC per-patient whole-transcriptome matrix. "
+        "Open usable lung durvalumab RNA remains the two NCT02904954 series "
+        f"({len(open_yes)} rows marked `yes` in `hunt_triage.tsv`)."
     )
     if t_mpr is not None and t_mpr_k is not None:
         lines.append(
@@ -1302,7 +1326,8 @@ def write_report(
     lines.append("- `REPORT.md` — this write-up")
     lines.append("- `residual_tests.tsv` — MPR / recurrence / depth / PFS after each residual")
     lines.append("- `immune_correlations.tsv` — vs CYT / CD8A / ImmuneScore, both estimators")
-    lines.append("- `hunt_manifest.tsv` — live Entrez + targeted triage")
+    lines.append("- `hunt_manifest.tsv` — live Entrez log (search counts + GSE hits)")
+    lines.append("- `hunt_triage.tsv` — GSE hits plus locked PACIFIC/ADRIA triage")
     lines.append("- `sample_table_GSE253564.tsv`, `sample_table_GSE248378.tsv`")
     lines.append("- `summary.json`, `provenance.json`")
     lines.append("- `figures/GSE253564_TACSTD2_MPR_residuals.png`")
@@ -1343,6 +1368,8 @@ def main() -> int:
     hunt_rows = hunt_open_matrices()
     hunt = pd.DataFrame(hunt_rows)
     hunt.to_csv(OUT / "hunt_manifest.tsv", sep="\t", index=False)
+    triage = hunt[hunt["query"].eq("targeted") | hunt["accession_or_id"].astype(str).str.startswith("GSE")].copy()
+    triage.to_csv(OUT / "hunt_triage.tsv", sep="\t", index=False)
 
     write_figures(pre_s, post_s, tests)
     write_report(tests, hunt, pre_meta, post_meta, validation)

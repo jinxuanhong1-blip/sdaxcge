@@ -1,0 +1,60 @@
+{
+  "inputs": {
+    "pre_fpkm": {
+      "file": "data/GSE253564_Pre_FPKMs.txt.gz",
+      "bytes": 2110059,
+      "md5": "389795aadb8a866925da48a877f56c3d",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/suppl/GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz"
+    },
+    "post_fpkm": {
+      "file": "data/GSE248378_Durva_Post_FPKMs.txt.gz",
+      "bytes": 1016822,
+      "md5": "c7656b19bf73cd315d75c2881d6cbc45",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/suppl/GSE248378_Durva_Post_FPKMs.txt.gz"
+    },
+    "pre_matrix": {
+      "file": "data/A2_wave2/GSE253564_series_matrix.txt.gz",
+      "bytes": 3438,
+      "md5": "602c94c1435d0ef0aeeb1c4b54ad86fc",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/matrix/GSE253564_series_matrix.txt.gz"
+    },
+    "post_matrix": {
+      "file": "data/A2_wave2/GSE248378_series_matrix.txt.gz",
+      "bytes": 3333,
+      "md5": "e72c8c39408b435b1c3ff58da301a459",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/matrix/GSE248378_series_matrix.txt.gz"
+    },
+    "natcomm": {
+      "file": "data/A2_wave2/41467_2023_44195_MOESM6_ESM.xlsx",
+      "bytes": 86639,
+      "md5": "921c314d78da62178cc64c24fd209f9f",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-44195-x/MediaObjects/41467_2023_44195_MOESM6_ESM.xlsx"
+    },
+    "mmc2": {
+      "file": "data/A2_wave2/mmc2.xlsx",
+      "bytes": 15360,
+      "md5": "808f58e490ff5a93a33ee2f3ccfe587a",
+      "url": ""
+    },
+    "gmt": {
+      "file": "data/estimate/inst/extdata/SI_geneset.gmt",
+      "bytes": 1738,
+      "md5": "9628130acbd541d8a33f21b4ab1e864f",
+      "url": ""
+    }
+  },
+  "epi_genes": [
+    "EPCAM",
+    "KRT7",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "MUC1"
+  ],
+  "cyt_genes": [
+    "GZMA",
+    "PRF1"
+  ],
+  "note": "Raw GEO FPKM matrices are committed under data/ for reproducibility. PMC zip is not committed."
+}
