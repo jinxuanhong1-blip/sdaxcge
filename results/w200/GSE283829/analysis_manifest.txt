@@ -1,0 +1,11 @@
+python=3.12.3
+pandas=3.0.5
+numpy=2.4.4
+scipy=1.18.0
+matplotlib=3.11.1
+random_seed=20260816
+bootstrap_replicates=2000
+sha256  197f75d910055001b31e1caf8a934a5aeb5249619c81f2cc4786b2688400abc3  data/GSE283829/GSE283829_raw_express_matrix_all_samples.txt.gz
+sha256  46cf053cb7abee118cdf7180a398209bd17954898038c2aed241ccf021b90114  data/GSE283829/GSE283829_samples.txt
+sha256  17b3cf8f56ff3a0299801133e11d2618583bb79084d073d0c77d45d26b5baf4c  data/GSE283829/GSE283829_series.txt
+sha256  6312c210a2722a87170f48ff8b9879f9797088213aa303a7676654d300807c46  data/GSE283829/hgnc_complete_set.tsv

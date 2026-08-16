@@ -263,7 +263,7 @@ def fmt(x, d=3):
     return f"{x:.{d}f}"
 
 
-def write_readme(df, stats_df, gw_crpd, gw_cr, spearman_rows, kw_rows, corr):
+def write_readme(df, stats_df, gw_crpd, gw_cr, spearman_rows, kw_rows, corr, context_df):
     def row(feature, contrast):
         hit = stats_df[(stats_df.feature == feature) & (stats_df.contrast == contrast)]
         if hit.empty:
@@ -304,6 +304,9 @@ def write_readme(df, stats_df, gw_crpd, gw_cr, spearman_rows, kw_rows, corr):
     cld_sp = next(x for x in spearman_rows if x["feature"] == "CLDN4")
     tac_kw = next(x for x in kw_rows if x["feature"] == "TACSTD2")
     cld_kw = next(x for x in kw_rows if x["feature"] == "CLDN4")
+    ctx = context_df.set_index("feature")
+    jaml_p = fmt(ctx.loc["JAML", "p_exact_two_sided"])
+    fcrl1_p = fmt(ctx.loc["FCRL1", "p_exact_two_sided"])
 
     # Direction honesty
     def dir_note(acc):
@@ -372,6 +375,11 @@ tight-junction / TROP2 axis.
 
 Direction on the primary contrast: TACSTD2 is {dir_note(tac_crpd)};
 CLDN4 is {dir_note(cld_crpd)}. Neither is a large, consistent shift.
+Two CR samples (105691_047 and 105691_065; both tumor type `other`,
+PLA-high, batch 2) sit near the floor for both genes and pull the CR
+*mean* down; the **medians** still overlap PD. All 7 CRs are PLA-high,
+which is the authors' PLA–response observation, not a TACSTD2/CLDN4
+result.
 
 ## PLA split (exploratory; authors' grouping)
 
@@ -412,7 +420,10 @@ them to stand out. They do not.
   and purity can move both genes without a cell-intrinsic ICI effect.
 - Context genes (CD274, PDCD1, EOMES, HAVCR1, JAML, FCRL1) are in
   `context_stats.csv` as a sanity check against the paper, not as a
-  new biomarker hunt.
+  new biomarker hunt. On CR vs PD, JAML and FCRL1 are nominally
+  lower in CR (exact p={jaml_p} and p={fcrl1_p}); that would not
+  survive a 6-gene BH correction and is not the leftover TACSTD2/CLDN4
+  question.
 - No cutpoint search, no multivariable classifier, no in-sample ROC
   optimization.
 
@@ -423,8 +434,8 @@ them to stand out. They do not.
 - `stats.csv` — Mann–Whitney / AUC for all reported contrasts.
 - `kruskal_spearman.csv` — three-level and ordinal tests.
 - `gene_correlation.csv` — TACSTD2 vs CLDN4 Spearman.
-- `genomewide_rank_CR_vs_PD.csv`, `genomewide_rank_CR_vs_nonCR.csv` —
-  ranks of the two genes plus the rest of the filtered set.
+- `genomewide_rank_summary.csv` — TACSTD2/CLDN4 ranks among
+  protein-coding genes with median CPM ≥ 1.
 - `context_stats.csv` — context-gene CR vs PD only.
 - `boxplots_response.png`, `boxplots_cr_vs_pd.png`,
   `scatter_tacstd2_cldn4.png`.
@@ -456,7 +467,11 @@ def main() -> None:
         missing = [s for s in clin["sample"] if s not in counts.columns]
         if missing:
             raise ValueError(f"sample IDs not in count matrix: {missing}")
-    clin = clin.set_index("sample").loc[counts.columns].reset_index()
+    aligned = clin.set_index("sample").reindex(list(counts.columns))
+    if aligned.index.hasnans or aligned.isna().all(axis=1).any():
+        raise ValueError("failed to align all count-matrix samples to GEO metadata")
+    aligned.index.name = "sample"
+    clin = aligned.reset_index()
     if len(clin) != 27:
         raise ValueError("failed to align 27 samples")
 
@@ -533,14 +548,47 @@ def main() -> None:
     protein_ids = {re.sub(r"\.\d+$", "", x) for x in protein_ids if isinstance(x, str)}
 
     cpm_aligned = cpm[clin["sample"].tolist()]
+    crpd = clin["response"].isin(["CR", "PD"]).to_numpy()
     gw_crpd = genome_wide_rank(
-        cpm_aligned.loc[:, clin.response.isin(["CR", "PD"])],
-        clin.loc[clin.response.isin(["CR", "PD"]), "is_CR"].to_numpy(),
+        cpm_aligned.iloc[:, crpd],
+        clin.loc[crpd, "is_CR"].to_numpy(),
         protein_ids,
     )
     gw_cr = genome_wide_rank(cpm_aligned, clin["is_CR"].to_numpy(), protein_ids)
-    gw_crpd.to_csv(OUT_DIR / "genomewide_rank_CR_vs_PD.csv", index=False)
-    gw_cr.to_csv(OUT_DIR / "genomewide_rank_CR_vs_nonCR.csv", index=False)
+    def gene_rank_rows(table, contrast):
+        rows = []
+        for gene, ensg in PRIMARY.items():
+            hit = table[table.ensembl_gene_id == ensg]
+            if hit.empty:
+                rows.append(
+                    {
+                        "contrast": contrast,
+                        "gene": gene,
+                        "ensembl_gene_id": ensg,
+                        "in_filtered_set": False,
+                    }
+                )
+            else:
+                r = hit.iloc[0]
+                rows.append(
+                    {
+                        "contrast": contrast,
+                        "gene": gene,
+                        "ensembl_gene_id": ensg,
+                        "in_filtered_set": True,
+                        "rank_by_p": int(r.rank_by_p),
+                        "n_tested": int(r.n_tested),
+                        "p": float(r.p),
+                        "delta_median": float(r.delta_median),
+                        "median_pos": float(r.median_pos),
+                        "median_neg": float(r.median_neg),
+                    }
+                )
+        return rows
+
+    pd.DataFrame(
+        gene_rank_rows(gw_crpd, "CR_vs_PD") + gene_rank_rows(gw_cr, "CR_vs_nonCR")
+    ).to_csv(OUT_DIR / "genomewide_rank_summary.csv", index=False)
 
     # ---- plots ----
     rng = np.random.default_rng(SEED)
@@ -590,7 +638,7 @@ def main() -> None:
     fig.savefig(OUT_DIR / "scatter_tacstd2_cldn4.png", dpi=200)
     plt.close(fig)
 
-    write_readme(clin, stats_df, gw_crpd, gw_cr, spearman_rows, kw_rows, corr)
+    write_readme(clin, stats_df, gw_crpd, gw_cr, spearman_rows, kw_rows, corr, pd.DataFrame(ctx_rows))
 
     import scipy
 
