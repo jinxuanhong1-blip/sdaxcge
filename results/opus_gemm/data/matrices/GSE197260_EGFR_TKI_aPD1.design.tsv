@@ -1,0 +1,8 @@
+column	gsm	geo_title	group	model_family	model_class	setting	column_source	geo_characteristics
+vehicle_d3	GSM5911724	vehicle_d3	vehicle	EGFR	LUAD	in_vivo_tumor	title_match	strain=C57BL/6; tissue=Lung tumor; treatment=no treatment
+gef_d3	GSM5911725	gef_d3	gefitinib_d3	EGFR	LUAD	in_vivo_tumor	title_match	strain=C57BL/6; tissue=Lung tumor; treatment=treatment with gefitinib for 3 days
+gef_d14	GSM5911726	gef_d14	gefitinib_d14	EGFR	LUAD	in_vivo_tumor	title_match	strain=C57BL/6; tissue=Lung tumor; treatment=treatment with gefitinib for 14 days
+gef_vehicle_d21	GSM5911727	gef_vehicle_d21	gefitinib_then_vehicle	EGFR	LUAD	in_vivo_tumor	title_match	strain=C57BL/6; tissue=Lung tumor; treatment=no treatment for 7 days after treatment with gefitinib for 14 days
+gef_dc101_d21	GSM5911728	gef_dc101_d21	gefitinib_then_aVEGFR2	EGFR	LUAD	in_vivo_tumor	title_match	strain=C57BL/6; tissue=Lung tumor; treatment=treatment with DC101 for 7 days after treatment with gefitinib for 14 days
+gef_4h2_d21	GSM5911729	gef_4h2_d21	gefitinib_then_aPD1	EGFR	LUAD	in_vivo_tumor	title_match	strain=C57BL/6; tissue=Lung tumor; treatment=treatment with 4H2 for 7 days after treatment with gefitinib for 14 days
+gef_comb_d21	GSM5911730	gef_comb_d21	gefitinib_then_aPD1_aVEGFR2	EGFR	LUAD	in_vivo_tumor	title_match	strain=C57BL/6; tissue=Lung tumor; treatment=treatment with combination of DC101 and 4H2 for 7 days after treatment with gefitinib for 14 days
