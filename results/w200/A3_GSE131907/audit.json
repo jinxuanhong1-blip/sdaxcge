@@ -1,0 +1,70 @@
+{
+  "dataset": "GSE131907",
+  "n_cells": 208506,
+  "n_samples": 58,
+  "genes_found": [
+    "CD3D",
+    "CD3E",
+    "CD8A",
+    "CD8B",
+    "CLDN4",
+    "EPCAM",
+    "GZMB",
+    "KRT18",
+    "KRT19",
+    "KRT8",
+    "NKG7",
+    "PTPRC",
+    "TACSTD2"
+  ],
+  "genes_missing": [],
+  "n_eligible_tumor_samples": 36,
+  "n_eligible_tLung": 11,
+  "n_eligible_malignant_mets": 21,
+  "mpr_or_ici_labels": false,
+  "expression_metric": "mean log1p(raw UMI) and % cells with UMI>0; CP10k not computed (full-matrix totals skipped)",
+  "min_cells": {
+    "epithelial": 20,
+    "T_NK": 20
+  },
+  "associations": [
+    {
+      "contrast": "tumor_sites: epi TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 36,
+      "spearman_rho": 0.16847931047179202,
+      "spearman_p": 0.325979079499522,
+      "note": ""
+    },
+    {
+      "contrast": "tumor_sites: epi TACSTD2 %pos vs T/NK fraction",
+      "n": 36,
+      "spearman_rho": -0.008623463561199439,
+      "spearman_p": 0.9601896359312355,
+      "note": ""
+    },
+    {
+      "contrast": "tLung: epi TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 11,
+      "spearman_rho": 0.09090909090909091,
+      "spearman_p": 0.7903727377532903,
+      "note": ""
+    },
+    {
+      "contrast": "metastasis/PE/tL-B: malignant TACSTD2 mean_log1p vs T/NK fraction",
+      "n": 21,
+      "spearman_rho": 0.08181818181818182,
+      "spearman_p": 0.7244098408074375,
+      "note": ""
+    }
+  ],
+  "paired_compartment": {
+    "contrast": "paired tumor samples: epi TACSTD2 > T/NK TACSTD2 (Wilcoxon signed-rank)",
+    "n": 36,
+    "wilcoxon_stat": 629.0,
+    "wilcoxon_p": 1.351561776220044e-07,
+    "median_epi_mean_log1p": 1.3481308817863464,
+    "median_tnk_mean_log1p": 0.020127212163060904,
+    "median_epi_pct_pos": 76.09001934106976,
+    "median_tnk_pct_pos": 2.8504514588932093
+  }
+}

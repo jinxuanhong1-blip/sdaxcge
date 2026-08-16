@@ -348,6 +348,29 @@ def main() -> None:
     }
     with (args.outdir / "audit.json").open("w") as fh:
         json.dump(audit, fh, indent=2)
+    tumor_rho = next(c for c in contrasts if c["contrast"].startswith("tumor_sites: epi TACSTD2 mean_log1p"))
+    summary = {
+        "dataset": "GSE131907",
+        "task": "W200-A3 analog: epithelial TACSTD2 vs T/NK",
+        "honest_verdict": (
+            "A3-style epithelial TACSTD2 vs T/NK fraction is a null "
+            f"(tumor-site ρ={tumor_rho['spearman_rho']:.2f}, p={tumor_rho['spearman_p']:.2g}, n={tumor_rho['n']}). "
+            "TACSTD2 is epithelial-restricted "
+            f"(median %pos {paired_result.get('median_epi_pct_pos', float('nan')):.1f} vs "
+            f"{paired_result.get('median_tnk_pct_pos', float('nan')):.1f}). "
+            "NMPR>MPR cannot be tested (no ICI/MPR labels). "
+            "Skipped 2.86 GB log2TPM text and EGA raw FASTQ."
+        ),
+        "mpr_contrast_possible": False,
+        "immune_anticorrelation_supported": False,
+        "tacstd2_epithelial_restricted": True,
+        "skipped_huge_files": [
+            "GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz",
+            "EGAD00001005054",
+        ],
+    }
+    with (args.outdir / "summary.json").open("w") as fh:
+        json.dump(summary, fh, indent=2)
 
     write_results_readme(args.outdir, sample_df, tumor, tlung, mets, contrasts, paired_result, missing)
     print(json.dumps(audit, indent=2))
