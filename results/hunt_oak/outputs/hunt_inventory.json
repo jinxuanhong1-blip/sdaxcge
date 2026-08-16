@@ -1,0 +1,77 @@
+{
+  "question": "Is there ANY open processed leftover of OAK/POPLAR (EGAS00001005013) that can test TACSTD2 vs atezolizumab benefit?",
+  "verdict": "NO. Still closed as of 2026-08-16.",
+  "what_would_be_needed": "Per-sample TACSTD2 (or full transcriptome) joined to treatment arm + PFS/OS in OAK and/or POPLAR, so the atezo-vs-docetaxel interaction can be recomputed.",
+  "checked": [
+    {
+      "source": "EGA EGAS00001005013 and all EGAD sub-datasets (07703, 08390, 08391, 08548, 08549, 08628-08631)",
+      "what": "FASTQ, log2(TPM+1), counts, CPM, clinical for OAK n=699 and POPLAR n=192",
+      "status": "CONTROLLED — Genentech DAC EGAC00001002120. Not used. Out of scope for this open hunt."
+    },
+    {
+      "source": "EGA EGAS00001004343 (Banchereau / molecular determinants)",
+      "what": "Includes POPLAR TPM matrices + clinical mixed with IMvigor210/IMmotion150",
+      "status": "CONTROLLED. Not used."
+    },
+    {
+      "source": "vivli.org Roche/Genentech",
+      "what": "Additional OAK/POPLAR clinical",
+      "status": "Gated request. Not used."
+    },
+    {
+      "source": "Bessede 2024 Clin Cancer Res supplements (AACR figshare collection 10.1158/1078-0432.c.7077754)",
+      "what": "S1 patient characteristics (aggregated N/%); S2 multivariate HRs (TACSTD2-high PFS HR 1.31, OS HR 1.26); S3/S4 BIP protein-cohort characteristics; Fig S1/S2 captions + images",
+      "status": "OPEN but UNUSABLE for a re-test. No per-sample TACSTD2, no per-sample outcomes. Extracted text in data/derived/bessede_supplements_extracted.md"
+    },
+    {
+      "source": "Patil 2022 Cancer Cell (the paper that deposited EGAS00001005013)",
+      "what": "Data-availability points only at EGA + vivli. No open expression/signature matrix.",
+      "status": "CLOSED"
+    },
+    {
+      "source": "Gandara 2018 Nat Med 10.1038/s41591-018-0134-3 ESM xlsx",
+      "what": "OPEN leftover of OAK/POPLAR: blood-TMB variants + clinical (arm, PFS, OS, histology) — POPLAR n=287, OAK n=850. 0 TACSTD2 variant rows. No RNA-seq.",
+      "status": "OPEN leftover, CANNOT test TACSTD2. Schema in data/derived/gandara2018_schema.json"
+    },
+    {
+      "source": "GitHub Askir/pbmf-reproduction and gaarangoa/pbmf",
+      "what": "Reproduces PBMF on Gandara 2018 clinical/bTMB (not RNA-seq)",
+      "status": "No expression leftover"
+    },
+    {
+      "source": "GitHub Yun-Ching-Chen/NSCLC_ICB_CombBiomarker",
+      "what": "NSCLC ICI phenos for GSE135222 / GSE136961 only; expression not posted; no OAK/POPLAR",
+      "status": "No leftover"
+    },
+    {
+      "source": "GitHub search repos: OAK+POPLAR+atezolizumab; GO28753; GO28915; EGAS00001005013",
+      "what": "Only the PBMF reproduction repo",
+      "status": "No expression leftover"
+    },
+    {
+      "source": "IOBR R package data-v1.0 release",
+      "what": "Has IMvigor210 eset/sig; no POPLAR/OAK rda",
+      "status": "No leftover"
+    },
+    {
+      "source": "TIGER / tigeR (YuLab)",
+      "what": "3 lung ICI datasets (public GEO-scale, not OAK/POPLAR). TIGER paper does not list OAK/POPLAR.",
+      "status": "No leftover"
+    },
+    {
+      "source": "Zenodo / figshare keyword search OAK POPLAR atezolizumab RNA-seq",
+      "what": "No processed matrix",
+      "status": "No leftover"
+    },
+    {
+      "source": "GEO GSE135222",
+      "what": "Open NSCLC anti-PD-(L)1 TPM + PFS, n=27. NOT OAK/POPLAR.",
+      "status": "Used as a secondary open proxy (underpowered)"
+    },
+    {
+      "source": "IMvigor210CoreBiologies cds.RData (Mariathasan 2018; SiYangming mirror)",
+      "what": "Open atezolizumab RNA-seq + OS/response, n=348 mUC. NOT OAK/POPLAR.",
+      "status": "Used as the closest open atezo proxy. Official gene.com tarball is 404 as of 2026-08-16."
+    }
+  ]
+}

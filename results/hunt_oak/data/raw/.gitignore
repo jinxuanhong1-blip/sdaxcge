@@ -1,0 +1,15 @@
+# Large / regenerable raw downloads. Re-fetch via scripts/fetch_data.sh
+# and the URLs in provenance/sources.md.
+imvigor210_cds.RData
+GSE135222_exp.tsv
+GSE135222_exp.tsv.gz
+GSE135222_series_matrix.txt.gz
+gandara2018/*.xlsx
+bessede_supplements/*.docx
+bessede_supplements/*.json
+bessede_supplements/url_*.txt
+
+# Small extracted / clinical-adjacent files ARE committed:
+!imvigor210_counts_selected.csv
+!imvigor210_pdata_full.csv
+!GSE135222_series_matrix.txt

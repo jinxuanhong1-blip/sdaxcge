@@ -1,0 +1,20 @@
+{
+  "dataset": "GSE135222 (NSCLC, anti-PD-1/PD-L1, single-arm, n=27)",
+  "gene": "TACSTD2 (TROP2)",
+  "n_total": 27,
+  "pfs_events": 21,
+  "note": "pfs_event coded 1=progression event, 0=censored (per GEO characteristics)",
+  "pfs_cox_perSD_HR": 1.0686,
+  "pfs_cox_perSD_HR_95CI": [
+    0.6765,
+    1.688
+  ],
+  "pfs_cox_perSD_p": 0.77616,
+  "pfs_logrank_p_medianSplit": 0.42965,
+  "pfs_median_days_TACSTD2_high": 59.0,
+  "pfs_median_days_TACSTD2_low": 73.0,
+  "spearman_TACSTD2_vs_CD8A_rho": -0.0116,
+  "spearman_TACSTD2_vs_CD8A_p": 0.95421,
+  "spearman_TACSTD2_vs_CD274_rho": 0.0232,
+  "spearman_TACSTD2_vs_CD274_p": 0.90856
+}
