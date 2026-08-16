@@ -1,0 +1,5 @@
+accession	species	disease	assay	n	ici_labels	TACSTD2	CLDN4	access	url	notes
+CPTAC-LSCC-freeze-v1.2-protein-tumor	human	LSCC/LUSC	TMT protein gene abundance log2 reference-intensity	108	no (treatment-naive)	ENSG00000184292.7 n=108 NA=0	ENSG00000189143.9 n=78 NA=30	open	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt	Satpathy Cell 2021 PMID 34358469; PDC000234
+CPTAC-LSCC-freeze-v1.2-phenotype	human	LSCC/LUSC	xCell + ESTIMATE + WES/WGS purity	108	no	NA	NA	open	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_phenotype.txt	xCell lives here; standalone LSCC_xcell.txt is HTTP 403
+PDC000234	human	LSCC	CPTAC LSCC Discovery proteome	108	no	protein	protein	open processed	https://pdc.cancer.gov/pdc/study/PDC000234	Official PDC study; freeze used, not re-downloaded from PDC
+PMID34358469	human	LSCC	proteogenomic portrait	108	no prior chemo/RT; no ICI labels	not a primary ICI endpoint	not a primary ICI endpoint	open paper	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8475722/	newly diagnosed, no prior treatment

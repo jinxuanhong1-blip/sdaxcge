@@ -1,0 +1,13 @@
+claim	supported	detail
+TACSTD2_protein_vs_xCell_CD8_marginal_null	yes	rho=-0.0795 p=0.413 n=108; matches PR23
+TACSTD2_protein_vs_xCell_immune_marginal_null	yes	rho=-0.1334 p=0.169 n=108; matches PR23
+CLDN4_protein_vs_xCell_CD8_marginal_inverse	yes	rho=-0.3869 p=4.66e-4 n=78; matches PR23
+CLDN4_protein_vs_xCell_immune_marginal_inverse	yes	rho=-0.3996 p=2.90e-4 n=78; matches PR23
+TACSTD2_WES_partial_still_null	yes	CD8 partial rho=-0.061 p=0.534 FDR=0.534 n=107; immune partial rho=-0.129 p=0.188 FDR=0.251 n=107
+CLDN4_WES_partial_inverse_attenuated	yes	CD8 partial rho=-0.303 p=0.0078 FDR=0.023 n=77; immune partial rho=-0.288 p=0.012 FDR=0.023 n=77
+CLDN4_WGS_partial_null	yes	CD8 partial rho=-0.173 p=0.141 n=75; immune partial rho=-0.049 p=0.681 n=75; covariate-sensitive
+TACSTD2_not_a_WES_purity_marker	yes	rho=+0.066 p=0.497 n=107
+CLDN4_tracks_WES_purity	yes	rho=+0.305 p=0.0070 n=77
+Bessede_like_TACSTD2_Tcell_exclusion_in_this_protein_set	no	TACSTD2 protein vs xCell CD8/immune is null before and after purity residual; treatment-naive, not ICI
+purity_independent_CLDN4_immune_effect_settled	no	survives WES FDR<0.05 but not WGS; do not overclaim
+ICI_response_tested	no	treatment-naive surgical LSCC; no ICI labels
