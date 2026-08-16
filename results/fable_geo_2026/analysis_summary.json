@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "GSE261345",
+    "cohort": "ES-SCLC (DSP)",
+    "gene": "TACSTD2",
+    "comparison": "RECIST responder(CR/PR) vs non(SD/PD), patient-level",
+    "n_group1": 17,
+    "n_group2": 9,
+    "median_group1": 7.2432,
+    "median_group2": 7.3611,
+    "mwu_p": 0.332,
+    "cliffs_delta": -0.2418
+  },
+  {
+    "dataset": "GSE261345",
+    "cohort": "ES-SCLC (DSP)",
+    "gene": "TACSTD2",
+    "comparison": "Spearman TACSTD2 vs PFS days (patient-level)",
+    "n_group1": 26,
+    "n_group2": null,
+    "median_group1": null,
+    "median_group2": null,
+    "mwu_p": 0.4774,
+    "cliffs_delta": 0.1458
+  },
+  {
+    "dataset": "GSE261345",
+    "cohort": "ES-SCLC (DSP)",
+    "gene": "TACSTD2",
+    "comparison": "PFS logrank TACSTD2 hi vs lo (median split)",
+    "n_group1": 13,
+    "n_group2": 13,
+    "median_group1": null,
+    "median_group2": null,
+    "mwu_p": 0.5947,
+    "cliffs_delta": null
+  },
+  {
+    "dataset": "GSE261348",
+    "cohort": "ES-SCLC (DSP)",
+    "gene": "TACSTD2",
+    "comparison": "RECIST responder(CR/PR) vs non(SD/PD), patient-level",
+    "n_group1": 21,
+    "n_group2": 9,
+    "median_group1": 7.6388,
+    "median_group2": 7.7273,
+    "mwu_p": 0.892,
+    "cliffs_delta": -0.037
+  },
+  {
+    "dataset": "GSE261348",
+    "cohort": "ES-SCLC (DSP)",
+    "gene": "TACSTD2",
+    "comparison": "Spearman TACSTD2 vs PFS days (patient-level)",
+    "n_group1": 32,
+    "n_group2": null,
+    "median_group1": null,
+    "median_group2": null,
+    "mwu_p": 0.1535,
+    "cliffs_delta": -0.2583
+  },
+  {
+    "dataset": "GSE261348",
+    "cohort": "ES-SCLC (DSP)",
+    "gene": "TACSTD2",
+    "comparison": "PFS logrank TACSTD2 hi vs lo (median split)",
+    "n_group1": 16,
+    "n_group2": 16,
+    "median_group1": null,
+    "median_group2": null,
+    "mwu_p": 0.6419,
+    "cliffs_delta": null
+  },
+  {
+    "dataset": "GSE233203",
+    "cohort": "NSCLC (scRNA pseudobulk)",
+    "gene": "TACSTD2",
+    "comparison": "Response vs Non-response, patient-level pseudobulk",
+    "n_group1": 3,
+    "n_group2": 4,
+    "median_group1": 5.7432,
+    "median_group2": 3.7015,
+    "mwu_p": 0.1143,
+    "cliffs_delta": 0.8333
+  },
+  {
+    "dataset": "GSE233203",
+    "cohort": "NSCLC (scRNA pseudobulk)",
+    "gene": "CLDN4",
+    "comparison": "Response vs Non-response, patient-level pseudobulk",
+    "n_group1": 3,
+    "n_group2": 4,
+    "median_group1": 5.543,
+    "median_group2": 3.1837,
+    "mwu_p": 0.4,
+    "cliffs_delta": 0.5
+  }
+]
