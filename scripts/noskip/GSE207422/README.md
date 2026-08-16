@@ -2,6 +2,8 @@
 
 Hu et al., Genome Medicine 2023 (PMID 36869384). Neoadjuvant PD-1 + chemo NSCLC scRNA, ~92k cells (BD Rhapsody).
 
+Honest result: claimed per-patient malignant TACSTD2 vs T/NK ρ −0.40 to −0.50 is **not supported** (post-treatment ρ = −0.021, p = 0.95, n = 12). NMPR > MPR is directional only (p = 0.21). TACSTD2 is malignant-restricted vs T/NK (paired p = 6.1e-5).
+
 ## Inputs (processed GEO only)
 
 - `GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz` (175 MB; 24,292 genes × 92,330 cells)

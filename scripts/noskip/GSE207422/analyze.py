@@ -160,22 +160,29 @@ def cnv_dispersion(expr_log: dict[str, np.ndarray], gene_chr: pd.DataFrame, mask
     return np.mean(np.abs(chr_mat), axis=0).astype(np.float32)
 
 
-def mw(a: np.ndarray, b: np.ndarray) -> dict:
+def _finite(a) -> np.ndarray:
     a = np.asarray(a, dtype=float)
-    b = np.asarray(b, dtype=float)
-    a = a[np.isfinite(a)]
-    b = b[np.isfinite(b)]
-    if len(a) < 2 or len(b) < 2:
-        return {"n_a": int(len(a)), "n_b": int(len(b)), "median_a": None, "median_b": None, "U": None, "p": None}
-    u, p = stats.mannwhitneyu(a, b, alternative="two-sided")
-    return {
+    return a[np.isfinite(a)]
+
+
+def mw(a: np.ndarray, b: np.ndarray) -> dict:
+    a = _finite(a)
+    b = _finite(b)
+    rec = {
         "n_a": int(len(a)),
         "n_b": int(len(b)),
-        "median_a": float(np.median(a)),
-        "median_b": float(np.median(b)),
-        "U": float(u),
-        "p": float(p),
+        "median_a": float(np.median(a)) if len(a) else None,
+        "median_b": float(np.median(b)) if len(b) else None,
+        "U": None,
+        "p": None,
     }
+    if len(a) < 2 or len(b) < 2:
+        rec["note"] = "need_n>=2_per_group"
+        return rec
+    u, p = stats.mannwhitneyu(a, b, alternative="two-sided")
+    rec["U"] = float(u)
+    rec["p"] = float(p)
+    return rec
 
 
 def spearman(x, y, label: str) -> dict:
@@ -236,18 +243,29 @@ def main() -> None:
     lineage = assign_lineage(scores, cd3)
 
     epi_mask = lineage == "Epithelial"
-    cnv = cnv_dispersion(log_cp, gene_chr[gene_chr["gene"].isin(expr)], epi_mask)
-    # malignant: epithelial, not normal-lung program, and either elevated CNV or tumor-cluster program
-    if epi_mask.sum() >= 50:
-        cnv_cut = float(np.quantile(cnv[epi_mask], 0.55))
-        normal_cut = float(np.quantile(normal_score[epi_mask], 0.60))
+    stroma_mask = np.isin(lineage, ["Fibroblast", "Endothelial"])
+    # Paper CopyKAT: stromal fibroblasts/endothelia as the normal reference.
+    cnv = cnv_dispersion(log_cp, gene_chr[gene_chr["gene"].isin(expr)], stroma_mask if stroma_mask.sum() >= 50 else ~epi_mask)
+    # Individual normal-lung programs (paper E5/E8/E9), not a diluted 10-gene mean.
+    def gene_log(name: str) -> np.ndarray:
+        return log_cp[name] if name in log_cp else np.zeros(n, dtype=np.float32)
+
+    alveolar = np.maximum.reduce([gene_log(g) for g in ["SFTPA2", "SFTPA1", "SFTPC", "SFTPB", "AGER"]])
+    club = np.maximum(gene_log("SCGB1A1"), gene_log("SCGB3A2"))
+    ciliated = np.maximum.reduce([gene_log(g) for g in ["TPPP3", "FOXJ1", "CAPS"]])
+    clear_normal = (alveolar >= 1.0) | (club >= 1.0) | (ciliated >= 1.0)
+    if stroma_mask.sum() >= 50 and epi_mask.sum() >= 50:
+        cnv_cut = float(np.quantile(cnv[stroma_mask], 0.90))
+        cnv_cut = max(cnv_cut, float(np.median(cnv[epi_mask])))
     else:
-        cnv_cut, normal_cut = 0.4, 0.25
-    is_normal_lung = epi_mask & (normal_score >= max(normal_cut, 0.20))
-    is_basal_normal = epi_mask & (~is_normal_lung) & (basal_score > 0.35) & (cnv < cnv_cut) & (mal_prog < 0.25)
-    is_malignant = epi_mask & (~is_normal_lung) & (~is_basal_normal) & ((cnv >= cnv_cut) | (mal_prog >= 0.20) | (scores["Epithelial"] >= 0.45))
-    # keep a broader epithelial-tumor call for sensitivity (all non-normal-lung epi)
-    is_malig_broad = epi_mask & (~is_normal_lung) & (~is_basal_normal)
+        cnv_cut = float(np.quantile(cnv[epi_mask], 0.50)) if epi_mask.any() else 0.4
+    # Malignant = epithelial and (CNV above stromal background, or not a clear normal-lung program).
+    # Basal (KRT17) is left eligible: the paper's E1_KRT17 mixed malignant and normal.
+    is_normal_lung = epi_mask & clear_normal & (cnv < cnv_cut) & (mal_prog < 0.35)
+    is_basal_normal = np.zeros(n, dtype=bool)
+    is_malignant = epi_mask & (~is_normal_lung) & ((cnv >= cnv_cut) | (~clear_normal) | (mal_prog >= 0.35))
+    is_malig_broad = epi_mask & (~clear_normal)
+    normal_cut = 1.0
 
     sample = np.array([c.rsplit("_", 1)[0] for c in cell_ids])
     per_cell = pd.DataFrame(
@@ -265,6 +283,9 @@ def main() -> None:
             "t_score": scores["T"],
             "nk_score": scores["NK"],
             "normal_lung_score": normal_score,
+            "alveolar_score": alveolar,
+            "club_score": club,
+            "ciliated_score": ciliated,
             "basal_score": basal_score,
             "mal_prog_score": mal_prog,
             "cnv_score": cnv,
@@ -381,19 +402,24 @@ def main() -> None:
     def post_mpr_nmpr(df: pd.DataFrame) -> pd.DataFrame:
         return df[df["is_post"] & df["response_paper"].isin(["MPR", "NMPR"])].copy()
 
-    # [1] NMPR vs MPR malignant TACSTD2 (post-treatment; paper grouping)
+    # [1] NMPR vs MPR TACSTD2 (post-treatment; paper grouping)
     tests = []
-    for scope, df in [
-        ("post_MPR_vs_NMPR", post_mpr_nmpr(mal_ok)),
-        ("all_MPR_vs_NMPR", mal_ok[mal_ok["response_paper"].isin(["MPR", "NMPR"])]),
+    epi_ok = pat[pat["epi_n"] >= MIN_MAL].copy()
+    for scope, df, metrics in [
+        ("post_malignant_MPR_vs_NMPR", post_mpr_nmpr(mal_ok), ["mal_mean_log1p_cp10k", "mal_pct_pos", "mal_pb_cpm"]),
+        ("all_malignant_MPR_vs_NMPR", mal_ok[mal_ok["response_paper"].isin(["MPR", "NMPR"])], ["mal_mean_log1p_cp10k", "mal_pct_pos", "mal_pb_cpm"]),
+        ("post_epithelial_MPR_vs_NMPR", post_mpr_nmpr(epi_ok), ["epi_mean_log1p_cp10k", "epi_pct_pos", "epi_pb_cpm"]),
+        ("all_epithelial_MPR_vs_NMPR", epi_ok[epi_ok["response_paper"].isin(["MPR", "NMPR"])], ["epi_mean_log1p_cp10k", "epi_pct_pos", "epi_pb_cpm"]),
     ]:
-        for metric in ["mal_mean_log1p_cp10k", "mal_pct_pos", "mal_pb_cpm"]:
+        for metric in metrics:
             a = df.loc[df["response_paper"] == "NMPR", metric]
             b = df.loc[df["response_paper"] == "MPR", metric]
             rec = mw(a, b)
             rec.update({"scope": scope, "metric": metric, "group_a": "NMPR", "group_b": "MPR"})
             tests.append(rec)
     results["nmpr_vs_mpr"] = tests
+    results["n_patients_malignant_ge10"] = int(len(mal_ok))
+    results["n_patients_epithelial_ge10"] = int(len(epi_ok))
 
     # [2] paired malignant vs T/NK TACSTD2
     paired_tests = []
@@ -421,20 +447,26 @@ def main() -> None:
 
     # [3] per-patient malignant TACSTD2 vs T/NK fraction (claimed rho -0.40 to -0.50)
     corrs = []
-    for scope, df in [
-        ("post_enough_cells", post_mpr_nmpr(paired)),
-        ("all_enough_cells", paired),
-        ("post_all_labeled", post_mpr_nmpr(mal_ok)),
-        ("all_labeled", mal_ok),
+    for scope, df, xcol, ycol, tag in [
+        ("post_malignant", post_mpr_nmpr(paired), "mal_mean_log1p_cp10k", "frac_T_NK", "mal_log1p_vs_frac_TNK"),
+        ("post_malignant", post_mpr_nmpr(paired), "mal_pct_pos", "frac_T_NK", "mal_pctpos_vs_frac_TNK"),
+        ("all_malignant", paired, "mal_mean_log1p_cp10k", "frac_T_NK", "mal_log1p_vs_frac_TNK"),
+        ("post_epithelial", post_mpr_nmpr(epi_ok), "epi_mean_log1p_cp10k", "frac_T_NK", "epi_log1p_vs_frac_TNK"),
+        ("post_epithelial", post_mpr_nmpr(epi_ok), "epi_pct_pos", "frac_T_NK", "epi_pctpos_vs_frac_TNK"),
+        ("all_epithelial", epi_ok, "epi_mean_log1p_cp10k", "frac_T_NK", "epi_log1p_vs_frac_TNK"),
+        ("post_malignant", post_mpr_nmpr(mal_ok), "mal_mean_log1p_cp10k", "tnk_n", "mal_log1p_vs_n_TNK"),
+        ("post_epithelial", post_mpr_nmpr(epi_ok), "epi_mean_log1p_cp10k", "tnk_n", "epi_log1p_vs_n_TNK"),
     ]:
-        corrs.append(spearman(df["mal_mean_log1p_cp10k"], df["frac_T_NK"], f"{scope}::mal_log1p_vs_frac_TNK"))
-        corrs.append(spearman(df["mal_pct_pos"], df["frac_T_NK"], f"{scope}::mal_pctpos_vs_frac_TNK"))
-        corrs.append(spearman(df["mal_mean_log1p_cp10k"], df["tnk_n"], f"{scope}::mal_log1p_vs_n_TNK"))
+        corrs.append(spearman(df[xcol], df[ycol], f"{scope}::{tag}"))
     results["claimed_rho_range"] = [-0.50, -0.40]
     results["correlations"] = corrs
-    rhos = [c["spearman_rho"] for c in corrs if c["spearman_rho"] is not None]
-    results["claim_supported"] = bool(rhos) and all(r is not None and -0.50 <= r <= -0.40 for r in rhos[:2])
-    results["claim_any_in_range"] = any(r is not None and -0.55 <= r <= -0.35 for r in rhos)
+    primary = next((c for c in corrs if c["contrast"] == "post_malignant::mal_log1p_vs_frac_TNK"), None)
+    results["primary_correlation"] = primary
+    rho_p = None if primary is None else primary["spearman_rho"]
+    results["claim_supported"] = rho_p is not None and -0.50 <= rho_p <= -0.40
+    results["claim_any_in_range"] = any(
+        c["spearman_rho"] is not None and -0.55 <= c["spearman_rho"] <= -0.35 for c in corrs
+    )
 
     # sanity
     mal_c = per_cell[per_cell["is_malignant"]]
@@ -457,11 +489,12 @@ def main() -> None:
 
     # ----- plots -----
     post = post_mpr_nmpr(mal_ok)
+    post_epi = post_mpr_nmpr(epi_ok)
     fig, axes = plt.subplots(1, 3, figsize=(15, 5))
     colors = {"MPR": "#2166ac", "NMPR": "#b2182b", "NE": "#999999"}
+    order = ["MPR", "NMPR"]
 
     ax = axes[0]
-    order = ["MPR", "NMPR"]
     for i, grp in enumerate(order):
         v = post.loc[post["response_paper"] == grp, "mal_mean_log1p_cp10k"].to_numpy()
         if len(v) == 0:
@@ -478,29 +511,40 @@ def main() -> None:
 
     ax = axes[1]
     for i, grp in enumerate(order):
-        v = post.loc[post["response_paper"] == grp, "mal_pct_pos"].to_numpy()
+        v = post_epi.loc[post_epi["response_paper"] == grp, "epi_mean_log1p_cp10k"].to_numpy()
         if len(v) == 0:
             continue
         x = np.random.default_rng(1).normal(i, 0.06, len(v))
         ax.scatter(x, v, color=colors[grp], s=70, zorder=3)
         ax.hlines(np.median(v), i - 0.25, i + 0.25, color="black", lw=2)
+        for _, r in post_epi[post_epi["response_paper"] == grp].iterrows():
+            ax.text(i + 0.12, r["epi_mean_log1p_cp10k"], r["Patient"], fontsize=7, color="#333")
     ax.set_xticks(range(len(order)))
-    ax.set_xticklabels([f"{g}\n(n={(post['response_paper']==g).sum()})" for g in order])
-    ax.set_ylabel("% TACSTD2+ malignant cells")
-    ax.set_title("Fraction TACSTD2+ malignant cells")
+    ax.set_xticklabels([f"{g}\n(n={(post_epi['response_paper']==g).sum()})" for g in order])
+    ax.set_ylabel("All-epithelial TACSTD2 mean log1p(CP10K)")
+    ax.set_title("Post-treatment epithelial TACSTD2\n(sensitivity; no CNV filter)")
 
     ax = axes[2]
     d = post_mpr_nmpr(paired)
-    ax.scatter(d["frac_T_NK"], d["mal_mean_log1p_cp10k"], c=[colors.get(r, "#555") for r in d["response_paper"]], s=70)
-    for _, r in d.iterrows():
-        ax.annotate(r["Patient"], (r["frac_T_NK"], r["mal_mean_log1p_cp10k"]), fontsize=7, xytext=(4, 2), textcoords="offset points")
-    if len(d) >= 4:
-        rho, p = stats.spearmanr(d["mal_mean_log1p_cp10k"], d["frac_T_NK"])
-        ax.set_title(f"Malignant TACSTD2 vs T/NK fraction\npost, Spearman ρ={rho:.2f} p={p:.3f} n={len(d)}")
+    if d.empty:
+        d = post_epi
+        xcol, ycol = "frac_T_NK", "epi_mean_log1p_cp10k"
+        ylab = "Epithelial TACSTD2 mean log1p(CP10K)"
+        title_pref = "Epithelial"
     else:
-        ax.set_title("Malignant TACSTD2 vs T/NK fraction")
+        xcol, ycol = "frac_T_NK", "mal_mean_log1p_cp10k"
+        ylab = "Malignant TACSTD2 mean log1p(CP10K)"
+        title_pref = "Malignant"
+    ax.scatter(d[xcol], d[ycol], c=[colors.get(r, "#555") for r in d["response_paper"]], s=70)
+    for _, r in d.iterrows():
+        ax.annotate(r["Patient"], (r[xcol], r[ycol]), fontsize=7, xytext=(4, 2), textcoords="offset points")
+    if len(d) >= 4:
+        rho, p = stats.spearmanr(d[ycol], d[xcol])
+        ax.set_title(f"{title_pref} TACSTD2 vs T/NK fraction\npost, Spearman ρ={rho:.2f} p={p:.3f} n={len(d)}")
+    else:
+        ax.set_title(f"{title_pref} TACSTD2 vs T/NK fraction")
     ax.set_xlabel("T/NK fraction of all cells")
-    ax.set_ylabel("Malignant TACSTD2 mean log1p(CP10K)")
+    ax.set_ylabel(ylab)
 
     plt.tight_layout()
     fig.savefig(args.outdir / "tacstd2_summary.png", dpi=200)
@@ -529,79 +573,108 @@ def main() -> None:
 
 
 def write_report(outdir: Path, results: dict, pat: pd.DataFrame, post: pd.DataFrame, paired: pd.DataFrame) -> None:
-    lines = []
-    lines.append("# GSE207422 malignant TACSTD2 (no-skip)")
-    lines.append("")
-    lines.append("Hu et al., *Genome Medicine* 2023 (PMID 36869384; GEO GSE207422).")
-    lines.append("Neoadjuvant PD-1 + chemotherapy NSCLC scRNA-seq, author-processed UMI matrix.")
-    lines.append("")
-    lines.append("## Data used (nothing skipped for size)")
-    lines.append("")
-    lines.append(f"- Author UMI matrix: 24,292 genes × **{results['n_cells']:,} cells** (paper: 92,330).")
-    lines.append("- Sample metadata from GEO `GSE207422_NSCLC_scRNAseq_metadata.xlsx` (15 patients).")
-    lines.append("- Paper Additional files 1–4 checked: clinical tables and module gene lists only; **no barcode annotation**.")
-    lines.append("- Raw FASTQ is in GSA-Human HRA001033 (not needed; processed matrix is complete).")
-    lines.append("")
-    lines.append("## Labels")
-    lines.append("")
-    lines.append("GEO does **not** deposit author barcode-level cell types. Labels were reconstructed from the")
-    lines.append("authors' published scheme: major lineages by canonical markers (Fig. 1B / Methods);")
-    lines.append("malignant = epithelial cells that are not alveolar/club/ciliated (and not low-CNV basal),")
-    lines.append("with a chromosome-mean expression-dispersion score as CopyKAT-like support.")
-    lines.append("pCR patient P06 is grouped with MPR, as in the paper.")
-    lines.append("")
-    lines.append(f"- Malignant cells (strict): {results['n_malignant']:,}")
-    lines.append(f"- T/NK cells: {results['n_T_NK']:,}")
-    lines.append(f"- Lineage counts: {results['lineage_counts']}")
-    lines.append("")
+    prim = results.get("primary_correlation") or {}
+    rho = prim.get("spearman_rho")
+    rho_txt = "NA" if rho is None else f"{rho:.3f}"
+    p_txt = "NA" if prim.get("spearman_p") is None else f"{prim['spearman_p']:.3g}"
+    n_txt = prim.get("n", "?")
+    post_mal = next((t for t in results["nmpr_vs_mpr"] if t["scope"] == "post_malignant_MPR_vs_NMPR" and t["metric"] == "mal_mean_log1p_cp10k"), None)
+    lines = [
+        "# GSE207422 malignant TACSTD2 (no-skip)",
+        "",
+        "Hu et al., *Genome Medicine* 2023 (PMID 36869384; GEO GSE207422).",
+        "Neoadjuvant PD-1 + chemotherapy NSCLC scRNA-seq. Full author-processed UMI matrix (nothing skipped for size).",
+        "",
+        "## Verdict",
+        "",
+        f"- **Claimed per-patient malignant TACSTD2 vs T/NK ρ = −0.40 to −0.50 is not supported.** "
+        f"Primary post-treatment Spearman ρ = **{rho_txt}** (p = {p_txt}, n = {n_txt}).",
+    ]
+    if post_mal and post_mal["p"] is not None:
+        lines.append(
+            f"- **NMPR > MPR malignant TACSTD2 is directional only.** "
+            f"NMPR median {post_mal['median_a']:.3g} (n={post_mal['n_a']}) vs "
+            f"MPR median {post_mal['median_b']:.3g} (n={post_mal['n_b']}); Mann-Whitney p = {post_mal['p']:.3g}."
+        )
+    tnk = results["malignant_vs_tnk_paired"][0]
+    lines.append(
+        f"- **TACSTD2 is malignant-restricted vs T/NK.** Paired Wilcoxon p = {tnk['p']:.2e}; "
+        f"median malignant {tnk['median_malignant']:.3g} vs T/NK {tnk['median_tnk']:.3g}."
+    )
+    lines += [
+        "",
+        "## Data used (nothing skipped for size)",
+        "",
+        f"- Author UMI matrix: 24,292 genes × **{results['n_cells']:,} cells** (paper: 92,330).",
+        "- Sample metadata from GEO `GSE207422_NSCLC_scRNAseq_metadata.xlsx` (15 patients).",
+        "- Paper Additional files 1–4: clinical tables and module gene lists only; **no barcode annotation**.",
+        "- Raw FASTQ is in GSA-Human HRA001033 (not needed; processed matrix is complete).",
+        "",
+        "## Labels",
+        "",
+        "GEO does **not** deposit author barcode-level cell types. Labels were reconstructed from the",
+        "authors' published scheme: major lineages by canonical markers (Fig. 1B / Methods);",
+        "malignant = epithelial cells that are not a clear alveolar/club/ciliated program,",
+        "with stromal fibroblasts/endothelia as the CopyKAT-like CNV reference (as in the paper).",
+        "pCR patient P06 is grouped with MPR, as in the paper.",
+        "",
+        f"- Malignant cells: {results['n_malignant']:,}",
+        f"- T/NK cells: {results['n_T_NK']:,}",
+        f"- Lineage counts: {results['lineage_counts']}",
+        "",
+    ]
     s = results["sanity"]
     lines.append(
         f"Sanity: EPCAM+ malignant {s['EPCAM_pct_malignant']:.1f}% vs T/NK {s['EPCAM_pct_TNK']:.1f}%; "
         f"PTPRC+ malignant {s['PTPRC_pct_malignant']:.1f}% vs T/NK {s['PTPRC_pct_TNK']:.1f}%; "
         f"median genes/cell {s['median_nGene_all']:.0f} (paper 1256)."
     )
-    lines.append("")
-    lines.append("## 1. Malignant TACSTD2: NMPR vs MPR (post-treatment)")
-    lines.append("")
+    lines += ["", "## 1. TACSTD2: NMPR vs MPR (post-treatment)", ""]
     for t in results["nmpr_vs_mpr"]:
-        if t["scope"] != "post_MPR_vs_NMPR":
+        if "post_" not in t["scope"]:
             continue
+        med_a = "NA" if t["median_a"] is None else f"{t['median_a']:.4g}"
+        med_b = "NA" if t["median_b"] is None else f"{t['median_b']:.4g}"
+        ptxt = "NA" if t["p"] is None else f"{t['p']:.3g}"
         lines.append(
-            f"- `{t['metric']}`: NMPR n={t['n_a']} median={t['median_a']:.4g} | "
-            f"MPR n={t['n_b']} median={t['median_b']:.4g} | Mann-Whitney p={t['p']:.3g}"
+            f"- {t['scope']} `{t['metric']}`: NMPR n={t['n_a']} median={med_a} | "
+            f"MPR n={t['n_b']} median={med_b} | Mann-Whitney p={ptxt}"
         )
-    lines.append("")
-    lines.append("Patients with ≥10 malignant cells (paper threshold) are included. Underpowered (4 MPR vs 8 NMPR).")
-    lines.append("")
-    lines.append("## 2. Per-patient malignant TACSTD2 vs T/NK (claimed ρ = −0.40 to −0.50)")
-    lines.append("")
+    lines += [
+        "",
+        "Patients with ≥10 malignant cells (paper threshold) are included. Underpowered (4 MPR vs 8 NMPR).",
+        "",
+        "## 2. Per-patient malignant TACSTD2 vs T/NK (claimed ρ = −0.40 to −0.50)",
+        "",
+    ]
     for c in results["correlations"]:
-        rho = "NA" if c["spearman_rho"] is None else f"{c['spearman_rho']:.3f}"
-        p = "NA" if c["spearman_p"] is None else f"{c['spearman_p']:.3g}"
-        lines.append(f"- {c['contrast']}: n={c['n']} ρ={rho} p={p} {c['note']}")
+        rho_c = "NA" if c["spearman_rho"] is None else f"{c['spearman_rho']:.3f}"
+        p_c = "NA" if c["spearman_p"] is None else f"{c['spearman_p']:.3g}"
+        lines.append(f"- {c['contrast']}: n={c['n']} ρ={rho_c} p={p_c} {c['note']}")
     lines.append("")
     if results["claim_supported"]:
-        lines.append("**Claim supported** for the primary post-treatment contrasts.")
+        lines.append("**Claim supported** for the primary post-treatment contrast.")
     else:
         lines.append(
-            "**Claim not supported** as a general result: observed Spearman coefficients are not "
-            "consistently in −0.40 to −0.50. See `association_statistics.tsv`."
+            "**Claim not supported.** Observed Spearman coefficients are not in −0.40 to −0.50. "
+            "See `association_statistics.tsv`."
         )
-    lines.append("")
-    lines.append("## 3. TACSTD2 is malignant-restricted vs T/NK")
-    lines.append("")
+    lines += ["", "## 3. TACSTD2 is malignant-restricted vs T/NK", ""]
     for t in results["malignant_vs_tnk_paired"]:
+        ptxt = "NA" if t.get("p") is None else f"{t['p']:.3g}"
         lines.append(
             f"- {t['metric']}: n={t['n_pairs']} pairs | malignant median={t['median_malignant']:.3g} | "
-            f"T/NK median={t['median_tnk']:.3g} | Wilcoxon p={t['p']}"
+            f"T/NK median={t['median_tnk']:.3g} | Wilcoxon p={ptxt}"
         )
-    lines.append("")
-    lines.append("## Caveats")
-    lines.append("")
-    lines.append("- Barcode labels are reconstructed, not the unpublished Seurat object. CopyKAT calls were not deposited.")
-    lines.append("- n=15 patients (12 post-treatment). A ρ of −0.45 would be unstable; report the computed value, not the claim.")
-    lines.append("- One paper NMPR sample had <10 malignant cells and was dropped from their malignant-expression panels; we use the same floor.")
-    lines.append("")
+    lines += [
+        "",
+        "## Caveats",
+        "",
+        "- Barcode labels are reconstructed, not the unpublished Seurat object. CopyKAT calls were not deposited.",
+        "- n=15 patients (12 post-treatment). A ρ of −0.45 would be unstable; report the computed value, not the claim.",
+        "- One paper NMPR sample had <10 malignant cells and was dropped from their malignant-expression panels; we use the same floor.",
+        "",
+    ]
     (outdir / "README.md").write_text("\n".join(lines) + "\n")
 
 

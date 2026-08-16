@@ -1,0 +1,12 @@
+contrast	n	spearman_rho	spearman_p	note
+post_malignant::mal_log1p_vs_frac_TNK	12	-0.02097902097902098	0.9484022252365222	primary_claimed_contrast
+post_malignant::mal_pctpos_vs_frac_TNK	12	-0.2377622377622378	0.45680085263992326	
+all_malignant::mal_log1p_vs_frac_TNK	15	-0.11428571428571425	0.6850657626568974	
+post_epithelial::epi_log1p_vs_frac_TNK	12	-0.0979020979020979	0.7621216559962992	
+post_epithelial::epi_pctpos_vs_frac_TNK	12	-0.30069930069930073	0.34225952894002437	
+all_epithelial::epi_log1p_vs_frac_TNK	15	-0.21071428571428572	0.45095786521528514	
+post_malignant::mal_log1p_vs_n_TNK	12	-0.16083916083916086	0.6175234895401425	
+post_epithelial::epi_log1p_vs_n_TNK	12	-0.2377622377622378	0.45680085263992326	
+post::residual_tumor_vs_mal_log1p	12	0.2210539923340887	0.48992044764756554	extra_honesty
+post::residual_tumor_vs_frac_TNK	12	-0.2842122758581141	0.3706322577717169	extra_honesty
+
