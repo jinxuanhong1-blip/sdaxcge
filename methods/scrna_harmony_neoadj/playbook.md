@@ -49,6 +49,10 @@ Patient (or post-treatment sample) is the unit. Do not report cell-level p-value
 | (2) T/NK | Spearman of malignant score vs T/NK fraction. Partial Spearman after residualizing cohort. |
 | (3) Histology | LUAD vs LUSC when labeled. Do not recode ASC as LUSC. |
 
+## Pairwise / leave-one-out (preferred over one forced object)
+
+Do not require a single Harmony of every eligible series. Screen pairwise and leave-one-out combinations. Pre-specify KEEP as: malignant-like TACSTD2 NMPR median > MPR median (n≥2/arm) **or** TACSTD2 vs T/NK ρ<0 (n≥4). Extra figures only for KEEP. Report every combo with n/ρ/p, including those that fail. GSE205335 (RECIST) may enter T/NK tests only.
+
 ## Honesty
 
 - Report n with every statistic.

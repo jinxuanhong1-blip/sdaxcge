@@ -2,6 +2,8 @@
 
 **Public data only. Additive to User A3. The GSE207422 CopyKAT slide was not re-run.**
 
+**Change of plan (see `FINDING_combos.md`):** do not treat the four-series / three-series object below as the claim. Pairwise and leave-one-out Harmonys were run; extra figures only for combos that hold the User A3 direction. The three-series object (this file) did **not** hold that direction.
+
 ## 一句话结论 / TL;DR
 
 Joint Harmony object: **429,593 cells** from **66 patients** (GSE207422 + GSE241934 + GSE291670; embedding used 77,572 sample-stratified cells). GSE205335 has epithelium but was left out (palliative RECIST, not neoadjuvant MPR). After a ≥20 malignant-like-cell floor, malignant-like *TACSTD2* was **not** higher in NMPR than MPR (median 1.48 vs 1.90; n=24 vs 9; p=0.92). *CLDN4* likewise NS (1.34 vs 1.08; p=0.86). Cohort-adjusted OLS: *TACSTD2* β=−0.27 (p=0.28). Unadjusted *TACSTD2* vs joint-embedding T/NK was **positive** (ρ=0.49, n=32, p=0.0044) and is **cohort-driven** (GSE291670 snRNA sits at low score and low T/NK); partial Spearman after residualizing cohort ρ=0.20, p=0.26. LUAD vs LUSC NS (n=21 vs 4; p=0.50). This does not retract or replace User A3.
