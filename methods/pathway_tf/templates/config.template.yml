@@ -1,0 +1,38 @@
+# Copy to config.yml and replace every CHANGE_ME value.
+analysis:
+  organism: human                 # human or mouse
+  assay_scale: log                # log; never use raw counts
+  seed: 20260816
+  output_dir: methods/pathway_tf/results
+
+inputs:
+  expression_rds: CHANGE_ME       # genes x samples numeric matrix; unique gene symbols
+  metadata_tsv: CHANGE_ME         # follows metadata.template.tsv
+  contrasts_tsv: CHANGE_ME        # follows contrasts.template.tsv
+  custom_gmt: CHANGE_ME           # required for junction; may also contain curated IFN/EMT sets
+
+decoupler:
+  progeny_top: 500
+  dorothea_confidence: [A, B, C]
+  methods: [ulm, mlm]
+  minsize: 5
+
+gsva:
+  method: ssgsea                  # ssgsea or gsva
+  hallmark_species: Homo sapiens  # Mus musculus for mouse
+  min_size: 10
+  max_size: 500
+  kcdf: Gaussian                  # Gaussian for log expression; Poisson only for counts
+  ssgsea_normalize: true
+
+models:
+  # Terms must match metadata column names. The scripts score samples; use these
+  # terms in the downstream model described in playbook.md.
+  perturbation_formula: "~ batch + cell_line + condition"
+  tumor_formula: "~ batch + purity + cohort + feature_group"
+  patient_id: patient_id
+
+reporting:
+  fdr: 0.05
+  min_abs_effect: 0.20
+  show_methods_separately: true

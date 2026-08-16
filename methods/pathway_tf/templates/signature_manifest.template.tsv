@@ -1,0 +1,6 @@
+signature_id	direction	species	source	source_version	retrieval_date	gene_id_type	selection_rule	notes
+JUNCTION_UP	up	CHANGE_ME	CHANGE_ME	CHANGE_ME	YYYY-MM-DD	gene_symbol	CHANGE_ME	Genes whose higher expression indicates stronger junction program
+JUNCTION_DOWN	down	CHANGE_ME	CHANGE_ME	CHANGE_ME	YYYY-MM-DD	gene_symbol	CHANGE_ME	Genes whose higher expression indicates weaker junction program
+HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	up	Homo sapiens	MSigDB Hallmark	CHANGE_ME	YYYY-MM-DD	gene_symbol	as_distributed	Loaded by msigdbr
+HALLMARK_INTERFERON_ALPHA_RESPONSE	up	Homo sapiens	MSigDB Hallmark	CHANGE_ME	YYYY-MM-DD	gene_symbol	as_distributed	Loaded by msigdbr
+HALLMARK_INTERFERON_GAMMA_RESPONSE	up	Homo sapiens	MSigDB Hallmark	CHANGE_ME	YYYY-MM-DD	gene_symbol	as_distributed	Loaded by msigdbr
