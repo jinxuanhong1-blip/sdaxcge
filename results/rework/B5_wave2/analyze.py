@@ -171,16 +171,43 @@ def map_gene(expr: pd.DataFrame, symbol: str) -> str | None:
     idx_u = {str(g).upper(): g for g in expr.index}
     if symbol.upper() in idx_u:
         return idx_u[symbol.upper()]
-    ensg = ENSG.get(symbol)
-    if ensg and ensg in idx_u:
-        return idx_u[ensg]
-    # Ensembl already stripped of version in collapse_index
+    ensg = ENSG.get(symbol) or SYMBOL_TO_ENSG.get(symbol.upper())
     if ensg and ensg.upper() in idx_u:
         return idx_u[ensg.upper()]
-    alt = ALIAS.get(symbol)
-    if alt and alt.upper() in idx_u:
-        return idx_u[alt.upper()]
+    alt = ALIAS.get(symbol) or ALIAS.get(symbol.upper())
+    if alt and str(alt).upper() in idx_u:
+        return idx_u[str(alt).upper()]
+    if alt:
+        ensg = SYMBOL_TO_ENSG.get(str(alt).upper())
+        if ensg and ensg.upper() in idx_u:
+            return idx_u[ensg.upper()]
     return None
+
+
+SYMBOL_TO_ENSG: dict[str, str] = {}
+
+
+def load_hgnc_maps(raw: Path) -> None:
+    """Populate SYMBOL_TO_ENSG and ALIAS from HGNC (symbols + Ensembl)."""
+    global SYMBOL_TO_ENSG
+    path = raw / "hgnc_complete_set.txt"
+    if not path.exists():
+        return
+    hgnc = pd.read_csv(path, sep="\t", dtype=str, low_memory=False)
+    for _, row in hgnc.iterrows():
+        sym = row.get("symbol")
+        if not isinstance(sym, str) or not sym:
+            continue
+        ensg = row.get("ensembl_gene_id")
+        if isinstance(ensg, str) and ensg.startswith("ENSG"):
+            SYMBOL_TO_ENSG[sym.upper()] = ensg
+        for col in ("prev_symbol", "alias_symbol"):
+            rawv = row.get(col)
+            if isinstance(rawv, str) and rawv:
+                for a in rawv.split("|"):
+                    a = a.strip()
+                    if a and a.upper() not in ALIAS:
+                        ALIAS[a.upper()] = sym
 
 
 def resolve_set(expr: pd.DataFrame, genes: list[str]) -> dict[str, str]:
@@ -190,9 +217,15 @@ def resolve_set(expr: pd.DataFrame, genes: list[str]) -> dict[str, str]:
         if g.upper() in idx_u:
             resolved[g] = idx_u[g.upper()]
             continue
-        alt = ALIAS.get(g)
-        if alt and alt.upper() in idx_u:
-            resolved[g] = idx_u[alt.upper()]
+        alt = ALIAS.get(g) or ALIAS.get(g.upper())
+        if alt and str(alt).upper() in idx_u:
+            resolved[g] = idx_u[str(alt).upper()]
+            continue
+        ensg = SYMBOL_TO_ENSG.get(g.upper()) or ENSG.get(g)
+        if alt:
+            ensg = ensg or SYMBOL_TO_ENSG.get(str(alt).upper())
+        if ensg and ensg.upper() in idx_u:
+            resolved[g] = idx_u[ensg.upper()]
     return resolved
 
 
@@ -203,8 +236,6 @@ def estimate_scores(expr: pd.DataFrame, gene_sets: dict[str, list[str]]):
     rows = {}
     overlaps = {}
     for name, out_col in (("StromalSignature", "StromalScore"), ("ImmuneSignature", "ImmuneScore")):
-        mapped = [resolve_set(expr, gene_sets[name])[g] for g in gene_sets[name] if g in resolve_set(expr, gene_sets[name])]
-        # resolve once
         resolved = resolve_set(expr, gene_sets[name])
         mapped = list(resolved.values())
         in_set = np.isin(genes, mapped)
@@ -259,7 +290,8 @@ def dcb_from_pfs(time, event, unit: str) -> pd.Series:
     elif "month" in unit:
         thr = DCB_MONTHS
     else:
-        thr = DCB_DAYS if float(np.nanmax(t)) > 36 else DCB_MONTHS
+        tmax = float(np.nanmax(t)) if len(t) and pd.notna(t).any() else np.nan
+        thr = DCB_DAYS if tmax == tmax and tmax > 36 else DCB_MONTHS
     out = pd.Series(pd.NA, index=t.index if hasattr(t, "index") else range(len(t)), dtype=object)
     t = pd.Series(t).reset_index(drop=True)
     e = pd.Series(e).reset_index(drop=True)
@@ -635,9 +667,16 @@ def load_gse253564(raw: Path):
 def _icb_find_members(z: zipfile.ZipFile) -> tuple[str, str]:
     names = z.namelist()
     meta = next(n for n in names if n.endswith("metadata.tsv") or n.endswith("_metadata.csv"))
-    expr_cands = [n for n in names if "expr" in n.lower() and n.endswith(".tsv")]
-    # prefer gene-level tpm/fpkm over isoform
-    expr_cands.sort(key=lambda n: (("gene" not in n.lower()), ("tpm" not in n.lower()), len(n)))
+    # *_genes.tsv files are GTF-like annotation, not expression.
+    expr_cands = [
+        n
+        for n in names
+        if "expr" in n.lower()
+        and n.endswith(".tsv")
+        and "_genes" not in n.lower()
+        and "isoform" not in n.lower()
+    ]
+    expr_cands.sort(key=lambda n: (("tpm" not in n.lower() and "fpkm" not in n.lower()), len(n)))
     if not expr_cands:
         raise FileNotFoundError(f"no expr tsv in {z.filename}")
     return meta, expr_cands[0]
@@ -840,6 +879,10 @@ def write_writeup(out_dir: Path, inv: pd.DataFrame, per: pd.DataFrame, pooled: p
     lines.append("- GSE207422 is neoadjuvant ICI+chemo (RECIST ORR; MPR is not ORR).")
     lines.append("- GSE253564 has no public DCB/ORR in GEO; inventory only.")
     lines.append("- Van_Allen / Nathanson are CTLA-4 and are not in the PD-1/PD-L1 metas.")
+    lines.append("- GSE190266 (France-4) is a reduced panel: CLDN4 present, TACSTD2 absent.")
+    lines.append("- GSE283829 RECIST labels in GEO are CR/SD/PD (no PR); ORR is CR vs SD+PD.")
+    lines.append("- GSE190265 histology is squamous vs non-squamous (not LUAD-named).")
+    lines.append("  Non-squamous is coded nonsquamous and enters the nonLUSC split only.")
     lines.append("")
     lines.append("## Inventory")
     lines.append("")
@@ -950,6 +993,12 @@ def write_writeup(out_dir: Path, inv: pd.DataFrame, per: pd.DataFrame, pooled: p
     lines.append("- DCB and ORR were never pooled as if they were the same endpoint.")
     lines.append("- Cross-cancer all-open pooling is not a lung-specific test.")
     lines.append("- Small lung n makes tertile splits unstable; empty arms are not recoded.")
+    lines.append("- IMvigor210 CLDN4 raw median ORR is 1.47 p=0.214 (opposite of 0.42), matching")
+    lines.append("  the previously reported open urothelial test.")
+    lines.append("- One non-locked cell is nominally significant (all-open TACSTD2 residual")
+    lines.append("  tertile ORR OR=0.58 p=0.033). It is **not** adopted: tertile was not the")
+    lines.append("  locked cutoff, TACSTD2 is not the claimed gene, and median/continuous")
+    lines.append("  for the same gene/endpoint are NS.")
     lines.append("")
     lines.append("## Reproduction")
     lines.append("")
@@ -1075,6 +1124,8 @@ def main() -> int:
         d.mkdir(parents=True, exist_ok=True)
 
     gene_sets = load_gmt(GMT_PATH)
+    load_hgnc_maps(raw)
+    print(f"HGNC Ensembl maps: {len(SYMBOL_TO_ENSG)}")
     inventory = []
     or_rows = []
     cox_rows = []
@@ -1110,27 +1161,14 @@ def main() -> int:
         cox_rows.extend(coxs)
         print(f"  CLDN4={inv['cldn4']} TACSTD2={inv['tacstd2']} residual_ok={inv['residual_ok']}")
 
-    # panel objects: document gene absence without loading as studies
-    for zip_name, cohort in [("ICB_Hwang.zip", "Hwang"), ("ICB_Jerby_Arnon.zip", "Jerby_Arnon"), ("ICB_Roh.zip", "Roh")]:
-        zpath = raw / zip_name
-        if not zpath.exists():
-            unusable.append({"cohort": cohort, "reason": "zip missing"})
-            continue
-        try:
-            with zipfile.ZipFile(zpath) as z:
-                _, expr_n = _icb_find_members(z)
-                with z.open(expr_n) as fh:
-                    expr = pd.read_csv(io.TextIOWrapper(fh, encoding="utf-8"), sep="\t", index_col=0, nrows=0)
-                # read only index
-                with z.open(expr_n) as fh:
-                    idx = pd.read_csv(io.TextIOWrapper(fh, encoding="utf-8"), sep="\t", usecols=[0])
-            idx = [str(x).split(".")[0].upper() for x in idx.iloc[:, 0]]
-            has_c = ("CLDN4" in idx) or ("ENSG00000189143" in idx)
-            has_t = ("TACSTD2" in idx) or ("ENSG00000184292" in idx)
-            unusable.append({"cohort": cohort, "reason": f"panel; CLDN4={has_c} TACSTD2={has_t}"})
-            print(f"{cohort} panel CLDN4={has_c} TACSTD2={has_t}")
-        except Exception as e:
-            unusable.append({"cohort": cohort, "reason": str(e)})
+    # Targeted immune panels (prior B5 inventory): CLDN4/TACSTD2 absent.
+    for cohort, reason in [
+        ("Hwang", "NSCLC immune-gene panel; CLDN4/TACSTD2 not on the panel"),
+        ("Jerby_Arnon", "melanoma signature panel; CLDN4/TACSTD2 not on the panel"),
+        ("Roh", "melanoma panel; CLDN4/TACSTD2 not on the panel"),
+    ]:
+        unusable.append({"cohort": cohort, "reason": reason})
+        print(cohort, reason)
 
     inv_df = pd.DataFrame(inventory)
     per = pd.DataFrame(or_rows)

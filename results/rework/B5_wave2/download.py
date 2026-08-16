@@ -113,7 +113,8 @@ def main() -> int:
     raw.mkdir(parents=True, exist_ok=True)
 
     manifest = []
-    files = {**GEO_FILES, **ZENODO_FILES}
+    hgnc_url = "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt"
+    files = {**GEO_FILES, **ZENODO_FILES, "hgnc_complete_set.txt": hgnc_url}
     print(f"downloading {len(files)} files to {raw}")
     for name, url in files.items():
         dest = raw / name
