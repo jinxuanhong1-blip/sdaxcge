@@ -1,0 +1,48 @@
+{
+  "freeze": "data_freeze_v1.2_reorganized",
+  "bucket": "cptac-pancancer-data",
+  "region": "us-west-2",
+  "cohort": "LUAD",
+  "linkedomics_index": "https://www.linkedomics.org/data_download/CPTAC-pancan-LUAD/",
+  "citation": "Gillette et al. Cell 2020 PMID 32649874; Li et al. Cell Syst 2023 freeze",
+  "downloaded_at_utc": "2026-08-16T19:56:44.652405+00:00",
+  "files": [
+    {
+      "file": "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "bytes": 20132337,
+      "cached": true,
+      "http": 200,
+      "sha256": "746900f54072198481207ea13f8a7ba14dcabd52345bace0bef7438120c03845"
+    },
+    {
+      "file": "LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt",
+      "bytes": 35757367,
+      "cached": true,
+      "http": 200,
+      "sha256": "c2c5e97fd469591d7aec13bd28ba68aa19fe7ced161592f69924ecc388513e05"
+    },
+    {
+      "file": "LUAD_phenotype.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_phenotype.txt",
+      "bytes": 210137,
+      "cached": true,
+      "http": 200,
+      "sha256": "9f777402f7d7d53856a5adfc73c8291136430ddfad85641584426921609b349a"
+    },
+    {
+      "file": "LUAD_meta.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_meta.txt",
+      "bytes": 12232,
+      "cached": true,
+      "http": 200,
+      "sha256": "f9facf713af130ad097c56794f1fbc9107334e02ad9bf0df3958b40d68b6af10"
+    }
+  ],
+  "notes": [
+    "Standalone LUAD_xcell.txt / LUAD_cibersort.txt / LUAD_mcpcounter.txt / LUAD_estimate.txt HEAD as HTTP 403.",
+    "CIBERSORT and ESTIMATE columns are used from LUAD_phenotype.txt.",
+    "MCP-counter is computed in analyze.py from the public RNA matrix + Becht 2016 genes."
+  ]
+}

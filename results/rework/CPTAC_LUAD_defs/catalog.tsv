@@ -1,0 +1,19 @@
+path	role	source
+data/rework/CPTAC_LUAD_defs/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt	TMT protein tumor (not committed)	S3 data_freeze_v1.2_reorganized/LUAD HTTP 200
+data/rework/CPTAC_LUAD_defs/LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt	RNA tumor for MCP-counter (not committed)	S3 HTTP 200
+data/rework/CPTAC_LUAD_defs/LUAD_phenotype.txt	ESTIMATE CIBERSORT xCell WES/WGS purity	S3 HTTP 200
+data/rework/CPTAC_LUAD_defs/LUAD_meta.txt	Age Sex Stage	S3 HTTP 200
+scripts/rework/CPTAC_LUAD_defs/mcp_counter_genes.tsv	Becht 2016 official MCP-counter markers	MCPcounter GitHub Signatures/genes.txt
+results/rework/CPTAC_LUAD_defs/methods.md	prespecified methods	this folder
+results/rework/CPTAC_LUAD_defs/WRITEUP.md	bilingual honest writeup	this folder
+results/rework/CPTAC_LUAD_defs/tables/key_findings.tsv	primary + xCell reproduction compact	analyze.py
+results/rework/CPTAC_LUAD_defs/tables/primary_wes_partial.tsv	marginal + WES partial rows	analyze.py
+results/rework/CPTAC_LUAD_defs/tables/associations.tsv	all tests including exploratory and sensitivity	analyze.py
+results/rework/CPTAC_LUAD_defs/tables/mcp_counter_coverage.tsv	marker presence per MCP population	analyze.py
+results/rework/CPTAC_LUAD_defs/tables/sample_level.tsv	per-tumor protein scores purity residuals	analyze.py
+results/rework/CPTAC_LUAD_defs/tables/run_summary.json	machine-readable run record	analyze.py
+results/rework/CPTAC_LUAD_defs/figures/fig1_marginal_scatter.png	TACSTD2 vs 4 primary defs	analyze.py
+results/rework/CPTAC_LUAD_defs/figures/fig2_wes_residual_scatter.png	rank-residuals after WES	analyze.py
+results/rework/CPTAC_LUAD_defs/figures/fig3_rho_before_after.png	marginal vs WES partial bars	analyze.py
+results/rework/CPTAC_LUAD_defs/figures/fig4_purity_context.png	WES vs protein and scores	analyze.py
+results/rework/CPTAC_LUAD_defs/figures/fig5_xcell_vs_rework_defs.png	PR6 xCell vs rework defs	analyze.py
