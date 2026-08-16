@@ -413,6 +413,38 @@ def main() -> int:
     )
     headline.to_csv(TABLES / "immune_headline.csv", index=False)
 
+    # NSCLC vs SCLC location shift for the two query genes and the composites
+    from common import mannwhitney as _mw
+
+    shift_rows = []
+    for name, series in (
+        ("TACSTD2_expr", expr.loc[lung_ex, "TACSTD2"]),
+        ("CLDN4_expr", expr.loc[lung_ex, "CLDN4"]),
+        ("MHC-I score", scores["MHC-I score"]),
+        ("IFN-response score", scores["IFN-response score"]),
+    ):
+        grp = lung.reindex(series.index)["LungGroup"]
+        a = series[grp == "NSCLC"].to_numpy()
+        b = series[grp == "SCLC"].to_numpy()
+        p, delta, hl = _mw(a, b)
+        shift_rows.append(
+            {
+                "feature": name,
+                "n_NSCLC": int(pd.Series(a).notna().sum()),
+                "n_SCLC": int(pd.Series(b).notna().sum()),
+                "mean_NSCLC": float(pd.Series(a).mean()),
+                "mean_SCLC": float(pd.Series(b).mean()),
+                "median_NSCLC": float(pd.Series(a).median()),
+                "median_SCLC": float(pd.Series(b).median()),
+                "mannwhitney_p": p,
+                "cliffs_delta_NSCLC_minus_SCLC": delta,
+                "hodges_lehmann_shift": hl,
+            }
+        )
+    shift = pd.DataFrame(shift_rows)
+    shift["q"] = bh_fdr(shift["mannwhitney_p"].to_numpy())
+    shift.to_csv(TABLES / "immune_nsclc_vs_sclc.csv", index=False)
+
     # ------------------------------------------------------------------
     # Figure
     # ------------------------------------------------------------------
@@ -497,10 +529,10 @@ def main() -> int:
     # ------------------------------------------------------------------
     def pick(frame, test, query, partner, cohort):
         hit = frame[
-            (frame.test == test)
-            & (frame.query == query)
-            & (frame.partner == partner)
-            & (frame.cohort == cohort)
+            (frame["test"] == test)
+            & (frame["query"] == query)
+            & (frame["partner"] == partner)
+            & (frame["cohort"] == cohort)
         ]
         return None if hit.empty else hit.iloc[0]
 
