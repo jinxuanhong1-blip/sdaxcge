@@ -56,6 +56,87 @@ MANUAL = {
     "GSE248830": ("targeted_panel", True, False,
                   "Brain-metastasis (breast+lung) NanoString-scale panel; not an "
                   "ICI response cohort."),
+    # ---- leftover pass (every previously unverified relevant / recovered series)
+    "GSE221733": ("spatial_dsp", True, True,
+                  "RECOVERED leftover: NSCLC GeoMx DSP CTA, immunotherapy-treated, "
+                  "41 pts with Responder/Non-responder. Missed by first-pass ICI "
+                  "regex (immunotherapy != immunotherap\\b). TACSTD2 on panel; "
+                  "CLDN4 absent. Analysed patient-level PanCK+ TACSTD2."),
+    "GSE221322": ("spatial_protein", True, False,
+                  "Sister DSP protein panel of GSE221733; no TACSTD2/CLDN4 proteins."),
+    "GSE248378": ("bulk_tumor_rnaseq", True, True,
+                  "LEFTOVER PRIMARY: neoadjuvant durvalumab +/- SBRT, 29 post-Rx "
+                  "non-MPR tumours, FPKM with TACSTD2+CLDN4. Recurrence joined from "
+                  "Nat Commun source data (DurvaNNN). 45-M-PO arm-discordant."),
+    "GSE193049": ("balf_rnaseq", True, True,
+                  "LEFTOVER: BALF (not tumour) RNA, PD-1 responders vs non-responders "
+                  "n=7; both genes present. Analysed with that caveat."),
+    "GSE189045": ("exosomal_mirna", True, False,
+                  "Serum exosomal miRNA with anti-PD-1/PD-L1 response labels; no mRNA "
+                  "so TACSTD2/CLDN4 cannot be measured."),
+    "GSE250262": ("nanostring_io360", True, False,
+                  "NSCLC tumour NanoString IO360 RCC; panel has EPCAM not TACSTD2/CLDN4; "
+                  "GEO metadata has no ICI response/survival label."),
+    "GSE185204": ("single_cell", True, False,
+                  "scRNA-seq of CD3+ / multimer+ T cells during ICB; not bulk tumour."),
+    "GSE186446": ("bulk_or_other", True, False,
+                  "Regional featureCounts from 3 ICB patients (T-cell lineage paper); "
+                  "both genes present but no per-sample ICI outcome."),
+    "GSE235048": ("pbmc_rnaseq", True, False,
+                  "PBMC TPM from NSCLC on various ICI regimens; TACSTD2 present, no "
+                  "response label (treatment only)."),
+    "GSE228419": ("sorted_tcell", True, False,
+                  "Sorted CD8 T cells (PBMC/TIL); both genes present; no ICI outcome."),
+    "GSE164146": ("single_cell", True, False,
+                  "Treg/CD4 scRNA-seq in lung cancer; not bulk tumour epithelium."),
+    "GSE212622": ("infection", False, False,
+                  "False positive: murine trypanosome lung infection, not ICI."),
+    "GSE224099": ("sorted_tcell", False, False,
+                  "Melanoma (not lung) pre-ICI T cells; not a lung tumour cohort."),
+    "GSE193719": ("cell_line", True, False,
+                  "NSCLC cell lines +/- miR-455-5p; no patient ICI outcome."),
+    "GSE189804": ("cell_line", True, False,
+                  "A549 NRF2 KO RNA-seq; no patient ICI outcome."),
+    "GSE217451": ("cell_line", True, False,
+                  "H1650 hMENA siRNA; no patient ICI outcome."),
+    "GSE224216": ("cell_line", True, False,
+                  "H2030 hMENA siRNA RNA-seq; no patient ICI outcome."),
+    "GSE150255": ("cell_line", True, False,
+                  "A549/HCC827 IFN-γ time course; no patient ICI outcome."),
+    "GSE194350": ("cell_line", True, False,
+                  "A549 CRISPR/in-vivo MEN1 screen RNA-seq; no patient ICI outcome."),
+    "GSE195770": ("ipf", False, False,
+                  "False positive: idiopathic pulmonary fibrosis, not lung cancer ICI."),
+    "GSE218402": ("cell_line", True, False,
+                  "A549 + PBMC norepinephrine/adenosine; no patient ICI outcome."),
+    "GSE224246": ("cell_line", True, False,
+                  "H1650 ATAC-seq (hMENA); chromatin, not mRNA outcome cohort."),
+    "GSE238006": ("cell_line", True, False,
+                  "SCLC cell-line decitabine RNA-seq; no patient ICI outcome."),
+    "GSE250254": ("sorted_tcell", True, False,
+                  "Sorted CD4 memory T cells (COPD/NSCLC); no ICI outcome."),
+    "GSE229353": ("single_cell", True, False,
+                  "CD45+ scRNA-seq, chemo vs anti-PD-1+chemo; sorted immune cells."),
+    "GSE178521": ("cell_line", True, False,
+                  "NCI-H460 PRMT5 knockdown; no patient ICI outcome."),
+    "GSE192591": ("sorted_tcell", True, False,
+                  "Blood CD8 T cells +/- IL-27; no tumour ICI outcome."),
+    "GSE192790": ("cell_line", True, False,
+                  "A549 tumoursphere RNA-seq; no patient ICI outcome."),
+    "GSE197236": ("cell_line", True, False,
+                  "A549 radioresistance lines; not ICI."),
+    "GSE198099": ("single_cell", True, False,
+                  "NSCLC TME scRNA-seq, n=2 patients; no ICI outcome label."),
+    "GSE213590": ("cell_line", True, False,
+                  "PC-9 c-Jun overexpression; no patient ICI outcome."),
+    "GSE213902": ("single_cell", True, False,
+                  "PBMC CD3+ scRNA/TCR on chemo-IO; circulating T cells, not tumour "
+                  "TACSTD2/CLDN4."),
+    "GSE223779": ("organoid", True, False,
+                  "ALK+ tumour organoids; treatment field is sample origin, not ICI "
+                  "outcome."),
+    "GSE193707": ("bulk_tumor_rnaseq", True, False,
+                  "Mediastinal LN after neoadjuvant chemo (not ICI); n=4."),
 }
 
 CAT_RE = [
@@ -118,6 +199,9 @@ def main():
                  f"**{int((rel.outcome_keys.fillna('')!='').sum())}**\n")
     lines.append(f"- Open, processed supplementary download <2 GB: "
                  f"**{int((rel.has_processed_suppl & rel.under_2gb).sum())}**\n")
+    recov = cat[cat.verdict.astype(str).str.contains("RECOVERED|LEFTOVER", na=False)]
+    lines.append(f"- Leftover / recovered series given a deep verdict this pass: "
+                 f"**{len(recov)}**\n")
     lines.append("\n## Deeply verified series\n")
     lines.append("| GSE | n | category | lung | usable for TACSTD2/CLDN4 | note |\n")
     lines.append("|---|---|---|---|---|---|\n")
