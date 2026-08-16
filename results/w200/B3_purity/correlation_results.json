@@ -1,0 +1,84 @@
+{
+  "dataset": "TCGA-LUAD (UCSC Xena IlluminaHiSeq log2 norm_count+1)",
+  "n_samples_expression": 576,
+  "n_samples_estimate": 517,
+  "n_matched_primary_tumor": 515,
+  "n_analysis_complete_cases": 515,
+  "tj_genes_requested": [
+    "CLDN1",
+    "CLDN3",
+    "CLDN4",
+    "CLDN7",
+    "OCLN",
+    "TJP1",
+    "TJP2",
+    "TJP3",
+    "F11R",
+    "JAM2",
+    "JAM3",
+    "MARVELD2",
+    "MARVELD3",
+    "CGN",
+    "CGNL1"
+  ],
+  "tj_genes_found": [
+    "CLDN1",
+    "CLDN3",
+    "CLDN4",
+    "CLDN7",
+    "OCLN",
+    "TJP1",
+    "TJP2",
+    "TJP3",
+    "F11R",
+    "JAM2",
+    "JAM3",
+    "MARVELD2",
+    "MARVELD3",
+    "CGN",
+    "CGNL1"
+  ],
+  "tj_genes_missing": [],
+  "cd8_genes_requested": [
+    "CD8A",
+    "CD8B"
+  ],
+  "cd8_genes_found": [
+    "CD8A",
+    "CD8B"
+  ],
+  "cd8_genes_missing": [],
+  "unadjusted_spearman_TJ_vs_CD8": {
+    "rho": -0.29112613803785276,
+    "p_value": 1.6155419966322092e-11,
+    "ci95_low": -0.3698553302745696,
+    "ci95_high": -0.2069743838680344
+  },
+  "partial_spearman_TJ_vs_CD8_given_purity": {
+    "rho": -0.2569286190699789,
+    "p_value": 3.4149638906877044e-09,
+    "n": 515,
+    "ci95_low": -0.332686438656415,
+    "ci95_high": -0.17337488464905243
+  },
+  "context_TJ_vs_purity_spearman": {
+    "rho": 0.14387188085601357,
+    "p_value": 0.001060036338892008
+  },
+  "context_CD8_vs_purity_spearman": {
+    "rho": -0.5631715444633136,
+    "p_value": 1.9800974471703e-44
+  },
+  "sensitivity_partial_given_Immune_score": {
+    "rho": -0.22502148824948784,
+    "p_value": 2.530468407868112e-07
+  },
+  "sensitivity_partial_given_Stromal_score": {
+    "rho": -0.28844419675600935,
+    "p_value": 2.6330804506749167e-11
+  },
+  "purity_formula": "cos(0.6049872018 + 0.0001467884 * ESTIMATE_score)",
+  "score_method": "mean of per-gene z-scores across samples",
+  "correlation_method": "Spearman; partial via rank-residual regression; 95% CI = 2000x percentile bootstrap",
+  "rng_seed": 20260816
+}
