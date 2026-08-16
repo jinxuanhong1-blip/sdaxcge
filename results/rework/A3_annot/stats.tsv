@@ -1,0 +1,10 @@
+MPR_mean	NMPR_mean	U	delta_NMPR_minus_MPR	metric	n	n_MPR	n_NMPR	note	p	rho	test
+1.12021	1.5707	25	0.450489	mean_TACSTD2_log1p_cp10k_mal		4	8	exact enumeration of C(12,4)=495 assignments; pCR counted as MPR	0.153535		wilcoxon_NMPR_gt_MPR_twosided
+1.23667	1.55255	20	0.315883	mean_TACSTD2_log1p_umi_mal		4	8	exact enumeration of C(12,4)=495 assignments; pCR counted as MPR	0.569697		wilcoxon_NMPR_gt_MPR_twosided
+4.1387	7.47011	25	3.3314	mean_TACSTD2_cp10k_mal		4	8	exact enumeration of C(12,4)=495 assignments; pCR counted as MPR	0.153535		wilcoxon_NMPR_gt_MPR_twosided
+0.660311	0.750886	19	0.0905756	pct_TACSTD2_pos_mal		4	8	exact enumeration of C(12,4)=495 assignments; pCR counted as MPR	0.682828		wilcoxon_NMPR_gt_MPR_twosided
+				mean_TACSTD2_log1p_cp10k_mal	12			T/NK = CD8+ T + CD4+ T + NK; Student-t p on ranks	0.212505	-0.48951	spearman_vs_TNK_fraction
+				mean_TACSTD2_log1p_umi_mal	12			T/NK = CD8+ T + CD4+ T + NK; Student-t p on ranks	0.24891	-0.468531	spearman_vs_TNK_fraction
+				pct_TACSTD2_pos_mal	12			T/NK = CD8+ T + CD4+ T + NK; Student-t p on ranks	0.0480064	-0.643357	spearman_vs_TNK_fraction
+0.971189	1.5707	22	0.59951	mean_TACSTD2_log1p_cp10k_mal		3	8	drops P06 (15 malignant cells)	0.0484848		wilcoxon_NMPR_vs_MPR_min20mal
+				mean_TACSTD2_log1p_cp10k_mal	11			drops P06	0.42309	-0.409091	spearman_vs_TNK_fraction_min20mal
