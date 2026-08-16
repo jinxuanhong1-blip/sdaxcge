@@ -1,0 +1,114 @@
+{
+  "dataset": "GSE241934",
+  "assay": "scRNA public MTX; author Epi / T / NK labels; pCR grouped with MPR",
+  "IIT": {
+    "label": "IIT_EGFRmut",
+    "min_epi": 20,
+    "n_NMPR": 7,
+    "n_MPR": 4,
+    "median_NMPR": 1.6922491708279612,
+    "median_MPR": 1.671596440857522,
+    "mean_NMPR": 1.5801220249695873,
+    "mean_MPR": 1.583820797552848,
+    "mannwhitney_U": 14.0,
+    "p_two_sided": 1.0,
+    "p_one_sided_NMPR_gt_MPR": 0.5363636363636364,
+    "direction_matches_expected(NMPR>MPR)": true,
+    "findingB": {
+      "n_patients": 11,
+      "spearman_rho": 0.009090909090909092,
+      "spearman_p": 0.9788365001441937,
+      "pearson_r": -0.07396635673323602,
+      "pearson_p": 0.8288855144266762,
+      "direction_matches_expected(negative)": false
+    }
+  },
+  "REAL": {
+    "label": "REAL_WT",
+    "min_epi": 20,
+    "n_NMPR": 18,
+    "n_MPR": 6,
+    "median_NMPR": 1.4525025056870673,
+    "median_MPR": 1.665002347944844,
+    "mean_NMPR": 1.3965822938208121,
+    "mean_MPR": 1.4780265078293482,
+    "mannwhitney_U": 54.0,
+    "p_two_sided": 1.0,
+    "p_one_sided_NMPR_gt_MPR": 0.5129498647805284,
+    "direction_matches_expected(NMPR>MPR)": false,
+    "findingB": {
+      "n_patients": 24,
+      "spearman_rho": -0.041739130434782605,
+      "spearman_p": 0.8464521133997218,
+      "pearson_r": -0.02297324938148583,
+      "pearson_p": 0.9151451342515872,
+      "direction_matches_expected(negative)": true
+    }
+  },
+  "COMBINED": {
+    "label": "IIT+REAL",
+    "min_epi": 20,
+    "n_NMPR": 25,
+    "n_MPR": 10,
+    "median_NMPR": 1.4981065331354564,
+    "median_MPR": 1.665002347944844,
+    "mean_NMPR": 1.4479734185424693,
+    "mean_MPR": 1.520344223718748,
+    "mannwhitney_U": 123.0,
+    "p_two_sided": 0.9563199039155035,
+    "p_one_sided_NMPR_gt_MPR": 0.5363677632373839,
+    "direction_matches_expected(NMPR>MPR)": false,
+    "findingB": {
+      "n_patients": 35,
+      "spearman_rho": -0.014285714285714287,
+      "spearman_p": 0.9350840196349213,
+      "pearson_r": 0.013602521255609588,
+      "pearson_p": 0.9381824489239285,
+      "direction_matches_expected(negative)": true
+    }
+  },
+  "IIT_minEpi5": {
+    "label": "IIT_minEpi5",
+    "min_epi": 5,
+    "n_NMPR": 7,
+    "n_MPR": 4,
+    "median_NMPR": 1.6922491708279612,
+    "median_MPR": 1.671596440857522,
+    "mean_NMPR": 1.5801220249695873,
+    "mean_MPR": 1.583820797552848,
+    "mannwhitney_U": 14.0,
+    "p_two_sided": 1.0,
+    "p_one_sided_NMPR_gt_MPR": 0.5363636363636364,
+    "direction_matches_expected(NMPR>MPR)": true,
+    "findingB": {
+      "n_patients": 11,
+      "spearman_rho": 0.009090909090909092,
+      "spearman_p": 0.9788365001441937,
+      "pearson_r": -0.07396635673323602,
+      "pearson_p": 0.8288855144266762,
+      "direction_matches_expected(negative)": false
+    }
+  },
+  "COMBINED_minEpi5": {
+    "label": "IIT+REAL_minEpi5",
+    "min_epi": 5,
+    "n_NMPR": 27,
+    "n_MPR": 14,
+    "median_NMPR": 1.4981065331354564,
+    "median_MPR": 1.6023974309553521,
+    "mean_NMPR": 1.4607873030857492,
+    "mean_MPR": 1.4581933442475485,
+    "mannwhitney_U": 201.0,
+    "p_two_sided": 0.7518749917061653,
+    "p_one_sided_NMPR_gt_MPR": 0.37593749585308267,
+    "direction_matches_expected(NMPR>MPR)": false,
+    "findingB": {
+      "n_patients": 41,
+      "spearman_rho": -0.11724738675958188,
+      "spearman_p": 0.4653558576154423,
+      "pearson_r": -0.11244719935323834,
+      "pearson_p": 0.48394502492936675,
+      "direction_matches_expected(negative)": true
+    }
+  }
+}

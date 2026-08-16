@@ -1,0 +1,72 @@
+{
+  "dataset": "GSE207422",
+  "assay": "scRNA-seq public UMI matrix; marker-based epithelial (PTPRC-) vs T/NK (PTPRC+)",
+  "n_cells_total": 92330,
+  "n_epi": 12018,
+  "n_tnk": 41841,
+  "n_both_excluded": 0,
+  "min_epi_cells_per_sample": 20,
+  "findingA_all_evaluable_samples": {
+    "n_samples_used": 14,
+    "n_NMPR": 10,
+    "n_MPR": 4,
+    "median_NMPR": 1.3489118072605195,
+    "median_MPR": 1.2133315729865373,
+    "mean_NMPR": 1.4521126827426145,
+    "mean_MPR": 1.2695005958325463,
+    "mannwhitney_U": 24.0,
+    "p_two_sided": 0.6353646353646354,
+    "p_one_sided_NMPR_gt_MPR": 0.3176823176823177,
+    "direction_matches_expected(NMPR>MPR)": true,
+    "samples_used": [
+      "BD_immune02",
+      "BD_immune03",
+      "BD_immune04",
+      "BD_immune05",
+      "BD_immune06",
+      "BD_immune07",
+      "BD_immune08",
+      "BD_immune09",
+      "BD_immune10",
+      "BD_immune11",
+      "BD_immune12",
+      "BD_immune13",
+      "BD_immune14",
+      "BD_immune15"
+    ]
+  },
+  "findingA_post_treatment_only": {
+    "n_NMPR": 8,
+    "n_MPR": 4,
+    "median_NMPR": 1.3489118072605195,
+    "median_MPR": 1.2133315729865373,
+    "p_two_sided": 0.5696969696969697,
+    "p_one_sided_NMPR_gt_MPR": 0.28484848484848485,
+    "direction_matches_expected(NMPR>MPR)": true
+  },
+  "findingB_per_patient_TACSTD2_vs_TNK_frac": {
+    "n_patients": 15,
+    "spearman_rho": -0.2642857142857143,
+    "spearman_p": 0.34117375799008204,
+    "pearson_r": -0.32684565840366914,
+    "pearson_p": 0.23441694911280705,
+    "direction_matches_expected(negative)": true,
+    "patients": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P11",
+      "P12",
+      "P13",
+      "P14",
+      "P15"
+    ]
+  }
+}

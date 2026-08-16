@@ -1,0 +1,592 @@
+{
+  "queries": {
+    "gds_neoadj_lung_io_any_2023_2026": {
+      "n": 28,
+      "ids": [
+        "200337519",
+        "200329813",
+        "200298789",
+        "200318850",
+        "200312336",
+        "200308745",
+        "200295977",
+        "200295601",
+        "200267027",
+        "200267026",
+        "200267535",
+        "200267534",
+        "200267533",
+        "200300685",
+        "200299111",
+        "200291670",
+        "200243013",
+        "200283522",
+        "200280232",
+        "200250509",
+        "200249568",
+        "200225620",
+        "200241934",
+        "200260770",
+        "200248378",
+        "200240033",
+        "200229353",
+        "200207422"
+      ],
+      "term": "(lung OR NSCLC OR \"non-small cell lung\" OR LUAD OR LUSC) AND (neoadjuvant OR \"neo-adjuvant\" OR \"induction immunotherapy\") AND (immunotherapy OR \"PD-1\" OR \"PD-L1\" OR pembrolizumab OR nivolumab OR sintilimab OR camrelizumab OR tislelizumab OR toripalimab OR durvalumab OR \"checkpoint\") AND 2023:2026[PDAT] AND \"gse\"[ETYP]"
+    },
+    "gds_scrna_lung_mpr_2023_2026": {
+      "n": 32,
+      "ids": [
+        "200341473",
+        "200337162",
+        "200335847",
+        "200300757",
+        "200280183",
+        "200303483",
+        "200311521",
+        "200318850",
+        "200310173",
+        "200310170",
+        "200310962",
+        "200280364",
+        "200306401",
+        "200303152",
+        "200303762",
+        "200273805",
+        "200270431",
+        "200298054",
+        "200295857",
+        "200262069",
+        "200291670",
+        "200282849",
+        "200274934",
+        "200264196",
+        "200245687",
+        "200231385",
+        "200263248",
+        "200243765",
+        "200182337",
+        "200227000",
+        "200165218",
+        "200207422"
+      ],
+      "term": "(lung OR NSCLC) AND (scRNA OR \"single-cell\" OR \"single cell\") AND (MPR OR \"major pathologic\" OR \"pathological response\" OR pCR) AND 2023:2026[PDAT] AND \"gse\"[ETYP]"
+    },
+    "gds_scrna_lung_neoadj_2023_2026": {
+      "n": 20,
+      "ids": [
+        "200337519",
+        "200318850",
+        "200312336",
+        "200308745",
+        "200295977",
+        "200295601",
+        "200267027",
+        "200267026",
+        "200285329",
+        "200253430",
+        "200253429",
+        "200302284",
+        "200300685",
+        "200299111",
+        "200291670",
+        "200243013",
+        "200280232",
+        "200241934",
+        "200229353",
+        "200207422"
+      ],
+      "term": "(lung OR NSCLC) AND (scRNA OR \"single-cell RNA\" OR \"single cell RNA\") AND (neoadjuvant OR \"neo-adjuvant\") AND 2023:2026[PDAT] AND \"gse\"[ETYP]"
+    }
+  },
+  "records": [
+    {
+      "accession": "GSE207422",
+      "pdat": "2023/03/21",
+      "n_samples": 39,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Tumor microenvironment remodeling after neoadjuvant immunotherapy in non-small cell lung cancer revealed by single-cell RNA sequencing",
+      "summary": "To address the potential therapy-resistant mechanisms and underly the changes of tumor microenvironment (TME) after immunotherapy, we performed scRNA-seq  and bulk RNA-seq from the patients with resectable non-small cell lung cancer (NSCLC) before and after PD-1 blockade combined with chemotherapy. We found that the combined therapy significantly remodeled the immune cell compartments in the TME. Patients with different pathologic responses had distinct characteristics of malignant cells and immune cell compositions. Our study provided several potential biomarkers for future immunotherapy and novel strategies to improve response."
+    },
+    {
+      "accession": "GSE229353",
+      "pdat": "2023/05/16",
+      "n_samples": 7,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "PD-1 blockade potentiates neoadjuvant chemotherapy in NSCLC via increasing CD127+ and KLRG1+ CD8 T cells",
+      "summary": "The combination of PD-1 blockade with neoadjuvant chemotherapy (NAC) has achieved unprecedented clinical success in non-small-cell lung cancer (NSCLC) compared to NAC alone, but the underlying mechanisms by which PD-1 blockade augments the effects of chemotherapy remain incompletely elucidated. Single-cell RNA sequencing was performed on CD45+ immune cells isolated from surgically resected fresh tumor tissues of seven NSCLC patients receiving NAC or neoadjuvant pembrolizumab and chemotherapy (NAPC). Multiplex fluorescent immunohistochemistry was performed on paired FFPE tissues before and after NAC or NAPC from 65 resectable NSCLC patients, and results were validated with GEO dataset. NAC resulted in an increase only of CD20+ B cells, whereas NAPC increased the infiltration of CD20+ B cells, CD4+ T cells, CD4+CD127+ T cells, CD8+ T cells, CD8+CD127+ and CD8+KLRG1+ T cells. Synergistic increase in B and T cells promotes favorable therapeutic response after NAPC. Spatial distribution analysis discovered that CD8+ T cells and their CD127+ and KLRG1+ subsets were in closer proximity to CD4+ T/CD20+ B cells in NAPC versus NAC. GEO dataset validated that B-cell, CD4, memory and effector CD8 signatures correlated with therapeutic responses and clinical outcomes. The adding of PD-1 blockade to NAC promoted anti-tumor immunity through T and B cells recruitment in the tumor microenvironment and induced tumor-infiltrating CD8+ T cells skewed toward CD127+ and KLRG1+ phenotypes\uff0cwhich may be assisted by CD4+ T cells and B cells. Our comprehensive study identified key immune cell subsets exerting anti-tumor responses during PD-1 blockade therapy and that may be therapeutically targeted to improve upon existing immunotherapies for NSCLC."
+    },
+    {
+      "accession": "GSE165218",
+      "pdat": "2023/06/29",
+      "n_samples": 11,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "mTert induction in p21-positive cells counteracts capillary rarefaction and pulmonary emphysema",
+      "summary": "Lung diseases develop when telomeres are shortened beyond a critical point. We have constructed a mouse model in which the catalytic subunit of telomerase (mTert), or its catalytically inactive form (mTertCI), is expressed from the p21Cdkn1a promoter. We found that this particular expression of mTert reduces senescence of endothelial cells (EC) in lungs of aged mice, as well as emphysema and pulmonary perivascular fibrosis. We also show that mTert counteracts the decline in capillary density in aged mice and promotes the maintenance of high numbers of Cd34+ cells, identified as a subclass of endothelial cells with proliferative capacity. In line with these results, young p21+/Tert mice treated with a VEGF receptor inhibitor combined with hypoxia are also protected against senescence and emphysema induced by this treatment. The catalytic activity of mTert is required for all the effects observed. However, and unexpectedly, we found that both mTert and mTertCI expression significantly reduced p21 levels in the lungs of aged mice. mTert thus protects against age-related and induced loss of capillary vessels and subsequent lung emphysema."
+    },
+    {
+      "accession": "GSE227000",
+      "pdat": "2023/07/14",
+      "n_samples": 5,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Long-read transcriptome profiling of human lung cancer cell lines",
+      "summary": "Purpose: The aim of this study is to compare the transcriptome profiles using a mixture design that allows the relative changes of the majority of the genes profiled to be estimated.   Methods - Cell Culture: Lung adenocarcinoma cell lines NCI-H1975 and HCC827 were grown in Roswell Park Memorial Institute (RPMI) 1640 medium with 10% fetal calf serum and 1% penicillin-streptomycin.  Methods - RNA preparation: mRNA was extracted using a Qiagen RNA miniprep kit and purified using the NEBNext\u00ae Poly(A) mRNA Magnetic Isolation Module (E7490).  Purified mRNA spiked with sequins was used for the cRNA-PCR Barcoding (SQK-PCS109 with SQK-PBK004) kit (ONT). Completed libraries were sequenced on PromethION (ONT). Reads were mapped to known genomic features of the GrCh38 reference transcriptome and RNA sequin transcriptome combined sequences at the transcript-level and single reads were then summarized into transcript-level counts using salmon software (Patro et al. 2017)."
+    },
+    {
+      "accession": "GSE240033",
+      "pdat": "2023/10/01",
+      "n_samples": 69,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "VIGOR canine osteosarcoma tumor, cell line and skin samples",
+      "summary": "VSV-IFN\u03b2-NIS is a recombinant oncolytic vesicular stomatitis virus (VSV) that is being evaluated clinically for the treatment of advanced malignancies. As with other cancer immunotherapies, identifying biomarkers of response will be critical to the clinical advancement of this treatment approach. . RNAseq analysis showed that virtually all the long-term responders had increased expression of a CD8 T-cell anchored immune gene cluster. We conclude that neoadjuvant VSV-IFN\u03b2-NIS has an excellent safety profile and may provide a survival benefit for dogs with osteosarcoma whose tumors are permissive for immune infiltration."
+    },
+    {
+      "accession": "GSE248378",
+      "pdat": "2023/11/26",
+      "n_samples": 29,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Neoadjuvant durvalumab plus radiation versus durvalumab alone in stages I-III non-small cell lung cancer: survival outcomes and molecular correlates of a randomized phase II trial",
+      "summary": "Randomized phase II trial patients with early-stage non-small cell lung cancer were treated with either two preoperative cycles of the anti-PD-L1 antibody durvalumab alone or combined with immunomodulatory doses of stereotactic radiation. We report, based on transcriptome analyses of resected tumors, a correlation between an increase of immune pathway genes and freedom from recurrence."
+    },
+    {
+      "accession": "GSE182337",
+      "pdat": "2023/12/31",
+      "n_samples": 1,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Single-cell RNA-Seq of Foxe1KO mouse ESC-derived cells",
+      "summary": "Functional thyroid follicles generation in vitro is obtained at high efficiency by doxycycline-mediated expression of Nkx2-1 and Pax8, two proteins involved in early specification of thyroid lineage. Although those factors are sufficient to induce thyroid specification in vitro, other players, such as Foxe1, are also present in early thyroid primordium and its loss-of-function is responsible for thyroid congenital defects in mice and humans. Here we show that Foxe1KO mESCs can be induced to differentiate towards thyroid lineage but the efficiency of thyroid follicular cells generated is drastically low. Moreover, correct expression of maturation genes and capacity to produce thyroid hormone in vitro are completely disrupted.  On the other hand, Nkx2-1 expressing cells derived from Foxe1KO have an unexpected ability to deviate to a lung epithelium differentiation program and form organoids containing multiple lung cell types. These findings demonstrate that Foxe1 is required to reinforce thyroid cell fate in vitro and to promote terminal maturation of thyroid follicles."
+    },
+    {
+      "accession": "GSE243765",
+      "pdat": "2024/01/31",
+      "n_samples": 99,
+      "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+      "title": "Mechanoresponsive genomic enhancers potentiate the cellular response to matrix stiffness",
+      "summary": "This SuperSeries is composed of the SubSeries listed below."
+    },
+    {
+      "accession": "GSE260770",
+      "pdat": "2024/05/01",
+      "n_samples": 50,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "The activity and safety of sintilimab on high-risk ground glass opacity lesions in multiple primary lung cancer patients",
+      "summary": "Lung cancer is the second most commonly diagnosed cancer and the leading cause of cancer death worldwide, of which approximately 85% are non-small cell lung cancer (NSCLC). The overall survival (OS) of patients with advanced NSCLC was significantly prolonged with immune checkpoint inhibitors (ICIs) targeting the programmed cell death-1 (PD-1) and programmed death-ligand 1 (PD-L1) axis. For early-stage lung cancer, the 5-year survival rate for patients ranges from 80% in stage IA to 41% in stage IIIA, and many cases relapse after surgical resection. Currently, multiple clinical trials have manifested the encouraging efficacy of neoadjuvant immunotherapy in stage I-IIIA resectable NSCLC. However, the effect of immunotherapy in ultra early-stage NSCLC patients with micro-invasive or even pre-invasive lesions remains unclear. In this study, we aimed to evaluate the activity and safety of sintilimab on high-risk ground glass opacity lesions in multiple primary lung cancer patients."
+    },
+    {
+      "accession": "GSE241934",
+      "pdat": "2024/05/17",
+      "n_samples": 88,
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "title": "Neoadjuvant sintilimab plus chemotherapy in early-stage EGFR-mutant NSCLC: phase 2 trial interim results (NEOTIDE/CTONG2104)",
+      "summary": "We launched an investigator-initiated, Simon\u2019s two-stage design trial of neoadjuvant sintilimab combined with carboplatin and nab-paclitaxel (nab-PC) in early-stage EGFR-mutant NSCLC (Clinicaltrial.gov number NCT05244213). Here we report the first interim results of stage 1 cohort which met the overall primary endpoint in advance, and multi-omics profiling of neoadjuvant immunotherapy combination in early-stage EGFR-mutant patients. We performed in-depth single-cell RNA/TCR sequencing (scRNA/TCR-seq) of cells derived from 11 resected tumors as well as 34 tumors from real-world cohort which were all confirmed wild-type lung adenocarcinoma (LUAD) or adeno-squamous carcinoma (ASC) and received neoadjuvant immunochemotherapy as control. By associating the tumor microenvironment (TME) and with responses, we uncovered heterogeneous mechanisms of primary resistance, providing insights into further strategic developments of combination regimens to improve the clinical outcome of EGFR-mutant NSCLC patients."
+    },
+    {
+      "accession": "GSE263248",
+      "pdat": "2024/05/31",
+      "n_samples": 148,
+      "gdstype": "Other",
+      "title": "Human \u03b3\u03b4 T cells in diverse tissues exhibit site-specific maturation dynamics across the lifespan",
+      "summary": "During ontogeny, \u03b3\u03b4 T cells emerge from the thymus and directly seed peripheral tissues for in situ immunity, though their functional role in humans is largely defined from blood. Here, we analyzed the phenotype, transcriptome, function, and repertoire of human \u03b3\u03b4 T cells in blood, mucosal and lymphoid tissues from 176 donors across the lifespan, revealing distinct profiles in children compared to adults. In early life, clonally diverse Vd1 subsets predominate across blood and tissues, comprising na\u00efve and differentiated effector and tissue repair functions, while cytolytic Vd2 subsets populate blood, spleen and lungs. Over age, both subsets exhibit clonal expansions disseminated across sites and express elevated cytolytic signatures. In adults, Vd2 cells predominate in blood, while Vd1 cells are enriched across tissues and express residency profiles. These results indicate that antigenic exposures over childhood drive the functional evolution and tissue compartmentalization of \u03b3\u03b4 T cells, leading to age-dependent roles in immunity."
+    },
+    {
+      "accession": "GSE225620",
+      "pdat": "2024/07/05",
+      "n_samples": 43,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Blood-based Genomic and Cellular Determinants of Response to Neoadjuvant PD-1 Blockade in Patients with Non-Small-Cell Lung Cancer",
+      "summary": "The integrated analyses employed in the current study identified blood-based molecular and cellular signatures that are associated with the responsiveness and overall survival of PD-1/PD-L1 blockade therapy plus chemotherapy."
+    },
+    {
+      "accession": "GSE231385",
+      "pdat": "2024/08/01",
+      "n_samples": 1,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "SDePER: a hybrid machine learning and regression method for cell-type deconvolution of spatial barcoding-based transcriptomic data",
+      "summary": "Spatial barcoding-based transcriptomic (ST) data require cell type deconvolution for cellular-level downstream analysis. Here we present SDePER, a hybrid machine learning and regression method, to deconvolve ST data using reference single-cell RNA sequencing (scRNA-seq) data. SDePER removes the systematic difference between the ST and scRNA-seq data (platform effects) explicitly and efficiently to ensure the linear relationship between ST data and cell type-specific expression profile. It also considers sparsity of cell types per capture spot and across-spots spatial correlation in cell type compositions. Based on the estimations, SDePER imputes for cell type compositions and gene expression at enhanced resolution. We assessed the performance of SDePER and six existing methods using simulations and four real datasets. All results showed that SDePER achieved significantly more accurate and robust results than the existing methods suggesting the importance of considering platform effects, sparsity and spatial correlation in cell type deconvolution."
+    },
+    {
+      "accession": "GSE249568",
+      "pdat": "2024/09/27",
+      "n_samples": 94,
+      "gdstype": "Expression profiling by array",
+      "title": "Gene expression from paired biopsies from a patient with METex14 skiping non-small cell lung cancer before and after treatment with neoadjuvant tepotinib (42 days)",
+      "summary": "Background: MET inhibitors have demonstrated efficacy in treating patients with non-small cell lung cancer (NSCLC) harboring METex14 skipping alterations. Advancements in spatial profiling technologies have unveiled the complex dynamics of the tumor microenvironment, a crucial factor in cancer progression and therapeutic response. Using spatial profiling, this study investigates the effects of the MET inhibitor tepotinib on the TME in a case of locally advanced NSCLC with a METex14 skipping alteration.  Methods: A patient with resectable stage IIIB NSCLC, unresponsive to neoadjuvant platinum-based doublet chemotherapy, received tepotinib following detection of a METex14 skipping alteration. Paired pre- and post-treatment biopsies were subjected to GeoMx Digital Spatial Profiling using the Cancer Transcriptome Atlas and immune-related protein panels to evaluate shifts in the tumor immune microenvironment (TIME).  Results: Tepotinib administration resulted in pathological downstaging to stage IA1, which allowed for a successful lobectomy and evidenced a significant pathological response. The TIME was transformed from an immunosuppressive to a more permissive state, with upregulation of antigen-presenting and pro-inflammatory immune cells. Moreover, a marked decrease in immune checkpoint molecules, including PD-L1, was noted. Spatial profiling identified discrete immune-enriched clusters, indicating the role of tepotinib in modulating immune cell trafficking and function.  Conclusions: Tepotinib appears to remodel the TIME in a patient with METex14 skipping NSCLC, possibly increasing responsiveness to immunotherapy. This case supports the integration of genetic profiling into the management of early and locally advanced NSCLC to guide personalized, targeted interventions. These findings highlight the need to further evaluate combinations of MET inhibitors and immunotherapies."
+    },
+    {
+      "accession": "GSE250509",
+      "pdat": "2024/09/27",
+      "n_samples": 94,
+      "gdstype": "Other",
+      "title": "Protein expression from paired biopsies from a patient with METex14 skiping non-small cell lung cancer before and after treatment with neoadjuvant tepotinib (42 days)",
+      "summary": "Background: MET inhibitors have demonstrated efficacy in treating patients with non-small cell lung cancer (NSCLC) harboring METex14 skipping alterations. Advancements in spatial profiling technologies have unveiled the complex dynamics of the tumor microenvironment, a crucial factor in cancer progression and therapeutic response. Using spatial profiling, this study investigates the effects of the MET inhibitor tepotinib on the TME in a case of locally advanced NSCLC with a METex14 skipping alteration.  Methods: A patient with resectable stage IIIB NSCLC, unresponsive to neoadjuvant platinum-based doublet chemotherapy, received tepotinib following detection of a METex14 skipping alteration. Paired pre- and post-treatment biopsies were subjected to GeoMx Digital Spatial Profiling using the Cancer Transcriptome Atlas and immune-related protein panels to evaluate shifts in the tumor immune microenvironment (TIME).  Results: Tepotinib administration resulted in pathological downstaging to stage IA1, which allowed for a successful lobectomy and evidenced a significant pathological response. The TIME was transformed from an immunosuppressive to a more permissive state, with upregulation of antigen-presenting and pro-inflammatory immune cells. Moreover, a marked decrease in immune checkpoint molecules, including PD-L1, was noted. Spatial profiling identified discrete immune-enriched clusters, indicating the role of tepotinib in modulating immune cell trafficking and function.  Conclusions: Tepotinib appears to remodel the TIME in a patient with METex14 skipping NSCLC, possibly increasing responsiveness to immunotherapy. This case supports the integration of genetic profiling into the management of early and locally advanced NSCLC to guide personalized, targeted interventions. These findings highlight the need to further evaluate combinations of MET inhibitors and immunotherapies."
+    },
+    {
+      "accession": "GSE280232",
+      "pdat": "2024/10/24",
+      "n_samples": 42,
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "title": "Divergent clinical and immunologic outcomes based on STK11 co-mutation status in resectable KRAS-mutant lung cancers following neoadjuvant immune checkpoint blockade",
+      "summary": "Co-mutations of the KRAS and STK11 genes in advanced non-small cell lung cancer (NSCLC) are associated with immune checkpoint blockade (ICB) resistance. While neoadjuvant chemoimmunotherapy is now a standard of care treatment for early-stage NSCLC, the clinical and immunologic impact of KRAS and STK11 co-mutations in this setting are unknown. We evaluated the clinical outcomes and intratumoral T cell profiles of resected KRAS-mutant tumors treated with neoadjuvant ICB. Relative to KRASmut/STK11wt tumors, KRASmut/STK11mut exhibited significantly higher recurrence risk. Single-cell transcriptomics showed enhanced oxidative phosphorylation with evidence of decreased PGE-2 signaling and increased IL-2 signaling in CD8+ tumor-infiltrating lymphocytes (TIL) from KRASmut/STK11mut tumors, a finding that was mirrored in KRASwt tumors that relapsed. TIL from KRASmut/STK11mut tumors expressed high levels of molecules associated with tumor residence, including CD39 and ZNF683 (HOBIT). These divergent T cell transcriptional fates suggest T cell maintenance and residence may be detrimental to anti-tumor immunity in the context of neoadjuvant ICB for resectable NSCLC, regardless of KRAS mutation status. Our work provides a basis for future investigations into the mechanisms underpinning PGE-2 and IL-2 signaling as they relate to T cell immunity to cancer and to divergent clinical outcomes in KRASmut/STK11mut NSCLC treated with neoadjuvant ICB."
+    },
+    {
+      "accession": "GSE245687",
+      "pdat": "2024/11/30",
+      "n_samples": 27,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Molecular pathological mechanism of DIQUAT-induced multi-organ injury",
+      "summary": "Diquat is one of the most commonly used pesticides in recent years, and its improper use can lead to acute poisoning and loss of life. This study employed single-cell and single-cell nucleus transcriptome sequencing on mouse lung, liver, and kidney tissues induced by diquat to unveil the molecular pathophysiology of multi-organ damage caused by diquat exposure. In this research, we emphasize a novel hepatic cell subpopulation associated with detoxification and metabolic dysregulation following diquat exposure in the liver. Furthermore, a robust and intricate immune-inflammatory response is a prominent feature in the lungs, while a time-dependent shift from glomerular infiltration to tubular injury pattern is the main characteristic in the kidneys. This study underscores distinct injury features in multiple organs, significantly enhancing our understanding of diquat-induced multi-organ damage. Relevant molecules and pathways identified may serve as potential novel molecular targets."
+    },
+    {
+      "accession": "GSE264196",
+      "pdat": "2024/12/05",
+      "n_samples": 20,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "A 50-gene high-risk profile predictive of COVID-19 and Idiopathic Pulmonary Fibrosis mortality originates from a molecular imbalance in monocyte and T-cell subsets that reverses in survivors with post-COVID-19 Interstitial Lung Disease",
+      "summary": "Background: We previously identified a 50-gene signature that distinguished two groups of patients with increased risk of COVID-19 and IPF mortality. In this study we aimed to validate our previous findings and to study the source and trajectory of circulating immune cells expressing these 50 genes in patients with COVID19, post-COVID-19 Interstitial Lung Disease (ILD) and Idiopathic Pulmonary Fibrosis (IPF). Methods: Whole blood and Peripheral Blood Mononuclear cells (PBMC) were obtained from 216 hospitalized patients with COVID-19, five patients with post-COVID-19-ILD, six patients with IPF and four controls from the University of South Florida (USF)/Tampa General Hospital (TGH). We measured the expression of the 50-gene signature using the nCounter analysis system (Nanostring), and the levels of Interleukin 6 (IL6), interferon \u03b3-induced protein (IP10), Secreted Phosphoprotein 1 (SPP1) and transforming growth factor beta (TGF-\u03b2) in these patients by Luminex and Elisa tests. A 7-gene PCR assay was generated to validate the identification of COVID-19 endotypes. For single-cell RNA sequencing (scRNA-seq) we used Chromium Single Cell Controller (10X Genomics). For analysis of gene expression, we used the Scoring Algorithm of Molecular Subphenotypes (SAMS), Cell Ranger and Seurat packages. For statistical analysis, we used Kaplan-Meier survival curves, CoxPH models, Two-way ANOVA, T-test, Fisher\u2019s exact and the Wilcoxon rank test.  Results: We identified the presence of three genomic risk profiles based on the 50-gene signature, and a subset of seven genes, associated with low, intermediate, or high-risk of mortality in COVID-19. These risk groups had significant differences in IL6, IP10, SPP1 and TGF\u03b2-1 levels. By applying scRNA-seq, we discovered a novel subtype of Monocytic-Myeloid-Derived Suppressive cells (M-MDSCs) expressing CD14+HLA DRlowCD163+ and high levels of the 7-gene signature. We denominated these cells as 7Gene-M-MDSC. These cells were not observed in survivors with post-COVID-19-ILD. The 43-gene signature was mostly expressed in naive CD4 T and memory CD4 T cells, Tregs, memory CD8 T GZMB+, memory CD8 T GZMK+ and naive CD8 T cells. While increased expression of genes in the 43 gene signature was seen in T cell subsets from survivors with post-COVID-19 ILD, the expression of these genes remained low in IPF. Conclusion: A 50-gene, high-risk genomic profile in peripheral blood of COVID-19 can accurately predict COVID-19 mortality. This profile is characterized by a simultaneous increase in expression of seven genes originating from 7Gene-M-MDSCs and decreased expression of 43 genes originating primarily in T cell subsets.  While increased expression of these 43 genes can be seen in survivors with post-COVID-19 ILD, their expression remains low in IPF."
+    },
+    {
+      "accession": "GSE283522",
+      "pdat": "2024/12/23",
+      "n_samples": 1254,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "The spatially informed mFISHseq assay resolves biomarker discordance and predicts treatment response in breast cancer",
+      "summary": "Background: Breast cancer (BCa) is a heterogeneous disease requiring precise diagnostics to guide effective treatment. Current assays fail to adequately address the complex biology of BCa subtypes/risk groups and accurately predict responses to treatments like antibody-drug conjugates (ADCs). To address these limitations, we developed and validated a novel diagnostic, prognostic, and predictive tool, mFISHseq. Methods: Our approach, mFISHseq, integrates multiplexed RNA fluorescent in situ hybridization with RNA-sequencing, guided by laser capture microdissection. This technique ensures tumor purity, allows unbiased profiling of whole transcriptome data, and explicitly quantifies intratumoral heterogeneity. Results: In a retrospective cohort study involving 1,082 FFPE breast tumors, mFISHseq demonstrated high analytical validity with 93% accuracy compared to immunohistochemistry across training and test sets. Our consensus subtyping approach provided near-perfect concordance with other molecular classifiers (\u03ba > 0.85) and reclassified 30% of samples into subtypes with distinct prognostic implications. Consensus risk groups mitigated misclassification of single samples and provided prognostic information about both early and late relapse. High risk patients had enriched innate and adaptive immune signatures, which predicted response to neoadjuvant immunotherapy. Furthermore, we identified patients responsive to ADCs, as evidenced by a 19-feature classifier for T-DM1 sensitivity, validated on the multicenter, phase II, prospective I-SPY2 trial. To demonstrate the clinical potential, we deployed mFISHseq as a research use only test on 48 patients, revealing insights into the efficacy of novel targeted therapies, such as CDK4/6 inhibitors, immune checkpoint inhibitors, and ADCs. Conclusion: The mFISHseq method solves a long-standing challenge in the precise diagnosis and classification of BCa subtypes/prognostic risk groups, and allows accurate response prediction for patients, including those treated with immunotherapies and ADCs."
+    },
+    {
+      "accession": "GSE243013",
+      "pdat": "2025/01/28",
+      "n_samples": 243,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "A single-cell atlas of immune heterogeneity  in anti-PD1-treated non-small cell lung cancer",
+      "summary": "Anti-PD(L)1 with chemotherapy is a standard of care for non-small cell lung cancer (NSCLC), but a varying degree of response to the same regimen is observed in patients. The tumor immune microenvironment (TIME) plays a key role in response to immunotherapy, and the TIME heterogeneity in association with therapeutic outcome is incompletely understood. Here we prospectively applied single-cell RNA and TCR sequencing to characterize post-neoadjuvant chemo-immunotherapy treatment tumor samples of 234 NSCLC patients. Our study provides a fine-grained dissection of the TIME heterogeneity underlying response to chemo-immunotherapy in NSCLC, thus representing a valuable resource for improved management of NSCLC."
+    },
+    {
+      "accession": "GSE274934",
+      "pdat": "2025/01/30",
+      "n_samples": 23,
+      "gdstype": "Expression profiling by high throughput sequencing; Other; Genome binding/occupancy profiling by high throughput sequencing",
+      "title": "Single-cell multi-omics reveals tumor microenvironment factors underlying poor immunotherapy responses in ALK-positive lung cancer",
+      "summary": "Anaplastic lymphoma kinase (ALK) rearrangement is a major oncogenic driver in non-small cell lung cancer (NSCLC). While ALK tyrosine kinase inhibitors have shown promising therapeutic effects, overcoming resistance with immunotherapy becomes necessary when resistance develops. However, various clinical trials have revealed that their efficacies remain limited. To investigate the tumor microenvironment (TME) factors contributing to poor immune checkpoint blockade responses in ALK-positive patients, we performed single-cell RNA and ATAC sequencing on lung adenocarcinoma (LUAD) tumors with and without ALK rearrangements. Integrative analysis with additional public LUAD cohorts revealed distinct immune landscapes in ALK-positive tumors, marked by enriched innate immunity and depleted adaptive immunity. ALK-positive malignant cells exhibit higher stemness and aggressive phenotype. Tumor-associated macrophages (TAMs) in these tumors predominantly maintain pro-tumoral M2-like states, reinforcing immune suppression. B cells show reduced immune reactivity and impaired tertiary lymphoid structure formation, while CD8+ T cells display bystander-like signatures and reduced tumor reactivity. Single-cell chromatin accessibility profiles combined with regulatory network analysis suggest that differences in transcription factor activities, rather than chromatin accessibility, may underlie T cell dysfunction. These findings provide insights into the immunosuppressive TME of ALK-positive LUAD, potentially explaining the failure of recent immunotherapy trials and highlighting targets for improving efficacy."
+    },
+    {
+      "accession": "GSE282849",
+      "pdat": "2025/02/03",
+      "n_samples": 3,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Cholesterol mobilization regulates dendritic cell maturation and the immunogenic response to cancer",
+      "summary": "Maturation of conventional dendritic cells (cDCs) is crucial for maintaining tolerogenic safeguards against auto-immunity and for promoting immunogenic responses to pathogens and cancer. The subcellular mechanism for cDC maturation remains poorly defined. We show that cDCs mature by leveraging an internal reservoir of cholesterol \u2013 generated by de novo synthesis and recycled from extracellular cell debris \u2013 to assemble lipid nanodomains on cell surfaces of maturing cDCs, enhance expression of maturation markers, and stabilize immune receptor signaling. This process is dependent on cholesterol transport through Niemann-Pick disease type C1 (NPC1) and mediates homeostatic and TLR-induced maturation. Importantly, we identified the receptor tyrosine kinase AXL as a regulator of the NPC1-dependent construction of lipid nanodomains. Deleting AXL from cDCs enhances their maturation, thus improving antitumor immunity. Altogether, our study presents novel insights into cholesterol mobilization as a fundamental basis for cDC maturation and highlights AXL as a therapeutic target for modulating cDCs."
+    },
+    {
+      "accession": "GSE291670",
+      "pdat": "2025/03/31",
+      "n_samples": 6,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Neoadjuvant anlotinib combined with PD-1 blockade therapy remodeling the microenvironment in advanced non-small cell lung cancer",
+      "summary": "Neoadjuvant anlotinib combined with PD-1 blockade therapy can prolong the survival of patients, but the underlying mechanisms for the failure of patients to benefit from combination therapy remain to be explored. To explore the mechanism of drug resistance and predict patient response,  we performed scRNA-seq from 6 NSCLC patients, including 3 post-treatment patients with major pathological response (MPR), and 3 Non-MPR patients to observe and analyze the dynamic changes of immune cells, stromal cells and cancer cells from the NSCLC patients who received neoadjuvant anlotinib combined with PD-1 blockade therapy and verified in an independent cohort."
+    },
+    {
+      "accession": "GSE262069",
+      "pdat": "2025/04/07",
+      "n_samples": 16,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Adventitial fibroblasts direct smooth muscle cell-state transition in pulmonary vascular disease",
+      "summary": "Goal of the study was to evalaute gene expression changes in donor PASMC upon co-culture with IPAH PAAF (diseased pulmonary artery adventitial fibroblasts) compared to baseline (co-culture with source-matched donor PAAF)."
+    },
+    {
+      "accession": "GSE295857",
+      "pdat": "2025/05/02",
+      "n_samples": 14,
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+      "title": "Tracing the evolution of single-cell 3D genomes in Kras-driven cancers",
+      "summary": "Although three-dimensional (3D) genome structures are altered in cancer cells, little is known about how these changes evolve and diversify during cancer progression. Leveraging genome-wide chromatin tracing to visualize 3D genome folding directly in tissues, we generated 3D genome cancer atlases of oncogenic Kras-driven murine lung and pancreatic adenocarcinoma. Our data reveal stereotypical, non-monotonic, and stage-specific alterations in 3D genome folding compaction, heterogeneity, and compartmentalization as cancers progress from normal to preinvasive and ultimately to invasive tumors, discovering a potential structural bottleneck in early tumor progression. Remarkably, 3D genome architectures distinguish morphologic cancer states in single cells, despite considerable cell-to-cell heterogeneity. Gene-level analyses of evolutionary changes in 3D genome compartmentalization not only showed that compartment-associated genes are more homogeneously regulated but also elucidated prognostic and dependency genes in lung adenocarcinoma and a previously unappreciated role for polycomb-group protein Rnf2 in 3D genome regulation. Our results demonstrate the utility of mapping the single-cell cancer 3D genome in tissues and illuminate its potential to identify new diagnostic, prognostic, and therapeutic biomarkers in cancer."
+    },
+    {
+      "accession": "GSE298054",
+      "pdat": "2025/05/26",
+      "n_samples": 6,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Non-viral CISH locus-specific integrated IL-15-armored CAR-NK cells achieve potent anti-tumor efficacy via adaptive NK cell differentiation",
+      "summary": "Chimeric antigen receptor (CAR)-NK therapy has emerged as a highly promising alternative to CAR-T cell therapy, due to its remarkable efficacy and safety in hematological tumors. However, the efficacy of CAR-NK cells currently remains limited in solid tumors. Here, we successfully developed CISH locus-specific integrated CAR-NK cells using a non-viral mini-circular single-stranded DNA (mcssDNA)-based CRISPR/Cas9 targeted genome editing (mcssDNA/CRISPR/Cas9) technology via a single-step electroporation procedure. The developed CISH-knockout (CISH-KO) CAR-NK cells exhibited the enhanced proliferation and cytotoxicity against hepatocellular carcinoma (HCC) compared with conventional lentivirus-transduced CAR-NK (LV-CAR-NK) cells. Single-cell RNA sequencing analysis revealed an important subset of adaptive NK cells that were highly enriched in CISH-KO CAR-NK cells compared to LV-CAR-NK cells and showed the up-regulated JAK/STAT, energy metabolism and activating receptor signaling. Furthermore, non-viral CISH locus-specific integrated IL-15-armored CAR-NK cells were generated and achieved persistent tumor regression and a significant survival advantage in a lung metastatic mouse model of HCC. Collectively, our results demonstrate that non-viral CISH locus-specific integrated CAR-NK cells can be generated by a simplified, single-step manufacturing procedure and achieve potent efficacy against HCC, thus providing an innovative technology for CAR-NK cell therapy against solid tumors."
+    },
+    {
+      "accession": "GSE270431",
+      "pdat": "2025/06/06",
+      "n_samples": 12,
+      "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Other",
+      "title": "Neutrophils recruited by NKX2-1 suppression via activation of CXCLs/CXCR2 axis promote lung adenocarcinoma progression",
+      "summary": "Background: Lung adenocarcinoma (LUAD) progression is dependent on the immune tumor microenvironment through paracrine signaling. Lineage-specific transcription NKX2-1 is a well-developed pathology marker to define LUAD with progressive impact in patients. However, the involvement of NKX2-1 in modeling the tumor immune microenvironment is still unclear. Here, we demonstrated that NKX2-1-low tumors expedite tumor progression in LUAD through increased tumor-promoting neutrophils. Method: Single-cell RNA sequencing and Visium in situ capturing profiling were used to characterize the infiltration of neutrophils in NKX2-1-low LUAD tumors at high resolution. Clinical relevance of NKX2-1 expression and disease status were evaluated by immunohistochemical analysis of LUAD tissue arrays and the overall survival analysis was performed by TCGA databases. qRT-PCR validated the level of CXC chemokines, and proinflammatory genes in LUAD cells, meanwhile chemokine array confirmed the secretion of chemokines. Mechanistically, ATAC-seq was used to confirm the modulatory role of NKX2-1 on the chromatin accessibility of CXC chemokine genes.  Results: NKX2-1 downregulation was observed in high-grade LUAD with increased neutrophil recruitment and infiltration. NKX2-1 knockdown promoted the expression and secretion of CXCL1, CXCL2, CXCL3, and CXCL5 in LUAD cells. Mechanistically, ATAC-seq revealed the restrictive regulation of NKX2-1 on the promoters of CXCL1, CXCL2 and CXCL5. Single-cell RNA sequencing and Visium in situ capturing revealed the infiltrated neutrophil had strong cell-cell communication through the activation of CXCLs/CXCR2 signaling with increased tumor growth and vice versa when inhibited with CXCR2 antagonist SB225002. Conclusion: This study revealed that NKX2-1 negatively regulates the infiltration of tumor-promoting neutrophils by suppressing CXCLs/CXCR2-dependent mechanisms. Hence, targeting CXCR2 in NKX2-1-low tumors is a potential antitumor therapy that improves LUAD patient outcomes."
+    },
+    {
+      "accession": "GSE299111",
+      "pdat": "2025/06/06",
+      "n_samples": 7,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Regulatory T cells in lung tumor shape an anti-inflammatory myeloid-landscape recovery after chemotherapy",
+      "summary": "Tumor-associated macrophages (TAMs) and regulatory T cells (Tregs) are major immune components of the tumor microenvironment, promoting tumor growth and limiting the efficacy of chemotherapy in almost all cancer indications. While Tregs are well known for their immune suppressive activity toward the adaptive immune system, less is known about their regulatory activity toward the innate compartment. We showed in human and mouse lung cancer, that chemotherapy transformed the myeloid landscape of the tumor microenvironment, inducing a transient monocyte accumulation and exhibiting a stronger pro-inflammatory signature along with increased TGF\u03b2 expression. Prevent Treg recovery further increased the recruitment of monocytes and limited TGF\u03b2 expression upon TAM differentiation arguing for a role of Tregs in the anti-inflammatory polarization of the myeloid compartment. Using anti-TNFR2, to target preferentially tumor-infiltrating Treg, affected their recruitment and dynamic of interaction with myeloid cells into the tumor. This was associated with a sustained pro-inflammatory signature of the myeloid cells and improved survival in the mouse model. Chemo-immunotherapy targeting the cross-talk between tumor-associated Tregs and myeloid compartments may provide alternative or complementary benefit in the context of immune-checkpoint blockade therapies."
+    },
+    {
+      "accession": "GSE300685",
+      "pdat": "2025/06/30",
+      "n_samples": 8,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Tumor-infiltrating natural killer cell profiling for therapeutic stratification in smokers with resectable non-small cell lung cancer",
+      "summary": "Objective: Neoadjuvant chemoimmunotherapy has improved outcomes in resectable non-small cell lung cancer (NSCLC), yet its real-world implementation is often challenged by surgical delays, cancellations, immune-related fibrosis, and increased postoperative complications. Smokers with NSCLC, despite being at higher risk for postoperative complications, have enhanced responses to neoadjuvant chemoimmunotherapy. This study aimed to identify smoking-associated immune cell determinants that could inform treatment strategies. Methods: Single-cell RNA sequencing was performed on 61 lung samples from non-smokers, smokers, and patients with chronic obstructive pulmonary disease (COPD), as well as 8 invasive lung adenocarcinomas, to define smoking-related immune signatures. Using RNA sequencing data from 102 resected NSCLC and 24 NSCLC patients treated with neoadjuvant chemoimmunotherapy, we conducted in silico deconvolution to evaluate associations between cellular composition and clinical outcomes. Results: Among 140 lung cellular phenotypes, two natural killer (NK) cell subsets were strongly associated with smoking and COPD severity. \u201cStress-responsive NK (NKSR)\u201d cells exhibited immature features and cytokine-responsive signatures. \u201cExhausted NK (NKExh)\u201d cells showed mature features and elevated multiple immune checkpoint expression (PDCD1, TIGIT, and LAG3). Abundant intratumoral NKSR cells were associated with significantly improved survival after surgery, particularly in current smokers. Conversely, tumors with low NKSR and high NKExh cell profiles were associated with better responses to neoadjuvant chemoimmunotherapy. Conclusions: Tumor-infiltrating NK cell phenotyping may aid in therapeutic stratification in smokers with NSCLC. NKSR cell preservation predicts favorable outcomes with upfront surgery, while NKExh cell enrichment indicates greater benefit from neoadjuvant chemoimmunotherapy. These profiles may help optimize treatment by balancing therapeutic benefit and risk."
+    },
+    {
+      "accession": "GSE302284",
+      "pdat": "2025/07/10",
+      "n_samples": 6,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Eradicating Drug Tolerant Persister Cells in EGFR-Mutated Non-Small Cell Lung Cancer by Targeting TROP2 with CAR-T cellular therapy",
+      "summary": "EGFR tyrosine kinase inhibitors (TKIs) have dramatically improved outcomes for EGFR-mutated non-small cell lung cancer (NSCLC) patients, but relapse frequently occurs due to drug tolerant persister (DTP) cells that can evolve and develop diverse mechanisms of drug resistance. In samples from patients with EGFR-mutated NSCLC treated with an EGFR-TKIs in the neoadjuvant setting, we observed uniformly elevated expression of the cell surface protein TROP2, a target of clinically active antibody drug conjugates (ADCs). We further confirmed that TROP2 expression is enriched in DTPs following osimertinib treatment of EGFR-mutated NSCLC cell lines and xenograft models. At the time of osimertinib-induced minimal residual disease, treatment with TROP2 ADC sacituzumab govitecan had only a modest impact on delaying tumor recurrence in vivo. In contrast, a single treatment of TROP2 directed CAR-T treatment significantly prolonged relapse-free survival with evidence of cure, highlighting the ability of CAR-T therapy to eliminate DTPs in vivo."
+    },
+    {
+      "accession": "GSE253429",
+      "pdat": "2025/07/16",
+      "n_samples": 21,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Cellular states associated with metastatic organotropism and survival in patients with pancreatic ductal adenocarcinoma",
+      "summary": "Some patients with localized pancreatic ductal adenocarcinoma (PDAC) undergo resection with curative intent, but most experience disease recurrence and succumb to their disease. Through examination of 743 PDAC patients in a single-center we find that the site of first recurrence is a major predictor of survival. Patients with initial liver-metastatic recurrence (LIV-MR, n = 100) had significantly shorter disease-free and overall survival compared to those with initial recurrence to the lung (LUN-MR, n = 31). We performed single-nucleus RNA-seq (snRNA-seq) and low-pass whole-genome sequencing (lpWGS) on a representative population of this cohort, including 21 primary PDACs with either LIV-MR or LUN-MR, and found that malignant cells adopt transcriptional programs that mimicked that of their ultimate metastatic target organ. We validated the LIV-MR and LUN-MR signatures in multiple data sets, including single-cell RNA-seq of normal human adult and fetal liver and lung tissues, bulk, single-cell, and spatial transcriptomics of PDAC lung and liver metastases, and in vivo data modelling metastatic organotropism in PDAC and other lineages. We reconstructed two different trajectories of malignant transformation in PDAC and find that the LIV-MR and LUN-MR are associated with these, suggesting that subsequent metastatic organotropism may be determined early in tumorigenesis. Furthermore, primary PDAC tumors recurring with LIV-MR compared to LUN-MR were deplete of infiltrating T cells and enriched with M2-like macrophages, highlighting potential contributions to subsequent outcomes. Taken together, this work provides evidence for pre-existing cellular adaptations that determine metastatic organotropism and may be useful for prognostication and development of therapeutic strategies at the time of diagnosis of resectable PDAC."
+    },
+    {
+      "accession": "GSE253430",
+      "pdat": "2025/07/16",
+      "n_samples": 17,
+      "gdstype": "Other",
+      "title": "Cellular states associated with metastatic organotropism and survival in patients with pancreatic ductal adenocarcinoma",
+      "summary": "Some patients with localized pancreatic ductal adenocarcinoma (PDAC) undergo resection with curative intent, but most experience disease recurrence and succumb to their disease. Through examination of 743 PDAC patients in a single-center we find that the site of first recurrence is a major predictor of survival. Patients with initial liver-metastatic recurrence (LIV-MR, n = 100) had significantly shorter disease-free and overall survival compared to those with initial recurrence to the lung (LUN-MR, n = 31). We performed single-nucleus RNA-seq (snRNA-seq) and low-pass whole-genome sequencing (lpWGS) on a representative population of this cohort, including 21 primary PDACs with either LIV-MR or LUN-MR, and found that malignant cells adopt transcriptional programs that mimicked that of their ultimate metastatic target organ. We validated the LIV-MR and LUN-MR signatures in multiple data sets, including single-cell RNA-seq of normal human adult and fetal liver and lung tissues, bulk, single-cell, and spatial transcriptomics of PDAC lung and liver metastases, and in vivo data modelling metastatic organotropism in PDAC and other lineages. We reconstructed two different trajectories of malignant transformation in PDAC and find that the LIV-MR and LUN-MR are associated with these, suggesting that subsequent metastatic organotropism may be determined early in tumorigenesis. Furthermore, primary PDAC tumors recurring with LIV-MR compared to LUN-MR were deplete of infiltrating T cells and enriched with M2-like macrophages, highlighting potential contributions to subsequent outcomes. Taken together, this work provides evidence for pre-existing cellular adaptations that determine metastatic organotropism and may be useful for prognostication and development of therapeutic strategies at the time of diagnosis of resectable PDAC."
+    },
+    {
+      "accession": "GSE273805",
+      "pdat": "2025/09/01",
+      "n_samples": 7,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "TNF Superfamily Member 14 Drives Post-Influenza Depletion of Alveolar  Macrophages Enabling Secondary Pneumococcal Pneumonia",
+      "summary": "Secondary bacterial infection, often caused by Streptococcus pneumoniae (Spn), is one of the most frequent and severe complications of influenza A virus (IAV)-induced pneumonia. Phenotyping of the pulmonary innate immune landscape after IAV infection revealed a significant depletion of the tissue-resident alveolar macrophage (TR-AM) population at day 7, which was associated with increased susceptibility to Spn outgrowth. To elucidate the molecular mechanisms underlying TR-AM depletion, and to define putative targets for treatment, we combined single-cell transcriptomics and cell-specific PCR profiling in an unbiased manner, using in vivo models of IAV infection and IAV/Spn co-infection. The TNF superfamily 14 (TNFSF14) ligand-receptor axis was revealed as the driving force behind post-influenza TR-AM death during the early infection phase, enabling the transition to pneumococcal pneumonia, while intrapulmonary transfer of genetically modified TR-AMs and antibody-mediated neutralization of specific pathway components alleviated disease severity. With a mainly neutrophilic expression and a high abundance in the bronchoalveolar fluid (BALF) of patients with severe virus-induced ARDS, TNFSF14 emerged as a novel determinant of virus-driven lung injury. Targeting the TNFSF14-mediated intercellular communication network in the virus-infected lung can, therefore, improve host defense, minimizing the risk of subsequent bacterial pneumonia, and ameliorating disease outcome."
+    },
+    {
+      "accession": "GSE303762",
+      "pdat": "2025/09/01",
+      "n_samples": 38,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Benchmarking long-read RNA-sequencing technologies with LongBench: a cross-platform reference dataset profiling cancer cell lines with bulk and single-cell approaches",
+      "summary": "Long-read RNA sequencing technologies offer unparalleled in- sights into transcriptomes by enabling full-length sequencing of RNA molecules, uncovering novel isoforms and alternative splicing events. While long-read sequencing platforms, such as Pacific Biosciences (PacBio) and Oxford Nanopore Technologies (ONT), have historically been associated with higher error rates, recent advancements in both platforms have significantly en- hanced read accuracy, broadening their applicability for tran- scriptomic studies. With the rapid evolution of sequencing protocols and bioin- formatics tools, the trade-offs between sequencing throughput, read length, accuracy, and cost present significant challenges in selecting the optimal approach. Systematic benchmarking studies that compare these options are crucial to inform fu- ture research directions. However, many existing benchmark- ing datasets with matched data across multiple platforms have limitations, including: 1) a lack of realistic biological replicates, which may restrict the generalisability of differential analysis results to real-world scenarios, and 2) the use of earlier sequenc- ing kits, which may not reflect the latest advancements in se- quencing technology, limiting their relevance for future studies that typically use newer sequencing protocols. Here we present LongBench, a comprehensive benchmarking dataset designed to fill these critical gaps. Derived from eight lung cancer cell lines with synthetic RNA spike-ins, LongBench includes bulk, single-cell, and single-nucleus RNA-seq data from three state-of-the-art long-read sequencing platforms \u2014 ONT PCR-cDNA, ONT direct RNA, PacBio Kinnex \u2014 alongside Il- lumina short-read data for robust cross-platform comparisons. The LongBench dataset is a valuable resource for benchmarking and improving sequencing protocols and bioinformatics tools. With the LongBench dataset we present a systematic evaluation of transcript capture, quantification, and differential expression analyses, examining the strengths and limitations of each se- quencing platform in various biological contexts, enabling re- searchers to make more informed decisions on platform and method selection."
+    },
+    {
+      "accession": "GSE303152",
+      "pdat": "2025/09/10",
+      "n_samples": 36,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Neuronal-Activity Dependent Mechanisms of Small Cell Lung Cancer Pathogenesis",
+      "summary": "Neural activity is increasingly recognized as a crucial regulator of cancer growth. In the brain, neuronal activity robustly influences glioma growth both through paracrine mechanisms and through electrochemical integration of malignant cells into neural circuitry via neuron-to-glioma synapses. Outside of the CNS, innervation of tumors such as prostate, breast, pancreatic and gastrointestinal cancers by peripheral nerves similarly regulates cancer progression. However, the extent to which the nervous system regulates small cell lung cancer progression, either in the lung or when growing within the brain, is less well understood. Small cell lung cancer (SCLC) is a lethal high-grade neuroendocrine tumor that exhibits a strong propensity to metastasize to the brain. Here we demonstrate that SCLC cells in the brain co-opt neuronal activity-regulated mechanisms to stimulate growth and progression. In the lung, vagus nerve transection markedly inhibits primary lung tumor formation and development, highlighting a critical role for innervation in SCLC growth. In the brain, glutamatergic and GABAergic cortical neuronal activity each drive proliferation of SCLC in the brain through both paracrine and synaptic neuron-cancer interactions. SCLC cells form bona fide neuron-to-SCLC synapses and exhibit depolarizing currents with consequent calcium transients in response to neuronal activity. SCLC cell membrane depolarization is sufficient to promote the growth of intracranial tumors. Taken together, these studies illustrate that neuronal activity plays a crucial role in dictating SCLC pathogenesis in both the lung and the brain."
+    },
+    {
+      "accession": "GSE267533",
+      "pdat": "2025/09/17",
+      "n_samples": 6,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "TLR4-dependent fibroblast-monocyte axis in tumor-draining lymph nodes contributes to metastasis in triple-negative breast cancer",
+      "summary": "Triple-negative breast cancer (TNBC) is the most aggressive form of BC and despite improvements in neoadjuvant treatment with immune checkpoint blockade (ICB) targeting PD-1, response rates vary, and patients relapse with metastatic disease. Using human samples and mouse models, we show that myeloid cells, particularly monocytes, increase in aggressive TNBC draining lymph nodes (TDLN) showing T-cell suppressive capacity via PD-L1 and iNOS. Tumor-induced TLR4 ligands reprogrammed TDLN fibroblastic reticular cells (FRCs) through TLR4 activation to induce the recruitment of monocytes via CCL2 and CCL7 in vascularized and T-cell areas. Indeed, monocytes expressing the receptor of CCL2/7 CCR2 home to and colocalize with FRC-rich niches. The local inhibition of this recruitment axis at the TDLN site, either through CCR2 or TLR4 inhibition, in combination with PD-1 blocking, resulted in reduced LN and distant lung metastasis in mouse models. A subset of TNBC patients with worse survival was stratified using TLR4 ligands, including TNC, S100A9, and FN1. Our results thus demonstrate a novel mechanism through which metastatic TNBC tumors reprogram the TDLN-niche to facilitate PD-L1-mediated immune evasion that precedes and drives metastasis. We thereby provide an opportunity to improve the efficacy of ICB in TNBC patients and to use the TDLN or our primary tumor signature as predictive biomarkers."
+    },
+    {
+      "accession": "GSE267534",
+      "pdat": "2025/09/17",
+      "n_samples": 3,
+      "gdstype": "Other",
+      "title": "TLR4-dependent fibroblast-monocyte axis in tumor-draining lymph nodes contributes to metastasis in triple-negative breast cancer",
+      "summary": "Triple-negative breast cancer (TNBC) is the most aggressive form of BC and despite improvements in neoadjuvant treatment with immune checkpoint blockade (ICB) targeting PD-1, response rates vary, and patients relapse with metastatic disease. Using human samples and mouse models, we show that myeloid cells, particularly monocytes, increase in aggressive TNBC draining lymph nodes (TDLN) showing T-cell suppressive capacity via PD-L1 and iNOS. Tumor-induced TLR4 ligands reprogrammed TDLN fibroblastic reticular cells (FRCs) through TLR4 activation to induce the recruitment of monocytes via CCL2 and CCL7 in vascularized and T-cell areas. Indeed, monocytes expressing the receptor of CCL2/7 CCR2 home to and colocalize with FRC-rich niches. The local inhibition of this recruitment axis at the TDLN site, either through CCR2 or TLR4 inhibition, in combination with PD-1 blocking, resulted in reduced LN and distant lung metastasis in mouse models. A subset of TNBC patients with worse survival was stratified using TLR4 ligands, including TNC, S100A9, and FN1. Our results thus demonstrate a novel mechanism through which metastatic TNBC tumors reprogram the TDLN-niche to facilitate PD-L1-mediated immune evasion that precedes and drives metastasis. We thereby provide an opportunity to improve the efficacy of ICB in TNBC patients and to use the TDLN or our primary tumor signature as predictive biomarkers."
+    },
+    {
+      "accession": "GSE267535",
+      "pdat": "2025/09/17",
+      "n_samples": 10,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "TLR4-dependent fibroblast-monocyte axis in tumor-draining lymph nodes contributes to metastasis in triple-negative breast cancer",
+      "summary": "Triple-negative breast cancer (TNBC) is the most aggressive form of BC and despite improvements in neoadjuvant treatment with immune checkpoint blockade (ICB) targeting PD-1, response rates vary, and patients relapse with metastatic disease. Using human samples and mouse models, we show that myeloid cells, particularly monocytes, increase in aggressive TNBC draining lymph nodes (TDLN) showing T-cell suppressive capacity via PD-L1 and iNOS. Tumor-induced TLR4 ligands reprogrammed TDLN fibroblastic reticular cells (FRCs) through TLR4 activation to induce the recruitment of monocytes via CCL2 and CCL7 in vascularized and T-cell areas. Indeed, monocytes expressing the receptor of CCL2/7 CCR2 home to and colocalize with FRC-rich niches. The local inhibition of this recruitment axis at the TDLN site, either through CCR2 or TLR4 inhibition, in combination with PD-1 blocking, resulted in reduced LN and distant lung metastasis in mouse models. A subset of TNBC patients with worse survival was stratified using TLR4 ligands, including TNC, S100A9, and FN1. Our results thus demonstrate a novel mechanism through which metastatic TNBC tumors reprogram the TDLN-niche to facilitate PD-L1-mediated immune evasion that precedes and drives metastasis. We thereby provide an opportunity to improve the efficacy of ICB in TNBC patients and to use the TDLN or our primary tumor signature as predictive biomarkers."
+    },
+    {
+      "accession": "GSE306401",
+      "pdat": "2025/10/14",
+      "n_samples": 2,
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+      "title": "Unlocking single cell chromatin accessibility in formalin-fixed paraffin-embedded tissues by scFFPE-ATAC [mouse]",
+      "summary": "Formalin-fixed paraffin-embedded (FFPE) samples are the gold standard for clinical tissue preservation. However, single-cell chromatin accessibility profiling technology, a powerful tool to understand epigenetic regulation in human disease, is not available for FFPE samples due to extensive DNA damage. To solve this technical challenge, we introduce scFFPE-ATAC by integrating uniquely designed DNA oligos on Tn5 transposase, split-and-pool ligation DNA barcoding, T7 promoter-mediated DNA damage rescue, and in vitro transcription\u2014the first high-throughput single-cell chromatin accessibility assay for FFPE samples. scFFPE-ATAC enables the simultaneous profiling of up to 64 FFPE samples or spatial regions, with 884,736 cell barcodes in a single run. We successfully applied scFFPE-ATAC to clinical FFPE human lymph nodes stored for 8\u201315 years and identified distinct epigenetic regulators between tumor centers and invasive edge epithelial cells in human lung cancer. Additionally, we analyzed paired primary and relapsed follicular lymphoma (FL), as well as FL transformed into diffuse large B-cell lymphoma, from clinical samples archived for 2\u20137 years, revealing key epigenetic drivers of tumor progression. Overall, scFFPE-ATAC enables high-throughput, high-sensitivity chromatin accessibility profiling in long-term archived clinical specimens, paving the way for retrospective epigenetic studies and spatial epigenetic analysis. This technology provides a powerful tool for understanding tumor relapse and metastasis, with broad applications in basic research and personalized medicine."
+    },
+    {
+      "accession": "GSE280364",
+      "pdat": "2025/10/28",
+      "n_samples": 4,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Activin-A production by recruited alveolar macrophages exacerbates pulmonary fibrosis following acute lung injury",
+      "summary": "Background: Acute respiratory distress syndrome (ARDS) is a complicated pathological cascade process of excessive pulmonary inflammation and alveolar epithelial cells apoptosis which results in respiratory dysfunction and failure. Some ARDS can result in more severe state of pulmonary fibrosis, referred to as post-injury lung fibrosis. The mortality and incidence rate of ARDS are particularly high when it leads to continuing alveolar and interstitial fibrosis, which requires urgent treatment and appropriate management. Lipopolysaccharide (LPS)-induced acute lung injury (ALI) mouse model has been widely implemented for studying ARDS in human. Here, we found alterations in the alveolar macrophage (AM) profile in such a mouse model. Specifically, activin-A produced by dominantly recruited AMs (recAMs), was noted to be implicated in the processing of post-injury lung fibrosis. Methods: ALI animal model in C57BL/6 mice was established via 3.5mg/kg LPS intra-tracheal administration. Single-cell RNA (scRNA) sequencing was used for detailed classification and functional characterization of lung macrophages. in vivo experiments, we evaluated the role that activin-A plays in post-injury lung fibrosis in an ALI mouse model using ELISA (Enzyme-linked immunosorbent assay), histological staining methods and immunofluorescence. in vitro experiments, we analyzed the effect of activin-A on MLE-12 cells and bone marrow-derived macrophages (BMDMs) using western blot (WB), qPCR (quantitative real-time PCR), RNA-seq (RNA sequencing) and immunofluorescence. Results: Our findings revealed that recAMs replaced tissue resident alveolar macrophages (TRAMs) as a dominant macrophage population in the setting of ALI. The result of GO (gene ontology) analysis suggested that activin-A was associated with wound healing and SMAD (suppressor of mothers against decapentaplegic) protein signaling pathways. Immunofluorescence results revealed that the receptor of activin-A mainly localized to alveolar epithelial cells and macrophages. Subsequently, activin-A was specifically found to drive MLE-12 to mesenchymal cell transformation via the TGF-\u03b2 (transforming growth factor-\u03b2)/SMAD signaling. Moreover, the results of transcriptome analysis and WB confirmed that activin-A could enhance the concerted activity of Hippo and TGF-\u03b2/SMAD pathways in BMDMs, leading to an increased expression of pro-fibrotic mediator. At the same time, yes-associated protein (YAP) and transcriptional coactivated with PDZ-binding motif (TAZ) proteins were found to drive BMDM activin-A expression, which could generate a positive feedback mechanism that perpetuates fibrosis. Conclusion: Our findings revealed that activin-A is involved in the pathological mechanisms in post-injury lung fibrosis by promoting EMT (epithelial\u2013mesenchymal transition) and the formation of an underlying profibrotic positive feedback loop in recAMs. Activin-A is thus a potential therapeutic target for developing ALI and ALI-associated pulmonary fibrosis therapeutics."
+    },
+    {
+      "accession": "GSE310962",
+      "pdat": "2025/11/25",
+      "n_samples": 8,
+      "gdstype": "Expression profiling by high throughput sequencing; Genome variation profiling by high throughput sequencing",
+      "title": "EGFR-mutant transformed small cell lung cancer harbors intratumoral heterogeneity targetable with MEK inhibitor combination therapy",
+      "summary": "Small cell lung cancer (SCLC) transformation is an incompletely characterized mechanism of resistance to epidermal growth factor receptor tyrosine kinase inhibitors (EGFR-TKIs) in EGFR mutant cancers, limiting development of optimal treatment approaches. Through single-cell RNA sequencing of malignant pleural effusions from patients who underwent SCLC transformation, we identified heterogeneity and diversity including distinct neuroendocrine (NE) and mesenchymal non-NE cancer cell subsets, which was maintained in patient-derived cell lines. We demonstrate that EZH2 regulates EGFR expression in NE cells where EGFR expression is silenced at baseline. Although neither epigenetic derepression nor exogenous overexpression of mutant EGFR sensitized the cells to EGFR inhibition, non-NE cells exhibited selective sensitivity to MEK inhibitors. Combined MEK inhibitor and chemotherapy effectively inhibited growth of both NE and non-NE cells in vitro and in vivo. Our findings demonstrate that EGFR mutant SCLC is composed of mixed cell states with distinct therapeutic vulnerabilities and offer a novel therapeutic strategy to target tumor heterogeneity in highly plastic and treatment-resistant malignancies such as SCLC transformed cancers."
+    },
+    {
+      "accession": "GSE285329",
+      "pdat": "2025/12/31",
+      "n_samples": 2,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "TREM2+ Macrophage Infiltration Underlies Breast Cancer Lung Metastasis due to Paclitaxel Treatment",
+      "summary": "Metastasis is a major cause of breast-cancer-related death and frequently occurs following paclitaxel neoadjuvant chemotherapy failure. Tumor microenvironment contributes to metastasis, while the role of specific host cells in lung metastases induced by paclitaxel (PTX) treatment remains poorly understood. Here, we demonstrate that PTX neoadjuvant chemotherapy promotes triggering receptor expressed on myeloid cells-2 (TREM2)-positive macrophage infiltration in the breast cancer tissues of patients. Meanwhile, we also show that more TREM2-positive macrophage infiltrates in breast cancer tissues of patients with lung -metastasized. Genetic TREM2 deficiency decreases breast cancer lung metastases induced by PTX treatment in vivo, suggesting that TREM2-positive macrophages are essential for PTX-promoting lung metastasis of breast cancer. We further reveal that PTX promotes tumor cell secretion of fibroblast growth factor 2 (FGF2), triggering TREM2 transcription via upregulating its transcriptional factor early growth response-1 (EGR1) in macrophages. Increased TREM2 activates epithelial-mesenchymal transition (EMT)-related cytokine secretion in macrophages, inducing tumor cell lung metastases. Targeting TREM2 significantly suppressed lung metastasis in breast-cancer-bearing mice. Our findings establish that tumor-cell-derived FGF2 induced by paclitaxel treatment upregulates TREM2 in myeloid macrophages, which in turn promotes the EMT of neighboring tumor cells through cytokine secretion. Our results highlight TREM2 as a potential therapeutic target to mitigate lung metastasis due to PTX treatment."
+    },
+    {
+      "accession": "GSE310170",
+      "pdat": "2026/01/20",
+      "n_samples": 93,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Embryonic stem cell factors DPPA2/4 amplify active H3K4me3-H2AK119ub chromatin domains in non-small cell lung cancer (RNA-seq)",
+      "summary": "Embryonic regulators are often re-expressed in cancers, however the functional and molecular significance of this is not always understood. The epigenetic priming factors Developmental Pluripotency Associated 2 and 4 (DPPA2/4) have crucial roles in early development and are implicated in cancer pathogenesis. We reveal in non-small cell lung cancer (NSCLC), DPPA2/4 co-expression is associated with poorly differentiated tumours and impaired patient outcomes. Biochemically, human DPPA2/4 multimerise for their protein stability and enhanced nucleosome binding activity. In NSCLC cells, DPPA2/4 bind CG-rich sequences including promoters of developmental, Wnt signaling and catabolic genes. Chromatin state modelling revealed DPPA2/4 preferentially bind active H3K4me3 and H3K27ac domains that were intriguingly also enriched for PRC1 and its product H2AK119ub, validated by H3K4me3-H2AK119ub sequential ChIP. Knockdown experiments revealed DPPA2/4 were required to maintain RING1B and H2AK119ub at these domains. Surprisingly, despite the presence of PRC2.1, these regions lacked any detectable H3K27me3, suggesting an uncoupling between the recruitment of PRC2 to chromatin and its catalytic product. When exogenously over-expressed in NSCLC cells where they are not normally present, DPPA2/4 bind to and promote active chromatin states, resulting in an increase in vivo xenograft tumour growth. Our results demonstrate how in NSCLC cells, DPPA2/4 act as molecular amplifiers of active and poised chromatin. Together, this highlights how aberrant re-activation of embryonic factors in cancers may take on new functions, promoting tumourigenesis."
+    },
+    {
+      "accession": "GSE310173",
+      "pdat": "2026/01/20",
+      "n_samples": 300,
+      "gdstype": "Expression profiling by high throughput sequencing; Methylation profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+      "title": "Embryonic stem cell factors DPPA2/4 amplify active H3K4me3-H2AK119ub chromatin domains in non-small cell lung cancer",
+      "summary": "This SuperSeries is composed of the SubSeries listed below."
+    },
+    {
+      "accession": "GSE267026",
+      "pdat": "2026/02/05",
+      "n_samples": 24,
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "title": "The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[S1-S3]",
+      "summary": "The priming, expansion, and function of CD8\u207a T cells are helped by CD4\u207a T cells via dendritic cells. Precursor exhausted T cells (Tpex) maintain self-renewal and supply cytotoxic CD8\u207a T cells in the tumor microenvironment (TME), but the identity of their CD4\u207a T-cell partners remains unclear. Here, we perform scRNA-seq, scTCR-seq, and mass cytometry analysis on peripheral blood, tumor, and lymph nodes derived from lung cancer patients and identify a population of IL-7Rhigh CCR6\u207a Th1-like CD4\u207a T cells, namedTh7R, that is numerically and spatially partnered with Tpex cells. Th7R cells express lymphotoxin-\u03b2 and CXCL13, correlate with high endothelial venules, and co-localize with Tpex in tertiary lymphoid structures. Furthermore, Th7R cell abundance correlates with Tpex numbers in the TME and lymph nodes, and adoptive transfer of Th7R increases Tpex in a preclinical mouse model of skin cancer. In lung cancer patients, Th7R and Tpex in TME are associated with better response to neoadjuvant PD-1 blockade therapy. Thus, these results suggest that Th7R cells act as partners of Tpex CD8 T cells to sustain antitumor T-cell immunity."
+    },
+    {
+      "accession": "GSE267027",
+      "pdat": "2026/02/05",
+      "n_samples": 9,
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "title": "The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[P5]",
+      "summary": "The priming, expansion, and function of CD8\u207a T cells are helped by CD4\u207a T cells via dendritic cells. Precursor exhausted T cells (Tpex) maintain self-renewal and supply cytotoxic CD8\u207a T cells in the tumor microenvironment (TME), but the identity of their CD4\u207a T-cell partners remains unclear. Here, we perform scRNA-seq, scTCR-seq, and mass cytometry analysis on peripheral blood, tumor, and lymph nodes derived from lung cancer patients and identify a population of IL-7Rhigh CCR6\u207a Th1-like CD4\u207a T cells, namedTh7R, that is numerically and spatially partnered with Tpex cells. Th7R cells express lymphotoxin-\u03b2 and CXCL13, correlate with high endothelial venules, and co-localize with Tpex in tertiary lymphoid structures. Furthermore, Th7R cell abundance correlates with Tpex numbers in the TME and lymph nodes, and adoptive transfer of Th7R increases Tpex in a preclinical mouse model of skin cancer. In lung cancer patients, Th7R and Tpex in TME are associated with better response to neoadjuvant PD-1 blockade therapy. Thus, these results suggest that Th7R cells act as partners of Tpex CD8 T cells to sustain antitumor T-cell immunity."
+    },
+    {
+      "accession": "GSE295601",
+      "pdat": "2026/02/05",
+      "n_samples": 18,
+      "gdstype": "Other; Expression profiling by high throughput sequencing",
+      "title": "The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment. [P6]",
+      "summary": "The priming, expansion, and function of CD8\u207a T cells are helped by CD4\u207a T cells via dendritic cells. Precursor exhausted T cells (Tpex) maintain self-renewal and supply cytotoxic CD8\u207a T cells in the tumor microenvironment (TME), but the identity of their CD4\u207a T-cell partners remains unclear. Here, we perform scRNA-seq, scTCR-seq, and mass cytometry analysis on peripheral blood, tumor, and lymph nodes derived from lung cancer patients and identify a population of IL-7Rhigh CCR6\u207a Th1-like CD4\u207a T cells, namedTh7R, that is numerically and spatially partnered with Tpex cells. Th7R cells express lymphotoxin-\u03b2 and CXCL13, correlate with high endothelial venules, and co-localize with Tpex in tertiary lymphoid structures. Furthermore, Th7R cell abundance correlates with Tpex numbers in the TME and lymph nodes, and adoptive transfer of Th7R increases Tpex in a preclinical mouse model of skin cancer. In lung cancer patients, Th7R and Tpex in TME are associated with better response to neoadjuvant PD-1 blockade therapy. Thus, these results suggest that Th7R cells act as partners of Tpex CD8 T cells to sustain antitumor T-cell immunity."
+    },
+    {
+      "accession": "GSE295977",
+      "pdat": "2026/02/05",
+      "n_samples": 2,
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+      "title": "The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[multiome]",
+      "summary": "The priming, expansion, and function of CD8\u207a T cells are helped by CD4\u207a T cells via dendritic cells. Precursor exhausted T cells (Tpex) maintain self-renewal and supply cytotoxic CD8\u207a T cells in the tumor microenvironment (TME), but the identity of their CD4\u207a T-cell partners remains unclear. Here, we perform scRNA-seq, scTCR-seq, and mass cytometry analysis on peripheral blood, tumor, and lymph nodes derived from lung cancer patients and identify a population of IL-7Rhigh CCR6\u207a Th1-like CD4\u207a T cells, namedTh7R, that is numerically and spatially partnered with Tpex cells. Th7R cells express lymphotoxin-\u03b2 and CXCL13, correlate with high endothelial venules, and co-localize with Tpex in tertiary lymphoid structures. Furthermore, Th7R cell abundance correlates with Tpex numbers in the TME and lymph nodes, and adoptive transfer of Th7R increases Tpex in a preclinical mouse model of skin cancer. In lung cancer patients, Th7R and Tpex in TME are associated with better response to neoadjuvant PD-1 blockade therapy. Thus, these results suggest that Th7R cells act as partners of Tpex CD8 T cells to sustain antitumor T-cell immunity."
+    },
+    {
+      "accession": "GSE308745",
+      "pdat": "2026/02/05",
+      "n_samples": 87,
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "title": "The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[PB cohort2]",
+      "summary": "The priming, expansion, and function of CD8\u207a T cells are helped by CD4\u207a T cells via dendritic cells. Precursor exhausted T cells (Tpex) maintain self-renewal and supply cytotoxic CD8\u207a T cells in the tumor microenvironment (TME), but the identity of their CD4\u207a T-cell partners remains unclear. Here, we perform scRNA-seq, scTCR-seq, and mass cytometry analysis on peripheral blood, tumor, and lymph nodes derived from lung cancer patients and identify a population of IL-7Rhigh CCR6\u207a Th1-like CD4\u207a T cells, namedTh7R, that is numerically and spatially partnered with Tpex cells. Th7R cells express lymphotoxin-\u03b2 and CXCL13, correlate with high endothelial venules, and co-localize with Tpex in tertiary lymphoid structures. Furthermore, Th7R cell abundance correlates with Tpex numbers in the TME and lymph nodes, and adoptive transfer of Th7R increases Tpex in a preclinical mouse model of skin cancer. In lung cancer patients, Th7R and Tpex in TME are associated with better response to neoadjuvant PD-1 blockade therapy. Thus, these results suggest that Th7R cells act as partners of Tpex CD8 T cells to sustain antitumor T-cell immunity."
+    },
+    {
+      "accession": "GSE312336",
+      "pdat": "2026/02/05",
+      "n_samples": 9,
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "title": "The Cd4+ T cell population Partners with Tpex CD8 T cells to mediate Antitumor Immunity in the Tumor Microenvironment.[renal cancer]",
+      "summary": "The priming, expansion, and function of CD8\u207a T cells are helped by CD4\u207a T cells via dendritic cells. Precursor exhausted T cells (Tpex) maintain self-renewal and supply cytotoxic CD8\u207a T cells in the tumor microenvironment (TME), but the identity of their CD4\u207a T-cell partners remains unclear. Here, we perform scRNA-seq, scTCR-seq, and mass cytometry analysis on peripheral blood, tumor, and lymph nodes derived from lung cancer patients and identify a population of IL-7Rhigh CCR6\u207a Th1-like CD4\u207a T cells, namedTh7R, that is numerically and spatially partnered with Tpex cells. Th7R cells express lymphotoxin-\u03b2 and CXCL13, correlate with high endothelial venules, and co-localize with Tpex in tertiary lymphoid structures. Furthermore, Th7R cell abundance correlates with Tpex numbers in the TME and lymph nodes, and adoptive transfer of Th7R increases Tpex in a preclinical mouse model of skin cancer. In lung cancer patients, Th7R and Tpex in TME are associated with better response to neoadjuvant PD-1 blockade therapy. Thus, these results suggest that Th7R cells act as partners of Tpex CD8 T cells to sustain antitumor T-cell immunity."
+    },
+    {
+      "accession": "GSE318850",
+      "pdat": "2026/02/13",
+      "n_samples": 1,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "A lymph node-tumor spatiotemporal atlas of exhausted T cell clone evolution",
+      "summary": "Current surgical guidelines overlook preserving uninvolved lymph nodes (uiLNs) in non-small cell lung cancer, principally stemming from an underappreciation of their critical role in anti-tumor immunity. Here, we discovered a significant immunosuppressive microenvironment in metastatic lymph nodes. In contrast, CD200+ progenitor exhausted T cells (Tpex) markedly expanded within uiLNs following immunotherapy. Effective clonal sharing of exhausted T cells between uiLNs and tumors correlated strongly with complete pathological response. Previously unrecognized tumor-resident C1QA+ dendritic cells secreted CXCL9, facilitating T cell recruitment, whereas fibroblast-enriched neighborhoods in non-responders created immunosuppressive barriers hindering CXCL9 diffusion and CD200+ Tpex migration. Finally, we confirmed that tumor-reactive Tex clones from uiLNs could persist systemically and identified two neoantigen peptides as direct targets of these tumor-reactive Tex cells. Our study unprecedentedly elucidates the spatiotemporal dynamics of immunotherapy-responsive T cell subsets in LN-tumor axis and provides compelling evidence to support selective LN dissection strategies to preserve uiLNs."
+    },
+    {
+      "accession": "GSE298789",
+      "pdat": "2026/02/18",
+      "n_samples": 6,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Multifunctional exosomes inhibiting autophagy ameliorate immune tolerance in non-small cell lung cancer II",
+      "summary": "The modulation of tumor autophagy to enhance antitumor immunity has garnered significant attention, underscoring its critical role in cancer immunotherapy. However, advanced strategies for precise autophagy-regulating drug delivery remain a pressing need. Here, we introduce a targeted exosome-based drug delivery system capable of simultaneously loading antibodies and nucleic acid drugs while ensuring their accurate release in the tumor microenvironment (TME). We developed a dual-stimulation electroporation system integrating nanosecond electric pulses and ultrasound to enhance exosome production, yielding IL-7 mRNA-enriched exosomes overexpressing CD64 receptors for efficient anti-PD-L1 antibody capture. These multifunctional autophagy-inhibiting and immunomodulatory exosomes (AI-Exos) are designed to inhibit autophagy and modulate immune responses in lung cancer. Upon delivery to the tumor site, AI-Exos mediate the enzymatic cleavage of peptide bonds to release IL-7 mRNA. This process induces autophagy suppression and restores MHC-I expression, which synergizes with anti-PD-L1 immune checkpoint inhibition to overcome acquired drug resistance and enhance antitumor efficacy. In conclusion, this study proposes an innovative methodology utilizing engineering exosomes for the co-delivery of protein antibodies and genetic materials. This approach establishes a promising strategy to advance cancer immunotherapy through targeted autophagy modulation."
+    },
+    {
+      "accession": "GSE311521",
+      "pdat": "2026/03/02",
+      "n_samples": 15,
+      "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+      "title": "Single-cell multimodal profiling of pan-cancer cell lines uncovers gene regulatory principles underlying intrinsic cell states and environmental features",
+      "summary": "Cancer arises from somatic mutations whose effects are executed through dysregulated gene-regulatory programs that reshape chromatin, transcription, and malignant phenotypes. To uncover gene regulatory principles underlying heterogeneous cancer cell states and their linked environmental features, here we present a pan-cancer single-cell, multi-omic atlas of human cancer cell lines, including a compendium of 240,957 transcriptomes and 223,347 chromatin-accessibility profiles from primary cancers spanning 20 tumor types. We revealed extensive pan-cancer cell-state heterogeneity, core gene-regulatory networks, and consensus epithelial\u2013mesenchymal transition (EMT) trajectories that transcend tissue of origin and are governed by conserved epigenomic and transcriptomic features. In addition, our copy-number variation analysis implicated transcription factor amplification, followed by hyperactive downstream regulation, as a major driver of malignant states. Further focused analysis of acral versus cutaneous melanoma cell lines uncovers a universal inflammation-suppressive program in acral melanoma versus an inflamed regulatory landscape in cutaneous melanoma, highlighting the JAK\u2013STAT axis as a key discriminator. Finally, by integrating single-cell and bulk datasets across models and patient cohorts, we revealed tumor\u2013microenvironment co-adaptation in vivo, and this was associated with immunotherapy responsiveness."
+    },
+    {
+      "accession": "GSE303483",
+      "pdat": "2026/04/13",
+      "n_samples": 4,
+      "gdstype": "Other",
+      "title": "Ki-67 promotes circulating tumor cell intravasation and metastasis in breast cancer",
+      "summary": "Hematogenous dissemination by circulating tumor cells (CTCs) drives metastatic spread. However, the molecular features that empower these cells to colonize distant organs remain unclear. We profiled single CTCs and CTC clusters from three breast cancer xenograft models by single-cell RNA sequencing and uncovered a shared transcriptional program marked by broad upregulation of cell-cycle genes. A targeted CRISPR loss-of-function screen identified MKI67 as an essential regulator of CTC abundance, particularly of cluster abundance, and metastatic progression. MKI67 disruption markedly reduced CTC numbers and decreased the fraction ofCTC clusters, leading to diminished lung metastases. CRISPRa-mediated re-expression of downstream adhesion genes CD47 and KLF4 restored both cluster prevalence and metastatic burden. Our findings link cell-cycle upregulation to enhanced metastatic capacity and position MKI67-dependent adhesion signals as tractable targpendent adhesion signals as tractable targets against metastatic spread."
+    },
+    {
+      "accession": "GSE280183",
+      "pdat": "2026/05/08",
+      "n_samples": 8,
+      "gdstype": "Other",
+      "title": "Type-2-immune history imprints local training in nerve-airway associated interstitial macrophages (NAMs) for disease tolerance during respiratory viral infection",
+      "summary": "Severe respiratory viral disease varies widely among individuals and often reflects immunopathology rather than inadequate pathogen control, suggesting that prior immune history can prime the lung\u2019s inflammatory\u2013regulatory balance to promote disease tolerance. Here we show that nerve- and airway-associated macrophages (NAMs), a subset of interstitial macrophages expand following type 2 inflammation induced by Nippostrongylus brasiliensis. We hypothesized that NAMs acquire epigenetically imprinted trained immunity and tested this in a heterologous challenge model in which mice infected with Nippostrongylus brasiliensis were challenged 4\u20136 weeks later with lethal H1N1 influenza. Remarkably, all Nb-conditioned mice survived, whereas all unconditioned controls succumbed by days 5\u20136 post-infection. Protection occurred without improved viral burden or enhanced T cell responses, and instead tracked with reduced immunopathology, amplified type 2 cues, increased efferocytosis and accelerated tissue repair. Using NAM-DTR mice, we show that conditioned NAMs are necessary and sufficient for protection: depletion or replacement with unconditioned NAMs abrogated survival, whereas adoptive transfer of conditioned NAMs conferred tolerance without enhancing viral clearance. Genomic analyses implicated an IL-4\u2013STAT6\u2013PPAR\u03b3 and Arginase-1 chromatin program that imprints a pro-resolving and reparative NAM state driving programs of tissue repair, type 2 immunity and efferocytosis during lethal respiratory viral infections. Finally, meta-analysis of human lung single-cell atlases from healthy, IPF and COPD cohorts indicated that reparative NAM-like programs aligned with fibrotic remodeling in IPF but diverged in COPD, supporting context-dependent consequences of sustained repair states. These findings establish local trained immunity in lung-resident macrophages as a mechanism of disease tolerance and a therapeutic entry point for severe inflammatory respiratory infections."
+    },
+    {
+      "accession": "GSE300757",
+      "pdat": "2026/06/05",
+      "n_samples": 127,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Efferocytosis induces proangiogenic function and chromatin remodeling in tumor-associated macrophages",
+      "summary": "Macrophages remove apoptotic cells by efferocytosis during immune-surveillance and in the tumor microenvironment (TME). However, the gradual molecular and epigenetic consequences of efferocytosis on the single macrophage are not thoroughly elucidated. Here we introduce Effero-seq, an approach that captures single-cell transcriptomic changes coupled with lysosomal acidification tracked by pHrodo, thus enabling the dissection of molecular dynamics over time following engulfment. Using apoptotic pHrodo-labeled cells as cargo, we defined the effero-score, a gene program gradually upregulated correlatively with pHrodo intensity. In a murine melanoma model, we found that efferocytosis induces a pro-angiogenic function in macrophages with spatial proximity to vascular niches. Moreover, efferocytosis reprograms chromatin accessibility, leading to attenuated macrophage response to IFN\u03b3. In human uveal melanoma, expression of the effero-score is correlated with poor survival. Effero-seq sheds light on the molecular reprogramming induced by efferocytosis in the TME, opening new avenues for understanding macrophage function and developing targeted treatments."
+    },
+    {
+      "accession": "GSE335847",
+      "pdat": "2026/06/22",
+      "n_samples": 13,
+      "gdstype": "Other",
+      "title": "TrAEL-seq of osimertinib-treated PC9 cells in specific cell cycle stages",
+      "summary": "Osimertinib is the current standard-of-care for treatment-naive patients with EGFR mutation-positive advanced/metastatic non-small cell lung cancer (NSCLC), however resistance inevitably emerges. Osimertinib does not eradicate all cancer cells even in culture, leaving a long-lasting sub-population of Drug Tolerant Persister (DTP) cells that is common to many chemotherapeutics. The DTP population is non-proliferative and seemingly dormant, but resistant clones eventually emerge from the DTP state. Here we show that extensive DNA replication occurs in the DTP state and cells frequently progress through the cell cycle, though cell death is also frequent, such that cell division and cell loss are balanced and the population remains approximately constant. Cell cycling occurs with aberrant gene expression and abnormal DNA replication pattern, leading to DNA damage, extrachromosomal circular DNA formation and mitotic defects, such that replicating DTP cells are hypersensitive to low doses of ATM and ATR inhibitors. Our findings suggest that the DTP state is highly mutagenic and that targeting DNA repair in DTP cells has the potential to prevent the emergence of resistance through de novo mutations."
+    },
+    {
+      "accession": "GSE329813",
+      "pdat": "2026/06/29",
+      "n_samples": 127,
+      "gdstype": "Other",
+      "title": "Spatial Transcriptomics Unveils Immune Microenvironment Heterogeneity and Response-related Subtypes in NSCLC Treated with Neoadjuvant Chemoimmunotherapy",
+      "summary": "We conduct a single-arm phase 2 trial using pembrolizumab plus platinum-doublet chemotherapy to evaluate the efficacy and safety of perioperative immune-chemotherapy in patients with driver mutation-negative potentially resectable NSCLC. Further, we perform an exploratory analysis of spatial transcriptomic profiles to characterize the immune microenvironment landscape in primary tumor lesions and paired draining lymph nodes after chemoimmunotherapy, aiming to explore distinct pathological response features and potential mechanism."
+    },
+    {
+      "accession": "GSE337162",
+      "pdat": "2026/07/01",
+      "n_samples": 6,
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "title": "Single-cell variant landscape of the human mitochondrial genome reveals cell type-specific and disease-associated changes",
+      "summary": "Mitochondria generate over 90% of the cellular energy and are central to health and disease. Mitochondrial DNA (mtDNA) heteroplasmy represents a significant source of cellular genetic diversity and has been shown to cause impaired mitochondrial function and even mitochondrial diseases. However, mitochondrial genetic heterogeneity across different human cell types at the population level is poorly understood. Here we present scMOCHA, a scalable computational framework that resolves high-confidence, single-cell resolution mtDNA heteroplasmy directly from standard single-cell RNA sequencing (scRNA-seq) data. Applying scMOCHA to all publicly available human peripheral blood mononuclear cells (PBMC) and bone marrow (BM) scRNA-seq datasets comprising 5.5 million cells, we uncover the single-cell landscape of mtDNA single-nucleotide variants (SNVs) and heteroplasmy levels in the human hematopoietic system across ages and cell types, including previously unreported SNVs and recurrent somatic hotspot SNVs in unrelated individuals. PBMCs and BM share many inherited homoplasmic and highly heteroplasmic SNVs but few somatic SNVs. Somatic SNVs are tissue- and cell type-specific and distributed across the mtDNA genome, suggesting that they arise in a largely random fashion. Although mtDNA replication error is the most likely dominant force shaping homoplasmic variants, oxidative stress may drive a significant portion of heteroplasmic and somatic mutations in the mtDNA genome. Importantly, we discover cell type-specific and human disease-associated mtDNA SNVs. By coupling mtDNA genotypes with matched single-cell nuclear transcriptomes and structural modeling, we uncover potential molecular mechanisms of how these disease-associated mtDNA SNVs impact cellular function such as inflammation and contribute to disease. Together, these findings define the single-cell variant landscape of the human mitochondrial genome and reveal previously unrecognized lineage- and disease-associated patterns of mtDNA variation in the human hematopoietic system."
+    },
+    {
+      "accession": "GSE337519",
+      "pdat": "2026/07/29",
+      "n_samples": 1,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "Single-cell transcriptomic landscape of neoadjuvant chemo-immunotherapy response in lung cancer",
+      "summary": "This study provides a high-resolution single-cell transcriptional profile of lung cancer in the context of neoadjuvant treatment. Utilizing the 10x Genomics platform, we performed single-cell RNA sequencing (scRNA-seq) on paired patient samples to investigate the cellular composition, phenotypic states, and transcriptional dynamics of the tumor microenvironment in response to the therapeutic intervention."
+    },
+    {
+      "accession": "GSE341473",
+      "pdat": "2026/08/04",
+      "n_samples": 20,
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "title": "RNA-seq datasets of Blood transcriptomics reveals the value of Hub genes in patients with NTM - PD",
+      "summary": "To identify and validate peripheral blood mRNA signatures as non-invasive diagnostic biomarkers for nontuberculous mycobacterial pulmonary disease (NTM-PD), we performed an integrated transcriptomic analysis combining scRNA-seq and bulk RNA sequencing (RNA-seq), followed by experimental validation. Peripheral blood samples were collected from a total of 8 participants, including 3 patients with Mycobacterium avium complex pulmonary disease (MAC-PD), 3 patients with Mycobacterium abscessus pulmonary disease (MAB-PD), and 2 healthy controls (HC). All samples were subjected to scRNA-seq to dissect the single-cell transcriptomic landscape of peripheral blood, and paired bulk RNA-seq was conducted simultaneously to achieve comprehensive transcriptomic profiling. Integrated analysis of scRNA-seq and bulk RNA-seq datasets revealed that eight core genes were significantly upregulated in NTM-PD patients compared with HCs. Notably, this gene signature exhibited superior specificity relative to other candidate gene combinations, highlighting its potential as a diagnostic biomarker for NTM-PD."
+    }
+  ]
+}

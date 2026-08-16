@@ -1,0 +1,371 @@
+{
+  "GSE207422": {
+    "title": "Tumor microenvironment remodeling after neoadjuvant immunotherapy in non-small cell lung cancer revealed by single-cell RNA sequencing",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Mar 21 2023",
+    "submission_date": "Jul 04 2022",
+    "last_update": "Feb 18 2026",
+    "pubmed": [
+      "36869384",
+      "41007733"
+    ],
+    "n_samples": 39,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "Transcriptomic dynamics of NSCLC during anti-PD-1 + chemotherapy Submitter statement concerning raw data: The raw data files have been deposited to Genome Sequence Archive of the BIG Data Center at the Beijing Institute of Genomics, Chinese Academy of Science, under accession number HRA001033.",
+    "summary": "To address the potential therapy-resistant mechanisms and underly the changes of tumor microenvironment (TME) after immunotherapy, we performed scRNA-seq  and bulk RNA-seq from the patients with resectable non-small cell lung cancer (NSCLC) before and after PD-1 blockade combined with chemotherapy. We found that the combined therapy significantly remodeled the immune cell compartments in the TME. Patients with different pathologic responses had distinct characteristics of malignant cells and immune cell compositions. Our study provided several potential biomarkers for future immunotherapy and novel strategies to improve response.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_metadata.xlsx",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_metadata.xlsx"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE243013": {
+    "title": "A single-cell atlas of immune heterogeneity  in anti-PD1-treated non-small cell lung cancer",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Jan 28 2025",
+    "submission_date": "Sep 12 2023",
+    "last_update": "Apr 18 2025",
+    "pubmed": [
+      "40147443"
+    ],
+    "n_samples": 243,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "Single-cell RNA-seq and single-cell TCR-seq of post-treatment surgical samples(n=234) from 234 non-small-cell lung cancer patients with newly-diagnosed lung squamous carcinoma (LUSC) or lung adenocarcinoma (LUAD) without EGFR mutation and ALK rearrangement undergoing treatment of neoadjuvant anti-PD1 agents combined with platinum-based chemotherapy doublets or chemotherapy alone before successful surgery. **RAW data not provided** According to the requirements of the Chinese Genetic Information Data Management, we have uploaded the raw sequencing data to the website: https://ngdc.cncb.ac.cn/ (National Genomics Data Center)",
+    "summary": "Anti-PD(L)1 with chemotherapy is a standard of care for non-small cell lung cancer (NSCLC), but a varying degree of response to the same regimen is observed in patients. The tumor immune microenvironment (TIME) plays a key role in response to immunotherapy, and the TIME heterogeneity in association with therapeutic outcome is incompletely understood. Here we prospectively applied single-cell RNA and TCR sequencing to characterize post-neoadjuvant chemo-immunotherapy treatment tumor samples of 234 NSCLC patients. Our study provides a fine-grained dissection of the TIME heterogeneity underlying response to chemo-immunotherapy in NSCLC, thus representing a valuable resource for improved management of NSCLC.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_NMF_all_group_5.csv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_NSCLC_immune_scRNA_counts.mtx.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_NSCLC_immune_scRNA_metadata.csv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_RAW.tar",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_T_with_TCR_annotation.csv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_UMAP_info.tar.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_barcodes.csv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_genes.csv.gz"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE146100": {
+    "title": "Distinct Immune-microenvironment Construction Diversely Responded to Induction Immunotherapy among Multiple Primary Lung Adenocarcinoma",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Apr 28 2021",
+    "submission_date": "Feb 28 2020",
+    "last_update": "Apr 28 2021",
+    "pubmed": [
+      "33820821"
+    ],
+    "n_samples": 3,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "Three surgically resected lung adenocarcinoma treated in freshly digested single cell suspension were set for single cell RNA sequencing.",
+    "summary": "We performed an integrated multi-omics analysis including single-cell RNA sequencing in one multiple lung nodules patient treated with pembrolizumab. We found that responded nodule showed notably higher infiltrating macrophages and lymphocytes through mIHC. Much higher genomic somatic copy number variants events were observed in two non-responded nodules. scRNA highlighted HLA-related gene down-regulation in both non-responded nodules indicating one of its immune evasion mechanisms. Moreover, significantly high proportion of Tissue resident memory T cells were found in responded nodule which has been validated to be both predictive and prognostic signature among multiple cancer types through external datasets. As for macrophages, MDSC-like subtype was predominantly observed in responded nodule while TAM-like subtype mainly in other two non-responded nodules. Through TCGA-LUAD cohort, MDSC-like macrophages showed inferior prognostic value compared to TAM-like macrophages suggesting a potential resistant mechanism along with increased responded immune infiltration. This study provides an in-depth multi-omics analysis on firstly reported multiple primary lung adenocarcinoma receiving immunotherapy and describes potential early immune signals responding to immunotherapy, as well as impaired antigen-presenting process in sub-solid nodules which may attribute to primary resistant of immunotherapy.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE146nnn/GSE146100/suppl/GSE146100_NormData.txt.gz"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE229353": {
+    "title": "PD-1 blockade potentiates neoadjuvant chemotherapy in NSCLC via increasing CD127+ and KLRG1+ CD8 T cells",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on May 16 2023",
+    "submission_date": "Apr 10 2023",
+    "last_update": "Aug 10 2023",
+    "pubmed": [
+      "37231145"
+    ],
+    "n_samples": 7,
+    "platform": [
+      "GPL20795"
+    ],
+    "overall_design": "Xiubao,Ren",
+    "summary": "The combination of PD-1 blockade with neoadjuvant chemotherapy (NAC) has achieved unprecedented clinical success in non-small-cell lung cancer (NSCLC) compared to NAC alone, but the underlying mechanisms by which PD-1 blockade augments the effects of chemotherapy remain incompletely elucidated. Single-cell RNA sequencing was performed on CD45+ immune cells isolated from surgically resected fresh tumor tissues of seven NSCLC patients receiving NAC or neoadjuvant pembrolizumab and chemotherapy (NAPC). Multiplex fluorescent immunohistochemistry was performed on paired FFPE tissues before and after NAC or NAPC from 65 resectable NSCLC patients, and results were validated with GEO dataset. NAC resulted in an increase only of CD20+ B cells, whereas NAPC increased the infiltration of CD20+ B cells, CD4+ T cells, CD4+CD127+ T cells, CD8+ T cells, CD8+CD127+ and CD8+KLRG1+ T cells. Synergistic increase in B and T cells promotes favorable therapeutic response after NAPC. Spatial distribution analysis discovered that CD8+ T cells and their CD127+ and KLRG1+ subsets were in closer proximity to CD4+ T/CD20+ B cells in NAPC versus NAC. GEO dataset validated that B-cell, CD4, memory and effector CD8 signatures correlated with therapeutic responses and clinical outcomes. The adding of PD-1 blockade to NAC promoted anti-tumor immunity through T and B cells recruitment in the tumor microenvironment and induced tumor-infiltrating CD8+ T cells skewed toward CD127+ and KLRG1+ phenotypes\uff0cwhich may be assisted by CD4+ T cells and B cells. Our comprehensive study identified key immune cell subsets exerting anti-tumor responses during PD-1 blockade therapy and that may be therapeutically targeted to improve upon existing immunotherapies for NSCLC.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE229nnn/GSE229353/suppl/GSE229353_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE248378": {
+    "title": "Neoadjuvant durvalumab plus radiation versus durvalumab alone in stages I-III non-small cell lung cancer: survival outcomes and molecular correlates of a randomized phase II trial",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Nov 26 2023",
+    "submission_date": "Nov 21 2023",
+    "last_update": "Apr 17 2024",
+    "pubmed": [
+      "38114518",
+      "38401548"
+    ],
+    "n_samples": 29,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "RNA-seq studies of resected tumors to identify biomarkers of recurrence in a clinical trial of immune checkpoint blockade therapy in the treatment of non-small cell lung cancer.",
+    "summary": "Randomized phase II trial patients with early-stage non-small cell lung cancer were treated with either two preoperative cycles of the anti-PD-L1 antibody durvalumab alone or combined with immunomodulatory doses of stereotactic radiation. We report, based on transcriptome analyses of resected tumors, a correlation between an increase of immune pathway genes and freedom from recurrence.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/suppl/GSE248378_Durva_Post_FPKMs.txt.gz"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE241934": {
+    "title": "Neoadjuvant sintilimab plus chemotherapy in early-stage EGFR-mutant NSCLC: phase 2 trial interim results (NEOTIDE/CTONG2104)",
+    "type": "Expression profiling by high throughput sequencing | Other",
+    "status": "Public on May 17 2024",
+    "submission_date": "Aug 30 2023",
+    "last_update": "Jul 05 2024",
+    "pubmed": [
+      "38897205"
+    ],
+    "n_samples": 88,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "Non-erythrocytic living cells of 11 EGFR-mutant non-small cell lung cancer (NSCLC) and 34 wild-type lung adenocarcinoma (LUAD) or adeno-squamous carcinoma (ASC) that received neoadjuvant immunochemotherapy were isolated by gating 7AAD\u2212CD235a\u2212 cells using Fluorescence-activated cell sorting (FACS), and analyzed using  scRNA/TCR-seq.  >>>Submitter states that the raw data will be submitted to GSA.<<<",
+    "summary": "We launched an investigator-initiated, Simon\u2019s two-stage design trial of neoadjuvant sintilimab combined with carboplatin and nab-paclitaxel (nab-PC) in early-stage EGFR-mutant NSCLC (Clinicaltrial.gov number NCT05244213). Here we report the first interim results of stage 1 cohort which met the overall primary endpoint in advance, and multi-omics profiling of neoadjuvant immunotherapy combination in early-stage EGFR-mutant patients. We performed in-depth single-cell RNA/TCR sequencing (scRNA/TCR-seq) of cells derived from 11 resected tumors as well as 34 tumors from real-world cohort which were all confirmed wild-type lung adenocarcinoma (LUAD) or adeno-squamous carcinoma (ASC) and received neoadjuvant immunochemotherapy as control. By associating the tumor microenvironment (TME) and with responses, we uncovered heterogeneous mechanisms of primary resistance, providing insights into further strategic developments of combination regimens to improve the clinical outcome of EGFR-mutant NSCLC patients.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_Matrix.mtx.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_Meta.txt.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_barcodes.tsv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_features.tsv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_RAW.tar",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_RWC_barcodes.tsv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_RWC_features.tsv.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_Real_Matrix.mtx.gz",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_Real_Meta.txt.gz"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE225620": {
+    "title": "Blood-based Genomic and Cellular Determinants of Response to Neoadjuvant PD-1 Blockade in Patients with Non-Small-Cell Lung Cancer",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Jul 05 2024",
+    "submission_date": "Feb 20 2023",
+    "last_update": "Jul 05 2024",
+    "pubmed": [
+      "38951894"
+    ],
+    "n_samples": 43,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "Comparative gene expression profiling analysis of RNA Seq data for 57 whole blood samples from 31 NSCLC patients and 5 healthy donors, including both responders and non-responders received anti-PD-1 Tislelizumab plus chemotherapy.",
+    "summary": "The integrated analyses employed in the current study identified blood-based molecular and cellular signatures that are associated with the responsiveness and overall survival of PD-1/PD-L1 blockade therapy plus chemotherapy.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE225nnn/GSE225620/suppl/GSE225620_pre_vs_post_featureCounts.txt.gz"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE280232": {
+    "title": "Divergent clinical and immunologic outcomes based on STK11 co-mutation status in resectable KRAS-mutant lung cancers following neoadjuvant immune checkpoint blockade",
+    "type": "Expression profiling by high throughput sequencing | Other",
+    "status": "Public on Oct 24 2024",
+    "submission_date": "Oct 24 2024",
+    "last_update": "Jan 23 2025",
+    "pubmed": [
+      "39545922"
+    ],
+    "n_samples": 42,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "To better understand the immunological underpinnings of the increased risk of recurrence in patients with KRASmut/STK11mut tumors, we performed single cell TCRseq/RNAseq on biospecimens from 6 patients with KRASmut/STK11mut disease and 7 patients with KRASmut/STK11wt disease treated with neoadjuvant ICB. All KRASmut/STK11mut tumors were confirmed to have functionally and/or clinically relevant STK11 mutations.",
+    "summary": "Co-mutations of the KRAS and STK11 genes in advanced non-small cell lung cancer (NSCLC) are associated with immune checkpoint blockade (ICB) resistance. While neoadjuvant chemoimmunotherapy is now a standard of care treatment for early-stage NSCLC, the clinical and immunologic impact of KRAS and STK11 co-mutations in this setting are unknown. We evaluated the clinical outcomes and intratumoral T cell profiles of resected KRAS-mutant tumors treated with neoadjuvant ICB. Relative to KRASmut/STK11wt tumors, KRASmut/STK11mut exhibited significantly higher recurrence risk. Single-cell transcriptomics showed enhanced oxidative phosphorylation with evidence of decreased PGE-2 signaling and increased IL-2 signaling in CD8+ tumor-infiltrating lymphocytes (TIL) from KRASmut/STK11mut tumors, a finding that was mirrored in KRASwt tumors that relapsed. TIL from KRASmut/STK11mut tumors expressed high levels of molecules associated with tumor residence, including CD39 and ZNF683 (HOBIT). These divergent T cell transcriptional fates suggest T cell maintenance and residence may be detrimental to anti-tumor immunity in the context of neoadjuvant ICB for resectable NSCLC, regardless of KRAS mutation status. Our work provides a basis for future investigations into the mechanisms underpinning PGE-2 and IL-2 signaling as they relate to T cell immunity to cancer and to divergent clinical outcomes in KRASmut/STK11mut NSCLC treated with neoadjuvant ICB.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE280nnn/GSE280232/suppl/GSE280232_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE274934": {
+    "title": "Single-cell multi-omics reveals tumor microenvironment factors underlying poor immunotherapy responses in ALK-positive lung cancer",
+    "type": "Expression profiling by high throughput sequencing | Other | Genome binding/occupancy profiling by high throughput sequencing",
+    "status": "Public on Jan 30 2025",
+    "submission_date": "Aug 15 2024",
+    "last_update": "Jan 31 2025",
+    "pubmed": [
+      "39754710"
+    ],
+    "n_samples": 23,
+    "platform": [
+      "GPL20795"
+    ],
+    "overall_design": "Single-cell RNA and TCR libraries were generated using the Chromium controller in accordance with the 10x Chromium Next GEM Single Cell 5-v2_CellSurfaceProtein_UserGuide (CG000330). Cell suspensions were initially diluted with nuclease-free water to a target concentration of 10,000 cells. These suspensions were then combined with the master mix, Single Cell 5\u2032 Gel Beads, and Partitioning Oil, and loaded into a Next GEM Chip K. Within the droplets, RNA transcripts from individual cells were barcoded and reverse-transcribed. The resulting cDNA was pooled and subjected to PCR enrichment. Following amplification, the cDNA was size-selected to generate three distinct library types: 5\u02b9 Gene Expression, V(D)J Enriched, and Cell Surface Protein. For the Cell Surface Protein Library, the cDNA pool underwent further enrichment using index PCR. The V(D)J Enriched Library required two rounds of amplification with specific primers. The 5\u2019 Gene Expression Library was processed through end repair, addition of a single \u2018A\u2019 base, adapter ligation, and subsequent purification and PCR enrichment. Quantification of the purified libraries was performed using qPCR as outlined in the qPCR Quantification Protocol Guide (KAPA), and quality assessment was conducted using the Agilent Technologies 4200 TapeStation. Finally, sequencing was carried out on the HiSeq platform (Illumina) according to the read length specifications provided in the user guide. Single-cell ATAC Libraries were generated using the Chromium controller in accordance with the 10x Single Cell ATAC protocol (CG000168). Initially, nuclei were isolated and incubated with Transposase in a Transposition Mix. These transposed nuclei were then combined with master mix, Single Cell ATAC gel beads, and Partitioning Oil in a Chip E, where DNA fragments are barcoded in droplets during thermal incubation. The resulting barcoded DNA fragments were pooled and underwent sample index PCR. Quantification of the purified libraries was performed using qPCR as described in the qPCR Quantification Protocol Guide (KAPA), and quality assessment was conducted with the Agilent Technologies 4200 TapeStation. Finally, sequencing was carried out on the HiSeq platform (Illumina) following the read length specifications provided in the user guide.",
+    "summary": "Anaplastic lymphoma kinase (ALK) rearrangement is a major oncogenic driver in non-small cell lung cancer (NSCLC). While ALK tyrosine kinase inhibitors have shown promising therapeutic effects, overcoming resistance with immunotherapy becomes necessary when resistance develops. However, various clinical trials have revealed that their efficacies remain limited. To investigate the tumor microenvironment (TME) factors contributing to poor immune checkpoint blockade responses in ALK-positive patients, we performed single-cell RNA and ATAC sequencing on lung adenocarcinoma (LUAD) tumors with and without ALK rearrangements. Integrative analysis with additional public LUAD cohorts revealed distinct immune landscapes in ALK-positive tumors, marked by enriched innate immunity and depleted adaptive immunity. ALK-positive malignant cells exhibit higher stemness and aggressive phenotype. Tumor-associated macrophages (TAMs) in these tumors predominantly maintain pro-tumoral M2-like states, reinforcing immune suppression. B cells show reduced immune reactivity and impaired tertiary lymphoid structure formation, while CD8+ T cells display bystander-like signatures and reduced tumor reactivity. Single-cell chromatin accessibility profiles combined with regulatory network analysis suggest that differences in transcription factor activities, rather than chromatin accessibility, may underlie T cell dysfunction. These findings provide insights into the immunosuppressive TME of ALK-positive LUAD, potentially explaining the failure of recent immunotherapy trials and highlighting targets for improving efficacy.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE274nnn/GSE274934/suppl/GSE274934_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE291670": {
+    "title": "Neoadjuvant anlotinib combined with PD-1 blockade therapy remodeling the microenvironment in advanced non-small cell lung cancer",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Mar 31 2025",
+    "submission_date": "Mar 11 2025",
+    "last_update": "May 08 2025",
+    "pubmed": [
+      "40281576"
+    ],
+    "n_samples": 6,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "Advanced NSCLC patients received neoadjuvant anlotinib combined with PD-1 blockade therapy, and surgical treatment was performed after reaching the resectable criteria. 6 patients were enrolled in this study from December 2022 to December 2023. Single cells was isolated from 6 tissue samples respectively and analysed using scRNA-seq.",
+    "summary": "Neoadjuvant anlotinib combined with PD-1 blockade therapy can prolong the survival of patients, but the underlying mechanisms for the failure of patients to benefit from combination therapy remain to be explored. To explore the mechanism of drug resistance and predict patient response,  we performed scRNA-seq from 6 NSCLC patients, including 3 post-treatment patients with major pathological response (MPR), and 3 Non-MPR patients to observe and analyze the dynamic changes of immune cells, stromal cells and cancer cells from the NSCLC patients who received neoadjuvant anlotinib combined with PD-1 blockade therapy and verified in an independent cohort.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE291nnn/GSE291670/suppl/GSE291670_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE299111": {
+    "title": "Regulatory T cells in lung tumor shape an anti-inflammatory myeloid-landscape recovery after chemotherapy",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Jun 06 2025",
+    "submission_date": "Jun 05 2025",
+    "last_update": "Jun 06 2025",
+    "pubmed": [],
+    "n_samples": 7,
+    "platform": [
+      "GPL34281"
+    ],
+    "overall_design": "Seven sorted tumor samples from NSCLC patients were analyzed: 3 untreated (N) and 4 treated by neoadjuvant chemotherapy (CH). The samples include myeloid cells, T and B lymphocyte populations analyzed using scRNA-seq.",
+    "summary": "Tumor-associated macrophages (TAMs) and regulatory T cells (Tregs) are major immune components of the tumor microenvironment, promoting tumor growth and limiting the efficacy of chemotherapy in almost all cancer indications. While Tregs are well known for their immune suppressive activity toward the adaptive immune system, less is known about their regulatory activity toward the innate compartment. We showed in human and mouse lung cancer, that chemotherapy transformed the myeloid landscape of the tumor microenvironment, inducing a transient monocyte accumulation and exhibiting a stronger pro-inflammatory signature along with increased TGF\u03b2 expression. Prevent Treg recovery further increased the recruitment of monocytes and limited TGF\u03b2 expression upon TAM differentiation arguing for a role of Tregs in the anti-inflammatory polarization of the myeloid compartment. Using anti-TNFR2, to target preferentially tumor-infiltrating Treg, affected their recruitment and dynamic of interaction with myeloid cells into the tumor. This was associated with a sustained pro-inflammatory signature of the myeloid cells and improved survival in the mouse model. Chemo-immunotherapy targeting the cross-talk between tumor-associated Tregs and myeloid compartments may provide alternative or complementary benefit in the context of immune-checkpoint blockade therapies.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE299nnn/GSE299111/suppl/GSE299111_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE300685": {
+    "title": "Tumor-infiltrating natural killer cell profiling for therapeutic stratification in smokers with resectable non-small cell lung cancer",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Jun 30 2025",
+    "submission_date": "Jun 24 2025",
+    "last_update": "Feb 25 2026",
+    "pubmed": [
+      "41509400"
+    ],
+    "n_samples": 8,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "This study was conducted under protocols approved by the Institutional Review Board at Baylor College of Medicine (BCM) (H-35782) and the University of Arizona (UA) (1811124026). Written informed consent was obtained from all participants for the collection of clinical data and biospecimens. At BCM, a prospectively maintained, single-institution database was reviewed retrospectively. The BCM cohort included 102 patients with histologically confirmed NSCLC who underwent complete pulmonary resection and mediastinal lymph node dissection. Staging was determined according to the 8th edition of the TNM classification. At UA (by Dr. Polverino), lung tissue samples were obtained from patients undergoing lung volume reduction surgery or lung transplantation for severe emphysema, or from patients undergoing lung resection for a solitary peripheral nodule, with sampled tissue taken from a region at least 10 cm away from the nodule. The UA cohort included 13 non-smokers, 21 ever-smoker control subjects, 15 patients with mild chronic obstructive pulmonary disease (COPD)(GOLD stage 1-2), and 12 patients with severe COPD (GOLD stage 3-4). COPD was defined as pre-bronchodilator forced expiratory volume in 1 second (FEV1)/forced vital capacity (FVC) ratio of less than 0.7 (70%). Disease severity was classified according to the GOLD criteria as follows: GOLD 1 (FEV1 \u2265 80%), GOLD 2 (50% \u2264 FEV1 < 80%), GOLD 3 (30% \u2264 FEV1 < 50%), and GOLD 4 (FEV1 < 30%).",
+    "summary": "Objective: Neoadjuvant chemoimmunotherapy has improved outcomes in resectable non-small cell lung cancer (NSCLC), yet its real-world implementation is often challenged by surgical delays, cancellations, immune-related fibrosis, and increased postoperative complications. Smokers with NSCLC, despite being at higher risk for postoperative complications, have enhanced responses to neoadjuvant chemoimmunotherapy. This study aimed to identify smoking-associated immune cell determinants that could inform treatment strategies. Methods: Single-cell RNA sequencing was performed on 61 lung samples from non-smokers, smokers, and patients with chronic obstructive pulmonary disease (COPD), as well as 8 invasive lung adenocarcinomas, to define smoking-related immune signatures. Using RNA sequencing data from 102 resected NSCLC and 24 NSCLC patients treated with neoadjuvant chemoimmunotherapy, we conducted in silico deconvolution to evaluate associations between cellular composition and clinical outcomes. Results: Among 140 lung cellular phenotypes, two natural killer (NK) cell subsets were strongly associated with smoking and COPD severity. \u201cStress-responsive NK (NKSR)\u201d cells exhibited immature features and cytokine-responsive signatures. \u201cExhausted NK (NKExh)\u201d cells showed mature features and elevated multiple immune checkpoint expression (PDCD1, TIGIT, and LAG3). Abundant intratumoral NKSR cells were associated with significantly improved survival after surgery, particularly in current smokers. Conversely, tumors with low NKSR and high NKExh cell profiles were associated with better responses to neoadjuvant chemoimmunotherapy. Conclusions: Tumor-infiltrating NK cell phenotyping may aid in therapeutic stratification in smokers with NSCLC. NKSR cell preservation predicts favorable outcomes with upfront surgery, while NKExh cell enrichment indicates greater benefit from neoadjuvant chemoimmunotherapy. These profiles may help optimize treatment by balancing therapeutic benefit and risk.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE300nnn/GSE300685/suppl/GSE300685_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE337519": {
+    "title": "Single-cell transcriptomic landscape of neoadjuvant chemo-immunotherapy response in lung cancer",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Jul 29 2026",
+    "submission_date": "Jul 04 2026",
+    "last_update": "Jul 30 2026",
+    "pubmed": [
+      "42483203"
+    ],
+    "n_samples": 1,
+    "platform": [
+      "GPL24676"
+    ],
+    "overall_design": "Single-cell RNA sequencing was performed on paired tumor samples obtained from a single lung cancer patient, with no biological replicates. The patient was treated with a neoadjuvant regimen consisting of three cycles of combined chemotherapy and immunotherapy. Samples were collected at two distinct time points for comparative analysis: pre-treatment (baseline) and post-treatment (following the completion of the three-cycle regimen).",
+    "summary": "This study provides a high-resolution single-cell transcriptional profile of lung cancer in the context of neoadjuvant treatment. Utilizing the 10x Genomics platform, we performed single-cell RNA sequencing (scRNA-seq) on paired patient samples to investigate the cellular composition, phenotypic states, and transcriptional dynamics of the tumor microenvironment in response to the therapeutic intervention.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE337nnn/GSE337519/suppl/GSE337519_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE249568": {
+    "title": "Gene expression from paired biopsies from a patient with METex14 skiping non-small cell lung cancer before and after treatment with neoadjuvant tepotinib (42 days)",
+    "type": "Expression profiling by array",
+    "status": "Public on Sep 27 2024",
+    "submission_date": "Dec 06 2023",
+    "last_update": "Jan 10 2025",
+    "pubmed": [
+      "39366215"
+    ],
+    "n_samples": 94,
+    "platform": [
+      "GPL33991"
+    ],
+    "overall_design": "On the GeoMx Digital Spatial Profiler, regions of interest of 250 micrometers in diameter were selected in the pre-treatment biopsy (15) and tepotinib-treated surgical resection (79) from the same patient, following hybridization of tissue with Cancer Transcriptome Atlas probes and custom probes for METex14, CLDN18.1, CLDN18.2, CEACAM5, spliced XBP1 and morphology marker staining using SYTO13, TTF1, CD3 and CD33.",
+    "summary": "Background: MET inhibitors have demonstrated efficacy in treating patients with non-small cell lung cancer (NSCLC) harboring METex14 skipping alterations. Advancements in spatial profiling technologies have unveiled the complex dynamics of the tumor microenvironment, a crucial factor in cancer progression and therapeutic response. Using spatial profiling, this study investigates the effects of the MET inhibitor tepotinib on the TME in a case of locally advanced NSCLC with a METex14 skipping alteration.  Methods: A patient with resectable stage IIIB NSCLC, unresponsive to neoadjuvant platinum-based doublet chemotherapy, received tepotinib following detection of a METex14 skipping alteration. Paired pre- and post-treatment biopsies were subjected to GeoMx Digital Spatial Profiling using the Cancer Transcriptome Atlas and immune-related protein panels to evaluate shifts in the tumor immune microenvironment (TIME).  Results: Tepotinib administration resulted in pathological downstaging to stage IA1, which allowed for a successful lobectomy and evidenced a significant pathological response. The TIME was transformed from an immunosuppressive to a more permissive state, with upregulation of antigen-presenting and pro-inflammatory immune cells. Moreover, a marked decrease in immune checkpoint molecules, including PD-L1, was noted. Spatial profiling identified discrete immune-enriched clusters, indicating the role of tepotinib in modulating immune cell trafficking and function.  Conclusions: Tepotinib appears to remodel the TIME in a patient with METex14 skipping NSCLC, possibly increasing responsiveness to immunotherapy. This case supports the integration of genetic profiling into the management of early and locally advanced NSCLC to guide personalized, targeted interventions. These findings highlight the need to further evaluate combinations of MET inhibitors and immunotherapies.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE249nnn/GSE249568/suppl/GSE249568_RAW.tar"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE250509": {
+    "title": "Protein expression from paired biopsies from a patient with METex14 skiping non-small cell lung cancer before and after treatment with neoadjuvant tepotinib (42 days)",
+    "type": "Other",
+    "status": "Public on Sep 27 2024",
+    "submission_date": "Dec 18 2023",
+    "last_update": "Jan 10 2025",
+    "pubmed": [
+      "39366215"
+    ],
+    "n_samples": 94,
+    "platform": [
+      "GPL34024"
+    ],
+    "overall_design": "On the GeoMx Digital Spatial Profiler, regions of interest of 250 micrometers in diameter were selected in the pre-treatment biopsy (15) and tepotinib-treated surgical resection (79) from the same patient, following barcoded antibody incubation (Immune Cell Profiling, Immune Cell Typing, Immune Activation Status, IO Drug Target & PI3K/AKT Signaling panels) and morphology marker staining using SYTO13, TTF1, CD3 and CD33.",
+    "summary": "Background: MET inhibitors have demonstrated efficacy in treating patients with non-small cell lung cancer (NSCLC) harboring METex14 skipping alterations. Advancements in spatial profiling technologies have unveiled the complex dynamics of the tumor microenvironment, a crucial factor in cancer progression and therapeutic response. Using spatial profiling, this study investigates the effects of the MET inhibitor tepotinib on the TME in a case of locally advanced NSCLC with a METex14 skipping alteration.  Methods: A patient with resectable stage IIIB NSCLC, unresponsive to neoadjuvant platinum-based doublet chemotherapy, received tepotinib following detection of a METex14 skipping alteration. Paired pre- and post-treatment biopsies were subjected to GeoMx Digital Spatial Profiling using the Cancer Transcriptome Atlas and immune-related protein panels to evaluate shifts in the tumor immune microenvironment (TIME).  Results: Tepotinib administration resulted in pathological downstaging to stage IA1, which allowed for a successful lobectomy and evidenced a significant pathological response. The TIME was transformed from an immunosuppressive to a more permissive state, with upregulation of antigen-presenting and pro-inflammatory immune cells. Moreover, a marked decrease in immune checkpoint molecules, including PD-L1, was noted. Spatial profiling identified discrete immune-enriched clusters, indicating the role of tepotinib in modulating immune cell trafficking and function.  Conclusions: Tepotinib appears to remodel the TIME in a patient with METex14 skipping NSCLC, possibly increasing responsiveness to immunotherapy. This case supports the integration of genetic profiling into the management of early and locally advanced NSCLC to guide personalized, targeted interventions. These findings highlight the need to further evaluate combinations of MET inhibitors and immunotherapies.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE250nnn/GSE250509/suppl/GSE250509_Normalized_counts_protein.xlsx",
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE250nnn/GSE250509/suppl/GSE250509_raw_RCC_files.tar.gz"
+    ],
+    "organism": [
+      "Homo sapiens"
+    ]
+  },
+  "GSE240033": {
+    "title": "VIGOR canine osteosarcoma tumor, cell line and skin samples",
+    "type": "Expression profiling by high throughput sequencing",
+    "status": "Public on Oct 01 2023",
+    "submission_date": "Aug 03 2023",
+    "last_update": "Oct 01 2023",
+    "pubmed": [],
+    "n_samples": 69,
+    "platform": [
+      "GPL33645"
+    ],
+    "overall_design": "RNA-Seq of fresh frozen osteosarcoma tissues pre and post treatment with vesicular stomatitis virus (VSV)  as well as cell lines grown from tumors skin tissues from these samples.",
+    "summary": "VSV-IFN\u03b2-NIS is a recombinant oncolytic vesicular stomatitis virus (VSV) that is being evaluated clinically for the treatment of advanced malignancies. As with other cancer immunotherapies, identifying biomarkers of response will be critical to the clinical advancement of this treatment approach. . RNAseq analysis showed that virtually all the long-term responders had increased expression of a CD8 T-cell anchored immune gene cluster. We conclude that neoadjuvant VSV-IFN\u03b2-NIS has an excellent safety profile and may provide a survival benefit for dogs with osteosarcoma whose tumors are permissive for immune infiltration.",
+    "supplementary": [
+      "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE240nnn/GSE240033/suppl/GSE240033_VIGOR.txt.gz"
+    ],
+    "organism": [
+      "Canis lupus"
+    ]
+  }
+}
