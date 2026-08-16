@@ -1,0 +1,6 @@
+cohort	platform	region	n_matrix	n_tumor	n_genes	targets_present	targets_missing	gep18_present	gep18_missing	estimate_stromal_present	estimate_immune_present
+GSE31210	GPL570 U133 Plus 2.0	East Asia (Japan)	246	226	21755	TACSTD2,CLDN4		18		136	138
+GSE72094	GPL15048 HuRSTA	USA (Moffitt custom array)	442	442	22115	TACSTD2,CLDN4		18		140	139
+GSE68465	GPL96 U133A	USA/multi-site Director's Challenge	462	443	13101	TACSTD2,CLDN4		15	CD274,CD276,TIGIT	136	138
+GSE19804	GPL570 U133 Plus 2.0	East Asia (Taiwan, never-smoker female)	120	60	21755	TACSTD2,CLDN4		18		136	138
+CPTAC_LUAD_RNA	RNA-seq RSEM log2 UQ	USA CPTAC	110	110	60669	TACSTD2,CLDN4		18		published	published

@@ -595,6 +595,8 @@ The user's **TCGA + OncoSG** purity-corrected TACSTD2–immune result is **taken
 
 Primary tumors only. GSE19804 paired normals dropped. GSE31210 restricted to `tissue: primary lung tumor`.
 
+**Coverage notes.** GSE68465 GEP18 is **15/18** (`CD274`, `CD276`, `TIGIT` absent on U133A). Other GEO cohorts and CPTAC are 18/18. CPTAC WES complete-case n=108 (2 tumors lack `WES_purity`). ESTIMATE gene coverage on GPL570 is 136/141 stromal and 138/141 immune.
+
 ## Definitions
 
 - **TACSTD2 / CLDN4 / CD8:** microarray = max-mean probe collapse to HUGO; CPTAC = Ensembl `ENSG00000184292` / `ENSG00000189143` / `ENSG00000153563` (version suffix stripped).
