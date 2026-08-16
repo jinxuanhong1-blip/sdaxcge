@@ -1,0 +1,6 @@
+accession	cohort	setting	patients_or_samples	patient_level_orr	cldn4_measured	expression_outcome_joinable	decision	reason
+GSE159067	CLB-IHN	R/M HNSCC, PD-1/PD-L1 therapy	102	yes	no	no	exclude	RECIST labels public (CR=5, PR=6, SD=27, PD=64), but CLDN4 is absent from the 2,559-transcript HTG panel.
+GSE93157	Prat et al.	Pan-cancer anti-PD-1; HNSCC subset	5	yes	no	no	exclude	HNSCC subset has 5 cases and public best responses (SD,PD,SD,CR,PR), but CLDN4 is absent from the NanoString PanCancer Immune panel.
+GSE190575	ALPHA	R/M HNSCC, afatinib plus pembrolizumab	31	no	no	no	exclude	No response field in GEO metadata (0 found); CLDN4 row present=False in the deposited NanoString matrix; combination therapy is not an ICI-monotherapy analog.
+GSE212549	NIVACTOR	R/M HNSCC, nivolumab	80	no	yes	no	exclude	CLDN4 is measured by TC0700007993.hg.1 in 80 samples, but GEO has no patient-level response field. The paper reports aggregate GE-cohort counts (PR=12, SD=14, PD=53, one NA) without a sample-to-response key.
+GSE301741	Mints et al.	Neoadjuvant pembrolizumab, single-cell RNA-seq	16 patients / 58 libraries	no	yes	no	exclude	Endpoint is pathologic tumor regression rather than RECIST ORR, and GEO metadata contains 0 response fields. The publication identifies CLDN4 as an epithelial-state marker.

@@ -1,0 +1,26 @@
+{
+  "question": "Pretreatment tumor CLDN4 expression versus RECIST ORR in public HNSCC ICI data",
+  "estimable": false,
+  "association_tests_run": 0,
+  "primary_result": "NOT ESTIMABLE FROM ELIGIBLE PUBLIC DATA",
+  "why": "No screened public cohort simultaneously provides a CLDN4 measurement and a patient-level RECIST response label that can be joined without inference.",
+  "anti_p_hacking_guardrail": "No alternate gene, disease-control endpoint, survival endpoint, pathologic response endpoint, inferred labels, or outcome-optimized expression cutoff was substituted.",
+  "verified_facts": {
+    "GSE159067_response_counts": {
+      "CR": 5,
+      "PR": 6,
+      "SD": 27,
+      "PD": 64
+    },
+    "GSE159067_CLDN4_row_present": false,
+    "GSE93157_HNSCC_n": 5,
+    "GSE93157_CLDN4_row_present": false,
+    "GSE190575_CLDN4_row_present": false,
+    "GSE212549_CLDN4_probe": "TC0700007993.hg.1",
+    "GSE212549_CLDN4_n": 80,
+    "GSE212549_CLDN4_range": [
+      3.47,
+      7.53
+    ]
+  }
+}
