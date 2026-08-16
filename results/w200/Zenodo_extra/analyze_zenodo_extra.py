@@ -22,7 +22,23 @@ EXPECTED_MD5 = {
     "validate-metadata.csv": "4a9016ad18ce0cda0cad352182ddc382",
 }
 GEOMX_EXTRACT = ROOT / "geomx_tacstd2_rois.csv"
+RNASCOPE_PANEL = ROOT / "rnascope_panel.csv"
+MODULE195 = ROOT / "ici_module195_genes.csv"
 ROI_ORDER = ("immunity hub", "hybrid hub", "bystander TLS", "non-hub", "exclude")
+RNASCOPE_CHANNELS = (
+    "IDO1",
+    "CCR7",
+    "FOXP3",
+    "CD4",
+    "PDCD1",
+    "CCL22",
+    "EPCAM",
+    "CCL19",
+    "CD8A",
+    "CXCL10",
+    "CD3E",
+    "TCF7",
+)
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -216,6 +232,51 @@ def write_detection_svg(by_roi: list[dict[str, object]], by_slide: list[dict[str
     (ROOT / "geomx_tacstd2_above_loq.svg").write_text("\n".join(svg), encoding="utf-8")
 
 
+def audit_rnascope_panel() -> dict[str, object]:
+    fields, rows = read_csv(RNASCOPE_PANEL)
+    if fields != ["file", "record", "md5", "n_target_channels", "TACSTD2", "CLDN4", "channels"]:
+        raise RuntimeError(f"Unexpected RNAscope panel columns: {fields}")
+    if {row["file"] for row in rows} != {"ACD_stemimmunity.csv", "ACD_tumor.csv"}:
+        raise RuntimeError("RNAscope panel table must cover both leftover ACD files")
+    for row in rows:
+        channels = tuple(row["channels"].split(","))
+        if channels != RNASCOPE_CHANNELS:
+            raise RuntimeError(f"{row['file']} channel list does not match the verified 12-gene panel")
+        if row["TACSTD2"] != "False" or row["CLDN4"] != "False":
+            raise RuntimeError(f"{row['file']} unexpectedly marked a requested target as present")
+        if int(row["n_target_channels"]) != 12:
+            raise RuntimeError(f"{row['file']} does not have 12 target channels")
+    return {
+        "record": "10.5281/zenodo.11198494",
+        "files": ["ACD_stemimmunity.csv", "ACD_tumor.csv"],
+        "n_target_channels": 12,
+        "targets": {"TACSTD2": {"present": False}, "CLDN4": {"present": False}},
+        "valid_target_analysis": False,
+        "reason": "Both leftover RNAscope tables use the same 12-gene immune/epithelial panel and measure neither TACSTD2 nor CLDN4.",
+    }
+
+
+def audit_module195() -> dict[str, object]:
+    fields, rows = read_csv(MODULE195)
+    if fields != ["source", "gene_symbol", "requested_target"]:
+        raise RuntimeError(f"Unexpected 195-gene module columns: {fields}")
+    genes = [row["gene_symbol"] for row in rows]
+    if len(genes) != 195 or len(set(genes)) != 195:
+        raise RuntimeError(f"Expected 195 unique module genes, found {len(genes)} / {len(set(genes))}")
+    if any(row["requested_target"] != "False" for row in rows):
+        raise RuntimeError("195-gene module table unexpectedly flags a requested target")
+    present = set(genes).intersection(TARGETS)
+    if present:
+        raise RuntimeError(f"Requested targets unexpectedly present in 195-gene module list: {sorted(present)}")
+    return {
+        "record": "10.5281/zenodo.21967935",
+        "n_module_genes": 195,
+        "targets": {"TACSTD2": {"present": False}, "CLDN4": {"present": False}},
+        "valid_target_analysis": False,
+        "reason": "Open supplementary zip has no expression matrix. The 195-gene ICI module dictionary includes neither TACSTD2 nor CLDN4.",
+    }
+
+
 def analyze_geomx() -> dict[str, object]:
     fields, rows = read_csv(GEOMX_EXTRACT)
     required = {
@@ -294,16 +355,33 @@ def analyze_geomx() -> dict[str, object]:
 def main() -> None:
     nanostring = audit_nanostring()
     geomx = analyze_geomx()
+    rnascope = audit_rnascope_panel()
+    module195 = audit_module195()
     result = {
         "question": "leftover processed Zenodo/figshare lung ICI matrices for TACSTD2/CLDN4 not analyzed in PR42",
         "valid_target_vs_ici_result": False,
         "nanostring_zenodo_2635194": nanostring,
         "geomx_zenodo_11198494": geomx,
+        "rnascope_zenodo_11198494": rnascope,
+        "ici_modules_zenodo_21967935": module195,
+        "grok46_leftover_hunt": {
+            "new_open_compact_target_vs_ici_matrix": False,
+            "closest_inaccessible_leftover": "10.5281/zenodo.21807253",
+            "notes": (
+                "Neoadjuvant-IO NSCLC spatial record 21807253 is restricted. "
+                "ICI scRNA/Visium 18825477 and n=1 Visium 15053161 are restricted. "
+                "CosMx WTA 18870185 is embargoed until 2029 and is not ICI. "
+                "Both leftover RNAscope tables in 11198494 lack TACSTD2/CLDN4. "
+                "The 195-gene ICI module dictionary in 21967935 lacks both genes."
+            ),
+        },
         "honest_conclusion": (
             "No leftover open compact matrix supports a TACSTD2 or CLDN4 comparison "
             "against ICI outcome. The NanoString ICI cohort lacks both genes. The "
             "leftover GeoMx table measures TACSTD2 but not CLDN4, is mostly below "
-            "LOQ, is slide-confounded, and has no response labels."
+            "LOQ, is slide-confounded, and has no response labels. The leftover "
+            "RNAscope tables and the 195-gene ICI module dictionary also lack both "
+            "genes. The closest lung-IO spatial leftover (21807253) is restricted."
         ),
     }
     (ROOT / "result.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
