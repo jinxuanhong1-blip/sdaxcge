@@ -1,0 +1,953 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>BioStudies &lt; The European Bioinformatics Institute &lt; EMBL-EBI</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BioStudies &lt; The European Bioinformatics Institute &lt; EMBL-EBI" />
+    <meta property="og:description" content="BioStudies – one package for all the data supporting a study" />
+    <meta name="description" content="BioStudies – one package for all the data supporting a study" />
+    <meta name="keywords" content="bioinformatics, europe, institute, biostudies" />
+    <meta name="author" content="BioStudies" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#75C8EC" /> <!-- Android Chrome mobile browser tab color -->
+    <meta http-equiv="pragma" content="no-cache" />
+
+    
+    <!-- shared variables -->
+    <script>
+        var contextPath = '/biostudies';
+        var collection = 'arrayexpress';
+        if (collection==='undefined') collection = undefined;
+    </script>
+
+    <!-- If you link to any other sites frequently, consider optimising performance with a DNS prefetch -->
+    <link rel="dns-prefetch" href="//embl.de" />
+
+    <!-- If you have custom icon, replace these as appropriate.
+         You can generate them at realfavicongenerator.net -->
+    <link rel="icon" type="image/x-icon" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/favicon.ico" />
+    <link rel="icon" type="image/png" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="192×192" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/android-chrome-192x192.png" /> <!-- Android (192px) -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/apple-icon-114x114.png" /> <!-- For iPhone 4 Retina display (114px) -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/apple-icon-72x72.png" /> <!-- For iPad (72px) -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/apple-icon-144x144.png" /> <!-- For iPad retinat (144px) -->
+    <link rel="apple-touch-icon-precomposed" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/apple-icon-57x57.png" /> <!-- For iPhone (57px) -->
+    <link rel="mask-icon" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/safari-pinned-tab.svg" color="#ffffff" /> <!-- Safari icon for pinned tab -->
+    <meta name="msapplication-TileColor" content="#2b5797"> <!-- MS Icons -->
+    <meta name="msapplication-TileImage" content="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/images/logos/EMBL-EBI/favicons/mstile-144x144.png" />
+
+    <!-- CSS: implied media=all -->
+    <!-- CSS concatenated and minified via ant build script-->
+    <link rel="stylesheet" href="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/css/ebi-global.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="//ebi.emblstatic.net/web_guidelines/EBI-Icon-fonts/v1.2/fonts.css" type="text/css" media="all" />
+
+
+    <!-- Use this CSS file for any custom styling -->
+    <!--
+      <link rel="stylesheet" href="css/custom.css" type="text/css" media="all">
+    -->
+
+    <!-- If you have a custom header image or colour -->
+    <!--
+    <meta name="ebi:localmasthead-color" content="#000">
+    <meta name="ebi:localmasthead-image" content="https://www.ebi.ac.uk/web_guidelines/EBI-Framework/images/backgrounds/embl-ebi-background.jpg">
+    -->
+
+    <!-- you can replace this with theme-[projectname].css. See http://www.ebi.ac.uk/web/style/colour for details of how to do this -->
+    <!-- also inform ES so we can host your colour palette file -->
+    <link rel="stylesheet" href="/biostudies/css/theme-biostudies.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/biostudies/css/common.css" type="text/css" media="all" />
+
+    <!-- for production the above can be replaced with -->
+    <!--
+    <link rel="stylesheet" href="//www.ebi.ac.uk/web_guidelines/css/compliance/mini/ebi-fluid-embl.css">
+    -->
+
+    <!-- end CSS-->
+
+    <meta class="foundation-mq" />
+    <link rel="stylesheet" href="/biostudies/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="/biostudies/css/detail.css" type="text/css">
+        <script>
+            var thorURL = 'https://www.ebi.ac.uk/europepmc/thor/resources/js/dataclaiming/ebithor-claiming.1.3.js';
+            var ftpURL = '';
+            var loadByServer = false;
+        </script>
+        <script type="text/javascript" src="/biostudies/1618635460/js/common.min.js" ></script>
+<script type="text/javascript" src="/biostudies/1597281166/js/detail.min.js" ></script>
+
+</head>
+
+<body class="level2"><!-- add any of your classes or IDs -->
+<div id="skip-to">
+    <a href="#content">Skip to main content</a>
+</div>
+<header id="masthead-black-bar" class="clearfix masthead-black-bar"></header>
+<div id="content">
+    <div data-sticky-container>
+        <header id="masthead" class="masthead">
+            <div class="masthead-inner row">
+
+                <!-- local-title -->
+                <div class="columns medium-7" id="local-title">
+                    <h1><a href="/biostudies" alt="BioStudies homepage" title="BioStudies homepage"><img src="/biostudies/images/logo.png" alt="BioStudies homepage" /></a></h1>
+
+                </div>
+                <!-- /local-title -->
+                <div class="column medium-5">
+                    <form id="ebi_search" action="/biostudies/studies">
+                        <fieldset>
+                            <div class="input-group margin-bottom-none margin-top-large">
+                                <input id="query" class="input-group-field" tabindex="1" type="text" name="query"  size="35" maxlength="2048" title="Search BioStudies" placeholder="Search BioStudies" value="" />
+                                <div class="input-group-button">
+                                    <input id="search_submit" class="button icon icon-functional" tabindex="2" type="submit" value="1" />
+                                </div>
+                            </div>
+                        </fieldset>
+                        <p id="example" class="small">
+                            Examples: <a class="sample-query" href="#">hyperplasia</a>, <a class="sample-query" href="#">PMC516016</a>
+                            <!--a class="float-right" href="#"><span class="icon icon-generic" data-icon="("></span> advanced search</a-->
+                        </p>
+                    </form>
+
+                </div>
+
+                <!-- local-nav -->
+                <nav>
+                    <ul class="dropdown menu float-left" data-description="navigational">
+                        <li class="" title="BioStudies v1.2.c84c2498"><a href="/biostudies/">Home</a></li>
+                        <li class=""><a href="/biostudies/studies/" title="Browse BioStudies">Browse</a></li>
+                        <li class=""><a href="/biostudies/submit" title="Submit a study">Submit</a></li>
+                        <li class=""><a href="/biostudies/arrayexpress/help" title="Help">Help</a></li>
+                        <li class=""><a id="about-link" href="/biostudies/about" title="About BioStudies">About BioStudies</a></li>
+                    </ul>
+                    <ul class="dropdown menu float-right" data-description="tasks">
+                        <li class=""><a href="mailto:biostudies@ebi.ac.uk?Subject=BioStudies Feedback" title="Send feedback"><span class="icon icon-functional" data-icon="n"></span> Feedback</a></li>
+                        <li class="">
+                            
+                                
+                                
+                                    <a id="login-button" href="#" title="Login"><span class="icon icon-functional" data-icon="l"></span>
+                                        Login</a>
+                                
+                            
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /local-nav -->
+            </div>
+        </header>
+    </div>
+
+
+
+    <div id="collection-banner"></div>
+    <script id='collection-banner-template' type='text/x-handlebars-template'>
+        <div class="collection-banner-content columns medium-12 clearfix row">
+                <span class="collection-logo">
+                    <a class="no-border" href="{{url}}" target="_blank">
+                        <img src="{{logo}}"></a>
+                </span>
+            <span class="collection-text">
+                    <span class="collection-description">{{description}}</span>
+                </span>
+        </div>
+    </script>
+    <!-- Suggested layout containers -->
+
+        <section id="main-content-area" class="row" role="main">
+            <div id="menu-popup">
+                <div id="login-form" class="popup">
+                    <div class="popup-header">
+                        <span class="popup-title">Login</span>
+                        <a class="popup-close" aria-label="Close" href="#"><i class="icon icon-functional" data-icon="x"></i></a>
+                        <div class="clearboth"></div>
+                    </div>
+                    <form method="post" class="popup-content" action="/biostudies/auth" >
+                        <input  type="hidden" name="t" value=""/>
+                        <fieldset>
+                            <input id="user-field" type="text" name="u" maxlength="50" placeholder="Username"/>
+                            <input id="pass-field" type="password" name="p" maxlength="50" placeholder="Password"/>
+                        </fieldset>
+                        <fieldset>
+                            <input id="login-remember" name="r" type="checkbox"/>
+                            <label for="login-remember">Remember me</label>
+                            <input class="submit button" type="submit" value="Login"/>
+                        </fieldset>
+                        <div id="login-status" class="alert" style="display:none"></div>
+                        <a style="font-size:9pt;float:right;margin-bottom:5pt;" href="/biostudies/submissions/password_reset_request">Forgot your password?</a>
+                    </form>
+                    <form id="logout-form" method="post" action="/biostudies/logout">
+                        <input type="hidden" name="logout" value="true" />
+                    </form>
+                </div>
+            </div>
+            <!-- Your menu structure should make a breadcrumb redundant, but if a breadcrumb is needed uncomment the below -->
+            <nav aria-label="You are here:">
+                <ul class="breadcrumbs">
+            <li><a href="/biostudies">BioStudies</a></li>
+            <li><a href="/biostudies/studies">Studies</a></li>
+            <li>
+                <span id="accession">Loading</span>
+            </li>
+        </ul>
+        <div class="reveal large" id="biostudies-citation" data-reveal></div>
+        <div class="reveal small" id="biostudies-secret" data-reveal></div>
+            </nav>
+            <section id='renderedContent'>
+                
+        <div id="loader">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><span class="sr-only">Loading...</span>
+        </div>
+    
+            </section>
+        </section>
+    <!-- End suggested layout containers -->
+
+</div>
+
+
+<footer>
+    <div id="elixir-banner" data-color="grey" data-name="BioStudies" data-description="BioStudies is a recommended ELIXIR Deposition Database" data-more-information-link="https://www.elixir-europe.org/platforms/data/elixir-deposition-databases" data-use-basic-styles="false"></div>
+    <script defer="defer" src="https://ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/js/elixirBanner.js"></script>
+    <div id="global-footer" class="global-footer">
+        <nav id="global-nav-expanded" class="global-nav-expanded row">
+            <!-- Footer will be automatically inserted by footer.js -->
+        </nav>
+        <section id="ebi-footer-meta" class="ebi-footer-meta row">
+            <!-- Footer meta will be automatically inserted by footer.js -->
+        </section>
+    </div>
+</footer>
+
+<div id="data-protection-message-configuration"
+     data-message="This website requires cookies, and the limited processing of your personal data in order to function.
+         By using the site you are agreeing to this as outlined in our
+         <a target='_blank\' href='/biostudies/docs/BioStudiesPrivacyNotice.pdf'
+         class='white-color'>Privacy Notice</a> and <a target='_blank' href='https://www.ebi.ac.uk/about/terms-of-use\'
+                                                       class='white-color'>Terms of Use</a>."
+     data-service-id="BioStudies" data-data-protection-version="1"></div>
+
+<!-- JavaScript -->
+
+<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+<!--
+<script>window.jQuery || document.write('<script src="../js/libs/jquery-1.10.2.min.js"><\/script>')</script>
+-->
+<!-- Your custom JavaScript file scan go here... change names accordingly -->
+<!--
+<script defer="defer" src="//www.ebi.ac.uk/web_guidelines/js/plugins.js"></script>
+<script defer="defer" src="//www.ebi.ac.uk/web_guidelines/js/script.js"></script>
+-->
+<script defer="defer" src="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/js/script.js"></script>
+<!-- The Foundation theme JavaScript -->
+<script src="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/libraries/foundation-6/js/foundation.js"></script>
+<script src="//ebi.emblstatic.net/web_guidelines/EBI-Framework/v1.4/js/foundationExtendEBI.js"></script>
+<script>$(document).foundation();</script>
+<script>$(document).foundationExtendEBI();</script>
+
+<script type="text/javascript" src="/biostudies/js/common/connect/v5/connect-sdk.min.js"></script>
+        <script id='main-file-table' type='text/x-handlebars-template'>
+    <section>
+        <div id="error" style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; padding: 10px; border-radius: 4px; margin: 10px 0;">
+          <div class="small" style="display: flex; align-items: center;">
+            <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>
+            <p style="margin: 0; font-weight: bold;">Error in parsing file list</p>
+          </div>
+        </div>
+        <div id="file-list-container">
+            <div class="table-caption">
+                <span class="widge-title"><i class="fa fa-paperclip"></i> Data files</span>
+                <span class="fa-icon table-expander" id="all-files-expander" title="Click to expand"><i class="fa fa-expand"></i></span>
+            </div>
+            <div class="table-wrapper">
+                <table id="file-list" class="stripe compact hover" width="100%">
+                </table>
+            </div>
+            <div class="download-files-container">
+                <span class="button" id="download-selected-files"><i class="fa fa-cloud-download-alt"></i>
+                    <span id="selected-file-count">Download</span>
+                </span>
+            </div>
+            <div class="reveal large" id="batchdl-popup" data-reveal></div>
+        </div>
+        <div class="reveal" id="fileLimitDialog" data-reveal>
+            <h4>Too many files!</h4>
+            <p>You can download upto 1000 files at a time. For downloading a higher number of files, please use our
+             <a href="/biostudies/help#download" target="_blank">alternative</a> downloading methods.</p>
+            <div class="text-center">
+                <button class="button" data-close aria-label="Close modal" type="button">
+                    <span aria-hidden="true">Close</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</script>
+
+<script id='batchdl-accordion-template' type='text/x-handlebars-template'>
+    <div>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div>
+            <p style="font-weight:bold; font-size: 14pt">File Download <p>
+        </div>
+        <div>
+            <p>Please select how you want to download your requested {{fileCount}} file{{#ifCond fileCount '>' 1}}s{{/ifCond}}</a>.</p>
+        </div>
+        <ul class="accordion" data-accordion>
+            <li class="accordion-item is-active" data-accordion-item>
+                <!-- Accordion tab title -->
+
+                <a href="#" class="accordion-title" style="font-size:medium;">Download as a ZIP file</a>
+
+                <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
+                <div class="accordion-content" data-tab-content>
+                  <p>Click the button below to download the selected files as a zipped archive. </p>
+                  {{#ifCond sizeOfSelectedFiles '>=' 2000000000}}
+                    <div class="callout warning"><i class="fa fa-warning"></i> The total download size exceeds 2GB which may cause issues in your
+                    browser. Please use our <a href="/biostudies/help#download" target="_blank">alternative</a> downloading methods.</p></div>
+                  {{/ifCond}}
+                  <input id="zip-dl-button" class="button" type="button" value="Download"/>
+                  <div id="downloadMessage"></div>
+                </div>
+            </li>
+            {{#if isPublic}}
+            <li class="accordion-item" data-accordion-item>
+                  <!-- Accordion tab title -->
+                  <a href="#" class="accordion-title" style="font-size:medium;">Download using FTP</a>
+                  <div class="accordion-content" data-tab-content>
+                    <div class="row">
+                        <div class="columns small-6 large-4">
+                            Instruction for:
+
+                            <select id="ftp-script-os-select" style="max-width:120px;" class="select">
+                                <option value="win">Windows</option>
+                                <option value="unix">Unix</option>
+                                <option value="mac">Mac</option>
+                            </select>
+                        </div>
+                        <div class="columns small-6 large-8 "/>
+                    </div>
+                    <div id="ftp-instruct">
+
+                    </div>
+                    <input id="ftp-dl-button" class="button" type="button" value="Download"/>
+                  </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                  <!-- Accordion tab title -->
+                  <a href="#" class="accordion-title" style="font-size:medium;">Download using Aspera</a>
+
+                  <div class="accordion-content" style="padding:5px;" data-tab-content>
+                      <div class="row">
+                          <div class="columns small-6 large-4">
+                              Instruction for:
+                              <select id="aspera-script-os-select" style="max-width:120px;">
+                                  <option value="win">Windows</option>
+                                  <option value="unix">Unix</option>
+                                  <option value="mac">Mac</option>
+                              </select>
+                          </div>
+                          <div class="columns small-6 large-8 "/>
+                      </div>
+
+                      <div id="aspera-instruct"/>
+
+
+
+                       <input id="aspera-dl-button" class="button" type="button" value="Download"/>
+
+                  </div>
+            </li>
+            <li class="accordion-item" data-accordion-item>
+                 <a href="#" class="accordion-title" style="font-size:medium;">Download using Aspera Connect plugin</a>
+                 <div class="accordion-content" style="padding:5px;" data-tab-content>
+                     <p>After initiating download, the requested files will be downloaded by Aspera and you can close this page.</p>
+                     <p>You can manage downloading files by Aspera's connect management console which is located in taskbar of your operating system.</p>
+                     <input id="aspera-plugin-dl-button" class="button" type="button" value="Download"/>
+                     <div class="row" id="progress_bar" style="display: none">
+                        <div role="progressbar" class="progress success small-8 medium-8 large-6 round">
+                          <span class="progress-meter" style="width: 0">
+                            <span class="progress-meter-text">0%</span>
+                          </span>
+                        </div>
+                        <div class="columns small-2 medium-2 large-3 "/>
+                     </div>
+                     <div id="aspera-dl-message" class="">
+                       <p></p>
+                     </div>
+                       <!-- <div class="alert" id="aspera-dl-message" class="columns small-6 large-4"></div>-->
+                     </div>
+                 </div>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+    <script>
+     $(document).ready(function() {
+        $(document).foundation();
+     })
+    </script>
+</script>
+
+<script id='ftp-dl-instruction' type='text/x-handlebars-template'>
+  <ol>
+    <li>Click the button below to download the script and save it to the folder where you want to download your files e.g. <code>{{fname.dldir}}</code></li>
+    <li>Press Windows key+R, type <code>cmd</code> and press <b>Enter</b> </li>
+    <li>Change your console directory to the place that you put downloaded script e.g. <code>cd {{fname.dldir}}</code> .</li>
+    <li>Run downloaded script file in cmd with this command: <code>{{fname.command}}</code></li>
+  </ol>
+</script>
+
+<script id='aspera-dl-instruction' type='text/x-handlebars-template'>
+  <ol>
+    <li>Download IBM aspera command line interface from <a href="https://www.ibm.com/products/aspera/downloads">https://www.ibm.com/products/aspera/downloads</a> and unzip downloaded file in e.g. <code>{{fname.asperaDir}}</code></li>
+    <li>Click the button below to download the script and save it to the folder where you want to download your files e.g. <code>{{fname.dldir}}</code></li>
+    <li>Edit script <code>{{fname.acc}}-{{fname.os}}-aspera{{fname.ps}}</code> and change default directory address of <b>asperaweb_id_dsa.openssh</b> with the directory that you have installed your Aspera client e.g. <code>{{fname.asperaDir}}/cli/etc/asperaweb_id_dsa.openssh</code></li>
+    <li>Press Windows key+R, type <code>cmd</code> and press <b>Enter</b> </li>
+    <li>Change your console directory to the place that you put downloaded script e.g. <code>cd {{fname.dldir}} </code></li>
+    <li>Run downloaded script from command line <code>./{{fname.acc}}-{{fname.os}}-aspera{{fname.ps}}</code></li>
+  </ol>
+</script>
+
+
+        <script id='main-link-table' type='text/x-handlebars-template'>
+    {{setLinkTableHeaders}}
+    {{#if this.linkHeaders}}
+    <section>
+        <div id="link-list-container">
+            <div class="table-caption">
+                <span class="widge-title"><i class="fa fa-external-link-alt"></i> Linked Information</span>
+                <span class="fa-icon table-expander" id="all-links-expander" title="Click to expand"><i class="fa fa-expand"></i></span>
+            </div>
+            <div class="table-wrapper">
+                <table id="link-list" class="stripe compact hover" width="100%">
+                    <thead>
+                    <tr>
+                        {{#each linkHeaders}}
+                        <th>{{this}}</th>
+                        {{/each}}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each this}}
+                    <tr>
+                        {{#each ../linkHeaders}}
+                        {{renderLinkTableRow this ../attributes}}
+                        {{/each}}
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    {{/if}}
+</script>
+
+        <script id='extracted-link-table' type='text/x-handlebars-template'>
+    <section>
+        <div id="extracted-links-container">
+            <div class="table-caption">
+                <span class="widge-title"><i class="fa fa-paperclip"></i> Links Extracted from Files</span>
+                <span class="fa-icon table-expander" id="all-mining-links-expander" title="Click to expand"><i class="fa fa-expand"></i></span>
+            </div>
+            <div class="table-wrapper">
+                <table id="mining-list" class="stripe compact hover" width="100%">
+                </table>
+            </div>
+        </div>
+    </section>
+</script>
+        <script id='main-orcid-claimer' type='text/x-handlebars-template'>
+    <section id="orc-id-claimer-section">
+        <div class="table-caption">
+            <span class="widge-title"><img alt="ORCID logo" class="orcid-logo" src="/biostudies/images/orcid.svg" />ORCID: Data claiming</span>
+        </div>
+        <div class="thor_div_showIf_notSigned" style="display:none">
+            <div>
+                You can <a href="#" class="thor_a_generate_signinLink">sign-in to ORCID</a> to claim your data
+            </div>
+            <div>
+                <input type="checkbox" class="thor_checkbox_rememberMe_cookie"> Remember
+                me on this computer
+            </div>
+        </div>
+        <div class="thor_div_showIf_signedIn" style="display:none">
+            <div>You have signed in as <label class="thor_label_show_userName" >an ORCID user</label>
+                <a href="#" title="Sign Out" class="thor_a_generate_logoutLink">(sign out)</a>
+            </div>
+            <div style="display:none" class="thor_div_showIf_datasetNotClaimed">
+                <a href="#" class="thor_a_generate_claimLink">Claim {{accession}} into your ORCID</a>
+            </div>
+            <div style="display:none" class="thor_div_showIf_datasetAlreadyClaimed">
+                You have claimed {{accession}} into your ORCID.
+            </div>
+        </div>
+    </section>
+</script>
+        <script id='publication-template' type='text/x-handlebars-template'>{{#if this}}
+    <span class="publication">{{#ifCond attributes 'hasname' 'authors'}}{{valueWithName 'authors' attributes}}{{#ifCond attributes 'hasname' 'year'}} ({{valueWithName 'year' attributes}}){{/ifCond}}.{{/ifCond}}
+        {{#ifCond this.attributes 'hasname' 'title'}}
+            {{#if URLs}}
+                    <a href="{{URLs.0.url}}" target="_blank">{{valueWithName 'title' attributes}}</a>
+                {{else}}
+                {{valueWithName 'title' attributes}}
+            {{/if}}
+        {{/ifCond}}
+        {{#ifCond attributes 'hasname' 'journal'}} <i>{{valueWithName 'journal' attributes}}</i>.{{/ifCond}}
+        {{#ifCond attributes 'hasname' 'publication date'}} {{valueWithName 'publication date' attributes}};{{/ifCond}}
+        {{#ifCond attributes 'hasname' 'volume'}} Volume {{valueWithName 'volume' attributes}}.{{/ifCond}}
+        {{#ifCond attributes 'hasname' 'issue'}} Issue {{valueWithName 'issue' attributes}}.{{/ifCond}}
+        {{#ifCond attributes 'hasname' 'pages'}} Page: {{valueWithName 'pages' attributes}}.{{/ifCond}}
+        {{#each URLs}}
+            <span class="publication-link">
+                <span class="publication-link-type"><i class="fa fa-external-link-alt" aria-hidden="true"></i> {{type}}</span>
+                <a href="{{url}}" target="_blank">{{valueWithName 'text' attributes}}</a>
+            </span>
+        {{/each}}
+        {{#each attributes}}{{#ifCond @key 'notincaseignored' "['authors','accno','title','journal','publication date','volume','issue','pages','URLs']"}},{{asString this }} {{this}}{{/ifCond}}{{/each}}
+    </span>
+    {{/if}}
+</script>
+
+        <script id='section-template' type='text/x-handlebars-template'>
+    <section id="{{accToLink this}}" name="{{accToLink this}}">
+        <div class="bs-attribute {{this.indentClass}}">
+            <span class="section-name bs-name">
+                {{#ifHasAttribute 'Title' this.attributes}}
+                    {{valueWithName 'Title' this.attributes}}
+                {{else}}
+                    {{type}}
+                {{/ifHasAttribute}}
+            </span>
+            <span class="section-title-bar"></span>
+        </div>
+        <div class="has-child-section">
+            {{#if subsections}}
+                {{#each subsections}}
+                    {{#ifArray this}}
+                        {{&table this}}
+                    {{/ifArray}}
+                {{/each}}
+            {{/if}}
+            <!-- tables v2-->
+            {{#if sections}}
+                {{#each sections}}
+                    {{#ifCond this.extType '==' 'sectionsTable'}}
+                        {{&table this.sections}}
+                    {{/ifCond}}
+                {{/each}}
+            {{/if}}
+
+            {{&renderAttributes attributes}}
+
+            {{#if subsections}}
+                {{#each subsections}}
+                    {{#ifArray this}}
+                    {{else}}
+                            {{#ifRenderable this}}
+                                {{&section this 'true'}}
+                            {{/ifRenderable}}
+                    {{/ifArray}}
+                {{/each}}
+            {{/if}}
+
+            <!-- Subsections v2-->
+            {{#if sections}}
+                {{#each sections}}
+                    {{#ifCond this.extType '==' 'sectionsTable'}}
+                    {{else}}
+                        {{#ifRenderable this}}
+                            {{&section this 'true'}}
+                        {{/ifRenderable}}
+                    {{/ifCond}}
+                {{/each}}
+            {{/if}}
+        </div>
+    </section>
+</script>
+
+        <script id='attributes-template' type='text/x-handlebars-template'>
+{{#eachGroup this}}
+    {{#each this}}
+        {{#if reference}}
+            {{#if value}}
+                <a href="{{makeAnchor value}}" class="reference"><i class="far fa-bookmark"></i> {{name}}</a>
+            {{/if}}
+        {{else}}
+            {{#ifCond name '!=' 'Title'}}
+                {{#if @first}}<div class="bs-attribute"><span class="bs-name">{{name}}</span><span class="bs-value">{{/if}}{{valueWithName name this}}{{#if @last}}</span></div>{{else}}, {{/if}}
+            {{/ifCond}}
+        {{/if}}
+    {{/each}}
+{{/eachGroup}}
+
+</script>
+        <script id='section-table' type='text/x-handlebars-template'>
+    {{setHeaders}}
+    <section class="bs-attribute" id="{{accToLink this}}" name="{{accToLink this}}">
+        <div class="bs-name">{{this.type}}
+            <a class="show-more toggle-tables" data-total="1"><i class="fa fa-caret-right"></i> show table</a>
+        </div>
+        <div class="bs-section-tables">
+            <div class="table-caption">
+                <span class="fa-icon table-expander" title="Click to expand"><i class="fa fa-expand"></i></span>
+            </div>
+            <div class="table-wrapper">
+                <table class="stripe compact hover section-table" width="100%">
+                    <thead>
+                    <tr>
+                        {{#each this.headers}}
+                        <th>{{this}}</th>
+                        {{/each}}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each this}}
+                    <tr>
+                        {{#each ../headers}}
+                        <td>{{valueWithName this ../this.attributes }}</td>
+                        {{/each}}
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</script>
+
+        <script id='main-similar-studies' type='text/x-handlebars-template'>
+    {{#ifArray this}}
+    {{#if this.length}}
+    <section>
+        <div id="similar-study-container">
+            <div class="table-caption">
+                <span class="widge-title"><i class="icon icon-functional" data-icon="O"></i> Similar Studies</span>
+            </div>
+            <div class="table-wrapper">
+                <ul class="recommendations">
+                    {{#each this}}
+                    <li class="browse-study-title">
+                        <a href="/biostudies/{{makeCollection accession }}/{{accession}}">{{title}}</a>
+                        <span class="browse-study-accession">
+                                        {{accession}}
+                                    </span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </section>
+    {{/if}}
+    {{/ifArray}}
+</script>
+
+        <script id='study-template' type='text/x-handlebars-template'>
+    {{#if isFromSubmissionTool}}
+    <div class="callout warning">This is the currently available version of {{accno}}. Any recent updates can take a around 24 hours to appear here.</div>
+    {{/if}}
+    <div id="left-column"  itemscope="itemscope" itemtype="http://schema.org/Dataset">
+        {{#if collection}}
+        <meta itemprop="url" content="/biostudies/{{collection}}/studies/{{accno}}" />
+        <meta itemprop="sameAs" content="/biostudies/studies/{{accno}}" />
+        {{else}}
+        <meta itemprop="url" content="/biostudies/studies/{{accno}}" />
+        {{/if}}
+        <div id="release-date-download">
+            <span class="meta-data" id="release-date">Release Date: <span id="orcid-publication-year">{{formatDateString releaseDate}}</span></span>
+            <span class="meta-data" id="modification-date"></span>
+            <div id="download-source"><a
+                href="{{#if ftpURL}}{{ftpURL}}{{accno}}.json{{keyString}}{{else}} /biostudies/files/{{accno}}/{{accno}}.json{{keyString}}{{/if}}" target="_blank"
+                   title="Download Study as JSON" class="source-icon source-icon-json"
+                   data-icon="=">{JSON}</a><a
+                href="{{#if ftpURL}}{{ftpURL}}{{accno}}.tsv{{keyString}}{{else}}/biostudies/files/{{accno}}/{{accno}}.tsv{{keyString}}{{/if}}           " target="_blank"
+                   title="Download Study as PageTab" class="source-icon source-icon-pagetab"
+                   data-icon="=">&rarr;PageTab&#8626;</a><a id="http-link" href="#" target="_blank" style="display:none"
+                    title="Open HTTP Folder" class="source-icon source-icon-http" data-icon="="><i
+                    class="fa fa-download"></i>HTTP</a><a
+                id="ftp-link" href="#" target="_blank" style="display:none"
+                   title="Open FTP Folder" class="source-icon source-icon-ftp" data-icon="="><i
+                        class="fa fa-cloud-download-alt"></i>FTP</a><a
+                id="globus-link" href="#" target="_blank" style="display:none"
+                   title="Open Globus" class="source-icon source-icon-globus" data-icon="="><img
+                        src="/biostudies/images/globus-logo.png"></img>Globus</a>
+            </div>
+        </div>
+        <h3 id="orcid-title"  itemprop="name">{{valueWithName 'Title' attributes}}</h3>
+
+        <div id="right-column">
+           <div id="right-column-header">
+                <div id="expand-right-column" data-expanded="false"><i class="fa-solid fa-angles-left"></i></div>
+            </div>
+            <div id="right-column-content">
+                {{&main-file-table}}
+                {{&main-link-table}}
+                {{&extracted-link-table}}
+            </div>
+        </div>
+        <div id="bs-content">
+            <div class="reveal max-content-width" id="thumbnail" data-reveal>
+              <div id="thumbnail-image"></div>
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <!-- Authors -->
+            <ul id="bs-authors">
+                {{#eachAuthor this}}
+                <li {{#ifCond @index '>=' 10}}class="hidden"{{/ifCond}} ><span class="author">
+                        <span class="author-name" itemprop="creator" itemscope itemtype="http://schema.org/Person"><span itemprop="name" data-card-id="author-card-{{@index}}">{{Name}}</span>
+                            <div class="author-card" id="author-card-{{@index}}">
+                                <h5>{{Name}}</h5>
+                                {{#each this}}
+                                    {{#ifCond @key 'notin' "['affiliationNumber','Name']"}}
+                                        {{#ifCond @key '==' 'affiliation'}}
+                                            {{#ifCond this 'haslength' 1}}
+                                                <b>Affiliation</b>: {{valueWithName 'Name' this.0.organisation.attributes}}
+                                            {{else}}
+                                                <b>Affiliations</b>
+                                                <ul>
+                                                {{#each this}}
+                                                    <li>{{valueWithName 'Name' this.organisation.attributes}}</li>
+                                                {{/each}}
+                                                </ul>
+                                            {{/ifCond}}
+                                        {{else}}
+                                          {{#if (notEmpty this)}}<b>{{@key}}:</b> {{this}}<br/>{{/if}}
+                                        {{/ifCond}}
+                                    {{/ifCond}}
+                                {{/each}}
+                            </div>
+                        </span>
+                        {{#if affiliation}}
+                            {{#ifArray affiliation}}
+                                {{#each affiliation}}
+                                    <sup class="org-number"><a class="org-link" data-affiliation="{{org}}">{{affiliationNumber}}</a></sup>
+                                {{/each}}
+                            {{else}}
+                                <sup class="org-number"><a class="org-link" data-affiliation="{{affiliation}}">{{affiliationNumber}}</a></sup>
+                            {{/ifArray}}
+                        {{/if}}
+                    </span>
+                    {{#if ORCID}}
+                        <a href="https://orcid.org/{{ORCID}}" target="_blank" title="Click to open ORCID profile: https://orcid.org/{{ORCID}}" class="orcid"><img alt="https://orcid.org/{{ORCID}}" src="/biostudies/images/orcid.svg"/></a>
+                    {{/if}}
+
+                </li>
+                {{#if @last}}
+                {{#ifCond @index '>=' 10}}
+                <li><span class="more" id="expand-authors">+ {{@left}} more</span></li>
+                {{/ifCond}}
+                {{/if}}
+                {{/eachAuthor}}
+            </ul>
+            <!-- Affiliations -->
+            <ul id="bs-orgs">
+                {{#eachOrganization this}}
+                    <li class="attribute-container {{#ifCond @index '>=' 10}}hidden{{/ifCond}}" id="{{this.affiliation.accno}}"><sup>{{affiliationNumber}}</sup>
+                        <span itemscope itemtype="http://schema.org/Organization"><span itemprop="name"  data-card-id="attribute-card-{{@index}}">{{valueWithName 'Name' affiliation.attributes}}</span></span>
+                        <div class="attribute-card" id="attribute-card-{{@index}}">{{#each this.affiliation.attributes}}{{#ifCond this.name 'notin' "['Name']"}}
+                                   <b>{{this.name}}:</b> {{this.value}}<br/>
+                                {{/ifCond}}{{/each}}</div>
+                    </li>
+                    {{#if @last}}
+                        {{#ifCond @index '>=' 10}}
+                            <li><span class="more" id="expand-orgs">+ {{@left}} more</span></li>
+                        {{/ifCond}}
+                    {{/if}}
+                {{/eachOrganization}}
+            </ul>
+
+            <!-- Accession -->
+            <div class="bs-attribute"><span class="bs-name">Accession</span><span class="bs-value" id="orcid-accession" itemprop="identifier">{{accno}}</span></div>
+
+            <!-- DOI -->
+            {{#if doi}}
+            <div class="bs-attribute"><span class="bs-name">DOI</span><span class="bs-value" id="orcid-accession" itemprop="identifier"><a href="https://doi.org/{{doi}}">{{doi}}</a></span></div>
+            {{/if}}
+
+            <!-- Study level attributes -->
+            {{&renderAttributes attributes}}
+
+
+            <!-- Publication -->
+            {{renderPublication this}}
+
+            <!-- Funding -->
+            {{#eachFunder this}}
+            {{#if @first}}
+            <div class="bs-attribute"><span class="bs-name">Funding</span>
+            <span class="bs-value">
+            <ul id="bs-funding">
+                {{/if}}
+                <li><span itemscope itemtype="http://schema.org/Organization"><span itemprop="name">{{name}}</span></span>{{#if grants}}:
+                    {{#each grants}}
+                        <span class="bs-grants attribute-container" data-card-id="grant-card-{{@index}}"><a target="_blank" href="{{link}}">{{this.gid}}</a>
+                        <div class="attribute-card" id="grant-card-{{@index}}">{{#each this.attributes}}
+                           <b>{{this.name}}:</b> {{this.value}}<br/>
+                        {{/each}}</div></span>
+                    {{/each}}
+                    {{/if}}
+                </li>
+                {{#if @last}}
+            </ul>
+            </span>
+            {{/if}}
+            {{/eachFunder}}
+
+            <!-- Hidden description -->
+            <div style="display:none" itemprop="description">{{valueWithName 'Description' attributes}}</div>
+            {{#ifCond attributes 'hasname' 'License'}}
+                <div style="display:none" itemprop="license">{{valueWithName 'License' attributes}}</div>
+            {{/ifCond}}
+
+            <!-- Subsections v1-->
+            {{#if subsections}}
+                {{#each subsections}}
+                    {{#ifRenderable this}}
+                        {{#ifArray this}}
+                            {{&table this}}
+                        {{else}}
+                            {{&section this}}
+                        {{/ifArray}}
+                    {{/ifRenderable}}
+                {{/each}}
+            {{/if}}
+
+            <!-- Subsections v2-->
+            {{#if sections}}
+                {{#each sections}}
+                    {{#ifRenderable this}}
+                        {{#ifCond this.extType '===' 'sectionsTable'}}
+                            {{&table this.sections}}
+                        {{else}}
+                            {{&section this}}
+                        {{/ifCond}}
+                    {{/ifRenderable}}
+                {{/each}}
+            {{/if}}
+            <!-- License -->
+
+        </div>
+    </div>
+    <div class="clearboth"></div>
+</script>
+
+        <script id='secret-template' type='text/x-handlebars-template'>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h2>Share Study</h2>
+    <p class="large-centered">
+        You can share this study to be accessed without requiring any credentials using the URL below. <br/>
+        Please note that all personal information will be visible to the viewer.
+    </p>
+    <p><a id="secret-link" href="{{url}}">{{url}}</a>
+    <div><span id="secret-copied">Copied!</span>&nbsp;</div>
+    <a id="copy-secret" class="button small" href="#">Copy to Clipboard</a><br/>
+    </p>
+</script>
+        <script id='file-list-buttons-template' type='text/x-handlebars-template'>
+    <span class="file-list-buttons">
+        <a href="{{#if ftpURL}}{{ftpURL}}Files/{{file}}.json{{else}}/biostudies/files/{{accno}}/{{file}}.json{{keyString}}{{/if}}" target="_blank"
+           title="Download file list as JSON" class="source-icon source-icon-json"
+           data-icon="="><i class="fa fa-file-download shrink-8"/>{JSON}</a>
+        <a href="{{#if ftpURL}}{{ftpURL}}Files/{{file}}.xml{{else}}/biostudies/files/{{accno}}/{{file}}.xml{{keyString}}{{/if}}" target="_blank"
+           title="Download file list as XML" class="source-icon source-icon-xml" data-icon="=">
+            <i class="fa fa-file-download shrink-8"/>&lt;XML&gt;</a>
+        <a href="{{#if ftpURL}}{{ftpURL}}Files/{{file}}{{#ifCond hasZippedFolders '!=' true}}.pagetab{{/ifCond}}.tsv{{else}}/biostudies/files/{{accno}}/{{file}}{{#ifCond hasZippedFolders '!=' true}}.pagetab{{/ifCond}}.tsv{{keyString}}{{/if}}" target="_blank"
+           title="Download file list as PageTab" class="source-icon source-icon-pagetab"
+           data-icon="="><i class="fa fa-file-download shrink-8"/>&rarr;PageTab&#8626;</a>
+    </span>
+</script>
+
+        <script id='citation-template' type='text/x-handlebars-template'>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <br/>
+    <table class="unstriped">
+        <tr>
+            <td class="type">APA</td><!-- https://owl.english.purdue.edu/owl/resource/560/10/ -->
+            <td id="citation-apa" class="value">
+                {{#each authors}}{{#ifCond @index '>=' 1}}{{#if @last}} & {{else}}, {{/if}}{{/ifCond}}{{this}}{{/each}}
+                ({{issued}}). {{title}}. <i>BioStudies</i>, {{id}}. Retrieved from {{URL}}
+            </td>
+        </tr>
+        <tr>
+            <td class="type">MLA</td><!-- https://owl.english.purdue.edu/owl/resource/747/08/ -->
+            <td id="citation-harvard1" class="value">
+                {{#each authors}}{{#ifCond @index '>=' 1}}{{#if @last}} and {{else}}, {{/if}}{{/ifCond}}{{this}}{{/each}}.
+                "{{title}}." <i>BioStudies</i>, {{id}}, {{issued}}, {{URL}}. Accessed {{today}}.
+            </td>
+        </tr>
+        <tr>
+            <td class="type">BibTex</td><!--https://nennius.wordpress.com/2013/11/27/using-bibtex-for-dataset-citation/-->
+            <td id="bibtex" class="value code-inline">@misc&#123;{{code}},
+   author = &#123;{{#each authors}}{{#ifCond @index '>=' 1}}{{#if @last}} and {{else}}, {{/if}}{{/ifCond}}{{this}}{{/each}}&#125;,
+   title = &#123;&#123;{{title}}&#125;&#125;
+   year = &#123;{{issued}}&#125;
+   howpublished= &#123;\url&#123;{{URL}}&#125;&#125;
+ &#125;</td>
+        </tr>
+    </table>
+</script>
+        <script id='annotations-template' type='text/x-handlebars-template'>
+<span data-tooltip class="right annotation-icon" data-hover-delay="0" data-template-classes="annotation-tooltip" tabindex="2" data-allow-html="true"
+title="This is a <a href='help' target='_blank'>curated annotation</a>.
+<br/>
+{{#if curator}}<b>Curator:</b> {{curator}}{{/if}}
+<br/>
+{{#if added_at}}<b>Added at:</b> {{added_at}}{{/if}}">
+  <i class="fas fa-hand-holding-medical annotation-icon"></i>
+</span>
+</script>
+
+<script id='error-template' type='text/x-handlebars-template'>
+    <section id="error-message">
+        <div class="bigicon">
+            {{#if forbidden}}
+                <i class="icon icon-functional padding-right-medium" data-icon="L"></i>
+            {{else}}
+                <i class="icon icon-conceptual padding-right-medium" data-icon="c"></i>
+            {{/if}}
+        </div>
+        <h3>{{title}}</h3>
+        <p>{{&message}}</p>
+        <p>If you require further assistance locating missing page or file, please <a
+                href="mailto://biostudies@ebi.ac.uk" class="feedback">contact us</a> and we will look into it
+            for you.</p>
+    </section>
+</script>
+</body>
+</html>
