@@ -58,6 +58,15 @@ expression and linked clinical data are EGA-controlled. Other cohorts were
 skipped when sample-level expression linked to response was request-only,
 controlled, or not deposited; plots and aggregate tables were not digitized.
 
+The open-only search was repeated through 2026-08-16 using GEO/GDS drug-name
+and SCLC queries, repository records, publication data-availability statements,
+and direct file checks. It found no additional analyzable cohort. The closest
+new candidate was an 18-patient Harbin CosMx immunochemotherapy cohort
+(PRJCA036290; 10 PR and 8 PD), but its BioProject remains unreleased and no
+patient-level matrix can be downloaded. Other newly reviewed candidates are
+listed in `cohort_audit.tsv`; NSCLC, models, non-ICI therapies, and open
+expression without a linked ICI endpoint remain excluded.
+
 ## Reproduce
 
 ```bash
