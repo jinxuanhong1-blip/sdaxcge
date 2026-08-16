@@ -1,0 +1,4 @@
+# Do not commit the ~250 MB official TISMO RDS matrices.
+# Re-download with: python3 scripts/hunt_tismo_lung/download_tismo.py --rds
+*.RDS
+*.rds

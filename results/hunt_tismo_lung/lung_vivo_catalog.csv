@@ -1,0 +1,18 @@
+Study_ID,Cell_Line,Cancer_type,ICB,ICB_study,Mouse_treatment,Cell_genotype,Implantation,Implantation_site,n_samples,icb_paired
+GSE155972,LLC,Lung carcinoma,0,Baseline,no_treatment,Setdb1_KO,subcutaneous,flank,10,True
+GSE155972,LLC,Lung carcinoma,0,Baseline,no_treatment,WT,subcutaneous,flank,10,True
+GSE155972,LLC,Lung carcinoma,1,NR,antiPD1; antiCTL4;,WT,subcutaneous,flank,6,True
+GSE155972,LLC,Lung carcinoma,1,R,antiPD1; antiCTL4;,Setdb1_KO,subcutaneous,flank,7,True
+GSE100412,CMT-167,Lung carcinoma,0,,no_treatment,luciferase,orthotopic,left lung lobe parenchyma,3,False
+GSE100412,LLC,Lung carcinoma,0,,no_treatment,luciferase,orthotopic,left lung lobe parenchyma,5,False
+GSE115109,LLC,Lung carcinoma,0,,SRX3207,WT,subcutaneous,unknown,2,False
+GSE115109,LLC,Lung carcinoma,0,,no_treatment,WT,subcutaneous,unknown,4,False
+GSE115109,LLC,Lung carcinoma,0,,vehicle,WT,subcutaneous,unknown,2,False
+GSE131271,LLC,Lung carcinoma,0,,no_treatment,Socs1_knockdown,orthotopic,left lung lobe parenchyma,3,False
+GSE131271,LLC,Lung carcinoma,0,,no_treatment,WT,orthotopic,left lung lobe parenchyma,3,False
+GSE148101,LLC,Lung carcinoma,0,,no_treatment,WT,intravenous,tail vein,2,False
+GSE71491,LLC,Lung carcinoma,0,,cyclophosphamide,WT,subcutaneous,flank,2,False
+GSE71491,LLC,Lung carcinoma,0,,no_treatment,WT,subcutaneous,flank,2,False
+GSE80678,LLC,Lung carcinoma,0,,no_treatment,luciferase,subcutaneous,flank,2,False
+GSE84535,LLC,Lung carcinoma,0,,no_treatment,WT,subcutaneous,flank,6,False
+GSE98672,LLC,Lung carcinoma,0,,no_treatment,WT,subcutaneous,back,2,False
