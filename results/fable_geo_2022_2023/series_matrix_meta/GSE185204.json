@@ -1,0 +1,40 @@
+{
+  "accession": "GSE185204",
+  "matrix_files": [
+    "GSE185204_series_matrix.txt.gz"
+  ],
+  "n_samples": 40,
+  "characteristics": {
+    "cell type": [
+      "CD3+ lymphocytes",
+      "CD3+CD8+multimer+ lymphocytes"
+    ],
+    "patient": [
+      "MSK 1263",
+      "MSK 1302",
+      "MSK 1344"
+    ],
+    "region": [
+      "A1",
+      "A1-A4",
+      "A3",
+      "A4",
+      "LN",
+      "LN7-9-10-12",
+      "Normal",
+      "R1",
+      "R1-R6",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R7-R8",
+      "R8"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

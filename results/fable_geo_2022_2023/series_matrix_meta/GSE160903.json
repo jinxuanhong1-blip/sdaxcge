@@ -1,0 +1,118 @@
+{
+  "accession": "GSE160903",
+  "matrix_files": [
+    "GSE160903-GPL18573_series_matrix.txt.gz",
+    "GSE160903-GPL19057_series_matrix.txt.gz",
+    "GSE160903-GPL24247_series_matrix.txt.gz",
+    "GSE160903-GPL24676_series_matrix.txt.gz"
+  ],
+  "n_samples": 268,
+  "characteristics": {
+    "cell type": [
+      "CD4+ SMARTA T cells",
+      "CD4+ SMARTA Tfh cells",
+      "Doublets of T cells and myeloid cells",
+      "Myeloid cells",
+      "OT-II T cells",
+      "T cells",
+      "doublets of T cells and myeloid cells"
+    ],
+    "co-culture conditions": [
+      "B16-OVA + OT-II T cells + B6 DC co-culture",
+      "B16-OVA + OT-II T cells co-culture",
+      "NA",
+      "OT-II T mono-culture",
+      "OVA + LPS T only"
+    ],
+    "mouse age": [
+      "6-8 weeks"
+    ],
+    "organ": [
+      "LN",
+      "NSCLC tumor",
+      "cLN",
+      "cervical lymph node",
+      "dLN",
+      "in vitro",
+      "lung normal",
+      "lung tumor",
+      "normal adjacent lung tissue",
+      "tumor",
+      "tumor draining lymph node"
+    ],
+    "patient id": [
+      "1",
+      "10",
+      "2",
+      "3",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "NA"
+    ],
+    "replicate id": [
+      "1",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "2",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "3",
+      "30",
+      "31"
+    ],
+    "selection marker": [
+      "CD11c+",
+      "CD3+",
+      "CD3+CD64+CD11c+",
+      "CD4+CD45.1+",
+      "CD4+CD45.1+ICOS+PD-1+CXCR5+",
+      "CD64+CD11c+",
+      "Cd11c+",
+      "TCRb+",
+      "TCRb+CD11c+",
+      "TCRb+CD45.1+",
+      "TCRb+CXCR5+PD1+"
+    ],
+    "strain": [
+      "C57BL/6",
+      "C57BL/6, TCR-transgenic OT-II, and OVA-expressing B16 cell line",
+      "C57BL/6, TCR-transgenic SMARTA"
+    ],
+    "time point": [
+      "20 hours",
+      "NA",
+      "day 10 post tumor injection",
+      "day 17 post tumor injection"
+    ],
+    "treatment(1)": [
+      "Adoptive transfer of SMARTA CD4+ T cells",
+      "Adoptive transfer of SMARTA CD4+ T cells; subcutaneous intra-footpad infection with rVSV 24 hours after transfer",
+      "B16-OVA subcutaneous injection; adoptive transfer of OT-II CD4+ T cells 10 days after tumor injection; intra-peritoneal injection with 250microgram of anti-PD-1 11 and 14 days after tumor injection",
+      "B16-OVA subcutaneous injection; adoptive transfer of OT-II CD4+ T cells 10 days after tumor injection; intra-peritoneal injection with 250microgram of isotype control 11 and 14 days after tumor injection",
+      "B16-OVA subcutaneous injection; adoptive transfer of OT-II CD4+ T cells 6 days after tumor injection; OVA-vaccination 7 and 8 days after tumor injection",
+      "NA"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

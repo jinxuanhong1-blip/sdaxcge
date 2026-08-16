@@ -1,0 +1,23 @@
+{
+  "accession": "GSE178521",
+  "matrix_files": [
+    "GSE178521_series_matrix.txt.gz"
+  ],
+  "n_samples": 6,
+  "characteristics": {
+    "cell line": [
+      "NCI-H460"
+    ],
+    "genotype": [
+      "PRMT5 knockdown",
+      "control"
+    ],
+    "treatment": [
+      "lentivirus infection NCI-H460 for shRNA against GFP",
+      "lentivirus infection NCI-H460 for shRNA against PRMT5"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

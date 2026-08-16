@@ -1,0 +1,98 @@
+{
+  "accession": "GSE207422",
+  "matrix_files": [
+    "GSE207422_series_matrix.txt.gz"
+  ],
+  "n_samples": 39,
+  "characteristics": {
+    "age": [
+      "34",
+      "44",
+      "45",
+      "49",
+      "52",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70",
+      "73",
+      "74",
+      "76",
+      "77",
+      "79"
+    ],
+    "cell type": [
+      "non-small cell lung cancer (NSCLC)"
+    ],
+    "clinical_stage": [
+      "IB",
+      "IIB",
+      "IIIA",
+      "IIIB"
+    ],
+    "pathologic_response": [
+      "MPR",
+      "MPR (pCR)",
+      "NMPR",
+      "Not available"
+    ],
+    "pathologic_sub": [
+      "Adeno",
+      "Carcinosarcomatoid",
+      "NSCLC",
+      "Squamous"
+    ],
+    "patient": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07",
+      "P08",
+      "P09",
+      "P10",
+      "P11",
+      "P12",
+      "P13",
+      "P14",
+      "P15",
+      "P16",
+      "P17",
+      "P18",
+      "P19",
+      "P20",
+      "P21",
+      "P22",
+      "P23",
+      "P24",
+      "P25"
+    ],
+    "sampling_time": [
+      "Post-treatment surgery",
+      "Pre-treatment biopsy"
+    ],
+    "sex": [
+      "Female",
+      "Male"
+    ],
+    "treatment group": [
+      "NSCLC after anti-PD-1 + chemotherapy",
+      "NSCLC before anti-PD-1 + chemotherapy"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

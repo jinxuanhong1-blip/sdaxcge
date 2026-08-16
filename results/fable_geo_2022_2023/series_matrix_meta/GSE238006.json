@@ -1,0 +1,27 @@
+{
+  "accession": "GSE238006",
+  "matrix_files": [
+    "GSE238006-GPL18460_series_matrix.txt.gz",
+    "GSE238006-GPL18480_series_matrix.txt.gz"
+  ],
+  "n_samples": 8,
+  "characteristics": {
+    "cell line": [
+      "F1339",
+      "NCI-H146"
+    ],
+    "cell type": [
+      "SCLC"
+    ],
+    "tissue": [
+      "lung"
+    ],
+    "treatment": [
+      "Decitabine",
+      "Vehicle"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

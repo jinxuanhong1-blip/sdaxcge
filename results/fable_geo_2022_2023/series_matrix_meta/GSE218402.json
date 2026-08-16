@@ -1,0 +1,27 @@
+{
+  "accession": "GSE218402",
+  "matrix_files": [
+    "GSE218402_series_matrix.txt.gz"
+  ],
+  "n_samples": 8,
+  "characteristics": {
+    "cell line": [
+      "A549"
+    ],
+    "cell type": [
+      "lung adenocarcinoma cell",
+      "peripheral blood mononuclear cells (PBMCs)"
+    ],
+    "time": [
+      "24h"
+    ],
+    "treatment": [
+      "10uM Norepinephrine",
+      "30 uM adenosine",
+      "Dimethyl sulfoxide"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

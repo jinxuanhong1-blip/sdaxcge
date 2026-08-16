@@ -1,0 +1,57 @@
+{
+  "accession": "GSE185206",
+  "matrix_files": [
+    "GSE185206-GPL20301_series_matrix.txt.gz",
+    "GSE185206-GPL24676_series_matrix.txt.gz"
+  ],
+  "n_samples": 108,
+  "characteristics": {
+    "cell type": [
+      "CD3+ lymphocytes",
+      "CD3+CD8+multimer+ lymphocytes"
+    ],
+    "involved by tumor?": [
+      "No",
+      "Yes"
+    ],
+    "patient": [
+      "MSK 1263",
+      "MSK 1302",
+      "MSK 1344"
+    ],
+    "patient number": [
+      "MSK 1263",
+      "MSK 1302",
+      "MSK 1344"
+    ],
+    "region": [
+      "A1",
+      "A1-A4",
+      "A3",
+      "A4",
+      "LN",
+      "LN7-9-10-12",
+      "Normal",
+      "R1",
+      "R1-R6",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R7-R8",
+      "R8"
+    ],
+    "region characterization": [
+      "Adrenal",
+      "LN",
+      "No Viable Tumor",
+      "Normal",
+      "Viable Tumor"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 1,
+  "error": ""
+}

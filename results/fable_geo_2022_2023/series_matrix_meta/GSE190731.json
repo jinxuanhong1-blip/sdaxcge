@@ -1,0 +1,25 @@
+{
+  "accession": "GSE190731",
+  "matrix_files": [
+    "GSE190731_series_matrix.txt.gz"
+  ],
+  "n_samples": 23,
+  "characteristics": {
+    "mouse strain": [
+      "NSG"
+    ],
+    "tissue": [
+      "NSCLC tumor"
+    ],
+    "treatment": [
+      "combo",
+      "durvalumab",
+      "isotype",
+      "oleclumab",
+      "untreated"
+    ]
+  },
+  "has_expression_table": true,
+  "n_table_rows": 54676,
+  "error": ""
+}
