@@ -37,20 +37,23 @@ Claim A7 (TISMO + Zhejiang IHC H-score 94→121) predicts a **rise**. The hunt
 lung-tumor ICI transcriptome: **GSE248249** (Memon et al., Cancer Cell 2024; 13 pairs;
 post = acquired resistance, not an unselected on-treatment biopsy).
 
-| Gene | n pairs | median Δ (post−pre, log2) | ↑ / ↓ | Wilcoxon p | Direction vs A7 |
-|---|---|---|---|---|---|
-| TACSTD2 | 13 | **−0.16** | 6 / 7 | 0.95 | **flat — does not rise** |
-| CLDN4 | 13 | **−0.89** | 2 / 11 | **0.017** | falls |
-| EPCAM (control) | 13 | −0.76 | 5 / 8 | 0.79 | flat (purity OK) |
-| CD274 (PD-L1) | 13 | +0.34 | 7 / 6 | 0.59 | weak up |
+| Subset | Gene | n | median Δ log2 | ↑ / ↓ | p | vs A7 |
+|---|---|---|---|---|---|---|
+| all pairs | TACSTD2 | 13 | **−0.16** | 6 / 7 | 0.95 | **flat** |
+| all pairs | CLDN4 | 13 | **−0.89** | 2 / 11 | **0.017** | falls |
+| same anatomic site | TACSTD2 | 4 | −0.02 | 2 / 2 | 1.00 | flat |
+| same anatomic site | CLDN4 | 4 | −0.74 | 0 / 4 | 0.13 | down (n small) |
+| **lung → lung** | TACSTD2 | **1** | +0.60 | 1 / 0 | n/a | one pair only |
+| lung → lung | CLDN4 | 1 | −0.91 | 0 / 1 | n/a | one pair only |
 
-**Verdict: A7 analog NOT SUPPORTED.** Public paired ICI lung RNA does not reproduce a
-TROP2 rise. CLDN4 is the only paired change that is nominally significant, and it goes
-**down**. Mouse lung ICB lines (GSE246922) also fail to show a Tacstd2 rise (KP
-ICB-resistant vs parental log2FC −0.20, p=0.21). TISMO’s Shiny portal was reachable
-but had no programmatic matrix dump (`zexian/TISMO_data` is scripts only). No public
-paired lung TROP2 IHC with reusable numeric pairs was found (Inoue 2025: 5 ICI patients,
-no TROP2 change; mixed-treatment series). Zhejiang IHC was **not** used.
+**12 of 13 pairs are not lung-to-lung** (mets: LN, adrenal, liver, bone, brain, spine).
+The single lung-to-lung pair (Patient 01) rises +0.60 log2 — descriptive, not a test.
+Same-site n=4 is a coin flip for TACSTD2. **Verdict still NOT SUPPORTED.**
+
+Mouse lung ICB lines (GSE246922) also fail to show a Tacstd2 rise (KP ICB-resistant vs
+parental log2FC −0.20, p=0.21). TISMO’s Shiny portal has no programmatic matrix dump.
+No public paired lung TROP2 IHC with reusable numbers (Inoue 2025: 5 ICI patients, no
+TROP2 change). Zhejiang IHC was **not** used.
 
 **PRE — baseline vs response (Fig. 2).** In two of three NSCLC cohorts, baseline epithelial
 TACSTD2 and CLDN4 were **lower in responders** (i.e. higher in non-responders), though never
@@ -93,8 +96,9 @@ co-express across bulk tumors (Spearman r = 0.86, p = 8e-8); group sizes match t
 pipeline is deterministic. See `results/fable_paired/tables/verification_report.csv`.
 
 ### 5. Statistical honesty & limitations
-- **A7 direction is not reproduced.** GSE248249 TACSTD2 is flat (p=0.95); the CLDN4 drop (p=0.017)
-  is at *acquired resistance* and must not be read as an on-treatment responder effect.
+- **A7 direction is not reproduced.** GSE248249 TACSTD2 is flat in all 13 pairs (p=0.95) and in
+  4 same-site pairs (p=1.00). Only **one** pair is lung-to-lung. The CLDN4 drop (p=0.017) is at
+  *acquired resistance* and must not be read as an on-treatment responder effect.
 - The melanoma GSE91061 responder-specific TACSTD2 induction (p=0.019) does **not** survive
   Benjamini-Hochberg FDR across the original 12 contrasts (q=0.23). All response associations
   remain **hypothesis-generating**.
@@ -140,16 +144,18 @@ Claim A7（TISMO + 浙江 IHC H-score 94→121）预测 **上升**。检索
 ICI 转录组是 **GSE248249**（Memon 等，Cancer Cell 2024；13 对；治疗后为获得性耐药，
 而非未选择的治疗中活检）。
 
-| 基因 | 配对数 | 中位 Δ（治疗后−治疗前，log2） | ↑ / ↓ | Wilcoxon p | 相对 A7 的方向 |
-|---|---|---|---|---|---|
-| TACSTD2 | 13 | **−0.16** | 6 / 7 | 0.95 | **持平 — 未上升** |
-| CLDN4 | 13 | **−0.89** | 2 / 11 | **0.017** | 下降 |
-| EPCAM（对照） | 13 | −0.76 | 5 / 8 | 0.79 | 持平（纯度可接受） |
-| CD274（PD-L1） | 13 | +0.34 | 7 / 6 | 0.59 | 弱上升 |
+| 子集 | 基因 | n | 中位 Δ log2 | ↑ / ↓ | p | 相对 A7 |
+|---|---|---|---|---|---|---|
+| 全部配对 | TACSTD2 | 13 | **−0.16** | 6 / 7 | 0.95 | **持平** |
+| 全部配对 | CLDN4 | 13 | **−0.89** | 2 / 11 | **0.017** | 下降 |
+| 同一解剖部位 | TACSTD2 | 4 | −0.02 | 2 / 2 | 1.00 | 持平 |
+| 同一解剖部位 | CLDN4 | 4 | −0.74 | 0 / 4 | 0.13 | 下降（n 小） |
+| **肺→肺** | TACSTD2 | **1** | +0.60 | 1 / 0 | 无 | 仅 1 对 |
+| 肺→肺 | CLDN4 | 1 | −0.91 | 0 / 1 | 无 | 仅 1 对 |
 
-**结论：A7 公共对照不支持。** 公开配对 ICI 肺癌 RNA 不能复现 TROP2 上升。唯一名义显著的配对变化是
-CLDN4 **下降**。小鼠肺癌 ICB 细胞系（GSE246922）同样未见 Tacstd2 上升。TISMO 门户可访问但无程序化
-矩阵下载。未找到可复用数值的公开配对肺癌 TROP2 IHC。未使用浙江 IHC。
+**13 对中有 12 对不是肺→肺**（转移灶：淋巴结、肾上腺、肝、骨、脑、脊柱）。唯一的肺→肺对
+（患者 01）TACSTD2 上升 +0.60 log2，仅为描述、不能做检验。同一部位 n=4 对 TACSTD2 是正负各半。
+**结论仍为不支持。** 未使用浙江 IHC。
 
 **PRE — 基线与疗效（图 2）。** 三个 NSCLC 队列中有两个，基线上皮 TACSTD2 与 CLDN4 在**应答者中更低**
 （即在非应答者中更高），但均未达显著：
@@ -186,8 +192,8 @@ EPCAM/PTPRC 区室标记具特异性；TACSTD2 与 CLDN4 在散装肿瘤中共�
 分组样本量与元数据一致；流程可确定性复现。见 `results/fable_paired/tables/verification_report.csv`。
 
 ### 5. 统计诚实性与局限
-- **A7 方向未被复现。** GSE248249 的 TACSTD2 配对变化为持平（p=0.95）；CLDN4 下降（p=0.017）
-  是获得性耐药时间点，不能外推到应答者的治疗中活检。
+- **A7 方向未被复现。** GSE248249 的 TACSTD2 在全部 13 对（p=0.95）和 4 对同部位（p=1.00）均为持平。
+  仅 **1** 对为肺→肺。CLDN4 下降（p=0.017）是获得性耐药时间点，不能外推到应答者的治疗中活检。
 - 黑色素瘤 GSE91061 中应答者 TACSTD2 治疗中上调（p=0.019）在 12 个比较的 BH-FDR 后不再显著
   （q=0.23）。所有疗效相关结论均为**假设生成性**。
 - 队列样本量小；方案异质（多种 anti-PD-1 抗体 ± 化疗）。

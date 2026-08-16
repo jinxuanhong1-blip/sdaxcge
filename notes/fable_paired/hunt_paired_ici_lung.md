@@ -17,8 +17,9 @@ sibling PR #102 (`cursor/claim-a6-a11-a7-8834`).
 | A7 public paired lung TROP2 **IHC** | None with reusable numeric pairs | — | Inoue 2025 mixed treatments (not ICI-only); JCO 8591 abstract not deposited |
 
 **A7 analog claim: NOT SUPPORTED** in public paired ICI lung RNA. The hypothesized rise
-is not reproduced. The only same-patient lung ICI tumor RNA (GSE248249) shows TACSTD2
-unchanged and CLDN4 decreased at acquired resistance.
+is not reproduced. GSE248249 TACSTD2 is flat across 13 pairs (p=0.95) and across the
+4 same-site pairs (p=1.00). **Only 1 pair is lung-to-lung** (Patient 01, Δlog2 +0.60,
+descriptive). CLDN4 falls in 11/13 pairs (p=0.017).
 
 ## Datasets inspected
 

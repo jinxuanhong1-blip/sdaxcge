@@ -78,6 +78,13 @@ def main() -> None:
     checks.append({"check": "V7 GSE248249 TACSTD2/CLDN4 finite",
                    "n_samples": int(len(long)), "pass": finite and len(long) == 42})
 
+    sites = pd.read_csv(C.TABLES_DIR / "gse248249_pair_sites.csv")
+    n_lung = int(sites["lung_to_lung"].sum())
+    n_same = int(sites["same_site"].sum())
+    checks.append({"check": "V8 GSE248249 only 1 lung-to-lung pair",
+                   "n_lung_to_lung": n_lung, "n_same_site": n_same,
+                   "pass": bool(n_lung == 1 and n_same == 4 and len(sites) == 13)})
+
     report = pd.DataFrame(checks)
     report.to_csv(C.TABLES_DIR / "verification_report.csv", index=False)
     with pd.option_context("display.max_columns", None, "display.width", 200):

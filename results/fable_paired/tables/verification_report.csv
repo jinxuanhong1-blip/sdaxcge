@@ -1,10 +1,11 @@
-check,epi_mean,immune_mean,p_value,pass,epi_pctpos,immune_pctpos,spearman_r,n_pre,n_post,max_abs_diff,n_pairs,n_samples
-V1 TACSTD2 epithelial>immune,1.844,0.028,0.0,True,,,,,,,,
-V1 CLDN4 epithelial>immune,1.494,0.023,0.0,True,,,,,,,,
-V2 EPCAM_raw specificity,,,,True,100.0,0.0,,,,,,
-V2 PTPRC_raw specificity,,,,True,0.0,100.0,,,,,,
-V3 TACSTD2~CLDN4 corr (GSE207422 bulk),,,8.1747163102769e-08,True,,,0.858,,,,,
-V4 scRNA sample counts (pre/post),,,,True,,,,3.0,12.0,,,
-V5 pseudobulk reproducible,,,,True,,,,,,2.220446049250313e-16,,
-V6 GSE248249 13 same-patient pairs,,,,True,,,,,,,13.0,
-V7 GSE248249 TACSTD2/CLDN4 finite,,,,True,,,,,,,,42.0
+check,epi_mean,immune_mean,p_value,pass,epi_pctpos,immune_pctpos,spearman_r,n_pre,n_post,max_abs_diff,n_pairs,n_samples,n_lung_to_lung,n_same_site
+V1 TACSTD2 epithelial>immune,1.844,0.028,0.0,True,,,,,,,,,,
+V1 CLDN4 epithelial>immune,1.494,0.023,0.0,True,,,,,,,,,,
+V2 EPCAM_raw specificity,,,,True,100.0,0.0,,,,,,,,
+V2 PTPRC_raw specificity,,,,True,0.0,100.0,,,,,,,,
+V3 TACSTD2~CLDN4 corr (GSE207422 bulk),,,8.1747163102769e-08,True,,,0.858,,,,,,,
+V4 scRNA sample counts (pre/post),,,,True,,,,3.0,12.0,,,,,
+V5 pseudobulk reproducible,,,,True,,,,,,2.220446049250313e-16,,,,
+V6 GSE248249 13 same-patient pairs,,,,True,,,,,,,13.0,,,
+V7 GSE248249 TACSTD2/CLDN4 finite,,,,True,,,,,,,,42.0,,
+V8 GSE248249 only 1 lung-to-lung pair,,,,True,,,,,,,,,1.0,4.0
