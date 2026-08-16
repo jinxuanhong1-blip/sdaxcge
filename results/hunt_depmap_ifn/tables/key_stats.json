@@ -1,0 +1,242 @@
+{
+  "release": "DepMap Public 24Q4",
+  "doi": "10.25452/figshare.plus.27993248.v1",
+  "n_NSCLC": 148,
+  "n_NSCLC_by_group": {
+    "LUAD": 80,
+    "other_NSCLC": 41,
+    "LUSC": 27
+  },
+  "TACSTD2_CLDN4": {
+    "n": 148,
+    "rho": 0.6817520950506492,
+    "p": 1.4607858802902915e-21
+  },
+  "NSCLC_univariate": {
+    "TACSTD2": {
+      "sig_IFNG": {
+        "n": 148,
+        "rho": 0.344447251708443,
+        "p": 1.812815673658402e-05
+      },
+      "sig_IFNA": {
+        "n": 148,
+        "rho": 0.3766534602897348,
+        "p": 2.378438807759765e-06
+      },
+      "sig_IFN_signal": {
+        "n": 148,
+        "rho": 0.10744102238610588,
+        "p": 0.1936833789419079
+      },
+      "sig_MHC1": {
+        "n": 148,
+        "rho": 0.14869828613765723,
+        "p": 0.07127904445971833
+      },
+      "sig_APM": {
+        "n": 148,
+        "rho": 0.18531526454936384,
+        "p": 0.02413897195708178
+      }
+    },
+    "CLDN4": {
+      "sig_IFNG": {
+        "n": 148,
+        "rho": 0.24210908189049624,
+        "p": 0.0030303040192593052
+      },
+      "sig_IFNA": {
+        "n": 148,
+        "rho": 0.2770821418065616,
+        "p": 0.0006513659033667109
+      },
+      "sig_IFN_signal": {
+        "n": 148,
+        "rho": -0.08331898873361637,
+        "p": 0.3140421393264344
+      },
+      "sig_MHC1": {
+        "n": 148,
+        "rho": 0.15692622063317108,
+        "p": 0.05681632609427202
+      },
+      "sig_APM": {
+        "n": 148,
+        "rho": 0.10618150453585183,
+        "p": 0.1989896570295687
+      }
+    }
+  },
+  "NSCLC_CLDN4_median": 7.24749350036269,
+  "NSCLC_TACSTD2_median": 5.241549140615762,
+  "NSCLC_n_mut": {
+    "STK11": 28,
+    "KEAP1": 13,
+    "EGFR": 5,
+    "KRAS": 43,
+    "TP53": 116,
+    "SMARCA4": 30,
+    "B2M": 2
+  },
+  "primary_claim_tests": {
+    "TACSTD2_vs_CLDN4_NSCLC": {
+      "cohort": "NSCLC",
+      "predictor": "TACSTD2",
+      "target": "CLDN4",
+      "n": 148,
+      "rho": 0.6817520950506492,
+      "p": 1.4607858802902915e-21,
+      "q_primary": 8.76471528174175e-21
+    },
+    "TACSTD2_vs_IFNG_NSCLC": {
+      "cohort": "NSCLC",
+      "predictor": "TACSTD2",
+      "target": "sig_IFNG",
+      "n": 148,
+      "rho": 0.344447251708443,
+      "p": 1.812815673658402e-05,
+      "q_primary": 3.625631347316804e-05
+    },
+    "TACSTD2_vs_MHC1_NSCLC": {
+      "cohort": "NSCLC",
+      "predictor": "TACSTD2",
+      "target": "sig_MHC1",
+      "n": 148,
+      "rho": 0.14869828613765723,
+      "p": 0.07127904445971833,
+      "q_primary": 0.085534853351662
+    },
+    "TACSTD2_vs_APM_NSCLC": {
+      "cohort": "NSCLC",
+      "predictor": "TACSTD2",
+      "target": "sig_APM",
+      "n": 148,
+      "rho": 0.18531526454936384,
+      "p": 0.02413897195708178,
+      "q_primary": 0.036208457935622676
+    },
+    "CLDN4_vs_IFNG_NSCLC": {
+      "cohort": "NSCLC",
+      "predictor": "CLDN4",
+      "target": "sig_IFNG",
+      "n": 148,
+      "rho": 0.24210908189049624,
+      "p": 0.0030303040192593052,
+      "q_primary": 0.007575760048148263
+    },
+    "interaction_IFNG_NSCLC": {
+      "cohort": "NSCLC",
+      "target": "sig_IFNG",
+      "n": 148,
+      "r2": 0.10116658025366432,
+      "beta_TACSTD2": 0.11545476409293273,
+      "p_TACSTD2": 0.01649155205974163,
+      "beta_CLDN4": 0.00654346707417589,
+      "p_CLDN4": 0.8989058485788544,
+      "beta_interaction": -0.03053878718724977,
+      "p_interaction": 0.5134273756036901,
+      "se_interaction": 0.046730386566694114,
+      "q_interaction": 0.6417842195046126
+    },
+    "strat_IFNG_CLDN4split_NSCLC": {
+      "cohort": "NSCLC",
+      "target": "sig_IFNG",
+      "split": "CLDN4_median",
+      "n_high": 74,
+      "rho_high": 0.42596075527582367,
+      "p_high": 0.00015445078041807246,
+      "n_low": 74,
+      "rho_low": 0.3570524082669907,
+      "p_low": 0.0017913034785710356,
+      "cldn4_median": 7.24749350036269,
+      "fisher_z": 0.4852832133475339,
+      "fisher_p": 0.6274754614494729
+    },
+    "quad_IFNG_NSCLC": {
+      "cohort": "NSCLC",
+      "target": "sig_IFNG",
+      "n_TROP2hi_CLDN4hi": 62,
+      "n_TROP2hi_CLDN4lo": 12,
+      "n_TROP2lo_CLDN4hi": 12,
+      "n_TROP2lo_CLDN4lo": 62,
+      "median_TROP2hi_CLDN4hi": 0.01577367024028343,
+      "median_TROP2hi_CLDN4lo": -0.049388561491032275,
+      "median_TROP2lo_CLDN4hi": -0.03546072201664814,
+      "median_TROP2lo_CLDN4lo": -0.09853050156683692,
+      "kruskal_H": 3.328408512430997,
+      "kruskal_p": 0.34370824031059277,
+      "MW_hihi_vs_hilo_p": 0.4769364497589641,
+      "MW_hihi_vs_hilo_rbc": -0.131720430107527,
+      "MW_hihi_vs_lohi_p": 0.45010940602445537,
+      "MW_hihi_vs_lohi_rbc": -0.13978494623655924
+    },
+    "partial_TACSTD2_IFNG_adj_CLDN4": {
+      "cohort": "NSCLC",
+      "predictor": "TACSTD2",
+      "target": "sig_IFNG",
+      "adjusted_for": "CLDN4",
+      "n": 148,
+      "rho": 0.18173371289382798,
+      "p": 0.0270648101476914
+    },
+    "partial_CLDN4_IFNG_adj_TACSTD2": {
+      "cohort": "NSCLC",
+      "predictor": "CLDN4",
+      "target": "sig_IFNG",
+      "adjusted_for": "TACSTD2",
+      "n": 148,
+      "rho": 0.10573523804588043,
+      "p": 0.20089475350367797
+    },
+    "partial_TACSTD2_IFNG_adj_CLDN4_EMT": {
+      "cohort": "NSCLC",
+      "predictor": "TACSTD2",
+      "target": "sig_IFNG",
+      "adjusted_for": "CLDN4+EMT",
+      "n": 148,
+      "rho": 0.32711920247874227,
+      "p": 4.948306040827358e-05
+    },
+    "LUAD_TACSTD2_IFNG": {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2",
+      "target": "sig_IFNG",
+      "n": 80,
+      "rho": 0.26838101714240453,
+      "p": 0.01608281117487135,
+      "q_primary": 0.0321656223497427
+    },
+    "LUSC_TACSTD2_IFNG": {
+      "cohort": "LUSC",
+      "predictor": "TACSTD2",
+      "target": "sig_IFNG",
+      "n": 27,
+      "rho": 0.27350427350427353,
+      "p": 0.16746058674774383,
+      "q_primary": 0.20002749120433824
+    },
+    "SCLC_TACSTD2_IFNG": {
+      "cohort": "SCLC",
+      "predictor": "TACSTD2",
+      "target": "sig_IFNG",
+      "n": 59,
+      "rho": 0.3740498596593688,
+      "p": 0.0035182915965998327,
+      "q_primary": 0.007036583193199665
+    }
+  },
+  "n_lung_annot": 260,
+  "n_lung_expr": 214,
+  "missing_genes": [
+    "RIGI",
+    "TMT1B"
+  ],
+  "notes": [
+    "Expression is log2(TPM+1) protein-coding matrix, DepMap 24Q4.",
+    "Signatures are mean of within-cohort z-scored genes.",
+    "No immune infiltrate: IFN/MHC/APM are cancer-cell basal transcription.",
+    "CLDN4 'loss' is low RNA, not a validated genetic deletion call.",
+    "Hotspot OR damaging mutation = mutant for STK11/KEAP1/EGFR/KRAS/TP53/SMARCA4/B2M."
+  ]
+}

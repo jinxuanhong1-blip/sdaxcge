@@ -1,0 +1,7 @@
+cohort	n_annot_lung	n_with_expr	n_LUAD	n_LUSC	n_other_NSCLC	n_SCLC	n_carcinoid	n_noncancer	n_other
+NSCLC	148	148	80	27	41	0	0	0	0
+LUAD	80	80	80	0	0	0	0	0	0
+LUSC	27	27	0	27	0	0	0	0	0
+SCLC	59	59	0	0	0	59	0	0	0
+all_malignant_lung	208	208	80	27	41	59	1	0	0
+all_lung_with_expr	214	214	80	27	41	59	1	6	0
