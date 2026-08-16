@@ -41,6 +41,11 @@ pseudobulk** (primary) and LIANA focus axes (hypothesis). Outputs go to
 Caveats baked into the script and the playbook §6b: BD Rhapsody not 10x; n=15 /
 MPR n=4; ambient not re-estimable; marker gates are not a published annotation.
 
+**Computed readout (this repo):** 13 paired patients; 8/10 ligands lower in the
+high state; **0/10 FDR < 0.05**. LIANA kept only CXCL16–CXCR6, which is
+*stronger* from the high sender. Do **not** claim reduced recruitment. Full
+write-up: [`gse207422_example/RESULTS.md`](gse207422_example/RESULTS.md).
+
 ```bash
 python run_gse207422_demo.py
 ```

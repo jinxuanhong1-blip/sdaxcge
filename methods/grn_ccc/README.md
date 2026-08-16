@@ -27,7 +27,7 @@ guardrail that is hard to overclaim.
 | [`scripts/05_pseudobulk_guardrail.py`](scripts/05_pseudobulk_guardrail.py) | **Primary** patient-level chemokine test. |
 | [`scripts/06_public_lung_loader.py`](scripts/06_public_lung_loader.py) | Load GSE207422 (default) / GSE205335 into the playbook schema. |
 | [`scripts/07_scenic_ccc_joint.py`](scripts/07_scenic_ccc_joint.py) | Conservative join of 05 + 01 + 04b; refuses to overclaim. |
-| [`demo/`](demo/) | Synthetic LIANA mechanics check + **GSE207422** real public demo (<2 GB). |
+| [`demo/`](demo/) | Synthetic LIANA mechanics check + **GSE207422** real public demo (<2 GB). Computed: 8/10 ligands lower in high state, 0/10 FDR<0.05 — do not claim reduced recruitment. |
 | [`env/`](env/) | `requirements.txt` (Python) and `environment.yml` (Python + R). |
 
 Scripts are **notebook-style** (`# %%` cells): run top-to-bottom as `.py`/`.R`,

@@ -313,6 +313,13 @@ Convert with `zellkonverter` / `sceasy` before the Python stack.
 
 Loader: [`scripts/06_public_lung_loader.py`](scripts/06_public_lung_loader.py).
 
+**What the GSE207422 demo actually returned** (see
+[`demo/gse207422_example/RESULTS.md`](demo/gse207422_example/RESULTS.md)):
+13 paired patients; 8/10 recruitment ligands lower in the high state; **0/10
+FDR < 0.05**. LIANA's only focus edge (CXCL16–CXCR6) is *stronger* from the
+high sender. Per §6c: primary does not support → **do not claim** reduced
+T-cell recruitment from this cohort.
+
 ## 6c. Joint SCENIC × communication readout
 
 [`scripts/07_scenic_ccc_joint.py`](scripts/07_scenic_ccc_joint.py) joins the
@@ -604,6 +611,12 @@ NicheNet 是**回答"招募"的错误主力工具**，会因错误原因给趋�
 `zellkonverter` / `sceasy` 转成 Python 栈。
 
 装载脚本：[`scripts/06_public_lung_loader.py`](scripts/06_public_lung_loader.py)。
+
+**GSE207422 demo 的实际结果**（见
+[`demo/gse207422_example/RESULTS.md`](demo/gse207422_example/RESULTS.md)）：
+13 对病人；10 个招募配体中 8 个在高状态更低；**0/10 达到 FDR < 0.05**。LIANA
+唯一通过的焦点边（CXCL16–CXCR6）在高发送方反而*更强*。按 §6c：主检验不支持 →
+**不得**据此队列声称 T 细胞招募下降。
 
 ## 6c. SCENIC × 通讯的联合读出
 
