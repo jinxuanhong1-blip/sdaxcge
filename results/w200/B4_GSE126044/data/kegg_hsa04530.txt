@@ -1,0 +1,332 @@
+ENTRY       hsa04530                    Pathway
+NAME        Tight junction - Homo sapiens (human)
+DESCRIPTION Tight junctions (TJs) are essential for establishing a selectively permeable barrier to diffusion through the paracellular space between neighboring cells. TJs are composed of at least three types of transmembrane protein -occludin, claudin and junctional adhesion molecules (JAMs)- and a cytoplasmic 'plaque' consisting of many different proteins that form large complexes. These are proposed to be involved in junction assembly, barrier regulation, cell polarity, gene transcription, and other pathways.
+CLASS       Cellular Processes; Cellular community - eukaryotes
+PATHWAY_MAP hsa04530  Tight junction
+NETWORK     nt06166  Human papillomavirus (HPV)
+            nt06180  Pathogenic Escherichia coli
+  ELEMENT   N00340  The Scribble/Dlg/Lgl polarity module
+            N00344  CRB3-Pals1-PATJ complex
+            N01287  Tight junction-Actin signaling pathway
+DRUG        D09916  Ivacaftor (USAN/INN)
+            D10685  Lumacaftor and ivacaftor
+            D11042  Tezacaftor and ivacaftor
+            D11527  Zolbetuximab (USAN/INN)
+            D11700  Elexacaftor, ivacaftor and tezacaftor
+            D12722  Bexotegrast (USAN/INN)
+            D12781  Osemitamab (USAN/INN)
+            D12997  Lixudebart (USAN/INN)
+            D13024  Vanzacaftor, tezacaftor and deutivacaftor
+            D13158  Spevatamig (USAN/INN)
+            D13163  Sonesitatug (USAN/INN)
+            D13164  Sonesitatug vedotin (USAN/INN)
+            D13271  Ixotatug (USAN/INN)
+            D13340  Ixotatug vedotin (USAN/INN)
+DBLINKS     GO: 0005923
+ORGANISM    Homo sapiens (human) [GN:hsa]
+GENE        100132463  CLDN24; claudin-24 [KO:K06087]
+            100288814  CLDN34; claudin-34 [KO:K06087]
+            100506658  OCLN; occludin isoform a [KO:K06088]
+            10092  ARPC5; actin-related protein 2/3 complex subunit 5 isoform 1 [KO:K05754]
+            10093  ARPC4; actin-related protein 2/3 complex subunit 4 isoform a [KO:K05755]
+            10094  ARPC3; actin-related protein 2/3 complex subunit 3 isoform 1 [KO:K05756]
+            10095  ARPC1B; actin-related protein 2/3 complex subunit 1B [KO:K05757]
+            10096  ACTR3; actin-related protein 3 isoform 1 [KO:K18584]
+            10097  ACTR2; actin-related protein 2 isoform b [KO:K17260]
+            10109  ARPC2; actin-related protein 2/3 complex subunit 2 [KO:K05758]
+            1019  CDK4; cyclin-dependent kinase 4 [KO:K02089] [EC:2.7.11.22]
+            10207  PATJ; inaD-like protein isoform 1 [KO:K06092]
+            10376  TUBA1B; tubulin alpha-1B chain [KO:K07374]
+            103910  MYL12B; myosin regulatory light chain 12B [KO:K12757]
+            10398  MYL9; myosin regulatory light polypeptide 9 isoform a [KO:K12755]
+            10552  ARPC1A; actin-related protein 2/3 complex subunit 1A isoform 1 [KO:K05757]
+            10627  MYL12A; myosin regulatory light chain 12A isoform 1 [KO:K12757]
+            10686  CLDN16; claudin-16 [KO:K06087]
+            1080  CFTR; cystic fibrosis transmembrane conductance regulator [KO:K05031] [EC:5.6.1.6]
+            11149  POPDC1; popeye domain-containing protein 1 [KO:K21108]
+            112714  TUBA3E; tubulin alpha-3E chain [KO:K07374]
+            113457  TUBA3D; tubulin alpha-3D chain [KO:K07374]
+            11346  SYNPO; synaptopodin isoform C [KO:K21112]
+            123720  WHAMM; WASP homolog-associated protein with actin, membranes and microtubules [KO:K20479]
+            1364  CLDN4; claudin-4 [KO:K06087]
+            1365  CLDN3; claudin-3 [KO:K06087]
+            1366  CLDN7; claudin-7 isoform 1 [KO:K06087]
+            137075  CLDN23; claudin-23 [KO:K06087]
+            140465  MYL6B; myosin light chain 6B [KO:K12751]
+            149461  CLDN19; claudin-19 isoform a [KO:K06087]
+            150084  IGSF5; immunoglobulin superfamily member 5 [KO:K06786]
+            153562  MARVELD2; MARVEL domain-containing protein 2 isoform 1 [KO:K17291]
+            154796  AMOT; angiomotin isoform 1 [KO:K16819]
+            154810  AMOTL1; angiomotin-like protein 1 isoform 1 [KO:K06104]
+            1739  DLG1; disks large homolog 1 isoform 1 [KO:K12076]
+            1740  DLG2; disks large homolog 2 isoform 2 [KO:K12075]
+            1741  DLG3; disks large homolog 3 isoform a [KO:K21098]
+            2017  CTTN; src substrate cortactin isoform a [KO:K06106]
+            2064  ERBB2; receptor tyrosine-protein kinase erbB-2 isoform a precursor [KO:K05083] [EC:2.7.10.1]
+            23327  NEDD4L; E3 ubiquitin-protein ligase NEDD4-like isoform 1 [KO:K13305] [EC:2.3.2.26]
+            23370  ARHGEF18; rho guanine nucleotide exchange factor 18 isoform c [KO:K21066]
+            23513  SCRIB; protein scribble homolog isoform a [KO:K16175]
+            23562  CLDN14; claudin-14 [KO:K06087]
+            24146  CLDN15; claudin-15 [KO:K06087]
+            2626  GATA4; transcription factor GATA-4 isoform 2 [KO:K09183]
+            26285  CLDN17; claudin-17 [KO:K06087]
+            27134  TJP3; tight junction protein ZO-3 isoform 1 [KO:K06097]
+            3059  HCLS1; hematopoietic lineage cell-specific protein isoform 1 [KO:K06106]
+            3308  HSPA4; heat shock 70 kDa protein 4 [KO:K09489]
+            3688  ITGB1; integrin beta-1 isoform 1A precursor [KO:K05719]
+            3725  JUN; transcription factor Jun [KO:K04448]
+            387  RHOA; transforming protein RhoA isoform 1 precursor [KO:K04513]
+            3993  LLGL2; LLGL scribble cell polarity complex component 2 isoform c [KO:K06094]
+            3996  LLGL1; lethal(2) giant larvae protein homolog 1 [KO:K06094]
+            4214  MAP3K1; mitogen-activated protein kinase kinase kinase 1 [KO:K04416] [EC:2.7.11.25]
+            4217  MAP3K5; mitogen-activated protein kinase kinase kinase 5 isoform 2 [KO:K04426] [EC:2.7.11.25]
+            4218  RAB8A; ras-related protein Rab-8A [KO:K07901]
+            4301  AFDN; afadin isoform 6 [KO:K05702]
+            4478  MSN; moesin isoform 1 [KO:K05763]
+            4627  MYH9; myosin-9 [KO:K10352]
+            4628  MYH10; myosin-10 isoform 2 [KO:K10352]
+            4629  MYH11; myosin-11 isoform SM1A [KO:K10352]
+            4633  MYL2; myosin regulatory light chain 2, ventricular/cardiac muscle isoform isoform 1 [KO:K10351]
+            4637  MYL6; myosin light polypeptide 6 isoform 1 [KO:K12751]
+            4734  NEDD4; E3 ubiquitin-protein ligase NEDD4 isoform 3 [KO:K10591] [EC:2.3.2.26]
+            4771  NF2; merlin isoform 1 [KO:K16684]
+            49861  CLDN20; claudin-20 precursor [KO:K06087]
+            5010  CLDN11; claudin-11 isoform 1 [KO:K06087]
+            50848  F11R; junctional adhesion molecule A isoform 1 precursor [KO:K06089]
+            50855  PARD6A; partitioning defective 6 homolog alpha isoform 1 [KO:K06093]
+            5111  PCNA; proliferating cell nuclear antigen [KO:K04802]
+            51208  CLDN18; claudin-18 isoform 1 [KO:K06087]
+            51421  AMOTL2; angiomotin-like protein 2 isoform 4 [KO:K06104]
+            51422  PRKAG2; 5'-AMP-activated protein kinase subunit gamma-2 isoform a [KO:K07200]
+            51735  RAPGEF6; rap guanine nucleotide exchange factor 6 isoform 2 [KO:K08020]
+            51762  RAB8B; ras-related protein Rab-8B [KO:K07902]
+            51807  TUBA8; tubulin alpha-8 chain isoform 1 [KO:K07374]
+            53632  PRKAG3; 5'-AMP-activated protein kinase subunit gamma-3 [KO:K07200]
+            53842  CLDN22; claudin-22 [KO:K06087]
+            54566  EPB41L4B; band 4.1-like protein 4B isoform 2 [KO:K21111]
+            55114  ARHGAP17; rho GTPase-activating protein 17 isoform 1 [KO:K20638]
+            5515  PPP2CA; serine/threonine-protein phosphatase 2A catalytic subunit alpha isoform isoform 1 [KO:K04382] [EC:3.1.3.16]
+            5516  PPP2CB; serine/threonine-protein phosphatase 2A catalytic subunit beta isoform [KO:K04382] [EC:3.1.3.16]
+            5518  PPP2R1A; serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform isoform 1 [KO:K03456]
+            5519  PPP2R1B; serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform isoform a [KO:K03456]
+            5520  PPP2R2A; serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B alpha isoform isoform 1 [KO:K04354]
+            5521  PPP2R2B; serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B beta isoform isoform e [KO:K04354]
+            5522  PPP2R2C; protein phosphatase 2, regulatory subunit B, gamma isoform a [KO:K04354]
+            5562  PRKAA1; 5'-AMP-activated protein kinase catalytic subunit alpha-1 isoform 1 [KO:K07198] [EC:2.7.11.31]
+            5563  PRKAA2; 5'-AMP-activated protein kinase catalytic subunit alpha-2 [KO:K07198] [EC:2.7.11.31]
+            5564  PRKAB1; 5'-AMP-activated protein kinase subunit beta-1 [KO:K07199]
+            5565  PRKAB2; 5'-AMP-activated protein kinase subunit beta-2 [KO:K07199]
+            5566  PRKACA; cAMP-dependent protein kinase catalytic subunit alpha isoform Calpha1 [KO:K04345] [EC:2.7.11.11]
+            5567  PRKACB; cAMP-dependent protein kinase catalytic subunit beta isoform 2 [KO:K04345] [EC:2.7.11.11]
+            5568  PRKACG; cAMP-dependent protein kinase catalytic subunit gamma [KO:K04345] [EC:2.7.11.11]
+            5571  PRKAG1; 5'-AMP-activated protein kinase subunit gamma-1 isoform 1 [KO:K07200]
+            5581  PRKCE; protein kinase C epsilon type [KO:K18050] [EC:2.7.11.13]
+            5584  PRKCI; protein kinase C iota type [KO:K06069] [EC:2.7.11.13]
+            55844  PPP2R2D; serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B delta isoform isoform a [KO:K04354]
+            5590  PRKCZ; protein kinase C zeta type isoform 1 [KO:K18952] [EC:2.7.11.13]
+            5599  MAPK8; mitogen-activated protein kinase 8 isoform alpha2 [KO:K04440] [EC:2.7.11.24]
+            5601  MAPK9; mitogen-activated protein kinase 9 isoform alpha2 [KO:K04440] [EC:2.7.11.24]
+            5602  MAPK10; mitogen-activated protein kinase 10 isoform 1 [KO:K04440] [EC:2.7.11.24]
+            5609  MAP2K7; dual specificity mitogen-activated protein kinase kinase 7 isoform 3 [KO:K04431] [EC:2.7.12.2]
+            56288  PARD3; partitioning defective 3 homolog isoform 1 [KO:K04237]
+            57180  ACTR3B; actin-related protein 3B isoform 1 [KO:K18584]
+            57530  CGN; cingulin [KO:K06102]
+            57826  RAP2C; ras-related protein Rap-2c isoform 1 precursor [KO:K07839]
+            58494  JAM2; junctional adhesion molecule B isoform 1 precursor [KO:K06735]
+            58538  MPP4; MAGUK p55 subfamily member 4 isoform 1 [KO:K21109]
+            5872  RAB13; ras-related protein Rab-13 isoform 1 [KO:K06109]
+            5879  RAC1; ras-related C3 botulinum toxin substrate 1 isoform Rac1 [KO:K04392]
+            5906  RAP1A; ras-related protein Rap-1A precursor [KO:K04353]
+            595  CCND1; G1/S-specific cyclin-D1 [KO:K04503]
+            5962  RDX; radixin isoform 2 [KO:K05762]
+            60  ACTB; actin, cytoplasmic 1 [KO:K05692]
+            6093  ROCK1; rho-associated protein kinase 1 [KO:K04514] [EC:2.7.11.39]
+            64398  PALS1; protein PALS1 isoform 1 [KO:K06091]
+            644672  CLDN25; claudin-25 [KO:K06087]
+            653857  ACTR3C; actin-related protein 3C isoform a precursor [KO:K18584]
+            6714  SRC; proto-oncogene tyrosine-protein kinase Src [KO:K05704] [EC:2.7.10.2]
+            6794  STK11; serine/threonine-protein kinase STK11 isoform 1 [KO:K07298] [EC:2.7.11.1]
+            7074  TIAM1; rho guanine nucleotide exchange factor TIAM1 isoform 1 [KO:K05731]
+            7082  TJP1; tight junction protein 1 isoform a [KO:K05701]
+            71  ACTG1; actin, cytoplasmic 2 [KO:K05692]
+            7122  CLDN5; claudin-5 isoform 2 [KO:K06087]
+            7277  TUBA4A; tubulin alpha-4A chain isoform 1 [KO:K07374]
+            7278  TUBA3C; tubulin alpha-3C chain [KO:K07374]
+            7408  VASP; vasodilator-stimulated phosphoprotein [KO:K06274]
+            7430  EZR; ezrin [KO:K08007]
+            7454  WAS; actin nucleation-promoting factor WAS isoform 1 [KO:K05747]
+            776  CACNA1D; voltage-dependent L-type calcium channel subunit alpha-1D isoform b [KO:K04851]
+            7846  TUBA1A; tubulin alpha-1A chain isoform 1 [KO:K07374]
+            79778  MICALL2; MICAL-like protein 2 [KO:K21068]
+            79784  MYH14; myosin-14 isoform 2 [KO:K10352]
+            79861  TUBAL3; tubulin alpha chain-like 3 isoform 1 [KO:K07374]
+            80086  TUBA4B; tubulin-like protein alpha-4B [KO:K07374]
+            81  ACTN4; alpha-actinin-4 isoform 1 [KO:K05699]
+            81873  ARPC5L; actin-related protein 2/3 complex subunit 5-like protein [KO:K05754]
+            8189  SYMPK; symplekin [KO:K06100]
+            83700  JAM3; junctional adhesion molecule C isoform 1 precursor [KO:K06785]
+            84552  PARD6G; partitioning defective 6 homolog gamma [KO:K06093]
+            84612  PARD6B; partitioning defective 6 homolog beta [KO:K06093]
+            84790  TUBA1C; tubulin alpha-1C chain isoform c [KO:K07374]
+            84952  CGNL1; cingulin-like protein 1 [KO:K21110]
+            8531  YBX3; Y-box-binding protein 3 isoform a [KO:K06099]
+            861  RUNX1; runt-related transcription factor 1 isoform AML1b [KO:K08367]
+            87  ACTN1; alpha-actinin-1 isoform b [KO:K05699]
+            8777  MPDZ; multiple PDZ domain protein isoform 4 [KO:K06095]
+            9069  CLDN12; claudin-12 [KO:K06087]
+            9071  CLDN10; claudin-10 isoform b [KO:K06087]
+            9073  CLDN8; claudin-8 [KO:K06087]
+            9074  CLDN6; claudin-6 [KO:K06087]
+            9075  CLDN2; claudin-2 [KO:K06087]
+            9076  CLDN1; claudin-1 [KO:K06087]
+            9080  CLDN9; claudin-9 [KO:K06087]
+            909  CD1A; T-cell surface glycoprotein CD1a isoform 1 precursor [KO:K06448]
+            910  CD1B; T-cell surface glycoprotein CD1b precursor [KO:K06448]
+            911  CD1C; T-cell surface glycoprotein CD1c precursor [KO:K06448]
+            912  CD1D; antigen-presenting glycoprotein CD1d isoform 1 precursor [KO:K06448]
+            913  CD1E; T-cell surface glycoprotein CD1e, membrane-associated isoform a precursor [KO:K06448]
+            9181  ARHGEF2; rho guanine nucleotide exchange factor 2 isoform 1 [KO:K12791]
+            91862  MARVELD3; MARVEL domain-containing protein 3 isoform 2 [KO:K21099]
+            9223  MAGI1; membrane-associated guanylate kinase, WW and PDZ domain-containing protein 1 isoform c [KO:K05631]
+            92359  CRB3; protein crumbs homolog 3 isoform a precursor [KO:K06090]
+            93643  TJAP1; tight junction-associated protein 1 isoform a [KO:K06105]
+            9368  NHERF1; Na(+)/H(+) exchange regulatory cofactor NHE-RF1 [KO:K13365]
+            9414  TJP2; tight junction protein 2 isoform 1 [KO:K06098]
+            9475  ROCK2; rho-associated protein kinase 2 isoform 1 [KO:K17388] [EC:2.7.11.39]
+            9693  RAPGEF2; rap guanine nucleotide exchange factor 2 isoform 5 [KO:K08018]
+            998  CDC42; cell division control protein 42 homolog isoform 1 precursor [KO:K04393]
+COMPOUND    C00076  Calcium cation
+REFERENCE   PMID:27353478
+  AUTHORS   Zihni C, Mills C, Matter K, Balda MS
+  TITLE     Tight junctions: from simple barriers to multifunctional molecular gates.
+  JOURNAL   Nat Rev Mol Cell Biol 17:564-80 (2016)
+            DOI:10.1038/nrm.2016.80
+REFERENCE   PMID:22169974
+  AUTHORS   Martin-Belmonte F, Perez-Moreno M
+  TITLE     Epithelial cell polarity, stem cells and cancer.
+  JOURNAL   Nat Rev Cancer 12:23-38 (2011)
+            DOI:10.1038/nrc3169
+REFERENCE   PMID:17525755
+  AUTHORS   Weber C, Fraemohs L, Dejana E
+  TITLE     The role of junctional adhesion molecules in vascular inflammation.
+  JOURNAL   Nat Rev Immunol 7:467-77 (2007)
+            DOI:10.1038/nri2096
+REFERENCE   PMID:15820555
+  AUTHORS   Miyoshi J, Takai Y
+  TITLE     Molecular perspective on tight-junction assembly and epithelial polarity.
+  JOURNAL   Adv Drug Deliv Rev 57:815-55 (2005)
+            DOI:10.1016/j.addr.2005.01.008
+REFERENCE   PMID:16650994
+  AUTHORS   Mertens AE, Pegtel DM, Collard JG
+  TITLE     Tiam1 takes PARt in cell polarity.
+  JOURNAL   Trends Cell Biol 16:308-16 (2006)
+            DOI:10.1016/j.tcb.2006.04.001
+REFERENCE   PMID:16771626
+  AUTHORS   Shin K, Fogg VC, Margolis B
+  TITLE     Tight junctions and cell polarity.
+  JOURNAL   Annu Rev Cell Dev Biol 22:207-35 (2006)
+            DOI:10.1146/annurev.cellbio.22.010305.104219
+REFERENCE   PMID:17182900
+  AUTHORS   Kooistra MR, Dube N, Bos JL
+  TITLE     Rap1: a key regulator in cell-cell junction formation.
+  JOURNAL   J Cell Sci 120:17-22 (2007)
+            DOI:10.1242/jcs.03306
+REFERENCE   PMID:17950242
+  AUTHORS   Gonzalez-Mariscal L, Tapia R, Chamorro D
+  TITLE     Crosstalk of tight junction components with signaling pathways.
+  JOURNAL   Biochim Biophys Acta 1778:729-56 (2008)
+            DOI:10.1016/j.bbamem.2007.08.018
+REFERENCE   PMID:18005931
+  AUTHORS   Assemat E, Bazellieres E, Pallesi-Pocachard E, Le Bivic A, Massey-Harroche D
+  TITLE     Polarity complex proteins.
+  JOURNAL   Biochim Biophys Acta 1778:614-30 (2008)
+            DOI:10.1016/j.bbamem.2007.08.029
+REFERENCE   PMID:18946474
+  AUTHORS   Iden S, Collard JG
+  TITLE     Crosstalk between small GTPases and polarity proteins in cell polarization.
+  JOURNAL   Nat Rev Mol Cell Biol 9:846-59 (2008)
+            DOI:10.1038/nrm2521
+REFERENCE   PMID:20094051
+  AUTHORS   Rosse C, Linch M, Kermorgant S, Cameron AJ, Boeckeler K, Parker PJ
+  TITLE     PKC and the control of localized signal dynamics.
+  JOURNAL   Nat Rev Mol Cell Biol 11:103-12 (2010)
+            DOI:10.1038/nrm2847
+REFERENCE   PMID:20134025
+  AUTHORS   Terry S, Nie M, Matter K, Balda MS
+  TITLE     Rho signaling and tight junction functions.
+  JOURNAL   Physiology (Bethesda) 25:16-26 (2010)
+            DOI:10.1152/physiol.00034.2009
+REFERENCE   PMID:21283798
+  AUTHORS   Russ PK, Pino CJ, Williams CS, Bader DM, Haselton FR, Chang MS
+  TITLE     Bves modulates tight junction associated signaling.
+  JOURNAL   PLoS One 6:e14563 (2011)
+            DOI:10.1371/journal.pone.0014563
+REFERENCE   PMID:21781017
+  AUTHORS   Citi S, Spadaro D, Schneider Y, Stutz J, Pulimeno P
+  TITLE     Regulation of small GTPases at epithelial cell-cell junctions.
+  JOURNAL   Mol Membr Biol 28:427-44 (2011)
+            DOI:10.3109/09687688.2011.603101
+REFERENCE   PMID:22896795
+  AUTHORS   Lickert H, Van Campenhout CA
+  TITLE     Evolution of the Discs large gene family provides new insights into the establishment of apical epithelial polarity and the etiology of mental retardation.
+  JOURNAL   Commun Integr Biol 5:287-90 (2012)
+            DOI:10.4161/cib.19792
+REFERENCE   PMID:22928510
+  AUTHORS   Spadaro D, Tapia R, Pulimeno P, Citi S
+  TITLE     The control of gene expression and cell proliferation by the epithelial apical junctional complex.
+  JOURNAL   Essays Biochem 53:83-93 (2012)
+            DOI:10.1042/bse0530083
+REFERENCE   PMID:24548561
+  AUTHORS   Moleirinho S, Guerrant W, Kissil JL
+  TITLE     The Angiomotins--from discovery to function.
+  JOURNAL   FEBS Lett 588:2693-703 (2014)
+            DOI:10.1016/j.febslet.2014.02.006
+REFERENCE   PMID:24651541
+  AUTHORS   Rodriguez-Boulan E, Macara IG
+  TITLE     Organization and execution of the epithelial polarity programme.
+  JOURNAL   Nat Rev Mol Cell Biol 15:225-42 (2014)
+            DOI:10.1038/nrm3775
+REFERENCE   PMID:25152334
+  AUTHORS   Gonzalez-Mariscal L, Dominguez-Calderon A, Raya-Sandino A, Ortega-Olvera JM, Vargas-Sierra O, Martinez-Revollar G
+  TITLE     Tight junctions and the regulation of gene expression.
+  JOURNAL   Semin Cell Dev Biol 36:213-23 (2014)
+            DOI:10.1016/j.semcdb.2014.08.009
+REFERENCE   PMID:25469537
+  AUTHORS   Mack NA, Georgiou M
+  TITLE     The interdependence of the Rho GTPases and apicobasal cell polarity.
+  JOURNAL   Small GTPases 5:10 (2014)
+            DOI:10.4161/21541248.2014.973768
+REFERENCE   PMID:25483301
+  AUTHORS   Citi S, Guerrera D, Spadaro D, Shah J
+  TITLE     Epithelial junctions and Rho family GTPases: the zonular signalosome.
+  JOURNAL   Small GTPases 5:1-15 (2014)
+            DOI:10.4161/21541248.2014.973760
+REFERENCE   PMID:25757376
+  AUTHORS   Zihni C, Terry SJ
+  TITLE     RhoGTPase signalling at epithelial tight junctions: Bridging the GAP between polarity and cancer.
+  JOURNAL   Int J Biochem Cell Biol 64:120-5 (2015)
+            DOI:10.1016/j.biocel.2015.02.020
+REFERENCE   PMID:22892070
+  AUTHORS   Nakano A, Takashima S
+  TITLE     LKB1 and AMP-activated protein kinase: regulators of cell polarity.
+  JOURNAL   Genes Cells 17:737-47 (2012)
+            DOI:10.1111/j.1365-2443.2012.01629.x
+REFERENCE   PMID:12042308
+  AUTHORS   Patrie KM, Drescher AJ, Welihinda A, Mundel P, Margolis B
+  TITLE     Interaction of two actin-binding proteins, synaptopodin and alpha-actinin-4, with the tight junction protein MAGI-1.
+  JOURNAL   J Biol Chem 277:30183-90 (2002)
+            DOI:10.1074/jbc.M203072200
+REFERENCE   PMID:18094055
+  AUTHORS   Yamamura R, Nishimura N, Nakatsuji H, Arase S, Sasaki T
+  TITLE     The interaction of JRAB/MICAL-L2 with Rab8 and Rab13 coordinates the assembly of tight junctions and adherens junctions.
+  JOURNAL   Mol Biol Cell 19:971-83 (2008)
+            DOI:10.1091/mbc.E07-06-0551
+REFERENCE   PMID:23885123
+  AUTHORS   Monteiro AC, Sumagin R, Rankin CR, Leoni G, Mina MJ, Reiter DM, Stehle T, Dermody TS, Schaefer SA, Hall RA, Nusrat A, Parkos CA
+  TITLE     JAM-A associates with ZO-2, afadin, and PDZ-GEF1 to activate Rap2c and regulate epithelial barrier function.
+  JOURNAL   Mol Biol Cell 24:2849-60 (2013)
+            DOI:10.1091/mbc.E13-06-0298
+REL_PATHWAY hsa04520  Adherens junction
+            hsa04810  Regulation of actin cytoskeleton
+KO_PATHWAY  ko04530
+///
