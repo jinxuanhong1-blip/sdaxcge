@@ -1,24 +1,24 @@
-# Result
+# Honest result
 
-Prat/GSE93157 is public and relevant, but its HNSCC subset contains only five
-anti-PD-1-treated patients (all nivolumab): CR=1, PR=1, SD=2, PD=1. The two
-objective responders had PFS of 13.6 and 12.2 months; the three nonresponders
-had 1.8–2.7 months. This is descriptive, not evidence of a predictive
-biomarker.
+Prat/GSE93157 has only five HNSCC cases and its NanoString immune panel contains
+neither TACSTD2 nor CLDN4. Foy/GSE159067 has 102 ICI-treated HNSCC cases, but
+its targeted HTG panel also omits both genes. Neither cohort can test the
+question.
 
-Among 725 complete NanoString genes, no response or PFS association survived
-BH correction (all q=1). The largest response-group difference was S100A7,
-lower in responders by 8.69 log2 units, but its exact p=0.20 and q=1. CCL8,
-CCL2, CXCL13, NEFL, and F2RL1 each reached the smallest observed response
-p=0.10; this is the resolution limit from only 10 possible allocations of two
-responders among five patients, not convincing evidence. The apparently
-perfect PFS rank correlation for NOS2A (rho=-1, exact p=0.0167) also vanished
-after screening 725 genes (q=1).
+The uncovered usable cohort was Liu/GSE179730: 11 pretreatment oral-cavity
+tumors from neoadjuvant nivolumab patients (six with clinical benefit and five
+progressors, using the paper’s definition). Expression was sparse: TACSTD2 was
+nonzero in 2/11 tumors and CLDN4 in 6/11.
 
-A prespecified GZMA/PRF1 cytolytic score was essentially identical between
-response groups (difference 0.00035 log2 units; exact p=1.0) and did not track
-PFS (rho=-0.50; p=0.45).
+TACSTD2 was null (benefit versus progression AUC=0.467; exact permutation
+p=0.727). CLDN4 was lower in the benefit group (median 0 versus 0.451
+log2(CPM+1); AUC=0.133; exact p=0.045), but did not survive correction across
+the two prespecified markers (BH q=0.091). In a stricter sensitivity comparison
+of three pathologic responders versus stable/progressive tumors, CLDN4 was
+also lower but clearly inconclusive (AUC=0.25; p=0.248); TACSTD2 remained null
+(p=1.0).
 
-Bottom line: this cohort is too small for honest discovery or validation. It
-supports no biomarker claim; its value here is transparent negative evidence
-and a reproducible audit trail.
+Bottom line: there is a small, directionally interesting CLDN4 signal, not
+validated evidence. Sparse near-zero measurements, n=11, treatment-naive
+resectable disease, and multiplicity prevent a robust predictive claim. No
+filters, cutoffs, or cohorts were tuned to produce this result.

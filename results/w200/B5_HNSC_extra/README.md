@@ -1,10 +1,10 @@
-# B5: extra public HNSCC ICI cohort
+# B5: leftover public HNSCC ICI cohorts
 
-This is a deliberately conservative reanalysis of the HNSCC subset of Prat et
-al., *Cancer Research* (2017), PMID
-[28487385](https://pubmed.ncbi.nlm.nih.gov/28487385/), GEO
-[GSE93157](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE93157).
-The repository had no coverage manifest, so prior coverage could not be checked.
+This is an eligibility audit and marker analysis for **TACSTD2** and **CLDN4**.
+It avoids re-running the public lung ICI cohorts already covered elsewhere.
+The primary analyzable leftover is Liu et al. 2021
+([PMID 34755131](https://pubmed.ncbi.nlm.nih.gov/34755131/),
+[GSE179730](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179730)).
 
 ## Reproduce
 
@@ -14,30 +14,29 @@ Python 3 is the only requirement:
 python3 results/w200/B5_HNSC_extra/analyze.py
 ```
 
-The script extracts the five `HEADNECK` cases from the GEO series matrix.
-Objective response is defined prospectively as CR/PR; SD/PD are non-OR. For
-each complete gene, it reports the responder-minus-nonresponder mean difference
-on the deposited log-scale values and a complete-label permutation p-value
-(all 10 allocations of two responders among five patients). PFS association is
-an exact Spearman permutation test (all 120 allocations). BH correction is
-performed separately for the two screens. The prespecified cytolytic score is
-the mean of GZMA and PRF1.
+The script audits marker presence directly in each deposited matrix. For
+GSE179730 it uses pretreatment tumors only and locks outcomes to Supplementary
+Table S2. The primary contrast follows the authors' definition: Responder +
+Stable (clinical benefit) versus Progressor. A separately labeled sensitivity
+contrast compares pathologic Responder against Stable + Progressor.
 
-## Files
+GEO calls the GSE179730 matrix “log2 CPM,” but each deposited column sums to
+approximately one million and values reach hundreds of thousands. It is
+therefore demonstrably linear CPM; the analysis uses `log2(CPM+1)`. Inference
+uses all possible group-label allocations for an exact, tie-preserving
+Mann–Whitney permutation p-value. BH correction covers the two locked primary
+marker tests. No threshold or subgroup was optimized.
 
-- `RESULTS.md`: short interpretation
-- `patients.csv`: auditable HNSCC clinical subset
-- `gene_statistics.csv`: all 725 complete-gene exploratory results
-- `cytolytic_score.csv`: per-patient GZMA/PRF1 score
-- `summary.json`: machine-readable headline results
+## Outputs
+
+- `cohort_catalog.tsv`: eligibility and exclusions
+- `per_sample_expression.csv`: auditable marker values and outcomes
+- `marker_statistics.csv`: primary and sensitivity comparisons
+- `summary.json`: machine-readable methods, checks, and honest verdict
+- `RESULTS.md`: ≤200-word result
 - `data/`: unmodified compressed GEO downloads
 
-Source file SHA-256:
-
-```text
-acc63e3818d2c92182339db8fac9c69d6c3228000b17e4bf93882004439fab34  GSE93157_series_matrix.txt.gz
-220a635a55ea32b771ee0c94238d17906de903f7d2c6ff133d75ba0f5eb67e93  GSE93157_family.soft.gz
-```
-
-This dataset is useful as a worked micro-cohort, not as an independent
-validation cohort. No model was fitted and no threshold was optimized.
+Prat/GSE93157 and Foy/GSE159067 cannot answer the marker question: both
+targeted panels omit TACSTD2 and CLDN4. GSE179730 measures both but has only 11
+pretreatment tumors and highly sparse expression, so it is exploratory, not a
+validation cohort.

@@ -1,0 +1,110 @@
+{
+  "task": "B5_HNSC_extra",
+  "question": "Pretreatment TACSTD2 and CLDN4 expression versus HNSCC ICI benefit in public leftover cohorts",
+  "primary_dataset": "GSE179730",
+  "primary_definition": "Liu paper definition: Responder + Stable (clinical benefit) versus Progressor",
+  "counts": {
+    "pretreatment_tumors": 11,
+    "clinical_benefit": 6,
+    "progressor": 5,
+    "pathologic_responder": 3,
+    "stable": 3,
+    "prat_hnsc_patients": 5,
+    "foy_patients": 102
+  },
+  "primary_results": [
+    {
+      "dataset": "GSE179730",
+      "contrast": "clinical_benefit_vs_progression",
+      "gene": "TACSTD2",
+      "unit": "log2(CPM+1)",
+      "n_positive": 6,
+      "n_negative": 5,
+      "positive_median": 0.0,
+      "negative_median": 0.0,
+      "positive_mean": 0.03702737447393236,
+      "negative_mean": 0.13262898567089937,
+      "mann_whitney_u": 14.0,
+      "auc_positive_gt_negative": 0.4666666666666667,
+      "rank_biserial": -0.06666666666666665,
+      "exact_permutation_p": 0.7272727272727273,
+      "bh_q_across_primary_markers": 0.7272727272727273
+    },
+    {
+      "dataset": "GSE179730",
+      "contrast": "clinical_benefit_vs_progression",
+      "gene": "CLDN4",
+      "unit": "log2(CPM+1)",
+      "n_positive": 6,
+      "n_negative": 5,
+      "positive_median": 0.0,
+      "negative_median": 0.45126611983869735,
+      "positive_mean": 0.04259272614004982,
+      "negative_mean": 0.3787262660444353,
+      "mann_whitney_u": 4.0,
+      "auc_positive_gt_negative": 0.13333333333333333,
+      "rank_biserial": -0.7333333333333334,
+      "exact_permutation_p": 0.045454545454545456,
+      "bh_q_across_primary_markers": 0.09090909090909091
+    }
+  ],
+  "sensitivity_results": [
+    {
+      "dataset": "GSE179730",
+      "contrast": "pathologic_responder_vs_stable_or_progression",
+      "gene": "TACSTD2",
+      "unit": "log2(CPM+1)",
+      "n_positive": 3,
+      "n_negative": 8,
+      "positive_median": 0.0,
+      "negative_median": 0.0,
+      "positive_mean": 0.07405474894786472,
+      "negative_mean": 0.0828931160443121,
+      "mann_whitney_u": 14.0,
+      "auc_positive_gt_negative": 0.5833333333333334,
+      "rank_biserial": 0.16666666666666674,
+      "exact_permutation_p": 1.0,
+      "bh_q_across_primary_markers": ""
+    },
+    {
+      "dataset": "GSE179730",
+      "contrast": "pathologic_responder_vs_stable_or_progression",
+      "gene": "CLDN4",
+      "unit": "log2(CPM+1)",
+      "n_positive": 3,
+      "n_negative": 8,
+      "positive_median": 0.0,
+      "negative_median": 0.2237685158654404,
+      "positive_mean": 0.03904714362909719,
+      "negative_mean": 0.254005782021898,
+      "mann_whitney_u": 6.0,
+      "auc_positive_gt_negative": 0.25,
+      "rank_biserial": -0.5,
+      "exact_permutation_p": 0.24848484848484848,
+      "bh_q_across_primary_markers": ""
+    }
+  ],
+  "marker_detection": {
+    "TACSTD2": {
+      "nonzero_pretreatment_n": 2,
+      "total_n": 11
+    },
+    "CLDN4": {
+      "nonzero_pretreatment_n": 6,
+      "total_n": 11
+    }
+  },
+  "data_checks": {
+    "GSE179730_column_sum_min": 999739.78830732,
+    "GSE179730_column_sum_max": 999975.4673774759,
+    "GSE93157_TACSTD2_present": false,
+    "GSE93157_CLDN4_present": false,
+    "GSE159067_TACSTD2_present": false,
+    "GSE159067_CLDN4_present": false
+  },
+  "honest_verdict": {
+    "label": "NULL_AND_UNDERPOWERED",
+    "did_we_tune_filters_or_thresholds": false,
+    "statement": "Prat and Foy cannot test these markers because their targeted panels omit both genes. In the only analyzed full-transcriptome leftover, GSE179730 (n=11), neither marker is associated with the authors' clinical-benefit definition after exact testing; expression is sparse and the cohort is too small for validation."
+  }
+}

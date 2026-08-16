@@ -1,0 +1,6 @@
+accession	citation	design	assay	TACSTD2	CLDN4	verdict	reason
+GSE93157	Prat et al. 2017; PMID 28487385	mixed-cancer anti-PD-1; HNSCC n=5	NanoString PanCancer Immune 730	absent	absent	UNUSABLE	Neither target is measured; previously audited in lung ICI work.
+GSE159067	Foy et al. 2022; CLB-IHN	R/M HNSCC PD-1/PD-L1; n=102	HTG EdgeSeq targeted panel	absent	absent	UNUSABLE	Neither target is measured on the deposited targeted panel.
+GSE179730	Liu et al. 2021; PMID 34755131	neoadjuvant nivolumab OCSCC; 11 pretreatment RNA-seq tumors	bulk RNA-seq, deposited linear CPM	present	present	USABLE_UNDERPOWERED	Full-transcriptome leftover; analyzed without model fitting.
+GSE190575	ALPHA study	pembrolizumab plus afatinib R/M HNSCC	NanoString targeted RCC	not audited here	not audited here	EXCLUDED_COMBINATION	EGFR inhibitor combination prevents an ICI-only interpretation.
+EGAD50000002506	EGAS50000001746	R/M HNSCC PD-1/PD-L1	bulk RNA-seq FASTQ	expected	expected	CONTROLLED_ACCESS	EGA data require DAC approval; not openly downloadable.
