@@ -371,13 +371,11 @@ def main() -> None:
     sample_tbl = meta.merge(per_sample, on="Sample", how="left").merge(all_comp, on="Sample", how="left")
     eligible_tac = sample_tbl["n_malignant_like"].fillna(0) >= 10
     split, med = median_split(sample_tbl.loc[eligible_tac, "mal_TACSTD2_log1p_cp10k"])
-    sample_tbl["tacstd2_class"] = np.nan
-    sample_tbl.loc[eligible_tac, "tacstd2_class"] = split
+    sample_tbl["tacstd2_class"] = pd.Series(pd.NA, index=sample_tbl.index, dtype="object")
+    sample_tbl.loc[eligible_tac, "tacstd2_class"] = split.to_numpy()
     sample_tbl["tacstd2_split_median"] = med
-    sample_tbl["mpr_class"] = np.where(
-        sample_tbl["paper_group"].isin(["MPR", "NMPR"]),
-        sample_tbl["paper_group"],
-        np.nan,
+    sample_tbl["mpr_class"] = sample_tbl["paper_group"].where(
+        sample_tbl["paper_group"].isin(["MPR", "NMPR"])
     )
     sample_tbl.to_csv(args.outdir / "sample_table.tsv", sep="\t", index=False)
 
@@ -393,7 +391,13 @@ def main() -> None:
         max_iter_harmony=20,
         verbose=True,
     )
-    adata.obsm["X_harmony"] = np.array(ho.Z_corr).T
+    z_corr = np.asarray(ho.Z_corr, dtype=np.float32)
+    if z_corr.shape == (adata.n_obs, args.n_pcs):
+        adata.obsm["X_harmony"] = z_corr
+    elif z_corr.shape == (args.n_pcs, adata.n_obs):
+        adata.obsm["X_harmony"] = z_corr.T
+    else:
+        raise ValueError(f"unexpected Harmony Z_corr shape {z_corr.shape}")
 
     lineage_counts = (
         adata.obs.groupby(["sample", "lineage"]).size().unstack(fill_value=0)
@@ -523,6 +527,21 @@ def main() -> None:
                 args.outdir / f"fig_interface_{emb_name}_{contrast}.png",
             )
 
+    nhood_files = sorted(args.outdir.glob("nhoods_*.tsv"))
+    if nhood_files:
+        fig, axes = plt.subplots(2, 2, figsize=(8.4, 6.4), sharex=True, sharey=True)
+        for ax, path in zip(axes.ravel(), nhood_files):
+            nd = pd.read_csv(path, sep="\t")
+            tt = nd[nd["testable"].fillna(False)]
+            ax.hist(tt["PValue"].dropna(), bins=25, color="#4c6a92", alpha=0.85)
+            ax.set_title(path.stem.replace("nhoods_", ""), fontsize=9)
+            ax.set_xlabel("PValue")
+            ax.set_ylabel("nhoods")
+        fig.suptitle("Nominal neighborhood P (not SpatialFDR)", fontsize=11)
+        fig.tight_layout()
+        fig.savefig(args.outdir / "fig_pvalue_histograms.png", dpi=160)
+        plt.close(fig)
+
     if all_kept_rows:
         kept_all = pd.concat(all_kept_rows, ignore_index=True)
         kept_all.to_csv(args.outdir / "kept_neighborhoods.tsv", sep="\t", index=False)
@@ -542,6 +561,25 @@ def main() -> None:
         k: int(v) for k, v in adata.obs["lineage"].value_counts().to_dict().items()
     }
     summaries["n_malignant_like"] = int(adata.obs["malignant_like"].sum())
+    any_s01 = any(v["n_SpatialFDR_lt_0.1"] for v in da_counts.values())
+    any_s02 = any(v["n_SpatialFDR_lt_0.2"] for v in da_counts.values())
+    any_bh = any(v["n_FDR_BH_lt_0.1"] for v in da_counts.values())
+    summaries["verdict"] = {
+        "any_SpatialFDR_lt_0.1": bool(any_s01),
+        "any_SpatialFDR_lt_0.2": bool(any_s02),
+        "any_FDR_BH_lt_0.1": bool(any_bh),
+        "kept_neighborhoods_are_compositional_only": True,
+        "note": (
+            "Nominal P<0.05 can exist; SpatialFDR 0.1/0.2 and BH 0.1 are the "
+            "quantities that decide a DA claim. n is samples per arm."
+        ),
+    }
+    da_rows = []
+    for key, v in da_counts.items():
+        emb, contrast = key.split(":", 1)
+        da_rows.append({"embedding": emb, "contrast": contrast, **v})
+    if da_rows:
+        pd.DataFrame(da_rows).to_csv(args.outdir / "da_counts.tsv", sep="\t", index=False)
 
     # sample-level sanity (not the Milo test)
     elig = sample_tbl.dropna(subset=["mal_TACSTD2_log1p_cp10k", "frac_TNK"])

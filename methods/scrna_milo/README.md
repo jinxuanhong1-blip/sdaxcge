@@ -65,8 +65,12 @@ python3 methods/scrna_milo/02_run_milo.py
 
 Outputs: `results/scrna_milo/`. Large matrices stay in `data/GSE207422/` (gitignored).
 
+## Result of this public run
+
+See `results/scrna_milo/FINDING.md`. Short version: **0 neighborhoods at SpatialFDR < 0.1 or < 0.2** (PCA and Harmony; TACSTD2 high vs low n=5 vs 5; MPR vs NMPR n=4 vs 8). Nominal P<0.05 is not empty. 24 compositional kept nhoods per embedding are written anyway.
+
 ## What this does not claim
 
-- It does not re-open the sample-level A3 tests (those stay NS in prior public recomputes).
-- A SpatialFDR hit at n=4 vs 8 MPR, or at a median split of ~6 vs 6 TACSTD2 classes, is a neighborhood-level composition shift among few patients. It is not a validation cohort.
+- It does not re-open the sample-level A3 tests (those stay NS in prior public recomputes; this run’s sample Spearman is ρ=−0.22, p=0.47, n=13).
+- A SpatialFDR hit at n=4 vs 8 MPR, or at a median split of 5 vs 5 TACSTD2 classes, would still be a neighborhood-level composition shift among few patients. None was observed.
 - Harmony vs PCA disagreement is reported; replication across embeddings is not assumed.
