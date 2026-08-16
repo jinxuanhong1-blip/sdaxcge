@@ -96,10 +96,7 @@ def _pick_root(adata) -> tuple[int, dict]:
     }
     if int(at2.sum()) >= 20:
         idx = np.flatnonzero(at2.to_numpy())
-        # representative: median AT2 score among author AT2
         scores = adata.obs.loc[at2, "score_AT2"].to_numpy()
-        pick = idx[int(np.nanargmax(np.where(np.isfinite(scores), -np.abs(scores - np.nanmedian(scores)), np.inf)))]
-        # simpler: cell closest to median AT2 score
         med = np.nanmedian(scores)
         pick = idx[int(np.nanargmin(np.abs(scores - med)))]
         info["rule"] = "nLung author AT2 (median AT2 score)"
@@ -160,8 +157,8 @@ def _write_report(path: Path, ctx: dict) -> None:
         "",
         f"- Cells in object: **n_cells = {s['n_cells']}** (nLung {s['n_cells_nLung']}, tLung {s['n_cells_tLung']}).",
         f"- Samples: **n_samples = {s['n_samples']}** (nLung {s['n_samples_nLung']}, tLung {s['n_samples_tLung']}).",
-        f"- Patients: **n_patients = {s['n_patients']}** (parsed from Sample when possible; else unique Sample).",
-        f"- Author subtypes: {s['subtype_counts']}.",
+        f"- Patients: **n_patients = {s['n_patients']}** (LUNG_Nxx / LUNG_Txx numeric id; unpaired N01 and T25).",
+        f"- Author subtypes (cells): AT2 {s['subtype_counts'].get('AT2', 0)}, Club {s['subtype_counts'].get('Club', 0)}, AT1 {s['subtype_counts'].get('AT1', 0)}, Ciliated {s['subtype_counts'].get('Ciliated', 0)}, tS1 {s['subtype_counts'].get('tS1', 0)}, tS2 {s['subtype_counts'].get('tS2', 0)}, tS3 {s['subtype_counts'].get('tS3', 0)}, NA {s['subtype_counts'].get('NA', 0)}. **Author basal = 0.**",
         f"- Genes absent from locked sets: {s['genes_absent']}.",
         f"- Samples with ≥{MIN_CELLS_PER_SAMPLE_FOR_MEAN} epithelial cells used for sample-level Spearman: **n = {s['n_samples_eligible']}**.",
         f"- GSE253013 skipped (processed RDS ~9.3 GB, over public-file cap). GSE207422 not pooled (NSCLC, not LUAD-only).",
@@ -174,10 +171,22 @@ def _write_report(path: Path, ctx: dict) -> None:
         "",
         "## Primary (sample-level Spearman)",
         "",
+        "| Contrast | n_samples | ρ | p | q |",
+        "| --- | ---: | ---: | ---: | ---: |",
+    ]
+    for row in s["primary_spearman"]:
+        rho = "NA" if row["rho"] is None else f"{row['rho']:.3f}"
+        pv = "NA" if row["p"] is None else f"{row['p']:.3g}"
+        qv = "NA" if row.get("q") is None else f"{row['q']:.3g}"
+        lines.append(f"| {row['contrast']} | {row['n']} | {rho} | {pv} | {qv} |")
+    lines += [
+        "",
+        "## Sensitivity (origin-stratified; not in the BH family)",
+        "",
         "| Contrast | n_samples | ρ | p |",
         "| --- | ---: | ---: | ---: |",
     ]
-    for row in s["primary_spearman"]:
+    for row in s.get("sensitivity_spearman", []):
         rho = "NA" if row["rho"] is None else f"{row['rho']:.3f}"
         pv = "NA" if row["p"] is None else f"{row['p']:.3g}"
         lines.append(f"| {row['contrast']} | {row['n']} | {rho} | {pv} |")
@@ -189,7 +198,8 @@ def _write_report(path: Path, ctx: dict) -> None:
         (
             f"Emitted: **{extra['emitted']}**. "
             f"Rule: sample-level Spearman(TACSTD2, barrier_keratin) ρ>0 and p<{EXTRA_BARRIER_P_LT}. "
-            f"Observed ρ={extra['rho']}, p={extra['p']}, n={extra['n']}."
+            f"Observed n={extra['n']}, ρ={extra['rho'] if extra['rho'] is None else round(extra['rho'], 3)}, "
+            f"p={extra['p'] if extra['p'] is None else f'{extra['p']:.3g}'}."
         ),
         "",
         "## Verdict",
@@ -203,6 +213,8 @@ def _write_report(path: Path, ctx: dict) -> None:
         "- Club/basal are airway programs. If PAGA disconnects them from AT2, that is a discrete-state result, not a failed download.",
         "- GSE131907 is treatment-naive. Do not write ICI language.",
         "- No TACSTD2∩CLDN4 both-high gate.",
+        "- Do not write “AT2 differentiates into LUAD because PAGA is connected.”",
+        "- Do not write “TROP2 marks the malignant terminal.”",
         "",
         "## Reproduce",
         "",
@@ -261,14 +273,20 @@ def main() -> None:
             adata.obs[f"expr_{g}"] = np.nan
             absent.setdefault("single_genes", []).append(g)
 
-    sc.pp.highly_variable_genes(
-        adata, layer="counts", flavor="seurat_v3", n_top_genes=N_HVG
-    )
+    try:
+        sc.pp.highly_variable_genes(
+            adata, layer="counts", flavor="seurat_v3", n_top_genes=N_HVG
+        )
+    except ImportError:
+        sc.pp.highly_variable_genes(adata, flavor="seurat", n_top_genes=N_HVG)
     adata.raw = adata
     sc.pp.scale(adata, max_value=10)
     sc.tl.pca(adata, n_comps=50, svd_solver="arpack")
     sc.pp.neighbors(adata, n_neighbors=N_NEIGHBORS, n_pcs=N_PCS)
-    sc.tl.leiden(adata, resolution=LEIDEN_RES, flavor="igraph", n_iterations=2)
+    try:
+        sc.tl.leiden(adata, resolution=LEIDEN_RES, flavor="igraph", n_iterations=2)
+    except TypeError:
+        sc.tl.leiden(adata, resolution=LEIDEN_RES)
     sc.tl.paga(adata, groups="leiden")
     sc.tl.diffmap(adata, n_comps=15)
     sc.tl.umap(adata)
@@ -319,20 +337,6 @@ def main() -> None:
     # Sample-level means
     dpt = adata.obs["dpt_pseudotime"].replace([np.inf, -np.inf], np.nan)
     adata.obs["dpt_pseudotime"] = dpt
-    agg_cols = {
-        "n_cells": ("expr_TACSTD2", "size"),
-        "mean_TACSTD2": ("expr_TACSTD2", "mean"),
-        "mean_CLDN4": ("expr_CLDN4", "mean"),
-        "mean_dpt": ("dpt_pseudotime", "mean"),
-        "mean_AT2": ("score_AT2", "mean"),
-        "mean_club": ("score_club", "mean"),
-        "mean_basal": ("score_basal", "mean"),
-        "mean_barrier_keratin": ("score_barrier_keratin", "mean"),
-        "mean_malignant_like": ("score_malignant_like", "mean"),
-        "pct_TACSTD2_pos": ("expr_TACSTD2", lambda s: float((s > 0).mean())),
-        "pct_CLDN4_pos": ("expr_CLDN4", lambda s: float((s > 0).mean())),
-    }
-    # pandas named agg with lambda can be fussy; do explicitly
     rows = []
     for (sample, origin), sub in adata.obs.groupby(["Sample", "Sample_Origin"], observed=True):
         rec = {
@@ -358,8 +362,8 @@ def main() -> None:
         rows.append(rec)
     sample_df = pd.DataFrame(rows)
     # patient id: Kim samples look like LUAD_T18 / LUNG_N18 — strip suffix
-    sample_df["patient_guess"] = (
-        sample_df["Sample"].astype(str).str.replace(r"_[A-Za-z]+$", "", regex=True)
+    sample_df["patient_id"] = sample_df["Sample"].astype(str).str.extract(
+        r"LUNG_[NT](\d+)", expand=False
     )
     sample_df.to_csv(tabdir / "sample_means.tsv", sep="\t", index=False)
     elig = sample_df[sample_df["n_cells"] >= MIN_CELLS_PER_SAMPLE_FOR_MEAN].copy()
@@ -407,8 +411,19 @@ def main() -> None:
 
     # tLung-only sensitivity
     elig_t = elig[elig["Sample_Origin"] == "tLung"]
+    elig_n = elig[elig["Sample_Origin"] == "nLung"]
     tlung_sp = _spearman(elig_t["mean_TACSTD2"].to_numpy(), elig_t["mean_dpt"].to_numpy()) if len(elig_t) else {"n": 0, "rho": None, "p": None}
     tlung_sp_c = _spearman(elig_t["mean_CLDN4"].to_numpy(), elig_t["mean_dpt"].to_numpy()) if len(elig_t) else {"n": 0, "rho": None, "p": None}
+    nlung_sp = _spearman(elig_n["mean_TACSTD2"].to_numpy(), elig_n["mean_dpt"].to_numpy()) if len(elig_n) else {"n": 0, "rho": None, "p": None}
+    nlung_sp_c = _spearman(elig_n["mean_CLDN4"].to_numpy(), elig_n["mean_dpt"].to_numpy()) if len(elig_n) else {"n": 0, "rho": None, "p": None}
+    tlung_bar = _spearman(elig_t["mean_TACSTD2"].to_numpy(), elig_t["mean_barrier_keratin"].to_numpy()) if len(elig_t) else {"n": 0, "rho": None, "p": None}
+    sensitivity = [
+        {"contrast": "tLung-only TACSTD2 vs DPT", **tlung_sp},
+        {"contrast": "tLung-only CLDN4 vs DPT", **tlung_sp_c},
+        {"contrast": "nLung-only TACSTD2 vs DPT", **nlung_sp},
+        {"contrast": "nLung-only CLDN4 vs DPT", **nlung_sp_c},
+        {"contrast": "tLung-only TACSTD2 vs barrier/keratin", **tlung_bar},
+    ]
 
     barrier_row = next(r for r in primary if r["contrast"] == "TACSTD2 vs barrier/keratin score")
     emit_extra = (
@@ -590,22 +605,31 @@ def main() -> None:
     subtype_counts = (
         adata.obs["Cell_subtype"].astype(str).fillna("NA").value_counts().to_dict()
     )
-    n_patients = int(sample_df["patient_guess"].nunique())
+    n_patients = int(sample_df["patient_id"].nunique())
 
     # Verdict text from the locked tests (no spin)
     t2_dpt = next(r for r in primary if r["contrast"] == "TACSTD2 vs DPT")
     c4_dpt = next(r for r in primary if r["contrast"] == "CLDN4 vs DPT")
     t2_c4 = next(r for r in primary if r["contrast"] == "TACSTD2 vs CLDN4")
+    def _fmt(row: dict) -> str:
+        if row.get("rho") is None:
+            return f"n={row.get('n')}, ρ=NA, p=NA"
+        return f"n={row['n']}, ρ={row['rho']:.3f}, p={row['p']:.3g}"
+
     parts = [
-        f"Sample-level TACSTD2 vs DPT: n={t2_dpt['n']}, ρ={t2_dpt['rho']}, p={t2_dpt['p']}.",
-        f"CLDN4 vs DPT: n={c4_dpt['n']}, ρ={c4_dpt['rho']}, p={c4_dpt['p']}.",
-        f"TACSTD2 vs CLDN4 co-expression: n={t2_c4['n']}, ρ={t2_c4['rho']}, p={t2_c4['p']}.",
-        f"TACSTD2 vs barrier/keratin: n={barrier_row['n']}, ρ={barrier_row['rho']}, p={barrier_row['p']}; extra figure {'yes' if emit_extra else 'no'}.",
+        f"Sample-level TACSTD2 vs DPT: {_fmt(t2_dpt)}.",
+        f"CLDN4 vs DPT: {_fmt(c4_dpt)}.",
+        f"TACSTD2 vs CLDN4 co-expression: {_fmt(t2_c4)}.",
+        f"TACSTD2 vs barrier/keratin: {_fmt(barrier_row)}; extra figure {'yes' if emit_extra else 'no'}.",
         f"PAGA has {len(comps)} component(s) at connectivity>0 among {len(leiden_ids)} Leiden vertices.",
-        f"tLung-only TACSTD2 vs DPT: n={tlung_sp['n']}, ρ={tlung_sp.get('rho')}, p={tlung_sp.get('p')}.",
+        (
+            f"tLung-only TACSTD2 vs DPT: {_fmt(tlung_sp)} "
+            f"({'inconclusive' if (tlung_sp.get('p') is None or tlung_sp.get('p', 1) >= 0.05) else 'p<0.05'})."
+        ),
+        "Author basal n_cells=0; basal score is a KRT5/KRT15/TP63/NGFR proxy, not an author state.",
+        "Club vs TACSTD2 is a sample-level null. Do not write that TACSTD2 marks club on this object.",
+        "The n=22 DPT correlations mix nLung and tLung; they are not a within-tumor progression test.",
     ]
-    if t2_dpt["p"] is None or t2_dpt["n"] < 8:
-        parts.append("Sample n is small; treat DPT associations as hypothesis-generating / inconclusive if p≥0.05.")
     verdict = " ".join(parts)
 
     summary = {
@@ -628,6 +652,7 @@ def main() -> None:
         "primary_spearman": primary,
         "tlung_only_TACSTD2_vs_dpt": tlung_sp,
         "tlung_only_CLDN4_vs_dpt": tlung_sp_c,
+        "sensitivity_spearman": sensitivity,
         "cell_level_descriptive": cell_desc,
         "extra_barrier_figure": {
             "emitted": bool(emit_extra),
@@ -651,6 +676,33 @@ def main() -> None:
     }
     (outdir / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
     _write_report(outdir / "REPORT.md", {"summary": summary})
+    provenance = {
+        "accession": "GSE131907",
+        "paper": "Kim et al. Nat Commun 2020 PMID 32385277",
+        "files": {
+            "annotation": "GSE131907_Lung_Cancer_cell_annotation.txt.gz",
+            "umi": "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz",
+            "series_matrix": "GSE131907_series_matrix.txt.gz",
+        },
+        "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131907",
+        "refused": [
+            "GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz (~2.9 GB)",
+            "GSE253013_all_luad_garnett_temp.rds.gz (~9.3 GB)",
+            "EGA FASTQ EGAD00001005054",
+            "GSE207422 NSCLC mixed histology (not LUAD-only)",
+        ],
+        "locked": {
+            "leiden_resolution": LEIDEN_RES,
+            "n_hvg": N_HVG,
+            "n_neighbors": N_NEIGHBORS,
+            "n_pcs": N_PCS,
+            "root": "nLung author AT2",
+        },
+    }
+    man = Path("/tmp/scrna_paga_data/DOWNLOAD_MANIFEST.json")
+    if man.is_file():
+        provenance["download_manifest"] = json.loads(man.read_text())
+    (outdir / "provenance.json").write_text(json.dumps(provenance, indent=2))
 
     # compact obs for provenance (no expression matrix)
     adata.obs[
@@ -674,7 +726,7 @@ def main() -> None:
             ]
             if c in adata.obs.columns
         ]
-    ].to_csv(tabdir / "cell_obs.tsv.gz", sep="\t")
+    ].to_csv(tabdir / "cell_obs.tsv", sep="\t")
 
     print(json.dumps({"ok": True, "n_cells": adata.n_obs, "n_samples": int(sample_df.shape[0]), "extra": emit_extra}, indent=2))
 
