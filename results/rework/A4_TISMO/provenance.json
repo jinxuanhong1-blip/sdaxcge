@@ -1,0 +1,50 @@
+{
+  "tismo_site": "https://tismo.pku-genomics.org/",
+  "legacy_site": "http://tismo.cistrome.org/",
+  "paper": "https://doi.org/10.1093/nar/gkab804",
+  "downloads": {
+    "TISMO_vivosample_annotations.csv": {
+      "name": "TISMO_vivosample_annotations.csv",
+      "size": 268569,
+      "cached": true,
+      "path": "/tmp/tismo_tables/TISMO_vivosample_annotations.csv",
+      "share_id": "voEA1DXBEFo",
+      "sha256": "855907285de44b250a2ccfa3ba3716976a19bfed5dbab50b58a5e2a8f5fcd060"
+    },
+    "TISMO_expressionvivo_profiles.RDS": {
+      "name": "TISMO_expressionvivo_profiles.RDS",
+      "size": 187697237,
+      "cached": true,
+      "path": "/tmp/tismo_tables/TISMO_expressionvivo_profiles.RDS",
+      "share_id": "AQKzyRCi1Jb",
+      "sha256": "c35e2cb31f6818f2f554333b0f1ad93a662a6b6fbfcf78468191ce376d46d684"
+    },
+    "TISMO_cellline_annotations.text": {
+      "name": "TISMO_cellline_annotations.text",
+      "size": 5376,
+      "cached": true,
+      "path": "/tmp/tismo_tables/TISMO_cellline_annotations.text",
+      "share_id": "YzQB2DQonQE",
+      "sha256": "0507cf739bb6a3ead8f9865b4ecafa887356f9f09268f53465e370fc3a537699"
+    },
+    "Tacstd2_genetreatment_vivo.csv": {
+      "gene": "Tacstd2",
+      "bytes": 81987,
+      "path": "/workspace/results/rework/A4_TISMO/source/Tacstd2_genetreatment_vivo.csv",
+      "sha256": "fc8fbbafa6d1d1cfc7b88919225330d854b90a6e1995136f207718c96fa953cb"
+    },
+    "Cldn4_genetreatment_vivo.csv": {
+      "gene": "Cldn4",
+      "bytes": 81857,
+      "path": "/workspace/results/rework/A4_TISMO/source/Cldn4_genetreatment_vivo.csv",
+      "sha256": "7adb79799669f4b0eedda53ba4ea3c178cd2468162156466aa4a4f71836894bb"
+    }
+  },
+  "sha256": {
+    "TISMO_vivosample_annotations.csv": "855907285de44b250a2ccfa3ba3716976a19bfed5dbab50b58a5e2a8f5fcd060",
+    "TISMO_expressionvivo_profiles.RDS": "c35e2cb31f6818f2f554333b0f1ad93a662a6b6fbfcf78468191ce376d46d684",
+    "TISMO_cellline_annotations.text": "0507cf739bb6a3ead8f9865b4ecafa887356f9f09268f53465e370fc3a537699",
+    "Tacstd2_genetreatment_vivo.csv": "fc8fbbafa6d1d1cfc7b88919225330d854b90a6e1995136f207718c96fa953cb",
+    "Cldn4_genetreatment_vivo.csv": "7adb79799669f4b0eedda53ba4ea3c178cd2468162156466aa4a4f71836894bb"
+  }
+}
