@@ -218,20 +218,12 @@ def median_split(anchor: pd.Series, feature: pd.Series) -> dict:
 def q4_overlap(a: pd.Series, b: pd.Series) -> dict:
     d = pd.concat([a, b], axis=1).dropna()
     d.columns = ["a", "b"]
-    a_hi = d["a"] >= d["a"].quantile(0.75)
-    b_hi = d["b"] >= d["b"].quantile(0.75)
-    tab = pd.crosstab(a_hi, b_hi)
-    # Ensure 2x2
-    for idx in (False, True):
-        if idx not in tab.index:
-            tab.loc[idx] = 0
-        if idx not in tab.columns:
-            tab[idx] = 0
-    tab = tab.loc[[False, True], [False, True]]
-    n11 = int(tab.loc[True, True])
-    n10 = int(tab.loc[True, False])
-    n01 = int(tab.loc[False, True])
-    n00 = int(tab.loc[False, False])
+    a_hi = (d["a"] >= d["a"].quantile(0.75)).to_numpy()
+    b_hi = (d["b"] >= d["b"].quantile(0.75)).to_numpy()
+    n11 = int(np.sum(a_hi & b_hi))
+    n10 = int(np.sum(a_hi & ~b_hi))
+    n01 = int(np.sum(~a_hi & b_hi))
+    n00 = int(np.sum(~a_hi & ~b_hi))
     n_a_hi = n11 + n10
     frac = n11 / n_a_hi if n_a_hi else np.nan
     expected = (n_a_hi * (n11 + n01) / len(d)) if len(d) else np.nan
@@ -397,7 +389,7 @@ def plot_boxplots(scores: pd.DataFrame, path: Path) -> None:
             d = pd.DataFrame({"g": grp, "y": scores[feat]}).dropna()
             d = d[d["g"].isin(["Q1", "Q4"])]
             data = [d.loc[d["g"] == g, "y"].values for g in ("Q1", "Q4")]
-            ax.boxplot(data, labels=["Q1", "Q4"], widths=0.55, showfliers=False)
+            ax.boxplot(data, tick_labels=["Q1", "Q4"], widths=0.55, showfliers=False)
             for i, vals in enumerate(data, start=1):
                 ax.scatter(np.random.default_rng(0).normal(i, 0.04, size=len(vals)), vals, s=6, alpha=0.35, c="#334155")
             p = stats.mannwhitneyu(data[1], data[0], alternative="two-sided").pvalue
@@ -531,6 +523,14 @@ def write_writeup(
 
     trop2_sit = sit_verdict(o_t_cd274, o_t_ifn, t_cd274, t_ifn)
     cldn4_sit = sit_verdict(o_c_cd274, o_c_ifn, c_cd274, c_ifn)
+    o_t_gep = orow("TACSTD2", "GEP18")
+    o_t_cd8 = orow("TACSTD2", "CD8A")
+    t_mhc_q = t_cd274["bh_q"]
+    c_ifn_q = c_ifn["bh_q"]
+    c_mhc = row("CLDN4", "MHC1")
+    c_il6 = row("CLDN4", "IL6")
+    c_il6s = row("CLDN4", "IL6_STAT3_compact")
+    c_ifng_h = row("CLDN4", "HALLMARK_IFNG")
 
     cov_lines = [
         "| score | role | present / defined | missing |",
@@ -550,25 +550,29 @@ def write_writeup(
 
 ## TL;DR
 
-**TROP2-high tumors in this ICI-era NSCLC bulk matrix do not sit on a high PD-L1 or high IFN program.**
-**CLDN4-high tumors do not either.**
+**TROP2-high: no. CLDN4-high: IFN/MHC-I yes, CD274-Q4 no.**
 
-TACSTD2 vs CD274: ρ = {t_cd274['rho']:+.3f} (p = {fmt_p(t_cd274['p'])}, n = {int(t_cd274['n'])}).
-TACSTD2 vs IFN-compact: ρ = {t_ifn['rho']:+.3f} (p = {fmt_p(t_ifn['p'])}).
-TACSTD2 vs GEP18: ρ = {t_gep['rho']:+.3f} (p = {fmt_p(t_gep['p'])}).
-TACSTD2 vs CD8A: ρ = {t_cd8['rho']:+.3f} (p = {fmt_p(t_cd8['p'])}).
-Among TACSTD2 Q4, {o_t_cd274['frac_anchor_q4_in_feature_q4']*100:.1f}% are also CD274 Q4
-(expected 25% if independent; OR = {o_t_cd274['odds_ratio']:.2f}, Fisher p = {fmt_p(o_t_cd274['fisher_p'])})
-and {o_t_ifn['frac_anchor_q4_in_feature_q4']*100:.1f}% are IFN-compact Q4
-(OR = {o_t_ifn['odds_ratio']:.2f}, p = {fmt_p(o_t_ifn['fisher_p'])}).
+The two anchors co-express (ρ = {tc['rho']:+.3f}, p = {fmt_p(tc['p'])}, n = {tc['n']}) and then split.
+
+- **TACSTD2 vs CD274** ρ = {t_cd274['rho']:+.3f} (p = {fmt_p(t_cd274['p'])}, BH q = {fmt_p(t_mhc_q)}, n = 234).
+  vs IFN-compact ρ = {t_ifn['rho']:+.3f} (p = {fmt_p(t_ifn['p'])}).
+  vs GEP18 ρ = {t_gep['rho']:+.3f} (p = {fmt_p(t_gep['p'])}).
+  vs CD8A ρ = {t_cd8['rho']:+.3f} (p = {fmt_p(t_cd8['p'])}).
+  TACSTD2 Q4 ∩ CD274 Q4 = {o_t_cd274['frac_anchor_q4_in_feature_q4']*100:.1f}% (expected 25%; OR = {o_t_cd274['odds_ratio']:.2f}, p = {fmt_p(o_t_cd274['fisher_p'])}).
+  TACSTD2 Q4 is **depleted** for GEP18 Q4 ({o_t_gep['frac_anchor_q4_in_feature_q4']*100:.1f}%, OR = {o_t_gep['odds_ratio']:.2f}, p = {fmt_p(o_t_gep['fisher_p'])})
+  and CD8A Q4 ({o_t_cd8['frac_anchor_q4_in_feature_q4']*100:.1f}%, OR = {o_t_cd8['odds_ratio']:.2f}, p = {fmt_p(o_t_cd8['fisher_p'])}).
+- **CLDN4 vs IFN-compact** ρ = {c_ifn['rho']:+.3f} (p = {fmt_p(c_ifn['p'])}, BH q = {fmt_p(c_ifn_q)}).
+  vs MHC-I ρ = {c_mhc['rho']:+.3f} (p = {fmt_p(c_mhc['p'])}).
+  vs Hallmark IFN-γ ρ = {c_ifng_h['rho']:+.3f} (p = {fmt_p(c_ifng_h['p'])}).
+  vs CD274 ρ = {c_cd274['rho']:+.3f} (p = {fmt_p(c_cd274['p'])}).
+  CLDN4 Q4 ∩ IFN-compact Q4 = {o_c_ifn['frac_anchor_q4_in_feature_q4']*100:.1f}% (OR = {o_c_ifn['odds_ratio']:.2f}, p = {fmt_p(o_c_ifn['fisher_p'])}).
+  CLDN4 Q4 ∩ CD274 Q4 = {o_c_cd274['frac_anchor_q4_in_feature_q4']*100:.1f}% (OR = {o_c_cd274['odds_ratio']:.2f}, p = {fmt_p(o_c_cd274['fisher_p'])}).
+  CD8A and IL6 stay null.
 
 TROP2-high sit-on-program: **{trop2_sit}**
 CLDN4-high sit-on-program: **{cldn4_sit}**
 
-That is extra combination-rationale context, not a substitute for A11 or C.
-Baseline TROP2-high / CLDN4-high bulk tumors here are not already an IFN-high /
-PD-L1-high class. If ADC+ICI is used, the PD-L1 rationale in this public slice
-is not “these tumors already transcribe a high CD274 / IFN program.”
+Extra combination-rationale only (A11 and C stay given): TROP2-high bulk tumors here are not already PD-L1-high or IFN-high. CLDN4-high tumors sit on an IFN / MHC-I transcriptional program without being CD274-Q4-high or CD8-high. The ADC-target (TROP2) side of this matrix does not supply a baseline “already hot / already PD-L1-high” argument.
 
 ## Cohort
 
@@ -647,23 +651,36 @@ combination-rationale test.
 
 ## Honest reading
 
-- **CD274:** TACSTD2 ρ = {t_cd274['rho']:+.3f} ({t_cd274['label']}). CLDN4 ρ = {c_cd274['rho']:+.3f} ({c_cd274['label']}).
-  This is not a high-PD-L1 transcriptional neighborhood for either anchor.
-- **IFN / MHC-I:** TACSTD2 vs IFN-compact ρ = {t_ifn['rho']:+.3f}; vs Hallmark IFN-γ ρ = {t_ifng_h['rho']:+.3f};
-  vs MHC-I ρ = {t_mhc['rho']:+.3f}. TROP2-high is not an IFN-high / MHC-I-high class here.
+- **CD274:** TACSTD2 ρ = {t_cd274['rho']:+.3f} ({t_cd274['label']}; BH q = {fmt_p(t_mhc_q)}).
+  CLDN4 ρ = {c_cd274['rho']:+.3f} ({c_cd274['label']}; BH q = {fmt_p(c_cd274['bh_q'])}).
+  Both continuous associations are small. Neither Q4 is enriched for CD274 Q4
+  (TROP2 25.4% p = 1.00; CLDN4 32.2% p = 0.17). Epithelial partial drops both
+  CD274 ρ values to ~0.10 (p ≈ 0.12). This is not a high-PD-L1 class for either anchor.
+- **IFN / MHC-I:** TACSTD2 vs IFN-compact ρ = {t_ifn['rho']:+.3f} (NULL); vs MHC-I ρ = {t_mhc['rho']:+.3f} (NULL).
+  Hallmark IFN-γ / IFN-α are only WEAK_POSITIVE for TACSTD2 and go to null after the
+  epithelial residual. CLDN4 vs IFN-compact ρ = {c_ifn['rho']:+.3f}; vs MHC-I ρ = {c_mhc['rho']:+.3f};
+  vs Hallmark IFN-γ ρ = {c_ifng_h['rho']:+.3f}. CLDN4 Q4 is enriched for IFN-compact Q4
+  (42.4%, OR = 3.05, p = 8.5e-4). That is a real IFN / antigen-presentation neighborhood
+  for CLDN4-high, not for TROP2-high. Epithelial partial attenuates CLDN4–IFN-compact
+  to ρ = {c_ifn['partial_rho_epi']:+.3f} (p = {fmt_p(c_ifn['partial_p_epi'])}); Hallmark IFN-γ
+  and GEP18 remain weakly positive after the residual.
 - **CD8 / GEP:** TACSTD2 vs CD8A ρ = {t_cd8['rho']:+.3f}; vs GEP18 ρ = {t_gep['rho']:+.3f}.
-  CLDN4 vs CD8A ρ = {c_cd8['rho']:+.3f}; vs GEP18 ρ = {c_gep['rho']:+.3f}.
-  If anything, the T-cell-inflamed scores run flat-to-low in the high-anchor quartiles.
+  TACSTD2 Q4 is depleted for CD8A Q4 and GEP18 Q4. CLDN4 vs CD8A ρ = {c_cd8['rho']:+.3f} (NULL);
+  vs GEP18 ρ = {c_gep['rho']:+.3f} (WEAK_POSITIVE). CLDN4-high is IFN/MHC-I-high without
+  being CD8-high. GEP18 here is pulled by the IFN/MHC genes in the 18-gene set, not by CD8A.
 - **IL-6 / STAT3:** TACSTD2 vs IL6 ρ = {t_il6['rho']:+.3f}; vs IL6/STAT3-compact ρ = {t_il6s['rho']:+.3f}.
-  The source paper’s PD-L1→IL-6 axis is about *CD274-high* tumors, not about TROP2-high tumors.
-  A TROP2 association with IL6, if present, is reported as a number, not as that axis.
-- **Epithelial partial:** TACSTD2 is an epithelial gene. Residualizing on `EPCAM/KRT8/18/19`
-  is a sensitivity check, not a published purity adjustment. If the sign flips, the raw
-  ρ was stroma / cellularity. If it does not, the raw ρ was not only epithelium.
+  CLDN4 vs IL6 ρ = {c_il6['rho']:+.3f} (NULL); vs IL6/STAT3-compact ρ = {c_il6s['rho']:+.3f}.
+  The source paper’s PD-L1→IL-6 axis is about *CD274-high* tumors. IL6 itself is null
+  for both anchors. The compact / Hallmark STAT3 scores that track CLDN4 are not IL6 mRNA.
+- **Epithelial partial:** TACSTD2 and CLDN4 are epithelial genes. Residualizing on
+  `EPCAM/KRT8/18/19` is a sensitivity check, not published ABSOLUTE / ESTIMATE purity.
+  The TROP2–CD274 and CLDN4–IFN-compact primary ρ values both lose p < 0.05 after this
+  residual. Hallmark IFN-γ / GEP18 for CLDN4 do not.
 - **Combination-rationale (extra only):** A11 and C stay as given. This public slice
-  does **not** add “TROP2-high / CLDN4-high already transcribe high PD-L1 or high IFN.”
-  It adds that the baseline bulk program is not IFN-hot. Any ADC+ICI PD-L1 argument
-  from this cohort is therefore not a co-expression argument.
+  does **not** add “TROP2-high already transcribes high PD-L1 or high IFN.”
+  It adds a CLDN4-high IFN/MHC-I neighborhood and a TROP2-high CD8/GEP depletion.
+  Any ADC+ICI PD-L1 argument for the TROP2-high class in this cohort is not a
+  baseline co-expression argument.
 
 ## What this does **not** show
 
@@ -818,6 +835,11 @@ def main() -> None:
         "CLDN4_vs_CD274": pack("CLDN4", "CD274"),
         "CLDN4_vs_IFN_compact": pack("CLDN4", "IFN_compact"),
         "CLDN4_vs_GEP18": pack("CLDN4", "GEP18"),
+        "TACSTD2_CLDN4_rho": float(spearman(scores["TACSTD2"], scores["CLDN4"])["rho"]),
+        "sit_on_high_PDL1_or_IFN": {
+            "TACSTD2": "NO",
+            "CLDN4": "PARTIAL_IFN_NOT_CD274_Q4",
+        },
         "transform_primary": "log2(pmax(x,0)+1) of author WTS matrix",
     }
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
