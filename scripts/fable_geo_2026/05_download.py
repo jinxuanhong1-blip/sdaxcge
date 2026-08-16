@@ -22,6 +22,8 @@ FILES = {
         "GSE261348_IMfirst_DSP_rawcounts.xlsx",
     ],
     "GSE233203": ["GSE233203_RAW.tar"],
+    "GSE329813": ["GSE329813_processed_data_file_normalized_data.csv.gz"],
+    "GSE292299": ["GSE292299_sample_metadata.csv.gz"],
     "GSE309652": ["GSE309652_RAW.tar", "filelist.txt"],
     "GSE253564": ["GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz"],
     "GSE292421": ["GSE292421_FPKM.csv.gz", "GSE292421_COUNTS.csv.gz"],

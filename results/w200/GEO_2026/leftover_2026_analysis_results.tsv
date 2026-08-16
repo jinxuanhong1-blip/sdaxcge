@@ -1,0 +1,9 @@
+dataset	cohort	gene	comparison	test	n_group1	n_group2	median_group1	median_group2	statistic	p_value	effect_type	effect_value
+GSE329813	NSCLC neoadjuvant chemo-IO (GeoMx DSP)	TACSTD2	MPR vs NMPR, patient-mean, primary tumor bed	Mann-Whitney U (two-sided)	11.0	11.0	3.9357	4.7989	13.0	0.002	Cliff's delta (MPR minus NMPR)	-0.7851
+GSE329813	NSCLC neoadjuvant chemo-IO (GeoMx DSP)	TACSTD2	MPR vs NMPR, patient-mean, draining lymph node	Mann-Whitney U (two-sided)	10.0	8.0	4.119	3.5675	43.0	0.8286	Cliff's delta (MPR minus NMPR)	0.075
+GSE329813	NSCLC neoadjuvant chemo-IO (GeoMx DSP)	CLDN4	panel presence	gene inventory of processed DSP matrix							absent from processed panel	
+GSE292299	NSCLC Visium whole-sample pseudobulk	TACSTD2~CLDN4	Marker concordance across patients	Spearman rank correlation	16.0				0.5176	0.04	Spearman rho	0.5176
+GSE292299	NSCLC Visium whole-sample pseudobulk	TACSTD2	Tx_Response R vs NR, one Visium slide per patient	Mann-Whitney U (two-sided, exact)	12.0	4.0	8.6827	7.3662	34.0	0.2615	Cliff's delta (R minus NR)	0.4167
+GSE292299	NSCLC Visium whole-sample pseudobulk	TACSTD2	Spearman vs PFS months (censoring ignored)	Spearman rank correlation (censoring ignored)	16.0				0.2147	0.4246	Spearman rho	0.2147
+GSE292299	NSCLC Visium whole-sample pseudobulk	CLDN4	Tx_Response R vs NR, one Visium slide per patient	Mann-Whitney U (two-sided, exact)	12.0	4.0	8.602	6.5558	41.0	0.0418	Cliff's delta (R minus NR)	0.7083
+GSE292299	NSCLC Visium whole-sample pseudobulk	CLDN4	Spearman vs PFS months (censoring ignored)	Spearman rank correlation (censoring ignored)	16.0				0.55	0.0273	Spearman rho	0.55

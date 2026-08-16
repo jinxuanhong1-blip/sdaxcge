@@ -26,13 +26,17 @@ blood/PBMC assays.
 | GSE261348 | ES-SCLC, chemo-immunotherapy (IMfirst) | GeoMx DSP, CTA | TACSTD2 ✓, CLDN4 ✗ | best RECIST response + progression/death + survival dates | yes |
 | GSE233203 | NSCLC (EGFR-TKI resistant) ABCP atezolizumab combo | 10x scRNA-seq (7 patients) | TACSTD2 ✓, CLDN4 ✓ | therapeutic response (Response / Non-response) | yes |
 | GSE292421 | pan-cancer incl. NSCLC, ICB resistance | bulk RNA-seq FPKM | TACSTD2 ✓, CLDN4 ✓ | TME immunophenotype (inflamed/excluded/desert) — NOT direct response | supportive only |
+| GSE329813 | NSCLC neoadjuvant pembro+chemo (2026 leftover) | GeoMx DSP | TACSTD2 ✓, CLDN4 ✗ | MPR/NMPR in sample titles | yes (post-tx residual) |
+| GSE292299 | NSCLC pretreatment Visium (2026 leftover) | Visium H5 (per-GSM, <2 GB) | TACSTD2 ✓, CLDN4 ✓ | Tx_Response R/NR | yes (n_NR=4, exploratory) |
 
 ## Checked but not usable for TACSTD2/CLDN4 vs response
 - GSE309652 (NSCLC, anti-PD-(L)1, clean R/NR, n=72): NanoString **metabolism**
   panel (768 genes) — TACSTD2/CLDN4/EPCAM absent. Cannot measure target genes.
-- GSE329813 (NSCLC neoadjuvant chemo-immuno spatial, n=127): expression present
-  (TACSTD2 ✓, CLDN4 ✗) but no per-ROI response/MPR label in GEO metadata
-  (only `batch`, `tissue`) → would require inventing labels. Excluded.
+- GSE329813 (NSCLC neoadjuvant chemo-immuno spatial, n=127): first-pass
+  characteristics scan only saw `batch`/`tissue`. **Correction (2026 leftover
+  pass):** MPR/NMPR is in `!Sample_title`. Analyzed as leftover 2026
+  (`leftover_2026_WRITEUP.md`). TACSTD2 ✓, CLDN4 ✗. Post-treatment residual
+  tissue — not a pretreatment predictor.
 - GSE253564 (durvalumab±RT, bulk lung tumor FPKM, full transcriptome): both
   genes present, but no per-sample response label in GEO metadata (treatment
   Arm1/Arm2 only). Excluded from response association.

@@ -4,6 +4,9 @@
 > `scripts/fable_geo_2026/`, and `results/w200/GEO_2026/`.
 > 中文在后 / English first, 中文 second.
 > Search and source checks refreshed on **2026-08-16 UTC**.
+> **2026-only leftover addendum:** `leftover_2026_WRITEUP.md` (GSE329813,
+> GSE292299). The first pass missed title-encoded MPR labels and per-GSM
+> Visium H5 files.
 
 ---
 
@@ -87,9 +90,10 @@ positive = higher in responders). P-values are two-sided Mann–Whitney U
 ### Datasets found but not usable for this specific question (documented, not hidden)
 - **GSE309652** (NSCLC, anti-PD-(L)1, clean R/NR, n=72): NanoString **metabolism**
   panel (768 genes) — TACSTD2/CLDN4/EPCAM absent. Downloaded and checked.
-- **GSE329813** (NSCLC neoadjuvant chemo-immuno spatial, n=127): expression
-  present (TACSTD2 ✓, CLDN4 ✗) but **no per-ROI response/MPR label** in GEO
-  metadata (only `batch`, `tissue`). Not used (would require inventing labels).
+- **GSE329813** (NSCLC neoadjuvant chemo-immuno spatial): first pass missed
+  MPR/NMPR in sample titles. Re-analyzed in the 2026 leftover addendum
+  (`leftover_2026_WRITEUP.md`). TACSTD2 lower in post-treatment MPR tumor
+  beds (residual epithelium); CLDN4 not on the panel.
 - **GSE253564** (durvalumab±RT, bulk lung tumor FPKM, full transcriptome, both
   genes present): **no per-sample response label** in GEO (treatment arm only).
 - **GSE292421** (pan-cancer incl. NSCLC bulk FPKM, both genes present): only a
@@ -124,8 +128,10 @@ python3 scripts/fable_geo_2026/03_list_supp.py
 python3 scripts/fable_geo_2026/06_label_scan_all.py
 python3 scripts/fable_geo_2026/05_download.py
 python3 scripts/fable_geo_2026/07_analyze.py
+python3 scripts/fable_geo_2026/08_leftover_2026.py
+python3 scripts/fable_geo_2026/09_analyze_leftover_2026.py
 ```
-Dependencies: `pandas scipy numpy matplotlib openpyxl lifelines`.
+Dependencies: `pandas scipy numpy matplotlib openpyxl lifelines h5py`.
 Large downloads are reproducible and are not committed (see
 `results/w200/GEO_2026/data/.gitignore`). Exact source URLs, byte sizes, and
 SHA-256 digests are in `results/w200/GEO_2026/input_manifest.tsv`.
@@ -135,6 +141,8 @@ SHA-256 digests are in `results/w200/GEO_2026/input_manifest.tsv`.
 ## 中文
 
 > 检索与数据源核查更新于 **2026-08-16 UTC**。
+> **仅 2026 年 leftover 补篇：** `leftover_2026_WRITEUP.md`（GSE329813、
+> GSE292299）。首轮漏掉了 title 中的 MPR 标签以及各 GSM 的 Visium H5。
 
 ### 目标
 在 GEO 数据库中检索 **2024–2026 年新发布的、人类肺癌免疫检查点抑制剂（ICI）相关
@@ -208,9 +216,9 @@ TACSTD2（TROP2）与 CLDN4 是**上皮/肿瘤细胞**基因，只有在肿瘤�
 ### 检索到但不适用于本问题的数据集（如实记录，非隐瞒）
 - **GSE309652**（NSCLC，抗 PD-(L)1，清晰 R/NR，n=72）：NanoString **代谢**面板
   （768 基因），不含 TACSTD2/CLDN4/EPCAM。已下载并核实。
-- **GSE329813**（NSCLC 新辅助化免空间转录组，n=127）：表达存在（TACSTD2 ✓、
-  CLDN4 ✗），但 GEO 元数据**无每个 ROI 的疗效/MPR 标签**（仅 `batch`、`tissue`）。
-  未使用（否则需杜撰标签）。
+- **GSE329813**（NSCLC 新辅助化免空间转录组）：首轮漏看 title 中的 MPR/NMPR。
+  已在 2026 leftover 补篇重做（`leftover_2026_WRITEUP.md`）。治疗后 MPR 瘤床
+  TACSTD2 更低（残留上皮）；CLDN4 不在面板上。
 - **GSE253564**（durvalumab±放疗，肺肿瘤 bulk FPKM，全转录组，两基因均在）：
   GEO 中**无样本级疗效标签**（仅治疗分组 Arm1/Arm2）。
 - **GSE292421**（泛癌含 NSCLC，bulk FPKM，两基因均在）：仅有 TME 免疫表型
@@ -238,7 +246,9 @@ python3 scripts/fable_geo_2026/03_list_supp.py
 python3 scripts/fable_geo_2026/06_label_scan_all.py
 python3 scripts/fable_geo_2026/05_download.py
 python3 scripts/fable_geo_2026/07_analyze.py
+python3 scripts/fable_geo_2026/08_leftover_2026.py
+python3 scripts/fable_geo_2026/09_analyze_leftover_2026.py
 ```
-依赖：`pandas scipy numpy matplotlib openpyxl lifelines`。大文件可复现且不纳入
+依赖：`pandas scipy numpy matplotlib openpyxl lifelines h5py`。大文件可复现且不纳入
 版本库（见 `results/w200/GEO_2026/data/.gitignore`）；准确来源 URL、字节数与
 SHA-256 校验值见 `results/w200/GEO_2026/input_manifest.tsv`。
