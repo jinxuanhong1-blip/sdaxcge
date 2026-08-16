@@ -112,8 +112,8 @@ def contrast(obs: pd.DataFrame, gene: str, mask_a, mask_b, label: str) -> dict:
     log2fc = float(np.log2((mean_a + 1e-3) / (mean_b + 1e-3)))
     if len(a) and len(b):
         u, p = mannwhitneyu(a, b, alternative="two-sided")
-        # rank-biserial: positive => a > b
-        rbc = float(1.0 - (2.0 * u) / (len(a) * len(b)))
+        # rank-biserial of a > b: (2U_a / n_a n_b) - 1. Positive => a stochastically larger.
+        rbc = float((2.0 * u) / (len(a) * len(b)) - 1.0)
     else:
         u, p, rbc = float("nan"), float("nan"), float("nan")
     return {

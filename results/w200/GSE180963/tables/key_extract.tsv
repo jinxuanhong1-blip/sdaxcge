@@ -1,0 +1,27 @@
+metric	value	note
+series	GSE180963	public processed 10x MTX
+n_samples	2	1 K + 1 KL; genotype=sample=library
+n_cells_K	6696	author-filtered
+n_cells_KL	7564	author-filtered
+n_epi_cluster_K	20	fragile
+n_epi_cluster_KL	231	only Leiden cluster 13
+n_epi_marker_K	28	Epcam+ keratin/Cldn18+ Ptprc-
+n_epi_marker_KL	170	
+immune_frac_K	0.818	cluster compartment
+immune_frac_KL	0.817	not a colder mix
+pct_Sftpc_pos_K	76.5	ambient flag
+pct_Sftpc_pos_KL	77.7	ambient flag
+Tacstd2_pct_pos_KL_epi_cluster	62.8	145/231
+Tacstd2_pct_pos_KL_immune_cluster	3.6	224/6180
+Tacstd2_pct_pos_K_epi_cluster	40.0	8/20
+Tacstd2_pct_pos_K_immune_cluster	2.2	119/5477
+Cldn4_pct_pos_KL_epi_cluster	10.0	23/231
+Cldn4_pct_pos_KL_immune_cluster	0.03	2/6180
+Cldn4_pct_pos_K_epi_cluster	5.0	1/20
+Cldn4_pct_pos_K_immune_cluster	0.0	0/5477
+Tacstd2_Cldn4_both_pct_KL_epi	8.7	20/231
+Spearman_rho_KL_epi_cluster	0.16	weak
+Cldn3_pct_pos_KL_epi	93.5	junction program present
+Cldn7_pct_pos_KL_epi	92.6	junction program present
+KL_vs_K_claim	not_supported	n=1/genotype; confounded
+cold_TME_as_lower_immune_frac	not_observed	~82% immune both
