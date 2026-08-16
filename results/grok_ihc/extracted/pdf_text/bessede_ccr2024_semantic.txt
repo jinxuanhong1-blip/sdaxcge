@@ -1,0 +1,574 @@
+
+
+===== PAGE 1 =====
+CLINICAL CANCER RESEARCH | RESEARCH BRIEFS: PRECISION MEDICINE AND THERAPEUTICS
+TROP2 Is Associated with Primary Resistance to Immune
+Checkpoint Inhibition in Patients with Advanced
+Non–Small Cell Lung Cancer
+Alban Bessede 1, Florent Peyraud 2,3,4, Benjamin Besse 5, Sophie Cousin 2, Mathilde Cabart 2,
+Fran¸cois Chomy 2, Christophe Rey 1, Oren Lara 1, Oph /C19elie Odin 1, Imane Na ﬁa1, Lucile Vanhersecke 2,
+Fabrice Barlesi 5, Jean-Philippe Gu /C19egan1, and Antoine Italiano 2,3,4
+ABSTRACT
+◥
+Purpose: Mechanisms of primary resistance to inhibitors of the
+programmed cell death-1 (PD-1)/programmed death-ligand 1 (PD-
+L1) signaling axis in non – small cell lung cancer (NSCLC) are still
+poorly understood. While some studies suggest the involvement of
+trophoblast cell surface antigen 2 (TROP2) in modulating tumor
+cell resistance to therapeutic drugs, its speciﬁc role in the context of
+PD-1/PD-L1 axis blockade is not de ﬁnitively established.
+Experimental Design: We performed high-throughput analysis
+of transcriptomic data from 891 NSCLC tumors from patients
+treated with either the PD-L1 inhibitor atezolizumab or chemo-
+therapy in two large randomized clinical trials. To con ﬁrm our
+results at the protein level, we complemented this transcriptional
+approach by performing a multiplex immuno ﬂuorescence analysis
+of tumor tissue samples as well as a proteomic pro ﬁling of plasma.
+Results: We observed a signi ﬁcant association of TROP2 over-
+expression with worse progression-free survival and overall survival
+on PD-L1 blockade, independent of other prognostic factors.
+Importantly, we found increased TROP2 expression to be predictive
+of survival in patients treated with atezolizumab but not chemo-
+therapy. TROP2 overexpression was associated with decreased
+T-cell in ﬁltration. We con ﬁrmed these results at the proteomic
+level both on tumor tissue and in plasma.
+Conclusions: Our results suggest an important contribution of
+TROP2 expression to the primary resistance to PD-L1 blockade
+in NSCLC. TROP2-biomarker – based strategy may be relevant in
+selecting patients with NSCLC who are more likely to bene ﬁt
+from a combination of immunotherapy and an anti-TROP2
+agent.
+Introduction
+Despite numerous efforts to decr ease tobacco consumption, lung
+cancer remains the leading cause of cancer-related death in Western
+countries. A signi ﬁcant portion of patients (80%) diagnosed with
+non– small cell lung cancer (NSCLC) have already progressed to an
+advanced stage. The advent of mAbs targeting programmed cell
+death-1 (PD-1) or its ligand, programmed death-ligand 1 (PD-L1),
+has brought about a revolution ary shift in the management of
+advanced NSCLC, with several s tudies demonstrating notable
+improvements in objective respons e rate, progression-free survival
+(PFS), and overall survival (OS) (1). However, most patients with
+advanced NSCLC exhibit primary resistance to PD-1/PD-L1 block-
+ade, and the underlying mechanisms responsible for this phenom-
+enon are still poorly understood (2).
+Trophoblast cell surface antigen 2 (TROP2), also known as tumor-
+associated calcium signal transducer 2, is a crucial 36-kDa single-pass
+transmembrane protein that exhibits high expression levels in various
+epithelial cancers. Although the precise physiologic role of TROP2 is
+still being investigated, research has revealed its involvement in
+multiple intracellular signaling pathways such as MAPK and
+PI3K/AKT. These pathways are closely associated with critical pro-
+cesses like cell proliferation, migration, and invasion, which are key
+factors in cancer progression (3 – 5).
+TROP2 expression has been found in nearly all lung cancer cells,
+although the extent of its expression varies, and high expression levels
+are only observed in a speci ﬁc subset of cases (6 – 7). Preclinical data
+have suggested that TROP2 surface expression in lung cancer cells may
+affect the functions of cancer cell – reactive T cells by inducing apo-
+ptosis of CD8 þ T cells (8).
+To investigate the impact of TROP2 expression on the treatment
+outcomes of patients with NSCLC undergoing immunotherapy, we
+initially analyzed the largest NSCLC gene expression dataset available
+worldwide. This dataset comprises whole-transcriptome pro ﬁles of
+891 pretreatment tumors from two randomized studies, the POPLAR
+study (phase II; ref. 9) and the OAK study (phase III; ref. 10), which
+assessed the safety and ef ﬁcacy of atezolizumab versus the cytotoxic
+agent docetaxel as a second-line treatment of NSCLC. To validate our
+ﬁndings at the protein level, we complemented this transcriptomic
+analysis with multiplex immunohisto ﬂuorescence (mIHF) on tumor
+tissue and with proteomic pro ﬁling of plasma.
+Materials and Methods
+Patient population
+Gene expression data were collected from patients included in the
+open-label, randomized phase II POPLAR (NCT01903993) and
+phase III OAK trials (NCT02008227), which evaluated atezolizumab
+versus docetaxel in patients with NSCLC who progressed following
+1Explicyte, Bordeaux, France. 2Department of Medicine, Institut Bergoni /C19e, Bor-
+deaux, France. 3Faculty of Medicine, Bordeaux, France. 4DITEP, Gustave Roussy,
+Villejuif, France. 5Department of Medicine, Gustave Roussy, Villejuif, France.
+Corresponding Author: Antoine Italiano, Institut Bergoni /C19e, Department of
+Medicine, 229 cours de l ’Argonne, Bordeaux 33000, France. E-mail:
+a.italiano@bordeaux.unicancer.fr
+Clin Cancer Res 2024;30:779 – 85
+doi: 10.1158/1078-0432.CCR-23-2566
+This open access article is distributed under the Creative Commons Attribution-
+NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license.
+/C211 2023 The Authors; Published by the American Association for Cancer Research
+AACRJournals.org | 779
+
+===== PAGE 2 =====
+platinum-based chemotherapy (9, 10). Participants in both studies
+were administered either 1,200 mg of intravenous atezolizumab
+every 3 weeks until disease progression or loss of clinical bene ﬁt,
+or 75 mg/m 2 of intravenous docetaxel every 3 weeks until progres-
+sive disease. Results from the POPLAR and OAK trials demonstrat-
+ed a noteworthy enhancement in OS with atezolizumab compared
+with docetaxel, regardless of PD-L1 expression. It is noteworthy that
+no crossover was permitted, and OS served as the primary endpoint
+in these trials (9, 10).
+mIHF analysis and plasma proteomic pro ﬁling were performed on
+tumor and blood samples from patients included in an institutional
+molecular proﬁling program [Bergonie Institute Proﬁling (BIP) study,
+sponsor: Institut Bergoni /C19e, Bordeaux, France, NCT02534649]. The
+inclusion criteria were age ≥ 18 years, histologic con ﬁrmation of
+malignant tumor, unresectable and/or metastatic disease, at least one
+tumor evaluation by imaging after initial immunotherapy adminis-
+tration, and available paraf ﬁn-embedded tumor material obtained
+before initial immunotherapy administration.
+Written informed consent was obtained from all patients. The
+studies were conducted in accordance with the Declaration of Helsinki
+and approved by the Institutional Review Board of Institut Bergoni /C19e.
+The best response to treatment was evaluated according to
+RECIST (11). Durable clinical bene ﬁt (DCB) was de ﬁned as the
+proportion of patients achieving objective response or stable disease
+lasting ≥ 12 months. PFS was de ﬁned as the time from the start of
+treatment until disease progression, death, or last patient contact. OS
+was deﬁned as the time from the start of treatment until death or last
+patient contact.
+RNA sequencing data analysis
+FASTQ ﬁles generated during the POPLAR (GO28753) and OAK
+(GO28915) clinical trials were downloaded from the European
+Genome-Phenome Archive (EGAC00001002120). Raw data were ﬁrst
+processed through fastp software (v0.32.2) to remove reads containing
+adapters, poly-N sequences, and reads with low quality. Paired-end
+clean reads were mapped to the human reference genome (GRCh38 -
+Gencode release 39) and counted using STAR software (v2.7.10a).
+Differentially expressed genes were tested using the DESeq2 R package
+(v1.36.0), and gene signature enrichment analyses were performed
+using the fsgea R package (v1.22.0) with Gene Ontology – Biological
+Process (GO – BP) terms. Immune cell estimations were performed,
+and tertiary lymphoid structure (TLS) signature scores were calculated
+by the single-sample gene set enrichment analysis (GSEA) framework
+using the consensusTME R package (v0.0.1.9) with the Bindea and
+colleagues (12) gene set and the Hennequin and colleagues (13) gene
+signature, respectively. To assess the PD-L1 status for all the patients
+treated with atezolizumab, an optimal cut-off point was de ﬁned to
+classify the patients as PD-L1– high (≥ 1%) or PD-L1– low (< 1%) using
+the cutpointr R package (v1.1.2), and the maximize metric method was
+used for the patients with PD-L1 22C3 measurements. ROC curves and
+volcano plots were drawn using the ROCit R package (v2.1.1) and
+EnhancedVolcano R package (v1.14.0), respectively.
+For patients enrolled in the BIP study, RNA sequencing (RNA-seq)
+was performed as previously described (14).
+Multiplex immuno ﬂuorescence
+Multiplex immuno ﬂuorescence analyses were performed on the
+automated Ventana Discovery XT staining platform (Ventana Medical
+Systems). In brief, slides of tumor tissue were deparaf ﬁnized, and
+antigen retrieval was performed by heat-induced epitope retrieval
+using standard CC1 reagent (Tris-based buffer, pH 8.0; Ventana
+Medical Systems). The slides were then incubated with primary
+antibodies against the following molecules: CD8 (C8/144B, Dako:
+Agilent Technologies), PanCK (AE1/AE3/PK26, Ventana), PD-L1
+(QR-1, Diagomics) and TROP2 (EPR2043, Abcam).
+Bound primary antibodies were detected using OmniMap horse-
+radish peroxidase (HRP)-conjugated anti-rabbit IgG (760– 4311; Ven-
+tana; Roche) or OmniMap HRP-conjugated anti-mouse IgG (760 –
+4310; Ventana; Roche), followed by tyramide signal ampli ﬁcation
+using opal ﬂuorophores (Opal 480, Opal 520, Opal 620, and/or Opal
+690; Akoya Biosciences). The slides were counterstained with spectral
+40,6-diamidino-2-phenylindol (Akoya Biosciences), cover-slipped,
+and digitized using a multispectral imaging platform (PhenoImager
+HT, Akoya).
+The multispectrally acquired images were unmixed using spectral
+libraries previously built from images stained for each ﬂuorophore
+(monoplex) and with inForm Advanced Image Analysis software
+(inForm v.2.60; Akoya Biosciences). Tumor areas of each tissue slide
+were delineated by a pathologist using PhenoChart (Akoya Bios-
+ciences), and the annotated sections were analyzed using inForm
+software (v.2.6.0). Cells were segmented on the basis of DAPI and
+ﬂuorescent membrane signals. Meanﬂuorescent marker intensities for
+each cell were extracted, and signal intensities were normalized using
+the GaussNorm function from the ﬂowStats R package (v4.8.2). Cells
+were ultimately phenotyped using a thresholding method in FlowJo
+software (v.10.8.0; FlowJo).
+Plasma proteome analysis
+Proteome analysis has been carried out as previously described
+thanks to the Olink Proximity Extension Assay (PEA; Olink Prote-
+omics AB, Uppsala, Sweden; ref. 15). In brief, pairs of oligonucleotide-
+labeled antibody probes bind to their targeted protein, and if the two
+probes are brought in proximity, the oligonucleotides will hybridize in
+a pairwise manner. The addition of a DNA polymerase leads to a
+proximity-dependent DNA polymerization event, generating a unique
+target sequence analyzed through either next-generation sequencing
+or real-time PCR.
+Analysis of samples has been carried out using the Olink Explore
+1536 library consisting of 1,472 proteins and 48 controls assays
+divided into four 384-plex panels focused on in ﬂammation, oncol-
+ogy, cardiometabolic, and neuro logy proteins. Sequencing was
+carried out on a NovaSeq 6000 system using two S1 ﬂow cells
+with 2 /C2 50 base read lengths. Counts of known sequences are
+thereafter translated into normalized protein expression (NPX)
+units through a quality control and normalization process devel-
+oped and provided by Olink.
+Translational Relevance
+A signiﬁcant subgroup of non – small cell lung cancer (NSCLC)
+cases fails to respond to immune checkpoint inhibitors (ICI).
+Trophoblast cell surface antigen 2 (TROP2) is a transmembrane
+glycoprotein that is overexpressed in NSCLC and represents a
+target for antibody – drug conjugates. Overexpression of TROP2
+has been shown to promote tumor cell proliferation, survival, and
+metastasis. We have demonstrated that TROP2 overexpression is
+associated with primary resistance to ICI but not to chemotherapy
+in patients with advanced NSCLC. These ﬁndings suggest that
+patients with NSCLC with TROP2-overexpressing tumors may
+beneﬁt from strategy combining ICI with anti-TROP2 agents.
+Bessede et al.
+Clin Cancer Res; 30(4) February 15, 2024 CLINICAL CANCER RESEARCH780
+
+===== PAGE 3 =====
+Data were quality controlled and normalized using an internal
+extension control and an inter-plate control, to adjust for intra- and
+inter-run variation. The ﬁnal assay readout is presented in NPX values,
+which is an arbitrary unit on a log 2-scale where a high value corre-
+sponds to a higher protein expression. All assay validation data
+(detection limits, intra- and inter-assay precision data, etc.) are
+available on the manufacturer ’s website (www.olink.com).
+Survival and statistical analyses
+The Wilcoxon and x2 tests were used in instances where they were
+deemed appropriate. For survival analyses, the log-rank test was used
+to compare Kaplan‒Meier survival curves (survival R package v3.3.1).
+The Cox proportional hazards regression model was used to estimate
+HR and 95% con ﬁdence intervals (CI). Patients were classi ﬁed as
+TROP2-high or TROP2-low based on an optimized threshold
+obtained using the maximally selected rank statistics from the maxstat
+R package and using PFS as the optimal outcome (survminer R package
+v0.4.9). Multivariable Cox proportional hazards regression models
+were used to compare the interdependence of distinct biomarkers
+for the prediction of immune checkpoint inhibitor (ICI) bene ﬁt
+(survivalAnalysis R package v0.3.0). All analyses were conducted
+using R v.4.2.1.
+Availability of data and material
+Raw and processed transcriptomic data and limited clinical data
+have been deposited at the European Genome-phenome Archive
+(EGA), which is hosted by the EBI and the CRG, under accession
+number EGA: EGAS00001005013. Additional clinical data are avail-
+able via request from https://vivli.org/ourmember/roche/. The immu-
+noﬂuorescence datasets are not publicly available due to information
+that could compromise research participant consent. According to
+French/European regulations, any reuse of the data must be approved
+by the ethics committee. Each request for access to the immuno ﬂu-
+orescence dataset (including the images) will be granted after a request
+is sent to the corresponding author (A. Italiano) and approval by the
+ethics committee.
+Results
+TROP2 gene expression is independently associated with
+unfavorable outcome in patients treated with atezolizumab but
+not with chemotherapy
+We ﬁrst investigated the impact of the TROP2-encoding gene
+(TACSTD2) expression on the PFS of patients treated with atezoli-
+zumab ( n ¼ 405). The clinical characteristics of these patients are
+summarized in Supplementary Table S1. As shown in Fig. 1A, the PFS
+of patients with high expression of TACSTD2 was signiﬁcantly lower
+than that of patients with low expression (median PFS, 2.5 vs.
+4.1 months; P < 0.001). Strikingly, high TACSTD2 expression was
+also associated with worse OS (median OS, 12.6 vs. 16.3 months; P ¼
+0.007; Fig. 1B ) and a lower DCB rate (15.7% vs. 26.2%; P ¼
+0.009; Fig. 1C ). None of these correlations were observed in the
+docetaxel arm (Fig. 1D– F), suggesting a predictive value of TACSTD2
+gene expression speci ﬁcally for response to atezolizumab. Other
+factors associated with PFS and OS in patients treated with atezoli-
+zumab in the univariate analysis were histologic subtype, CD274 gene
+expression, and increased TLS signatures. On multivariate analysis,
+high TACSTD2 expression remained independently associated with
+worse PFS (Supplementary Table S2, Supplementary Fig. S1).
+GO– BP enrichment analysis revealed that several immune path-
+ways, such as the B-cell receptor and immune response – regulating
+pathways, were enriched in the group with low expression of
+TACSTD2 (Fig. 1G and H). By using a deconvolution approach, we
+also found that the tumor microenvironment (TME) composition
+differed signi ﬁcantly between TACSTD2-high and TACSTD2-low
+tumors. TACSTD2-low tumors were characterized by the highest
+expression of genes speci ﬁc to immune cell populations such as T
+follicular helper (Tfh) cells, T cells and cytotoxic lymphocytes and B
+cells ( Fig. 1I and J). Analysis of an independent set of 72 NSCLC
+tumors, treated with ICI and incorporated into the Bergoni /C19e
+Institute Pro ﬁling program (BIP, NCT02534649), echoed our ﬁnd-
+ings, further solidifying the as sociation between TROP2 gene
+expression and poor response to ICI (Supplementary Fig. S2 and
+Supplementary Table S3).
+TROP2 intracellular expression is associated with worse
+outcome in patients treated with ICI
+To validate our ﬁndings at the protein level, we supplemented our
+transcriptional study by conducting mIHF analysis using a 5-plex color
+panel. This panel combined the markers PanCK, TROP2, CD8, PD-L1,
+and DAPI. We applied this analysis to a subset of 50 patients for whom
+parafﬁn-embedded material was available ( Fig. 2A ). The character-
+istics of these patients are presented in Supplementary Table S4.
+TROP2 is known to be cleaved in two products: the extracellular
+domain (ECD) and the intracellular domain (ICD; ref. 16). The ECD is
+shed and found only on the plasma membrane and in the cytoplasm.
+The ICD, which is the functionally dominant part of TROP2, is
+released from the membrane and accumulates in the nucleus where
+it promotes tumorigenesis. Although the total or membrane level of
+TROP2 expression was not associated with outcome ( Fig. 2B– D), the
+intracellular expression was signi ﬁcantly associated with worse PFS
+(median 1.4 vs. 13.4 months; P ¼ 0.038; Fig. 2E), OS (median 6.9 vs.
+30.7 months; P ¼ 0.226; Fig. 2F ) and DCB rate (16.7% vs. 60.5%;
+P ¼ 0.008; Fig. 2G ).
+Circulating TROP2 levels are associated with worse outcome in
+patients treated with ICI
+To con ﬁrm the importance of TROP2 cleavage in the prediction
+of ICI response, we aimed to investigate the predictive value of
+circulating TROP2 levels in patients with NSCLC undergoing
+immunotherapy. To achieve this, we employed proteomics analysis
+using PEA technology (see Methods) on plasma samples collected
+from 74 patients with advanced NSCLC and enrolled prospectively
+in the BIP study (Supplementary Table S4). First, our ﬁndings
+demonstrate a signi ﬁcant correlation between circulating TROP2
+levels and TROP2 gene expression in tumor tissue (Supplementary
+Fig. S2A). Interestingly, when classifying TROP2 circulating levels
+as high or low, we observed a signi ﬁcant correlation with DCB
+rate (17.5% vs. 52.9%; P ¼ 0.003; Supplementary Fig. S2B), PFS
+(median 2.4 vs. 10.9 months; P ¼ 0.003; Supplementary Fig. S2C),
+and OS (median 8.5 vs. 24.6 months; P ¼ 0.045; Supplementary
+Fig. S2D). In addition, we conducted an in-depth analysis of the
+tumor’s transcriptomic pro ﬁle based on the peripheral TROP2
+status (low vs. high; Supplementary Fig. S2E). Through GSEA, we
+identi ﬁed the MEK signaling pathway as signi ﬁcantly induced in
+circulating TROP2-high patients. This ﬁnding strongly suggests
+a correlation between TROP2 cleavage and MEK activation, which
+is supported by existing literature evidence (ref. 17; Supplemen-
+tary Fig. S2F). Moreover, our observations revealed that a high
+level of circulating TROP2 was associated with a reduction in
+gamma delta T cells and Th1 cells within the TME (Supplemen-
+tary Fig. S2G).
+TROP2 and Resistance to Immunotherapy
+AACRJournals.org Clin Cancer Res; 30(4) February 15, 2024 781
+
+===== PAGE 4 =====
+Figure 1.
+High TACSTD2 gene expression correlates with poorer response to ICI. Patients from the POPLAR and OAK studies were classi ﬁed as high or low based on their
+baseline level of TACSTD2 gene expression as assessed by RNA-seq. Kaplan – Meier curves of the PFS ( A– D) and OS ( B– E) of patients treated with atezolizumab
+(A and B) or docetaxel ( D and E). C– F, Proportion of patients treated with atezolizumab ( C) or docetaxel ( F) with high and low expression of TACSTD2 who
+experienced DCB or nondurable clinical bene ﬁt (NDB). P values were calculated using a x2 test. G, Volcano plot representation of the gene differentially expressed
+between TACSTD2-high and TACSTD2-low patients. H, GO analysis of the gene differentially expressed between TACSTD2-high and TACSTD2-low patients.
+I, Estimation of the immune microenvironment of patients with high and low TCASTD2 gene expression by data deconvolution using Bindea and colleagues gene sets.
+J, Histograms of the estimated score of Tfh, T cells, and cytotoxic cells in TACSTD2-high and TACSTD2-low patients.P values were calculated using the Wilcoxon test.
+Bessede et al.
+Clin Cancer Res; 30(4) February 15, 2024 CLINICAL CANCER RESEARCH782
+
+===== PAGE 5 =====
+Discussion
+Prospectively designed clinical trials are considered as the gold-
+standard approach for validating predictive markers. However,
+conducting prospective trials can be time-consuming and expensive.
+As an alternative, using data from previously well-conducted ran-
+domized controlled trials that compared therapies for which a
+marker is proposed to be predictive can offer a more feasible and
+timely option to test the predictive ability of a marker. In this study,
+Figure 2.
+TROP2 nuclear activity is associated with
+poor response to immunotherapy in
+NSCLC cancer patients.A, Representative
+image ﬁeld CD8/PanCK/PD-L1/TROP2/
+DAPI mIHF panel on a lung adenocarcino-
+ma section. B, Histogram of the level of
+TROP2 expression in patients treated with
+immunotherapy who experienced DCB or
+nondurable clinical beneﬁt( N D B ) .P value
+was calculated using the Wilcoxon test.
+C, TROP2 expression pattern in patients
+with NSCLC. A clear membrane staining
+(top) can be distinguished from more
+diffuse staining (bottom), with nuclear
+localization.D and E, Kaplan– Meier curves
+of the PFS of patients strati ﬁed as high
+versus low membrane TROP2-positive
+tumors (D) or high versus low intracellular
+TROP2-positive tumors ( E). F, Kaplan–
+Meier curves of the OS of patients with
+high versus low intracellular TROP2-posi-
+tive tumors.G, Proportion of patients with
+high versus low intracellular TROP2-posi-
+tive tumors who experienced DCB or non-
+durable clinical bene ﬁt( N D B ) .P value
+was calculated using the c2 test.
+TROP2 and Resistance to Immunotherapy
+AACRJournals.org Clin Cancer Res; 30(4) February 15, 2024 783
+
+===== PAGE 6 =====
+we used data from two large prospective studies that investigated
+the ef ﬁcacy of immunotherapy (atezo lizumab) versus chemother-
+apy (docetaxel) in patients with advanced NSCLC to examine the
+predictive role of TROP2 gene expression for immunotherapy
+efﬁcacy. Our ﬁndings indicate that high TROP2 gene expression
+is associated with worse outcomes in patients with NSCLC treated
+with immunotherapy but not with c hemotherapy. This suggests that
+TROP2 expression is not prognostic per se but rather predictive of
+immunotherapy resistance. This statement aligns with previous
+studies that have found no signi ﬁcant prognostic impact of TROP2
+expression in NSCLC (6). It is also consistent with ﬁndings from
+The Cancer Genome Atlas (TCGA) study, showing no signi ﬁcant
+impact of TROP2 gene expression on survival in patients with
+resected NSCLC (TCGA data accessed at http://gepia.cancer-pku.
+cn/ on June 2, 2023).
+Recent studies have highlighted a correlation between TROP2
+expression and the TME (18). In our study, we observed that
+TROP2 overexpression in NSCLC was linked to decreased levels
+of T-cell in ﬁltration. Although preclinical studies have indicated a
+potential role of TROP2 in inducing T-cell apoptosis (8), the precise
+mechanisms involved in the poten tial immunoregulatory role of
+TROP2 are yet to be fully understood and elucidated. Moreover, it
+would be interesting to explore in subsequent studies the potential
+role of TROP2 in mediating primary resistance to the combination
+of PD-1 inhibition and platinum-based chemotherapy, the current
+ﬁrst-line standard of care. Under standing the subtleties of this
+interaction, especially when cons idering PD-L1 versus PD-1 target-
+ing, is essential to enhance therapeutic strategies. Given the signif-
+icant role of TROP2 in cell proliferation and transformation, as well
+as its overexpression in many epith elial solid tumors compared with
+normal tissue, several anti-TRO P2 agents have entered clinical
+development. Speci ﬁcally, several antibody – drug conjugates (ADC)
+have been designed to combine the targeting ability of mAbs with
+the cell-damaging effects of poten t cytotoxic agents (19). In 2020,
+sacituzumab govitecan, an ADC t argeting TROP2, became the ﬁrst
+FDA-approved anti-TROP2 agent f or the treatment of unresectable
+locally advanced or metastatic triple-negative breast cancer in
+patients refractory to previous systemic therapies (20). This drug
+is also now approved for patients with advanced metastatic hor-
+mone receptor (HR)-positive, HER 2-negative breast cancer and
+advanced urothelial cancer.
+Spira and colleagues reported the results of the NSCLC cohorts in
+the phase I TROPION-PanTumor01 trial, which investigated the
+safety and ef ﬁcacy of another TROP2-directed ADC called datopo-
+tamab deruxtecan in patients with advanced solid tumors (21). One
+hundred seventy- ﬁve patients with advanced NSCLC were enrolled
+in the study. Eighty-four percent previously received immunother-
+apy, and 94% received platinum-based chemotherapy. Datopotamab
+deruxtecan demonstrated preliminary signals of activity with a
+manageable safety pro ﬁle. More recently, the preliminary analysis
+of the TROPION-Lung02 trial, which investigated the combination
+of datopotamab deruxtecan and pembrolizumab in 47 patients with
+advanced NSCLC, revealed an objective response rate of 38% (95%
+CI, 25%– 54%) and a median PFS of 10.8 months (95% CI, 8.3 – 15.2;
+ref. 22). Although these results were encouraging, our data suggest
+that a TROP2-biomarker-based strategy may be relevant in selecting
+patients with NSCLC who are more likely to bene ﬁt from a com-
+bination of immunotherapy and an anti-TROP2 agent. Given the
+observed correlation between TROP2 circulating levels, expression
+in tumor tissue, and patient outcomes, implementing a biomarker-
+driven strategy may also allow for noninvasive testing through a
+blood assay.
+Ethical approval
+This study was approved by the IRB of Institut Bergoni/C19e. All patients
+provided written informed consent.
+Authors’ Disclosures
+A. Bessede reports other support from Explicyte during the conduct of the study.
+B. Besse reports grants from AbbVie, Amgen, AstraZeneca, Chugai Pharmaceutical,
+Daiichi-Sankyo, Ellipse Pharma, Eisai, Genmab, Genzyme Corporation, Hedera Dx,
+Inivata, Ipsen, Janssen, MSD, PharmaMar, Roche-Genentech, Sano ﬁ, SOCAR
+Research, Tahio Oncology, and Turning during the conduct of the study. C. Rey
+reports other support from Explicyte during the conduct of the study. O. Lara reports
+other support from ImmuSmol during the conduct of the study. O. Odin reports other
+support from Exlicyte during the conduct of the study. F. Barlesi reports other support
+from AbbVie, ACEA, Amgen, AstraZeneca, Bayer, Bristol Myers Squibb, Boehringer
+Ingelheim, Eisai, Eli Lilly Oncology, F. Hoffmann – La Roche Ltd., Genentech, Ipsen,
+Ignyta, Innate Pharma, Loxo, Novartis, Medimmune, Merck, MSD, Pierre Fabre,
+Pﬁzer, Sano ﬁ-Aventis, and Takeda outside the submitted work. J.P. Gu /C19egan is an
+employee of Explicyte. A. Italiano reports grants and personal fees from AstraZeneca,
+Bayer, Parthenon, and BMS; grants from MSD and Merck; personal fees from Lilly;
+and grants and personal fees from Transgene outside the submitted work. No
+disclosures were reported by the other authors.
+Authors’ Contributions
+A. Bessede: Conceptualization, resources, supervision, funding acquisition, val-
+idation, investigation, methodology, writing – review and editing. F. Peyraud: Inves-
+tigation, writing – review and editing. B. Besse: Investigation, writing – review and
+editing. S. Cousin: Investigation, writing– review and editing. M. Cabart: Investiga-
+tion, writing – review and editing. F. Chomy: Investigation, writing – review and
+editing. C. Rey: Data curation, investigation, methodology, writing – review and
+editing. O. Lara: Validation, investigation, writing – review and editing. O. Odin:
+Validation, investigation, writing – review and editing. I. Na ﬁa: Validation, investi-
+gation, writing – review and editing. L. Vanhersecke: Validation, investigation,
+writing– review and editing. F. Barlesi: Investigation, writing – review and editing.
+J.-P. Gu /C19egan: Data curation, formal analysis, validation, investigation, writing –
+original draft, writing– review and editing. A. Italiano: Conceptualization, resources,
+formal analysis, supervision, funding acquisition, writing – original draft, writing –
+review and editing.
+Acknowledgments
+Funding was provided by Conseil Regional Aquitaine (BIP AIRIC).
+The publication costs of this article were defrayed in part by the payment of
+publication fees. Therefore, and solely to indicate this fact, this article is hereby
+marked “advertisement” in accordance with 18 USC section 1734.
+Note
+Supplementary data for this article are available at Clinical Cancer Research Online
+(http://clincancerres.aacrjournals.org/).
+Received August 23, 2023; revised October 7, 2023; accepted November 29, 2023;
+published ﬁrst December 4, 2023.
+References
+1. Shields MD, Marin-Acevedo JA, Pellini B. Immunotherapy for advanced non –
+small cell lung cancer: a decade of progress. Am Soc Clin Oncol Educ Book 2021;
+41:1– 23.
+2. Camidge DR, Doebele RC, Kerr KM. Comparing and contrasting predictive
+biomarkers for immunotherapy and targeted therapy of NSCLC. Nat Rev Clin
+Oncol 2019;16:341 – 55.
+Bessede et al.
+Clin Cancer Res; 30(4) February 15, 2024 CLINICAL CANCER RESEARCH784
+
+===== PAGE 7 =====
+3. Cubas R, Zhang S, Li M, Chen C, Yao Q. Trop2 expression contributes to tumor
+pathogenesis by activating the ERK MAPK pathway. Mol Cancer 2010;9:253.
+4. Guan H, Guo Z, Liang W, Li H, Wei G, Xu L, et al. Trop2 enhances invasion of
+thyroid cancer by inducing MMP2 through ERK and JNK pathways.
+BMC Cancer 2017;17:486.
+5. Guerra E, Trerotola M, Tripaldi R, Aloisi AL, Simeone P, Sacchetti A, et al. Trop-
+2 induces tumor growth through AKT and determines sensitivity to AKT
+inhibitors. Clin Cancer Res 2016;22:4197 – 205.
+6. Mito R, Matsubara E, Komohara Y, Shinchi Y, Sato K, Yoshii D, et al. Clinical
+impact of TROP2 in non – small lung cancers and its correlation with abnormal
+p53 nuclear accumulation. Pathol Int 2020;70:287 – 94.
+7. Inamura K, Yokouchi Y, Kobayashi M, Ninomiya H, Sakakibara R, Subat S, et al.
+Association of tumor TROP2 expression with prognosis varies among lung
+cancer subtypes. Oncotarget 2017 Apr 25;8:28725 – 35.
+8. Wang X, Long M, Dong K, Lin F, Weng Y, Ouyang Y, et al. Chemotherapy
+agents-induced immunoresistance in lung cancer cells could be reversed by trop-
+2 inhibition in vitro and in vivo by interaction with MAPK signaling pathway.
+Cancer Biol Ther 2013;14:1123 – 32.
+9. Fehrenbacher L, Spira A, Ballinger M, Kowanetz M, Vansteenkiste J, Mazieres J,
+et al. Atezolizumab versus docetaxel for patients with previously treated non –
+small cell lung cancer (POPLAR): a multicenter, open-label, phase II randomized
+controlled trial. Lancet 2016;387:1837 – 46.
+10. Rittmeyer A, Barlesi F, Waterkamp D, Park K, Ciardiello F, von Pawel J, et al.
+OAK Study Group. Atezolizumab versus docetaxel in patients with previously
+treated non– small cell lung cancer (OAK): a phase III, open-label, multicenter
+randomized controlled trial. Lancet 2017;389:255 – 65.
+11. Eisenhauer EA, Therasse P, Bogaerts J, Schwartz LH, Sargent D, Ford R, et al.
+New response evaluation criteria in solid tumors: revised RECIST guideline
+(version 1.1). Eur J Cancer 2009;45:228 – 47.
+12. Bindea G, Mlecnik B, Tosolini M, Kirilovsky A, Waldner M, Obenauf AC, et al.
+Spatiotemporal dynamics of intratumoral immune cells reveal the immune
+landscape in human cancer. Immunity 2013;39:782 – 95.
+13. Hennequin A, Derang /C18ere V, Boidot R, Apetoh L, Vincent J, Orry D, et al. Tumor
+inﬁltration by Tbetþ effector T cells and CD20þ B cells is associated with survival
+in gastric cancer patients. Oncoimmunology 2015;5:e1054598.
+14. Massard C, Michiels S, Fert /C19e C, Le Deley MC, Lacroix L, Hollebecque A, et al.
+High-throughput genomics and clinical outcome in hard-to-treat advanced
+cancers: results of the MOSCATO 01 trial. Cancer Discov 2017;7:586 – 95.
+15. Filbin MR, Mehta A, Schneider AM, Kays KR, Guess JR, Gentili M, et al. Plasma
+proteomics reveals tissue-speci ﬁc cell death and mediators of cell-cell interac-
+tions in severe COVID-19 patients. Biorxiv 2020.
+16. Stoyanova T, Goldstein AS, Cai H, Drake JM, Huang J, Witte ON. Regulated
+proteolysis of Trop2 drives epithelial hyperplasia and stem cell self-renewal via
+b-catenin signaling. Genes Dev 2012;26:2271 – 85.
+17. Guerra E, Trerotola M, Relli V, Lattanzio R, Tripaldi R, Vacca G, et al. Trop-2
+induces ADAM10-mediated cleavage of E-cadherin and drives EMT-less metas-
+tasis in colon cancer. Neoplasia 2021;23:898 – 911.
+18. Trabolsi A, Kareff SA, Rodriguez E, Krause HB, Tan H, Morgenstern-Kaplan D,
+et al. The genomic, transcriptomic, and immunological landscape of TROP2 in
+solid tumors. J Clin Oncol 2023;41:3118.
+19. Parisi C, Mahjoubi L, Gazzah A, Barlesi F. TROP-2 directed antibody – drug
+conjugates (ADCs): The revolution of smart drug delivery in advanced non –
+small cell lung cancer (NSCLC). Cancer Treat Rev 2023;118:102572.
+20. Bardia A, Mayer IA, Vahdat LT, Tolaney SM, Isakoff SJ, Diamond JR, et al.
+Sacituzumab govitecan-hziy in refractory metastatic triple-negative breast can-
+cer. N Engl J Med 2019;380:741 – 51.
+21. Spira A, Lisberg A, Sands J, Greenberg J, Philips P, Guevara F, et al. OA03.03
+datopotamab deruxtecan (Dato-DXd; DS-1062), a TROP2 ADC, in patients with
+advanced NSCLC: updated results of TROPION-PanTumor01 phase I study.
+J Thorac Oncology 2021;3:S106 – 7.
+22. Goto Y, Su WC, Levy BP, Rixe O, Yang TY, Tolcher AW, et al. TROPION-
+Lung02: Datopotamab deruxtecan (Dato-DXd) plus pembrolizumab (pembro)
+with or without platinum chemotherapy (Pt-CT) in advanced non – small cell
+lung cancer (aNSCLC). J Clin Oncol 2023;41:9004.
+AACRJournals.org Clin Cancer Res; 30(4) February 15, 2024 785
+TROP2 and Resistance to Immunotherapy
