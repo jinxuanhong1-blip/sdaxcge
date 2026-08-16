@@ -58,9 +58,34 @@ MPR and RECIST are kept as **separate** columns. pCR is collapsed into
 `MPR_like` only for the two-group DE contrast. Pre-treatment / `NE` samples
 are excluded from that contrast.
 
+## Results from this run (computed, not fabricated) / 本次运行的真实结果
+
+Logged in `demo_summary.json` and the DE CSVs. Snapshot of the committed run:
+
+- Matrix: **92,330 cells × 24,292 genes**, 15 samples, 100% matched to GEO metadata.
+- Analyzed: **18,000 cells** (stratified, max 1,200 / sample). Integration: **Harmony**
+  (`X_pca_harmony`, 18,000 × 30). **22** Leiden clusters.
+- Lineage (marker argmax): T/NK 7,622; Myeloid 3,570; Epithelial 2,262; B/Plasma 2,117;
+  Endothelial 2,077; Mast 177; Fibroblast 175.
+- Junction module genes present: TACSTD2, CLDN4, CLDN3, CLDN7, CDH1, TJP1, OCLN, F11R
+  (**CLDN18 absent** from this matrix). Score is highest on the epithelial cluster
+  (`figures/umap_04_TACSTD2_CLDN4_junction.png`).
+- **Epithelial pseudobulk DESeq2**, post-treatment only, ≥20 epithelial cells/sample:
+  **4 MPR-like (pCR+MPR) vs 7 NMPR**. Exploratory; no GOI survives BH.
+  | gene | log2FC (MPR-like vs NMPR) | p | padj |
+  |---|---:|---:|---:|
+  | CLDN7 | −0.94 | 0.042 | 0.76 |
+  | TACSTD2 | −0.85 | 0.077 | 0.79 |
+  | F11R | +0.69 | 0.082 | 0.79 |
+  | CLDN4 | −0.45 | 0.22 | 0.89 |
+  | CXCL13 | +1.68 | 0.30 | 0.93 |
+- Per-sample epithelial module scores overlap between MPR and NMPR
+  (`figures/05_epi_module_by_response.png`). Do **not** overclaim.
+
 ## Caveats / 注意
 
-- This is a **methods demo**, not a discovery paper. n ≈ 4 MPR-like vs ≈ 8 NMPR.
+- This is a **methods demo**, not a discovery paper. n = 4 MPR-like vs 7 NMPR.
 - Wilcoxon-on-cells is **not** used as the primary DE. See `../playbook.md` §5.
 - Cell–cell communication (LIANA/CellChat) is **not** run here (secondary only;
   templates live in `../scripts/08_*`).
+- Pre-treatment biopsies are excluded from the DE contrast (timepoint confound).

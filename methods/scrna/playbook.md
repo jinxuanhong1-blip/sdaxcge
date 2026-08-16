@@ -358,7 +358,10 @@ scIB, Seurat v5.
 **Datasets used/considered / 数据集:**
 - **GSE207422** — Hu et al. "Tumor microenvironment remodeling after neoadjuvant
   immunotherapy in NSCLC…" *Genome Medicine* 15:14 (2023). 15 pts, neoadjuvant PD-1+chemo,
-  MPR/NMPR/pCR + RECIST. **Used for the demo** (`demo/`).
+  MPR/NMPR/pCR + RECIST. **Used for the demo** (`demo/`). A committed run on the
+  authors' post-QC matrix (Harmony + epithelial pseudobulk DESeq2) is in
+  `demo/README.md` (results section) and `demo/figures/`. No fabricated stats;
+  the MPR-like vs NMPR contrast is exploratory (n = 4 vs 7).
 - **GSE205335** — "Single-cell transcriptome profiles… lung cancer receiving ICI"; Kim et al.
   *eLife* 12:RP98366 (2024). Processed matrix is a **499 MB `.rds`** (< 2 GB); raw in EGA.
   Response = responder(PR)/non-responder(SD/PD). Suitable as an external replication cohort.

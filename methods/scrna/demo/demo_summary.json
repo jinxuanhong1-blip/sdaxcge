@@ -1,0 +1,52 @@
+{
+  "n_cells_in_matrix": 92330,
+  "n_cells_analyzed": 18000,
+  "max_per_sample": 1200,
+  "n_genes": 24292,
+  "n_samples": 15,
+  "n_leiden_clusters": 22,
+  "integration_rep": "X_pca_harmony",
+  "lineage_counts": {
+    "T/NK": 7622,
+    "Myeloid": 3570,
+    "Epithelial": 2262,
+    "B/Plasma": 2117,
+    "Endothelial": 2077,
+    "Mast": 177,
+    "Fibroblast": 175
+  },
+  "modules_present": {
+    "TACSTD2_CLDN4_junction": [
+      "TACSTD2",
+      "CLDN4",
+      "CLDN3",
+      "CLDN7",
+      "CDH1",
+      "TJP1",
+      "OCLN",
+      "F11R"
+    ],
+    "CD8_cytotoxic": [
+      "CD8A",
+      "CD8B",
+      "GZMB",
+      "GZMK",
+      "PRF1",
+      "IFNG",
+      "NKG7"
+    ],
+    "TLS": [
+      "CXCL13",
+      "CCL19",
+      "CCL21",
+      "CR2",
+      "CXCR5",
+      "MS4A1",
+      "SELL"
+    ],
+    "CXCL13": [
+      "CXCL13"
+    ]
+  },
+  "note": "Matrix is authors' post-QC counts; ambient/doublet removal was done upstream. All values computed from data; DE in pseudobulk_de.py. Response comparisons are exploratory (small n)."
+}

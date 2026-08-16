@@ -12,7 +12,8 @@ design$grp <- resp_map[as.character(design[["Pathologic.Response"]])]
 if (all(is.na(design$grp))) {
   design$grp <- resp_map[as.character(design[["Pathologic Response"]])]
 }
-keep_s <- rownames(design)[!is.na(design$grp) &
+is_post <- grepl("Post", as.character(design$Resource), ignore.case = TRUE)
+keep_s <- rownames(design)[!is.na(design$grp) & is_post &
                              design$n_cells_epithelial >= 20 &
                              rownames(design) %in% rownames(counts)]
 counts <- t(counts[keep_s, , drop = FALSE])

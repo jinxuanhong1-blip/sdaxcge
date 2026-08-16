@@ -31,8 +31,10 @@ def main() -> int:
 
     resp_map = {"pCR": "MPR_like", "MPR": "MPR_like", "NMPR": "NMPR"}
     design["grp"] = design["Pathologic Response"].map(resp_map)
+    post = design["Resource"].astype(str).str.contains("Post", na=False)
     keep = design.index[
         design["grp"].isin(["MPR_like", "NMPR"])
+        & post
         & (design["n_cells_epithelial"] >= 20)
         & design.index.isin(counts.index)
     ]

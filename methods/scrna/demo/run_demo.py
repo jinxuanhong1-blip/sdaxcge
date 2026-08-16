@@ -121,12 +121,24 @@ def main() -> int:
     sc.settings.figdir = figdir
     rng = np.random.default_rng(args.seed)
 
-    X, cells, genes = load_counts_sparse(args.matrix)
+    cache = os.path.join(os.path.dirname(args.matrix), "GSE207422_counts.h5ad")
+    if os.path.exists(cache):
+        log(f"Loading cached AnnData {cache}")
+        adata = sc.read_h5ad(cache)
+        X, cells, genes = adata.X, adata.obs_names.to_numpy(), adata.var_names.to_numpy()
+    else:
+        X, cells, genes = load_counts_sparse(args.matrix)
     adata = ad.AnnData(
         X=X, obs=pd.DataFrame(index=cells), var=pd.DataFrame(index=genes)
     )
     adata.var_names_make_unique()
     log(f"AnnData: {adata.n_obs} cells x {adata.n_vars} genes")
+    if not os.path.exists(cache):
+        try:
+            adata.write(cache)
+            log(f"Cached counts -> {cache}")
+        except Exception as exc:  # noqa: BLE001
+            log(f"Cache write skipped: {exc}")
 
     adata.obs["sample"] = [c.rsplit("_", 1)[0] for c in adata.obs_names]
 
@@ -175,11 +187,21 @@ def main() -> int:
     sc.tl.pca(adata_hvg, n_comps=30, svd_solver="arpack")
     adata.obsm["X_pca"] = adata_hvg.obsm["X_pca"]
 
-    # ---- Harmony over sample ----
+    # ---- Harmony over sample (call harmonypy directly; scanpy 1.12
+    # harmony_integrate can fail to write X_pca_harmony with a shape error) ----
     try:
-        sc.external.pp.harmony_integrate(adata, key="sample")
+        import harmonypy as hm
+        ho = hm.run_harmony(adata.obsm["X_pca"], adata.obs, "sample")
+        Z = np.asarray(ho.Z_corr)
+        # Z_corr is (n_pcs, n_cells); AnnData.obsm needs (n_cells, n_pcs)
+        # and a C-contiguous array (a .T view can fail the shape check).
+        if Z.shape[1] == adata.n_obs:
+            Z = Z.T
+        if Z.shape[0] != adata.n_obs:
+            raise ValueError(f"unexpected Harmony Z_corr shape {Z.shape}")
+        adata.obsm["X_pca_harmony"] = np.ascontiguousarray(Z)
         rep = "X_pca_harmony"
-        log("Harmony integration done")
+        log(f"Harmony integration done  X_pca_harmony={adata.obsm[rep].shape}")
     except Exception as exc:  # noqa: BLE001
         log(f"Harmony unavailable ({exc}); falling back to raw PCA")
         rep = "X_pca"
@@ -243,17 +265,21 @@ def main() -> int:
         agg = (
             epi.obs.groupby("sample", observed=True)[["TACSTD2_CLDN4_junction"]]
             .mean()
-            .join(meta[["Pathologic Response", "RECIST"]])
+            .join(meta[["Pathologic Response", "RECIST", "Resource"]])
         )
         agg.to_csv(os.path.join(args.outdir, "epithelial_module_by_sample.csv"))
-        resp_map = {"pCR": "MPR", "MPR": "MPR", "NMPR": "NMPR", "NE": "NE"}
-        agg["resp_group"] = agg["Pathologic Response"].map(
-            lambda x: resp_map.get(str(x), str(x))
+        resp_map = {"pCR": "MPR", "MPR": "MPR", "NMPR": "NMPR"}
+        post = agg.index.isin(
+            meta.index[meta["Resource"].astype(str).str.contains("Post", na=False)]
         )
+        agg["resp_group"] = agg["Pathologic Response"].map(
+            lambda x: resp_map.get(str(x), np.nan)
+        )
+        plot_df = agg.loc[post & agg["resp_group"].notna()]
         fig, ax = plt.subplots(figsize=(5, 4.5))
-        groups = [g for g in ["MPR", "NMPR"] if g in set(agg["resp_group"])]
+        groups = [g for g in ["MPR", "NMPR"] if g in set(plot_df["resp_group"])]
         data = [
-            agg.loc[agg["resp_group"] == g, "TACSTD2_CLDN4_junction"].values
+            plot_df.loc[plot_df["resp_group"] == g, "TACSTD2_CLDN4_junction"].values
             for g in groups
         ]
         ax.boxplot(data, tick_labels=groups)
@@ -264,7 +290,7 @@ def main() -> int:
         ax.set_ylabel("Epithelial TACSTD2/CLDN4/junction score\n(per-sample mean)")
         ax.set_title(
             "Epithelial module by pathologic response\n"
-            "(GSE207422; descriptive, n small)"
+            "(GSE207422 post-treatment; descriptive, n small)"
         )
         fig.tight_layout()
         fig.savefig(os.path.join(figdir, "05_epi_module_by_response.png"), dpi=130)
