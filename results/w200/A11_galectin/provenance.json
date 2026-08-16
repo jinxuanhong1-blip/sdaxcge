@@ -1,0 +1,119 @@
+{
+  "generated_utc": "2026-08-16T20:11:05.729202+00:00",
+  "api": "https://www.cbioportal.org/api",
+  "cohorts": [
+    {
+      "cohort": "TCGA_LUAD",
+      "family": "primary_tcga",
+      "study_id": "luad_tcga_pan_can_atlas_2018",
+      "profile_id": "luad_tcga_pan_can_atlas_2018_rna_seq_v2_mrna",
+      "sample_list_id": "luad_tcga_pan_can_atlas_2018_rna_seq_v2_mrna",
+      "measurement": "Batch-normalized RNA Seq V2 RSEM",
+      "note": "Primary public bulk cohort."
+    },
+    {
+      "cohort": "TCGA_LUSC",
+      "family": "primary_tcga",
+      "study_id": "lusc_tcga_pan_can_atlas_2018",
+      "profile_id": "lusc_tcga_pan_can_atlas_2018_rna_seq_v2_mrna",
+      "sample_list_id": "lusc_tcga_pan_can_atlas_2018_rna_seq_v2_mrna",
+      "measurement": "Batch-normalized RNA Seq V2 RSEM",
+      "note": "Primary public bulk cohort."
+    },
+    {
+      "cohort": "OncoSG_LUAD",
+      "family": "replication_bulk",
+      "study_id": "luad_oncosg_2020",
+      "profile_id": "luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores",
+      "sample_list_id": "luad_oncosg_2020_rna_seq_v2_mrna",
+      "measurement": "mRNA z-scores relative to all samples (log RNA Seq V2 RSEM)",
+      "note": "Independent East-Asian LUAD bulk replication. Values are z-scores."
+    },
+    {
+      "cohort": "CPTAC_LUAD",
+      "family": "replication_bulk",
+      "study_id": "luad_cptac_2020",
+      "profile_id": "luad_cptac_2020_mrna",
+      "sample_list_id": "luad_cptac_2020_rna_seq_mrna",
+      "measurement": "mRNA expression (RPKM, log2)",
+      "purity_attr": "TUMOR_PURITY_BYESTIMATE_RNASEQ",
+      "note": "Independent LUAD bulk replication with ESTIMATE purity."
+    },
+    {
+      "cohort": "CPTAC_LUSC",
+      "family": "replication_bulk",
+      "study_id": "lusc_cptac_2021",
+      "profile_id": "lusc_cptac_2021_rna_seq_mrna",
+      "sample_list_id": "lusc_cptac_2021_rna_seq_mrna",
+      "measurement": "mRNA expression (FPKM, log2 transformed)",
+      "purity_attr": "ESTIMATE_TUMORPURITY",
+      "note": "Independent LUSC bulk replication with ESTIMATE purity."
+    },
+    {
+      "cohort": "CAS_LUAD",
+      "family": "replication_bulk",
+      "study_id": "luad_cas_2020",
+      "profile_id": "luad_cas_2020_rna_seq_mrna",
+      "sample_list_id": "luad_cas_2020_rna_seq_mrna",
+      "measurement": "mRNA expression (FPKM)",
+      "purity_attr": "TUMOR_PURITY",
+      "note": "Smaller LUAD sensitivity cohort; pathologist purity is percent."
+    },
+    {
+      "cohort": "CCLE_lung",
+      "family": "tumor_cell",
+      "study_id": "ccle_broad_2025",
+      "profile_id": "ccle_broad_2025_rna_seq_mrna",
+      "sample_list_id": "ccle_broad_2025_all",
+      "measurement": "mRNA expression (RNA Seq TPM)",
+      "lineage_value": "Lung",
+      "note": "Tumor-cell-only public check: OncotreeLineage==Lung cell lines."
+    },
+    {
+      "cohort": "CCLE_NSCLC",
+      "family": "tumor_cell",
+      "study_id": "ccle_broad_2025",
+      "profile_id": "ccle_broad_2025_rna_seq_mrna",
+      "sample_list_id": "ccle_broad_2025_all",
+      "measurement": "mRNA expression (RNA Seq TPM)",
+      "lineage_value": "Lung",
+      "disease_value": "Non-Small Cell Lung Cancer",
+      "note": "Sensitivity: lung lineage restricted to NSCLC (excludes NET/SCLC)."
+    }
+  ],
+  "genes": {
+    "TACSTD2": 4070,
+    "LGALS1": 3956,
+    "LGALS2": 3957,
+    "LGALS3": 3958,
+    "LGALS4": 3960,
+    "LGALS7": 3963,
+    "LGALS7B": 653499,
+    "LGALS8": 3964,
+    "LGALS9": 3965,
+    "LGALS9B": 284194,
+    "LGALS9C": 654346,
+    "LGALS12": 85329,
+    "LGALS13": 29124,
+    "LGALS14": 56891,
+    "LGALS16": 148003
+  },
+  "group_definition": "Within-cohort rank split; equal lower and upper halves",
+  "multiple_testing": "Benjamini-Hochberg within analysis family; primary TCGA had 26 testable gene-by-cohort comparisons",
+  "partial_correlation": "Spearman of rank residuals after OLS on purity ranks",
+  "software": {
+    "numpy": "2.4.4",
+    "requests": "2.33.1",
+    "scipy": "1.18.0"
+  },
+  "cohort_n": {
+    "TCGA_LUAD": 510,
+    "TCGA_LUSC": 484,
+    "OncoSG_LUAD": 169,
+    "CPTAC_LUAD": 110,
+    "CPTAC_LUSC": 108,
+    "CAS_LUAD": 0,
+    "CCLE_lung": 206,
+    "CCLE_NSCLC": 142
+  }
+}
