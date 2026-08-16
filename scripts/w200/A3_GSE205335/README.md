@@ -23,3 +23,6 @@ python3 scripts/w200/A3_GSE205335/analyze.py \
 GEO's matrix supplement is double-gzipped. The script removes the outer layer
 in a temporary directory, parses the sparse RDS, extracts TACSTD2/EPCAM/PTPRC,
 and never writes the full matrix into the repository.
+
+The script also writes `mpr_gate.json`. GSE205335 has RECIST only; MPR/NMPR is
+not labeled and is not inferred from RECIST.

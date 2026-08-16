@@ -24,6 +24,18 @@ import matplotlib.pyplot as plt
 
 GENES = ("TACSTD2", "EPCAM", "PTPRC")
 RESPONSE_MAP = {"PR": "R", "CR": "R", "SD": "NR", "PD": "NR", "NE": "NE"}
+NSCLC = {"ADC", "SQ"}
+MPR_TOKENS = (
+    "mpr",
+    "nmpr",
+    "n-mpr",
+    "pathologic response",
+    "pathological response",
+    "residual viable",
+    "pcr",
+    "cpr",
+    "major pathologic",
+)
 
 
 def sha256(path: Path) -> str:
@@ -134,6 +146,60 @@ def fmt_p(value: float) -> str:
     return f"{value:.2e}" if value < 0.001 else f"{value:.4f}"
 
 
+def text_has_mpr(value: object) -> bool:
+    text = str(value).casefold()
+    return any(token in text for token in MPR_TOKENS)
+
+
+def mpr_gate(metadata: pd.DataFrame, identities: pd.DataFrame, soft: Path) -> dict:
+    hits: list[dict[str, str]] = []
+    for frame_name, frame in (
+        ("geo_soft_sample_table", metadata),
+        ("cell_identity_table", identities),
+    ):
+        for column in frame.columns:
+            if text_has_mpr(column):
+                hits.append(
+                    {
+                        "source": frame_name,
+                        "field": str(column),
+                        "match": "column_name",
+                    }
+                )
+            series = frame[column].astype(str)
+            matched = series[series.map(text_has_mpr)].unique().tolist()
+            for value in matched[:20]:
+                hits.append(
+                    {
+                        "source": frame_name,
+                        "field": str(column),
+                        "match": value,
+                    }
+                )
+    opener = gzip.open if soft.suffix == ".gz" else open
+    soft_hits: list[str] = []
+    with opener(soft, "rt", errors="replace") as handle:
+        for line in handle:
+            if text_has_mpr(line):
+                soft_hits.append(line.strip())
+                if len(soft_hits) >= 20:
+                    break
+    return {
+        "mpr_labeled": bool(hits or soft_hits),
+        "endpoint_available": "RECIST 1.1 only (PR/SD/PD/NE)",
+        "reason": (
+            "GSE205335 is a palliative ICI biopsy/effusion cohort. "
+            "GEO sample characteristics and the author cell table have no "
+            "MPR/NMPR or residual-viable-tumor field. MPR requires a resected "
+            "primary and is not substituted from RECIST."
+        ),
+        "fields_present": sorted(metadata.columns.tolist()),
+        "table_hits": hits,
+        "soft_text_hits": soft_hits,
+        "do_not_substitute_recist_for_mpr": True,
+    }
+
+
 def analyze(
     cells: pd.DataFrame,
     metadata: pd.DataFrame,
@@ -188,12 +254,19 @@ def analyze(
         .apply(summarize, include_groups=False)
         .reset_index()
     )
+    histology = (
+        metadata[["patient", "cancer_subtype"]]
+        .drop_duplicates()
+        .groupby("patient", as_index=False)
+        .agg(cancer_subtype=("cancer_subtype", "first"))
+    )
     per_patient = (
         subset.groupby(
             ["patient", "recist", "response", "compartment"], observed=True
         )
         .apply(summarize, include_groups=False)
         .reset_index()
+        .merge(histology, on="patient", how="left")
     )
     per_sample.to_csv(outdir / "per_sample_tacstd2.csv", index=False)
     per_patient.to_csv(outdir / "per_patient_tacstd2.csv", index=False)
@@ -279,9 +352,18 @@ def analyze(
     lines.extend(
         [
             "",
-            "[2] Secondary: malignant-cell TACSTD2 in responders (PR) vs "
+            "[2] MPR vs NMPR: not labeled. GEO characteristics and the author "
+            "cell table contain RECIST only. RECIST is not used as a silent "
+            "MPR substitute.",
+        ]
+    )
+
+    lines.extend(
+        [
+            "",
+            "[3] Secondary: malignant-cell TACSTD2 in responders (PR) vs "
             "non-responders (SD/PD)",
-            "    Unit = patient; NE patients excluded.",
+            "    Unit = patient; NE patients excluded. This is RECIST, not MPR.",
         ]
     )
     response_results: dict[str, dict[str, float | int]] = {}
@@ -306,6 +388,78 @@ def analyze(
             f"median={np.median(nonresponders):.3f} | Mann-Whitney "
             f"U={result.statistic:.1f}, p={fmt_p(result.pvalue)}"
         )
+
+    nsclc = evaluable[evaluable["cancer_subtype"].isin(NSCLC)]
+    nsclc_results: dict[str, dict[str, float | int]] = {}
+    if nsclc["response"].nunique() == 2 and nsclc["response"].value_counts().min() >= 2:
+        lines.append(
+            "    NSCLC-only (ADC+SQ) sensitivity, not used as the verdict:"
+        )
+        for metric in ["mean_log1p_cp10k", "pct_pos", "pseudobulk_cpm"]:
+            responders = nsclc.loc[nsclc["response"] == "R", metric]
+            nonresponders = nsclc.loc[nsclc["response"] == "NR", metric]
+            result = stats.mannwhitneyu(
+                responders, nonresponders, alternative="two-sided"
+            )
+            nsclc_results[metric] = {
+                "n_r": len(responders),
+                "n_nr": len(nonresponders),
+                "r_median": float(np.median(responders)),
+                "nr_median": float(np.median(nonresponders)),
+                "mannwhitney_u": float(result.statistic),
+                "p_value": float(result.pvalue),
+            }
+            lines.append(
+                f"        {metric}: R n={len(responders)} "
+                f"median={np.median(responders):.3f} | NR n={len(nonresponders)} "
+                f"median={np.median(nonresponders):.3f} | Mann-Whitney "
+                f"U={result.statistic:.1f}, p={fmt_p(result.pvalue)}"
+            )
+
+    wide = malignant.merge(
+        tnk[["patient", "n_cells"]],
+        on="patient",
+        suffixes=("_mal", "_tnk"),
+    )
+    wide["tnk_fraction_among_mal_plus_tnk"] = wide["n_cells_tnk"] / (
+        wide["n_cells_mal"] + wide["n_cells_tnk"]
+    )
+    spearman_rows: list[dict[str, object]] = []
+    lines.extend(
+        [
+            "",
+            "[4] Exploratory: malignant TACSTD2 vs T/NK fraction among "
+            "(malignant + T/NK) cells",
+            "    This is the GSE207422-style continuous analog. It is not an "
+            "MPR test.",
+        ]
+    )
+    for cohort_name, cohort in {
+        "all_evaluable_pairs": wide,
+        "recist_r_vs_nr": wide[wide["response"].isin(["R", "NR"])],
+        "nsclc_adc_sq": wide[wide["cancer_subtype"].isin(NSCLC)],
+    }.items():
+        for exposure in ["mean_log1p_cp10k", "pct_pos"]:
+            pair = cohort[[exposure, "tnk_fraction_among_mal_plus_tnk"]].dropna()
+            if len(pair) < 5:
+                continue
+            result = stats.spearmanr(
+                pair[exposure], pair["tnk_fraction_among_mal_plus_tnk"]
+            )
+            row = {
+                "cohort": cohort_name,
+                "exposure": exposure,
+                "n": len(pair),
+                "spearman_rho": float(result.statistic),
+                "p_value": float(result.pvalue),
+            }
+            spearman_rows.append(row)
+            lines.append(
+                f"    {cohort_name} {exposure}: n={len(pair)} "
+                f"ρ={result.statistic:.3f}, p={fmt_p(result.pvalue)}"
+            )
+    spearman = pd.DataFrame(spearman_rows)
+    spearman.to_csv(outdir / "tnk_fraction_spearman.tsv", sep="\t", index=False)
 
     malignant_cells = cells[cells["compartment"] == "Malignant"]
     tnk_cells = cells[cells["compartment"] == "T/NK"]
@@ -427,9 +581,48 @@ def analyze(
     fig.savefig(outdir / "tacstd2_per_patient_bars.png", dpi=200)
     plt.close(fig)
 
+    fig, ax = plt.subplots(figsize=(6.5, 5))
+    for response, color in colors.items():
+        subset_points = wide[wide["response"] == response]
+        ax.scatter(
+            subset_points["mean_log1p_cp10k"],
+            subset_points["tnk_fraction_among_mal_plus_tnk"],
+            color=color,
+            s=60,
+            label=response,
+        )
+    if len(wide) >= 2:
+        slope, intercept = np.polyfit(
+            wide["mean_log1p_cp10k"],
+            wide["tnk_fraction_among_mal_plus_tnk"],
+            1,
+        )
+        xs = np.linspace(
+            wide["mean_log1p_cp10k"].min(),
+            wide["mean_log1p_cp10k"].max(),
+            50,
+        )
+        ax.plot(xs, intercept + slope * xs, color="0.35")
+    all_row = next(
+        row for row in spearman_rows if row["cohort"] == "all_evaluable_pairs"
+        and row["exposure"] == "mean_log1p_cp10k"
+    )
+    ax.set_xlabel("Malignant TACSTD2 mean log1p(CP10K)")
+    ax.set_ylabel("T/NK / (malignant + T/NK)")
+    ax.set_title(
+        f"Exploratory ρ={all_row['spearman_rho']:.2f}, "
+        f"p={fmt_p(float(all_row['p_value']))}, n={all_row['n']}"
+    )
+    ax.legend(frameon=False, title="RECIST")
+    fig.tight_layout()
+    fig.savefig(outdir / "tacstd2_vs_tnk_fraction.png", dpi=200)
+    plt.close(fig)
+
     return {
         "dataset": "GSE205335",
         "primary_contrast": "malignant_vs_tnk_paired_within_patient",
+        "mpr_labeled": False,
+        "mpr_contrast": "not run; MPR/NMPR unlabeled",
         "min_cells_per_compartment": min_cells,
         "n_total_cells": len(cells),
         "n_malignant_cells": int(cells["compartment"].eq("Malignant").sum()),
@@ -437,6 +630,8 @@ def analyze(
         "n_evaluable_patient_pairs": len(paired),
         "paired_results": paired_results,
         "secondary_response_results": response_results,
+        "nsclc_recist_sensitivity": nsclc_results,
+        "tnk_fraction_spearman": spearman_rows,
         "marker_sanity": marker_sanity,
         "raw_data": "not accessed; controlled EGA raw intentionally skipped",
     }
@@ -474,7 +669,10 @@ def main() -> None:
 
     metadata = parse_geo_soft(args.soft)
     metadata.to_csv(args.outdir / "gsm_sample_metadata.csv", index=False)
+    gate = mpr_gate(metadata, identities, args.soft)
+    (args.outdir / "mpr_gate.json").write_text(json.dumps(gate, indent=2) + "\n")
     summary = analyze(cells, metadata, args.outdir, args.min_cells)
+    summary["mpr_gate"] = gate
     (args.outdir / "summary.json").write_text(
         json.dumps(summary, indent=2) + "\n"
     )
