@@ -1,0 +1,20 @@
+comparator,panel,type,spearman_rho,p_value,note
+Cd8a,CD8_T,single_gene,0.459,2.36918297375635e-05,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Cd8b1,CD8_T,single_gene,0.138,0.2281592290509571,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Cd3e,CD8_T,single_gene,-0.098,0.3930616643028692,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Cd3d,CD8_T,single_gene,0.169,0.1400482115228548,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Cd3g,CD8_T,single_gene,0.111,0.3334516402562767,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+CD8_T_score,CD8_T,panel_score,0.313,0.00531182849300613,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Ncr1,NK,single_gene,-0.329,0.003301139966291907,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Klrk1,NK,single_gene,-0.126,0.27094167231108274,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Eomes,NK,single_gene,-0.35,0.001708857179249787,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Prf1,NK,single_gene,-0.366,0.000977749561926875,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Gzmb,NK,single_gene,-0.346,0.0019466258568374864,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Nkg7,NK,single_gene,-0.333,0.0028605489390980685,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Il2rb,NK,single_gene,-0.05,0.6615975914914343,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+NK_score,NK,panel_score,-0.369,0.0008942034340476924,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Epcam,Epithelial,single_gene,0.819,5.622480040988496e-20,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Krt8,Epithelial,single_gene,-0.093,0.4198943688373317,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Krt18,Epithelial,single_gene,-0.053,0.6423946771629578,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Krt19,Epithelial,single_gene,-0.14,0.22286702067004463,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
+Epithelial_score,Epithelial,panel_score,0.142,0.21509115015886457,bulk tissue co-abundance across 78 samples; NOT a cell-level tumor-vs-lymphocyte comparison
