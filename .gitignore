@@ -1,0 +1,8 @@
+# Raw downloads and large extracts (regenerate with scripts)
+data/
+*.tar.gz
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.Rhistory
+.RData
