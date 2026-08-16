@@ -11,3 +11,12 @@ python3 scripts/rework/B4_wave2/analyze.py
 ```
 
 Outputs: `results/rework/B4_wave2/`.
+
+Additive paper extras (other public lung ICI cohorts + TCGA):
+
+```bash
+python3 scripts/rework/B4_wave2/download.py
+python3 scripts/rework/B4_wave2/extra_cohorts.py
+```
+
+Outputs: `results/rework/B4_wave2/extra/`.

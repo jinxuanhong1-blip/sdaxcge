@@ -39,6 +39,50 @@ URLS = {
     ),
 }
 
+EXTRA = DATA / "extra"
+EXTRA_URLS = {
+    "GSE135222_exp.tsv.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/"
+        "suppl/GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz"
+    ),
+    "GSE135222_series_matrix.txt.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/"
+        "matrix/GSE135222_series_matrix.txt.gz"
+    ),
+    "GSE207422_log2TPM.txt.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/"
+        "suppl/GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz"
+    ),
+    "GSE207422_metadata.xlsx": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/"
+        "suppl/GSE207422_NSCLC_bulk_RNAseq_metadata.xlsx"
+    ),
+    "GSE190265_TPM.csv.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190265/"
+        "suppl/GSE190265_TPM_France3.csv.gz"
+    ),
+    "GSE190265_samples.csv.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190265/"
+        "suppl/GSE190265_samples_info_France3.csv.gz"
+    ),
+    "GSE166449_TPM.txt.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/"
+        "suppl/GSE166449_Raw_gene_TPM_matrix.txt.gz"
+    ),
+    "GSE166449_series_matrix.txt.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/"
+        "matrix/GSE166449_series_matrix.txt.gz"
+    ),
+    "TCGA_LUAD_HiSeqV2.gz": (
+        "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/"
+        "TCGA.LUAD.sampleMap%2FHiSeqV2.gz"
+    ),
+    "TCGA_LUSC_HiSeqV2.gz": (
+        "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/"
+        "TCGA.LUSC.sampleMap%2FHiSeqV2.gz"
+    ),
+}
+
 TIDYESTIMATE_URL = (
     "https://cran.r-project.org/src/contrib/tidyestimate_1.1.1.tar.gz"
 )
@@ -86,6 +130,20 @@ def main() -> int:
             print(f"GET {url} -> {dest}", flush=True)
             fetch(url, dest)
         manifest["files"][name] = {
+            "url": url,
+            "sha256": sha256(dest),
+            "bytes": dest.stat().st_size,
+        }
+
+    EXTRA.mkdir(parents=True, exist_ok=True)
+    for name, url in EXTRA_URLS.items():
+        dest = EXTRA / name
+        if dest.exists() and dest.stat().st_size > 0:
+            print(f"KEEP {dest}", flush=True)
+        else:
+            print(f"GET {url} -> {dest}", flush=True)
+            fetch(url, dest)
+        manifest["files"][f"extra/{name}"] = {
             "url": url,
             "sha256": sha256(dest),
             "bytes": dest.stat().st_size,

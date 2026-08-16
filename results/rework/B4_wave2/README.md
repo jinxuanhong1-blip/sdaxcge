@@ -1,3 +1,7 @@
+# B4 wave-2
+
+**Paper extras (additional public lung ICI cohorts + TCGA TJ vs CD8/GEP):** [`extra/EXTRA_FOR_PAPER.md`](extra/EXTRA_FOR_PAPER.md)
+
 # B4 wave-2: GSE126044 NR-higher TJ p=0.019
 
 **Verdict: `RECOVERS_CLAIMED_0.019`**
