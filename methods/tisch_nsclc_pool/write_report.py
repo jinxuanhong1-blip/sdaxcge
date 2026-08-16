@@ -86,9 +86,12 @@ def main() -> None:
             ["TACSTD2_mean_vs_fracTNK", "CLDN4_mean_vs_fracTNK"]
         )].sort_values(["dataset", "contrast"])
         for _, r in show.iterrows():
+            note = r.get("note", "")
+            if pd.isna(note) or str(note) == "nan":
+                note = ""
             lines.append(
                 f"| {r['dataset']} | {r['unit']} | {r['contrast']} | "
-                f"{int(r['n'])} | {fmt_rho(r['rho'])} | {fmt_p(r['p'])} | {r.get('note','')} |"
+                f"{int(r['n'])} | {fmt_rho(r['rho'])} | {fmt_p(r['p'])} | {note} |"
             )
     lines.append("")
     lines.append("## ICI / skip audit")
@@ -107,8 +110,16 @@ def main() -> None:
     lines.append("## Coverage")
     lines.append("")
     n_elig = int(units["eligible"].sum()) if len(units) and "eligible" in units.columns else 0
+    fz = pool.loc[
+        (pool["method"] == "fisher_z_ivw") & (pool["contrast"] == "TACSTD2_mean_vs_fracTNK")
+    ]
     lines.append(f"- Catalog datasets: {audit['n_datasets_catalog']}")
-    lines.append(f"- Datasets in Fisher-z pool: {audit['n_included_in_pool']}")
+    lines.append(f"- Datasets with Spearman n≥5: {audit['n_included_in_pool']}")
+    if len(fz):
+        lines.append(
+            f"- Datasets in Fisher-z (n≥6): {int(fz.iloc[0]['n_datasets'])} "
+            f"(GSE153935 n=5 is Spearman-only)"
+        )
     lines.append(f"- Eligible sample/patient units written: {n_elig}")
     lines.append(f"- Generated: {summary.get('generated_at')}")
     lines.append("")
@@ -116,9 +127,11 @@ def main() -> None:
     lines.append("")
     lines.append("- TISCH values are MAESTRO `log2(TPM/10+1)`, not raw UMI.")
     lines.append("- GSE131907 has no TISCH Malignant call; tumor-tissue epithelial cells are a proxy.")
+    lines.append("- GSE131907 TISCH `Source` is swapped for several LUNG_T/LUNG_N pairs; author sample names are used.")
     lines.append("- T/NK fraction is composition after dissociation and TISCH annotation, not spatial infiltration.")
     lines.append("- Sample-level tests are the unit. Cell-level p-values are not reported as primary.")
     lines.append("- GSE146100 nodule-level n=3 is listed in `per_unit_metrics.tsv` and excluded from Spearman.")
+    lines.append("- Fisher-z is the primary pool. Percentile-rank-within-dataset is secondary.")
     lines.append("")
     (out / "WRITEUP.md").write_text("\n".join(lines) + "\n")
     print(f"wrote {out / 'WRITEUP.md'}")

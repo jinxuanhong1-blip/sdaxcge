@@ -1,0 +1,1523 @@
+{
+  "generated_at": "2026-08-16T21:17:42.406460+00:00",
+  "n_datasets_catalog": 17,
+  "n_included_in_pool": 5,
+  "datasets": [
+    {
+      "dataset": "NSCLC_GSE151537",
+      "pmid": "33691136",
+      "paper": "Chiou et al. 2021, Nat Commun (TCR / sorted T cells)",
+      "ici_gallery": "Immunotherapy",
+      "priority": "user",
+      "included_in_pool": false,
+      "skip_reason": "T-sorted only (no epithelial/malignant cells)",
+      "n_cells_meta": 2948,
+      "lineages": {
+        "CD4Tconv": 1668,
+        "CD8T": 859,
+        "Treg": 299,
+        "CD8Tex": 95,
+        "Tprolif": 27
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 2948,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": null,
+      "unit": "patient",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Tumor": 2948
+      }
+    },
+    {
+      "dataset": "NSCLC_GSE146100",
+      "pmid": "33820821",
+      "paper": "Yang et al. 2021, multiple primary LUAD after pembrolizumab (1 patient, 3 nodules)",
+      "ici_gallery": "Immunotherapy",
+      "priority": "user",
+      "included_in_pool": false,
+      "skip_reason": "eligible samples n=3 (need >=5 for Spearman / pool)",
+      "n_cells_meta": 10996,
+      "lineages": {
+        "CD4Tconv": 3539,
+        "CD8T": 2670,
+        "Mono/Macro": 1588,
+        "Epithelial": 975,
+        "DC": 594,
+        "NK": 512,
+        "B": 492,
+        "Mast": 227,
+        "Endothelial": 134,
+        "Treg": 133,
+        "Fibroblasts": 132
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 975,
+      "n_tnk": 6854,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Tumor": 10996
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE146100_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          17503,
+          10996
+        ],
+        "n_genes": 17503,
+        "n_cells": 10996,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 10996,
+      "n_tumor_like_cells": 10996,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 3,
+      "n_units_eligible": 3,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE146100",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 3,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=3<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE146100",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 3,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=3<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE146100",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 3,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=3<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE146100",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 3,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=3<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE146100",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 3,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=3<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE146100",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 3,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=3<5; Spearman not computed"
+        }
+      ],
+      "has_ici_labels": true,
+      "ici_label_honest": "TISCH gallery=Immunotherapy; CellMetainfo has no response/RECIST/MPR column"
+    },
+    {
+      "dataset": "NSCLC_GSE117570",
+      "pmid": "31033233",
+      "paper": "Song et al. 2019, Nat Commun (Lambrechts-adjacent 10x NSCLC)",
+      "ici_gallery": "None",
+      "priority": "user",
+      "included_in_pool": false,
+      "skip_reason": "eligible samples n=2 (need >=5 for Spearman / pool)",
+      "n_cells_meta": 11453,
+      "lineages": {
+        "Mono/Macro": 3019,
+        "Malignant": 2721,
+        "CD4Tconv": 1795,
+        "CD8T": 1062,
+        "DC": 865,
+        "NK": 864,
+        "Epithelial": 501,
+        "B": 259,
+        "Endothelial": 219,
+        "Plasma": 148
+      },
+      "n_malignant": 2721,
+      "n_epithelial_nonmalig": 501,
+      "n_tnk": 3721,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "NAT": 6581,
+        "Tumor": 4872
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE117570_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          10147,
+          11453
+        ],
+        "n_genes": 10147,
+        "n_cells": 11453,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 11453,
+      "n_tumor_like_cells": 4872,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 4,
+      "n_units_eligible": 2,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE117570",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE117570",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE117570",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE117570",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE117570",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE117570",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE127465",
+      "pmid": "30979687",
+      "paper": "Zilionis et al. 2019, Immunity",
+      "ici_gallery": "None",
+      "priority": "user",
+      "included_in_pool": true,
+      "skip_reason": null,
+      "n_cells_meta": 31179,
+      "lineages": {
+        "Mono/Macro": 7032,
+        "CD4Tconv": 6757,
+        "Malignant": 3995,
+        "Neutrophils": 3345,
+        "B": 3320,
+        "NK": 1481,
+        "CD8Tex": 1236,
+        "Plasma": 1140,
+        "DC": 1128,
+        "Fibroblasts": 712,
+        "Mast": 616,
+        "Endothelial": 417
+      },
+      "n_malignant": 3995,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 9474,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": null,
+      "unit": "patient",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "Tumor": 23999,
+        "PBMC": 7180
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE127465_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          31797,
+          31179
+        ],
+        "n_genes": 31797,
+        "n_cells": 31179,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 31179,
+      "n_tumor_like_cells": 23999,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 7,
+      "n_units_eligible": 7,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE127465",
+          "unit": "patient",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 7,
+          "rho": 0.3214285714285715,
+          "p": 0.48207203829967776,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE127465",
+          "unit": "patient",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 7,
+          "rho": 0.3571428571428572,
+          "p": 0.431611352038328,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE127465",
+          "unit": "patient",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 7,
+          "rho": 0.10714285714285716,
+          "p": 0.8191508555699912,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE127465",
+          "unit": "patient",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 7,
+          "rho": 0.1785714285714286,
+          "p": 0.7016579425162727,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE127465",
+          "unit": "patient",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 7,
+          "rho": 0.14285714285714288,
+          "p": 0.7599453002180927,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE127465",
+          "unit": "patient",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 7,
+          "rho": 0.14285714285714288,
+          "p": 0.7599453002180927,
+          "ok": true,
+          "note": ""
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE131907",
+      "pmid": "32385277",
+      "paper": "Kim et al. 2020, Nat Commun (LUAD atlas)",
+      "ici_gallery": "None",
+      "priority": "user",
+      "included_in_pool": true,
+      "skip_reason": null,
+      "n_cells_meta": 203298,
+      "lineages": {
+        "CD4Tconv": 42763,
+        "Epithelial": 36145,
+        "CD8T": 34523,
+        "Mono/Macro": 26692,
+        "B": 20287,
+        "DC": 15085,
+        "CD8Tex": 12305,
+        "Plasma": 4967,
+        "Fibroblasts": 4125,
+        "Mast": 3421,
+        "Endothelial": 2267,
+        "Oligodendrocyte": 718
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 36145,
+      "n_tnk": 89591,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "Tumor": 65702,
+        "Normal": 39102,
+        "nLN": 31884,
+        "mBrain": 28249,
+        "Pleural effusion": 20063,
+        "mLN": 18298
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE131907_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          25242,
+          203298
+        ],
+        "n_genes": 25242,
+        "n_cells": 203298,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 203298,
+      "n_tumor_like_cells": 128819,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 37,
+      "n_units_eligible": 27,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE131907",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 27,
+          "rho": 0.15567765567765565,
+          "p": 0.4381074936539836,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE131907",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 27,
+          "rho": 0.16605616605616605,
+          "p": 0.40778704222160084,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE131907",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 27,
+          "rho": 0.03785103785103785,
+          "p": 0.8513156942053682,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE131907",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 27,
+          "rho": 0.0018315018315018313,
+          "p": 0.9927661408258597,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE131907",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 27,
+          "rho": -0.18681318681318682,
+          "p": 0.350805974876726,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE131907",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 27,
+          "rho": 0.7374847374847374,
+          "p": 1.1394192509755434e-05,
+          "ok": true,
+          "note": ""
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE148071",
+      "pmid": "33953163",
+      "paper": "Wu et al. 2021, Nat Commun (advanced NSCLC)",
+      "ici_gallery": "None",
+      "priority": "user",
+      "included_in_pool": true,
+      "skip_reason": null,
+      "n_cells_meta": 82267,
+      "lineages": {
+        "Malignant": 48118,
+        "Mono/Macro": 14078,
+        "Fibroblasts": 4792,
+        "Alveolar": 4605,
+        "CD8T": 3750,
+        "Basal": 2389,
+        "Plasma": 1615,
+        "Epithelial": 1153,
+        "Endothelial": 1133,
+        "Tprolif": 634
+      },
+      "n_malignant": 48118,
+      "n_epithelial_nonmalig": 8147,
+      "n_tnk": 4384,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Tumor": 82267
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE148071_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          26077,
+          82267
+        ],
+        "n_genes": 26077,
+        "n_cells": 82267,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 82267,
+      "n_tumor_like_cells": 82267,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 42,
+      "n_units_eligible": 25,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE148071",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 25,
+          "rho": -0.1376923076923077,
+          "p": 0.5115973965854037,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE148071",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 25,
+          "rho": -0.17615384615384613,
+          "p": 0.39962412508987566,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE148071",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 25,
+          "rho": 0.13538461538461538,
+          "p": 0.5187661950161317,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE148071",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 25,
+          "rho": 0.04384615384615385,
+          "p": 0.835145685000621,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE148071",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 25,
+          "rho": -0.10538461538461538,
+          "p": 0.6161273255695086,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE148071",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 25,
+          "rho": -0.19465282145032076,
+          "p": 0.3511309002462874,
+          "ok": true,
+          "note": ""
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_EMTAB6149",
+      "pmid": "29988129",
+      "paper": "Lambrechts et al. 2018, Nat Med",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "CellMetainfo has no Patient/Sample column",
+      "n_cells_meta": 40218,
+      "lineages": {
+        "Mono/Macro": 8581,
+        "CD8Tex": 7691,
+        "Malignant": 5728,
+        "CD4Tconv": 5219,
+        "Treg": 3663,
+        "CD8T": 2492,
+        "B": 1749,
+        "Alveolar": 1346,
+        "Endothelial": 1226,
+        "Fibroblasts": 1224,
+        "Plasma": 811,
+        "Mast": 488
+      },
+      "n_malignant": 5728,
+      "n_epithelial_nonmalig": 1346,
+      "n_tnk": 19065,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": null,
+      "sample_col": null,
+      "unit": "none",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "Tumor": 40218
+      }
+    },
+    {
+      "dataset": "NSCLC_GSE127471",
+      "pmid": "31061481",
+      "paper": "PBMC-only 10x (1 patient)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "PBMC only; 0 epithelial/malignant cells",
+      "n_cells_meta": 1108,
+      "lineages": {
+        "Mono/Macro": 500,
+        "CD4Tconv": 191,
+        "CD8Tex": 189,
+        "CD8T": 84,
+        "NK": 57,
+        "B": 52,
+        "Others": 35
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 521,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "PBMC": 1108
+      }
+    },
+    {
+      "dataset": "NSCLC_GSE139555",
+      "pmid": "32103181",
+      "paper": "Wu/Zhang T-cell atlas (immune-sorted)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "T/immune-sorted; 0 epithelial/malignant cells",
+      "n_cells_meta": 78829,
+      "lineages": {
+        "CD4Tconv": 31597,
+        "NK": 12091,
+        "CD8T": 12085,
+        "CD8Tex": 9190,
+        "Mono/Macro": 6344,
+        "B": 3003,
+        "Treg": 1410,
+        "Tprolif": 1282,
+        "DC": 1268,
+        "Plasma": 559
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 67655,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "NAT": 37738,
+        "Tumor": 32876,
+        "PBMC": 8215
+      }
+    },
+    {
+      "dataset": "NSCLC_GSE143423",
+      "pmid": null,
+      "paper": "Brain-metastasis 10x (3 patients)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "eligible samples n=2 (need >=5 for Spearman / pool)",
+      "n_cells_meta": 12193,
+      "lineages": {
+        "Malignant": 9237,
+        "Mono/Macro": 2020,
+        "Pericytes": 366,
+        "Endothelial": 221,
+        "Oligodendrocyte": 133,
+        "Plasma": 117,
+        "CD8T": 99
+      },
+      "n_malignant": 9237,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 99,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "mBrain": 12193
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE143423_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          13375,
+          12193
+        ],
+        "n_genes": 13375,
+        "n_cells": 12193,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 12193,
+      "n_tumor_like_cells": 12193,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 3,
+      "n_units_eligible": 2,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE143423",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE143423",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE143423",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE143423",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE143423",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE143423",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE99254",
+      "pmid": "29942094",
+      "paper": "Guo et al. 2018, Nat Med (T-sorted Smart-seq2)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "T-sorted; 0 epithelial/malignant cells",
+      "n_cells_meta": 12344,
+      "lineages": {
+        "CD4Tconv": 7418,
+        "CD8T": 2167,
+        "CD8Tex": 1660,
+        "Treg": 893,
+        "Tprolif": 181,
+        "Mono/Macro": 25
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 12319,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": null,
+      "unit": "patient",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "Tumor": 5971,
+        "PBMC": 4260,
+        "NAT": 2113
+      }
+    },
+    {
+      "dataset": "NSCLC_GSE149655",
+      "pmid": "32891189",
+      "paper": "2-patient 10x (alveolar-rich; no Malignant call)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "eligible samples n=2 (need >=5 for Spearman / pool)",
+      "n_cells_meta": 9591,
+      "lineages": {
+        "Alveolar": 3578,
+        "CD8Tex": 1776,
+        "Mono/Macro": 1427,
+        "Endothelial": 1117,
+        "Mast": 561,
+        "Fibroblasts": 478,
+        "Ciliated": 330,
+        "Club": 211,
+        "Myofibroblasts": 113
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 4119,
+      "n_tnk": 1776,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Normal": 5158,
+        "Tumor": 4433
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE149655_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          20131,
+          9591
+        ],
+        "n_genes": 20131,
+        "n_cells": 9591,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 9591,
+      "n_tumor_like_cells": 4433,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 2,
+      "n_units_eligible": 2,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE149655",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE149655",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE149655",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE149655",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE149655",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE149655",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE150660",
+      "pmid": "32675368",
+      "paper": "Metastasis 10x (2 patients)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "eligible samples n=2 (need >=5 for Spearman / pool)",
+      "n_cells_meta": 5407,
+      "lineages": {
+        "Mono/Macro": 3005,
+        "CD8Tex": 911,
+        "CD8T": 748,
+        "Malignant": 322,
+        "DC": 284,
+        "CD4Tconv": 137
+      },
+      "n_malignant": 322,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 1796,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Metastasis": 5407
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE150660_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          14223,
+          5407
+        ],
+        "n_genes": 14223,
+        "n_cells": 5407,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 5407,
+      "n_tumor_like_cells": 5407,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 2,
+      "n_units_eligible": 2,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE150660",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE150660",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE150660",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE150660",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE150660",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        },
+        {
+          "dataset": "NSCLC_GSE150660",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 2,
+          "rho": NaN,
+          "p": NaN,
+          "ok": false,
+          "note": "n=2<5; Spearman not computed"
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE153935",
+      "pmid": null,
+      "paper": "12-patient 10x (epithelial + alveolar present)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": true,
+      "skip_reason": null,
+      "n_cells_meta": 5859,
+      "lineages": {
+        "CD8Tex": 2305,
+        "Mono/Macro": 999,
+        "Myofibroblasts": 504,
+        "Fibroblasts": 491,
+        "CD8T": 381,
+        "Alveolar": 315,
+        "Mast": 215,
+        "Endothelial": 206,
+        "Epithelial": 192,
+        "Plasma": 165,
+        "Tprolif": 86
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 507,
+      "n_tnk": 2772,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Tumor": 3652,
+        "Normal": 2207
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE153935_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          17697,
+          5859
+        ],
+        "n_genes": 17697,
+        "n_cells": 5859,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 5859,
+      "n_tumor_like_cells": 3652,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 12,
+      "n_units_eligible": 5,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE153935",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 5,
+          "rho": -0.6,
+          "p": 0.28475697986529386,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE153935",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 5,
+          "rho": -0.39999999999999997,
+          "p": 0.5046315754686912,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE153935",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 5,
+          "rho": 0.19999999999999998,
+          "p": 0.7470600781046621,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE153935",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 5,
+          "rho": 0.8999999999999998,
+          "p": 0.03738607346849874,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE153935",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 5,
+          "rho": 0.8999999999999998,
+          "p": 0.03738607346849874,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE153935",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 5,
+          "rho": -0.7,
+          "p": 0.1881204043741873,
+          "ok": true,
+          "note": ""
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE162498",
+      "pmid": "33514641",
+      "paper": "11-patient 10x (epithelial present; T-rich)",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": true,
+      "skip_reason": null,
+      "n_cells_meta": 68255,
+      "lineages": {
+        "CD4Tconv": 30346,
+        "CD8T": 15546,
+        "Treg": 12715,
+        "Mono/Macro": 4103,
+        "Epithelial": 1991,
+        "NK": 1991,
+        "Tprolif": 1563
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 1991,
+      "n_tnk": 62161,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "Tumor": 42424,
+        "PBMC": 25831
+      },
+      "h5": {
+        "path": "data/tisch_nsclc_pool/NSCLC_GSE162498_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          24410,
+          68255
+        ],
+        "n_genes": 24410,
+        "n_cells": 68255,
+        "genes_present": [
+          "TACSTD2",
+          "CLDN4",
+          "EPCAM",
+          "PTPRC"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "PTPRC"
+      ],
+      "n_cells_aligned": 68255,
+      "n_tumor_like_cells": 28180,
+      "tissue_filter": "tumor-like Source/Tissue, plus author sample-name overrides (drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)",
+      "n_units_total": 10,
+      "n_units_eligible": 8,
+      "statistics": [
+        {
+          "dataset": "NSCLC_GSE162498",
+          "unit": "sample",
+          "contrast": "TACSTD2_mean_vs_fracTNK",
+          "n": 8,
+          "rho": -0.523809523809524,
+          "p": 0.1827207505397148,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE162498",
+          "unit": "sample",
+          "contrast": "TACSTD2_pctpos_vs_fracTNK",
+          "n": 8,
+          "rho": -0.3571428571428572,
+          "p": 0.38512064355625614,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE162498",
+          "unit": "sample",
+          "contrast": "CLDN4_mean_vs_fracTNK",
+          "n": 8,
+          "rho": -0.523809523809524,
+          "p": 0.1827207505397148,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE162498",
+          "unit": "sample",
+          "contrast": "CLDN4_pctpos_vs_fracTNK",
+          "n": 8,
+          "rho": -0.38095238095238104,
+          "p": 0.35181255311756476,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE162498",
+          "unit": "sample",
+          "contrast": "EPCAM_mean_vs_fracTNK",
+          "n": 8,
+          "rho": -0.2380952380952381,
+          "p": 0.5701563208157683,
+          "ok": true,
+          "note": ""
+        },
+        {
+          "dataset": "NSCLC_GSE162498",
+          "unit": "sample",
+          "contrast": "PTPRC_mean_vs_fracTNK",
+          "n": 8,
+          "rho": 0.5476190476190477,
+          "p": 0.16002564253889653,
+          "ok": true,
+          "note": ""
+        }
+      ],
+      "has_ici_labels": false,
+      "ici_label_honest": "no ICI labels in TISCH gallery or CellMetainfo"
+    },
+    {
+      "dataset": "NSCLC_GSE176021_aPD1",
+      "pmid": "34290408",
+      "paper": "Caushi et al. 2021, Nature (MANA T cells, anti-PD-1)",
+      "ici_gallery": "Immunotherapy",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "T-sorted (~817k cells); 0 epithelial/malignant; CellMetainfo has no Response column",
+      "n_cells_meta": 816654,
+      "lineages": {
+        "CD8T": 365405,
+        "CD4Tconv": 263782,
+        "NK": 66202,
+        "Treg": 60549,
+        "CD8Tex": 26258,
+        "DC": 15976,
+        "Tprolif": 9441,
+        "B": 9041
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 791637,
+      "ici_metainfo_columns": [],
+      "ici_metainfo_values": {},
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Tumor": 643302,
+        "Normal": 138943,
+        "Metastatic": 34409
+      }
+    },
+    {
+      "dataset": "NSCLC_GSE179373",
+      "pmid": "35584630",
+      "paper": "T-only; Treatment=Systemic therapy in CellMetainfo",
+      "ici_gallery": "None",
+      "priority": "other_nsclc",
+      "included_in_pool": false,
+      "skip_reason": "T-sorted; 0 epithelial/malignant cells",
+      "n_cells_meta": 12930,
+      "lineages": {
+        "CD8T": 10186,
+        "CD4Tconv": 1819,
+        "CD8Tex": 925
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 12930,
+      "ici_metainfo_columns": [
+        "Treatment"
+      ],
+      "ici_metainfo_values": {
+        "Treatment": {
+          "Systemic therapy": 12930
+        }
+      },
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "unit": "sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "Tumor": 12930
+      }
+    }
+  ]
+}

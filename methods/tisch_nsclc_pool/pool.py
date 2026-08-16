@@ -72,8 +72,8 @@ def rank_within_pool(units: pd.DataFrame, xcol: str) -> dict:
         if len(sub) < MIN_N_FOR_SPEARMAN:
             continue
         s = sub.copy()
-        s["_x"] = s[xcol].rank()
-        s["_y"] = s["frac_tnk"].rank()
+        s["_x"] = s[xcol].rank(pct=True)
+        s["_y"] = s["frac_tnk"].rank(pct=True)
         parts.append(s[["dataset", "_x", "_y", "unit_id"]])
     rec = {"n": 0, "n_datasets": 0, "rho": np.nan, "p": np.nan, "note": ""}
     if not parts:
@@ -88,7 +88,7 @@ def rank_within_pool(units: pd.DataFrame, xcol: str) -> dict:
     rho, p = stats.spearmanr(cat["_x"], cat["_y"])
     rec["rho"] = float(rho)
     rec["p"] = float(p)
-    rec["note"] = "Spearman after within-dataset ranks (batch removed)"
+    rec["note"] = "Spearman after within-dataset percentile ranks (batch removed)"
     return rec
 
 

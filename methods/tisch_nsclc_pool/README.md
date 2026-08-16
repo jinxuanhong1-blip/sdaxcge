@@ -38,6 +38,7 @@ User-requested: `NSCLC_GSE151537`, `GSE146100`, `GSE117570`, `GSE127465`, `GSE13
 1. TISCH major-lineage, labels stripped. Malignant if ≥20 cells in the unit; else epithelial-like (`Epithelial`, `Alveolar`, `Basal`, `Ciliated`, `Club`).
 2. T/NK = `CD8T`, `CD8Tex`, `CD4Tconv`, `Treg`, `Tprolif`, `TMKI67`, `NK`, `Tcell`, `NKT`, `ILC`.
 3. Tumor-like tissue only (`Tumor` / metastasis / mLN / mBrain / pleural). Drop NAT / Normal / PBMC / nLN.
+   GSE131907: TISCH `Source` is swapped for several LUNG_T / LUNG_N pairs — author sample names win (`LUNG_T*` kept, `LUNG_N*` dropped). GSE162498 `Juxta` dropped.
 4. Unit = `Sample` when it is a real sample (not a per-cell id); else `Patient`.
 5. Eligible unit: ≥20 scored epithelial cells and ≥20 T/NK.
 6. Scores: mean TISCH `log2(TPM/10+1)` and % positive (`>0`) for TACSTD2 and CLDN4 in the scored epithelial compartment. T/NK fraction = n_TNK / n_cells in the unit.
@@ -54,3 +55,5 @@ python3 methods/tisch_nsclc_pool/pool.py
 ```
 
 Raw h5/tsv stay in `data/tisch_nsclc_pool/` (gitignored).
+
+Numbers: `WRITEUP.md`, `tables/`, `figures/`, `summary.json`.

@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -129,6 +130,14 @@ def _norm_label(x) -> str:
     return str(x).strip()
 
 
+# Author sample names override swapped TISCH Source labels (seen in GSE131907).
+SAMPLE_EXCLUDE_RE = re.compile(
+    r"(^LUNG_N|Juxta|_Normal$|_NAT$|^D\d+N$)",
+    re.IGNORECASE,
+)
+SAMPLE_FORCE_TUMOR_RE = re.compile(r"(^LUNG_T|_Tumor$|^D\d+T$)", re.IGNORECASE)
+
+
 def is_tumor_tissue(val: str) -> bool:
     s = str(val).strip().lower()
     if not s or s in {"nan", "none", "na"}:
@@ -136,6 +145,17 @@ def is_tumor_tissue(val: str) -> bool:
     if any(tok in s for tok in EXCLUDE_TISSUE_TOKENS):
         return False
     return any(tok in s for tok in TUMOR_TOKENS)
+
+
+def keep_tumor_unit(sample_name: str | None, tissue_val: str | None) -> bool:
+    """Tumor-like unit. Sample names beat TISCH Source when they conflict."""
+    if sample_name and SAMPLE_EXCLUDE_RE.search(str(sample_name)):
+        return False
+    if sample_name and SAMPLE_FORCE_TUMOR_RE.search(str(sample_name)):
+        return True
+    if tissue_val is None:
+        return True
+    return is_tumor_tissue(tissue_val)
 
 
 def pick_unit_columns(meta: pd.DataFrame) -> tuple[str | None, str | None, str]:
@@ -268,16 +288,24 @@ def analyze_dataset(ds: str, data_dir: Path) -> dict:
     meta = meta.loc[common]
     expr = expr.loc[common]
 
-    if tissue_col is not None:
-        tumor_mask = meta[tissue_col].map(is_tumor_tissue)
-        rec["n_tumor_like_cells"] = int(tumor_mask.sum())
-        if tumor_mask.sum() >= 50:
-            meta = meta.loc[tumor_mask]
-            expr = expr.loc[meta.index]
-        else:
-            rec["tissue_filter"] = "kept all cells; tumor-like filter left <50 cells"
+    sample_for_filter = meta[sample_col] if sample_col else (
+        meta[patient_col] if patient_col else pd.Series([""] * len(meta), index=meta.index)
+    )
+    tissue_for_filter = meta[tissue_col] if tissue_col else pd.Series([None] * len(meta), index=meta.index)
+    tumor_mask = [
+        keep_tumor_unit(s, t) for s, t in zip(sample_for_filter.astype(str), tissue_for_filter)
+    ]
+    tumor_mask = pd.Series(tumor_mask, index=meta.index)
+    rec["n_tumor_like_cells"] = int(tumor_mask.sum())
+    rec["tissue_filter"] = (
+        "tumor-like Source/Tissue, plus author sample-name overrides "
+        "(drop LUNG_N / Juxta / _Normal; keep LUNG_T even if TISCH Source is swapped)"
+    )
+    if tumor_mask.sum() >= 50:
+        meta = meta.loc[tumor_mask]
+        expr = expr.loc[meta.index]
     else:
-        rec["tissue_filter"] = "no Source/Tissue column; all cells kept"
+        rec["tissue_filter"] += "; filter left <50 cells so all cells kept"
 
     unit_col = sample_col if unit_kind == "sample" else patient_col
     meta["_unit"] = meta[unit_col].astype(str)
