@@ -1,0 +1,9 @@
+cohort,status,reason
+Riaz2017_GSE91061,analyzed,Public FPKM + GEO PRCR/SD/PD. Primary pretreatment analog.
+Hugo2016_GSE78220,analyzed,Public FPKM + GEO anti-PD-1 RECIST.
+Liu2019_NatMed,analyzed,Public raw counts (GitHub addData) + Nature supplementary Table 1 response.
+Auslander2018_GSE115821,analyzed_underpowered,"Public counts + R/NR, but only two pretreatment responders after patient collapse."
+Prat2017_GSE93157,skipped,Melanoma n=25 is on the nCounter PanCancer Immune panel; CLDN4 is absent from the public matrix.
+Gide2019_PRJEB23709,skipped,ENA raw RNA only; no public processed matrix with response labels.
+VanAllen2015,skipped,RNA is controlled-access; not reconstructed here.
+Chen2016_GSE67501,skipped,"Public anti-PD-1 RNA is RCC, not melanoma."

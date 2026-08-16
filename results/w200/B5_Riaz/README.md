@@ -1,87 +1,127 @@
-# Riaz 2017 melanoma ICI: CLDN4 versus response
+# B5 analog: open melanoma ICI RNA, CLDN4 versus response
 
 ## Bottom line
 
-Pretreatment tumor **CLDN4 does not separate nivolumab responders from
-nonresponders in this public cohort**. Among 49 evaluable pretreatment samples,
-the responder-higher AUC was 0.487 (bootstrap 95% CI 0.328–0.649) and the
-two-sided Mann–Whitney p-value was 0.911. This is a null result, not evidence
-that CLDN4 predicts response.
+Public melanoma ICI transcriptomes **do not support** the B5 claim that
+CLDN4-high patients have worse ICI response (user-reported pooled OR = 0.42).
 
-## Cohort and endpoint
+The named analog, **Riaz 2017 / GSE91061 pretreatment**, is null:
+responder-higher AUC 0.487 (bootstrap 95% CI 0.328–0.649), Mann–Whitney
+p = 0.911, median-split OR 1.52 (Fisher p = 0.725). That is no
+discrimination, not a negative-predictive signal.
 
-- Source: Riaz et al., *Cell* 2017, GEO
-  [GSE91061](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE91061).
-- Treatment: nivolumab (anti-PD-1) in advanced melanoma.
-- Public RNA data: 109 biopsies from 65 patients (51 pretreatment, 58
-  on-treatment), quantified by GEO as FPKM against hg19 knownGene identifiers.
-- Gene: **CLDN4**, NCBI Entrez Gene ID **1364**.
-- Primary analysis: one pretreatment biopsy per patient with a known response.
-- Response definition: GEO `PRCR` = responder; `SD` or `PD` = nonresponder.
-  `UNK` was excluded.
-- Expression scale: `log2(FPKM + 1)`. The Mann–Whitney result is unchanged by
-  this monotonic transformation.
+The two other open melanoma RNA+response cohorts that are large enough to
+test are also non-significant. A Mantel–Haenszel pool of Riaz + Hugo + Liu
+gives OR 0.82 (0.47–1.44). The interval includes 1 and excludes 0.42.
 
-## Results
+## What was tested
 
-| Analysis | R / NR | Median R | Median NR | AUC (R higher) | 95% bootstrap CI | MW p |
+B5 (user PPT) states that across an 11-cohort ICI meta-analysis, CLDN4-high
+is associated with worse response (OR = 0.42). This folder tests the
+**open melanoma** slice of that claim: public RNA plus a reconstructable
+response label. It does not reconstruct the unpublished 11-cohort list.
+
+Primary analog: Riaz et al., *Cell* 2017, GEO
+[GSE91061](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE91061),
+nivolumab, pretreatment biopsy, GEO `PRCR` vs `SD`/`PD`.
+
+Added open melanoma ICI RNA cohorts:
+
+| Cohort | Access | Endpoint | Result |
+|---|---|---|---|
+| Riaz 2017 GSE91061 | GEO FPKM + response | Pre, PRCR vs SD/PD | Null |
+| Hugo 2016 GSE78220 | GEO FPKM + RECIST | Pre, CR/PR vs PD | Null |
+| Liu 2019 *Nat Med* | GitHub raw counts + Nature Table 1 | Pre-PD1 RNA, CR/PR vs SD/PD | NS trend toward lower CLDN4 in responders |
+| Auslander 2018 GSE115821 | GEO counts + R/NR | Pre, patient-collapsed | n=7 (2 responders); not interpretable |
+
+## Riaz primary result
+
+| Analysis | R / NR | AUC (R higher) | 95% bootstrap CI | MW p | CLDN4-high OR | Fisher p |
 |---|---:|---:|---:|---:|---:|---:|
-| Pretreatment (primary) | 10 / 39 | 0.246 | 0.205 | 0.487 | 0.328–0.649 | 0.911 |
-| On-treatment (exploratory) | 13 / 43 | 0.278 | 0.134 | 0.604 | 0.438–0.760 | 0.264 |
-| Paired on − pre change (exploratory) | 9 / 33 | 0.212 | 0.015 | 0.633 | 0.434–0.818 | 0.232 |
+| Pretreatment (primary) | 10 / 39 | 0.487 | 0.328–0.649 | 0.911 | 1.52 | 0.725 |
+| On-treatment (exploratory) | 13 / 43 | 0.604 | 0.438–0.760 | 0.264 | 2.65 | 0.205 |
+| Paired on − pre (exploratory) | 9 / 33 | 0.633 | 0.434–0.818 | 0.232 | 2.22 | 0.454 |
 
-Medians are on the log2(FPKM + 1) scale; the paired row reports median changes.
-For the primary analysis, CLDN4 was nonzero in 10/10 responders and 35/39
-nonresponders (two-sided Fisher p=0.569). Neither expression magnitude nor
-detection supports association with response.
+On-treatment and paired changes are post-baseline and cannot establish a
+pretreatment predictor. They are not significant.
 
-The on-treatment and paired analyses are post-baseline and therefore cannot
-establish pretreatment predictive value. Their confidence intervals are wide
-and their p-values are not significant; they should not be presented as
-positive findings.
+## Open melanoma B5-style odds ratios
 
-## Important limitations
+CLDN4-high = at or above the cohort-internal median. OR is the odds of
+response in CLDN4-high versus CLDN4-low, with Haldane–Anscombe 0.5
+correction. OR < 1 is the claimed direction (CLDN4-high worse).
 
-1. The effective primary sample is small and imbalanced (10 versus 39), so the
-   result is imprecise despite being centered near no discrimination.
-2. GEO combines complete and partial responses as `PRCR`; response depth cannot
-   be reconstructed from these public annotations.
-3. The public sample metadata do not expose prior ipilimumab status, melanoma
-   subtype, biopsy site, tumor purity, or other patient covariates needed for a
-   credible adjusted model. In particular, ocular/uveal samples cannot be
-   excluded from GEO metadata alone.
-4. FPKM is suitable for this within-gene, between-sample comparison but is not a
-   raw-count differential-expression analysis. CLDN4 is low and right-skewed,
-   which is why the prespecified rank test is emphasized.
-5. This is an association analysis of one marker. It does not test whether
-   CLDN4 is specifically predictive of nivolumab benefit versus prognostic in
-   untreated melanoma.
+| Cohort | R / NR | AUC | MW p | OR | 95% CI | Fisher p |
+|---|---:|---:|---:|---:|---:|---:|
+| Riaz 2017 pre | 10 / 39 | 0.487 | 0.911 | 1.52 | 0.39–5.87 | 0.725 |
+| Hugo 2016 pre | 15 / 13 | 0.538 | 0.747 | 1.31 | 0.31–5.51 | 1.000 |
+| Liu 2019 pre-PD1 RNA | 41 / 61 | 0.420 | 0.160 | 0.57 | 0.25–1.27 | 0.213 |
+| MH pool (those three) | 66 / 113 | — | — | **0.82** | **0.47–1.44** | — |
+| Auslander 2018 pre | 2 / 5 | 0.700 | 0.561 | 7.00 | 0.22–219 | 0.429 |
+
+Auslander is shown in tables only. Two pretreatment responders cannot test
+B5.
+
+Liu is the only cohort whose point estimate is in the claimed direction, and
+it is not significant. Liu's own supplementary Table 4 already reported
+CLDN4 Mann–Whitney p = 0.347 for responders versus PD; that published
+number is also non-significant. The analysis here uses CR/PR versus SD/PD
+on pre-PD1 RNA samples (n=102 after excluding mixed response).
+
+## Not used, with reasons
+
+| Cohort | Why not analyzed as a CLDN4 test |
+|---|---|
+| Prat 2017 GSE93157 | 25 melanoma samples, but the nCounter immune panel has no CLDN4 |
+| Gide 2019 PRJEB23709 | Public deposit is raw ENA RNA; no processed matrix + response table |
+| Van Allen 2015 | RNA is controlled-access |
+| Chen 2016 GSE67501 | Anti-PD-1 RNA is RCC, not melanoma |
+
+This is **not** the claimed 11-cohort meta-analysis. Missing melanoma RNA
+(Gide processed, Van Allen) and all non-melanoma ICI cohorts are outside
+this analog.
+
+## Limitations
+
+1. Riaz and Hugo are small. Wide intervals are expected.
+2. GEO Riaz labels collapse CR and PR as `PRCR`.
+3. Liu uses raw counts, not TPM. The rank test is valid within cohort; values
+   are not comparable across cohorts.
+4. Median split is the B5 recipe, not an optimized cutoff. Continuous
+   Mann–Whitney is the better single-gene test and is also null.
+5. No purity, subtype, or prior-ipilimumab adjustment except Liu's
+   pre-PD1 biopsy filter. Riaz GEO metadata cannot drop uveal cases.
+6. A three-cohort melanoma pool is not a substitute for the unpublished
+   11-cohort list. It is enough to say the open melanoma RNA does not
+   reproduce OR = 0.42.
 
 ## Reproduction
-
-From this directory:
 
 ```bash
 python3 -m pip install -r requirements.txt
 python3 analyze.py
 ```
 
-The script downloads the two public GEO inputs when absent, checks dimensions
-and sample-name concordance, and regenerates all tables and figures.
-`provenance.tsv` records input URLs and SHA-256 hashes.
+The script downloads public GEO, Nature, and GitHub inputs when absent.
+`provenance.tsv` stores URLs and SHA-256 hashes. Large source files stay
+untracked under `data/`.
 
 Outputs:
 
-- `cldn4_vs_response.png` / `.svg`: primary and exploratory plots
-- `summary.csv`: tests, effect sizes, confidence intervals, and detection rates
-- `sample_level.csv`: parsed public annotations and CLDN4 values
-- `paired_changes.csv`: matched-patient changes
-- `provenance.tsv`: source URLs and checksums
+- `cldn4_vs_response.png` / `.svg` — Riaz primary and exploratory plots
+- `open_melanoma_forest.png` / `.svg` — B5-style OR forest
+- `summary.csv` — Riaz tests
+- `open_melanoma_summary.csv` / `open_melanoma_pooled.csv`
+- `inventory.csv` — analyzed and skipped cohorts
+- `sample_level.csv`, `hugo_sample_level.csv`, `liu_sample_level.csv`,
+  `auslander_*.csv`, `paired_changes.csv`
 
 ## References
 
-- Riaz N, Havel JJ, Makarov V, et al. Tumor and Microenvironment Evolution
-  during Immunotherapy with Nivolumab. *Cell*. 2017;171:934–949.e16.
-  [doi:10.1016/j.cell.2017.09.028](https://doi.org/10.1016/j.cell.2017.09.028)
-- NCBI GEO accession
-  [GSE91061](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE91061)
+- Riaz N, et al. *Cell*. 2017;171:934–949. GEO GSE91061.
+- Hugo W, et al. *Cell*. 2016;165:35–44. GEO GSE78220.
+- Liu D, et al. *Nat Med*. 2019;25:1916–1927. Supplementary Table 1 and
+  [vanallenlab/schadendorf-pd1](https://github.com/vanallenlab/schadendorf-pd1)
+  `addData.zip`.
+- Auslander N, et al. *Nat Med*. 2018;24:1545–1549. GEO GSE115821.
+- Prat A, et al. *Cancer Res*. 2017;77:3540–3550. GEO GSE93157 (no CLDN4).
