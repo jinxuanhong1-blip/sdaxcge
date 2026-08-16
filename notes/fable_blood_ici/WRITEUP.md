@@ -1,8 +1,9 @@
 # TACSTD2 / CLDN4 in the blood of NSCLC patients under immune-checkpoint inhibition
 # NSCLC 免疫检查点治疗患者外周血中的 TACSTD2 / CLDN4
 
-*Slice: `fable_blood_ici`. All outputs live under `notes/fable_blood_ici/`,
-`scripts/fable_blood_ici/`, `results/fable_blood_ici/`.*
+*Slice: `fable_blood_ici`. Outputs: `notes/fable_blood_ici/`,
+`scripts/fable_blood_ici/`, `results/fable_blood_ici/`, and the noskip catalog
+`results/noskip/blood/`.*
 
 ---
 
@@ -104,17 +105,47 @@ predictors), and in GSE305086 GATA3 is strongly depleted in patient baseline
 blood vs controls (p = 1.3 × 10⁻¹⁰). So the null result for TACSTD2 / CLDN4 is a
 real biological negative, not a processing artefact.
 
+### Noskip catalog (no blood series dropped)
+Every human NSCLC blood / PBMC / plasma / platelet ICI series from the GEO
+search was kept, including those where TACSTD2 or CLDN4 is **absent**. Full
+table: `results/noskip/blood/catalog_blood_ici_series.csv`.
+
+**Response tests added (gene present + public response label):**
+- **GSE111414** PBMC CD8 RNA-seq, 5 PR vs 5 PD at baseline N1. TACSTD2
+  Mann-Whitney p = 0.80 (means 0.8 vs 0.6 raw counts). CLDN4: **all 10 N1
+  counts = 0**, so the test is undefined (p = NA), not a silent skip.
+- **GSE202417** PBMC CD8 Clariom S, 6 R vs 8 NR pre-treatment. TACSTD2 p = 0.49;
+  CLDN4 p = 0.18. No response association. A paired pre-vs-post rise in TACSTD2
+  (p = 0.035, n = 14) is a **time/treatment** effect (nivolumab + bezafibrate),
+  not a response test.
+
+**Series with response labels but both genes ABSENT (kept):**
+- **GSE216297** platelet TEP RNA-seq, 286 samples (88 Responder / 198
+  nonResponder). Processed matrix has 3,805 genes. ENSG00000184292 (TACSTD2)
+  and ENSG00000189143 (CLDN4) are **not on the panel** (PTPRC is). No
+  association was computed.
+
+**Other absences (kept):** GSE235048 CLDN4 absent from the TPM matrix (TACSTD2
+present, median TPM 0.10); GSE310370 and GSE207715 are **miRNA** platforms
+(no mRNA probes). GSE213902 10x T-cell pools: TACSTD2 0/3903 and 0/5013 cells;
+CLDN4 1/3903 and 0/5013. No per-patient response table in GEO. No series had
+a public OS/PFS time table, so no survival model was fit.
+
 ### Honest conclusion
 In human NSCLC blood, **TACSTD2 is effectively undetectable** (PBMC ≈ 0.08 % of
-cells, whole blood at array background) and **CLDN4 is at best very low and
-probe-inconsistent**. Neither shows any association with ICI response or irAE.
-Blood transcriptomics is therefore **not** a viable readout for these two
-epithelial ADC targets in NSCLC; tumour tissue is required to profile them.
+cells; 0/8,916 cells in GSE213902 T-cell pools; whole blood at array
+background) and **CLDN4 is at best very low, often zero, and sometimes absent
+from the processed panel**. Across every series that had both the gene and a
+response label (GSE285888, GSE111414, GSE202417), there is **no association**
+with ICI response. Blood transcriptomics is **not** a viable readout for these
+two epithelial ADC targets in NSCLC; tumour tissue is required.
 
 ### Reproduce / files
 `scripts/fable_blood_ici/01_download.sh` → `02_extract_gse285888.py` →
-`03_analyze_gse285888.py` → `04_analyze_gse305086.py`. Result tables, figures and
-JSON summaries are in `results/fable_blood_ici/`.
+`03_analyze_gse285888.py` → `04_analyze_gse305086.py` →
+`05_download_noskip.sh` → `05_noskip_blood.py`.
+Primary-slice tables: `results/fable_blood_ici/`.
+Noskip catalog + extra tests: `results/noskip/blood/`.
 
 ---
 
@@ -206,13 +237,41 @@ irAE 预测因子）；GSE305086 中 GATA3 在患者基线全血中相对对照�
 （p = 1.3 × 10⁻¹⁰）。因此 TACSTD2 / CLDN4 的阴性结果是真实的生物学阴性，
 而非处理伪影。
 
+### 不跳过目录（不因“是血液”而丢弃系列）
+GEO 检索到的每一套人类 NSCLC 血液 / PBMC / 血浆 / 血小板 ICI 系列均保留，
+包括 TACSTD2 或 CLDN4 **缺失** 的系列。完整表：
+`results/noskip/blood/catalog_blood_ici_series.csv`。
+
+**新增疗效检验（基因存在 + 公开疗效标签）：**
+- **GSE111414** PBMC CD8 RNA-seq，基线 N1 的 5 例 PR vs 5 例 PD。TACSTD2
+  Mann-Whitney p = 0.80（原始计数均值 0.8 vs 0.6）。CLDN4：**10 个 N1 计数
+  全为 0**，检验无定义（p = NA），不是悄悄跳过。
+- **GSE202417** PBMC CD8 Clariom S，治疗前 6 例 R vs 8 例 NR。TACSTD2
+  p = 0.49；CLDN4 p = 0.18。与疗效无关联。TACSTD2 配对治疗前 vs 治疗后
+  p = 0.035（n = 14）是 **时间/治疗** 效应（纳武利尤单抗 + 苯扎贝特），
+  不是疗效检验。
+
+**有疗效标签但两基因均缺失（仍保留）：**
+- **GSE216297** 血小板 TEP RNA-seq，286 例（88 应答 / 198 不应答）。处理后
+  矩阵仅 3,805 个基因。ENSG00000184292（TACSTD2）与 ENSG00000189143
+  （CLDN4）**不在面板上**（PTPRC 在）。未做关联检验。
+
+**其他缺失（仍保留）：** GSE235048 的 TPM 矩阵无 CLDN4（TACSTD2 存在，中位
+TPM 0.10）；GSE310370、GSE207715 为 **miRNA** 平台（无 mRNA 探针）。
+GSE213902 的 10x T 细胞混合池：TACSTD2 为 0/3903 与 0/5013 个细胞；CLDN4
+为 1/3903 与 0/5013。GEO 无逐例疗效表。没有任何系列提供公开的 OS/PFS
+时间表，故未拟合生存模型。
+
 ### 诚实结论
-在人类 NSCLC 血液中，**TACSTD2 实际不可检出**（PBMC 约 0.08 % 细胞，全血处于
-芯片背景），**CLDN4 至多极低且探针不一致**。两者均与 ICI 疗效或 irAE 无关联。
-因此血液转录组 **不适合** 作为 NSCLC 中这两个上皮 ADC 靶点的读出手段，需使用
-肿瘤组织进行检测。
+在人类 NSCLC 血液中，**TACSTD2 实际不可检出**（PBMC 约 0.08 % 细胞；
+GSE213902 T 细胞池 0/8,916 个细胞；全血处于芯片背景），**CLDN4 至多极低、
+常为零，有时在处理后面板中缺失**。在同时具备该基因与疗效标签的所有系列
+（GSE285888、GSE111414、GSE202417）中，**均与 ICI 疗效无关联**。血液转录组
+**不适合** 作为 NSCLC 中这两个上皮 ADC 靶点的读出手段，需使用肿瘤组织。
 
 ### 复现 / 文件
 `scripts/fable_blood_ici/01_download.sh` → `02_extract_gse285888.py` →
-`03_analyze_gse285888.py` → `04_analyze_gse305086.py`。结果表格、图像与 JSON
-摘要位于 `results/fable_blood_ici/`。
+`03_analyze_gse285888.py` → `04_analyze_gse305086.py` →
+`05_download_noskip.sh` → `05_noskip_blood.py`。
+主切片结果：`results/fable_blood_ici/`。
+不跳过目录与额外检验：`results/noskip/blood/`。

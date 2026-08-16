@@ -72,6 +72,26 @@ null result for the targets is not a processing artefact:
 - GSE305086: GATA3 is strongly reduced in patient baseline blood vs controls
   (p = 1.3e-10) — consistent with the study's reported T-cell gene depletion.
 
+## Noskip blood catalog (do not drop a series because it is blood)
+Additional processed matrices (all < 2 GB) used only to fill
+`results/noskip/blood/`:
+
+| GEO | Why it stays in the catalog | TACSTD2 | CLDN4 |
+|-----|-----------------------------|---------|-------|
+| GSE111414 | PBMC CD8 RNA-seq; PR/PD labels | present (near-zero) | present (N1 all zero) |
+| GSE202417 | PBMC CD8 Clariom S; R/NR labels | present | present |
+| GSE141479 | blood CD8 Clariom S; no response labels | present | present |
+| GSE235048 | PBMC TPM; no response labels | present (low TPM) | **absent** from matrix |
+| GSE216297 | platelet TEP; 88 R / 198 NR | **absent** (3805-gene panel) | **absent** |
+| GSE213902 | 10x PBMC T-cell pools; no per-pt labels | present (0 cells) | present (≤1 cell) |
+| GSE100860 | blood CD8 FPKM; no response labels | present (near-zero) | present (near-zero) |
+| GSE310370 | plasma miRNA; 4 PD | **absent** (miRNA) | **absent** |
+| GSE207715 | EV miRNA; 282 samples | **absent** (miRNA) | **absent** |
+| GSE306542 / GSE247754 / GSE266035 / GSE315510 | circulating 10x; n too small or no NSCLC response table | on 10x feature list | on 10x feature list |
+
+Clariom S probe map (GPL23126): TACSTD2 = `TC0100014340.hg.1`,
+CLDN4 = `TC0700007993.hg.1`.
+
 ## Reproduce
 ```bash
 export GEO_DIR=/tmp/geo
@@ -79,4 +99,6 @@ bash   scripts/fable_blood_ici/01_download.sh
 python scripts/fable_blood_ici/02_extract_gse285888.py
 python scripts/fable_blood_ici/03_analyze_gse285888.py
 python scripts/fable_blood_ici/04_analyze_gse305086.py
+bash   scripts/fable_blood_ici/05_download_noskip.sh
+python scripts/fable_blood_ici/05_noskip_blood.py
 ```

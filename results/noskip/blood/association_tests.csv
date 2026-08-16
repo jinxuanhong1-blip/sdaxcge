@@ -1,0 +1,9 @@
+series,gene,contrast,test,n_PR,n_PD,PR_mean_count,PD_mean_count,PR_n_detected,PD_n_detected,U,p_value,note,n_R,n_NR,R_mean,NR_mean,n_pairs,pre_mean,post_mean,stat
+GSE111414,TACSTD2,PR_vs_PD_baseline_N1,MannWhitneyU,5.0,5.0,0.8,0.6,1.0,2.0,11.0,0.7971696931337416,raw counts; 5 PR vs 5 PD patients at timepoint N1,,,,,,,,
+GSE111414,CLDN4,PR_vs_PD_baseline_N1,MannWhitneyU,5.0,5.0,0.0,0.0,0.0,0.0,,,raw counts; 5 PR vs 5 PD patients at timepoint N1,,,,,,,,
+GSE202417,TACSTD2,R_vs_NR_pre_treatment,MannWhitneyU,,,,,,,18.0,0.4908424908424909,Clariom S intensity; one pre-treatment sample per patient,6.0,8.0,8.8486,9.3596,,,,
+GSE202417,CLDN4,R_vs_NR_pre_treatment,MannWhitneyU,,,,,,,35.0,0.18115218115218118,Clariom S intensity; one pre-treatment sample per patient,6.0,8.0,9.0756,8.5546,,,,
+GSE202417,TACSTD2,pre_vs_post_paired,WilcoxonSignedRank,,,,,,,,0.0352783203125,14 paired patients (pre untreated vs post nivo+bezafibrate),,,,,14.0,9.1406,10.9853,19.0
+GSE202417,CLDN4,pre_vs_post_paired,WilcoxonSignedRank,,,,,,,,0.463134765625,14 paired patients (pre untreated vs post nivo+bezafibrate),,,,,14.0,8.7779,8.8445,40.0
+GSE141479,TACSTD2,pre_vs_post_nivolumab_paired,WilcoxonSignedRank,,,,,,,,0.4908933094702661,no public response/survival labels; paired time contrast only,,,,,33.0,17.6342,18.1743,241.0
+GSE141479,CLDN4,pre_vs_post_nivolumab_paired,WilcoxonSignedRank,,,,,,,,0.7643533307127655,no public response/survival labels; paired time contrast only,,,,,33.0,10.6481,10.4236,263.0
