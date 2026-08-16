@@ -2,7 +2,7 @@
 """Patient-level Spearman: malignant TACSTD2/CLDN4 vs T/NK in E-MTAB-13526.
 
 Extra n only. This atlas is treatment-naive NSCLC (De Zuani / Cvejic,
-Nat Commun 2024, PMID 38821935) — not an ICI-response cohort. GSE207422
+Nat Commun 2024, PMID 38782901) — not an ICI-response cohort. GSE207422
 and other user A3/A* analyses are not re-run here.
 
 Unit of analysis is the patient. CD235a- tumor lanes only (RBC-depleted;
@@ -121,7 +121,7 @@ def main() -> int:
 
     audit = {
         "dataset": "E-MTAB-13526",
-        "pmid": "38821935",
+        "pmid": "38782901",
         "citation": "De Zuani, Xue, Park, et al. Nat Commun 2024 (Cvejic NSCLC atlas)",
         "n_patients_paper": 25,
         "n_patients_arrayexpress": 24,
@@ -287,24 +287,29 @@ def main() -> int:
     for gene in TARGETS:
         if gene not in present:
             continue
-        a = tumor[f"{gene}_pct_pos"].to_numpy(dtype=float)
-        b = tumor[f"tnk_{gene}_pct_pos"].to_numpy(dtype=float)
-        mask = np.isfinite(a) & np.isfinite(b)
-        if mask.sum() >= 3:
-            try:
-                w = stats.wilcoxon(a[mask], b[mask], alternative="greater")
-                p = float(w.pvalue)
-            except ValueError:
-                p = np.nan
-            restriction.append(
-                {
-                    "gene": gene,
-                    "n": int(mask.sum()),
-                    "median_pct_pos_malig_like": float(np.median(a[mask])),
-                    "median_pct_pos_tnk": float(np.median(b[mask])),
-                    "wilcoxon_greater_p": p,
-                }
-            )
+        for subset_name, sub in (
+            ("all_cd235a_tumor", tumor),
+            ("eligible_malig", tumor[tumor["eligible_malig"]]),
+        ):
+            a = sub[f"{gene}_pct_pos"].to_numpy(dtype=float)
+            b = sub[f"tnk_{gene}_pct_pos"].to_numpy(dtype=float)
+            mask = np.isfinite(a) & np.isfinite(b)
+            if mask.sum() >= 3:
+                try:
+                    w = stats.wilcoxon(a[mask], b[mask], alternative="greater")
+                    p = float(w.pvalue)
+                except ValueError:
+                    p = np.nan
+                restriction.append(
+                    {
+                        "gene": gene,
+                        "subset": subset_name,
+                        "n": int(mask.sum()),
+                        "median_pct_pos_malig_like": float(np.median(a[mask])),
+                        "median_pct_pos_tnk": float(np.median(b[mask])),
+                        "wilcoxon_greater_p": p,
+                    }
+                )
     pd.DataFrame(restriction).to_csv(out / "compartment_restriction.tsv", sep="\t", index=False)
 
     lineage_counts = (

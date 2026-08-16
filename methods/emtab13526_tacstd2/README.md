@@ -2,7 +2,7 @@
 
 Additive only. Public Cvejic / De Zuani NSCLC scRNA atlas
 ([E-MTAB-13526](https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-13526);
-De Zuani et al., *Nat Commun* 2024, PMID 38821935). **Not an ICI cohort.**
+De Zuani et al., *Nat Commun* 2024, PMID 38782901). **Not an ICI cohort.**
 Treatment-naive tumor resections. GSE207422 and other user analyses are not
 re-run.
 
@@ -49,3 +49,18 @@ written into this folder.
 - Epithelial restriction: paired Wilcoxon of %positive malignant-like vs T/NK.
 
 No public MPR / R / ICI labels exist on this accession.
+
+## Honest primary numbers
+
+Eligible CD235a− tumor patients (n=10 of 12; 276,018 QC cells):
+
+| Contrast | n | ρ | p |
+|---|---:|---:|---:|
+| Malignant-like TACSTD2 mean log1p vs T/NK | 10 | +0.45 | 0.19 |
+| Malignant-like CLDN4 mean log1p vs T/NK | 10 | +0.42 | 0.23 |
+| Response / MPR / R | 0 | — | no public labels |
+
+Epithelial restriction holds (eligible n=10): median %pos TACSTD2 45.5 vs
+T/NK 2.71 (Wilcoxon p=0.00098); CLDN4 32.6 vs 1.79 (p=0.00098). This atlas
+does **not** support an inverse malignant TACSTD2/CLDN4 vs T/NK association.
+Full table: `RESULTS.md`.
