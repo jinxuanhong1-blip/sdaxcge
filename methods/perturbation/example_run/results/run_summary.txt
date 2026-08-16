@@ -1,0 +1,36 @@
+========================================================================
+GSE207704  CLDN4 KO vs WT  (MCF7, T47D)  -  worked example
+========================================================================
+Processed matrix is FPKM with 1 sample/condition -> no p-values.
+Metric = mean(log2((KO+1)/(WT+1))) across MCF7 and T47D.
+
+On-target + opposite-gene focus panel:
+gene       MCF7_l2fc  T47D_l2fc     mean  concordant
+CLDN4          -0.74      -1.02    -0.88  True
+TACSTD2        -1.00      -0.62    -0.81  True
+EPCAM           0.10       0.34     0.22  True
+CLDN3           0.06      -0.66    -0.30  False
+CLDN7           0.06      -0.33    -0.14  False
+TJP2           -0.17      -0.11    -0.14  True
+OCLN           -0.15      -0.21    -0.18  True
+F11R           -0.41       0.16    -0.13  False
+CDH1           -0.24       0.14    -0.05  False
+VIM            -1.00       0.75    -0.12  False
+SNAI1           0.16      -0.10     0.03  False
+STAT1          -0.05       0.10     0.02  False
+STAT2          -0.27       0.01    -0.13  False
+IRF1           -0.13      -0.42    -0.28  True
+ISG15           0.10      -1.87    -0.88  False
+
+[on-target] CLDN4 mean log2FC = -0.88 (expect strongly negative in a KO).
+[opposite ] TACSTD2/TROP2 mean log2FC = -0.81 -> DOWN on CLDN4 loss (concordant=True).
+
+GSEA pre-ranked (KO high -> positive NES):
+  Term  NES  NOM p-val  FDR q-val
+  MSigDB_Hallmark_2020::Interferon_Alpha_Response  -1.6603548063591695  0.006920415224913495  0.006636250518457071
+  MSigDB_Hallmark_2020::Interferon_Gamma_Response  -1.456079606977074  0.01288244766505636  0.03484031522189963
+  MSigDB_Hallmark_2020::Epithelial_Mesenchymal_Transition  -1.2438214772805434  0.10350584307178631  0.13659615650490806
+  KEGG_2021_Human::Tight_junction  -1.2274923736405319  0.10766721044045677  0.11613438407299875
+
+Files written to results/: de_log2fc_table.tsv, focus_genes.tsv,
+gsea_prerank_report.tsv, rank.rnk, run_summary.txt

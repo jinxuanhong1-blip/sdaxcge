@@ -1,0 +1,35 @@
+========================================================================
+GSE334497  4T1 Trop2 KO vs WT  (mouse, n=5, public normalized counts)
+========================================================================
+NOT DESeq2: normalized (non-integer) counts + Welch t on log2(x+1).
+Symbols: MGI via mygene.info; GSEA uses toupper(MGI) vs human GMT.
+
+gene        log2FC        padj     mean_KO     mean_WT
+Tacstd2      -3.82       0.648        11.0       159.2
+Cldn4        -0.82       0.941      1673.8      2604.8
+Epcam        -1.26       0.827      1317.2      2955.6
+Cldn1        -2.18       0.853        17.5        97.6
+Cldn3        -1.44       0.893       113.3       287.6
+Cldn7        -0.82       0.896       139.4       285.6
+Tjp1         -0.07       0.987      2019.7      2282.0
+Tjp2         -0.63        0.91       593.0       967.9
+Ocln         -0.66       0.893       112.6       190.1
+F11r         -0.10       0.976       887.4       968.2
+Cdh1         -0.96       0.902      1255.6      2701.4
+Vim           0.08       0.981     26669.4     24901.3
+Snai1         0.09       0.983       292.2       292.7
+Snai2        -0.49        0.95        58.4        72.3
+Zeb1         -0.15       0.967       507.5       567.1
+Stat1         0.46        0.95      2816.0      2281.2
+Stat2         0.23       0.975      1061.2       959.8
+Irf1          0.27       0.921      2239.2      1904.2
+Isg15        -0.09       0.984       272.5       287.4
+Mx1           0.16       0.976       129.2       125.1
+[on-target] Tacstd2 log2FC=-3.82 padj=0.648
+[opposite ] Cldn4   log2FC=-0.82 padj=0.941 -> DOWN (hypothesis was UP on Tacstd2 loss)
+
+GSEA prerank (positive NES = up in KO; human GMT via toupper):
+  MSigDB_Hallmark_2020::Interferon_Gamma_Response: NES=1.97  FDR=0
+  KEGG_2021_Human::Tight_junction: NES=-1.90  FDR=0
+  MSigDB_Hallmark_2020::Interferon_Alpha_Response: NES=1.67  FDR=0
+  MSigDB_Hallmark_2020::Epithelial_Mesenchymal_Transition: NES=0.95  FDR=0.617
