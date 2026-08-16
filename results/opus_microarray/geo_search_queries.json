@@ -1,0 +1,22 @@
+{
+  "queries": {
+    "array_ici_lung": "(nivolumab OR pembrolizumab OR atezolizumab OR durvalumab OR avelumab OR \"PD-1\" OR \"PD-L1\" OR \"PD1 blockade\" OR \"immune checkpoint\" OR ipilimumab OR \"checkpoint inhibitor\" OR \"checkpoint blockade\") AND (lung OR NSCLC OR \"non-small cell\" OR \"non small cell\" OR pulmonary OR adenocarcinoma) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND \"Expression profiling by array\"[DataSet Type]",
+    "array_response": "(responder OR nonresponder OR \"non-responder\" OR RECIST OR \"durable clinical benefit\" OR \"best response\" OR \"objective response\") AND (nivolumab OR pembrolizumab OR atezolizumab OR durvalumab OR avelumab OR \"PD-1\" OR \"PD-L1\" OR \"PD1 blockade\" OR \"immune checkpoint\" OR ipilimumab OR \"checkpoint inhibitor\" OR \"checkpoint blockade\") AND (lung OR NSCLC OR \"non-small cell\" OR \"non small cell\" OR pulmonary OR adenocarcinoma) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND \"Expression profiling by array\"[DataSet Type]",
+    "broad_ici_lung": "(nivolumab OR pembrolizumab OR atezolizumab OR durvalumab OR avelumab OR \"PD-1\" OR \"PD-L1\" OR \"PD1 blockade\" OR \"immune checkpoint\" OR ipilimumab OR \"checkpoint inhibitor\" OR \"checkpoint blockade\") AND (lung OR NSCLC OR \"non-small cell\" OR \"non small cell\" OR pulmonary OR adenocarcinoma) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type]",
+    "panel_ici_lung": "(nCounter OR NanoString OR \"PanCancer\" OR HTG OR \"EdgeSeq\") AND (nivolumab OR pembrolizumab OR atezolizumab OR durvalumab OR avelumab OR \"PD-1\" OR \"PD-L1\" OR \"PD1 blockade\" OR \"immune checkpoint\" OR ipilimumab OR \"checkpoint inhibitor\" OR \"checkpoint blockade\") AND (lung OR NSCLC OR \"non-small cell\" OR \"non small cell\" OR pulmonary OR adenocarcinoma) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type]"
+  },
+  "seed_gse": [
+    "GSE93157",
+    "GSE119144",
+    "GSE126044",
+    "GSE135222",
+    "GSE136961",
+    "GSE99070",
+    "GSE111414",
+    "GSE190265",
+    "GSE168204",
+    "GSE207422",
+    "GSE91061",
+    "GSE78220"
+  ]
+}
