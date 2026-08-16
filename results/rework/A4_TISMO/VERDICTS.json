@@ -1,0 +1,17 @@
+{
+  "claim": "TISMO Tacstd2 up in 49/64 ICB comparisons, p=5.8e-5",
+  "reproduced": true,
+  "tacstd2_all": {
+    "label": "Tacstd2 all gene-module groups",
+    "n_comparisons": 64,
+    "n_up": 49,
+    "n_down": 15,
+    "n_tie": 0,
+    "fraction_up": 0.765625,
+    "median_delta": 0.11606931339508711,
+    "median_log2fc": 0.6170004301400991,
+    "binomial_two_sided_p": 2.436457216293327e-05,
+    "wilcoxon_signed_rank_p": 5.8398482923347564e-05
+  },
+  "note": "49/64 is exactly the TISMO gene-module ICB-vs-baseline direction count for Tacstd2. p=5.8e-5 matches Wilcoxon signed-rank on the 64 mean differences, not the two-sided binomial (2.4e-5). Cldn4 is not directionally consistent. Lung-only is 2 LLC groups, both up."
+}
