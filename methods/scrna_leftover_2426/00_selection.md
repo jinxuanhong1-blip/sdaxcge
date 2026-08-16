@@ -16,7 +16,7 @@ Live GEO / ArrayExpress metadata pulled 2026-08-16. No accessions invented. Core
 | GSE186446 | bulk proxy only | scRNA is T cells (3 ICB pts). GEO file `fcount_aggr.txt.gz` is bulk. |
 | GSE337519 | **descriptive** | n=1 neoadjuvant chemo-IO. 34 MB MTX. |
 | GSE308745 | skip scoring | PBMC cohort. Skip if no epithelium. |
-| E-MTAB-13526 | **score extra n** | Cvejic/De Zuani atlas. Not ICI. Tumor h5ad 58 GB streamed remotely. |
+| E-MTAB-13526 | **score extra n** | Cvejic/De Zuani atlas. Not ICI. Tumor h5ad 58 GB streamed remotely. CD235a− n=11: TACSTD2 ρ=−0.018 p=0.96. |
 
 ## What was downloaded
 
