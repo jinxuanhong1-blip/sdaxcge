@@ -1,0 +1,10 @@
+gene,dataset,n,auc,p,signed_z,stratum
+TACSTD2,"GSE207422 (CN, neoadj PD-1+chemo, pre-tx tumor)",24,0.378,0.3401,-0.954,pre-tx tumor
+TACSTD2,"GSE126044 (KR, anti-PD-1, tumor)",16,0.364,0.4409,-0.771,pre-tx tumor
+TACSTD2,"GSE135222 (KR, anti-PD-1/PD-L1, tumor)",27,0.429,0.6071,-0.514,pre-tx tumor
+TACSTD2,STOUFFER_META (pre-tx tumor cohorts),67,,0.1961,-1.293,k=3 independent pre-tx cohorts; +z = higher in responders
+CLDN4,"GSE207422 (CN, neoadj PD-1+chemo, pre-tx tumor)",24,0.356,0.2572,-1.133,pre-tx tumor
+CLDN4,"GSE126044 (KR, anti-PD-1, tumor)",16,0.236,0.1149,-1.577,pre-tx tumor
+CLDN4,"GSE135222 (KR, anti-PD-1/PD-L1, tumor)",27,0.557,0.685,0.406,pre-tx tumor
+CLDN4,STOUFFER_META (pre-tx tumor cohorts),67,,0.1835,-1.33,k=3 independent pre-tx cohorts; +z = higher in responders
+TACSTD2,"GSE329813 (CN, PUMC, neoadj pembro+chemo, GeoMx tumor-bed, patient-mean)",22,0.107,0.002,-3.086,post-tx GeoMx (residual-tumor confound)

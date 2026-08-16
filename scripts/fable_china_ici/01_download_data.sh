@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 # Download open processed data for the fable_china_ici slice.
-# Total download size: ~630 MB (well under the 2 GB budget).
 # Large raw matrices are cached outside the repo (default /tmp/fable_china_ici_data);
 # only derived tables/figures are written into results/fable_china_ici/.
 #
 # Usage: bash scripts/fable_china_ici/01_download_data.sh [core|all]
-#   core (default): bulk/processed matrices + metadata + series matrices (~10 MB)
-#   all:            core + GSE207422 scRNA UMI matrix (175 MB) + GSE241934 IIT scRNA (447 MB)
+#   core (default): bulk/GeoMx/processed matrices + metadata (~12 MB)
+#   all:            core + GSE207422 scRNA UMI (175 MB) + GSE241934 scRNA (~1.65 GB)
 set -euo pipefail
 
 DATA_DIR="${DATA_DIR:-/tmp/fable_china_ici_data}"
@@ -39,6 +38,10 @@ dl "$GEO/GSE135nnn/GSE135222/matrix/GSE135222_series_matrix.txt.gz"             
 # --- GSE260770: Guangzhou Medical University, sintilimab on GGO lesions, exosomal mRNA (exploratory) ---
 dl "$GEO/GSE260nnn/GSE260770/suppl/GSE260770_mRNA_FPKM.txt.gz"                  GSE260770_mRNA_FPKM.txt.gz
 dl "$GEO/GSE260nnn/GSE260770/matrix/GSE260770_series_matrix.txt.gz"             GSE260770_series_matrix.txt.gz
+
+# --- GSE329813: PUMC (CN), neoadjuvant pembrolizumab + chemo, GeoMx DSP (TACSTD2 on panel; no CLDN4) ---
+dl "$GEO/GSE329nnn/GSE329813/suppl/GSE329813_processed_data_file_normalized_data.csv.gz" GSE329813_processed_data_file_normalized_data.csv.gz
+dl "$GEO/GSE329nnn/GSE329813/matrix/GSE329813_series_matrix.txt.gz"             GSE329813_series_matrix.txt.gz
 
 if [ "$MODE" = "all" ]; then
   # GSE207422 scRNA UMI matrix (175 MB, dense text)
