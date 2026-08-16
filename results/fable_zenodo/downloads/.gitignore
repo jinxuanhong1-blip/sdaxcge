@@ -1,0 +1,6 @@
+# Raw downloaded data files are NOT committed (large; some exceed GitHub's 100MB
+# per-file limit). They are fully reproducible via:
+#   python3 scripts/fable_zenodo/download_selected.py
+# Provenance (URLs, sizes, MD5) is recorded in ../download_manifest.json.
+*
+!.gitignore
