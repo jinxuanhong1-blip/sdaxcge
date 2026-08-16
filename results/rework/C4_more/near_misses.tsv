@@ -1,0 +1,10 @@
+record	class	why_not_additional_public_CLDN4_kdko	url
+GSE274940	wrong_perturbation	Bulk RNA-seq of EpH4 WT vs complete Cldn-null cells (all claudin family members removed). Not a CLDN4-only KD/KO.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE274940
+GSE22421	not_genetic_kdko	SKOV-3 microarray after C-CPE treatment. C-CPE binds CLDN3/4 and downregulates CLDN4 protein; this is ligand treatment, not KD/KO.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22421
+GSE245459	wrong_gene	User-excluded. Title is TACSTD2 cisplatin resistance; samples are sh / shNC ± DDP. Not CLDN4.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245459
+GSE334497	wrong_gene	4T1 Trop2 WT vs Trop2 KO tumors. Claudin program is a pathway readout, not a CLDN4 perturbation.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE334497
+GSE99415/16/17	observational	CLDN4 ceRNA network paper; deposited arrays are gastric tumor vs adjacent tissue, plus miRNA/lncRNA overexpression RNA-seq in the paper that is not a CLDN4 KD/KO series.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE99417
+PMID41016339	no_public_matrix	Kashiwagi et al. 2025 report CRISPR CLDN4 KO RNA-seq in H1688 SCLC cells. No GSE, E-MTAB, or SRA accession was located.	https://pubmed.ncbi.nlm.nih.gov/41016339/
+PMID40892111	no_public_matrix	Zheng et al. 2025 report CLDN4 shRNA RNA-seq in a pancreatitis model. No public accession was located.	https://pubmed.ncbi.nlm.nih.gov/40892111/
+E-GEOD-50927	mirror	ArrayExpress copy of excluded GSE50927.	https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-GEOD-50927
+E-GEOD-22493	mirror	ArrayExpress copy of excluded GSE22493.	https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-GEOD-22493
