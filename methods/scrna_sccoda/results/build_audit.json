@@ -1,0 +1,25 @@
+{
+  "n_composition_rows": 3945,
+  "n_samples": 114,
+  "cohorts": [
+    "GSE207422",
+    "GSE241934",
+    "GSE241934_IIT",
+    "GSE241934_RWC",
+    "GSE253013"
+  ],
+  "annotations": [
+    "author_collapsed",
+    "author_fine_immune",
+    "author_garnett_limited",
+    "author_major",
+    "drmref",
+    "drmref_collapsed",
+    "hu_collapsed",
+    "hu_markers",
+    "marker_coarse",
+    "marker_malig_split"
+  ],
+  "gse253013_rds_downloaded": false,
+  "gse253013_note": "9.3 GB RDS over 2 GB budget; used public-derived patient tables"
+}

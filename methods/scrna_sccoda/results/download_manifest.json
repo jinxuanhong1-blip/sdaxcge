@@ -1,0 +1,102 @@
+[
+  {
+    "cohort": "GSE207422",
+    "file": "GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz",
+    "wanted": true,
+    "size_bytes": 184001817,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE207422",
+    "file": "GSE207422_NSCLC_scRNAseq_metadata.xlsx",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_metadata.xlsx",
+    "wanted": true,
+    "size_bytes": 11323,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_IIT_Meta.txt.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_Meta.txt.gz",
+    "wanted": true,
+    "size_bytes": 1953694,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_Real_Meta.txt.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_Real_Meta.txt.gz",
+    "wanted": true,
+    "size_bytes": 5623488,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_IIT_features.tsv.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_features.tsv.gz",
+    "wanted": true,
+    "size_bytes": 199837,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_IIT_barcodes.tsv.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_barcodes.tsv.gz",
+    "wanted": true,
+    "size_bytes": 381344,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_RWC_features.tsv.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_RWC_features.tsv.gz",
+    "wanted": true,
+    "size_bytes": 199837,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_RWC_barcodes.tsv.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_RWC_barcodes.tsv.gz",
+    "wanted": true,
+    "size_bytes": 1093403,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_IIT_Matrix.mtx.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_IIT_Matrix.mtx.gz",
+    "wanted": true,
+    "size_bytes": 465972441,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE241934",
+    "file": "GSE241934_Real_Matrix.mtx.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE241nnn/GSE241934/suppl/GSE241934_Real_Matrix.mtx.gz",
+    "wanted": true,
+    "size_bytes": 1253655387,
+    "action": "already_present",
+    "within_budget": true
+  },
+  {
+    "cohort": "GSE253013",
+    "file": "GSE253013_all_luad_garnett_temp.rds.gz",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253013/suppl/GSE253013_all_luad_garnett_temp.rds.gz",
+    "wanted": false,
+    "reason": "9.3 GB > 2 GB budget; use public-derived patient tables",
+    "size_bytes": 9966268875,
+    "action": "skip_catalog",
+    "within_budget": false
+  }
+]
