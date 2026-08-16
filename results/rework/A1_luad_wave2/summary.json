@@ -1,0 +1,102 @@
+{
+  "task": "A1_luad_wave2",
+  "cohort": "TCGA-LUAD primary tumors (-01)",
+  "n_expression": 515,
+  "n_absolute": 502,
+  "n_abs_krt": 502,
+  "overall_verdict": "STILL_WEAK",
+  "onesided_double_residual": {
+    "tag": "STILL_WEAK",
+    "most_negative_rho": -0.07231825464913803,
+    "text": "most negative \u03c1 = -0.072; |\u03c1| stays inside the prior LUAD marker bound of 0.22 and far from OncoSG \u22120.30."
+  },
+  "twosided_double_residual": {
+    "tag": "STILL_WEAK",
+    "most_negative_rho": -0.08228233311559863,
+    "text": "most negative \u03c1 = -0.082; |\u03c1| stays inside the prior LUAD marker bound of 0.22 and far from OncoSG \u22120.30."
+  },
+  "immunescore_residual_onesided": {
+    "tag": "STILL_WEAK",
+    "most_negative_rho": -0.13953802476605798,
+    "text": "most negative \u03c1 = -0.140; |\u03c1| stays inside the prior LUAD marker bound of 0.22 and far from OncoSG \u22120.30."
+  },
+  "immunescore_residual_twosided": {
+    "tag": "STILL_WEAK",
+    "most_negative_rho": -0.21082658499509313,
+    "text": "most negative \u03c1 = -0.211; |\u03c1| stays inside the prior LUAD marker bound of 0.22 and far from OncoSG \u22120.30."
+  },
+  "thresholds": {
+    "strong_inverse": -0.3,
+    "lusc_bound": -0.22,
+    "prior_deconv_abs_bound": 0.13,
+    "strong_inverse_source": "OncoSG A1 PR #139 CD8/GEP after purity (\u22120.309 / \u22120.349)"
+  },
+  "tacstd2_vs_absolute": {
+    "rho": 0.007390157000782001,
+    "p": 0.8688112903914171,
+    "n": 502
+  },
+  "tacstd2_vs_krt_epcam": {
+    "rho": 0.3637834271324188,
+    "p": 1.470067026196214e-17,
+    "n": 515
+  },
+  "tacstd2_vs_immunescore": {
+    "rho": 0.036355759060409235,
+    "p": 0.41033121855225385,
+    "n": 515
+  },
+  "absolute_vs_krt_epcam": {
+    "rho": 0.02285029612027886,
+    "p": 0.6095195156284943,
+    "n": 502
+  },
+  "xcell_cd8_column": "T cell CD8+_XCELL",
+  "xcell_epithelial_column": null,
+  "krt_epcam_genes_present": [
+    "EPCAM",
+    "KRT7",
+    "KRT8",
+    "KRT18",
+    "KRT19"
+  ],
+  "primary_immune": [
+    "CD8",
+    "CYT",
+    "GEP18_zmean",
+    "xCell_T_cell_CD8"
+  ],
+  "models": {
+    "unadjusted": [],
+    "ABS_only": [
+      "ABSOLUTE_purity"
+    ],
+    "KRT_only": [
+      "KRT_EPCAM"
+    ],
+    "ABS_KRT": [
+      "ABSOLUTE_purity",
+      "KRT_EPCAM"
+    ],
+    "ABS_KRT_CDH1": [
+      "ABSOLUTE_purity",
+      "KRT_EPCAM_CDH1"
+    ],
+    "ABS_allKRT": [
+      "ABSOLUTE_purity",
+      "all_KRT_EPCAM"
+    ],
+    "ABS_ESTPUR": [
+      "ABSOLUTE_purity",
+      "ESTIMATE_TumorPurity"
+    ],
+    "IMMUNE": [
+      "ESTIMATE_ImmuneScore"
+    ],
+    "ABS_IMMUNE": [
+      "ABSOLUTE_purity",
+      "ESTIMATE_ImmuneScore"
+    ]
+  },
+  "generated_at": "2026-08-16T20:19:13.495093+00:00"
+}

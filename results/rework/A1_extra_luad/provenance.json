@@ -1,0 +1,41 @@
+{
+  "inputs": {
+    "GSE31210_series_matrix.txt.gz": {
+      "bytes": 59914213,
+      "md5": "1a7ea5ccf96f5a78e24a2f2cdf43bc6a"
+    },
+    "GSE72094_series_matrix.txt.gz": {
+      "bytes": 105955906,
+      "md5": "097e138c5e75559652363c79517e532d"
+    },
+    "GSE68465_series_matrix.txt.gz": {
+      "bytes": 36648454,
+      "md5": "be87aa01b1c60c7e1d474f27a0555dd8"
+    },
+    "GSE19804_series_matrix.txt.gz": {
+      "bytes": 21530998,
+      "md5": "c817eb7b8b74d1cbdd4db7580fb9ea08"
+    },
+    "LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt": {
+      "bytes": 35757367,
+      "md5": "b3b840da7d1327f9be40530e14a47cd5"
+    },
+    "LUAD_phenotype.txt": {
+      "bytes": 210137,
+      "md5": "438449346f0703a0877cbfc56436b845"
+    },
+    "GPL570.annot.gz": {
+      "bytes": 8471521,
+      "md5": "be9fdbdb62e45257f2d3177a32f9a518"
+    },
+    "GPL96.annot.gz": {
+      "bytes": 4522748,
+      "md5": "a3c03c05e7b77d2305b84ba5e46181ec"
+    },
+    "GPL15048_platform_table.tsv": {
+      "bytes": 2929814,
+      "md5": "abbd6a42cf137f837c6eb7651181e8d3"
+    }
+  },
+  "signatures": "/workspace/data/signatures/estimate_yoshihara_2013.tsv"
+}

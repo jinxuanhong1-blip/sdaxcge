@@ -1,0 +1,8 @@
+hugo	panel	rationale
+EPCAM	primary	canonical epithelial adhesion molecule; user-requested KRT/EPCAM score
+KRT7	primary	LUAD-typical simple-epithelium keratin
+KRT8	primary	simple-epithelium keratin
+KRT18	primary	simple-epithelium keratin (pairs with KRT8)
+KRT19	primary	simple-epithelium keratin, common in LUAD
+CDH1	sensitivity	E-cadherin; epithelial adhesion, not a keratin
+KRT5	excluded_squamous	basal/squamous keratin — listed so it is not silently added to the LUAD score
