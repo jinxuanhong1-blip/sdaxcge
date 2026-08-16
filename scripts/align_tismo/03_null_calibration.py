@@ -71,7 +71,8 @@ def main() -> int:
     cancer_types = replicate.load_cell_line_cancer_types()
 
     target = stat_for_frame(
-        pd.read_csv(tc.DATA_DIR / f"vivo_expression_{GENE}.csv"), cancer_types
+        tc.load_expression_csv(tc.DATA_DIR / f"vivo_expression_{GENE}.csv", gene=GENE),
+        cancer_types,
     )
     assert target is not None
 

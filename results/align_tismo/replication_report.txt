@@ -1,0 +1,118 @@
+==============================================================================
+TISMO Tacstd2: baseline vs ICB, paired at the cohort level
+==============================================================================
+{
+  "gene": "Tacstd2",
+  "source": "TISMO Gene module, in vivo (tismo.cistrome.org -> tismo.pku-genomics.org)",
+  "value_units": "quantile-normalised, ComBat-corrected log-scale TPM as served by TISMO",
+  "n_rows_returned": 619,
+  "n_rows_dropped_malformed": 0,
+  "n_rows_dropped_wrong_gene": 0,
+  "n_unique_samples": 605,
+  "n_baseline_samples": 294,
+  "n_icb_samples": 311,
+  "n_samples_in_multiple_cohorts": 14,
+  "n_cohorts": 64,
+  "n_icb_cohorts_tismo_exposes_overall": 65,
+  "cohorts_absent_for_this_gene": [
+    "MOC22_RU31562203_antiPD1"
+  ],
+  "n_cell_lines": 17,
+  "n_studies": 22,
+  "n_cancer_types": 9,
+  "cell_lines": [
+    "402230",
+    "4T1",
+    "B16",
+    "BNL-MEA",
+    "CT26",
+    "D3UV2",
+    "D4M.3A.3",
+    "E0771",
+    "EMT6",
+    "KPB25L",
+    "LLC",
+    "MC38",
+    "T11",
+    "YTN16",
+    "YUMM1.7",
+    "p53-2225L",
+    "p53-2336R"
+  ],
+  "studies": [
+    "ERP114266",
+    "GSE103725",
+    "GSE107801",
+    "GSE109485",
+    "GSE124821",
+    "GSE130472",
+    "GSE132529",
+    "GSE137818",
+    "GSE139475",
+    "GSE146027",
+    "GSE148856",
+    "GSE148947",
+    "GSE149825",
+    "GSE150401",
+    "GSE151829",
+    "GSE152925",
+    "GSE153239",
+    "GSE155972",
+    "GSE159344",
+    "GSE172162",
+    "GSE174053",
+    "GSE93017"
+  ],
+  "frac_samples_exactly_zero": 0.1421647819063005,
+  "frac_cohorts_with_baseline_below_0.5": 0.609375
+}
+
+                               subset  n_cohorts  n_cell_lines  n_studies  n_up  n_down  mean_baseline  mean_icb  mean_delta  paired_t_p  wilcoxon_p  sign_test_p
+        ALL cohorts (headline design)         64            17         22    49      15          1.051     1.317      0.2654    0.003482    5.84e-05    2.436e-05
+                    Lung cohorts only          2             1          1     2       0         0.2186    0.6473      0.4286      0.3848         0.5          0.5
+                     Non-lung cohorts         62            16         21    47      15          1.078     1.338      0.2601    0.005283   0.0001348    5.778e-05
+    cancer type: Colorectal carcinoma         10             2          5     8       2         0.4057    0.5652      0.1595     0.04791     0.04883       0.1094
+  cancer type: Gastric adenocarcinoma          5             1          1     5       0           2.35      3.76        1.41     0.09112      0.0625       0.0625
+cancer type: Hepatocellular carcinoma          2             1          1     1       1        0.09997   0.09013   -0.009841      0.8541           1            1
+          cancer type: Lung carcinoma          2             1          1     2       0         0.2186    0.6473      0.4286      0.3848         0.5          0.5
+  cancer type: Mammary adenocarcinoma          1             1          1     1       0         0.5992     0.609    0.009816         NaN           1            1
+     cancer type: Mammary cancer, NOS         19             4          1    12       7          1.363     1.524      0.1611      0.2763      0.1042       0.3593
+       cancer type: Mammary carcinoma          9             2          4     5       4          2.426     2.371    -0.05517      0.6637      0.8203            1
+                cancer type: Melanoma         14             4          7    13       1        0.09865    0.4204      0.3217     0.09606   0.0008545     0.001831
+                 cancer type: Sarcoma          2             1          1     2       0         0.5697    0.7815      0.2118     0.07837         0.5          0.5
+  collapsed to one pair per cell line         17            17         10    14       3         0.8696     1.162      0.2928      0.0135    0.003845      0.01273
+      collapsed to one pair per study         22            12         22    18       4         0.8893     1.114       0.225      0.0186    0.004151     0.004344
+
+Cluster bootstrap on the mean delta:
+  cluster  n_clusters  observed_mean_delta  ci_low  ci_high  p_two_sided
+cell_line          17               0.2654 0.07803   0.5262      0.02395
+    study          22               0.2654  0.0882   0.5343       0.0268
+
+Leave-one-cell-line-out (sorted by weakest resulting p):
+dropped_cell_line  n_cohorts_removed  n_cohorts_left  n_up  mean_delta  paired_t_p  wilcoxon_p
+              B16                 11              53    39      0.2557     0.01014   0.0006431
+            YTN16                  5              59    44      0.1684     0.01549   0.0005312
+             CT26                  7              57    43      0.2719    0.007291   0.0002696
+              T11                  9              55    43      0.2929    0.005444   0.0002273
+        p53-2336R                  2              62    47      0.2386    0.007055   0.0001387
+              LLC                  2              62    47      0.2601    0.005283   0.0001348
+           402230                  2              62    47      0.2671    0.004376   0.0001169
+             EMT6                  2              62    47      0.2628    0.004885   0.0001169
+            D3UV2                  1              63    48      0.2561    0.005151   9.529e-05
+             MC38                  3              61    47      0.2767    0.003663   8.921e-05
+         D4M.3A.3                  1              63    48       0.267    0.003802   8.268e-05
+          YUMM1.7                  1              63    48      0.2687     0.00359   7.374e-05
+            E0771                  1              63    48      0.2694     0.00349   6.572e-05
+          BNL-MEA                  2              62    48      0.2743    0.003415   5.799e-05
+           KPB25L                  6              58    45      0.2894     0.00234   3.743e-05
+        p53-2225L                  2              62    49      0.2774    0.003037   2.632e-05
+              4T1                  7              57    46      0.3188    0.001433   2.607e-06
+
+TISMO's own within-cohort DESeq2 statistic:
+{
+  "n_cohorts_with_tismo_p": 50,
+  "n_cohorts_without_tismo_p": 14,
+  "n_tismo_p_below_0.05": 7,
+  "n_tismo_p_below_0.05_and_up": 7,
+  "n_tismo_p_below_0.05_and_down": 0
+}
