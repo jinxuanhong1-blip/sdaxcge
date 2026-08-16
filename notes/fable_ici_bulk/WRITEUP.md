@@ -232,6 +232,83 @@ Figures: `results/fable_ici_bulk/figures/*_vs_CD8NK.png`.
 
 ---
 
+## 4ter. Round 3 — Association with **response** after purity (core ICI bulk)
+## 第三轮 —— 核心 ICI bulk 队列：纯度校正后与**应答**的关联
+
+This is the original question, asked cleanly: in open lung ICI **bulk** series that measure
+**both** TACSTD2 and CLDN4, is expression associated with clinical response after a purity
+adjustment? Extra GEO hunting (39 GDS IDs; see `notes/fable_ici_bulk/cohort_hunt_round3.md`)
+found **no additional** public tumor-bulk lung ICI matrix with both genes **and** a deposited
+response label. Durvalumab GSE253564/GSE248378 still lack a public per-sample MPR table and
+were **not** given invented labels.
+
+本轮直接回答原问题：在同时检测 TACSTD2 与 CLDN4 的公开肺癌 ICI **bulk** 队列中，纯度校正后
+表达是否与临床应答相关？额外检索 39 个 GEO 记录，**没有**新的、同时具备两基因 + 应答标注的
+肿瘤 bulk 队列。durvalumab 两套仍无公开逐样本 MPR 表，**不编造标签**。
+
+**Adjustment / 校正方法.** OLS residual of log-expression on the epithelial (tumor-content)
+score, and separately on the leukocyte score; Mann–Whitney on residuals; Spearman / partial
+Spearman vs binary NR; logistic `NR ~ gene` and `NR ~ gene + epithelial`; Cox
+`PFS ~ gene` and `PFS ~ gene + epithelial` on GSE135222. Secondary DCB on GSE135222 =
+PFS time ≥ 180 days (published 6-month convention on this series; GEO deposits PFS only;
+0 patients were censored before 180 d).
+
+### 4ter.1 Binary response after residualization / 残差后的二分类应答
+
+AUC(NR > R); one-sided p is the directional test. **No test is significant after purity.**
+
+| Cohort | Gene | raw AUC (p1) | resid\|epithelial AUC (p1) | resid\|leukocyte AUC (p1) |
+|--------|------|--------------|----------------------------|---------------------------|
+| GSE126044 (5R/11NR) | TACSTD2 | 0.64 (0.22) | 0.38 (0.78) | 0.55 (0.41) |
+| GSE126044 | CLDN4 | 0.76 (0.057) | 0.67 (0.16) | 0.56 (0.37) |
+| GSE166449 (7R/15NR) | TACSTD2 | 0.38 (0.82) | 0.37 (0.83) | 0.42 (0.73) |
+| GSE166449 | CLDN4 | 0.49 (0.55) | 0.37 (0.83) | 0.47 (0.61) |
+| GSE207422 (9 MPR / 15 NMPR) | TACSTD2 | 0.62 (0.17) | 0.51 (0.48) | 0.40 (0.80) |
+| GSE207422 | CLDN4 | 0.64 (0.13) | 0.44 (0.68) | 0.45 (0.66) |
+| GSE135222 DCB (7 DCB / 20 NDB) | TACSTD2 | 0.57 (0.30) | 0.53 (0.43) | 0.59 (0.27) |
+| GSE135222 DCB | CLDN4 | 0.44 (0.68) | 0.44 (0.68) | 0.42 (0.73) |
+
+Partial Spearman of expression vs NR, controlling epithelial content, is likewise null
+(all |ρ| ≤ 0.26, all p > 0.32). Closest raw signal (GSE126044 CLDN4) **attenuates** once
+epithelial content is removed.
+
+### 4ter.2 Logistic and Cox (MLE actually converged; CIs are wide)
+
+| Cohort | Gene | OR (NR ~ gene) | p | OR (NR ~ gene + epi), gene term | p |
+|--------|------|----------------|---|----------------------------------|---|
+| GSE126044 | TACSTD2 | 1.66 (0.78–3.54) | 0.19 | 0.68 (0.18–2.60) | 0.57 |
+| GSE126044 | CLDN4 | 1.93 (0.85–4.41) | 0.12 | 1.01 (0.29–3.52) | 0.99 |
+| GSE166449 | TACSTD2 | 0.69 (0.17–2.76) | 0.60 | 0.20 (0.01–3.25) | 0.26 |
+| GSE207422 | TACSTD2 | 1.15 (0.79–1.68) | 0.46 | 1.18 (0.48–2.87) | 0.72 |
+| GSE135222 DCB | TACSTD2 | 0.98 (0.62–1.54) | 0.92 | 0.97 (0.55–1.71) | 0.92 |
+
+GSE135222 Cox PFS, TACSTD2: univariable HR 1.03 (0.82–1.31, p=0.78);
+`gene + epithelial` HR 0.89 (0.64–1.23, p=0.47). CLDN4 similar (purity-adjusted HR 0.81,
+p=0.21). All CIs include 1.
+
+### 4ter.3 Honest bottom line for **response** / 对应答问题的诚实结论
+
+**EN.** In every open lung ICI **bulk** cohort that measures both genes **and** has a
+response/PFS label, **TACSTD2 and CLDN4 are not significantly associated with ICI response
+after purity adjustment.** Raw NR-high trends in GSE126044/GSE207422 are consistent with
+lower purity in responders and disappear (or reverse) after residualizing on epithelial or
+leukocyte content. Sample sizes are 16–27; a modest true effect is not ruled out, but it is
+**not observed**. The purity-independent finding that *is* observed (Section 4bis) is the
+anti-correlation of tumor TACSTD2/CLDN4 with CD8/NK — a TME-state result, not a standalone
+response classifier on these n.
+
+**中文.** 在所有同时检测两基因且有应答/PFS 标注的公开肺癌 ICI **bulk** 队列中，
+**纯度校正后 TACSTD2 与 CLDN4 均与 ICI 应答无显著关联。** GSE126044/GSE207422 的原始
+“NR 偏高”趋势与应答者纯度更低相符，残差化后消失或反向。n=16–27，不能排除中等真实效应，
+但**当前数据未观察到**。纯度独立且可复现的发现仍是第 4bis 节：肿瘤 TACSTD2/CLDN4 与
+CD8/NK 负相关——这是 TME 状态，不是这些样本量下的独立应答分类器。
+
+Tables: `results/fable_ici_bulk/tables/response_after_purity_{mwu,spearman,logistic,cox}.csv`.
+Figures: `results/fable_ici_bulk/figures/*_response_purity.png`, `response_auc_forest.png`.
+Script: `scripts/fable_ici_bulk/response_after_purity.py`.
+
+---
+
 ## 5. Caveats / 局限性
 
 - Small cohorts (n = 16–27) → limited power; a modest true effect could be missed.
@@ -251,9 +328,15 @@ Figures: `results/fable_ici_bulk/figures/*_vs_CD8NK.png`.
 - Purity is estimated from expression signatures (epithelial content / leukocyte content),
   not from DNA (ABSOLUTE/ESTIMATE-DNA); the two purity proxies are reported side by side and
   agree on direction. 纯度由表达信号（上皮/白细胞含量）估计，非 DNA 法；两种代理方向一致。
-- The two durvalumab cohorts (GSE253564, GSE248378) have no responder label deposited in GEO,
-  so they are used only for the CD8/NK anti-correlation, not a responder test.
-  两个 durvalumab 队列在 GEO 无应答标注，仅用于 CD8/NK 负相关分析。
+- The two durvalumab cohorts (GSE253564, GSE248378) have no responder label deposited in GEO
+  and no retrievable public per-sample MPR table; they are used only for the CD8/NK
+  anti-correlation. Labels were **not** invented.
+  两个 durvalumab 队列在 GEO 无应答标注、也无可用的公开逐样本 MPR 表；仅用于 CD8/NK 负相关，
+  **不编造标签**。
+- GSE135222 DCB is a PFS≥180 d proxy (published convention on this series), not deposited RECIST.
+  GSE135222 的 DCB 为 PFS≥180 天代理，非 GEO 原始 RECIST。
+- Round-3 GEO hunt (39 IDs) found no extra tumor-bulk lung ICI set with both genes + response.
+  第三轮检索未发现额外可用队列。见 `notes/fable_ici_bulk/cohort_hunt_round3.md`。
 - TCGA/OncoSG are treatment-naïve tumor cohorts used to power the mechanistic anti-correlation,
   not to test ICI response directly. TCGA/OncoSG 为未经 ICI 治疗的肿瘤队列，用于机制性负相关的
   效能支撑，非直接检验 ICI 应答。
@@ -266,12 +349,14 @@ Figures: `results/fable_ici_bulk/figures/*_vs_CD8NK.png`.
 notes/fable_ici_bulk/
   WRITEUP.md              <- this file / 本文件
   geo_verification.md     <- per-GEO verification + eligibility / 逐一核实与可用性
+  cohort_hunt_round3.md   <- extra GEO hunt (no new usable response+both-gene bulk)
 scripts/fable_ici_bulk/
   geo_utils.py            <- series_matrix metadata parser
   signatures.py           <- gene signatures + partial-Spearman / purity helpers
   analyze.py              <- round-1 raw responder / survival stats (+ figures)
   purity_corrected.py     <- round-2 purity-corrected, tumor-intrinsic analysis
   cbioportal_analysis.py  <- TCGA-LUAD/LUSC + OncoSG large-n anti-correlation
+  response_after_purity.py <- round-3: response association after OLS residual / logistic / Cox
   download.sh             <- fetch processed matrices (no FASTQ)
 results/fable_ici_bulk/
   tables/binary_response_stats.csv          (round 1, raw)
@@ -281,7 +366,10 @@ results/fable_ici_bulk/
   tables/purity_corrected_directional.csv   (round 2, NR>R raw vs tumor-intrinsic)
   tables/purity_corrected_survival.csv      (round 2)
   tables/cbioportal_correlations.csv        (round 2, TCGA/OncoSG)
+  tables/response_after_purity_{mwu,spearman,logistic,cox}.csv  (round 3)
   figures/*_vs_CD8NK.png                     (target vs CD8/NK scatter)
+  figures/*_response_purity.png              (raw vs residual boxplots)
+  figures/response_auc_forest.png
   figures/GSE*_{TACSTD2,CLDN4}.png           (round-1 boxplots)
   figures/GSE135222_*_KM.png                 (round-1 Kaplan-Meier)
 ```
@@ -290,7 +378,8 @@ Reproduce / 复现:
 ```bash
 pip3 install pandas scipy statsmodels matplotlib lifelines openpyxl
 bash scripts/fable_ici_bulk/download.sh /tmp/ici_bulk_data   # GEO processed matrices
-python3 scripts/fable_ici_bulk/analyze.py            # round 1 (raw responder/survival)
-python3 scripts/fable_ici_bulk/purity_corrected.py   # round 2 (purity-corrected)
-python3 scripts/fable_ici_bulk/cbioportal_analysis.py # round 2 (TCGA/OncoSG, needs network)
+python3 scripts/fable_ici_bulk/analyze.py              # round 1 (raw responder/survival)
+python3 scripts/fable_ici_bulk/purity_corrected.py     # round 2 (purity-corrected CD8/NK)
+python3 scripts/fable_ici_bulk/cbioportal_analysis.py  # round 2 (TCGA/OncoSG, needs network)
+python3 scripts/fable_ici_bulk/response_after_purity.py # round 3 (response after purity)
 ```
