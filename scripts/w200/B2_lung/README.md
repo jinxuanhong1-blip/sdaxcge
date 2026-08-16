@@ -6,7 +6,10 @@ The user-claimed value is **ρ = 0.69**. This pipeline does not tune lineage, hi
 
 ```bash
 python3 scripts/w200/B2_lung/download.py
+python3 scripts/w200/B2_lung/download_historical.py   # optional 22Q2 + 2018 CCLE
 python3 scripts/w200/B2_lung/analyze.py
 ```
 
 Outputs land in `results/w200/B2_lung/`.
+
+Primary result (24Q4 lung lines): Spearman ρ = 0.61 (n=214), **not** the user-claimed 0.69. See `results/w200/B2_lung/README.md`.

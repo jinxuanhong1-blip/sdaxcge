@@ -127,10 +127,8 @@ def main() -> int:
 
     extract_meta = extract_two_genes(expr_path, two_gene_path)
 
-    # Keep a working copy of Model.csv next to results (small).
-    model_copy = out / "Model.csv"
-    if not model_copy.exists() or model_copy.stat().st_size != model_path.stat().st_size:
-        model_copy.write_bytes(model_path.read_bytes())
+    # Do not copy the full Model.csv into results/ (631 KB, regenerable).
+    # Analyze reads it from --model-csv / cache.
 
     manifest = {
         "release": RELEASE,

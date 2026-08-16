@@ -27,7 +27,20 @@ NEARBY_ABS = 0.05
 PRIMARY_COHORT = "lung_cell_lines"  # OncotreeLineage==Lung AND ModelType==Cell Line
 
 
-def corr_block(x: np.ndarray, y: np.ndarray) -> dict:
+def bootstrap_spearman_ci(
+    x: np.ndarray, y: np.ndarray, n_boot: int = 5000, seed: int = 0
+) -> tuple[float, float]:
+    rng = np.random.default_rng(seed)
+    n = len(x)
+    boots = np.empty(n_boot)
+    for i in range(n_boot):
+        idx = rng.integers(0, n, n)
+        boots[i] = stats.spearmanr(x[idx], y[idx]).statistic
+    lo, hi = np.percentile(boots, [2.5, 97.5])
+    return float(lo), float(hi)
+
+
+def corr_block(x: np.ndarray, y: np.ndarray, ci: bool = False) -> dict:
     n = int(len(x))
     if n < 3:
         return {
@@ -36,16 +49,26 @@ def corr_block(x: np.ndarray, y: np.ndarray) -> dict:
             "spearman_p": None,
             "pearson_r": None,
             "pearson_p": None,
+            "spearman_ci95_low": None,
+            "spearman_ci95_high": None,
         }
     rho, p_s = stats.spearmanr(x, y)
     r, p_p = stats.pearsonr(x, y)
-    return {
+    out = {
         "n": n,
         "spearman_rho": float(rho),
         "spearman_p": float(p_s),
         "pearson_r": float(r),
         "pearson_p": float(p_p),
+        "spearman_ci95_low": None,
+        "spearman_ci95_high": None,
     }
+    if ci and n >= 8:
+        lo, hi = bootstrap_spearman_ci(x, y)
+        out["spearman_ci95_low"] = lo
+        out["spearman_ci95_high"] = hi
+        out["user_0.69_inside_spearman_ci95"] = bool(lo <= USER_RHO <= hi)
+    return out
 
 
 def verdict(rho: float | None) -> dict:
@@ -78,24 +101,66 @@ def verdict(rho: float | None) -> dict:
     }
 
 
-def add_cohort(rows: list, name: str, sub: pd.DataFrame, note: str) -> dict:
-    block = corr_block(sub["TACSTD2"].to_numpy(), sub["CLDN4"].to_numpy())
+def add_cohort(rows: list, name: str, sub: pd.DataFrame, note: str, ci: bool = False) -> dict:
+    xcol = "TACSTD2" if "TACSTD2" in sub.columns else "TACSTD2_RPKM"
+    ycol = "CLDN4" if "CLDN4" in sub.columns else "CLDN4_RPKM"
+    block = corr_block(sub[xcol].to_numpy(dtype=float), sub[ycol].to_numpy(dtype=float), ci=ci)
     rec = {"cohort": name, "note": note, **block, "verdict_vs_user_spearman": verdict(block["spearman_rho"])}
     rows.append(rec)
     return rec
+
+
+def flatten_rows(rows: list[dict]) -> pd.DataFrame:
+    flat = []
+    for r in rows:
+        v = r["verdict_vs_user_spearman"]
+        flat.append(
+            {
+                "cohort": r["cohort"],
+                "n": r["n"],
+                "spearman_rho": r["spearman_rho"],
+                "spearman_p": r["spearman_p"],
+                "spearman_ci95_low": r.get("spearman_ci95_low"),
+                "spearman_ci95_high": r.get("spearman_ci95_high"),
+                "user_0.69_inside_spearman_ci95": r.get("user_0.69_inside_spearman_ci95"),
+                "pearson_r": r["pearson_r"],
+                "pearson_p": r["pearson_p"],
+                "user_claimed_rho": v["user_claimed_rho"],
+                "spearman_rounded_2dp": v["rounded_2dp"],
+                "matches_user_0.69_at_2dp": v["matches_user_0.69_at_2dp"],
+                "abs_diff_vs_0.69": v["abs_diff"],
+                "within_0.05_of_0.69": v["within_0.05"],
+                "verdict": v["label"],
+                "note": r["note"],
+            }
+        )
+    return pd.DataFrame(flat)
 
 
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--in-dir", default="results/w200/B2_lung")
     p.add_argument("--out-dir", default="results/w200/B2_lung")
+    p.add_argument(
+        "--model-csv",
+        default="",
+        help="Path to DepMap Model.csv (default: <in-dir>/Model.csv then /tmp/depmap_24q4/Model.csv)",
+    )
     args = p.parse_args()
     indir = Path(args.in_dir)
     out = Path(args.out_dir)
     out.mkdir(parents=True, exist_ok=True)
 
     expr = pd.read_csv(indir / "depmap24q4_tacstd2_cldn4_all_models.csv")
-    model = pd.read_csv(indir / "Model.csv", low_memory=False)
+    model_path = Path(args.model_csv) if args.model_csv else Path()
+    if not args.model_csv:
+        for cand in (indir / "Model.csv", Path("/tmp/depmap_24q4/Model.csv")):
+            if cand.exists():
+                model_path = cand
+                break
+    if not model_path.exists():
+        raise SystemExit("Model.csv not found. Re-run download.py or pass --model-csv.")
+    model = pd.read_csv(model_path, low_memory=False)
 
     expr["TACSTD2"] = pd.to_numeric(expr["TACSTD2"], errors="coerce")
     expr["CLDN4"] = pd.to_numeric(expr["CLDN4"], errors="coerce")
@@ -135,9 +200,11 @@ def main() -> int:
     # Broader / narrower sensitivities — reported, not used to chase 0.69.
     all_models = df.copy()
     lung_any_modeltype = lung.copy()
-    luad = lung_cl[lung_cl["OncotreeSubtype"].fillna("").str.contains("Adenocarcinoma", case=False)].copy()
-    lusc = lung_cl[lung_cl["OncotreeSubtype"].fillna("").str.contains("Squamous", case=False)].copy()
-    sclc = lung_cl[lung_cl["OncotreeSubtype"].fillna("").str.contains("Small Cell", case=False)].copy()
+    # Exact OncotreeSubtype labels — do not use naive substring match
+    # ("Non-Small Cell Lung Cancer" contains "Small Cell"; adenosquamous contains "Squamous").
+    luad = lung_cl[lung_cl["OncotreeSubtype"] == "Lung Adenocarcinoma"].copy()
+    lusc = lung_cl[lung_cl["OncotreeSubtype"] == "Lung Squamous Cell Carcinoma"].copy()
+    sclc = lung_cl[lung_cl["OncotreeSubtype"] == "Small Cell Lung Cancer"].copy()
 
     rows: list[dict] = []
     primary = add_cohort(
@@ -146,6 +213,7 @@ def main() -> int:
         lung_cl,
         "PRIMARY: OncotreeLineage==Lung and ModelType==Cell Line. "
         "This is the pre-specified B2 lung-lines cohort.",
+        ci=True,
     )
     add_cohort(
         rows,
@@ -158,6 +226,7 @@ def main() -> int:
         "lung_NSCLC_cell_lines",
         nsclc,
         "Sensitivity: NSCLC primary disease only (excludes SCLC/NET and non-cancerous).",
+        ci=True,
     )
     add_cohort(
         rows,
@@ -171,9 +240,9 @@ def main() -> int:
         other_lung_cl,
         "Sensitivity: Lung lineage cell lines that are neither NSCLC nor NET.",
     )
-    add_cohort(rows, "lung_LUAD_cell_lines", luad, "Sensitivity: OncotreeSubtype contains Adenocarcinoma.")
-    add_cohort(rows, "lung_LUSC_cell_lines", lusc, "Sensitivity: OncotreeSubtype contains Squamous.")
-    add_cohort(rows, "lung_SCLC_subtype_cell_lines", sclc, "Sensitivity: OncotreeSubtype contains Small Cell.")
+    add_cohort(rows, "lung_LUAD_cell_lines", luad, "Sensitivity: OncotreeSubtype == Lung Adenocarcinoma.")
+    add_cohort(rows, "lung_LUSC_cell_lines", lusc, "Sensitivity: OncotreeSubtype == Lung Squamous Cell Carcinoma.")
+    add_cohort(rows, "lung_SCLC_subtype_cell_lines", sclc, "Sensitivity: OncotreeSubtype == Small Cell Lung Cancer.")
     add_cohort(
         rows,
         "all_lineages_cell_lines",
@@ -187,29 +256,9 @@ def main() -> int:
         "Context only: all lineages, all model types with RNA. Not the B2 request.",
     )
 
-    corr_df = pd.json_normalize(rows, sep="__")
-    # flatten verdict for a readable csv
-    flat = []
-    for r in rows:
-        v = r["verdict_vs_user_spearman"]
-        flat.append(
-            {
-                "cohort": r["cohort"],
-                "n": r["n"],
-                "spearman_rho": r["spearman_rho"],
-                "spearman_p": r["spearman_p"],
-                "pearson_r": r["pearson_r"],
-                "pearson_p": r["pearson_p"],
-                "user_claimed_rho": v["user_claimed_rho"],
-                "spearman_rounded_2dp": v["rounded_2dp"],
-                "matches_user_0.69_at_2dp": v["matches_user_0.69_at_2dp"],
-                "abs_diff_vs_0.69": v["abs_diff"],
-                "within_0.05_of_0.69": v["within_0.05"],
-                "verdict": v["label"],
-                "note": r["note"],
-            }
-        )
-    flat_df = pd.DataFrame(flat)
+    hist_rows = _historical_cohorts(indir)
+    rows.extend(hist_rows)
+    flat_df = flatten_rows(rows)
     flat_df.to_csv(out / "correlations.csv", index=False)
 
     # Per-line table for the primary cohort (and all lung RNA for audit).
@@ -330,7 +379,8 @@ def main() -> int:
             "line_definition": "ModelType == Cell Line",
             "correlation": "scipy.stats.spearmanr and pearsonr, two-sided, complete cases",
             "did_we_tune_to_0.69": False,
-            "note": "Organoids and non-cell-line lung models are excluded from the primary cohort and shown as sensitivity.",
+            "bootstrap": "percentile 95% CI, 5000 resamples, seed=0, primary and NSCLC only",
+            "note": "In 24Q4 every Lung-lineage model is ModelType==Cell Line. Historical 22Q2/2018 files are extra named sensitivities, not used to redefine the primary cohort.",
         },
     }
     (out / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
@@ -340,28 +390,126 @@ def main() -> int:
     return 0
 
 
+def _historical_cohorts(indir: Path) -> list[dict]:
+    """Named historical CCLE files. Not used to replace the 24Q4 primary."""
+    rows: list[dict] = []
+    expr22 = indir / "ccle22q2_tacstd2_cldn4_all_models.csv"
+    si22 = Path("/tmp/ccle2018/sample_info_22q2.csv")
+    if expr22.exists() and si22.exists():
+        e = pd.read_csv(expr22)
+        si = pd.read_csv(si22)
+        d = e.merge(si, left_on="ModelID", right_on="DepMap_ID", how="left")
+        d["TACSTD2"] = pd.to_numeric(d["TACSTD2"], errors="coerce")
+        d["CLDN4"] = pd.to_numeric(d["CLDN4"], errors="coerce")
+        d = d.dropna(subset=["TACSTD2", "CLDN4"])
+        lung = d[d["lineage"] == "lung"]
+        add_cohort(
+            rows,
+            "hist_22q2_lineage_lung",
+            lung,
+            "Historical: DepMap 22Q2 CCLE_expression.csv, sample_info lineage==lung "
+            "(this older annotation includes mesothelioma).",
+            ci=True,
+        )
+        add_cohort(
+            rows,
+            "hist_22q2_lineage_lung_no_meso",
+            lung[lung["lineage_subtype"] != "mesothelioma"],
+            "Historical: 22Q2 lineage==lung excluding mesothelioma.",
+        )
+        add_cohort(
+            rows,
+            "hist_22q2_NSCLC",
+            lung[lung["lineage_subtype"] == "NSCLC"],
+            "Historical: 22Q2 lineage_subtype==NSCLC.",
+        )
+        add_cohort(
+            rows,
+            "hist_22q2_all_lines",
+            d,
+            "Context only: 22Q2 all lineages. Not the B2 lung-only request.",
+        )
+        lung[
+            [
+                "ModelID",
+                "cell_line_name",
+                "CCLE_Name",
+                "lineage",
+                "lineage_subtype",
+                "primary_disease",
+                "TACSTD2",
+                "CLDN4",
+            ]
+        ].to_csv(indir / "ccle22q2_lung_expression.csv", index=False)
+
+    gct = indir / "ccle2018_rpkm_tacstd2_cldn4.csv"
+    ann = Path("/tmp/ccle2018/Cell_lines_annotations_20181226.txt")
+    if gct.exists():
+        g = pd.read_csv(gct)
+        g["TACSTD2_RPKM"] = pd.to_numeric(g["TACSTD2_RPKM"], errors="coerce")
+        g["CLDN4_RPKM"] = pd.to_numeric(g["CLDN4_RPKM"], errors="coerce")
+        g["tissue_suffix"] = g["CCLE_ID"].astype(str).str.split("_").str[-1]
+        add_cohort(
+            rows,
+            "hist_2018_suffix_LUNG_RPKM",
+            g[g["tissue_suffix"] == "LUNG"].dropna(subset=["TACSTD2_RPKM", "CLDN4_RPKM"]),
+            "Historical: CCLE RNAseq RPKM 20180929, CCLE_ID suffix == LUNG. Spearman is rank-based so log transform does not change ρ.",
+            ci=True,
+        )
+        if ann.exists():
+            a = pd.read_csv(ann, sep="\t")
+            m = g.merge(a, on="CCLE_ID", how="left")
+            site = m[m["Site_Primary"].fillna("").str.lower() == "lung"].dropna(
+                subset=["TACSTD2_RPKM", "CLDN4_RPKM"]
+            )
+            add_cohort(
+                rows,
+                "hist_2018_SitePrimary_lung_RPKM",
+                site,
+                "Historical: CCLE 2018 RPKM, annotation Site_Primary==lung.",
+                ci=True,
+            )
+            site[["CCLE_ID", "Name", "Site_Primary", "Histology", "TACSTD2_RPKM", "CLDN4_RPKM"]].to_csv(
+                indir / "ccle2018_lung_expression.csv", index=False
+            )
+        add_cohort(
+            rows,
+            "hist_2018_all_lines_RPKM",
+            g.dropna(subset=["TACSTD2_RPKM", "CLDN4_RPKM"]),
+            "Context only: CCLE 2018 RPKM all tissues. Not the B2 lung-only request.",
+        )
+    return rows
+
+
 def _honest_statement(primary: dict) -> str:
     rho = primary["spearman_rho"]
     n = primary["n"]
     v = verdict(rho)
     r = primary["pearson_r"]
+    ci = ""
+    if primary.get("spearman_ci95_low") is not None:
+        ci = (
+            f" Bootstrap 95% CI [{primary['spearman_ci95_low']:.3f}, "
+            f"{primary['spearman_ci95_high']:.3f}]; 0.69 "
+            f"{'is' if primary.get('user_0.69_inside_spearman_ci95') else 'is not'} inside this CI."
+        )
     if v["label"] == "MATCH_AT_2DP":
         return (
             f"Primary lung cell-line Spearman ρ = {rho:.4f} (n={n}), which rounds to 0.69 "
-            f"and matches the user claim at 2 decimal places. Pearson r = {r:.4f}."
+            f"and matches the user claim at 2 decimal places. Pearson r = {r:.4f}.{ci}"
         )
     if v["label"] == "NEARBY_NOT_EXACT":
         return (
             f"Primary lung cell-line Spearman ρ = {rho:.4f} (n={n}), within 0.05 of the "
             f"user claim 0.69 but does not match at 2 decimal places "
             f"(rounds to {v['rounded_2dp']:.2f}). Pearson r = {r:.4f}. "
-            f"We do not treat this as confirmation of 0.69."
+            f"We do not treat this as confirmation of 0.69.{ci}"
         )
     return (
         f"Primary lung cell-line Spearman ρ = {rho:.4f} (n={n}), which does not match "
         f"the user claim 0.69 (absolute difference {v['abs_diff']:.4f}; rounds to "
         f"{v['rounded_2dp']:.2f}). Pearson r = {r:.4f}. The user number is not reproduced "
-        f"on this public 24Q4 lung-cell-line slice."
+        f"on this public 24Q4 lung-cell-line slice.{ci}"
     )
 
 
