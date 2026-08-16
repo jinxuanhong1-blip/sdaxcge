@@ -55,7 +55,7 @@ SIBLING = {
 
 ANALYZED_HERE = {
     "GSE253564": "pre-treatment bulk FPKM vs MPR / recurrence / PFS (this slice)",
-    "GSE248378": "post-treatment bulk FPKM vs MPR / recurrence / PFS (this slice)",
+    "GSE248378": "post-treatment bulk FPKM vs recurrence / PFS; MPR not estimable (0 MPR cases deposited)",
 }
 
 
