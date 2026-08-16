@@ -320,7 +320,7 @@ NSCLC ICI 序列。它们仍然太小，不足以声称生物标志物。
 
 | Trap | Why it bites here |
 |---|---|
-| Schoenfeld events for 80% power, two-sided α = 0.05, equal split | **66** events to detect HR = 0.50; **186** events to detect HR = 0.67 (Schoenfeld formula, computed in the demo). 21 and 35 events cannot rule in or out a modest effect. |
+| Schoenfeld events for 80% power, two-sided α = 0.05, equal split | **65** events to detect HR = 0.50; **196** events to detect HR = 0.67 (Schoenfeld formula, computed in the demo). 21 and 35 events cannot rule in or out a modest effect. |
 | Apparent *C* / AUC | In-sample concordance on 21 events is a coin-flip with a wide interval. |
 | Multivariable Cox | Age + sex already violates EPV ≥ 10 on GSE135222. |
 | Optimal cut | 13-ish candidate cuts, each a test. Naive *p* < 0.05 is expected under the null often enough to fool a figure legend. |
@@ -331,7 +331,7 @@ NSCLC ICI 序列。它们仍然太小，不足以声称生物标志物。
 
 | 陷阱 | 为何在这里会咬人 |
 |---|---|
-| 80% 效能、双侧 α = 0.05、均等分组所需的 Schoenfeld 事件数 | 检出 HR = 0.50 需 **66** 个事件；检出 HR = 0.67 需 **186** 个事件（Schoenfeld 公式，示例中计算）。21 和 35 个事件既不能证实也不能排除中等效应。 |
+| 80% 效能、双侧 α = 0.05、均等分组所需的 Schoenfeld 事件数 | 检出 HR = 0.50 需 **65** 个事件；检出 HR = 0.67 需 **196** 个事件（Schoenfeld 公式，示例中计算）。21 和 35 个事件既不能证实也不能排除中等效应。 |
 | 表观 *C* / AUC | 21 个事件上的样本内一致性接近抛硬币，区间很宽。 |
 | 多变量 Cox | 在 GSE135222 上加年龄 + 性别已违反 EPV ≥ 10。 |
 | 最优切点 | 大约 13 个候选切点，每个都是一次检验。零假设下朴素 *p* < 0.05 的频率足以骗过图注。 |
@@ -459,19 +459,129 @@ from a paper abstract.
 
 Source: `demo/results/demo_results.md` and `demo/results/demo_results.json`,
 produced by `demo/02_analysis.py` from the GEO files listed in
-`demo/data/provenance.json`.
+`demo/data/provenance.json`. Marker = `log2(TPM+1)`, then z-scored. HR is
+per 1 SD. Full printout is in that markdown file; this section keeps only
+the numbers that teach a methods point.
 
 来源：`demo/results/demo_results.md` 与 `demo/results/demo_results.json`，由
 `demo/02_analysis.py` 根据 `demo/data/provenance.json` 所列 GEO 文件生成。
+标志物 = `log2(TPM+1)` 再 z 化。HR 为每 1 SD。完整打印见该 markdown；本节只保留
+能说明方法问题的数字。
 
-**Placeholder:** this section is filled after the demo script finishes. If
-you are reading a revision where the table is still empty, run
-`python3 demo/02_analysis.py` and replace this paragraph with the printed
-blocks for TACSTD2 and CLDN4 only. Do not copy numbers from another paper.
+### 13.1 Cohort clocks / 队列时钟
 
-**占位：** 本节在示例脚本跑完后填入。若你读到的修订中表格仍空，请运行
-`python3 demo/02_analysis.py`，并只用 TACSTD2 与 CLDN4 的打印块替换本段。
-不要从其他论文抄数字。
+| | GSE135222 | GSE190265 |
+|---|---|---|
+| *n* / PFS events / censored | 27 / 21 / 6 | 43 / 35 / 8 |
+| median PFS, months (95% CI) | 1.94 (1.22–5.52) | 3.50 (1.90–5.60) |
+| reverse-KM follow-up, months | 10.64 | 19.50 |
+| PFS at 6 months (n at risk) | 25.9% (7) | 32.6% (14) |
+| OS deposited? | no | no |
+| DCB ≥ 6 mo / NDB / unclassifiable | 7 / 20 / 0 | 14 / 29 / 0 |
+
+Schoenfeld events needed for 80% power, two-sided α = 0.05, equal split:
+**65** (HR = 0.50), **196** (HR = 0.67). Neither cohort reaches the smaller
+target.
+
+80% 效能、双侧 α = 0.05、均等分组所需 Schoenfeld 事件数：**65**（HR = 0.50），
+**196**（HR = 0.67）。两个队列都达不到较小的那个目标。
+
+### 13.2 Continuous Cox — primary / 连续 Cox——主分析
+
+| Marker | Cohort | HR / SD (95% CI) | Wald *p* | partial LR *p* | Harrell *C* | Uno *C* |
+|---|---|---|---|---|---|---|
+| TACSTD2 | GSE135222 | 1.07 (0.68–1.69) | 0.78 | 0.77 | 0.562 | 0.567 |
+| TACSTD2 | GSE190265 (discovery-scaled) | 1.17 (0.82–1.68) | 0.39 | 0.38 | 0.511 | 0.520 |
+| CLDN4 | GSE135222 | 1.12 (0.72–1.75) | 0.61 | 0.60 | 0.550 | 0.552 |
+| CLDN4 | GSE190265 (discovery-scaled) | 1.10 (0.79–1.51) | 0.58 | 0.58 | 0.499 | 0.496 |
+| CD8A (comparator) | GSE135222 | 0.73 (0.49–1.08) | 0.12 | 0.12 | 0.628 | 0.632 |
+| CD8A (comparator) | GSE190265 (discovery-scaled) | 0.75 (0.56–1.02) | 0.066 | 0.068 | 0.574 | 0.567 |
+
+Every TACSTD2 / CLDN4 interval includes 1. That is a **null on a
+hopelessly small clock**, not a proof of no effect. Age + sex adjustment on
+GSE135222 drops EPV to 7.0; the templates would refuse that model at the
+default floor of 10.
+
+所有 TACSTD2 / CLDN4 区间都包含 1。这是**在过小时钟上的阴性**，不是无效应的证明。
+在 GSE135222 上校正年龄 + 性别使 EPV 降到 7.0；模板在默认门槛 10 下会拒绝该模型。
+
+### 13.3 Why the “optimal” cut lies / “最优”切点如何说谎
+
+On GSE135222, 13 candidate cuts, minimum 25% per arm:
+
+| Marker | Median-split HR (*p*) | Max-selected HR (naive *p*) | Permutation *p* (1000) | Bootstrap cut percentiles |
+|---|---|---|---|---|
+| TACSTD2 | 1.83 (0.17) | 2.18 (0.081) | **0.34** | 15–85 |
+| CLDN4 | 1.05 (0.91) | 1.48 (0.39) | **0.90** | 4–85 |
+| TACSTD2+CLDN4 mean-z (exploratory) | 2.36 (0.048) | 3.23 (0.0066) | **0.068** | 19–78 |
+| CD8A (comparator) | 0.34 (0.020) | 0.16 (0.0012) | 0.016 | 7–81 |
+
+The exploratory mean-z median split is *p* = 0.048 and the max-selected
+naive *p* is 0.0066. After permuting the score, *p* = 0.068. That is the
+entire point of §5. Do not put the 0.0066 in a figure legend.
+
+探索性 mean-z 的中位数切分 *p* = 0.048，最大选择切点的朴素 *p* = 0.0066。
+置换分数后 *p* = 0.068。这就是第 5 节的全部要点。不要把 0.0066 写进图注。
+
+### 13.4 Frozen cuts do not travel / 冻结切点走不出去
+
+Discovery-scaled z on GSE190265:
+
+| Marker | Validation mean (SD) | % above discovery “optimal” cut | Frozen-cut HR | Own-median HR |
+|---|---|---|---|---|
+| TACSTD2 | −0.58 (0.99) | 9% (4 / 39) | 1.78 (0.61–5.18) | 1.08 (0.55–2.09) |
+| CLDN4 | −0.86 (0.52) | **0%** (0 / 43) | not estimable | 1.02 (0.52–2.01) |
+
+A cut that puts nobody in the high arm of the next library is not a
+biomarker threshold. It is a batch difference.
+
+把下一文库的高组放成空集的切点不是生物标志物阈值，只是批次差异。
+
+### 13.5 Time-dependent AUC and orientation / 时依 AUC 与方向
+
+GSE135222, Cox linear predictor, IPCW. 12-month AUC dropped (last event at
+8.4 months).
+
+| Marker | AUC(3 mo) | AUC(6 mo) | If raw marker is passed as risk |
+|---|---|---|---|
+| TACSTD2 | 0.559 | 0.571 | same (log-HR = +0.066) |
+| CLDN4 | 0.612 | 0.443 | same (log-HR = +0.116) |
+| CD8A | **0.635** | **0.736** | **0.365 / 0.264** (log-HR = −0.313) |
+
+CD8A is the orientation lesson: a protective marker fed in as a “risk”
+score reports `1 − AUC`. TACSTD2 / CLDN4 happen to have a positive (null)
+log-HR, so the trap is invisible unless you also run a gene that goes the
+other way.
+
+CD8A 是方向课：把保护性标志物当“风险”分数会报告 `1 − AUC`。TACSTD2 / CLDN4
+的 log-HR 恰好为正（且接近无效），除非再跑一个方向相反的基因，否则看不出这个陷阱。
+
+### 13.6 DCB ≥ 6 months / 持久获益
+
+GSE135222 binary DCB (7 vs 20, 0 unclassifiable): TACSTD2 apparent AUC =
+0.429 (Mann–Whitney *p* = 0.61); CLDN4 AUC = 0.557 (*p* = 0.69). Landmark
+Cox at 6 months is not estimable (7 patients, 1 later event). GSE190265
+binary DCB (14 vs 29, 0 unclassifiable) is equally null for both genes
+(AUC 0.46 and 0.49). These binary AUCs agree, to the reported precision,
+with the independent DCB-only analysis of GSE135222 in this repository
+(PR 87). They are the same clock, coarsened.
+
+GSE135222 二分类 DCB（7 vs 20，0 例不可分类）：TACSTD2 表观 AUC = 0.429
+（Mann–Whitney *p* = 0.61）；CLDN4 AUC = 0.557（*p* = 0.69）。6 个月路标 Cox
+不可估计（7 例，1 个后续事件）。GSE190265 二分类 DCB（14 vs 29，0 例不可分类）
+对两基因同样为阴性（AUC 0.46 与 0.49）。这些二分类 AUC 在报告精度内与本仓库
+对 GSE135222 的独立 DCB 分析（PR 87）一致。它们是同一时钟的粗化。
+
+### 13.7 Competing risks (simulation only) / 竞争风险（仅模拟）
+
+On *n* = 400 simulated patients (185 progressions, 139 competing deaths,
+76 censored), 12-month progression risk is 45.3% by Aalen–Johansen vs
+60.3% by 1−KM that censors death: +15.0 percentage points. GEO files here
+have no cause field.
+
+在 *n* = 400 的模拟患者中（185 进展，139 竞争死亡，76 删失），12 个月进展风险
+Aalen–Johansen 为 45.3%，把死亡当删失的 1−KM 为 60.3%：高估 15.0 个百分点。
+此处 GEO 文件没有原因字段。
 
 Figures: `demo/results/fig_km_tacstd2_cldn4_median.png`,
 `demo/results/fig_cutpoint_profile.png`.
