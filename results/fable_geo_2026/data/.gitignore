@@ -1,0 +1,4 @@
+# Large downloaded GEO supplementary files are not committed; they are
+# reproducible via scripts/fable_geo_2026/05_download.py and 03_list_supp.py.
+*
+!.gitignore
