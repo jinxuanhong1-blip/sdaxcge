@@ -1,0 +1,52 @@
+{
+  "task": "B6 leftover public CosMx/MERFISH lung CLDN4 vs immune niches",
+  "output_dir": "results/w200/B6_cosmx",
+  "honest_verdict": "cosmx_analyzed_merfish_skipped",
+  "claim_B6": {
+    "rna_immune_neighborhood_50um": "SUPPORTS_MODERATE_NEGATIVE",
+    "protein_cd45_neighborhood_50um": "SUPPORTS_WEAKER_NEGATIVE",
+    "t_like_neighborhood_50um": "DOES_NOT_SUPPORT_T_CELL_EXCLUSION",
+    "ici_claim": "cannot_claim"
+  },
+  "cosmx": {
+    "source": "NanoString public S3 SMI-Compressed flat files (He 2022 Nat Biotechnol)",
+    "samples": ["Lung9_Rep1", "Lung12", "Lung13"],
+    "n_cells_qc": 240305,
+    "n_fovs": 68,
+    "cldn4_vs_rna_immune_50um_median_fov_rho": {
+      "Lung9_Rep1": -0.2501,
+      "Lung12": -0.2038,
+      "Lung13": -0.1379
+    },
+    "cldn4_vs_t_like_50um_median_fov_rho": {
+      "Lung9_Rep1": 0.2302,
+      "Lung12": 0.2023,
+      "Lung13": 0.0843
+    },
+    "cldn4_vs_prot_cd45_50um_median_fov_rho": {
+      "Lung9_Rep1": -0.1696,
+      "Lung12": -0.1004,
+      "Lung13": -0.0742
+    },
+    "rna_immune_vs_cd45_auroc": {
+      "Lung9_Rep1": 0.572,
+      "Lung12": 0.594,
+      "Lung13": 0.624
+    }
+  },
+  "merfish_skipped": [
+    "Vizgen MERSCOPE FFPE IO lung 1/2 (GCS 403 / login)",
+    "Figshare 25983526 CellCharter h5ad 3.67 GB",
+    "Zenodo 11198494 Chen 2024 transcript-level MERFISH (no cell-by-gene)"
+  ],
+  "already_covered_not_reclaimed": [
+    "PR67 fable_spatial GeoMx GSE271689 + Visium E-MTAB-13530 / GSE189487",
+    "PR110 B6_radius Visium rings 1/2/3 + GeoMx tumor AOI"
+  ],
+  "cannot_claim": [
+    "ICI response or treatment effect",
+    "official CosMx cell types",
+    "T-cell exclusion",
+    "MERFISH confirmation"
+  ]
+}
