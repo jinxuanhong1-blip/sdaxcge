@@ -1,0 +1,13 @@
+accession	year_public	histology	assay	response_labels	disposition	in_original_B5_11
+GSE328294	2026	NSCLC cell line (H23 KRAS G12C)	bulk RNA-seq FPKM n=6	none (DMSO vs IBI351)	must-try scored as treatment contrast only; no ICI OR	no
+GSE244944	2025	SCLC cell lines	ChIP-seq	none	must-try; no expression-vs-ICB test. IMpower133 RNA not in GEO	no
+GSE244945	2025	SCLC cell lines	bulk RNA-seq log2 RPKM	none (NOTCH1 activation)	must-try; SCLC table only; no patient ICB labels	no
+GSE244946	2025	SCLC cell line COR-L88	scRNA-seq n=3	none (DMSO / LSD1i / GSI)	must-try; not patient ICB; not mixed into NSCLC OR	no
+GSE274975	2024	NSCLC tumor FFPE (1 SCLC excluded from NSCLC OR)	bulk RNA-seq STAR counts n=61	Table S1 RECIST + PFS (PMID 39723204)	INCLUDED extra NSCLC rows	no
+GSE283829	2025	NSCLC tumor	bulk RNA-seq counts n=27	GEO disease stage CR/SD/PD (no PR)	INCLUDED extra NSCLC rows	no
+GSE202417	2025	NSCLC	Clariom D array of PBMC CD8 T cells n=28 (14 pts)	R/NR in titles	SKIPPED for tumor OR: blood CD8, not tumor bulk	no
+GSE317309	2026	NSCLC	scRNA/TCR tumor+PBMC	not in GEO sample fields	SKIPPED: not bulk tumor matrix	no
+GSE291670	2025	NSCLC	scRNA-seq n=6 (3 MPR / 3 non-MPR)	MPR in titles	SKIPPED: scRNA, not bulk	no
+GSE207422	2023	NSCLC	bulk + scRNA	MPR	SKIPPED: original B5 / already used; not recut	yes
+GSE253564 / GSE248378	2023–2024	NSCLC neoadjuvant durvalumab ± SBRT	bulk FPKM	MPR/PFS in papers, not GEO matrix	not recut here (sibling leftover already exists); not original 11	no
+IMpower133 RNA	closed	SCLC	trial RNA (Roche/Genentech)	OS with atezo+chemo	SKIPPED: not in GEO; EGA/dbGaP-class / sponsor-controlled	no
