@@ -1,0 +1,28 @@
+{
+  "files": {
+    "cldn4_csv": "data/cldn4_tismo_vivo.csv",
+    "tacstd2_csv": "data/tacstd2_tismo_vivo.csv",
+    "vivo_meta": "data/tismo_vivo_meta.json"
+  },
+  "n_rows_cldn4": 627,
+  "n_rows_tacstd2": 615,
+  "n_samples_cldn4": 613,
+  "n_samples_tacstd2": 601,
+  "sample_id_overlap": 601,
+  "source": {
+    "citation": "Zeng et al. Nucleic Acids Research 2022; PMID 34534350",
+    "database": "TISMO",
+    "endpoint": "POST /rtismo/gene/downVivoExprn",
+    "params": {
+      "filename": "genetreatment_vivo.csv",
+      "genes": [
+        "Cldn4",
+        "Tacstd2"
+      ],
+      "icbList": "[\"All\"]",
+      "tumorList": "[\"All\"]",
+      "type": "3"
+    },
+    "url": "https://tismo.pku-genomics.org/"
+  }
+}
