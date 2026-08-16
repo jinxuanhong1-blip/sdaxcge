@@ -1,0 +1,206 @@
+{
+  "n_samples": 16,
+  "n_scores": 103,
+  "n_tests": 309,
+  "n_fdr_lt_0.05": 0,
+  "top_by_target": {
+    "CLDN4": [
+      {
+        "score": "mcp:NK cells",
+        "family": "inflamed",
+        "n": 16,
+        "spearman_r": -0.6882352941176471,
+        "p": 0.003203908614395742,
+        "p_adj": 0.09727776550343081
+      },
+      {
+        "score": "tide:Exclusion",
+        "family": "exclusion",
+        "n": 16,
+        "spearman_r": 0.6794117647058824,
+        "p": 0.003793432669159745,
+        "p_adj": 0.06448835537571566
+      },
+      {
+        "score": "ssgsea:CD8_Teffector_Mariathasan",
+        "family": "inflamed",
+        "n": 16,
+        "spearman_r": -0.6382352941176471,
+        "p": 0.007801138631008013,
+        "p_adj": 0.09727776550343081
+      },
+      {
+        "score": "tide:CD274",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.6352941176470589,
+        "p": 0.008182064616334002,
+        "p_adj": 0.2465750943017363
+      },
+      {
+        "score": "tip:Step7_killing_of_cancer_cells",
+        "family": "inflamed",
+        "n": 16,
+        "spearman_r": -0.6264705882352941,
+        "p": 0.009413977306783627,
+        "p_adj": 0.09727776550343081
+      },
+      {
+        "score": "mcp:Myeloid dendritic cells",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.5941176470588235,
+        "p": 0.015232400876327995,
+        "p_adj": 0.2465750943017363
+      },
+      {
+        "score": "xcell:Mast cells",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.5852941176470587,
+        "p": 0.01722528661609483,
+        "p_adj": 0.2465750943017363
+      },
+      {
+        "score": "tip:Step1_release_of_cancer_antigens",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.5823529411764706,
+        "p": 0.017932734131035365,
+        "p_adj": 0.2465750943017363
+      }
+    ],
+    "TACSTD2": [
+      {
+        "score": "xcell:Neutrophils",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.5529411764705882,
+        "p": 0.026314499870666506,
+        "p_adj": 0.684056394570586
+      },
+      {
+        "score": "xcell:Eosinophils",
+        "family": "other",
+        "n": 16,
+        "spearman_r": 0.5,
+        "p": 0.04858028888702389,
+        "p_adj": 0.684056394570586
+      },
+      {
+        "score": "tide:Exclusion",
+        "family": "exclusion",
+        "n": 16,
+        "spearman_r": 0.488235294117647,
+        "p": 0.05501502977813754,
+        "p_adj": 0.7383422679693799
+      },
+      {
+        "score": "mcp:NK cells",
+        "family": "inflamed",
+        "n": 16,
+        "spearman_r": -0.4823529411764706,
+        "p": 0.05845897677471954,
+        "p_adj": 0.7860929802597566
+      },
+      {
+        "score": "xcell:Macrophages M2",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.4647058823529412,
+        "p": 0.06974367557375588,
+        "p_adj": 0.684056394570586
+      },
+      {
+        "score": "xcell:pDC",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.44444456476747146,
+        "p": 0.08456645207733238,
+        "p_adj": 0.684056394570586
+      },
+      {
+        "score": "xcell:NK cells",
+        "family": "inflamed",
+        "n": 16,
+        "spearman_r": -0.43529411764705883,
+        "p": 0.09195235850572929,
+        "p_adj": 0.7860929802597566
+      },
+      {
+        "score": "quantiseq_style:Neutrophils",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.43529411764705883,
+        "p": 0.09195235850572929,
+        "p_adj": 0.684056394570586
+      }
+    ],
+    "TACSTD2_CLDN4_mean": [
+      {
+        "score": "xcell:Eosinophils",
+        "family": "other",
+        "n": 16,
+        "spearman_r": 0.6705882352941177,
+        "p": 0.004467208697738124,
+        "p_adj": 0.2456964783755968
+      },
+      {
+        "score": "xcell:Macrophages M2",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.6147058823529412,
+        "p": 0.011279474063305015,
+        "p_adj": 0.31018553674088795
+      },
+      {
+        "score": "tide:Exclusion",
+        "family": "exclusion",
+        "n": 16,
+        "spearman_r": 0.5823529411764706,
+        "p": 0.017932734131035365,
+        "p_adj": 0.28703329516199444
+      },
+      {
+        "score": "mcp:NK cells",
+        "family": "inflamed",
+        "n": 16,
+        "spearman_r": -0.5647058823529412,
+        "p": 0.022663204844184635,
+        "p_adj": 0.454522545105675
+      },
+      {
+        "score": "tide:MDSC",
+        "family": "exclusion",
+        "n": 16,
+        "spearman_r": 0.5323529411764706,
+        "p": 0.03376862296023464,
+        "p_adj": 0.28703329516199444
+      },
+      {
+        "score": "tide:CD274",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.5117647058823529,
+        "p": 0.042723448163331804,
+        "p_adj": 0.5688757634012399
+      },
+      {
+        "score": "xcell:pDC",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.4930096993281554,
+        "p": 0.052331951218257795,
+        "p_adj": 0.5688757634012399
+      },
+      {
+        "score": "xcell:Neutrophils",
+        "family": "other",
+        "n": 16,
+        "spearman_r": -0.4794117647058824,
+        "p": 0.0602393025043159,
+        "p_adj": 0.5688757634012399
+      }
+    ]
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "n_samples": 27,
+  "n_scores": 103,
+  "n_tests": 309,
+  "n_fdr_lt_0.05": 1,
+  "top_by_target": {
+    "CLDN4": [
+      {
+        "score": "estimate:StromalScore",
+        "family": "exclusion",
+        "n": 27,
+        "spearman_r": -0.48412698412698413,
+        "p": 0.01050321314209015,
+        "p_adj": 0.17855462341553255
+      },
+      {
+        "score": "tip:Step1_release_of_cancer_antigens",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.48229548229548225,
+        "p": 0.01084308897158025,
+        "p_adj": 0.5006117313551404
+      },
+      {
+        "score": "estimate:ESTIMATEScore",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.4487179487179487,
+        "p": 0.018891008730382654,
+        "p_adj": 0.5006117313551404
+      },
+      {
+        "score": "xcell:B-cells",
+        "family": "inflamed",
+        "n": 27,
+        "spearman_r": -0.42124542124542125,
+        "p": 0.028650497645877643,
+        "p_adj": 0.49386841679237065
+      },
+      {
+        "score": "tide:TIDE",
+        "family": "exclusion",
+        "n": 27,
+        "spearman_r": -0.4084249084249084,
+        "p": 0.034425715229074165,
+        "p_adj": 0.29212219083515295
+      },
+      {
+        "score": "mcp:Neutrophils",
+        "family": "other",
+        "n": 27,
+        "spearman_r": 0.3827838827838828,
+        "p": 0.04876090601845873,
+        "p_adj": 0.6747164256005954
+      },
+      {
+        "score": "ssgsea:HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+        "family": "exclusion",
+        "n": 27,
+        "spearman_r": -0.37851037851037844,
+        "p": 0.051550974853262294,
+        "p_adj": 0.29212219083515295
+      },
+      {
+        "score": "xcell:CD4+ T-cells",
+        "family": "inflamed",
+        "n": 27,
+        "spearman_r": -0.3663003663003663,
+        "p": 0.06021689288410209,
+        "p_adj": 0.49386841679237065
+      }
+    ],
+    "TACSTD2": [
+      {
+        "score": "tip:Step3_priming_and_activation",
+        "family": "other",
+        "n": 27,
+        "spearman_r": 0.6611721611721612,
+        "p": 0.00017355134061532358,
+        "p_adj": 0.00919822105261215
+      },
+      {
+        "score": "quantiseq_style:Monocytes",
+        "family": "other",
+        "n": 27,
+        "spearman_r": 0.5280769873140694,
+        "p": 0.004636898421962265,
+        "p_adj": 0.11140650567183875
+      },
+      {
+        "score": "xcell:Macrophages M2",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.5122100122100123,
+        "p": 0.006306028622934269,
+        "p_adj": 0.11140650567183875
+      },
+      {
+        "score": "quantiseq_style:Macrophages.M1",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.4337203008394271,
+        "p": 0.023808434496365896,
+        "p_adj": 0.31546175707684815
+      },
+      {
+        "score": "xcell:B-cells",
+        "family": "inflamed",
+        "n": 27,
+        "spearman_r": -0.40048840048840045,
+        "p": 0.03844496358941481,
+        "p_adj": 0.8435467987609881
+      },
+      {
+        "score": "tip:Step4_CD4_T_cell",
+        "family": "other",
+        "n": 27,
+        "spearman_r": 0.39072039072039066,
+        "p": 0.04389591593953631,
+        "p_adj": 0.4352122607198021
+      },
+      {
+        "score": "xcell:Mast cells",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.37851037851037844,
+        "p": 0.051550974853262294,
+        "p_adj": 0.4352122607198021
+      },
+      {
+        "score": "xcell:Macrophages",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.35470085470085466,
+        "p": 0.06946052261744179,
+        "p_adj": 0.4352122607198021
+      }
+    ],
+    "TACSTD2_CLDN4_mean": [
+      {
+        "score": "estimate:StromalScore",
+        "family": "exclusion",
+        "n": 27,
+        "spearman_r": -0.5470085470085471,
+        "p": 0.0031503859528568285,
+        "p_adj": 0.05355656119856608
+      },
+      {
+        "score": "xcell:B-cells",
+        "family": "inflamed",
+        "n": 27,
+        "spearman_r": -0.5299145299145299,
+        "p": 0.004470450913127964,
+        "p_adj": 0.1385839783069669
+      },
+      {
+        "score": "estimate:ESTIMATEScore",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.5207570207570207,
+        "p": 0.005353186601735285,
+        "p_adj": 0.22411068741517853
+      },
+      {
+        "score": "tip:Step3_priming_and_activation",
+        "family": "other",
+        "n": 27,
+        "spearman_r": 0.4963369963369963,
+        "p": 0.008457007072270888,
+        "p_adj": 0.22411068741517853
+      },
+      {
+        "score": "tide:TIDE",
+        "family": "exclusion",
+        "n": 27,
+        "spearman_r": -0.4688644688644688,
+        "p": 0.013626379130315096,
+        "p_adj": 0.11582422260767831
+      },
+      {
+        "score": "tip:Step1_release_of_cancer_antigens",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.44566544566544564,
+        "p": 0.01981762966022372,
+        "p_adj": 0.35011145733061905
+      },
+      {
+        "score": "ssgsea:TLS_Cabrita9",
+        "family": "inflamed",
+        "n": 27,
+        "spearman_r": -0.4206349206349206,
+        "p": 0.028906471842639225,
+        "p_adj": 0.3790818784683811
+      },
+      {
+        "score": "xcell:Macrophages M2",
+        "family": "other",
+        "n": 27,
+        "spearman_r": -0.4078144078144078,
+        "p": 0.03472240321874809,
+        "p_adj": 0.4217034877836167
+      }
+    ]
+  }
+}

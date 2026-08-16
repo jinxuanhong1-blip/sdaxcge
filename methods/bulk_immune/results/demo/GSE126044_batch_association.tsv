@@ -1,0 +1,104 @@
+score	test	n_levels	statistic	p	p_adj	rejected_0.05
+ssgsea:IFNG_Ayers6	mannwhitneyu	2	29.0	0.9130036630036632	1.0	False
+ssgsea:IFNG_Ayers_preliminary10	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+ssgsea:ExpandedImmune_Ayers18	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+ssgsea:TcellInflamed_GEP18	mannwhitneyu	2	37.0	0.3195970695970696	0.8435107057991168	False
+ssgsea:CD8_Teffector_Mariathasan	mannwhitneyu	2	37.0	0.3195970695970696	0.8435107057991168	False
+ssgsea:Cytolytic_CYT_Rooney	mannwhitneyu	2	40.0	0.18040293040293043	0.8435107057991168	False
+ssgsea:TLS_12chemokine_Coppola	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+ssgsea:TLS_Cabrita9	mannwhitneyu	2	29.0	0.9130036630036632	1.0	False
+ssgsea:TLS_Cabrita9_noY	mannwhitneyu	2	27.0	1.0	1.0	False
+ssgsea:Bcell_follicular	mannwhitneyu	2	27.0	1.0	1.0	False
+ssgsea:MHC_class_I	mannwhitneyu	2	25.0	0.8269230769230771	0.9903846153846156	False
+ssgsea:Immunoproteasome	mannwhitneyu	2	46.0	0.03800366300366301	0.8435107057991168	False
+ssgsea:HALLMARK_ALLOGRAFT_REJECTION	mannwhitneyu	2	34.0	0.5096153846153847	0.8435107057991168	False
+ssgsea:HALLMARK_ANGIOGENESIS	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+ssgsea:HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	mannwhitneyu	2	38.0	0.26739926739926745	0.8435107057991168	False
+ssgsea:HALLMARK_HYPOXIA	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+ssgsea:HALLMARK_IL6_JAK_STAT3_SIGNALING	mannwhitneyu	2	34.0	0.5096153846153847	0.8435107057991168	False
+ssgsea:HALLMARK_INFLAMMATORY_RESPONSE	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+ssgsea:HALLMARK_INTERFERON_ALPHA_RESPONSE	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+ssgsea:HALLMARK_INTERFERON_GAMMA_RESPONSE	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+ssgsea:HALLMARK_TGF_BETA_SIGNALING	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+ssgsea:HALLMARK_TNFA_SIGNALING_VIA_NFKB	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+ssgsea:CYT	mannwhitneyu	2	37.0	0.3195970695970696	0.8435107057991168	False
+estimate:StromalScore	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+estimate:ImmuneScore	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+estimate:ESTIMATEScore	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+xcell:B-cells	mannwhitneyu	2	29.0	0.9130036630036632	1.0	False
+xcell:CD4+ T-cells	mannwhitneyu	2	42.0	0.11492673992673993	0.8435107057991168	False
+xcell:CD8+ T-cells	mannwhitneyu	2	25.0	0.8269230769230771	0.9903846153846156	False
+xcell:Tregs	mannwhitneyu	2	38.0	0.26739926739926745	0.8435107057991168	False
+xcell:NK cells	mannwhitneyu	2	46.0	0.03800366300366301	0.8435107057991168	False
+xcell:Monocytes	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+xcell:Macrophages	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+xcell:Macrophages M1	mannwhitneyu	2	34.0	0.5096153846153847	0.8435107057991168	False
+xcell:Macrophages M2	mannwhitneyu	2	37.0	0.3195970695970696	0.8435107057991168	False
+xcell:DC	mannwhitneyu	2	32.0	0.6611721611721613	0.9202801702801704	False
+xcell:cDC	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+xcell:pDC	mannwhitneyu	2	44.0	0.06968603000999345	0.8435107057991168	False
+xcell:Neutrophils	mannwhitneyu	2	42.0	0.11492673992673993	0.8435107057991168	False
+xcell:Mast cells	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+xcell:Eosinophils	mannwhitneyu	2	24.0	0.7426739926739928	0.9682964714610286	False
+xcell:Fibroblasts	mannwhitneyu	2	27.0	1.0	1.0	False
+xcell:Endothelial cells	mannwhitneyu	2	30.0	0.8269230769230771	0.9903846153846156	False
+xcell:Adipocytes	mannwhitneyu	2	30.0	0.8269230769230771	0.9903846153846156	False
+tide:No benefits	mannwhitneyu	2	24.5	0.6216849323610445	0.8771718908655833	False
+tide:Responder	mannwhitneyu	2	27.0	1.0	1.0	False
+tide:TIDE	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+tide:IFNG	mannwhitneyu	2	28.0	1.0	1.0	False
+tide:MSI Score	mannwhitneyu	2	14.0	0.14514652014652016	0.8435107057991168	False
+tide:CD274	mannwhitneyu	2	29.0	0.9130036630036632	1.0	False
+tide:CD8	mannwhitneyu	2	37.0	0.3195970695970696	0.8435107057991168	False
+tide:CTL.flag	mannwhitneyu	2	40.0	0.09102238821888042	0.8435107057991168	False
+tide:Dysfunction	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+tide:Exclusion	mannwhitneyu	2	21.0	0.5096153846153847	0.8435107057991168	False
+tide:MDSC	mannwhitneyu	2	21.0	0.5096153846153847	0.8435107057991168	False
+tide:CAF	mannwhitneyu	2	27.0	1.0	1.0	False
+tide:TAM M2	mannwhitneyu	2	24.0	0.7426739926739928	0.9682964714610286	False
+tide:CTL	mannwhitneyu	2	37.0	0.3195970695970696	0.8435107057991168	False
+tip:Step1_release_of_cancer_antigens	mannwhitneyu	2	45.0	0.05173992673992674	0.8435107057991168	False
+tip:Step2_cancer_antigen_presentation	mannwhitneyu	2	10.0	0.05173992673992674	0.8435107057991168	False
+tip:Step3_priming_and_activation	mannwhitneyu	2	16.0	0.22115384615384617	0.8435107057991168	False
+tip:Step4_trafficking_of_immune_cells	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+tip:Step5_infiltration_of_immune_cells	mannwhitneyu	2	43.0	0.08974358974358976	0.8435107057991168	False
+tip:Step6_recognition_of_cancer_cells	mannwhitneyu	2	21.0	0.5096153846153847	0.8435107057991168	False
+tip:Step7_killing_of_cancer_cells	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+tip:Step4_B_cell	mannwhitneyu	2	20.0	0.440934065934066	0.8435107057991168	False
+tip:Step4_Basophil	mannwhitneyu	2	28.0	1.0	1.0	False
+tip:Step4_CD4_T_cell	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+tip:Step4_CD8_T_cell	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+tip:Step4_Dendritic_cell	mannwhitneyu	2	34.0	0.5096153846153847	0.8435107057991168	False
+tip:Step4_Eosinophil	mannwhitneyu	2	31.0	0.7426739926739928	0.9682964714610286	False
+tip:Step4_MDSC	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+tip:Step4_Macrophage	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+tip:Step4_Monocyte	mannwhitneyu	2	41.0	0.14514652014652016	0.8435107057991168	False
+tip:Step4_NK_cell	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+tip:Step4_Neutrophil	mannwhitneyu	2	35.0	0.440934065934066	0.8435107057991168	False
+tip:Step4_T_cell	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+tip:Step4_TH1_cell	mannwhitneyu	2	28.0	1.0	1.0	False
+tip:Step4_TH17_cell	mannwhitneyu	2	30.0	0.8269230769230771	0.9903846153846156	False
+tip:Step4_TH22_cell	mannwhitneyu	2	21.0	0.5096153846153847	0.8435107057991168	False
+tip:Step4_Th2_cell	mannwhitneyu	2	31.0	0.7426739926739928	0.9682964714610286	False
+tip:Step4_Treg_cell	mannwhitneyu	2	36.0	0.37728937728937734	0.8435107057991168	False
+quantiseq_style:B.cells	mannwhitneyu	2	29.0	0.9130036630036632	1.0	False
+quantiseq_style:Macrophages.M1	mannwhitneyu	2	38.0	0.26739926739926745	0.8435107057991168	False
+quantiseq_style:Macrophages.M2	mannwhitneyu	2	27.0	1.0	1.0	False
+quantiseq_style:Monocytes	mannwhitneyu	2	20.0	0.36216791107046753	0.8435107057991168	False
+quantiseq_style:Neutrophils	mannwhitneyu	2	22.0	0.5833333333333334	0.8435107057991168	False
+quantiseq_style:NK.cells	mannwhitneyu	2	17.0	0.26739926739926745	0.8435107057991168	False
+quantiseq_style:T.cells.CD4	mannwhitneyu	2	24.0	0.5546281960154005	0.8435107057991168	False
+quantiseq_style:T.cells.CD8	mannwhitneyu	2	27.0	1.0	1.0	False
+quantiseq_style:Tregs	mannwhitneyu	2	15.0	0.18040293040293043	0.8435107057991168	False
+quantiseq_style:Dendritic.cells	mannwhitneyu	2	30.0	0.5896385516265671	0.8435107057991168	False
+quantiseq_style:Other	mannwhitneyu	2	26.0	0.9130036630036632	1.0	False
+mcp:T cells	mannwhitneyu	2	28.0	1.0	1.0	False
+mcp:CD8 T cells	mannwhitneyu	2	38.0	0.26739926739926745	0.8435107057991168	False
+mcp:Cytotoxic lymphocytes	mannwhitneyu	2	31.0	0.7426739926739928	0.9682964714610286	False
+mcp:B lineage	mannwhitneyu	2	20.0	0.440934065934066	0.8435107057991168	False
+mcp:NK cells	mannwhitneyu	2	25.0	0.8269230769230771	0.9903846153846156	False
+mcp:Monocytic lineage	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+mcp:Myeloid dendritic cells	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+mcp:Neutrophils	mannwhitneyu	2	33.0	0.5833333333333334	0.8435107057991168	False
+mcp:Endothelial cells	mannwhitneyu	2	21.0	0.5096153846153847	0.8435107057991168	False
+mcp:Fibroblasts	mannwhitneyu	2	25.0	0.8269230769230771	0.9903846153846156	False

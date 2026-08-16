@@ -1,0 +1,17 @@
+# Python dependencies for methods/bulk_immune
+# Tested with Python 3.12 on Ubuntu 24.04 (see docs/VALIDATION.md for exact versions used).
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+scikit-learn>=1.3
+statsmodels>=0.14
+
+# Optional -----------------------------------------------------------------
+# tidepy       : official TIDE implementation (Jiang et al. 2018). Ships its own
+#                model weights, so real TIDE/Dysfunction/Exclusion can be run offline.
+tidepy>=1.3.9
+# pyreadr      : only needed by scripts/00_fetch_resources.py to convert the
+#                ESTIMATE .RData gene sets. Skipped automatically if R is present.
+pyreadr>=0.5
+# matplotlib   : only needed for the optional figures in scripts/06_make_figures.py
+matplotlib>=3.7

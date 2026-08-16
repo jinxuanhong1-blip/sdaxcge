@@ -1,0 +1,206 @@
+{
+  "n_samples": 1017,
+  "n_scores": 103,
+  "n_tests": 309,
+  "n_fdr_lt_0.05": 178,
+  "top_by_target": {
+    "CLDN4": [
+      {
+        "score": "tide:Exclusion",
+        "family": "exclusion",
+        "n": 1017,
+        "spearman_r": -0.31625001280931986,
+        "p": 4.671279435499284e-25,
+        "p_adj": 7.941175040348782e-24
+      },
+      {
+        "score": "tide:MDSC",
+        "family": "exclusion",
+        "n": 1017,
+        "spearman_r": -0.3136282556024843,
+        "p": 1.1940787820103251e-24,
+        "p_adj": 1.0149669647087764e-23
+      },
+      {
+        "score": "tip:Step4_Treg_cell",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.3007404073369058,
+        "p": 1.0518776448960763e-22,
+        "p_adj": 5.7853270469284195e-21
+      },
+      {
+        "score": "tip:Step5_infiltration_of_immune_cells",
+        "family": "exclusion",
+        "n": 1017,
+        "spearman_r": 0.29811899237740763,
+        "p": 2.5454814739388886e-22,
+        "p_adj": 1.4424395018987035e-21
+      },
+      {
+        "score": "tip:Step4_Th2_cell",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.26829883357059314,
+        "p": 3.1548254399733202e-18,
+        "p_adj": 8.675769959926631e-17
+      },
+      {
+        "score": "xcell:Macrophages M2",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.2665714371056106,
+        "p": 5.260578541411035e-18,
+        "p_adj": 9.644393992586898e-17
+      },
+      {
+        "score": "tide:TIDE",
+        "family": "exclusion",
+        "n": 1017,
+        "spearman_r": -0.2462359274205086,
+        "p": 1.640533419786901e-15,
+        "p_adj": 6.97226703409433e-15
+      },
+      {
+        "score": "mcp:Myeloid dendritic cells",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.22143621888425172,
+        "p": 9.207958339156724e-13,
+        "p_adj": 1.2660942716340497e-11
+      }
+    ],
+    "TACSTD2": [
+      {
+        "score": "xcell:Tregs",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": -0.23983357995105994,
+        "p": 9.016387543721118e-15,
+        "p_adj": 4.959013149046615e-13
+      },
+      {
+        "score": "xcell:CD8+ T-cells",
+        "family": "inflamed",
+        "n": 1017,
+        "spearman_r": -0.22878458673149302,
+        "p": 1.5218512910285779e-13,
+        "p_adj": 2.6505500431877632e-12
+      },
+      {
+        "score": "xcell:CD4+ T-cells",
+        "family": "inflamed",
+        "n": 1017,
+        "spearman_r": -0.22831635203941744,
+        "p": 1.7100322859275892e-13,
+        "p_adj": 2.6505500431877632e-12
+      },
+      {
+        "score": "xcell:pDC",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": -0.21029609471261534,
+        "p": 1.252023887969397e-11,
+        "p_adj": 3.443065691915842e-10
+      },
+      {
+        "score": "tip:Step4_Neutrophil",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.19572043092818459,
+        "p": 3.075764461395966e-10,
+        "p_adj": 5.638901512559272e-09
+      },
+      {
+        "score": "tip:Step4_Eosinophil",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.19397522619839483,
+        "p": 4.440943022722439e-10,
+        "p_adj": 6.106296656243354e-09
+      },
+      {
+        "score": "tip:Step4_Basophil",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.18929036783089526,
+        "p": 1.1706358128884017e-09,
+        "p_adj": 1.2876993941772419e-08
+      },
+      {
+        "score": "tip:Step6_recognition_of_cancer_cells",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": -0.1845739485548636,
+        "p": 3.0307298487664383e-09,
+        "p_adj": 2.778169028035902e-08
+      }
+    ],
+    "TACSTD2_CLDN4_mean": [
+      {
+        "score": "tip:Step5_infiltration_of_immune_cells",
+        "family": "exclusion",
+        "n": 1017,
+        "spearman_r": 0.2670609816035016,
+        "p": 4.552672938763823e-18,
+        "p_adj": 7.7395439958985e-17
+      },
+      {
+        "score": "tip:Step4_Th2_cell",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.2326199825660922,
+        "p": 5.799985710336333e-14,
+        "p_adj": 3.1899921406849837e-12
+      },
+      {
+        "score": "tip:Step4_Treg_cell",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.2151395690171216,
+        "p": 4.096611187093659e-12,
+        "p_adj": 1.1265680764507564e-10
+      },
+      {
+        "score": "tip:Step6_recognition_of_cancer_cells",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": -0.18295471571286895,
+        "p": 4.1776056247609116e-09,
+        "p_adj": 7.658943645395005e-08
+      },
+      {
+        "score": "tip:Step4_CD4_T_cell",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": 0.17586370470122373,
+        "p": 1.6467447370809026e-08,
+        "p_adj": 2.2642740134862412e-07
+      },
+      {
+        "score": "xcell:CD8+ T-cells",
+        "family": "inflamed",
+        "n": 1017,
+        "spearman_r": -0.16957529790198653,
+        "p": 5.30928725832497e-08,
+        "p_adj": 9.67108905840368e-07
+      },
+      {
+        "score": "mcp:Cytotoxic lymphocytes",
+        "family": "inflamed",
+        "n": 1017,
+        "spearman_r": -0.16868971963882928,
+        "p": 6.23941229574431e-08,
+        "p_adj": 9.67108905840368e-07
+      },
+      {
+        "score": "xcell:Tregs",
+        "family": "other",
+        "n": 1017,
+        "spearman_r": -0.16012309404351693,
+        "p": 2.8474885550808285e-07,
+        "p_adj": 3.1322374105889113e-06
+      }
+    ]
+  }
+}
