@@ -1,0 +1,93 @@
+{
+  "question": "In UCSC Xena TCGA-LUAD primary tumors, are TACSTD2 and CLDN4 associated with immune features after ESTIMATE and/or ABSOLUTE purity adjustment?",
+  "primary_matrix": "HiSeqV2 (matched to MDACC ESTIMATE RNAseqV2)",
+  "sensitivity_matrix": "GDC STAR log2(TPM+1)",
+  "n_hiseqv2_primary": 515,
+  "n_star_primary": 516,
+  "n_primary_both_purities": 502,
+  "n_star_both_purities": 502,
+  "methods": {
+    "unadjusted": "Spearman",
+    "adjusted": "partial Spearman (Pearson on rank residuals after regressing out ranked purity); t-test with n-2-k df",
+    "estimate_purity": "cos(0.6049872018 + 0.0001467884 * ESTIMATE_score), Yoshihara 2013; scores from MD Anderson RNAseqV2 LUAD table",
+    "absolute_purity": "PanCanAtlas ABSOLUTE consensus calls (DNA/SNP-array)",
+    "multiple_testing": "BH-FDR within each (matrix, predictor, purity_method) block",
+    "duplicates": "aliquots averaged to patient-level -01 sample",
+    "circularity": "ESTIMATE Immune/Stromal scores are terms in ESTIMATE_score; partialling ESTIMATE purity out of those scores is circular. ESTIMATE purity itself is RNA-derived, so adjusting RNA immune genes for ESTIMATE purity is only partly independent. ABSOLUTE (DNA) and methylation leukocyte fraction are the non-circular readouts."
+  },
+  "key_context_spearman_hiseqv2": {
+    "TACSTD2_vs_CLDN4": 0.4597517150956402,
+    "TACSTD2_vs_ESTIMATE_purity": -0.005611713986772454,
+    "TACSTD2_vs_ABSOLUTE_purity": 0.007390157000782001,
+    "CLDN4_vs_ESTIMATE_purity": 0.0816227659072956,
+    "CLDN4_vs_ABSOLUTE_purity": 0.04774313228172003,
+    "ESTIMATE_vs_ABSOLUTE_purity": 0.658904445723204,
+    "ESTIMATE_purity_vs_leukocyte_fraction": -0.7265610778323891,
+    "ABSOLUTE_purity_vs_leukocyte_fraction": -0.772071850631388
+  },
+  "inputs": {
+    "expression_hiseqv2": {
+      "file": "TCGA.LUAD.HiSeqV2.gz",
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap/HiSeqV2.gz",
+      "desc": "UCSC Xena TCGA-LUAD HiSeqV2, log2(RSEM normalized_count + 1)",
+      "bytes": 30884695,
+      "sha256": "5432e5a67fc4c4fd6ca22f76f18494756f0e8409a8969df3157935f39947aa00"
+    },
+    "expression_star_tpm": {
+      "file": "TCGA-LUAD.star_tpm.tsv.gz",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUAD.star_tpm.tsv.gz",
+      "desc": "UCSC Xena GDC hub TCGA-LUAD STAR log2(TPM+1)",
+      "bytes": 168463406,
+      "sha256": "460dab5f84d8fa7da8ef17c913d2816cd66a34e837908e64e0b3c7d65e3d40ee"
+    },
+    "probemap": {
+      "file": "gencode.v36.annotation.gtf.gene.probemap",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/gencode.v36.annotation.gtf.gene.probemap",
+      "desc": "GENCODE v36 gene symbol map for STAR matrix",
+      "bytes": 3206945,
+      "sha256": "f027752d663b1da74f4113998bf008e6ebecfa3732607513e027bb6eb1f635b5"
+    },
+    "estimate_mdacc": {
+      "file": "MDACC_estimate_LUAD_RNAseqV2.txt",
+      "url": "https://bioinformatics.mdanderson.org/estimate/tables/lung_adenocarcinoma_RNAseqV2.txt",
+      "desc": "MD Anderson precomputed ESTIMATE scores (RNAseqV2 LUAD)",
+      "bytes": 19985,
+      "sha256": "366690f98235ab85a7b0c8eea16f2ce055c4bd61466879a6dc0fda96dd05fda4"
+    },
+    "absolute": {
+      "file": "TCGA_mastercalls.abs_tables_JSedit.fixed.txt",
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "desc": "PanCanAtlas ABSOLUTE purity/ploidy (DNA/SNP-array)",
+      "bytes": 901812,
+      "sha256": "f430a975433d82e0098d7405619d4f12a0c765fcd97e7d63cc9b1de7f2d763cd"
+    },
+    "aran2015": {
+      "file": "Aran2015_purity_S1.xlsx",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fncomms9971/MediaObjects/41467_2015_BFncomms9971_MOESM1236_ESM.xlsx",
+      "desc": "Aran 2015 Nat Commun Supp Data 1 (ESTIMATE/ABSOLUTE/LUMP/IHC/CPE)",
+      "bytes": 553082,
+      "sha256": "fce1ba13ff3a6432b7e4f260eb516e407c967d615ca87bc8dffa7765baf97529"
+    },
+    "leukocyte_fraction": {
+      "file": "TCGA_all_leuk_estimate.masked.20170107.tsv",
+      "url": "https://api.gdc.cancer.gov/data/6f75c9d7-5134-4ed1-b8f3-72856c98a4e8",
+      "desc": "PanImmune DNA-methylation leukocyte fraction (RNA-independent)",
+      "bytes": 560473,
+      "sha256": "5a8268caedbf8dc98a75be0528d583238d7355761d9fc746e42002f223a982d9"
+    },
+    "cibersort": {
+      "file": "TCGA.Kallisto.fullIDs.cibersort.relative.tsv",
+      "url": "https://api.gdc.cancer.gov/data/b3df502e-3594-46ef-9f94-d041a20a0b9a",
+      "desc": "PanImmune CIBERSORT relative fractions",
+      "bytes": 3818975,
+      "sha256": "8bf3d2cb511d272eeb674d59fbe44c4cdaa1d6031b9dbe06559b6b0fe2a2b305"
+    },
+    "signatures": {
+      "file": "Scores_160_Signatures.tsv.gz",
+      "url": "https://api.gdc.cancer.gov/data/80a82092-161d-4615-9d96-e858f113618d",
+      "desc": "PanImmune 160 signature scores (Wolf subset used)",
+      "bytes": 7920895,
+      "sha256": "823facbfe0a9301e737268e11f7d5654bf07ab002fa6cf9f0c5a1601f6e0cd54"
+    }
+  }
+}
