@@ -8,10 +8,12 @@
 |---|---|---|
 | TIDE, Dysfunction, Exclusion, MDSC, CAF, TAM M2 | Author-defined immune-evasion model | Canonical through `run_tide.py` + authors' TIDEpy v1.3 |
 | IPS, MHC, CP, EC, SC | Immunophenoscore (0–10) and components | Canonical public algorithm |
-| IFNG6_mean, CTL5_mean | Inflamed/CTL marker means | Canonical public gene definitions |
+| IFNG6_mean, Higgs_IFNG4_mean, CTL5_mean | Inflamed/CTL marker means | Canonical public gene definitions; Higgs-4 has direct NSCLC durvalumab evidence |
 | TIS18_public_mean | Unweighted public 18-gene summary | Proxy; **not** clinical TIS |
 | CAF_collagen3_mean | Bulk fibroblast/collagen signal | Portable proxy; **not** TIDE CAF |
 | HALLMARK_EMT_mean | Mean of the 200-gene Hallmark EMT set | Transparent alternative to ssGSEA |
+| Thompson EMT/inflammation | Signed NSCLC EMT/inflammation model | Exact public formula; cohort-dependent z scores |
+| hMENA–TGF-β CAF9, Pan-F-TBRS | Stromal exclusion gene sets | Exact ssGSEA bridge plus clearly named mean proxies |
 | Bindea_cytotoxic_mean | Cytotoxic marker QC | Proxy; use ConsensusTME for Bessede replication |
 
 All local scoring is dependency-free Python. See `SOURCES.md` before comparing
@@ -62,6 +64,31 @@ The mean signatures preserve the input scale. IPS first z-scores all measured
 genes within each sample, then reproduces the public factor/class aggregation.
 Consequently, IPS requires a broad, comparable transcriptome—not a targeted
 file containing only IPS genes.
+
+Run the directly NSCLC-derived Thompson model separately because it requires
+gene-wise z-scoring across the analyzed cohort:
+
+```bash
+python3 methods/exclusion_scores/scripts/score_thompson_emt.py \
+  expression.tsv thompson_scores.tsv
+```
+
+It outputs signed 12-gene EMT, 27-gene inflammation, unweighted
+`inflammation−EMT`, and the published fitted combination
+`−0.60×EMT+0.19×inflammation`. The reported performance came from a small
+retrospective cohort in which the model was internally fitted and evaluated;
+do not reuse its reported cutoff as externally validated.
+
+For exact hMENA–TGF-β CAF9 and Pan-F-TBRS ssGSEA:
+
+```bash
+Rscript methods/exclusion_scores/scripts/score_ssgsea.R \
+  expression.tsv methods/exclusion_scores/gene_sets/signatures.tsv ssgsea.tsv
+```
+
+The output also records whether `TGFB1` exceeds the cohort 10th percentile,
+the eligibility gate reported for the 2026 hMENA study. Because ssGSEA is
+cohort- and implementation-sensitive, record the GSVA/Bioconductor version.
 
 ### 4. Run canonical TIDE
 
@@ -175,10 +202,12 @@ not claim covariate adjustment or survival inference.
 |---|---|---|
 | TIDE、Dysfunction、Exclusion、MDSC、CAF、TAM M2 | 作者定义的免疫逃逸模型 | 通过 `run_tide.py` 调用作者 TIDEpy v1.3，属于规范实现 |
 | IPS、MHC、CP、EC、SC | 免疫表型评分及分量 | 公开算法的规范实现 |
-| IFNG6_mean、CTL5_mean | 炎症/细胞毒性标志基因均值 | 公开基因定义 |
+| IFNG6_mean、Higgs_IFNG4_mean、CTL5_mean | 炎症/细胞毒性标志基因均值 | 公开定义；Higgs-4 有直接 NSCLC durvalumab 证据 |
 | TIS18_public_mean | 公开 18 基因的无权重均值 | 代理指标，**不是**临床 TIS |
 | CAF_collagen3_mean | 成纤维/胶原信号 | 可迁移代理指标，**不是** TIDE CAF |
 | HALLMARK_EMT_mean | Hallmark EMT 200 基因均值 | 透明实现，不等同于 ssGSEA |
+| Thompson EMT/炎症模型 | NSCLC 有符号 EMT/炎症评分 | 精确公开公式；依赖队列内 z 标准化 |
+| hMENA–TGF-β CAF9、Pan-F-TBRS | 基质排斥签名 | ssGSEA 规范接口及明确标注的均值代理 |
 | Bindea_cytotoxic_mean | 细胞毒性快速质控 | 代理指标；复现 Bessede 应使用 ConsensusTME |
 
 本地评分脚本仅依赖 Python 标准库。跨队列比较前必须阅读
@@ -214,6 +243,28 @@ python3 methods/exclusion_scores/scripts/run_tide.py \
 
 应在隔离环境中固定作者 TIDEpy v1.3 及其依赖，并记录版本、癌种
 `NSCLC`、既往免疫治疗参数、输入转换、中心化参考及缺失基因。
+
+直接来源于 NSCLC 的 Thompson EMT/炎症模型必须单独运行，因为它按本队列
+对每个基因做 z 标准化：
+
+```bash
+python3 methods/exclusion_scores/scripts/score_thompson_emt.py \
+  expression.tsv thompson_scores.tsv
+```
+
+输出包括 12 基因有符号 EMT、27 基因炎症、`炎症−EMT` 以及论文组合
+`−0.60×EMT+0.19×炎症`。原研究在同一小型回顾性队列拟合并评价，不能把
+其阈值当作外部验证阈值。
+
+hMENA–TGF-β CAF9 和 Pan-F-TBRS 的 ssGSEA：
+
+```bash
+Rscript methods/exclusion_scores/scripts/score_ssgsea.R \
+  expression.tsv methods/exclusion_scores/gene_sets/signatures.tsv ssgsea.tsv
+```
+
+输出同时标记 `TGFB1` 是否高于队列第 10 百分位（2026 hMENA 研究的门控
+条件）。应记录 GSVA/Bioconductor 版本。
 
 ### 4. Bessede 式 TACSTD2 分析
 

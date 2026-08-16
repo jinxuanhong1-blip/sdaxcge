@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+sys.path.insert(0, str(SCRIPTS))
 
 
 def load_script(name: str):
@@ -24,6 +25,7 @@ def load_script(name: str):
 
 score = load_script("score_signatures")
 tacstd2_test = load_script("test_tacstd2_exclusion")
+thompson = load_script("score_thompson_emt")
 
 
 class ScoreTests(unittest.TestCase):
@@ -114,6 +116,25 @@ class Tacstd2Tests(unittest.TestCase):
             )
             parsed = json.loads(output.read_text(encoding="utf-8"))
             self.assertEqual(parsed["results"][0]["n"], 5)
+
+
+class ThompsonTests(unittest.TestCase):
+    def test_signed_emt_direction_and_formulas(self):
+        expression = {
+            gene: [1.0, 2.0, 3.0]
+            for gene in set(thompson.MESENCHYMAL + thompson.INFLAMMATION)
+        }
+        expression.update(
+            {gene: [3.0, 2.0, 1.0] for gene in thompson.EPITHELIAL}
+        )
+        rows, coverage = thompson.score(expression, 3)
+        self.assertLess(rows[0]["Thompson_EMT"], 0)
+        self.assertGreater(rows[2]["Thompson_EMT"], 0)
+        self.assertAlmostEqual(
+            rows[2]["Thompson_unweighted"],
+            rows[2]["Thompson_inflammation"] - rows[2]["Thompson_EMT"],
+        )
+        self.assertEqual(coverage["Thompson_EMT_coverage"], "12/12")
 
 
 if __name__ == "__main__":
