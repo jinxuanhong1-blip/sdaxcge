@@ -2,9 +2,10 @@
 
 **中文摘要在下方 / Chinese summary below.**
 
-This is the *runnable* companion to [`../playbook.md`](../playbook.md). It uses a
-**real, verified** GEO series (no invented accessions) that is small enough to
-download and analyse in seconds.
+This is one *runnable* companion to [`../playbook.md`](../playbook.md) (CLDN4 KO).
+Sibling public TACSTD2 runs: [`../example_gse245459/`](../example_gse245459/)
+(SKOV3 shTACSTD2) and [`../example_gse334497/`](../example_gse334497/) (4T1 Trop2 KO).
+All accessions were verified live; none are invented.
 
 | Field | Value |
 |---|---|

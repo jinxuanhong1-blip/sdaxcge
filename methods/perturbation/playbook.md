@@ -374,13 +374,15 @@ Refine on the GEO website with **fielded queries**, e.g.:
 CLDN4[Description] AND "expression profiling by high throughput sequencing"[DataSet Type] AND "Homo sapiens"[Organism]
 ```
 
-**Verified example accessions** (returned live by the query above — reproduce
-before citing; do **not** trust this list blindly, GEO changes):
+**Verified public accessions** (live E-utilities + GEO FTP; re-query before
+citing). Full table: [`public_series_catalog.md`](public_series_catalog.md).
 
-| Accession | Organism | Assay | Relevance |
-|---|---|---|---|
-| **GSE207704** | human | RNA-seq | **CLDN4 CRISPR knockout** vs WT (MCF7, T47D); used in §11 |
-| **GSE22493** | human | microarray | **CLDN4-silencing vs CLDN4-overexpressing** SKOV-3 ovarian cancer |
+| Accession | Organism | Assay | Perturbation | Suppl size | Used |
+|---|---|---|---|---:|---|
+| **GSE207704** | human | RNA-seq | CLDN4 CRISPR KO vs WT (MCF7, T47D) | 1.0 MB FPKM | §11 |
+| **GSE245459** | human | RNA-seq | shTACSTD2 vs shNC ± cisplatin (SKOV3, n=3) | 14 MB FPKM | §11 |
+| **GSE334497** | mouse | RNA-seq | Trop2/Tacstd2 KO vs WT (4T1 tumors, n=5) | 1.2 MB norm. counts | §11 |
+| **GSE22493** | human | microarray | CLDN4-silencing vs over-expression (SKOV-3) | 13 MB CEL | catalog only |
 
 How to choose a *runnable* set: prefer a **Series with a processed count/FPKM
 matrix in `suppl/`** that is small (MBs). If only FASTQs exist, budget for SRA
@@ -388,20 +390,21 @@ download + re-quantification (often ≫ 2 GB) — outside a quick <2 GB run.
 
 > **No-fabrication rule:** if a search returns nothing for a gene/assay
 > combination, **report "none found"** — do not paste a plausible-looking GSE.
-> (In building this playbook, searches for dedicated *TROP2/TACSTD2* knockdown
-> **RNA-seq** series returned only keyword-coincidence hits, not true TACSTD2
-> perturbations; that absence is itself a finding to report, not to paper over.)
+> Dedicated *human cell-line TACSTD2 CRISPR-KO* RNA-seq was **not** found in
+> this search (GSE334497 is mouse in-vivo KO; GSE245459 is shRNA). Additional
+> human *CLDN4* KD/KO RNA-seq besides GSE207704 was **not** found (GSE22493 is
+> array). Those absences are findings.
 
 **中文.** 用 NCBI E-utilities（`db=gds`）或 EDirect，确保只引用**真实** accession。提供的两个
 工具会检索并列出某 Series 的补充文件及大小，便于按下载预算挑选处理后矩阵（命令见上）。在 GEO
-网站可用**带字段查询**精炼（示例见上）。**已核实的示例 accession**（由上述查询实时返回——引用前请
-自行复现，勿盲信，GEO 会变）：**GSE207704**（人，RNA-seq，*CLDN4* CRISPR 敲除 vs 野生型，
-MCF7/T47D，§11 使用）；**GSE22493**（人，芯片，SKOV-3 卵巢癌 *CLDN4* 沉默 vs 过表达）。
-**如何挑可运行的数据集**：优先选 `suppl/` 中带处理后 counts/FPKM 矩阵、体积小（MB 级）的 Series；
-若只有 FASTQ，则需预留 SRA 下载+重新定量的开销（常 ≫2GB），不适合快速 <2GB 运行。
-> **禁止编造原则**：若某基因/实验组合查无结果，就**如实写"未找到"**，不要粘贴看似合理的 GSE。
-> （本手册编写时，检索专门的 *TROP2/TACSTD2* 敲低 **RNA-seq** Series 只返回关键词巧合命中，并非
-> 真正的 TACSTD2 扰动；这一"缺失"本身就是应报告的结论，而不该掩饰。）
+网站可用**带字段查询**精炼。**已核实的公开 accession**（完整表见
+[`public_series_catalog.md`](public_series_catalog.md)）：**GSE207704**（人，CLDN4 CRISPR KO）、
+**GSE245459**（人，SKOV3 shTACSTD2，n=3）、**GSE334497**（小鼠，4T1 Trop2 KO，n=5）、
+**GSE22493**（人，芯片，CLDN4 沉默，仅编目）。**如何挑可运行的数据集**：优先选 `suppl/` 中带
+处理后矩阵、体积小（MB 级）的 Series。
+> **禁止编造原则**：查无结果就写"未找到"。本次检索**未找到**独立的人细胞系 TACSTD2 CRISPR-KO
+> RNA-seq（GSE334497 是小鼠体内 KO；GSE245459 是 shRNA），也**未找到** GSE207704 以外的人
+> CLDN4 KD/KO RNA-seq（GSE22493 是芯片）。缺失本身就是结论。
 
 ---
 
@@ -422,32 +425,37 @@ MCF7/T47D，§11 使用）；**GSE22493**（人，芯片，SKOV-3 卵巢癌 *CLD
 | [`ortholog_map_mouse_human.R`](templates/ortholog_map_mouse_human.R) | mouse↔human ortholog/symbol harmonization |
 | [`geo_query.py`](templates/geo_query.py) / [`geo_query_edirect.sh`](templates/geo_query_edirect.sh) | mine GEO for perturbation series + suppl sizes |
 
-**Worked example** ([`example_run/`](example_run/README.md)): a real, <2 GB run on
-**GSE207704** (CLDN4 knockout, human breast cancer). It performs the on-target
-check, the *TACSTD2* opposite-gene test, and pre-ranked GSEA (Hallmark IFN-α/γ,
-EMT, KEGG tight junction), and is transparent about the FPKM/no-replicate
-limitation. Reproduce with:
+**Worked examples** (all public, all < 2 GB, none invent accessions):
+
+| Run | Series | Perturbation | On-target | Opposite gene | Hallmark IFN |
+|---|---|---|---|---|---|
+| [`example_run/`](example_run/README.md) | GSE207704 | CLDN4 KO (human lines) | CLDN4 −0.88 | TACSTD2 **−0.81** (not UP) | **down** (FDR 0.007 / 0.035) |
+| [`example_gse245459/`](example_gse245459/README.md) | GSE245459 | shTACSTD2 (SKOV3, n=3) | TACSTD2 −2.63 | CLDN4 **−1.92** (not UP) | **down** (vehicle arm) |
+| [`example_gse334497/`](example_gse334497/README.md) | GSE334497 | Tacstd2 KO (4T1, n=5) | Tacstd2 −3.82 (mean) | Cldn4 **−0.82** (not UP) | **up** (in-vivo mouse) |
+
+Cross-series takeaway: the compensatory-up story (CLDN4↓→TACSTD2↑ or the reverse)
+is **not supported** in any of the three public matrices. IFN direction is
+**model-dependent** (down in two human cell-line KDs/KOs; up in mouse in-vivo
+Trop2 KO) — do not pool. All three supplements are FPKM/normalized, so p-values
+are exploratory; the count-model templates remain the path for raw-count DE.
 
 ```bash
-cd example_run && pip install pandas numpy gseapy && python run_gse207704.py
+pip install pandas numpy scipy gseapy
+python example_run/run_gse207704.py
+python example_gse245459/run_gse245459.py
+python example_gse334497/run_gse334497.py
 ```
 
-Headline real results: `CLDN4` down (log2FC −0.88, on-target ✓); `TACSTD2`
-**down** too (−0.81, compensatory-up hypothesis **not** supported); Hallmark
-**interferon-α/γ significantly down** in the KO (FDR 0.007 / 0.035).
-
-**中文.** **模板**见上表（DESeq2/edgeR/PyDESeq2、R 与 Python 两套预排序 GSEA、反向基因检验、
-批次矫正、同源映射、GEO 检索）。**实例**（[`example_run/`](example_run/README.md)）：在真实且
-<2GB 的 **GSE207704**（CLDN4 敲除，人乳腺癌）上运行，完成靶基因验证、*TACSTD2* 反向基因检验、
-预排序 GSEA（Hallmark 干扰素 α/γ、EMT、KEGG 紧密连接），并如实说明 FPKM/无重复的局限（复现命令见上）。
-主要真实结果：`CLDN4` 下调（log2FC −0.88，靶验证✓）；`TACSTD2` 也**下调**（−0.81，代偿性上调
-假设**不成立**）；敲除中 Hallmark **干扰素 α/γ 显著下调**（FDR 0.007 / 0.035）。
+**中文.** **模板**见上表。**三个公开实例**（均 <2GB，无编造 accession）见上表：CLDN4 敲除、
+shTACSTD2、小鼠 Tacstd2 敲除。跨数据集结论：代偿性上调（CLDN4↓→TACSTD2↑ 或其反向）在三个
+公开矩阵中**均不成立**；干扰素方向**依赖模型**（两个人细胞系下调，小鼠体内 KO 上调）——不要合并。
+三份补充文件都是 FPKM/标准化值，p 值仅作探索；原始 counts 的正规 DE 仍走模板。
 
 ---
 
 ### Environment / 环境
 
-Python deps for the templates/example: `pip install pandas numpy gseapy pydeseq2`.
+Python deps for the templates/example: `pip install pandas numpy scipy gseapy pydeseq2`.
 R deps: `DESeq2`, `apeglm`, `edgeR`, `limma`, `sva`, `fgsea`, `clusterProfiler`,
 `msigdbr`, `babelgene`/`biomaRt` (Bioconductor). All accessions in this document
 were verified live via NCBI E-utilities on the date of writing; re-verify before
