@@ -1,0 +1,36 @@
+{
+  "claim_id": "A7",
+  "claim_text": "Paired pre/post ICI TROP2 (TACSTD2) rises after immunotherapy (TISMO; Zhejiang IHC H-score 94 -> 121).",
+  "public_analog": "GSE248249 (Memon et al. Cancer Cell 2024): 13 same-patient NSCLC tumor pairs, PD-(L)1 blockade, pre vs acquired-resistance FFPE Clariom D RNA.",
+  "verdict": "NOT_SUPPORTED",
+  "direction_match": false,
+  "honest_stats": {
+    "TACSTD2_paired_wilcoxon_p": 0.946,
+    "TACSTD2_median_delta_log2_post_minus_pre": -0.161,
+    "TACSTD2_pairs_up": 6,
+    "TACSTD2_pairs_down": 7,
+    "TACSTD2_n_pairs": 13,
+    "CLDN4_paired_wilcoxon_p": 0.017,
+    "CLDN4_median_delta_log2_post_minus_pre": -0.885,
+    "CLDN4_pairs_up": 2,
+    "CLDN4_pairs_down": 11,
+    "note": "Post biopsies are acquired-resistance tumors, not unselected on-treatment or responder residuals. EPCAM control is flat (p=0.79), so the CLDN4 drop is not a simple epithelial-fraction artifact."
+  },
+  "secondary_analogs": [
+    {
+      "id": "GSE207422_scRNA",
+      "pairs": 0,
+      "note": "3 pre + 12 post, different patients, neoadjuvant PD-1+chemo. TACSTD2 slightly lower post (log2FC -0.26, p=0.29) and lower in MPR vs NMPR (p=0.15)."
+    },
+    {
+      "id": "GSE246922_mouse_lung",
+      "note": "KP and LLC1 ICB-resistant vs parental. Tacstd2 slightly down, not significant. TISMO UI not programmatically downloadable."
+    },
+    {
+      "id": "GSE91061_melanoma",
+      "note": "Not lung. Responders increase TACSTD2 on-treatment vs non-responders (AUC 0.78, p=0.019, FDR q=0.23)."
+    }
+  ],
+  "public_paired_lung_TROP2_IHC": "none_found",
+  "zhejiang_data_used": false
+}

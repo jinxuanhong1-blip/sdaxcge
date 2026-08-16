@@ -1,0 +1,9 @@
+dataset,gene,comparison,n_pairs,median_delta_on_minus_pre,test,statistic,p_value,group_hi,group_lo,n_hi,n_lo,median_hi,median_lo,mean_hi,mean_lo,log2fc_hi_vs_lo,auc
+GSE91061,TACSTD2,paired on_vs_pre (all patients),43.0,0.0590200329160564,Wilcoxon signed-rank,344.0,0.17890187473331598,,,,,,,,,,
+GSE91061,TACSTD2,on-pre delta [responder],9.0,0.45749036099147905,descriptive,,,,,,,,,,,,
+GSE91061,TACSTD2,on-pre delta [non_responder],18.0,-0.061360121847499366,descriptive,,,,,,,,,,,,
+GSE91061,TACSTD2,on-pre delta: responder_vs_nonresponder,,,Mann-Whitney U,127.0,0.019269933664559934,responder,non_responder,9.0,18.0,0.45749036099147905,-0.061360121847499366,0.9924704994659618,0.15216386212753788,0.8403066373384239,0.7839506172839507
+GSE91061,CLDN4,paired on_vs_pre (all patients),43.0,0.018854548119886315,Wilcoxon signed-rank,416.0,0.6571293002113372,,,,,,,,,,
+GSE91061,CLDN4,on-pre delta [responder],9.0,0.21191889227694688,descriptive,,,,,,,,,,,,
+GSE91061,CLDN4,on-pre delta [non_responder],18.0,0.02242492172553891,descriptive,,,,,,,,,,,,
+GSE91061,CLDN4,on-pre delta: responder_vs_nonresponder,,,Mann-Whitney U,98.0,0.3960658207089378,responder,non_responder,9.0,18.0,0.21191889227694688,0.02242492172553891,0.4046807475609626,-0.0814037714970232,0.48608451905798583,0.6049382716049383
