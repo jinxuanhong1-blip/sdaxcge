@@ -1,0 +1,3 @@
+cohort,n_samples,n_expression_features_including_controls,best_response_binary_counts,best_response_raw_counts,histology_counts,metadata_columns
+discovery,55,784,"{""bad"": 32, ""good"": 23}","{""MinorResponse"": 5, ""NoEvidenceOfDisease"": 1, ""PartialResponse"": 10, ""ProgressiveDisease"": 31, ""StableDisease"": 7, ""missing"": 1}","{""NSCLC/A"": 33, ""NSCLC/AdS"": 1, ""NSCLC/Sq"": 21}",29
+validation,36,784,"{""bad"": 13, ""good"": 20, ""missing"": 3}","{""CompleteResponse"": 1, ""MinorResponse"": 4, ""PartialResponse"": 9, ""ProgressiveDisease"": 13, ""StableDisease"": 6, ""missing"": 3}","{""NSCLC/A"": 31, ""NSCLC/AdS"": 1, ""NSCLC/NOS"": 1, ""NSCLC/Sq"": 3}",29

@@ -1,0 +1,12 @@
+repository,record_or_collection,doi_or_url,lung_ici,processed_data,target_status,disposition,evidence
+Zenodo,2635194,10.5281/zenodo.2635194,yes,yes,"TACSTD2 absent; CLDN4 absent",audited_no_target_result,"Open NanoString nCounter expression and response data; 55 discovery and 36 validation samples; 784 deposited features including controls"
+Zenodo,16916391,10.5281/zenodo.16916391,yes,yes,"likely present in full-transcriptome object; not verified",not_analyzed,"Open ACTS-30 durvalumab plus chemoradiotherapy cohort; target-capable total Seurat object is 23.34 GB inside a 29.15 GB archive; no gene-level table"
+Zenodo,15495774,10.5281/zenodo.15495774,yes,yes,"TACSTD2 absent; CLDN4 absent",excluded_no_target,"Peripheral-blood CyTOF/IMC assay; deposited antibody panel does not measure either requested target"
+figshare,6590041,10.6084/m9.figshare.c.6590041,yes,no_expression_matrix,"TACSTD2 unavailable; CLDN4 unavailable",excluded_no_expression,"Four supplements are clinical information, a PDF, a serum test table, and a steroid intensity table; the collection does not deposit a gene-expression matrix"
+Zenodo,18889964,10.5281/zenodo.18889964,no,yes,"wrong tissue and species for target question",excluded_wrong_compartment,"Mouse bone-marrow scRNA objects from lung-cancer-bearing animals; not lung tumor epithelium and not a clinical ICI-response cohort"
+Zenodo,18729311,10.5281/zenodo.18729311,no,yes,"files inaccessible",excluded_restricted,"Restricted NSCLC multiomic record following thermal ablation; not an ICI intervention"
+Zenodo,14511579,10.5281/zenodo.14511579,no,yes,"no lung cohort among per-study files",excluded_wrong_cancer,"Pan-cancer ICB compilation search hit; archive members cover breast, melanoma, kidney, liver, BCC and related cohorts but no lung cohort"
+Zenodo,10731914,10.5281/zenodo.10731914,no,yes,"TACSTD2 and CLDN4 present",excluded_already_pr42,"Already analyzed in PR42; LUAD atlas is not an ICI-treated cohort"
+Zenodo,8041882,10.5281/zenodo.8041882,yes,yes,"TACSTD2 absent; CLDN4 absent",excluded_already_pr42,"Already analyzed in PR42; anti-PD1 NSCLC IMC panel lacks both requested proteins"
+Zenodo,11205626,10.5281/zenodo.11205626,no,yes,"target-capable full transcriptome",excluded_no_ici,"Paired normal/LUAD scRNA and snRNA; no ICI treatment or response arm"
+Zenodo,13947395,10.5281/zenodo.13947395,no,yes,"target-capable full transcriptome",excluded_no_ici,"Paired LUAD/healthy scRNA and IMC; no ICI treatment or response arm"

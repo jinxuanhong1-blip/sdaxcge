@@ -1,0 +1,20 @@
+{
+  "assay": "NanoString nCounter PanCancer Immune Profiling panel",
+  "n_discovery": 55,
+  "n_validation": 36,
+  "population": "advanced NSCLC treated with anti-PD-1 immunotherapy",
+  "reason": "Neither requested gene is measured by the deposited targeted panel.",
+  "record": "10.5281/zenodo.2635194",
+  "surrogate_analysis_performed": false,
+  "targets": {
+    "CLDN4": {
+      "present_discovery": false,
+      "present_validation": false
+    },
+    "TACSTD2": {
+      "present_discovery": false,
+      "present_validation": false
+    }
+  },
+  "valid_target_analysis": false
+}
