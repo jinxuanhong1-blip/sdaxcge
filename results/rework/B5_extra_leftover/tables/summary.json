@@ -1,0 +1,31 @@
+{
+  "scope": "extra leftover 2023-2026 open lung ICI rows; 11-cohort OR=0.42 taken as given; not pooled",
+  "n_GSE274975_joined": 61,
+  "n_GSE274975_NSCLC": 60,
+  "n_GSE274975_SCLC_excluded": 1,
+  "GSE274975_RECIST_NSCLC": {
+    "SD": 25,
+    "PD": 17,
+    "PR": 11,
+    "nan": 4,
+    "CR": 3
+  },
+  "GSE274975_DCB_NSCLC": {
+    "1.0": 34,
+    "0.0": 20,
+    "nan": 6
+  },
+  "n_GSE283829": 27,
+  "GSE283829_RECIST": {
+    "SD": 10,
+    "PD": 10,
+    "CR": 7
+  },
+  "n_GSE328294": 6,
+  "n_GSE244945_libraries": 60,
+  "inputs": {
+    "GSE274975_counts_sha256": "6fa7df0d31ef7d9e7b8f2f245a3a9767610e17f0c4e2029f920d2dd554413dd7",
+    "TableS1_sha256": "69608a10320b9b0b8e366c2efa356a082be0d434203791bbb9f53555992cc9a8",
+    "GSE283829_counts_sha256": "197f75d910055001b31e1caf8a934a5aeb5249619c81f2cc4786b2688400abc3"
+  }
+}

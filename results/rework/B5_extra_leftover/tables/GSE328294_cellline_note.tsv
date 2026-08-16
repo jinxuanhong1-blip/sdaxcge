@@ -1,0 +1,3 @@
+cohort	gene	endpoint	cutoff	n	n_R	n_NR	n_high_R	n_high_NR	n_low_R	n_low_NR	effect	effect_value	ci_low	ci_high	p	note
+GSE328294_H23_cellline	CLDN4	IBI351_vs_DMSO	continuous	6	3	3					rank_biserial_IBI351_minus_DMSO	-1.0			0.1	H23 cell line; not a patient ICI DCB/ORR row
+GSE328294_H23_cellline	TACSTD2	IBI351_vs_DMSO	continuous	6	3	3					rank_biserial_IBI351_minus_DMSO	1.0			0.1	H23 cell line; not a patient ICI DCB/ORR row

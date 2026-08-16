@@ -1,0 +1,9 @@
+cohort	gene	endpoint	cutoff	n	n_R	n_NR	n_high_R	n_high_NR	n_low_R	n_low_NR	effect	effect_value	ci_low	ci_high	p	note
+GSE244945_H524	CLDN4	NOTCH1_dox_vs_parental	continuous	6	3.0	3.0					rank_biserial_dox_minus_parental	-1.0			0.1	SCLC cell line; no patient ICB labels; IMpower133 RNA not on GEO
+GSE244945_H524	TACSTD2	NOTCH1_dox_vs_parental	continuous	6	3.0	3.0					rank_biserial_dox_minus_parental	1.0			0.06360256962075367	SCLC cell line; no patient ICB labels; IMpower133 RNA not on GEO
+GSE244945_H69	CLDN4	NOTCH1_dox_vs_parental	continuous	6	3.0	3.0					rank_biserial_dox_minus_parental	-1.0			0.1	SCLC cell line; no patient ICB labels; IMpower133 RNA not on GEO
+GSE244945_H69	TACSTD2	NOTCH1_dox_vs_parental	continuous	6	3.0	3.0					rank_biserial_dox_minus_parental	1.0			0.07652250047505922	SCLC cell line; no patient ICB labels; IMpower133 RNA not on GEO
+GSE244945_H82	CLDN4	NOTCH1_dox_vs_parental	continuous	6	3.0	3.0					rank_biserial_dox_minus_parental	1.0			0.1	SCLC cell line; no patient ICB labels; IMpower133 RNA not on GEO
+GSE244945_H82	TACSTD2	NOTCH1_dox_vs_parental	continuous	6	3.0	3.0					rank_biserial_dox_minus_parental	1.0			0.06360256962075367	SCLC cell line; no patient ICB labels; IMpower133 RNA not on GEO
+GSE244944_ChIPseq	—	none	—	18							—					SCLC ChIP-seq cell line; no patient ICB; not mixed into NSCLC
+GSE244946_scRNA	—	none	—	3							—					COR-L88 scRNA; no patient ICB; not mixed into NSCLC
