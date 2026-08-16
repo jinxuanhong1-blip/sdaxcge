@@ -1,0 +1,66 @@
+{
+  "dataset": "GSE154826",
+  "paper": "Leader, Grout et al. Cancer Cell 2021 PMID 34767762",
+  "question": "LCAM vs TACSTD2",
+  "policy": "processed/open only; honest skip huge raw",
+  "used": {
+    "DE_LCAMhi_vs_LCAMlo_pseudobulk.rd": {
+      "url": "https://raw.githubusercontent.com/effiken/Leader_et_al/master/input_tables/DE_LCAMhi_vs_LCAMlo_pseudobulk.rd",
+      "md5": "8af273421a7025b6ef3efcb80afc5e4a",
+      "bytes": 634431
+    },
+    "annots_list.csv": {
+      "url": "https://raw.githubusercontent.com/effiken/Leader_et_al/master/input_tables/annots_list.csv",
+      "md5": "0724c1bbe1a5a6ef6302798e92527455",
+      "bytes": 1818
+    },
+    "table_s1_sample_table.csv": {
+      "url": "https://raw.githubusercontent.com/effiken/Leader_et_al/master/input_tables/table_s1_sample_table.csv",
+      "md5": "da30a6422f40e5a0153460dd5d0f2de2",
+      "bytes": 8893
+    },
+    "cell_metadata.csv": {
+      "url": "https://raw.githubusercontent.com/effiken/Leader_et_al/master/input_tables/cell_metadata.csv",
+      "md5": "13b48280df4c1578bffd3cdb1e39eb80",
+      "bytes": 13037071
+    },
+    "immune_vs_ep_de.csv": {
+      "url": "https://raw.githubusercontent.com/effiken/Leader_et_al/master/input_tables/immune_vs_ep_de.csv",
+      "md5": "ba661c343b97140e17616bd736010edd",
+      "bytes": 1975284
+    },
+    "table_s5_genes_used_in_figures.csv": {
+      "url": "https://raw.githubusercontent.com/effiken/Leader_et_al/master/input_tables/table_s5_genes_used_in_figures.csv",
+      "md5": "1776a282a08ad8422b028ce6d9b7e2a2",
+      "bytes": 3293
+    },
+    "GSE154826_sample_annots.csv.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE154826/suppl/GSE154826_sample_annots.csv.gz",
+      "md5": "f525e458c363b3d840d3dcf8e97543ef",
+      "bytes": 1339
+    },
+    "GSE154826-GPL18573_series_matrix.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE154826/matrix/GSE154826-GPL18573_series_matrix.txt.gz",
+      "md5": "5c1afbd67be55d5ba242e69222ba1a96",
+      "bytes": 8816
+    },
+    "GSE154826-GPL24676_series_matrix.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE154826/matrix/GSE154826-GPL24676_series_matrix.txt.gz",
+      "md5": "0e4f62ca08b2f382fb1b33e37d9713ba",
+      "bytes": 6500
+    }
+  },
+  "skipped": [
+    "SRA/FASTQ SRP251372",
+    "GEO 10x MTX tarballs GSE154826_amp_batch_ID_*.tar.gz",
+    "Dropbox lung_ldm.rd full UMI matrix"
+  ],
+  "primary_result": {
+    "gene": "TACSTD2",
+    "contrast": "author LCAM-hi vs LCAM-lo immune pseudobulk DE_total",
+    "log2FC": 0.3269652338761604,
+    "p": 0.25104,
+    "padj": 0.359377035726919,
+    "verdict": "not significant"
+  }
+}
