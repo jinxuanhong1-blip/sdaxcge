@@ -1,0 +1,565 @@
+[
+  {
+    "uid": "200111414",
+    "accession": "GSE111414",
+    "title": "KIR Polymorphism is Associated with Primary Resistance to PD-1 Blockade in Lung Cancer",
+    "summary": "Adaptive immune escape of tumor cells by upregulation of ligands for programmed death 1 (PD-1) has been identified as an important and targetable pathway in many cancer types. Many clinical trials have demonstrated that targeting PD-1 or its ligand PD-L1 with immune checkpoint inhibitors (ICI) can restore anti-tumor immunity and induce durable remission. In patients with non-small cell lung cancer (NSCLC), several trials have demonstrated a survival benefit with ICI in patients with metastatic and locally advanced NSCLC.Yet, most patients have primary resistance to PD-1 or PD-L1 blockade during treatment: approximately 20% of unselected patients with NSCLC achieve a partial response while 40-50% have progressive disease as best response. Understanding mechanisms of primary resistance to PD-(L)1 blockade is important in the search for potentially targetable pathways and may ultimately allow discrimination between patients that benefit from PD-(L)1 blockade and those requiring combination or other approaches. We collected PBMCs and serum samples  from 35 patients with NSCLC before and during PD-1 blockade treatment with nivolumab. We analyzed differentially expressed genes in CD8+ T cells from the peripheral blood of 5 patients with partial response and 5 patients with primary progressive disease to identify mechanisms of resistance to PD-1 therapy. Cells were collected from samples taken before and after 4 weeks of treatment.",
+    "taxon": "Homo sapiens",
+    "n_samples": 20,
+    "gdsType": null,
+    "pdat": "2021/03/01",
+    "suppFile": null,
+    "pubmedids": [
+      "30765392"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE111nnn/GSE111414/"
+  },
+  {
+    "uid": "200115246",
+    "accession": "GSE115246",
+    "title": "Epigenetic prediction of response to anti-PD-1 treatment in non-small-cell lung cancer: a multicenter, retrospective analysis",
+    "summary": "Anti-programmed death-1 (PD-1) treatment for advanced non-small-cell lung cancer (NSCLC) has improved the survival of patients. However, a significant percentage of patients do not respond. We examined the use of DNA methylation profiles to determine the efficacy of anti-PD-1 treatment in stage IV NSCLC patients.",
+    "taxon": "Homo sapiens",
+    "n_samples": 81,
+    "gdsType": null,
+    "pdat": "2021/06/01",
+    "suppFile": null,
+    "pubmedids": [
+      "30100403"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE115nnn/GSE115246/"
+  },
+  {
+    "uid": "200131933",
+    "accession": "GSE131933",
+    "title": "Effects of durvalumab alone or combined with tremelimumab on preexisting cells in the tumor microenvironment",
+    "summary": "Immune checkpoint blockade with anti\u2013PD-1/L1 or anti\u2013CTLA-4 therapies has shown promising results across multiple cancer types, but the mechanisms within the tumor microenvironment (TME) have not been fully characterized. We used single-cell RNA sequencing to investigate the effects of anti\u2013PD-L1 monoclonal antibody (mAb) durvalumab (D) alone and combined with an anti\u2013CTLA-4 mAb, tremelimumab (T), on distinct subsets of immune cells. Upon treatment with D or D+T, two NSCLC tumors showed elevated IFN\u03b3 responses, although they differed in magnitude of response but differed in other areas. Our results highlight that D and D+T in the TME have some consistent effects across tumors but also exhibit tumor-specific effects depending on composition and functional state of immune cells in the TME at time of treatment. This complex tumor-specific interplay of diverse immune subtypes in the TME is critical to better understand patient response to immunotherapy.",
+    "taxon": "Homo sapiens",
+    "n_samples": 8,
+    "gdsType": null,
+    "pdat": "2021/09/01",
+    "suppFile": null,
+    "pubmedids": [],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131933/"
+  },
+  {
+    "uid": "200143791",
+    "accession": "GSE143791",
+    "title": "Human prostate cancer bone metastases have an actionable immunosuppressive microenvironment",
+    "summary": "We collected unique sets of tissue fractions from each patient: solid metastatic tissue (Tumor fraction), liquid bone marrow at the site of the metastasis (Involved), as well as liquid bone marrow from a vertebral body distant from the tumor site (Distal). This allowed for a comparison within the same individual, controlling for inter-individual variation. Bone marrow samples from patients undergoing hip replacement surgery (Benign) served as a non-malignant comparator group. The transcriptional composition of all samples was assessed using single-cell RNA-seq (scRNA-seq).",
+    "taxon": "Homo sapiens; Mus musculus",
+    "n_samples": 41,
+    "gdsType": null,
+    "pdat": "2021/08/29",
+    "suppFile": null,
+    "pubmedids": [
+      "34719426"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE143nnn/GSE143791/"
+  },
+  {
+    "uid": "200144945",
+    "accession": "GSE144945",
+    "title": "Dysregulation of TFH-B-TRM lymphocyte cooperation is associated with unfavorable anti-PD-1 responses in EGFR-mutant lung cancer",
+    "summary": "Patients with non-small cell lung cancer (NSCLC) with epidermal growth factor receptor (EGFR) mutations exhibit an unfavorable response to PD-1 inhibitor through unclear mechanisms. Hypothesizing that EGFR mutations alter tumor-immune interactions, we compared tumor-infiltrating lymphocytes between EGFR mutant (EGFR-MT) and wild type (EGFR-WT) tumors through single-cell transcriptomic analysis. We found that B cells, CXCL13-producing follicular helper CD4+ T (TFH)-like cells, and tissue-resident memory CD8+ T (TRM)-like cells decreased in EGFR-MT tumors. The NOTCH-RBPJ regulatory network, which is vital for persistence of TRM state, was perturbed, and the interactions between TFH and B cells through the CXCL13-CXCR5 axis disappeared in EGFR-MT tumors. Notably, the proportion of TRM-like cells is predictive for anti-PD-1 response in NSCLC. Our findings suggest that the impairment of TFH-B-TRM cooperation in tertiary lymphoid structure formation, accompanied by the dysregulation of TRM homeostasis and the loss of TFH-B crosstalk, underlies unfavorable anti-PD-1 response in EGFR-MT lung tumors.",
+    "taxon": "Homo sapiens",
+    "n_samples": 10,
+    "gdsType": null,
+    "pdat": "2021/08/24",
+    "suppFile": null,
+    "pubmedids": [
+      "34663810"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE144nnn/GSE144945/"
+  },
+  {
+    "uid": "200146100",
+    "accession": "GSE146100",
+    "title": "Distinct Immune-microenvironment Construction Diversely Responded to Induction Immunotherapy among Multiple Primary Lung Adenocarcinoma",
+    "summary": "We performed an integrated multi-omics analysis including single-cell RNA sequencing in one multiple lung nodules patient treated with pembrolizumab. We found that responded nodule showed notably higher infiltrating macrophages and lymphocytes through mIHC. Much higher genomic somatic copy number variants events were observed in two non-responded nodules. scRNA highlighted HLA-related gene down-regulation in both non-responded nodules indicating one of its immune evasion mechanisms. Moreover, significantly high proportion of Tissue resident memory T cells were found in responded nodule which has been validated to be both predictive and prognostic signature among multiple cancer types through external datasets. As for macrophages, MDSC-like subtype was predominantly observed in responded nodule while TAM-like subtype mainly in other two non-responded nodules. Through TCGA-LUAD cohort, MDSC-like macrophages showed inferior prognostic value compared to TAM-like macrophages suggesting a potential resistant mechanism along with increased responded immune infiltration. This study provides an in-depth multi-omics analysis on firstly reported multiple primary lung adenocarcinoma receiving immunotherapy and describes potential early immune signals responding to immunotherapy, as well as impaired antigen-presenting process in sub-solid nodules which may attribute to primary resistant of immunotherapy.",
+    "taxon": "Homo sapiens",
+    "n_samples": 3,
+    "gdsType": null,
+    "pdat": "2021/04/28",
+    "suppFile": null,
+    "pubmedids": [
+      "33820821"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE146nnn/GSE146100/"
+  },
+  {
+    "uid": "200152590",
+    "accession": "GSE152590",
+    "title": "RNA seq data of CD8+ T cells in peripheral blood lymphocytes from melanoma and lung cancer patients",
+    "summary": "CD8+ T cells are the primary target of immune checkpoint inhibitor (ICI) therapy in the treatment of cancers. ICI therapy only benefits a subset of patients and complicating this issue is a reliable prediction method that does not require invasive biopsies. We built an ICI response prediction model using scRNA seq data, and for validation of the model here we profiled transcriptome of CD8+ T cells in peripheral blood lymphocytes of 4 melanoma and 4 lung cancer patients that responded to ICI or not using RNA sequencing.",
+    "taxon": "Homo sapiens",
+    "n_samples": 8,
+    "gdsType": null,
+    "pdat": "2021/11/17",
+    "suppFile": null,
+    "pubmedids": [
+      "34807232"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE152nnn/GSE152590/"
+  },
+  {
+    "uid": "200155972",
+    "accession": "GSE155972",
+    "title": "Epigenetic Silencing by SETDB1 Suppresses Tumor-cell Intrinsic Immunogenicity",
+    "summary": "Epigenetic dysregulation is a defining feature of tumorigenesis and has been implicated in immune escape. However, the epigenetic mechanisms that drive immune evasion in cancer are poorly understood. To systematically identify epigenetic factors that modulate the immune sensitivity of tumor cells, we performed in vivo loss of function screens targeting 936 chromatin regulators in mouse tumor models treated with immune checkpoint blockade. We identified the H3K9-methyltransferase SETDB1 and other members of the HUSH and KAP1 complexes as cell-intrinsic mediators of immune escape in tumor cells. We also found that amplification of SETDB1 (1q21) in human tumors is associated with reduced cytotoxic T-cell infiltration and resistance to immune checkpoint blockade. Mechanistically, we demonstrate that SETDB1 targets broad domains, hundreds of kilobases in size, many of which reside within the open genome compartment. These SETDB1 domains are enriched for transposable elements (TEs) and immune gene clusters associated with segmental duplication events, a central mechanism of mammalian genome evolution. SETDB1 loss derepresses latent TE-encoded regulatory elements and proximal immune genes within these repetitive regions, including canonical NKG2D ligands, and induces hundreds of putative TE-encoded viral antigens. Our study establishes SETDB1 as an epigenetic checkpoint that suppresses intrinsic immunogenicity in cancer cells, and thus represents a candidate target for immunotherapy.",
+    "taxon": "Homo sapiens; Mus musculus",
+    "n_samples": 177,
+    "gdsType": null,
+    "pdat": "2021/03/18",
+    "suppFile": null,
+    "pubmedids": [
+      "33953401"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE155nnn/GSE155972/"
+  },
+  {
+    "uid": "200156405",
+    "accession": "GSE156405",
+    "title": "Elucidation of tumor-stromal heterogeneity and the ligand-receptor interactome by single cell transcriptomics in real-world pancreatic cancer biopsies",
+    "summary": "Through single-cell RNA sequencing (scRNA-seq), we identify substantial  transcriptomic evolution of PDOs propagated from the parental tumor, which may alter  predicted drug sensitivity. In addition, we performed an integrative analyses of PDAC biopsies and provide an in-depth characterization of the heterogeneity within the tumor  microenvironment, including cancer-associated fibroblast (CAF) subclasses, and predicts for a multitude of ligand-receptor interactions, revealing potential targets for  immunotherapy approaches.",
+    "taxon": "Homo sapiens",
+    "n_samples": 17,
+    "gdsType": null,
+    "pdat": "2021/08/25",
+    "suppFile": null,
+    "pubmedids": [
+      "34426439"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE156nnn/GSE156405/"
+  },
+  {
+    "uid": "200160878",
+    "accession": "GSE160878",
+    "title": "A novel DNA methylation signature in Merkel Cell Carcinoma",
+    "summary": "Merkel cell carcinoma (MCC) is a rare but aggressive skin cancer with neuroendocrine features. Although the role of epigenetic in tumorigenesis has been documented in most type of cancer, it is overlooked in MCC. The treatment options for MCC is limited and the five-year survival rate remains as low as 33%. In addition, recent studies have suggested multiple mechanisms of epigenetic dysregulation that may contribute to loss H3K27me3 and the tumorigenesis in MCC but not well studied.                                  In this study, we conducted DNA methylation analysis of an existing retrospective cohort of clinically annotated MCC samples, which included samples from 8 primary tumors, three metastatic skin tumors, four metastatic lymph node tumors, and five paired normal tissue samples. Global DNA methylation profile was performed using Illumina Infinium MethylationEPIC array. Two MCC cell lines were also analyzed for DNA methylation and gene expression (RNA-seq) to confirm the correlation between DNA methylation and gene expression for MCC.                                                                                      Our analysis revealed 24,497 loci (14,456 genes) that showed significantly different DNA methylation pattern in the four groups (ANOVA p-value < 0.05 and standard deviation of mean of groups > 0.25) namely adjacent normal, primary tumor, metastatic skin, and metastatic lymph node in MCC patients. By GO terms analysis, the genes correlated with DNA methylation alteration associated with nervous system, cell adhesion, signal transduction, and development pathways. We also observed 870 probes differentially methylated in MCPyV positive and MCPyV negative tumor (FDR adjusted p-value < 0.05 and delta change greater than 0.4 or less than -0.4). Furthermore, using expression and DNA methylation data from two MCC cell lines (MS1 and MCC13) as validation, we identified 964 MCC specific genes directly regulated by DNA methylation either at promoter or gene body, which are highly enriched in nervous system related pathways. By this approach, we not only identify DNA methylation markers for MCC and MCPyV status but also genes regulated by DNA methylation in MCC, MCPyV status, and neuroendocrine features. Most importantly, our results may also suggest overexpression of KDM6B and EZHIP by loss of DNA methylation in their promoter may contribute to loss of H3K27me3 in MCC. In addition, we observed the DNA methylation profile of MS1 resembled MCC patient sample, while DNA methylation profile of MCC13 cell line was similar to small cell lung carcinoma (SCLC), which suggested that MCC13 cell line may originally come from SCLC.                                                                                                                   Taken together, we have demonstrated dramatic DNA methylation alteration along with four unique patterns in normal, primary and metastatic MCC. Our finding provides DNA methylation markers not only for diagnosis or prognosis of MCC and MCPyV status but also correlate gene expression status of MCC specific genes with important functional roles in MCC tumorigenesis, MCPyV expression, neuroendocrine feature and H3K27me3 status. The identification of DNA methylation alteration in MCC also provides foundation for potential implication of epigenetic therapy for MCC patients.",
+    "taxon": "Homo sapiens",
+    "n_samples": 21,
+    "gdsType": null,
+    "pdat": "2021/07/13",
+    "suppFile": null,
+    "pubmedids": [
+      "34399838"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE160nnn/GSE160878/"
+  },
+  {
+    "uid": "200162154",
+    "accession": "GSE162154",
+    "title": "RNA-seq of human small airawy epithelial cells in patients with COPD and Never-smoker",
+    "summary": "Chronic obstructive pulmonary disease (COPD) is a progressive disease that obstructs the airflow from the lungs, and tobacco smoking is the major cause of COPD. Here, we applied single-cell RNA sequencing to analyze COPD pathogenesis in COPD patients, non-COPD smokers and never-smokers and investigated the disease progression at single-cell resolution. By single-cell transcriptome analysis, we identified a novel subpopulation of Alveolar Type 2 epithelial cells that emerged in smokers, such as COPD patients, and specifically expressed a series of chemokines and PD-L1. Since the number of cells in the basal cell clusters increased in only the COPD lungs but not in the non-COPD smoker or never-smoker lungs, we also tried to clarify the difference in phenotype between COPD and other basal cells with single-cell RNA-seq. However, due to the small number of cells in each, no clear difference could be found. To further investigate the functional properties of basal cells in COPD, we isolated small airway epithelial cells from surgical samples of COPD or never-smoker lungs and expanded the cells in vitro.Total RNA was extracted from early passaged cells , and bulk RNA-seq was performed to characterize these cells in detail. Finally, we found that the COPD basal cells retained the inflammatory response and basal/stem-related signals, even after a few passages in culture, and it might cause basal cell expansion in vivo.",
+    "taxon": "Homo sapiens",
+    "n_samples": 6,
+    "gdsType": null,
+    "pdat": "2021/06/10",
+    "suppFile": null,
+    "pubmedids": [],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE162nnn/GSE162154/"
+  },
+  {
+    "uid": "200162712",
+    "accession": "GSE162712",
+    "title": "Follicular helper-like T cells in the lung highlight a novel role of B cells in sarcoidosis",
+    "summary": "Effector/memory T cells were sorted from sarcoidosis patient's bronchoalveolar lavage (BAL) and peripheral blood (PBMC) as well as healthy donor peripheral blood and tonsil. RNA-sequencing was performed to assess their global phenotype. Total number of samples: 15.",
+    "taxon": "Homo sapiens",
+    "n_samples": 15,
+    "gdsType": null,
+    "pdat": "2021/09/07",
+    "suppFile": null,
+    "pubmedids": [
+      "34534436"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE162nnn/GSE162712/"
+  },
+  {
+    "uid": "200162798",
+    "accession": "GSE162798",
+    "title": "Simple oligonucleotide-based multiplexing of single-cell chromatin accessibility",
+    "summary": "we reported the development of an accurate, easy-to-use and scalable system (SNuBar) for multiplexing single cell ATAC or multi-omics (ATAC&RNA) assays, and applied this method to multiplex therapy combinations in a lung cancer mouse model and macro-spatial regions of normal breast tissues and samples. ",
+    "taxon": "Homo sapiens; Mus musculus",
+    "n_samples": 15,
+    "gdsType": null,
+    "pdat": "2021/10/20",
+    "suppFile": null,
+    "pubmedids": [
+      "34686316"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE162nnn/GSE162798/"
+  },
+  {
+    "uid": "200165404",
+    "accession": "GSE165404",
+    "title": "Targeting TREM2 on tumor associated macrophages enhances efficacious immunotherapy",
+    "summary": "Singe-cell transcriptomic profiling of immune cells from human tumors and the CT26 murine syngeneic tumor model",
+    "taxon": "Homo sapiens; Mus musculus",
+    "n_samples": 15,
+    "gdsType": null,
+    "pdat": "2021/09/01",
+    "suppFile": null,
+    "pubmedids": [
+      "34686340"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE165nnn/GSE165404/"
+  },
+  {
+    "uid": "200165745",
+    "accession": "GSE165745",
+    "title": "Nanostring Wnt Pathway Panel of Metastatic Melanoma Patients Prior to Anti-PD-1 Treatment",
+    "summary": "FFPE tumor samples from metastatic melanoma patients were extracted and a Nanostring Wnt Pathway panel was performed",
+    "taxon": "Homo sapiens",
+    "n_samples": 24,
+    "gdsType": null,
+    "pdat": "2021/01/29",
+    "suppFile": null,
+    "pubmedids": [
+      "33951424"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE165nnn/GSE165745/"
+  },
+  {
+    "uid": "200166449",
+    "accession": "GSE166449",
+    "title": "Synthetic lethality-mediated precision oncology via the tumor transcriptome",
+    "summary": "Precision oncology has made significant advances in the last few years, mainly by targeting actionable mutations in cancer driver genes. However, the proportion of patients whose tumors can be targeted therapeutically remains limited. Recent studies have begun to explore the benefit of analyzing tumor transcriptomics data to guide patient treatment, raising the need for new approaches for systematically accomplishing that. Here we show that computationally derived genetic interactions can successfully predict patient response.",
+    "taxon": "Homo sapiens",
+    "n_samples": 22,
+    "gdsType": null,
+    "pdat": "2021/02/11",
+    "suppFile": null,
+    "pubmedids": [
+      "33857424"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/"
+  },
+  {
+    "uid": "200167235",
+    "accession": "GSE167235",
+    "title": "A burned-out CD8+ T-cell subset expands in the tumor microenvironment and curbs\u00a0cancer\u00a0immunotherapy",
+    "summary": "Tumor-infiltrating lymphocytes (TILs) are considered to be exhausted, lacking proliferative and effector functions, which impairs cancer immunity.\u00a0We employed single-cell mass cytometry and tissue imaging technologies to dissect TILs in 25 resectable and 35 advanced non-small cell lung cancer (NSCLC) patients. We identified a phenotypically burn-out CD8 TIL subset (Ebo), specifically accumulated within the tumor microenvironment (TME). In contrast to exhausted T-cells, Ebo appears to be the most proliferative TIL subset. Furthermore, Ebo showed the highest expression of activation markers, but it was more apoptotic and produced less IFNg than other CD8 TIL subsets. Using a humanized patient-derived tumor xenograft model, we demonstrated that Ebo expansion occurred within the TME in a PD-pathway dependent manner. Importantly, Ebo abundance in baseline tumor tissues was associated with resistance to anti-PD therapy in NSCLC patients. Our study identified a dysfunctional TIL subset, distinct from exhausted T-cells, and implies strategies to overcome resistance in cancer immunotherapy.",
+    "taxon": "Homo sapiens",
+    "n_samples": 9,
+    "gdsType": null,
+    "pdat": "2021/02/23",
+    "suppFile": null,
+    "pubmedids": [
+      "33658301"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE167nnn/GSE167235/"
+  },
+  {
+    "uid": "200168294",
+    "accession": "GSE168294",
+    "title": "Identification of intrinsically immunogenic small cell lung carcinoma (SCLC) subpopulations [Cell line]",
+    "summary": "SCLC is molecularly and immunologically heterogenous. Here, using transcriptional and epigenomic profiling of plastic SCLC states in human and mouse cell lines, and patient samples, we define the phenotype of a SCLC population marked by increased MHC Class I antigen presentation.",
+    "taxon": "Mus musculus; Homo sapiens",
+    "n_samples": 22,
+    "gdsType": null,
+    "pdat": "2021/03/05",
+    "suppFile": null,
+    "pubmedids": [],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE168nnn/GSE168294/"
+  },
+  {
+    "uid": "200168295",
+    "accession": "GSE168295",
+    "title": "Identification of intrinsically immunogenic small cell lung carcinoma (SCLC) subpopulations",
+    "summary": "This SuperSeries is composed of the SubSeries listed below.",
+    "taxon": "Mus musculus; Homo sapiens",
+    "n_samples": 40,
+    "gdsType": null,
+    "pdat": "2021/03/05",
+    "suppFile": null,
+    "pubmedids": [],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE168nnn/GSE168295/"
+  },
+  {
+    "uid": "200168707",
+    "accession": "GSE168707",
+    "title": "RT-PCR profiling analysis of microRNA expression in cisplatin-resistant cancer",
+    "summary": "Chemotherapy remains the primary treatment of advanced solid cancer, including lung cancer. As first line treatment, cisplatin-based therapy is restricted by frequent development of drug resistance. Increasing data showed that programmed cell death protein ligand 1 (PD-L1) plays a vital role in regulating cisplatin resistance. However, the mechanisms underlying are not fully understood. We found miR-526b-3p expression declined while PD-L1 elevated in cisplatin-resistant lung cancer compared to that in cisplatin-sensitive lung cancer by analyzing clinical samples. Importantly, miR-526b-3p was associated with response to cisplatin negatively. We further demonstrated that miR-526b-3p reversed cisplatin resistance, suppressed metastasis, and activated CD8+ T cells in a STAT3/PD-L1-dependent manner. Our findings extended the knowledge of PD-L1-mediated cisplatin resistance of lung cancer. In addition, the introduction of miR-526b-3p provided a new clue to improve the anti-tumor effects of the combination of immunotherapy and chemotherapy. miProfileTM Cancer miRNA qPCR Array",
+    "taxon": "Homo sapiens",
+    "n_samples": 6,
+    "gdsType": null,
+    "pdat": "2021/03/12",
+    "suppFile": null,
+    "pubmedids": [],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE168nnn/GSE168707/"
+  },
+  {
+    "uid": "200169246",
+    "accession": "GSE169246",
+    "title": "PD-L1 blockade-induced temporal single cell dynamics in triple negative breast cancer",
+    "summary": "Despite the progress in immunotherapies, leading immune checkpoint inhibitors are only effective in a subset of patients. The efficacy of atezolizumab, an anti-PD-L1 antibody, in triple negative breast cancer (TNBC) is limited for unknown reasons. We utilized single-cell RNA- and ATAC-sequencing to examine the dynamics of immune cells in metastatic TNBC patients treated with paclitaxel or its combination with atezolizumab. We found that paclitaxel selectively damaged tumor-reactive T cells while atezolizumab was effective in a small set of patients with high levels of baseline B cells and CXCL13+ T cells. B cells concertedly expanded with CXCL13+ T cells in responsive patients following paclitaxel plus atezolizumab treatment. Our data highlight the importance of potential tumor-reactive T cells and their orchestrators in the effective response to anti-PD-L1 therapies, and reveal drawbacks of existing clinical trials for TNBC.",
+    "taxon": "Homo sapiens",
+    "n_samples": 83,
+    "gdsType": null,
+    "pdat": "2021/09/15",
+    "suppFile": null,
+    "pubmedids": [
+      "34653365"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE169nnn/GSE169246/"
+  },
+  {
+    "uid": "200171650",
+    "accession": "GSE171650",
+    "title": "PD-L1 alteration in lung cancer affects tumorigenicity lung tumors",
+    "summary": "Cancer immunotherapy has focused on inhibitors of checkpoint proteins, such as Programmed Death Ligand 1 (PD-L1). Unlike RAS-mutated lung cancers, EGFR mutant tumors have generally low response to immunotherapy. Because treatment outcomes vary by EGFR allele, we assumed that intrinsic and microenvironmental factors are involved. Among all non-immunological signaling pathways we surveyed in patients\u2019 datasets, EGFR signaling best associated with high PD-L1. Correspondingly, active EGFRs stabilized PD-L1\u2019s transcripts and depleting PD-L1 severely inhibited EGFR-driven tumorigenicity and metastasis in mice. The underlying mechanisms involve recruitment of phospholipase C-g1 (PLC-g1) to a cytoplasmic motif of PD-L1, which enhances PLC-g1 activation by EGFR. Once stimulated, PLC-g1 activates calcium flux, RHO GTPases and protein kinase C, which promotes an aggressive phenotype. Furthermore, anti-PD-L1 antibodies can inhibit these intrinsic functions of PD-L1. Our results portray PD-L1 as a molecular amplifier of EGFR signaling and lay the foundation for understanding resistance of EGFR+ tumors to immunotherapy.",
+    "taxon": "Homo sapiens",
+    "n_samples": 30,
+    "gdsType": null,
+    "pdat": "2021/04/08",
+    "suppFile": null,
+    "pubmedids": [
+      "34038737"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE171nnn/GSE171650/"
+  },
+  {
+    "uid": "200173351",
+    "accession": "GSE173351",
+    "title": "Distinct transcriptional programs characterize neoantigen-specific T cells in lung cancers treated with neoadjuvant PD-1 blockade",
+    "summary": "This SuperSeries is composed of the SubSeries listed below.",
+    "taxon": "Homo sapiens",
+    "n_samples": 212,
+    "gdsType": null,
+    "pdat": "2021/07/21",
+    "suppFile": null,
+    "pubmedids": [
+      "34290408",
+      "37713507"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE173nnn/GSE173351/"
+  },
+  {
+    "uid": "200173896",
+    "accession": "GSE173896",
+    "title": "Single-cell Transcriptome Analysis Reveals an Anomalous Epithelial Variation and Ectopic Inflammatory Response in Chronic Obstructive Pulmonary Disease",
+    "summary": "Chronic obstructive pulmonary disease (COPD) is a progressive disease that obstructs the airflow from the lungs, and tobacco smoking is the major cause of COPD. Here, we applied single-cell RNA sequencing to analyze COPD pathogenesis in COPD patients, non-COPD smokers and never-smokers and investigated the disease progression at single-cell resolution. By single-cell transcriptome analysis, COPD was characterized by shifts in the stromal, immune system and epithelial cell compositions. While epithelial components in never-smokers were relatively uniform, the smoker groups presented with extensive heterogeneity in epithelial cells, particularly in the alveolar type II (AT2) lineages. We identified a subpopulation of AT2 epithelial cells that emerged in smokers, such as COPD patients, and specifically expressed a series of chemokines and PD-L1. A trajectory analysis revealed that the inflammatory AT2 cell subpopulation followed a unique differentiation path, and a prediction model of cell-to-cell interactions inferred increased intercellular networks of inflammatory AT2 cells with immune and stromal cell populations. Thus, our analysis reveals a unique cellular differentiation pathway and function underlying the biological and clinical characteristics of COPD pathogenesis.",
+    "taxon": "Homo sapiens",
+    "n_samples": 16,
+    "gdsType": null,
+    "pdat": "2021/06/29",
+    "suppFile": null,
+    "pubmedids": [
+      "36108172"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE173nnn/GSE173896/"
+  },
+  {
+    "uid": "200175692",
+    "accession": "GSE175692",
+    "title": "Gene expression profiles of breast cancer metastasis according to organ site",
+    "summary": "In advanced breast cancer, biomarker identification and patient selection using a metastatic tumor biopsy is becoming more necessary. However, the biology of metastasis according to the organ site is largely unknown. Here, we evaluated the expression of 771 genes in 184 metastatic samples across 11 organs, including liver, lung, brain and bone, and made the following observations. First, all PAM50 molecular intrinsic subtypes were represented across organs and within immunohistochemistry-based groups. Second, HER2-low disease was identified across all organ sites, including bone, and HER2 expression significantly correlated with ERBB2 expression. Third, the majority of expression variation was explained by intrinsic subtype and not organ of metastasis. Fourth, subtypes and individual subtype-related genes/signatures were significantly associated with overall survival. Fifth, we identified 74 genes whose expression was organ-specific and subtype-independent. Finally, immune profiles were found more expressed in lung compared to brain or liver metastasis. Our results suggest that relevant tumor biology can be captured in metastatic tissues across a variety of organ sites; however, unique biological features according to organ site were also identified and future studies should explore their implications in diagnostic and therapeutic interventions.",
+    "taxon": "Homo sapiens",
+    "n_samples": 184,
+    "gdsType": null,
+    "pdat": "2021/05/28",
+    "suppFile": null,
+    "pubmedids": [
+      "34051058"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE175nnn/GSE175692/"
+  },
+  {
+    "uid": "200176021",
+    "accession": "GSE176021",
+    "title": "Distinct transcriptional programs characterize neoantigen-specific T cells in lung cancers treated with neoadjuvant PD-1 blockade [single-cell RNA-seq]",
+    "summary": "Immune checkpoint blockade (ICB) has revolutionized cancer treatment, but most patients do not respond. PD-1 blockade \u201cunleashes\u201d CD8 T cells, including those specific for mutation-associated neoantigens (MANA), but factors in the tumor microenvironment can inhibit responses by dampening MANA-specific T cell function. Recent advances in single cell transcriptomics are revealing global T cell dysfunction programs in tumor-infiltrating lymphocytes (TIL). However, the vast majority of TIL do not recognize tumor antigens and little is known about transcriptional programs of true MANA-specific TIL. Here, we use an integrated approach to identify MANA-specific T cell clones using the MANA functional expansion of specific T cells (MANAFEST) assay in neoadjuvant anti-PD-1-treated lung cancers and use their TCR CDR3 as barcodes to track them and analyze their transcriptional programs and function in the tumor microenvironment using single cell RNA sequencing. We find both MANA-and virus-specific clones in TIL and adjacent normal lung, regardless of response status. MANA-specific, influenza (flu)-specific and EBV-specific TIL each have unique transcriptional programs. Most MANA-specific clones are tissue resident memory (TRM) cells, an incompletely activated cytolytic program, including EOMES deficiency, and higher levels of genes encoding T cell inhibitory molecules and Tox2. Notably, MANA-specific T cells express low levels of IL-7R and are functionally less responsive to IL-7 compared with tissue-resident flu-specific clones. MANA-specific clones from anti-PD-1 non-responding tumors express TCR with markedly lower ligand-dependent signaling capability, are largely confined to HOBIThi TRM subsets and coordinately up-regulate genes encoding specific checkpoints, killer inhibitory receptors, and intracellular inhibitors of T cell activation and cytotoxicity. These findings provide mechanistic and potential therapeutic insights into overcoming resistance to PD-1 blockade.",
+    "taxon": "Homo sapiens",
+    "n_samples": 110,
+    "gdsType": null,
+    "pdat": "2021/07/21",
+    "suppFile": null,
+    "pubmedids": [
+      "34290408"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176021/"
+  },
+  {
+    "uid": "200176022",
+    "accession": "GSE176022",
+    "title": "Distinct transcriptional programs characterize neoantigen-specific T cells in   lung cancers treated with neoadjuvant PD-1 blockade [bulk TCR-seq]",
+    "summary": "Immune checkpoint blockade (ICB) has revolutionized cancer treatment, but most patients do not respond. PD-1 blockade \u201cunleashes\u201d CD8 T cells, including those specific for mutation-associated neoantigens (MANA), but factors in the tumor microenvironment can inhibit responses by dampening MANA-specific T cell function. Recent advances in single cell transcriptomics are revealing global T cell dysfunction programs in tumor-infiltrating lymphocytes (TIL). However, the vast majority of TIL do not recognize tumor antigens and little is known about transcriptional programs of true MANA-specific TIL. Here, we use an integrated approach to identify MANA-specific T cell clones using the MANA functional expansion of specific T cells (MANAFEST) assay in neoadjuvant anti-PD-1-treated lung cancers and use their TCR CDR3 as barcodes to track them and analyze their transcriptional programs and function in the tumor microenvironment using single cell RNA sequencing. We find both MANA-and virus-specific clones in TIL and adjacent normal lung, regardless of response status. MANA-specific, influenza (flu)-specific and EBV-specific TIL each have unique transcriptional programs. Most MANA-specific clones are tissue resident memory (TRM) cells, an incompletely activated cytolytic program, including EOMES deficiency, and higher levels of genes encoding T cell inhibitory molecules and Tox2. Notably, MANA-specific T cells express low levels of IL-7R and are functionally less responsive to IL-7 compared with tissue-resident flu-specific clones. MANA-specific clones from anti-PD-1 non-responding tumors express TCR with markedly lower ligand-dependent signaling capability, are largely confined to HOBIThi TRM subsets and coordinately up-regulate genes encoding specific checkpoints, killer inhibitory receptors, and intracellular inhibitors of T cell activation and cytotoxicity. These findings provide mechanistic and potential therapeutic insights into overcoming resistance to PD-1 blockade.",
+    "taxon": "Homo sapiens",
+    "n_samples": 102,
+    "gdsType": null,
+    "pdat": "2021/07/21",
+    "suppFile": null,
+    "pubmedids": [
+      "34290408",
+      "37713507"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176022/"
+  },
+  {
+    "uid": "200176307",
+    "accession": "GSE176307",
+    "title": "Fibroblast Growth Factor Receptor 3 Alterations and Response to Immune Checkpoint Inhibition in Metastatic Urothelial Cancer: A Real World Experience",
+    "summary": "Purpose: We evaluated clinical outcomes of patients with FGFR3-altered metastatic UC treated with ICB and investigate the underlying immunogenomic mechanisms of response and resistance Methods: 103 patients with metastatic UC treated with ICB at a single academic medical center from 2014-2018 were identified. Clinical annotation for demographics and cancer outcomes, as well as somatic DNA and RNA sequencing were performed. Objective response rate to ICB, progression-free survival, and overall survival was compared between patients with FGFR3 alterations and those without. RNA expression, including molecular subtyping and T cell receptor clonality, was also compared between FGFR3-altered and non-altered patients Results: Our findings from this dataset confirm that FGFR3-altered (n=17) and wild type (n=86) bladder cancers are equally responsive to ICB (12 vs 19%, p=0.73).  Moreover, we demonstrate that despite being less inflamed, FGFR3-altered tumors have equivalent T cell receptor (TCR) diversity and that the balance of a CD8 T cell gene expression signature to immune suppressive features is an important determinant of ICB response Conclusions: Our work in a real world dataset validates prior observations from clinical trials but also extends this prior work to demonstrate that FGFR3-altered and wild type tumors have equivalent TCR diversity and that the balance of effector T cell to immune suppression signals are an important determinant of ICB response.",
+    "taxon": "Homo sapiens",
+    "n_samples": 90,
+    "gdsType": null,
+    "pdat": "2021/06/08",
+    "suppFile": null,
+    "pubmedids": [
+      "34294892"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE176nnn/GSE176307/"
+  },
+  {
+    "uid": "200179373",
+    "accession": "GSE179373",
+    "title": "Single cell RNA-sequencing of human brain metastasis-infiltrating T cells",
+    "summary": "The goal of this study is to understand the biology of brain metastasis-infiltrating T cells.",
+    "taxon": "Homo sapiens",
+    "n_samples": 21,
+    "gdsType": null,
+    "pdat": "2021/08/04",
+    "suppFile": null,
+    "pubmedids": [
+      "35584630",
+      "35707680"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179373/"
+  },
+  {
+    "uid": "200179934",
+    "accession": "GSE179934",
+    "title": "The immune heterogeneity between pulmonary adenocarcinoma and squamous cell carcinoma: a comprehensive analysis based on lncRNA model",
+    "summary": "Adenocarcinoma (AD) and squamous carcinoma (SCC) are major types of lung cancer. Although they both belong to non-small cell lung cancer (NSCLC), the differences in clinical prognosis and molecular mechanism between them are remarkable. Recently, numerous studies proved that immune status of carcinoma patients influence deeply the clinical outcome. Based on the theory of \u201cImmune edit\u201d, many immunotherapies come out and tremendously extended the life of the patients. Thus, research on immune status is significant and essential. Our study aims to select specific lncRNAs which control the key immune-related genes to construct the risk model for AD and SCC respectively and the patients were divided into high- and low-risk groups based on risk score. The prognostic significance of risk score was validated by our own cohorts. Besides, The GSEA analysis suggested that immune response or process of AD patients in high-risk group was weaken while the situation is opposite for SCC cohort. The evaluation of immune infiltration reveled that the infiltrating degree of dendritic cell (DC cell) might be the important change for AD patients. In addition, the prediction of response to immune checkpoint inhibitors (ICIs) treatment, based on T cell immune dysfunction and exclusion (TIDE) and immunophenoscore (IPS), indicated that the reasons for the deterioration of the immune microenvironment were T cell exclusion in AD patients and T cell dysfunction in SCC patients and the high-risk patients with SCC might benefit from ICIs treatment. Furthermore, the prediction of downstream targets via The Cancer Proteome Atlas (TCPA) database and RNA-seq analysis based on transferred lung cancer cell line indicated that lINC00996 was potential to become the therapeutic target for AD patients.",
+    "taxon": "Homo sapiens",
+    "n_samples": 9,
+    "gdsType": null,
+    "pdat": "2021/08/01",
+    "suppFile": null,
+    "pubmedids": [
+      "34394068"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179934/"
+  },
+  {
+    "uid": "200179994",
+    "accession": "GSE179994",
+    "title": "Temporal single cell tracing reveals clonal revival and expansion of precursor exhausted T cells during anti-PD-1 therapy in lung cancer",
+    "summary": "Immune-checkpoint therapies have shown unprecedented clinical success in the treatment of non-small-cell lung cancer, but the underlying mechanisms of anti-PD-1\u2013induced tumour rejection remain incompletely understood. Here, we performed temporal single-cell RNA and paired T cell receptor sequencing on 47 clinical tumour biopsies from 36 non-small-cell lung cancer patients before and during combination therapies of PD-1 blockade with chemotherapy. We found that the treatment in responsive tumours preferentially increased the precursors of exhausted T cells (Tex), characterized by the low expression of co-inhibitory molecules and high expression of GZMK. By contrast, non-responsive tumours failed to accumulate Tex precursors (Texp), suggestive of the critical role of such cells in PD-1-based immunotherapies. Although these post-treatment Texp cells shared clonotypes extensively with terminal Tex subset prior to treatment, our data suggested that they were not derived from the reinvigoration of terminal Tex cells; instead, such Texp cells were likely accumulated by (i) the expansion of pre-existing Texp cells, and (ii) the replenishment with peripheral T cells, a phenomenon we named clonal revival. Furthermore, post-treatment Texp cells expressed high level of CXCL13, which was exclusively expressed by terminal Tex subset in treatment-na\u00efve tumours, implying that the emergence of CXCL13-expressing Texp cells resulted from the blockade of the transition to terminal Tex cells by PD-1 antibodies. Our study provides new insights into mechanisms underlying PD-1-based therapies, implicating both clonal revival and expansion of Texp cells as steps to enhance the clinical response of lung cancer patients.",
+    "taxon": "Homo sapiens",
+    "n_samples": 47,
+    "gdsType": null,
+    "pdat": "2021/10/06",
+    "suppFile": null,
+    "pubmedids": [
+      "35121991"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/"
+  },
+  {
+    "uid": "200180347",
+    "accession": "GSE180347",
+    "title": "Transcriptomic analysis of PD-L1 positive and negative hot lung adenocarcinomas identifies a different molecular immunogenic landscape",
+    "summary": "Lung cancer is a major global health problem, as it is the leading cause of cancer- related deaths worldwide. Non-small-cell lung cancer (NSCLC), the most common form, is a heterogeneous disease with adenocarcinoma and squamous cell carcinoma being the predominant subtypes.  Immune-inhibiting interaction of Programmed cell death-ligand 1 (PD-L1) with programmed cell death-protein 1 (PD-1) causes checkpoint mediated immune evasion and is, accordingly, an important therapeutic target in cancer. In NSCLC, improved understanding of PD-1/PD-L1 checkpoint blockade-responsive biology is warranted.  We aimed to identify the landscape of immune cell infiltration in primary lung adeno- carcinoma (LUAD) in the context of tumor PD-L1 expression and the extent of immune infiltration (\u201chot\u201d vs. \u201ccold\u201d phenotype). Therefore, the study comprises LUAD cases (n=138) with \u201chot\u201d and \u201ccold\u201d tumor immune phenotype and positive and negative tumor PD-L1 expression, respectively. Tumor samples were immunohistochemically analyzed for expression of PD-L1, CD4 and CD8 and further analyzed on transcriptomic level by Nanostring nCouter Pan Cancer Immune Profiling Panel. We detected significantly differentially expressed genes associated with PD-L1 positive and \u201chot\u201d versus PD-L1 negative and \u201ccold\u201d phenotype.  The presented study illustrates novel aspects of PD-L1 regulation, with potential biological relevance, as well as relevance for immunotherapy response stratification.",
+    "taxon": "Homo sapiens",
+    "n_samples": 144,
+    "gdsType": null,
+    "pdat": "2021/09/27",
+    "suppFile": null,
+    "pubmedids": [
+      "34572789"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE180nnn/GSE180347/"
+  },
+  {
+    "uid": "200181820",
+    "accession": "GSE181820",
+    "title": "Highly Immunogenic Cancer Cells Require Activation of the WNT Pathway for Immunological Escape",
+    "summary": "PD-1 blockade therapy exerts antitumor effects by restoring the infiltration of tumor antigen-specific CD8+ T cells. While neoantigens arising from gene alterations in cancer cells comprise critical tumor antigens in antitumor immunity, a subset of non-small-cell lung cancers (NSCLCs) harboring substantial tumor mutation burden (TMB) lack CD8+ T cells in the tumor microenvironment (TME), resulting in resistance to PD-1 blockade therapy. This resistance is an urgent issue, so the mechanism(s) mediating impaired antitumor immunity in highly mutated NSCLCs need to be explored. Here, we show that activation of the WNT/b-catenin signaling pathway contributes to the development of a noninflamed TME in tumors with high TMB. NSCLCs that lack immune cell infiltration into the TME despite high TMB preferentially upregulate the WNT/b-catenin pathway. Immunological assays revealed that those patients harbored neoantigen-specific CD8+ T cells in the peripheral blood but not in the TME, suggesting impaired T cell infiltration into the TME due to the activation of WNT/b-catenin signaling. In our animal model, the accumulation of gene mutations in cancer cells increased CD8+ T cell infiltration into the TME, slowing tumor growth. However, further accumulation of gene mutations blunted antitumor immunity by excluding CD8+ T cells from tumors in a WNT/b-catenin signaling-dependent manner. Combined treatment with PD-1 blockade and WNT/b-catenin signaling inhibitors induced far stronger antitumor immunity than either treatment alone. We propose a mechanism-oriented combination therapy concept in the cancer immunotherapy field, i.e., the combination of immune checkpoint inhibitors with drugs that target specific molecules in cancer cell-intrinsic oncogenic signaling pathways involved in immune escape.",
+    "taxon": "Homo sapiens",
+    "n_samples": 22,
+    "gdsType": null,
+    "pdat": "2021/09/17",
+    "suppFile": null,
+    "pubmedids": [
+      "34767457"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE181nnn/GSE181820/"
+  },
+  {
+    "uid": "200182328",
+    "accession": "GSE182328",
+    "title": "Intestinal Akkermansia muciniphila predicts clinical response to PD1 blockade in advanced non-small cell lung cancer patients [RNA-seq].",
+    "summary": "The endpoint of this study was to prospectively validate the prognostic significance of fecal Akk in advanced NSCLC patients treated with first or second line ICI. We performed RNA sequencing to compare transcriptomic profiles of the different groups.",
+    "taxon": "Homo sapiens",
+    "n_samples": 44,
+    "gdsType": null,
+    "pdat": "2021/08/20",
+    "suppFile": null,
+    "pubmedids": [],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE182nnn/GSE182328/"
+  },
+  {
+    "uid": "200184053",
+    "accession": "GSE184053",
+    "title": "CD8+ TILs in NSCLC differentiate into TEMRA via a bifurcated trajectory, deciphering immunogenicity of tumor-antigens",
+    "summary": "CD8+ tumor-infiltrating lymphocytes (TILs) comprise phenotypically and functionally heterogeneous subpopulations. Of these, effector memory CD45RA-expressing CD8+ T cells (Temra) have been discovered and characterized as the most terminally differentiated subset. However, their exact ontogeny and physiological importance in association with tumor progression remain poorly understood. We analyzed primary tumors and peripheral blood samples from 26 patients with non-small cell lung cancer and analyzed their phenotypes and functional characteristics using flow cytometry, RNA-sequencing, and bioinformatics. We found that tumor-infiltrating Temra (tilTemra) cells largely differ from peripheral blood Temra (pTemra), with distinct transcriptomes and functional properties. Notably, although majority of the pTemra was CD27-CD28- double-negative (DN), a large fraction of tilTemra population was CD27+CD28+ double-positive (DP), a characteristic of early-stage, less differentiated effector cells. Trajectory analysis revealed that CD8+ TILs undergo a divergent sequence of events for differentiation into either DP or DN tilTemra. Such a differentiation toward DP tilTemra relied on persistent expression of CD27 and CD28 and was associated with weak T cell receptor engagement. Thus, a higher proportion of DP Temra was correlated with lower immunogenicity of tumor antigens and consequently lower accumulation of CD8+ TILs. These data suggest a complex interplay between CD8+ T cells and tumors and define DP Temra as a unique subset of tumor-specific CD8+ TILs that are produced in patients with relatively low immunogenic cancer types, predicting immunogenicity of tumor antigens and CD8+ TIL counts, a reliable biomarker for successful cancer immunotherapy.",
+    "taxon": "Homo sapiens",
+    "n_samples": 9,
+    "gdsType": null,
+    "pdat": "2021/09/14",
+    "suppFile": null,
+    "pubmedids": [
+      "34593620"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE184nnn/GSE184053/"
+  },
+  {
+    "uid": "200190141",
+    "accession": "GSE190141",
+    "title": "Transcriptomes of TILss",
+    "summary": "We analyzed comprehensive gene expression of TILss",
+    "taxon": "Homo sapiens",
+    "n_samples": 16,
+    "gdsType": null,
+    "pdat": "2021/12/10",
+    "suppFile": null,
+    "pubmedids": [
+      "35090594"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190141/"
+  },
+  {
+    "uid": "200190265",
+    "accession": "GSE190265",
+    "title": "MEK inhibition overcomes chemoimmunotherapy resistance by inducing CXCL10 in cancer cells [France3]",
+    "summary": "Chemotherapy with anti PD-1/PD-L1 mAb has become the standard of care for patients with metastatic non-small cell lung cancer (NSCLC). Using lung tumor models, where pemetrexed-platinum chemotherapy (PEM/CDDP) remains unable to synergize with immune checkpoint inhibitors (ICI), we linked failure of this treatment with its inability to induce CXCL10 expression and CD8+ T cell recruitment. Using drug screening, we showed that combining a MEK inhibitor (MEKi) with PEM/CDDP triggers CXCL10 secretion by cancer cells and CD8+ T cell recruitment, and restores ICI efficacy. PEM/CDDP plus MEKi promotes optineurin (OPTN)-dependent mitophagy, resulting in CXCL10 production in a mitochondrial DNA and TLR9-dependent manner. TLR9 or autophagy/mitophagy processes genetic inactivation of abort the antitumor efficacy of PEM/CDDP plus MEKi/anti PD-L1 therapy. In human NSCLC, high OPTN, TLR9 and CXCL10 expression is associated with better response to ICI. Our results underline the role of TLR9 and OPTN-dependent mitophagy in enhancing chemoimmunotherapy efficacy.",
+    "taxon": "Homo sapiens",
+    "n_samples": 34,
+    "gdsType": null,
+    "pdat": "2021/12/08",
+    "suppFile": null,
+    "pubmedids": [
+      "35051357",
+      "41271647"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190265/"
+  },
+  {
+    "uid": "200190266",
+    "accession": "GSE190266",
+    "title": "MEK inhibition overcomes chemoimmunotherapy resistance by inducing CXCL10 in cancer cells [France4]",
+    "summary": "Chemotherapy with anti PD-1/PD-L1 mAb has become the standard of care for patients with metastatic non-small cell lung cancer (NSCLC). Using lung tumor models, where pemetrexed-platinum chemotherapy (PEM/CDDP) remains unable to synergize with immune checkpoint inhibitors (ICI), we linked failure of this treatment with its inability to induce CXCL10 expression and CD8+ T cell recruitment. Using drug screening, we showed that combining a MEK inhibitor (MEKi) with PEM/CDDP triggers CXCL10 secretion by cancer cells and CD8+ T cell recruitment, and restores ICI efficacy. PEM/CDDP plus MEKi promotes optineurin (OPTN)-dependent mitophagy, resulting in CXCL10 production in a mitochondrial DNA and TLR9-dependent manner. TLR9 or autophagy/mitophagy processes genetic inactivation of abort the antitumor efficacy of PEM/CDDP plus MEKi/anti PD-L1 therapy. In human NSCLC, high OPTN, TLR9 and CXCL10 expression is associated with better response to ICI. Our results underline the role of TLR9 and OPTN-dependent mitophagy in enhancing chemoimmunotherapy efficacy.",
+    "taxon": "Homo sapiens",
+    "n_samples": 70,
+    "gdsType": null,
+    "pdat": "2021/12/08",
+    "suppFile": null,
+    "pubmedids": [
+      "35051357",
+      "41271647"
+    ],
+    "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190266/"
+  }
+]
