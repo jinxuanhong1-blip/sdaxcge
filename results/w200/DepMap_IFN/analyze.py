@@ -207,6 +207,7 @@ def write_report(
     adjusted: pd.DataFrame,
     subgroup: pd.DataFrame,
     candidates: pd.DataFrame,
+    candidate_subgroups: pd.DataFrame,
 ) -> None:
     def rows_as_markdown(frame: pd.DataFrame, columns: list[str]) -> str:
         shown = frame[columns].copy()
@@ -229,6 +230,12 @@ def write_report(
         candidates["predictor"].eq("tacstd2_gene_effect")
     ]
     n_dependency_sig = int((dependency_candidates["q"] < 0.05).sum())
+    subtype_caution = (
+        "- The pooled adjusted candidate hit was not assumed to be histology-general; "
+        "exploratory subtype estimates are reported below."
+        if n_adjusted_sig
+        else "- No pooled adjusted candidate hit required subtype follow-up."
+    )
     lines = [
         "# DepMap lung TACSTD2 vs interferon analysis",
         "",
@@ -250,6 +257,7 @@ def write_report(
         "This is an association screen, not evidence that TACSTD2 controls those genes.",
         f"- No IFN-gene effect correlated with TACSTD2 gene effect at q<0.05 "
         f"({n_dependency_sig}/{len(dependency_candidates)}).",
+        subtype_caution,
         "- The analysis is observational and cross-sectional. Histology, lineage state, "
         "culture conditions, and screen quality can create correlations. No causal claim "
         "is supported.",
@@ -314,6 +322,13 @@ def write_report(
             ["gene", "sets", "n", "rho", "q", "rho_adjusted", "q_adjusted"],
         ),
         "",
+        "Because pooled adjustment does not establish consistency across histologies, "
+        "the following post-screen estimates show each adjusted q<0.05 hit within major "
+        "subtypes. These estimates are exploratory and their p-values are intentionally "
+        "not presented as confirmatory tests:",
+        "",
+        rows_as_markdown(candidate_subgroups, ["gene", "cohort", "n", "rho"]),
+        "",
         "The full table also contains a secondary screen using TACSTD2 gene effect as "
         "the predictor, corrected as a separate family.",
         "",
@@ -348,6 +363,8 @@ def write_report(
         "- `tables/subgroup_correlations.csv`: major subtype sensitivity",
         "- `tables/ifn_gene_crispr_correlations.csv`: full raw and model-type-adjusted "
         "candidate CRISPR screen",
+        "- `tables/top_candidate_subgroup_correlations.csv`: exploratory subtype "
+        "estimates for adjusted candidate hits",
         "- `figures/`: scatter and candidate-screen plots",
         "- `qc_summary.json`: counts, coverage, checksums, and software-independent inputs",
     ]
@@ -479,6 +496,25 @@ def main() -> None:
     candidates = pd.concat(candidate_families, ignore_index=True)
     candidates = candidates.sort_values(["predictor", "q", "p", "gene"])
 
+    candidate_subgroup_rows = []
+    adjusted_hits = candidates.loc[
+        candidates["predictor"].eq("tacstd2_expression")
+        & candidates["q_adjusted"].lt(0.05),
+        "gene",
+    ]
+    for gene in adjusted_hits:
+        for model_type in ["LUAD", "SCLC", "LUSC"]:
+            selected = models["DepmapModelType"].eq(model_type)
+            result = spearman(
+                models.loc[selected, "tacstd2_expression"], effects[gene]
+            )
+            candidate_subgroup_rows.append({
+                "gene": gene, "cohort": model_type, **result
+            })
+    candidate_subgroups = pd.DataFrame(
+        candidate_subgroup_rows, columns=["gene", "cohort", "n", "rho", "p"]
+    )
+
     models.index.name = "ModelID"
     models.to_csv(tables / "model_scores.csv")
     primary.to_csv(tables / "primary_correlations.csv", index=False)
@@ -486,6 +522,9 @@ def main() -> None:
     adjusted.to_csv(tables / "histology_adjusted_correlations.csv", index=False)
     subgroup.to_csv(tables / "subgroup_correlations.csv", index=False)
     candidates.to_csv(tables / "ifn_gene_crispr_correlations.csv", index=False)
+    candidate_subgroups.to_csv(
+        tables / "top_candidate_subgroup_correlations.csv", index=False
+    )
 
     make_scatter(
         models, primary, figures / "tacstd2_expression_vs_ifn.png",
@@ -522,7 +561,8 @@ def main() -> None:
     }
     (args.out_dir / "qc_summary.json").write_text(json.dumps(qc, indent=2) + "\n")
     write_report(
-        args.out_dir / "REPORT.md", qc, primary, dependency, adjusted, subgroup, candidates
+        args.out_dir / "REPORT.md", qc, primary, dependency, adjusted, subgroup,
+        candidates, candidate_subgroups,
     )
     print(json.dumps(qc, indent=2))
 
