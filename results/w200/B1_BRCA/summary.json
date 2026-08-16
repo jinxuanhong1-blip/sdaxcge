@@ -1,0 +1,91 @@
+{
+  "generated_utc": "2026-08-16T19:48:00+00:00",
+  "cohort": "TCGA-BRCA",
+  "expression_dataset": "UCSC Xena TCGA.BRCA.sampleMap/HiSeqV2 (log2 norm_count+1)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 1097,
+  "surface_gene_universe": 2618,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 4,
+    "spearman_r": 0.34755119623109015,
+    "spearman_q": 1.107649268002731e-29,
+    "spearman_percentile": 99.885,
+    "pearson_rank": 3,
+    "pearson_r": 0.3861034426177551,
+    "pearson_q": 2.2350249537255015e-37,
+    "pearson_percentile": 99.924
+  },
+  "top10_spearman": [
+    {
+      "gene": "EFNA1",
+      "spearman_rank": 1,
+      "spearman_r": 0.42884745155965065,
+      "spearman_q": 6.959968110843964e-47
+    },
+    {
+      "gene": "PVRL4",
+      "spearman_rank": 2,
+      "spearman_r": 0.3507400627950469,
+      "spearman_q": 4.856334695490682e-30
+    },
+    {
+      "gene": "EFNA4",
+      "spearman_rank": 3,
+      "spearman_r": 0.3500922596372104,
+      "spearman_q": 4.856334695490682e-30
+    },
+    {
+      "gene": "CLDN4",
+      "spearman_rank": 4,
+      "spearman_r": 0.34755119623109015,
+      "spearman_q": 1.107649268002731e-29
+    },
+    {
+      "gene": "TM4SF1",
+      "spearman_rank": 5,
+      "spearman_r": 0.3408421597612667,
+      "spearman_q": 1.5907226225442113e-28
+    },
+    {
+      "gene": "MPZL2",
+      "spearman_rank": 6,
+      "spearman_r": 0.34023296010052767,
+      "spearman_q": 1.6929636558329428e-28
+    },
+    {
+      "gene": "EPHA2",
+      "spearman_rank": 7,
+      "spearman_r": 0.3399026493508806,
+      "spearman_q": 1.6929636558329428e-28
+    },
+    {
+      "gene": "ITGB4",
+      "spearman_rank": 8,
+      "spearman_r": 0.32826198669107837,
+      "spearman_q": 1.8509015746525377e-26
+    },
+    {
+      "gene": "CD151",
+      "spearman_rank": 9,
+      "spearman_r": 0.32543629820364184,
+      "spearman_q": 5.148320322940508e-26
+    },
+    {
+      "gene": "SLC5A1",
+      "spearman_rank": 10,
+      "spearman_r": 0.32157239406639143,
+      "spearman_q": 2.1623677825979192e-25
+    }
+  ]
+}
