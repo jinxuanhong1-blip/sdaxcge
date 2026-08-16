@@ -1,0 +1,1290 @@
+[
+  {
+    "accession": "GSE111894",
+    "n_samples": 1084,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043785",
+        "title": "100_Donor-40_CD103neg_4",
+        "source": "Tumor",
+        "characteristics": "Sample_title=100_Donor-40_CD103neg_4 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043786",
+        "title": "101_Donor-40_CD103neg_5",
+        "source": "Tumor",
+        "characteristics": "Sample_title=101_Donor-40_CD103neg_5 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043787",
+        "title": "102_Donor-40_CD103neg_6",
+        "source": "Tumor",
+        "characteristics": "Sample_title=102_Donor-40_CD103neg_6 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043788",
+        "title": "103_Donor-40_CD103neg_7",
+        "source": "Tumor",
+        "characteristics": "Sample_title=103_Donor-40_CD103neg_7 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043789",
+        "title": "104_Donor-40_CD103neg_8",
+        "source": "Tumor",
+        "characteristics": "Sample_title=104_Donor-40_CD103neg_8 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043790",
+        "title": "105_Donor-40_CD103neg_9",
+        "source": "Tumor",
+        "characteristics": "Sample_title=105_Donor-40_CD103neg_9 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043791",
+        "title": "106_Donor-40_CD103neg_10",
+        "source": "Tumor",
+        "characteristics": "Sample_title=106_Donor-40_CD103neg_10 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043792",
+        "title": "107_Donor-40_CD103neg_11",
+        "source": "Tumor",
+        "characteristics": "Sample_title=107_Donor-40_CD103neg_11 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043793",
+        "title": "108_Donor-40_CD103neg_12",
+        "source": "Tumor",
+        "characteristics": "Sample_title=108_Donor-40_CD103neg_12 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043794",
+        "title": "109_Donor-40_CD103neg_13",
+        "source": "Tumor",
+        "characteristics": "Sample_title=109_Donor-40_CD103neg_13 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043795",
+        "title": "10_Donor-40_CD103Pos_10",
+        "source": "Tumor",
+        "characteristics": "Sample_title=10_Donor-40_CD103Pos_10 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE111894",
+        "gsm": "GSM3043796",
+        "title": "111_Donor-40_CD103neg_15",
+        "source": "Tumor",
+        "characteristics": "Sample_title=111_Donor-40_CD103neg_15 | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1= | Sample_description= | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE117570",
+    "n_samples": 8,
+    "n_unique_shown": 8,
+    "examples": [
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304007",
+        "title": "P1_Tumor",
+        "source": "Tumor",
+        "characteristics": "Sample_title=P1_Tumor | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1=tissue: Tumor | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304008",
+        "title": "P1_Normal",
+        "source": "Adjacent normal",
+        "characteristics": "Sample_title=P1_Normal | Sample_source_name_ch1=Adjacent normal | Sample_characteristics_ch1=tissue: Adjacent normal | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304009",
+        "title": "P2_Tumor",
+        "source": "Tumor",
+        "characteristics": "Sample_title=P2_Tumor | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1=tissue: Tumor | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304010",
+        "title": "P2_Normal",
+        "source": "Adjacent normal",
+        "characteristics": "Sample_title=P2_Normal | Sample_source_name_ch1=Adjacent normal | Sample_characteristics_ch1=tissue: Adjacent normal | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304011",
+        "title": "P3_Tumor",
+        "source": "Tumor",
+        "characteristics": "Sample_title=P3_Tumor | Sample_source_name_ch1=Tumor | Sample_characteristics_ch1=tissue: Tumor | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304012",
+        "title": "P3_Normal",
+        "source": "Adjacent normal",
+        "characteristics": "Sample_title=P3_Normal | Sample_source_name_ch1=Adjacent normal | Sample_characteristics_ch1=tissue: Adjacent normal | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304013",
+        "title": "P4_Tumor",
+        "source": "tumor",
+        "characteristics": "Sample_title=P4_Tumor | Sample_source_name_ch1=tumor | Sample_characteristics_ch1=tissue: tumor | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE117570",
+        "gsm": "GSM3304014",
+        "title": "P4_Normal",
+        "source": "Adjacent normal",
+        "characteristics": "Sample_title=P4_Normal | Sample_source_name_ch1=Adjacent normal | Sample_characteristics_ch1=tissue: Adjacent normal | Sample_description=26\u2009bp Read1, 8\u2009bp i7 Index, 0\u2009bp i5 Index and 98\u2009bp Read2 | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE118933",
+    "n_samples": 18,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351360",
+        "title": "IPF_invasive_1",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_1 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351361",
+        "title": "IPF_invasive_3",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_3 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351362",
+        "title": "IPF_invasive_4",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_4 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351363",
+        "title": "IPF_invasive_5",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_5 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351364",
+        "title": "IPF_invasive_6",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_6 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351365",
+        "title": "IPF_invasive_7",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_7 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351366",
+        "title": "IPF_invasive_8",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_8 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351367",
+        "title": "IPF_invasive_9",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_9 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351368",
+        "title": "IPF_invasive_10",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_invasive_10 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351369",
+        "title": "IPF_non-invasive_1",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_non-invasive_1 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: non-Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351370",
+        "title": "IPF_non-invasive_3",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_non-invasive_3 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: non-Invasive cells | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE118933",
+        "gsm": "GSM3351371",
+        "title": "IPF_non-invasive_4",
+        "source": "Lung",
+        "characteristics": "Sample_title=IPF_non-invasive_4 | Sample_source_name_ch1=Lung | Sample_characteristics_ch1=cell type: non-Invasive cells | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE119144",
+    "n_samples": 60,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902399",
+        "title": "genomic DNA from NSCLC 3",
+        "source": "NSCLC 3",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 3 | Sample_source_name_ch1=NSCLC 3 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902400",
+        "title": "genomic DNA from NSCLC 20",
+        "source": "NSCLC 20",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 20 | Sample_source_name_ch1=NSCLC 20 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902401",
+        "title": "genomic DNA from NSCLC 258",
+        "source": "NSCLC 258",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 258 | Sample_source_name_ch1=NSCLC 258 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902402",
+        "title": "genomic DNA from NSCLC 325",
+        "source": "NSCLC 325",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 325 | Sample_source_name_ch1=NSCLC 325 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902403",
+        "title": "genomic DNA from NSCLC 378",
+        "source": "NSCLC 378",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 378 | Sample_source_name_ch1=NSCLC 378 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902404",
+        "title": "genomic DNA from NSCLC 488",
+        "source": "NSCLC 488",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 488 | Sample_source_name_ch1=NSCLC 488 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902405",
+        "title": "genomic DNA from NSCLC 541",
+        "source": "NSCLC 541",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 541 | Sample_source_name_ch1=NSCLC 541 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902406",
+        "title": "genomic DNA from NSCLC 573",
+        "source": "NSCLC 573",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 573 | Sample_source_name_ch1=NSCLC 573 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902407",
+        "title": "genomic DNA from NSCLC 618",
+        "source": "NSCLC 618",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 618 | Sample_source_name_ch1=NSCLC 618 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902408",
+        "title": "genomic DNA from NSCLC 658",
+        "source": "NSCLC 658",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 658 | Sample_source_name_ch1=NSCLC 658 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902409",
+        "title": "genomic DNA from NSCLC 678",
+        "source": "NSCLC 678",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 678 | Sample_source_name_ch1=NSCLC 678 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      },
+      {
+        "accession": "GSE119144",
+        "gsm": "GSM3902410",
+        "title": "genomic DNA from NSCLC 700",
+        "source": "NSCLC 700",
+        "characteristics": "Sample_title=genomic DNA from NSCLC 700 | Sample_source_name_ch1=NSCLC 700 | Sample_characteristics_ch1=disease state: tumor | Sample_description=tumor NSCLC sample"
+      }
+    ]
+  },
+  {
+    "accession": "GSE120028",
+    "n_samples": 19,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391834",
+        "title": "post1_Bulk_0002 [3'SAGE-seq]",
+        "source": "biopsy of gastric cancer",
+        "characteristics": "Sample_title=post1_Bulk_0002 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of gastric cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391835",
+        "title": "pre_Bulk_0002 [3'SAGE-seq]",
+        "source": "biopsy of gastric cancer",
+        "characteristics": "Sample_title=pre_Bulk_0002 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of gastric cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391836",
+        "title": "post1_Bulk_0003 [3'SAGE-seq]",
+        "source": "biopsy of esophagus with no cancer",
+        "characteristics": "Sample_title=post1_Bulk_0003 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of esophagus with no cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391837",
+        "title": "pre_Bulk_0003 [3'SAGE-seq]",
+        "source": "biopsy of esophagus with no cancer",
+        "characteristics": "Sample_title=pre_Bulk_0003 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of esophagus with no cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391838",
+        "title": "post1_Bulk_0004 [3'SAGE-seq]",
+        "source": "biopsy of bronchus metastasis of colorectal cancer",
+        "characteristics": "Sample_title=post1_Bulk_0004 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of bronchus metastasis of colorectal cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391839",
+        "title": "pre_Bulk_0004 [3'SAGE-seq]",
+        "source": "biopsy of bronchus metastasis of colorectal cancer",
+        "characteristics": "Sample_title=pre_Bulk_0004 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of bronchus metastasis of colorectal cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391840",
+        "title": "pre_Bulk_0005 [3'SAGE-seq]",
+        "source": "biopsy of stomach with no cancer",
+        "characteristics": "Sample_title=pre_Bulk_0005 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of stomach with no cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391841",
+        "title": "post1_Bulk_0006 [3'SAGE-seq]",
+        "source": "biopsy of skin metastasis of colorectal cancer",
+        "characteristics": "Sample_title=post1_Bulk_0006 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of skin metastasis of colorectal cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391842",
+        "title": "pre_Bulk_0006 [3'SAGE-seq]",
+        "source": "biopsy of skin metastasis of colorectal cancer",
+        "characteristics": "Sample_title=pre_Bulk_0006 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of skin metastasis of colorectal cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391843",
+        "title": "post1_Bulk_0007 [3'SAGE-seq]",
+        "source": "biopsy of gastro-esophageal cancer",
+        "characteristics": "Sample_title=post1_Bulk_0007 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of gastro-esophageal cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391844",
+        "title": "pre_Bulk_0007 [3'SAGE-seq]",
+        "source": "biopsy of gastro-esophageal cancer",
+        "characteristics": "Sample_title=pre_Bulk_0007 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of gastro-esophageal cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE120028",
+        "gsm": "GSM3391845",
+        "title": "post1_Bulk_0008 [3'SAGE-seq]",
+        "source": "biopsy of gastro-esophageal cancer",
+        "characteristics": "Sample_title=post1_Bulk_0008 [3'SAGE-seq] | Sample_source_name_ch1=biopsy of gastro-esophageal cancer | Sample_characteristics_ch1=agent: IT1208 | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE124574",
+    "n_samples": 41,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3536999",
+        "title": "Patient 1 day 0",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 1 day 0 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 3.2 | Sample_description=X20170317_BCRNACImm2_TPF.12.462_01"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537000",
+        "title": "Patient 1 day 43",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 1 day 43 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 3.2 | Sample_description=X20170315_BCRNACImm1_TPF.12.559_01"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537001",
+        "title": "Patient 2 day 0",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 2 day 0 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 2 | Sample_description=X20170315_BCRNACImm1_TPF.13.26_02"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537002",
+        "title": "Patient 2 day 43",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 2 day 43 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 2 | Sample_description=X20170315_BCRNACImm1_TPF.13.112_03"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537003",
+        "title": "Patient 3 day 0",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 3 day 0 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 2.1 | Sample_description=X20170320_BCRNACImm4_TPF.13.64_04"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537004",
+        "title": "Patient 3 day 43",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 3 day 43 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 2.1 | Sample_description=X20170317_BCRNACImm2_TPF.13.135_02"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537005",
+        "title": "Patient 4 day 0",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 4 day 0 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 0.8 | Sample_description=X20170315_BCRNACImm1_TPF.13.333_04"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537006",
+        "title": "Patient 5 day 0",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 5 day 0 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 0.4 | Sample_description=X20170315_BCRNACImm1_TPF.13.348_05"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537007",
+        "title": "Patient 6 day 0",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 6 day 0 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 5.5 | Sample_description=X20170315_BCRNACImm1_TPF.13.404_06"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537008",
+        "title": "Patient 6 day 43",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 6 day 43 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 5.5 | Sample_description=X20170315_BCRNACImm1_TPF.13.521_07"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537009",
+        "title": "Patient 6 day 89+",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 6 day 89+ | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 5.5 | Sample_description=X20170315_BCRNACImm1_TPF.14.195_08"
+      },
+      {
+        "accession": "GSE124574",
+        "gsm": "GSM3537010",
+        "title": "Patient 7 day 0",
+        "source": "Melanoma",
+        "characteristics": "Sample_title=Patient 7 day 0 | Sample_source_name_ch1=Melanoma | Sample_characteristics_ch1=progression-free survival (mo): 7.2 | Sample_description=X20170317_BCRNACImm2_TPF.13.434_03"
+      }
+    ]
+  },
+  {
+    "accession": "GSE127462",
+    "n_samples": 302,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634931",
+        "title": "FL lymph node biopsy, untreated, 1004",
+        "source": "FL lymph node biopsy, untreated, 1004",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1004 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1004 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634932",
+        "title": "FL lymph node biopsy, untreated, 1005",
+        "source": "FL lymph node biopsy, untreated, 1005",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1005 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1005 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634933",
+        "title": "FL lymph node biopsy, untreated, 1006",
+        "source": "FL lymph node biopsy, untreated, 1006",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1006 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1006 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634934",
+        "title": "FL lymph node biopsy, untreated, 1008",
+        "source": "FL lymph node biopsy, untreated, 1008",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1008 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1008 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634935",
+        "title": "FL lymph node biopsy, untreated, 1009",
+        "source": "FL lymph node biopsy, untreated, 1009",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1009 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1009 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634936",
+        "title": "FL lymph node biopsy, untreated, 1010",
+        "source": "FL lymph node biopsy, untreated, 1010",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1010 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1010 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634937",
+        "title": "FL lymph node biopsy, untreated, 1012",
+        "source": "FL lymph node biopsy, untreated, 1012",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1012 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1012 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634938",
+        "title": "FL lymph node biopsy, untreated, 1014",
+        "source": "FL lymph node biopsy, untreated, 1014",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1014 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1014 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634939",
+        "title": "FL lymph node biopsy, untreated, 1016",
+        "source": "FL lymph node biopsy, untreated, 1016",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1016 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1016 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634940",
+        "title": "FL lymph node biopsy, untreated, 1017",
+        "source": "FL lymph node biopsy, untreated, 1017",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1017 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1017 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634941",
+        "title": "FL lymph node biopsy, untreated, 1022",
+        "source": "FL lymph node biopsy, untreated, 1022",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1022 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1022 | Sample_characteristics_ch1=tissue: lymph node"
+      },
+      {
+        "accession": "GSE127462",
+        "gsm": "GSM3634942",
+        "title": "FL lymph node biopsy, untreated, 1024",
+        "source": "FL lymph node biopsy, untreated, 1024",
+        "characteristics": "Sample_title=FL lymph node biopsy, untreated, 1024 | Sample_source_name_ch1=FL lymph node biopsy, untreated, 1024 | Sample_characteristics_ch1=tissue: lymph node"
+      }
+    ]
+  },
+  {
+    "accession": "GSE127471",
+    "n_samples": 1,
+    "n_unique_shown": 1,
+    "examples": [
+      {
+        "accession": "GSE127471",
+        "gsm": "GSM3635372",
+        "title": "scRNA-Seq PBMCs from a patient with non-small cell lung cancer (NSCLC)",
+        "source": "NSCLC PBMCs",
+        "characteristics": "Sample_title=scRNA-Seq PBMCs from a patient with non-small cell lung cancer (NSCLC) | Sample_source_name_ch1=NSCLC PBMCs | Sample_characteristics_ch1=disease state: non-small cell lung cancer | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE127825",
+    "n_samples": 6,
+    "n_unique_shown": 6,
+    "examples": [
+      {
+        "accession": "GSE127825",
+        "gsm": "GSM3639476",
+        "title": "062015_thymic epithelial cells",
+        "source": "thymic epithelial cells",
+        "characteristics": "Sample_title=062015_thymic epithelial cells | Sample_source_name_ch1=thymic epithelial cells | Sample_characteristics_ch1=extract protocol: TriZol + RNeasy kit | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE127825",
+        "gsm": "GSM3639477",
+        "title": "102015_thymic epithelial cells",
+        "source": "thymic epithelial cells",
+        "characteristics": "Sample_title=102015_thymic epithelial cells | Sample_source_name_ch1=thymic epithelial cells | Sample_characteristics_ch1=extract protocol: TriZol + RNeasy kit | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE127825",
+        "gsm": "GSM3639478",
+        "title": "S10_medullary thymic epithelial cells",
+        "source": "medullary thymic epithelial cells",
+        "characteristics": "Sample_title=S10_medullary thymic epithelial cells | Sample_source_name_ch1=medullary thymic epithelial cells | Sample_characteristics_ch1=extract protocol: TriZol + RNeasy mini Kit (Qiagen, #74106) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE127825",
+        "gsm": "GSM3639479",
+        "title": "S11_medullary thymic epithelial cells",
+        "source": "medullary thymic epithelial cells",
+        "characteristics": "Sample_title=S11_medullary thymic epithelial cells | Sample_source_name_ch1=medullary thymic epithelial cells | Sample_characteristics_ch1=extract protocol: TriZol + RNeasy mini Kit (Qiagen, #74106) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE127825",
+        "gsm": "GSM3639480",
+        "title": "S5_medullary thymic epithelial cells",
+        "source": "medullary thymic epithelial cells",
+        "characteristics": "Sample_title=S5_medullary thymic epithelial cells | Sample_source_name_ch1=medullary thymic epithelial cells | Sample_characteristics_ch1=extract protocol: TriZol + RNeasy mini Kit (Qiagen, #74106) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE127825",
+        "gsm": "GSM3639481",
+        "title": "S9_medullary thymic epithelial cells",
+        "source": "medullary thymic epithelial cells",
+        "characteristics": "Sample_title=S9_medullary thymic epithelial cells | Sample_source_name_ch1=medullary thymic epithelial cells | Sample_characteristics_ch1=extract protocol: TriZol + RNeasy mini Kit (Qiagen, #74106) | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE133605",
+    "n_samples": 1,
+    "n_unique_shown": 1,
+    "examples": [
+      {
+        "accession": "GSE133605",
+        "gsm": "GSM3912864",
+        "title": "NSCLC, ALK-positive, PD-L1 positive, tumor biopsy",
+        "source": "Non-small-cell lung adenocarcinoma.",
+        "characteristics": "Sample_title=NSCLC, ALK-positive, PD-L1 positive, tumor biopsy | Sample_source_name_ch1=Non-small-cell lung adenocarcinoma. | Sample_characteristics_ch1=smoking history: 10.5 pack-years | Sample_description=ALK-positive, PD-L1 positive"
+      }
+    ]
+  },
+  {
+    "accession": "GSE135164",
+    "n_samples": 15,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990135",
+        "title": "PDC1",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC1 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: treatment-naive | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990136",
+        "title": "PDC2",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC2 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: Chemotherapy | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990137",
+        "title": "PDC3",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC3 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: Chemotherapy | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990138",
+        "title": "PDC4",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC4 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: treatment-naive | Sample_description=COUNTS_genes_LUNGCANCER_11 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990139",
+        "title": "PDC4.2",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC4.2 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: TKI-resistant | Sample_description=COUNTS_genes_LUNGCANCER_11 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990140",
+        "title": "PDC5",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC5 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: TKI treatment before resistance | Sample_description=COUNTS_genes_LUNGCANCER_11 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990141",
+        "title": "PDC5.2",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC5.2 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: TKI-resistant | Sample_description=COUNTS_genes_LUNGCANCER_11 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990142",
+        "title": "PDC6",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC6 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: Chemotherapy, immunotherapy | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990143",
+        "title": "PDC7",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC7 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: Chemotherapy | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990144",
+        "title": "PDC8",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC8 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: treatment-naive | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990145",
+        "title": "PDC9",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC9 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: treatment-naive | Sample_description= | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE135164",
+        "gsm": "GSM3990146",
+        "title": "PDC10",
+        "source": "NSCLC patient derived cells",
+        "characteristics": "Sample_title=PDC10 | Sample_source_name_ch1=NSCLC patient derived cells | Sample_characteristics_ch1=treatment history: treatment-naive | Sample_description= | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE135976",
+    "n_samples": 4,
+    "n_unique_shown": 4,
+    "examples": [
+      {
+        "accession": "GSE135976",
+        "gsm": "GSM4038832",
+        "title": "Hs746T DMSO",
+        "source": "Hs746T DMSO",
+        "characteristics": "Sample_title=Hs746T DMSO | Sample_source_name_ch1=Hs746T DMSO | Sample_characteristics_ch1=treatment: DMSO | Sample_description=MET inhibition"
+      },
+      {
+        "accession": "GSE135976",
+        "gsm": "GSM4038833",
+        "title": "Hs746T PHA665752",
+        "source": "Hs746T PHA665752",
+        "characteristics": "Sample_title=Hs746T PHA665752 | Sample_source_name_ch1=Hs746T PHA665752 | Sample_characteristics_ch1=treatment: MET inhibitor | Sample_description=MET inhibition"
+      },
+      {
+        "accession": "GSE135976",
+        "gsm": "GSM4038834",
+        "title": "Hs746T SC siRNA",
+        "source": "Hs746T SC siRNA",
+        "characteristics": "Sample_title=Hs746T SC siRNA | Sample_source_name_ch1=Hs746T SC siRNA | Sample_characteristics_ch1=treatment: sc siRNA | Sample_description=MET Knockdown"
+      },
+      {
+        "accession": "GSE135976",
+        "gsm": "GSM4038835",
+        "title": "Hs746T Met siRNA",
+        "source": "Hs746T Met siRNA",
+        "characteristics": "Sample_title=Hs746T Met siRNA | Sample_source_name_ch1=Hs746T Met siRNA | Sample_characteristics_ch1=treatment: MET siRNA | Sample_description=MET Knockdown"
+      }
+    ]
+  },
+  {
+    "accession": "GSE136932",
+    "n_samples": 24,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061960",
+        "title": "A549_0-75mg_PBS_ctrl_6h_Rep1",
+        "source": "A549_0-75mg_PBS_ctrl_6h",
+        "characteristics": "Sample_title=A549_0-75mg_PBS_ctrl_6h_Rep1 | Sample_source_name_ch1=A549_0-75mg_PBS_ctrl_6h | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061961",
+        "title": "A549_0-75mg_PBS_ctrl_6h_Rep2",
+        "source": "A549_0-75mg_PBS_ctrl_6h",
+        "characteristics": "Sample_title=A549_0-75mg_PBS_ctrl_6h_Rep2 | Sample_source_name_ch1=A549_0-75mg_PBS_ctrl_6h | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061962",
+        "title": "A549_0-75mg_PBS_ctrl_6h_Rep3",
+        "source": "A549_0-75mg_PBS_ctrl_6h",
+        "characteristics": "Sample_title=A549_0-75mg_PBS_ctrl_6h_Rep3 | Sample_source_name_ch1=A549_0-75mg_PBS_ctrl_6h | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061963",
+        "title": "A549_0-75mg_PBS_ctrl_24h_Rep1",
+        "source": "A549_0-75mg_PBS_ctrl_24h",
+        "characteristics": "Sample_title=A549_0-75mg_PBS_ctrl_24h_Rep1 | Sample_source_name_ch1=A549_0-75mg_PBS_ctrl_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061964",
+        "title": "A549_0-75mg_PBS_ctrl_24h_Rep2",
+        "source": "A549_0-75mg_PBS_ctrl_24h",
+        "characteristics": "Sample_title=A549_0-75mg_PBS_ctrl_24h_Rep2 | Sample_source_name_ch1=A549_0-75mg_PBS_ctrl_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061965",
+        "title": "A549_0-75mg_PBS_ctrl_24h_Rep3",
+        "source": "A549_0-75mg_PBS_ctrl_24h",
+        "characteristics": "Sample_title=A549_0-75mg_PBS_ctrl_24h_Rep3 | Sample_source_name_ch1=A549_0-75mg_PBS_ctrl_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061966",
+        "title": "A549_0-75mg_Pirf_6h_Rep1",
+        "source": "A549_0-75mg_Pirf_6h",
+        "characteristics": "Sample_title=A549_0-75mg_Pirf_6h_Rep1 | Sample_source_name_ch1=A549_0-75mg_Pirf_6h | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061967",
+        "title": "A549_0-75mg_Pirf_6h_Rep2",
+        "source": "A549_0-75mg_Pirf_6h",
+        "characteristics": "Sample_title=A549_0-75mg_Pirf_6h_Rep2 | Sample_source_name_ch1=A549_0-75mg_Pirf_6h | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061968",
+        "title": "A549_0-75mg_Pirf_6h_Rep3",
+        "source": "A549_0-75mg_Pirf_6h",
+        "characteristics": "Sample_title=A549_0-75mg_Pirf_6h_Rep3 | Sample_source_name_ch1=A549_0-75mg_Pirf_6h | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061969",
+        "title": "A549_0-75mg_Pirf_24h_Rep1",
+        "source": "A549_0-75mg_Pirf_24h",
+        "characteristics": "Sample_title=A549_0-75mg_Pirf_24h_Rep1 | Sample_source_name_ch1=A549_0-75mg_Pirf_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061970",
+        "title": "A549_0-75mg_Pirf_24h_Rep2",
+        "source": "A549_0-75mg_Pirf_24h",
+        "characteristics": "Sample_title=A549_0-75mg_Pirf_24h_Rep2 | Sample_source_name_ch1=A549_0-75mg_Pirf_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136932",
+        "gsm": "GSM4061971",
+        "title": "A549_0-75mg_Pirf_24h_Rep3",
+        "source": "A549_0-75mg_Pirf_24h",
+        "characteristics": "Sample_title=A549_0-75mg_Pirf_24h_Rep3 | Sample_source_name_ch1=A549_0-75mg_Pirf_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      }
+    ]
+  },
+  {
+    "accession": "GSE136933",
+    "n_samples": 6,
+    "n_unique_shown": 6,
+    "examples": [
+      {
+        "accession": "GSE136933",
+        "gsm": "GSM4061984",
+        "title": "A549_6h_PBS_Rep1",
+        "source": "A549_6h_PBS",
+        "characteristics": "Sample_title=A549_6h_PBS_Rep1 | Sample_source_name_ch1=A549_6h_PBS | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136933",
+        "gsm": "GSM4061985",
+        "title": "A549_6h_Pirf_Rep1",
+        "source": "A549_6h_Pirf",
+        "characteristics": "Sample_title=A549_6h_Pirf_Rep1 | Sample_source_name_ch1=A549_6h_Pirf | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136933",
+        "gsm": "GSM4061986",
+        "title": "A549_6h_PBS_Rep2",
+        "source": "A549_6h_PBS",
+        "characteristics": "Sample_title=A549_6h_PBS_Rep2 | Sample_source_name_ch1=A549_6h_PBS | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136933",
+        "gsm": "GSM4061987",
+        "title": "A549_6h_Pirf_Rep2",
+        "source": "A549_6h_Pirf",
+        "characteristics": "Sample_title=A549_6h_Pirf_Rep2 | Sample_source_name_ch1=A549_6h_Pirf | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136933",
+        "gsm": "GSM4061988",
+        "title": "A549_6h_PBS_Rep3",
+        "source": "A549_6h_PBS",
+        "characteristics": "Sample_title=A549_6h_PBS_Rep3 | Sample_source_name_ch1=A549_6h_PBS | Sample_characteristics_ch1=treatment  time: 6h"
+      },
+      {
+        "accession": "GSE136933",
+        "gsm": "GSM4061989",
+        "title": "A549_6h_Pirf_Rep3",
+        "source": "A549_6h_Pirf",
+        "characteristics": "Sample_title=A549_6h_Pirf_Rep3 | Sample_source_name_ch1=A549_6h_Pirf | Sample_characteristics_ch1=treatment  time: 6h"
+      }
+    ]
+  },
+  {
+    "accession": "GSE136934",
+    "n_samples": 8,
+    "n_unique_shown": 8,
+    "examples": [
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061990",
+        "title": "A549_PBS_24h_Rep1",
+        "source": "A549_PBS_24h",
+        "characteristics": "Sample_title=A549_PBS_24h_Rep1 | Sample_source_name_ch1=A549_PBS_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061991",
+        "title": "A549_Pirf_24h_Rep1",
+        "source": "A549_Pirf_24h",
+        "characteristics": "Sample_title=A549_Pirf_24h_Rep1 | Sample_source_name_ch1=A549_Pirf_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061992",
+        "title": "A549_PBS_24h_Rep2",
+        "source": "A549_PBS_24h",
+        "characteristics": "Sample_title=A549_PBS_24h_Rep2 | Sample_source_name_ch1=A549_PBS_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061993",
+        "title": "A549_Pirf_24h_Rep2",
+        "source": "A549_Pirf_24h",
+        "characteristics": "Sample_title=A549_Pirf_24h_Rep2 | Sample_source_name_ch1=A549_Pirf_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061994",
+        "title": "A549_PBS_24h_Rep3",
+        "source": "A549_PBS_24h",
+        "characteristics": "Sample_title=A549_PBS_24h_Rep3 | Sample_source_name_ch1=A549_PBS_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061995",
+        "title": "A549_PBS_24h_Rep4",
+        "source": "A549_PBS_24h",
+        "characteristics": "Sample_title=A549_PBS_24h_Rep4 | Sample_source_name_ch1=A549_PBS_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061996",
+        "title": "A549_Pirf_24h_Rep3",
+        "source": "A549_Pirf_24h",
+        "characteristics": "Sample_title=A549_Pirf_24h_Rep3 | Sample_source_name_ch1=A549_Pirf_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      },
+      {
+        "accession": "GSE136934",
+        "gsm": "GSM4061997",
+        "title": "A549_Pirf_24h_Rep4",
+        "source": "A549_Pirf_24h",
+        "characteristics": "Sample_title=A549_Pirf_24h_Rep4 | Sample_source_name_ch1=A549_Pirf_24h | Sample_characteristics_ch1=treatment  time: 24h"
+      }
+    ]
+  },
+  {
+    "accession": "GSE139555",
+    "n_samples": 32,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143655",
+        "title": "LT1",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LT1 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung adenocarcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143656",
+        "title": "LN1",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LN1 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung adenocarcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143657",
+        "title": "LT2",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LT2 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung squamous cell carcinoma, nonkeratinizing | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143658",
+        "title": "LN2",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LN2 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung squamous cell carcinoma, nonkeratinizing | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143659",
+        "title": "LT3",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LT3 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung squamous cell carcinoma, keratinizing | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143660",
+        "title": "LN3",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LN3 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung squamous cell carcinoma, keratinizing | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143661",
+        "title": "LT4",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LT4 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung adenocarcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143662",
+        "title": "LN4",
+        "source": "CD3+ immune cells",
+        "characteristics": "Sample_title=LN4 | Sample_source_name_ch1=CD3+ immune cells | Sample_characteristics_ch1=phenotype: Lung adenocarcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143663",
+        "title": "LT5",
+        "source": "CD45+ immune cells",
+        "characteristics": "Sample_title=LT5 | Sample_source_name_ch1=CD45+ immune cells | Sample_characteristics_ch1=phenotype: Lung adenocarcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143664",
+        "title": "LN5",
+        "source": "CD45+ immune cells",
+        "characteristics": "Sample_title=LN5 | Sample_source_name_ch1=CD45+ immune cells | Sample_characteristics_ch1=phenotype: Lung adenocarcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143665",
+        "title": "LT6",
+        "source": "CD45+ immune cells",
+        "characteristics": "Sample_title=LT6 | Sample_source_name_ch1=CD45+ immune cells | Sample_characteristics_ch1=phenotype: Large cell neuroendocrine carcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE139555",
+        "gsm": "GSM4143666",
+        "title": "LN6",
+        "source": "CD45+ immune cells",
+        "characteristics": "Sample_title=LN6 | Sample_source_name_ch1=CD45+ immune cells | Sample_characteristics_ch1=phenotype: Large cell neuroendocrine carcinoma | Sample_description=Illumina HiSeq 4000 (scRNA-seq), Illumina HiSeq 2500 (scTCR-seq) | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE142620",
+    "n_samples": 36,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4232997",
+        "title": "A549_Ctrl_6d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_Ctrl_6d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 6 | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4232998",
+        "title": "A549_IL1b_6d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_IL1b_6d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 6 | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4232999",
+        "title": "A549_Ctrl_15d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_Ctrl_15d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 15 | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233000",
+        "title": "A549_IL1b_15d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_IL1b_15d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 15 | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233001",
+        "title": "A549_Ctrl_21d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_Ctrl_21d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 21 | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233002",
+        "title": "A549_IL1b_21d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_IL1b_21d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 21 | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233003",
+        "title": "A549_Ctrl_w6d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_Ctrl_w6d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 6 posttreatment | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233004",
+        "title": "A549_IL1b_w6d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_IL1b_w6d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 6 posttreatment | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233005",
+        "title": "A549_Ctrl_w15d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_Ctrl_w15d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 15 posttreatment | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233006",
+        "title": "A549_IL1b_w15d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_IL1b_w15d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 15 posttreatment | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233007",
+        "title": "A549_Ctrl_w30d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_Ctrl_w30d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 30 posttreatment | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      },
+      {
+        "accession": "GSE142620",
+        "gsm": "GSM4233008",
+        "title": "A549_IL1b_w30d_repA",
+        "source": "A549 cell line",
+        "characteristics": "Sample_title=A549_IL1b_w30d_repA | Sample_source_name_ch1=A549 cell line | Sample_characteristics_ch1=time point: day 30 posttreatment | Sample_description=Biological repication 1 of 3 | Sample_library_source=transcriptomic"
+      }
+    ]
+  },
+  {
+    "accession": "GSE71799",
+    "n_samples": 134,
+    "n_unique_shown": 12,
+    "examples": [
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845886",
+        "title": "uHC01",
+        "source": "UPN727 cells stimulated with uHC01 plasma",
+        "characteristics": "Sample_title=uHC01 | Sample_source_name_ch1=UPN727 cells stimulated with uHC01 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845887",
+        "title": "uHC02",
+        "source": "UPN727 cells stimulated with uHC02 plasma",
+        "characteristics": "Sample_title=uHC02 | Sample_source_name_ch1=UPN727 cells stimulated with uHC02 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845888",
+        "title": "uHC03",
+        "source": "UPN727 cells stimulated with uHC03 plasma",
+        "characteristics": "Sample_title=uHC03 | Sample_source_name_ch1=UPN727 cells stimulated with uHC03 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845889",
+        "title": "uHC04",
+        "source": "UPN727 cells stimulated with uHC04 plasma",
+        "characteristics": "Sample_title=uHC04 | Sample_source_name_ch1=UPN727 cells stimulated with uHC04 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845890",
+        "title": "uHC05",
+        "source": "UPN727 cells stimulated with uHC05 plasma",
+        "characteristics": "Sample_title=uHC05 | Sample_source_name_ch1=UPN727 cells stimulated with uHC05 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845891",
+        "title": "uHC06",
+        "source": "UPN727 cells stimulated with uHC06 plasma",
+        "characteristics": "Sample_title=uHC06 | Sample_source_name_ch1=UPN727 cells stimulated with uHC06 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845892",
+        "title": "uHC07",
+        "source": "UPN727 cells stimulated with uHC07 plasma",
+        "characteristics": "Sample_title=uHC07 | Sample_source_name_ch1=UPN727 cells stimulated with uHC07 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845893",
+        "title": "uHC08",
+        "source": "UPN727 cells stimulated with uHC08 plasma",
+        "characteristics": "Sample_title=uHC08 | Sample_source_name_ch1=UPN727 cells stimulated with uHC08 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845894",
+        "title": "uHC09",
+        "source": "UPN727 cells stimulated with uHC09 plasma",
+        "characteristics": "Sample_title=uHC09 | Sample_source_name_ch1=UPN727 cells stimulated with uHC09 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845895",
+        "title": "uHC10",
+        "source": "UPN727 cells stimulated with uHC10 plasma",
+        "characteristics": "Sample_title=uHC10 | Sample_source_name_ch1=UPN727 cells stimulated with uHC10 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845896",
+        "title": "uHC11",
+        "source": "UPN727 cells stimulated with uHC11 plasma",
+        "characteristics": "Sample_title=uHC11 | Sample_source_name_ch1=UPN727 cells stimulated with uHC11 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      },
+      {
+        "accession": "GSE71799",
+        "gsm": "GSM1845897",
+        "title": "uHC12",
+        "source": "UPN727 cells stimulated with uHC12 plasma",
+        "characteristics": "Sample_title=uHC12 | Sample_source_name_ch1=UPN727 cells stimulated with uHC12 plasma | Sample_characteristics_ch1=responder cells: UPN727 cells | Sample_description=Gene expression data from UPN727 cells stimulated with unrelated healthy control (uHC) plasma"
+      }
+    ]
+  }
+]

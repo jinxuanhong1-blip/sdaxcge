@@ -1,0 +1,34 @@
+{
+  "n_series_2019_search": 26,
+  "n_analyzable_leftover": 0,
+  "verdict_counts": {
+    "LUNG_SC_T_CELL_NO_ICI": 2,
+    "LUNG_NOT_ICI": 1,
+    "LUNG_SC_NO_ICI": 1,
+    "NOT_CANCER_IPF": 1,
+    "LUNG_METHYLATION_NO_ICI_LABELS": 1,
+    "NOT_LUNG_PRIMARY_NOT_PD1": 2,
+    "NOT_LUNG": 2,
+    "NOT_LUNG_ICI_COHORT": 1,
+    "LUNG_SC_MYELOID_NO_ICI": 1,
+    "LUNG_SC_N1_NO_ICI": 1,
+    "CELLLINE_CHIP": 1,
+    "CELLLINE_INVITRO": 6,
+    "LUNG_N1_NOT_ICI": 1,
+    "LUNG_PDC_NO_ICI_OUTCOME": 1,
+    "SKIP_FABLE_COVERED": 1,
+    "MOUSE_ATAC_SCREEN": 1,
+    "MIXED_SC_T_CELL_NO_ICI_LABELS": 1,
+    "NOT_CANCER": 1
+  },
+  "fable_skipped": [
+    "GSE135222"
+  ],
+  "fable_2019_2021_analyzed_but_not_2019_pdat": [
+    "GSE126044 (PDAT 2020/02/03)",
+    "GSE136961 (PDAT 2020/02/03; Oncomine panel lacks TACSTD2/CLDN4)",
+    "GSE111414 (PDAT 2021/03/01; CD8 PBMC control)",
+    "GSE182328 (PDAT 2021/08/20)"
+  ],
+  "honest_result": "After skipping GSE135222, zero leftover 2019 GEO series have human lung-cancer bulk expression of TACSTD2/CLDN4 plus a deposited per-sample ICI outcome."
+}
