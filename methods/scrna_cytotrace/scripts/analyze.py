@@ -422,8 +422,9 @@ def run_gse207422(rows) -> pd.DataFrame:
                      "malignant-like = epithelial AND normal-lung ≤ epi p75; UMI≥200")
 
     samp = per_sample_table(mal, "sample")
-    samp = samp.merge(meta[["sample", "mpr_group", "timing", "Pathology", "Patient"]],
-                      on="sample", how="left")
+    extra_cols = [c for c in ("mpr_group", "timing", "Pathology", "Patient") if c not in samp.columns]
+    if extra_cols:
+        samp = samp.merge(meta[["sample"] + extra_cols], on="sample", how="left")
     samp.to_csv(RES / "gse207422_per_sample.tsv", sep="\t", index=False)
 
     post = samp.loc[samp.timing == "post"].copy()
@@ -440,7 +441,9 @@ def run_gse207422(rows) -> pd.DataFrame:
     epi_cells = assign_cycle_strata(epi_cells)
     epi_cells = epi_cells.merge(meta[["sample", "mpr_group", "timing"]], on="sample", how="left")
     epi_samp = per_sample_table(epi_cells, "sample")
-    epi_samp = epi_samp.merge(meta[["sample", "mpr_group", "timing"]], on="sample", how="left")
+    extra_cols = [c for c in ("mpr_group", "timing") if c not in epi_samp.columns]
+    if extra_cols:
+        epi_samp = epi_samp.merge(meta[["sample"] + extra_cols], on="sample", how="left")
     epi_post = epi_samp.loc[epi_samp.timing == "post"]
     sample_tests(rows, "GSE207422_allEpi", epi_post, MIN_MAL_SENS,
                  "GSE207422 post-tx; ALL epithelial (no normal-lung gate); min 10; sensitivity")
@@ -548,16 +551,13 @@ def run_gse241934(rows) -> pd.DataFrame:
                      "author major.cell.type==Epi; UMI≥200; CytoTRACE-like within cohort")
 
     samp = per_sample_table(mal, "sampleID")
-    # restore mpr/cohort if dropped
     extra = mal.groupby("sampleID").agg(
         mpr_group=("mpr_group", "first"),
         cohort=("cohort", "first"),
     ).reset_index()
-    if "mpr_group" not in samp.columns:
-        samp = samp.merge(extra, on="sampleID", how="left")
-    else:
-        samp = samp.drop(columns=[c for c in ("mpr_group", "cohort") if c in samp.columns], errors="ignore")
-        samp = samp.merge(extra, on="sampleID", how="left")
+    need = [c for c in ("mpr_group", "cohort") if c not in samp.columns]
+    if need:
+        samp = samp.merge(extra[["sampleID"] + need], on="sampleID", how="left")
     samp.to_csv(RES / "gse241934_per_sample.tsv", sep="\t", index=False)
     print(samp[["sampleID", "cohort", "mpr_group", "n_malignant", "mean_TACSTD2",
                 "mean_cytotrace_like", "frac_cycling"]].to_string(index=False), flush=True)

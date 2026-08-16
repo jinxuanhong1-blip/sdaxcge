@@ -9,4 +9,6 @@ Public **GSE207422** and **GSE241934** only. Malignant (or author epithelial) ce
 
 Primary unit is the **sample**. Cell-level ρ is exploratory.
 
-See `METHODS.md` and `FINDING.md`. Numbers: `results/stats.tsv`.
+**Headline (honest):** TACSTD2-high is more keratin in both datasets (GSE207422 n=9 p=0.027; GSE241934 n=35 p=1.2×10⁻¹⁰). CytoTRACE-like vs TACSTD2 is a non-significant trend in GSE207422 (ρ=−0.63, p=0.067, n=9) and **null** in GSE241934 (ρ=−0.015, p=0.93, n=35). Stemness is not MPR-associated. See `FINDING.md`.
+
+See `METHODS.md`. Numbers: `results/stats.tsv`.

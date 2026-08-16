@@ -1,0 +1,75 @@
+{
+  "note": "CytoTRACE2 R package was not run. Stemness is residual n_genes (Gulati 2020 idea) rank-scaled within malignant cells. Primary unit is the sample. Cell-level rows are exploratory.",
+  "GSE207422_post_min20": {
+    "TACSTD2_vs_cyto": {
+      "n": 9,
+      "stat": "spearman_rho",
+      "value": -0.6333333333333333,
+      "p": 0.06708578689234572
+    },
+    "TACSTD2_vs_cycle": {
+      "n": 9,
+      "stat": "spearman_rho",
+      "value": 0.7333333333333334,
+      "p": 0.024554150071469705
+    },
+    "TACSTD2_vs_keratin": {
+      "n": 9,
+      "stat": "spearman_rho",
+      "value": 0.8333333333333333,
+      "p": 0.005265691029161747
+    },
+    "NMPR_vs_MPR_cyto": {
+      "n": "7+2",
+      "stat": "mannwhitney_u",
+      "value": 6.0,
+      "p": 0.8888888888888888
+    },
+    "paired_TACSTD2_cycling": {
+      "n": 5,
+      "stat": "wilcoxon_w",
+      "value": 6.0,
+      "p": 0.8125
+    }
+  },
+  "GSE241934_min20": {
+    "TACSTD2_vs_cyto": {
+      "n": 35,
+      "stat": "spearman_rho",
+      "value": -0.015406162464985995,
+      "p": 0.9300045930578571
+    },
+    "TACSTD2_vs_cycle": {
+      "n": 35,
+      "stat": "spearman_rho",
+      "value": -0.1619047619047619,
+      "p": 0.3527823269938828
+    },
+    "TACSTD2_vs_keratin": {
+      "n": 35,
+      "stat": "spearman_rho",
+      "value": 0.31736694677871147,
+      "p": 0.06320705699341514
+    },
+    "NMPR_vs_MPR_cyto": {
+      "n": "25+10",
+      "stat": "mannwhitney_u",
+      "value": 126.0,
+      "p": 0.9854334968467763
+    },
+    "paired_TACSTD2_cycling": {
+      "n": 22,
+      "stat": "wilcoxon_w",
+      "value": 41.0,
+      "p": 0.004151344299316406
+    },
+    "paired_keratin_TACSTD2hi": {
+      "n": 35,
+      "stat": "wilcoxon_w",
+      "value": 1.0,
+      "p": 1.1641532182693481e-10
+    }
+  },
+  "n_samples_GSE207422_post": 12,
+  "n_samples_GSE241934": 44
+}
