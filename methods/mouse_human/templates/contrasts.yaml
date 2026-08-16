@@ -1,0 +1,95 @@
+# Contrasts for GSE239485-style multi-arm syngeneic ICI RNA-seq.
+# Copy this file; rename arms; never invent response_label from expression.
+
+series: GSE239485
+organism: Mus_musculus
+model_class: syngeneic
+model_name: LLC
+design_class: nested_combination_not_full_factorial
+# C5aR1 blockade exists only on the poly I:C + anti-PD-1 background.
+# Do not fit ~ polyIC * aPD1 * aC5aR1; those cells were not collected.
+
+sample_size:
+  vehicle: 8
+  polyIC_aPD1: 8
+  polyIC_aPD1_aC5aR1: 8
+
+design_formula:
+  primary: "~ arm"
+  # arm is a 3-level factor: vehicle | polyIC_aPD1 | polyIC_aPD1_aC5aR1
+  equivalent_nested: "~ combo + aC5aR1_on_combo"
+  # combo = 0 for vehicle, 1 for both treated arms
+  # aC5aR1_on_combo = 1 only for the triple arm
+  forbidden:
+    - "~ polyIC * aPD1 * aC5aR1   # empty cells; unidentifiable"
+    - "~ response                 # no R/NR labels in this design"
+    - "rbind(mouse_counts, human_counts) + ComBat"
+
+contrasts:
+  - id: D_vs_C
+    name: polyIC_aPD1_vs_vehicle
+    question: What does the ICI + TLR3 agonist combination change vs vehicle?
+    numerator: polyIC_aPD1
+    denominator: vehicle
+    contrast_type: treatment_arm_DE
+    comparable_human_contrast: null
+    maybe_comparable_if_time_matched:
+      - human_on_treatment_ICI_vs_pre_or_untreated
+    not_comparable:
+      - human_pre_treatment_R_vs_NR
+      - human_on_treatment_R_vs_NR
+    tacstd2_cldn4_use:
+      - Read Tacstd2 and Cldn4 as on-treatment pharmacodynamic / composition genes.
+      - Do not call a change in Tacstd2 "predictive of human ICI response".
+
+  - id: T_vs_D
+    name: triple_vs_doublet
+    question: What does adding C5aR1 blockade change on top of poly I:C + anti-PD-1?
+    numerator: polyIC_aPD1_aC5aR1
+    denominator: polyIC_aPD1
+    contrast_type: add_on_treatment_arm_DE
+    comparable_human_contrast: null
+    notes:
+      - This is the scientifically primary contrast of GSE239485.
+      - Still not an R/NR contrast.
+
+  - id: T_vs_C
+    name: triple_vs_vehicle
+    question: Combined effect of the full regimen vs vehicle.
+    numerator: polyIC_aPD1_aC5aR1
+    denominator: vehicle
+    contrast_type: treatment_arm_DE
+    comparable_human_contrast: null
+    notes:
+      - Mixes doublet and add-on effects; interpret after D_vs_C and T_vs_D.
+
+  - id: FORBIDDEN_R_vs_NR
+    name: do_not_invent
+    question: Who would have responded?
+    contrast_type: forbidden
+    reason: GSE239485-style series assign treatment, not outcome. Tumor-volume
+      response can be added only if the original study scored it per mouse.
+
+cross_species_handoff:
+  allowed:
+    - Map mouse ranked gene list through 1:1 orthologs, then FGSEA / RRHO
+      against a HUMAN contrast of the SAME class (treatment PD, or baseline
+      high vs low TACSTD2, or KO vs WT).
+    - Score a TROP2/claudin tight-junction program (include CLDN7) with
+      GSVA/ssGSEA in each species separately; compare score–phenotype
+      associations, not raw matrices.
+    - Use mouse Tacstd2-KO vs WT (e.g. 4T1 Trop2 studies) as a perturbation
+      signature; test that signature in human TACSTD2-high vs low, and
+      separately in human ICI R vs NR. Keep those two human tests distinct.
+  forbidden:
+    - Correlate mouse D_vs_C logFC with human pre-tx R_vs_NR logFC and call
+      it validation.
+    - ComBat or Harmony on concatenated mouse+human gene-level counts.
+    - Relabel treated mice as "responders" because IFN or Cd8a went up.
+
+figure_caption_required_fields:
+  - species
+  - model_class   # syngeneic | GEMM | human_tumor
+  - contrast_type # treatment_arm_DE | add_on_DE | R_vs_NR | high_vs_low_gene | KO_vs_WT
+  - timepoint     # pre | on_treatment | mixed
+  - gene_id_space # mouse_symbol | human_symbol | ncbi | ensembl

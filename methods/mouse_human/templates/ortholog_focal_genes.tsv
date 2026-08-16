@@ -1,0 +1,9 @@
+pair	role	species	symbol	ncbi_gene_id	ensembl_gene_id	mgi_or_hgnc	uniprot	refseq_mrna	aliases	homology	notes
+TACSTD2	focal_barrier	Homo_sapiens	TACSTD2	4070	ENSG00000184292	HGNC:11530	P09758	NM_002353	TROP2|GA733-1|EGP-1|M1S1|GP50	1to1_with_Tacstd2	Intronless. Protein: TROP2. Paralog: EPCAM/TACSTD1. Do not collapse onto EPCAM.
+TACSTD2	focal_barrier	Mus_musculus	Tacstd2	56753	ENSMUSG00000051397	MGI:1861606	Q8BGV3	NM_020047	Trop2|Ly97|EGP-1|GA733-1	1to1_with_TACSTD2	Intronless. Humanized TROP2 KI needed if the antibody (hRS7/sacituzumab) does not bind mouse Trop2.
+CLDN4	focal_barrier	Homo_sapiens	CLDN4	1364	ENSG00000189143	HGNC:2044	O14493	NM_001305	CPE-R|CPER|CPETR1|WBSCR8|hCPE-R	1to1_with_Cldn4	Intronless. Tight-junction claudin; CPE receptor. Deleted in Williams-Beuren syndrome interval.
+CLDN4	focal_barrier	Mus_musculus	Cldn4	12740	ENSMUSG00000047501	MGI:1313314	O35054	NM_009903	Cpe-r|Cpetr1	1to1_with_CLDN4	Barrier / paracellular transport. Do not treat as the sole TROP2 binding partner.
+CLDN7	related_interactor	Homo_sapiens	CLDN7	1366	ENSG00000181885	HGNC:2049	O95471	NM_001307	CLDN-7|CEPTRL2	1to1_with_Cldn7	Best-documented TROP2 physical partner in TNBC immune-exclusion papers. Report beside CLDN4; do not swap IDs.
+CLDN7	related_interactor	Mus_musculus	Cldn7	53624	ENSMUSG00000018569	MGI:1859285	Q9Z261	NM_016887	Cldn7	1to1_with_CLDN7	Include in the tight-junction program even when the focal pair is Tacstd2/Cldn4.
+EPCAM	paralog_trap	Homo_sapiens	EPCAM	4072	ENSG00000119888	HGNC:11529	P16422	NM_002354	TACSTD1|TROP1|EGP40|CD326	1to1_with_Epcam	Paralog of TACSTD2. String-match on TACSTD* or TROP* will mix the two.
+EPCAM	paralog_trap	Mus_musculus	Epcam	17075	ENSMUSG00000045394	MGI:106675	Q99JW5	NM_008532	Tacstd1|Trop1|CD326	1to1_with_EPCAM	Exclude from TACSTD2 ortholog maps unless the question is the EPCAM/TROP2 family.
