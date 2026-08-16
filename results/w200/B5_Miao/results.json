@@ -1,0 +1,127 @@
+{
+  "source": {
+    "paper": "Miao et al. Science 2018;359:801-806",
+    "pubmed": "29301960",
+    "curation": "BHK Lab ICB_Miao1 TSV extract, Zenodo 7058399",
+    "license": "CC-BY-4.0"
+  },
+  "integrity": {
+    "n_rna": 33,
+    "n_recist_pd": 16,
+    "n_recist_pd_pfs_event": 0,
+    "pfs_event_rate": 0.24242424242424243,
+    "os_event_rate": 0.696969696969697,
+    "pfs_field_unusable": true,
+    "orr_responders_by_drug": {
+      "nivolumab": 4,
+      "nivolumab + ipilimumab": 3,
+      "atezolizumab": 1
+    },
+    "pca": {
+      "genes_used": 19662,
+      "pc1_variance_fraction": 0.6843862838367589,
+      "pc2_variance_fraction": 0.032402346345614313,
+      "pc1_pd_mean": -0.16854762930209455,
+      "pc1_rcc_mean": 0.1790818561334755,
+      "pc1_prefix_mw_p": 1.0556608808577622e-06
+    },
+    "cldn4_tacstd2_spearman": {
+      "rho": 0.4878823400923255,
+      "p": 0.003974296170272381
+    }
+  },
+  "primary": [
+    {
+      "n_high": 8,
+      "n_low": 25,
+      "median_high": 1.93020636068525,
+      "median_low": 1.18966644665005,
+      "median_diff": 0.7405399140352,
+      "median_diff_ci_low": -1.8015549020205204,
+      "median_diff_ci_high": 2.475605481336519,
+      "mann_whitney_u": 102.0,
+      "mann_whitney_p": 0.9497564679012256,
+      "auc_high_higher": 0.51,
+      "auc_bootstrap_95ci_low": 0.305,
+      "auc_bootstrap_95ci_high": 0.715,
+      "cliffs_delta": 0.020000000000000018,
+      "detected_high": 8.0,
+      "detected_low": 24.0,
+      "detection_fisher_p": 1.0,
+      "n_total": 33,
+      "gene": "CLDN4",
+      "endpoint": "RECIST_ORR",
+      "stratum": "pooled",
+      "expression": "raw",
+      "high_label": "Responder",
+      "low_label": "Nonresponder"
+    },
+    {
+      "n_high": 8,
+      "n_low": 25,
+      "median_high": -1.8300801281582921,
+      "median_low": -0.808437349299244,
+      "median_diff": -1.021642778859048,
+      "median_diff_ci_low": -3.546752900001341,
+      "median_diff_ci_high": 2.333065344693193,
+      "mann_whitney_u": 82.5,
+      "mann_whitney_p": 0.4750650522633729,
+      "auc_high_higher": 0.4125,
+      "auc_bootstrap_95ci_low": 0.17,
+      "auc_bootstrap_95ci_high": 0.67,
+      "cliffs_delta": -0.17500000000000004,
+      "detected_high": 8.0,
+      "detected_low": 24.0,
+      "detection_fisher_p": 1.0,
+      "n_total": 33,
+      "gene": "TACSTD2",
+      "endpoint": "RECIST_ORR",
+      "stratum": "pooled",
+      "expression": "raw",
+      "high_label": "Responder",
+      "low_label": "Nonresponder"
+    }
+  ],
+  "os_cox": [
+    {
+      "n": 33,
+      "n_events": 23,
+      "hr_per_log2_unit": 1.0088733004070953,
+      "hr_ci_low": 0.8944430863582976,
+      "hr_ci_high": 1.1379430975517464,
+      "p": 0.8856398744102075,
+      "adjusted_for_id_prefix": false,
+      "gene": "CLDN4"
+    },
+    {
+      "n": 33,
+      "n_events": 23,
+      "hr_per_log2_unit": 1.005698354742633,
+      "hr_ci_low": 0.8933409226120954,
+      "hr_ci_high": 1.1321872256502679,
+      "p": 0.9251040181510259,
+      "adjusted_for_id_prefix": true,
+      "gene": "CLDN4"
+    },
+    {
+      "n": 33,
+      "n_events": 23,
+      "hr_per_log2_unit": 0.9364632530369696,
+      "hr_ci_low": 0.7636100194288676,
+      "hr_ci_high": 1.1484441036335498,
+      "p": 0.5283470894563063,
+      "adjusted_for_id_prefix": false,
+      "gene": "TACSTD2"
+    },
+    {
+      "n": 33,
+      "n_events": 23,
+      "hr_per_log2_unit": 0.9058696577160872,
+      "hr_ci_low": 0.7165566879300108,
+      "hr_ci_high": 1.145198768769028,
+      "p": 0.40852371025609535,
+      "adjusted_for_id_prefix": true,
+      "gene": "TACSTD2"
+    }
+  ]
+}
