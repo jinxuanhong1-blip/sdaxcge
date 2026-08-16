@@ -1,0 +1,62 @@
+accession	GEO_public_date	n_samples	organism	material	outcome_in_GEO	target_coverage	leftover_class	decision	honest_reason
+GSE233203	2025-08-27	7	Homo sapiens	pleural-fluid 10x scRNA	Response / Non-response	TACSTD2 and CLDN4	tumor_plus_outcome	ANALYZED	Eligible leftover; whole-sample pseudobulk is composition-sensitive
+GSE291670	2025-03-31	6	Homo sapiens	post-treatment lung-tissue 10x scRNA	MPR / Non-MPR in sample titles	TACSTD2 and CLDN4	tumor_plus_outcome	ANALYZED	Missed by the first anti-PD-1 query; post-treatment residual-tumor confounding is expected
+GSE202417	2025-05-06	28	Homo sapiens	sorted blood CD8 array	R / NR	full array	blood	EXCLUDED	Epithelial genes in sorted CD8 T cells are not tumor expression
+GSE206127	2025-06-14	213	Homo sapiens	serum circulating miRNA	exceptional nivolumab response exists in the paper, not as a GEO gene matrix for TACSTD2/CLDN4	miRNA only	wrong_analyte	EXCLUDED	Circulating miRNA cannot quantify TACSTD2 or CLDN4 mRNA
+GSE190905	2025-02-05	16	Homo sapiens	PBMC CD3 T-cell scRNA/TCR	SABR +/- prior anti-PD-1, no ICI ORR field	T-cell transcriptome	blood	EXCLUDED	Wrong compartment
+GSE230489	2025-02-07	38	Homo sapiens	bulk RNA-seq lung and melanoma biopsies	none	TACSTD2 and CLDN4	no_label	EXCLUDED	No sample-level ICI outcome; labels were not inferred
+GSE243013	2025-01-28	243	Homo sapiens	immune-cell-only scRNA/TCR atlas	no MPR field in GEO	immune matrix only	wrong_compartment	EXCLUDED	Deposited matrix is immune cells, not malignant epithelium
+GSE252437	2025-06-30	14	Homo sapiens	TIL reactivity RNA	ex-vivo TIL reactivity	TIL transcriptome	wrong_compartment	EXCLUDED	Cell phenotype is not patient ICI response
+GSE271377	2025-07-01	12	Homo sapiens	cell-line / macrophage mechanistic	DCB keyword only	not a patient-outcome cohort	mechanistic	EXCLUDED	No patient-level ICI response comparison
+GSE274934	2025-01-30	23	Homo sapiens	ALK+ vs WT LUAD scRNA/TCR/ATAC	none	TACSTD2 and CLDN4	no_label	EXCLUDED	ALK status is not an ICI outcome
+GSE283829	2025-01-17	27	Homo sapiens	in-situ PD1-PD-L1 interaction	none	not whole-transcriptome	wrong_assay	EXCLUDED	Cannot measure both requested transcripts against a GEO outcome
+GSE285888	2025-05-19	1	Homo sapiens	pooled baseline PBMC scRNA	response only below pooled-sample level	near-absent epithelial genes	blood	EXCLUDED	Wrong compartment and one pooled GEO sample
+GSE292098	2025-12-31	315	Homo sapiens	GeoMx WTA CK/CD45/CD68	no per-ROI outcome key	TACSTD2 and CLDN4	no_label	DESCRIPTIVE_ONLY	Expression is leftover-usable; outcomes were not invented
+GSE295969	2025-05-31	18	Homo sapiens	blood CD8 RNA-seq	ICI R / NR	technically quantified	blood	EXCLUDED	Circulating CD8 epithelial transcripts are not tumor expression
+GSE300685	2025-06-30	8	Homo sapiens	tumor-infiltrating NK scRNA	none	NK-focused	wrong_compartment	EXCLUDED	No ICI outcome and wrong cell type for epithelial markers
+GSE309446	2025-12-17	32	Homo sapiens	TCR from blood and tumor	acquired PD-(L)1 resistance context	no expression matrix	wrong_assay	EXCLUDED	TCR clonotypes cannot quantify TACSTD2 or CLDN4
+GSE309652	2025-09-30	72	Homo sapiens	768-gene NanoString metabolism panel	R / NR	neither gene on GPL31904	panel_gap	EXCLUDED	Clean leftover outcome cohort, but the requested genes were not measured
+GSE315010	2025-12-29	44	not a leftover patient ICI RNA cohort	preclinical RAS(ON) doublet	none usable	not leftover patient tumor ICI	mechanistic	EXCLUDED	Preclinical priming study, not leftover patient TACSTD2/CLDN4 vs ICI
+GSE278119	2025-12-03	44	Homo sapiens	PBMC scRNA after ICI n-irAE	neurological irAE	blood immune	blood	EXCLUDED	Adverse-event blood study
+GSE302247	2025-11-18	4	mechanistic KL NSCLC	DPP4 restoration	none	cell-line / syngeneic	mechanistic	EXCLUDED	Not leftover patient-outcome RNA
+GSE299634	2025-11-13	6	mechanistic NSCLC	BAP18	none	cell-line	mechanistic	EXCLUDED	Not leftover patient-outcome RNA
+GSE290255	2025-10-08	12	pan-cancer mechanistic	TGFb-LRRC15	none	not leftover lung ICI tumor outcome	mechanistic	EXCLUDED	Not leftover patient TACSTD2/CLDN4 vs ICI
+GSE302113	2025-09-08	38	innate-cell lineage tracing	none	not epithelial outcome	wrong_compartment	EXCLUDED	Not leftover tumor-epithelial ICI outcome
+GSE306693	2025-08-28	9	neoantigen platform	none	not leftover outcome RNA	mechanistic	EXCLUDED	Platform paper
+GSE273409	2025-08-27	36	SCLC DNAPKCs	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE289043	2025-08-13	23	NRF2 mutant differentiation	none	mechanistic	mechanistic	EXCLUDED	Not leftover ICI outcome
+GSE303680	2025-07-30	10	PD1-targeted IL-2 variant	none	explant / mechanistic	mechanistic	EXCLUDED	Not leftover patient TACSTD2/CLDN4 vs ICI
+GSE297846	2025-07-17	3	SCLC dasatinib mechanistic	none	cell-line	mechanistic	EXCLUDED	Not leftover patient-outcome RNA
+GSE274595	2025-07-09	8	NK extracellular vesicles	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE274588	2025-07-09	57	NK EV PBMC	none	blood / EV	wrong_compartment	EXCLUDED	Not leftover tumor-epithelial ICI outcome
+GSE274584	2025-07-09	21	NK EV RNA	none	EV	wrong_assay	EXCLUDED	Not leftover tumor-epithelial ICI outcome
+GSE270148	2025-07-07	85	myeloid progenitors	none	wrong compartment	wrong_compartment	EXCLUDED	Not leftover tumor-epithelial ICI outcome
+GSE240121	2025-06-25	3	engineered CAR-T model	none	in vitro	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE244946	2025-06-22	3	SCLC NOTCH1 scRNA	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE247754	2025-06-16	2	systemic CD8	none	blood	blood	EXCLUDED	Wrong compartment
+GSE287938	2025-06-12	4	MDM2 inhibitor cell-line	none	mechanistic	mechanistic	EXCLUDED	Not leftover ICI outcome
+GSE299111	2025-06-06	7	Treg after chemotherapy	none	not ICI outcome	no_label	EXCLUDED	Chemotherapy, not leftover ICI outcome
+GSE244945	2025-06-02	69	SCLC NOTCH1 RNA	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE244944	2025-06-02	18	SCLC NOTCH1 ChIP	none	ChIP	wrong_assay	EXCLUDED	Not expression vs ICI
+GSE271545	2025-05-13	10	UCPVax TCR	none	vaccine TCR	wrong_assay	EXCLUDED	Not leftover TACSTD2/CLDN4 expression
+GSE271543	2025-05-13	5	UCPVax scRNA	none	vaccine	wrong_compartment	EXCLUDED	Not leftover tumor ICI outcome
+GSE295993	2025-05-01	54	3D spheroid T-cell engagers	none	in vitro	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE294754	2025-04-16	4	FAP-CAR iNKT	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE294017	2025-04-14	16	salivary-gland cancer	none	wrong disease	wrong_disease	EXCLUDED	Not lung leftover
+GSE277852	2025-04-09	8	IL-15 plus immunotherapy model	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE288083	2025-04-08	4	melanoma MDSC	none	wrong disease	wrong_disease	EXCLUDED	Melanoma leftover, not lung
+GSE276724	2025-03-12	15	denfivontinib plus pembrolizumab model	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient tumor ICI outcome
+GSE288649	2025-02-26	1	SMARCA4 ChIP	none	ChIP	wrong_assay	EXCLUDED	Not leftover expression vs ICI
+GSE278869	2025-02-26	12	SMARCA4 CUT&RUN	none	CUT&RUN	wrong_assay	EXCLUDED	Not leftover expression vs ICI
+GSE278868	2025-02-26	6	SMARCA4 RNA-seq cell-line	none	cell-line	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE269930	2025-02-26	4	SMARCA4 H1792 RNA	none	cell-line	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE269686	2025-02-26	8	SMARCA4 RNA	none	cell-line	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE269618	2025-02-26	8	SMARCA4 H1975/HCC44	none	cell-line	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE269551	2025-02-26	8	SMARCA4 RNA	none	cell-line	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE266035	2025-02-20	9	circulating TIL TCR kinetics	none	TCR / TIL	wrong_compartment	EXCLUDED	Not leftover tumor-epithelial ICI outcome
+GSE233820	2025-02-04	12	SCLC PARP plus PD-L1 model	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient ICI outcome
+GSE285029	2025-01-06	234	PD-L1 myeloid model	none	mechanistic	mechanistic	EXCLUDED	Not leftover patient TACSTD2/CLDN4 vs ICI
+GSE285298	2025-01-03	173	EGFR-TKI spatial/scRNA	EGFR-TKI state only	not ICI outcome	no_label	EXCLUDED	EGFR-TKI leftover, not ICI leftover
+GSE261889	2025-02-01	19	Mus musculus	acquired ICI resistance	mouse resistant vs sensitive	mouse	mouse	EXCLUDED	Mouse leftover; Tacstd2/Cldn4 not this human leftover slice
+GSE261898	2025-02-01	14	Mus musculus	acquired ICI resistance scRNA	mouse	mouse	mouse	EXCLUDED	Mouse leftover
+GSE261597	2025-05-22	6	Mus musculus	ATAC resistant vs sensitive	mouse	mouse	mouse	EXCLUDED	Mouse leftover
