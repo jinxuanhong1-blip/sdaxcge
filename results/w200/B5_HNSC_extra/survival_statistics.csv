@@ -1,0 +1,3 @@
+dataset,gene,split,endpoint,n_detectable,n_zero,events_detectable,events_zero,logrank_z_detectable_minus_zero,exact_permutation_p,note
+GSE179730,CLDN4,detectable_vs_zero,RFS,6,5,3,1,0.12979896728051438,1.0,Median split is undefined because median CLDN4 is 0.
+GSE179730,CLDN4,detectable_vs_zero,OS,6,5,2,0,1.210166535067116,0.45454545454545453,Median split is undefined because median CLDN4 is 0.

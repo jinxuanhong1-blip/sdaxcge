@@ -1,0 +1,8 @@
+accession	citation	design	assay	TACSTD2	CLDN4	verdict	reason
+GSE93157	Prat et al. 2017; PMID 28487385	mixed-cancer anti-PD-1; HNSCC n=5	NanoString PanCancer Immune 730	absent	absent	UNUSABLE	No CLDN-family gene is on the panel; EPCAM is present but is not CLDN4.
+GSE159067	Foy et al. 2022; CLB-IHN	R/M HNSCC PD-1/PD-L1; n=102	HTG EdgeSeq targeted panel	absent	absent	UNUSABLE	Neither target is measured on the deposited targeted panel.
+GSE190575	ALPHA study; PMID 35046059	pembrolizumab plus afatinib R/M HNSCC	NanoString PanCancer Immune 730	absent	absent	UNUSABLE	Same immune panel omits CLDN4; EGFR-inhibitor combination besides.
+GSE179730	Liu et al. 2021; PMID 34755131	neoadjuvant nivolumab OCSCC; 11 pretreatment RNA-seq tumors	bulk RNA-seq, deposited linear CPM	present	present	USABLE_UNDERPOWERED	Full-transcriptome leftover; sparse near-zero CLDN4.
+GSE212550	NIVACTOR test set; PMID 38290766	R/M HNSCC ICI monotherapy; 12 LTS vs 8 STS	Affymetrix Clariom D, RMA	present	present	USABLE	Public extreme-survival labels; CLDN4 mapped to TC0700007993.hg.1.
+GSE212549	NIVACTOR training set; PMID 38290766	R/M HNSCC nivolumab; n=80	Affymetrix Clariom D, RMA	expected	expected	UNUSABLE_NO_PUBLIC_LABELS	GEO has age/stage/drug only; response tables are not openly deposited.
+EGAD50000002506	EGAS50000001746	R/M HNSCC PD-1/PD-L1	bulk RNA-seq FASTQ	expected	expected	CONTROLLED_ACCESS	EGA data require DAC approval; not openly downloadable.
