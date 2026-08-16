@@ -1,0 +1,15 @@
+study	indication	reason
+GBM / Zhao 2019	GBM	Raw reads in SRA PRJNA482620; authors state processed data available on request. No public processed expression+response table used here.
+GBM / GSE121810	GBM	Cloughesy neoadjuvant anti-PD-1. GEO series matrix is metadata-only (3.2 KB). Not a reconstructable bulk CLDN4 + RECIST R/NR table.
+GBM / GSE154795	GBM	scRNA-seq of immune cells after neoadjuvant PD-1, not bulk tumour CLDN4 vs ICI response.
+GBM / GSE264695	GBM	Neoadjuvant pembrolizumab bulk RNA-seq (pharmacodynamic expansion). No public paired RECIST R/NR table used here.
+Miao1	RCC	CLDN4 present but at the TPM floor in 32/33 RNA samples (IQR=0 among the lower 75%). Median split undefined (all-high). Not entered in the primary meta.
+Hwang	NSCLC	Immune-gene panel (384 genes). CLDN4 absent.
+Jerby_Arnon	melanoma	Signature/panel object (587 genes). CLDN4 absent.
+Roh	melanoma	Panel object (721 genes). CLDN4 absent.
+VanDenEnde	esophageal	Out of claimed indications; CLDN4 also absent from this object's annotation.
+Kim	gastric	CLDN4 present (OR 0.12, p=0.010 on median split) but gastric is outside the claimed indication set. Reported only in the all-studies sensitivity.
+Padron	pancreas	Outside claimed indications; only 3 responders among 23 labelled patients. Not in primary meta.
+Van_Allen	melanoma	CTLA-4, not PD-1/PD-L1. CLDN4 median equals the detection floor, so a median split has no low arm. Included only in CTLA-4 sensitivity when a split is defined.
+Nathanson	melanoma	CTLA-4, not PD-1/PD-L1. Included in the PD-1+CTLA-4 sensitivity (OR=1.00).
+ORCESTRA Mariathasan CLDN4 vector	urothelial	Gene ID present but all 348 values are the constant floor -9.96578 (quantification failure). Replaced with official IMvigor210CoreBiologies counts before the primary meta.

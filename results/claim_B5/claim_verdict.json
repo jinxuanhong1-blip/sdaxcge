@@ -1,0 +1,39 @@
+{
+  "claimed_k": 11,
+  "claimed_indications": [
+    "GBM",
+    "NSCLC",
+    "melanoma",
+    "RCC",
+    "urothelial"
+  ],
+  "claimed_OR": 0.42,
+  "named_public_pd1_cohorts_with_cldn4": [
+    "Braun",
+    "Shiuan",
+    "Mariathasan",
+    "Snyder",
+    "Jung",
+    "Fumet1",
+    "Fumet2",
+    "Gide",
+    "Hugo",
+    "Liu",
+    "Riaz",
+    "Puch"
+  ],
+  "reconstructed_k": 12,
+  "reconstructed_OR": 1.1164751734517488,
+  "reconstructed_OR_CI": [
+    0.7894606779317441,
+    1.578947308939794
+  ],
+  "gbm_public_processed_paired": false,
+  "gbm_note": "No GBM cohort is present in the public ORCESTRA/PredictIO ICB objects. Zhao et al. Nat Med 2019 (PMID 30742119) deposited raw reads in SRA PRJNA482620 and stated processed data are available on request \u2014 not used. GSE121810 series matrix is metadata-only (3.2 KB). GSE154795 is scRNA-seq of immune cells, not bulk tumour CLDN4. GSE264695 is neoadjuvant pembrolizumab bulk RNA-seq without a public paired RECIST R/NR table in the GEO supplement we could use here.",
+  "published_source_of_OR_0_42": null,
+  "verdict": "NOT REPRODUCED. The claim specifies 11 cohorts spanning GBM/NSCLC/melanoma/RCC/urothelial with CLDN4-high OR=0.42. No published source naming those 11 was found, and GBM is not reconstructable from public processed expression+response files. Named public PD-1/PD-L1 cohorts with usable CLDN4 + binary response: k=12 (Braun, Shiuan, Mariathasan, Snyder, Jung, Fumet1, Fumet2, Gide, Hugo, Liu, Riaz, Puch). Pooled DerSimonian\u2013Laird OR = 1.12 (95% CI 0.79\u20131.58, p=0.533). The claimed OR 0.42 is outside this CI. Point estimate is in the opposite direction (OR>1).",
+  "named_set_includes_gbm": false,
+  "named_set_is_the_claimed_11": false,
+  "claim_OR_inside_reconstructed_CI": false,
+  "reconstructed_OR_within_25pct_of_claim": false
+}
