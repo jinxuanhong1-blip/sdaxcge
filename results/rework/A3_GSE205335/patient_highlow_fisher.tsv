@@ -1,0 +1,25 @@
+analysis_set	patient_pct_cutoff	definition	R_high	R_low	NR_high	NR_low	odds_ratio	p	note
+primary_drop0_RvsNR	10.0	TROP2-high if %UMI≥1 ≥ 10%	5	1	10	0	0.0	0.375	
+primary_drop0_RvsNR	25.0	TROP2-high if %UMI≥1 ≥ 25%	4	2	9	1	0.2222222222222222	0.5178571428571428	
+primary_drop0_RvsNR	50.0	TROP2-high if %UMI≥1 ≥ 50%	4	2	5	5	2.0	0.6328671328671329	
+primary_drop0_RvsNR	75.0	TROP2-high if %UMI≥1 ≥ 75%	2	4	1	9	4.5	0.5178571428571428	
+min20_RvsNR	10.0	TROP2-high if %UMI≥1 ≥ 10%	5	1	10	0	0.0	0.375	
+min20_RvsNR	25.0	TROP2-high if %UMI≥1 ≥ 25%	4	2	9	1	0.2222222222222222	0.5178571428571428	
+min20_RvsNR	50.0	TROP2-high if %UMI≥1 ≥ 50%	4	2	5	5	2.0	0.6328671328671329	
+min20_RvsNR	75.0	TROP2-high if %UMI≥1 ≥ 75%	2	4	1	9	4.5	0.5178571428571428	
+nsclc_drop0_RvsNR	10.0	TROP2-high if %UMI≥1 ≥ 10%	4	0	8	0			degenerate_table
+nsclc_drop0_RvsNR	25.0	TROP2-high if %UMI≥1 ≥ 25%	4	0	8	0			degenerate_table
+nsclc_drop0_RvsNR	50.0	TROP2-high if %UMI≥1 ≥ 50%	4	0	4	4	inf	0.2080808080808081	
+nsclc_drop0_RvsNR	75.0	TROP2-high if %UMI≥1 ≥ 75%	2	2	1	7	7.0	0.2363636363636364	
+core_malignant_RvsNR	10.0	TROP2-high if %UMI≥1 ≥ 10%	4	0	7	0			degenerate_table
+core_malignant_RvsNR	25.0	TROP2-high if %UMI≥1 ≥ 25%	4	0	7	0			degenerate_table
+core_malignant_RvsNR	50.0	TROP2-high if %UMI≥1 ≥ 50%	4	0	4	3	inf	0.23636363636363636	
+core_malignant_RvsNR	75.0	TROP2-high if %UMI≥1 ≥ 75%	2	2	1	6	6.0	0.49090909090909085	
+PRvsPD_drop0	10.0	TROP2-high if %UMI≥1 ≥ 10%	5	1	7	0	0.0	0.46153846153846156	
+PRvsPD_drop0	25.0	TROP2-high if %UMI≥1 ≥ 25%	4	2	6	1	0.3333333333333333	0.5594405594405595	
+PRvsPD_drop0	50.0	TROP2-high if %UMI≥1 ≥ 50%	4	2	3	4	2.6666666666666665	0.592074592074592	
+PRvsPD_drop0	75.0	TROP2-high if %UMI≥1 ≥ 75%	2	4	1	6	3.0	0.5594405594405595	
+nsclc_PRvsPD_drop0	10.0	TROP2-high if %UMI≥1 ≥ 10%	4	0	6	0			degenerate_table
+nsclc_PRvsPD_drop0	25.0	TROP2-high if %UMI≥1 ≥ 25%	4	0	6	0			degenerate_table
+nsclc_PRvsPD_drop0	50.0	TROP2-high if %UMI≥1 ≥ 50%	4	0	3	3	inf	0.19999999999999998	
+nsclc_PRvsPD_drop0	75.0	TROP2-high if %UMI≥1 ≥ 75%	2	2	1	5	5.0	0.5	
