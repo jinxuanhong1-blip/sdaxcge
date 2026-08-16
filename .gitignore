@@ -1,0 +1,11 @@
+# Raw data (public but large / redistribution terms) — reproduce via download_data.sh
+results/hunt_sclc_ici/data/*.txt
+results/hunt_sclc_ici/data/*.h5ad
+results/hunt_sclc_ici/data/*.tar.gz
+results/hunt_sclc_ici/data/*.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
