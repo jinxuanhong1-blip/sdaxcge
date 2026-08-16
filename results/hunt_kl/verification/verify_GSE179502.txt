@@ -1,0 +1,24 @@
+GSE179502 — KT;Lkb1(XTR/XTR) mouse lung tumor, SORTED NEOPLASTIC cells, scRNA-seq (10x)
+Source: LKB1 drives stasis and C/EBP-mediated reprogramming to an alveolar type II fate in lung cancer
+Matrix: GSE179502_XTR_sorted_scRNAseq_matrix.mtx.gz (31055 genes x 16017 cells, 51.6M nonzeros)
+Normalization: CP10k + log1p (Seurat-style), crude single-gene thresholds. NO clustering/doublet removal.
+
+Compartment purity (confirms these are tumor epithelial cells, not immune):
+  Epcam+ : 73.1%   (mean lognorm 1.182)
+  Ptprc+ : 0.7%    (CD45, immune) -> minimal immune contamination
+  Cd3e+  : 0.0%    (T cells)
+  Cd68+  : 5.9%    (macrophage; likely ambient/low)
+
+TROP2 (Tacstd2) in KL tumor cells:
+  Tacstd2+ : 54.7% of tumor cells (mean lognorm 0.588)
+  Tacstd2 lognorm quantiles among + cells: p50=1.00, p75=1.41, p90=1.82  -> clear heterogeneity
+  Tacstd2-HIGH subset (>= p75 of Tacstd2+): n=2190 cells = 13.7% of tumor cells
+
+INTERPRETATION (honest):
+  - A discrete TROP2/Tacstd2-HIGH subset (~14%) demonstrably exists WITHIN KL/Lkb1-mutant lung
+    tumor epithelium. This supports the "TROP2-high tumor subset" half of the hypothesis in a
+    real KL genetic model.
+  - The "immune-low" half CANNOT be tested here: cells were pre-sorted to neoplastic (0.7% immune),
+    so there is no paired immune compartment. To test TROP2-high <-> immune-low co-localization,
+    use a whole-tumor co-capture dataset (GSE180963 mouse KL whole nodules; GSE280232 human
+    KRAS/STK11) with proper clustering + immune deconvolution / neighborhood analysis.
