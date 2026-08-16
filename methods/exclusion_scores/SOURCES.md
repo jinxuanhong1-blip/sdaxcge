@@ -17,6 +17,28 @@ not merely the same named gene set.
 | EMT in PD-L1-high NSCLC ICI | Kim et al., *British Journal of Cancer* 2024, DOI [10.1038/s41416-024-02698-4](https://doi.org/10.1038/s41416-024-02698-4) | Supports EMT as an NSCLC ICI resistance analysis; use the exact paper-specific signature for strict figure replication, or declare Hallmark EMT as a prespecified substitute. |
 | CAF NSCLC ICI | Hu et al., *Journal of Translational Medicine* 2023, PMID [37010552](https://pubmed.ncbi.nlm.nih.gov/37010552/) | Paper-specific fitted CAF risk model is cohort-derived. Do not relabel the portable collagen-3 or TIDE CAF score as that risk model. |
 
+## Representative NSCLC ICI applications, 2020–2026
+
+This is a method catalog, not a claim that every application independently
+validated treatment prediction.
+
+| Year | Method used | NSCLC ICI paper | Evidence boundary |
+|---|---|---|---|
+| 2020 | Immune/IFN-related signatures | Hwang et al., *Scientific Reports*, DOI [10.1038/s41598-019-57218-9](https://doi.org/10.1038/s41598-019-57218-9) | Anti-PD-1 NSCLC cohort; paper-specific M1 and peripheral-T-cell signatures, not IFNG6/TIS. |
+| 2021 | T-cell-inflamed GEP | Poma et al., *Cancers*, DOI [10.3390/cancers13153828](https://doi.org/10.3390/cancers13153828) | Pembrolizumab NSCLC; used a distinct 16-of-18 NanoString-panel average. Do not treat it as Ayers' weighted TIS. |
+| 2023 | NanoString TIS and IFN Gamma GEPs | Gil et al., *Translational Oncology*, DOI [10.1016/j.tranon.2023.101818](https://doi.org/10.1016/j.tranon.2023.101818) | Real-world advanced NSCLC; 66 profiled patients. Proprietary IO360 weighted scores; favorable survival associations, limited response association. |
+| 2023 | CAF risk signature | Hu et al., *Cancer Immunology, Immunotherapy*, DOI [10.1007/s00262-023-03428-0](https://doi.org/10.1007/s00262-023-03428-0) | Cohort-fitted classifier evaluated in two ICB NSCLC cohorts; not interchangeable with TIDE CAF/collagen-3. |
+| 2024 | TACSTD2 and Bindea/ConsensusTME | Bessede et al., *Clinical Cancer Research*, DOI [10.1158/1078-0432.CCR-23-2566](https://doi.org/10.1158/1078-0432.CCR-23-2566) | Randomized atezolizumab versus docetaxel trials plus independent ICI cohort; no TIDE analysis. |
+| 2024 | EMT | Kim et al., *British Journal of Cancer*, DOI [10.1038/s41416-024-02698-4](https://doi.org/10.1038/s41416-024-02698-4) | Two ICI NSCLC cohorts; adverse association concentrated in PD-L1-high disease. |
+| 2025 | TIDE Exclusion/CAF | Li et al., *Communications Biology*, DOI [10.1038/s42003-025-09087-4](https://doi.org/10.1038/s42003-025-09087-4) | Spatial fibroblast ecotypes evaluated in ICB-treated NSCLC datasets; TIDE-based secondary characterization. |
+| 2025 | TIDE and Charoentong IPS | PRAS40/AKT1S1 NSCLC study, PMCID [PMC12514079](https://pmc.ncbi.nlm.nih.gov/articles/PMC12514079/) | TIDE/IPS were in-silico response proxies; a separate plasma ICB cohort did not turn those scores into randomized treatment-predictive validation. |
+
+The 2025 Tempus “Immune Profile Score,” DOI
+[10.1136/jitc-2025-011363](https://doi.org/10.1136/jitc-2025-011363), is a
+different proprietary multiomic model (TMB plus RNA features). It is **not**
+Charoentong's Immunophenoscore implemented here, despite sharing the acronym
+IPS.
+
 ## Scope note for 2020–2026
 
 Many 2020–2026 NSCLC papers *apply* TIDE, IPS, Hallmark EMT, or newly fitted CAF
