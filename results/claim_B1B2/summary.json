@@ -1,0 +1,137 @@
+{
+  "B2": {
+    "claim_as_corrected": "Gygi/Nusinow CCLE TMT-MS, Tissue of Origin = Lung, complete CLDN4\u2013TACSTD2 pairs, n=45, Spearman \u03c1\u22480.69",
+    "verdict": "supported",
+    "protein_data_availability": {
+      "Sanger_DIA_MS_949_line_panel": {
+        "TROP2/TACSTD2": {
+          "uniprot": "P09758",
+          "records": 948
+        },
+        "CLDN4": {
+          "uniprot": "O14493",
+          "records": 0
+        }
+      },
+      "CCLE_RPPA500": {
+        "antibodies": 447,
+        "CLDN4_present": false,
+        "TACSTD2_present": false
+      },
+      "conclusion": "The pair cannot be computed in these two additional public protein matrices: CLDN4 is absent from Sanger DIA-MS and both analytes are absent from CCLE RPPA500."
+    },
+    "Gygi_CCLE_protein_result": {
+      "definition": "Gygi Tissue of Origin == Lung; complete pairs",
+      "note": "This is the n=45 pairing that yields \u03c1\u22480.69. It is all Gygi lung, not NSCLC-only.",
+      "models_in_subset": 77,
+      "complete_pairs": 45,
+      "spearman_rho": 0.6931488801054019,
+      "spearman_p": 1.3117431950020398e-07,
+      "pearson_r": 0.6871878120527253,
+      "pearson_p": 1.853557014326504e-07
+    },
+    "Gygi_protein_sensitivities": [
+      {
+        "definition": "Gygi Tissue of Origin == Lung; complete pairs",
+        "note": "This is the n=45 pairing that yields \u03c1\u22480.69. It is all Gygi lung, not NSCLC-only.",
+        "models_in_subset": 77,
+        "complete_pairs": 45,
+        "spearman_rho": 0.6931488801054019,
+        "spearman_p": 1.3117431950020398e-07,
+        "pearson_r": 0.6871878120527253,
+        "pearson_p": 1.853557014326504e-07
+      },
+      {
+        "definition": "DepMap 20Q2 lineage_subtype == NSCLC within Gygi lung",
+        "note": "Stricter NSCLC filter. n drops because CLDN4 is missing in 28 NSCLC models.",
+        "models_in_subset": 64,
+        "complete_pairs": 36,
+        "spearman_rho": 0.7305019305019306,
+        "spearman_p": 4.2438356941709085e-07,
+        "pearson_r": 0.7428213656767325,
+        "pearson_p": 2.1285725730711783e-07
+      }
+    ],
+    "lineage_in_n45": {
+      "NSCLC": 36,
+      "SCLC": 9
+    },
+    "RNA_sensitivity_checks": [
+      {
+        "release": "20Q2",
+        "modality": "RNA-seq, log2(TPM+1); not protein abundance",
+        "NSCLC_definition": "lineage_subtype == 'NSCLC'",
+        "n": 137,
+        "spearman_rho": 0.6601132249218101,
+        "spearman_p": 1.7246274066561698e-18,
+        "pearson_r": 0.6387260406346469,
+        "pearson_p": 4.56374732941004e-17,
+        "subtype_field": "OncotreeSubtype"
+      },
+      {
+        "release": "24Q2",
+        "modality": "RNA-seq, log2(TPM+1); not protein abundance",
+        "NSCLC_definition": "OncotreePrimaryDisease == 'Non-Small Cell Lung Cancer'",
+        "n": 141,
+        "spearman_rho": 0.6616981449301607,
+        "spearman_p": 4.1701307773850965e-19,
+        "pearson_r": 0.6257520867512625,
+        "pearson_p": 1.0750760757013878e-16,
+        "subtype_field": "OncotreeSubtype"
+      }
+    ]
+  },
+  "B1": {
+    "dataset": "EB++AdjustPANCAN_IlluminaHiSeq_RNASeqV2.geneExp.xena",
+    "unit": "log2(norm_value+1), batch-effects-normalized mRNA",
+    "surfaceome_definition": "SURFY 5% FPR representative human surfaceome plus GPI proteins",
+    "surfaceome_version_source": "https://raw.githubusercontent.com/steveneschrich/surfaceome/main/data-raw/surfy/table_S3_surfaceome.xlsx",
+    "surfaceome_input_proteins": 2886,
+    "unique_surface_gene_symbols": 2799,
+    "surface_genes_present_in_xena": 2619,
+    "samples_all": 11060,
+    "primary_tumors": 9701,
+    "top_surface_gene_all_samples": {
+      "gene": "PVRL4",
+      "n_all_samples": 11060,
+      "spearman_rho_all_samples": 0.8265358775630656,
+      "spearman_p_all_samples": 0.0,
+      "pearson_r_all_samples": 0.8360561439662485,
+      "pearson_p_all_samples": 0.0,
+      "n_primary_tumors": 9701,
+      "spearman_rho_primary_tumors": 0.8198781746226961,
+      "spearman_p_primary_tumors": 0.0,
+      "pearson_r_primary_tumors": 0.8364604385448022,
+      "pearson_p_primary_tumors": 0.0,
+      "n_primary_tumors_fixed_effect": 9701,
+      "spearman_rho_cancer_type_fixed_effect": 0.55208544489419,
+      "spearman_p_cancer_type_fixed_effect": 0.0,
+      "rank_spearman_rho_all_samples": 1,
+      "rank_spearman_rho_primary_tumors": 1,
+      "rank_spearman_rho_cancer_type_fixed_effect": 1,
+      "rank_pearson_r_all_samples": 1,
+      "rank_pearson_r_primary_tumors": 1
+    },
+    "CLDN4": {
+      "gene": "CLDN4",
+      "n_all_samples": 11060,
+      "spearman_rho_all_samples": 0.6145976268419965,
+      "spearman_p_all_samples": 0.0,
+      "pearson_r_all_samples": 0.7691530784479256,
+      "pearson_p_all_samples": 0.0,
+      "n_primary_tumors": 9701,
+      "spearman_rho_primary_tumors": 0.5710786922821113,
+      "spearman_p_primary_tumors": 0.0,
+      "pearson_r_primary_tumors": 0.7487429512259667,
+      "pearson_p_primary_tumors": 0.0,
+      "n_primary_tumors_fixed_effect": 9701,
+      "spearman_rho_cancer_type_fixed_effect": 0.3977257810571264,
+      "spearman_p_cancer_type_fixed_effect": 0.0,
+      "rank_spearman_rho_all_samples": 14,
+      "rank_spearman_rho_primary_tumors": 29,
+      "rank_spearman_rho_cancer_type_fixed_effect": 5,
+      "rank_pearson_r_all_samples": 4,
+      "rank_pearson_r_primary_tumors": 4
+    }
+  }
+}

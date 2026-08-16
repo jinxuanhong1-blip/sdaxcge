@@ -1,0 +1,3 @@
+definition,note,models_in_subset,complete_pairs,spearman_rho,spearman_p,pearson_r,pearson_p
+Gygi Tissue of Origin == Lung; complete pairs,"This is the n=45 pairing that yields ρ≈0.69. It is all Gygi lung, not NSCLC-only.",77,45,0.6931488801054019,1.3117431950020398e-07,0.6871878120527253,1.853557014326504e-07
+DepMap 20Q2 lineage_subtype == NSCLC within Gygi lung,Stricter NSCLC filter. n drops because CLDN4 is missing in 28 NSCLC models.,64,36,0.7305019305019306,4.2438356941709085e-07,0.7428213656767325,2.1285725730711783e-07
