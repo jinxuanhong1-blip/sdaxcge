@@ -1,0 +1,195 @@
+family	malignant_def	metric	min_mal_cells	n	n_NMPR	n_MPR	mean_NMPR	mean_MPR	delta_NMPR_minus_MPR	U	p	p_onesided_NMPR_gt_MPR	rho	tnk_def	match_NMPR_gt_MPR	match_rho_window	note
+NMPR_vs_MPR	p95	mean_log1p_cp10k	0	12	8	4	1.8643959328704367	1.453278867785319	0.4111170650851177	25.0	0.15353535353535352	0.07272727272727272			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95	mean_log1p_cp10k	5	12	8	4	1.8643959328704367	1.453278867785319	0.4111170650851177	25.0	0.15353535353535352	0.07272727272727272			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95	pct_pos_ge1	0	12	8	4	0.9748776888628026	0.9515472271832877	0.023330461679514913	22.0	0.36363636363636365	0.12323232323232323			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95	pct_pos_ge1	5	12	8	4	0.9748776888628026	0.9515472271832877	0.023330461679514913	22.0	0.36363636363636365	0.12323232323232323			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95	pct_pos_ge2	0	12	8	4	0.9228180375861184	0.869547442495067	0.053270595091051365	18.5	0.7171717171717171	0.17373737373737375			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95	pct_pos_ge2	5	12	8	4	0.9228180375861184	0.869547442495067	0.053270595091051365	18.5	0.7171717171717171	0.17373737373737375			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95	pct_pos_ge3	0	12	8	4	0.8879924058747851	0.7743436880398321	0.113648717834953	22.5	0.301010101010101	0.09898989898989899			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95	pct_pos_ge3	5	12	8	4	0.8879924058747851	0.7743436880398321	0.113648717834953	22.5	0.301010101010101	0.09898989898989899			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p90	mean_log1p_cp10k	0	12	8	4	1.850962861045177	1.3953918178229054	0.4555710432222715	25.0	0.15353535353535352	0.044444444444444446			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p90	mean_log1p_cp10k	5	12	8	4	1.850962861045177	1.3953918178229054	0.4555710432222715	25.0	0.15353535353535352	0.044444444444444446			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p90	pct_pos_ge1	0	12	8	4	0.9712855801128923	0.9440045565242396	0.027281023588652697	21.0	0.4585858585858586	0.1292929292929293			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p90	pct_pos_ge1	5	12	8	4	0.9712855801128923	0.9440045565242396	0.027281023588652697	21.0	0.4585858585858586	0.1292929292929293			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	mu2	mean_log1p_cp10k	0	12	8	4	1.8307647602550783	1.4449673515716728	0.3857974086834055	23.0	0.2828282828282828	0.08080808080808081			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	mu2	mean_log1p_cp10k	5	12	8	4	1.8307647602550783	1.4449673515716728	0.3857974086834055	23.0	0.2828282828282828	0.08080808080808081			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	gmm	mean_log1p_cp10k	0	12	8	4	1.818373969289704	1.3718914530100421	0.44648251627966196	27.0	0.07272727272727272	0.044444444444444446			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	gmm	mean_log1p_cp10k	5	12	8	4	1.818373969289704	1.3718914530100421	0.44648251627966196	27.0	0.07272727272727272	0.044444444444444446			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	p95_nnl	mean_log1p_cp10k	0	12	8	4	2.0736391077169594	0.9066854331443829	1.1669536745725764	7.0	0.25	0.125			PARTIAL_direction_NS		exact enumeration C(8,7)=8; pCR counted as MPR
+NMPR_vs_MPR	p95_nnl	mean_log1p_cp10k	5	6	5	1	1.9402677011997487	0.9066854331443829	1.033582268055366	5.0	0.3333333333333333	0.16666666666666666			PARTIAL_direction_NS		exact enumeration C(6,5)=6; pCR counted as MPR
+NMPR_vs_MPR	drmref	mean_log1p_cp10k	0	12	8	4	1.570699174703016	1.120210630662227	0.45048854404078886	25.0	0.15353535353535352	0.05454545454545454			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	drmref	mean_log1p_cp10k	5	12	8	4	1.570699174703016	1.120210630662227	0.45048854404078886	25.0	0.15353535353535352	0.05454545454545454			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	drmref	pct_pos_ge1	0	12	8	4	0.7508862789838386	0.6603107221641704	0.09057555681966822	19.0	0.6828282828282828	0.20404040404040405			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	drmref	pct_pos_ge1	5	12	8	4	0.7508862789838386	0.6603107221641704	0.09057555681966822	19.0	0.6828282828282828	0.20404040404040405			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	all_epi	mean_log1p_cp10k	0	12	8	4	1.598050844330882	1.2562576810377628	0.34179316329311926	26.0	0.10909090909090909	0.08080808080808081			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	all_epi	mean_log1p_cp10k	5	12	8	4	1.598050844330882	1.2562576810377628	0.34179316329311926	26.0	0.10909090909090909	0.08080808080808081			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	dip_p95	mean_log1p_cp10k	0	12	8	4	1.4242324787933474	1.1429128401635413	0.281319638629806	22.0	0.36767676767676766	0.1393939393939394			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+NMPR_vs_MPR	dip_p95	mean_log1p_cp10k	5	12	8	4	1.4242324787933474	1.1429128401635413	0.281319638629806	22.0	0.36767676767676766	0.1393939393939394			PARTIAL_direction_NS		exact enumeration C(12,8)=495; pCR counted as MPR
+vs_TNK	p95	mean_log1p_cp10k	0	12	8	4					0.8121826980280591		0.07692307692307693	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.4299187850328841		0.2517482517482518	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.9827917689028476		0.006993006993006993	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	mean_log1p_cp10k	5	12	8	4					0.8121826980280591		0.07692307692307693	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.4299187850328841		0.2517482517482518	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.9827917689028476		0.006993006993006993	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	mean_log1p_cp10k	0	12	8	4					0.712884219214772		0.1188811188811189	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.3541476412329215		0.2937062937062937	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.8628980736949713		-0.055944055944055944	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	mean_log1p_cp10k	5	12	8	4					0.712884219214772		0.1188811188811189	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.3541476412329215		0.2937062937062937	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.8628980736949713		-0.055944055944055944	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	mean_log1p_cp10k	0	12	8	4					0.6805975082860817		0.1328671328671329	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.33058925941210965		0.3076923076923077	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.9655902689187796		0.013986013986013986	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	mean_log1p_cp10k	5	12	8	4					0.6805975082860817		0.1328671328671329	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.33058925941210965		0.3076923076923077	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.9655902689187796		0.013986013986013986	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	mean_log1p_cp10k	0	12	8	4					0.26523878689278996		-0.34965034965034975	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.470531995381542		-0.23076923076923078	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	0	12	8	4					0.19083587400450036		-0.4055944055944056	drmref_TNK		MATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	mean_log1p_cp10k	5	12	8	4					0.26523878689278996		-0.34965034965034975	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.470531995381542		-0.23076923076923078	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	mean_log1p_cp10k	5	12	8	4					0.19083587400450036		-0.4055944055944056	drmref_TNK		MATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	0	12	8	4					0.6306611257501797		0.15493341934487972	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.470531995381542		0.23076923076923078	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.9312343512018807		0.027972027972027972	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	5	12	8	4					0.6306611257501797		0.15493341934487972	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.470531995381542		0.23076923076923078	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.9312343512018807		0.027972027972027972	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	0	12	8	4					0.5390267201932187		0.19718798825711964	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.37856866966230307		0.2797202797202798	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.9140933424107599		-0.034965034965034975	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	5	12	8	4					0.5390267201932187		0.19718798825711964	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.37856866966230307		0.2797202797202798	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.9140933424107599		-0.034965034965034975	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	0	12	8	4					0.49545035953231154		0.2183152727132396	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.34225952894002437		0.30069930069930073	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.9140933424107599		0.034965034965034975	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	5	12	8	4					0.49545035953231154		0.2183152727132396	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.34225952894002437		0.30069930069930073	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.9140933424107599		0.034965034965034975	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	0	12	8	4					0.2135115526743915		-0.3873335483621993	drmref_TNK		NEAR	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.34225952894002437		-0.30069930069930073	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	0	12	8	4					0.1445863013033476		-0.44755244755244755	drmref_TNK		MATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge1	5	12	8	4					0.2135115526743915		-0.3873335483621993	drmref_TNK		NEAR	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.34225952894002437		-0.30069930069930073	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge1	5	12	8	4					0.1445863013033476		-0.44755244755244755	drmref_TNK		MATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	0	12	8	4					0.9741445288204628		-0.010507897025075194	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.5717012385276553		0.18181818181818185	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.8121826980280591		-0.07692307692307693	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	5	12	8	4					0.9741445288204628		-0.010507897025075194	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.5717012385276553		0.18181818181818185	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.8121826980280591		-0.07692307692307693	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	0	12	8	4					0.8968061517543842		0.042031588100300776	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.45680085263992326		0.2377622377622378	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.8121826980280591		-0.07692307692307693	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	5	12	8	4					0.8968061517543842		0.042031588100300776	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.45680085263992326		0.2377622377622378	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.8121826980280591		-0.07692307692307693	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	0	12	8	4					0.8118586763333356		0.0770579115172181	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.41677476889913817		0.25874125874125875	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.8121826980280591		-0.07692307692307693	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	5	12	8	4					0.8118586763333356		0.0770579115172181	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.41677476889913817		0.25874125874125875	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.8121826980280591		-0.07692307692307693	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	0	12	8	4					0.23473669062919864		-0.37127902821932357	drmref_TNK		NEAR	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.44326193645018325		-0.2447552447552448	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	0	12	8	4					0.20806346369535322		-0.3916083916083916	drmref_TNK		NEAR	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge2	5	12	8	4					0.23473669062919864		-0.37127902821932357	drmref_TNK		NEAR	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.44326193645018325		-0.2447552447552448	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge2	5	12	8	4					0.20806346369535322		-0.3916083916083916	drmref_TNK		NEAR	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	0	12	8	4					0.8371878544641639		0.0665500144921429	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.44326193645018325		0.2447552447552448	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.7787253962454419		-0.09090909090909093	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	5	12	8	4					0.8371878544641639		0.0665500144921429	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.44326193645018325		0.2447552447552448	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.7787253962454419		-0.09090909090909093	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	0	12	8	4					0.7783460719179525		0.09106844088398502	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.39109677094189615		0.27272727272727276	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.729194990751066		-0.11188811188811189	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	5	12	8	4					0.7783460719179525		0.09106844088398502	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.39109677094189615		0.27272727272727276	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.729194990751066		-0.11188811188811189	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	0	12	8	4					0.7451766219125174		0.10507897025075194	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.36625146058358227		0.2867132867132868	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.8459309212287789		-0.06293706293706294	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	5	12	8	4					0.7451766219125174		0.10507897025075194	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.36625146058358227		0.2867132867132868	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.8459309212287789		-0.06293706293706294	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	0	12	8	4					0.32969829123223027		-0.3082316460688724	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.6020994277865379		-0.16783216783216784	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	0	12	8	4					0.28612290291498743		-0.3356643356643357	drmref_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95	pct_pos_ge3	5	12	8	4					0.32969829123223027		-0.3082316460688724	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.6020994277865379		-0.16783216783216784	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95	pct_pos_ge3	5	12	8	4					0.28612290291498743		-0.3356643356643357	drmref_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.4556448907375822		-0.30952380952380953	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.530922861565801		-0.261904761904762	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.1827207505397148		-0.523809523809524	lineage_TNK		NEAR	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.6227871720116619		0.2571428571428572	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.11078717201166179		0.7142857142857143	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.8717434402332361		0.08571428571428573	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.5701563208157683		-0.2380952380952381	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.693238811728395		-0.1666666666666667	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.1827207505397148		-0.523809523809524	umi_CD3E_CD8A_NKG7		NEAR	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.6227871720116619		0.2571428571428572	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.11078717201166179		0.7142857142857143	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.8717434402332361		0.08571428571428573	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.5701563208157683		-0.2380952380952381	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.693238811728395		-0.1666666666666667	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.1827207505397148		-0.523809523809524	umi_CD3E_or_NKG7notCD3E		NEAR	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.6227871720116619		0.2571428571428572	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.11078717201166179		0.7142857142857143	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.8717434402332361		0.08571428571428573	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.13895995716070672		-0.5714285714285715	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.11952980613879269		-0.5952380952380953	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	0	8	7	1					0.10173303745426478		-0.6190476190476191	drmref_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.7040000000000001		-0.2	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.5440932944606415		0.3142857142857143	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	p95_nnl	mean_log1p_cp10k	5	6	5	1					0.26570262390670546		-0.5428571428571429	drmref_TNK		NEAR	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	0	12	8	4					0.696683109395766		-0.1258741258741259	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.696683109395766		0.1258741258741259	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.470531995381542		-0.23076923076923078	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	5	12	8	4					0.696683109395766		-0.1258741258741259	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.696683109395766		0.1258741258741259	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.470531995381542		-0.23076923076923078	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	0	12	8	4					0.7787253962454419		-0.09090909090909093	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.6020994277865379		0.16783216783216784	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.33058925941210965		-0.3076923076923077	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	5	12	8	4					0.7787253962454419		-0.09090909090909093	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.6020994277865379		0.16783216783216784	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.33058925941210965		-0.3076923076923077	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	0	12	8	4					0.7954145018538978		-0.08391608391608392	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.5868236643627043		0.17482517482517487	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.45680085263992326		-0.2377622377622378	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	5	12	8	4					0.7954145018538978		-0.08391608391608392	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.5868236643627043		0.17482517482517487	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.45680085263992326		-0.2377622377622378	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	0	12	8	4					0.10625237175934595		-0.4895104895104896	drmref_TNK		MATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.28612290291498743		-0.3356643356643357	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	0	12	8	4					0.03858845292201946		-0.6013986013986015	drmref_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	drmref	mean_log1p_cp10k	5	12	8	4					0.10625237175934595		-0.4895104895104896	drmref_TNK		MATCH	
+vs_TNK_residual_on_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.28612290291498743		-0.3356643356643357	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	drmref	mean_log1p_cp10k	5	12	8	4					0.03858845292201946		-0.6013986013986015	drmref_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	0	12	8	4					0.7621216559962992		-0.0979020979020979	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.6646331617926677		0.1398601398601399	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.7787253962454419		-0.09090909090909093	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	5	12	8	4					0.7621216559962992		-0.0979020979020979	lineage_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.6646331617926677		0.1398601398601399	lineage_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.7787253962454419		-0.09090909090909093	lineage_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	0	12	8	4					0.9140933424107599		-0.034965034965034975	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.49855598552418845		0.21678321678321683	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.6646331617926677		-0.1398601398601399	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	5	12	8	4					0.9140933424107599		-0.034965034965034975	umi_CD3E_CD8A_NKG7		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.49855598552418845		0.21678321678321683	umi_CD3E_CD8A_NKG7		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.6646331617926677		-0.1398601398601399	umi_CD3E_CD8A_NKG7		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	0	12	8	4					0.9655902689187796		-0.013986013986013986	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.470531995381542		0.23076923076923078	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.7787253962454419		-0.09090909090909093	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	5	12	8	4					0.9655902689187796		-0.013986013986013986	umi_CD3E_or_NKG7notCD3E		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.470531995381542		0.23076923076923078	umi_CD3E_or_NKG7notCD3E		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.7787253962454419		-0.09090909090909093	umi_CD3E_or_NKG7notCD3E		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	0	12	8	4					0.49855598552418845		-0.21678321678321683	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.6646331617926677		-0.1398601398601399	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	0	12	8	4					0.49855598552418845		-0.21678321678321683	drmref_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)
+vs_TNK	all_epi	mean_log1p_cp10k	5	12	8	4					0.49855598552418845		-0.21678321678321683	drmref_TNK		MISMATCH	
+vs_TNK_residual_on_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.6646331617926677		-0.1398601398601399	drmref_TNK		MISMATCH	; residual = TACSTD2 ~ epithelial_fraction (OLS)
+vs_TNK_partial_epi_frac	all_epi	mean_log1p_cp10k	5	12	8	4					0.49855598552418845		-0.21678321678321683	drmref_TNK		MISMATCH	; partial Spearman controlling epithelial_fraction (rank residuals)

@@ -1,0 +1,23 @@
+family	malignant_def	metric	tnk_def	n	n_NMPR	n_MPR	mean_NMPR	mean_MPR	delta	rho	p	match
+NMPR_vs_MPR	p95_CNV	mean_log1p_cp10k		12	8	4	1.864	1.453	0.411		0.154	PARTIAL_direction_NS
+NMPR_vs_MPR	p95_CNV	pct_pos_UMIge1		12	8	4	0.975	0.952	0.023		0.364	PARTIAL_direction_NS
+NMPR_vs_MPR	p95_CNV	pct_pos_UMIge2		12	8	4	0.923	0.870	0.053		0.717	PARTIAL_direction_NS
+NMPR_vs_MPR	p95_CNV	pct_pos_UMIge3		12	8	4	0.888	0.774	0.114		0.301	PARTIAL_direction_NS
+NMPR_vs_MPR	p90_CNV	mean_log1p_cp10k		12	8	4	1.851	1.395	0.456		0.154	PARTIAL_direction_NS
+NMPR_vs_MPR	mu2_CNV	mean_log1p_cp10k		12	8	4	1.831	1.445	0.386		0.283	PARTIAL_direction_NS
+NMPR_vs_MPR	gmm_CNV	mean_log1p_cp10k		12	8	4	1.818	1.372	0.446		0.073	PARTIAL_direction_NS
+NMPR_vs_MPR	drmref	mean_log1p_cp10k		12	8	4	1.571	1.120	0.450		0.154	PARTIAL_direction_NS
+NMPR_vs_MPR	all_epithelial	mean_log1p_cp10k		12	8	4	1.598	1.256	0.342		0.109	PARTIAL_direction_NS
+vs_TNK	p95_CNV	mean_log1p_cp10k	lineage_TNK	12	8	4			0.077	0.812	MISMATCH
+vs_TNK	p95_CNV	mean_log1p_cp10k	umi_CD3E_CD8A_NKG7	12	8	4			0.119	0.713	MISMATCH
+vs_TNK	p95_CNV	mean_log1p_cp10k	umi_CD3E_or_NKG7notCD3E	12	8	4			0.133	0.681	MISMATCH
+vs_TNK	p95_CNV	mean_log1p_cp10k	drmref_TNK	12	8	4			-0.350	0.265	MISMATCH
+vs_TNK	p95_CNV	pct_pos_UMIge1	drmref_TNK	12	8	4			-0.387	0.214	NEAR
+vs_TNK	drmref	mean_log1p_cp10k	drmref_TNK	12	8	4			-0.490	0.106	MATCH_window_p_NS
+vs_TNK	all_epithelial	mean_log1p_cp10k	lineage_TNK	12	8	4			-0.098	0.762	MISMATCH
+vs_TNK_residual_epi_frac	p95_CNV	mean_log1p_cp10k	lineage_TNK	12	8	4			0.252	0.430	MISMATCH
+vs_TNK_residual_epi_frac	p95_CNV	mean_log1p_cp10k	umi_CD3E_CD8A_NKG7	12	8	4			0.294	0.354	MISMATCH
+vs_TNK_residual_epi_frac	p95_CNV	mean_log1p_cp10k	drmref_TNK	12	8	4			-0.231	0.471	MISMATCH
+vs_TNK_partial_epi_frac	p95_CNV	mean_log1p_cp10k	lineage_TNK	12	8	4			0.007	0.983	MISMATCH
+vs_TNK_partial_epi_frac	p95_CNV	mean_log1p_cp10k	drmref_TNK	12	8	4			-0.406	0.191	MATCH_window_p_NS
+vs_TNK_partial_epi_frac	p95_CNV	pct_pos_UMIge1	drmref_TNK	12	8	4			-0.448	0.145	MATCH_window_p_NS

@@ -1,0 +1,16 @@
+Sample	Patient	Resource	Sex	Age	Clinical_Stage	Pathology	PD1_Antibody	Chemotherapy	Pathologic_Response	Residual_Tumor	RECIST	response	is_post	residual_tumor
+BD_immune01	P01	Pre-treatment biopsy	Male	68	IIIA	Squamous	Toripalimab	Carboplatin+Docetaxel	NE	NE	SD	NE	False	
+BD_immune02	P02	Post-treatment surgery	Female	67	IIIA	Adeno	Toripalimab	Carboplatin+Pemetrexed	NMPR	0.8	PR	NMPR	True	0.8
+BD_immune03	P03	Post-treatment surgery	Male	66	IIIA	Squamous	Toripalimab	Carboplatin+Gemcitabine	MPR	0.05	PR	MPR	True	0.05
+BD_immune04	P04	Post-treatment surgery	Male	66	IIIA	Adeno	Toripalimab	Carboplatin+Pemetrexed	NMPR	0.2	PR	NMPR	True	0.2
+BD_immune05	P05	Pre-treatment biopsy	Female	34	IIIA	Adeno	Toripalimab	Carboplatin+Pemetrexed	NMPR	0.78	PR	NMPR	False	0.78
+BD_immune06	P06	Post-treatment surgery	Female	45	IIIA	Adeno	Toripalimab	Carboplatin+Pemetrexed	pCR	0	PR	MPR	True	0.0
+BD_immune07	P07	Post-treatment surgery	Male	57	IIIA	Squamous	Toripalimab	Carboplatin+Gemcitabine	NMPR	0.9	SD	NMPR	True	0.9
+BD_immune08	P08	Pre-treatment biopsy	Female	61	IIIA	Adeno	Camrelizumab	Carboplatin+Pemetrexed	NMPR	0.95	SD	NMPR	False	0.95
+BD_immune09	P09	Post-treatment surgery	Male	66	IIIA	Squamous	Sintilimab	Carboplatin+Gemcitabine	NMPR	0.95	PR	NMPR	True	0.95
+BD_immune10	P10	Post-treatment surgery	Male	70	IIIA	Squamous	Sintilimab	Carboplatin+Gemcitabine	NMPR	0.7	PR	NMPR	True	0.7
+BD_immune11	P11	Post-treatment surgery	Female	67	IIIA	Adeno	Sintilimab	Carboplatin+Pemetrexed	MPR	0.09	SD	MPR	True	0.09
+BD_immune12	P12	Post-treatment surgery	Male	77	IIIA	Adeno	Sintilimab	Carboplatin+Pemetrexed	NMPR	0.8	SD	NMPR	True	0.8
+BD_immune13	P13	Post-treatment surgery	Male	59	IIIA	Squamous	Sintilimab	Carboplatin+Gemcitabine	NMPR	0.4	PR	NMPR	True	0.4
+BD_immune14	P14	Post-treatment surgery	Male	79	IIIA	Squamous	Sintilimab	Carboplatin+Gemcitabine	MPR	0.01	PR	MPR	True	0.01
+BD_immune15	P15	Post-treatment surgery	Male	55	IIIA	Adeno	Sintilimab	Carboplatin+Pemetrexed	NMPR	0.95	SD	NMPR	True	0.95
