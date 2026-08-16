@@ -1,0 +1,49 @@
+{
+  "question": "Does TACSTD2-high vs low GSEA enrich keratin/TJ and deplete EMT in TCGA-LUAD and TCGA-LUSC?",
+  "verdicts": [
+    {
+      "cohort": "TCGA-LUAD",
+      "n": 515,
+      "n_high": 129,
+      "n_low": 129,
+      "label_fdr0.05": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "label_fdr0.25": "keratin_TJ_up_Hallmark_EMT_opposite",
+      "tj_up_fdr0.05": true,
+      "krt_up_fdr0.05": true,
+      "emt_down_fdr0.05": false,
+      "hallmark_emt_dir": "up",
+      "gobp_emt_dir": "down",
+      "hallmark_emt": "NES=+1.546 p=0.001998 FDR=0.002664",
+      "gobp_emt": "NES=-1.383 p=0.02697 FDR=0.02697",
+      "hallmark_apical_junction": "NES=+2.193 p=0.000999 FDR=0.001499",
+      "gobp_keratinization": "NES=+2.699 p=0.000999 FDR=0.001499",
+      "kegg_tight_junction": "NES=+2.036 p=0.000999 FDR=0.001499",
+      "tacstd2_vs_purity_rho": 0.007390157000782001,
+      "tacstd2_vs_purity_p": 0.8688112903914171
+    },
+    {
+      "cohort": "TCGA-LUSC",
+      "n": 502,
+      "n_high": 126,
+      "n_low": 126,
+      "label_fdr0.05": "supportive",
+      "label_fdr0.25": "supportive",
+      "tj_up_fdr0.05": true,
+      "krt_up_fdr0.05": true,
+      "emt_down_fdr0.05": true,
+      "hallmark_emt_dir": "down",
+      "gobp_emt_dir": "down",
+      "hallmark_emt": "NES=-1.352 p=0.01598 FDR=0.01598",
+      "gobp_emt": "NES=-1.693 p=0.004995 FDR=0.005994",
+      "hallmark_apical_junction": "NES=+1.600 p=0.000999 FDR=0.001332",
+      "gobp_keratinization": "NES=+3.182 p=0.000999 FDR=0.001332",
+      "kegg_tight_junction": "NES=+1.698 p=0.000999 FDR=0.001332",
+      "tacstd2_vs_purity_rho": -0.07364538495115974,
+      "tacstd2_vs_purity_p": 0.1024142234474498
+    }
+  ],
+  "nperm": 1000,
+  "seed": 42,
+  "split_primary": "quartile",
+  "ranking": "Welch t high-minus-low"
+}
