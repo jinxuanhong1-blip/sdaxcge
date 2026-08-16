@@ -1,0 +1,281 @@
+{
+  "task": "B6_radius",
+  "claim": "CLDN4-high tumor domains spatially avoid immune niches (expected: significant spatial exclusion, i.e. negative rho of meaningful size)",
+  "pr67_mismatch": "Visium CLDN4 vs immune neighborhood |median partial rho| <= 0.06",
+  "rework": {
+    "visium": "tumor sections + tumor spots only; hex rings 1/2/3; immune-rich spots excluded from CLDN4/TACSTD2 score",
+    "geomx": "tumor / PanCK compartment only; same-AOI correlation (no rings, no stroma pairing)",
+    "did_we_tune_to_enlarge_rho": false
+  },
+  "visium": {
+    "status": "ran",
+    "n_sections_attempted": 20,
+    "n_sections_with_rows": 20,
+    "missing_sections": [],
+    "primary_rows": [
+      {
+        "gene": "CLDN4",
+        "neighborhood": "immune_broad",
+        "radius": "1",
+        "index_definition": "index_tumor_not_immune_rich",
+        "dataset": "E-MTAB-13530",
+        "n_sections": 20,
+        "n_patients": 8,
+        "median_partial_epi_rho": -0.038045314451927555,
+        "mean_partial_epi_rho": -0.021079863235262175,
+        "n_negative_partial_epi": 13,
+        "n_positive_partial_epi": 7,
+        "wilcoxon_p_partial_epi": 0.21616744995117188,
+        "stouffer_z_partial_epi": -2.8981411901297927,
+        "stouffer_p_partial_epi": 0.0037538155917233988,
+        "abs_median_partial_epi_rho": 0.038045314451927555,
+        "median_partial_epi_imm_rho": -0.019865731774757575,
+        "mean_partial_epi_imm_rho": -0.013679041986792808,
+        "n_negative_partial_epi_imm": 13,
+        "n_positive_partial_epi_imm": 7,
+        "wilcoxon_p_partial_epi_imm": 0.47490501403808594,
+        "stouffer_z_partial_epi_imm": -1.8153112306683217,
+        "stouffer_p_partial_epi_imm": 0.06947609407316381,
+        "abs_median_partial_epi_imm_rho": 0.019865731774757575,
+        "median_spearman_rho": -0.06079604884062351,
+        "mean_spearman_rho": -0.04240431823352735,
+        "n_negative_spearman": 12,
+        "n_positive_spearman": 8,
+        "wilcoxon_p_spearman": 0.06372261047363281,
+        "stouffer_z_spearman": -5.752614507336787,
+        "stouffer_p_spearman": 8.787370824036456e-09,
+        "abs_median_spearman_rho": 0.06079604884062351
+      },
+      {
+        "gene": "CLDN4",
+        "neighborhood": "immune_broad",
+        "radius": "2",
+        "index_definition": "index_tumor_not_immune_rich",
+        "dataset": "E-MTAB-13530",
+        "n_sections": 20,
+        "n_patients": 8,
+        "median_partial_epi_rho": 0.016166779301911793,
+        "mean_partial_epi_rho": 0.0014409599223234371,
+        "n_negative_partial_epi": 8,
+        "n_positive_partial_epi": 12,
+        "wilcoxon_p_partial_epi": 0.7841262817382812,
+        "stouffer_z_partial_epi": 0.37885672083100747,
+        "stouffer_p_partial_epi": 0.7047942643405513,
+        "abs_median_partial_epi_rho": 0.016166779301911793,
+        "median_partial_epi_imm_rho": 0.010783927058396125,
+        "mean_partial_epi_imm_rho": 0.008805022048437444,
+        "n_negative_partial_epi_imm": 8,
+        "n_positive_partial_epi_imm": 12,
+        "wilcoxon_p_partial_epi_imm": 0.4523754119873047,
+        "stouffer_z_partial_epi_imm": 1.4202944626569776,
+        "stouffer_p_partial_epi_imm": 0.15552197257353956,
+        "abs_median_partial_epi_imm_rho": 0.010783927058396125,
+        "median_spearman_rho": 0.010387266425163121,
+        "mean_spearman_rho": -0.009774004377680948,
+        "n_negative_spearman": 9,
+        "n_positive_spearman": 11,
+        "wilcoxon_p_spearman": 0.8123550415039062,
+        "stouffer_z_spearman": -1.0585046721285696,
+        "stouffer_p_spearman": 0.2898254218623374,
+        "abs_median_spearman_rho": 0.010387266425163121
+      },
+      {
+        "gene": "CLDN4",
+        "neighborhood": "immune_broad",
+        "radius": "3",
+        "index_definition": "index_tumor_not_immune_rich",
+        "dataset": "E-MTAB-13530",
+        "n_sections": 20,
+        "n_patients": 8,
+        "median_partial_epi_rho": 0.013054090246681383,
+        "mean_partial_epi_rho": 0.00916072133866708,
+        "n_negative_partial_epi": 8,
+        "n_positive_partial_epi": 12,
+        "wilcoxon_p_partial_epi": 0.5958194732666016,
+        "stouffer_z_partial_epi": 1.5614161987310977,
+        "stouffer_p_partial_epi": 0.11842558229296488,
+        "abs_median_partial_epi_rho": 0.013054090246681383,
+        "median_partial_epi_imm_rho": 0.02928279321199173,
+        "mean_partial_epi_imm_rho": 0.015836672370613945,
+        "n_negative_partial_epi_imm": 9,
+        "n_positive_partial_epi_imm": 11,
+        "wilcoxon_p_partial_epi_imm": 0.38837623596191406,
+        "stouffer_z_partial_epi_imm": 2.5076547113533256,
+        "stouffer_p_partial_epi_imm": 0.012153536432042415,
+        "abs_median_partial_epi_imm_rho": 0.02928279321199173,
+        "median_spearman_rho": 0.025348974945096088,
+        "mean_spearman_rho": 0.0037824208014414704,
+        "n_negative_spearman": 8,
+        "n_positive_spearman": 12,
+        "wilcoxon_p_spearman": 0.9272785186767578,
+        "stouffer_z_spearman": 0.9634677024716268,
+        "stouffer_p_spearman": 0.3353128647673752,
+        "abs_median_spearman_rho": 0.025348974945096088
+      }
+    ]
+  },
+  "geomx_published_tumor": {
+    "xlsx_sheets": [
+      "source_data_Figure_6b",
+      "source_data_Figure_6c",
+      "source_data_Figure_6d",
+      "source_data_Figure_6f",
+      "source_data_Figure_6g",
+      "source_data_Figure_6h"
+    ],
+    "used": {
+      "Yale": {
+        "sheet": "source_data_Figure_6b",
+        "n_rows": 37,
+        "n_cols": 10179,
+        "teff_genes": [
+          "CD8A",
+          "CXCL9"
+        ],
+        "broad_genes": [
+          "CD8A",
+          "CCL5",
+          "LYZ",
+          "C1QA",
+          "C1QB",
+          "CD68",
+          "AIF1",
+          "FCER1G",
+          "CD14"
+        ]
+      },
+      "Greek": {
+        "sheet": "source_data_Figure_6d",
+        "n_rows": 61,
+        "n_cols": 12462,
+        "teff_genes": [
+          "CD8A",
+          "GZMA",
+          "GZMB",
+          "PRF1",
+          "NKG7",
+          "CXCL9",
+          "CXCL13",
+          "TRAC"
+        ],
+        "broad_genes": [
+          "PTPRC",
+          "TRAC",
+          "IL7R",
+          "CD8A",
+          "CCL5",
+          "NKG7",
+          "GZMB",
+          "GZMA",
+          "PRF1",
+          "LYZ",
+          "C1QA",
+          "C1QB",
+          "CD68",
+          "AIF1",
+          "FCER1G",
+          "CD14",
+          "CD52"
+        ]
+      }
+    },
+    "n_corr_rows": 18,
+    "status": "ran"
+  },
+  "geomx_dcc_tumor": {
+    "status": "ran",
+    "n_dcc_rows": 586,
+    "n_tumor_aoi": 212,
+    "cell_type_column": "cell type",
+    "cell_type_labels": [
+      "CD45",
+      "CD68",
+      "CK"
+    ],
+    "tumor_labels_used": [
+      "CK"
+    ],
+    "teff_cpm_cols": [
+      "CD8A_cpm",
+      "GZMA_cpm",
+      "GZMB_cpm",
+      "GZMK_cpm",
+      "PRF1_cpm",
+      "NKG7_cpm",
+      "IFNG_cpm",
+      "CXCL9_cpm",
+      "CXCL10_cpm",
+      "CXCL13_cpm",
+      "CD3E_cpm",
+      "CD3D_cpm",
+      "CD2_cpm",
+      "TRAC_cpm"
+    ],
+    "broad_cpm_cols": [
+      "PTPRC_cpm",
+      "CD3E_cpm",
+      "CD3D_cpm",
+      "CD2_cpm",
+      "TRAC_cpm",
+      "IL7R_cpm",
+      "CD8A_cpm",
+      "CCL5_cpm",
+      "NKG7_cpm",
+      "GZMB_cpm",
+      "GZMA_cpm",
+      "GZMK_cpm",
+      "PRF1_cpm",
+      "CD79A_cpm",
+      "MS4A1_cpm",
+      "LYZ_cpm",
+      "C1QA_cpm",
+      "C1QB_cpm",
+      "CD68_cpm",
+      "AIF1_cpm",
+      "FCER1G_cpm",
+      "CD14_cpm",
+      "CD52_cpm"
+    ],
+    "n_corr_rows": 4
+  },
+  "figures": [
+    "visium_cldn4_rho_by_ring.png",
+    "geomx_tumor_cldn4_vs_immune.png"
+  ],
+  "honest_verdict": {
+    "label": "DOES_NOT_SUPPORT_CLAIM",
+    "abs_max_median_partial_rho_rings": 0.038045314451927555,
+    "median_partial_rho_by_ring": {
+      "1": -0.038045314451927555,
+      "2": 0.016166779301911793,
+      "3": 0.013054090246681383
+    },
+    "n_sections_by_ring": {
+      "1": 20,
+      "2": 20,
+      "3": 20
+    },
+    "wilcoxon_p_by_ring": {
+      "1": 0.21616744995117188,
+      "2": 0.7841262817382812,
+      "3": 0.5958194732666016
+    },
+    "all_rings_abs_le_0.06": true,
+    "any_ring_negative": true,
+    "did_we_tune_thresholds": false,
+    "statement": "Reworked Visium tumor-only CLDN4 vs immune-neighborhood partial \u03c1 at rings 1/2/3 has |median \u03c1| \u2264 0.038 (still \u2264 0.06). The user spatial-exclusion claim is not supported. This does not rescue the PR67 mismatch.",
+    "geomx_tumor_compartment": {
+      "note": "Same-AOI correlation, not hex rings. Yale T-eff score uses only CD8A+CXCL9 (sheet gene subset).",
+      "yale_CLDN4_vs_CD8A_rho": -0.3859649122807017,
+      "yale_CLDN4_vs_CD8A_p": 0.018304748849249857,
+      "yale_n": 37,
+      "greek_CLDN4_vs_Teff_rho": -0.05304071919619248,
+      "greek_CLDN4_vs_Teff_p": 0.6847594425468119,
+      "greek_n": 61,
+      "replicates_in_greek": false,
+      "dcc_cpm_CLDN4_vs_Teff_rho": 0.5213932998758748,
+      "dcc_cpm_note": "Opposite sign; composition/library-size artefact. Not used for the verdict."
+    },
+    "primary_inference": "Wilcoxon signed-rank on 20 per-section partial Spearman rhos (epithelial-controlled). Stouffer is anti-conservative."
+  }
+}

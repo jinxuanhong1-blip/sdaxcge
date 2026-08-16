@@ -1,15 +1,23 @@
 # B6_radius — tumor-only CLDN4 vs immune neighborhoods at hex rings 1/2/3
 
-Self-contained rework of claim **B6** after PR67 (`fable_spatial`) reported Visium CLDN4 vs immune-neighborhood **|median partial ρ| ≤ 0.06**.
+**Honest verdict: DOES_NOT_SUPPORT_CLAIM.**
 
-This folder is the only write target. Do not invent results. Thresholds are pre-specified and are not tuned to enlarge |ρ|.
+Reworked Visium (E-MTAB-13530, 20 tumour sections): CLDN4 vs broad-immune hex-ring neighborhoods, tumor spots only, immune-rich spots excluded from the CLDN4 score.
 
-## Rework rules
+| Ring | median partial ρ | Wilcoxon p |
+|---|---:|---:|
+| 1 | −0.038 | 0.22 |
+| 2 | +0.016 | 0.78 |
+| 3 | +0.013 | 0.60 |
 
-1. **Tumor-spot only** (E-MTAB-13530 `P*_T*` sections; epithelial-high spots).
-2. **Radii = Visium hex rings 1 / 2 / 3** (self excluded).
-3. **Immune-rich spots are excluded from the CLDN4 (and TACSTD2) score** (immune score ≥ section 75th percentile).
-4. **GeoMx (GSE271689) = tumor / PanCK compartment only** (no stromal pairing; no hex rings exist).
+|median ρ| ≤ 0.038, still ≤ the PR67 mismatch band of 0.06. The user spatial-exclusion claim is not supported. Details: `WRITEUP.md`, `summary.json`.
+
+## Rework rules (pre-specified, not tuned)
+
+1. Tumor-spot only (E-MTAB-13530 `P*_T*`; epithelial-high).
+2. Visium hex rings 1 / 2 / 3 (self excluded).
+3. Immune-rich spots excluded from the CLDN4 score (immune ≥ section Q3).
+4. GeoMx GSE271689 = tumor / CK compartment only (same-AOI correlation; no rings).
 
 ## Run
 
@@ -19,4 +27,4 @@ python3 results/rework/B6_radius/download.py
 python3 results/rework/B6_radius/analyze.py
 ```
 
-Processed inputs cache under `/tmp/b6_radius_data` (not committed). Outputs (tables, figures, `summary.json`, `WRITEUP.md`) stay in this folder.
+Processed inputs cache under `/tmp/b6_radius_data` (not committed).

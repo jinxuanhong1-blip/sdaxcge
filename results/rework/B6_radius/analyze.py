@@ -65,20 +65,44 @@ USER_CLAIM = (
 PR67_MISMATCH = "Visium CLDN4 vs immune neighborhood |median partial rho| <= 0.06"
 
 
+def _neighbors6(r: int, c: int) -> list[tuple[int, int]]:
+    """Immediate Visium hex neighbors (double-width array_row / array_col)."""
+    return [
+        (r, c - 2),
+        (r, c + 2),
+        (r - 1, c - 1),
+        (r - 1, c + 1),
+        (r + 1, c - 1),
+        (r + 1, c + 1),
+    ]
+
+
 def visium_hex_distance(r1, c1, r2, c2) -> int:
-    """Hex distance on the Visium double-width (array_row, array_col) grid."""
-    dr = abs(int(r1) - int(r2))
-    dc = abs(int(c1) - int(c2))
-    return max(dr, (dc + dr) // 2)
+    """Graph distance on the Visium 6-neighbor lattice (axial / cube)."""
+    def axial(row, col):
+        return (int(col) - int(row)) // 2, int(row)
+
+    q1, rr1 = axial(r1, c1)
+    q2, rr2 = axial(r2, c2)
+    return (abs(q1 - q2) + abs(rr1 - rr2) + abs((q1 + rr1) - (q2 + rr2))) // 2
 
 
 def ring_offsets(k: int) -> list[tuple[int, int]]:
-    offs = []
-    for dr in range(-k, k + 1):
-        for dc in range(-2 * k, 2 * k + 1):
-            if visium_hex_distance(0, 0, dr, dc) == k:
-                offs.append((dr, dc))
-    return offs
+    """Offsets at exact hex-ring k via BFS on the 6-neighbor Visium lattice."""
+    from collections import deque
+
+    seen = {(0, 0): 0}
+    q = deque([(0, 0)])
+    while q:
+        r, c = q.popleft()
+        d = seen[(r, c)]
+        if d >= k:
+            continue
+        for nr, nc in _neighbors6(r, c):
+            if (nr, nc) not in seen:
+                seen[(nr, nc)] = d + 1
+                q.append((nr, nc))
+    return [(r, c) for (r, c), d in seen.items() if d == k]
 
 
 def _assert_hex_geometry() -> None:
@@ -88,6 +112,7 @@ def _assert_hex_geometry() -> None:
     assert visium_hex_distance(0, 0, 2, 0) == 2
     assert visium_hex_distance(0, 0, 0, 6) == 3
     assert visium_hex_distance(0, 0, 3, 3) == 3
+    assert set(ring_offsets(1)) == {(0, -2), (0, 2), (-1, -1), (-1, 1), (1, -1), (1, 1)}
     assert len(ring_offsets(1)) == 6
     assert len(ring_offsets(2)) == 12
     assert len(ring_offsets(3)) == 18
@@ -677,7 +702,10 @@ def make_figures(out: Path, visium_res: pd.DataFrame, visium_meta: pd.DataFrame,
         rings = ["1", "2", "3"]
         data = [sub.loc[sub.radius == r, "partial_rho_epi"].to_numpy() for r in rings]
         ax.axhline(0, color="k", lw=0.8)
-        ax.boxplot(data, labels=[f"ring {r}" for r in rings], widths=0.55)
+        try:
+            ax.boxplot(data, tick_labels=[f"ring {r}" for r in rings], widths=0.55)
+        except TypeError:
+            ax.boxplot(data, labels=[f"ring {r}" for r in rings], widths=0.55)
         rng = np.random.default_rng(0)
         for i, y in enumerate(data, start=1):
             x = i + (rng.random(len(y)) - 0.5) * 0.18
