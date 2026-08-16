@@ -1,0 +1,8 @@
+cohort	n	endpoint	n_low	n_high	genes_CLDN4	genes_OCLN	genes_5	genes_7	note
+GSE126044	16	ORR (GEO responder vs non-responder)	5	11	CLDN4	OCLN	5	7	Index B4 cohort (Cho 2020). Pre-treatment NSCLC anti-PD-1. GEO responder/non-responder.
+GSE135222	27	DCB (PFS≥183d) / continuous PFS	7	20	ENSG00000189143.8	ENSG00000197826.7	5	7	Jung/Kim 2020. Advanced NSCLC anti-PD-1/PD-L1. DCB = PFS ≥ 183 days from GEO pfs.time.
+GSE207422	24	pathologic MPR vs NMPR	9	15	CLDN4	OCLN	5	7	Hu 2023. Neoadjuvant PD-1 + chemo. Pre-treatment bulk. MPR vs NMPR.
+GSE190265	43	DCB (PFS≥6 mo) / continuous PFS	14	29	CLDN4	OCLN	5	7	France3 / Leduc 2022-linked. NSCLC chemo±ICI biopsies. DCB = PFS ≥ 6 months.
+GSE166449	22	GEO immunotherapy responder vs non-responder	7	15	CLDN4	OCLN	5	7	Lee/SMC immunotherapy lung RNA. GEO titles Responder vs nonResponder (7 vs 15).
+GSE190266	70	DCB (PFS≥6 mo, GEO-capped) / continuous PFS	17	53	CLDN4		4	4	France4 / Leduc 2022-linked. NSCLC ICI biopsies. Public TPM; PFS truncated at 6 months in GEO. Public matrix lacks TJP1/TJP2/OCLN/PARD3.
+GSE161537	82	ORR (GEO RECIST CR/PR vs PD)	20	34		OCLN	1	2	NivoBio targeted RNA (~2.5k genes). Pre-tx NSCLC PD-1/PD-L1. RECIST CR/PR vs PD. Panel has OCLN/F11R; no CLDN4/CLDN1/CLDN7/TJP.
