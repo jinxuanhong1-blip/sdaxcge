@@ -78,7 +78,9 @@ def pearson(left: list[float], right: list[float]) -> float:
 
 def write_tsv(name: str, fieldnames: list[str], rows: list[dict]) -> None:
     with (OUT / name).open("w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, delimiter="\t")
+        writer = csv.DictWriter(
+            handle, fieldnames=fieldnames, delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 

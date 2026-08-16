@@ -13,9 +13,11 @@ for TACSTD2 (TROP2) or CLDN4.**
   while multiple public LUAD datasets and tissue studies report tumor
   up-regulation and adverse outcome. It is a **nuclear transcription factor**,
   not a surface marker.
-- The evidence found does **not** establish TFAP2A as a direct regulator of
-  TACSTD2 or CLDN4 in lung. Published TFAP2A lung mechanisms instead implicate
-  targets such as PSG9, ITGB4 and ESR2.
+- Public ChIP does **not** establish TFAP2A as a regulator of TACSTD2 or CLDN4
+  in lung. There is **no usable lung TFAP2A ChIP-seq**. In non-lung public
+  peak sets, TACSTD2 is essentially unbound and CLDN4 has no promoter-proximal
+  (±1 kb) peak. Published lung TFAP2A mechanisms instead implicate PSG9,
+  ITGB4 and ESR2.
 - Histology matters. In TCGA, median TFAP2A expression is about 4.7-fold higher
   in LUSC than LUAD. Calling it a uniform “lung” marker would hide that
   difference.
@@ -28,7 +30,7 @@ for TACSTD2 (TROP2) or CLDN4.**
 | Cell-surface isolation, imaging or ADC target | **No; TFAP2A is nuclear** |
 | LUAD tumor-vs-normal candidate | **Promising, but validate independently** |
 | LUAD progression/prognosis hypothesis | **Supported, not yet clinical-grade** |
-| Upstream explanation for TACSTD2/CLDN4 | **Not demonstrated** |
+| Upstream explanation for TACSTD2/CLDN4 | **Not supported by public ChIP** |
 
 ## Public TCGA check
 
@@ -67,6 +69,57 @@ only weak positive relationships in LUAD and does not reproduce the pair in
 LUSC. Bulk correlation cannot distinguish tumor-cell regulation from tumor
 purity or cell-composition effects, so even the weak positive values are not
 mechanistic evidence.
+
+## Public ChIP check
+
+Searched on 2026-08-16: ENCODE, ReMap 2022, and ChIP-Atlas. Overlaps used
+Ensembl GRCh38 coordinates and the canonical TSS of each gene.
+
+### Inventory
+
+| Source | TFAP2A ChIP available | Lung? | Used? |
+|---|---|---|---|
+| ENCODE | ENCSR000EVP, HeLa-S3 | No | **No; revoked** |
+| ReMap 2022 | MCF-7, MCF-7+E2, WA09 | No | Yes, peak overlap |
+| ChIP-Atlas | 45 experiments; 0 in the Lung class | No | Yes, assembled peaks and target-gene scores |
+
+ChIP-Atlas class counts for TFAP2A: Pluripotent stem cell 25, Digestive tract
+6, Muscle 4, Epidermis 3, Others 2, Breast 1, Neural 1, Uterus 1, **Lung 0**.
+
+There is therefore **no public lung TFAP2A ChIP-seq** to test the TACSTD2/CLDN4
+pair in the relevant tissue.
+
+### ChIP-Atlas target-gene scores (46 columns, no lung)
+
+| Window | Gene | Non-zero experiments | Average score | Interpretation |
+|---|---|---:|---:|---|
+| ±1 kb | TACSTD2 | 1/46 | 2.2 | One GP5d (colon) score of 99; otherwise 0 |
+| ±5 kb | TACSTD2 | 1/46 | 2.2 | Same single experiment |
+| ±10 kb | TACSTD2 | 1/46 | 2.2 | Same single experiment |
+| ±1 kb | CLDN4 | **0/46** | 0 | Not listed as a ±1 kb target |
+| ±5 kb | CLDN4 | 7/46 | 39.0 | Distal, non-lung (colon, trophoblast, H9, 92-1) |
+| ±10 kb | CLDN4 | 12/46 | 82.6 | Still no lung; HeLa/GP5d/MCF-7/HEPM/hESC |
+
+### Peak overlap, canonical TSS
+
+| Dataset | TACSTD2 ±1 kb | CLDN4 ±1 kb | Note |
+|---|---|---|---|
+| ReMap MCF-7 | No | No | CLDN4 hits start at ±5–10 kb / gene body |
+| ReMap MCF-7+E2 | 1 peak | No | Isolated breast-cancer peak; not recurrent |
+| ReMap WA09 | No | No | CLDN4 ±5 kb only |
+| ChIP-Atlas q05 | 1 peak (GP5d) | No | Same colon experiment as the target-gene table |
+| ChIP-Atlas q10 | No | No | Stricter threshold removes the TACSTD2 hit |
+
+CLDN4's Ensembl gene span is much larger than the canonical transcript because
+of alternative TSSs. Some “gene-body” hits sit several kilobases upstream of
+the canonical TSS and should not be read as promoter occupancy.
+
+### ChIP conclusion
+
+Public ChIP does not support a TFAP2A→TACSTD2 or TFAP2A→CLDN4 model in lung.
+The missing lung dataset is the decisive gap. The non-lung data that do exist
+are enough to say TACSTD2 is not a recurrent TFAP2A-bound gene, and CLDN4 is
+not promoter-proximal.
 
 ## Normal lung context
 
@@ -118,18 +171,32 @@ them useful epithelial markers.
   other.
 - The literature is favorable toward TFAP2A and includes reuse of public
   cohorts. Independent, blinded protein-level validation is still needed.
+- Public ChIP is non-lung. Peak presence in MCF-7, HeLa, colon or hESC is not
+  evidence of binding in lung epithelium or lung tumors.
+- ChIP-Atlas assembled BEDs concatenate many experiments; q05 is more
+  sensitive and noisier than q10. Target-gene scores are MACS2-derived and
+  are not ChIP-qPCR validation.
+- Large peak files are downloaded to `/tmp/a10_chip` at runtime and are not
+  stored in the repository.
 
 ## Files
 
-- `analyze_tcga.py` — standard-library reproduction script.
+- `analyze_tcga.py` — TCGA LUAD/LUSC expression comparison.
+- `analyze_chip.py` — ENCODE/ReMap/ChIP-Atlas inventory and locus overlap.
 - `tcga_sample_expression.tsv` — downloaded sample-level public values.
 - `tcga_gene_summary.tsv` — medians and quartiles.
 - `tcga_correlations.tsv` — Spearman and log-RSEM Pearson correlations.
 - `tcga_top_quartile_overlap.tsv` — high-expression overlap.
+- `chip_inventory.tsv` — public TFAP2A ChIP datasets and lung status.
+- `chip_locus_windows.tsv` — GRCh38 windows used for overlap.
+- `chip_peak_hits.tsv` — individual overlapping peaks.
+- `chip_hit_summary.tsv` — per-dataset overlap counts.
+- `chip_target_gene_scores.tsv` — ChIP-Atlas target-gene scores.
 - `sources.tsv` — source URLs and what each supports.
 
 Run with:
 
 ```bash
 python3 results/w200/A10_TFAP2A/analyze_tcga.py
+python3 results/w200/A10_TFAP2A/analyze_chip.py
 ```
