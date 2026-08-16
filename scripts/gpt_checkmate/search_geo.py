@@ -5,6 +5,8 @@ from __future__ import annotations
 
 import json
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
@@ -14,6 +16,22 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT = ROOT / "results" / "gpt_checkmate" / "geo_search.json"
 API = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 TRIALS = ("017", "057", "227", "9LA", "816", "153")
+
+
+def get_result(url: str) -> dict[str, object]:
+    for attempt in range(5):
+        request = urllib.request.Request(
+            url, headers={"User-Agent": "gpt-checkmate-geo-search/1.0"}
+        )
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return json.load(response)["esearchresult"]
+        except urllib.error.HTTPError as error:
+            if error.code != 429 or attempt == 4:
+                raise
+            retry_after = error.headers.get("Retry-After")
+            time.sleep(float(retry_after) if retry_after else 2**attempt)
+    raise RuntimeError("unreachable")
 
 
 def main() -> int:
@@ -27,17 +45,14 @@ def main() -> int:
             "retmax": 100,
         }
         url = f"{API}?{urllib.parse.urlencode(parameters)}"
-        request = urllib.request.Request(
-            url, headers={"User-Agent": "gpt-checkmate-geo-search/1.0"}
-        )
-        with urllib.request.urlopen(request, timeout=60) as response:
-            result = json.load(response)["esearchresult"]
+        result = get_result(url)
         searches[trial] = {
             "query": query,
             "count": int(result["count"]),
             "ids": result["idlist"],
             "query_translation": result["querytranslation"],
         }
+        time.sleep(0.4)
 
     payload = {
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),

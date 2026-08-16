@@ -90,7 +90,10 @@ def main() -> int:
         sheet_count, sheet_names = workbook_summary(path)
         rows.append(
             {
-                **source,
+                "trial": source["trial"],
+                "description": source["description"],
+                "url": source["url"],
+                "doi": source["doi"],
                 "path": path.relative_to(ROOT).as_posix(),
                 "bytes": size,
                 "sha256": sha256,
