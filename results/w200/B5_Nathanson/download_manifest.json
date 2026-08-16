@@ -1,0 +1,17 @@
+{
+  "dataset_revision": "2ce35b97c15a54d27090ac7e6b2e73f140e087b3",
+  "citation": "Nathanson T et al. Cancer Immunol Res. 2017;5:84-91. doi:10.1158/2326-6066.CIR-16-0019",
+  "sources": {
+    "cohort.csv": {
+      "url": "https://raw.githubusercontent.com/hammerlab/melanoma-reanalysis/2ce35b97c15a54d27090ac7e6b2e73f140e087b3/files/cohort.csv",
+      "sha256": "33a3978ad365771a50e04dc1ac8308404627b63e978f7ae321f23637e0dd8eeb"
+    },
+    "cufflinks.tar.gz": {
+      "url": "https://raw.githubusercontent.com/hammerlab/melanoma-reanalysis/2ce35b97c15a54d27090ac7e6b2e73f140e087b3/files/cufflinks.tar.gz",
+      "sha256": "67f5fd34c6643845892eb16a50e5fa7079c165817c29963f5255a5464ce2d2bd"
+    }
+  },
+  "primary_gene_id": "ENSG00000189143",
+  "bootstrap_seed": 2017,
+  "bootstrap_replicates": 20000
+}

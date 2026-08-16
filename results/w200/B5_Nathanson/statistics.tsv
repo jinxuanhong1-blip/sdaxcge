@@ -1,0 +1,4 @@
+analysis	n_benefit	n_no_benefit	median_FPKM_benefit	median_FPKM_no_benefit	median_log2_benefit	median_log2_no_benefit	mann_whitney_U	exact_two_sided_p	auc_higher_predicts_benefit	auc_bootstrap_95ci_low	auc_bootstrap_95ci_high	rank_biserial	detected_benefit	detected_no_benefit
+pretreatment_primary	4	5	12.056284999999999	0.258847	3.4759559636790236	0.33210294885947617	18.0	0.06349206349206349	0.9	0.6	1.0	0.8	4	5
+posttreatment_exploratory	4	11	0.29705800000000004	0.12923	0.3725908089632949	0.1753393621647717	33.0	0.1772893772893773	0.75	0.45454545454545453	0.9545454545454546	0.5	4	10
+pretreatment_symbol_median_sensitivity	4	5	6.0281424999999995	0.1294235	2.6188028048103287	0.17558655500873374	18.0	0.06349206349206349	0.9	0.6	1.0	0.8	4	5
