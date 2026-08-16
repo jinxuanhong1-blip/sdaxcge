@@ -1,0 +1,82 @@
+sample	patient	disease	facs	sampling_site	tumor_grading	sex	age	subset
+D1_1	Donor 1	normal	CD45+	upper lobe	not applicable	male	37	other_deposited_lane
+D1_2	Donor 1	normal	CD45+	upper lobe	not applicable	male	37	other_deposited_lane
+D2_1	Donor 2	normal	CD45+	upper lobe	not applicable	male	67	other_deposited_lane
+D2_2	Donor 2	normal	MDSC	upper lobe	not applicable	male	67	other_deposited_lane
+D2_3	Donor 2	normal	CD45+	lower lobe	not applicable	male	67	other_deposited_lane
+D2_4	Donor 2	normal	MDSC	lower lobe	not applicable	male	67	other_deposited_lane
+P10_B1	Patient 10	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T3N0M0	female	72	other_deposited_lane
+P10_T1	Patient 10	lung adenocarcinoma	CD45+	tumor	T3N0M0	female	72	other_deposited_lane
+P11_B1	Patient 11	lung squamous cell carcinoma	CD45+	normal tissue adjacent to tumor	T2bN0M0	male	81	other_deposited_lane
+P11_T1	Patient 11	lung squamous cell carcinoma	CD45+	tumor	T2bN0M0	male	81	other_deposited_lane
+P12_B1	Patient 12	non-small cell lung cancer	CD45+	normal tissue adjacent to tumor	T1cN0M0	female	63	other_deposited_lane
+P12_T1	Patient 12	non-small cell lung cancer	CD45+	tumor	T1cN0M0	female	63	other_deposited_lane
+P13_B1	Patient 13	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T1bN0M0	female	59	other_deposited_lane
+P13_T1	Patient 13	lung adenocarcinoma	CD45+	tumor	T1bN0M0	female	59	other_deposited_lane
+P14_B1	Patient 14	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T4N0M0	male	81	other_deposited_lane
+P14_T1	Patient 14	lung adenocarcinoma	CD45+	tumor	T4N0M0	male	81	other_deposited_lane
+P15_B1	Patient 15	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T3N0M0	female	73	other_deposited_lane
+P15_B2	Patient 15	lung adenocarcinoma	CD235a-	normal tissue adjacent to tumor	T3N0M0	female	73	other_deposited_lane
+P15_T1	Patient 15	lung adenocarcinoma	CD45+	tumor	T3N0M0	female	73	other_deposited_lane
+P15_T2	Patient 15	lung adenocarcinoma	CD235a-	tumor	T3N0M0	female	73	cd235a_tumor
+P16_B1	Patient 16	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T2bN0M0	female	87	other_deposited_lane
+P16_B2	Patient 16	lung adenocarcinoma	CD235a-	normal tissue adjacent to tumor	T2bN0M0	female	87	other_deposited_lane
+P16_T1	Patient 16	lung adenocarcinoma	CD45+	tumor	T2bN0M0	female	87	other_deposited_lane
+P16_T2	Patient 16	lung adenocarcinoma	CD235a-	tumor	T2bN0M0	female	87	cd235a_tumor
+P17_B1	Patient 17	non-small cell lung cancer	CD45+	normal tissue adjacent to tumor	T2aN0M0	male	65	other_deposited_lane
+P17_B2	Patient 17	non-small cell lung cancer	CD235a-	normal tissue adjacent to tumor	T2aN0M0	male	65	other_deposited_lane
+P17_T1	Patient 17	non-small cell lung cancer	CD45+	tumor	T2aN0M0	male	65	other_deposited_lane
+P17_T2	Patient 17	non-small cell lung cancer	CD235a-	tumor	T2aN0M0	male	65	cd235a_tumor
+P17_T3	Patient 17	non-small cell lung cancer	CD235a-	tumor	T2aN0M0	male	65	cd235a_tumor
+P18_B1	Patient 18	lung squamous cell carcinoma	CD45+	normal tissue adjacent to tumor	T2aN1M0	male	77	other_deposited_lane
+P18_B2	Patient 18	lung squamous cell carcinoma	CD235a-	normal tissue adjacent to tumor	T2aN1M0	male	77	other_deposited_lane
+P18_T1	Patient 18	lung squamous cell carcinoma	CD45+	tumor	T2aN1M0	male	77	other_deposited_lane
+P18_T2	Patient 18	lung squamous cell carcinoma	CD235a-	tumor	T2aN1M0	male	77	cd235a_tumor
+P19_B1	Patient 19	lung squamous cell carcinoma	CD45+	normal tissue adjacent to tumor	T3M0N0	male	78	other_deposited_lane
+P19_T1	Patient 19	lung squamous cell carcinoma	CD45+	tumor	T3M0N0	male	78	other_deposited_lane
+P19_T2	Patient 19	lung squamous cell carcinoma	CD235a-	tumor	T3M0N0	male	78	cd235a_tumor
+P1_B1	Patient 1	non-small cell lung cancer	MDSC	normal tissue adjacent to tumor	T2bN1M0	female	73	other_deposited_lane
+P1_T1	Patient 1	non-small cell lung cancer	MDSC	tumor	T2bN1M0	female	73	other_deposited_lane
+P20_B1	Patient 20	lung squamous cell carcinoma	CD45+	normal tissue adjacent to tumor	T4N2M0	male	72	other_deposited_lane
+P20_B2	Patient 20	lung squamous cell carcinoma	CD235a-	normal tissue adjacent to tumor	T4N2M0	male	72	other_deposited_lane
+P20_T1	Patient 20	lung squamous cell carcinoma	CD45+	tumor	T4N2M0	male	72	other_deposited_lane
+P20_T2	Patient 20	lung squamous cell carcinoma	CD235a-	tumor	T4N2M0	male	72	cd235a_tumor
+P21_B1	Patient 21	lung adenocarcinoma	CD235a-	normal tissue adjacent to tumor	T1cN0M0	male	68	other_deposited_lane
+P21_B2	Patient 21	lung adenocarcinoma	CD235a-	normal tissue adjacent to tumor	T1cN0M0	male	68	other_deposited_lane
+P21_B3	Patient 21	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T1cN0M0	male	68	other_deposited_lane
+P21_T1	Patient 21	lung adenocarcinoma	CD235a-	tumor	T1cN0M0	male	68	cd235a_tumor
+P21_T2	Patient 21	lung adenocarcinoma	CD235a-	tumor	T1cN0M0	male	68	cd235a_tumor
+P22_B1	Patient 22	lung adenocarcinoma	CD235a-	normal tissue adjacent to tumor	T3N0M0	male	86	other_deposited_lane
+P22_B2	Patient 22	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T3N0M0	male	86	other_deposited_lane
+P22_T1	Patient 22	lung adenocarcinoma	CD235a-	tumor	T3N0M0	male	86	cd235a_tumor
+P22_T2	Patient 22	lung adenocarcinoma	CD45+	tumor	T3N0M0	male	86	other_deposited_lane
+P23_B1	Patient 23	non-small cell lung cancer	CD235a-	normal tissue adjacent to tumor	T4N0	female	67	other_deposited_lane
+P23_B2	Patient 23	non-small cell lung cancer	CD45+	normal tissue adjacent to tumor	T4N0	female	67	other_deposited_lane
+P23_T1	Patient 23	non-small cell lung cancer	CD235a-	tumor	T4N0	female	67	cd235a_tumor
+P23_T2	Patient 23	non-small cell lung cancer	CD45+	tumor	T4N0	female	67	other_deposited_lane
+P24_B1	Patient 24	lung adenocarcinoma	CD235a-	normal tissue adjacent to tumor	T3N0M0	female	52	other_deposited_lane
+P24_B2	Patient 24	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T3N0M0	female	52	other_deposited_lane
+P24_T1	Patient 24	lung adenocarcinoma	CD235a-	tumor	T3N0M0	female	52	cd235a_tumor
+P24_T2	Patient 24	lung adenocarcinoma	CD45+	tumor	T3N0M0	female	52	other_deposited_lane
+P2_B1	Patient 2	lung squamous cell carcinoma	MDSC	normal tissue adjacent to tumor	T2aN1M0	female	82	other_deposited_lane
+P2_T1	Patient 2	lung squamous cell carcinoma	MDSC	tumor	T2aN1M0	female	82	other_deposited_lane
+P3_B1	Patient 3	lung squamous cell carcinoma	CD45+ + MDSC	normal tissue adjacent to tumor	T4N1M0	female	77	other_deposited_lane
+P3_T1	Patient 3	lung squamous cell carcinoma	CD45+ + MDSC	tumor	T4N1M0	female	77	other_deposited_lane
+P4_B1	Patient 4	lung squamous cell carcinoma	CD45+ + MDSC	normal tissue adjacent to tumor	NA	male	69	other_deposited_lane
+P4_B2	Patient 4	lung squamous cell carcinoma	CD235a-	normal tissue adjacent to tumor	NA	male	69	other_deposited_lane
+P4_B3	Patient 4	lung squamous cell carcinoma	CD235a-	normal tissue adjacent to tumor	NA	male	69	other_deposited_lane
+P4_T1	Patient 4	lung squamous cell carcinoma	CD45+ + MDSC	tumor	NA	male	69	other_deposited_lane
+P4_T2	Patient 4	lung squamous cell carcinoma	CD235a-	tumor	NA	male	69	cd235a_tumor
+P4_T3	Patient 4	lung squamous cell carcinoma	CD235a-	tumor	NA	male	69	cd235a_tumor
+P5_B1	Patient 5	lung adenocarcinoma	CD45+ + MDSC	normal tissue adjacent to tumor	T2bN1M0	female	72	other_deposited_lane
+P5_T1	Patient 5	lung adenocarcinoma	CD45+ + MDSC	tumor	T2bN1M0	female	72	other_deposited_lane
+P6_B1	Patient 6	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T1cN0M0	female	69	other_deposited_lane
+P6_T1	Patient 6	lung adenocarcinoma	CD45+	tumor	T1cN0M0	female	69	other_deposited_lane
+P7_B1	Patient 7	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T1cN0M0	male	58	other_deposited_lane
+P7_T1	Patient 7	lung adenocarcinoma	CD45+	tumor	T1cN0M0	male	58	other_deposited_lane
+P8_B1	Patient 8	lung squamous cell carcinoma	CD45+ + MDSC	normal tissue adjacent to tumor	T2bN1M0	male	75	other_deposited_lane
+P8_B2	Patient 8	lung squamous cell carcinoma	CD235a-	normal tissue adjacent to tumor	T2bN1M0	male	75	other_deposited_lane
+P8_T1	Patient 8	lung squamous cell carcinoma	CD45+ + MDSC	tumor	T2bN1M0	male	75	other_deposited_lane
+P8_T2	Patient 8	lung squamous cell carcinoma	CD235a-	tumor	T2bN1M0	male	75	cd235a_tumor
+P9_B1	Patient 9	lung adenocarcinoma	CD45+	normal tissue adjacent to tumor	T2bN0/1	male	79	other_deposited_lane
+P9_T1	Patient 9	lung adenocarcinoma	CD45+	tumor	T2bN0/1	male	79	other_deposited_lane
