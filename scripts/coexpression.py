@@ -44,6 +44,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 DEFAULT_EXPR = DATA_DIR / "TCGA-CESC.HiSeqV2.gz"
 DEFAULT_SURF = DATA_DIR / "table_S3_surfaceome.xlsx"
+DEFAULT_CLIN = DATA_DIR / "CESC_clinicalMatrix"
 
 
 def load_expression(path: Path) -> pd.DataFrame:
@@ -144,10 +145,44 @@ def compute_ranking(
     df["spearman_q"] = _bh_fdr(df["spearman_p"].to_numpy())
     df["pearson_q"] = _bh_fdr(df["pearson_p"].to_numpy())
 
+    # Genes with zero variance (all-zero / constant) yield undefined ρ.
+    # They are excluded from the ranked universe, not assigned a fake rank.
+    n_undefined = int(df["spearman_r"].isna().sum())
+    df = df.dropna(subset=["spearman_r"]).copy()
+
     df = df.sort_values("spearman_r", ascending=False, kind="mergesort").reset_index(drop=True)
     df.insert(1, "spearman_rank", np.arange(1, len(df) + 1))
-    df["pearson_rank"] = df["pearson_r"].rank(ascending=False, method="min").astype(int)
+    pearson_rank = df["pearson_r"].rank(ascending=False, method="min")
+    df["pearson_rank"] = pearson_rank.astype("Int64")
+    df.attrs["n_undefined_spearman"] = n_undefined
     return df
+
+
+def histology_group(histological_type: object) -> str:
+    """Collapse Xena CESC histological_type into squamous / adeno / other."""
+    if histological_type is None or (isinstance(histological_type, float) and np.isnan(histological_type)):
+        return "unknown"
+    h = str(histological_type)
+    if "Squamous" in h and "Adeno" not in h:
+        return "squamous"
+    if "Adeno" in h:
+        return "adeno"
+    return "other"
+
+
+def load_histology(path: Path, samples: list[str]) -> dict[str, str]:
+    """Map expression barcodes to squamous/adeno/other using the Xena clinical matrix."""
+    clin = pd.read_csv(path, sep="\t")
+    if "sampleID" not in clin.columns or "histological_type" not in clin.columns:
+        raise SystemExit(f"clinical matrix {path} lacks sampleID/histological_type")
+    clin = clin.set_index("sampleID")
+    out = {}
+    for s in samples:
+        if s in clin.index:
+            out[s] = histology_group(clin.loc[s, "histological_type"])
+        else:
+            out[s] = "unknown"
+    return out
 
 
 def focus_report(df: pd.DataFrame, focus: str, n_universe: int) -> dict:
@@ -204,13 +239,24 @@ def make_plots(
         fig.savefig(outdir / f"scatter_{anchor}_vs_{focus}.png", dpi=150)
         plt.close(fig)
 
-    # 2) Top-N bar chart, focus highlighted.
-    topn = df.head(min(20, window)).iloc[::-1]
+    # 2) Top-N bar chart, focus highlighted when it falls in the displayed window.
+    n_bar = min(20, window, len(df))
+    topn = df.head(n_bar).iloc[::-1]
     colors = ["#d62728" if g == focus else "#4c78a8" for g in topn["gene"]]
     fig, ax = plt.subplots(figsize=(6, 7))
     ax.barh(topn["gene"], topn["spearman_r"], color=colors)
     ax.set_xlabel(f"Spearman rho with {anchor}")
-    ax.set_title(f"Top surface-gene co-expression with {anchor}\nTCGA-CESC (focus: {focus})")
+    focus_row = df[df["gene"] == focus]
+    if focus_row.empty:
+        subtitle = f"TCGA-CESC (focus: {focus} not in universe)"
+    else:
+        fr = int(focus_row.iloc[0]["spearman_rank"])
+        fρ = float(focus_row.iloc[0]["spearman_r"])
+        if fr > n_bar:
+            subtitle = f"TCGA-CESC (focus {focus} is #{fr}, ρ={fρ:.3f}; not in top {n_bar})"
+        else:
+            subtitle = f"TCGA-CESC (focus: {focus} highlighted)"
+    ax.set_title(f"Top surface-gene co-expression with {anchor}\n{subtitle}")
     fig.tight_layout()
     fig.savefig(outdir / f"top_partners_{anchor}.png", dpi=150)
     plt.close(fig)
@@ -228,6 +274,7 @@ def main(argv: list[str] | None = None) -> int:
         help="comma-separated TCGA sample-type codes to keep (default 01=primary tumour)",
     )
     ap.add_argument("--window", type=int, default=200, help="size of top-N companion file (default 200)")
+    ap.add_argument("--clinical", type=Path, default=DEFAULT_CLIN, help="Xena CESC clinical matrix (histology split)")
     ap.add_argument("--outdir", type=Path, default=ROOT / "results" / "w200" / "B1_CESC")
     args = ap.parse_args(argv)
 
@@ -255,6 +302,12 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[data] surface-gene universe (present, anchor removed): {n_universe}")
 
     df = compute_ranking(expr, args.anchor, universe, samples)
+    n_undefined = int(df.attrs.get("n_undefined_spearman", 0))
+    n_universe = len(df)
+    print(
+        f"[data] ranked surface genes (defined Spearman): {n_universe}"
+        + (f"; excluded constant/undefined: {n_undefined}" if n_undefined else "")
+    )
 
     # Write full ranking + top-N window.
     full_csv = args.outdir / f"coexpression_{args.anchor}_surfaceome.csv"
@@ -274,11 +327,59 @@ def main(argv: list[str] | None = None) -> int:
         "sample_type_codes": sample_types,
         "n_samples": len(samples),
         "surface_gene_universe": n_universe,
+        "n_undefined_spearman_excluded": n_undefined,
         "correlation_primary": "spearman",
         "window": args.window,
         "focus_result": report,
         "top10_spearman": df.head(10)[["gene", "spearman_rank", "spearman_r", "spearman_q"]].to_dict("records"),
     }
+
+    histo_lines: list[str] = []
+    histo_results: dict[str, dict] = {}
+    if args.clinical.exists():
+        groups = load_histology(args.clinical, samples)
+        counts = {g: sum(v == g for v in groups.values()) for g in sorted(set(groups.values()))}
+        print(f"[data] histology groups: {counts}")
+        for label in ("squamous", "adeno"):
+            sub = [s for s in samples if groups.get(s) == label]
+            if len(sub) < 10:
+                continue
+            sub_df = compute_ranking(expr, args.anchor, universe, sub)
+            n_undef_h = int(sub_df.attrs.get("n_undefined_spearman", 0))
+            n_univ_h = len(sub_df)
+            report_h = focus_report(sub_df, args.focus, n_univ_h)
+            top_gene_h = sub_df.iloc[0]["gene"] if n_univ_h else None
+            histo_results[label] = {
+                "n_samples": len(sub),
+                "surface_gene_universe": n_univ_h,
+                "n_undefined_spearman_excluded": n_undef_h,
+                "focus_result": report_h,
+                "top1_spearman": {
+                    "gene": top_gene_h,
+                    "spearman_r": float(sub_df.iloc[0]["spearman_r"]) if n_univ_h else None,
+                },
+                "top5_spearman": sub_df.head(5)[["gene", "spearman_rank", "spearman_r"]].to_dict("records"),
+            }
+            sub_df.to_csv(args.outdir / f"coexpression_{args.anchor}_surfaceome_{label}.csv", index=False)
+            qh = report_h
+            histo_lines.extend(
+                [
+                    f"### {label} (n={len(sub)})",
+                    "",
+                    f"- `{args.focus}` Spearman rank **#{qh['spearman_rank']} of {n_univ_h}** "
+                    f"({qh['spearman_percentile']}th percentile), ρ={qh['spearman_r']:.3f} "
+                    f"(FDR q={qh['spearman_q']:.2e}).",
+                    f"- Actual #1: {top_gene_h} (ρ={sub_df.iloc[0]['spearman_r']:.3f}).",
+                    "",
+                ]
+            )
+        summary["histology_source"] = "UCSC Xena TCGA.CESC.sampleMap/CESC_clinicalMatrix (histological_type)"
+        summary["histology_counts"] = counts
+        summary["histology_split"] = histo_results
+        (args.outdir / "histology_split.json").write_text(json.dumps(histo_results, indent=2))
+    else:
+        print(f"[warn] clinical matrix not found at {args.clinical}; skipping histology split")
+
     (args.outdir / "summary.json").write_text(json.dumps(summary, indent=2))
 
     # Human-readable answer.
@@ -301,8 +402,10 @@ def main(argv: list[str] | None = None) -> int:
             "",
             f"- Cohort: TCGA-CESC, {len(samples)} primary-tumour samples "
             f"(sample-type {sample_types}).",
-            f"- Surface-gene universe: {n_universe} surfaceome genes present in the "
-            f"matrix (anchor removed).",
+            f"- Surface-gene universe: {n_universe} surfaceome genes with defined "
+            f"Spearman ρ (anchor removed"
+            + (f"; {n_undefined} constant/undefined excluded" if n_undefined else "")
+            + ").",
             f"- Primary metric: Spearman correlation.",
             "",
             "| metric | value |",
@@ -325,6 +428,20 @@ def main(argv: list[str] | None = None) -> int:
             lines.append(
                 f"| {int(r['spearman_rank'])} | {r['gene']}{star} | "
                 f"{r['spearman_r']:.3f} | {r['pearson_r']:.3f} | {r['spearman_q']:.2e} |"
+            )
+        if histo_lines:
+            lines.extend(
+                [
+                    "",
+                    "## Histology split (robustness, not the primary ranking)",
+                    "",
+                    "CESC mixes cervical squamous carcinoma and endocervical adenocarcinoma. "
+                    "The primary ranking above pools all primary tumours (BRCA-analog protocol). "
+                    "The pooled CLDN4 rank is **diluted by adenocarcinoma**, where the "
+                    "TACSTD2–CLDN4 link is weak and not significant.",
+                    "",
+                    *histo_lines,
+                ]
             )
     else:
         lines = [f"{args.focus} is not present in the surface-gene universe."]

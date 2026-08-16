@@ -1,6 +1,6 @@
 """Download the raw inputs needed for the TACSTD2 surfaceome co-expression analysis.
 
-Two inputs are fetched into ``data/`` (git-ignored, because the expression
+Three inputs are fetched into ``data/`` (git-ignored, because the expression
 matrix is tens of MB):
 
 1. TCGA-CESC RNA-seq gene-expression matrix from the UCSC Xena TCGA hub
@@ -15,6 +15,10 @@ matrix is tens of MB):
    that returns HTML (or a Git-LFS pointer) for the file path, so we pull the
    identical workbook that is vendored in the steveneschrich/surfaceome R
    package on GitHub (sha256 matches the official LFS pointer).
+
+3. The Xena TCGA-CESC clinical matrix (``CESC_clinicalMatrix``), used only
+   for the histology robustness split (squamous vs adenocarcinoma). It is
+   not used in the primary pooled ranking.
 
 Re-running is cheap: existing files are left in place unless --force is given.
 """
@@ -40,6 +44,12 @@ SURFACEOME_URL = (
 )
 SURFACEOME_FILE = DATA_DIR / "table_S3_surfaceome.xlsx"
 
+CLINICAL_URL = (
+    "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/"
+    "download/TCGA.CESC.sampleMap/CESC_clinicalMatrix"
+)
+CLINICAL_FILE = DATA_DIR / "CESC_clinicalMatrix"
+
 
 def _download(url: str, dest: Path, force: bool) -> None:
     if dest.exists() and not force:
@@ -63,6 +73,7 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
     _download(EXPRESSION_URL, EXPRESSION_FILE, args.force)
     _download(SURFACEOME_URL, SURFACEOME_FILE, args.force)
+    _download(CLINICAL_URL, CLINICAL_FILE, args.force)
     return 0
 
 
