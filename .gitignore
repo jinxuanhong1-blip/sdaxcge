@@ -1,0 +1,10 @@
+# Large public downloads (regenerate with scripts/xena_luad_download.sh)
+data/w200/raw/*
+!data/w200/raw/MANIFEST.tsv
+
+# Local python / editor junk
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
