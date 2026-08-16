@@ -1,0 +1,57 @@
+{
+  "analysis_id": "w200/B5_IMvigor210",
+  "date_utc": "2026-08-16",
+  "cohort": "IMvigor210 metastatic urothelial carcinoma, atezolizumab (anti-PD-L1)",
+  "trials_from_package_docs": ["NCT02108652", "NCT02951767"],
+  "paper": {
+    "citation": "Mariathasan S, Turley SJ, Nickles D, et al. TGF-β attenuates tumour response to PD-L1 blockade by contributing to exclusion of T cells. Nature. 2018.",
+    "doi": "10.1038/nature25501"
+  },
+  "processed_data": {
+    "name": "IMvigor210CoreBiologies",
+    "version": "1.0.0",
+    "object": "cds (CountDataSet)",
+    "n_features": 31286,
+    "n_rna_samples": 348,
+    "download_url_used": "http://research-pub.gene.com/IMvigor210CoreBiologies/packageVersions/IMvigor210CoreBiologies_1.0.0.tar.gz",
+    "index_url": "http://research-pub.gene.com/IMvigor210CoreBiologies/",
+    "sha256": "cfdd3176d7b34de5b04fb9416bfd2b20fa4b6e238aaad5f20b048a34329ea178",
+    "package_date": "2019-02-11",
+    "authors": ["Dorothee Nickles", "Richard Bourgon"],
+    "note": "HTTPS to research-pub.gene.com reset TLS from this environment; the same host served the tarball over HTTP. File is the official 1.0.0 package (122,127,298 bytes)."
+  },
+  "accessions_verified": {
+    "EGAS00001002556": {
+      "type": "EGA study",
+      "where_stated": [
+        "IMvigor210CoreBiologies landing page: raw human gene expression will be available at EGA under EGAS00001002556",
+        "package help for cds: @source EGAS00001002556",
+        "https://ega-archive.org/studies/EGAS00001002556 title matches the Nature paper"
+      ]
+    },
+    "EGAD00001003977": {
+      "type": "EGA dataset (RNA)",
+      "where_stated": "EGA study page EGAS00001002556: FFPE tumor RNA, capture-based sequencing, pre-anti-PD-L1",
+      "used_in_this_analysis": false,
+      "reason_not_used": "Controlled-access raw RNA. This analysis used the public processed CountDataSet, not EGA FASTQ/BAM."
+    },
+    "EGAD00001004218": {
+      "type": "EGA dataset (DNA)",
+      "where_stated": "EGA study page EGAS00001002556: FFPE tumor DNA + matched PBMC normal; page lists 348 in the dataset blurb",
+      "used_in_this_analysis": false,
+      "reason_not_used": "DNA/WES. Not required for CLDN4 RNA vs ORR/OS."
+    }
+  },
+  "accessions_not_claimed": {
+    "GEO_GSE": "No GEO Series accession is stated on the official package page, the cds help file, or the EGA study page. None invented.",
+    "SRA_PRJ": "None stated on those pages. None invented."
+  },
+  "gene": {
+    "symbol": "CLDN4",
+    "entrez_id": 1364,
+    "feature_source": "IGIS",
+    "length_nt": 1831,
+    "n_exons": 1,
+    "n_rows_in_cds": 1
+  }
+}
