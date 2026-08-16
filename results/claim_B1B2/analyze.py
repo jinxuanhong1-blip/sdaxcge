@@ -32,6 +32,13 @@ DEPMAP_20Q2_MODEL = "https://ndownloader.figshare.com/files/25494443"
 DEPMAP_20Q2_EXPR = "https://ndownloader.figshare.com/files/25817909"
 CMP_API = "https://api.cellmodelpassports.sanger.ac.uk/datasets/proteomics"
 RPPA_ANTIBODIES = "https://tcpa.drbioright.org/rppa500mclp/CCLE-annotation-antibody"
+GYGI_PROTEIN = (
+    "https://gygi.hms.harvard.edu/data/ccle/"
+    "protein_quant_current_normalized.csv.gz"
+)
+GYGI_SAMPLES = (
+    "https://gygi.hms.harvard.edu/data/ccle/Table_S1_Sample_Information.xlsx"
+)
 
 
 def download(url: str, path: Path) -> None:
@@ -259,10 +266,61 @@ def proteomics_availability() -> dict:
             "TACSTD2_present": "TACSTD2" in genes,
         },
         "conclusion": (
-            "The stated CLDN4-TROP2 pair cannot be computed in either public "
-            "protein matrix because CLDN4 is absent from Sanger DIA-MS and "
-            "both analytes are absent from CCLE RPPA500."
+            "The pair cannot be computed in these two additional public "
+            "protein matrices: CLDN4 is absent from Sanger DIA-MS and both "
+            "analytes are absent from CCLE RPPA500."
         ),
+    }
+
+
+def gygi_protein(cache: Path, model20_path: Path) -> tuple[pd.DataFrame, dict]:
+    protein_path = cache / "Gygi_protein_quant_current_normalized.csv.gz"
+    sample_path = cache / "Gygi_Table_S1_Sample_Information.xlsx"
+    download(GYGI_PROTEIN, protein_path)
+    download(GYGI_SAMPLES, sample_path)
+
+    proteins = pd.read_csv(protein_path)
+    sample_info = pd.read_excel(sample_path, sheet_name="Sample_Information")
+    model = pd.read_csv(model20_path, usecols=["CCLE_Name", "lineage_subtype"])
+    nsclc_codes = set(model.loc[model.lineage_subtype.eq("NSCLC"), "CCLE_Name"])
+    sample_columns = [
+        column
+        for column in proteins.columns
+        if "_TenPx" in column
+        and not column.startswith("TenPx")
+        and re.sub(r"_TenPx\d+$", "", column) in nsclc_codes
+    ]
+    # The 378 analytical columns represent 375 unique models. None of the
+    # three duplicated bridge models is NSCLC, but collapse by model is kept
+    # explicit to prevent technical replicates from inflating n.
+    pair = pd.DataFrame(
+        {
+            "CCLECode": [re.sub(r"_TenPx\d+$", "", c) for c in sample_columns],
+            "TACSTD2_protein": proteins.loc[
+                proteins.Gene_Symbol.eq("TACSTD2"), sample_columns
+            ].iloc[0].to_numpy(dtype=float),
+            "CLDN4_protein": proteins.loc[
+                proteins.Gene_Symbol.eq("CLDN4"), sample_columns
+            ].iloc[0].to_numpy(dtype=float),
+        }
+    )
+    pair = pair.groupby("CCLECode", as_index=False).mean().dropna()
+    n, rho, rho_p, r, r_p = correlation(
+        pair.TACSTD2_protein.to_numpy(), pair.CLDN4_protein.to_numpy()
+    )
+    return pair, {
+        "dataset": "Nusinow et al. 2020 CCLE TMT mass spectrometry",
+        "source": GYGI_PROTEIN,
+        "models_total": int(
+            sample_info.loc[sample_info["Protein 10-Plex ID"].ne(0), "CCLE Code"].nunique()
+        ),
+        "NSCLC_definition": "DepMap 20Q2 lineage_subtype == 'NSCLC'",
+        "NSCLC_models_in_protein_matrix": int(len(sample_columns)),
+        "NSCLC_complete_pairs": n,
+        "spearman_rho": rho,
+        "spearman_p": rho_p,
+        "pearson_r": r,
+        "pearson_p": r_p,
     }
 
 
@@ -283,9 +341,29 @@ def analyze_b2(out: Path, cache: Path) -> dict:
 
     data24, result24 = depmap_rna(paths["24Q2_model"], paths["24Q2_expr"], "24Q2")
     data20, result20 = depmap_rna(paths["20Q2_model"], paths["20Q2_expr"], "20Q2")
+    protein, protein_result = gygi_protein(cache, paths["20Q2_model"])
     pd.concat([data24, data20], ignore_index=True).to_csv(
         out / "B2_DepMap_NSCLC_RNA_pairs.csv", index=False
     )
+    protein.to_csv(out / "B2_CCLE_NSCLC_protein_pairs.csv", index=False)
+
+    fig, ax = plt.subplots(figsize=(5, 4.5), constrained_layout=True)
+    ax.scatter(
+        protein.TACSTD2_protein,
+        protein.CLDN4_protein,
+        s=24,
+        alpha=0.75,
+        edgecolors="none",
+    )
+    ax.set(
+        title="CCLE NSCLC measured protein\n"
+        f"Spearman ρ={protein_result['spearman_rho']:.3f}, "
+        f"n={protein_result['NSCLC_complete_pairs']}",
+        xlabel="TROP2/TACSTD2 normalized TMT abundance",
+        ylabel="CLDN4 normalized TMT abundance",
+    )
+    fig.savefig(out / "B2_CCLE_NSCLC_protein_scatter.png", dpi=180)
+    plt.close(fig)
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.5), constrained_layout=True)
     for ax, data, result in zip(axes, [data20, data24], [result20, result24], strict=True):
@@ -306,6 +384,7 @@ def analyze_b2(out: Path, cache: Path) -> dict:
     plt.close(fig)
     return {
         "protein_data_availability": proteomics_availability(),
+        "Gygi_CCLE_protein_result": protein_result,
         "RNA_sensitivity_checks": [result20, result24],
     }
 
@@ -321,14 +400,13 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
     args.cache.mkdir(parents=True, exist_ok=True)
 
-    summary = {}
+    summary_path = args.output / "summary.json"
+    summary = json.loads(summary_path.read_text()) if summary_path.exists() else {}
     if not args.skip_b1:
         summary["B1"] = analyze_b1(args.output, args.cache, args.chunk_size)
     if not args.skip_b2:
         summary["B2"] = analyze_b2(args.output, args.cache)
-    (args.output / "summary.json").write_text(
-        json.dumps(summary, indent=2, allow_nan=False) + "\n"
-    )
+    summary_path.write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n")
 
 
 if __name__ == "__main__":
