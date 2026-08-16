@@ -51,6 +51,28 @@ These are processed, public, and below 2 GiB, so the download script permits
 them. They are **not trial-specific datasets** and cannot support an
 IMpower110-versus-130-versus-150 comparison.
 
+The pooled hypothyroidism genetics study also includes IMpower130 and exposes
+three public PGS Catalog scoring files
+([PGP000164](https://www.pgscatalog.org/publication/PGP000164/);
+PGS000759, PGS000760, and PGS000761). These are reusable score weights, not
+IMpower130 genotypes or trial-stratified results.
+
+## Direct open IMpower150 derivatives
+
+Three BioStudies/Europe PMC publication packages expose small processed
+workbooks derived directly from IMpower150:
+
+- [S-EPMC10115641](https://www.ebi.ac.uk/biostudies/studies/S-EPMC10115641):
+  ctDNA cohort/sample and analysis summary tables, 182,673 bytes.
+- [S-EPMC11316765](https://www.ebi.ac.uk/biostudies/studies/S-EPMC11316765):
+  figure-level ctDNA source data, 250,646 bytes.
+- [S-EPMC12775477](https://www.ebi.ac.uk/biostudies/studies/S-EPMC12775477):
+  figure-level transcriptomic subtype/biomarker source data, 59,235 bytes.
+
+These workbooks are truly open and processed, so they are downloaded. They
+contain summaries/source values, not the controlled patient-level matrices.
+Narrative PDFs and peer-review/reporting files were excluded.
+
 ## Negative findings and request-only routes
 
 - A complete exact-name scan of the official EGA public API covered 21,321
@@ -69,6 +91,9 @@ IMpower110-versus-130-versus-150 comparison.
 - Original PACIFIC participant-level data are requestable under the
   [AstraZeneca/Vivli route](https://vivli.org/ourmember/astrazeneca/), but no
   direct public omics accession for the original PACIFIC trial was found.
+- PACIFIC BioStudies records such as S-EPMC8412232 and S-EPMC9015199 are
+  publication packages, not omics experiments. Their aggregate IHC/survival
+  supplements were not classified as processed omics.
 - [PRJNA1026052](https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1026052) is an
   open TCR-sequencing study of a small, independent durvalumab-after-CRT
   cohort. It cites PACIFIC as the treatment precedent but is not the PACIFIC

@@ -17,6 +17,11 @@ IMpower110/130/150。其两个汇总统计文件是真正公开、处理后且�
 2 GiB，故已纳入下载清单；但它们是合并分析，不能拆分为三个
 IMpower 队列。PACIFIC 不在该研究中。
 
+此外下载了 3 个直接源于 IMpower150 的开放 source-data/补充 XLSX，
+以及 3 个在含 IMpower130 的跨试验研究中评估的 PGS Catalog 评分文件。
+前者是图表级或汇总衍生数据，后者是通用 PRS 权重；均不是受控
+患者级矩阵或试验专属基因型。
+
 ### Accession 清单
 
 - IMpower150 ctDNA/临床/代码：**EGAS00001006703**
@@ -28,6 +33,10 @@ IMpower 队列。PACIFIC 不在该研究中。
   **EGAS50000001272 / EGAD50000001814**
 - 公开的跨试验 GWAS 汇总统计：LocusZoom **74850**（全队列）与
   **743668**（taxane 亚组）
+- IMpower150 开放衍生包：**S-EPMC10115641**、**S-EPMC11316765**、
+  **S-EPMC12775477**
+- 含 IMpower130 的跨试验 PGS 研究：**PGP000164**；评分
+  **PGS000759**、**PGS000760**、**PGS000761**
 - IMpower110：未找到直接 EGA accession；注册号 **NCT02409342**
 - IMpower130：未找到直接 EGA accession；注册号 **NCT02367781**
 - PACIFIC：未找到原始试验直接公共组学 accession；注册号
@@ -40,7 +49,7 @@ IMpower 队列。PACIFIC 不在该研究中。
 
 - 未下载任何 EGA 文件：EGA API 明确返回 `controlled`，小文件也不等于
   open。
-- 下载器只允许显式标注为公开且处理后的两个 LocusZoom 文件，并在
+- 下载器只允许显式标注为公开且处理后的白名单文件，并在
   HEAD 阶段强制 `<2 GiB`，下载后核对长度与 SHA-256。
 - `results/gpt_impower/open_processed/manifest.{tsv,json}` 记录下载结果。
   大型 `.gz` 本地缓存不进入 Git；可用脚本确定性重取。
@@ -65,9 +74,15 @@ IMpower130, or the original PACIFIC trial.
 A separate pharmacogenomic WGS analysis across 14 Roche trials explicitly
 included IMpower110, IMpower130, and IMpower150. Its two pooled GWAS summary
 files are genuinely public, processed, and below 2 GiB, so they are the only
-eligible downloads. They do not expose trial-stratified effects or participant
-labels and cannot be treated as three cohort datasets. PACIFIC was not part of
-that analysis.
+eligible pooled-GWAS downloads. They do not expose trial-stratified effects or
+participant labels and cannot be treated as three cohort datasets. PACIFIC was
+not part of that analysis.
+
+The download set also includes three direct IMpower150 source-data/supplementary
+XLSX files and three PGS Catalog score files evaluated in a pooled study that
+included IMpower130. The former are figure-level or summary derivatives; the
+latter are reusable PRS weights. Neither category is a controlled patient-level
+matrix or trial-specific genotype dataset.
 
 ### Accession inventory
 
@@ -80,6 +95,10 @@ that analysis.
   **EGAS50000001272 / EGAD50000001814**
 - Open cross-trial GWAS summary statistics: LocusZoom **74850** (all patients)
   and **743668** (taxane subgroup)
+- Direct open IMpower150 derivatives: **S-EPMC10115641**,
+  **S-EPMC11316765**, and **S-EPMC12775477**
+- Cross-trial PGS study including IMpower130: **PGP000164**, with scores
+  **PGS000759**, **PGS000760**, and **PGS000761**
 - IMpower110: no direct EGA accession found; registry **NCT02409342**
 - IMpower130: no direct EGA accession found; registry **NCT02367781**
 - PACIFIC: no direct public-omics accession found for the original trial;
@@ -92,9 +111,8 @@ byte count, access classification, and source URL.
 
 - No EGA payload was downloaded: the official API labels every candidate
   `controlled`.
-- The downloader allowlists only the two explicitly public processed
-  LocusZoom files, enforces `<2 GiB` from HTTP headers, and verifies byte count
-  and SHA-256 after transfer.
+- The downloader allowlists only explicitly public processed files, enforces
+  `<2 GiB` from HTTP headers, and verifies byte count and SHA-256 after transfer.
 - Download outcomes are recorded in
   `results/gpt_impower/open_processed/manifest.{tsv,json}`. Large `.gz` cache
   files are intentionally not committed and can be reproduced with the script.

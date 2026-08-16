@@ -14,6 +14,33 @@ from pathlib import Path
 LIMIT = 2 * 1024**3
 FILES = (
     {
+        "id": "S-EPMC10115641-MOESM2",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/biostudies/S-EPMC/641/S-EPMC10115641/Files/41591_2023_2226_MOESM2_ESM.xlsx",
+        "landing_page": "https://www.ebi.ac.uk/biostudies/studies/S-EPMC10115641",
+        "filename": "impower150_ctdna_supplementary_tables.xlsx",
+        "access": "open",
+        "processed": True,
+        "scope": "Direct IMpower150 ctDNA cohort and analysis summary tables",
+    },
+    {
+        "id": "S-EPMC11316765-MOESM4",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/biostudies/S-EPMC/765/S-EPMC11316765/Files/41467_2024_51316_MOESM4_ESM.xlsx",
+        "landing_page": "https://www.ebi.ac.uk/biostudies/studies/S-EPMC11316765",
+        "filename": "impower150_ctdna_source_data.xlsx",
+        "access": "open",
+        "processed": True,
+        "scope": "Direct IMpower150 figure-level ctDNA source data",
+    },
+    {
+        "id": "S-EPMC12775477-MOESM4",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/biostudies/S-EPMC/477/S-EPMC12775477/Files/41467_2025_66803_MOESM4_ESM.xlsx",
+        "landing_page": "https://www.ebi.ac.uk/biostudies/studies/S-EPMC12775477",
+        "filename": "impower150_transcriptomic_source_data.xlsx",
+        "access": "open",
+        "processed": True,
+        "scope": "Direct IMpower150 figure-level transcriptomic source data",
+    },
+    {
         "id": "locuszoom-74850",
         "url": "https://my.locuszoom.org/gwas/74850/data/",
         "landing_page": "https://my.locuszoom.org/gwas/74850",
@@ -30,6 +57,33 @@ FILES = (
         "access": "open",
         "processed": True,
         "scope": "Pooled taxane-subcohort GWAS including relevant IMpower trials",
+    },
+    {
+        "id": "PGS000759",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000759/ScoringFiles/PGS000759.txt.gz",
+        "landing_page": "https://www.pgscatalog.org/score/PGS000759/",
+        "filename": "PGS000759.txt.gz",
+        "access": "open",
+        "processed": True,
+        "scope": "Pooled hypothyroidism PRS evaluated across trials including IMpower130",
+    },
+    {
+        "id": "PGS000760",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000760/ScoringFiles/PGS000760.txt.gz",
+        "landing_page": "https://www.pgscatalog.org/score/PGS000760/",
+        "filename": "PGS000760.txt.gz",
+        "access": "open",
+        "processed": True,
+        "scope": "Pooled hypothyroidism PRS evaluated across trials including IMpower130",
+    },
+    {
+        "id": "PGS000761",
+        "url": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000761/ScoringFiles/PGS000761.txt.gz",
+        "landing_page": "https://www.pgscatalog.org/score/PGS000761/",
+        "filename": "PGS000761.txt.gz",
+        "access": "open",
+        "processed": True,
+        "scope": "Pooled hypothyroidism PRS evaluated across trials including IMpower130",
     },
 )
 
@@ -49,12 +103,25 @@ def inspect(item: dict[str, object]) -> tuple[int, str]:
         raise RuntimeError(f"{item['id']}: server did not provide Content-Length")
     if size >= LIMIT:
         raise RuntimeError(f"{item['id']}: {size} bytes exceeds the <2 GiB rule")
-    if media_type not in {"application/gzip", "application/octet-stream"}:
+    allowed_media_types = {
+        "application/gzip",
+        "application/octet-stream",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/x-gzip",
+    }
+    if media_type not in allowed_media_types:
         raise RuntimeError(f"{item['id']}: unexpected media type {media_type}")
     return size, media_type
 
 
 def download(item: dict[str, object], destination: Path, expected: int) -> str:
+    if destination.exists() and destination.stat().st_size == expected:
+        digest = hashlib.sha256()
+        with destination.open("rb") as handle:
+            while chunk := handle.read(1024 * 1024):
+                digest.update(chunk)
+        return digest.hexdigest()
+
     partial = destination.with_suffix(destination.suffix + ".part")
     digest = hashlib.sha256()
     request = urllib.request.Request(
