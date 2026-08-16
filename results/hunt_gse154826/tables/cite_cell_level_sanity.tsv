@@ -1,0 +1,3 @@
+test	n	rho	p	note
+cell Tumor TACSTD2 UMI vs CD8 ADT (lineage sanity)	72463	-0.06251876784215984	1.1304259555201687e-63	Expected negative: TACSTD2 is epithelial, CD8 is T cells. Not a sample-level test.
+cell Tumor TACSTD2 UMI vs EPCAM ADT	72463			Same-lineage positive control if Trop-2 RNA tracks EpCAM protein.

@@ -1,0 +1,16 @@
+item	value	note
+GEO	GSE154826	Leader, Grout et al. Cancer Cell 2021 NSCLC CITE-seq
+GEO_suppl	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE154826/suppl/	raw 10x mtx per amp_batch_ID
+author_repo	https://github.com/effiken/Leader_et_al	cell_metadata.csv, annots_list.csv, LCAM R scripts
+n_annotated_cells	361929	author barcodes, not re-clustered
+n_samples	91	GEO human samples with author annotations
+n_patients	35	patient_ID in cell_metadata
+primary_unit	patient x tissue	same as figure_5abcd_s5a.R
+primary_cohort	V2 + beads + Tumor	n=26 (22 LUAD, 4 LUSC)
+digest_patients	695 LUAD, 706 LUSC	only libraries without CD45 enrichment
+TACSTD2_ADT	absent	panel has EPCAM, CD8, CD45, CD3
+LCAM_hi	T_activated, IgG, MoMac-II	figure_5abcd_s5a.R
+LCAM_lo	B, AM, cDC2, AZU1_mac, Tcm/naive_II, cDC1	figure_5abcd_s5a.R
+user_expected	negative	TACSTD2 vs LCAM / CD8
+verdict	not supported	primary null; LCAM point estimates positive
+composition_negative	yes	gate fraction vs CD8 ADT rho=-0.80 n=20
