@@ -1,0 +1,18 @@
+dataset	compartment	gene	contrast	metric	genes_in_matrix	n_responder	n_nonresponder	median_responder	median_nonresponder	p	note
+GSE111414	PBMC_CD8	TACSTD2	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	0.0	0.0	0.7971696931337416	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	CLDN4	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	0.0	0.0		epithelial genes expected near-zero in sorted CD8 T cells
+GSE202417	PBMC_CD8	TACSTD2	pre-treatment R vs NR (bezafibrate+nivolumab trial)	array_intensity	True	6	8	7.635284066500001	9.0189123145	0.4908424908424909	sorted CD8; probe TC0100014340.hg.1
+GSE202417	PBMC_CD8	CLDN4	pre-treatment R vs NR (bezafibrate+nivolumab trial)	array_intensity	True	6	8	9.2491153575	8.4184065285	0.1811521811521811	sorted CD8; probe TC0700007993.hg.1
+GSE249262	CTC	TACSTD2	baseline CTC stable vs progression (CRT + durvalumab, PMID 38261515)	array_intensity	True	15	9	3.491453803	3.908618551	0.0645325214635602	responder=stable; nonresponder=progression; CTC RNA is the biologically plausible blood compartment
+GSE249262	CTC	CLDN4	baseline CTC stable vs progression (CRT + durvalumab, PMID 38261515)	array_intensity	True	15	9	5.119244984	5.510889955	0.1524062839567493	responder=stable; nonresponder=progression; CTC RNA is the biologically plausible blood compartment
+GSE235048	PBMC	TACSTD2	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	0.126983	0.03947	0.5906786252963061	groups are timepoint not response; n1=pre n2=post
+GSE225620	whole_blood	TACSTD2	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	0.6370141175790414	0.3413586448010021	0.7243281379192423	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	CLDN4	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	0.0	0.0	0.5639840091437813	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE305086	whole_blood	TACSTD2	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	3.5134222485			probe 202286_s_at,202287_s_at; mean-intensity percentile among probes=41.97036140934523
+GSE305086	whole_blood	CLDN4	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	4.772991212			probe 201428_at,1569421_at; mean-intensity percentile among probes=26.372296990775745
+GSE285888	PBMC_scRNA	TACSTD2	CR vs PD	patient_cp10k	True	7	13	0.0	0.0	0.9610399550819744	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	TACSTD2	CR+DR vs PD	patient_cp10k	True	15	13	0.0	0.0	0.9769595889587476	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	TACSTD2	CR vs PD	patient_frac_detected	True	7	13	0.0	0.0	0.9610399550819744	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CLDN4	CR vs PD	patient_cp10k	True	7	13	0.0029924540342777	0.0038194973603974	0.5355521155830754	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CLDN4	CR+DR vs PD	patient_cp10k	True	15	13	0.0038366254066023	0.0038194973603974	0.8538084126585609	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CLDN4	CR vs PD	patient_frac_detected	True	7	13	0.0013065490772497	0.0015732265446224	0.6426470588235295	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level

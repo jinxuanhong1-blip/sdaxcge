@@ -1,0 +1,70 @@
+dataset	compartment	gene	contrast	metric	genes_in_matrix	n_responder	n_nonresponder	median_responder	median_nonresponder	p	note
+GSE111414	PBMC_CD8	TACSTD2	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	0.0	0.0	0.7971696931337416	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	CLDN4	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	0.0	0.0		epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	EPCAM	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	0.0	0.0	0.4237107971667934	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	KRT8	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	0.3760452690071033	0.5485247275253936	1.0	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	KRT18	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	1.2122333050343277	2.454614517234633	0.3095238095238095	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	PTPRC	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	10.02407057490754	10.343409997205615	0.3095238095238095	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	CD3D	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	6.841547265600896	6.79506555720861	1.0	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	CD8A	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	10.546704853116427	10.497842102515534	0.6904761904761905	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	GZMB	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	7.274562140188416	7.326436640494698	0.8412698412698413	epithelial genes expected near-zero in sorted CD8 T cells
+GSE111414	PBMC_CD8	PRF1	baseline_N1 responder vs nonresponder	log2CPM	True	5	5	9.237492257476472	9.571490161059678	0.4206349206349206	epithelial genes expected near-zero in sorted CD8 T cells
+GSE202417	PBMC_CD8	TACSTD2	pre-treatment R vs NR (bezafibrate+nivolumab trial)	array_intensity	True	6	8	7.635284066500001	9.0189123145	0.4908424908424909	sorted CD8; probe TC0100014340.hg.1
+GSE202417	PBMC_CD8	CLDN4	pre-treatment R vs NR (bezafibrate+nivolumab trial)	array_intensity	True	6	8	9.2491153575	8.4184065285	0.1811521811521811	sorted CD8; probe TC0700007993.hg.1
+GSE202417	PBMC_CD8	EPCAM	pre-treatment R vs NR (bezafibrate+nivolumab trial)	array_intensity	True	6	8	9.941856715	9.6752309105	0.9497169497169498	sorted CD8; probe TC0200007506.hg.1
+GSE249262	CTC	TACSTD2	baseline CTC stable vs progression (CRT + durvalumab, PMID 38261515)	array_intensity	True	15	9	3.491453803	3.908618551	0.0645325214635602	responder=stable; nonresponder=progression; CTC RNA is the biologically plausible blood compartment
+GSE249262	CTC	CLDN4	baseline CTC stable vs progression (CRT + durvalumab, PMID 38261515)	array_intensity	True	15	9	5.119244984	5.510889955	0.1524062839567493	responder=stable; nonresponder=progression; CTC RNA is the biologically plausible blood compartment
+GSE249262	CTC	EPCAM	baseline CTC stable vs progression (CRT + durvalumab, PMID 38261515)	array_intensity	True	15	9	2.958035928	2.875029604	0.6333423006990662	responder=stable; nonresponder=progression; CTC RNA is the biologically plausible blood compartment
+GSE235048	PBMC	TACSTD2	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	0.126983	0.03947	0.5906786252963061	groups are timepoint not response; n1=pre n2=post
+GSE235048	PBMC	KRT8	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	0.876436	0.450389	0.280963480963481	groups are timepoint not response; n1=pre n2=post
+GSE235048	PBMC	KRT18	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	1.788644	1.4311855	0.8665112665112666	groups are timepoint not response; n1=pre n2=post
+GSE235048	PBMC	PTPRC	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	303.183131	235.512171	0.6943278943278944	groups are timepoint not response; n1=pre n2=post
+GSE235048	PBMC	CD3D	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	70.614748	147.7961525	0.1205905205905206	groups are timepoint not response; n1=pre n2=post
+GSE235048	PBMC	CD8A	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	28.46572	64.5903485	0.5358197358197359	groups are timepoint not response; n1=pre n2=post
+GSE235048	PBMC	GZMB	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	114.343284	110.7734325	0.6943278943278944	groups are timepoint not response; n1=pre n2=post
+GSE235048	PBMC	PRF1	pre vs post ICI (NO public RECIST/response label)	TPM	True	7	8	73.066584	76.664618	0.8665112665112666	groups are timepoint not response; n1=pre n2=post
+GSE225620	whole_blood	TACSTD2	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	0.6370141175790414	0.3413586448010021	0.7243281379192423	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	CLDN4	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	0.0	0.0	0.5639840091437813	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	EPCAM	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	1.198651516160602	0.0	8.226341424033357e-05	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	KRT8	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	0.1659651661735388	0.1473425218441311	0.7437473738806685	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	KRT18	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	0.5665421034053044	0.8437293973101161	0.4027362357653626	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	PTPRC	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	10.21478086664974	9.629187608186369	0.0602578422001328	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	CD3D	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	4.481258153593403	5.5904602761208535	0.0220264119906843	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	CD8A	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	6.026964008206569	6.901728514861669	0.049186002134736	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	GZMB	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	5.773955887047717	5.849506723142171	0.3784610368251473	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE225620	whole_blood	PRF1	pre vs post neoadjuvant PD-1 (NO public responder label in GEO)	log2CPM	True	17	21	7.653960641980851	8.020886429217043	0.2522273613804368	design text says responders exist but GEO characteristics have only timepoint/sex/age
+GSE305086	whole_blood	TACSTD2	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	3.5134222485			probe 202286_s_at,202287_s_at; mean-intensity percentile among probes=41.97036140934523
+GSE305086	whole_blood	CLDN4	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	4.772991212			probe 201428_at,1569421_at; mean-intensity percentile among probes=26.372296990775745
+GSE305086	whole_blood	EPCAM	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	2.926181672			probe 201839_s_at; mean-intensity percentile among probes=18.11583245123242
+GSE305086	whole_blood	KRT8	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	4.955462277			probe 209008_x_at; mean-intensity percentile among probes=53.753969454105544
+GSE305086	whole_blood	KRT18	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	5.185239414			probe 201596_x_at; mean-intensity percentile among probes=56.99758052321185
+GSE305086	whole_blood	PTPRC	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	11.98221513			probe 212587_s_at; mean-intensity percentile among probes=99.28171782851958
+GSE305086	whole_blood	CD3D	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	8.821951266			probe 213539_at; mean-intensity percentile among probes=92.7264479056404
+GSE305086	whole_blood	CD8A	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	8.305548314			probe 205758_at; mean-intensity percentile among probes=89.83819748979283
+GSE305086	whole_blood	GZMB	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	9.205853294			probe 210164_at; mean-intensity percentile among probes=94.19703614093451
+GSE305086	whole_blood	PRF1	detectability only — NO public ICI response/PFS label	log2_RMA_mean_percentile	True	173	0	10.43328825			probe 214617_at; mean-intensity percentile among probes=97.58808407681839
+GSE152590	PBMC_CD8	KRT8	detectability only — 4 lung + 4 melanoma, NO response label	TPM	True	8	0	0.0			mean TPM=0.02193; n_nonzero=3
+GSE152590	PBMC_CD8	KRT18	detectability only — 4 lung + 4 melanoma, NO response label	TPM	True	8	0	0.0			mean TPM=0.04749; n_nonzero=1
+GSE152590	PBMC_CD8	PTPRC	detectability only — 4 lung + 4 melanoma, NO response label	TPM	True	8	0	94.136616			mean TPM=105.6; n_nonzero=8
+GSE152590	PBMC_CD8	CD3D	detectability only — 4 lung + 4 melanoma, NO response label	TPM	True	8	0	127.288162			mean TPM=134.1; n_nonzero=8
+GSE152590	PBMC_CD8	CD8A	detectability only — 4 lung + 4 melanoma, NO response label	TPM	True	8	0	20.4572935			mean TPM=23.99; n_nonzero=8
+GSE152590	PBMC_CD8	GZMB	detectability only — 4 lung + 4 melanoma, NO response label	TPM	True	8	0	25.6284665			mean TPM=26.1; n_nonzero=8
+GSE152590	PBMC_CD8	PRF1	detectability only — 4 lung + 4 melanoma, NO response label	TPM	True	8	0	15.700621			mean TPM=15.47; n_nonzero=7
+GSE285888	PBMC_scRNA	TACSTD2	CR vs PD	patient_cp10k	True	7	13	0.0	0.0	0.9610399550819744	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	TACSTD2	CR+DR vs PD	patient_cp10k	True	15	13	0.0	0.0	0.9769595889587476	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	TACSTD2	CR vs PD	patient_frac_detected	True	7	13	0.0	0.0	0.9610399550819744	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CLDN4	CR vs PD	patient_cp10k	True	7	13	0.0029924540342777	0.0038194973603974	0.5355521155830754	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CLDN4	CR+DR vs PD	patient_cp10k	True	15	13	0.0038366254066023	0.0038194973603974	0.8538084126585609	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CLDN4	CR vs PD	patient_frac_detected	True	7	13	0.0013065490772497	0.0015732265446224	0.6426470588235295	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	IL1B	CR vs PD	patient_cp10k	True	7	13	1.0189509618483776	0.8752511531610073	0.6426470588235295	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	IL1B	CR+DR vs PD	patient_cp10k	True	15	13	0.751530380887941	0.8752511531610073	0.3333579905725643	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	IL1B	CR vs PD	patient_frac_detected	True	7	13	0.1239008792965627	0.1136887386695345	0.877296181630547	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CXCL8	CR vs PD	patient_cp10k	True	7	13	0.9739557748034702	1.4677286674909142	0.6991744066047472	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CXCL8	CR+DR vs PD	patient_cp10k	True	15	13	0.9449288224829032	1.4677286674909142	0.3333579905725643	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	CXCL8	CR vs PD	patient_frac_detected	True	7	13	0.0738874895046179	0.1056922196796338	0.6426470588235295	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	PTPRC	CR vs PD	patient_cp10k	True	7	13	22.21535976409356	23.849706071479982	0.437796697626419	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	PTPRC	CR+DR vs PD	patient_cp10k	True	15	13	24.41635410889035	23.849706071479982	0.5492732687760808	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	PTPRC	CR vs PD	patient_frac_detected	True	7	13	0.9833414992650662	0.9830577392247222	0.6426470588235295	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	EPCAM	CR vs PD	patient_cp10k	True	7	13	0.0009537762513401	0.0010933226304336	0.7203873431310193	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	EPCAM	CR+DR vs PD	patient_cp10k	True	15	13	0.0018152907750916	0.0010933226304336	0.0963305411279221	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
+GSE285888	PBMC_scRNA	EPCAM	CR vs PD	patient_frac_detected	True	7	13	0.0005037783375314	0.0004609002919035	0.6051379195833028	patient-level pseudobulk; 7 CR / 8 DR / 13 PD / 5 irAE-only; TACSTD2/CLDN4 at ambient/EPCAM level
