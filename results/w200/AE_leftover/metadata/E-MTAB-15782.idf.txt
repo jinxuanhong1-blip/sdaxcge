@@ -1,0 +1,45 @@
+MAGE-TAB Version	1.1
+Investigation Title	Transcriptome Profiling of Tumor-Infiltrating Lymphocyte-Mediated Cytotoxicity against Patient-Derived Lung Cancer Organoids
+Experiment Description	Non-small cell lung cancer (NSCLC) is a leading cause of cancer mortality, and therapies utilizing tumor-infiltrating lymphocytes (TILs) show significant promise. However, the molecular signatures that define a productive TIL-mediated response against tumors remain poorly characterized. Here, we establish a patient-derived organoid and autologous TIL co-culture platform to dissect this interaction at high resolution. We show that expanded TILs mediate potent and specific cytotoxicity against NSCLC organoids. This functional response is associated with a crucial shift in T-cell states, from proliferative towards effector memory phenotypes, and involves the activation of key signaling networks including the Tumor Necrosis Factor (TNF) and Interleukin-17 (IL-17) pathways. Furthermore, analysis of the T-cell receptor (TCR) repertoire confirms that the expansion process selectively enriches tumor-associated clonotypes, resulting in a more focused repertoire. This work delineates the transcriptional and clonal signatures of an effective anti-tumor immune response, providing a robust framework to guide the development of next-generation personalized TIL therapies.
+Experimental Design	case control design
+Experimental Design Term Source REF	EFO
+Experimental Design Term Accession Number	EFO:0001427
+Experimental Factor Name	disease
+Experimental Factor Type	disease
+Experimental Factor Term Source REF	EFO
+Experimental Factor Term Accession Number	EFO_0000408
+Person Last Name	Chen
+Person First Name	Chao
+Person Mid Initials
+Person Email	409985846@qq.com
+Person Phone
+Person Fax
+Person Address	Lianhua Road
+Person Affiliation	Peking University Shenzhen Hospital
+Person Roles	submitter
+Date of Experiment	2023-02-13
+Public Release Date	2025-10-31
+PubMed ID
+Publication DOI
+Publication Author List
+Publication Title
+Publication Status
+Publication Status Term Source REF
+Publication Status Term Accession Number
+Protocol Name	P-MTAB-157223	P-MTAB-157224	P-MTAB-157225	P-MTAB-157226	P-MTAB-157227
+Protocol Type	sample collection protocol	nucleic acid extraction protocol	nucleic acid library construction protocol	nucleic acid sequencing protocol	normalization data transformation protocol
+Protocol Term Source REF	EFO	EFO	EFO	EFO	EFO
+Protocol Term Accession Number	EFO_0005518	EFO_0002944	EFO_0004184	EFO_0004170	EFO_0003816
+Protocol Description	Patient lung cancer samples, including tumor tissues and adjacent normal tissues, were obtained from the Department of Thoracic Surgery at Peking University Shenzhen Hospital. Written informed consent was obtained from all participants prior to sample collection. All procedures were approved by the Ethics Committee of Peking University Shenzhen Hospital (NO.2020-057). Tissues were washed with DPBS containing 1% penicillin/streptomycin. Non-target tissues were manually removed before digestion.	Nucleic acid extraction was performed as an integrated part of the single-cell library preparation protocol using the DNBelab C4 Single-Cell Library Prep Set (MGI). Within the microfluidic system, individual cells were encapsulated in droplets with barcoded beads. Cell lysis occurred within the droplets, and poly-adenylated mRNA molecules were captured onto the oligo-dT primers on the surface of the beads.	Single-cell RNA-seq libraries were prepared using the DNBelab C4 Single-Cell Library Prep Set (MGI) according to the manufacturer's instructions. Following mRNA capture on barcoded beads, emulsion was broken and beads were recovered. Full-length cDNA was synthesized via reverse transcription. The resulting cDNA was then amplified to generate the final single-cell sequencing libraries.	The final single-cell libraries were quantified using the Qubit ssDNA Assay Kit (Thermo Fisher Scientific). Sequencing was performed on the DNBSEQ-T7 platform (MGI) at the China National GeneBank (CNGB) using a paired-end sequencing strategy.	Single-cell RNA sequencing data analysis was performed using the Seurat (v4.0.6) package in R. After quality control (nFeature_RNA > 500 & < 8000 & percent.mt < 10), data were normalized using the \"LogNormalize\" method. Harmony was used for batch correction. Cell clustering was performed using the Louvain algorithm on the first 20 principal components. DEGs were identified using the \"FindAllMarkers\" function (min.pct = 0.25, logfc.threshold = 0.25) with selection criteria of FDR < 0.01 and |log2FC| > 0.585.
+Protocol Hardware				DNBSEQ-T7	
+Protocol Software					
+Term Source Name	EFO
+Term Source File	http://www.ebi.ac.uk/efo/
+Term Source Version
+SDRF File	E-MTAB-15782.sdrf.txt
+Comment[AEExperimentType]	RNA-seq of coding RNA from single cells
+Comment[TemplateType]	Human - Single-cell sequencing
+Comment[SecondaryAccession]	ERP182494
+Comment[SequenceDataURI]	http://www.ebi.ac.uk/ena/data/view/ERR15741011-ERR15741011
+Comment[Submitted Name]	Transcriptome Profiling of Tumor-Infiltrating Lymphocyte-Mediated Cytotoxicity against Patient-Derived Lung Cancer Organoids
+Comment[ArrayExpressAccession]	E-MTAB-15782

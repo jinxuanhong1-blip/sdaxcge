@@ -1,0 +1,21 @@
+{
+  "task": "ArrayExpress leftover lung ICI / TACSTD2 / CLDN4",
+  "output_dir": "results/w200/AE_leftover",
+  "honest_verdict": "no_leftover_lung_ici_processed_cohort",
+  "skipped": ["E-MTAB-13530"],
+  "already_covered_ici": ["E-MTAB-13704", "E-MTAB-15883", "E-MTAB-9451", "E-MTAB-10633", "E-MTAB-8867"],
+  "analyzed_leftover": {
+    "accession": "E-MTAB-15784",
+    "is_ici": false,
+    "is_lung": true,
+    "design": "NSCLC organoid + autologous TIL + co-culture scRNA",
+    "n_cells": 126201,
+    "n_libraries": 14,
+    "tacstd2_in_tumor_organoid_detection": 0.958,
+    "cldn4_in_tumor_organoid_detection": 0.889,
+    "cannot_claim": "ICI response, PD-1/PD-L1 treatment effect, or leftover ICI cohort"
+  },
+  "metadata_only_leftovers": ["E-MTAB-12508", "E-MTAB-13710"],
+  "trop2_lung_arrayexpress_hits": 0,
+  "atezolizumab_lung_arrayexpress_hits": 0
+}
