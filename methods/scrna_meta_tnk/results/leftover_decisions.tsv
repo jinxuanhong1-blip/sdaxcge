@@ -1,0 +1,30 @@
+accession	pdat	decision	n_usable	reason
+GSE325414	2026-06-10	INCLUDED	25	2026 leftover lung tumor scRNA; author malignant + T/NK labels; donor-level Spearman used
+GSE241934	2024-05-17	INCLUDED	11+24	Must-try; residual Epi vs T/NK from processed MTX+meta (IIT and Real kept separate)
+GSE205335	2024-11-05	INCLUDED	22	Must-try; author malignant labels
+GSE253013	2024-01-31	INCLUDED	9	Must-try; treatment-naive LUAD tumors
+GSE291670	2025-03-31	INCLUDED	6	Must-try; marker malignant vs lineage T/NK
+GSE131907	2020	INCLUDED	36	Must-try; tumor sites only (tLung/tL-B/mLN/PE/mBrain)
+GSE207422	2023-03-21	INCLUDED_AS_GIVEN	12	User A3 slide taken as given; not re-audited
+GSE146100	2021	SKIP	1	n=1 patient (3 nodules). Patient-level Spearman not defined
+GSE243013	2025-01-28	SKIP	0	Immune-cell-only atlas; no malignant/epithelial matrix
+GSE282617	2024-11-26	SKIP	0	Processed file is bulk FPKM (gene x sample), not scRNA; no T/NK fraction
+GSE198099	2023-12-31	SKIP	2	Two tumor 10x lanes (Ca1/Ca2) plus normal/LN; n_tumor_patients=2; no public cell-type table
+GSE253718	2026-01-01	SKIP	6	Six patient 10x MTX only; no public cell-type / malignant table so T/NK fraction cannot be scored without inventing labels
+GSE292700	2026-05-07	SKIP	0	Tumor+adjacent+blood 10x MTX; no public cell-type table; blood samples are the wrong compartment
+GSE164789	2024-01-13	SKIP	0	Precursor LUAD 10x MTX (2.1 GB RAW.tar); no public cell-type table
+GSE333596	2026-07-31	SKIP	0	3.8 GB RAW.tar, no public cell-type table
+GSE319155	2026-02-11	SKIP	0	Transformed SCLC 10x MTX; no public cell-type table
+GSE274934	2025-01-30	SKIP	0	ALK+ LUAD; 15 GB RAW.tar of h5; no public cell-type table
+GSE337519	2026-07-29	SKIP	1	n=1 GEO sample
+GSE267108	2024-05-17	SKIP	0	PD-L1 immune-escape LUAD; processed tar has no documented author T/NK+malignant table in the series supplement listing
+GSE148071	2021	OUT_OF_WINDOW	36	Pre-2023 TISCH NSCLC; leftover window is 2023–2026
+GSE127465	2019	OUT_OF_WINDOW	7	Pre-2023 myeloid-focused NSCLC; leftover window is 2023–2026
+E-MTAB-6149	2018	OUT_OF_WINDOW	0	Pre-2023; TISCH malignant vs immune has no paired T/NK fraction for TACSTD2
+GSE225620	2024	SKIP_BLOOD	0	Blood RNA; epithelial genes are not a tumor-cell score
+GSE260770	2024	SKIP_BLOOD	0	Peripheral-blood bulk
+GSE266219	2024	SKIP_BLOOD	0	Sorted PBMC/CD8 scRNA
+GSE202417	2025	SKIP_BLOOD	0	Sorted blood CD8 array
+GSE190905	2025	SKIP_BLOOD	0	PBMC CD3 scRNA/TCR
+EGAD00001008703	NA	SKIP_CONTROLLED	0	GSE205335 raw; EGA skipped
+HRA001033	NA	SKIP_CONTROLLED	0	GSE207422 raw GSA-Human; skipped

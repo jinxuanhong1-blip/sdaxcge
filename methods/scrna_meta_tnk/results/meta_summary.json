@@ -1,0 +1,310 @@
+{
+  "TACSTD2": {
+    "gene": "TACSTD2",
+    "n_cohorts": 8,
+    "n_patients_total": 145,
+    "cohorts": [
+      "GSE207422",
+      "GSE205335",
+      "GSE241934_IIT",
+      "GSE241934_Real",
+      "GSE291670",
+      "GSE253013",
+      "GSE131907_tumor_sites",
+      "GSE325414"
+    ],
+    "random_effects": {
+      "k": 8,
+      "n_patients_total": 145,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.10947585244980469,
+      "pooled_rho": -0.10904058434581919,
+      "se_z": 0.12422741879344408,
+      "ci95_rho": [
+        -0.3389994161709709,
+        0.13321339722328804
+      ],
+      "p": 0.3781806070505802,
+      "Q": 11.528197494993673,
+      "df": 7,
+      "tau2": 0.04537196893791276,
+      "I2": 39.2793192254047,
+      "H2": 1.6468853564276675,
+      "fixed_z": -0.054696151966182154,
+      "fixed_rho": -0.054641672897111464
+    },
+    "stouffer": {
+      "k": 8,
+      "method": "Stouffer weighted by sqrt(n-3), signed by \u03c1",
+      "z": -0.6064914566089684,
+      "p": 0.5441884538189007
+    },
+    "fisher": {
+      "k": 8,
+      "method": "Fisher combined p (direction-agnostic)",
+      "X2": 22.283107374897835,
+      "df": 16,
+      "p": 0.1342833677492333
+    },
+    "rows": [
+      {
+        "cohort": "GSE207422",
+        "gene": "TACSTD2",
+        "metric": "malig_mean_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 12,
+        "rho": -0.4895104895104896,
+        "p": 0.1062523717593459,
+        "primary": true,
+        "source": "A3_GIVEN",
+        "malignant_def": "DRMref Malignant cells (taken as given)",
+        "note": "User A3 slide taken as given. Table check \u03c1=-0.489510 p=0.106252 n=12."
+      },
+      {
+        "cohort": "GSE205335",
+        "gene": "TACSTD2",
+        "metric": "mal_TACSTD2_mean",
+        "immune": "frac_tnk",
+        "n": 22,
+        "rho": 0.2840203274985884,
+        "p": 0.2001981527952696,
+        "primary": true,
+        "source": "processed_GEO_author_malignant",
+        "malignant_def": "author lineage.sub == Malignant cells",
+        "note": "n=22 patients with captured malignant cells; mixed histology/sites; RECIST not required."
+      },
+      {
+        "cohort": "GSE241934_IIT",
+        "gene": "TACSTD2",
+        "metric": "TACSTD2_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 11,
+        "rho": -0.0727272727272727,
+        "p": 0.831716405381337,
+        "primary": true,
+        "source": "processed_GEO_author_Epi",
+        "malignant_def": "author major.cell.type == Epi (residual epithelium; no CNV call)",
+        "note": "EGFR-mutant NEOTIDE IIT residual tumors; author Epi vs T+NK; all 11 patients eligible."
+      },
+      {
+        "cohort": "GSE241934_Real",
+        "gene": "TACSTD2",
+        "metric": "TACSTD2_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 24,
+        "rho": -0.1669565217391304,
+        "p": 0.4355381053206146,
+        "primary": true,
+        "source": "processed_GEO_author_Epi",
+        "malignant_def": "author major.cell.type == Epi (residual epithelium; no CNV call)",
+        "note": "EGFR-WT real-world residual tumors; author Epi vs T+NK; \u226520 Epi and \u226520 T/NK."
+      },
+      {
+        "cohort": "GSE291670",
+        "gene": "TACSTD2",
+        "metric": "mal_TACSTD2_mean_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 6,
+        "rho": -0.5428571428571429,
+        "p": 0.2657026239067054,
+        "primary": true,
+        "source": "processed_GEO_marker_malignant",
+        "malignant_def": "marker-score malignant (n=6 post anlotinib+PD-1)",
+        "note": "n=6 (3 MPR / 3 NMPR). Lineage T/NK fraction."
+      },
+      {
+        "cohort": "GSE253013",
+        "gene": "TACSTD2",
+        "metric": "TACSTD2_mean_log1p",
+        "immune": "frac_tnk",
+        "n": 9,
+        "rho": -0.7166666666666667,
+        "p": 0.0298180356958452,
+        "primary": true,
+        "source": "processed_GEO_malig_like",
+        "malignant_def": "epithelial AND not normal-lung marker program (treatment-naive LUAD tumors)",
+        "note": "9 tumor patients; no ICI labels."
+      },
+      {
+        "cohort": "GSE131907_tumor_sites",
+        "gene": "TACSTD2",
+        "metric": "epi_TACSTD2_mean",
+        "immune": "frac_tnk",
+        "n": 36,
+        "rho": 0.168479310471792,
+        "p": 0.325979079499522,
+        "primary": true,
+        "source": "processed_GEO_author_annotation",
+        "malignant_def": "author Epithelial cells at tumor sites (tLung/tL-B/mLN/PE/mBrain)",
+        "note": "Tumor sites only. Author 'Malignant cells' subtype is mostly mets/PE; tLung n_mal=0 so epithelium is the usable score."
+      },
+      {
+        "cohort": "GSE325414",
+        "gene": "TACSTD2",
+        "metric": "malignant_TACSTD2_mean",
+        "immune": "frac_tnk",
+        "n": 25,
+        "rho": -0.073076923076923,
+        "p": 0.7284839479101775,
+        "primary": true,
+        "source": "leftover_2026_author_labels",
+        "malignant_def": "author malignant labels; PEF ablation treat-and-resect (not ICI)",
+        "note": "2026 leftover lung tumor scRNA. Donor-level (n=25)."
+      }
+    ]
+  },
+  "CLDN4": {
+    "gene": "CLDN4",
+    "n_cohorts": 8,
+    "n_patients_total": 145,
+    "cohorts": [
+      "GSE207422",
+      "GSE205335",
+      "GSE241934_IIT",
+      "GSE241934_Real",
+      "GSE291670",
+      "GSE253013",
+      "GSE131907_tumor_sites",
+      "GSE325414"
+    ],
+    "random_effects": {
+      "k": 8,
+      "n_patients_total": 145,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.13816361567497681,
+      "pooled_rho": -0.1372911334668688,
+      "se_z": 0.09090909090909091,
+      "ci95_rho": [
+        -0.3061987153026538,
+        0.039996853711804455
+      ],
+      "p": 0.12856130634715893,
+      "Q": 6.006661030828319,
+      "df": 7,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "H2": 0.8580944329754742,
+      "fixed_z": -0.13816361567497681,
+      "fixed_rho": -0.1372911334668688
+    },
+    "stouffer": {
+      "k": 8,
+      "method": "Stouffer weighted by sqrt(n-3), signed by \u03c1",
+      "z": -1.5327155600739908,
+      "p": 0.12534595360938366
+    },
+    "fisher": {
+      "k": 8,
+      "method": "Fisher combined p (direction-agnostic)",
+      "X2": 17.071130468148024,
+      "df": 16,
+      "p": 0.38100878361023416
+    },
+    "rows": [
+      {
+        "cohort": "GSE207422",
+        "gene": "CLDN4",
+        "metric": "malig_mean_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 12,
+        "rho": -0.0909090909090909,
+        "p": 0.7787253962454419,
+        "primary": true,
+        "source": "A3_table_CLDN4_not_on_slide",
+        "malignant_def": "DRMref Malignant cells (same given table)",
+        "note": "CLDN4 was not on the A3 TACSTD2 slide; computed from the given 12-patient table."
+      },
+      {
+        "cohort": "GSE205335",
+        "gene": "CLDN4",
+        "metric": "mal_CLDN4_mean",
+        "immune": "frac_tnk",
+        "n": 22,
+        "rho": -0.2004517221908526,
+        "p": 0.3710825718233011,
+        "primary": true,
+        "source": "processed_GEO_author_malignant",
+        "malignant_def": "author lineage.sub == Malignant cells",
+        "note": "n=22 patients with captured malignant cells; mixed histology/sites; RECIST not required."
+      },
+      {
+        "cohort": "GSE241934_IIT",
+        "gene": "CLDN4",
+        "metric": "CLDN4_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 11,
+        "rho": -0.0636363636363636,
+        "p": 0.8525390725425217,
+        "primary": true,
+        "source": "processed_GEO_author_Epi",
+        "malignant_def": "author major.cell.type == Epi (residual epithelium; no CNV call)",
+        "note": "EGFR-mutant NEOTIDE IIT residual tumors; author Epi vs T+NK; all 11 patients eligible."
+      },
+      {
+        "cohort": "GSE241934_Real",
+        "gene": "CLDN4",
+        "metric": "CLDN4_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 24,
+        "rho": 0.1782608695652174,
+        "p": 0.404629262071875,
+        "primary": true,
+        "source": "processed_GEO_author_Epi",
+        "malignant_def": "author major.cell.type == Epi (residual epithelium; no CNV call)",
+        "note": "EGFR-WT real-world residual tumors; author Epi vs T+NK; \u226520 Epi and \u226520 T/NK."
+      },
+      {
+        "cohort": "GSE291670",
+        "gene": "CLDN4",
+        "metric": "mal_CLDN4_mean_log1p_cp10k",
+        "immune": "frac_tnk",
+        "n": 6,
+        "rho": -0.8285714285714287,
+        "p": 0.0415626822157433,
+        "primary": true,
+        "source": "processed_GEO_marker_malignant",
+        "malignant_def": "marker-score malignant (n=6 post anlotinib+PD-1)",
+        "note": "n=6 (3 MPR / 3 NMPR). Lineage T/NK fraction."
+      },
+      {
+        "cohort": "GSE253013",
+        "gene": "CLDN4",
+        "metric": "CLDN4_mean_log1p",
+        "immune": "frac_tnk",
+        "n": 9,
+        "rho": -0.3333333333333333,
+        "p": 0.3807131816768634,
+        "primary": true,
+        "source": "processed_GEO_malig_like",
+        "malignant_def": "epithelial AND not normal-lung marker program (treatment-naive LUAD tumors)",
+        "note": "9 tumor patients; no ICI labels."
+      },
+      {
+        "cohort": "GSE131907_tumor_sites",
+        "gene": "CLDN4",
+        "metric": "epi_CLDN4_mean",
+        "immune": "frac_tnk",
+        "n": 36,
+        "rho": -0.2102960102960103,
+        "p": 0.218297133789915,
+        "primary": true,
+        "source": "processed_GEO_author_annotation",
+        "malignant_def": "author Epithelial cells at tumor sites (tLung/tL-B/mLN/PE/mBrain)",
+        "note": "Tumor sites only. Author 'Malignant cells' subtype is mostly mets/PE; tLung n_mal=0 so epithelium is the usable score."
+      },
+      {
+        "cohort": "GSE325414",
+        "gene": "CLDN4",
+        "metric": "malignant_CLDN4_mean",
+        "immune": "frac_tnk",
+        "n": 25,
+        "rho": -0.1192307692307692,
+        "p": 0.5702629145851892,
+        "primary": true,
+        "source": "leftover_2026_author_labels",
+        "malignant_def": "author malignant labels; PEF ablation treat-and-resect (not ICI)",
+        "note": "2026 leftover lung tumor scRNA. Donor-level (n=25)."
+      }
+    ]
+  }
+}
