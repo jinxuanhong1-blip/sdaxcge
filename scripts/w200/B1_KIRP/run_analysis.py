@@ -137,9 +137,15 @@ def compute_ranking(
     df["spearman_q"] = _bh_fdr(df["spearman_p"].to_numpy())
     df["pearson_q"] = _bh_fdr(df["pearson_p"].to_numpy())
 
+    # Zero-variance genes have undefined correlation; they are not ranked.
+    n_undefined = int(df["spearman_r"].isna().sum())
+    df = df.dropna(subset=["spearman_r"]).copy()
     df = df.sort_values("spearman_r", ascending=False, kind="mergesort").reset_index(drop=True)
     df.insert(1, "spearman_rank", np.arange(1, len(df) + 1))
-    df["pearson_rank"] = df["pearson_r"].rank(ascending=False, method="min").astype(int)
+    df["pearson_rank"] = (
+        df["pearson_r"].rank(ascending=False, method="min").astype("Int64")
+    )
+    df.attrs["n_undefined_correlation"] = n_undefined
     return df
 
 
@@ -215,6 +221,7 @@ def write_summary_md(
     n_samples: int,
     sample_types: list[str],
     n_universe: int,
+    n_undefined: int = 0,
 ) -> str:
     if not report.get("in_universe"):
         return f"{focus} is not present in the surface-gene universe.\n"
@@ -228,6 +235,12 @@ def write_summary_md(
         )
     )
     top_gene = df.iloc[0]["gene"]
+    universe_line = (
+        f"- Surface-gene universe ranked: {n_universe} "
+        f"({n_undefined} zero-variance genes dropped; correlation undefined)."
+        if n_undefined
+        else f"- Surface-gene universe ranked: {n_universe} (anchor removed)."
+    )
     lines = [
         f"# {focus} vs {anchor} co-expression in TCGA-KIRP (honest ranking)",
         "",
@@ -238,11 +251,10 @@ def write_summary_md(
         "",
         f"- Cohort: TCGA-KIRP, {n_samples} primary-tumour samples "
         f"(sample-type {sample_types}).",
-        f"- Surface-gene universe: {n_universe} surfaceome genes present in the "
-        f"matrix (anchor removed).",
-        f"- Primary metric: Spearman correlation.",
-        f"- Expression: UCSC Xena TCGA.KIRP.sampleMap/HiSeqV2 (log2 norm_count+1).",
-        f"- Surfaceome: Bausch-Fluck et al. 2018 in-silico surfaceome (table S3).",
+        universe_line,
+        "- Primary metric: Spearman correlation.",
+        "- Expression: UCSC Xena TCGA.KIRP.sampleMap/HiSeqV2 (log2 norm_count+1).",
+        "- Surfaceome: Bausch-Fluck et al. 2018 in-silico surfaceome (table S3).",
         "",
         "| metric | value |",
         "| --- | --- |",
@@ -264,6 +276,20 @@ def write_summary_md(
         lines.append(
             f"| {int(r['spearman_rank'])} | {r['gene']}{star} | "
             f"{r['spearman_r']:.3f} | {r['pearson_r']:.3f} | {r['spearman_q']:.2e} |"
+        )
+    if report["spearman_rank"] > 15:
+        focus_row = df[df["gene"] == focus].iloc[0]
+        lines.extend(
+            [
+                "",
+                f"## Focus gene (`{focus}`) — not in the top 15",
+                "",
+                "| rank | gene | spearman_rho | pearson_rho | FDR q |",
+                "| --- | --- | --- | --- | --- |",
+                f"| {int(focus_row['spearman_rank'])} | {focus} | "
+                f"{focus_row['spearman_r']:.3f} | {focus_row['pearson_r']:.3f} | "
+                f"{focus_row['spearman_q']:.2e} |",
+            ]
         )
     lines.append("")
     return "\n".join(lines)
@@ -310,13 +336,19 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[data] surface-gene universe (present, anchor removed): {n_universe}")
 
     df = compute_ranking(expr, args.anchor, universe, samples)
+    n_undefined = int(df.attrs.get("n_undefined_correlation", 0))
+    n_ranked = len(df)
+    print(
+        f"[data] ranked surface genes: {n_ranked} "
+        f"(dropped {n_undefined} with undefined correlation)"
+    )
 
     full_csv = args.outdir / f"coexpression_{args.anchor}_surfaceome.csv"
     df.to_csv(full_csv, index=False)
     top_csv = args.outdir / f"top{args.window}.csv"
     df.head(args.window).to_csv(top_csv, index=False)
 
-    report = focus_report(df, args.focus, n_universe)
+    report = focus_report(df, args.focus, n_ranked)
 
     summary = {
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -329,7 +361,9 @@ def main(argv: list[str] | None = None) -> int:
         "n_samples": len(samples),
         "n_matrix_columns": int(expr.shape[1]),
         "n_matrix_genes": int(expr.shape[0]),
-        "surface_gene_universe": n_universe,
+        "surface_gene_universe_present": n_universe,
+        "surface_gene_universe_ranked": n_ranked,
+        "n_undefined_correlation": n_undefined,
         "correlation_primary": "spearman",
         "window": args.window,
         "focus_result": report,
@@ -340,7 +374,14 @@ def main(argv: list[str] | None = None) -> int:
     (args.outdir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
 
     md = write_summary_md(
-        report, df, args.anchor, args.focus, len(samples), sample_types, n_universe
+        report,
+        df,
+        args.anchor,
+        args.focus,
+        len(samples),
+        sample_types,
+        n_ranked,
+        n_undefined=n_undefined,
     )
     (args.outdir / "summary.md").write_text(md)
 
