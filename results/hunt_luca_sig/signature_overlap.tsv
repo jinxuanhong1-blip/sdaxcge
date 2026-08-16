@@ -1,0 +1,14 @@
+set_a	set_b	n_a	n_b	n_intersection	intersection
+TACSTD2	Salcher_TRN	1	38	0	
+TACSTD2	Salcher_TAN	1	18	0	
+TACSTD2	Salcher_NAN	1	20	0	
+TACSTD2	Salcher_major_neutrophils	1	17	0	
+TACSTD2	Leader_LCAM_hi	1	22	0	
+TACSTD2	Leader_LCAM_lo	1	41	0	
+Salcher_TAN	Salcher_NAN	18	20	0	
+Salcher_TRN	Salcher_major_neutrophils	38	17	2	CYP4F3,MGAM
+Salcher_TRN	Leader_LCAM_hi	38	22	0	
+Salcher_TRN	Leader_LCAM_lo	38	41	0	
+Salcher_major_neutrophils	Leader_LCAM_hi	17	22	0	
+Salcher_major_neutrophils	Leader_LCAM_lo	17	41	0	
+Leader_LCAM_hi	Leader_LCAM_lo	22	41	0	
