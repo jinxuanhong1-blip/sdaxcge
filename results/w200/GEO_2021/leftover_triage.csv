@@ -1,9 +1,39 @@
-accession,decision,target_coverage,outcome_usable,honest_reason
-GSE168707,exclude,neither (miRNA qPCR),no,"Cisplatin-sensitive/resistant samples; not an ICI-treated mRNA cohort."
-GSE171650,exclude,both likely measurable by RNA-seq,no,"PD-L1 perturbation in erlotinib-resistant PC9 cells; no patients or ICI outcome."
-GSE173351,exclude,not evaluated,no,"Superseries of single-cell RNA-seq and bulk TCR-seq focused on T cells; no patient-level bulk-tumor target expression matched to outcome."
-GSE180347,exclude,neither in deposited Nanostring matrix,no,"PD-L1-positive/negative hot tumors, but no ICI outcome and the panel omits both targets."
-GSE181820,exclude,both,no,"Twenty-two NSCLC tumors grouped by TMB/immune infiltration; no deposited ICI response or survival endpoint."
-GSE184053,exclude,both technically measurable but inappropriate,no,"Sorted tumor/peripheral TEMRA CD8 T cells; epithelial target expression is not tumor expression and no ICI outcome is deposited."
-GSE190265,analyze,both,yes,"Deposited tumor TPM and PFS event/time align for 43 samples; analyze univariate PFS associations."
-GSE190266,analyze,CLDN4 only,yes,"Deposited tumor TPM and six-month PFS align for 70 samples; TACSTD2 is absent, so analyze CLDN4 only."
+accession,pdat,n_samples,decision,target_coverage,outcome_usable,honest_reason
+GSE111414,2021/03/01,20,already_analyzed,present but ~0,yes,"Prior 2019–2021 slice: PBMC CD8+ T cells after nivolumab. Epithelial-null control, not leftover."
+GSE115246,2021/06/01,81,exclude,neither (methylation),no,NSCLC anti-PD-1 methylation predictor. No mRNA for TACSTD2/CLDN4.
+GSE131933,2021/09/01,8,exclude,not tumor-bulk,no,Durvalumab ± tremelimumab single-cell/TME counts. Eight samples; no patient-level tumor TACSTD2/CLDN4 vs outcome matrix.
+GSE143791,2021/08/29,41,exclude,not lung,no,Prostate bone metastases. Search hit only.
+GSE144945,2021/08/24,10,exclude,T/B-cell scRNA,no,EGFR-mutant lung anti-PD-1 lymphocyte scRNA. Not tumor epithelial expression.
+GSE146100,2021/04/28,3,side_audit,both,no,"One patient, three post-pembrolizumab nodules. Descriptive TACSTD2/CLDN4 cell frequencies only; not a patient-level leftover test."
+GSE152590,2021/11/17,8,exclude,CD8 PBMC,no,Peripheral CD8 RNA-seq from melanoma and lung. Wrong compartment.
+GSE155972,2021/03/18,177,exclude,not lung ICI leftover,no,SETDB1 immunogenicity screen. Not a human lung ICI outcome cohort.
+GSE156405,2021/08/25,17,exclude,not lung,no,Pancreatic cancer scRNA.
+GSE160878,2021/07/13,21,exclude,not lung,no,Merkel-cell carcinoma methylation.
+GSE162154,2021/06/10,6,exclude,not ICI,no,COPD airway epithelium. No ICI outcome.
+GSE162712,2021/09/07,15,exclude,not ICI,no,Sarcoidosis lung T/B cells.
+GSE162798,2021/10/20,15,exclude,not ICI mRNA,no,scATAC multiplexing methods paper.
+GSE165404,2021/09/01,15,exclude,not leftover lung ICI,no,TREM2 macrophage immunotherapy models. Not deposited human lung ICI tumor mRNA + outcome.
+GSE165745,2021/01/29,24,exclude,not lung,no,Melanoma Nanostring Wnt panel.
+GSE166449,2021/02/11,22,exclude,not lung-specific ICI leftover,no,Pan-cancer synthetic-lethality transcriptome. No lung ICI endpoint here.
+GSE167235,2021/02/23,9,exclude,CD8 T cells,no,Burned-out CD8 subset. Wrong compartment for epithelial targets.
+GSE168294,2021/03/05,22,exclude,cell line,no,SCLC cell-line immunogenicity. No patients.
+GSE168295,2021/03/05,40,exclude,ATAC-seq,no,SCLC immunogenicity superseries. Deposited files are BED/ATAC, not tumor mRNA vs ICI outcome.
+GSE168707,2021/03/12,6,exclude,neither (miRNA qPCR),no,Cisplatin-sensitive/resistant miRNA. Not ICI mRNA.
+GSE169246,2021/09/15,83,exclude,not lung,no,TNBC PD-L1 blockade scRNA.
+GSE171650,2021/04/08,30,exclude,cell line,no,PD-L1 perturbation in erlotinib-resistant PC9 cells.
+GSE173351,2021/07/21,212,exclude,T-cell scRNA/TCR,no,Neoadjuvant PD-1 T-cell superseries. No matched bulk-tumor TACSTD2/CLDN4 vs outcome.
+GSE173896,2021/06/29,16,exclude,not ICI,no,COPD epithelial scRNA.
+GSE175692,2021/05/28,184,exclude,not lung primary ICI,no,Breast-cancer metastasis organ-site expression.
+GSE176021,2021/07/21,110,exclude,T-cell scRNA,no,Child of GSE173351. Neoantigen-specific T cells.
+GSE176022,2021/07/21,102,exclude,bulk TCR,no,Child of GSE173351. TCR repertoire, not gene expression of TACSTD2/CLDN4.
+GSE176307,2021/06/08,90,exclude,not lung,no,Metastatic urothelial FGFR3 / ICI.
+GSE179373,2021/08/04,21,exclude,not lung primary,no,Brain-metastasis-infiltrating T cells.
+GSE179934,2021/08/01,9,exclude,lncRNA model / no ICI outcome,no,LUAD vs LUSC immune-heterogeneity model. No deposited ICI endpoint.
+GSE179994,2021/10/06,47,exclude,T-cell scRNA/TCR,no,Anti-PD-1 precursor-exhausted T cells. Wrong compartment.
+GSE180347,2021/09/27,144,exclude,neither in Nanostring matrix,no,PD-L1-positive/negative hot LUAD. No ICI outcome; panel omits both targets.
+GSE181820,2021/09/17,22,exclude,both,no,NSCLC grouped by TMB/infiltration. No deposited ICI response or survival.
+GSE182328,2021/08/20,44,already_analyzed,both,surrogate only,"Prior 2019–2021 slice: Akkermansia grouping, not a leftover."
+GSE184053,2021/09/14,9,exclude,TEMRA CD8,no,Sorted TEMRA T cells. Epithelial genes are not tumor expression.
+GSE190141,2021/12/10,16,exclude,TIL counts,no,TIL transcriptomes. Not bulk tumor TACSTD2/CLDN4 vs lung ICI outcome.
+GSE190265,2021/12/08,34,analyze,both,yes,"France3 tumor TPM + uncapped PFS (43 aligned records in suppl; 34 GSM). Primary leftover cohort."
+GSE190266,2021/12/08,70,analyze,CLDN4 only,yes,"France4 tumor TPM + 6-month-capped PFS. TACSTD2 absent (16383 genes, last=MTMR14)."
