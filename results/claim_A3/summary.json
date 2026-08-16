@@ -1,0 +1,490 @@
+{
+  "dataset": "GSE207422",
+  "paper": "Hu et al. Genome Medicine 2023 PMID 36869384",
+  "author_per_cell_annotations": "not public",
+  "annotation_method": "marker-score lineage; malignant = epithelial minus alveolar/club/ciliated",
+  "primary_cohort": "12 post-treatment surgical samples; pCR grouped with MPR",
+  "n_cells_geo": 92330,
+  "n_cells_lib200": 92330,
+  "claim_A3_NMPR_gt_MPR_supported": false,
+  "claim_A3_rho_minus_0.40_to_0.50_supported": false,
+  "primary_NMPR_gt_MPR": {
+    "n_nmpr": 8,
+    "n_mpr": 4,
+    "median_nmpr": 1.9720508735718993,
+    "median_mpr": 1.8456338280749789,
+    "mean_nmpr": 1.7980346717817706,
+    "mean_mpr": 1.7412918214778508,
+    "U": 16.0,
+    "p_greater": 0.5333333333333333,
+    "p_two": 1.0,
+    "direction": "NMPR>MPR"
+  },
+  "primary_spearman_mal_tac_vs_tnk": {
+    "n": 12,
+    "rho": -0.2377622377622378,
+    "p": 0.45680085263992326
+  },
+  "tests": {
+    "NMPR_gt_MPR_post_all12_malignant_mean_log1p_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "median_nmpr": 1.9720508735718993,
+      "median_mpr": 1.8456338280749789,
+      "mean_nmpr": 1.7980346717817706,
+      "mean_mpr": 1.7412918214778508,
+      "U": 16.0,
+      "p_greater": 0.5333333333333333,
+      "p_two": 1.0,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_all12_malignant_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 12,
+      "rho": -0.2377622377622378,
+      "p": 0.45680085263992326
+    },
+    "NMPR_gt_MPR_post_all12_malignant_pct_pos": {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "median_nmpr": 0.8729461130742049,
+      "median_mpr": 0.7805970149253731,
+      "mean_nmpr": 0.8222442091071449,
+      "mean_mpr": 0.7920842217484008,
+      "U": 20.0,
+      "p_greater": 0.27575885401089384,
+      "p_two": 0.5515177080217877,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_all12_malignant_pct_pos_vs_frac_tnk": {
+      "n": 12,
+      "rho": -0.26269742562687987,
+      "p": 0.40942819487836374
+    },
+    "NMPR_gt_MPR_post_all12_malignant_pseudobulk_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "median_nmpr": 918.654969302275,
+      "median_mpr": 1426.8254666060343,
+      "mean_nmpr": 875.9343195672991,
+      "mean_mpr": 1279.868211798472,
+      "U": 8.0,
+      "p_greater": 0.9232323232323232,
+      "p_two": 0.21414141414141416,
+      "direction": "NMPR<=MPR"
+    },
+    "spearman_post_all12_malignant_pseudobulk_cpm_vs_frac_tnk": {
+      "n": 12,
+      "rho": 0.006993006993006993,
+      "p": 0.9827917689028476
+    },
+    "NMPR_gt_MPR_post_all12_epithelial_mean_log1p_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "median_nmpr": 1.659743708068009,
+      "median_mpr": 1.2851566155568068,
+      "mean_nmpr": 1.6064836510942122,
+      "mean_mpr": 1.2369959822443404,
+      "U": 26.0,
+      "p_greater": 0.05454545454545455,
+      "p_two": 0.1090909090909091,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_all12_epithelial_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 12,
+      "rho": -0.16083916083916086,
+      "p": 0.6175234895401425
+    },
+    "NMPR_gt_MPR_post_all12_epithelial_pct_pos": {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "median_nmpr": 0.812936221419976,
+      "median_mpr": 0.7835432213930348,
+      "mean_nmpr": 0.8060746078600387,
+      "mean_mpr": 0.8082267377890114,
+      "U": 15.0,
+      "p_greater": 0.5959595959595959,
+      "p_two": 0.9333333333333333,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_all12_epithelial_pct_pos_vs_frac_tnk": {
+      "n": 12,
+      "rho": -0.34965034965034975,
+      "p": 0.26523878689278996
+    },
+    "NMPR_gt_MPR_post_min5_malignant_malignant_mean_log1p_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 1.9720508735718993,
+      "median_mpr": 1.8706529741934836,
+      "mean_nmpr": 1.7980346717817706,
+      "mean_mpr": 1.7148508679849763,
+      "U": 12.0,
+      "p_greater": 0.5393939393939394,
+      "p_two": 1.0,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_min5_malignant_malignant_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.20000000000000004,
+      "p": 0.5554454421055853
+    },
+    "NMPR_gt_MPR_post_min5_malignant_malignant_pct_pos": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 0.8729461130742049,
+      "median_mpr": 0.8,
+      "mean_nmpr": 0.8222442091071449,
+      "mean_mpr": 0.8061122956645344,
+      "U": 15.0,
+      "p_greater": 0.30450954998967994,
+      "p_two": 0.6090190999793599,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_min5_malignant_malignant_pct_pos_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.2870166899742693,
+      "p": 0.3921358377159476
+    },
+    "NMPR_gt_MPR_post_min5_malignant_malignant_pseudobulk_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 918.654969302275,
+      "median_mpr": 1542.3474975970673,
+      "mean_nmpr": 875.9343195672991,
+      "mean_mpr": 1269.389803859629,
+      "U": 8.0,
+      "p_greater": 0.812121212121212,
+      "p_two": 0.496969696969697,
+      "direction": "NMPR<=MPR"
+    },
+    "spearman_post_min5_malignant_malignant_pseudobulk_cpm_vs_frac_tnk": {
+      "n": 11,
+      "rho": 0.03636363636363637,
+      "p": 0.9154683168905347
+    },
+    "NMPR_gt_MPR_post_min5_malignant_epithelial_mean_log1p_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 1.659743708068009,
+      "median_mpr": 1.4271704638143456,
+      "mean_nmpr": 1.6064836510942122,
+      "mean_mpr": 1.2682803872260313,
+      "U": 20.0,
+      "p_greater": 0.06666666666666667,
+      "p_two": 0.13333333333333333,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_min5_malignant_epithelial_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.18181818181818182,
+      "p": 0.5926152128455
+    },
+    "NMPR_gt_MPR_post_min5_malignant_epithelial_pct_pos": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 0.812936221419976,
+      "median_mpr": 0.7910447761194029,
+      "mean_nmpr": 0.8060746078600387,
+      "mean_mpr": 0.8189550948297931,
+      "U": 11.0,
+      "p_greater": 0.6121212121212121,
+      "p_two": 0.9212121212121214,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_min5_malignant_epithelial_pct_pos_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.3272727272727273,
+      "p": 0.3258949410128415
+    },
+    "NMPR_gt_MPR_post_min20_malignant_malignant_mean_log1p_cpm": {
+      "n_nmpr": 6,
+      "n_mpr": 1,
+      "U": NaN,
+      "p_greater": NaN,
+      "p_two": NaN
+    },
+    "spearman_post_min20_malignant_malignant_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 7,
+      "rho": -0.3571428571428572,
+      "p": 0.431611352038328
+    },
+    "NMPR_gt_MPR_post_min20_malignant_malignant_pct_pos": {
+      "n_nmpr": 6,
+      "n_mpr": 1,
+      "U": NaN,
+      "p_greater": NaN,
+      "p_two": NaN
+    },
+    "spearman_post_min20_malignant_malignant_pct_pos_vs_frac_tnk": {
+      "n": 7,
+      "rho": -0.28571428571428575,
+      "p": 0.5345092286010406
+    },
+    "NMPR_gt_MPR_post_min20_malignant_malignant_pseudobulk_cpm": {
+      "n_nmpr": 6,
+      "n_mpr": 1,
+      "U": NaN,
+      "p_greater": NaN,
+      "p_two": NaN
+    },
+    "spearman_post_min20_malignant_malignant_pseudobulk_cpm_vs_frac_tnk": {
+      "n": 7,
+      "rho": -0.03571428571428572,
+      "p": 0.9394082054712856
+    },
+    "NMPR_gt_MPR_post_min20_malignant_epithelial_mean_log1p_cpm": {
+      "n_nmpr": 6,
+      "n_mpr": 1,
+      "U": NaN,
+      "p_greater": NaN,
+      "p_two": NaN
+    },
+    "spearman_post_min20_malignant_epithelial_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 7,
+      "rho": 0.0,
+      "p": 1.0
+    },
+    "NMPR_gt_MPR_post_min20_malignant_epithelial_pct_pos": {
+      "n_nmpr": 6,
+      "n_mpr": 1,
+      "U": NaN,
+      "p_greater": NaN,
+      "p_two": NaN
+    },
+    "spearman_post_min20_malignant_epithelial_pct_pos_vs_frac_tnk": {
+      "n": 7,
+      "rho": -0.14285714285714288,
+      "p": 0.7599453002180927
+    },
+    "NMPR_gt_MPR_post_drop_pCR_malignant_mean_log1p_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 1.9720508735718993,
+      "median_mpr": 1.8206146819564741,
+      "mean_nmpr": 1.7980346717817706,
+      "mean_mpr": 1.5060710880837362,
+      "U": 16.0,
+      "p_greater": 0.2484848484848485,
+      "p_two": 0.496969696969697,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_drop_pCR_malignant_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.5090909090909091,
+      "p": 0.10973723224165634
+    },
+    "NMPR_gt_MPR_post_drop_pCR_malignant_pct_pos": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 0.8729461130742049,
+      "median_mpr": 0.7611940298507462,
+      "mean_nmpr": 0.8222442091071449,
+      "mean_mpr": 0.7703980099502488,
+      "U": 15.0,
+      "p_greater": 0.30450954998967994,
+      "p_two": 0.6090190999793599,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_drop_pCR_malignant_pct_pos_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.36902145853834617,
+      "p": 0.2640660487239561
+    },
+    "NMPR_gt_MPR_post_drop_pCR_malignant_pseudobulk_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 918.654969302275,
+      "median_mpr": 1311.3034356150013,
+      "mean_nmpr": 875.9343195672991,
+      "mean_mpr": 1014.7458904769833,
+      "U": 8.0,
+      "p_greater": 0.812121212121212,
+      "p_two": 0.496969696969697,
+      "direction": "NMPR<=MPR"
+    },
+    "spearman_post_drop_pCR_malignant_pseudobulk_cpm_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.20000000000000004,
+      "p": 0.5554454421055853
+    },
+    "NMPR_gt_MPR_post_drop_pCR_epithelial_mean_log1p_cpm": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 1.659743708068009,
+      "median_mpr": 1.143142767299268,
+      "mean_nmpr": 1.6064836510942122,
+      "mean_mpr": 1.173604488387672,
+      "U": 20.0,
+      "p_greater": 0.06666666666666667,
+      "p_two": 0.13333333333333333,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_drop_pCR_epithelial_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.20000000000000004,
+      "p": 0.5554454421055853
+    },
+    "NMPR_gt_MPR_post_drop_pCR_epithelial_pct_pos": {
+      "n_nmpr": 8,
+      "n_mpr": 3,
+      "median_nmpr": 0.812936221419976,
+      "median_mpr": 0.7760416666666666,
+      "mean_nmpr": 0.8060746078600387,
+      "mean_mpr": 0.8139540583455475,
+      "U": 11.0,
+      "p_greater": 0.6121212121212121,
+      "p_two": 0.9212121212121214,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_post_drop_pCR_epithelial_pct_pos_vs_frac_tnk": {
+      "n": 11,
+      "rho": -0.4090909090909091,
+      "p": 0.21154501034209602
+    },
+    "NMPR_gt_MPR_all_labeled_malignant_mean_log1p_cpm": {
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "median_nmpr": 1.8278752412953017,
+      "median_mpr": 1.8456338280749789,
+      "mean_nmpr": 1.8002044910560606,
+      "mean_mpr": 1.7412918214778508,
+      "U": 19.0,
+      "p_greater": 0.5804195804195804,
+      "p_two": 0.945054945054945,
+      "direction": "NMPR<=MPR"
+    },
+    "spearman_all_labeled_malignant_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 14,
+      "rho": -0.23956043956043957,
+      "p": 0.4094298928517327
+    },
+    "NMPR_gt_MPR_all_labeled_malignant_pct_pos": {
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "median_nmpr": 0.8540339335180056,
+      "median_mpr": 0.7805970149253731,
+      "mean_nmpr": 0.8256854873226503,
+      "mean_mpr": 0.7920842217484008,
+      "U": 26.0,
+      "p_greater": 0.21808600116828886,
+      "p_two": 0.4361720023365777,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_all_labeled_malignant_pct_pos_vs_frac_tnk": {
+      "n": 14,
+      "rho": -0.21122124992666771,
+      "p": 0.468528798015458
+    },
+    "NMPR_gt_MPR_all_labeled_malignant_pseudobulk_cpm": {
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "median_nmpr": 861.0548697482031,
+      "median_mpr": 1426.8254666060343,
+      "mean_nmpr": 849.6479852084991,
+      "mean_mpr": 1279.868211798472,
+      "U": 10.0,
+      "p_greater": 0.929070929070929,
+      "p_two": 0.18781218781218784,
+      "direction": "NMPR<=MPR"
+    },
+    "spearman_all_labeled_malignant_pseudobulk_cpm_vs_frac_tnk": {
+      "n": 14,
+      "rho": 0.03736263736263736,
+      "p": 0.8990930969739669
+    },
+    "NMPR_gt_MPR_all_labeled_epithelial_mean_log1p_cpm": {
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "median_nmpr": 1.6618571445476324,
+      "median_mpr": 1.2851566155568068,
+      "mean_nmpr": 1.6299970514555067,
+      "mean_mpr": 1.2369959822443404,
+      "U": 34.0,
+      "p_greater": 0.026973026973026976,
+      "p_two": 0.05394605394605395,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_all_labeled_epithelial_mean_log1p_cpm_vs_frac_tnk": {
+      "n": 14,
+      "rho": -0.18681318681318684,
+      "p": 0.5225040123791592
+    },
+    "NMPR_gt_MPR_all_labeled_epithelial_pct_pos": {
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "median_nmpr": 0.8306895452613685,
+      "median_mpr": 0.7835432213930348,
+      "mean_nmpr": 0.8109975953403048,
+      "mean_mpr": 0.8082267377890114,
+      "U": 21.0,
+      "p_greater": 0.4725274725274725,
+      "p_two": 0.945054945054945,
+      "direction": "NMPR>MPR"
+    },
+    "spearman_all_labeled_epithelial_pct_pos_vs_frac_tnk": {
+      "n": 14,
+      "rho": -0.367032967032967,
+      "p": 0.19673887170748847
+    },
+    "frac_tnk_MPR_gt_NMPR_post": {
+      "n_mpr": 4,
+      "n_nmpr": 8,
+      "median_mpr": 0.5306234337273308,
+      "median_nmpr": 0.3822504977805299,
+      "U": 19.0,
+      "p_greater": 0.3414141414141414,
+      "p_two": 0.6828282828282828
+    }
+  },
+  "qc": {
+    "Malignant": {
+      "n": 8724,
+      "tacstd2_pct_pos": 0.9011921137093076,
+      "epcam_pct_pos": 0.9179275561668959,
+      "ptprc_pct_pos": 0.04802842732691426
+    },
+    "NormalEpithelium": {
+      "n": 2209,
+      "tacstd2_pct_pos": 0.8365776369397918,
+      "epcam_pct_pos": 0.8981439565414214,
+      "ptprc_pct_pos": 0.07197827071072883
+    },
+    "T": {
+      "n": 30543,
+      "tacstd2_pct_pos": 0.013030809023344138,
+      "epcam_pct_pos": 0.0076285892021085025,
+      "ptprc_pct_pos": 0.9337655109190321
+    },
+    "NK": {
+      "n": 7993,
+      "tacstd2_pct_pos": 0.016264231202302016,
+      "epcam_pct_pos": 0.00963342925059427,
+      "ptprc_pct_pos": 0.9454522707368948
+    },
+    "celltype_counts": {
+      "T": 30543,
+      "Myeloid": 16873,
+      "Neutrophil": 11905,
+      "Malignant": 8724,
+      "NK": 7993,
+      "B": 7682,
+      "Plasma": 4022,
+      "NormalEpithelium": 2209,
+      "Stromal": 1191,
+      "Mast": 912,
+      "pDC": 276
+    },
+    "lineage_counts": {
+      "T": 30543,
+      "Myeloid": 16873,
+      "Neutrophil": 11905,
+      "Epithelial": 10933,
+      "NK": 7993,
+      "B": 7682,
+      "Plasma": 4022,
+      "Stromal": 1191,
+      "Mast": 912,
+      "pDC": 276
+    }
+  }
+}
