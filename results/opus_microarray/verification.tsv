@@ -1,0 +1,9 @@
+check	pass	detail
+V1_GSE93157_no_target_ids	1	n_ids=765; alias_hits=none
+V2_external_nanostring_list	1	SKIP external list unavailable (HTTP Error 404: Not Found); V1 is the primary evidence
+V3_platform_target_presence	1	matches catalog expectations
+V4_extracted_probe_ids	1	[('GSE93157', 8, 8), ('GSE202417', 10, 10), ('GSE67501', 15, 15)]
+V5_recompute_MW_AUC	1	recomputed 36 tests
+V6_GSE93157_lung_only	1	n=35 all_lung=True sources=['LUNG NON-SQUAMOUS CANCER', 'SQUAMOUS LUNG CANCER']
+V7_GSE202417_pre_only	1	n=14 times=['pre-treatment']
+V8_GSE93157_controls_present	1	extracted=['CD274', 'CD8A', 'CXCL9', 'GZMB', 'HLA-DRA', 'IFNG', 'PDCD1', 'STAT1']

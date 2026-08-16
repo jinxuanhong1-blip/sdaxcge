@@ -222,6 +222,16 @@ def main() -> int:
                 mw = mannwhitney(x, z)
                 pp = perm_p(x[np.isfinite(x)], z[np.isfinite(z)], mw["u"])
                 lg = cliffs_and_logit(x[np.isfinite(x)], z[np.isfinite(z)])
+                mean_pos = float(np.nanmean(x)) if x.size else np.nan
+                mean_neg = float(np.nanmean(z)) if z.size else np.nan
+                # Epithelial genes (TACSTD2/CLDN4) sit near the floor in sorted
+                # lymphocytes / whole blood; flag so we do not over-interpret.
+                floor = int(
+                    gene in TARGET_GENES
+                    and np.isfinite(mean_pos)
+                    and np.isfinite(mean_neg)
+                    and max(mean_pos, mean_neg) < 4.5
+                )
                 row = {
                     "gse": gse,
                     "tissue": rec["tissue"],
@@ -230,12 +240,13 @@ def main() -> int:
                     "gene": gene,
                     "is_target": int(gene in TARGET_GENES),
                     "n_filt": int(len(pheno_f)),
-                    "mean_pos": float(np.nanmean(x)) if x.size else np.nan,
-                    "mean_neg": float(np.nanmean(z)) if z.size else np.nan,
-                    "delta_mean": (float(np.nanmean(x)) - float(np.nanmean(z))) if x.size and z.size else np.nan,
+                    "mean_pos": mean_pos,
+                    "mean_neg": mean_neg,
+                    "delta_mean": (mean_pos - mean_neg) if np.isfinite(mean_pos) and np.isfinite(mean_neg) else np.nan,
                     **mw,
                     "p_perm": pp,
                     **lg,
+                    "near_detection_floor": floor,
                     "reason": rec["reason"][:160],
                 }
                 assoc_rows.append(row)

@@ -29,11 +29,13 @@ from catalog import CATALOG  # noqa: E402
 from common import (  # noqa: E402
     CACHE_DIR,
     CONTROL_GENES,
+    GEO_FTP,
     RESULTS_DIR,
     TARGET_GENES,
     ensure_dirs,
     fetch,
     gse_matrix_url,
+    open_maybe_gzip,
 )
 from geo_io import extract_probe_rows, list_all_probe_ids, parse_series_matrix_header  # noqa: E402
 
@@ -76,6 +78,51 @@ def official_probe_map(probes: pd.DataFrame, platform: str) -> pd.DataFrame:
 def download_matrix(gse: str) -> Path:
     dest = CACHE_DIR / "matrix" / f"{gse}_series_matrix.txt.gz"
     return fetch(gse_matrix_url(gse), dest)
+
+
+def extract_probe_rows_loose(path: Path, probe_ids: set[str], pheno: pd.DataFrame) -> pd.DataFrame:
+    """Read a supplementary processed matrix whose columns are sample titles (S01…)."""
+    want = {p.strip().strip('"') for p in probe_ids}
+    header = None
+    rows: dict[str, list[float]] = {}
+    with open_maybe_gzip(path) as fh:
+        for line in fh:
+            if line.startswith("#") or not line.strip():
+                continue
+            fields = line.rstrip("\n").split("\t")
+            if header is None:
+                first = fields[0].strip().strip('"').upper()
+                if first not in {"ID_REF", "ID", "GENE", "NAME"}:
+                    continue
+                header = [f.strip().strip('"') for f in fields if f.strip().strip('"')]
+                continue
+            pid = fields[0].strip().strip('"')
+            if pid not in want:
+                continue
+            vals = []
+            for tok in fields[1:]:
+                tok = tok.strip().strip('"')
+                if tok == "" and not vals:
+                    continue
+                vals.append(float("nan") if tok in {"", "null", "NA", "NaN"} else float(tok))
+            n = len(header) - 1
+            vals = (vals + [float("nan")] * n)[:n]
+            rows[pid] = vals
+    if header is None or not rows:
+        return pd.DataFrame()
+    cols = header[1:]
+    expr = pd.DataFrame.from_dict(rows, orient="index", columns=cols)
+    # Map S01 -> GSM via pheno title ("HCC S01")
+    if "title" in pheno.columns:
+        mapping = {}
+        for gsm, title in zip(pheno.index.astype(str), pheno["title"].astype(str)):
+            tok = title.split()[-1] if title else ""
+            if tok in expr.columns:
+                mapping[tok] = gsm
+        if mapping:
+            expr = expr.rename(columns=mapping)
+            expr = expr[[c for c in pheno.index if c in expr.columns]]
+    return expr
 
 
 def main() -> int:
@@ -134,6 +181,16 @@ def main() -> int:
                     probe_ids.add(g)
 
         expr = extract_probe_rows(mtx, probe_ids)
+        if expr.shape[0] == 0 and rec.get("analyze_controls"):
+            # Some NanoString series ship an empty matrix table and put counts
+            # in a supplementary processed file (GSE140901).
+            stub = gse[:-3] + "nnn"
+            suppl = CACHE_DIR / "matrix" / f"{gse}_processed_data.txt.gz"
+            try:
+                fetch(f"{GEO_FTP}/series/{stub}/{gse}/suppl/{gse}_processed_data.txt.gz", suppl)
+                expr = extract_probe_rows_loose(suppl, probe_ids | set(genes_wanted), pheno)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  suppl fallback failed: {exc}")
         expr.to_csv(out_dir / f"{gse}_expr.tsv", sep="\t")
         log_rows.append(
             {
@@ -149,6 +206,10 @@ def main() -> int:
             }
         )
         print(f"  n={len(pheno)}  probes={expr.shape[0]}  fields={series.get('pheno_fields')}")
+        if gse == "GSE93157" and all_ids is not None:
+            (RESULTS_DIR / "GSE93157_panel_genes.txt").write_text(
+                "\n".join(sorted(all_ids)) + "\n"
+            )
 
     pd.DataFrame(log_rows).to_csv(RESULTS_DIR / "extracted" / "extraction_log.tsv", sep="\t", index=False)
     print("[write] extracted/")
