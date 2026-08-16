@@ -1,0 +1,8 @@
+# Raw/large data are not committed; they are re-downloadable via src/download_data.py
+data/
+*.gct
+*.gct.gz
+*.tsv.gz
+__pycache__/
+*.pyc
+.venv/
