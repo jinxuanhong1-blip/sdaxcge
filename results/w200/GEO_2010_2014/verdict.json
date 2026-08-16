@@ -1,0 +1,15 @@
+{
+ "generated_at_utc": "2026-08-16T20:09:42Z",
+ "window": "2010-01-01/2014-12-31",
+ "n_verified_gse": 9,
+ "n_human_lung_checkpoint_ici": 0,
+ "n_human_lung_immunotherapy": 2,
+ "honest_verdict": "No leftover human lung PD-1/PD-L1/CTLA-4 ICI treatment-response cohort in GEO 2010-2014. The window predates NSCLC ICI approval (nivolumab 2015). Real leftover hits are cancer-vaccine / epitope immunotherapy (not checkpoint ICI) plus mouse Pdl1-expression SCC.",
+ "human_lung_immunotherapy_leftovers": [
+  "GSE27556",
+  "GSE35640"
+ ],
+ "human_lung_checkpoint_ici": [],
+ "no_invented_ids": true,
+ "accessions_are_ncbi_hits_only": true
+}
