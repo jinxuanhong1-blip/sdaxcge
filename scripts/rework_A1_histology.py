@@ -461,6 +461,16 @@ def overall_verdict(classes: list[str]) -> tuple[str, str]:
             "No significant purity-adjusted TACSTD2–immune association in "
             "LUAD or LUSC on these four features.",
         )
+    if lusc_only >= 2 and (lusc_only + both_lusc + both_sim) == n:
+        return (
+            "PARTLY — feature-dependent, not a blanket LUSC effect",
+            "GEP18 and ESTIMATE ImmuneScore are LUSC-only (LUAD is null / "
+            "not negative). CD8 is negative in both histologies but stronger "
+            "in LUSC. CYT is negative in both and the two rhos are not "
+            "distinguishable. Pooled NSCLC TACSTD2–immune rho is therefore "
+            "not a LUAD finding for GEP18/ESTIMATE, and not LUSC-only for "
+            "CD8/CYT. Do not quote one pooled number.",
+        )
     return (
         "MIXED — see per-feature calls",
         "The four primary features do not tell one histology story. The "
@@ -722,7 +732,8 @@ def main():
         "n_LUSC_expr_plus_ABSOLUTE": n_lusc,
         "primary_features": features_primary,
         "per_feature_class": {
-            r.feature: r["class"] for r in prim_f.itertuples(index=False)
+            rec["feature"]: rec["class"]
+            for rec in prim_f[["feature", "class"]].to_dict(orient="records")
         },
         "partial_rho_ABSOLUTE": {
             hist: {
@@ -892,6 +903,19 @@ def write_report(corr, fisher, shifts, summary, n_luad, n_lusc, frames):
     a("LUAD vs LUSC difference: Fisher z-test of two independent partial correlations.")
     a("BH-FDR is across the 8 primary partial tests (4 features × 2 histologies).")
     a("")
+    a("## Direct answer")
+    a("")
+    a("**No single yes/no.** Pooled TCGA NSCLC looks immune-cold for all four")
+    a("features. Split by histology, that is not one fact:")
+    a("")
+    a("- **GEP18:** LUSC-only. LUAD ρ ≈ 0.")
+    a("- **ESTIMATE ImmuneScore:** LUSC-only. LUAD is weakly *positive* and not significant.")
+    a("- **CD8 (CD8A):** negative in both; significantly stronger in LUSC.")
+    a("- **CYT:** negative in both; LUAD and LUSC rhos are not distinguishable.")
+    a("")
+    a("So: the *T-cell-inflamed / ESTIMATE* half of the A1 story is LUSC-driven in")
+    a("TCGA. The *cytotoxic mRNA* half is not. Quoting a pooled NSCLC rho hides that.")
+    a("")
     a("## Primary result — ABSOLUTE partial Spearman")
     a("")
     a("| Feature | LUAD partial ρ | LUSC partial ρ | Pooled LUAD+LUSC | Fisher z p (LUAD vs LUSC) | Call |")
@@ -904,8 +928,22 @@ def write_report(corr, fisher, shifts, summary, n_luad, n_lusc, frames):
             f"{fr['class']} |"
         )
     a("")
-    a("Unadjusted Spearman (no purity) is in `correlations.tsv`. It does not flip any")
-    a("primary sign. Purity adjustment is therefore not manufacturing the pattern.")
+    a("BH-FDR across the 8 primary partial tests is in `correlations.tsv`")
+    a("(`partial_fdr_8tests`). LUAD CD8 and CYT remain FDR < 0.05; LUAD GEP18 and")
+    a("ESTIMATE do not. All four LUSC primary tests remain FDR < 0.05.")
+    a("")
+    a("Unadjusted Spearman (no purity) is in `correlations.tsv`. No primary sign flips.")
+    est_l = row("LUSC", "ESTIMATE")
+    a("One nuance: LUSC ESTIMATE ImmuneScore is **not** significant unadjusted")
+    a(
+        f"(ρ = {fmt_r(est_l['spearman_rho'])}, p = {fmt_p(est_l['spearman_p'])}) "
+        "and becomes significant only after ABSOLUTE "
+        f"(ρ = {fmt_r(est_l['partial_rho_ABSOLUTE'])}, p = {fmt_p(est_l['partial_p_ABSOLUTE'])})."
+    )
+    a("That is expected — ImmuneScore is built as a purity/leukocyte composite —")
+    a("and is why the partial, not the raw, number is the ESTIMATE claim.")
+    a("CD8/CYT/GEP18 in LUSC are already negative before adjustment; partialling")
+    a("makes them slightly more negative.")
     a("")
     a("### How to read the calls")
     a("")
@@ -940,8 +978,16 @@ def write_report(corr, fisher, shifts, summary, n_luad, n_lusc, frames):
         a("LUSC has **higher** median TACSTD2 than LUAD in this freeze.")
     else:
         a("LUSC does **not** have higher median TACSTD2 than LUAD in this freeze.")
-    a("If LUSC is also immune-colder, pooling is biased toward a negative TACSTD2–immune rho.")
-    a("The within-histology partial rhos above are the numbers that are immune to that bias.")
+    est_shift = srow("ESTIMATE")
+    a(
+        f"LUSC is also ESTIMATE-colder (median ImmuneScore {est_shift['median_LUSC']:.0f} vs "
+        f"{est_shift['median_LUAD']:.0f}, p = {fmt_p(est_shift['mannwhitney_p'])}) and slightly "
+        "CD8-lower. That between-histology geometry **biases a pooled scatter toward a "
+        "negative TACSTD2–immune rho**. It does not inflate |pooled ρ| past both "
+        "within-histology |ρ| (Simpson flag is false for all four features): the pooled "
+        "number is a blend, not a fake correlation from two flat clouds. The "
+        "within-histology partial rhos are still the numbers that answer the question."
+    )
     a("")
     a("## TACSTD2 vs ABSOLUTE purity (context, not a feature)")
     a("")

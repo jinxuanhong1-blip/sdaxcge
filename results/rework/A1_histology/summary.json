@@ -1,0 +1,51 @@
+{
+  "question": "Is the immune-cold TACSTD2 signal LUSC-driven?",
+  "verdict": "PARTLY \u2014 feature-dependent, not a blanket LUSC effect",
+  "verdict_text": "GEP18 and ESTIMATE ImmuneScore are LUSC-only (LUAD is null / not negative). CD8 is negative in both histologies but stronger in LUSC. CYT is negative in both and the two rhos are not distinguishable. Pooled NSCLC TACSTD2\u2013immune rho is therefore not a LUAD finding for GEP18/ESTIMATE, and not LUSC-only for CD8/CYT. Do not quote one pooled number.",
+  "n_LUAD_expr_plus_ABSOLUTE": 502,
+  "n_LUSC_expr_plus_ABSOLUTE": 493,
+  "primary_features": [
+    "CD8",
+    "CYT",
+    "GEP18",
+    "ESTIMATE"
+  ],
+  "per_feature_class": {
+    "CD8": "both_negative_LUSC_stronger",
+    "CYT": "both_negative_similar",
+    "GEP18": "LUSC_only_negative",
+    "ESTIMATE": "LUSC_only_negative"
+  },
+  "partial_rho_ABSOLUTE": {
+    "LUAD": {
+      "CD8": -0.10359934147872987,
+      "CYT": -0.11603590888743637,
+      "GEP18": -0.012829994651363977,
+      "ESTIMATE": 0.07168608504228305
+    },
+    "LUSC": {
+      "CD8": -0.24384726415860772,
+      "CYT": -0.1718906280813513,
+      "GEP18": -0.22624653225433214,
+      "ESTIMATE": -0.1314802848561839
+    },
+    "POOLED_LUAD_LUSC": {
+      "CD8": -0.1908864782424613,
+      "CYT": -0.1508505208216871,
+      "GEP18": -0.1515928040091629,
+      "ESTIMATE": -0.10688169492728827
+    }
+  },
+  "methods": {
+    "unadjusted": "Spearman",
+    "adjusted": "first-order partial Spearman controlling for ABSOLUTE purity (algebraic formula; residual-rank method as sensitivity)",
+    "CD8": "CD8A log2(RSEM+1)",
+    "CYT": "mean(log2 GZMA, log2 PRF1) = Rooney geometric mean on log2 data",
+    "GEP18": "unweighted mean of within-cohort z-scores of the 18 Ayers 2017 genes; Merck NanoString weights are not public",
+    "ESTIMATE": "official ImmuneScore from MD Anderson RNAseqV2 tables (Yoshihara 2013)",
+    "purity": "PanCanAtlas ABSOLUTE",
+    "samples": "TCGA primary tumors (-01), one row per 15-char barcode",
+    "multiple_testing": "BH-FDR across 8 primary partial tests (4 features \u00d7 2 histologies)",
+    "histology_difference": "Fisher z-test of independent partial correlations, var=1/(n-4)"
+  }
+}

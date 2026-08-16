@@ -1,0 +1,65 @@
+{
+  "inputs": {
+    "expr_LUAD": {
+      "file": "TCGA.LUAD.HiSeqV2.gz",
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap%2FHiSeqV2.gz",
+      "desc": "UCSC Xena TCGA-LUAD HiSeqV2, log2(RSEM normalized_count + 1)",
+      "md5": "bcff7dfabf3da82ce215bd2649c4dd4a",
+      "bytes": 30884695
+    },
+    "expr_LUSC": {
+      "file": "TCGA.LUSC.HiSeqV2.gz",
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUSC.sampleMap%2FHiSeqV2.gz",
+      "desc": "UCSC Xena TCGA-LUSC HiSeqV2, log2(RSEM normalized_count + 1)",
+      "md5": "594933f312363abbe4e31710c7e95e6f",
+      "bytes": 30037912
+    },
+    "absolute": {
+      "file": "TCGA_mastercalls.abs_tables_JSedit.fixed.txt",
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "desc": "PanCanAtlas ABSOLUTE purity/ploidy (Taylor et al.)",
+      "md5": "8ea2ca92c8ae58350538999dfa1174da",
+      "bytes": 901812
+    },
+    "estimate_LUAD": {
+      "file": "ESTIMATE_LUAD_RNAseqV2.txt",
+      "url": "https://ibl.mdanderson.org/estimate/tables/lung_adenocarcinoma_RNAseqV2.txt",
+      "desc": "Official ESTIMATE RNAseqV2 scores, TCGA-LUAD (Yoshihara 2013 / MD Anderson)",
+      "md5": "0c68a0e625b798a1a1e1055bdc26a245",
+      "bytes": 19985
+    },
+    "estimate_LUSC": {
+      "file": "ESTIMATE_LUSC_RNAseqV2.txt",
+      "url": "https://ibl.mdanderson.org/estimate/tables/lung_squamous_cell_carcinoma_RNAseqV2.txt",
+      "desc": "Official ESTIMATE RNAseqV2 scores, TCGA-LUSC (Yoshihara 2013 / MD Anderson)",
+      "md5": "896ce7ca34f3b29f75b041992a7486a6",
+      "bytes": 19605
+    }
+  },
+  "gep18_genes": [
+    "CCL5",
+    "CD27",
+    "CD274",
+    "CD276",
+    "CD8A",
+    "CMKLR1",
+    "CXCL9",
+    "CXCR6",
+    "HLA-DQA1",
+    "HLA-DRB1",
+    "HLA-E",
+    "IDO1",
+    "LAG3",
+    "NKG7",
+    "PDCD1LG2",
+    "PSMB10",
+    "STAT1",
+    "TIGIT"
+  ],
+  "cyt_genes": [
+    "GZMA",
+    "PRF1"
+  ],
+  "cd8_gene": "CD8A",
+  "note": "Raw expression matrices are not committed (see data/ + .gitignore)."
+}
