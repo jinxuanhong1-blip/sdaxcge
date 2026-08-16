@@ -2,10 +2,13 @@ record	trial	TACSTD2	CLDN4	basis
 KEYNOTE-001 NSCLC cohort	KEYNOTE-001 / NCT01295827	not assessable	not assessable	No anonymous processed RNA/count matrix located for the NSCLC cohort.
 GSE216069 and GSE216055	KEYNOTE-001 / NCT01295827	not tested; out of scope	not tested; out of scope	The deposit also contains separate NSCLC method-validation samples, but the three sequential KEYNOTE-001 biopsies are explicitly melanoma.
 KEYNOTE-010	KEYNOTE-010 / NCT01905657	not assessable	not assessable	No open RNA, NanoString, or count matrix located.
+KEYNOTE-024	KEYNOTE-024 / NCT02142738	not assessable	not assessable	No open RNA-seq, NanoString, or count accession was located.
 KEYNOTE-028 SCLC cohort	KEYNOTE-028 / NCT02054806	not in published 18-gene GEP	not in published 18-gene GEP	Patient-level normalized counts/GEP matrix was not deposited openly.
 KEYNOTE-042	KEYNOTE-042 / NCT02220894	not assessable	not assessable	The reported molecular analysis is WES, not expression counts.
 KEYNOTE-189 and KEYNOTE-407	NCT02578680 and NCT02775435	not assessable	not assessable	MSD states genetic/exploratory biomarker access requires an approved plan and agreement.
 KEYNOTE-495 / KeyImPaCT	KEYNOTE-495 / NCT03516981	not in 18-gene GEP	not in 18-gene GEP	The paper reports biomarker groups/scores, not a gene-by-sample count matrix.
+KEYNOTE-598	KEYNOTE-598 / NCT03302234	not assessable as expression	not assessable as expression	No open transcriptomic accession or processed expression matrix was located.
 KEYNOTE-782	KEYNOTE-782 / NCT03664024	potentially measured by whole-transcriptome RNA-seq, values unavailable	potentially measured by whole-transcriptome RNA-seq, values unavailable	No repository accession or patient-level processed matrix was reported.
-MSD/Vivli data-sharing route	multiple sponsor KEYNOTE trials	request-dependent	request-dependent	This is controlled access, not open data.
+MSD/Vivli data-sharing route	multiple sponsor KEYNOTE trials	request-dependent	request-dependent	This is controlled access, not open data; current MSD procedure says participant-level genetic/exploratory biomarker data are not shared directly.
+dbGaP phs001572	KEYNOTE-001/-006/-012/-028 pan-tumor subsets	not assessable as expression	not assessable as expression	A cross-catalog EGA page does not make this dbGaP study anonymously downloadable.
 SU2C-MARK NSCLC cohort	not a KEYNOTE trial	expected from whole-transcriptome assay; matrix not inspected	expected from whole-transcriptome assay; matrix not inspected	Useful near-match, but excluded because it is not KEYNOTE; archive is 1.18 GB.

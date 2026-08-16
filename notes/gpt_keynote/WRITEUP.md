@@ -5,11 +5,11 @@
 
 ## Bottom line / 结论
 
-**EN.** I found **no dataset satisfying all four requirements**: (1) a named KEYNOTE trial, (2) a lung-cancer cohort, (3) a processed patient-level RNA/NanoString/count matrix, and (4) anonymous open download. Therefore, no biological matrix was downloaded. This is a zero-result, not a failed download. The sponsor publications consistently route genetic or exploratory biomarker data through application, scientific review, a data-sharing agreement, and often a secure analysis environment.
+**EN.** I found **no dataset satisfying all four requirements**: (1) a named KEYNOTE trial, (2) a lung-cancer cohort, (3) a processed patient-level RNA/NanoString/count matrix, and (4) anonymous open download. Therefore, no biological matrix was downloaded. This is a zero-result, not a failed download. The sponsor publications consistently route genetic or exploratory biomarker work through application, scientific review, a data-sharing agreement, and often a secure analysis environment; MSD's current procedure further states that participant-level genetic/exploratory biomarker data are not shared directly.
 
 The closest literal GEO hit is not a lung KEYNOTE dataset. GSE216069/GSE216055 contain open processed single-nucleus RNA and Slide-seq counts from three KEYNOTE-001 biopsies, but the paper explicitly identifies that patient as **melanoma**. The same deposit contains separate NSCLC method-validation specimens; those are not the KEYNOTE-001 specimens. Mixing the two would create a false “KEYNOTE lung” dataset.
 
-**中文。** 未发现同时满足以下四项的数据集：(1) 明确命名的 KEYNOTE 试验；(2) 肺癌队列；(3) 患者级处理后 RNA/NanoString/计数矩阵；(4) 无需申请即可公开下载。因此本次没有下载生物学矩阵。这是诚实的“零结果”，不是下载失败。相关申办方论文均说明：遗传或探索性生物标志物数据通常需要提交研究方案、接受科学审查、签署数据共享协议，并常常只能在安全分析环境中使用。
+**中文。** 未发现同时满足以下四项的数据集：(1) 明确命名的 KEYNOTE 试验；(2) 肺癌队列；(3) 患者级处理后 RNA/NanoString/计数矩阵；(4) 无需申请即可公开下载。因此本次没有下载生物学矩阵。这是诚实的“零结果”，不是下载失败。相关申办方论文均说明：遗传或探索性生物标志物研究通常需要提交方案、接受科学审查、签署数据共享协议，并常常只能在安全分析环境中进行；MSD 当前流程还明确指出，不直接共享参与者级遗传/探索性生物标志物数据。
 
 最接近的 GEO 字面命中并不是 KEYNOTE 肺癌数据。GSE216069/GSE216055 确实公开了来自 KEYNOTE-001 三次活检的单核 RNA 和 Slide-seq 处理后计数，但论文明确说明该患者患有**黑色素瘤**。同一存档中的 NSCLC 样本只是另外的技术验证样本，并非 KEYNOTE-001 样本；把两者混在一起会错误地制造出“KEYNOTE 肺癌”数据集。
 
@@ -22,14 +22,17 @@ The machine-readable, evidence-linked catalog is [`results/gpt_keynote/catalog.t
 | KEYNOTE-001 NSCLC | yes | pivotal report is PD-L1 IHC; later sponsor biomarker work | no | controlled/on-request |
 | GSE216069/GSE216055 | no for KEYNOTE samples | snRNA-seq + Slide-seq V2 counts | yes | excluded: KEYNOTE patient is melanoma |
 | KEYNOTE-010 | yes | samples referenced by sponsor biomarker analyses | no | controlled/on-request |
+| KEYNOTE-024 | yes | PD-L1 IHC; no transcriptomic accession found | no | controlled/on-request |
 | KEYNOTE-028 SCLC | yes | NanoString-derived T-cell-inflamed GEP + TMB | no | only aggregate publication results |
 | KEYNOTE-042 | yes | PD-L1 IHC + WES/TMB | no RNA matrix | controlled/on-request |
 | KEYNOTE-189/407 | yes | WES/TMB + selected mutations | no RNA matrix | controlled/on-request |
 | KEYNOTE-495 | yes | tumor RNA-derived 18-gene GEP + TMB | no | aggregate groups/scores only |
+| KEYNOTE-598 | yes | reported follow-up is ctDNA WGS/WES, not RNA | no RNA matrix | controlled/on-request |
 | KEYNOTE-782 | yes | bulk tumor RNA-seq, 69 evaluable, 11 signatures | no | abstract only; no accession/matrix |
+| dbGaP phs001572 | partly, pan-tumor | authorized-access WES only | no RNA matrix | controlled; not an EGA open download |
 | SU2C-MARK | yes | open processed bulk RNA-seq TPM | yes | excluded: not a KEYNOTE trial |
 
-中文概述：KEYNOTE-028、495 和 782 明确使用了表达相关检测，但公开资料只给出签名分数、分组或汇总统计，没有患者级基因表达矩阵。KEYNOTE-042、189、407 的已发表探索性分子分析主要是 WES/TMB，不应误标为 RNA 数据。SU2C-MARK 有公开的肺癌 RNA-seq TPM 数据，但它不是 KEYNOTE 试验，因此只作为近似资源列入目录，未下载。
+中文概述：KEYNOTE-028、495 和 782 明确使用了表达相关检测，但公开资料只给出签名分数、分组或汇总统计，没有患者级基因表达矩阵。KEYNOTE-042、189、407 和 598 的已发表探索性分子分析主要是 WES、WGS、TMB 或 ctDNA，不应误标为 RNA 数据。dbGaP phs001572 是受控 WES 资源，不是公开表达矩阵。SU2C-MARK 有公开的肺癌 RNA-seq TPM 数据，但它不是 KEYNOTE 试验，因此只作为近似资源列入目录，未下载。
 
 ## TACSTD2 and CLDN4 / TACSTD2 与 CLDN4
 
@@ -78,12 +81,16 @@ python3 scripts/gpt_keynote/catalog_keynote.py --offline
 - KEYNOTE-001 trial scope: <https://clinicaltrials.gov/study/NCT01295827>
 - KEYNOTE-001 NSCLC report: <https://doi.org/10.1056/NEJMoa1501824>
 - GEO near-match and explicit melanoma identity: <https://doi.org/10.1038/s41588-022-01268-9>
+- KEYNOTE-024 five-year report: <https://doi.org/10.1200/JCO.21.00174>
 - KEYNOTE-028 GEP/TMB analysis: <https://doi.org/10.1200/JCO.2018.78.2276>
 - KEYNOTE-042 WES/TMB analysis: <https://doi.org/10.1016/j.annonc.2023.01.011>
 - KEYNOTE-189/407 WES/TMB and MSD sharing statement: <https://doi.org/10.1016/j.jtocrr.2022.100431>
 - KEYNOTE-495 RNA-derived GEP: <https://doi.org/10.1038/s41591-023-02385-6>
+- KEYNOTE-598 ctDNA follow-up: <https://doi.org/10.1158/1538-7445.AM2024-3664>
 - KEYNOTE-782 RNA-seq signatures: <https://doi.org/10.1200/JCO.2024.42.16_suppl.8578>
+- Controlled pan-tumor KEYNOTE WES resource: <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001572.v1.p1>
 - MSD data-sharing documentation: <https://engagezone.msd.com/ds_documentation.php>
+- Current MSD procedure: <https://engagezone.msd.com/wp-content/uploads/sites/518/2025/02/ProcedureAccessClinicalTrialData.pdf>
 - Open non-KEYNOTE SU2C-MARK near-match: <https://doi.org/10.5281/zenodo.11179623>
 
 ## Limits / 局限
