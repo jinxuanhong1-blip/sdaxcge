@@ -1,0 +1,159 @@
+{
+  "generated_utc": "2026-08-16T20:07:34+00:00",
+  "cohort": "TCGA-COAD",
+  "expression_dataset": "NCI GDC TCGA-COAD STAR - Counts, GENCODE v36, tpm_unstranded; analysed as log2(TPM+1); one Primary Tumor aliquot per case",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type": "Primary Tumor",
+  "n_samples": 458,
+  "n_gdc_star_files_total": 524,
+  "surface_genes_present": 2685,
+  "surface_genes_undefined_corr": 13,
+  "surface_gene_universe": 2672,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 1876,
+    "spearman_r": 0.006753410851885306,
+    "spearman_q": 0.925937501883051,
+    "spearman_percentile": 29.828,
+    "pearson_rank": 1716,
+    "pearson_r": 0.028969134066099984,
+    "pearson_q": 0.6726969417009896,
+    "pearson_percentile": 35.816
+  },
+  "top10_spearman": [
+    {
+      "gene": "LYPD3",
+      "spearman_rank": 1,
+      "spearman_r": 0.38884055506815957,
+      "spearman_q": 1.4862491547844634e-14
+    },
+    {
+      "gene": "MSLN",
+      "spearman_rank": 2,
+      "spearman_r": 0.3794847322702121,
+      "spearman_q": 5.2045477749351163e-14
+    },
+    {
+      "gene": "PTPRU",
+      "spearman_rank": 3,
+      "spearman_r": 0.35833022783229657,
+      "spearman_q": 1.771021174244969e-12
+    },
+    {
+      "gene": "PSCA",
+      "spearman_rank": 4,
+      "spearman_r": 0.3571679132542777,
+      "spearman_q": 1.771021174244969e-12
+    },
+    {
+      "gene": "ALPP",
+      "spearman_rank": 5,
+      "spearman_r": 0.35691768730296153,
+      "spearman_q": 1.771021174244969e-12
+    },
+    {
+      "gene": "GJB4",
+      "spearman_rank": 6,
+      "spearman_r": 0.35519948158571757,
+      "spearman_q": 2.0408789250449144e-12
+    },
+    {
+      "gene": "GJB3",
+      "spearman_rank": 7,
+      "spearman_r": 0.34734727757945666,
+      "spearman_q": 7.505947458571572e-12
+    },
+    {
+      "gene": "ADAM8",
+      "spearman_rank": 8,
+      "spearman_r": 0.3267060887838575,
+      "spearman_q": 2.497528386868109e-10
+    },
+    {
+      "gene": "GJB5",
+      "spearman_rank": 9,
+      "spearman_r": 0.32065345863991557,
+      "spearman_q": 6.131379647573105e-10
+    },
+    {
+      "gene": "CHRNB1",
+      "spearman_rank": 10,
+      "spearman_r": 0.31318715067601105,
+      "spearman_q": 1.8730911273682464e-09
+    }
+  ],
+  "expression_context_log2tpm": {
+    "TACSTD2": {
+      "n": 458,
+      "median_log2_tpm": 4.525856147080854,
+      "mean_log2_tpm": 4.820802372458509,
+      "min_log2_tpm": 0.29490007171757004,
+      "max_log2_tpm": 10.540650763378226,
+      "pct_detected": 100.0
+    },
+    "CLDN4": {
+      "n": 458,
+      "median_log2_tpm": 9.154272198609398,
+      "mean_log2_tpm": 9.159211587738529,
+      "min_log2_tpm": 5.123492387247234,
+      "max_log2_tpm": 11.254010532215574,
+      "pct_detected": 100.0
+    }
+  },
+  "xena_hiseqv2_robustness": {
+    "available": true,
+    "expression_dataset": "UCSC Xena TCGA.COAD.sampleMap/HiSeqV2 (log2 norm_count+1)",
+    "n_samples": 286,
+    "surface_genes_present": 2618,
+    "surface_genes_undefined_corr": 108,
+    "surface_gene_universe": 2510,
+    "focus_result": {
+      "gene": "CLDN4",
+      "in_universe": true,
+      "is_top_spearman": false,
+      "is_top_pearson": false,
+      "spearman_rank": 2136,
+      "spearman_r": -0.05797105538134661,
+      "spearman_q": 0.4734920550345139,
+      "spearman_percentile": 14.94,
+      "pearson_rank": 2105,
+      "pearson_r": -0.04580876123282128,
+      "pearson_q": 0.5859596964976096,
+      "pearson_percentile": 16.175
+    },
+    "top5_spearman": [
+      {
+        "gene": "PVRL4",
+        "spearman_rank": 1,
+        "spearman_r": 0.44836350406506625
+      },
+      {
+        "gene": "PTPRU",
+        "spearman_rank": 2,
+        "spearman_r": 0.44076853066940236
+      },
+      {
+        "gene": "PSCA",
+        "spearman_rank": 3,
+        "spearman_r": 0.4189908080798711
+      },
+      {
+        "gene": "LYPD3",
+        "spearman_rank": 4,
+        "spearman_r": 0.396978321795456
+      },
+      {
+        "gene": "TLR5",
+        "spearman_rank": 5,
+        "spearman_r": 0.39057317038452966
+      }
+    ]
+  }
+}
