@@ -1,0 +1,49 @@
+contrast	set_name	n_genes_measured	inference_unit	median_log2FC_in_set	median_log2FC_background	competitive_mannwhitney_p	selfcontained_wilcoxon_p	frac_genes_up	competitive_q_BH	selfcontained_q_BH
+T47D_CLDN4KO_vs_WT	TIGHT_JUNCTION_CORE	19	genes (NOT biological replicates)	-0.262152	0.00341001	0.00471819	0.0122748	0.210526	0.02595	0.135022
+T47D_CLDN4KO_vs_WT	CLAUDIN_FAMILY	7	genes (NOT biological replicates)	-0.676126	0.00321162	0.00123476	0.03125	0	0.0135823	0.171875
+T47D_CLDN4KO_vs_WT	DESMOSOME_ADHERENS	12	genes (NOT biological replicates)	0.0629382	0.00303482	0.377902	0.380371	0.75	0.523106	0.52301
+T47D_CLDN4KO_vs_WT	IFN_ALPHA_TYPE1	22	genes (NOT biological replicates)	-0.0682375	0.00319742	0.119158	0.12888	0.409091	0.262147	0.35442
+T47D_CLDN4KO_vs_WT	IFN_GAMMA_TYPE2	11	genes (NOT biological replicates)	-0.00641393	0.00317363	0.701395	0.831055	0.454545	0.701395	0.831055
+T47D_CLDN4KO_vs_WT	ANTIGEN_PRESENTATION_MHC1	7	genes (NOT biological replicates)	-0.0427146	0.00317363	0.427996	0.375	0.428571	0.523106	0.52301
+T47D_CLDN4KO_vs_WT	T_CELL_CYTOTOXICITY	2	genes (NOT biological replicates)							
+T47D_CLDN4KO_vs_WT	T_CELL_INFILTRATION_BROAD	2	genes (NOT biological replicates)							
+T47D_CLDN4KO_vs_WT	ICI_CHECKPOINT_GENES	2	genes (NOT biological replicates)							
+T47D_CLDN4KO_vs_WT	TIS_18GENE_AYERS	5	genes (NOT biological replicates)	0.104113	0.0031148	0.407459	0.625	0.6	0.523106	0.704688
+T47D_CLDN4KO_vs_WT	IFNG_6GENE_AYERS	1	genes (NOT biological replicates)							
+T47D_CLDN4KO_vs_WT	CHEMOKINE_T_RECRUITMENT	1	genes (NOT biological replicates)							
+T47D_CLDN4KO_vs_WT	EMT_CORE	11	genes (NOT biological replicates)	0.192802	0.00303741	0.0651593	0.0830078	0.727273	0.179188	0.304362
+T47D_CLDN4KO_vs_WT	EPITHELIAL_IDENTITY	14	genes (NOT biological replicates)	-0.170464	0.00317405	0.257312	0.216553	0.428571	0.471738	0.397013
+T47D_CLDN4KO_vs_WT	NFKB_INFLAMMATORY	8	genes (NOT biological replicates)	-0.0404724	0.00317405	0.698969	0.640625	0.375	0.701395	0.704688
+T47D_CLDN4KO_vs_WT	TARGET_GENES	5	genes (NOT biological replicates)	-0.623323	0.00318573	0.045631	0.1875	0.2	0.167314	0.397013
+MCF7_CLDN4KO_vs_WT	TIGHT_JUNCTION_CORE	19	genes (NOT biological replicates)	-0.173584	0.0247655	0.0233464	0.113377	0.315789	0.128405	0.397013
+MCF7_CLDN4KO_vs_WT	CLAUDIN_FAMILY	7	genes (NOT biological replicates)	-0.280261	0.0246826	0.122838	0.375	0.428571	0.223864	0.515625
+MCF7_CLDN4KO_vs_WT	DESMOSOME_ADHERENS	12	genes (NOT biological replicates)	0.0444386	0.0246813	0.440656	0.339355	0.583333	0.53858	0.515625
+MCF7_CLDN4KO_vs_WT	IFN_ALPHA_TYPE1	22	genes (NOT biological replicates)	-0.336917	0.024795	0.0190373	0.155971	0.363636	0.128405	0.397013
+MCF7_CLDN4KO_vs_WT	IFN_GAMMA_TYPE2	11	genes (NOT biological replicates)	-0.154147	0.0247219	0.0739531	0.206055	0.272727	0.203371	0.397013
+MCF7_CLDN4KO_vs_WT	ANTIGEN_PRESENTATION_MHC1	7	genes (NOT biological replicates)	-0.0477293	0.0246959	0.741023	0.8125	0.285714	0.815125	0.89375
+MCF7_CLDN4KO_vs_WT	T_CELL_CYTOTOXICITY	2	genes (NOT biological replicates)							
+MCF7_CLDN4KO_vs_WT	T_CELL_INFILTRATION_BROAD	2	genes (NOT biological replicates)							
+MCF7_CLDN4KO_vs_WT	ICI_CHECKPOINT_GENES	2	genes (NOT biological replicates)							
+MCF7_CLDN4KO_vs_WT	TIS_18GENE_AYERS	5	genes (NOT biological replicates)	-0.0531648	0.0246826	0.916644	1	0.4	0.916644	1
+MCF7_CLDN4KO_vs_WT	IFNG_6GENE_AYERS	1	genes (NOT biological replicates)							
+MCF7_CLDN4KO_vs_WT	CHEMOKINE_T_RECRUITMENT	1	genes (NOT biological replicates)							
+MCF7_CLDN4KO_vs_WT	EMT_CORE	11	genes (NOT biological replicates)	-0.243797	0.0246959	0.109411	0.206055	0.363636	0.223864	0.397013
+MCF7_CLDN4KO_vs_WT	EPITHELIAL_IDENTITY	14	genes (NOT biological replicates)	-0.0570836	0.0246813	0.142459	0.216553	0.5	0.223864	0.397013
+MCF7_CLDN4KO_vs_WT	NFKB_INFLAMMATORY	8	genes (NOT biological replicates)	-0.223516	0.024736	0.0378121	0.195312	0.125	0.138645	0.397013
+MCF7_CLDN4KO_vs_WT	TARGET_GENES	5	genes (NOT biological replicates)	0.0558718	0.0246546	0.25983	0.8125	0.6	0.357267	0.89375
+mean_of_both_lines	TIGHT_JUNCTION_CORE	19	genes (NOT biological replicates)	-0.141649	0.0109659	0.0038905	0.0204124	0.210526	0.0213977	0.171875
+mean_of_both_lines	CLAUDIN_FAMILY	7	genes (NOT biological replicates)	-0.554113	0.0108158	0.00163011	0.046875	0.142857	0.0179312	0.171875
+mean_of_both_lines	DESMOSOME_ADHERENS	12	genes (NOT biological replicates)	0.031657	0.0107858	0.502746	0.62207	0.5	0.691275	0.6875
+mean_of_both_lines	IFN_ALPHA_TYPE1	22	genes (NOT biological replicates)	-0.213482	0.0108231	0.00713534	0.0390735	0.363636	0.0261629	0.171875
+mean_of_both_lines	IFN_GAMMA_TYPE2	11	genes (NOT biological replicates)	-0.0382149	0.0107933	0.195105	0.320312	0.454545	0.306594	0.503348
+mean_of_both_lines	ANTIGEN_PRESENTATION_MHC1	7	genes (NOT biological replicates)	0.0554949	0.0107798	0.992003	0.9375	0.571429	0.992003	0.9375
+mean_of_both_lines	T_CELL_CYTOTOXICITY	2	genes (NOT biological replicates)							
+mean_of_both_lines	T_CELL_INFILTRATION_BROAD	2	genes (NOT biological replicates)							
+mean_of_both_lines	ICI_CHECKPOINT_GENES	2	genes (NOT biological replicates)							
+mean_of_both_lines	TIS_18GENE_AYERS	5	genes (NOT biological replicates)	0.0273182	0.0107631	0.634858	0.625	0.8	0.698344	0.6875
+mean_of_both_lines	IFNG_6GENE_AYERS	1	genes (NOT biological replicates)							
+mean_of_both_lines	CHEMOKINE_T_RECRUITMENT	1	genes (NOT biological replicates)							
+mean_of_both_lines	EMT_CORE	11	genes (NOT biological replicates)	-0.0537751	0.0108046	0.625961	0.577148	0.363636	0.698344	0.6875
+mean_of_both_lines	EPITHELIAL_IDENTITY	14	genes (NOT biological replicates)	-0.0894897	0.0108231	0.0890656	0.135254	0.285714	0.171405	0.371948
+mean_of_both_lines	NFKB_INFLAMMATORY	8	genes (NOT biological replicates)	-0.112196	0.0108084	0.0934935	0.25	0.25	0.171405	0.458333
+mean_of_both_lines	TARGET_GENES	5	genes (NOT biological replicates)	-0.308583	0.0108046	0.0497435	0.1875	0.2	0.136795	0.4125

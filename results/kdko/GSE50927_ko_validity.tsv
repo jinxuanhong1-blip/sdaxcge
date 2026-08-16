@@ -1,0 +1,5 @@
+contrast	gene	logFC	pct_of_reference	logCPM	submitter_edgeR_PValue	submitter_edgeR_FDR	n_per_group	caveat
+Cldn4KO_vs_WT_naive_lung	Cldn4	-6.0613	1.4975	2.25063	1.7663e-29	4.0673e-26	1 vs 1	unreplicated design; edgeR p-value assumes a dispersion rather than estimating it
+Cldn4KO_VILIlow_vs_WT_VILI	Cldn4	-12.6928	0.0151035	6.13315	1.77e-126	3.84e-122	1 vs 1	unreplicated design; edgeR p-value assumes a dispersion rather than estimating it
+Cldn4KO_VILIhigh_vs_WT_VILI	Cldn4	-10.1621	0.0872753	6.1226	1.33054e-98	2.88795e-94	1 vs 1	unreplicated design; edgeR p-value assumes a dispersion rather than estimating it
+WT_VILI_vs_WT_naive	Cldn4	3.95857	1554.7	6.21596	9.90857e-95	7.16885e-91	1 vs 1	unreplicated design; edgeR p-value assumes a dispersion rather than estimating it

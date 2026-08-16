@@ -1,0 +1,15 @@
+category	item	why_it_matters	what_was_done
+MISSING	Human lung CLDN4 KD/KO transcriptome	Lung is the preferred tissue for this question	GEO query "CLDN4 AND lung AND (knockdown OR knockout OR shRNA OR siRNA OR CRISPR)" returned 0 hits (scripts/kdko/02_search_geo_round2.py). No ArrayExpress substitute.
+MISSING	Human lung TACSTD2 KD/KO transcriptome	Same	Inspected GEO lung+TACSTD2 hits: GSE302284 is TROP2 CAR-T/ADC, not gene KO. No verified KD/KO matrix.
+MISSING	Mouse lung Tacstd2 knockout transcriptome	Would test the reciprocal of GSE50927 in the same organ	Not found on GEO or ArrayExpress.
+MISSING	Immunocompetent mouse tumour Cldn4 knockout RNA-seq	Would test whether CLDN4 loss phenocopies Trop2 KO immune inclusion (GSE334497)	Not found. GSE207704 is in-vitro human; GSE50927 is whole lung, n=1.
+MISSING	LINCS/CMap CLDN4 or TACSTD2 shRNA signatures	Would add multi-line human knockdown replication	GSE106127 CGS metadata and GSE92742 pert_info were downloaded and searched. Neither gene is a perturbagen (EPCAM is). Matrices not fetched.
+MISSING	Replicate-level counts for GSE207704	8 GSM records exist; only 4 group-mean FPKM columns were deposited	Cannot compute a sample-level p-value. Reported as gene-level fold-changes only.
+MISSING	Count matrix for GSE50927	Would allow a proper (still unreplicated) re-analysis	Only four submitter edgeR tables are public.
+MISSING	In-vitro Trop-2 KO arm of GSE289287	Would separate cell-intrinsic from xenograft effects	GEO holds WT and DSG2-KO cell lines only; Trop-2 KO exists only as xenografts.
+CONTROLLED	GSE289287 DSG2 KO (cells + tumours)	Junction-class comparator: is the TACSTD2-KO IFN shift just "any adhesion loss"?	Analysed. Genome-wide concordance with TACSTD2-KO xenografts is weakly negative (Pearson r=-0.085, n=12644). DSG2-KO cells do show an IFN-I competitive shift (median DESeq2 stat 2.81 vs background 0.09, Mann-Whitney p<1e-5), so IFN-I after adhesion loss is not TACSTD2-specific in T-47D.
+CONTROLLED	GSE15212 non-TACSTD2 siRNA arms (HMGA1, RRM2, RPS2, NOL5A)	Would test whether the IFN-I shift is a generic siRNA interferon response	Not used as a primary contrast. The two independent TACSTD2 oligos both raise IFN-I (siRNA#1 sample p=0.012; siRNA#4 sample p=2.0e-5), which argues against a single-oligo artefact but does not by itself rule out a generic RNAi-IFN effect.
+CONTROLLED	GSE50927 WT VILI vs WT naive	Injury reference, not a Cldn4 perturbation	Cldn4 itself is induced by VILI in WT (logFC +3.96). The naive-lung Cldn4-KO contrast is therefore the cleaner genotype contrast and is the one used for IFN/MHC-I claims.
+EXCLUDED	TROP2 ADC / CAR-T series (GSE278664, GSE302284)	Pharmacology, not gene loss	Catalogued and left unanalysed.
+EXCLUDED	TROP2+ FACS profiling (E-MTAB-11466, E-MTAB-11382, E-MTAB-11377)	High-TROP2 cells, not TROP2 loss	Catalogued and left unanalysed.
+EXCLUDED	Other claudin KOs (GSE48443 Cldn18; GSE26055 CLDN7)	Wrong gene	Catalogued and left unanalysed.
