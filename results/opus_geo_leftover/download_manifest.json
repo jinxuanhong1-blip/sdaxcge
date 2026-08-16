@@ -1,0 +1,309 @@
+[
+  {
+    "accession": "GSE161537",
+    "verified": true,
+    "entrez_accession": "GSE161537",
+    "entrez_uid": "200161537",
+    "title": "Immunologically hot phenotype is associated with response to second-line PD-1/PD-L1 inhibition in patients with advanced non-small cell lung cancer",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "taxon": "Homo sapiens",
+    "n_samples": 82,
+    "platform": "18573",
+    "pubmed_ids": [
+      "36111282",
+      "36038492"
+    ],
+    "release_date": "2022/07/07",
+    "bioproject": "PRJNA678660",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161537/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE161537",
+    "files": [
+      {
+        "name": "GSE161537_nivobio_log2cpm.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161537/suppl/GSE161537_nivobio_log2cpm.csv.gz",
+        "status": "ok",
+        "declared_bytes": 1630436,
+        "bytes": 1630436,
+        "sha256": "2a2e612c9eed8f558ab970fc090263c68100c07997a22f077105cf45549b54af"
+      },
+      {
+        "name": "GSE161537_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161537/matrix/GSE161537_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 7994,
+        "bytes": 7994,
+        "sha256": "ea28aedb8cc6809edd27c8d859627f0ede26d35765b335f1802de74387d983ba"
+      }
+    ]
+  },
+  {
+    "accession": "GSE309652",
+    "verified": true,
+    "entrez_accession": "GSE309652",
+    "entrez_uid": "200309652",
+    "title": "Clinically relevant metabolic subtypes of lung cancer for immunotherapy",
+    "gdstype": "Expression profiling by array",
+    "taxon": "Homo sapiens",
+    "n_samples": 72,
+    "platform": "31904",
+    "pubmed_ids": [],
+    "release_date": "2025/09/30",
+    "bioproject": "PRJNA1336689",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309652/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE309652",
+    "files": [
+      {
+        "name": "GSE309652_RAW.tar",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309652/suppl/GSE309652_RAW.tar",
+        "status": "ok",
+        "declared_bytes": 686080,
+        "bytes": 686080,
+        "sha256": "d48afd082e23a2b98470ead365a270b0465763a6f8fc92885a9a94ebcd0d2fdc"
+      },
+      {
+        "name": "GSE309652_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309652/matrix/GSE309652_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 39784,
+        "bytes": 39784,
+        "sha256": "08262aa64cb37281ca9a70891bb2a7e41469cc7c4d10f826f3080130213c8a33"
+      }
+    ]
+  },
+  {
+    "accession": "GSE162520",
+    "verified": true,
+    "entrez_accession": "GSE162520",
+    "entrez_uid": "200162520",
+    "title": "Immunologically active phenotype is associated with response to PD-1/PD-L1 inhibitors in patients with advanced non-small cell lung cancer",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "taxon": "Homo sapiens",
+    "n_samples": 92,
+    "platform": "18573",
+    "pubmed_ids": [
+      "36111282",
+      "36038492"
+    ],
+    "release_date": "2022/07/07",
+    "bioproject": "PRJNA682139",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE162nnn/GSE162520/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE162520",
+    "files": [
+      {
+        "name": "GSE162520_GEO_data_TUMADOR_log2cpm.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE162nnn/GSE162520/suppl/GSE162520_GEO_data_TUMADOR_log2cpm.csv.gz",
+        "status": "ok",
+        "declared_bytes": 416282,
+        "bytes": 416282,
+        "sha256": "31a677f3ae859f4a204f5955cb46018217d6133ce15dfb0b3121edeb1befc421"
+      },
+      {
+        "name": "GSE162520_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE162nnn/GSE162520/matrix/GSE162520_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 8108,
+        "bytes": 8108,
+        "sha256": "5141e5f4dd047d04d8d5815f0c3b9bddddd0008886b1f21786bc03b83c6312eb"
+      }
+    ]
+  },
+  {
+    "accession": "GSE253564",
+    "verified": true,
+    "entrez_accession": "GSE253564",
+    "entrez_uid": "200253564",
+    "title": "Features associated with enhanced proliferation define lung tumors that respond to dual immune checkpoint and radiation therapy",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "taxon": "Homo sapiens",
+    "n_samples": 32,
+    "platform": "24676",
+    "pubmed_ids": [
+      "38401548"
+    ],
+    "release_date": "2024/01/18",
+    "bioproject": "PRJNA1066291",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253564",
+    "files": [
+      {
+        "name": "GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/suppl/GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz",
+        "status": "ok",
+        "declared_bytes": 2110059,
+        "bytes": 2110059,
+        "sha256": "f60ae0651e662030abc4d799a299452e0979ae37bb1b2b3143aa4adf0ef0e377"
+      },
+      {
+        "name": "GSE253564_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/matrix/GSE253564_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 3438,
+        "bytes": 3438,
+        "sha256": "c490b16e1bba56f7b1ebf1b756e97a0f6578ce13b7a2a6592f578befef0f604f"
+      }
+    ]
+  },
+  {
+    "accession": "GSE248378",
+    "verified": true,
+    "entrez_accession": "GSE248378",
+    "entrez_uid": "200248378",
+    "title": "Neoadjuvant durvalumab plus radiation versus durvalumab alone in stages I-III non-small cell lung cancer: survival outcomes and molecular correlates of a randomized phase II trial",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "taxon": "Homo sapiens",
+    "n_samples": 29,
+    "platform": "24676",
+    "pubmed_ids": [
+      "38114518",
+      "38401548"
+    ],
+    "release_date": "2023/11/26",
+    "bioproject": "PRJNA1043632",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE248378",
+    "files": [
+      {
+        "name": "GSE248378_Durva_Post_FPKMs.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/suppl/GSE248378_Durva_Post_FPKMs.txt.gz",
+        "status": "ok",
+        "declared_bytes": 1016822,
+        "bytes": 1016822,
+        "sha256": "dc3eaa5279dd15707d7fe3d66b23d851a03dcef4007d5dbe55f3be3e010defc1"
+      },
+      {
+        "name": "GSE248378_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/matrix/GSE248378_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 3333,
+        "bytes": 3333,
+        "sha256": "51c463af681b499c75cad87cc2b46b50b27aeb51373e344e2df7ceed8b294643"
+      }
+    ]
+  },
+  {
+    "accession": "GSE182328",
+    "verified": true,
+    "entrez_accession": "GSE182328",
+    "entrez_uid": "200182328",
+    "title": "Intestinal Akkermansia muciniphila predicts clinical response to PD1 blockade in advanced non-small cell lung cancer patients [RNA-seq].",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "taxon": "Homo sapiens",
+    "n_samples": 44,
+    "platform": "18573",
+    "pubmed_ids": [],
+    "release_date": "2021/08/20",
+    "bioproject": "PRJNA755863",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE182nnn/GSE182328/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE182328",
+    "files": [
+      {
+        "name": "GSE182328_Gene_counts_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE182nnn/GSE182328/suppl/GSE182328_Gene_counts_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 1101378,
+        "bytes": 1101378,
+        "sha256": "556200380fc20803358390552ed52b7db4dfb2a779dfced8cbb87ae52c4373ce"
+      },
+      {
+        "name": "GSE182328_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE182nnn/GSE182328/matrix/GSE182328_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 3691,
+        "bytes": 3691,
+        "sha256": "576c55fdba3711832f60202a77ce4f3802afd2ca935a7ffb5eab3e68bf331841"
+      }
+    ]
+  },
+  {
+    "accession": "GSE248249",
+    "verified": true,
+    "entrez_accession": "GSE248249",
+    "entrez_uid": "200248249",
+    "title": "Clinical and molecular features of acquired resistance to immunotherapy in non-small cell lung cancer",
+    "gdstype": "Expression profiling by array",
+    "taxon": "Homo sapiens",
+    "n_samples": 42,
+    "platform": "23126",
+    "pubmed_ids": [
+      "38215748"
+    ],
+    "release_date": "2024/01/11",
+    "bioproject": "PRJNA1043107",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248249/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE248249",
+    "files": [
+      {
+        "name": "GSE248249_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248249/matrix/GSE248249_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 20017929,
+        "bytes": 20017929,
+        "sha256": "d6841e253c5e3c5494e7d5794c6b244878e868c35a01fc34268ec2e664a9d1ff"
+      }
+    ]
+  },
+  {
+    "accession": "GSE216297",
+    "verified": true,
+    "entrez_accession": "GSE216297",
+    "entrez_uid": "200216297",
+    "title": "Blood platelet RNA profiles do not enable for nivolumab response prediction at baseline in patients with non-small-cell lung cancer",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "taxon": "Homo sapiens",
+    "n_samples": 286,
+    "platform": "20301",
+    "pubmed_ids": [
+      "37270827"
+    ],
+    "release_date": "2023/07/10",
+    "bioproject": "PRJNA892949",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE216nnn/GSE216297/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE216297",
+    "files": [
+      {
+        "name": "GSE216297_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE216nnn/GSE216297/matrix/GSE216297_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 14710,
+        "bytes": 14710,
+        "sha256": "c3a1bfc4767749f8ceb94d18fd83e2cb72992b12dbb0a60d4f3373e1dc84b983"
+      }
+    ]
+  },
+  {
+    "accession": "GSE111414",
+    "verified": true,
+    "entrez_accession": "GSE111414",
+    "entrez_uid": "200111414",
+    "title": "KIR Polymorphism is Associated with Primary Resistance to PD-1 Blockade in Lung Cancer",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "taxon": "Homo sapiens",
+    "n_samples": 20,
+    "platform": "21290",
+    "pubmed_ids": [
+      "30765392"
+    ],
+    "release_date": "2021/03/01",
+    "bioproject": "PRJNA436957",
+    "ftp": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE111nnn/GSE111414/",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111414",
+    "files": [
+      {
+        "name": "GSE111414_gene_counts.csv.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE111nnn/GSE111414/suppl/GSE111414_gene_counts.csv.gz",
+        "status": "ok",
+        "declared_bytes": 1017022,
+        "bytes": 1017022,
+        "sha256": "1cb856f8ff878c9e6c38576e82f6dad630d3d43a95f0c12b9aa2cd726edea744"
+      },
+      {
+        "name": "GSE111414_series_matrix.txt.gz",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE111nnn/GSE111414/matrix/GSE111414_series_matrix.txt.gz",
+        "status": "ok",
+        "declared_bytes": 3961,
+        "bytes": 3961,
+        "sha256": "048af75f9b25c1f42441774362c3a8cd621846104d9117768e039953304b8ba1"
+      }
+    ]
+  }
+]
