@@ -1,0 +1,1617 @@
+{
+ "GSE50927": {
+  "series": {
+   "title": "RNAseq on lungs from WT vs claudin 4 KO mice that underwent ventilator-induced lung injury",
+   "summary": " WT mice and claudin 4 KO mice were exposed to ventilator-induced lung injury (VILI) for 2 hours. We found that in some Cldn4 KO mice, injury was similar to WT, while in others, injury was higher, as assessed by amount of protein leak into broncho-alveolar lavage fluid. We performed RNAseq to find which genes were responsible for higher injury in Cldn4 KO mice.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_Cldn4lungWTvsKOgenes.csv.gz",
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_VILIwtGenes.csv.gz",
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_VILIwtkohiGenes.csv.gz",
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_VILIwtkoloGenes.csv.gz"
+   ],
+   "platform": [
+    "GPL13112"
+   ],
+   "type": "Expression profiling by high throughput sequencing; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM1232580",
+    "title": "WT no VILI",
+    "source": "WT_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6, C57BL/6, BALB/c",
+     "genotype/variation: WT",
+     "tissue: whole lung",
+     "vili  condition: none"
+    ]
+   },
+   {
+    "gsm": "GSM1232581",
+    "title": "Cldn4 KO no VILI",
+    "source": "Cldn4 KO_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6, C57BL/6, BALB/c",
+     "genotype/variation: Cldn4 KO",
+     "tissue: whole lung",
+     "vili  condition: none"
+    ]
+   },
+   {
+    "gsm": "GSM1232582",
+    "title": "WT VILI",
+    "source": "WT_VILI_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6, C57BL/6, BALB/c",
+     "genotype/variation: WT",
+     "exposed to: ventilator-induced lung injury (VILI) for 2 h",
+     "vili  condition: 40 cmH2O",
+     "tissue: whole lung"
+    ]
+   },
+   {
+    "gsm": "GSM1232583",
+    "title": "Cldn4 KO VILIlow",
+    "source": "Cldn4 KO_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6, C57BL/6, BALB/c",
+     "genotype/variation: Cldn4 KO",
+     "exposed to: ventilator-induced lung injury (VILI) for 2 h",
+     "vili  condition: 40 cmH2O",
+     "injury level: similar injury to WT",
+     "tissue: whole lung"
+    ]
+   },
+   {
+    "gsm": "GSM1232584",
+    "title": "Cldn4 KO VILIhigh",
+    "source": "Cldn4 KO_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6, C57BL/6, BALB/c",
+     "genotype/variation: Cldn4 KO",
+     "exposed to: ventilator-induced lung injury (VILI) for 2 h",
+     "vili  condition: 40 cmH2O",
+     "injury level: higher injury than WT",
+     "tissue: whole lung"
+    ]
+   }
+  ],
+  "n_samples": 5,
+  "has_cldn4_perturb_sample": true
+ },
+ "GSE22493": {
+  "series": {
+   "title": "Comparisons of the global gene profile between CLDN4-overexpressing and CLDN4-silencing ovarian cancer cells.",
+   "summary": " A microarray analysis was performed to compare the global gene expression profile between CLDN4-overexpressing (Control) and CLDN4-silencing SKOV-3 ovarian cancer cells.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE22nnn/GSE22493/suppl/GSE22493_RAW.tar"
+   ],
+   "platform": [
+    "GPL10555"
+   ],
+   "type": "Expression profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM558700",
+    "title": "CLDN4 Replicate 1",
+    "source": "SKOV-3-IP-Luc ovarian cancer cell line",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: SKOV-3-IP-Luc",
+     "protocol: CLDN4 overexpression (control)"
+    ]
+   },
+   {
+    "gsm": "GSM558701",
+    "title": "CLDN4 Replicate 2",
+    "source": "SKOV-3-IP-Luc ovarian cancer cell line",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: SKOV-3-IP-Luc",
+     "protocol: CLDN4 overexpression (control)"
+    ]
+   },
+   {
+    "gsm": "GSM558702",
+    "title": "CLDN4 Replicate 3",
+    "source": "SKOV-3-IP-Luc ovarian cancer cell line",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: SKOV-3-IP-Luc",
+     "protocol: CLDN4 overexpression (control)"
+    ]
+   }
+  ],
+  "n_samples": 3,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE207704": {
+  "series": {
+   "title": "Claudin-4\u2013adhesion signaling drives breast cancer metabolism and progression via liver X receptor \u03b2",
+   "summary": " Cell adhesion molecules exhibit the signaling abilities to control a variety of physiological and pathological processes; however, the underlying molecular basis remains poorly defined. Here, we demonstrate that the claudin-4 (CLDN4)-adhesion signaling accelerates breast cancer metabolism and progression via the nuclear receptor LXRb (liver X receptor b). Knockout and rescue experiments revealed that the CLDN4 signaling targets S432 in LXRb, leading to enhanced cell proliferation and tumor growth in breast cancer cells. In addition, RT-qPCR analysis showed the CLDN4-regulated genes are classified into at least six groups by distinct LXRb- and LXRbS432-dependence. Collectively, our results provide a link between cell adhesion and nuclear receptor signalings to coordinate cancer metabolism and advancement.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207704/suppl/GSE207704_CLDN4_RNAseq.txt.gz"
+   ],
+   "platform": [
+    "GPL24676"
+   ],
+   "type": "Expression profiling by high throughput sequencing; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM6310640",
+    "title": "T47D_rep1",
+    "source": "T47D",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: T47D",
+     "cell type: Breast cancer",
+     "genotype: WT"
+    ]
+   },
+   {
+    "gsm": "GSM6310641",
+    "title": "T47D_rep2",
+    "source": "T47D",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: T47D",
+     "cell type: Breast cancer",
+     "genotype: WT"
+    ]
+   },
+   {
+    "gsm": "GSM6310642",
+    "title": "T47D:CLDN4-/-_rep1",
+    "source": "T47D:CLDN4-/-",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: T47D",
+     "cell type: Breast cancer",
+     "genotype: CLDN4 -/-"
+    ]
+   },
+   {
+    "gsm": "GSM6310643",
+    "title": "T47D:CLDN4-/-_rep2",
+    "source": "T47D:CLDN4-/-",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: T47D",
+     "cell type: Breast cancer",
+     "genotype: CLDN4 -/-"
+    ]
+   },
+   {
+    "gsm": "GSM6310644",
+    "title": "MCF7_rep1",
+    "source": "MCF7",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: MCF7",
+     "cell type: Breast cancer",
+     "genotype: WT"
+    ]
+   },
+   {
+    "gsm": "GSM6310645",
+    "title": "MCF7_rep2",
+    "source": "MCF7",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: MCF7",
+     "cell type: Breast cancer",
+     "genotype: WT"
+    ]
+   },
+   {
+    "gsm": "GSM6310646",
+    "title": "MCF7:CLDN4-/-_rep1",
+    "source": "MCF7:CLDN4-/-",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: MCF7",
+     "cell type: Breast cancer",
+     "genotype: CLDN4 -/-"
+    ]
+   },
+   {
+    "gsm": "GSM6310647",
+    "title": "MCF7:CLDN4-/-_rep2",
+    "source": "MCF7:CLDN4-/-",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: MCF7",
+     "cell type: Breast cancer",
+     "genotype: CLDN4 -/-"
+    ]
+   }
+  ],
+  "n_samples": 8,
+  "has_cldn4_perturb_sample": true
+ },
+ "GSE99415": {
+  "series": {
+   "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion (miRNA)",
+   "summary": " Thousands of genes have been well demonstrated to play important roles in cancer progression. As genes do not function in isolation, they can be grouped into \u201cnetworks\u201d based on their interactions. In this study, we discover a network regulating Claudin-4 (CLDN4) in gastric cancer. We observe that CLDN4 is up-regulated in gastric cancer and is associated with poor prognosis. CLDN4 reinforce proliferation, invasion, and EMT in AGS, HGC-27, and SGC-7901 cells, which could be reversed by miR-596 and miR-3620-3p. Additionally, lncRNA-KRTAP5-AS1 and lncRNA-TUBB2A could act as competing endogenous RNAs to affect the function of CLDN4. Our results suggest that non-coding RNAs (ncRNAs) play important roles in the regulatory network of CLDN4. As such, ncRNAs should be considered as potential biomarkers and therapeutic targets against gastric cancer",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE99nnn/GSE99415/suppl/GSE99415_RAW.tar"
+   ],
+   "platform": [
+    "GPL18058"
+   ],
+   "type": "Non-coding RNA profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM2643697",
+    "title": "non-tumorous adjacent tissues_rep1",
+    "source": "non-tumorous adjacent tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 54years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643698",
+    "title": "non-tumorous adjacent tissues_rep2",
+    "source": "non-tumorous adjacent tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643699",
+    "title": "non-tumorous adjacent tissues_rep3",
+    "source": "non-tumorous adjacent tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643700",
+    "title": "non-tumorous adjacent tissues_rep4",
+    "source": "non-tumorous adjacent tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 68years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643701",
+    "title": "non-tumorous adjacent tissues_rep5",
+    "source": "non-tumorous adjacent tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 79years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643702",
+    "title": "non-tumorous adjacent tissues_rep6",
+    "source": "non-tumorous adjacent tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 62years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643703",
+    "title": "Gastric cancer tissues_rep1",
+    "source": "Gastric cancer tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 54years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643704",
+    "title": "Gastric cancer tissues_rep2",
+    "source": "Gastric cancer tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643705",
+    "title": "Gastric cancer tissues_rep3",
+    "source": "Gastric cancer tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643706",
+    "title": "Gastric cancer tissues_rep4",
+    "source": "Gastric cancer tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 68years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643707",
+    "title": "Gastric cancer tissues_rep5",
+    "source": "Gastric cancer tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 79years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643708",
+    "title": "Gastric cancer tissues_rep6",
+    "source": "Gastric cancer tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 62years",
+     "tissue: gastric cancer tissue"
+    ]
+   }
+  ],
+  "n_samples": 12,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE99416": {
+  "series": {
+   "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion (lncRNA)",
+   "summary": " Thousands of genes have been well demonstrated to play important roles in cancer progression. As genes do not function in isolation, they can be grouped into \u201cnetworks\u201d based on their interactions. In this study, we discover a network regulating Claudin-4 (CLDN4) in gastric cancer. We observe that CLDN4 is up-regulated in gastric cancer and is associated with poor prognosis. CLDN4 reinforce proliferation, invasion, and EMT in AGS, HGC-27, and SGC-7901 cells, which could be reversed by miR-596 and miR-3620-3p. Additionally, lncRNA-KRTAP5-AS1 and lncRNA-TUBB2A could act as competing endogenous RNAs to affect the function of CLDN4. Our results suggest that non-coding RNAs (ncRNAs) play important roles in the regulatory network of CLDN4. As such, ncRNAs should be considered as potential biomarkers and therapeutic targets against gastric cancer",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE99nnn/GSE99416/suppl/GSE99416_RAW.tar"
+   ],
+   "platform": [
+    "GPL16956"
+   ],
+   "type": "Non-coding RNA profiling by array; Expression profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM2643709",
+    "title": "non-tumorous adjacent tissues_rep1",
+    "source": "non-tumorous adjacent tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 54years"
+    ]
+   },
+   {
+    "gsm": "GSM2643710",
+    "title": "non-tumorous adjacent tissues_rep2",
+    "source": "non-tumorous adjacent tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643711",
+    "title": "non-tumorous adjacent tissues_rep3",
+    "source": "non-tumorous adjacent tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643712",
+    "title": "non-tumorous adjacent tissues_rep4",
+    "source": "non-tumorous adjacent tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 68years"
+    ]
+   },
+   {
+    "gsm": "GSM2643713",
+    "title": "non-tumorous adjacent tissues_rep5",
+    "source": "non-tumorous adjacent tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 79years"
+    ]
+   },
+   {
+    "gsm": "GSM2643714",
+    "title": "non-tumorous adjacent tissues_rep6",
+    "source": "non-tumorous adjacent tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 62years"
+    ]
+   },
+   {
+    "gsm": "GSM2643715",
+    "title": "Gastric cancer tissues_rep1",
+    "source": "Gastric cancer tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 54years"
+    ]
+   },
+   {
+    "gsm": "GSM2643716",
+    "title": "Gastric cancer tissues_rep2",
+    "source": "Gastric cancer tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643717",
+    "title": "Gastric cancer tissues_rep3",
+    "source": "Gastric cancer tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643718",
+    "title": "Gastric cancer tissues_rep4",
+    "source": "Gastric cancer tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: gastric cancer tissues",
+     "age: 68years"
+    ]
+   },
+   {
+    "gsm": "GSM2643719",
+    "title": "Gastric cancer tissues_rep5",
+    "source": "Gastric cancer tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: gastric cancer tissues",
+     "age: 79years"
+    ]
+   },
+   {
+    "gsm": "GSM2643720",
+    "title": "Gastric cancer tissues_rep6",
+    "source": "Gastric cancer tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 62years"
+    ]
+   }
+  ],
+  "n_samples": 12,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE99417": {
+  "series": {
+   "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion",
+   "summary": " This SuperSeries is composed of the SubSeries listed below.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE99nnn/GSE99417/suppl/GSE99417_RAW.tar"
+   ],
+   "platform": [
+    "GPL16956",
+    "GPL18058"
+   ],
+   "type": "Non-coding RNA profiling by array; Expression profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM2643697",
+    "title": "non-tumorous adjacent tissues_rep1",
+    "source": "non-tumorous adjacent tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 54years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643698",
+    "title": "non-tumorous adjacent tissues_rep2",
+    "source": "non-tumorous adjacent tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643699",
+    "title": "non-tumorous adjacent tissues_rep3",
+    "source": "non-tumorous adjacent tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643700",
+    "title": "non-tumorous adjacent tissues_rep4",
+    "source": "non-tumorous adjacent tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 68years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643701",
+    "title": "non-tumorous adjacent tissues_rep5",
+    "source": "non-tumorous adjacent tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 79years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643702",
+    "title": "non-tumorous adjacent tissues_rep6",
+    "source": "non-tumorous adjacent tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 62years",
+     "tissue: non-tumorous adjacent tissues"
+    ]
+   },
+   {
+    "gsm": "GSM2643703",
+    "title": "Gastric cancer tissues_rep1",
+    "source": "Gastric cancer tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 54years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643704",
+    "title": "Gastric cancer tissues_rep2",
+    "source": "Gastric cancer tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643705",
+    "title": "Gastric cancer tissues_rep3",
+    "source": "Gastric cancer tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 69years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643706",
+    "title": "Gastric cancer tissues_rep4",
+    "source": "Gastric cancer tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 68years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643707",
+    "title": "Gastric cancer tissues_rep5",
+    "source": "Gastric cancer tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "age: 79years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643708",
+    "title": "Gastric cancer tissues_rep6",
+    "source": "Gastric cancer tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "age: 62years",
+     "tissue: gastric cancer tissue"
+    ]
+   },
+   {
+    "gsm": "GSM2643709",
+    "title": "non-tumorous adjacent tissues_rep1",
+    "source": "non-tumorous adjacent tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 54years"
+    ]
+   },
+   {
+    "gsm": "GSM2643710",
+    "title": "non-tumorous adjacent tissues_rep2",
+    "source": "non-tumorous adjacent tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643711",
+    "title": "non-tumorous adjacent tissues_rep3",
+    "source": "non-tumorous adjacent tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643712",
+    "title": "non-tumorous adjacent tissues_rep4",
+    "source": "non-tumorous adjacent tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 68years"
+    ]
+   },
+   {
+    "gsm": "GSM2643713",
+    "title": "non-tumorous adjacent tissues_rep5",
+    "source": "non-tumorous adjacent tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 79years"
+    ]
+   },
+   {
+    "gsm": "GSM2643714",
+    "title": "non-tumorous adjacent tissues_rep6",
+    "source": "non-tumorous adjacent tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: non-tumorous adjacent tissues",
+     "age: 62years"
+    ]
+   },
+   {
+    "gsm": "GSM2643715",
+    "title": "Gastric cancer tissues_rep1",
+    "source": "Gastric cancer tissues, rep1",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 54years"
+    ]
+   },
+   {
+    "gsm": "GSM2643716",
+    "title": "Gastric cancer tissues_rep2",
+    "source": "Gastric cancer tissues, rep2",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643717",
+    "title": "Gastric cancer tissues_rep3",
+    "source": "Gastric cancer tissues, rep3",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 69years"
+    ]
+   },
+   {
+    "gsm": "GSM2643718",
+    "title": "Gastric cancer tissues_rep4",
+    "source": "Gastric cancer tissues, rep4",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: gastric cancer tissues",
+     "age: 68years"
+    ]
+   },
+   {
+    "gsm": "GSM2643719",
+    "title": "Gastric cancer tissues_rep5",
+    "source": "Gastric cancer tissues, rep5",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Female",
+     "tissue: gastric cancer tissues",
+     "age: 79years"
+    ]
+   },
+   {
+    "gsm": "GSM2643720",
+    "title": "Gastric cancer tissues_rep6",
+    "source": "Gastric cancer tissues, rep6",
+    "organism": "Homo sapiens",
+    "char": [
+     "gender: Male",
+     "tissue: gastric cancer tissues",
+     "age: 62years"
+    ]
+   }
+  ],
+  "n_samples": 24,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE84742": {
+  "series": {
+   "title": "Claudin-based barrier differentiation in the colonic epithelial crypt niche involves Hopx/Klf4 and Tcf7l2/Hnf4-alpha cascades",
+   "summary": " Analysis of the complex expression of claudin genes and transcription factors during intestinal epithelial cell differentiation across the crypt-to-surface colonic axis. Characterization of the complex expression gradients of transcription factors Hopx, Hnf4a, Klf4 and Tcfl2 and 12 claudin genes. In vitro confirmatory methods identified two pathways that stimulate claudin expression; Hopx/Klf4 activation of Cldn4, 7 and 15, and Tcf7l2/Hnf4a upregulation of Cldn23. Chromatin Immunoprecipitation confirmed a Tcf7l2/Hnf4a/Claudin23 cascade. Hnf4a conditional knockout mice fail to induce Cldn23 during colonocyte differentiation.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84742/suppl/GSE84742_RAW.tar",
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE84nnn/GSE84742/suppl/GSE84742_non-normalized.txt.gz"
+   ],
+   "platform": [
+    "GPL6105"
+   ],
+   "type": "Expression profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM2249544",
+    "title": "Wild Type surface cells 1",
+    "source": "epithelial cells from the surface of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: surface"
+    ]
+   },
+   {
+    "gsm": "GSM2249545",
+    "title": "Wild Type surface cells 2",
+    "source": "epithelial cells from the surface of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: surface"
+    ]
+   },
+   {
+    "gsm": "GSM2249546",
+    "title": "Wild Type surface cells 3",
+    "source": "epithelial cells from the surface of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: surface"
+    ]
+   },
+   {
+    "gsm": "GSM2249547",
+    "title": "Wild Type surface cells 4",
+    "source": "epithelial cells from the surface of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: surface"
+    ]
+   },
+   {
+    "gsm": "GSM2249548",
+    "title": "Wild Type base crypt cells 1",
+    "source": "epithelial cells from the base of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: crypt-base"
+    ]
+   },
+   {
+    "gsm": "GSM2249549",
+    "title": "Wild Type base crypt cells 2",
+    "source": "epithelial cells from the base of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: crypt-base"
+    ]
+   },
+   {
+    "gsm": "GSM2249550",
+    "title": "Wild Type base crypt cells 3",
+    "source": "epithelial cells from the base of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: crypt-base"
+    ]
+   },
+   {
+    "gsm": "GSM2249551",
+    "title": "Wild Type base crypt cells 4",
+    "source": "epithelial cells from the base of the colonic crypt of wild-type mouse",
+    "organism": "Mus musculus",
+    "char": [
+     "age: 10-12 weeks",
+     "strain: C57BL/6",
+     "cell population: crypt-base"
+    ]
+   }
+  ],
+  "n_samples": 8,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE65107": {
+  "series": {
+   "title": "Diarrhea in lymphocytic colitis: ERK1/2-dependent ENaC dysregulation and claudin-4-, -5- and -8-related barrier defects",
+   "summary": " Background: Lymphocytic colitis (LC) causes watery diarrhea. This study aimed to identify the inherent pathomechanisms of epithelial transport and barrier dysfunction and regulatory inputs. Methods: 8 (4 LC samples and 4 unrelated control samples) biopsies of fresh sigmoid colon were analysed by paired end sequencing (Illumina High Seq 2500) Conclusions: ENaC-mediated Na+ malabsorption via ERK1/2 and epithelial barrier dysfunction from tight junction downregulation through claudin-4, -5, and -8 are mechanisms causing malabsorptive and leak flux diarrhea in LC resulting from the key effector cytokines TNFa and INFg.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE65nnn/GSE65107/suppl/GSE65107_LymphycyticColitis_Ratios_RawCounts_CPM.txt.gz"
+   ],
+   "platform": [
+    "GPL16791"
+   ],
+   "type": "Expression profiling by high throughput sequencing; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM1587421",
+    "title": "Ctrl rep1",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: benign",
+     "medication: none"
+    ]
+   },
+   {
+    "gsm": "GSM1587422",
+    "title": "Ctrl rep2",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: benign",
+     "medication: none"
+    ]
+   },
+   {
+    "gsm": "GSM1587423",
+    "title": "Ctrl rep3",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: benign",
+     "medication: none"
+    ]
+   },
+   {
+    "gsm": "GSM1587424",
+    "title": "Ctrl rep4",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: benign",
+     "medication: none"
+    ]
+   },
+   {
+    "gsm": "GSM1587425",
+    "title": "LC rep1",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: lymphocytic colitis",
+     "medication: none"
+    ]
+   },
+   {
+    "gsm": "GSM1587426",
+    "title": "LC rep2",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: lymphocytic colitis",
+     "medication: none"
+    ]
+   },
+   {
+    "gsm": "GSM1587427",
+    "title": "LC rep3",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: lymphocytic colitis",
+     "medication: none"
+    ]
+   },
+   {
+    "gsm": "GSM1587428",
+    "title": "LC rep4",
+    "source": "colorectal biopsy, sigma",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: lymphocytic colitis",
+     "medication: none"
+    ]
+   }
+  ],
+  "n_samples": 8,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE11759": {
+  "series": {
+   "title": "Role of HNF4alpha in the adult colon",
+   "summary": " Background & Aims: HNF4\u03b1 is an important transcriptional regulator of hepatocyte and pancreatic function. Hnf4\u03b1 deletion is embryonically lethal with severe defects in visceral endoderm formation, liver maturation and colon development.  However, the precise role of this transcription factor in maintaining homeostasis of the adult intestine remains unclear.  Herein, we aimed to elucidate the adult intestinal functions of Hnf4\u03b1.  Methods: A conditional intestinal epithelial Hnf4\u03b1 knockout mouse was generated.  Histological abnormality of the colonic mucosa was assessed by immunodetection and Western.  Changes in global gene expression and biological network were analyzed.  Results: Hnf4\u03b1 intestine null mice developed normally until reaching young adulthood. Crypt distortion became apparent in the Hnf4\u03b1 null colon at 3 months of age followed by focal areas of crypt dropout, increased immune cell infiltrates, crypt hyperplasia and early signs of polyposis later in life.  A gene profiling analysis identified cell death and cell cycle related to cancer as the most significant sets of genes altered in the Hnf4\u03b1 colon null mice.  Expression levels of the tight junction proteins claudin 4, 8 and 15 were altered early in the colon epithelium of Hnf4\u03b1 mutants and correlated with increased barrier permeability to a molecular tracer that does not normally penetrate normal mucosa.  Conclusion: These observations support a functional role for Hnf4\u03b1 in protecting the colonic mucosa against the initiation of the changes resembling inflammatory bowel diseases and polyp formation.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE11nnn/GSE11759/suppl/GSE11759_RAW.tar"
+   ],
+   "platform": [
+    "GPL1261"
+   ],
+   "type": "Expression profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM297808",
+    "title": "mouse colon_hnf4mutant_rep1",
+    "source": "adult female mouse colon, Hnf4a mutant",
+    "organism": "Mus musculus",
+    "char": [
+     "strain:C57BL/6; VillinCRE-HNF4loxp; female; tissue colon; mutant"
+    ]
+   },
+   {
+    "gsm": "GSM297817",
+    "title": "mouse colon_hnf4control_rep1",
+    "source": "adult female mouse colon, wildtype",
+    "organism": "Mus musculus",
+    "char": [
+     "strain:C57BL/6; VillinCRE-HNF4loxp; female; tissue colon; control"
+    ]
+   },
+   {
+    "gsm": "GSM297818",
+    "title": "mouse colon_hnf4control_rep2",
+    "source": "adult female mouse colon, wildtype",
+    "organism": "Mus musculus",
+    "char": [
+     "strain:C57BL/6; VillinCRE-HNF4loxp; female; tissue colon; control"
+    ]
+   },
+   {
+    "gsm": "GSM297819",
+    "title": "mouse colon_hnf4control_rep3",
+    "source": "adult female mouse colon, wildtype",
+    "organism": "Mus musculus",
+    "char": [
+     "strain:C57BL/6; VillinCRE-HNF4loxp; female; tissue colon; control"
+    ]
+   },
+   {
+    "gsm": "GSM297820",
+    "title": "mouse colon_hnf4mutant_rep2",
+    "source": "adult male mouse colon, Hnf4a mutant",
+    "organism": "Mus musculus",
+    "char": [
+     "strain:C57BL/6; VillinCRE-HNF4loxp; male; tissue colon; mutant"
+    ]
+   },
+   {
+    "gsm": "GSM297821",
+    "title": "mouse colon_hnf4mutant_rep3",
+    "source": "adult male mouse colon, Hnf4a mutant",
+    "organism": "Mus musculus",
+    "char": [
+     "strain:C57BL/6; VillinCRE-HNF4loxp; male; tissue colon; mutant"
+    ]
+   }
+  ],
+  "n_samples": 6,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE244820": {
+  "series": {
+   "title": "Activation of alveolar epithelial ER stress by b-coronavirus infection disrupts surfactant homeostasis in mice: implications for COVID-19 respiratory failure",
+   "summary": " Covid-19 syndrome is characterized by an acute lung injury phenotype marked by hypoxemic respiratory failure and high mortality. Alveolar Type 2 (AT2) cells are essential for gas exchange, repair, and regeneration of distal lung epithelium. We have shown that the causative agent, SARS-CoV-2 and other members of the b coronavirus genus induces an ER stress response in vitro however the consequences for host AT2 cell function in vivo are less understood.  To study this, two murine models of coronavirus infection were employed\u2013 mouse hepatitis virus-1 (MHV-1) in A/J mice and a C57BL6/j adapted SARS-CoV-2 strain.  MHV-1 infected mice exhibited dose-dependent weight loss through Day 8 (8dpi) with histological evidence of distal lung injury accompanied by elevated BALF cell counts and total protein.  AT2 cells isolated at 4dpi and 8dpi showed evidence of both viral infection and increases in Bip /GRP78 expression, consistent with activation of the unfolded protein response (UPR).  AT2 UPR signaling included elevations in spliced XBP-1 indicating activation of IRE1a signaling as well as a biphasic response in PERK signaling mark by phosphorylated eIF2a protein levels and expression of Atf4, Ppp1r15a, and Ddit3. Viral UPR activation was accompanied by marked reductions in AT2 and BALF surfactant protein (SP-B, SP-C) content, increases in surfactant surface tension, and emergence of a re-programmed epithelial cell population (Krt8+, Cldn4+, and Gdf15+) which was attenuated by treatment with the IRE1a inhibitor OPK711.  As proof-of-concept, C57BL6 mice infected with mouse-adapted SARS-CoV-2 demonstrated similar lung injury and evidence of disrupted surfactant homeostasis.  We conclude that hypoxic respiratory failure from b-coronavirus infection results from an aberrant AT2 cell host response activating multiple ER stress pathways, altering surfactant metabolism / function, and changing AT2 endophenotypes offering a mechanistic link between SARS-CoV-2 infection, AT2 cell biology, and hypoxemic respiratory failure.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE244nnn/GSE244820/suppl/GSE244820_Raw_Counts_Submission_Matrix.txt.gz"
+   ],
+   "platform": [
+    "GPL24247"
+   ],
+   "type": "Expression profiling by high throughput sequencing; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM7830293",
+    "title": "WT AT2 - 1",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: alveolar type 2 (AT2) cells",
+     "treatment: Vehicle"
+    ]
+   },
+   {
+    "gsm": "GSM7830294",
+    "title": "WT AT2 - 2",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: alveolar type 2 (AT2) cells",
+     "treatment: Vehicle"
+    ]
+   },
+   {
+    "gsm": "GSM7830295",
+    "title": "WT AT2 - 3",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: alveolar type 2 (AT2) cells",
+     "treatment: Vehicle"
+    ]
+   },
+   {
+    "gsm": "GSM7830296",
+    "title": "Infected AT2 -1",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: alveolar type 2 (AT2) cells",
+     "treatment: Infected"
+    ]
+   },
+   {
+    "gsm": "GSM7830297",
+    "title": "Infected AT2 -2",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: alveolar type 2 (AT2) cells",
+     "treatment: Infected"
+    ]
+   },
+   {
+    "gsm": "GSM7830298",
+    "title": "Infected AT2 -3",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: alveolar type 2 (AT2) cells",
+     "treatment: Infected"
+    ]
+   },
+   {
+    "gsm": "GSM7830299",
+    "title": "Infected AT2 -4",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: alveolar type 2 (AT2) cells",
+     "treatment: Infected"
+    ]
+   },
+   {
+    "gsm": "GSM7830300",
+    "title": "Transitional AT2 -1",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: Transitional AT2 Cell",
+     "treatment: Infected"
+    ]
+   },
+   {
+    "gsm": "GSM7830301",
+    "title": "Transitional AT2 -2",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: Transitional AT2 Cell",
+     "treatment: Infected"
+    ]
+   },
+   {
+    "gsm": "GSM7830302",
+    "title": "Transitional AT2 -3",
+    "source": "Lung",
+    "organism": "Mus musculus",
+    "char": [
+     "tissue: Lung",
+     "strain: A/J",
+     "cell type: Transitional AT2 Cell",
+     "treatment: Infected"
+    ]
+   }
+  ],
+  "n_samples": 10,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE26055": {
+  "series": {
+   "title": "Claudin-7 is frequently overexpressed in ovarian cancer and promotes invasion",
+   "summary": " Claudins are tight junction proteins that are involved in tight junction formation and function. Previous studies have shown that claudin-7 is frequently upregulated in epithelial ovarian cancer (EOC) along with claudin-3 and claudin-4. Here, we investigate in detail the expression patterns of claudin-7, as well as its possible functions in EOC.  Initially a total of 95 ovarian tissue samples (7 normal ovarian tissues, 65 serous carcinomas, 11 clear cell carcinomas, 8 endometrioid carcinomas and 4 mucinous carcinomas) were studied for claudin-7 expression using RT-PCR analysis. The gene for claudin-7, CLDN7, was found to be significantly upregulated in all the tumor tissue samples studied. Similarly, immunohistochemical analysis and western blotting showed that claudin-7 protein was significantly overexpressed in the vast majority of EOCs. Two cell lines(OVCAR-2 and OVCA420) were chosen for microarray based gene expression analysis using small interfering RNA-mediated(SiRNA) knockdown of claudin-7.  This treatment led to significant changes in gene expression that was validated by RT-PCR and immunoblotting.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE26nnn/GSE26055/suppl/GSE26055_RAW.tar",
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE26nnn/GSE26055/suppl/GSE26055_non-normalized.txt.gz"
+   ],
+   "platform": [
+    "GPL6104"
+   ],
+   "type": "Expression profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM639838",
+    "title": "OVCA 420 cldn7 Si1",
+    "source": "OVCA420 was obtained from Dr. Robert C Bast, The University of Texas MD Anderson Cancer Center, Houston, TX.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCA420"
+    ]
+   },
+   {
+    "gsm": "GSM639839",
+    "title": "OVCA 420 cldn7 Si2",
+    "source": "OVCA420 was obtained from Dr. Robert C Bast, The University of Texas MD Anderson Cancer Center, Houston, TX.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCA420"
+    ]
+   },
+   {
+    "gsm": "GSM639840",
+    "title": "OVCA 420 cont Si1",
+    "source": "OVCA420 was obtained from Dr. Robert C Bast, The University of Texas MD Anderson Cancer Center, Houston, TX.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCA420"
+    ]
+   },
+   {
+    "gsm": "GSM639841",
+    "title": "OVCA 420 cont Si2",
+    "source": "OVCA420 was obtained from Dr. Robert C Bast, The University of Texas MD Anderson Cancer Center, Houston, TX.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCA420"
+    ]
+   },
+   {
+    "gsm": "GSM639842",
+    "title": "OVCA R2 cldn7 Si1",
+    "source": "OVCAR-2 was obtained from Dr. Thomas C. Hamilton, Fox Chase Cancer Center, Philadelphia, PA.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCAR-2"
+    ]
+   },
+   {
+    "gsm": "GSM639843",
+    "title": "OVCA R2 cldn7 Si2",
+    "source": "OVCAR-2 was obtained from Dr. Thomas C. Hamilton, Fox Chase Cancer Center, Philadelphia, PA.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCAR-2"
+    ]
+   },
+   {
+    "gsm": "GSM639844",
+    "title": "OVCA R2 cont Si1",
+    "source": "OVCAR-2 was obtained from Dr. Thomas C. Hamilton, Fox Chase Cancer Center, Philadelphia, PA.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCAR-2"
+    ]
+   },
+   {
+    "gsm": "GSM639845",
+    "title": "OVCA R2 cont Si2",
+    "source": "OVCAR-2 was obtained from Dr. Thomas C. Hamilton, Fox Chase Cancer Center, Philadelphia, PA.",
+    "organism": "Homo sapiens",
+    "char": [
+     "cell line: OVCAR-2"
+    ]
+   }
+  ],
+  "n_samples": 8,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE48443": {
+  "series": {
+   "title": "Knockout mice reveal key roles for claudin-18 in alveolar fluid homeostasis.",
+   "summary": " Claudin proteins are major constituents of epithelial and endothelial tight junctions (TJ), where they serve as regulators of paracellular permeability to ions and solutes. Claudin-18, a member of the large claudin family, is highly expressed in lung epithelium. To elucidate the role of claudin-18 in alveolar epithelial barrier function and fluid homeostasis, we generated claudin-18 knockout (C18 KO) mice. Increased alveolar fluid clearance (AFC) observed in C18 KO mice may have accounted for absence of lung edema despite increased alveolar solute permeability compared to wild type (WT) controls. Higher AFC in C18 KO mice was associated with higher Na-K-ATPase activity and increased expression of the Na-K-ATPase \u03b21 subunit compared to WT controls. Consistent with in vivo findings, alveolar epithelial cell (AEC) monolayers derived from C18 KO mice exhibited lower transepithelial electrical resistance (RT) accompanied by increased solute and ion permeability without changes in ion selectivity. Expression of claudin-3 and claudin-4 was markedly increased in whole lung and in freshly isolated AEC from C18 KO mice, while claudin-5 was unchanged. In contrast, occludin, another major component of the TJ complex, was significantly decreased in C18 KO lung. Further analysis revealed rearrangements in the F-actin cytoskeleton in C18 KO MAECM. These findings demonstrate a crucial non-redundant role for claudin-18 in regulation of alveolar epithelial tight junction composition and permeability to ions and solutes.  Importantly, increased AFC in C18 KO mice identifies additional roles for claudin-18 in alveolar fluid homeostasis beyond its direct contributions to barrier properties of the alveolar epithelium.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE48nnn/GSE48443/suppl/GSE48443_RAW.tar",
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE48nnn/GSE48443/suppl/GSE48443_non_normalized.txt.gz"
+   ],
+   "platform": [
+    "GPL6885"
+   ],
+   "type": "Expression profiling by array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM1178811",
+    "title": "CLDN18_KnockOut_1",
+    "source": "CLDN18_KnockOut_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6/SvEvTac, C57BL/6J, Balb/c",
+     "genotype/variation: CLDN18_KnockOut",
+     "age: 3-4 months",
+     "gender: Male",
+     "tissue: whole lung tissue"
+    ]
+   },
+   {
+    "gsm": "GSM1178812",
+    "title": "CLDN18_KnockOut_2",
+    "source": "CLDN18_KnockOut_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6/SvEvTac, C57BL/6J, Balb/c",
+     "genotype/variation: CLDN18_KnockOut",
+     "age: 3-4 months",
+     "gender: Male",
+     "tissue: whole lung tissue"
+    ]
+   },
+   {
+    "gsm": "GSM1178813",
+    "title": "CLDN18_KnockOut_3",
+    "source": "CLDN18_KnockOut_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6/SvEvTac, C57BL/6J, Balb/c",
+     "genotype/variation: CLDN18_KnockOut",
+     "age: 3-4 months",
+     "gender: Male",
+     "tissue: whole lung tissue"
+    ]
+   },
+   {
+    "gsm": "GSM1178814",
+    "title": "WildType_1",
+    "source": "WildType_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6/SvEvTac, C57BL/6J, Balb/c",
+     "genotype/variation: WildType",
+     "age: 3-4 months",
+     "gender: Male",
+     "tissue: whole lung tissue"
+    ]
+   },
+   {
+    "gsm": "GSM1178815",
+    "title": "WildType_2",
+    "source": "WildType_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6/SvEvTac, C57BL/6J, Balb/c",
+     "genotype/variation: WildType",
+     "age: 3-4 months",
+     "gender: Male",
+     "tissue: whole lung tissue"
+    ]
+   },
+   {
+    "gsm": "GSM1178816",
+    "title": "WildType_3",
+    "source": "WildType_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6/SvEvTac, C57BL/6J, Balb/c",
+     "genotype/variation: WildType",
+     "age: 3-4 months",
+     "gender: Male",
+     "tissue: whole lung tissue"
+    ]
+   },
+   {
+    "gsm": "GSM1178817",
+    "title": "WildType_4",
+    "source": "WildType_lung",
+    "organism": "Mus musculus",
+    "char": [
+     "strain background: mixed 129S6/SvEvTac, C57BL/6J, Balb/c",
+     "genotype/variation: WildType",
+     "age: 3-4 months",
+     "gender: Male",
+     "tissue: whole lung tissue"
+    ]
+   }
+  ],
+  "n_samples": 7,
+  "has_cldn4_perturb_sample": false
+ },
+ "GSE60885": {
+  "series": {
+   "title": "Genome-wide DNA methylation identifies trophoblast invasion-related genes: Claudin-4 and Fucosyltransferase IV control mobility via altering matrix metalloproteinase activity",
+   "summary": " Previously we have shown that extravillous cytotrophoblast (EVT) outgrowth and migration on a collagen gel explant model were restricted by exposure to decidual natural killer cells (dNK). This study investigates the molecular causes behind this phenomenon. Genome wide DNA methylation of exposed and unexposed EVT was assessed using the Illumina Infinium HumanMethylation450 BeadChip array (450K array). The array identified 444 differentially methylated CpG loci in dNK-treated EVT compared to medium control (P<0.05). The represented genes from these loci had critical biological roles in cellular development, cellular organization and maintenance by Ingenuity Pathway Analysis (IPA). Furthermore, 23 mobility-related genes were identified by IPA from dNK-treated EVT. Among these genes, CLDN4 (encoding claudin-4) and FUT4 (encoding fucosyltranferase IV) were chosen for follow-up studies because of the biological relevance found in the research on tumor cells. The results showed that the mRNA and protein expressions of both CLDN4 and FUT4 in dNK-treated EVT were significantly reduced, and were inversely correlated with DNA methylation. Knocking down CLDN4 and FUT4 by siRNA reduced trophoblast invasion, possibly through the altered MMP-2 and/or MMP-9 expression and activity. Taken together, dNK alter EVT mobility at least partially in association with an alteration of DNA methylation profile. Hypermethylation of CLDN4 and FUT4 reduce protein expressions. CLDN4 and FUT4 are representative genes that participate in modulating trophoblast mobility.",
+   "supp": [
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE60nnn/GSE60885/suppl/GSE60885_RAW.tar",
+    "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE60nnn/GSE60885/suppl/GSE60885_Unmethylated_and_methylated_signal.txt.gz"
+   ],
+   "platform": [
+    "GPL13534"
+   ],
+   "type": "Methylation profiling by genome tiling array; "
+  },
+  "samples": [
+   {
+    "gsm": "GSM1492889",
+    "title": "Control 1",
+    "source": "Cultured Placenta Villous explant",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492890",
+    "title": "Control 4",
+    "source": "Cultured Placenta Villous explant",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492891",
+    "title": "Control 5",
+    "source": "Cultured Placenta Villous explant",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492892",
+    "title": "Control 7",
+    "source": "Cultured Placenta Villous explant",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492893",
+    "title": "Control 8",
+    "source": "Cultured Placenta Villous explant",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492894",
+    "title": "Control 9",
+    "source": "Cultured Placenta Villous explant",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492895",
+    "title": "Hollow Fibre 4",
+    "source": "Cultured Placenta Villous explant exposed to decidua natural killer cells trapped in a hollow fiber",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492896",
+    "title": "Hollow Fibre 5",
+    "source": "Cultured Placenta Villous explant exposed to decidua natural killer cells trapped in a hollow fiber",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492897",
+    "title": "Hollow Fibre 7",
+    "source": "Cultured Placenta Villous explant exposed to decidua natural killer cells trapped in a hollow fiber",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492898",
+    "title": "Hollow Fibre 8",
+    "source": "Cultured Placenta Villous explant exposed to decidua natural killer cells trapped in a hollow fiber",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492899",
+    "title": "Hollow Fibre 9",
+    "source": "Cultured Placenta Villous explant exposed to decidua natural killer cells trapped in a hollow fiber",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492900",
+    "title": "IL-15 7",
+    "source": "Cultured Placenta Villous explant exposed to media supplemented with IL-15",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492901",
+    "title": "IL-15 8",
+    "source": "Cultured Placenta Villous explant exposed to media supplemented with IL-15",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492902",
+    "title": "IL-15 9",
+    "source": "Cultured Placenta Villous explant exposed to media supplemented with IL-15",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492903",
+    "title": "IL-15 1",
+    "source": "Cultured Placenta Villous explant exposed to media supplemented with IL-15",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492904",
+    "title": "IL-15 4",
+    "source": "Cultured Placenta Villous explant exposed to media supplemented with IL-15",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   },
+   {
+    "gsm": "GSM1492905",
+    "title": "IL-15 5",
+    "source": "Cultured Placenta Villous explant exposed to media supplemented with IL-15",
+    "organism": "Homo sapiens",
+    "char": [
+     "tissue: Placenta villous explant",
+     "trimester: First Trimester"
+    ]
+   }
+  ],
+  "n_samples": 17,
+  "has_cldn4_perturb_sample": false
+ }
+}
