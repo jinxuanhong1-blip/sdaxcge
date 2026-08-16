@@ -202,7 +202,11 @@ def extract_gse241934_split(datadir: Path, panel: set[str], split: str) -> None:
             "nCount_RNA", "nFeature_RNA", "percent.mt",
         ] if c in meta.columns
     ]
-    slim = meta.reindex(barcodes)[keep_cols].reset_index().rename(columns={"index": "barcode"})
+    slim = meta.reindex(barcodes)[keep_cols].reset_index()
+    if "cellID" in slim.columns:
+        slim = slim.rename(columns={"cellID": "barcode"})
+    elif "index" in slim.columns:
+        slim = slim.rename(columns={"index": "barcode"})
     slim_out = datadir / f"gse241934_{split.lower()}_meta_join.tsv.gz"
     slim.to_csv(slim_out, sep="\t", index=False, compression="gzip")
     print("wrote", slim_out, flush=True)

@@ -399,6 +399,14 @@ def write_methods_snippet(outdir: Path, notes: dict, spear: pd.DataFrame, meta_r
         )
     lines += [
         "",
+        "## Notes on n",
+        "",
+        "- GSE207422: 12 post-tx samples; **7** have ≥10 malignant-like cells (P02/P06/P11/P13/P14 drop).",
+        "- GSE241934 RWC: 34 tumors; **29** have ≥10 author-Epi cells.",
+        "- GSE233203 leftover: 7 PE samples; **6** have ≥10 T/NK (NCCLu_397 has 3 T/NK).",
+        "- GSE291670 TACSTD2 vs cytotoxicity is the only cohort-level p<0.05 (**n=6, ρ=0.943, p=0.0048**). That point is why I²=68% on that contrast; dropping it gives RE ρ=−0.03, p=0.88 (N=75).",
+        "- Named-only (drop leftover): TACSTD2–cyto RE ρ=0.16, p=0.58, N=75. Named neoadjuvant-only TACSTD2–exhaustion RE ρ=−0.30, p=0.045, N=53, I²=0% (post-hoc slice; not the primary).",
+        "",
         "GSE146100 is a leftover with both compartments but n=1 patient and is not in the meta.",
         "GSE243013 / GSE266035 / T-sorted series lack a malignant compartment and are not scored.",
         "",
@@ -521,6 +529,26 @@ def main() -> None:
     for dest in (outdir, figdir):
         fig.savefig(dest / "fig_extra_scrna_exh_meta_scatter.png", dpi=160)
     plt.close(fig)
+
+    # documented sensitivities (not the primary)
+    sens_rows = []
+    subsets = {
+        "primary_all_six": None,
+        "named_only_drop_GSE233203": spear.cohort != "GSE233203",
+        "drop_GSE291670": spear.cohort != "GSE291670",
+        "named_neoadjuvant": spear.cohort.isin(
+            ["GSE207422", "GSE241934_IIT", "GSE241934_RWC", "GSE291670"]
+        ),
+    }
+    for name, mask in subsets.items():
+        src = spear if mask is None else spear[mask]
+        for gene, score in contrasts:
+            sub = src[(src.malignant_gene == gene) & (src.tnk_score == score)].to_dict("records")
+            m = fisher_z_meta(sub)
+            m["subset"] = name
+            m["contrast"] = f"{gene} vs T/NK {score}"
+            sens_rows.append(m)
+    pd.DataFrame(sens_rows).to_csv(outdir / "sensitivity_meta.tsv", sep="\t", index=False)
 
     write_methods_snippet(outdir, notes, spear, meta_rows)
     summary = {

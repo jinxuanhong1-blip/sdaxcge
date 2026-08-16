@@ -1,0 +1,255 @@
+{
+  "contrasts": [
+    {
+      "k": 6,
+      "n_total": 81,
+      "Q": 15.781505590398647,
+      "I2": 68.31734480997831,
+      "tau2": 0.23967355405614488,
+      "rho_fe": 0.05278012236728183,
+      "p_fe": 0.6749830894069568,
+      "ci_fe_lo": -0.19170591754887298,
+      "ci_fe_hi": 0.2910984595340396,
+      "rho_re": 0.17561601656722586,
+      "p_re": 0.4877317556393651,
+      "ci_re_lo": -0.3129143465729001,
+      "ci_re_hi": 0.5906631756197547,
+      "contrast": "TACSTD2 vs T/NK cytotoxicity",
+      "malignant_gene": "TACSTD2",
+      "tnk_score": "cytotoxicity"
+    },
+    {
+      "k": 6,
+      "n_total": 81,
+      "Q": 7.043181727072596,
+      "I2": 29.00935693905227,
+      "tau2": 0.04542005956442254,
+      "rho_fe": -0.16973684768538025,
+      "p_fe": 0.1736998576195986,
+      "ci_fe_lo": -0.3955247079992483,
+      "ci_fe_hi": 0.07539773334952847,
+      "rho_re": -0.18163779971182495,
+      "p_re": 0.2661318822871981,
+      "ci_re_lo": -0.46793005427130036,
+      "ci_re_hi": 0.13915629467707544,
+      "contrast": "TACSTD2 vs T/NK exhaustion",
+      "malignant_gene": "TACSTD2",
+      "tnk_score": "exhaustion"
+    },
+    {
+      "k": 6,
+      "n_total": 81,
+      "Q": 7.726119928503704,
+      "I2": 35.28446301288082,
+      "tau2": 0.06060181915869206,
+      "rho_fe": 0.0476657589085259,
+      "p_fe": 0.7049684694520302,
+      "ci_fe_lo": -0.1966398976143558,
+      "ci_fe_hi": 0.2863986578385195,
+      "rho_re": 0.0877059470167486,
+      "p_re": 0.6155700306978034,
+      "ci_re_lo": -0.24988771482626845,
+      "ci_re_hi": 0.4062876112061788,
+      "contrast": "CLDN4 vs T/NK cytotoxicity",
+      "malignant_gene": "CLDN4",
+      "tnk_score": "cytotoxicity"
+    },
+    {
+      "k": 6,
+      "n_total": 81,
+      "Q": 2.5215442763355687,
+      "I2": 0.0,
+      "tau2": 0.0,
+      "rho_fe": -0.14317928501596922,
+      "p_fe": 0.25249379308474085,
+      "ci_fe_lo": -0.3723139072723891,
+      "ci_fe_hi": 0.10240663087455593,
+      "rho_re": -0.14317928501596922,
+      "p_re": 0.25249379308474085,
+      "ci_re_lo": -0.3723139072723891,
+      "ci_re_hi": 0.10240663087455593,
+      "contrast": "CLDN4 vs T/NK exhaustion",
+      "malignant_gene": "CLDN4",
+      "tnk_score": "exhaustion"
+    }
+  ],
+  "cohort_notes": {
+    "GSE207422": {
+      "cyto_present": [
+        "GZMB",
+        "PRF1",
+        "GNLY",
+        "NKG7"
+      ],
+      "exh_present": [
+        "PDCD1",
+        "HAVCR2",
+        "LAG3",
+        "TIGIT",
+        "TOX"
+      ],
+      "targets_present": [
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "label_source": "marker lineage; malignant-like = epithelial AND tumor-epi > normal-lung AND normal-lung < 0.4",
+      "unit": "post-treatment surgery sample (1/patient)",
+      "n_cells_qc": 92330,
+      "n_malignant_post": 7246,
+      "n_tnk_post": 33889,
+      "cyto_genes": [
+        "GZMB",
+        "PRF1",
+        "GNLY",
+        "NKG7"
+      ],
+      "exh_genes": [
+        "PDCD1",
+        "HAVCR2",
+        "LAG3",
+        "TIGIT",
+        "TOX"
+      ]
+    },
+    "GSE205335": {
+      "cyto_present": [
+        "GZMB",
+        "PRF1",
+        "GNLY",
+        "NKG7"
+      ],
+      "exh_present": [
+        "PDCD1",
+        "HAVCR2",
+        "LAG3",
+        "TIGIT",
+        "TOX"
+      ],
+      "targets_present": [
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "label_source": "author lineage.sub / lineage.total",
+      "unit": "mean of non-normal-tissue samples per patient",
+      "n_cells_qc": 96505,
+      "n_malignant_tumor": 28512,
+      "n_tnk_tumor": 31642
+    },
+    "GSE241934_IIT": {
+      "cyto_present": [
+        "GZMB",
+        "PRF1",
+        "GNLY",
+        "NKG7"
+      ],
+      "exh_present": [
+        "PDCD1",
+        "HAVCR2",
+        "LAG3",
+        "TIGIT",
+        "TOX"
+      ],
+      "targets_present": [
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "label_source": "author major.cell.type; Epi used as the malignant compartment (no CopyKAT on GEO)",
+      "unit": "one resected tumor / patient",
+      "n_cells_qc": 78691,
+      "n_epi": 1699,
+      "n_tnk": 40712,
+      "split": "IIT"
+    },
+    "GSE241934_RWC": {
+      "cyto_present": [
+        "GZMB",
+        "PRF1",
+        "GNLY",
+        "NKG7"
+      ],
+      "exh_present": [
+        "PDCD1",
+        "HAVCR2",
+        "LAG3",
+        "TIGIT",
+        "TOX"
+      ],
+      "targets_present": [
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "label_source": "author major.cell.type; Epi used as the malignant compartment (no CopyKAT on GEO)",
+      "unit": "one resected tumor / patient",
+      "n_cells_qc": 229505,
+      "n_epi": 12785,
+      "n_tnk": 104996,
+      "split": "RWC"
+    },
+    "GSE291670": {
+      "cyto_present": [
+        "GZMB",
+        "PRF1",
+        "GNLY",
+        "NKG7"
+      ],
+      "exh_present": [
+        "PDCD1",
+        "HAVCR2",
+        "LAG3",
+        "TIGIT",
+        "TOX"
+      ],
+      "targets_present": [
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "label_source": "marker lineage; malignant-like = epithelial AND tumor-epi > normal-lung AND normal-lung < 0.4",
+      "unit": "one sample / patient",
+      "n_cells_qc": 29067,
+      "n_malignant": 5209,
+      "n_tnk": 1270
+    },
+    "GSE233203": {
+      "cyto_present": [
+        "GZMB",
+        "PRF1",
+        "GNLY",
+        "NKG7"
+      ],
+      "exh_present": [
+        "PDCD1",
+        "HAVCR2",
+        "LAG3",
+        "TIGIT",
+        "TOX"
+      ],
+      "targets_present": [
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "label_source": "marker lineage; malignant-like = epithelial AND tumor-epi > normal-lung AND normal-lung < 0.4",
+      "unit": "one sample / patient",
+      "n_cells_qc": 49303,
+      "n_malignant": 1880,
+      "n_tnk": 967,
+      "patients_with_both": 6
+    }
+  },
+  "leftover_GSE233203_in_meta": true,
+  "min_malignant_cells": 10,
+  "min_tnk_cells": 10,
+  "min_n_for_meta": 5,
+  "cyto_genes": [
+    "GZMB",
+    "PRF1",
+    "GNLY",
+    "NKG7"
+  ],
+  "exh_genes": [
+    "PDCD1",
+    "HAVCR2",
+    "LAG3",
+    "TIGIT",
+    "TOX"
+  ]
+}
