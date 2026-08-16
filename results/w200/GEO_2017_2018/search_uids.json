@@ -1,0 +1,27 @@
+{
+  "query": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields]) AND (\"immune checkpoint\"[All Fields] OR \"checkpoint inhibitor\"[All Fields] OR \"checkpoint blockade\"[All Fields] OR \"immunotherapy\"[All Fields] OR \"PD-1\"[All Fields] OR \"PD1\"[All Fields] OR \"PD-L1\"[All Fields] OR \"PDL1\"[All Fields] OR \"CTLA-4\"[All Fields] OR \"CTLA4\"[All Fields] OR \"anti-PD-1\"[All Fields] OR \"anti-PD-L1\"[All Fields] OR \"nivolumab\"[All Fields] OR \"pembrolizumab\"[All Fields] OR \"atezolizumab\"[All Fields] OR \"durvalumab\"[All Fields] OR \"avelumab\"[All Fields] OR \"ipilimumab\"[All Fields] OR \"cemiplimab\"[All Fields]) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2017/01/01\"[PDAT] : \"2018/12/31\"[PDAT])",
+  "uids": [
+    "200054781",
+    "200087879",
+    "200090728",
+    "200090729",
+    "200091061",
+    "200093157",
+    "200099254",
+    "200099531",
+    "200100860",
+    "200101929",
+    "200102286",
+    "200106420",
+    "200108819",
+    "200109010",
+    "200109020",
+    "200110390",
+    "200111360",
+    "200113972",
+    "200115305",
+    "200120545",
+    "200121682",
+    "200124199"
+  ]
+}
