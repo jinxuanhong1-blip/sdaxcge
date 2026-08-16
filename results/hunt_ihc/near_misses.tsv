@@ -1,0 +1,15 @@
+id	source	doi_or_url	markers	organ	assay	public_table	why_not_a_hit
+zenodo_trop2_cmet_nsclc	Zenodo (restricted)	10.5281/zenodo.18543127	TROP-2, cMET	NSCLC TMA	AI IHC H-score	restricted cohort_data.csv claimed	no CLDN4; access restricted
+zenodo_trop2_cmet_nsclc_v0	Zenodo (restricted)	10.5281/zenodo.18494664	TROP-2, cMET	NSCLC TMA	AI IHC H-score	restricted	same cohort; no CLDN4
+figshare_dum_trop2_tma	Figshare supplement	10.6084/m9.figshare.19665135	TROP2 only	pan-cancer TMA incl. lung	IHC intensity categories	3 figure PDFs	no CLDN4; not case-level H-score table
+plos_ahmed_trop2_nsclc	PLOS ONE paper + SI	10.1371/journal.pone.0321555	Trop-2 only	NSCLC	IHC membrane H-score	summary plots; IHC not deposited	no CLDN4; patient table not public
+jtm_nanchang_psc_trop2	Journal article	10.1186/s12967-025-06888-3	Trop-2 only	pulmonary sarcomatoid carcinoma	IHC H-score; 25 CaC/SaC pairs	in-article tables	TROP2 only; Nanchang not Zhejiang; no CLDN4
+por_cldn_acc_mec	Journal article	10.3389/pore.2023.1611328	CLDN1-5,7,18	rare lung ACC/MEC n=35	IHC H-score	in-article / possible SI	no TROP2
+figshare_gpc3_trop2_lusc	Figshare / Frontiers SI	10.3389/fimmu.2025.1709316.s001	GPC3, TROP2	LUSC n=10	IHC % / H-SCORE in figures	Table 1 SI	no CLDN4
+figshare_trop2_lung_review_xlsx	Figshare / Frontiers SI	10.3389/fonc.2025.1638054.s001	TROP2 (review)	lung (literature)	not dual IHC table	xlsx data sheets	no CLDN4 IHC H-scores
+nakashima_tacstd2_cldn	Journal	10.2353/ajpath.2010.100149	TACSTD2, CLDN1/7 (CLDN4 negative co-IP)	cell lines	IP / PLA	no lung H-score table	not lung; CLDN4 did not bind
+zhao_trop2_cldn7_breast	Journal / preprint	10.1136/jitc-2025-012265	TROP2, claudin-7	breast / TNBC	spatial / functional	not lung H-score	wrong organ and claudin
+sun_npj_rna_cldn	Journal	10.1038/s41698-026-01523-w	TACSTD2 RNA vs CLDN4/7	pan-cancer incl. lung RNA	bulk RNA	pathway / corr figures	not IHC H-score or coloc
+chen_cldn4_mpe_scrna	Journal	10.1002/ctm2.1649	CLDN4, TACSTD2 RNA	NSCLC MPE	scRNA-seq	no IHC H-score table	RNA only
+hpa_tacstd2_cldn4	Human Protein Atlas	proteinatlas.org TACSTD2 / CLDN4 lung pages	each gene separately	lung IHC images	ordinal stain	not Figshare/Zenodo/SI	unpaired; not H-score table
+cptac_luad	TCIA / CPTAC	CPTAC-LUAD	MS proteome	LUAD	mass spec + H&E	not IHC dual H-score	wrong assay
