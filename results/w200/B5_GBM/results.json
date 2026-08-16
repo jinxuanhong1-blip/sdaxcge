@@ -1,0 +1,1066 @@
+{
+  "claim_tested": "B5 analog in GBM/glioma: higher tumor CLDN4 associates with worse ICI outcome. User-stated pan-cancer OR=0.42 is not tested here.",
+  "endpoint_honesty": {
+    "radiographic_orr_found": false,
+    "endpoint_used": "overall survival (primary), PFS (secondary), OS>=365d exploratory binary",
+    "reason": "GEO sample records and the Nat Commun 2024 clinical workbook provide OS/PFS, not RECIST CR/PR/SD/PD."
+  },
+  "source": {
+    "GSE121810": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE121810/suppl/GSE121810_Prins.PD1NeoAdjv.Jul2018.HUGO.PtID.xlsx",
+      "sha256": "078aeda14e23168400f6d50c3fa92dd611072c50da91613f34cf3e75b0a0c288",
+      "filename": "GSE121810_Prins.PD1NeoAdjv.Jul2018.HUGO.PtID.xlsx"
+    },
+    "GSE264695": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE264nnn/GSE264695/suppl/GSE264695_Prins.PD1NeoAdjv.Combo.Merck.Nov2022.htseqCount.SampleRenamedForGEO.xlsx",
+      "sha256": "0adde00580f394c23a0ae64f3da42168c5e0cc132bd22027e92507545a8fbaf7",
+      "filename": "GSE264695_Prins.PD1NeoAdjv.Combo.Merck.Nov2022.htseqCount.SampleRenamedForGEO.xlsx"
+    },
+    "GSE318645_counts": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE318nnn/GSE318645/suppl/GSE318645_IpiNivo.Tumor.htseqCount.RenamedForGEO.txt.gz",
+      "sha256": "bfa2ac335f93579176e394fd2e90f7f8fa0ad37087cd64306696f40653587508",
+      "filename": "GSE318645_IpiNivo.Tumor.htseqCount.RenamedForGEO.txt.gz"
+    },
+    "GSE318645_matrix": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE318nnn/GSE318645/matrix/GSE318645_series_matrix.txt.gz",
+      "sha256": "ddc80257127e2533e15394c3e10af78b8211933d5bafb8ca3791628dad8fb33e",
+      "filename": "GSE318645_series_matrix.txt.gz"
+    },
+    "clinical": {
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-54326-7/MediaObjects/41467_2024_54326_MOESM4_ESM.xlsx",
+      "sha256": "2b216cbba0c280ab8c40dc36153703262ddbd59c41e5f9e143866d2da60d4311",
+      "filename": "41467_2024_54326_MOESM4_ESM.xlsx",
+      "sheet": "SFig4C",
+      "citation": "de Groot J et al. Nat Commun 2024;15:10792. doi:10.1038/s41467-024-54326-7"
+    }
+  },
+  "qc": {
+    "GSE121810": {
+      "n_genes": 37036,
+      "n_samples": 29,
+      "assigned_reads_median": 32099249.0,
+      "assigned_reads_min": 15764977.0,
+      "assigned_reads_max": 45740008.0,
+      "genes_detected_median": 22900.0,
+      "mt_nd6_over_h_strand_mt_median": 0.010803637306821587,
+      "antisense_fraction_median": 0.002721626330136106,
+      "strand_ok": true
+    },
+    "GSE264695": {
+      "n_genes": 40136,
+      "n_samples": 20,
+      "assigned_reads_median": 4445686.5,
+      "assigned_reads_min": 2859944.0,
+      "assigned_reads_max": 8205495.0,
+      "genes_detected_median": 20245.0,
+      "mt_nd6_over_h_strand_mt_median": 0.6992589349314716,
+      "antisense_fraction_median": 0.11296480645639537,
+      "strand_ok": false
+    },
+    "GSE318645": {
+      "n_genes": 40323,
+      "n_samples": 47,
+      "assigned_reads_median": 1556096.0,
+      "assigned_reads_min": 1167078.0,
+      "assigned_reads_max": 2036714.0,
+      "genes_detected_median": 15512.0,
+      "mt_nd6_over_h_strand_mt_median": 3.095320569142178,
+      "antisense_fraction_median": 0.12435356435254372,
+      "strand_ok": false
+    }
+  },
+  "detectability": {
+    "GSE121810": {
+      "CLDN4": {
+        "present_in_matrix": true,
+        "nonzero_n": 28,
+        "n": 29,
+        "raw_median": 15.0,
+        "raw_max": 272.0,
+        "cpm_median": 0.48097936493583476,
+        "cpm_q1": 0.3030103142380118,
+        "cpm_q3": 0.64028423253733,
+        "cpm_max": 8.025666080124237,
+        "n_cpm_ge_1": 3,
+        "n_cpm_ge_5": 1
+      },
+      "TACSTD2": {
+        "present_in_matrix": true,
+        "nonzero_n": 26,
+        "n": 29,
+        "raw_median": 13.0,
+        "raw_max": 133.0,
+        "cpm_median": 0.4573458803838071,
+        "cpm_q1": 0.07961625284593273,
+        "cpm_q3": 1.25785833614032,
+        "cpm_max": 3.674088066226126,
+        "n_cpm_ge_1": 9,
+        "n_cpm_ge_5": 0
+      },
+      "CLDN7": {
+        "present_in_matrix": true,
+        "nonzero_n": 28,
+        "n": 29,
+        "raw_median": 33.0,
+        "raw_max": 114.0,
+        "cpm_median": 1.0032082600155297,
+        "cpm_q1": 0.5084149401618046,
+        "cpm_q3": 1.5988581519381735,
+        "cpm_max": 5.056957111065253,
+        "n_cpm_ge_1": 15,
+        "n_cpm_ge_5": 1
+      },
+      "GFAP": {
+        "present_in_matrix": true,
+        "nonzero_n": 29,
+        "n": 29,
+        "raw_median": 263444.0,
+        "raw_max": 738010.0,
+        "cpm_median": 11344.294898605229,
+        "cpm_q1": 5063.2952251753,
+        "cpm_q3": 15046.687719282003,
+        "cpm_max": 32681.34177693723,
+        "n_cpm_ge_1": 29,
+        "n_cpm_ge_5": 29
+      },
+      "ACTB": {
+        "present_in_matrix": true,
+        "nonzero_n": 29,
+        "n": 29,
+        "raw_median": 104253.0,
+        "raw_max": 221082.0,
+        "cpm_median": 3175.905509514802,
+        "cpm_q1": 2045.2517400484353,
+        "cpm_q3": 3908.6303423868103,
+        "cpm_max": 6635.088553471332,
+        "n_cpm_ge_1": 29,
+        "n_cpm_ge_5": 29
+      }
+    },
+    "GSE264695": {
+      "CLDN4": {
+        "present_in_matrix": true,
+        "nonzero_n": 20,
+        "n": 20,
+        "raw_median": 39.5,
+        "raw_max": 211.0,
+        "cpm_median": 9.38283996144056,
+        "cpm_q1": 4.5238030183871585,
+        "cpm_q3": 14.608101865094255,
+        "cpm_max": 39.674317103466485,
+        "n_cpm_ge_1": 19,
+        "n_cpm_ge_5": 14
+      },
+      "TACSTD2": {
+        "present_in_matrix": true,
+        "nonzero_n": 8,
+        "n": 20,
+        "raw_median": 0.0,
+        "raw_max": 16.0,
+        "cpm_median": 0.0,
+        "cpm_q1": 0.0,
+        "cpm_q3": 1.2669941652227446,
+        "cpm_max": 3.795585875960728,
+        "n_cpm_ge_1": 6,
+        "n_cpm_ge_5": 0
+      },
+      "CLDN7": {
+        "present_in_matrix": true,
+        "nonzero_n": 19,
+        "n": 20,
+        "raw_median": 23.5,
+        "raw_max": 49.0,
+        "cpm_median": 5.506388337324456,
+        "cpm_q1": 4.648008794738308,
+        "cpm_q3": 6.847537283839271,
+        "cpm_max": 10.134387171009209,
+        "n_cpm_ge_1": 19,
+        "n_cpm_ge_5": 13
+      },
+      "GFAP": {
+        "present_in_matrix": true,
+        "nonzero_n": 20,
+        "n": 20,
+        "raw_median": 20022.5,
+        "raw_max": 44796.0,
+        "cpm_median": 3645.6904710021663,
+        "cpm_q1": 1987.1015332948446,
+        "cpm_q3": 6036.571804015296,
+        "cpm_max": 10205.846148167944,
+        "n_cpm_ge_1": 20,
+        "n_cpm_ge_5": 20
+      },
+      "ACTB": {
+        "present_in_matrix": true,
+        "nonzero_n": 20,
+        "n": 20,
+        "raw_median": 8384.0,
+        "raw_max": 43655.0,
+        "cpm_median": 1857.6480399187315,
+        "cpm_q1": 1556.2891405668054,
+        "cpm_q3": 2070.3570914970915,
+        "cpm_max": 5320.215294750651,
+        "n_cpm_ge_1": 20,
+        "n_cpm_ge_5": 20
+      }
+    },
+    "GSE318645": {
+      "CLDN4": {
+        "present_in_matrix": true,
+        "nonzero_n": 44,
+        "n": 47,
+        "raw_median": 6.0,
+        "raw_max": 61.0,
+        "cpm_median": 3.7658826099072837,
+        "cpm_q1": 2.351012390494879,
+        "cpm_q3": 9.285386947655507,
+        "cpm_max": 37.57305186805822,
+        "n_cpm_ge_1": 41,
+        "n_cpm_ge_5": 19
+      },
+      "TACSTD2": {
+        "present_in_matrix": true,
+        "nonzero_n": 7,
+        "n": 47,
+        "raw_median": 0.0,
+        "raw_max": 3.0,
+        "cpm_median": 0.0,
+        "cpm_q1": 0.0,
+        "cpm_q3": 0.0,
+        "cpm_max": 1.847855009904503,
+        "n_cpm_ge_1": 4,
+        "n_cpm_ge_5": 0
+      },
+      "CLDN7": {
+        "present_in_matrix": true,
+        "nonzero_n": 47,
+        "n": 47,
+        "raw_median": 17.0,
+        "raw_max": 45.0,
+        "cpm_median": 10.686234349119276,
+        "cpm_q1": 8.075798806383482,
+        "cpm_q3": 14.157902828920925,
+        "cpm_max": 31.005765005239976,
+        "n_cpm_ge_1": 47,
+        "n_cpm_ge_5": 42
+      },
+      "GFAP": {
+        "present_in_matrix": true,
+        "nonzero_n": 47,
+        "n": 47,
+        "raw_median": 951.0,
+        "raw_max": 6614.0,
+        "cpm_median": 568.0120448723713,
+        "cpm_q1": 321.7584533841038,
+        "cpm_q3": 981.5681304960062,
+        "cpm_max": 4835.017986939457,
+        "n_cpm_ge_1": 46,
+        "n_cpm_ge_5": 46
+      },
+      "ACTB": {
+        "present_in_matrix": true,
+        "nonzero_n": 47,
+        "n": 47,
+        "raw_median": 285.0,
+        "raw_max": 1277.0,
+        "cpm_median": 174.5418277022815,
+        "cpm_q1": 121.87520846168633,
+        "cpm_q3": 301.0160394112065,
+        "cpm_max": 796.621874101305,
+        "n_cpm_ge_1": 47,
+        "n_cpm_ge_5": 47
+      }
+    }
+  },
+  "analysis_set": {
+    "primary_n": 29,
+    "primary_definition": "All 29 GSE121810 recurrent GBM tumors with public OS. Responder/nonresponder RECIST labels are not available.",
+    "adjuvant_pretreatment_n": 15,
+    "neoadjuvant_on_treatment_n": 14
+  },
+  "primary_GSE121810": {
+    "all_samples": {
+      "os": {
+        "n_with_endpoint": 29,
+        "continuous_cox": {
+          "n": 29,
+          "events": 20,
+          "hr_per_log2cpm": 2.5234709875346435,
+          "hr_95_ci": [
+            1.1642294053676703,
+            5.4696314966534
+          ],
+          "p_value": 0.01901544675224678,
+          "concordance": 0.5903954802259888
+        },
+        "median_split_cox": {
+          "n": 29,
+          "n_high": 15,
+          "n_low": 14,
+          "events": 20,
+          "hr_high_vs_low": 1.9758355503082679,
+          "hr_95_ci": [
+            0.8030826525209235,
+            4.861176006737691
+          ],
+          "p_value": 0.13819546064585192,
+          "concordance": 0.5918079096045198
+        },
+        "median_split_logrank_p": 0.13022871706046438,
+        "spearman_time": {
+          "n": 29,
+          "spearman_rho": -0.25569651628855755,
+          "p_value": 0.18064214058629627
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 13,
+            "median": 0.5240466150271775,
+            "q1": 0.40572961668922247,
+            "q3": 0.5665515391330821
+          },
+          "shorter_survivor": {
+            "n": 16,
+            "median": 0.6477287480086953,
+            "q1": 0.36351644339649625,
+            "q3": 0.8625007116800794
+          },
+          "test": {
+            "group_a": {
+              "n": 13,
+              "median": 0.5240466150271775,
+              "q1": 0.40572961668922247,
+              "q3": 0.5665515391330821
+            },
+            "group_b": {
+              "n": 16,
+              "median": 0.6477287480086953,
+              "q1": 0.36351644339649625,
+              "q3": 0.8625007116800794
+            },
+            "median_difference_a_minus_b": -0.12368213298151776,
+            "median_difference_bootstrap_95_ci": [
+              -0.37355888365519496,
+              0.14219811113560737
+            ],
+            "mann_whitney_u": 68.0,
+            "p_value_two_sided": 0.11952320595669236,
+            "common_language_effect_probability": 0.3269230769230769
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      },
+      "pfs": {
+        "n_with_endpoint": 28,
+        "continuous_cox": {
+          "n": 28,
+          "events": 27,
+          "hr_per_log2cpm": 1.573099230429345,
+          "hr_95_ci": [
+            0.8398968486933817,
+            2.946363226183274
+          ],
+          "p_value": 0.15706341797129655,
+          "concordance": 0.6226415094339622
+        },
+        "median_split_cox": {
+          "n": 28,
+          "n_high": 14,
+          "n_low": 14,
+          "events": 27,
+          "hr_high_vs_low": 2.1886288234036364,
+          "hr_95_ci": [
+            0.9999307138135973,
+            4.790428037123115
+          ],
+          "p_value": 0.05002026789479028,
+          "concordance": 0.6293800539083558
+        },
+        "median_split_logrank_p": 0.044836038464973235,
+        "spearman_time": {
+          "n": 28,
+          "spearman_rho": -0.36754872514417886,
+          "p_value": 0.05433234579338964
+        }
+      },
+      "arm_adjusted_os_cox": {
+        "n": 29,
+        "events": 20,
+        "cldn4_hr_per_log2cpm": 2.3186700797429647,
+        "cldn4_hr_95_ci": [
+          1.0618795183339078,
+          5.0629387288028385
+        ],
+        "cldn4_p_value": 0.03480258139816213,
+        "neoadjuvant_hr": 0.3247225274835643,
+        "neoadjuvant_p_value": 0.021525295169070015,
+        "concordance": 0.7146892655367232
+      }
+    },
+    "pretreatment_adjuvant_arm_only": {
+      "note": "Closest pretreatment predictive test. RNA is from surgery before adjuvant pembrolizumab. n is small.",
+      "os": {
+        "n_with_endpoint": 15,
+        "continuous_cox": {
+          "n": 15,
+          "events": 12,
+          "hr_per_log2cpm": 1.8532059920987574,
+          "hr_95_ci": [
+            0.7663415746711828,
+            4.481516549098017
+          ],
+          "p_value": 0.17091166763483456,
+          "concordance": 0.5757575757575758
+        },
+        "median_split_cox": {
+          "n": 15,
+          "n_high": 8,
+          "n_low": 7,
+          "events": 12,
+          "hr_high_vs_low": 2.767914332528656,
+          "hr_95_ci": [
+            0.7880522829678785,
+            9.72188002979218
+          ],
+          "p_value": 0.11220585413062054,
+          "concordance": 0.6414141414141414
+        },
+        "median_split_logrank_p": 0.09901448399771215,
+        "spearman_time": {
+          "n": 15,
+          "spearman_rho": -0.28571428571428564,
+          "p_value": 0.30193635132254926
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 3,
+            "median": 0.49653615301206055,
+            "q1": 0.4511328848506415,
+            "q3": 0.510291384019619
+          },
+          "shorter_survivor": {
+            "n": 12,
+            "median": 0.6477287480086953,
+            "q1": 0.36351644339649625,
+            "q3": 0.8625007116800794
+          },
+          "test": {
+            "group_a": {
+              "n": 3,
+              "median": 0.49653615301206055,
+              "q1": 0.4511328848506415,
+              "q3": 0.510291384019619
+            },
+            "group_b": {
+              "n": 12,
+              "median": 0.6477287480086953,
+              "q1": 0.36351644339649625,
+              "q3": 0.8625007116800794
+            },
+            "median_difference_a_minus_b": -0.15119259499663473,
+            "median_difference_bootstrap_95_ci": [
+              -0.44730225752613473,
+              0.15135177011063827
+            ],
+            "mann_whitney_u": 12.0,
+            "p_value_two_sided": 0.42727890617197617,
+            "common_language_effect_probability": 0.3333333333333333
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      }
+    },
+    "on_treatment_neoadjuvant_arm_only": {
+      "note": "RNA is after one pembrolizumab dose. Not a pretreatment biomarker test.",
+      "os": {
+        "n_with_endpoint": 14,
+        "continuous_cox": {
+          "n": 14,
+          "events": 8,
+          "hr_per_log2cpm": 3.8313415312796004,
+          "hr_95_ci": [
+            0.6828412674402475,
+            21.497203858717317
+          ],
+          "p_value": 0.12690176883293972,
+          "concordance": 0.5972222222222222
+        },
+        "median_split_cox": {
+          "n": 14,
+          "n_high": 7,
+          "n_low": 7,
+          "events": 8,
+          "hr_high_vs_low": 1.8736619956531642,
+          "hr_95_ci": [
+            0.4456066113487548,
+            7.878270170474228
+          ],
+          "p_value": 0.39151562231867043,
+          "concordance": 0.5694444444444444
+        },
+        "median_split_logrank_p": 0.3791723496055892,
+        "spearman_time": {
+          "n": 14,
+          "spearman_rho": -0.10121018225652828,
+          "p_value": 0.7306413050349766
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 10,
+            "median": 0.5459845154501493,
+            "q1": 0.34072538205466674,
+            "q3": 0.6303215466827218
+          },
+          "shorter_survivor": {
+            "n": 4,
+            "median": 0.6538544263660382,
+            "q1": 0.47317653887143374,
+            "q3": 1.0393405897578236
+          },
+          "test": {
+            "group_a": {
+              "n": 10,
+              "median": 0.5459845154501493,
+              "q1": 0.34072538205466674,
+              "q3": 0.6303215466827218
+            },
+            "group_b": {
+              "n": 4,
+              "median": 0.6538544263660382,
+              "q1": 0.47317653887143374,
+              "q3": 1.0393405897578236
+            },
+            "median_difference_a_minus_b": -0.10786991091588893,
+            "median_difference_bootstrap_95_ci": [
+              -1.4695403526940642,
+              0.43456742727356334
+            ],
+            "mann_whitney_u": 13.0,
+            "p_value_two_sided": 0.35797067264432825,
+            "common_language_effect_probability": 0.325
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      }
+    },
+    "detectability_gated_sensitivity": {
+      "note": "CLDN4 CPM>=1 in only 3/29 tumors. The unadjusted continuous Cox is therefore a test of a few samples above the detection floor, not of a graded epithelial program.",
+      "samples_cpm_ge_1": [
+        {
+          "sample_id": "Pt15_B",
+          "arm": "adjuvant",
+          "cldn4_cpm": 8.025666080124237,
+          "os_days": 102.0,
+          "os_event": 1
+        },
+        {
+          "sample_id": "Pt33_A",
+          "arm": "neoadjuvant",
+          "cldn4_cpm": 3.043276506359719,
+          "os_days": 180.0,
+          "os_event": 1
+        },
+        {
+          "sample_id": "Pt20_B",
+          "arm": "adjuvant",
+          "cldn4_cpm": 1.3158974921834943,
+          "os_days": 340.0,
+          "os_event": 1
+        }
+      ],
+      "exclude_cpm_ge_1": {
+        "n_with_endpoint": 26,
+        "continuous_cox": {
+          "n": 26,
+          "events": 17,
+          "hr_per_log2cpm": 1.6344837945099935,
+          "hr_95_ci": [
+            0.16927205290251782,
+            15.782506495944132
+          ],
+          "p_value": 0.6710733444913178,
+          "concordance": 0.5437956204379562
+        },
+        "median_split_cox": {
+          "n": 26,
+          "n_high": 13,
+          "n_low": 13,
+          "events": 17,
+          "hr_high_vs_low": 1.2634824296228016,
+          "hr_95_ci": [
+            0.48545716269533823,
+            3.2884216623813503
+          ],
+          "p_value": 0.6317902906752155,
+          "concordance": 0.5401459854014599
+        },
+        "median_split_logrank_p": 0.6287530969695088,
+        "spearman_time": {
+          "n": 26,
+          "spearman_rho": -0.146007866726182,
+          "p_value": 0.47664444208364176
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 13,
+            "median": 0.5240466150271775,
+            "q1": 0.40572961668922247,
+            "q3": 0.5665515391330821
+          },
+          "shorter_survivor": {
+            "n": 13,
+            "median": 0.593763022436383,
+            "q1": 0.3085202619112744,
+            "q3": 0.7139458302956935
+          },
+          "test": {
+            "group_a": {
+              "n": 13,
+              "median": 0.5240466150271775,
+              "q1": 0.40572961668922247,
+              "q3": 0.5665515391330821
+            },
+            "group_b": {
+              "n": 13,
+              "median": 0.593763022436383,
+              "q1": 0.3085202619112744,
+              "q3": 0.7139458302956935
+            },
+            "median_difference_a_minus_b": -0.06971640740920548,
+            "median_difference_bootstrap_95_ci": [
+              -0.2545982157006549,
+              0.23821081741882272
+            ],
+            "mann_whitney_u": 68.0,
+            "p_value_two_sided": 0.4119238236601619,
+            "common_language_effect_probability": 0.40236686390532544
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      },
+      "exclude_two_highest_cldn4": {
+        "n_with_endpoint": 27,
+        "continuous_cox": {
+          "n": 27,
+          "events": 18,
+          "hr_per_log2cpm": 1.7467746007360063,
+          "hr_95_ci": [
+            0.2850635715923788,
+            10.70365283340893
+          ],
+          "p_value": 0.5464777933664753,
+          "concordance": 0.5418060200668896
+        },
+        "median_split_cox": {
+          "n": 27,
+          "n_high": 14,
+          "n_low": 13,
+          "events": 18,
+          "hr_high_vs_low": 1.3223116971027609,
+          "hr_95_ci": [
+            0.5199359161262537,
+            3.362930257486196
+          ],
+          "p_value": 0.5574530125160289,
+          "concordance": 0.5418060200668896
+        },
+        "median_split_logrank_p": 0.55372122480477,
+        "spearman_time": {
+          "n": 27,
+          "spearman_rho": -0.14043657620496305,
+          "p_value": 0.4847554250014615
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 13,
+            "median": 0.5240466150271775,
+            "q1": 0.40572961668922247,
+            "q3": 0.5665515391330821
+          },
+          "shorter_survivor": {
+            "n": 14,
+            "median": 0.5997475003791206,
+            "q1": 0.3268523224063483,
+            "q3": 0.7418372341084599
+          },
+          "test": {
+            "group_a": {
+              "n": 13,
+              "median": 0.5240466150271775,
+              "q1": 0.40572961668922247,
+              "q3": 0.5665515391330821
+            },
+            "group_b": {
+              "n": 14,
+              "median": 0.5997475003791206,
+              "q1": 0.3268523224063483,
+              "q3": 0.7418372341084599
+            },
+            "median_difference_a_minus_b": -0.07570088535194308,
+            "median_difference_bootstrap_95_ci": [
+              -0.2839959010063098,
+              0.200053568668779
+            ],
+            "mann_whitney_u": 68.0,
+            "p_value_two_sided": 0.27490406320117466,
+            "common_language_effect_probability": 0.37362637362637363
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      }
+    }
+  },
+  "sensitivity_qc_failed": {
+    "GSE264695_qc_failed": {
+      "os": {
+        "n_with_endpoint": 20,
+        "continuous_cox": {
+          "n": 20,
+          "events": 15,
+          "hr_per_log2cpm": 1.2150883522603169,
+          "hr_95_ci": [
+            0.7741478637825684,
+            1.9071804920892648
+          ],
+          "p_value": 0.3969969477400189,
+          "concordance": 0.5930232558139535
+        },
+        "median_split_cox": {
+          "n": 20,
+          "n_high": 10,
+          "n_low": 10,
+          "events": 15,
+          "hr_high_vs_low": 1.4079950537976016,
+          "hr_95_ci": [
+            0.505267485262954,
+            3.9235654961783135
+          ],
+          "p_value": 0.5128647640272228,
+          "concordance": 0.5784883720930233
+        },
+        "median_split_logrank_p": 0.5096589513297345,
+        "spearman_time": {
+          "n": 20,
+          "spearman_rho": -0.206844693078302,
+          "p_value": 0.3815775636960404
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 5,
+            "median": 2.7878763011946157,
+            "q1": 2.2046820339255144,
+            "q3": 3.4769502502581204
+          },
+          "shorter_survivor": {
+            "n": 15,
+            "median": 3.595757761141647,
+            "q1": 2.586609142032251,
+            "q3": 4.2946768604173196
+          },
+          "test": {
+            "group_a": {
+              "n": 5,
+              "median": 2.7878763011946157,
+              "q1": 2.2046820339255144,
+              "q3": 3.4769502502581204
+            },
+            "group_b": {
+              "n": 15,
+              "median": 3.595757761141647,
+              "q1": 2.586609142032251,
+              "q3": 4.2946768604173196
+            },
+            "median_difference_a_minus_b": -0.8078814599470312,
+            "median_difference_bootstrap_95_ci": [
+              -2.048184070166216,
+              0.786275102640138
+            ],
+            "mann_whitney_u": 23.0,
+            "p_value_two_sided": 0.22169999376487637,
+            "common_language_effect_probability": 0.30666666666666664
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      }
+    },
+    "GSE121810_plus_GSE264695_ignore_qc": {
+      "note": "Combined Nat Commun 2024 RNA set. Do not interpret; extension matrix fails strand QC.",
+      "os": {
+        "n_with_endpoint": 49,
+        "continuous_cox": {
+          "n": 49,
+          "events": 35,
+          "hr_per_log2cpm": 1.190129012582637,
+          "hr_95_ci": [
+            0.9673731845164899,
+            1.4641785499758992
+          ],
+          "p_value": 0.0997143473277887,
+          "concordance": 0.5861405197305101
+        },
+        "median_split_cox": {
+          "n": 49,
+          "n_high": 25,
+          "n_low": 24,
+          "events": 35,
+          "hr_high_vs_low": 1.5384292919901146,
+          "hr_95_ci": [
+            0.7884194314019771,
+            3.001910648301241
+          ],
+          "p_value": 0.2066005655175237,
+          "concordance": 0.5798845043310876
+        },
+        "median_split_logrank_p": 0.19950749133593948,
+        "spearman_time": {
+          "n": 49,
+          "spearman_rho": -0.2336012265467455,
+          "p_value": 0.10621678092452641
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 18,
+            "median": 0.5566413092315896,
+            "q1": 0.4984174813235265,
+            "q3": 1.36431288672426
+          },
+          "shorter_survivor": {
+            "n": 31,
+            "median": 2.0155248681442135,
+            "q1": 0.5997475003791206,
+            "q3": 3.4317436083456876
+          },
+          "test": {
+            "group_a": {
+              "n": 18,
+              "median": 0.5566413092315896,
+              "q1": 0.4984174813235265,
+              "q3": 1.36431288672426
+            },
+            "group_b": {
+              "n": 31,
+              "median": 2.0155248681442135,
+              "q1": 0.5997475003791206,
+              "q3": 3.4317436083456876
+            },
+            "median_difference_a_minus_b": -1.458883558912624,
+            "median_difference_bootstrap_95_ci": [
+              -2.6273023252495316,
+              -0.03871377603239601
+            ],
+            "mann_whitney_u": 175.0,
+            "p_value_two_sided": 0.03183390510613443,
+            "common_language_effect_probability": 0.31362007168458783
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      }
+    },
+    "GSE318645_qc_failed": {
+      "os": {
+        "n_with_endpoint": 47,
+        "continuous_cox": {
+          "n": 47,
+          "events": 43,
+          "hr_per_log2cpm": 1.0598547377344905,
+          "hr_95_ci": [
+            0.8330468653775525,
+            1.3484140110042293
+          ],
+          "p_value": 0.636096872076332,
+          "concordance": 0.490205223880597
+        },
+        "median_split_cox": {
+          "n": 47,
+          "n_high": 24,
+          "n_low": 23,
+          "events": 43,
+          "hr_high_vs_low": 0.9943666489360106,
+          "hr_95_ci": [
+            0.5386547700887107,
+            1.8356191895476808
+          ],
+          "p_value": 0.9855896353152777,
+          "concordance": 0.5256529850746269
+        },
+        "median_split_logrank_p": 0.985553614930536,
+        "spearman_time": {
+          "n": 47,
+          "spearman_rho": 0.0048571759316362925,
+          "p_value": 0.9741509742473338
+        },
+        "os365_expression_test": {
+          "definition": "Exploratory binary outcome OS>=365 days versus OS<365 days. This is not RECIST/ORR.",
+          "longer_survivor": {
+            "n": 23,
+            "median": 2.395254442179219,
+            "q1": 1.4741358482848173,
+            "q3": 3.2476351570151247
+          },
+          "shorter_survivor": {
+            "n": 24,
+            "median": 2.179712680776648,
+            "q1": 1.7697861576850393,
+            "q3": 3.3603774687344505
+          },
+          "test": {
+            "group_a": {
+              "n": 23,
+              "median": 2.395254442179219,
+              "q1": 1.4741358482848173,
+              "q3": 3.2476351570151247
+            },
+            "group_b": {
+              "n": 24,
+              "median": 2.179712680776648,
+              "q1": 1.7697861576850393,
+              "q3": 3.3603774687344505
+            },
+            "median_difference_a_minus_b": 0.2155417614025712,
+            "median_difference_bootstrap_95_ci": [
+              -0.7427716910682127,
+              0.9762055573469999
+            ],
+            "mann_whitney_u": 276.0,
+            "p_value_two_sided": 1.0,
+            "common_language_effect_probability": 0.5
+          },
+          "group_a_label": "OS>=365d",
+          "group_b_label": "OS<365d"
+        }
+      }
+    }
+  },
+  "inventory": [
+    {
+      "accession": "GSE121810",
+      "citation": "Cloughesy TF et al. Nat Med 2019. doi:10.1038/s41591-018-0337-7",
+      "n_tumor_rna": 29,
+      "tissue": "recurrent GBM tumor bulk RNA-seq",
+      "treatment": "pembrolizumab neoadjuvant vs adjuvant",
+      "expression_public": true,
+      "orr_public": false,
+      "survival_public": true,
+      "cldn4_in_matrix": true,
+      "strand_ok": true,
+      "used_as": "primary",
+      "note": "Only analysis-grade public bulk tumor matrix with public OS/PFS join."
+    },
+    {
+      "accession": "GSE264695",
+      "citation": "de Groot J et al. Nat Commun 2024. doi:10.1038/s41467-024-54326-7",
+      "n_tumor_rna": 20,
+      "tissue": "recurrent GBM tumor bulk RNA-seq",
+      "treatment": "neoadjuvant pembrolizumab expansion",
+      "expression_public": true,
+      "orr_public": false,
+      "survival_public": true,
+      "cldn4_in_matrix": true,
+      "strand_ok": false,
+      "used_as": "qc_failed_sensitivity",
+      "note": "HTSeq counts look reverse-stranded (high MT-ND6 / antisense fraction)."
+    },
+    {
+      "accession": "GSE318645",
+      "citation": "GEO GSE318645; NCT04606316 dual ICB window trial",
+      "n_tumor_rna": 47,
+      "tissue": "recurrent GBM tumor bulk RNA-seq",
+      "treatment": "nivo+ipi vs nivo vs placebo neoadjuvant, then ICB",
+      "expression_public": true,
+      "orr_public": false,
+      "survival_public": true,
+      "cldn4_in_matrix": true,
+      "strand_ok": false,
+      "used_as": "qc_failed_sensitivity",
+      "note": "OS is in GEO metadata, but gene-assigned fraction ~2% and strand QC fails."
+    },
+    {
+      "accession": "GSE226976",
+      "citation": "CAPTIVE / DNX-2401 + pembrolizumab NanoString",
+      "n_tumor_rna": 48,
+      "tissue": "recurrent glioma NanoString PanCancer Immune",
+      "treatment": "oncolytic adenovirus + pembrolizumab",
+      "expression_public": true,
+      "orr_public": false,
+      "survival_public": false,
+      "cldn4_in_matrix": false,
+      "strand_ok": null,
+      "used_as": "excluded",
+      "note": "770-gene immune panel; CLDN4 is absent."
+    },
+    {
+      "accession": "Zhao2019_PRJNA482620",
+      "citation": "Zhao J et al. Nat Med 2019. doi:10.1038/s41591-019-0349-y",
+      "n_tumor_rna": 66,
+      "tissue": "GBM tumor RNA-seq (raw SRA only)",
+      "treatment": "nivolumab or pembrolizumab",
+      "expression_public": false,
+      "orr_public": false,
+      "survival_public": false,
+      "cldn4_in_matrix": null,
+      "strand_ok": null,
+      "used_as": "excluded",
+      "note": "Raw SRA only; paper says processed data on request. Sample-response map is not a public joinable table."
+    },
+    {
+      "accession": "GSE154795",
+      "citation": "Lee AH et al. Nat Med 2021 neoadjuvant PD-1 GBM scRNA",
+      "n_tumor_rna": 40,
+      "tissue": "GBM scRNA-seq",
+      "treatment": "neoadjuvant PD-1",
+      "expression_public": true,
+      "orr_public": false,
+      "survival_public": false,
+      "cldn4_in_matrix": null,
+      "strand_ok": null,
+      "used_as": "excluded",
+      "note": "Single-cell, not bulk ICI-response matrix; processed object is >1 GB."
+    },
+    {
+      "accession": "GSE287371",
+      "citation": "Newly diagnosed GBM: RT + nivolumab + IDO1 inhibitor",
+      "n_tumor_rna": 0,
+      "tissue": "peripheral blood leukocytes",
+      "treatment": "radiation + nivolumab + BMS-986205",
+      "expression_public": true,
+      "orr_public": false,
+      "survival_public": false,
+      "cldn4_in_matrix": null,
+      "strand_ok": null,
+      "used_as": "excluded",
+      "note": "Blood, not tumor. CLDN4 is an epithelial/tumor gene."
+    },
+    {
+      "accession": "TCGA-GBM",
+      "citation": "TCGA glioblastoma",
+      "n_tumor_rna": null,
+      "tissue": "untreated/standard-care GBM",
+      "treatment": "not ICI",
+      "expression_public": true,
+      "orr_public": false,
+      "survival_public": true,
+      "cldn4_in_matrix": true,
+      "strand_ok": true,
+      "used_as": "excluded",
+      "note": "Not an ICI-response cohort. Not used to test B5."
+    }
+  ],
+  "conclusion": {
+    "supports_B5_in_GBM": false,
+    "reason": "No public RECIST/ORR labels exist for GBM ICI RNA. In GSE121810, CLDN4 is below 1 CPM in 26/29 tumors. An unadjusted continuous Cox OS association (HR 2.52, p=0.019) is leverage from two samples above that floor and is gone after they are removed (p=0.55). Median-split OS, Spearman, OS>=365d, pretreatment adjuvant arm, and two larger wrong-strand matrices do not confirm a usable CLDN4 response biomarker in glioma."
+  }
+}
