@@ -1,0 +1,198 @@
+{
+  "dataset": "GSE207422",
+  "n_cells_public_matrix": 92330,
+  "n_genes_matrix": 24292,
+  "user_claimed_cells": 90652,
+  "n_epithelial": 10669,
+  "n_stromal": 1303,
+  "n_malignant_p95": 6080,
+  "n_malignant_drmref": 2051,
+  "author_copykat_ids_public": false,
+  "cnv": {
+    "n_genes_input": 15320,
+    "n_genes_kept": 11572,
+    "n_ref_cells": 1303,
+    "win": 25,
+    "ok": true,
+    "chromosomes": [
+      [
+        "1",
+        1219
+      ],
+      [
+        "10",
+        450
+      ],
+      [
+        "11",
+        675
+      ],
+      [
+        "12",
+        630
+      ],
+      [
+        "13",
+        211
+      ],
+      [
+        "14",
+        381
+      ],
+      [
+        "15",
+        365
+      ],
+      [
+        "16",
+        523
+      ],
+      [
+        "17",
+        698
+      ],
+      [
+        "18",
+        167
+      ],
+      [
+        "19",
+        747
+      ],
+      [
+        "2",
+        799
+      ],
+      [
+        "20",
+        318
+      ],
+      [
+        "21",
+        106
+      ],
+      [
+        "22",
+        266
+      ],
+      [
+        "3",
+        677
+      ],
+      [
+        "4",
+        441
+      ],
+      [
+        "5",
+        503
+      ],
+      [
+        "6",
+        623
+      ],
+      [
+        "7",
+        527
+      ],
+      [
+        "8",
+        407
+      ],
+      [
+        "9",
+        462
+      ],
+      [
+        "X",
+        373
+      ]
+    ],
+    "ref_score_median": 1944.1817626953125,
+    "ref_score_p95": 2626.62451171875,
+    "threshold_p95": 2626.62451171875,
+    "threshold_p90": 2457.9990234375,
+    "threshold_mean2sd": 2826.59619140625,
+    "threshold_gmm": 2214.015859117465
+  },
+  "primary_NMPR_vs_MPR": {
+    "family": "NMPR_vs_MPR",
+    "malignant_def": "p95",
+    "metric": "mean_log1p_cp10k",
+    "min_mal_cells": 0,
+    "n": 12,
+    "n_NMPR": 8,
+    "n_MPR": 4,
+    "mean_NMPR": 1.8643959328704367,
+    "mean_MPR": 1.453278867785319,
+    "delta_NMPR_minus_MPR": 0.4111170650851177,
+    "U": 25.0,
+    "p": 0.15353535353535352,
+    "p_onesided_NMPR_gt_MPR": 0.07272727272727272,
+    "rho": NaN,
+    "tnk_def": "",
+    "match_NMPR_gt_MPR": "PARTIAL_direction_NS",
+    "match_rho_window": "",
+    "note": "exact enumeration C(12,8)=495; pCR counted as MPR"
+  },
+  "primary_vs_TNK_lineage": {
+    "family": "vs_TNK",
+    "malignant_def": "p95",
+    "metric": "mean_log1p_cp10k",
+    "min_mal_cells": 0,
+    "n": 12,
+    "n_NMPR": 8,
+    "n_MPR": 4,
+    "mean_NMPR": NaN,
+    "mean_MPR": NaN,
+    "delta_NMPR_minus_MPR": NaN,
+    "U": NaN,
+    "p": 0.8121826980280591,
+    "p_onesided_NMPR_gt_MPR": NaN,
+    "rho": 0.07692307692307693,
+    "tnk_def": "lineage_TNK",
+    "match_NMPR_gt_MPR": "",
+    "match_rho_window": "MISMATCH",
+    "note": ""
+  },
+  "primary_vs_TNK_umi": {
+    "family": "vs_TNK",
+    "malignant_def": "p95",
+    "metric": "mean_log1p_cp10k",
+    "min_mal_cells": 0,
+    "n": 12,
+    "n_NMPR": 8,
+    "n_MPR": 4,
+    "mean_NMPR": NaN,
+    "mean_MPR": NaN,
+    "delta_NMPR_minus_MPR": NaN,
+    "U": NaN,
+    "p": 0.712884219214772,
+    "p_onesided_NMPR_gt_MPR": NaN,
+    "rho": 0.1188811188811189,
+    "tnk_def": "umi_CD3E_CD8A_NKG7",
+    "match_NMPR_gt_MPR": "",
+    "match_rho_window": "MISMATCH",
+    "note": ""
+  },
+  "primary_residual_lineage": {
+    "family": "vs_TNK_residual_on_epi_frac",
+    "malignant_def": "p95",
+    "metric": "mean_log1p_cp10k",
+    "min_mal_cells": 0,
+    "n": 12,
+    "n_NMPR": 8,
+    "n_MPR": 4,
+    "mean_NMPR": NaN,
+    "mean_MPR": NaN,
+    "delta_NMPR_minus_MPR": NaN,
+    "U": NaN,
+    "p": 0.4299187850328841,
+    "p_onesided_NMPR_gt_MPR": NaN,
+    "rho": 0.2517482517482518,
+    "tnk_def": "lineage_TNK",
+    "match_NMPR_gt_MPR": "",
+    "match_rho_window": "MISMATCH",
+    "note": "; residual = TACSTD2 ~ epithelial_fraction (OLS)"
+  }
+}
