@@ -1,0 +1,14 @@
+{
+  "lung_elf3_chip_public": false,
+  "n_lung_experiments_in_catalog": 0,
+  "statement": "No public human lung / NSCLC ELF3 ChIP-seq was found in ENCODE, ChIP-Atlas (ELF3.5 target matrix), or a GEO ELF3+ChIP-seq survey. ELF3 binding at TACSTD2/CLDN4 therefore cannot be tested in lung from public ChIP. Available non-lung ChIP (CFPAC-1 pancreas, HepG2 liver, ESO-26 esophagus, HBDEC2 biliary) is mixed and is not a lung result.",
+  "non_lung_calls": {
+    "TACSTD2_coding_TSS_pm2kb_CFPAC1": true,
+    "TACSTD2_coding_TSS_pm2kb_HepG2_ENCODE_IDR": false,
+    "TACSTD2_coding_TSS_pm2kb_ESO26_or_HBDEC2": false,
+    "CLDN4_coding_TSS_pm2kb_CFPAC1": true,
+    "CLDN4_alt_TSS_pm2kb_CFPAC1": true,
+    "CLDN4_alt_TSS_pm2kb_HepG2_ENCODE_IDR": true,
+    "CLDN4_coding_TSS_pm2kb_HepG2_ENCODE_IDR": false
+  }
+}

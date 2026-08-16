@@ -1,0 +1,110 @@
+{
+  "claim": "ELF3 binds TACSTD2 and CLDN4 in lung (public ChIP) and is co-expressed with them in public lung tumors.",
+  "honest_verdict": {
+    "label": "CHIP_NOT_TESTABLE_IN_LUNG",
+    "chip_in_lung": "NOT_TESTABLE",
+    "coexpression_tcga_luad": "POSITIVE",
+    "coexpression_tcga_lusc": "POSITIVE",
+    "pair_direction_tcga_luad": {
+      "TACSTD2": "POSITIVE",
+      "CLDN4": "POSITIVE"
+    },
+    "pair_direction_tcga_lusc": {
+      "TACSTD2": "POSITIVE",
+      "CLDN4": "POSITIVE"
+    },
+    "statement": "Public ELF3 ChIP does not exist in lung, so a lung binding claim at TACSTD2/CLDN4 is not testable. Non-lung ChIP (pancreas/liver/esophagus/biliary) is mixed and is not a lung result. TCGA-LUAD primary tumors: ELF3 vs TACSTD2 POSITIVE (\u03c1=0.369 (n=516, FDR=9.8e-18)); ELF3 vs CLDN4 POSITIVE (\u03c1=0.528 (n=516, FDR=2.3e-37)). TCGA-LUSC: TACSTD2 POSITIVE (\u03c1=0.464 (n=501, FDR=1.4e-27)); CLDN4 POSITIVE (\u03c1=0.500 (n=501, FDR=2.7e-32)). Positive bulk co-expression is expected for epithelial genes and is not evidence that ELF3 binds or regulates TACSTD2/CLDN4 in lung.",
+    "did_we_tune_filters_to_force_a_sign": false
+  },
+  "chip": {
+    "lung_elf3_chip_public": false,
+    "n_lung_experiments_in_catalog": 0,
+    "statement": "No public human lung / NSCLC ELF3 ChIP-seq was found in ENCODE, ChIP-Atlas (ELF3.5 target matrix), or a GEO ELF3+ChIP-seq survey. ELF3 binding at TACSTD2/CLDN4 therefore cannot be tested in lung from public ChIP. Available non-lung ChIP (CFPAC-1 pancreas, HepG2 liver, ESO-26 esophagus, HBDEC2 biliary) is mixed and is not a lung result.",
+    "non_lung_calls": {
+      "TACSTD2_coding_TSS_pm2kb_CFPAC1": true,
+      "TACSTD2_coding_TSS_pm2kb_HepG2_ENCODE_IDR": false,
+      "TACSTD2_coding_TSS_pm2kb_ESO26_or_HBDEC2": false,
+      "CLDN4_coding_TSS_pm2kb_CFPAC1": true,
+      "CLDN4_alt_TSS_pm2kb_CFPAC1": true,
+      "CLDN4_alt_TSS_pm2kb_HepG2_ENCODE_IDR": true,
+      "CLDN4_coding_TSS_pm2kb_HepG2_ENCODE_IDR": false
+    }
+  },
+  "coverage": {
+    "tcga_luad": {
+      "n_primary_tumors": 516,
+      "n_with_absolute_purity": 503,
+      "genes_present": [
+        "ELF3",
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "KRT8",
+        "KRT5",
+        "NKX2-1"
+      ],
+      "genes_absent": []
+    },
+    "tcga_lusc": {
+      "n_primary_tumors": 501,
+      "n_with_absolute_purity": 493,
+      "genes_present": [
+        "ELF3",
+        "TACSTD2",
+        "CLDN4",
+        "EPCAM",
+        "KRT8",
+        "KRT5",
+        "NKX2-1"
+      ],
+      "genes_absent": []
+    },
+    "cptac_rna": {
+      "n_tumors": 110,
+      "genes_present": [
+        "ELF3",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "n_non_na": {
+        "ELF3": 110,
+        "TACSTD2": 110,
+        "CLDN4": 110
+      }
+    },
+    "cptac_protein": {
+      "n_tumors": 110,
+      "genes_present": [
+        "ELF3",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "n_non_na": {
+        "ELF3": 110,
+        "TACSTD2": 110,
+        "CLDN4": 79
+      }
+    },
+    "depmap_luad_cell_lines": {
+      "n": 80,
+      "filter": "OncotreeLineage==Lung AND ModelType==Cell Line AND (Adenocarcinoma subtype OR OncotreeCode==LUAD)"
+    },
+    "depmap_all_lung_cell_lines": {
+      "n": 214,
+      "filter": "OncotreeLineage==Lung AND ModelType==Cell Line"
+    }
+  },
+  "cannot_test": [
+    "ELF3 ChIP-seq in human lung / NSCLC / A549 (none public in ENCODE, ChIP-Atlas, or GEO survey).",
+    "Whether ELF3 directly transactivates TACSTD2 or CLDN4 in lung (no lung ChIP, no ELF3 KD/KO lung RNA in this slice).",
+    "ICI response or TROP2-ADC outcome."
+  ],
+  "methods": {
+    "tcga_matrix": "Xena GDC hub TCGA-LUAD/LUSC.star_tpm.tsv.gz, log2(TPM+1), GENCODE v36",
+    "cptac_freeze": "data_freeze_v1.2_reorganized/LUAD",
+    "depmap_release": "DepMap Public 24Q4",
+    "fdr": "BH within pre-specified primary ELF3 vs TACSTD2/CLDN4 rows only",
+    "purity": "ABSOLUTE (PanCanAtlas); partial Spearman is secondary",
+    "chip": "ENCODE ENCSR770AOR ENCFF080FAU; ChIP-Atlas ELF3.5 + bed05"
+  }
+}
