@@ -1,0 +1,68 @@
+{
+  "user_claim": {
+    "or": 0.42,
+    "lo": 0.18,
+    "hi": 0.95,
+    "k": 11
+  },
+  "primary_locked": {
+    "cutoff": "median",
+    "endpoint": "curated_R_vs_NR",
+    "model": "DerSimonian-Laird random effects",
+    "cohorts": [
+      "GSE126044",
+      "GSE135222_Jung",
+      "GSE166449",
+      "GSE207422",
+      "IMvigor210_Mariathasan",
+      "Gide",
+      "Liu",
+      "Riaz",
+      "Braun"
+    ],
+    "result": {
+      "k": 9,
+      "n_total": 646.0,
+      "re_or": 0.697550672155876,
+      "re_or_lo": 0.4140140238282522,
+      "re_or_hi": 1.1752668079353852,
+      "re_p": 0.1759782753433594,
+      "I2": 44.21745180247238,
+      "fe_or": 0.8802383351768158
+    }
+  },
+  "lung_only_locked": {
+    "cutoff": "median",
+    "endpoint": "curated_R_vs_NR",
+    "result": {
+      "k": 4,
+      "n_total": 89.0,
+      "re_or": 0.4003063862584353,
+      "re_or_lo": 0.15470695617309912,
+      "re_or_hi": 1.035798304376125,
+      "re_p": 0.05909486042778589,
+      "I2": 0.0
+    }
+  },
+  "closest_to_user_0.42_not_adopted": {
+    "subset": "lung_only",
+    "cutoff": "median",
+    "endpoint": "curated_R_vs_NR",
+    "re_or": 0.4003063862584353,
+    "k": 4,
+    "abs_diff": 0.019693613741564697,
+    "adopted": false,
+    "note": "Listed only to document that we saw the closest cell and did not select it."
+  },
+  "independent_k": 9,
+  "did_we_pick_cutoff_to_hit_0.42": false,
+  "honest_verdict": {
+    "stat_compared": "RE OR, median, curated R vs NR, all independent public matrices",
+    "user_claimed_or": 0.42,
+    "observed_re_or": 0.697550672155876,
+    "observed_k": 9,
+    "matches_user_0.42_at_2dp": false,
+    "matches_user_k11": false,
+    "label": "COMPARE_ALL_CUTOFFS"
+  }
+}

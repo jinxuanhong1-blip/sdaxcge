@@ -1,0 +1,103 @@
+[
+  {
+    "cohort": "IMvigor210_Mariathasan",
+    "file": "ICB_Mariathasan.zip",
+    "inner_expr": "ICB_Mariathasan_expr.tsv",
+    "gene_token": "ENSG00000189143.10",
+    "n_rows": 348,
+    "sha256": "b7ba42f6c0deb61c2c74d6cc001622c0d9451f835655f749dee17518463a4d09",
+    "url": "https://zenodo.org/api/records/7058399/files/ICB_Mariathasan.zip/content"
+  },
+  {
+    "cohort": "Gide",
+    "file": "ICB_Gide.zip",
+    "inner_expr": "ICB_Gide_expr_gene_tpm.tsv",
+    "gene_token": "ENSG00000189143.10",
+    "n_rows": 41,
+    "sha256": "bc2d2b4b520e153cfe4e918ccec1e585b293cd64b345e81fe3bf479c01e5ba64",
+    "url": "https://zenodo.org/api/records/7058399/files/ICB_Gide.zip/content"
+  },
+  {
+    "cohort": "Liu",
+    "file": "ICB_Liu.zip",
+    "inner_expr": "ICB_Liu_expr.tsv",
+    "gene_token": "ENSG00000189143.10",
+    "n_rows": 121,
+    "sha256": "7649a633c24588593bc86f2c0cf1e3a130dbb2355f254910648b3da4106a3492",
+    "url": "https://zenodo.org/api/records/7058399/files/ICB_Liu.zip/content"
+  },
+  {
+    "cohort": "Riaz",
+    "file": "ICB_Riaz.zip",
+    "inner_expr": "ICB_Riaz_expr_gene_tpm.tsv",
+    "gene_token": "ENSG00000189143.10",
+    "n_rows": 46,
+    "sha256": "edb5c4a06eb58dd44f6d8e5b6e7fc834481e9a19bd3cde509bbb43fc6b93edf8",
+    "url": "https://zenodo.org/api/records/7058399/files/ICB_Riaz.zip/content"
+  },
+  {
+    "cohort": "Braun",
+    "file": "ICB_Braun.zip",
+    "inner_expr": "ICB_Braun_expr.tsv",
+    "gene_token": "ENSG00000189143.8",
+    "n_rows": 181,
+    "sha256": "3603598902ad6d7999af7e44bcbb383e5588e1fa12c192fe283f582301b63bd7",
+    "url": "https://zenodo.org/api/records/7058399/files/ICB_Braun.zip/content"
+  },
+  {
+    "cohort": "GSE135222_Jung",
+    "file": "ICB_Jung.zip",
+    "inner_expr": "ICB_Jung_expr_gene_tpm.tsv",
+    "gene_token": "ENSG00000189143.10",
+    "n_rows": 27,
+    "sha256": "25b4e8626617966de7fe36f904939c3df4f794ef88ff3cf22e16d9db2f5c0bd4",
+    "url": "https://zenodo.org/api/records/7058399/files/ICB_Jung.zip/content"
+  },
+  {
+    "cohort": "GSE126044",
+    "file": "GSE126044_counts.txt.gz",
+    "gene_token": "CLDN4",
+    "n_rows": 16,
+    "sha256": "97abe0c051a5a80d5fc61e6d47c6611795484797e65843391b312672f0929607",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/suppl/GSE126044_counts.txt.gz"
+  },
+  {
+    "cohort": "GSE166449",
+    "file": "GSE166449_TPM.txt.gz",
+    "gene_token": "CLDN4",
+    "n_rows": 22,
+    "sha256": "27e475882662dff35c4d20ca271762f5804c6f451d54be7caa0c2f5ef133ff86",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/suppl/GSE166449_Raw_gene_TPM_matrix.txt.gz"
+  },
+  {
+    "cohort": "GSE135222_DCB180",
+    "file": "GSE135222_exp.tsv.gz",
+    "gene_token": "ENSG00000189143.8",
+    "n_rows": 27,
+    "note": "DCB = PFS>=180 days; same patients as GSE135222_Jung; NOT an independent study",
+    "sha256": "8b122e610492e88fb0aa0a759b8e380b04f26f2f58ddc581f9c050e54d0990a0",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/suppl/GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz"
+  },
+  {
+    "cohort": "GSE207422",
+    "file": "GSE207422_log2TPM.txt.gz",
+    "gene_token": "CLDN4",
+    "n_rows": 24,
+    "sha256": "fab29dc212ace1c45fd9333f2cf9d277eac6236d89945931efceede0f20e74b9",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz"
+  },
+  {
+    "cohort": "GSE136961",
+    "file": "GSE136961_TPM.tsv.gz",
+    "cldn4_present": false,
+    "sha256": "c1c41b61c4604d9b29f0e892b0c08c3d9705bac525f8887a528694a7c0348a80",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE136nnn/GSE136961/suppl/GSE136961_TPM.tsv.gz"
+  },
+  {
+    "cohort": "GSE93157",
+    "file": "GSE93157_raw.txt.gz",
+    "cldn4_present": false,
+    "sha256": "1422f74c3de9f18dccc62660f56612726df28427afae85d6441b353a98e4510e",
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93157/suppl/GSE93157_raw_data_values.txt.gz"
+  }
+]
