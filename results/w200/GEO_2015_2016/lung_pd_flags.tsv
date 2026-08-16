@@ -1,0 +1,10 @@
+accession	contains_lung_term	contains_pd_term	note
+GSE43453	true	true	title/summary mention both lung and PD-1/PD-L1-class terms
+GSE57133	true	false	title/summary mention lung but not PD-1/PD-L1-class terms; NCBI still returned this GSE
+GSE65041	false	true	title/summary mention PD-1/PD-L1-class terms but not lung; NCBI still returned this GSE
+GSE67501	false	true	title/summary mention PD-1/PD-L1-class terms but not lung; NCBI still returned this GSE
+GSE76356	false	true	title/summary mention PD-1/PD-L1-class terms but not lung; NCBI still returned this GSE
+GSE78220	false	true	title/summary mention PD-1/PD-L1-class terms but not lung; NCBI still returned this GSE
+GSE81258	false	false	neither lung nor PD terms in title/summary; NCBI still returned this GSE
+GSE84789	true	true	title/summary mention both lung and PD-1/PD-L1-class terms
+GSE84797	true	true	title/summary mention both lung and PD-1/PD-L1-class terms
