@@ -442,28 +442,82 @@ def _finite(v) -> bool:
     return v is not None and isinstance(v, (int, float)) and np.isfinite(v)
 
 
+def _row(rows: list[dict], gene: str, cohort: str) -> dict | None:
+    hits = [
+        r
+        for r in rows
+        if r["gene"] == gene and r["cohort"] == cohort and r.get("split", "tertile") == "tertile" and r.get("present")
+    ]
+    return hits[0] if hits else None
+
+
 def honest_for_gene(gene: str, rows: list[dict], primary_cohorts: list[str]) -> dict:
     prim = [r for r in rows if r["gene"] == gene and r["cohort"] in primary_cohorts and r.get("split", "tertile") == "tertile"]
     calls = [bool(r.get("up_in_tacstd2_high")) for r in prim if r.get("present")]
     rhos = [r["spearman_rho"] for r in prim if r.get("present") and _finite(r.get("spearman_rho"))]
+    onco = _row(rows, gene, "OncoSG_LUAD")
+    dep = _row(rows, gene, "DepMap24Q4_lung_cell_lines")
+    pooled = _row(rows, gene, "TCGA_NSCLC_pooled")
+
+    def rho_txt(r: dict | None, tag: str) -> str:
+        if r is None or not _finite(r.get("spearman_rho")):
+            return f"{tag} not computed"
+        return f"{tag} ρ={r['spearman_rho']:.3f} (n={int(r['n'])})"
+
+    extra = []
+    if onco is not None:
+        extra.append(
+            rho_txt(onco, "OncoSG LUAD")
+            + (", call" if onco.get("up_in_tacstd2_high") else ", no-call")
+        )
+    if dep is not None:
+        extra.append(rho_txt(dep, "DepMap lung lines"))
+    if pooled is not None:
+        extra.append(rho_txt(pooled, "pooled NSCLC") + " — sensitivity only")
+
     if not prim or not calls:
         label = "NOT_COMPUTED"
         statement = f"{gene}: not computed in a primary public lung cohort."
     elif all(calls):
-        label = "SUPPORTED_BOTH_HISTOLOGIES"
-        statement = (
-            f"{gene} meets the pre-specified up_in_tacstd2_high call in both TCGA-LUAD and "
-            f"TCGA-LUSC (tertile split). Spearman ρ = "
-            + ", ".join(f"{r['cohort']} {r['spearman_rho']:.3f}" for r in prim if r.get("present"))
-            + ". This is a bulk RNA association, not proof of a protein complex or regulation."
-        )
+        luad_rho = next((r["spearman_rho"] for r in prim if r["cohort"] == "TCGA_LUAD"), None)
+        onco_fail = onco is not None and not onco.get("up_in_tacstd2_high")
+        weak_luad = _finite(luad_rho) and abs(luad_rho) < RHO_WEAK
+        if onco_fail:
+            label = "TCGA_CALL_NO_INDEPENDENT_REPLICATION"
+            statement = (
+                f"{gene} meets the pre-specified TCGA call in both histologies "
+                f"({', '.join(f'{r['cohort']} ρ={r['spearman_rho']:.3f}' for r in prim if r.get('present'))}), "
+                f"but the independent OncoSG LUAD cohort does not replicate "
+                f"(ρ={onco['spearman_rho']:.3f}, n={int(onco['n'])}, no-call). "
+                "Treat the TCGA call as histology-detectable, not as a confirmed public-lung partner."
+            )
+        elif weak_luad:
+            label = "SUPPORTED_BUT_WEAK"
+            statement = (
+                f"{gene} meets the TCGA call in both histologies, but LUAD ρ={luad_rho:.3f} is weak. "
+                "This is a bulk RNA association, not proof of a protein complex or regulation."
+            )
+        else:
+            label = "SUPPORTED_BOTH_HISTOLOGIES"
+            statement = (
+                f"{gene} meets the pre-specified up_in_tacstd2_high call in both TCGA-LUAD and "
+                f"TCGA-LUSC (tertile split). Spearman ρ = "
+                + ", ".join(f"{r['cohort']} {r['spearman_rho']:.3f}" for r in prim if r.get("present"))
+                + ". This is a bulk RNA association, not proof of a protein complex or regulation."
+            )
     elif any(calls):
-        label = "PARTIAL_ONE_HISTOLOGY"
+        label = "NOT_A_HISTOLOGY_INDEPENDENT_PARTNER"
         hit = [r["cohort"] for r in prim if r.get("up_in_tacstd2_high")]
         miss = [r["cohort"] for r in prim if r.get("present") and not r.get("up_in_tacstd2_high")]
+        miss_rho = [r for r in prim if r["cohort"] in miss]
+        miss_bit = ", ".join(
+            f"{r['cohort']} ρ={r['spearman_rho']:.3f}" for r in miss_rho if _finite(r.get("spearman_rho"))
+        )
         statement = (
-            f"{gene} meets the call in {', '.join(hit) or 'none'} and fails it in "
-            f"{', '.join(miss) or 'none'}. Do not treat this as a histology-independent partner."
+            f"{gene} meets the call only in {', '.join(hit) or 'none'} and fails in "
+            f"{', '.join(miss) or 'none'} ({miss_bit or 'no rho'}). "
+            "A pooled LUAD+LUSC correlation is not evidence of a shared partner: "
+            "TACSTD2-high is LUSC-enriched. Do not treat this gene as histology-independent."
         )
     else:
         label = "NOT_SUPPORTED"
@@ -477,15 +531,15 @@ def honest_for_gene(gene: str, rows: list[dict], primary_cohorts: list[str]) -> 
                 else ""
             )
         )
-    # magnitude honesty
-    if rhos and all(abs(r) < RHO_WEAK for r in rhos) and label == "SUPPORTED_BOTH_HISTOLOGIES":
-        label = "SUPPORTED_BUT_WEAK"
-        statement += " Effect size is weak (|ρ|<0.20) in both histologies; do not over-interpret."
+    if extra:
+        statement += " Also: " + "; ".join(extra) + "."
     return {
         "gene": gene,
         "label": label,
         "primary_calls": {r["cohort"]: bool(r.get("up_in_tacstd2_high")) for r in prim},
         "primary_rho": {r["cohort"]: r.get("spearman_rho") for r in prim},
+        "oncosg_call": bool(onco.get("up_in_tacstd2_high")) if onco else None,
+        "oncosg_rho": onco.get("spearman_rho") if onco else None,
         "statement": statement,
     }
 
@@ -564,7 +618,7 @@ def write_figures(out: Path, sample_tcga: pd.DataFrame, stats_df: pd.DataFrame) 
                 (sample_tcga["histology"] == hist) & (sample_tcga["tacstd2_group"].isin(["high", "low"]))
             ]
             data = [sub.loc[sub["tacstd2_group"] == g, gene].dropna().values for g in ("low", "high")]
-            bp = ax.boxplot(data, labels=["TACSTD2-low", "TACSTD2-high"], patch_artist=True, widths=0.55)
+            bp = ax.boxplot(data, tick_labels=["TACSTD2-low", "TACSTD2-high"], patch_artist=True, widths=0.55)
             for patch, c in zip(bp["boxes"], ["#9ecae1", "#fc9272"]):
                 patch.set_facecolor(c)
             ax.set_title(f"TCGA-{hist}  {gene}")
@@ -583,13 +637,13 @@ def _json_safe(obj):
         return {k: _json_safe(v) for k, v in obj.items()}
     if isinstance(obj, list):
         return [_json_safe(v) for v in obj]
+    if isinstance(obj, (np.bool_, bool)):
+        return bool(obj)
     if isinstance(obj, (np.floating, float)):
         v = float(obj)
         return v if np.isfinite(v) else None
     if isinstance(obj, (np.integer, int)):
         return int(obj)
-    if isinstance(obj, (np.bool_, bool)):
-        return bool(obj)
     return obj
 
 
@@ -628,15 +682,32 @@ that the private cohort's effect sizes transfer.
 
 ### Primary public lung (TCGA, within-histology tertiles)
 
-- {line('F11R', 'TCGA_LUAD')}
-- {line('F11R', 'TCGA_LUSC')}
-- {line('PARD3', 'TCGA_LUAD')}
-- {line('PARD3', 'TCGA_LUSC')}
+- F11R {line('F11R', 'TCGA_LUAD')}
+- F11R {line('F11R', 'TCGA_LUSC')}
+- PARD3 {line('PARD3', 'TCGA_LUAD')}
+- PARD3 {line('PARD3', 'TCGA_LUSC')}
 
 ### Independent LUAD (OncoSG 2020)
 
-- {line('F11R', 'OncoSG_LUAD')}
-- {line('PARD3', 'OncoSG_LUAD')}
+- F11R {line('F11R', 'OncoSG_LUAD')}
+- PARD3 {line('PARD3', 'OncoSG_LUAD')}
+
+### Stroma-free sensitivity (DepMap 24Q4 lung cell lines)
+
+- F11R {line('F11R', 'DepMap24Q4_lung_cell_lines')}
+- PARD3 {line('PARD3', 'DepMap24Q4_lung_cell_lines')}
+
+### Context (not the claim)
+
+CLDN1 and CLDN4 are stronger TACSTD2 correlates than F11R or PARD3 in every
+bulk cohort tested (e.g. TCGA-LUAD CLDN4 ρ=0.46 vs F11R ρ=0.18; OncoSG CLDN4
+ρ=0.50 vs F11R ρ=0.12). A TROP2-high tight-junction story that needs F11R or
+PARD3 as load-bearing public evidence is not supported at the same strength
+as CLDN1/CLDN4.
+
+DepMap lung cell lines (no stroma) give F11R ρ=0.44, so the weak LUAD bulk
+signal is not proof that F11R is only a stromal artifact. It still does not
+make F11R a replicated bulk-tumor partner.
 
 ### What this is not
 
