@@ -1,0 +1,86 @@
+{
+  "geomx_zenodo_11198494": {
+    "assay": "GeoMx Cancer Transcriptome Atlas plus TCR module",
+    "file": "geomx.csv",
+    "n_features_in_long_table": 2018,
+    "n_rois": 285,
+    "n_slides": 5,
+    "population": "immunotherapy-naive primary NSCLC spatial ROIs from a PD-1-response spatial study",
+    "reason": "TACSTD2 is measured but above LOQ in only 28/285 ROIs, and 18/28 detections come from one slide (ExpMSa25_1). The GeoMx table has no ICI response labels. CLDN4 is absent.",
+    "record": "10.5281/zenodo.11198494",
+    "source_md5": "8421f72c459e8aa6eb06fa48ba974501",
+    "surrogate_analysis_performed": false,
+    "targets": {
+      "CLDN4": {
+        "n_rois_above_loq": null,
+        "present": false
+      },
+      "TACSTD2": {
+        "n_rois_above_loq": 28,
+        "present": true
+      }
+    },
+    "valid_ici_outcome_analysis": false,
+    "valid_quantitative_expression_analysis": false
+  },
+  "grok46_leftover_hunt": {
+    "closest_inaccessible_leftover": "10.5281/zenodo.21807253",
+    "new_open_compact_target_vs_ici_matrix": false,
+    "notes": "Neoadjuvant-IO NSCLC spatial record 21807253 is restricted. ICI scRNA/Visium 18825477 and n=1 Visium 15053161 are restricted. CosMx WTA 18870185 is embargoed until 2029 and is not ICI. Both leftover RNAscope tables in 11198494 lack TACSTD2/CLDN4. The 195-gene ICI module dictionary in 21967935 lacks both genes."
+  },
+  "honest_conclusion": "No leftover open compact matrix supports a TACSTD2 or CLDN4 comparison against ICI outcome. The NanoString ICI cohort lacks both genes. The leftover GeoMx table measures TACSTD2 but not CLDN4, is mostly below LOQ, is slide-confounded, and has no response labels. The leftover RNAscope tables and the 195-gene ICI module dictionary also lack both genes. The closest lung-IO spatial leftover (21807253) is restricted.",
+  "ici_modules_zenodo_21967935": {
+    "n_module_genes": 195,
+    "reason": "Open supplementary zip has no expression matrix. The 195-gene ICI module dictionary includes neither TACSTD2 nor CLDN4.",
+    "record": "10.5281/zenodo.21967935",
+    "targets": {
+      "CLDN4": {
+        "present": false
+      },
+      "TACSTD2": {
+        "present": false
+      }
+    },
+    "valid_target_analysis": false
+  },
+  "nanostring_zenodo_2635194": {
+    "assay": "NanoString nCounter PanCancer Immune Profiling panel",
+    "n_discovery": 55,
+    "n_validation": 36,
+    "population": "advanced NSCLC treated with anti-PD-1 immunotherapy",
+    "reason": "Neither requested gene is measured by the deposited targeted panel.",
+    "record": "10.5281/zenodo.2635194",
+    "surrogate_analysis_performed": false,
+    "targets": {
+      "CLDN4": {
+        "present_discovery": false,
+        "present_validation": false
+      },
+      "TACSTD2": {
+        "present_discovery": false,
+        "present_validation": false
+      }
+    },
+    "valid_target_analysis": false
+  },
+  "question": "leftover processed Zenodo/figshare lung ICI matrices for TACSTD2/CLDN4 not analyzed in PR42",
+  "rnascope_zenodo_11198494": {
+    "files": [
+      "ACD_stemimmunity.csv",
+      "ACD_tumor.csv"
+    ],
+    "n_target_channels": 12,
+    "reason": "Both leftover RNAscope tables use the same 12-gene immune/epithelial panel and measure neither TACSTD2 nor CLDN4.",
+    "record": "10.5281/zenodo.11198494",
+    "targets": {
+      "CLDN4": {
+        "present": false
+      },
+      "TACSTD2": {
+        "present": false
+      }
+    },
+    "valid_target_analysis": false
+  },
+  "valid_target_vs_ici_result": false
+}
