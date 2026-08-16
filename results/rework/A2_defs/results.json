@@ -1,0 +1,336 @@
+{
+  "claim": {
+    "rho_raw": -0.65,
+    "rho_purity_adj": -0.46,
+    "p": 0.0002
+  },
+  "prior_A2_post_adj_p": 0.01085,
+  "purity_covariate": "ESTIMATEScore ranks",
+  "primary_features": [
+    "ESTIMATE_ImmuneScore",
+    "CYT",
+    "CD8A",
+    "GEP18",
+    "xCell_CD8"
+  ],
+  "gep18_genes": [
+    "CCL5",
+    "CD27",
+    "CD274",
+    "CD276",
+    "CD8A",
+    "CMKLR1",
+    "CXCL9",
+    "CXCR6",
+    "HLA-DQA1",
+    "HLA-DRB1",
+    "HLA-E",
+    "IDO1",
+    "LAG3",
+    "NKG7",
+    "PDCD1LG2",
+    "PSMB10",
+    "STAT1",
+    "TIGIT"
+  ],
+  "datasets": [
+    {
+      "dataset": "GSE253564_pretreatment",
+      "n_samples": 32,
+      "n_genes": 20187,
+      "n_purity_formula_out_of_bounds": 23,
+      "purity_adjustment": "partial Spearman controls for ESTIMATEScore ranks (rank-identical to ESTIMATE TumorPurity); Affymetrix cosine formula not used as z",
+      "metrics": {
+        "ESTIMATE_ImmuneScore": {
+          "spearman_rho_raw": -0.7163,
+          "p_raw": 4.02573e-06,
+          "spearman_rho_purity_adjusted": -0.5295,
+          "p_purity_adjusted": 0.00219031,
+          "n": 32,
+          "primary": true,
+          "note": {
+            "definition": "ESTIMATE v1.0.13 ImmuneScore (rank-normalized ssGSEA, tau=0.25)",
+            "geneset_overlap": {
+              "StromalSignature": 136,
+              "ImmuneSignature": 138
+            }
+          }
+        },
+        "CYT": {
+          "spearman_rho_raw": -0.4611,
+          "p_raw": 0.00789802,
+          "spearman_rho_purity_adjusted": -0.1652,
+          "p_purity_adjusted": 0.374514,
+          "n": 32,
+          "primary": true,
+          "note": {
+            "definition": "Rooney 2015 cytolytic activity: mean log2(FPKM+1) of GZMA and PRF1",
+            "genes_present": [
+              "GZMA",
+              "PRF1"
+            ]
+          }
+        },
+        "CD8A": {
+          "spearman_rho_raw": -0.5363,
+          "p_raw": 0.00155656,
+          "spearman_rho_purity_adjusted": -0.2425,
+          "p_purity_adjusted": 0.188635,
+          "n": 32,
+          "primary": true,
+          "note": {
+            "definition": "log2(FPKM+1) CD8A",
+            "genes_present": [
+              "CD8A"
+            ]
+          }
+        },
+        "GEP18": {
+          "spearman_rho_raw": -0.4699,
+          "p_raw": 0.00664972,
+          "spearman_rho_purity_adjusted": -0.0827,
+          "p_purity_adjusted": 0.65817,
+          "n": 32,
+          "primary": true,
+          "note": {
+            "definition": "Ayers 2017 18-gene T-cell-inflamed GEP",
+            "n_genes_present": 18,
+            "n_genes_total": 18,
+            "genes_present": [
+              "CCL5",
+              "CD27",
+              "CD274",
+              "CD276",
+              "CD8A",
+              "CMKLR1",
+              "CXCL9",
+              "CXCR6",
+              "HLA-DQA1",
+              "HLA-DRB1",
+              "HLA-E",
+              "IDO1",
+              "LAG3",
+              "NKG7",
+              "PDCD1LG2",
+              "PSMB10",
+              "STAT1",
+              "TIGIT"
+            ],
+            "genes_missing": [],
+            "scoring": "mean of per-gene z-scores of log2(FPKM+1); unweighted (NanoString TIS weights not used)"
+          }
+        },
+        "xCell_CD8": {
+          "spearman_rho_raw": -0.6525,
+          "p_raw": 5.18754e-05,
+          "spearman_rho_purity_adjusted": -0.5707,
+          "p_purity_adjusted": 0.000801503,
+          "n": 32,
+          "primary": true,
+          "note": {
+            "definition": "xCell CD8+ T-cells after RNA-seq transform + spillover (alpha=0.5)",
+            "n_signatures_aggregated": 15,
+            "n_xcell_genes_in_matrix": 20565
+          }
+        },
+        "xCell_CD8_raw_ssgsea": {
+          "spearman_rho_raw": -0.8024,
+          "p_raw": 3.32765e-08,
+          "spearman_rho_purity_adjusted": -0.6929,
+          "p_purity_adjusted": 1.56062e-05,
+          "n": 32,
+          "primary": false,
+          "note": {
+            "definition": "xCell CD8+ T-cells aggregated ssGSEA only (no spillover); sensitivity",
+            "n_signatures_aggregated": 15
+          }
+        },
+        "xCell_CD8_Tcm": {
+          "spearman_rho_raw": -0.5117,
+          "p_raw": 0.00275612,
+          "spearman_rho_purity_adjusted": -0.2228,
+          "p_purity_adjusted": 0.228317,
+          "n": 32,
+          "primary": false,
+          "note": {
+            "definition": "xCell 'CD8+ Tcm' after spillover (supplement; not the named xCell CD8 parent score)",
+            "n_signatures_aggregated": 9
+          }
+        },
+        "xCell_CD8_Tem": {
+          "spearman_rho_raw": -0.4956,
+          "p_raw": 0.00392247,
+          "spearman_rho_purity_adjusted": -0.2907,
+          "p_purity_adjusted": 0.112682,
+          "n": 32,
+          "primary": false,
+          "note": {
+            "definition": "xCell 'CD8+ Tem' after spillover (supplement; not the named xCell CD8 parent score)",
+            "n_signatures_aggregated": 9
+          }
+        },
+        "xCell_CD8_naive_T-cells": {
+          "spearman_rho_raw": -0.1404,
+          "p_raw": 0.443433,
+          "spearman_rho_purity_adjusted": -0.2395,
+          "p_purity_adjusted": 0.194316,
+          "n": 32,
+          "primary": false,
+          "note": {
+            "definition": "xCell 'CD8+ naive T-cells' after spillover (supplement; not the named xCell CD8 parent score)",
+            "n_signatures_aggregated": 3
+          }
+        }
+      }
+    },
+    {
+      "dataset": "GSE248378_posttreatment",
+      "n_samples": 29,
+      "n_genes": 15165,
+      "n_purity_formula_out_of_bounds": 6,
+      "purity_adjustment": "partial Spearman controls for ESTIMATEScore ranks (rank-identical to ESTIMATE TumorPurity); Affymetrix cosine formula not used as z",
+      "metrics": {
+        "ESTIMATE_ImmuneScore": {
+          "spearman_rho_raw": -0.665,
+          "p_raw": 8.29809e-05,
+          "spearman_rho_purity_adjusted": -0.4739,
+          "p_purity_adjusted": 0.0108523,
+          "n": 29,
+          "primary": true,
+          "note": {
+            "definition": "ESTIMATE v1.0.13 ImmuneScore (rank-normalized ssGSEA, tau=0.25)",
+            "geneset_overlap": {
+              "StromalSignature": 133,
+              "ImmuneSignature": 138
+            }
+          }
+        },
+        "CYT": {
+          "spearman_rho_raw": -0.8059,
+          "p_raw": 1.32311e-07,
+          "spearman_rho_purity_adjusted": -0.7103,
+          "p_purity_adjusted": 2.29347e-05,
+          "n": 29,
+          "primary": true,
+          "note": {
+            "definition": "Rooney 2015 cytolytic activity: mean log2(FPKM+1) of GZMA and PRF1",
+            "genes_present": [
+              "GZMA",
+              "PRF1"
+            ]
+          }
+        },
+        "CD8A": {
+          "spearman_rho_raw": -0.7059,
+          "p_raw": 1.88511e-05,
+          "spearman_rho_purity_adjusted": -0.5773,
+          "p_purity_adjusted": 0.0012976,
+          "n": 29,
+          "primary": true,
+          "note": {
+            "definition": "log2(FPKM+1) CD8A",
+            "genes_present": [
+              "CD8A"
+            ]
+          }
+        },
+        "GEP18": {
+          "spearman_rho_raw": -0.6296,
+          "p_raw": 0.000253139,
+          "spearman_rho_purity_adjusted": -0.404,
+          "p_purity_adjusted": 0.033006,
+          "n": 29,
+          "primary": true,
+          "note": {
+            "definition": "Ayers 2017 18-gene T-cell-inflamed GEP",
+            "n_genes_present": 18,
+            "n_genes_total": 18,
+            "genes_present": [
+              "CCL5",
+              "CD27",
+              "CD274",
+              "CD276",
+              "CD8A",
+              "CMKLR1",
+              "CXCL9",
+              "CXCR6",
+              "HLA-DQA1",
+              "HLA-DRB1",
+              "HLA-E",
+              "IDO1",
+              "LAG3",
+              "NKG7",
+              "PDCD1LG2",
+              "PSMB10",
+              "STAT1",
+              "TIGIT"
+            ],
+            "genes_missing": [],
+            "scoring": "mean of per-gene z-scores of log2(FPKM+1); unweighted (NanoString TIS weights not used)"
+          }
+        },
+        "xCell_CD8": {
+          "spearman_rho_raw": -0.8177,
+          "p_raw": 6.10471e-08,
+          "spearman_rho_purity_adjusted": -0.7283,
+          "p_purity_adjusted": 1.11716e-05,
+          "n": 29,
+          "primary": true,
+          "note": {
+            "definition": "xCell CD8+ T-cells after RNA-seq transform + spillover (alpha=0.5)",
+            "n_signatures_aggregated": 15,
+            "n_xcell_genes_in_matrix": 17777
+          }
+        },
+        "xCell_CD8_raw_ssgsea": {
+          "spearman_rho_raw": -0.8236,
+          "p_raw": 4.06039e-08,
+          "spearman_rho_purity_adjusted": -0.757,
+          "p_purity_adjusted": 3.12752e-06,
+          "n": 29,
+          "primary": false,
+          "note": {
+            "definition": "xCell CD8+ T-cells aggregated ssGSEA only (no spillover); sensitivity",
+            "n_signatures_aggregated": 15
+          }
+        },
+        "xCell_CD8_Tcm": {
+          "spearman_rho_raw": -0.6901,
+          "p_raw": 3.4328e-05,
+          "spearman_rho_purity_adjusted": -0.5126,
+          "p_purity_adjusted": 0.00528295,
+          "n": 29,
+          "primary": false,
+          "note": {
+            "definition": "xCell 'CD8+ Tcm' after spillover (supplement; not the named xCell CD8 parent score)",
+            "n_signatures_aggregated": 9
+          }
+        },
+        "xCell_CD8_Tem": {
+          "spearman_rho_raw": -0.6478,
+          "p_raw": 0.000145242,
+          "spearman_rho_purity_adjusted": -0.4889,
+          "p_purity_adjusted": 0.00829027,
+          "n": 29,
+          "primary": false,
+          "note": {
+            "definition": "xCell 'CD8+ Tem' after spillover (supplement; not the named xCell CD8 parent score)",
+            "n_signatures_aggregated": 9
+          }
+        },
+        "xCell_CD8_naive_T-cells": {
+          "spearman_rho_raw": -0.5374,
+          "p_raw": 0.00264255,
+          "spearman_rho_purity_adjusted": -0.4913,
+          "p_purity_adjusted": 0.00793708,
+          "n": 29,
+          "primary": false,
+          "note": {
+            "definition": "xCell 'CD8+ naive T-cells' after spillover (supplement; not the named xCell CD8 parent score)",
+            "n_signatures_aggregated": 3
+          }
+        }
+      }
+    }
+  ]
+}
