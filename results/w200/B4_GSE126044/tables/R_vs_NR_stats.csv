@@ -1,0 +1,13 @@
+subset,feature,type,n_genes_used,n_responder,n_nonresponder,median_R,median_NR,mean_R,mean_NR,direction,AUC_R_gt_NR,rank_biserial,cohens_d_R_minus_NR,mannwhitney_U,p_mannwhitney,welch_t,p_welch_t
+all,CLDN4 (log2 CPM),single_gene,1,5,11,2.5423,3.7712,2.2316,3.4971,higher in non-responders,0.2364,-0.5273,-0.9332,13.0,0.1149,-1.566,0.166
+all,TACSTD2 (log2 CPM),single_gene,1,5,11,6.168,6.2882,4.9868,6.1309,higher in non-responders,0.3636,-0.2727,-0.7616,20.0,0.4409,-1.1005,0.3218
+all,core_TJ,signature_meanz,40,5,11,-0.0762,0.1573,-0.3784,0.172,higher in non-responders,0.2364,-0.5273,-1.3349,13.0,0.1149,-1.736,0.1519
+all,core_TJ_no_CLDN4,signature_meanz,39,5,11,-0.0682,0.1495,-0.3726,0.1694,higher in non-responders,0.2545,-0.4909,-1.3202,14.0,0.1451,-1.7287,0.1527
+all,core_TJ_meanexpr,signature_meanexpr,40,5,11,3.3579,3.543,3.0229,3.5594,higher in non-responders,0.2909,-0.4182,-1.1483,16.0,0.2212,-1.4659,0.2123
+all,CUSTOM_TJ_CORE,signature_meanz,24,5,11,-0.1217,0.1699,-0.4524,0.2056,higher in non-responders,0.2,-0.6,-1.3509,11.0,0.0687,-1.6887,0.1636
+all,CUSTOM_CLAUDIN_PAR_FOCAL,signature_meanz,5,5,11,-0.0184,0.1884,-0.5153,0.2342,higher in non-responders,0.3273,-0.3455,-1.1261,18.0,0.3196,-1.4912,0.2034
+all,KEGG_hsa04530,signature_meanz,163,5,11,-0.0009,0.0915,-0.102,0.0464,higher in non-responders,0.3636,-0.2727,-0.7053,20.0,0.4409,-1.0327,0.3488
+all,KEGG_hsa04530_meanexpr,signature_meanexpr,163,5,11,4.8129,4.862,4.7016,4.8577,higher in non-responders,0.4,-0.2,-0.7713,22.0,0.5833,-1.0238,0.3584
+fresh_only,CLDN4 (log2 CPM),single_gene,1,5,6,2.5423,3.7682,2.2316,3.1853,higher in non-responders,0.3,-0.4,-0.5916,9.0,0.329,-0.9782,0.3544
+fresh_only,core_TJ,signature_meanz,40,5,6,-0.0762,0.1956,-0.3784,0.2016,higher in non-responders,0.2333,-0.5333,-1.2134,7.0,0.1775,-1.8279,0.1357
+fresh_only,CUSTOM_TJ_CORE,signature_meanz,24,5,6,-0.1217,0.1666,-0.4524,0.2449,higher in non-responders,0.2,-0.6,-1.1915,6.0,0.1255,-1.7867,0.1452
