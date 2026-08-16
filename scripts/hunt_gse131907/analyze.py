@@ -347,6 +347,37 @@ def save_neighborhood_fig(sample_df: pd.DataFrame, out: Path) -> None:
     plt.close(fig)
 
 
+def save_cldn4_neighborhood_fig(sample_df: pd.DataFrame, out: Path) -> None:
+    tumor = sample_df[
+        sample_df["Sample_Origin"].isin(C.TUMOR_ORIGINS)
+        & (sample_df["n_epithelial"] >= C.MIN_EPI)
+    ]
+    panels = [
+        ("frac_CD8", "CD8 fraction"),
+        ("frac_NK", "NK fraction"),
+        ("frac_B", "B-cell fraction"),
+        ("tls_chemokine_mean", "12-chemokine TLS score"),
+    ]
+    fig, axes = plt.subplots(2, 2, figsize=(9.5, 8.2), constrained_layout=True)
+    for ax, (ycol, ylab) in zip(axes.ravel(), panels):
+        x = tumor["epi_CLDN4_mean"]
+        y = tumor[ycol]
+        ax.scatter(x, y, c="#a50f15", edgecolors="white", linewidths=0.5, s=40)
+        mask = x.notna() & y.notna()
+        if mask.sum() >= 5:
+            rho, p = stats.spearmanr(x[mask], y[mask])
+            coef = np.polyfit(x[mask], y[mask], 1)
+            grid = np.linspace(x[mask].min(), x[mask].max(), 40)
+            ax.plot(grid, np.polyval(coef, grid), color="#333", lw=1)
+            ax.set_title(f"{ylab}\nρ={rho:.2f}  p={p:.2g}  n={int(mask.sum())}")
+        else:
+            ax.set_title(ylab)
+        ax.set_xlabel("Epithelial CLDN4 mean log2(TPM+1)")
+        ax.set_ylabel(ylab)
+    fig.savefig(out, dpi=160)
+    plt.close(fig)
+
+
 def save_gsea_fig(gsea_df: pd.DataFrame, out: Path, title: str) -> None:
     if gsea_df.empty:
         return
@@ -499,7 +530,6 @@ def main() -> None:
     if not sample_meta.empty:
         sample_df = sample_df.merge(sample_meta, on="Sample", how="left")
     sample_df.to_csv(out / "per_sample.tsv", sep="\t", index=False)
-    save_neighborhood_fig(sample_df, out / "fig_neighborhood_cooccurrence.png")
 
     assoc = []
     tumor = sample_df[
@@ -523,7 +553,18 @@ def main() -> None:
             ):
                 assoc.append(spearman_row(frame[xcol], frame[ycol], f"{tag}: {xlab} vs {ylab}"))
     assoc_df = pd.DataFrame(assoc)
+    try:
+        from statsmodels.stats.multitest import multipletests
+
+        ok = assoc_df["spearman_p"].notna()
+        if ok.any():
+            _, fdr, _, _ = multipletests(assoc_df.loc[ok, "spearman_p"], method="fdr_bh")
+            assoc_df.loc[ok, "bh_fdr"] = fdr
+    except Exception:
+        assoc_df["bh_fdr"] = np.nan
     assoc_df.to_csv(out / "neighborhood_associations.tsv", sep="\t", index=False)
+    save_neighborhood_fig(sample_df, out / "fig_neighborhood_cooccurrence.png")
+    save_cldn4_neighborhood_fig(sample_df, out / "fig_neighborhood_cldn4.png")
 
     # ----- GSEA ranking pass -----
     print("[5] stream all genes for GSEA ranking (author log2TPM)", flush=True)
@@ -651,7 +692,11 @@ def main() -> None:
     def sig(item, alpha=0.05):
         return bool(item and pd.notna(item.get("spearman_p")) and item["spearman_p"] < alpha)
 
-    neighborhood_supported = any(sig(x) and x.get("spearman_rho", 0) < 0 for x in (tac_cd8, tac_nk, tac_b, tac_tls))
+    neighborhood_supported = False
+    if "bh_fdr" in assoc_df.columns:
+        neighborhood_supported = bool(
+            ((assoc_df["bh_fdr"] < 0.05) & (assoc_df["spearman_rho"] < 0)).any()
+        )
 
     tj_up = False
     ker_up = False
@@ -722,9 +767,11 @@ def write_readme(
             return "- (missing)"
         if item.get("note") == "too_few_samples":
             return f"- {item['contrast']}: n={item['n']} (too few)"
+        fdr = item.get("bh_fdr", np.nan)
+        fdr_s = f", FDR={float(fdr):.2g}" if pd.notna(fdr) else ""
         return (
             f"- {item['contrast']}: ρ={item['spearman_rho']:.3f}, "
-            f"p={item['spearman_p']:.3g}, n={item['n']}"
+            f"p={item['spearman_p']:.3g}{fdr_s}, n={item['n']}"
         )
 
     def fmt_gsea(table: pd.DataFrame, term: str) -> str:
@@ -753,7 +800,7 @@ def write_readme(
         f"CLDN4 %pos epithelial={cld.get('pct_pos_a', float('nan')):.1f} vs T={cld.get('pct_pos_b', float('nan')):.1f} "
         f"(p={cld.get('p', float('nan')):.2g}).",
         f"- **CD8/NK/TLS neighborhood anti-correlation:** "
-        f"{'a negative association is present (see table)' if summary['neighborhood_anti_correlation_supported'] else 'not supported at tumor-site sample level'}. "
+        f"{'BH-FDR<0.05 inverse present (see table)' if summary['neighborhood_anti_correlation_supported'] else 'not supported after BH-FDR (TACSTD2 null; CLDN4 nominal inverses FDR≥0.15)'}. "
         "This is **not** a spatial neighborhood. The matrix is dissociated 10x.",
         f"- **TJ GSEA in TROP2-high epithelium (sample-level prerank):** "
         f"{'up (NES>0, FDR<0.25 on a TJ set)' if summary['gsea_tj_up_in_TACSTD2_high'] else 'not supported at FDR<0.25'}.",
@@ -836,6 +883,7 @@ def write_readme(
         "| `gsea_all.tsv` / `gsea_key_sets_sample.tsv` | Combined / key-set slices |",
         "| `fig_epithelial_vs_immune.png` | Restriction boxplots |",
         "| `fig_neighborhood_cooccurrence.png` | TACSTD2 vs CD8/NK/B/TLS |",
+        "| `fig_neighborhood_cldn4.png` | CLDN4 vs CD8/NK/B/TLS (nominal) |",
         "| `fig_gsea_sample_TACSTD2.png` | Primary NES bars |",
         "| `fig_gsea_cell_TROP2Q4Q1.png` | Secondary NES bars |",
         "| `per_cell_selected_genes.csv.gz` | Streamed marker genes |",
