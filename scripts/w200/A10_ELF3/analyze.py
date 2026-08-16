@@ -801,7 +801,12 @@ def write_results_readme(out: Path, summary: dict, table: pd.DataFrame) -> None:
         f"- TCGA-LUSC primary tumors: n={cov.get('tcga_lusc', {}).get('n_primary_tumors')}; "
         f"ABSOLUTE purity for {cov.get('tcga_lusc', {}).get('n_with_absolute_purity')}.",
         f"- CPTAC LUAD RNA: n={cov.get('cptac_rna', {}).get('n_tumors')}.",
-        f"- CPTAC LUAD protein non-NA: {cov.get('cptac_protein', {}).get('n_non_na')}.",
+        f"- CPTAC LUAD protein non-NA: "
+        + ", ".join(
+            f"{g}={n}"
+            for g, n in (cov.get("cptac_protein", {}).get("n_non_na") or {}).items()
+        )
+        + " (CLDN4 pairwise n=79).",
         f"- DepMap 24Q4 LUAD cell lines: n={cov.get('depmap_luad_cell_lines', {}).get('n')}.",
         f"- DepMap 24Q4 all lung cell lines (exploratory): n={cov.get('depmap_all_lung_cell_lines', {}).get('n')}.",
         "",

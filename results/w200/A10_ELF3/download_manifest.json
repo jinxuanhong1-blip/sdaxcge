@@ -1,0 +1,141 @@
+{
+  "downloaded_at_utc": "2026-08-16T20:09:50.630777+00:00",
+  "user_agent": "sdaxcge-w200-A10-ELF3/1.0 (reproducible public lung extract; +https://github.com/jinxuanhong1-blip/sdaxcge)",
+  "files": [
+    {
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUAD.star_tpm.tsv.gz",
+      "path": "/tmp/a10_elf3_data/TCGA-LUAD.star_tpm.tsv.gz",
+      "status": "downloaded",
+      "bytes": 168463406,
+      "sha256": "460dab5f84d8fa7da8ef17c913d2816cd66a34e837908e64e0b3c7d65e3d40ee",
+      "name": "TCGA-LUAD.star_tpm.tsv.gz"
+    },
+    {
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUSC.star_tpm.tsv.gz",
+      "path": "/tmp/a10_elf3_data/TCGA-LUSC.star_tpm.tsv.gz",
+      "status": "downloaded",
+      "bytes": 160216338,
+      "sha256": "ba4cc22264ef56bc6f53644223c815837e7a0a4e008677b9bc72b46ae89ec6bf",
+      "name": "TCGA-LUSC.star_tpm.tsv.gz"
+    },
+    {
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/gencode.v36.annotation.gtf.gene.probemap",
+      "path": "/tmp/a10_elf3_data/gencode.v36.probemap",
+      "status": "downloaded",
+      "bytes": 3206945,
+      "sha256": "f027752d663b1da74f4113998bf008e6ebecfa3732607513e027bb6eb1f635b5",
+      "name": "gencode.v36.probemap"
+    },
+    {
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "path": "/tmp/a10_elf3_data/tcga_absolute_purity.txt",
+      "status": "downloaded",
+      "bytes": 901812,
+      "sha256": "f430a975433d82e0098d7405619d4f12a0c765fcd97e7d63cc9b1de7f2d763cd",
+      "name": "tcga_absolute_purity.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt",
+      "path": "/tmp/a10_elf3_data/LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt",
+      "status": "downloaded",
+      "bytes": 35757367,
+      "sha256": "c2c5e97fd469591d7aec13bd28ba68aa19fe7ced161592f69924ecc388513e05",
+      "name": "LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "path": "/tmp/a10_elf3_data/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "status": "downloaded",
+      "bytes": 20132337,
+      "sha256": "746900f54072198481207ea13f8a7ba14dcabd52345bace0bef7438120c03845",
+      "name": "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt"
+    },
+    {
+      "url": "https://ndownloader.figshare.com/files/51065297",
+      "path": "/tmp/a10_elf3_data/Model.csv",
+      "status": "downloaded",
+      "bytes": 645696,
+      "sha256": "b7a0c1385e6cef30132b56aff61f1261d11e3f490490b355c430d32ee0dbdcfa",
+      "name": "Model.csv"
+    },
+    {
+      "url": "https://ndownloader.figshare.com/files/51065489",
+      "path": "/tmp/a10_elf3_data/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
+      "status": "downloaded",
+      "bytes": 506628654,
+      "sha256": "2a71dc94110efcc0221eae821bb93a9f03b54bea16f005818911a09d33383d56",
+      "name": "OmicsExpressionProteinCodingGenesTPMLogp1.csv"
+    }
+  ],
+  "extracts": {
+    "tcga_luad": {
+      "n_samples": 589,
+      "genes_found": {
+        "CLDN4": "ENSG00000189143.9",
+        "ELF3": "ENSG00000163435.16",
+        "EPCAM": "ENSG00000119888.11",
+        "KRT5": "ENSG00000186081.12",
+        "KRT8": "ENSG00000170421.12",
+        "NKX2-1": "ENSG00000136352.19",
+        "TACSTD2": "ENSG00000184292.7"
+      },
+      "genes_missing": []
+    },
+    "tcga_lusc": {
+      "n_samples": 552,
+      "genes_found": {
+        "CLDN4": "ENSG00000189143.9",
+        "ELF3": "ENSG00000163435.16",
+        "EPCAM": "ENSG00000119888.11",
+        "KRT5": "ENSG00000186081.12",
+        "KRT8": "ENSG00000170421.12",
+        "NKX2-1": "ENSG00000136352.19",
+        "TACSTD2": "ENSG00000184292.7"
+      },
+      "genes_missing": []
+    },
+    "cptac_rna": {
+      "layer": "rna",
+      "source": "LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt",
+      "n_samples": 110,
+      "genes_found": {
+        "CLDN4": "ENSG00000189143.9",
+        "ELF3": "ENSG00000163435.16",
+        "EPCAM": "ENSG00000119888.11",
+        "KRT5": "ENSG00000186081.12",
+        "KRT8": "ENSG00000170421.12",
+        "NKX2-1": "ENSG00000136352.18",
+        "TACSTD2": "ENSG00000184292.7"
+      },
+      "genes_missing": []
+    },
+    "cptac_protein": {
+      "layer": "protein",
+      "source": "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "n_samples": 110,
+      "genes_found": {
+        "CLDN4": "ENSG00000189143.9",
+        "ELF3": "ENSG00000163435.16",
+        "EPCAM": "ENSG00000119888.11",
+        "KRT5": "ENSG00000186081.12",
+        "KRT8": "ENSG00000170421.12",
+        "NKX2-1": "ENSG00000136352.18",
+        "TACSTD2": "ENSG00000184292.7"
+      },
+      "genes_missing": []
+    },
+    "depmap": {
+      "n_models": 1673,
+      "columns": {
+        "ELF3": "ELF3 (1999)",
+        "TACSTD2": "TACSTD2 (4070)",
+        "CLDN4": "CLDN4 (1364)",
+        "EPCAM": "EPCAM (4072)",
+        "KRT8": "KRT8 (3856)",
+        "KRT5": "KRT5 (3852)",
+        "NKX2-1": "NKX2-1 (7080)"
+      },
+      "genes_missing": []
+    }
+  }
+}
