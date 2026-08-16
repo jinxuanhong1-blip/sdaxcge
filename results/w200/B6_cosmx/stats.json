@@ -1,0 +1,356 @@
+{
+  "Lung9_Rep1": {
+    "n_cells_qc": 87617,
+    "n_fovs": 20,
+    "compartment_counts": {
+      "epithelial": 41595,
+      "stromal": 32161,
+      "immune": 12836,
+      "unassigned": 1025
+    },
+    "n_t_like": 29629,
+    "markers_n": {
+      "immune": 34,
+      "epithelial": 14,
+      "stromal": 21
+    },
+    "protein_stain_validation": {
+      "cd45_auroc_rna_immune_vs_rest": 0.572,
+      "panck_auroc_rna_epithelial_vs_rest": 0.785,
+      "n_prot_epi": 27527,
+      "n_prot_imm": 27584
+    },
+    "specificity": {
+      "CLDN4": {
+        "epi_vs_imm_auroc": 0.747,
+        "epi_vs_imm_mannwhitney_p": 0.0
+      },
+      "TACSTD2": {
+        "epi_vs_imm_auroc": 0.595,
+        "epi_vs_imm_mannwhitney_p": 0.0
+      }
+    },
+    "spatial": {
+      "cldn4_vs_immune_50um": {
+        "n_index_cells": 41594,
+        "spearman_rho_pooled": -0.3726,
+        "spearman_p_pooled": 0.0,
+        "hi_tertile_nbhd_mean": 0.0508,
+        "lo_tertile_nbhd_mean": 0.169,
+        "tertile_hi_vs_lo_p": 0.0,
+        "n_fovs": 20,
+        "median_fov_rho": -0.2501,
+        "mean_fov_rho": -0.2711,
+        "frac_fovs_negative": 0.95,
+        "n_fovs_p05": 19,
+        "wilcoxon_signedrank_p": 3.814697265625e-06
+      },
+      "cldn4_vs_immune_25um": {
+        "n_index_cells": 41286,
+        "spearman_rho_pooled": -0.3753,
+        "spearman_p_pooled": 0.0,
+        "hi_tertile_nbhd_mean": 0.0417,
+        "lo_tertile_nbhd_mean": 0.1673,
+        "tertile_hi_vs_lo_p": 0.0,
+        "n_fovs": 20,
+        "median_fov_rho": -0.2702,
+        "mean_fov_rho": -0.2652,
+        "frac_fovs_negative": 1.0,
+        "n_fovs_p05": 19,
+        "wilcoxon_signedrank_p": 1.9073486328125e-06
+      },
+      "cldn4_vs_t_50um": {
+        "n_index_cells": 41594,
+        "spearman_rho_pooled": 0.3177,
+        "spearman_p_pooled": 0.0,
+        "hi_tertile_nbhd_mean": 0.4241,
+        "lo_tertile_nbhd_mean": 0.3264,
+        "tertile_hi_vs_lo_p": 0.0,
+        "n_fovs": 20,
+        "median_fov_rho": 0.2302,
+        "mean_fov_rho": 0.2514,
+        "frac_fovs_negative": 0.0,
+        "n_fovs_p05": 19,
+        "wilcoxon_signedrank_p": 1.9073486328125e-06
+      },
+      "tacstd2_vs_immune_50um": {
+        "n_index_cells": 41594,
+        "spearman_rho_pooled": -0.1293,
+        "spearman_p_pooled": 1.6922443101425766e-154,
+        "hi_tertile_nbhd_mean": 0.0938,
+        "lo_tertile_nbhd_mean": 0.1059,
+        "tertile_hi_vs_lo_p": 6.136049950995847e-30,
+        "n_fovs": 20,
+        "median_fov_rho": -0.097,
+        "mean_fov_rho": -0.1123,
+        "frac_fovs_negative": 0.95,
+        "n_fovs_p05": 16,
+        "wilcoxon_signedrank_p": 5.7220458984375e-06
+      },
+      "cldn4_vs_prot_imm_50um": {
+        "n_index_cells": 27527,
+        "spearman_rho_pooled": -0.1625,
+        "spearman_p_pooled": 3.4871840572506783e-162,
+        "hi_tertile_nbhd_mean": 0.0944,
+        "lo_tertile_nbhd_mean": 0.1438,
+        "tertile_hi_vs_lo_p": 3.1307339302977815e-153,
+        "n_fovs": 20,
+        "median_fov_rho": -0.1696,
+        "mean_fov_rho": -0.1579,
+        "frac_fovs_negative": 0.95,
+        "n_fovs_p05": 18,
+        "wilcoxon_signedrank_p": 3.814697265625e-06
+      },
+      "tacstd2_vs_prot_imm_50um": {
+        "n_index_cells": 27527,
+        "spearman_rho_pooled": -0.0468,
+        "spearman_p_pooled": 7.948973198969078e-15,
+        "hi_tertile_nbhd_mean": 0.1175,
+        "lo_tertile_nbhd_mean": 0.1218,
+        "tertile_hi_vs_lo_p": 0.0008978659140879892,
+        "n_fovs": 20,
+        "median_fov_rho": -0.026,
+        "mean_fov_rho": -0.0477,
+        "frac_fovs_negative": 0.7,
+        "n_fovs_p05": 8,
+        "wilcoxon_signedrank_p": 0.04405403137207031
+      }
+    }
+  },
+  "Lung12": {
+    "n_cells_qc": 71440,
+    "n_fovs": 28,
+    "compartment_counts": {
+      "stromal": 35970,
+      "epithelial": 25599,
+      "immune": 9247,
+      "unassigned": 624
+    },
+    "n_t_like": 35516,
+    "markers_n": {
+      "immune": 34,
+      "epithelial": 14,
+      "stromal": 21
+    },
+    "protein_stain_validation": {
+      "cd45_auroc_rna_immune_vs_rest": 0.594,
+      "panck_auroc_rna_epithelial_vs_rest": 0.751,
+      "n_prot_epi": 18700,
+      "n_prot_imm": 18873
+    },
+    "specificity": {
+      "CLDN4": {
+        "epi_vs_imm_auroc": 0.609,
+        "epi_vs_imm_mannwhitney_p": 0.0
+      },
+      "TACSTD2": {
+        "epi_vs_imm_auroc": 0.59,
+        "epi_vs_imm_mannwhitney_p": 0.0
+      }
+    },
+    "spatial": {
+      "cldn4_vs_immune_50um": {
+        "n_index_cells": 25504,
+        "spearman_rho_pooled": -0.2582,
+        "spearman_p_pooled": 0.0,
+        "hi_tertile_nbhd_mean": 0.1175,
+        "lo_tertile_nbhd_mean": 0.1362,
+        "tertile_hi_vs_lo_p": 7.3030426511018755e-87,
+        "n_fovs": 28,
+        "median_fov_rho": -0.2038,
+        "mean_fov_rho": -0.2295,
+        "frac_fovs_negative": 1.0,
+        "n_fovs_p05": 27,
+        "wilcoxon_signedrank_p": 7.450580596923828e-09
+      },
+      "cldn4_vs_immune_25um": {
+        "n_index_cells": 20983,
+        "spearman_rho_pooled": -0.2412,
+        "spearman_p_pooled": 2.1755373568029117e-275,
+        "hi_tertile_nbhd_mean": 0.1206,
+        "lo_tertile_nbhd_mean": 0.1427,
+        "tertile_hi_vs_lo_p": 5.902003857621529e-56,
+        "n_fovs": 28,
+        "median_fov_rho": -0.1963,
+        "mean_fov_rho": -0.2186,
+        "frac_fovs_negative": 1.0,
+        "n_fovs_p05": 27,
+        "wilcoxon_signedrank_p": 7.450580596923828e-09
+      },
+      "cldn4_vs_t_50um": {
+        "n_index_cells": 25504,
+        "spearman_rho_pooled": 0.2377,
+        "spearman_p_pooled": 0.0,
+        "hi_tertile_nbhd_mean": 0.5184,
+        "lo_tertile_nbhd_mean": 0.489,
+        "tertile_hi_vs_lo_p": 2.2211349009593302e-83,
+        "n_fovs": 28,
+        "median_fov_rho": 0.2023,
+        "mean_fov_rho": 0.1867,
+        "frac_fovs_negative": 0.036,
+        "n_fovs_p05": 25,
+        "wilcoxon_signedrank_p": 7.450580596923828e-08
+      },
+      "tacstd2_vs_immune_50um": {
+        "n_index_cells": 25504,
+        "spearman_rho_pooled": -0.2502,
+        "spearman_p_pooled": 0.0,
+        "hi_tertile_nbhd_mean": 0.1175,
+        "lo_tertile_nbhd_mean": 0.1326,
+        "tertile_hi_vs_lo_p": 2.807507842480741e-62,
+        "n_fovs": 28,
+        "median_fov_rho": -0.2219,
+        "mean_fov_rho": -0.2269,
+        "frac_fovs_negative": 1.0,
+        "n_fovs_p05": 27,
+        "wilcoxon_signedrank_p": 7.450580596923828e-09
+      },
+      "cldn4_vs_prot_imm_50um": {
+        "n_index_cells": 18612,
+        "spearman_rho_pooled": -0.0698,
+        "spearman_p_pooled": 1.5333216892820702e-21,
+        "hi_tertile_nbhd_mean": 0.072,
+        "lo_tertile_nbhd_mean": 0.0778,
+        "tertile_hi_vs_lo_p": 0.0010958398969760173,
+        "n_fovs": 28,
+        "median_fov_rho": -0.1004,
+        "mean_fov_rho": -0.1179,
+        "frac_fovs_negative": 1.0,
+        "n_fovs_p05": 15,
+        "wilcoxon_signedrank_p": 7.450580596923828e-09
+      },
+      "tacstd2_vs_prot_imm_50um": {
+        "n_index_cells": 18612,
+        "spearman_rho_pooled": -0.043,
+        "spearman_p_pooled": 4.522526646007099e-09,
+        "hi_tertile_nbhd_mean": 0.072,
+        "lo_tertile_nbhd_mean": 0.076,
+        "tertile_hi_vs_lo_p": 0.05126473204337645,
+        "n_fovs": 28,
+        "median_fov_rho": -0.1201,
+        "mean_fov_rho": -0.1074,
+        "frac_fovs_negative": 0.893,
+        "n_fovs_p05": 14,
+        "wilcoxon_signedrank_p": 2.2873282432556152e-06
+      }
+    }
+  },
+  "Lung13": {
+    "n_cells_qc": 81248,
+    "n_fovs": 20,
+    "compartment_counts": {
+      "stromal": 34585,
+      "epithelial": 26713,
+      "immune": 19700,
+      "unassigned": 250
+    },
+    "n_t_like": 30292,
+    "markers_n": {
+      "immune": 34,
+      "epithelial": 14,
+      "stromal": 21
+    },
+    "protein_stain_validation": {
+      "cd45_auroc_rna_immune_vs_rest": 0.624,
+      "panck_auroc_rna_epithelial_vs_rest": 0.939,
+      "n_prot_epi": 21261,
+      "n_prot_imm": 21290
+    },
+    "specificity": {
+      "CLDN4": {
+        "epi_vs_imm_auroc": 0.809,
+        "epi_vs_imm_mannwhitney_p": 0.0
+      },
+      "TACSTD2": {
+        "epi_vs_imm_auroc": 0.645,
+        "epi_vs_imm_mannwhitney_p": 0.0
+      }
+    },
+    "spatial": {
+      "cldn4_vs_immune_50um": {
+        "n_index_cells": 26693,
+        "spearman_rho_pooled": -0.1753,
+        "spearman_p_pooled": 3.826294718664611e-183,
+        "hi_tertile_nbhd_mean": 0.1418,
+        "lo_tertile_nbhd_mean": 0.2005,
+        "tertile_hi_vs_lo_p": 1.5926319029560524e-167,
+        "n_fovs": 20,
+        "median_fov_rho": -0.1379,
+        "mean_fov_rho": -0.1435,
+        "frac_fovs_negative": 1.0,
+        "n_fovs_p05": 20,
+        "wilcoxon_signedrank_p": 1.9073486328125e-06
+      },
+      "cldn4_vs_immune_25um": {
+        "n_index_cells": 25906,
+        "spearman_rho_pooled": -0.1831,
+        "spearman_p_pooled": 5.178422034864141e-194,
+        "hi_tertile_nbhd_mean": 0.091,
+        "lo_tertile_nbhd_mean": 0.1668,
+        "tertile_hi_vs_lo_p": 9.92729482716889e-177,
+        "n_fovs": 20,
+        "median_fov_rho": -0.1657,
+        "mean_fov_rho": -0.1621,
+        "frac_fovs_negative": 1.0,
+        "n_fovs_p05": 20,
+        "wilcoxon_signedrank_p": 1.9073486328125e-06
+      },
+      "cldn4_vs_t_50um": {
+        "n_index_cells": 26693,
+        "spearman_rho_pooled": 0.1152,
+        "spearman_p_pooled": 1.7571152301460535e-79,
+        "hi_tertile_nbhd_mean": 0.4078,
+        "lo_tertile_nbhd_mean": 0.3703,
+        "tertile_hi_vs_lo_p": 6.809176909192858e-88,
+        "n_fovs": 20,
+        "median_fov_rho": 0.0843,
+        "mean_fov_rho": 0.0884,
+        "frac_fovs_negative": 0.05,
+        "n_fovs_p05": 12,
+        "wilcoxon_signedrank_p": 3.814697265625e-06
+      },
+      "tacstd2_vs_immune_50um": {
+        "n_index_cells": 26693,
+        "spearman_rho_pooled": -0.0394,
+        "spearman_p_pooled": 1.264983191261984e-10,
+        "hi_tertile_nbhd_mean": 0.1665,
+        "lo_tertile_nbhd_mean": 0.1717,
+        "tertile_hi_vs_lo_p": 0.0019581363326162306,
+        "n_fovs": 20,
+        "median_fov_rho": -0.0391,
+        "mean_fov_rho": -0.0441,
+        "frac_fovs_negative": 0.85,
+        "n_fovs_p05": 5,
+        "wilcoxon_signedrank_p": 0.000133514404296875
+      },
+      "cldn4_vs_prot_imm_50um": {
+        "n_index_cells": 21256,
+        "spearman_rho_pooled": -0.0873,
+        "spearman_p_pooled": 3.082588498782194e-37,
+        "hi_tertile_nbhd_mean": 0.065,
+        "lo_tertile_nbhd_mean": 0.082,
+        "tertile_hi_vs_lo_p": 2.6989497800794835e-33,
+        "n_fovs": 20,
+        "median_fov_rho": -0.0742,
+        "mean_fov_rho": -0.0714,
+        "frac_fovs_negative": 0.8,
+        "n_fovs_p05": 11,
+        "wilcoxon_signedrank_p": 0.001209259033203125
+      },
+      "tacstd2_vs_prot_imm_50um": {
+        "n_index_cells": 21256,
+        "spearman_rho_pooled": -0.0322,
+        "spearman_p_pooled": 2.630071825186017e-06,
+        "hi_tertile_nbhd_mean": 0.0739,
+        "lo_tertile_nbhd_mean": 0.0763,
+        "tertile_hi_vs_lo_p": 0.05003873878394543,
+        "n_fovs": 20,
+        "median_fov_rho": -0.0173,
+        "mean_fov_rho": -0.0186,
+        "frac_fovs_negative": 0.75,
+        "n_fovs_p05": 4,
+        "wilcoxon_signedrank_p": 0.16495704650878906
+      }
+    }
+  }
+}

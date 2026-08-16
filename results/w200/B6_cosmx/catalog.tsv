@@ -1,0 +1,6 @@
+source	modality	processed	size_note	access	decision	reason
+NanoString CosMx SMI NSCLC (He 2022)	CosMx	yes	flat exprMat+metadata 145–181 MB / sample	public S3 nanostring-public-share/SMI-Compressed/	analyze	processed cell-by-gene + XY + PanCK/CD45 stains; leftover vs Visium/GeoMx B6
+Vizgen MERSCOPE FFPE IO showcase lung 1/2	MERFISH	yes_but_gated	cell_by_gene exists behind Vizgen/GCS login	storage.googleapis.com/vz-ffpe-showcase → HTTP 403	skip	no anonymous processed download
+Figshare 25983526 CellCharter MERSCOPE lung (2 pts)	MERFISH	yes	merscope_human_lung_cancer_nhood3.h5ad 3.67 GB	https://doi.org/10.6084/m9.figshare.25983526	skip	processed but >2 GB leftover budget
+Zenodo 11198494 Chen 2024 MERFISH (Pt38/43/67/73)	MERFISH	no_cell_by_gene	transcript tables 0.26–3.9 GB; no cell-by-gene matrix	https://doi.org/10.5281/zenodo.11198494	skip	honest skip: transcript-level, not processed cell-by-gene
+NanoString All SMI Giotto object	CosMx	yes	930 MB tar.gz	same S3 bucket	skip	redundant with flat files; no published official cell types required
