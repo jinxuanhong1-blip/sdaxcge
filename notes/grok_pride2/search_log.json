@@ -1,0 +1,241 @@
+{
+  "generated_utc": "2026-08-16T19:40:52.934372+00:00",
+  "n_unique_accessions": 856,
+  "n_excluded_known": 3,
+  "tier_counts": {
+    "core_lung_io": 88,
+    "io_not_lung": 680,
+    "io_trop2_cldn4_not_lung": 1,
+    "lung_adjacent": 25,
+    "unrelated": 62
+  },
+  "keep_accessions": [
+    "MSV000084997",
+    "MSV000098356",
+    "MSV000098579",
+    "PXD009041",
+    "PXD010657",
+    "PXD010786",
+    "PXD010787",
+    "PXD011885",
+    "PXD013649",
+    "PXD014197",
+    "PXD016060",
+    "PXD016997",
+    "PXD018299",
+    "PXD019573",
+    "PXD019643",
+    "PXD019763",
+    "PXD019774",
+    "PXD020150",
+    "PXD020304",
+    "PXD020618",
+    "PXD022949",
+    "PXD022990",
+    "PXD024209",
+    "PXD024435",
+    "PXD024837",
+    "PXD027766",
+    "PXD029805",
+    "PXD029821",
+    "PXD031474",
+    "PXD031794",
+    "PXD032767",
+    "PXD034772",
+    "PXD035748",
+    "PXD036662",
+    "PXD038273",
+    "PXD038782",
+    "PXD039141",
+    "PXD040145",
+    "PXD040265",
+    "PXD040761",
+    "PXD042991",
+    "PXD043057",
+    "PXD043059",
+    "PXD043989",
+    "PXD044028",
+    "PXD044086",
+    "PXD044740",
+    "PXD045563",
+    "PXD046734",
+    "PXD047474",
+    "PXD047616",
+    "PXD047873",
+    "PXD048934",
+    "PXD049438",
+    "PXD050029",
+    "PXD052031",
+    "PXD052327",
+    "PXD053333",
+    "PXD054498",
+    "PXD055112",
+    "PXD057566",
+    "PXD058272",
+    "PXD058303",
+    "PXD058436",
+    "PXD058514",
+    "PXD058523",
+    "PXD058539",
+    "PXD058967",
+    "PXD059011",
+    "PXD059275",
+    "PXD059463",
+    "PXD059596",
+    "PXD061178",
+    "PXD062630",
+    "PXD063051",
+    "PXD064638",
+    "PXD064740",
+    "PXD065735",
+    "PXD066804",
+    "PXD070147",
+    "PXD070831",
+    "PXD073256",
+    "PXD074679",
+    "PXD078247",
+    "PXD081026"
+  ],
+  "excluded_known": [
+    "PXD019061",
+    "PXD042091",
+    "PXD059688"
+  ],
+  "query_log": [
+    {
+      "api": "pride",
+      "query": "immunotherapy",
+      "n": 377
+    },
+    {
+      "api": "pride",
+      "query": "pembrolizumab",
+      "n": 5
+    },
+    {
+      "api": "pride",
+      "query": "nivolumab",
+      "n": 12
+    },
+    {
+      "api": "pride",
+      "query": "atezolizumab",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "durvalumab",
+      "n": 1
+    },
+    {
+      "api": "pride",
+      "query": "ipilimumab",
+      "n": 2
+    },
+    {
+      "api": "pride",
+      "query": "camrelizumab",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "sintilimab",
+      "n": 1
+    },
+    {
+      "api": "pride",
+      "query": "tislelizumab",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "PD-1",
+      "n": 89
+    },
+    {
+      "api": "pride",
+      "query": "PD-L1",
+      "n": 69
+    },
+    {
+      "api": "pride",
+      "query": "PD1",
+      "n": 114
+    },
+    {
+      "api": "pride",
+      "query": "PDL1",
+      "n": 6
+    },
+    {
+      "api": "pride",
+      "query": "checkpoint",
+      "n": 366
+    },
+    {
+      "api": "pride",
+      "query": "TROP2",
+      "n": 6
+    },
+    {
+      "api": "pride",
+      "query": "TACSTD2",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "CLDN4",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "claudin-4",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "NSCLC immunotherapy",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "lung immunotherapy",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "lung PD-1",
+      "n": 0
+    },
+    {
+      "api": "pride",
+      "query": "lung PD-L1",
+      "n": 0
+    },
+    {
+      "api": "omicsdi",
+      "query": "(source:pride OR source:massive OR source:iprox OR source:jpost OR source:panorama) AND (lung OR NSCLC OR LUAD OR LUSC) AND (immunotherapy OR pembrolizumab OR nivolumab OR atezolizumab OR durvalumab)",
+      "n": 0
+    },
+    {
+      "api": "omicsdi",
+      "query": "(source:pride OR source:massive OR source:iprox OR source:jpost) AND (lung OR NSCLC) AND (PD-1 OR PD-L1 OR PD1 OR checkpoint)",
+      "n": 0
+    },
+    {
+      "api": "omicsdi",
+      "query": "(source:pride OR source:massive OR source:iprox OR source:jpost) AND (TROP2 OR TACSTD2 OR CLDN4) AND (lung OR NSCLC OR cancer)",
+      "n": 0
+    },
+    {
+      "api": "omicsdi",
+      "query": "id:PXD* AND NSCLC AND (immunotherapy OR PD-1 OR PD-L1)",
+      "n": 27
+    },
+    {
+      "api": "omicsdi",
+      "query": "id:MSV* AND (lung OR NSCLC) AND (immunotherapy OR PD-1 OR PD-L1 OR TROP2 OR CLDN4)",
+      "n": 16
+    }
+  ]
+}
