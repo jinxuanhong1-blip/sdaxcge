@@ -1,0 +1,132 @@
+cohort	malig_def	tnk_def	score	gene	n	rho	p	note
+GSE207422	author_DRMref	tnk	mean	TACSTD2	12	-0.4895104895104896	0.10625237175934595	A3 given
+GSE207422	author_DRMref	tnk	pct	TACSTD2	12	-0.6433566433566434	0.024003191200713647	A3 given secondary %pos
+GSE207422	author_DRMref	tnk	mean	CLDN4	12	-0.09090909090909093	0.7787253962454419	CLDN4 from given A3 table; not on the A3 slide
+GSE207422	marker_malig	tnk	mean	TACSTD2	7	-0.03571428571428572	0.9394082054712856	post, n_mal>=10
+GSE207422	marker_malig	tnk	mean	CLDN4	7	0.25	0.5887244480896832	post, n_mal>=10
+GSE207422	marker_malig	cd8	mean	TACSTD2	7	-0.39285714285714296	0.3833168704269727	post, n_mal>=10
+GSE207422	marker_malig	cd8	mean	CLDN4	7	-0.07142857142857144	0.879048193148154	post, n_mal>=10
+GSE207422	marker_malig	tnk	pct	TACSTD2	7	0.14285714285714288	0.7599453002180927	post, n_mal>=10
+GSE207422	marker_malig	tnk	pct	CLDN4	7	0.0	1.0	post, n_mal>=10
+GSE207422	marker_malig	cd8	pct	TACSTD2	7	-0.07142857142857144	0.879048193148154	post, n_mal>=10
+GSE207422	marker_malig	cd8	pct	CLDN4	7	-0.1785714285714286	0.7016579425162727	post, n_mal>=10
+GSE207422	marker_epi	tnk	mean	TACSTD2	12	-0.04195804195804196	0.8969858708195542	post all-epithelial
+GSE207422	marker_epi	tnk	mean	CLDN4	12	0.1258741258741259	0.696683109395766	post all-epithelial
+GSE207422	marker_epi	cd8	mean	TACSTD2	12	-0.1958041958041958	0.5419358857313173	post all-epithelial
+GSE207422	marker_epi	cd8	mean	CLDN4	12	-0.006993006993006993	0.9827917689028476	post all-epithelial
+GSE207422	marker_malig_nsclc	tnk	mean	TACSTD2	9	0.16666666666666669	0.668231040071504	post, n_mal_like>=10
+GSE207422	marker_malig_nsclc	tnk	mean	CLDN4	9	0.03333333333333333	0.9321567355405039	post, n_mal_like>=10
+GSE207422	marker_malig_nsclc	cd8	mean	TACSTD2	9	-0.016666666666666666	0.9660548039946862	post, n_mal_like>=10
+GSE207422	marker_malig_nsclc	cd8	mean	CLDN4	9	-0.13333333333333333	0.7323675052362973	post, n_mal_like>=10
+GSE207422	marker_malig_nsclc	tnk	pct	TACSTD2	9	0.09999999999999999	0.797971695234851	post, n_mal_like>=10
+GSE207422	marker_malig_nsclc	tnk	pct	CLDN4	9	0.03333333333333333	0.9321567355405039	post, n_mal_like>=10
+GSE207422	marker_malig_nsclc	cd8	pct	TACSTD2	9	-0.03333333333333333	0.9321567355405039	post, n_mal_like>=10
+GSE207422	marker_malig_nsclc	cd8	pct	CLDN4	9	-0.13333333333333333	0.7323675052362973	post, n_mal_like>=10
+GSE207422	infercnv_p95	tnk	mean	TACSTD2	12	0.07692307692307693	0.8121826980280591	wave2 inferCNV-like infercnv_p95; n_n_mal_p95>=10; CLDN4 absent
+GSE207422	infercnv_p95	tnk_umi	mean	TACSTD2	12	0.1188811188811189	0.712884219214772	wave2 inferCNV-like infercnv_p95; n_n_mal_p95>=10; CLDN4 absent
+GSE207422	infercnv_p95	tnk_drm	mean	TACSTD2	12	-0.34965034965034975	0.26523878689278996	wave2 inferCNV-like infercnv_p95; n_n_mal_p95>=10; CLDN4 absent
+GSE207422	infercnv_p90	tnk	mean	TACSTD2	12	0.06293706293706294	0.8459309212287789	wave2 inferCNV-like infercnv_p90; n_n_mal_p90>=10; CLDN4 absent
+GSE207422	infercnv_p90	tnk_umi	mean	TACSTD2	12	0.0979020979020979	0.7621216559962992	wave2 inferCNV-like infercnv_p90; n_n_mal_p90>=10; CLDN4 absent
+GSE207422	infercnv_p90	tnk_drm	mean	TACSTD2	12	-0.3426573426573427	0.2755674509567803	wave2 inferCNV-like infercnv_p90; n_n_mal_p90>=10; CLDN4 absent
+GSE207422	infercnv_gmm	tnk	mean	TACSTD2	12	0.0	1.0	wave2 inferCNV-like infercnv_gmm; n_n_mal_gmm>=10; CLDN4 absent
+GSE207422	infercnv_gmm	tnk_umi	mean	TACSTD2	12	0.034965034965034975	0.9140933424107599	wave2 inferCNV-like infercnv_gmm; n_n_mal_gmm>=10; CLDN4 absent
+GSE207422	infercnv_gmm	tnk_drm	mean	TACSTD2	12	-0.2657342657342658	0.4038330883147116	wave2 inferCNV-like infercnv_gmm; n_n_mal_gmm>=10; CLDN4 absent
+GSE207422	infercnv_p95	tnk	pct	TACSTD2	12	0.15493341934487972	0.6306611257501797	wave2 inferCNV-like infercnv_p95; n_n_mal_p95>=10; CLDN4 absent
+GSE207422	infercnv_p95	tnk_umi	pct	TACSTD2	12	0.19718798825711964	0.5390267201932187	wave2 inferCNV-like infercnv_p95; n_n_mal_p95>=10; CLDN4 absent
+GSE207422	infercnv_p95	tnk_drm	pct	TACSTD2	12	-0.3873335483621993	0.2135115526743915	wave2 inferCNV-like infercnv_p95; n_n_mal_p95>=10; CLDN4 absent
+GSE207422	infercnv_p90	tnk	pct	TACSTD2	12	0.19014556010507966	0.5539000407542048	wave2 inferCNV-like infercnv_p90; n_n_mal_p90>=10; CLDN4 absent
+GSE207422	infercnv_p90	tnk_umi	pct	TACSTD2	12	0.2253577008652796	0.481287412946627	wave2 inferCNV-like infercnv_p90; n_n_mal_p90>=10; CLDN4 absent
+GSE207422	infercnv_p90	tnk_drm	pct	TACSTD2	12	-0.3239516949938394	0.30430743546914635	wave2 inferCNV-like infercnv_p90; n_n_mal_p90>=10; CLDN4 absent
+GSE207422	infercnv_gmm	tnk	pct	TACSTD2	12	0.1398601398601399	0.6646331617926677	wave2 inferCNV-like infercnv_gmm; n_n_mal_gmm>=10; CLDN4 absent
+GSE207422	infercnv_gmm	tnk_umi	pct	TACSTD2	12	0.16783216783216784	0.6020994277865379	wave2 inferCNV-like infercnv_gmm; n_n_mal_gmm>=10; CLDN4 absent
+GSE207422	infercnv_gmm	tnk_drm	pct	TACSTD2	12	-0.1258741258741259	0.696683109395766	wave2 inferCNV-like infercnv_gmm; n_n_mal_gmm>=10; CLDN4 absent
+GSE205335	author_malig	tnk	mean	TACSTD2	22	0.2840203274985884	0.20019815279526967	author malignant
+GSE205335	author_malig	tnk	mean	CLDN4	22	-0.20045172219085267	0.3710825718233011	author malignant
+GSE205335	author_malig	tnk	pct	TACSTD2	22	0.20835686053077357	0.3521105235596147	author malignant
+GSE205335	author_malig	tnk	pct	CLDN4	22	-0.43534726143421804	0.042861326301676765	author malignant
+GSE205335	author_malig	cd8	mean	TACSTD2	22	0.409373235460192	0.05850104223477929	author malignant
+GSE205335	author_malig	cd8	mean	CLDN4	22	-0.17786561264822137	0.42841247523808007	author malignant
+GSE205335	author_malig	cd8	pct	TACSTD2	22	0.30095990965556185	0.17350377772416178	author malignant
+GSE205335	author_malig	cd8	pct	CLDN4	22	-0.36420101637492946	0.09564628896671849	author malignant
+GSE205335_NSCLC	author_malig	tnk	mean	TACSTD2	17	-0.11274509803921569	0.6665920499637249	author malignant
+GSE205335_NSCLC	author_malig	tnk	mean	CLDN4	17	-0.022058823529411766	0.9330304490530753	author malignant
+GSE205335_NSCLC	author_malig	tnk	pct	TACSTD2	17	-0.24754901960784317	0.33808764785888096	author malignant
+GSE205335_NSCLC	author_malig	tnk	pct	CLDN4	17	-0.2058823529411765	0.42791485314270766	author malignant
+GSE205335_NSCLC	author_malig	cd8	mean	TACSTD2	17	0.21813725490196081	0.40029509071151087	author malignant
+GSE205335_NSCLC	author_malig	cd8	mean	CLDN4	17	-0.02450980392156863	0.9256077760199252	author malignant
+GSE205335_NSCLC	author_malig	cd8	pct	TACSTD2	17	0.14215686274509806	0.586262862651232	author malignant
+GSE205335_NSCLC	author_malig	cd8	pct	CLDN4	17	-0.07107843137254903	0.7863266619781205	author malignant
+GSE241934_IIT	author_epi	tnk	mean	TACSTD2	11	-0.07272727272727274	0.831716405381337	author residual Epi
+GSE241934_IIT	author_epi	tnk	mean	CLDN4	11	-0.06363636363636364	0.8525390725425217	author residual Epi
+GSE241934_IIT	author_epi	tnk	pct	TACSTD2	11	-0.13636363636363638	0.6893090205863619	author residual Epi
+GSE241934_IIT	author_epi	tnk	pct	CLDN4	11	0.05454545454545456	0.8734465775233149	author residual Epi
+GSE241934_IIT	author_epi	cd8	mean	TACSTD2	11	-0.13636363636363638	0.6893090205863619	author residual Epi
+GSE241934_IIT	author_epi	cd8	mean	CLDN4	11	-0.10909090909090911	0.7495085962341481	author residual Epi
+GSE241934_IIT	author_epi	cd8	pct	TACSTD2	11	0.018181818181818184	0.9576852410216187	author residual Epi
+GSE241934_IIT	author_epi	cd8	pct	CLDN4	11	0.18181818181818182	0.5926152128455	author residual Epi
+GSE241934_Real	author_epi	tnk	mean	TACSTD2	24	-0.16695652173913042	0.4355381053206146	author residual Epi
+GSE241934_Real	author_epi	tnk	mean	CLDN4	24	0.1782608695652174	0.404629262071875	author residual Epi
+GSE241934_Real	author_epi	tnk	pct	TACSTD2	24	-0.12307023556862542	0.5667003854361812	author residual Epi
+GSE241934_Real	author_epi	tnk	pct	CLDN4	24	-0.033913043478260865	0.8749966229566862	author residual Epi
+GSE241934_Real	author_epi	cd8	mean	TACSTD2	24	-0.2026086956521739	0.34237332678092114	author residual Epi
+GSE241934_Real	author_epi	cd8	mean	CLDN4	24	0.18521739130434778	0.3862326819021753	author residual Epi
+GSE241934_Real	author_epi	cd8	pct	TACSTD2	24	-0.06566645078043265	0.7604771618778372	author residual Epi
+GSE241934_Real	author_epi	cd8	pct	CLDN4	24	0.1226086956521739	0.5681672657020509	author residual Epi
+GSE241934_pooled	author_epi	tnk	mean	TACSTD2	35	-0.15154061624649862	0.3848464338920366	IIT+Real eligible
+GSE241934_pooled	author_epi	tnk	mean	CLDN4	35	0.157703081232493	0.365581708535652	IIT+Real eligible
+GSE241934_pooled	author_epi	tnk	pct	TACSTD2	35	-0.12297779986737496	0.4815558002734968	IIT+Real eligible
+GSE241934_pooled	author_epi	tnk	pct	CLDN4	35	0.0319327731092437	0.8555025717677157	IIT+Real eligible
+GSE241934_pooled	author_epi	cd8	mean	TACSTD2	35	-0.15938375350140058	0.3604291556869382	IIT+Real eligible
+GSE241934_pooled	author_epi	cd8	mean	CLDN4	35	0.1512605042016807	0.3857359246499711	IIT+Real eligible
+GSE241934_pooled	author_epi	cd8	pct	TACSTD2	35	-0.013866517297118587	0.936985061041829	IIT+Real eligible
+GSE241934_pooled	author_epi	cd8	pct	CLDN4	35	0.18403361344537816	0.289923701223476	IIT+Real eligible
+GSE291670	marker_malig	tnk	mean	TACSTD2	6	-0.5428571428571429	0.26570262390670546	marker malignant
+GSE291670	marker_malig	tnk	mean	CLDN4	6	-0.8285714285714287	0.04156268221574335	marker malignant
+GSE291670	marker_malig	tnk	pct	TACSTD2	6	-0.4285714285714286	0.3965014577259473	marker malignant
+GSE291670	marker_malig	tnk	pct	CLDN4	6	-0.8857142857142858	0.01884548104956266	marker malignant
+GSE291670	marker_epi	tnk	mean	TACSTD2	6	-0.6	0.208	all epithelial
+GSE291670	marker_epi	tnk	mean	CLDN4	6	-0.8285714285714287	0.04156268221574335	all epithelial
+GSE291670	marker_malig	tnk_umi	mean	TACSTD2	6	-0.3714285714285715	0.4684781341107872	marker malignant
+GSE291670	marker_malig	tnk_umi	mean	CLDN4	6	-0.5428571428571429	0.26570262390670546	marker malignant
+GSE291670	marker_malig	tnk_umi	pct	TACSTD2	6	0.028571428571428574	0.9571545189504373	marker malignant
+GSE291670	marker_malig	tnk_umi	pct	CLDN4	6	-0.6	0.208	marker malignant
+GSE291670	marker_epi	tnk_umi	mean	TACSTD2	6	-0.4285714285714286	0.3965014577259473	all epithelial
+GSE291670	marker_epi	tnk_umi	mean	CLDN4	6	-0.5428571428571429	0.26570262390670546	all epithelial
+GSE253013	marker_malig	tnk	mean	TACSTD2	9	-0.7166666666666667	0.02981803569584528	tumor malig-like
+GSE253013	marker_malig	tnk	mean	CLDN4	9	-0.33333333333333337	0.38071318167686347	tumor malig-like
+GSE253013	marker_malig	tnk	mean_cp10k	TACSTD2	9	-0.7833333333333333	0.012519873019449885	tumor malig-like
+GSE253013	marker_malig	tnk	mean_cp10k	CLDN4	9	-0.5499999999999999	0.12497678418833194	tumor malig-like
+GSE253013	marker_malig	tnk	pct	TACSTD2	9	-0.8333333333333333	0.005265691029161747	tumor malig-like
+GSE253013	marker_malig	tnk	pct	CLDN4	9	-0.5333333333333333	0.13922686754397814	tumor malig-like
+GSE253013	marker_epi	tnk	mean	TACSTD2	9	-0.11666666666666665	0.765007942926146	tumor epithelium
+GSE253013	marker_epi	tnk	mean	CLDN4	9	-0.19999999999999998	0.6059012741795534	tumor epithelium
+GSE253013	marker_epi	tnk	pct	TACSTD2	9	-0.5166666666666667	0.15439012098622507	tumor epithelium
+GSE253013	marker_epi	tnk	pct	CLDN4	9	-0.06666666666666667	0.8646897846262036	tumor epithelium
+GSE253013	author_epi	tcell	mean	TACSTD2	9	-0.5833333333333334	0.09918581647988327	author Epithelial vs author T-cell fraction
+GSE253013	author_epi	tcell	mean	CLDN4	9	0.26666666666666666	0.48792227483870076	author Epithelial vs author T-cell fraction
+GSE131907	author_epi	tnk	mean	TACSTD2	36	0.16847931047179202	0.325979079499522	author epithelium, >=20 epi
+GSE131907	author_epi	tnk	mean	CLDN4	36	-0.2102960102960103	0.21829713378991505	author epithelium, >=20 epi
+GSE131907	author_epi	tnk	pct	TACSTD2	36	-0.008623463561199439	0.9601896359312355	author epithelium, >=20 epi
+GSE131907	author_epi	tnk	pct	CLDN4	36	-0.364993564993565	0.028610578513248885	author epithelium, >=20 epi
+GSE131907	author_malig	tnk	mean	TACSTD2	21	0.08181818181818182	0.7244098408074375	author Malignant cells subtype
+GSE131907	author_malig	tnk	mean	CLDN4	21	-0.39610389610389607	0.07547637795047248	author Malignant cells subtype
+GSE131907	author_malig	tnk	pct	TACSTD2	21	-0.15064935064935067	0.5145138644694079	author Malignant cells subtype
+GSE131907	author_malig	tnk	pct	CLDN4	21	-0.5220779220779221	0.015195754492505785	author Malignant cells subtype
+GSE131907	author_epi	cd8	mean	TACSTD2	36	0.24724885822483764	0.14599610382848033	author epithelium, >=20 epi
+GSE131907	author_epi	cd8	mean	CLDN4	36	-0.09446589446589447	0.5836780479358336	author epithelium, >=20 epi
+GSE131907	author_epi	cd8	pct	TACSTD2	36	0.01892013647009429	0.9127867843305746	author epithelium, >=20 epi
+GSE131907	author_epi	cd8	pct	CLDN4	36	-0.3258687258687259	0.05243803861101634	author epithelium, >=20 epi
+GSE131907	author_malig	cd8	mean	TACSTD2	21	0.1935064935064935	0.40065858838070295	author Malignant cells subtype
+GSE131907	author_malig	cd8	mean	CLDN4	21	-0.3532467532467533	0.11623101293161814	author Malignant cells subtype
+GSE131907	author_malig	cd8	pct	TACSTD2	21	-0.07792207792207792	0.7370748924266822	author Malignant cells subtype
+GSE131907	author_malig	cd8	pct	CLDN4	21	-0.5727272727272726	0.006656520496826817	author Malignant cells subtype
+GSE131907_tLung	author_epi	tnk	mean	TACSTD2	11	0.09090909090909091	0.7903727377532903	author epithelium, >=20 epi
+GSE131907_tLung	author_epi	tnk	mean	CLDN4	11	-0.045454545454545456	0.8944269969053026	author epithelium, >=20 epi
+GSE131907_tLung	author_epi	tnk	pct	TACSTD2	11	-0.26363636363636367	0.43344073761161456	author epithelium, >=20 epi
+GSE131907_tLung	author_epi	tnk	pct	CLDN4	11	-0.4000000000000001	0.22286835013352	author epithelium, >=20 epi
+GSE131907_tLung	author_epi	cd8	mean	TACSTD2	11	0.38181818181818183	0.2465595757789701	author epithelium, >=20 epi
+GSE131907_tLung	author_epi	cd8	mean	CLDN4	11	0.33636363636363636	0.31182431390038634	author epithelium, >=20 epi
+GSE131907_tLung	author_epi	cd8	pct	TACSTD2	11	0.3090909090909091	0.35502843970150694	author epithelium, >=20 epi
+GSE131907_tLung	author_epi	cd8	pct	CLDN4	11	0.29090909090909095	0.3854569696913654	author epithelium, >=20 epi
+GSE325414	author_malig	tnk	mean	TACSTD2	25	-0.07307692307692308	0.7284839479101775	author malignant, donor
+GSE325414	author_malig	tnk	mean	CLDN4	25	-0.11923076923076922	0.5702629145851892	author malignant, donor

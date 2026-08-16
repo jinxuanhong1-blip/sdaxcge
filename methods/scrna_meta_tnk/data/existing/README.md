@@ -10,3 +10,7 @@ These tables are the patient-level inputs for `ingest_cohorts.py`. They come fro
 | `GSE253013_patients.tsv` | GSE253013 | Tumor + ANT; ingest keeps Tumor + eligible_malig |
 | `GSE291670_patients.tsv` | GSE291670 | Marker malignant; lineage T/NK |
 | `GSE325414_donors.csv` | GSE325414 | 2026 leftover; author malignant / T/NK; donor unit |
+| `extra/GSE207422_marker_fable.tsv` | GSE207422 | Extra marker-malignant definition (not an A3 re-audit) |
+| `extra/GSE207422_marker_nsclc.tsv` | GSE207422 | Extra marker-NSCLC definition |
+| `extra/GSE207422_wave2_cnv.tsv` | GSE207422 | inferCNV-like TACSTD2 only; no CLDN4 |
+| `extra/GSE253013_author.tsv` | GSE253013 | Author epithelial vs author T-cell fraction |

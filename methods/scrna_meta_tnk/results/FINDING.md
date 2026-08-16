@@ -2,6 +2,9 @@
 
 GSE207422 A3 is taken as given (n=12, TACSTD2 ρ=−0.490, p=0.106).
 
+The goal is a combinatorial search over cohort subsets and definitions
+(see `combinatorial/FINDING.md`). The 8-cohort merge below is **one row**.
+
 Eight cohorts, **N=145 patients**.
 
 | Gene | RE ρ [95% CI] | p | I² | Stouffer z (p) |

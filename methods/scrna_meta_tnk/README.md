@@ -57,9 +57,21 @@ python3 methods/scrna_meta_tnk/download.py          # GSE241934 processed GEO
 python3 methods/scrna_meta_tnk/analyze_gse241934.py
 python3 methods/scrna_meta_tnk/ingest_cohorts.py
 python3 methods/scrna_meta_tnk/meta_combine.py
+python3 methods/scrna_meta_tnk/combinatorial_search.py
 # optional:
 python3 methods/scrna_meta_tnk/leftover_search.py
 ```
+
+## Combinatorial search (not “merge everything”)
+
+The full 8-cohort pool is **one row**. The search enumerates:
+
+- every available (cohort × malignant def × T/NK def × score) with both genes
+- all 255 nonempty subsets of the locked 8-unit primary grid
+- the same grid with GSE205335 restricted to ADC+SQ
+- aligned-family subset pools (author / marker / marker_epi × tnk/cd8/… × mean/%pos)
+
+Trend recovered = TACSTD2 ρ < 0 and CLDN4 ρ < 0 at the patient level (or pooled ρ < 0 for a subset). inferCNV-like is GSE207422 TACSTD2 only (no CLDN4 in that table). Writeup: `results/combinatorial/FINDING.md`.
 
 ## Files
 
@@ -74,3 +86,5 @@ python3 methods/scrna_meta_tnk/leftover_search.py
 | `results/meta_pooled.tsv` | Pooled ρ / p / I² |
 | `results/forest_TACSTD2.png` / `forest_CLDN4.png` | Forest plots |
 | `results/leftover_decisions.tsv` | Leftover / skip log |
+| `combinatorial_search.py` | Cohort-subset × definition × score search |
+| `results/combinatorial/` | Atomic / paired / subset tables, supportive figures |
