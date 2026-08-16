@@ -73,6 +73,22 @@ EXTRA_URLS = {
         "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/"
         "matrix/GSE166449_series_matrix.txt.gz"
     ),
+    "GSE190266_TPM.csv.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190266/"
+        "suppl/GSE190266_TPM_France4.csv.gz"
+    ),
+    "GSE190266_series_matrix.txt.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE190nnn/GSE190266/"
+        "matrix/GSE190266_series_matrix.txt.gz"
+    ),
+    "GSE161537_log2cpm.csv.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161537/"
+        "suppl/GSE161537_nivobio_log2cpm.csv.gz"
+    ),
+    "GSE161537_series_matrix.txt.gz": (
+        "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161537/"
+        "matrix/GSE161537_series_matrix.txt.gz"
+    ),
     "TCGA_LUAD_HiSeqV2.gz": (
         "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/"
         "TCGA.LUAD.sampleMap%2FHiSeqV2.gz"

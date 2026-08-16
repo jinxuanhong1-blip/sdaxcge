@@ -1,9 +1,8 @@
-"""Documented gene sets for B4 wave-2. Nothing here was chosen to hit p=0.019.
+"""Documented gene sets for B4 extras / GSE126044 index scoring.
 
-Cho 2020 (PMID 32879421; GSE126044 source paper) does not publish a tight-junction
-gene list. Related NSCLC immune/barrier papers and public pathway databases are
-used instead. Repo CUSTOM_TJ_CORE / 40-gene core TJ are retained only as
-comparators already reported in prior PRs.
+The 7-gene module is CLDN1, CLDN4, CLDN7, F11R, TJP1, TJP2, OCLN.
+The 5-gene module is CLDN1, CLDN4, CLDN7, F11R, PARD3.
+Related NSCLC barrier lists and public TJ pathway sets are retained as comparators.
 """
 
 from __future__ import annotations
@@ -58,7 +57,7 @@ REACTOME_TJ = [
 ]
 
 # ---------------------------------------------------------------------------
-# Prior-PR comparators (already known not to hit 0.019 on two-sided MW)
+# Additional TJ comparators (pathway / prior-PR lists)
 # ---------------------------------------------------------------------------
 CUSTOM_TJ_CORE = [
     "AMOT", "AMOTL1", "CGN", "CGNL1", "CLDN1", "CLDN3", "CLDN4", "CLDN7",

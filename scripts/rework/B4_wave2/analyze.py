@@ -700,9 +700,8 @@ def main() -> int:
         hit_txt = "\n".join(hit_lines)
     else:
         hit_txt = "NONE"
-    (OUT / "verdict.txt").write_text(
+    (OUT / "gse126044_hits.txt").write_text(
         f"{verdict}\n"
-        f"Cho 2020 has no TJ gene list.\n"
         f"non-control tests with p<=0.019: {len(noncontrol_hits)}\n"
         f"{hit_txt}\n"
     )
@@ -917,8 +916,8 @@ python3 scripts/rework/B4_wave2/download.py
 python3 scripts/rework/B4_wave2/analyze.py
 ```
 """
-    (out / "README.md").write_text(text)
-    (out / "WRITEUP.md").write_text(text)
+    # Index-cohort tables only. Do not overwrite the paper-facing extras README.
+    (out / "gse126044_index.md").write_text(text)
 
 
 if __name__ == "__main__":

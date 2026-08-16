@@ -18,6 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy import stats
+from statsmodels.duration.hazard_regression import PHReg
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
@@ -45,6 +46,7 @@ GEP = [
     "PSMB10", "STAT1", "TIGIT",
 ]
 CYT = ["GZMA", "PRF1"]
+OCLN_ALONE = ["OCLN"]
 
 # Frozen Ensembl (strip version at match time). Used only for GSE135222.
 ENSEMBL = {
@@ -150,6 +152,118 @@ def spearman(x: pd.Series, y: pd.Series) -> dict:
     return {"n": int(len(d)), "rho": float(rho), "p": float(p)}
 
 
+def cox_per_sd(time: pd.Series, event: pd.Series, score: pd.Series) -> dict:
+    d = pd.concat([time.rename("t"), event.rename("e"), score.rename("x")], axis=1).dropna()
+    d["t"] = pd.to_numeric(d["t"], errors="coerce")
+    d["e"] = pd.to_numeric(d["e"], errors="coerce")
+    d = d.dropna()
+    d = d[d["t"] > 0]
+    if len(d) < 8 or d["e"].sum() < 3 or d["x"].std(ddof=1) == 0:
+        return {"n": int(len(d)), "n_event": int(d["e"].sum()) if len(d) else 0, "hr_per_sd": np.nan, "p": np.nan}
+    x = ((d["x"] - d["x"].mean()) / d["x"].std(ddof=1)).values
+    res = PHReg(d["t"].values, x, status=d["e"].values).fit()
+    return {
+        "n": int(len(d)),
+        "n_event": int(d["e"].sum()),
+        "hr_per_sd": float(np.exp(res.params[0])),
+        "loghr": float(res.params[0]),
+        "se": float(res.bse[0]),
+        "p": float(res.pvalues[0]),
+    }
+
+
+def logrank_median(time: pd.Series, event: pd.Series, score: pd.Series) -> dict:
+    d = pd.concat([time.rename("t"), event.rename("e"), score.rename("x")], axis=1).dropna()
+    d["t"] = pd.to_numeric(d["t"], errors="coerce")
+    d["e"] = pd.to_numeric(d["e"], errors="coerce")
+    d = d.dropna()
+    d = d[d["t"] > 0]
+    if len(d) < 8 or d["e"].sum() < 3:
+        return {"n": int(len(d)), "p": np.nan}
+    med = float(d["x"].median())
+    d["hi"] = (d["x"] > med).astype(int)
+    # Mantel–Haenszel log-rank
+    times = np.sort(d.loc[d["e"] == 1, "t"].unique())
+    o1 = e1 = v = 0.0
+    for t in times:
+        at = d[d["t"] >= t]
+        n = len(at)
+        n1 = int((at["hi"] == 1).sum())
+        dth = d[(d["t"] == t) & (d["e"] == 1)]
+        di = len(dth)
+        d1 = int((dth["hi"] == 1).sum())
+        if n <= 1 or n1 == 0 or n1 == n:
+            continue
+        ei = di * n1 / n
+        vi = (di * (n - di) * n1 * (n - n1)) / (n ** 2 * (n - 1)) if n > 1 else 0
+        o1 += d1
+        e1 += ei
+        v += vi
+    if v <= 0:
+        return {"n": int(len(d)), "n_high": int(d["hi"].sum()), "median": med, "p": np.nan}
+    z = (o1 - e1) / np.sqrt(v)
+    p = float(2 * stats.norm.sf(abs(z)))
+    return {
+        "n": int(len(d)),
+        "n_high": int(d["hi"].sum()),
+        "n_low": int((d["hi"] == 0).sum()),
+        "median": med,
+        "p": p,
+        "z": float(z),
+    }
+
+
+def km_curve(time: np.ndarray, event: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    order = np.argsort(time)
+    t = time[order]
+    e = event[order]
+    n = len(t)
+    surv = 1.0
+    xs = [0.0]
+    ys = [1.0]
+    i = 0
+    while i < n:
+        ti = t[i]
+        at_risk = n - i
+        died = 0
+        while i < n and t[i] == ti:
+            died += int(e[i] == 1)
+            i += 1
+        if died and at_risk:
+            surv *= 1 - died / at_risk
+        xs.extend([ti, ti])
+        ys.extend([ys[-1], surv])
+    return np.array(xs), np.array(ys)
+
+
+def km_plot(time: pd.Series, event: pd.Series, score: pd.Series, title: str, fname: Path) -> None:
+    d = pd.concat([time.rename("t"), event.rename("e"), score.rename("x")], axis=1).dropna()
+    d["t"] = pd.to_numeric(d["t"], errors="coerce")
+    d["e"] = pd.to_numeric(d["e"], errors="coerce")
+    d = d.dropna()
+    d = d[d["t"] > 0]
+    if len(d) < 8:
+        return
+    med = float(d["x"].median())
+    fig, ax = plt.subplots(figsize=(4.6, 4.0))
+    for lab, mask, c in [
+        (f"≤ median (n={(d['x'] <= med).sum()})", d["x"] <= med, "#2c7fb8"),
+        (f"> median (n={(d['x'] > med).sum()})", d["x"] > med, "#d95f0e"),
+    ]:
+        xs, ys = km_curve(d.loc[mask, "t"].values, d.loc[mask, "e"].values)
+        ax.step(xs, ys, where="post", color=c, label=lab, lw=1.6)
+    lr = logrank_median(d["t"], d["e"], d["x"])
+    ax.set_ylim(0, 1.02)
+    ax.set_xlabel("time")
+    ax.set_ylabel("PFS")
+    ax.set_title(f"{title}\nlog-rank p={lr.get('p', np.nan):.3g}", fontsize=10)
+    ax.legend(fontsize=8, frameon=False)
+    fig.tight_layout()
+    fig.savefig(fname.with_suffix(".png"), dpi=150)
+    fig.savefig(fname.with_suffix(".pdf"))
+    plt.close(fig)
+
+
 def parse_chars(path: Path) -> pd.DataFrame:
     titles = gsms = None
     rows: dict[str, list[str]] = {}
@@ -211,6 +325,7 @@ def load_gse190265() -> tuple[pd.DataFrame, pd.DataFrame]:
     expr = log2p1(raw.T)  # genes x samples
     samp = pd.read_csv(EXTRA_DATA / "GSE190265_samples.csv.gz", sep=";").set_index("sample")
     samp["pfs_months"] = pd.to_numeric(samp["time_PFS"], errors="coerce")
+    samp["pfs_event"] = pd.to_numeric(samp["evtPFS"], errors="coerce")
     samp["group"] = np.where(samp["pfs_months"] >= 6, "DCB", "NDB")
     common = [c for c in expr.columns if c in samp.index]
     return expr[common], samp.loc[common]
@@ -234,6 +349,34 @@ def load_gse166449() -> tuple[pd.DataFrame, pd.DataFrame]:
     return expr[meta.index], meta
 
 
+def load_gse190266() -> tuple[pd.DataFrame, pd.DataFrame]:
+    raw = pd.read_csv(EXTRA_DATA / "GSE190266_TPM.csv.gz", sep=";", decimal=",", index_col=0)
+    expr = log2p1(raw.T)  # genes x samples
+    meta = parse_chars(EXTRA_DATA / "GSE190266_series_matrix.txt.gz")
+    meta = meta.set_index("title")
+    meta["pfs_months"] = pd.to_numeric(meta["pfs_time (6 months)"], errors="coerce")
+    meta["pfs_event"] = pd.to_numeric(meta["pfs_evt (6 months)"], errors="coerce")
+    # GEO field is PFS truncated at 6 months; DCB = still progression-free at 6 mo.
+    meta["group"] = np.where(meta["pfs_months"] >= 6, "DCB", "NDB")
+    common = [c for c in expr.columns if c in meta.index]
+    return expr[common], meta.loc[common]
+
+
+def load_gse161537() -> tuple[pd.DataFrame, pd.DataFrame]:
+    # Targeted ~2.5k-gene log2CPM (HTG / similar). No CLDN4 / CLDN1 / CLDN7 / TJP.
+    expr = pd.read_csv(EXTRA_DATA / "GSE161537_log2cpm.csv.gz", sep=";", decimal=",", index_col=0)
+    meta = parse_chars(EXTRA_DATA / "GSE161537_series_matrix.txt.gz")
+    meta["sample"] = meta["patient id"].astype(str)
+    meta = meta.set_index("sample")
+    recist = meta["best response on immunotherapy (recist)"].astype(str)
+    meta["recist"] = recist
+    meta["group"] = recist.map({"CR": "R", "PR": "R", "PD": "NR"})
+    meta["pfs_months"] = pd.to_numeric(meta["pfs (month)"], errors="coerce")
+    expr.columns = expr.columns.astype(str)
+    common = [c for c in expr.columns if c in meta.index]
+    return expr[common], meta.loc[common]
+
+
 def load_gse126044() -> tuple[pd.DataFrame, pd.DataFrame]:
     counts = pd.read_csv(DATA / "GSE126044_counts.txt.gz", sep="\t", index_col=0)
     lib = counts.sum(axis=0)
@@ -254,6 +397,7 @@ def load_tcga(path: Path) -> pd.DataFrame:
 def score_features(expr: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     feats = {
         "CLDN4": CLDN4_ALONE,
+        "OCLN": OCLN_ALONE,
         "CLDN147_F11R_PARD3": CLDN147_F11R_PARD3,
         "TJ_7gene": USER_PPT_7GENE,
         "CD8": CD8,
@@ -263,7 +407,7 @@ def score_features(expr: pd.DataFrame) -> tuple[pd.DataFrame, dict]:
     scores = pd.DataFrame(index=expr.columns)
     used = {}
     for name, genes in feats.items():
-        if name == "CLDN4":
+        if name in ("CLDN4", "OCLN"):
             hit = resolve(genes, expr.index)
             scores[name] = expr.loc[hit[0]] if hit else np.nan
             used[name] = hit
@@ -355,14 +499,34 @@ def main() -> int:
             "endpoint": "GEO immunotherapy responder vs non-responder",
             "role": "extra",
         },
+        {
+            "id": "GSE190266",
+            "loader": load_gse190266,
+            "note": "France4 / Leduc 2022-linked. NSCLC ICI biopsies. Public TPM; PFS truncated at 6 months in GEO. Public matrix lacks TJP1/TJP2/OCLN/PARD3.",
+            "low": "DCB",
+            "high": "NDB",
+            "endpoint": "DCB (PFS≥6 mo, GEO-capped) / continuous PFS",
+            "role": "extra",
+        },
+        {
+            "id": "GSE161537",
+            "loader": load_gse161537,
+            "note": "NivoBio targeted RNA (~2.5k genes). Pre-tx NSCLC PD-1/PD-L1. RECIST CR/PR vs PD. Panel has OCLN/F11R; no CLDN4/CLDN1/CLDN7/TJP.",
+            "low": "R",
+            "high": "NR",
+            "endpoint": "ORR (GEO RECIST CR/PR vs PD)",
+            "role": "extra",
+        },
     ]
 
     ici_rows = []
     coverage = []
     sample_frames = []
+    held: dict[str, tuple[pd.DataFrame, pd.DataFrame, dict]] = {}
     for spec in ici_specs:
         expr, meta = spec["loader"]()
         scores, used = score_features(expr)
+        held[spec["id"]] = (scores, meta, used)
         scores = scores.join(meta[["group"]], how="inner")
         coverage.append({
             "cohort": spec["id"],
@@ -371,6 +535,7 @@ def main() -> int:
             "n_low": int((scores["group"] == spec["low"]).sum()),
             "n_high": int((scores["group"] == spec["high"]).sum()),
             "genes_CLDN4": ",".join(map(str, used["CLDN4"])),
+            "genes_OCLN": ",".join(map(str, used["OCLN"])),
             "genes_5": len(used["CLDN147_F11R_PARD3"]),
             "genes_7": len(used["TJ_7gene"]),
             "note": spec["note"],
@@ -379,7 +544,9 @@ def main() -> int:
         out_scores.insert(0, "cohort", spec["id"])
         sample_frames.append(out_scores.reset_index().rename(columns={"index": "sample"}))
 
-        for feat in ["CLDN4", "CLDN147_F11R_PARD3", "TJ_7gene", "CD8", "GEP"]:
+        for feat in ["CLDN4", "OCLN", "CLDN147_F11R_PARD3", "TJ_7gene", "CD8", "GEP"]:
+            if scores[feat].notna().sum() < 4:
+                continue
             a = scores.loc[scores["group"] == spec["low"], feat]
             b = scores.loc[scores["group"] == spec["high"], feat]
             mw = mwu_high_in_b(a, b)
@@ -387,6 +554,7 @@ def main() -> int:
                 "cohort": spec["id"],
                 "role": spec["role"],
                 "feature": feat,
+                "n_genes": len(used[feat]),
                 "endpoint": spec["endpoint"],
                 "group_A": spec["low"],
                 "group_B": spec["high"],
@@ -414,19 +582,35 @@ def main() -> int:
             ici_rows.append(row)
 
         if spec["role"] == "extra":
-            ylab = "score"
-            box_by_group(
-                scores["TJ_7gene"], scores["group"],
-                f"{spec['id']} TJ 7-gene vs {spec['endpoint'].split('/')[0].strip()}",
-                "TJ 7-gene mean-z", FIG / f"{spec['id']}_TJ7",
-                [spec["low"], spec["high"]],
-            )
-            box_by_group(
-                scores["CLDN4"], scores["group"],
-                f"{spec['id']} CLDN4 vs {spec['endpoint'].split('/')[0].strip()}",
-                "CLDN4", FIG / f"{spec['id']}_CLDN4",
-                [spec["low"], spec["high"]],
-            )
+            ep = spec["endpoint"].split("/")[0].strip()
+            if len(used["TJ_7gene"]) >= 6:
+                box_by_group(
+                    scores["TJ_7gene"], scores["group"],
+                    f"{spec['id']} TJ 7-gene vs {ep}",
+                    "TJ 7-gene mean-z", FIG / f"{spec['id']}_TJ7",
+                    [spec["low"], spec["high"]],
+                )
+            if used["CLDN4"]:
+                box_by_group(
+                    scores["CLDN4"], scores["group"],
+                    f"{spec['id']} CLDN4 vs {ep}",
+                    "CLDN4", FIG / f"{spec['id']}_CLDN4",
+                    [spec["low"], spec["high"]],
+                )
+            elif used["OCLN"]:
+                box_by_group(
+                    scores["OCLN"], scores["group"],
+                    f"{spec['id']} OCLN vs {ep}",
+                    "OCLN", FIG / f"{spec['id']}_OCLN",
+                    [spec["low"], spec["high"]],
+                )
+            if spec["id"] == "GSE190266" and len(used["CLDN147_F11R_PARD3"]) >= 3:
+                box_by_group(
+                    scores["CLDN147_F11R_PARD3"], scores["group"],
+                    f"{spec['id']} CLDN1/4/7/F11R vs {ep}",
+                    "CLDN1/4/7/F11R mean-z (PARD3 absent)", FIG / f"{spec['id']}_CLDN147",
+                    [spec["low"], spec["high"]],
+                )
 
     ici_df = pd.DataFrame(ici_rows)
     cov_df = pd.DataFrame(coverage)
@@ -434,12 +618,82 @@ def main() -> int:
     cov_df.to_csv(TAB / "cohort_coverage.tsv", sep="\t", index=False)
     pd.concat(sample_frames, ignore_index=True).to_csv(TAB / "per_sample_scores.tsv", sep="\t", index=False)
 
+    # PFS Cox / log-rank (public time + event only)
+    surv_rows = []
+    immune_rows = []
+    for spec in ici_specs:
+        scores, meta, used = held[spec["id"]]
+        joined = scores.join(meta, how="inner", rsuffix="_meta")
+        time_col = "pfs_days" if "pfs_days" in joined.columns else ("pfs_months" if "pfs_months" in joined.columns else None)
+        event_col = "pfs_event" if "pfs_event" in joined.columns else None
+        unit = "days" if time_col == "pfs_days" else ("months" if time_col == "pfs_months" else "")
+        for feat in ["CLDN4", "OCLN", "CLDN147_F11R_PARD3", "TJ_7gene", "CD8", "GEP"]:
+            if scores[feat].notna().sum() < 8:
+                continue
+            if time_col and event_col:
+                cx = cox_per_sd(joined[time_col], joined[event_col], joined[feat])
+                lr = logrank_median(joined[time_col], joined[event_col], joined[feat])
+                surv_rows.append({
+                    "cohort": spec["id"],
+                    "feature": feat,
+                    "n_genes": len(used[feat]),
+                    "n": cx["n"],
+                    "n_event": cx["n_event"],
+                    "time_unit": unit,
+                    "cox_hr_per_sd": cx.get("hr_per_sd"),
+                    "cox_p": cx.get("p"),
+                    "logrank_median_p": lr.get("p"),
+                    "note": spec["note"],
+                })
+                if spec["role"] == "extra" and feat in ("TJ_7gene", "CLDN4", "OCLN") and (
+                    (feat == "TJ_7gene" and len(used[feat]) >= 6)
+                    or (feat == "CLDN4" and used[feat])
+                    or (feat == "OCLN" and spec["id"] == "GSE161537")
+                ):
+                    km_plot(
+                        joined[time_col], joined[event_col], joined[feat],
+                        f"{spec['id']} {feat} median split PFS",
+                        FIG / f"{spec['id']}_{feat}_KM",
+                    )
+            if feat in ("CLDN4", "OCLN", "CLDN147_F11R_PARD3", "TJ_7gene"):
+                for imm in ["CD8", "GEP"]:
+                    if scores[imm].notna().sum() < 8:
+                        continue
+                    sp = spearman(scores[feat], scores[imm])
+                    immune_rows.append({
+                        "cohort": spec["id"],
+                        "n": sp["n"],
+                        "TJ": feat,
+                        "n_TJ_genes": len(used[feat]),
+                        "immune": imm,
+                        "spearman_rho": sp["rho"],
+                        "spearman_p": sp["p"],
+                    })
+                if spec["role"] == "extra" and feat == "TJ_7gene" and len(used[feat]) >= 6:
+                    scatter_xy(scores[feat], scores["CD8"], f"{spec['id']} TJ 7-gene vs CD8",
+                               "TJ 7-gene mean-z", "CD8 mean-z", FIG / f"{spec['id']}_TJ7_vs_CD8")
+                if spec["role"] == "extra" and feat == "CLDN4" and used[feat]:
+                    scatter_xy(scores[feat], scores["CD8"], f"{spec['id']} CLDN4 vs CD8",
+                               "CLDN4", "CD8 mean-z", FIG / f"{spec['id']}_CLDN4_vs_CD8")
+
+    surv_df = pd.DataFrame(surv_rows)
+    imm_df = pd.DataFrame(immune_rows)
+    if len(surv_df):
+        surv_df.to_csv(TAB / "lung_ICI_TJ_vs_PFS_cox.tsv", sep="\t", index=False)
+    if len(imm_df):
+        imm_df.to_csv(TAB / "lung_ICI_TJ_vs_CD8_GEP.tsv", sep="\t", index=False)
+
     # Forest of extra cohorts (plus index) for TJ_7gene and CLDN4
-    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.6), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(9.6, 5.2), sharey=True)
     extras = ici_df[ici_df["feature"].isin(["TJ_7gene", "CLDN4"])].copy()
-    cohorts = ["GSE135222", "GSE207422", "GSE190265", "GSE166449", "GSE126044"]
-    for ax, feat, title in zip(axes, ["TJ_7gene", "CLDN4"], ["TJ 7-gene", "CLDN4"]):
-        sub = extras[extras["feature"] == feat].set_index("cohort").loc[cohorts]
+    cohorts = ["GSE135222", "GSE207422", "GSE190265", "GSE190266", "GSE166449", "GSE126044"]
+    for ax, feat, title in zip(axes, ["TJ_7gene", "CLDN4"], ["TJ 7-gene (≥6 genes)", "CLDN4"]):
+        sub = extras[extras["feature"] == feat].copy()
+        if "n_genes" in sub.columns and feat == "TJ_7gene":
+            sub = sub[sub["n_genes"] >= 6]
+        sub = sub.set_index("cohort")
+        keep = [c for c in cohorts if c in sub.index]
+        sub = sub.loc[keep]
         y = np.arange(len(sub))
         ax.axvline(0.05, color="#999", ls=":", lw=1)
         ax.scatter(sub["p_two"], y, s=42, c=["#d95f0e" if c != "GSE126044" else "#2c7fb8" for c in sub.index])
@@ -485,14 +739,21 @@ def main() -> int:
     tcga_df = pd.DataFrame(tcga_rows)
     tcga_df.to_csv(TAB / "TCGA_TJ_vs_CD8_GEP.tsv", sep="\t", index=False)
 
-    write_extra(OUT, ici_df, cov_df, tcga_df)
+    write_extra(OUT, ici_df, cov_df, tcga_df, surv_df, imm_df)
     (OUT / "summary.json").write_text(json.dumps({
         "ici": ici_df.to_dict(orient="records"),
         "coverage": cov_df.to_dict(orient="records"),
         "tcga": tcga_df.to_dict(orient="records"),
+        "pfs_cox": surv_df.to_dict(orient="records") if len(surv_df) else [],
+        "ici_tj_vs_immune": imm_df.to_dict(orient="records") if len(imm_df) else [],
         "skipped": [
             {"id": "GSE136961", "reason": "Oncomine Immune Response 395-gene panel; no CLDN/TJ genes."},
             {"id": "GSE253564", "reason": "Pre-treatment FPKM public, but GEO has arm only (no MPR/ORR/PFS)."},
+            {"id": "GSE182328", "reason": "Public counts, but GEO has Akkermansia detectability only (no ORR/PFS)."},
+            {"id": "GSE248378", "reason": "Post-treatment FPKM; GEO has treatment arm only (no MPR/ORR/PFS)."},
+            {"id": "GSE93157", "reason": "nCounter PanCancer Immune 730-gene; no CLDN4/TJ genes. Lung subset n=35."},
+            {"id": "GSE110390", "reason": "Durvalumab 21-gene IFN panel; no CLDN/TJ genes."},
+            {"id": "GSE162520", "reason": "Same targeted panel as GSE161537; TUMADOR early-stage surgical cohort, not ICI response."},
         ],
     }, indent=2, default=str))
     print(ici_df[ici_df["feature"].isin(["TJ_7gene", "CLDN4"])][
@@ -502,24 +763,75 @@ def main() -> int:
     return 0
 
 
-def write_extra(out: Path, ici: pd.DataFrame, cov: pd.DataFrame, tcga: pd.DataFrame) -> None:
+def write_extra(
+    out: Path,
+    ici: pd.DataFrame,
+    cov: pd.DataFrame,
+    tcga: pd.DataFrame,
+    surv: pd.DataFrame,
+    imm: pd.DataFrame,
+) -> None:
     def fmt(p) -> str:
         if p is None or (isinstance(p, float) and (np.isnan(p))):
             return "NA"
         return f"{p:.3g}"
 
-    def ici_md(feat: str) -> str:
+    def ici_md(feat: str, min_genes: int = 1) -> str:
         lines = [
-            "| cohort | endpoint | n A / B | groups | median A | median B | MW p | direction | PFS ρ (p) |",
+            "| cohort | endpoint | n A / B | genes | median A | median B | MW p | direction | PFS ρ (p) |",
             "|---|---|---|---|---|---|---|---|---|",
         ]
-        for _, r in ici[ici["feature"] == feat].iterrows():
+        sub = ici[ici["feature"] == feat]
+        for _, r in sub.iterrows():
+            ng = int(r["n_genes"]) if "n_genes" in r and pd.notna(r.get("n_genes")) else 0
+            if ng and ng < min_genes:
+                continue
+            if pd.isna(r.get("p_two")):
+                continue
             pfs = ""
             if pd.notna(r.get("spearman_pfs_rho")):
                 pfs = f"ρ={r.spearman_pfs_rho:.2f} (p={fmt(r.spearman_pfs_p)}, n={int(r.spearman_pfs_n)})"
             lines.append(
-                f"| {r.cohort} | {r.endpoint} | {int(r.n_A)} / {int(r.n_B)} | {r.group_A} vs {r.group_B} | "
+                f"| {r.cohort} | {r.endpoint} | {int(r.n_A)} / {int(r.n_B)} | {ng or ''} | "
                 f"{r.median_A:.3g} | {r.median_B:.3g} | {fmt(r.p_two)} | {r.direction} | {pfs} |"
+            )
+        return "\n".join(lines)
+
+    def surv_md() -> str:
+        if surv is None or len(surv) == 0:
+            return "_No public PFS time+event in these matrices._"
+        lines = [
+            "| cohort | feature | genes | n (events) | Cox HR / SD | Cox p | log-rank median p |",
+            "|---|---|---|---|---|---|---|",
+        ]
+        for _, r in surv.iterrows():
+            if int(r.n_genes) < 1:
+                continue
+            if r.feature == "TJ_7gene" and int(r.n_genes) < 6:
+                continue
+            lines.append(
+                f"| {r.cohort} | {r.feature} | {int(r.n_genes)} | {int(r.n)} ({int(r.n_event)}) | "
+                f"{r.cox_hr_per_sd:.2f} | {fmt(r.cox_p)} | {fmt(r.logrank_median_p)} |"
+            )
+        return "\n".join(lines)
+
+    def imm_md() -> str:
+        if imm is None or len(imm) == 0:
+            return ""
+        lines = [
+            "| cohort | n | TJ | immune | Spearman ρ | p |",
+            "|---|---|---|---|---|---|",
+        ]
+        keep_tj = {"CLDN4", "TJ_7gene", "CLDN147_F11R_PARD3", "OCLN"}
+        for _, r in imm.iterrows():
+            if r.TJ not in keep_tj:
+                continue
+            if r.TJ == "TJ_7gene" and int(r.n_TJ_genes) < 6:
+                continue
+            if r.TJ == "CLDN147_F11R_PARD3" and int(r.n_TJ_genes) < 4:
+                continue
+            lines.append(
+                f"| {r.cohort} | {int(r.n)} | {r.TJ} | {r.immune} | {r.spearman_rho:.2f} | {fmt(r.spearman_p)} |"
             )
         return "\n".join(lines)
 
@@ -534,34 +846,36 @@ def write_extra(out: Path, ici: pd.DataFrame, cov: pd.DataFrame, tcga: pd.DataFr
             )
         return "\n".join(lines)
 
+    cov_lines = [
+        "| cohort | n | endpoint | note |",
+        "|---|---|---|---|",
+    ]
+    for _, r in cov.iterrows():
+        cov_lines.append(f"| {r.cohort} | {int(r.n)} | {r.endpoint} | {r.note} |")
+
     text = f"""# Extra paper figures: TJ / CLDN4 in additional public lung ICI cohorts + TCGA
 
-Additive analyses on top of the GSE126044 B4 index cohort. Public data only. Honest n / medians / ρ / p.
+Additive analyses on top of the GSE126044 B4 index cohort (that TJ/NR result is taken as given). Public data only. Honest n / medians / ρ / p / HR.
 
 Signatures (same definitions as the B4 7-gene / 5-gene modules):
 
 - **CLDN4** — single gene
-- **CLDN1/4/7/F11R/PARD3** — 5-gene mean-z
-- **TJ 7-gene** — CLDN1, CLDN4, CLDN7, F11R, TJP1, TJP2, OCLN mean-z
+- **OCLN** — single gene (used when a targeted panel lacks CLDN4)
+- **CLDN1/4/7/F11R/PARD3** — 5-gene mean-z (score the genes present)
+- **TJ 7-gene** — CLDN1, CLDN4, CLDN7, F11R, TJP1, TJP2, OCLN mean-z (tables below require ≥6 genes)
 - **CD8** — CD8A+CD8B mean-z; **GEP** — Ayers 18-gene mean-z (immune context)
 
 Group B is the poorer-outcome class (NR / NDB / NMPR) so direction **B>A** means higher TJ in non-responders, matching the B4 index direction.
 
 ## Extra lung ICI cohorts (not only GSE126044)
 
-| cohort | n | endpoint | note |
-|---|---|---|---|
-| GSE135222 | 27 | DCB = PFS ≥ 183 d from GEO | Jung/Kim advanced NSCLC anti-PD-1/PD-L1 |
-| GSE207422 | 24 | MPR vs NMPR, pre-treatment bulk | Hu 2023 neoadjuvant PD-1 + chemo |
-| GSE190265 | 43 | DCB = PFS ≥ 6 months | France3 NSCLC biopsies, public PFS |
-| GSE166449 | 22 (7 R / 15 NR) | GEO immunotherapy responder titles | SMC lung immunotherapy RNA |
-| GSE126044 | 16 (5 R / 11 NR) | GEO R vs NR | index B4 cohort, shown for context |
+{chr(10).join(cov_lines)}
 
-Not scored: **GSE136961** (Oncomine 395-gene immune panel; no CLDN/TJ genes). **GSE253564** (pre-treatment FPKM public, but GEO deposits arm only, no MPR/ORR/PFS).
+Not scored vs response: **GSE136961** (Oncomine 395-gene immune panel; no CLDN/TJ). **GSE253564** / **GSE248378** (GEO deposits treatment arm only). **GSE182328** (public counts; GEO has Akkermansia detectability, no ORR/PFS). **GSE93157** (nCounter immune 730-gene; no CLDN/TJ). **GSE110390** (21-gene IFN panel). **GSE162520** (same targeted panel as NivoBio, but TUMADOR early-stage surgical, not ICI).
 
-### TJ 7-gene vs response
+### TJ 7-gene vs response (≥6 genes present)
 
-{ici_md("TJ_7gene")}
+{ici_md("TJ_7gene", min_genes=6)}
 
 ### CLDN4 vs response
 
@@ -569,7 +883,11 @@ Not scored: **GSE136961** (Oncomine 395-gene immune panel; no CLDN/TJ genes). **
 
 ### CLDN1/4/7/F11R/PARD3 vs response
 
-{ici_md("CLDN147_F11R_PARD3")}
+{ici_md("CLDN147_F11R_PARD3", min_genes=4)}
+
+### OCLN vs response (targeted-panel extra)
+
+{ici_md("OCLN")}
 
 ### Immune context in the same ICI matrices
 
@@ -581,6 +899,16 @@ Ayers GEP:
 
 {ici_md("GEP")}
 
+## PFS Cox / log-rank (public time + event)
+
+Cox HR is per +1 SD of the score (higher TJ → HR>1 means shorter PFS). Log-rank is a median split.
+
+{surv_md()}
+
+## TJ vs CD8 / GEP inside the ICI matrices
+
+{imm_md()}
+
 ## TCGA supporting context: TJ vs CD8 / GEP
 
 Xena `HiSeqV2` primary tumors (`-01`). Spearman, two-sided.
@@ -589,13 +917,15 @@ Xena `HiSeqV2` primary tumors (`-01`). Spearman, two-sided.
 
 ## Figures
 
-- `figures/GSE135222_TJ7.png`, `GSE207422_TJ7.png`, `GSE190265_TJ7.png`, `GSE166449_TJ7.png` (and matching `_CLDN4`)
+- Extra-cohort boxplots: `figures/GSE135222_TJ7.png`, `GSE207422_TJ7.png`, `GSE190265_TJ7.png`, `GSE166449_TJ7.png`, `GSE190266_CLDN4.png`, `GSE161537_OCLN.png` (and matching CLDN4 where the gene is present)
 - `figures/forest_ICI_p.png` — two-sided MW p across extra cohorts + B4 index
-- `figures/TCGA-LUAD_TJ7_vs_CD8.png`, `TCGA-LUAD_TJ7_vs_GEP.png` (and LUSC / CLDN4)
+- KM median-split PFS where GEO has time+event
+- ICI and TCGA TJ vs CD8/GEP scatters
 
 ## Rerun
 
 ```bash
+python3 scripts/rework/B4_wave2/download.py
 python3 scripts/rework/B4_wave2/extra_cohorts.py
 ```
 """
