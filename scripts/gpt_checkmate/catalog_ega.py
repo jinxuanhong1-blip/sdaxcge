@@ -108,7 +108,7 @@ def main() -> int:
     )
 
     with (OUTPUT / "ega_catalog.tsv").open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.writer(handle, delimiter="\t")
+        writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
         writer.writerow(
             [
                 "trial",

@@ -123,7 +123,9 @@ def main() -> int:
         "downloaded_at",
     ]
     with MANIFEST.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields, delimiter="\t")
+        writer = csv.DictWriter(
+            handle, fieldnames=fields, delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
     print(f"Downloaded {len(rows)} open processed files; manifest: {MANIFEST}")
