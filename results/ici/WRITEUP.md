@@ -1,5 +1,7 @@
 # Lung-cancer ICI: TACSTD2 (TROP2) and CLDN4
 
+Targeted follow-up on malignant-cell scoring, ABSOLUTE-purity-adjusted TCGA, OncoSG, and concordant/discordant evidence: [`user_align.md`](user_align.md).
+
 ## English
 
 ### Scope and data
