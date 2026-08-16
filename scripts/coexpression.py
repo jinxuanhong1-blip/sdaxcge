@@ -144,10 +144,63 @@ def compute_ranking(
     df["spearman_q"] = _bh_fdr(df["spearman_p"].to_numpy())
     df["pearson_q"] = _bh_fdr(df["pearson_p"].to_numpy())
 
+    # Zero-variance genes yield undefined correlations; drop them rather than
+    # invent a rank. This is reported in the summary as n_undefined.
+    finite = np.isfinite(df["spearman_r"].to_numpy()) & np.isfinite(df["pearson_r"].to_numpy())
+    df = df.loc[finite].copy()
     df = df.sort_values("spearman_r", ascending=False, kind="mergesort").reset_index(drop=True)
     df.insert(1, "spearman_rank", np.arange(1, len(df) + 1))
     df["pearson_rank"] = df["pearson_r"].rank(ascending=False, method="min").astype(int)
     return df
+
+
+def bootstrap_focus(
+    expr: pd.DataFrame,
+    anchor: str,
+    universe: list[str],
+    samples: list[str],
+    focus: str,
+    n_boot: int = 1000,
+    seed: int = 20260816,
+) -> dict:
+    """Case-resample Spearman rho and how often ``focus`` is rank #1.
+
+    Ranking the full surfaceome each resample is the honest stability check:
+    a 0.001 lead can evaporate. Returns percentile CI and win-rate.
+    """
+    rng = np.random.default_rng(seed)
+    genes = [focus] + [g for g in universe if g != focus]
+    mat = expr.loc[genes, samples].to_numpy(dtype=float)
+    anchor_vec = expr.loc[anchor, samples].to_numpy(dtype=float)
+    n = len(samples)
+    g = mat.shape[0]
+    rhos = np.empty(n_boot, dtype=float)
+    wins = 0
+    # Track the runner-up when focus loses, for an honest near-tie note.
+    usurper = {}
+    for i in range(n_boot):
+        idx = rng.integers(0, n, n)
+        a = stats.rankdata(anchor_vec[idx])
+        # Rank each gene on the resampled samples (G x N).
+        ranked = np.apply_along_axis(stats.rankdata, 1, mat[:, idx])
+        r = _corr_matrix_vs_vector(ranked, a)
+        rhos[i] = r[0]
+        k = int(np.nanargmax(r))
+        if k == 0:
+            wins += 1
+        else:
+            name = genes[k]
+            usurper[name] = usurper.get(name, 0) + 1
+    lo, med, hi = np.percentile(rhos, [2.5, 50, 97.5])
+    top_usurpers = sorted(usurper.items(), key=lambda kv: -kv[1])[:5]
+    return {
+        "n_boot": n_boot,
+        "seed": seed,
+        "spearman_r_ci95": [float(lo), float(hi)],
+        "spearman_r_median": float(med),
+        "focus_rank1_rate": wins / n_boot,
+        "top_usurpers": [{"gene": g, "n_wins": c} for g, c in top_usurpers],
+    }
 
 
 def focus_report(df: pd.DataFrame, focus: str, n_universe: int) -> dict:
@@ -228,6 +281,7 @@ def main(argv: list[str] | None = None) -> int:
         help="comma-separated TCGA sample-type codes to keep (default 01=primary tumour)",
     )
     ap.add_argument("--window", type=int, default=200, help="size of top-N companion file (default 200)")
+    ap.add_argument("--n-boot", type=int, default=1000, help="bootstrap resamples for rank stability (0 to skip)")
     ap.add_argument("--outdir", type=Path, default=ROOT / "results" / "w200" / "B1_PRAD")
     args = ap.parse_args(argv)
 
@@ -255,6 +309,10 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[data] surface-gene universe (present, anchor removed): {n_universe}")
 
     df = compute_ranking(expr, args.anchor, universe, samples)
+    n_ranked = len(df)
+    n_undefined = n_universe - n_ranked
+    if n_undefined:
+        print(f"[data] dropped {n_undefined} zero-variance / undefined-correlation genes; ranked {n_ranked}")
 
     # Write full ranking + top-N window.
     full_csv = args.outdir / f"coexpression_{args.anchor}_surfaceome.csv"
@@ -262,7 +320,18 @@ def main(argv: list[str] | None = None) -> int:
     top_csv = args.outdir / f"top{args.window}.csv"
     df.head(args.window).to_csv(top_csv, index=False)
 
-    report = focus_report(df, args.focus, n_universe)
+    report = focus_report(df, args.focus, n_ranked)
+    boot = None
+    if args.n_boot > 0 and report.get("in_universe"):
+        print(f"[boot] {args.n_boot} case-resamples of the full surfaceome ranking")
+        boot = bootstrap_focus(
+            expr, args.anchor, list(df["gene"]), samples, args.focus, n_boot=args.n_boot
+        )
+        print(
+            f"       {args.focus} Spearman rho 95% CI "
+            f"[{boot['spearman_r_ci95'][0]:.3f}, {boot['spearman_r_ci95'][1]:.3f}]; "
+            f"rank-1 rate {boot['focus_rank1_rate']:.3f}"
+        )
 
     summary = {
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -273,10 +342,13 @@ def main(argv: list[str] | None = None) -> int:
         "focus_gene": args.focus,
         "sample_type_codes": sample_types,
         "n_samples": len(samples),
-        "surface_gene_universe": n_universe,
+        "surface_gene_universe_present": n_universe,
+        "surface_gene_universe": n_ranked,
+        "n_undefined_correlation": n_undefined,
         "correlation_primary": "spearman",
         "window": args.window,
         "focus_result": report,
+        "bootstrap": boot,
         "top10_spearman": df.head(10)[["gene", "spearman_rank", "spearman_r", "spearman_q"]].to_dict("records"),
     }
     (args.outdir / "summary.json").write_text(json.dumps(summary, indent=2))
@@ -284,12 +356,22 @@ def main(argv: list[str] | None = None) -> int:
     # Human-readable answer.
     q = report
     if q.get("in_universe"):
-        verdict = (
-            f"NO -- {args.focus} is NOT the single top surface-gene co-expression "
-            f"partner of {args.anchor}."
-            if not q["is_top_spearman"]
-            else f"YES -- {args.focus} is the top surface-gene co-expression partner of {args.anchor}."
-        )
+        if not q["is_top_spearman"]:
+            verdict = (
+                f"NO -- {args.focus} is NOT the single top surface-gene co-expression "
+                f"partner of {args.anchor}."
+            )
+        elif boot is not None and boot["focus_rank1_rate"] < 0.5:
+            verdict = (
+                f"POINT ESTIMATE YES, STABILITY NO -- {args.focus} is Spearman #1 "
+                f"in this sample, but the lead is not stable "
+                f"(rank-1 in only {100 * boot['focus_rank1_rate']:.0f}% of bootstraps; "
+                f"Pearson rank #{q['pearson_rank']})."
+            )
+        else:
+            verdict = (
+                f"YES -- {args.focus} is the top surface-gene co-expression partner of {args.anchor}."
+            )
         top_gene = df.iloc[0]["gene"]
         lines = [
             f"# {args.focus} vs {args.anchor} co-expression in TCGA-PRAD (honest ranking)",
@@ -301,16 +383,18 @@ def main(argv: list[str] | None = None) -> int:
             "",
             f"- Cohort: TCGA-PRAD, {len(samples)} primary-tumour samples "
             f"(sample-type {sample_types}).",
-            f"- Surface-gene universe: {n_universe} surfaceome genes present in the "
-            f"matrix (anchor removed).",
+            f"- Surface-gene universe: {n_ranked} surfaceome genes with defined "
+            f"correlation (anchor removed"
+            + (f"; {n_undefined} zero-variance genes dropped" if n_undefined else "")
+            + ").",
             f"- Primary metric: Spearman correlation.",
             "",
             "| metric | value |",
             "| --- | --- |",
-            f"| {args.focus} Spearman rank | **#{q['spearman_rank']} of {n_universe}** "
+            f"| {args.focus} Spearman rank | **#{q['spearman_rank']} of {n_ranked}** "
             f"({q['spearman_percentile']}th percentile) |",
             f"| {args.focus} Spearman rho | {q['spearman_r']:.3f} (FDR q={q['spearman_q']:.2e}) |",
-            f"| {args.focus} Pearson rank | #{q['pearson_rank']} of {n_universe} |",
+            f"| {args.focus} Pearson rank | #{q['pearson_rank']} of {n_ranked} |",
             f"| {args.focus} Pearson rho | {q['pearson_r']:.3f} |",
             f"| Actual #1 (Spearman) | {top_gene} (rho={df.iloc[0]['spearman_r']:.3f}) |",
             "",
@@ -326,6 +410,41 @@ def main(argv: list[str] | None = None) -> int:
                 f"| {int(r['spearman_rank'])} | {r['gene']}{star} | "
                 f"{r['spearman_r']:.3f} | {r['pearson_r']:.3f} | {r['spearman_q']:.2e} |"
             )
+        runner = df.iloc[1] if len(df) > 1 else None
+        lines += [
+            "",
+            "## Honest caveats",
+            "",
+            "- Bulk-tumour mRNA co-expression (mixes tumour/stroma/immune), not protein "
+            "or single-cell. Xena HiSeqV2 is log2(norm_count+1), not TPM.",
+            "- Primary metric is Spearman, matching the BRCA B1 analog. Pearson can "
+            "disagree: here Pearson rank is "
+            f"#{q['pearson_rank']} (#{1} is {df.sort_values('pearson_r', ascending=False).iloc[0]['gene']}).",
+        ]
+        if runner is not None:
+            delta = float(df.iloc[0]["spearman_r"] - runner["spearman_r"])
+            lines.append(
+                f"- The Spearman lead over #{2} {runner['gene']} is only "
+                f"{delta:.4f}. Treat '#1' as a near-tie, not a unique winner."
+            )
+        if boot is not None:
+            usurper_txt = ", ".join(
+                f"{u['gene']} ({u['n_wins']}/{boot['n_boot']})" for u in boot["top_usurpers"][:3]
+            ) or "none"
+            lines += [
+                f"- Bootstrap (n={boot['n_boot']}, seed {boot['seed']}): "
+                f"{args.focus} Spearman rho 95% CI "
+                f"[{boot['spearman_r_ci95'][0]:.3f}, {boot['spearman_r_ci95'][1]:.3f}]; "
+                f"it is rank #1 in **{100 * boot['focus_rank1_rate']:.1f}%** of resamples. "
+                f"Most frequent usurpers: {usurper_txt}.",
+            ]
+        lines += [
+            "- Surface universe is the 2018 in-silico surfaceome (legacy HGNC symbols, "
+            "e.g. PVRL4 = NECTIN4, PVRL2 = NECTIN2). Four zero-variance surface genes "
+            "were dropped rather than ranked.",
+            "- One primary-tumour aliquot per patient in this matrix (n=497 code-01; "
+            "52 adjacent-normal and 1 metastatic aliquot exist and were not used).",
+        ]
     else:
         lines = [f"{args.focus} is not present in the surface-gene universe."]
 
