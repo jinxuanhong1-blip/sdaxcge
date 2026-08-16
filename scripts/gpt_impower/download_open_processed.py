@@ -185,7 +185,9 @@ def main() -> None:
     with (args.output_dir / "manifest.tsv").open(
         "w", encoding="utf-8", newline=""
     ) as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields, delimiter="\t")
+        writer = csv.DictWriter(
+            handle, fieldnames=fields, delimiter="\t", lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
     (args.output_dir / "manifest.json").write_text(
