@@ -1,0 +1,11 @@
+# Raw matrices and third-party full tables stay out of git.
+Model.csv
+*.star_tpm.tsv.gz
+OmicsExpression*.csv
+LUAD_RNAseq*.txt
+LUAD_proteomics*.txt
+LSCC_RNAseq*.txt
+LSCC_proteomics*.txt
+tcga_absolute_purity.txt
+depmap24q4_genes.csv
+*.part
