@@ -1,0 +1,21 @@
+{
+  "dataset": "GSE176021 + GSE176022 (Caushi Nature 2021)",
+  "pmid": 34290408,
+  "skipped": [
+    "EGA EGAS00001005343",
+    "EGAD00001007728 FASTQ",
+    "GSE176021_RAW.tar 4.1GB GEX"
+  ],
+  "used": [
+    "GSE176021 per-sample .vdj.tar.gz (GEO processed)",
+    "GSE176021_CD3_annotations.rds (CellType only; no CXCL13 RNA)",
+    "GSE176022_RAW.tar (bulk culture TCR)"
+  ],
+  "cxcl13_rna": "not estimable from public annotation RDS",
+  "e2_tumor_tacstd2": "not estimable: CD3-sorted T cells",
+  "n_vdj_files": 110,
+  "n_vdj_failed": 0,
+  "n_paired_tcr_cells": 493408,
+  "n_patients_in_rds": 16,
+  "unit": "patient (tumor captures collapsed)"
+}

@@ -1,0 +1,11 @@
+name: scrna-tcr
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - pandas>=2.0
+  - numpy
+  - scipy
+  - matplotlib
+  - statsmodels
+  - pyreadr
