@@ -84,8 +84,19 @@ def ensure_inputs() -> None:
         urllib.request.urlretrieve(GEO_MATRIX, MATRIX)
 
 
+CACHE = DATA / "gse207422_marker_stream.npz"
+
+
 def stream_genes(path: Path) -> tuple[list[str], dict[str, np.ndarray], np.ndarray]:
     """One pass: library size per cell + requested gene UMI rows."""
+    if CACHE.exists():
+        z = np.load(CACHE, allow_pickle=True)
+        if set(z["want"].tolist()) == set(WANT):
+            print(f"loaded cache {CACHE}", flush=True)
+            cells = z["cells"].tolist()
+            n_umi = z["n_umi"]
+            kept = {k: z[f"g_{k}"] for k in WANT if f"g_{k}" in z.files}
+            return cells, kept, n_umi
     print(f"streaming {path}", flush=True)
     with gzip.open(path, "rt") as fh:
         header = fh.readline().rstrip("\n").split("\t")
@@ -105,6 +116,10 @@ def stream_genes(path: Path) -> tuple[list[str], dict[str, np.ndarray], np.ndarr
                 print(f"  genes {i}, kept {len(kept)}", flush=True)
     missing = [g for g in WANT if g not in kept]
     print(f"done. cells={n} genes_scanned={i} kept={len(kept)} missing={missing}", flush=True)
+    payload = {"cells": np.array(cells), "n_umi": n_umi, "want": np.array(WANT)}
+    for g, arr in kept.items():
+        payload[f"g_{g}"] = arr
+    np.savez_compressed(CACHE, **payload)
     return cells, kept, n_umi
 
 
@@ -278,39 +293,45 @@ def main() -> None:
     per.to_csv(OUT / "per_patient_metrics.csv", index=False)
 
     # --- tests ---
+    # Primary: all 12 post-treatment patients (MPR includes pCR). MPR residual
+    # malignant n is often <10; a ≥20-cell filter would drop 3/4 MPR samples.
     tests = {}
     post = per[(per["timing"] == "post") & (per["response"].isin(["MPR", "NMPR"]))].copy()
-    # require at least 20 malignant cells for TACSTD2 summaries
-    post_mal = post[post["n_malignant"] >= 20]
-    for metric, key in [
+    slices = {
+        "post_all12": post,
+        "post_min5_malignant": post[post["n_malignant"] >= 5],
+        "post_min20_malignant": post[post["n_malignant"] >= 20],
+        "post_drop_pCR": post[post["path_response_raw"] != "pCR"],
+        "all_labeled": per[per["response"].isin(["MPR", "NMPR"])],
+    }
+    metrics = [
         ("mal_tac_mean_log1p_cpm", "malignant_mean_log1p_cpm"),
         ("mal_tac_pct_pos", "malignant_pct_pos"),
         ("mal_tac_pseudobulk_cpm", "malignant_pseudobulk_cpm"),
         ("epi_tac_mean_log1p_cpm", "epithelial_mean_log1p_cpm"),
-    ]:
-        a = post_mal.loc[post_mal["response"] == "NMPR", metric].dropna().values
-        b = post_mal.loc[post_mal["response"] == "MPR", metric].dropna().values
-        tests[f"NMPR_gt_MPR_post_{key}"] = mw_onesided(a, b)
+        ("epi_tac_pct_pos", "epithelial_pct_pos"),
+    ]
+    for sl_name, sl in slices.items():
+        for metric, key in metrics:
+            a = sl.loc[sl["response"] == "NMPR", metric].dropna().values
+            b = sl.loc[sl["response"] == "MPR", metric].dropna().values
+            tests[f"NMPR_gt_MPR_{sl_name}_{key}"] = mw_onesided(a, b)
+            tests[f"spearman_{sl_name}_{key}_vs_frac_tnk"] = spearman_safe(sl[metric], sl["frac_tnk"])
 
-    for metric, key in [
-        ("mal_tac_mean_log1p_cpm", "malignant_mean_log1p_cpm"),
-        ("mal_tac_pct_pos", "malignant_pct_pos"),
-        ("mal_tac_pseudobulk_cpm", "malignant_pseudobulk_cpm"),
-    ]:
-        tests[f"spearman_post_{key}_vs_frac_tnk"] = spearman_safe(
-            post_mal[metric], post_mal["frac_tnk"]
-        )
-        tests[f"spearman_all_labeled_{key}_vs_frac_tnk"] = spearman_safe(
-            per.loc[per["response"].isin(["MPR", "NMPR"]) & (per["n_malignant"] >= 20), metric],
-            per.loc[per["response"].isin(["MPR", "NMPR"]) & (per["n_malignant"] >= 20), "frac_tnk"],
-        )
-
-    # Restriction / epithelial-only sensitivities already above.
-    # Also T/NK fraction MPR vs NMPR (paper reported higher T/NK in MPR, n.s.).
-    tests["frac_tnk_MPR_gt_NMPR_post"] = mw_onesided(
-        post.loc[post["response"] == "MPR", "frac_tnk"].values,
-        post.loc[post["response"] == "NMPR", "frac_tnk"].values,
-    )
+    mpr_tnk = post.loc[post["response"] == "MPR", "frac_tnk"].values
+    nmpr_tnk = post.loc[post["response"] == "NMPR", "frac_tnk"].values
+    if len(mpr_tnk) >= 2 and len(nmpr_tnk) >= 2:
+        u, p_g = stats.mannwhitneyu(mpr_tnk, nmpr_tnk, alternative="greater")
+        _, p_t = stats.mannwhitneyu(mpr_tnk, nmpr_tnk, alternative="two-sided")
+        tests["frac_tnk_MPR_gt_NMPR_post"] = {
+            "n_mpr": int(len(mpr_tnk)),
+            "n_nmpr": int(len(nmpr_tnk)),
+            "median_mpr": float(np.median(mpr_tnk)),
+            "median_nmpr": float(np.median(nmpr_tnk)),
+            "U": float(u),
+            "p_greater": float(p_g),
+            "p_two": float(p_t),
+        }
 
     # Marker QC
     qc = {}
@@ -329,18 +350,18 @@ def main() -> None:
     qc["celltype_counts"] = ann["celltype"].value_counts().to_dict()
     qc["lineage_counts"] = ann["lineage"].value_counts().to_dict()
 
-    # Claim verdicts
-    prim = tests["NMPR_gt_MPR_post_malignant_mean_log1p_cpm"]
-    rho = tests["spearman_post_malignant_mean_log1p_cpm_vs_frac_tnk"]
+    # Claim verdicts — primary = all 12 post-treatment patients
+    prim = tests["NMPR_gt_MPR_post_all12_malignant_mean_log1p_cpm"]
+    rho = tests["spearman_post_all12_malignant_mean_log1p_cpm_vs_frac_tnk"]
     claim_nmpr = (
         prim.get("direction") == "NMPR>MPR"
-        and prim.get("p_greater") is not None
+        and prim.get("p_greater") == prim.get("p_greater")
         and prim.get("p_greater") < 0.05
     )
+    # Require the claimed band on the primary (all-12) analysis, not a post-hoc slice.
     claim_rho = (
-        rho.get("rho") is not None
-        and not np.isnan(rho.get("rho", np.nan))
-        and -0.55 <= rho["rho"] <= -0.35
+        rho.get("rho") == rho.get("rho")
+        and -0.50 <= rho["rho"] <= -0.40
     )
     summary = {
         "dataset": "GSE207422",
@@ -358,16 +379,28 @@ def main() -> None:
         "qc": qc,
     }
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
+    flat = []
+    for k, v in tests.items():
+        row = {"test": k}
+        if isinstance(v, dict):
+            row.update(v)
+        flat.append(row)
+    pd.DataFrame(flat).to_csv(OUT / "tests.csv", index=False)
 
     # --- plots ---
     fig, axes = plt.subplots(1, 3, figsize=(11.2, 3.6))
     # 1. box NMPR vs MPR
     ax = axes[0]
-    plot_df = post_mal.dropna(subset=["mal_tac_mean_log1p_cpm"])
+    plot_df = post.dropna(subset=["mal_tac_mean_log1p_cpm"])
+    rng = np.random.default_rng(0)
     for i, (lab, col) in enumerate([("MPR", "#2a9d8f"), ("NMPR", "#e76f51")]):
-        y = plot_df.loc[plot_df["response"] == lab, "mal_tac_mean_log1p_cpm"]
-        ax.scatter(np.full(len(y), i) + np.random.default_rng(0).uniform(-0.08, 0.08, len(y)), y, c=col, s=40, zorder=3)
-        ax.hlines(y.median() if len(y) else np.nan, i - 0.2, i + 0.2, colors="black", lw=2)
+        s = plot_df.loc[plot_df["response"] == lab]
+        y = s["mal_tac_mean_log1p_cpm"].to_numpy()
+        jit = rng.uniform(-0.08, 0.08, len(y))
+        ax.scatter(np.full(len(y), i) + jit, y, c=col, s=40, zorder=3)
+        ax.hlines(np.median(y) if len(y) else np.nan, i - 0.2, i + 0.2, colors="black", lw=2)
+        for x0, y0, lab_p in zip(np.full(len(y), i) + jit, y, s["patient"]):
+            ax.annotate(lab_p, (x0, y0), fontsize=6, xytext=(4, 0), textcoords="offset points")
     ax.set_xticks([0, 1], ["MPR/pCR", "NMPR"])
     ax.set_ylabel("Malignant TACSTD2 (mean log1p CPM)")
     ax.set_title(
@@ -413,15 +446,45 @@ def main() -> None:
     fig.savefig(OUT / "composition_post.png", dpi=160)
     plt.close(fig)
 
-    write_readme(summary, per, post_mal)
+    write_readme(summary, per, post)
     print(json.dumps({k: summary[k] for k in summary if k not in {"tests", "qc"}}, indent=2))
     print("wrote", OUT)
 
 
-def write_readme(summary: dict, per: pd.DataFrame, post_mal: pd.DataFrame) -> None:
+def _fmt(x, nd=3):
+    if x is None or (isinstance(x, float) and (np.isnan(x) or np.isinf(x))):
+        return "NA"
+    if isinstance(x, float):
+        if abs(x) >= 10:
+            return f"{x:.0f}"
+        if abs(x) < 0.01:
+            return f"{x:.2e}"
+        return f"{x:.{nd}f}"
+    return str(x)
+
+
+def write_readme(summary: dict, per: pd.DataFrame, post: pd.DataFrame) -> None:
     prim = summary["primary_NMPR_gt_MPR"]
     rho = summary["primary_spearman_mal_tac_vs_tnk"]
     qc = summary["qc"]
+    t = summary["tests"]
+    epi = t["NMPR_gt_MPR_post_all12_epithelial_mean_log1p_cpm"]
+    pb = t["NMPR_gt_MPR_post_all12_malignant_pseudobulk_cpm"]
+    rho_drop = t["spearman_post_drop_pCR_malignant_mean_log1p_cpm_vs_frac_tnk"]
+    rho_epi = t["spearman_post_all12_epithelial_mean_log1p_cpm_vs_frac_tnk"]
+    rho_pb = t["spearman_post_all12_malignant_pseudobulk_cpm_vs_frac_tnk"]
+
+    table = [
+        "| patient | response | n_mal | n_epi | T/NK frac | mal TACSTD2 mean | mal %pos | mal pb CPM | epi TACSTD2 mean |",
+        "|---|---|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for _, r in post.sort_values(["response", "patient"]).iterrows():
+        table.append(
+            f"| {r['patient']} | {r['path_response_raw']} | {int(r['n_malignant'])} | {int(r['n_epithelial_any'])} | "
+            f"{r['frac_tnk']:.3f} | {r['mal_tac_mean_log1p_cpm']:.3f} | {100*r['mal_tac_pct_pos']:.1f} | "
+            f"{r['mal_tac_pseudobulk_cpm']:.0f} | {r['epi_tac_mean_log1p_cpm']:.3f} |"
+        )
+
     lines = [
         "# Claim A3 — GSE207422 (exact)",
         "",
@@ -429,32 +492,47 @@ def write_readme(summary: dict, per: pd.DataFrame, post_mal: pd.DataFrame) -> No
         "",
         "## Verdict (honest)",
         "",
-        f"- **NMPR > MPR (malignant TACSTD2, post-treatment): {'SUPPORTED' if summary['claim_A3_NMPR_gt_MPR_supported'] else 'NOT SUPPORTED'}.** "
-        f"Median mean-log1p-CPM NMPR={prim.get('median_nmpr')} vs MPR={prim.get('median_mpr')}; "
-        f"direction={prim.get('direction')}; one-sided Mann–Whitney p={prim.get('p_greater')}; two-sided p={prim.get('p_two')}; "
-        f"n={prim.get('n_nmpr')} NMPR / {prim.get('n_mpr')} MPR (patients with ≥20 malignant cells).",
-        f"- **ρ ≈ −0.40 to −0.50: {'SUPPORTED' if summary['claim_A3_rho_minus_0.40_to_0.50_supported'] else 'NOT SUPPORTED'}.** "
-        f"Post-treatment Spearman ρ={rho.get('rho')} (p={rho.get('p')}, n={rho.get('n')}) for malignant mean log1p CPM vs T/NK fraction.",
-        "- This is a small n (paper: 4 MPR including 1 pCR, 8 NMPR). Do not over-interpret p-values.",
+        f"- **NMPR > MPR (malignant TACSTD2, 12 post-treatment patients): NOT SUPPORTED.** "
+        f"Median malignant mean-log1p-CPM NMPR={_fmt(prim.get('median_nmpr'))} vs MPR={_fmt(prim.get('median_mpr'))} "
+        f"(n=8/4). Direction is weakly NMPR>MPR; one-sided Mann–Whitney p={_fmt(prim.get('p_greater'))}, "
+        f"two-sided p={_fmt(prim.get('p_two'))}.",
+        f"- **Malignant % TACSTD2+** is also n.s. (NMPR median {100*t['NMPR_gt_MPR_post_all12_malignant_pct_pos']['median_nmpr']:.1f}% vs "
+        f"MPR {100*t['NMPR_gt_MPR_post_all12_malignant_pct_pos']['median_mpr']:.1f}%; p_greater="
+        f"{_fmt(t['NMPR_gt_MPR_post_all12_malignant_pct_pos']['p_greater'])}).",
+        f"- **Malignant pseudobulk CPM goes the other way** (NMPR median {_fmt(pb.get('median_nmpr'),1)} vs MPR {_fmt(pb.get('median_mpr'),1)}; "
+        f"p_greater={_fmt(pb.get('p_greater'))}). Driven by tiny MPR malignant n (P06/P11/P14 have 4–7 cells).",
+        f"- **All-epithelial sensitivity** is the closest to the claim (NMPR {_fmt(epi.get('median_nmpr'))} vs MPR {_fmt(epi.get('median_mpr'))}; "
+        f"p_greater={_fmt(epi.get('p_greater'))}) but still not p<0.05.",
+        f"- **ρ ≈ −0.40 to −0.50: NOT SUPPORTED on the primary analysis.** "
+        f"All 12 post-treatment: Spearman ρ={_fmt(rho.get('rho'))} (p={_fmt(rho.get('p'))}) for malignant mean log1p CPM vs T/NK fraction. "
+        f"%pos ρ={_fmt(t['spearman_post_all12_malignant_pct_pos_vs_frac_tnk']['rho'])}; "
+        f"pseudobulk ρ={_fmt(rho_pb.get('rho'))}; epithelial ρ={_fmt(rho_epi.get('rho'))}.",
+        f"- One post-hoc slice (drop pCR P06) gives ρ={_fmt(rho_drop.get('rho'))} (p={_fmt(rho_drop.get('p'))}, n={rho_drop.get('n')}) — inside the claimed band but n.s. and not pre-specified.",
+        "- The only MPR patient with a large malignant compartment (P03, 871 cells) has the **lowest** malignant TACSTD2 (0.83). Three other MPR/pCR samples have 4–7 marker-malignant cells because residual epithelium scores as normal lung — expected after MPR, and a hard limit without author CopyKAT labels.",
         "",
         "## Data and annotations",
         "",
         "- GEO **GSE207422** (Hu et al., *Genome Medicine* 2023, PMID 36869384): BD Rhapsody UMI matrix, 92,330 cells × 24,292 genes, 15 samples / 15 patients.",
         "- **Author per-cell annotations are not public.** Searched: GEO suppl (UMI + sample xlsx only), paper Additional files 1/3/4 (clinical / module genes / steroids; no barcodes), TISCH2 NSCLC gallery (GSE207422 absent), CELLxGENE. Analysis uses marker-inferred labels.",
         "- Lineage = argmax of mean log1p(CPM) across canonical panels (T, NK, B, plasma, myeloid, neutrophil, pDC, mast, stromal, epithelial).",
-        "- **Malignant** = assigned epithelial and *not* normal-lung (SFTPA2/SFTPC/AGER/SCGB1A1/TPPP3/FOXJ1), matching the authors' normal clusters (alveolar / club / ciliated). This is **not** CopyKAT; residual basal/tumor-like epithelium can leak either way.",
+        "- **Malignant** = assigned epithelial and *not* normal-lung (SFTPA2/SFTPC/AGER/SCGB1A1/TPPP3/FOXJ1), matching the authors' normal clusters (alveolar / club / ciliated). This is **not** CopyKAT.",
         "- Primary test uses **post-treatment surgery** samples only (paper Fig. 1). pCR (P06) is grouped with MPR as in the paper (MPR n=4, NMPR n=8). Pre-treatment biopsies (P01 NE, P05/P08 NMPR-labeled) are excluded from the primary contrast.",
+        "",
+        "## Post-treatment per-patient table",
+        "",
+        *table,
         "",
         "## QC (marker restriction)",
         "",
         f"- TACSTD2+ : malignant {qc['Malignant']['tacstd2_pct_pos']:.1%}, normal epithelium {qc['NormalEpithelium']['tacstd2_pct_pos']:.1%}, T {qc['T']['tacstd2_pct_pos']:.1%}, NK {qc['NK']['tacstd2_pct_pos']:.1%}.",
         f"- EPCAM+ : malignant {qc['Malignant']['epcam_pct_pos']:.1%}, T {qc['T']['epcam_pct_pos']:.1%}.",
         f"- PTPRC/CD45+ : malignant {qc['Malignant']['ptprc_pct_pos']:.1%}, T {qc['T']['ptprc_pct_pos']:.1%}.",
+        f"- Assigned counts: malignant {qc['Malignant']['n']}, normal epithelium {qc['NormalEpithelium']['n']}, T {qc['T']['n']}, NK {qc['NK']['n']}.",
         "",
         "## Files",
         "",
-        "- `per_patient_metrics.csv` — per-sample counts, fractions, TACSTD2 summaries.",
-        "- `summary.json` — all tests (mean / %positive / pseudobulk; post-only and all labeled; epithelial-wide sensitivity).",
+        "- `per_patient_metrics.csv` — per-sample counts, fractions, TACSTD2 summaries (all 15 samples).",
+        "- `summary.json` / `tests.csv` — all tests (mean / %positive / pseudobulk; all-12 / min5 / min20 / drop-pCR / epithelial-wide).",
         "- `claim_A3_summary.png` / `.pdf` — NMPR vs MPR, scatter vs T/NK, lineage restriction.",
         "- `composition_post.png` — malignant and T/NK fractions by post-treatment patient.",
         "",
@@ -464,7 +542,7 @@ def write_readme(summary: dict, per: pd.DataFrame, post_mal: pd.DataFrame) -> No
         "python3 scripts/claim_A3_gse207422.py",
         "```",
         "",
-        "Downloads the GEO UMI matrix (~184 MB) and sample metadata if missing. Does not load the full dense matrix into memory; streams requested genes plus per-cell library size.",
+        "Downloads the GEO UMI matrix (~184 MB) and sample metadata if missing. Streams requested genes plus per-cell library size; caches `data/gse207422_marker_stream.npz` (gitignored).",
         "",
     ]
     (OUT / "README.md").write_text("\n".join(lines))
