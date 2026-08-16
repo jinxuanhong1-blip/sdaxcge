@@ -1,0 +1,28 @@
+source_id	source_type	url	claim_used	accessed_utc
+CBIO-LUAD	public dataset/API	https://www.cbioportal.org/api/molecular-profiles/luad_tcga_pan_can_atlas_2018_rna_seq_v2_mrna	TCGA PanCancer Atlas LUAD batch-normalized RSEM profile; sample-level values queried by analyze_tcga.py	2026-08-16
+CBIO-LUSC	public dataset/API	https://www.cbioportal.org/api/molecular-profiles/lusc_tcga_pan_can_atlas_2018_rna_seq_v2_mrna	TCGA PanCancer Atlas LUSC batch-normalized RSEM profile; sample-level values queried by analyze_tcga.py	2026-08-16
+HPA-TFAP2A	public atlas	https://www.proteinatlas.org/ENSG00000137203-TFAP2A/tissue/lung	Normal-lung consensus RNA 0.4 nTPM and lung tissue/cell context	2026-08-16
+HPA-TACSTD2	public atlas	https://www.proteinatlas.org/ENSG00000184292-TACSTD2/tissue/lung	Normal-lung consensus RNA 74.5 nTPM	2026-08-16
+HPA-CLDN4	public atlas	https://www.proteinatlas.org/ENSG00000189143-CLDN4/tissue/lung	Normal-lung consensus RNA 66.7 nTPM and alveolar cell context	2026-08-16
+HPA-TFAP2A-CANCER	public atlas	https://www.proteinatlas.org/ENSG00000137203-TFAP2A/cancer	TFAP2A listed in adverse LUAD prognostic summary; nuclear cancer staining context	2026-08-16
+HPA-TACSTD2-CANCER	public atlas	https://www.proteinatlas.org/ENSG00000184292-TACSTD2/cancer	TACSTD2 not listed in current lung prognostic summary; membranous/cytoplasmic staining context	2026-08-16
+HPA-CLDN4-CANCER	public atlas	https://www.proteinatlas.org/ENSG00000189143-CLDN4/cancer	CLDN4 not listed in current lung prognostic summary; adenocarcinoma staining context	2026-08-16
+WANG-2021	primary study	https://doi.org/10.1038/s41419-021-03606-x	TFAP2A elevation in multiple LUAD cohorts and paired tissue; nuclear localization; prognosis; PSG9/TGF-beta metastasis mechanism	2026-08-16
+NSCLC-2024	primary study	https://doi.org/10.1038/s41420-024-02251-5	Paired-tissue TFAP2A elevation and adverse outcome; ESR2/MAPK mechanism in NSCLC	2026-08-16
+PAN-2024	primary study	https://doi.org/10.21037/tlcr-24-50	TFAP2A directly activates ITGB4 in LUAD; supports an established target other than TACSTD2/CLDN4	2026-08-16
+ZHOU-2024	primary study	https://doi.org/10.1002/ctm2.1649	CLDN4-positive metastatic pleural-effusion cluster and positive association with TACSTD2/EpCAM	2026-08-16
+BOHLMANN-2022	primary study	https://doi.org/10.1038/s41598-022-13637-9	TACSTD2 is expressed and infection-inducible in lung epithelial cells	2026-08-16
+KOBERLE-2012	primary study	https://doi.org/10.1186/1477-7819-10-53	TROP2 protein expression differs between NSCLC histologies and is not universal	2026-08-16
+ENCODE-TFAP2A	public ChIP	https://www.encodeproject.org/experiments/ENCSR000EVP/	Only ENCODE TFAP2A TF ChIP-seq experiment; HeLa-S3; revoked and not used	2026-08-16
+REMAP-TFAP2A	public ChIP atlas	https://remap.univ-amu.fr/target_page/TFAP2A:9606	ReMap 2022 TFAP2A datasets: MCF-7, MCF-7+E2, WA09; no lung biotype	2026-08-16
+REMAP-MCF7	public peak set	https://remap.univ-amu.fr/storage/remap2022/hg38/MACS2/DATASET/GSE60270.TFAP2A.MCF-7.bed.gz	ReMap 2022 MCF-7 TFAP2A peaks used for locus overlap	2026-08-16
+REMAP-MCF7-E2	public peak set	https://remap.univ-amu.fr/storage/remap2022/hg38/MACS2/DATASET/GSE60270.TFAP2A.MCF-7_E2.bed.gz	ReMap 2022 MCF-7 estradiol TFAP2A peaks used for locus overlap	2026-08-16
+REMAP-WA09	public peak set	https://remap.univ-amu.fr/storage/remap2022/hg38/MACS2/DATASET/GSE105081.TFAP2A.WA09.bed.gz	ReMap 2022 WA09 TFAP2A peaks used for locus overlap	2026-08-16
+CHIPATLAS-ANTIGEN	public ChIP atlas	https://chip-atlas.org/data/chip_antigen?genome=hg38&agClass=TFs%20and%20others&clClass=Lung	ChIP-Atlas Lung class has 0 TFAP2A experiments	2026-08-16
+CHIPATLAS-BED-Q05	public peak set	https://chip-atlas.dbcls.jp/data/hg38/assembled/Oth.ALL.05.TFAP2A.AllCell.bed	Assembled TFAP2A peaks, q=1e-5, all cell types	2026-08-16
+CHIPATLAS-BED-Q10	public peak set	https://chip-atlas.dbcls.jp/data/hg38/assembled/Oth.ALL.10.TFAP2A.AllCell.bed	Assembled TFAP2A peaks, q=1e-10, all cell types	2026-08-16
+CHIPATLAS-TARGET-1	public target table	https://chip-atlas.dbcls.jp/data/hg38/target/TFAP2A.1.tsv	TFAP2A target-gene scores within 1 kb of TSS	2026-08-16
+CHIPATLAS-TARGET-5	public target table	https://chip-atlas.dbcls.jp/data/hg38/target/TFAP2A.5.tsv	TFAP2A target-gene scores within 5 kb of TSS	2026-08-16
+CHIPATLAS-TARGET-10	public target table	https://chip-atlas.dbcls.jp/data/hg38/target/TFAP2A.10.tsv	TFAP2A target-gene scores within 10 kb of TSS	2026-08-16
+ENSEMBL-TACSTD2	gene coordinates	https://rest.ensembl.org/lookup/symbol/homo_sapiens/TACSTD2	GRCh38 TACSTD2 locus and canonical TSS	2026-08-16
+ENSEMBL-CLDN4	gene coordinates	https://rest.ensembl.org/lookup/symbol/homo_sapiens/CLDN4	GRCh38 CLDN4 locus and canonical TSS	2026-08-16

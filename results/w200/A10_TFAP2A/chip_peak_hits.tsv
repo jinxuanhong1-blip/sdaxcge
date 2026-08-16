@@ -1,0 +1,33 @@
+source	dataset_id	threshold	gene	chrom	peak_start	peak_end	score	cell	cell_group	lung	gene_body	tss_pm_1kb	tss_pm_5kb	tss_pm_10kb
+ReMap2022	GSE60270.TFAP2A.MCF-7	NA	CLDN4	chr7	73822556	73822735	0	MCF-7	Breast	no	yes	no	no	yes
+ReMap2022	GSE60270.TFAP2A.MCF-7	NA	CLDN4	chr7	73832289	73832499	0	MCF-7	Breast	no	yes	no	yes	yes
+ReMap2022	GSE60270.TFAP2A.MCF-7_E2	NA	TACSTD2	chr1	58572782	58572959	0	MCF-7_E2	Breast	no	no	no	yes	yes
+ReMap2022	GSE60270.TFAP2A.MCF-7_E2	NA	TACSTD2	chr1	58577253	58577455	0	MCF-7_E2	Breast	no	no	yes	yes	yes
+ReMap2022	GSE60270.TFAP2A.MCF-7_E2	NA	CLDN4	chr7	73822510	73822840	0	MCF-7_E2	Breast	no	yes	no	no	yes
+ReMap2022	GSE60270.TFAP2A.MCF-7_E2	NA	CLDN4	chr7	73827469	73827668	0	MCF-7_E2	Breast	no	yes	no	yes	yes
+ReMap2022	GSE60270.TFAP2A.MCF-7_E2	NA	CLDN4	chr7	73832324	73832502	0	MCF-7_E2	Breast	no	yes	no	yes	yes
+ReMap2022	GSE105081.TFAP2A.WA09	NA	CLDN4	chr7	73827524	73827695	6.98519	WA09	Pluripotent stem cell	no	yes	no	yes	yes
+ReMap2022	GSE105081.TFAP2A.WA09	NA	CLDN4	chr7	73832363	73832526	7.81840	WA09	Pluripotent stem cell	no	yes	no	yes	yes
+ReMap2022	GSE105081.TFAP2A.WA09	NA	CLDN4	chr7	73833391	73833782	16.79458	WA09	Pluripotent stem cell	no	no	no	yes	yes
+ChIP-Atlas	SRX20744801	q05	TACSTD2	chr1	58576798	58577246	99	GP5d	Digestive tract	no	yes	yes	yes	yes
+ChIP-Atlas	SRX233463	q05	CLDN4	chr7	73822449	73822830	354	MCF-7	Breast	no	yes	no	no	yes
+ChIP-Atlas	SRX150447	q05	CLDN4	chr7	73822453	73822910	1000	HeLa	Uterus	no	yes	no	no	yes
+ChIP-Atlas	SRX10412077	q05	CLDN4	chr7	73822594	73822825	274	HEPM	Embryo	no	yes	no	no	yes
+ChIP-Atlas	SRX10412078	q05	CLDN4	chr7	73822618	73822799	133	HEPM	Embryo	no	yes	no	no	yes
+ChIP-Atlas	SRX18711630	q05	CLDN4	chr7	73822626	73822792	172	GP5d	Digestive tract	no	yes	no	no	yes
+ChIP-Atlas	SRX18711630	q05	CLDN4	chr7	73827473	73827745	965	GP5d	Digestive tract	no	yes	no	yes	yes
+ChIP-Atlas	SRX9969701	q05	CLDN4	chr7	73832303	73832523	156	hESC H9	Pluripotent stem cell	no	yes	no	yes	yes
+ChIP-Atlas	SRX9969702	q05	CLDN4	chr7	73832349	73832511	143	hESC H9	Pluripotent stem cell	no	yes	no	yes	yes
+ChIP-Atlas	SRX3292076	q05	CLDN4	chr7	73833437	73833727	203	hESC derived trophoblast cells	Pluripotent stem cell	no	no	no	yes	yes
+ChIP-Atlas	SRX3292075	q05	CLDN4	chr7	73833458	73833689	91	hESC derived trophoblast cells	Pluripotent stem cell	no	no	no	yes	yes
+ChIP-Atlas	SRX21457790	q05	CLDN4	chr7	73833522	73833728	98	92-1	Others	no	no	no	yes	yes
+ChIP-Atlas	SRX9969701	q05	CLDN4	chr7	73833591	73833751	124	hESC H9	Pluripotent stem cell	no	no	no	yes	yes
+ChIP-Atlas	SRX20744801	q05	CLDN4	chr7	73835979	73836282	97	GP5d	Digestive tract	no	no	no	yes	yes
+ChIP-Atlas	SRX1091550	q05	CLDN4	chr7	73836955	73837166	174	hESC derived neural crests	Pluripotent stem cell	no	no	no	no	yes
+ChIP-Atlas	SRX9969701	q05	CLDN4	chr7	73838740	73838934	97	hESC H9	Pluripotent stem cell	no	no	no	no	yes
+ChIP-Atlas	SRX150447	q10	CLDN4	chr7	73822490	73822872	1000	HeLa	Uterus	no	yes	no	no	yes
+ChIP-Atlas	SRX233463	q10	CLDN4	chr7	73822549	73822819	354	MCF-7	Breast	no	yes	no	no	yes
+ChIP-Atlas	SRX10412077	q10	CLDN4	chr7	73822626	73822800	274	HEPM	Embryo	no	yes	no	no	yes
+ChIP-Atlas	SRX18711630	q10	CLDN4	chr7	73827489	73827735	965	GP5d	Digestive tract	no	yes	no	yes	yes
+ChIP-Atlas	SRX3292076	q10	CLDN4	chr7	73833526	73833707	203	hESC derived trophoblast cells	Pluripotent stem cell	no	no	no	yes	yes
+ChIP-Atlas	SRX1091550	q10	CLDN4	chr7	73836974	73837135	174	hESC derived neural crests	Pluripotent stem cell	no	no	no	no	yes
