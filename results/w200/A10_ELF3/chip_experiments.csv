@@ -1,0 +1,15 @@
+catalog,id,peak_file,cell,tissue,is_lung,note
+ENCODE,ENCSR770AOR,ENCFF080FAU,HepG2,liver,False,Only released ENCODE ELF3 TF ChIP-seq experiment (2026-08-16 search).
+ChIP-Atlas,SRX1389378,SRX1389378.05.bed,CFPAC-1,pancreas,False,"CFPAC-1 KLF5-KO ELF3 ChIP (GSE64557, PDAC)."
+ChIP-Atlas,SRX1389380,SRX1389380.05.bed,CFPAC-1,pancreas,False,"CFPAC-1 ELF3 ChIP (GSE64557, PDAC)."
+ChIP-Atlas,SRX21154913,SRX21154913.05.bed,CFPAC-1,pancreas,False,CFPAC-1 ELF3 ChIP (ChIP-Atlas; PDAC).
+ChIP-Atlas,SRX21154914,SRX21154914.05.bed,CFPAC-1,pancreas,False,CFPAC-1 ELF3 ChIP (ChIP-Atlas; PDAC).
+ChIP-Atlas,SRX21154915,SRX21154915.05.bed,CFPAC-1,pancreas,False,CFPAC-1 ELF3 ChIP (ChIP-Atlas; PDAC).
+ChIP-Atlas,SRX21154916,SRX21154916.05.bed,CFPAC-1,pancreas,False,CFPAC-1 ELF3 ChIP (ChIP-Atlas; PDAC).
+ChIP-Atlas,SRX825394,SRX825394.05.bed,CFPAC-1,pancreas,False,CFPAC1.ELF3 (GSE64557 / related PDAC ELF3 ChIP).
+ChIP-Atlas,SRX6060975,SRX6060975.05.bed,ESO-26,esophagus,False,"Eso26 ELF3-Flag (GSE132680, esophageal adenocarcinoma)."
+ChIP-Atlas,SRX8939702,SRX8939702.05.bed,HBDEC2,biliary_epithelium,False,"HBDEC2 is an immortalized biliary epithelial line (GSE156165), not bronchus/lung."
+ChIP-Atlas,SRX2636285,SRX2636285.05.bed,HepG2,liver,False,HepG2 ELF3 (ChIP-Atlas; ENCODE-related).
+ChIP-Atlas,SRX2636286,SRX2636286.05.bed,HepG2,liver,False,HepG2 ELF3 (ChIP-Atlas; ENCODE-related).
+GEO_survey,GSE280165,,HEK293,kidney_cell_line,False,2024 HEK293 ELF3 ChIP (genomic dark-matter TF screen). Not lung. Not used for locus overlap (no hg38 peak bed pulled).
+GEO_survey,GSE57177,,mouse_lung_tumor,lung_mouse,False,"GEO text hit because the series is lung ChIP-seq, but the target is not ELF3 (Smad4-loss mouse model). Not an ELF3 ChIP."

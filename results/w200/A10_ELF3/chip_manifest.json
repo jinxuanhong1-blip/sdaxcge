@@ -1,0 +1,145 @@
+{
+  "downloaded_at_utc": "2026-08-16T20:09:16.935933+00:00",
+  "user_agent": "sdaxcge-w200-A10-ELF3/1.0 (reproducible public ChIP catalog; +https://github.com/jinxuanhong1-blip/sdaxcge)",
+  "files": [
+    {
+      "url": "https://www.encodeproject.org/files/ENCFF080FAU/@@download/ENCFF080FAU.bed.gz",
+      "path": "/tmp/a10_elf3_data/ELF3_HepG2_ENCFF080FAU_optIDR.bed.gz",
+      "status": "cached",
+      "bytes": 661301,
+      "sha256": "b10ef78dbc8dadb12db4e19076564b8e30e82085f3ebb40281e622eb45daecc0",
+      "name": "ELF3_HepG2_ENCFF080FAU_optIDR.bed.gz"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/target/ELF3.5.tsv",
+      "path": "/tmp/a10_elf3_data/ELF3_ChIPAtlas_targets_5kb.tsv",
+      "status": "cached",
+      "bytes": 720271,
+      "sha256": "38051b09cde6813f8f3d1c6a2fd3d6fe3c6374ae4cd1fde6f3d660941cfe383a",
+      "name": "ELF3_ChIPAtlas_targets_5kb.tsv"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX1389378.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX1389378.05.bed",
+      "status": "cached",
+      "bytes": 2381640,
+      "sha256": "5c3956a5f4652c96dec0bbbb0ce423ae0640fb6ba847231c8ae77f2ab3d3dcd3",
+      "name": "SRX1389378.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX1389380.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX1389380.05.bed",
+      "status": "cached",
+      "bytes": 3158118,
+      "sha256": "7c43f6c6f670d2da2afcc30b1afd47780b6d4785dd792f209c1fa15fb1eb14ae",
+      "name": "SRX1389380.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX21154913.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX21154913.05.bed",
+      "status": "cached",
+      "bytes": 2454171,
+      "sha256": "c47b5a29174ca8532b0de6d007c3c106ffb740d6a0369652a045655145f3474b",
+      "name": "SRX21154913.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX21154914.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX21154914.05.bed",
+      "status": "cached",
+      "bytes": 2463891,
+      "sha256": "694a6a415b21fefdf5768d7671c3cbf143a40db581a8351fc8f949e52430baf3",
+      "name": "SRX21154914.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX21154915.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX21154915.05.bed",
+      "status": "cached",
+      "bytes": 2960243,
+      "sha256": "1e03e000ebf5d2f6c6865afa0b02c920fa8e581823349ba212b0f0f20a969929",
+      "name": "SRX21154915.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX21154916.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX21154916.05.bed",
+      "status": "cached",
+      "bytes": 2858977,
+      "sha256": "1ff8d91485b33550b014c063aa0d97405b34fda9d70b6f3f9d8bab25071cacf2",
+      "name": "SRX21154916.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX825394.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX825394.05.bed",
+      "status": "cached",
+      "bytes": 4088499,
+      "sha256": "c06651dd8c6937f5160474e0ca8824504bb45d9017b7a1080651f009103f4795",
+      "name": "SRX825394.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX6060975.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX6060975.05.bed",
+      "status": "cached",
+      "bytes": 120000,
+      "sha256": "bfca68fc8daab48ef0577394e343293df8959d563902c86b169a2f0129a4260a",
+      "name": "SRX6060975.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX8939702.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX8939702.05.bed",
+      "status": "cached",
+      "bytes": 229126,
+      "sha256": "3464d37cdd0ec3ce0da0c348f7b69aa5e7d64d53277ea947511ff299b719eb4b",
+      "name": "SRX8939702.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX2636285.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX2636285.05.bed",
+      "status": "cached",
+      "bytes": 3039405,
+      "sha256": "6adf1708e67f9f7ec2ea3ce8a3901fab659e96b37a480cb2df907189d773d7e3",
+      "name": "SRX2636285.05.bed"
+    },
+    {
+      "url": "https://chip-atlas.dbcls.jp/data/hg38/eachData/bed05/SRX2636286.05.bed",
+      "path": "/tmp/a10_elf3_data/chip_beds/SRX2636286.05.bed",
+      "status": "cached",
+      "bytes": 2315463,
+      "sha256": "94bba5fdbdaadbbe670121d721335289a2c9c0f8882e1e970394893bdd9ea3d3",
+      "name": "SRX2636286.05.bed"
+    }
+  ],
+  "loci_hg38": {
+    "TACSTD2": {
+      "chrom": "chr1",
+      "gene_start": 58575433,
+      "gene_end": 58577252,
+      "strand": -1,
+      "ensembl": "ENSG00000184292",
+      "coding_tss": 58577252,
+      "notes": "Single-exon protein-coding gene; TSS = gene end."
+    },
+    "CLDN4": {
+      "chrom": "chr7",
+      "gene_start": 73799542,
+      "gene_end": 73832690,
+      "strand": 1,
+      "ensembl": "ENSG00000189143",
+      "coding_tss": 73830996,
+      "alt_tss": 73799542,
+      "notes": "Gene span includes a ~31 kb upstream non-coding/retained isoform (CLDN4-204). Coding TSS is ENST00000340958."
+    }
+  },
+  "chip_verdict": {
+    "lung_elf3_chip_public": false,
+    "n_lung_experiments_in_catalog": 0,
+    "statement": "No public human lung / NSCLC ELF3 ChIP-seq was found in ENCODE, ChIP-Atlas (ELF3.5 target matrix), or a GEO ELF3+ChIP-seq survey. ELF3 binding at TACSTD2/CLDN4 therefore cannot be tested in lung from public ChIP. Available non-lung ChIP (CFPAC-1 pancreas, HepG2 liver, ESO-26 esophagus, HBDEC2 biliary) is mixed and is not a lung result.",
+    "non_lung_calls": {
+      "TACSTD2_coding_TSS_pm2kb_CFPAC1": true,
+      "TACSTD2_coding_TSS_pm2kb_HepG2_ENCODE_IDR": false,
+      "TACSTD2_coding_TSS_pm2kb_ESO26_or_HBDEC2": false,
+      "CLDN4_coding_TSS_pm2kb_CFPAC1": true,
+      "CLDN4_alt_TSS_pm2kb_CFPAC1": true,
+      "CLDN4_alt_TSS_pm2kb_HepG2_ENCODE_IDR": true,
+      "CLDN4_coding_TSS_pm2kb_HepG2_ENCODE_IDR": false
+    }
+  }
+}
