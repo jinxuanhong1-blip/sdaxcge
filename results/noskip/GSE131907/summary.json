@@ -1,0 +1,10 @@
+{
+  "dataset": "GSE131907",
+  "task": "no-skip: epithelial TACSTD2 vs immune on the full processed GEO matrices",
+  "honest_verdict": "TACSTD2 is epithelial-restricted versus immune (cell-level median log2TPM 1.75 vs 0.00, %pos 74.5 vs 3.1, MWU p=<1e-300, n_epi=36467, n_imm=164525). Sample-level epithelial TACSTD2 vs immune fraction is a null (tumor-site \u03c1=0.06, p=0.719, n=36; tLung \u03c1=-0.28, p=0.401, n=11). No ICI / MPR labels. Size was not a skip reason: both processed text matrices were used.",
+  "tacstd2_epithelial_restricted": true,
+  "immune_anticorrelation_supported": false,
+  "ici_contrast_possible": false,
+  "skipped_for_size": [],
+  "n_cells_used": 208506
+}
