@@ -1,42 +1,35 @@
-# B5: leftover public HNSCC ICI cohorts
+# B5 leftover HNSCC ICI CLDN4
 
-This is an eligibility audit and marker analysis for **TACSTD2** and **CLDN4**.
-It avoids re-running the public lung ICI cohorts already covered elsewhere.
-The primary analyzable leftover is Liu et al. 2021
-([PMID 34755131](https://pubmed.ncbi.nlm.nih.gov/34755131/),
-[GSE179730](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE179730)).
+Catalog leftover public HNSCC ICI cohorts and test CLDN4 only where the gene is measured and ICI labels are public. No tuning.
 
-## Reproduce
+## Run
 
-Python 3 is the only requirement:
-
-```sh
+```bash
 python3 results/w200/B5_HNSC_extra/analyze.py
 ```
 
-The script audits marker presence directly in each deposited matrix. For
-GSE179730 it uses pretreatment tumors only and locks outcomes to Supplementary
-Table S2. The primary contrast follows the authors' definition: Responder +
-Stable (clinical benefit) versus Progressor. A separately labeled sensitivity
-contrast compares pathologic Responder against Stable + Progressor.
+Python 3 stdlib only. Writes `summary.json`, `cohort_catalog.tsv`, `marker_statistics.csv`, `survival_statistics.csv`, `per_sample_expression.csv`, `prat_panel_audit.tsv`.
 
-GEO calls the GSE179730 matrix “log2 CPM,” but each deposited column sums to
-approximately one million and values reach hundreds of thousands. It is
-therefore demonstrably linear CPM; the analysis uses `log2(CPM+1)`. Inference
-uses all possible group-label allocations for an exact, tie-preserving
-Mann–Whitney permutation p-value. BH correction covers the two locked primary
-marker tests. No threshold or subgroup was optimized.
+## Leftovers
 
-## Outputs
+| GEO | Why leftover | CLDN4? | Labels? | Used |
+|---|---|---|---|---|
+| GSE93157 Prat HNSCC | prior w200 unused HNSCC slice | no | yes (all NR) | panel audit only |
+| GSE159067 Foy | public R/M HNSCC ICI | no | yes | catalog |
+| GSE179730 Liu | neoadjuvant nivo OCSCC | yes (sparse) | Table S2 | expression + RFS/OS |
+| GSE190575 ALPHA | HNSCC ICI+afatinib | no | mixed combo | catalog |
+| GSE212549 NIVACTOR train | R/M HNSCC ICI | yes | no public response | catalog |
+| GSE212550 NIVACTOR test | R/M HNSCC ICI | yes | LTS vs STS | expression |
+| EGAD50000002506 | ICI HNSCC RNA-seq | unknown | EGA | inaccessible |
 
-- `cohort_catalog.tsv`: eligibility and exclusions
-- `per_sample_expression.csv`: auditable marker values and outcomes
-- `marker_statistics.csv`: primary and sensitivity comparisons
-- `summary.json`: machine-readable methods, checks, and honest verdict
-- `RESULTS.md`: ≤200-word result
-- `data/`: unmodified compressed GEO downloads
+## Locks
 
-Prat/GSE93157 and Foy/GSE159067 cannot answer the marker question: both
-targeted panels omit TACSTD2 and CLDN4. GSE179730 measures both but has only 11
-pretreatment tumors and highly sparse expression, so it is exploratory, not a
-validation cohort.
+- Liu primary: Responder+Stable vs Progressor (paper clinical-benefit grouping).
+- Liu sensitivity: pathologic Responder vs rest.
+- Liu survival: last-observation text; RFS event = AWD or DOD; OS event = DOD; split = CLDN4 detectable vs zero (median is 0).
+- NIVACTOR: deposited LTS vs STS only. Train set not analyzed (no labels).
+- No threshold scan. No model fitting.
+
+## Honest
+
+`NO_REPRODUCIBLE_CLDN4_ICI_SIGNAL`. See `RESULTS.md`.

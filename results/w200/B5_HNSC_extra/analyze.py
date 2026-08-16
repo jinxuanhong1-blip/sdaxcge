@@ -243,11 +243,6 @@ def main() -> None:
         for index, source in enumerate(prat_meta["!Sample_source_name_ch1"])
         if source == "HEADNECK"
     ]
-    prat_hits = sorted(
-        gene
-        for gene in prat_genes
-        if any(token in gene.upper() for token in ("CLDN", "TACSTD", "TROP", "EPCAM"))
-    )
     write_table(
         HERE / "prat_panel_audit.tsv",
         [
@@ -256,7 +251,7 @@ def main() -> None:
                 "on_panel": gene in prat_genes,
                 "note": "NanoString PanCancer Immune 730; HNSCC n=5",
             }
-            for gene in ["CLDN4", "TACSTD2", "EPCAM", "CDH1", *prat_hits]
+            for gene in ["CLDN4", "TACSTD2", "EPCAM", "CDH1"]
         ],
     )
 
@@ -356,8 +351,10 @@ def main() -> None:
         for row, q_value in zip(cldn4_primary, q_values)
     }
     for row in primary:
-        row["bh_q_across_primary_cldn4_tests"] = q_by_key.get(
-            (row["dataset"], row["contrast"]), ""
+        row["bh_q_across_primary_cldn4_tests"] = (
+            q_by_key.get((row["dataset"], row["contrast"]), "")
+            if row["gene"] == "CLDN4"
+            else ""
         )
 
     sensitivity = [

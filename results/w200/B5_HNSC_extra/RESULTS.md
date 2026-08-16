@@ -1,24 +1,11 @@
-# Honest result
+# B5 leftover HNSCC ICI CLDN4
 
-Prat/GSE93157 has only five HNSCC cases and its NanoString immune panel contains
-neither TACSTD2 nor CLDN4. Foy/GSE159067 has 102 ICI-treated HNSCC cases, but
-its targeted HTG panel also omits both genes. Neither cohort can test the
-question.
+Prat GSE93157 HNSCC (n=5, all nivolumab) cannot test CLDN4: NanoString Immune 730 has no CLDN family. Same for Foy GSE159067 (HTG) and ALPHA GSE190575. NIVACTOR train GSE212549 has Clariom D CLDN4 but no public ICI labels. EGA EGAD50000002506 is controlled FASTQ.
 
-The uncovered usable cohort was Liu/GSE179730: 11 pretreatment oral-cavity
-tumors from neoadjuvant nivolumab patients (six with clinical benefit and five
-progressors, using the paper’s definition). Expression was sparse: TACSTD2 was
-nonzero in 2/11 tumors and CLDN4 in 6/11.
+Two leftovers measure CLDN4 and have public ICI labels.
 
-TACSTD2 was null (benefit versus progression AUC=0.467; exact permutation
-p=0.727). CLDN4 was lower in the benefit group (median 0 versus 0.451
-log2(CPM+1); AUC=0.133; exact p=0.045), but did not survive correction across
-the two prespecified markers (BH q=0.091). In a stricter sensitivity comparison
-of three pathologic responders versus stable/progressive tumors, CLDN4 was
-also lower but clearly inconclusive (AUC=0.25; p=0.248); TACSTD2 remained null
-(p=1.0).
+**GSE179730** (Liu 2021; neoadjuvant nivo OCSCC; n=11 pretreatment). Deposited matrix is linear CPM, not log2. Table S2: 3 pathologic responders, 3 stable, 5 progressors. Primary lock = clinical benefit vs progression (6 vs 5). CLDN4 is sparse (6/11 nonzero; median 0). Benefit vs progression: AUC 0.133, exact MWU p=0.045, BH q=0.091 versus locked 3-vs-rest sensitivity. Direction is opposite “high CLDN4 = benefit” and is driven by zeros. TACSTD2 is almost all zero (p=0.727). Detectable-vs-zero RFS/OS (last-observation text, not the contradictory Status column) are null (exact log-rank 1.0 and 0.455).
 
-Bottom line: there is a small, directionally interesting CLDN4 signal, not
-validated evidence. Sparse near-zero measurements, n=11, treatment-naive
-resectable disease, and multiplicity prevent a robust predictive claim. No
-filters, cutoffs, or cohorts were tuned to produce this result.
+**GSE212550** (NIVACTOR test; R/M HNSCC ICI monotherapy; n=20 public LTS>18 mo vs STS<6 mo). Clariom D probe TC0700007993.hg.1. CLDN4 medians 3.51 vs 3.54; AUC 0.510; exact p=0.955.
+
+Honest verdict: no reproducible leftover HNSCC ICI CLDN4 signal. Prat cannot be used. Liu is n=11 and sparse. NIVACTOR leftover that measures CLDN4 is null.
