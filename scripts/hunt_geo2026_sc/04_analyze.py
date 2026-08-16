@@ -259,18 +259,26 @@ def analyze_gse325414():
     ad.obs["sub1"] = meta["sub.pop.level1"].astype(str).values
     ad.obs["sample_type"] = meta["sample.type.3"].astype(str).values
     ad.obs["mTLS"] = meta["mTLS"].astype(str).values
+    ncount = pd.to_numeric(meta["nCount_RNA"], errors="coerce").to_numpy()
+    ad.obs["nCount_RNA"] = ncount
 
-    # lineage from author labels (prefer major, fall back to sub1)
+    # lineage from author labels
     lin = np.array(["Other"] * ad.n_obs, dtype=object)
     lin[np.isin(ad.obs["sub1"].values, list(MAL_SUB))] = "Malignant/Epithelial"
-    lin[np.isin(ad.obs["major"].values, list(TNK_MAJOR))] = "T/NK"
-    lin[(ad.obs["major"].values == "NA") & np.isin(ad.obs["sub1"].values, list(TNK_SUB))] = "T/NK"
+    lin[np.isin(ad.obs["major"].values, list(TNK_MAJOR))
+        | np.isin(ad.obs["sub1"].values, list(TNK_SUB))] = "T/NK"
+    # malignant wins if both flags fire (should not)
+    lin[np.isin(ad.obs["sub1"].values, list(MAL_SUB))] = "Malignant/Epithelial"
     ad.obs["lineage"] = lin
 
-    sc.pp.normalize_total(ad, target_sum=1e4)
-    sc.pp.log1p(ad)
-    for g in ("TACSTD2", "CLDN4"):
-        ad.obs[g] = np.asarray(ad[:, g].X.todense()).ravel()
+    # log1p(CP10k) using the author's full-transcriptome nCount_RNA,
+    # not a 12-gene library size (subset-then-normalize would inflate values).
+    raw = np.asarray(ad.X.todense())
+    scale = np.where(ncount > 0, 1e4 / ncount, 0.0)[:, None]
+    logx = np.log1p(raw * scale)
+    for j, g in enumerate(ad.var_names):
+        if g in ("TACSTD2", "CLDN4"):
+            ad.obs[g] = logx[:, j]
 
     # per-sample (author sample IDs)
     rows = []
