@@ -1,0 +1,23 @@
+{
+  "dataset": "GSE289287",
+  "description": "Human T-47D Trop-2 KO vs WT xenografts (author DESeq2)",
+  "value_kind": "author DESeq2",
+  "n_genes_tested": 26253,
+  "notes": "4 Trop-2 KO vs 3 WT xenografts. log2FC>0 = up in Trop-2 KO.",
+  "perturbation_qc": {
+    "TACSTD2": {
+      "log2FC": -3.26327041610181,
+      "pvalue": 1.62271488282816e-65,
+      "padj": 1.94563514451096e-61
+    }
+  },
+  "cldn4": {
+    "dataset": "GSE289287",
+    "gene": "CLDN4",
+    "panels": "headline;tight_junction",
+    "log2FC": 0.284440042778056,
+    "pvalue": 0.1291740464809,
+    "padj": 0.46637365651771,
+    "wald_stat": 1.51736701724038
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "axis_matrix": "/workspace/results/fable_tacstd2_kdko/SYNTHESIS_axis_matrix.tsv",
+  "direction_grid": {
+    "Mouse 4T1 breast, Trop2 KO vs WT (tumour)": {
+      "junctions": "down ***",
+      "tight_junction": "down ***",
+      "desmosome": "down ***",
+      "ifn_immune": "up ***",
+      "ifn_isg": "up **",
+      "antigen_presentation": "up ***",
+      "tcell_cytotox": "up ***"
+    },
+    "Human T-47D breast, Trop-2 KO vs WT (xenograft)": {
+      "junctions": "up ns",
+      "tight_junction": "up ns",
+      "desmosome": "up ns",
+      "ifn_immune": "up ***",
+      "ifn_isg": "up ***",
+      "antigen_presentation": "up ns",
+      "tcell_cytotox": "down ns"
+    },
+    "Human ovarian, shTACSTD2 vs shNC": {
+      "junctions": "down ***",
+      "tight_junction": "down ***",
+      "desmosome": "down ***",
+      "ifn_immune": "down ***",
+      "ifn_isg": "down ***",
+      "antigen_presentation": "down ***",
+      "tcell_cytotox": "up ns"
+    },
+    "Human colorectal RKO, siTACSTD2 vs neg-ctrl": {
+      "junctions": "down ns",
+      "tight_junction": "down ns",
+      "desmosome": "down ns",
+      "ifn_immune": "up **",
+      "ifn_isg": "up ***",
+      "antigen_presentation": "down ns",
+      "tcell_cytotox": "down ns"
+    },
+    "Human T-47D, DSG2 KO vs WT (xenograft) [partner]": {
+      "junctions": "down ns",
+      "tight_junction": "down *",
+      "desmosome": "up ns",
+      "ifn_immune": "up ***",
+      "ifn_isg": "up ***",
+      "antigen_presentation": "up ***",
+      "tcell_cytotox": "up ns"
+    },
+    "Human T-47D, DSG2 KO vs WT (cells) [partner]": {
+      "junctions": "up ns",
+      "tight_junction": "down ns",
+      "desmosome": "down ns",
+      "ifn_immune": "up ***",
+      "ifn_isg": "up ***",
+      "antigen_presentation": "up **",
+      "tcell_cytotox": "down ns"
+    }
+  },
+  "cldn4": [
+    {
+      "dataset": "GSE334497",
+      "contrast": "Mouse 4T1 breast, Trop2 KO vs WT (tumour)",
+      "log2FC": -0.81761,
+      "pvalue": NaN,
+      "padj": NaN,
+      "t_pvalue": 0.2529,
+      "t_fdr": 0.93634,
+      "mwu_pvalue": 0.42063,
+      "cohens_d": -0.78801
+    },
+    {
+      "dataset": "GSE289287",
+      "contrast": "Human T-47D breast, Trop-2 KO vs WT (xenograft)",
+      "log2FC": 0.28444,
+      "pvalue": 0.12917,
+      "padj": 0.46637,
+      "t_pvalue": NaN,
+      "t_fdr": NaN,
+      "mwu_pvalue": NaN,
+      "cohens_d": NaN
+    },
+    {
+      "dataset": "GSE245459",
+      "contrast": "Human ovarian, shTACSTD2 vs shNC",
+      "log2FC": -1.9152,
+      "pvalue": NaN,
+      "padj": NaN,
+      "t_pvalue": 3.2889e-05,
+      "t_fdr": 0.0036555,
+      "mwu_pvalue": 0.1,
+      "cohens_d": -19.024
+    },
+    {
+      "dataset": "GSE15212",
+      "contrast": "Human colorectal RKO, siTACSTD2 vs neg-ctrl",
+      "log2FC": 0.27386,
+      "pvalue": NaN,
+      "padj": NaN,
+      "t_pvalue": 0.27376,
+      "t_fdr": 0.58861,
+      "mwu_pvalue": 0.49364,
+      "cohens_d": 0.52767
+    },
+    {
+      "dataset": "GSE289287_DSG2tumor",
+      "contrast": "Human T-47D, DSG2 KO vs WT (xenograft) [partner]",
+      "log2FC": -0.91343,
+      "pvalue": 4.3381e-06,
+      "padj": 0.0002065,
+      "t_pvalue": NaN,
+      "t_fdr": NaN,
+      "mwu_pvalue": NaN,
+      "cohens_d": NaN
+    },
+    {
+      "dataset": "GSE289287_DSG2cell",
+      "contrast": "Human T-47D, DSG2 KO vs WT (cells) [partner]",
+      "log2FC": -0.12769,
+      "pvalue": 0.36795,
+      "padj": 0.59981,
+      "t_pvalue": NaN,
+      "t_fdr": NaN,
+      "mwu_pvalue": NaN,
+      "cohens_d": NaN
+    }
+  ],
+  "perturbation_qc": [
+    {
+      "dataset": "GSE334497",
+      "contrast": "Mouse 4T1 breast, Trop2 KO vs WT (tumour)",
+      "gene": "TACSTD2",
+      "log2FC": -3.9439865748959035,
+      "pvalue": 0.0017775433473338558,
+      "padj_or_fdr": 0.7055714714364744
+    },
+    {
+      "dataset": "GSE289287",
+      "contrast": "Human T-47D breast, Trop-2 KO vs WT (xenograft)",
+      "gene": "TACSTD2",
+      "log2FC": -3.26327041610181,
+      "pvalue": 1.62271488282816e-65,
+      "padj_or_fdr": 1.94563514451096e-61
+    },
+    {
+      "dataset": "GSE245459",
+      "contrast": "Human ovarian, shTACSTD2 vs shNC",
+      "gene": "TACSTD2",
+      "log2FC": -2.6275637571673265,
+      "pvalue": 5.25209137095932e-05,
+      "padj_or_fdr": 0.004114361588541813
+    },
+    {
+      "dataset": "GSE15212",
+      "contrast": "Human colorectal RKO, siTACSTD2 vs neg-ctrl",
+      "gene": "TACSTD2",
+      "log2FC": -3.024685,
+      "pvalue": 5.276538127327768e-15,
+      "padj_or_fdr": 1.042063514765961e-10
+    },
+    {
+      "dataset": "GSE289287_DSG2tumor",
+      "contrast": "Human T-47D, DSG2 KO vs WT (xenograft) [partner]",
+      "gene": "TACSTD2",
+      "log2FC": -0.154420259962254,
+      "pvalue": 0.279870915496599,
+      "padj_or_fdr": 0.544326132777326
+    },
+    {
+      "dataset": "GSE289287_DSG2cell",
+      "contrast": "Human T-47D, DSG2 KO vs WT (cells) [partner]",
+      "gene": "TACSTD2",
+      "log2FC": 0.213790831527973,
+      "pvalue": 0.150054852879685,
+      "padj_or_fdr": 0.349249278935048
+    }
+  ]
+}

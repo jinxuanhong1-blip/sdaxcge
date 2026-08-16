@@ -1,0 +1,11 @@
+dataset	gene_set	n_detected	comp_direction	comp_rank_biserial	comp_p	sc_mean_log2FC	sc_median_log2FC	sc_n_up	sc_n_down	sc_wilcoxon_p
+GSE15212	tight_junction	27	down	-0.04755	0.6689	0.01419	-0.02716	12	15	0.8966
+GSE15212	adherens	6	up	0.2157	0.3692	0.02849	0.04167	3	3	0.5625
+GSE15212	desmosome	15	down	-0.2505	0.09303	-0.08082	-0.07023	4	11	0.02155
+GSE15212	ifn_isg	38	up	0.3647	0.0001002	0.1444	0.1206	30	8	0.0001058
+GSE15212	ifn_chemokine	11	up	0.1468	0.3992	0.09757	0.006217	6	5	0.2783
+GSE15212	antigen_presentation	18	down	-0.09404	0.4898	-0.04815	-0.0318	7	11	0.1674
+GSE15212	tcell_cytotox	22	down	0.05548	0.6524	0.06232	-0.01535	9	13	0.8987
+GSE15212	CLDN4_headline	1	NA					1	0	
+GSE15212	junctions	48	down	-0.07816	0.3489	-0.01371	-0.04368	19	29	0.2913
+GSE15212	ifn_immune	89	up	0.169	0.005863	0.07936	0.03003	52	37	0.006237

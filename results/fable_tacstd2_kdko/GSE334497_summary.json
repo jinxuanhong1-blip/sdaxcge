@@ -1,0 +1,28 @@
+{
+  "dataset": "GSE334497",
+  "description": "Mouse 4T1 TNBC tumours, Trop2 CRISPR KO vs WT (normalized counts)",
+  "value_kind": "log2(normalized counts+0.5)",
+  "n_case": 5,
+  "n_ctrl": 5,
+  "n_genes_tested": 17629,
+  "notes": "5 KO vs 5 WT. log2FC>0 = up in Trop2 KO.",
+  "perturbation_qc": {
+    "TACSTD2": {
+      "log2FC": -3.9439865748959035,
+      "t_pvalue": 0.0017775433473338558,
+      "t_fdr": 0.7055714714364744
+    }
+  },
+  "cldn4": {
+    "dataset": "GSE334497",
+    "gene": "CLDN4",
+    "panels": "headline;tight_junction",
+    "log2FC": -0.8176059105849287,
+    "mean_case": 10.342401654006022,
+    "mean_ctrl": 11.16000756459095,
+    "t_pvalue": 0.25289611208730434,
+    "t_fdr": 0.9363377271419726,
+    "mwu_pvalue": 0.42063492063492064,
+    "cohens_d": -0.788008336893893
+  }
+}

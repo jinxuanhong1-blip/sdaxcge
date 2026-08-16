@@ -1,0 +1,23 @@
+{
+  "dataset": "GSE289287_DSG2tumor",
+  "description": "Human T-47D DSG2 KO vs WT xenografts (desmosome partner, author DESeq2)",
+  "value_kind": "author DESeq2",
+  "n_genes_tested": 26253,
+  "notes": "DSG2 KO vs WT xenografts (comparison: desmosomal partner).",
+  "perturbation_qc": {
+    "TACSTD2": {
+      "log2FC": -0.154420259962254,
+      "pvalue": 0.279870915496599,
+      "padj": 0.544326132777326
+    }
+  },
+  "cldn4": {
+    "dataset": "GSE289287_DSG2tumor",
+    "gene": "CLDN4",
+    "panels": "headline;tight_junction",
+    "log2FC": -0.913426200846489,
+    "pvalue": 4.33806721759945e-06,
+    "padj": 0.000206497490782,
+    "wald_stat": -4.5944910613347
+  }
+}
