@@ -1,0 +1,18 @@
+accession	setting	open_matrix	malignant_or_epi	tnk	n_patients	include_in_meta	reason
+GSE207422	neoadjuvant PD-1 + chemo, MPR	yes	marker malignant-like (no CopyKAT on GEO)	marker T/NK	12 post-tx	yes	named cohort
+GSE205335	palliative ICI, RECIST	yes	author Malignant cells	author T/NK	~22 tumor	yes	named cohort
+GSE241934_IIT	NEOTIDE EGFR-mut neoadjuvant sintilimab + chemo	yes	author Epi	author T+NK	11	yes	named cohort
+GSE241934_RWC	real-world neoadjuvant PD-1 + chemo	yes	author Epi	author T+NK	34	yes	named cohort
+GSE291670	neoadjuvant anlotinib + camrelizumab, MPR	yes	marker malignant-like	marker T/NK	6	yes	named cohort
+GSE233203	pre-ABCP pleural effusion, RECIST-like R/NR	yes	marker (PE; GEO says malignant-cell isolation)	marker if present	7	if both compartments	leftover ICI with open 10x MTX
+GSE146100	1 patient, 3 MPLA nodules after pembro	yes (NormData 229 MB)	yes in paper	yes in paper	1	no	n=1 patient; Spearman undefined at patient unit
+GSE189357	3 NSCLC tumors	yes (RAW 624 MB)	likely	likely	3	no	no public ICI/MPR labels; n=3
+GSE150938	lung GGN 10x	yes	yes	yes	GGN atlas	no	not ICI / not neoadjuvant
+GSE243013	NSCLC post chemo-IO	yes	no (immune MTX)	yes	234 immune-only	no	0 malignant/epithelial on the public immune object
+GSE266035	circulating T, 1 NSCLC patient	yes	no	T only	1	no	no epithelium
+GSE176022	T-sorted NSCLC	yes	no	T only	T-sorted	no	no malignant compartment
+GSE162498	CD3-sorted NSCLC	yes	no	T only	T-sorted	no	no malignant compartment
+GSE131907	LUAD atlas	yes	yes	yes	atlas	no	treatment-naive; not ICI/neoadjuvant
+GSE253013	treatment-naive LUAD	yes (9 GB RDS)	yes	yes	9	no	no public ICI/MPR labels
+GSE325414	NSCLC after PEF ablation	yes	author malignant	author T/NK	25	no	not ICI
+GSE337519	case report	limited	n=1	n=1	1	no	n=1
