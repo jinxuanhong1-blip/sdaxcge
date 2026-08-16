@@ -1,0 +1,183 @@
+{
+  "generated_utc": "2026-08-16T20:08:31+00:00",
+  "cohort": "TCGA-UCEC",
+  "expression_dataset": "UCSC Xena GDC hub TCGA-UCEC.star_fpkm-uq (log2(fpkm-uq+1), GENCODE v36)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 549,
+  "n_patients": 545,
+  "surface_gene_universe": 2751,
+  "n_undefined_correlation": 7,
+  "surfaceome_mapping": {
+    "surfaceome_rows": 2882,
+    "unique_uniprot_symbols": 2799,
+    "matched_by_uniprot_symbol": 2769,
+    "matched_by_ensembl_fallback": 73,
+    "unique_symbols_in_matrix": 2759,
+    "ensembl_fallback_examples": [
+      {
+        "surfaceome_symbol": "TMEM30C",
+        "mapped_symbol": "TMEM30CP"
+      },
+      {
+        "surfaceome_symbol": "KIAA0922",
+        "mapped_symbol": "TMEM131L"
+      },
+      {
+        "surfaceome_symbol": "PCNXL2",
+        "mapped_symbol": "PCNX2"
+      },
+      {
+        "surfaceome_symbol": "HIDE1",
+        "mapped_symbol": "C19orf38"
+      },
+      {
+        "surfaceome_symbol": "KIAA1324L",
+        "mapped_symbol": "ELAPOR2"
+      },
+      {
+        "surfaceome_symbol": "UPK3BL",
+        "mapped_symbol": "UPK3BL1"
+      },
+      {
+        "surfaceome_symbol": "C1orf233",
+        "mapped_symbol": "FNDC10"
+      },
+      {
+        "surfaceome_symbol": "PPAP2A",
+        "mapped_symbol": "PLPP1"
+      },
+      {
+        "surfaceome_symbol": "PPAP2B",
+        "mapped_symbol": "PLPP3"
+      },
+      {
+        "surfaceome_symbol": "BAI1",
+        "mapped_symbol": "ADGRB1"
+      },
+      {
+        "surfaceome_symbol": "TMEM194A",
+        "mapped_symbol": "NEMP1"
+      },
+      {
+        "surfaceome_symbol": "PPAP2C",
+        "mapped_symbol": "PLPP2"
+      },
+      {
+        "surfaceome_symbol": "BAI2",
+        "mapped_symbol": "ADGRB2"
+      },
+      {
+        "surfaceome_symbol": "BAI3",
+        "mapped_symbol": "ADGRB3"
+      },
+      {
+        "surfaceome_symbol": "LPHN1",
+        "mapped_symbol": "ADGRL1"
+      }
+    ]
+  },
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 22,
+    "spearman_r": 0.31385954797466104,
+    "spearman_p": 5.142202604237186e-14,
+    "spearman_q": 6.325292740545516e-12,
+    "spearman_percentile": 99.237,
+    "pearson_rank": 4,
+    "pearson_r": 0.4424891820466923,
+    "pearson_p": 1.0028089627308535e-27,
+    "pearson_q": 6.896818641181445e-25,
+    "pearson_percentile": 99.891,
+    "mean_log2_expr": 6.427371235416208,
+    "pct_expressed": 100.0
+  },
+  "sensitivities": {
+    "symbol_only_no_ensembl_fallback": {
+      "n_universe": 2678,
+      "spearman_rank": 21,
+      "spearman_r": 0.31385954797466104,
+      "top_gene": "SLC52A3",
+      "top_r": 0.41164477695307444
+    },
+    "one_sample_per_patient": {
+      "n_samples": 545,
+      "n_universe": 2751,
+      "spearman_rank": 25,
+      "spearman_r": 0.3118586284196106,
+      "top_gene": "NECTIN4",
+      "top_r": 0.46224644736791637
+    }
+  },
+  "top10_spearman": [
+    {
+      "gene": "NECTIN4",
+      "spearman_rank": 1,
+      "spearman_r": 0.465363140777703,
+      "spearman_q": 2.050066902500579e-27
+    },
+    {
+      "gene": "SLC52A3",
+      "spearman_rank": 2,
+      "spearman_r": 0.41164477695307444,
+      "spearman_q": 9.982269793438767e-21
+    },
+    {
+      "gene": "TGFA",
+      "spearman_rank": 3,
+      "spearman_r": 0.40951454976076224,
+      "spearman_q": 1.1891826292399157e-20
+    },
+    {
+      "gene": "PLB1",
+      "spearman_rank": 4,
+      "spearman_r": 0.3610670483609286,
+      "spearman_q": 1.6426090508107994e-15
+    },
+    {
+      "gene": "CLCA4",
+      "spearman_rank": 5,
+      "spearman_r": 0.35872467922067447,
+      "spearman_q": 2.2461543193983244e-15
+    },
+    {
+      "gene": "SLC34A2",
+      "spearman_rank": 6,
+      "spearman_r": 0.35767619959315544,
+      "spearman_q": 2.3760036622276723e-15
+    },
+    {
+      "gene": "BACE2",
+      "spearman_rank": 7,
+      "spearman_r": 0.35622381527371355,
+      "spearman_q": 2.8298308556909817e-15
+    },
+    {
+      "gene": "CDCP1",
+      "spearman_rank": 8,
+      "spearman_r": 0.34742971225101504,
+      "spearman_q": 1.7506013497667913e-14
+    },
+    {
+      "gene": "EMP2",
+      "spearman_rank": 9,
+      "spearman_r": 0.3433748217494103,
+      "spearman_q": 3.756454503655669e-14
+    },
+    {
+      "gene": "PODXL",
+      "spearman_rank": 10,
+      "spearman_r": 0.3402678212059569,
+      "spearman_q": 6.584603554124959e-14
+    }
+  ]
+}

@@ -183,9 +183,16 @@ def compute_ranking(
     df["spearman_q"] = _bh_fdr(df["spearman_p"].to_numpy())
     df["pearson_q"] = _bh_fdr(df["pearson_p"].to_numpy())
 
+    # Zero-variance genes yield undefined correlations; they are not ranked.
+    n_undefined = int(df["spearman_r"].isna().sum())
+    df = df.dropna(subset=["spearman_r"]).copy()
+    df.attrs["n_undefined"] = n_undefined
+
     df = df.sort_values("spearman_r", ascending=False, kind="mergesort").reset_index(drop=True)
     df.insert(1, "spearman_rank", np.arange(1, len(df) + 1))
-    df["pearson_rank"] = df["pearson_r"].rank(ascending=False, method="min").astype(int)
+    df["pearson_rank"] = (
+        df["pearson_r"].rank(ascending=False, method="min", na_option="keep")
+    )
     return df
 
 
@@ -257,6 +264,20 @@ def make_plots(
     plt.close(fig)
 
 
+def _table_rows(df: pd.DataFrame, focus: str, n: int) -> list[str]:
+    show = df.head(n)
+    if focus in df["gene"].values and focus not in set(show["gene"]):
+        show = pd.concat([show, df[df["gene"] == focus]], ignore_index=True)
+    lines = []
+    for _, r in show.iterrows():
+        star = "  <-- focus" if r["gene"] == focus else ""
+        lines.append(
+            f"| {int(r['spearman_rank'])} | {r['gene']}{star} | "
+            f"{r['spearman_r']:.3f} | {r['pearson_r']:.3f} | {r['spearman_q']:.2e} |"
+        )
+    return lines
+
+
 def write_summary_md(
     df: pd.DataFrame,
     report: dict,
@@ -268,6 +289,8 @@ def write_summary_md(
     outdir: Path,
     anchor: str,
     focus: str,
+    n_undefined: int = 0,
+    sensitivities: dict | None = None,
 ) -> list[str]:
     q = report
     if q.get("in_universe"):
@@ -278,6 +301,10 @@ def write_summary_md(
             else f"YES -- {focus} is the top surface-gene co-expression partner of {anchor}."
         )
         top_gene = df.iloc[0]["gene"]
+        examples = ", ".join(
+            f"{e['surfaceome_symbol']}→{e['mapped_symbol']}"
+            for e in mapping_stats.get("ensembl_fallback_examples", [])[:8]
+        )
         lines = [
             f"# {focus} vs {anchor} co-expression in TCGA-UCEC (honest ranking)",
             "",
@@ -288,8 +315,8 @@ def write_summary_md(
             "",
             f"- Cohort: TCGA-UCEC, {n_samples} primary-tumour samples "
             f"(sample-type {sample_types}; {n_patients} unique patients).",
-            f"- Surface-gene universe: {n_universe} surfaceome genes present in the "
-            f"matrix (anchor removed).",
+            f"- Surface-gene universe: {n_universe} surfaceome genes with defined "
+            f"Spearman (anchor removed; {n_undefined} zero-variance genes dropped).",
             f"- Primary metric: Spearman correlation.",
             f"- Expression: Xena GDC STAR FPKM-UQ, log2(fpkm-uq+1).",
             "",
@@ -299,22 +326,25 @@ def write_summary_md(
             f"({q['spearman_percentile']}th percentile) |",
             f"| {focus} Spearman rho | {q['spearman_r']:.3f} "
             f"(p={q['spearman_p']:.2e}, FDR q={q['spearman_q']:.2e}) |",
-            f"| {focus} Pearson rank | #{q['pearson_rank']} of {n_universe} |",
+            f"| {focus} Pearson rank | #{int(q['pearson_rank'])} of {n_universe} |",
             f"| {focus} Pearson rho | {q['pearson_r']:.3f} |",
             f"| Actual #1 (Spearman) | {top_gene} (rho={df.iloc[0]['spearman_r']:.3f}) |",
             "",
-            "## Top 15 surface-gene partners of "
+            "## Top 25 surface-gene partners of "
             f"{anchor} (Spearman)",
             "",
             "| rank | gene | spearman_rho | pearson_rho | FDR q |",
             "| --- | --- | --- | --- | --- |",
         ]
-        for _, r in df.head(15).iterrows():
-            star = "  <-- focus" if r["gene"] == focus else ""
-            lines.append(
-                f"| {int(r['spearman_rank'])} | {r['gene']}{star} | "
-                f"{r['spearman_r']:.3f} | {r['pearson_r']:.3f} | {r['spearman_q']:.2e} |"
-            )
+        lines += _table_rows(df, focus, 25)
+        if sensitivities:
+            lines += ["", "## Sensitivities (same Spearman, not cherry-picked)", ""]
+            for name, rec in sensitivities.items():
+                lines.append(
+                    f"- **{name}:** {focus} rank #{rec['spearman_rank']} of "
+                    f"{rec['n_universe']} (rho={rec['spearman_r']:.3f}); "
+                    f"#1 is {rec['top_gene']} (rho={rec['top_r']:.3f})."
+                )
         lines += [
             "",
             "## Surfaceome mapping",
@@ -323,15 +353,15 @@ def write_summary_md(
             f"{mapping_stats['unique_uniprot_symbols']}.",
             f"- Matched by 2018 UniProt symbol: {mapping_stats['matched_by_uniprot_symbol']}.",
             f"- Recovered by Ensembl id → GENCODE v36 symbol: "
-            f"{mapping_stats['matched_by_ensembl_fallback']} "
-            f"(examples: {mapping_stats['ensembl_fallback_examples']}).",
+            f"{mapping_stats['matched_by_ensembl_fallback']} (e.g. {examples}).",
             "",
             "## Caveats",
             "",
             "- Bulk-tumour mRNA co-expression (mixes tumour/stroma/immune), not protein or single-cell.",
             "- UCEC mixes endometrioid and serous histologies; this ranking is not histology-stratified.",
-            "- Surfaceome symbols are 2018 UniProt names; a few were recovered via Ensembl ids.",
+            "- Surfaceome symbols are 2018 UniProt names; renamed genes (PVRL4→NECTIN4) enter via Ensembl ids.",
             "- Rank is among surfaceome genes only, not the full transcriptome.",
+            "- Pearson and Spearman disagree on exact rank (CLDN4 is higher by Pearson); Spearman is primary.",
         ]
     else:
         lines = [f"{focus} is not present in the surface-gene universe."]
@@ -386,6 +416,12 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[data] mapping: {mapping_stats}")
 
     df = compute_ranking(expr, args.anchor, universe, samples)
+    n_undefined = int(df.attrs.get("n_undefined", 0))
+    n_universe = len(df)
+    print(
+        f"[data] ranked surface genes: {n_universe} "
+        f"(dropped {n_undefined} with undefined Spearman / zero variance)"
+    )
 
     # Independent spot-check of the focus pair (do not invent; recompute).
     if args.focus in expr.index:
@@ -406,6 +442,42 @@ def main(argv: list[str] | None = None) -> int:
 
     report = focus_report(df, args.focus, n_universe)
 
+    # Sensitivities: BRCA-style symbol-only universe, and one sample per patient.
+    symbol_only = sorted(
+        {g for g in surf["gene"] if g in expr.index and g != args.anchor}
+    )
+    df_sym = compute_ranking(expr, args.anchor, symbol_only, samples)
+    df_sym = df_sym.dropna(subset=["spearman_r"]) if "spearman_r" in df_sym else df_sym
+    n_sym = len(df_sym)
+    focus_sym = focus_report(df_sym, args.focus, n_sym)
+
+    one_per: dict[str, str] = {}
+    for col in samples:
+        patient = "-".join(str(col).split("-")[:3])
+        one_per.setdefault(patient, col)
+    samples_1pp = list(one_per.values())
+    df_1pp = compute_ranking(expr, args.anchor, list(df["gene"]), samples_1pp)
+    n_1pp = len(df_1pp)
+    focus_1pp = focus_report(df_1pp, args.focus, n_1pp)
+
+    sensitivities = {
+        "symbol_only_no_ensembl_fallback": {
+            "n_universe": n_sym,
+            "spearman_rank": focus_sym.get("spearman_rank"),
+            "spearman_r": focus_sym.get("spearman_r"),
+            "top_gene": str(df_sym.iloc[0]["gene"]) if n_sym else None,
+            "top_r": float(df_sym.iloc[0]["spearman_r"]) if n_sym else None,
+        },
+        "one_sample_per_patient": {
+            "n_samples": len(samples_1pp),
+            "n_universe": n_1pp,
+            "spearman_rank": focus_1pp.get("spearman_rank"),
+            "spearman_r": focus_1pp.get("spearman_r"),
+            "top_gene": str(df_1pp.iloc[0]["gene"]) if n_1pp else None,
+            "top_r": float(df_1pp.iloc[0]["spearman_r"]) if n_1pp else None,
+        },
+    }
+
     summary = {
         "generated_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "cohort": "TCGA-UCEC",
@@ -419,10 +491,12 @@ def main(argv: list[str] | None = None) -> int:
         "n_samples": len(samples),
         "n_patients": n_patients,
         "surface_gene_universe": n_universe,
+        "n_undefined_correlation": n_undefined,
         "surfaceome_mapping": mapping_stats,
         "correlation_primary": "spearman",
         "window": args.window,
         "focus_result": report,
+        "sensitivities": sensitivities,
         "top10_spearman": df.head(10)[
             ["gene", "spearman_rank", "spearman_r", "spearman_q"]
         ].to_dict("records"),
@@ -440,6 +514,8 @@ def main(argv: list[str] | None = None) -> int:
         args.outdir,
         args.anchor,
         args.focus,
+        n_undefined=n_undefined,
+        sensitivities=sensitivities,
     )
     make_plots(expr, df, args.anchor, args.focus, samples, args.window, args.outdir)
 
