@@ -32,6 +32,9 @@ GENE_SETS = {
     "endothelial_class": ["VWF", "PECAM1", "EMCN", "KDR"],
     "fibroblast_class": ["COL1A1", "COL1A2", "DCN", "COL3A1", "COL6A1"],
     "epithelial_module": ["TACSTD2", "CLDN4"],
+    "tacstd2": ["TACSTD2"],
+    "cldn4": ["CLDN4"],
+    "tj_barrier": ["CLDN3", "CLDN7", "OCLN", "TJP1", "F11R"],
     "cd8": ["CD8A", "CD8B", "CCL5", "NKG7", "GZMK"],
     "tls_b": ["MS4A1", "CD79A", "CD74", "CD37"],
     "tls_tfh": ["CXCL13", "CXCR5", "ICOS", "PDCD1", "TOX"],
@@ -149,6 +152,7 @@ def finalize_scores(frame: pd.DataFrame) -> pd.DataFrame:
     out["lcam_score"] = out[
         ["lcam_t_component_z", "lcam_plasma_component_z", "lcam_mac_component_z"]
     ].mean(axis=1)
+    out["immune_score"] = out[["cd8_score", "tls_score", "lcam_score"]].mean(axis=1)
     return out
 
 
@@ -162,6 +166,9 @@ def sample_summaries(
 ) -> pd.DataFrame:
     rows = []
     epi_score = module(expr, "epithelial_module")
+    trop2 = module(expr, "tacstd2")
+    cldn4 = module(expr, "cldn4")
+    tj_score = module(expr, "tj_barrier")
     components = {
         "cd8_component": module(expr, "cd8"),
         "tls_b_component": module(expr, "tls_b"),
@@ -183,8 +190,21 @@ def sample_summaries(
             "n_B": int(masks["B"].sum()),
             "n_myeloid": int(masks["myeloid"].sum()),
             "epithelial_fraction": float(masks["epithelial"].sum() / max(sm.sum(), 1)),
+            "immune_fraction": float(
+                (masks["T"].sum() + masks["B"].sum() + masks["myeloid"].sum())
+                / max(sm.sum(), 1)
+            ),
             "median_umi": float(np.median(totals[sm])),
             "epithelial_module": float(np.median(epi_score[masks["epithelial"]]))
+            if masks["epithelial"].any()
+            else np.nan,
+            "tacstd2": float(np.median(trop2[masks["epithelial"]]))
+            if masks["epithelial"].any()
+            else np.nan,
+            "cldn4": float(np.median(cldn4[masks["epithelial"]]))
+            if masks["epithelial"].any()
+            else np.nan,
+            "tj_module": float(np.median(tj_score[masks["epithelial"]]))
             if masks["epithelial"].any()
             else np.nan,
         }
@@ -295,6 +315,131 @@ def process_gse148071(source: Path) -> tuple[pd.DataFrame, dict]:
         "tumor_samples": len(audits),
         "classification": "predeclared marker argmax (no published cell labels in GEO archive)",
         "sample_audit": audits,
+    }
+    return result, audit
+
+
+def _read_10x_selected(directory: Path, keep_barcodes: dict[str, str]) -> tuple[list[str], dict[str, np.ndarray], np.ndarray]:
+    feature_path = next(directory.glob("*features.tsv"))
+    barcode_path = next(directory.glob("*barcodes.tsv"))
+    mtx_path = next(directory.glob("*matrix.mtx"))
+    symbols = []
+    with feature_path.open() as handle:
+        for line in handle:
+            fields = line.rstrip("\n").split("\t")
+            symbols.append(fields[1].split(".")[0].upper() if len(fields) > 1 else fields[0].upper())
+    gene_rows = {i + 1: gene for i, gene in enumerate(symbols) if gene in SELECTED_GENES}
+    col_to_cell = {}
+    with barcode_path.open() as handle:
+        for index, line in enumerate(handle, start=1):
+            barcode = line.strip()
+            if barcode in keep_barcodes:
+                col_to_cell[index] = keep_barcodes[barcode]
+    if not col_to_cell:
+        return [], {}, np.array([])
+    totals = {col: 0.0 for col in col_to_cell}
+    selected = {gene: {col: 0.0 for col in col_to_cell} for gene in gene_rows.values()}
+    with mtx_path.open() as handle:
+        for line in handle:
+            if line.startswith("%"):
+                continue
+            break
+        for line in handle:
+            gene_i, cell_j, value = line.split()
+            cell_j = int(cell_j)
+            if cell_j not in col_to_cell:
+                continue
+            count = float(value)
+            totals[cell_j] += count
+            gene_i = int(gene_i)
+            if gene_i in gene_rows:
+                selected[gene_rows[gene_i]][cell_j] += count
+    columns = sorted(col_to_cell)
+    cell_ids = [col_to_cell[col] for col in columns]
+    total_arr = np.array([totals[col] for col in columns], dtype=float)
+    selected_arr = {
+        gene: np.array([values[col] for col in columns], dtype=float)
+        for gene, values in selected.items()
+    }
+    return cell_ids, selected_arr, total_arr
+
+
+def process_gse154826(source: Path) -> tuple[pd.DataFrame, dict]:
+    cells = pd.read_csv(source / "GSE154826_cell_metadata.csv")
+    annots = pd.read_csv(source / "GSE154826_annots_list.csv")
+    meta = pd.read_csv(source / "GSE154826_sample_metadata.csv")
+    lineage_map = dict(zip(annots["cluster"].astype(int), annots["lineage"].astype(str)))
+    tumor = meta[(meta["tissue"] == "Tumor") & (meta["Use.in.Clustering.Model."] == "Yes")]
+    tumor_samples = set(tumor["sample_ID"].astype(str))
+    batch_dir = source / "gse154826_batches"
+    frames = []
+    audits = []
+    for batch in sorted({int(x) for x in tumor["amp_batch_ID"]}):
+        archive = batch_dir / f"GSE154826_amp_batch_ID_{batch}.tar.gz"
+        if not archive.exists():
+            raise FileNotFoundError(archive)
+        extract_dir = batch_dir / f"extracted_{batch}"
+        extract_dir.mkdir(exist_ok=True)
+        if not any(extract_dir.glob("*matrix.mtx")):
+            with tarfile.open(archive) as tar:
+                tar.extractall(extract_dir, filter="data")
+        batch_samples = meta.loc[meta["amp_batch_ID"].astype(int) == batch, "sample_ID"].astype(str)
+        keep = {}
+        for sample in batch_samples:
+            sample_cells = cells.loc[cells["sample_ID"].astype(str) == sample, "cell_ID"]
+            prefix = f"{sample}_"
+            for cell_id in sample_cells:
+                barcode = cell_id[len(prefix) :] if cell_id.startswith(prefix) else cell_id.split("_", 1)[-1]
+                keep[barcode] = cell_id
+        cell_ids, selected, totals = _read_10x_selected(extract_dir, keep)
+        if not cell_ids:
+            audits.append({"batch": batch, "matched_cells": 0})
+            continue
+        expr = normalized_selected(selected, totals)
+        marker_labels = classify(expr)
+        cell_info = cells.set_index("cell_ID").reindex(cell_ids)
+        labels = np.array(["unclassified"] * len(cell_ids), dtype=object)
+        for i, cluster in enumerate(cell_info["cluster_ID"].to_numpy()):
+            lineage = lineage_map.get(int(cluster), "")
+            if lineage == "T":
+                labels[i] = "T"
+            elif lineage == "B&plasma":
+                labels[i] = "B"
+            elif lineage == "MNP":
+                labels[i] = "myeloid"
+            elif lineage == "epi_endo_fibro_doublet":
+                labels[i] = marker_labels[i]
+        samples = cell_info["sample_ID"].astype(str).to_numpy()
+        include = np.array([sample in tumor_samples for sample in samples])
+        if not include.any():
+            continue
+        summary = sample_summaries("GSE154826", samples, expr, totals, labels, include)
+        site = tumor.set_index(tumor["sample_ID"].astype(str))["disease"]
+        summary["site"] = summary["sample"].map(site).fillna("Tumor")
+        frames.append(summary)
+        audits.append(
+            {
+                "batch": batch,
+                "matched_cells": len(cell_ids),
+                "tumor_cells": int(include.sum()),
+                "genes_missing": sorted(set(SELECTED_GENES) - set(selected)),
+            }
+        )
+    if not frames:
+        raise RuntimeError("GSE154826 produced no tumor sample summaries")
+    result = finalize_scores(pd.concat(frames, ignore_index=True))
+    result = result.groupby(["atlas", "sample"], as_index=False).first()
+    result = finalize_scores(result)
+    audit = {
+        "status": "included_per_sample_geo_mtx",
+        "matrix_cells": int(sum(x.get("matched_cells", 0) for x in audits)),
+        "tumor_samples": int(result["sample"].nunique()),
+        "classification": (
+            "author immune lineages; marker argmax for gated epi/endo/fibro cells; "
+            "clustering-used tumor samples only"
+        ),
+        "batch_audit": audits,
+        "genes_present": bool(all("TACSTD2" not in x.get("genes_missing", []) or "CLDN4" not in x.get("genes_missing", []) for x in audits)),
     }
     return result, audit
 
@@ -438,10 +583,166 @@ def run_statistics(samples: pd.DataFrame, seed: int) -> tuple[pd.DataFrame, pd.D
     return results, pd.DataFrame(meta_rows)
 
 
+def _eligible(frame: pd.DataFrame) -> pd.DataFrame:
+    return frame[
+        (frame["n_epithelial"] >= 20)
+        & (frame["n_T"] >= 20)
+        & (frame["n_B"] >= 10)
+        & (frame["n_myeloid"] >= 20)
+    ].copy()
+
+
+def _partial_rho(frame: pd.DataFrame, exposure: str, outcome: str) -> float:
+    covariates = [frame["epithelial_fraction"].to_numpy()]
+    if frame["site"].nunique() > 1:
+        dummies = pd.get_dummies(frame["site"], drop_first=True, dtype=float)
+        if not dummies.empty:
+            covariates.append(dummies.to_numpy())
+    return residual_rank_correlation(
+        frame[exposure].to_numpy(),
+        frame[outcome].to_numpy(),
+        np.column_stack(covariates),
+    )
+
+
+def _purity_residual(values: np.ndarray, purity: np.ndarray) -> np.ndarray:
+    design = np.column_stack([np.ones(len(values)), stats.rankdata(purity)])
+    ranked = stats.rankdata(values)
+    return ranked - design @ np.linalg.lstsq(design, ranked, rcond=None)[0]
+
+
+def _match(estimate: float, pvalue: float, predicted_sign: int) -> str:
+    if not np.isfinite(estimate) or not np.isfinite(pvalue) or pvalue >= 0.05:
+        return "inconclusive"
+    observed = 1 if estimate > 0 else -1
+    return "match" if observed == predicted_sign else "mismatch"
+
+
+def run_thesis_tests(samples: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for atlas, atlas_df in samples.groupby("atlas"):
+        frame = _eligible(atlas_df)
+        if "site" not in frame:
+            frame["site"] = "tumor"
+        for exposure, predicted, hypothesis in [
+            ("tacstd2", -1, "TROP2-high -> immune-low after purity"),
+            ("cldn4", -1, "CLDN4 TJ barrier -> immune-low after purity"),
+        ]:
+            needed = [exposure, "immune_score", "immune_fraction", "epithelial_fraction"]
+            usable = frame.dropna(subset=needed)
+            if len(usable) < 4 or np.ptp(usable[exposure]) == 0:
+                rows.append(
+                    {
+                        "atlas": atlas,
+                        "hypothesis": hypothesis,
+                        "exposure": exposure,
+                        "outcome": "immune_score_purity_adjusted",
+                        "n": int(len(usable)),
+                        "metric": "partial_spearman_rho",
+                        "estimate": np.nan,
+                        "p": np.nan,
+                        "match": "inconclusive",
+                    }
+                )
+                continue
+            rho = _partial_rho(usable, exposure, "immune_score")
+            raw_rho, raw_p = stats.spearmanr(
+                usable[exposure],
+                _purity_residual(
+                    usable["immune_score"].to_numpy(),
+                    usable["epithelial_fraction"].to_numpy(),
+                ),
+            )
+            rows.append(
+                {
+                    "atlas": atlas,
+                    "hypothesis": hypothesis,
+                    "exposure": exposure,
+                    "outcome": "immune_score_purity_adjusted",
+                    "n": int(len(usable)),
+                    "metric": "partial_spearman_rho",
+                    "estimate": rho,
+                    "p": float(raw_p),
+                    "match": _match(rho, raw_p, predicted),
+                }
+            )
+            high = usable[exposure] > usable[exposure].median()
+            immune_resid = _purity_residual(
+                usable["immune_score"].to_numpy(),
+                usable["epithelial_fraction"].to_numpy(),
+            )
+            immune_low = immune_resid < np.median(immune_resid)
+            table = np.array(
+                [
+                    [int((high & immune_low).sum()), int((high & ~immune_low).sum())],
+                    [int((~high & immune_low).sum()), int((~high & ~immune_low).sum())],
+                ]
+            )
+            odds, fisher_p = stats.fisher_exact(table, alternative="two-sided")
+            rows.append(
+                {
+                    "atlas": atlas,
+                    "hypothesis": hypothesis,
+                    "exposure": exposure,
+                    "outcome": "immune_low_given_high_exposure",
+                    "n": int(len(usable)),
+                    "metric": "OR",
+                    "estimate": float(odds),
+                    "p": float(fisher_p),
+                    "match": _match(np.log(odds) if odds not in (0, np.inf) else np.nan, fisher_p, 1),
+                }
+            )
+            infil_high = usable.loc[high, "immune_fraction"].to_numpy()
+            infil_low = usable.loc[~high, "immune_fraction"].to_numpy()
+            if infil_high.mean() > 0 and infil_low.mean() > 0:
+                log2fc = float(np.log2(infil_high.mean() / infil_low.mean()))
+                mw_p = float(stats.mannwhitneyu(infil_high, infil_low, alternative="two-sided").pvalue)
+                rows.append(
+                    {
+                        "atlas": atlas,
+                        "hypothesis": hypothesis,
+                        "exposure": exposure,
+                        "outcome": "immune_fraction_high_vs_low_exposure",
+                        "n": int(len(usable)),
+                        "metric": "log2FC",
+                        "estimate": log2fc,
+                        "p": mw_p,
+                        "match": _match(log2fc, mw_p, -1),
+                    }
+                )
+        barrier = frame.dropna(subset=["cldn4", "tj_module", "tacstd2"])
+        if len(barrier) >= 4 and np.ptp(barrier["cldn4"]) > 0:
+            for outcome, predicted, label in [
+                ("tj_module", 1, "CLDN4 tracks tight-junction barrier"),
+                ("tacstd2", 1, "CLDN4 co-occurs with TROP2 epithelial state"),
+            ]:
+                if np.ptp(barrier[outcome]) == 0:
+                    rho, pvalue = np.nan, np.nan
+                else:
+                    rho, pvalue = stats.spearmanr(barrier["cldn4"], barrier[outcome])
+                rows.append(
+                    {
+                        "atlas": atlas,
+                        "hypothesis": label,
+                        "exposure": "cldn4",
+                        "outcome": outcome,
+                        "n": int(len(barrier)),
+                        "metric": "spearman_rho",
+                        "estimate": float(rho) if np.isfinite(rho) else np.nan,
+                        "p": float(pvalue) if np.isfinite(pvalue) else np.nan,
+                        "match": _match(float(rho) if np.isfinite(rho) else np.nan, float(pvalue) if np.isfinite(pvalue) else np.nan, predicted),
+                    }
+                )
+    return pd.DataFrame(rows)
+
+
 def plot_results(samples: pd.DataFrame, statistics: pd.DataFrame, output: Path) -> None:
-    fig, axes = plt.subplots(2, 3, figsize=(12, 7.5), constrained_layout=True)
-    colors = {"GSE131907": "#2864a6", "GSE148071": "#d17c00"}
-    for row, atlas in enumerate(["GSE131907", "GSE148071"]):
+    atlases = [atlas for atlas in ["GSE131907", "GSE148071", "GSE154826"] if atlas in set(samples["atlas"])]
+    fig, axes = plt.subplots(len(atlases), 3, figsize=(12, 3.6 * len(atlases)), constrained_layout=True)
+    if len(atlases) == 1:
+        axes = np.array([axes])
+    colors = {"GSE131907": "#2864a6", "GSE148071": "#d17c00", "GSE154826": "#2a7f62"}
+    for row, atlas in enumerate(atlases):
         atlas_df = samples[samples["atlas"] == atlas]
         eligible = (
             (atlas_df["n_epithelial"] >= 20)
@@ -464,17 +765,19 @@ def plot_results(samples: pd.DataFrame, statistics: pd.DataFrame, output: Path) 
                 coef = np.polyfit(frame["epithelial_module"], frame[outcome], 1)
                 grid = np.linspace(frame["epithelial_module"].min(), frame["epithelial_module"].max())
                 ax.plot(grid, np.polyval(coef, grid), color="#333333", linewidth=1)
-            stat = statistics[
+            hit = statistics[
                 (statistics["atlas"] == atlas) & (statistics["outcome"] == outcome)
-            ].iloc[0]
-            ax.text(
-                0.04,
-                0.96,
-                f"ρ={stat.spearman_rho:.2f}; pperm={stat.permutation_p:.3g}; n={stat.n_samples}",
-                transform=ax.transAxes,
-                va="top",
-                fontsize=8,
-            )
+            ]
+            if not hit.empty:
+                stat = hit.iloc[0]
+                ax.text(
+                    0.04,
+                    0.96,
+                    f"ρ={stat.spearman_rho:.2f}; pperm={stat.permutation_p:.3g}; n={stat.n_samples}",
+                    transform=ax.transAxes,
+                    va="top",
+                    fontsize=8,
+                )
             ax.set_title(f"{atlas}: {outcome.replace('_score', '').upper()}")
             ax.set_xlabel("Tumor epithelial TACSTD2/CLDN4")
             ax.set_ylabel("Sample co-occurrence score (z)")
@@ -499,25 +802,20 @@ def source_manifest(source: Path) -> pd.DataFrame:
                     "file": path.name,
                     "bytes": path.stat().st_size,
                     "sha256": sha256(path),
-                    "used_for_statistics": path.name.startswith(("GSE131907", "GSE148071")),
+                    "used_for_statistics": path.name.startswith(("GSE131907", "GSE148071", "GSE154826")),
                 }
             )
-    records.extend(
-        [
-            {
-                "file": "GSE154826 author/HCA lung_ldm.rds",
-                "bytes": 2_123_085_302,
-                "sha256": "78a2858f2da2ce9386e729ee98045e64a440d24d9721c4397cee56d66fa9c4be",
-                "used_for_statistics": False,
-            },
-            {
-                "file": "GSE154826 GEO 77 processed tar.gz files (aggregate)",
-                "bytes": 3_567_029_508,
-                "sha256": "not_applicable_multiple_files",
-                "used_for_statistics": False,
-            },
-        ]
-    )
+    batch_dir = source / "gse154826_batches"
+    if batch_dir.exists():
+        for path in sorted(batch_dir.glob("GSE154826_amp_batch_ID_*.tar.gz")):
+            records.append(
+                {
+                    "file": path.name,
+                    "bytes": path.stat().st_size,
+                    "sha256": sha256(path),
+                    "used_for_statistics": True,
+                }
+            )
     return pd.DataFrame(records)
 
 
@@ -529,39 +827,45 @@ def main() -> None:
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
-    cache131 = args.output / "_cache_v3_gse131907_scores.csv"
-    audit_cache131 = args.output / "_cache_v3_gse131907_audit.json"
-    if cache131.exists() and audit_cache131.exists():
-        g131 = pd.read_csv(cache131)
-        with audit_cache131.open() as handle:
-            audit131 = json.load(handle)
-    else:
-        g131, audit131 = process_gse131907(args.source)
-        g131.to_csv(cache131, index=False)
-        with audit_cache131.open("w") as handle:
-            json.dump(audit131, handle, indent=2)
+    def load_or_build(cache_csv: Path, cache_json: Path, builder):
+        if cache_csv.exists() and cache_json.exists():
+            frame = pd.read_csv(cache_csv)
+            if {"tacstd2", "cldn4", "tj_module"}.issubset(frame.columns):
+                with cache_json.open() as handle:
+                    return frame, json.load(handle)
+        frame, audit = builder()
+        frame.to_csv(cache_csv, index=False)
+        with cache_json.open("w") as handle:
+            json.dump(audit, handle, indent=2)
+        return frame, audit
 
-    cache148 = args.output / "_cache_gse148071_scores.csv"
-    audit_cache148 = args.output / "_cache_gse148071_audit.json"
-    if cache148.exists() and audit_cache148.exists():
-        g148 = pd.read_csv(cache148)
-        with audit_cache148.open() as handle:
-            audit148 = json.load(handle)
-    else:
-        g148, audit148 = process_gse148071(args.source)
-        g148.to_csv(cache148, index=False)
-        with audit_cache148.open("w") as handle:
-            json.dump(audit148, handle, indent=2)
+    g131, audit131 = load_or_build(
+        args.output / "_cache_v4_gse131907_scores.csv",
+        args.output / "_cache_v4_gse131907_audit.json",
+        lambda: process_gse131907(args.source),
+    )
+    g148, audit148 = load_or_build(
+        args.output / "_cache_v4_gse148071_scores.csv",
+        args.output / "_cache_v4_gse148071_audit.json",
+        lambda: process_gse148071(args.source),
+    )
     if "site" not in g148:
         g148["site"] = "advanced_biopsy"
-    # Recompute atlas-level z scores even when loading an earlier raw-summary cache.
+    g154, audit154 = load_or_build(
+        args.output / "_cache_v4_gse154826_scores.csv",
+        args.output / "_cache_v4_gse154826_audit.json",
+        lambda: process_gse154826(args.source),
+    )
     g131 = finalize_scores(g131)
     g148 = finalize_scores(g148)
-    samples = pd.concat([g131, g148], ignore_index=True)
+    g154 = finalize_scores(g154)
+    samples = pd.concat([g131, g148, g154], ignore_index=True)
     statistics, meta = run_statistics(samples, args.seed)
+    thesis = run_thesis_tests(samples)
     samples.to_csv(args.output / "sample_scores.csv", index=False)
     statistics.to_csv(args.output / "association_statistics.csv", index=False)
     meta.to_csv(args.output / "meta_analysis.csv", index=False)
+    thesis.to_csv(args.output / "thesis_results.csv", index=False)
     source_manifest(args.source).to_csv(args.output / "source_manifest.csv", index=False)
     with (args.output / "audit.json").open("w") as handle:
         json.dump(
@@ -576,12 +880,7 @@ def main() -> None:
                 },
                 "GSE131907": audit131,
                 "GSE148071": audit148,
-                "GSE154826": {
-                    "status": "excluded_before_analysis",
-                    "reason": "No complete open processed representation below 2,000,000,000 bytes",
-                    "author_hca_rds_bytes": 2_123_085_302,
-                    "geo_processed_archives_aggregate_bytes": 3_567_029_508,
-                },
+                "GSE154826": audit154,
             },
             handle,
             indent=2,
