@@ -57,8 +57,12 @@ def main():
     # Spearman corr of each gene with continuous TACSTD2 across all tumors
     ranks_trop2 = stats.rankdata(trop2.values)
     exprvals = expr.values
-    rho = np.array([stats.spearmanr(exprvals[i], trop2.values).correlation
-                    for i in range(exprvals.shape[0])])
+    rho = np.empty(exprvals.shape[0], dtype=float)
+    rho_p = np.empty(exprvals.shape[0], dtype=float)
+    for i in range(exprvals.shape[0]):
+        r, p = stats.spearmanr(exprvals[i], trop2.values)
+        rho[i] = r
+        rho_p[i] = p
 
     res = pd.DataFrame({
         "gene": expr.index,
@@ -66,8 +70,11 @@ def main():
         "t_stat": t,
         "p_ttest": p,
         "spearman_r_vs_TACSTD2": rho,
+        "spearman_p_vs_TACSTD2": rho_p,
     }).set_index("gene")
     res["padj_ttest"] = multipletests(res["p_ttest"].fillna(1), method="fdr_bh")[1]
+    res["spearman_padj_vs_TACSTD2"] = multipletests(
+        res["spearman_p_vs_TACSTD2"].fillna(1), method="fdr_bh")[1]
     res = res.sort_values("t_stat", ascending=False)
     res.to_csv(f"{C.TABLES}/tcga_diff_high_vs_low.tsv", sep="\t")
 

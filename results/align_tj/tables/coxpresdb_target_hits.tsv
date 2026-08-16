@@ -1,0 +1,109 @@
+species	db	query	partner	rank_in_top1000	mutual_rank	logit_score	in_top1000
+human	hsa-u	TACSTD2	CLDN4	3.0	212.09	6.29	True
+human	hsa-u	TACSTD2	CLDN7	7.0	460.41	5.15	True
+human	hsa-u	TACSTD2	GRHL1	40.0	1055.21	3.9	True
+human	hsa-u	TACSTD2	ELF3	63.0	1445.29	3.41	True
+human	hsa-u	TACSTD2	CLDN1	79.0	1733.88	3.12	True
+human	hsa-u	TACSTD2	TFAP2A	171.0	2539.82	2.49	True
+human	hsa-u	TACSTD2	F11R	391.0	3649.94	1.85	True
+human	hsa-u	TACSTD2	KLF4	852.0	4950.87	1.26	True
+human	hsa-u	TACSTD2	PARD3				False
+human	hsa-u	CLDN4	ELF3	3.0	83.84	7.64	True
+human	hsa-u	CLDN4	CLDN7	6.0	152.61	6.77	True
+human	hsa-u	CLDN4	TACSTD2	9.0	212.09	6.29	True
+human	hsa-u	CLDN4	KLF4	172.0	2110.39	2.8	True
+human	hsa-u	CLDN4	GRHL1	288.0	3055.87	2.17	True
+human	hsa-u	CLDN4	F11R	396.0	3551.89	1.9	True
+human	hsa-u	CLDN4	CLDN1				False
+human	hsa-u	CLDN4	PARD3				False
+human	hsa-u	CLDN4	TFAP2A				False
+human	hsa-u	ELF3	CLDN4	2.0	83.84	7.64	True
+human	hsa-u	ELF3	CLDN7	4.0	169.16	6.62	True
+human	hsa-u	ELF3	TACSTD2	75.0	1445.29	3.41	True
+human	hsa-u	ELF3	GRHL1	292.0	3108.21	2.14	True
+human	hsa-u	ELF3	F11R	355.0	3361.6	2.0	True
+human	hsa-u	ELF3	KLF4	434.0	3669.79	1.84	True
+human	hsa-u	ELF3	CLDN1	744.0	4595.65	1.41	True
+human	hsa-u	ELF3	PARD3				False
+human	hsa-u	ELF3	TFAP2A				False
+human	hsa-u	GRHL1	TACSTD2	8.0	1055.21	3.9	True
+human	hsa-u	GRHL1	TFAP2A	131.0	2408.23	2.58	True
+human	hsa-u	GRHL1	CLDN4	262.0	3055.87	2.17	True
+human	hsa-u	GRHL1	ELF3	283.0	3108.21	2.14	True
+human	hsa-u	GRHL1	PARD3	551.0	3872.5	1.74	True
+human	hsa-u	GRHL1	F11R	840.0	4435.43	1.48	True
+human	hsa-u	GRHL1	CLDN1				False
+human	hsa-u	GRHL1	CLDN7				False
+human	hsa-u	GRHL1	KLF4				False
+human	hsa-u	KLF4	CLDN4	126.0	2110.39	2.8	True
+human	hsa-u	KLF4	ELF3	476.0	3669.79	1.84	True
+human	hsa-u	KLF4	PARD3	664.0	4104.39	1.63	True
+human	hsa-u	KLF4	TACSTD2				False
+human	hsa-u	KLF4	CLDN1				False
+human	hsa-u	KLF4	CLDN7				False
+human	hsa-u	KLF4	F11R				False
+human	hsa-u	KLF4	GRHL1				False
+human	hsa-u	KLF4	TFAP2A				False
+human	hsa-u	TFAP2A	GRHL1	108.0	2408.23	2.58	True
+human	hsa-u	TFAP2A	TACSTD2	122.0	2539.82	2.49	True
+human	hsa-u	TFAP2A	CLDN1	137.0	2600.18	2.45	True
+human	hsa-u	TFAP2A	CLDN4				False
+human	hsa-u	TFAP2A	CLDN7				False
+human	hsa-u	TFAP2A	F11R				False
+human	hsa-u	TFAP2A	PARD3				False
+human	hsa-u	TFAP2A	ELF3				False
+human	hsa-u	TFAP2A	KLF4				False
+mouse	mmu-u	Tacstd2	Cldn4	1.0	65.78	8.03	True
+mouse	mmu-u	Tacstd2	Cldn7	58.0	790.96	4.38	True
+mouse	mmu-u	Tacstd2	Tfap2a	85.0	1048.92	3.95	True
+mouse	mmu-u	Tacstd2	Elf3	181.0	1758.49	3.14	True
+mouse	mmu-u	Tacstd2	Cldn1	244.0	2206.86	2.77	True
+mouse	mmu-u	Tacstd2	F11r	911.0	4814.9	1.37	True
+mouse	mmu-u	Tacstd2	Pard3				False
+mouse	mmu-u	Tacstd2	Grhl1				False
+mouse	mmu-u	Tacstd2	Klf4				False
+mouse	mmu-u	Cldn4	Cldn7	1.0	8.02	11.07	True
+mouse	mmu-u	Cldn4	Elf3	4.0	55.35	8.28	True
+mouse	mmu-u	Cldn4	Tacstd2	6.0	65.78	8.03	True
+mouse	mmu-u	Cldn4	Tfap2a	182.0	1917.78	3.0	True
+mouse	mmu-u	Cldn4	F11r	279.0	2701.55	2.43	True
+mouse	mmu-u	Cldn4	Cldn1				False
+mouse	mmu-u	Cldn4	Pard3				False
+mouse	mmu-u	Cldn4	Grhl1				False
+mouse	mmu-u	Cldn4	Klf4				False
+mouse	mmu-u	Elf3	Cldn7	1.0	44.06	8.61	True
+mouse	mmu-u	Elf3	Cldn4	3.0	55.35	8.28	True
+mouse	mmu-u	Elf3	Tacstd2	170.0	1758.49	3.14	True
+mouse	mmu-u	Elf3	Tfap2a	345.0	2797.67	2.37	True
+mouse	mmu-u	Elf3	F11r	420.0	3191.79	2.14	True
+mouse	mmu-u	Elf3	Pard3	921.0	4814.9	1.37	True
+mouse	mmu-u	Elf3	Cldn1				False
+mouse	mmu-u	Elf3	Grhl1				False
+mouse	mmu-u	Elf3	Klf4				False
+mouse	mmu-u	Grhl1	Tacstd2				False
+mouse	mmu-u	Grhl1	Cldn1				False
+mouse	mmu-u	Grhl1	Cldn4				False
+mouse	mmu-u	Grhl1	Cldn7				False
+mouse	mmu-u	Grhl1	F11r				False
+mouse	mmu-u	Grhl1	Pard3				False
+mouse	mmu-u	Grhl1	Elf3				False
+mouse	mmu-u	Grhl1	Klf4				False
+mouse	mmu-u	Grhl1	Tfap2a				False
+mouse	mmu-u	Klf4	Tacstd2				False
+mouse	mmu-u	Klf4	Cldn1				False
+mouse	mmu-u	Klf4	Cldn4				False
+mouse	mmu-u	Klf4	Cldn7				False
+mouse	mmu-u	Klf4	F11r				False
+mouse	mmu-u	Klf4	Pard3				False
+mouse	mmu-u	Klf4	Elf3				False
+mouse	mmu-u	Klf4	Grhl1				False
+mouse	mmu-u	Klf4	Tfap2a				False
+mouse	mmu-u	Tfap2a	Tacstd2	37.0	1048.92	3.95	True
+mouse	mmu-u	Tfap2a	Cldn4	115.0	1917.78	3.0	True
+mouse	mmu-u	Tfap2a	Elf3	238.0	2797.67	2.37	True
+mouse	mmu-u	Tfap2a	Pard3	510.0	3997.89	1.73	True
+mouse	mmu-u	Tfap2a	Cldn1				False
+mouse	mmu-u	Tfap2a	Cldn7				False
+mouse	mmu-u	Tfap2a	F11r				False
+mouse	mmu-u	Tfap2a	Grhl1				False
+mouse	mmu-u	Tfap2a	Klf4				False
