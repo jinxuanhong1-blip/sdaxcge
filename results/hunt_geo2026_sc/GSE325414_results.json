@@ -1,0 +1,48 @@
+{
+  "cohort": "GSE325414",
+  "pdat": "2026/06/10",
+  "already_listed_as_candidate": false,
+  "note": "NEW 2026 NSCLC scRNA; PEF ablation, not ICI. No response labels. TACSTD2/CLDN4 vs T/NK only.",
+  "n_cells": 156467,
+  "n_samples": 62,
+  "n_donors": 25,
+  "n_malignant": 43328,
+  "n_TNK": 44290,
+  "lineage_counts": {
+    "Other": 68849,
+    "T/NK": 44290,
+    "Malignant/Epithelial": 43328
+  },
+  "spearman_sample_TACSTD2_vs_fracTNK": {
+    "n": 62,
+    "rho": -0.21966482418230582,
+    "p": 0.08626017159469042
+  },
+  "spearman_sample_CLDN4_vs_fracTNK": {
+    "n": 62,
+    "rho": -0.04857596132054091,
+    "p": 0.7077162734005755
+  },
+  "spearman_donor_TACSTD2_vs_fracTNK": {
+    "n": 25,
+    "rho": -0.07307692307692308,
+    "p": 0.7284839479101775
+  },
+  "spearman_donor_CLDN4_vs_fracTNK": {
+    "n": 25,
+    "rho": -0.11923076923076922,
+    "p": 0.5702629145851892
+  },
+  "TACSTD2_mTLS_High_vs_Low": {
+    "n_a": 25,
+    "n_b": 16,
+    "p": 0.13799475087813196,
+    "U": 144.0
+  },
+  "CLDN4_mTLS_High_vs_Low": {
+    "n_a": 25,
+    "n_b": 16,
+    "p": 0.06713943327589168,
+    "U": 131.0
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "cohort": "GSE291670",
+  "pdat": "2025/03/31",
+  "already_listed_as_candidate": true,
+  "analyzed_for_tacstd2_cldn4_vs_tnk_before": false,
+  "regimen": "neoadjuvant anlotinib + camrelizumab (PD-1), from GEO sample characteristics",
+  "n_samples": 6,
+  "n_cells_qc": 28847,
+  "n_malignant": 14750,
+  "n_TNK": 1210,
+  "lineage_counts": {
+    "Malignant/Epithelial": 14750,
+    "Endothelial": 5164,
+    "Fibroblast": 3155,
+    "Myeloid": 2196,
+    "Mast": 1815,
+    "T/NK": 1210,
+    "B/Plasma": 557
+  },
+  "per_sample_TACSTD2_vs_MPR": {
+    "n_a": 3,
+    "n_b": 3,
+    "p": 0.4,
+    "U": 7.0
+  },
+  "per_sample_CLDN4_vs_MPR": {
+    "n_a": 3,
+    "n_b": 3,
+    "p": 0.4,
+    "U": 7.0
+  },
+  "mean_TACSTD2_MPR": 0.23375213146209717,
+  "mean_TACSTD2_nonMPR": 0.07539054627219836,
+  "mean_CLDN4_MPR": 0.16862762719392776,
+  "mean_CLDN4_nonMPR": 0.10494509215156238,
+  "spearman_TACSTD2_vs_fracTNK": {
+    "n": 6,
+    "rho": -0.3714285714285715,
+    "p": 0.4684781341107872
+  },
+  "spearman_CLDN4_vs_fracTNK": {
+    "n": 6,
+    "rho": -0.6571428571428573,
+    "p": 0.1561749271137024
+  },
+  "cell_TACSTD2_vs_MPR": {
+    "n_a": 9072,
+    "n_b": 5678,
+    "p": 1.679799440513518e-45,
+    "U": 27427425.0
+  },
+  "cell_CLDN4_vs_MPR": {
+    "n_a": 9072,
+    "n_b": 5678,
+    "p": 1.2318470208273277e-16,
+    "U": 26671369.0
+  }
+}

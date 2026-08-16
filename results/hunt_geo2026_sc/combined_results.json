@@ -1,0 +1,108 @@
+[
+  {
+    "cohort": "GSE291670",
+    "pdat": "2025/03/31",
+    "already_listed_as_candidate": true,
+    "analyzed_for_tacstd2_cldn4_vs_tnk_before": false,
+    "regimen": "neoadjuvant anlotinib + camrelizumab (PD-1), from GEO sample characteristics",
+    "n_samples": 6,
+    "n_cells_qc": 28847,
+    "n_malignant": 14750,
+    "n_TNK": 1210,
+    "lineage_counts": {
+      "Malignant/Epithelial": 14750,
+      "Endothelial": 5164,
+      "Fibroblast": 3155,
+      "Myeloid": 2196,
+      "Mast": 1815,
+      "T/NK": 1210,
+      "B/Plasma": 557
+    },
+    "per_sample_TACSTD2_vs_MPR": {
+      "n_a": 3,
+      "n_b": 3,
+      "p": 0.4,
+      "U": 7.0
+    },
+    "per_sample_CLDN4_vs_MPR": {
+      "n_a": 3,
+      "n_b": 3,
+      "p": 0.4,
+      "U": 7.0
+    },
+    "mean_TACSTD2_MPR": 0.23375213146209717,
+    "mean_TACSTD2_nonMPR": 0.07539054627219836,
+    "mean_CLDN4_MPR": 0.16862762719392776,
+    "mean_CLDN4_nonMPR": 0.10494509215156238,
+    "spearman_TACSTD2_vs_fracTNK": {
+      "n": 6,
+      "rho": -0.3714285714285715,
+      "p": 0.4684781341107872
+    },
+    "spearman_CLDN4_vs_fracTNK": {
+      "n": 6,
+      "rho": -0.6571428571428573,
+      "p": 0.1561749271137024
+    },
+    "cell_TACSTD2_vs_MPR": {
+      "n_a": 9072,
+      "n_b": 5678,
+      "p": 1.679799440513518e-45,
+      "U": 27427425.0
+    },
+    "cell_CLDN4_vs_MPR": {
+      "n_a": 9072,
+      "n_b": 5678,
+      "p": 1.2318470208273277e-16,
+      "U": 26671369.0
+    }
+  },
+  {
+    "cohort": "GSE325414",
+    "pdat": "2026/06/10",
+    "already_listed_as_candidate": false,
+    "note": "NEW 2026 NSCLC scRNA; PEF ablation, not ICI. No response labels. TACSTD2/CLDN4 vs T/NK only.",
+    "n_cells": 156467,
+    "n_samples": 62,
+    "n_donors": 25,
+    "n_malignant": 43328,
+    "n_TNK": 44290,
+    "lineage_counts": {
+      "Other": 68849,
+      "T/NK": 44290,
+      "Malignant/Epithelial": 43328
+    },
+    "spearman_sample_TACSTD2_vs_fracTNK": {
+      "n": 62,
+      "rho": -0.21966482418230582,
+      "p": 0.08626017159469042
+    },
+    "spearman_sample_CLDN4_vs_fracTNK": {
+      "n": 62,
+      "rho": -0.04857596132054091,
+      "p": 0.7077162734005755
+    },
+    "spearman_donor_TACSTD2_vs_fracTNK": {
+      "n": 25,
+      "rho": -0.07307692307692308,
+      "p": 0.7284839479101775
+    },
+    "spearman_donor_CLDN4_vs_fracTNK": {
+      "n": 25,
+      "rho": -0.11923076923076922,
+      "p": 0.5702629145851892
+    },
+    "TACSTD2_mTLS_High_vs_Low": {
+      "n_a": 25,
+      "n_b": 16,
+      "p": 0.13799475087813196,
+      "U": 144.0
+    },
+    "CLDN4_mTLS_High_vs_Low": {
+      "n_a": 25,
+      "n_b": 16,
+      "p": 0.06713943327589168,
+      "U": 131.0
+    }
+  }
+]
