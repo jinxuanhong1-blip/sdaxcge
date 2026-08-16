@@ -1,0 +1,99 @@
+{
+  "n_perm": 10000,
+  "primary_response_meta": [
+    {
+      "analysis_set": "primary_pathology_LUSC",
+      "stratum": "LUSC",
+      "gene": "TACSTD2",
+      "n_total": 32,
+      "n_benefit": 11,
+      "n_nobenefit": 21,
+      "k": 3,
+      "estimate": -0.290029764469509,
+      "se": 0.3897081856110874,
+      "ci_low": -1.0538578082672403,
+      "ci_high": 0.47379827932822227,
+      "p": 0.45674162310462896,
+      "tau2": 0.0,
+      "q": 1.886438540204819,
+      "i2": 0.0
+    },
+    {
+      "analysis_set": "primary_pathology_LUSC",
+      "stratum": "LUSC",
+      "gene": "CLDN4",
+      "n_total": 32,
+      "n_benefit": 11,
+      "n_nobenefit": 21,
+      "k": 3,
+      "estimate": 0.027830336859485456,
+      "se": 0.5099745400691389,
+      "ci_low": -0.9717197616760268,
+      "ci_high": 1.0273804353949978,
+      "p": 0.9564794364914245,
+      "tau2": 0.30525530463097145,
+      "q": 3.2784097095207105,
+      "i2": 38.99481220446997
+    }
+  ],
+  "housekeeping_response_meta": [
+    {
+      "analysis_set": "primary_pathology_LUSC",
+      "stratum": "LUSC",
+      "gene": "ACTB",
+      "n_total": 32,
+      "n_benefit": 11,
+      "n_nobenefit": 21,
+      "k": 3,
+      "estimate": -0.0017694368106408074,
+      "se": 0.3796405020203373,
+      "ci_low": -0.7458648207705019,
+      "ci_high": 0.7423259471492203,
+      "p": 0.9962812155354246,
+      "tau2": 0.0,
+      "q": 0.09235325805356553,
+      "i2": 0.0
+    },
+    {
+      "analysis_set": "primary_pathology_LUSC",
+      "stratum": "LUSC",
+      "gene": "GAPDH",
+      "n_total": 32,
+      "n_benefit": 11,
+      "n_nobenefit": 21,
+      "k": 3,
+      "estimate": -0.17515415644306606,
+      "se": 0.381270902157077,
+      "ci_low": -0.922445124670937,
+      "ci_high": 0.5721368117848048,
+      "p": 0.645950142050224,
+      "tau2": 0.0,
+      "q": 0.3126629974342401,
+      "i2": 0.0
+    },
+    {
+      "analysis_set": "primary_pathology_LUSC",
+      "stratum": "LUSC",
+      "gene": "PPIA",
+      "n_total": 32,
+      "n_benefit": 11,
+      "n_nobenefit": 21,
+      "k": 3,
+      "estimate": 0.029842375806841827,
+      "se": 0.38495217809993293,
+      "ci_low": -0.7246638932690267,
+      "ci_high": 0.7843486448827103,
+      "p": 0.9382080568391745,
+      "tau2": 0.0,
+      "q": 1.6871048767396137,
+      "i2": 0.0
+    }
+  ],
+  "notes": [
+    "Permutation p-values randomise benefit labels within each cohort.",
+    "Housekeeping genes (ACTB, GAPDH, PPIA) are negative controls for the response contrast.",
+    "Leave-one-cohort-out re-estimates the random-effects meta after dropping each cohort.",
+    "Partial Spearman removes a linear epithelial-content score before correlating with immune signatures.",
+    "TCGA-LUSC is treatment-naive surgical resection and is used only to replicate the immune axis, not ICI response."
+  ]
+}
