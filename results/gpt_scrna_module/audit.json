@@ -53,6 +53,19 @@
       "TACSTD2",
       "CLDN4"
     ],
+    "tacstd2": [
+      "TACSTD2"
+    ],
+    "cldn4": [
+      "CLDN4"
+    ],
+    "tj_barrier": [
+      "CLDN3",
+      "CLDN7",
+      "OCLN",
+      "TJP1",
+      "F11R"
+    ],
     "cd8": [
       "CD8A",
       "CD8B",
@@ -128,7 +141,9 @@
       "CD79B",
       "CD8A",
       "CD8B",
+      "CLDN3",
       "CLDN4",
+      "CLDN7",
       "COL1A1",
       "COL1A2",
       "COL3A1",
@@ -139,6 +154,7 @@
       "DCN",
       "EMCN",
       "EPCAM",
+      "F11R",
       "FCER1G",
       "GZMK",
       "HAVCR2",
@@ -160,11 +176,13 @@
       "MUC1",
       "MZB1",
       "NKG7",
+      "OCLN",
       "PDCD1",
       "PECAM1",
       "PTPRC",
       "SPP1",
       "TACSTD2",
+      "TJP1",
       "TOX",
       "TRBC1",
       "TRBC2",
@@ -853,9 +871,186 @@
     ]
   },
   "GSE154826": {
-    "status": "excluded_before_analysis",
-    "reason": "No complete open processed representation below 2,000,000,000 bytes",
-    "author_hca_rds_bytes": 2123085302,
-    "geo_processed_archives_aggregate_bytes": 3567029508
+    "status": "included_per_sample_geo_mtx",
+    "matrix_cells": 164000,
+    "tumor_samples": 29,
+    "classification": "author immune lineages; marker argmax for gated epi/endo/fibro cells; clustering-used tumor samples only",
+    "batch_audit": [
+      {
+        "batch": 2,
+        "matched_cells": 1631,
+        "tumor_cells": 1631,
+        "genes_missing": []
+      },
+      {
+        "batch": 4,
+        "matched_cells": 6315,
+        "tumor_cells": 6315,
+        "genes_missing": []
+      },
+      {
+        "batch": 6,
+        "matched_cells": 1998,
+        "tumor_cells": 1998,
+        "genes_missing": []
+      },
+      {
+        "batch": 8,
+        "matched_cells": 5248,
+        "tumor_cells": 5248,
+        "genes_missing": []
+      },
+      {
+        "batch": 9,
+        "matched_cells": 5014,
+        "tumor_cells": 5014,
+        "genes_missing": []
+      },
+      {
+        "batch": 11,
+        "matched_cells": 3540,
+        "tumor_cells": 3540,
+        "genes_missing": []
+      },
+      {
+        "batch": 15,
+        "matched_cells": 3983,
+        "tumor_cells": 3983,
+        "genes_missing": []
+      },
+      {
+        "batch": 17,
+        "matched_cells": 5237,
+        "tumor_cells": 5237,
+        "genes_missing": []
+      },
+      {
+        "batch": 19,
+        "matched_cells": 6009,
+        "tumor_cells": 6009,
+        "genes_missing": []
+      },
+      {
+        "batch": 29,
+        "matched_cells": 3279,
+        "tumor_cells": 3279,
+        "genes_missing": []
+      },
+      {
+        "batch": 31,
+        "matched_cells": 5699,
+        "tumor_cells": 5699,
+        "genes_missing": []
+      },
+      {
+        "batch": 33,
+        "matched_cells": 2309,
+        "tumor_cells": 2309,
+        "genes_missing": []
+      },
+      {
+        "batch": 36,
+        "matched_cells": 4031,
+        "tumor_cells": 4031,
+        "genes_missing": []
+      },
+      {
+        "batch": 38,
+        "matched_cells": 10248,
+        "tumor_cells": 10248,
+        "genes_missing": []
+      },
+      {
+        "batch": 40,
+        "matched_cells": 3641,
+        "tumor_cells": 3641,
+        "genes_missing": []
+      },
+      {
+        "batch": 42,
+        "matched_cells": 2614,
+        "tumor_cells": 2614,
+        "genes_missing": []
+      },
+      {
+        "batch": 43,
+        "matched_cells": 6129,
+        "tumor_cells": 6129,
+        "genes_missing": []
+      },
+      {
+        "batch": 45,
+        "matched_cells": 5696,
+        "tumor_cells": 5696,
+        "genes_missing": []
+      },
+      {
+        "batch": 47,
+        "matched_cells": 6235,
+        "tumor_cells": 6235,
+        "genes_missing": []
+      },
+      {
+        "batch": 50,
+        "matched_cells": 5002,
+        "tumor_cells": 5002,
+        "genes_missing": []
+      },
+      {
+        "batch": 51,
+        "matched_cells": 4384,
+        "tumor_cells": 2817,
+        "genes_missing": []
+      },
+      {
+        "batch": 53,
+        "matched_cells": 11149,
+        "tumor_cells": 2097,
+        "genes_missing": []
+      },
+      {
+        "batch": 54,
+        "matched_cells": 7457,
+        "tumor_cells": 3746,
+        "genes_missing": []
+      },
+      {
+        "batch": 56,
+        "matched_cells": 11567,
+        "tumor_cells": 5896,
+        "genes_missing": []
+      },
+      {
+        "batch": 88,
+        "matched_cells": 12624,
+        "tumor_cells": 6768,
+        "genes_missing": []
+      },
+      {
+        "batch": 90,
+        "matched_cells": 7875,
+        "tumor_cells": 4058,
+        "genes_missing": []
+      },
+      {
+        "batch": 292,
+        "matched_cells": 2938,
+        "tumor_cells": 2938,
+        "genes_missing": []
+      },
+      {
+        "batch": 308,
+        "matched_cells": 5662,
+        "tumor_cells": 5662,
+        "genes_missing": []
+      },
+      {
+        "batch": 342,
+        "matched_cells": 6486,
+        "tumor_cells": 3498,
+        "genes_missing": []
+      }
+    ],
+    "genes_present": true
   }
 }
