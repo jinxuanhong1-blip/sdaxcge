@@ -1,0 +1,1005 @@
+{
+  "slice": "results/rework/DepMap_IFN_treated",
+  "why_rework": {
+    "prior_slice": "results/hunt_depmap_ifn",
+    "unstimulated_NSCLC_TACSTD2_vs_Hallmark_IFNA_rho": 0.377,
+    "sign": "positive, not negative",
+    "closed": true
+  },
+  "release": {
+    "depmap": "DepMap Public 24Q4",
+    "depmap_doi": "10.25452/figshare.plus.27993248.v1",
+    "prism": "PRISM Repurposing Public 23Q2",
+    "prism_doi": "10.6084/m9.figshare.23600310.v4",
+    "proteomics": "Nusinow et al. Cell 2020 CCLE MS (Gygi)"
+  },
+  "cohort": {
+    "n_lung_annot": 260,
+    "n_NSCLC_annot": 169,
+    "n_NSCLC_expr": 148,
+    "n_NSCLC_by_group": {
+      "LUAD": 80,
+      "other_NSCLC": 41,
+      "LUSC": 27
+    },
+    "n_SCLC_expr": 59,
+    "n_NSCLC_PRISM": 99,
+    "n_NSCLC_CRISPR": 97,
+    "n_NSCLC_protein": 65
+  },
+  "missing_public_data": {
+    "recombinant_IFN_treated_DepMap_RNAseq": false,
+    "recombinant_IFN_biologic_in_PRISM": false,
+    "note": "DepMap 24Q4 expression is unstimulated culture RNA. PRISM 23Q2 / 19Q4 are small-molecule libraries; interferon alfa/gamma proteins are not compounds in the extended primary list. IFN inducers and JAK inhibitors are the public PRISM proxies."
+  },
+  "expr_genes_found": {
+    "TACSTD2": "TACSTD2 (4070)",
+    "CLDN4": "CLDN4 (1364)"
+  },
+  "crispr_genes_found": [
+    "ADAR",
+    "B2M",
+    "CD274",
+    "CLDN4",
+    "HLA-A",
+    "HLA-B",
+    "HLA-C",
+    "IFNAR1",
+    "IFNAR2",
+    "IFNGR1",
+    "IFNGR2",
+    "IRF1",
+    "IRF9",
+    "JAK1",
+    "JAK2",
+    "NLRC5",
+    "PTPN2",
+    "SOCS1",
+    "STAT1",
+    "STAT2",
+    "TACSTD2",
+    "TAP1",
+    "TAP2",
+    "TAPBP",
+    "TYK2",
+    "USP18"
+  ],
+  "protein_genes_found": [
+    "ADAR",
+    "B2M",
+    "BST2",
+    "CLDN4",
+    "EIF2AK2",
+    "HLA-A",
+    "HLA-B",
+    "HLA-C",
+    "IFI35",
+    "IFIT1",
+    "IFIT3",
+    "IRF1",
+    "IRF9",
+    "ISG15",
+    "MX1",
+    "OAS1",
+    "OAS2",
+    "OAS3",
+    "PSMB10",
+    "PSMB8",
+    "PSMB9",
+    "SAMHD1",
+    "STAT1",
+    "STAT2",
+    "TACSTD2",
+    "TAP1",
+    "TAP2",
+    "TRIM25"
+  ],
+  "prism_class_stats": {
+    "JAK_inhibitor_core_medianLFC": {
+      "n": 99,
+      "rho": 0.030544595482800023,
+      "p": 0.7640817054359927
+    },
+    "IFN_inducer_or_IFNR_agonist_medianLFC": {
+      "n": 99,
+      "rho": -0.05045826170159251,
+      "p": 0.6198991289474389
+    }
+  },
+  "prism_focus": [
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": -0.13696557545883736,
+      "p": 0.1954523293982242,
+      "class": "JAK_inhibitor_core",
+      "name": "WHI-P154",
+      "q_all": 0.926224080809305,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.10037232392181197
+    },
+    {
+      "n_rows": 1,
+      "n": 90,
+      "rho": -0.13614138487834057,
+      "p": 0.20073405087289348,
+      "class": "JAK_inhibitor_core",
+      "name": "NVP-BSK805",
+      "q_all": 0.9280799126366769,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.1017685386286069
+    },
+    {
+      "n_rows": 1,
+      "n": 86,
+      "rho": -0.07680623431856817,
+      "p": 0.4821253557132699,
+      "class": "JAK_inhibitor_core",
+      "name": "NS-018",
+      "q_all": 0.9685279909474034,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.23906298479677318
+    },
+    {
+      "n_rows": 1,
+      "n": 90,
+      "rho": -0.07568074808461596,
+      "p": 0.4783541604388319,
+      "class": "JAK_inhibitor_core",
+      "name": "TOFACITINIB",
+      "q_all": 0.9679483628664431,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.24201054917778467
+    },
+    {
+      "n_rows": 1,
+      "n": 90,
+      "rho": -0.06068288828364028,
+      "p": 0.5699228039886669,
+      "class": "IFN_inducer_or_IFNR_agonist",
+      "name": "BROPIRIMINE",
+      "q_all": 0.9731018416736845,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.2860688799255352
+    },
+    {
+      "n_rows": 1,
+      "n": 86,
+      "rho": -0.0587203049255335,
+      "p": 0.5912364980596203,
+      "class": "JAK_inhibitor_core",
+      "name": "DECERNOTINIB",
+      "q_all": 0.9731018416736845,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.2921191436549798
+    },
+    {
+      "n_rows": 1,
+      "n": 86,
+      "rho": -0.05602203898583193,
+      "p": 0.6084218914231787,
+      "class": "JAK_inhibitor_core",
+      "name": "TG-101348",
+      "q_all": 0.9731018416736845,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.3004964318957493
+    },
+    {
+      "n_rows": 1,
+      "n": 96,
+      "rho": -0.05499260706701106,
+      "p": 0.5946151452380477,
+      "class": "JAK_inhibitor_core",
+      "name": "BMS-911543",
+      "q_all": 0.9731018416736845,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.305150480918399
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": -0.04969779979294209,
+      "p": 0.6399116449422251,
+      "class": "JAK_inhibitor_core",
+      "name": "BARICITINIB",
+      "q_all": 0.9748796190609336,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.3265591064225877
+    },
+    {
+      "n_rows": 1,
+      "n": 90,
+      "rho": -0.045742649239309416,
+      "p": 0.6685702428915041,
+      "class": "IFN_inducer_or_IFNR_agonist",
+      "name": "TILORONE",
+      "q_all": 0.9748796190609336,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.33772882407694693
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": -0.029415746264240997,
+      "p": 0.7819420231204763,
+      "class": "IFN_inducer_or_IFNR_agonist",
+      "name": "PIDOTIMOD",
+      "q_all": 0.9799671782537764,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.3900093080980453
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": -0.01881684039588562,
+      "p": 0.8594805290355896,
+      "class": "JAK_inhibitor_core",
+      "name": "AZD1480",
+      "q_all": 0.9869193034009525,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.4300341296928328
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": -0.013887672302337927,
+      "p": 0.896048353668415,
+      "class": "JAK_inhibitor_core",
+      "name": "CEP-33779",
+      "q_all": 0.994811870424475,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.4438411417933602
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": -0.010280381274265058,
+      "p": 0.9229523785602137,
+      "class": "JAK_inhibitor_core",
+      "name": "AZ960",
+      "q_all": 0.9970129443038273,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.45919950356810424
+    },
+    {
+      "n_rows": 1,
+      "n": 88,
+      "rho": -0.0016906915105046876,
+      "p": 0.9875269166597906,
+      "class": "JAK_inhibitor_core",
+      "name": "PEFICITINIB",
+      "q_all": 0.9991737482125831,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.4931740614334471
+    },
+    {
+      "n_rows": 1,
+      "n": 88,
+      "rho": 0.0023687292516966717,
+      "p": 0.982525363881851,
+      "class": "JAK_inhibitor_core",
+      "name": "ITACITINIB",
+      "q_all": 0.9990772785268296,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.5088426931430344
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": 0.018299237930488852,
+      "p": 0.8633079269280336,
+      "class": "IFN_inducer_or_IFNR_agonist",
+      "name": "IMIQUIMOD",
+      "q_all": 0.9877271611198771,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.5625193918709277
+    },
+    {
+      "n_rows": 1,
+      "n": 96,
+      "rho": 0.019472591870916222,
+      "p": 0.8506334765954057,
+      "class": "IFN_inducer_or_IFNR_agonist",
+      "name": "PROPAGERMANIUM",
+      "q_all": 0.9858479223785155,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.5662426310890475
+    },
+    {
+      "n_rows": 1,
+      "n": 96,
+      "rho": 0.026248321330702117,
+      "p": 0.799607754853741,
+      "class": "JAK_inhibitor_core",
+      "name": "DELGOCITINIB",
+      "q_all": 0.9799671782537764,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.588582066397766
+    },
+    {
+      "n_rows": 1,
+      "n": 96,
+      "rho": 0.049057909091723105,
+      "p": 0.6350315871965729,
+      "class": "JAK_inhibitor_core",
+      "name": "UPADACITINIB",
+      "q_all": 0.9738374732644365,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.6739062984796773
+    },
+    {
+      "n_rows": 1,
+      "n": 90,
+      "rho": 0.05401534358617032,
+      "p": 0.6131087743249563,
+      "class": "JAK_inhibitor_core",
+      "name": "RUXOLITINIB",
+      "q_all": 0.9731018416736845,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.6906608749612163
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": 0.06708924263027354,
+      "p": 0.5274810317981243,
+      "class": "JAK_inhibitor_core",
+      "name": "CYT387",
+      "q_all": 0.9731018416736845,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.7289792119143655
+    },
+    {
+      "n_rows": 1,
+      "n": 96,
+      "rho": 0.07004300113234128,
+      "p": 0.49769428891808953,
+      "class": "IFN_inducer_or_IFNR_agonist",
+      "name": "MIW-815",
+      "q_all": 0.9710873257840971,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.738287309959665
+    },
+    {
+      "n_rows": 1,
+      "n": 84,
+      "rho": 0.10261316810456175,
+      "p": 0.3529780845686177,
+      "class": "JAK_inhibitor_core",
+      "name": "SOLCITINIB",
+      "q_all": 0.9306744292541521,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.8149239838659634
+    },
+    {
+      "n_rows": 1,
+      "n": 91,
+      "rho": 0.10724723083021055,
+      "p": 0.31160858520192053,
+      "class": "JAK_inhibitor_core",
+      "name": "LY2784544",
+      "q_all": 0.9302655791340481,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.8256282966180577
+    },
+    {
+      "n_rows": 1,
+      "n": 86,
+      "rho": 0.18697284752799212,
+      "p": 0.08474772760831595,
+      "class": "JAK_inhibitor_core",
+      "name": "XL019",
+      "q_all": 0.8614308074253545,
+      "q_focus": 0.9875269166597906,
+      "background_percentile": 0.9514427551970214
+    }
+  ],
+  "crispr_vs_TACSTD2": [
+    {
+      "n": 97,
+      "rho": -0.01078287626859247,
+      "p": 0.916514417488533,
+      "gene": "ADAR",
+      "panel": "IFN_negative_reg",
+      "present": true,
+      "q_primary": 0.973672424165586
+    },
+    {
+      "n": 97,
+      "rho": 0.03965336998529341,
+      "p": 0.6997712274399494,
+      "gene": "B2M",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.9248522610743207
+    },
+    {
+      "n": 97,
+      "rho": -0.0036030586556028503,
+      "p": 0.9720589350694645,
+      "gene": "CD274",
+      "panel": "other",
+      "present": true,
+      "q_primary": NaN
+    },
+    {
+      "n": 97,
+      "rho": 0.018403213826701417,
+      "p": 0.8580035801461859,
+      "gene": "CLDN4",
+      "panel": "other",
+      "present": true,
+      "q_primary": NaN
+    },
+    {
+      "n": 97,
+      "rho": 0.008862998298818689,
+      "p": 0.9313388405062127,
+      "gene": "HLA-A",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.973672424165586
+    },
+    {
+      "n": 97,
+      "rho": -0.12474604356341765,
+      "p": 0.22343653850516262,
+      "gene": "HLA-B",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.6259287026877585
+    },
+    {
+      "n": 97,
+      "rho": 0.0893663745382371,
+      "p": 0.3840326045109559,
+      "gene": "HLA-C",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.6794423002886143
+    },
+    {
+      "n": 97,
+      "rho": 0.13099222188973647,
+      "p": 0.20092605926577983,
+      "gene": "IFNAR1",
+      "panel": "IFN_type1",
+      "present": true,
+      "q_primary": 0.6259287026877585
+    },
+    {
+      "n": 97,
+      "rho": 0.12309573750035868,
+      "p": 0.22966961014140055,
+      "gene": "IFNAR2",
+      "panel": "IFN_type1",
+      "present": true,
+      "q_primary": 0.6259287026877585
+    },
+    {
+      "n": 97,
+      "rho": 0.09844634534733845,
+      "p": 0.3373836454382977,
+      "gene": "IFNGR1",
+      "panel": "IFN_type2",
+      "present": true,
+      "q_primary": 0.6543246535612781
+    },
+    {
+      "n": 97,
+      "rho": -0.09763762962719402,
+      "p": 0.3413867757711016,
+      "gene": "IFNGR2",
+      "panel": "IFN_type2",
+      "present": true,
+      "q_primary": 0.6543246535612781
+    },
+    {
+      "n": 97,
+      "rho": -0.010309481700703045,
+      "p": 0.9201672998385192,
+      "gene": "IRF1",
+      "panel": "IFN_type2",
+      "present": true,
+      "q_primary": 0.973672424165586
+    },
+    {
+      "n": 97,
+      "rho": 0.16067800625113585,
+      "p": 0.11590097767310042,
+      "gene": "IRF9",
+      "panel": "IFN_type1",
+      "present": true,
+      "q_primary": 0.533144497296262
+    },
+    {
+      "n": 97,
+      "rho": -0.2118111945077478,
+      "p": 0.037274132953811136,
+      "gene": "JAK1",
+      "panel": "IFN_type1",
+      "present": true,
+      "q_primary": 0.3818242000906226
+    },
+    {
+      "n": 97,
+      "rho": 0.060765452728250985,
+      "p": 0.5543470870457904,
+      "gene": "JAK2",
+      "panel": "IFN_type2",
+      "present": true,
+      "q_primary": 0.8499988668035452
+    },
+    {
+      "n": 97,
+      "rho": -0.11087295275443587,
+      "p": 0.27962889937938995,
+      "gene": "NLRC5",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.6431464685725969
+    },
+    {
+      "n": 97,
+      "rho": 0.18553779598988468,
+      "p": 0.06883841238546165,
+      "gene": "PTPN2",
+      "panel": "IFN_negative_reg",
+      "present": true,
+      "q_primary": 0.3958208712164045
+    },
+    {
+      "n": 97,
+      "rho": -0.1191836573907169,
+      "p": 0.244928622790862,
+      "gene": "SOCS1",
+      "panel": "IFN_negative_reg",
+      "present": true,
+      "q_primary": 0.6259287026877585
+    },
+    {
+      "n": 97,
+      "rho": -0.045603676706681334,
+      "p": 0.6573661796409783,
+      "gene": "STAT1",
+      "panel": "IFN_type1",
+      "present": true,
+      "q_primary": 0.9248522610743207
+    },
+    {
+      "n": 97,
+      "rho": 0.030875845705676978,
+      "p": 0.7640083895831346,
+      "gene": "STAT2",
+      "panel": "IFN_type1",
+      "present": true,
+      "q_primary": 0.9248522610743207
+    },
+    {
+      "n": 97,
+      "rho": -0.10690827324836194,
+      "p": 0.2972887406152962,
+      "gene": "TACSTD2",
+      "panel": "other",
+      "present": true,
+      "q_primary": NaN
+    },
+    {
+      "n": 97,
+      "rho": 0.19975278287567552,
+      "p": 0.04980315653355947,
+      "gene": "TAP1",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.3818242000906226
+    },
+    {
+      "n": 97,
+      "rho": 0.03570184032832751,
+      "p": 0.7284600382558665,
+      "gene": "TAP2",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.9248522610743207
+    },
+    {
+      "n": 97,
+      "rho": 0.0020513764608541775,
+      "p": 0.9840897850867857,
+      "gene": "TAPBP",
+      "panel": "APM_MHC",
+      "present": true,
+      "q_primary": 0.9840897850867857
+    },
+    {
+      "n": 97,
+      "rho": 0.22330416262817446,
+      "p": 0.02790478979985724,
+      "gene": "TYK2",
+      "panel": "IFN_type1",
+      "present": true,
+      "q_primary": 0.3818242000906226
+    },
+    {
+      "n": 97,
+      "rho": -0.07388242721352048,
+      "p": 0.472012642029435,
+      "gene": "USP18",
+      "panel": "IFN_negative_reg",
+      "present": true,
+      "q_primary": 0.7754493404769288
+    }
+  ],
+  "crispr_signatures": {
+    "IFN_type1_Chronos_mean": {
+      "n": 97,
+      "rho": 0.07713701486776028,
+      "p": 0.4526630218277278
+    },
+    "APM_Chronos_mean": {
+      "n": 97,
+      "rho": 0.017259176954301975,
+      "p": 0.8667468711416252
+    },
+    "TACSTD2_dependency": {
+      "n": 97,
+      "median_Chronos": -0.0512900276813287,
+      "note": "Chronos ~0 means TACSTD2 is not a lung-lineage essential"
+    }
+  },
+  "crispr_SCLC_sensitivity": {
+    "STAT1": {
+      "n": 25,
+      "rho": -0.21032382440206604,
+      "p": 0.3129143449137941
+    },
+    "IFNAR1": {
+      "n": 25,
+      "rho": 0.15793547253634996,
+      "p": 0.4508491304392773
+    },
+    "IFNGR1": {
+      "n": 25,
+      "rho": -0.051617934926514376,
+      "p": 0.8064258399191707
+    },
+    "B2M": {
+      "n": 25,
+      "rho": 0.09167961576500314,
+      "p": 0.6629457649364593
+    },
+    "JAK1": {
+      "n": 25,
+      "rho": 0.11556254088025607,
+      "p": 0.5822649044039645
+    }
+  },
+  "protein_vs_TACSTD2": [
+    {
+      "n": 65,
+      "rho": -0.003409202663632271,
+      "p": 0.9784975215426642,
+      "protein": "ADAR",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": -0.002862856082921971,
+      "p": 0.9819428025277399,
+      "protein": "B2M",
+      "panel": "MHC1",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.202257504178953,
+      "p": 0.10614625124127244,
+      "protein": "BST2",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 37,
+      "rho": 0.5915125651967756,
+      "p": 0.00011546857017587712,
+      "protein": "CLDN4",
+      "panel": "self",
+      "q": NaN
+    },
+    {
+      "n": 65,
+      "rho": 0.18999748690781387,
+      "p": 0.12953647677027025,
+      "protein": "EIF2AK2",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 65,
+      "rho": 0.03592775114750932,
+      "p": 0.7763106026410964,
+      "protein": "HLA-A",
+      "panel": "MHC1",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.027557721531027524,
+      "p": 0.8275009193919715,
+      "protein": "HLA-B",
+      "panel": "MHC1",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.11921282391098742,
+      "p": 0.34422291396856136,
+      "protein": "HLA-C",
+      "panel": "MHC1",
+      "q": 0.6884458279371227
+    },
+    {
+      "n": 65,
+      "rho": 0.035228427524200134,
+      "p": 0.780554719433392,
+      "protein": "IFI35",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.13857534673136043,
+      "p": 0.2709515523023842,
+      "protein": "IFIT1",
+      "panel": "ISG",
+      "q": 0.5870616966551657
+    },
+    {
+      "n": 65,
+      "rho": 0.19010675622395592,
+      "p": 0.12931204287899822,
+      "protein": "IFIT3",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 22,
+      "rho": 0.003953685557264183,
+      "p": 0.9860680985464392,
+      "protein": "IRF1",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.08553602067600455,
+      "p": 0.4981040438391792,
+      "protein": "IRF9",
+      "panel": "ISG",
+      "q": 0.8633803426545774
+    },
+    {
+      "n": 65,
+      "rho": -0.03737010612058451,
+      "p": 0.7675777961308715,
+      "protein": "ISG15",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.30872952582777624,
+      "p": 0.012341946335662829,
+      "protein": "MX1",
+      "panel": "ISG",
+      "q": 0.3208906047272335
+    },
+    {
+      "n": 56,
+      "rho": 0.18664342606341652,
+      "p": 0.16840497296152074,
+      "protein": "OAS1",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 65,
+      "rho": 0.15282406555628505,
+      "p": 0.2242309796520421,
+      "protein": "OAS2",
+      "panel": "ISG",
+      "q": 0.5300004973593723
+    },
+    {
+      "n": 65,
+      "rho": 0.17830567008061346,
+      "p": 0.15529659491801204,
+      "protein": "OAS3",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 65,
+      "rho": 0.2058852454748694,
+      "p": 0.09989307188566648,
+      "protein": "PSMB10",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 65,
+      "rho": 0.20415879027982484,
+      "p": 0.10283224598968795,
+      "protein": "PSMB8",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 65,
+      "rho": -0.11280964198506271,
+      "p": 0.3709401134186867,
+      "protein": "PSMB9",
+      "panel": "ISG",
+      "q": 0.6888887820632753
+    },
+    {
+      "n": 65,
+      "rho": 0.05926767707545332,
+      "p": 0.6390893422345192,
+      "protein": "SAMHD1",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.008501152795852266,
+      "p": 0.9464146794850101,
+      "protein": "STAT1",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.24972409511106386,
+      "p": 0.04483678669612551,
+      "protein": "STAT2",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    },
+    {
+      "n": 65,
+      "rho": 0.835604314401561,
+      "p": 4.844978920690645e-18,
+      "protein": "TACSTD2",
+      "panel": "self",
+      "q": NaN
+    },
+    {
+      "n": 65,
+      "rho": -0.029830523306782368,
+      "p": 0.8135201026840005,
+      "protein": "TAP1",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.0013549395201615435,
+      "p": 0.9914532928725227,
+      "protein": "TAP2",
+      "panel": "ISG",
+      "q": 0.9914532928725227
+    },
+    {
+      "n": 65,
+      "rho": 0.17937650937880564,
+      "p": 0.15279032382259342,
+      "protein": "TRIM25",
+      "panel": "ISG",
+      "q": 0.4378529296999539
+    }
+  ],
+  "protein_signatures": {
+    "ISG_protein_score": {
+      "n": 65,
+      "rho": 0.20201711168344047,
+      "p": 0.10657108219031983
+    },
+    "MHC1_protein_score": {
+      "n": 65,
+      "rho": 0.07257667978155623,
+      "p": 0.5656044954453147
+    },
+    "genes_in_ISG_score": [
+      "STAT1",
+      "STAT2",
+      "IRF9",
+      "IRF1",
+      "MX1",
+      "ISG15",
+      "IFIT1",
+      "IFIT3",
+      "OAS1",
+      "OAS2",
+      "OAS3",
+      "EIF2AK2",
+      "IFI35",
+      "BST2",
+      "SAMHD1",
+      "TRIM25",
+      "ADAR",
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "B2M",
+      "TAP1",
+      "TAP2",
+      "PSMB8",
+      "PSMB9",
+      "PSMB10"
+    ],
+    "genes_in_MHC1_score": [
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "B2M"
+    ],
+    "n_NSCLC_with_any_protein": 65,
+    "TACSTD2_protein_vs_MHC1_protein": {
+      "n": 65,
+      "rho": 0.1722465034965035,
+      "p": 0.1700541744628078
+    },
+    "TACSTD2_protein_vs_ISG_protein": {
+      "n": 65,
+      "rho": 0.3631118881118881,
+      "p": 0.0029501323628277165
+    },
+    "TACSTD2_RNA_vs_protein": {
+      "n": 65,
+      "rho": 0.835604314401561,
+      "p": 4.844978920690645e-18
+    },
+    "MHC1_protein_median_split": {
+      "n_a": 32,
+      "n_b": 33,
+      "median_a": -0.08834591637601061,
+      "median_b": -0.17496866508153144,
+      "p": 0.984296734383986,
+      "rbc": 0.0037878787878787845
+    }
+  },
+  "primary_tests": {
+    "CRISPR_IFN_type1_mean_vs_TACSTD2": {
+      "n": 97,
+      "rho": 0.07713701486776028,
+      "p": 0.4526630218277278
+    },
+    "CRISPR_APM_mean_vs_TACSTD2": {
+      "n": 97,
+      "rho": 0.017259176954301975,
+      "p": 0.8667468711416252
+    },
+    "PRISM_JAK_core_medianLFC_vs_TACSTD2": {
+      "n": 99,
+      "rho": 0.030544595482800023,
+      "p": 0.7640817054359927
+    },
+    "PRISM_IFNinducer_medianLFC_vs_TACSTD2": {
+      "n": 99,
+      "rho": -0.05045826170159251,
+      "p": 0.6198991289474389
+    },
+    "protein_ISG_vs_TACSTD2_RNA": {
+      "n": 65,
+      "rho": 0.20201711168344047,
+      "p": 0.10657108219031983
+    },
+    "protein_MHC1_vs_TACSTD2_RNA": {
+      "n": 65,
+      "rho": 0.07257667978155623,
+      "p": 0.5656044954453147
+    }
+  }
+}
