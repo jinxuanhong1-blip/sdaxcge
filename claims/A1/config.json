@@ -1,0 +1,103 @@
+{
+  "cbioportal_api": "https://www.cbioportal.org/api",
+  "expression_profile_suffix": "_rna_seq_v2_mrna_median_all_sample_Zscores",
+  "cohorts": [
+    {
+      "id": "TCGA_LUAD_PanCan",
+      "study_id": "luad_tcga_pan_can_atlas_2018",
+      "histology": "lung adenocarcinoma",
+      "atlas": "PanCanAtlas",
+      "sample_list": "luad_tcga_pan_can_atlas_2018_rna_seq_v2_mrna"
+    },
+    {
+      "id": "TCGA_LUSC_PanCan",
+      "study_id": "lusc_tcga_pan_can_atlas_2018",
+      "histology": "lung squamous cell carcinoma",
+      "atlas": "PanCanAtlas",
+      "sample_list": "lusc_tcga_pan_can_atlas_2018_rna_seq_v2_mrna"
+    },
+    {
+      "id": "TCGA_LUAD_Firehose",
+      "study_id": "luad_tcga",
+      "histology": "lung adenocarcinoma",
+      "atlas": "Firehose",
+      "sample_list": "luad_tcga_rna_seq_v2_mrna"
+    },
+    {
+      "id": "TCGA_LUSC_Firehose",
+      "study_id": "lusc_tcga",
+      "histology": "lung squamous cell carcinoma",
+      "atlas": "Firehose",
+      "sample_list": "lusc_tcga_rna_seq_v2_mrna"
+    },
+    {
+      "id": "OncoSG_LUAD",
+      "study_id": "luad_oncosg_2020",
+      "histology": "lung adenocarcinoma",
+      "atlas": "OncoSG",
+      "sample_list": "luad_oncosg_2020_rna_seq_v2_mrna"
+    }
+  ],
+  "purity_sources": {
+    "ABSOLUTE_GDC": {
+      "description": "TCGA PanCanAtlas ABSOLUTE purity (Taylor et al.). Field 'purity' keyed by 15-char barcode.",
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "file": "data/abs_purity.txt",
+      "applies_to": ["TCGA"]
+    },
+    "ESTIMATE_Aran": {
+      "description": "Aran et al. Nat Commun 2015 ESTIMATE purity (Yoshihara algorithm, published values).",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fncomms9971/MediaObjects/41467_2015_BFncomms9971_MOESM1236_ESM.xlsx",
+      "file": "data/aran_purity.tsv",
+      "column": "ESTIMATE",
+      "applies_to": ["TCGA"]
+    },
+    "ABSOLUTE_Aran": {
+      "description": "Aran et al. Nat Commun 2015 ABSOLUTE purity (sparser than GDC PanCanAtlas ABSOLUTE).",
+      "file": "data/aran_purity.tsv",
+      "column": "ABSOLUTE",
+      "applies_to": ["TCGA"]
+    },
+    "CPE_Aran": {
+      "description": "Aran et al. consensus purity estimate (CPE) combining ESTIMATE, ABSOLUTE, LUMP, IHC.",
+      "file": "data/aran_purity.tsv",
+      "column": "CPE",
+      "applies_to": ["TCGA"]
+    },
+    "OncoSG_clinical_PURITY": {
+      "description": "OncoSG sample-level PURITY clinical attribute from cBioPortal. No public ESTIMATE table exists for this cohort.",
+      "endpoint": "/studies/luad_oncosg_2020/clinical-data?clinicalDataType=SAMPLE&attributeId=PURITY",
+      "applies_to": ["OncoSG"]
+    }
+  },
+  "purity_methods": {
+    "ESTIMATE": {
+      "tcga": "ESTIMATE_Aran",
+      "oncosg": null,
+      "note": "TCGA ESTIMATE only; OncoSG dropped (no public ESTIMATE)."
+    },
+    "ABSOLUTE": {
+      "tcga": "ABSOLUTE_GDC",
+      "oncosg": "OncoSG_clinical_PURITY",
+      "note": "TCGA GDC ABSOLUTE + OncoSG clinical PURITY."
+    },
+    "CPE": {
+      "tcga": "CPE_Aran",
+      "oncosg": "OncoSG_clinical_PURITY",
+      "note": "TCGA Aran CPE (ESTIMATE+ABSOLUTE+LUMP+IHC consensus) + OncoSG clinical PURITY."
+    },
+    "ESTIMATE_or_ABSOLUTE": {
+      "tcga": ["ESTIMATE_Aran", "ABSOLUTE_GDC"],
+      "oncosg": "OncoSG_clinical_PURITY",
+      "note": "Prefer ESTIMATE, fall back to GDC ABSOLUTE; OncoSG clinical PURITY."
+    }
+  },
+  "pooled_definitions": {
+    "PanCan_LUAD_LUSC": ["TCGA_LUAD_PanCan", "TCGA_LUSC_PanCan"],
+    "PanCan_plus_OncoSG": ["TCGA_LUAD_PanCan", "TCGA_LUSC_PanCan", "OncoSG_LUAD"],
+    "Firehose_LUAD_LUSC": ["TCGA_LUAD_Firehose", "TCGA_LUSC_Firehose"],
+    "Firehose_plus_OncoSG": ["TCGA_LUAD_Firehose", "TCGA_LUSC_Firehose", "OncoSG_LUAD"]
+  },
+  "claimed_n": 1031,
+  "n_match_tolerance": 50
+}
