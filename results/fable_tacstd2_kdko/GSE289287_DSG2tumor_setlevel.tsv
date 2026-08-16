@@ -1,0 +1,11 @@
+dataset	gene_set	n_detected	comp_direction	comp_rank_biserial	comp_p	sc_mean_log2FC	sc_median_log2FC	sc_n_up	sc_n_down	sc_wilcoxon_p
+GSE289287_DSG2tumor	tight_junction	27	down	-0.2288	0.03953	-0.1024	-0.08898	7	20	0.06923
+GSE289287_DSG2tumor	adherens	11	up	0.1352	0.4374	0.06954	0.04309	7	4	0.5771
+GSE289287_DSG2tumor	desmosome	14	up	0.2623	0.0892	0.2425	0.1539	9	5	0.1353
+GSE289287_DSG2tumor	ifn_isg	38	up	0.9021	6.234e-22	1.056	1.044	38	0	7.276e-12
+GSE289287_DSG2tumor	ifn_chemokine	10	up	0.5541	0.002407	0.6631	0.6202	9	1	0.009766
+GSE289287_DSG2tumor	antigen_presentation	18	up	0.7486	3.809e-08	0.7987	1.01	17	1	2.289e-05
+GSE289287_DSG2tumor	tcell_cytotox	8	up	0.09765	0.6324	-0.006451	0.0515	5	3	0.6406
+GSE289287_DSG2tumor	CLDN4_headline	1	NA					0	1	
+GSE289287_DSG2tumor	junctions	52	down	-0.01956	0.8072	0.02683	-0.02958	23	29	0.9709
+GSE289287_DSG2tumor	ifn_immune	74	up	0.732	1.257e-27	0.8255	0.8984	69	5	1.173e-12

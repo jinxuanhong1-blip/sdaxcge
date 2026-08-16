@@ -1,0 +1,28 @@
+{
+  "dataset": "GSE245459",
+  "description": "Human ovarian cancer cells, shTACSTD2 vs shNC (FPKM)",
+  "value_kind": "log2(FPKM+1)",
+  "n_case": 3,
+  "n_ctrl": 3,
+  "n_genes_tested": 31312,
+  "notes": "3 shTACSTD2 vs 3 shNC (no drug). n=3/3 exploratory. log2FC>0 = up in shTACSTD2.",
+  "perturbation_qc": {
+    "TACSTD2": {
+      "log2FC": -2.6275637571673265,
+      "t_pvalue": 5.25209137095932e-05,
+      "t_fdr": 0.004114361588541813
+    }
+  },
+  "cldn4": {
+    "dataset": "GSE245459",
+    "gene": "CLDN4",
+    "panels": "headline;tight_junction",
+    "log2FC": -1.915199492201864,
+    "mean_case": 0.13568815797427544,
+    "mean_ctrl": 2.0508876501761395,
+    "t_pvalue": 3.2889114671659324e-05,
+    "t_fdr": 0.0036555224104584576,
+    "mwu_pvalue": 0.1,
+    "cohens_d": -19.023733604607177
+  }
+}

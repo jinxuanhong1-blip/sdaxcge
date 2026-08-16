@@ -1,0 +1,28 @@
+{
+  "dataset": "GSE15212",
+  "description": "Human colorectal (RKO) cells, TACSTD2 siRNA vs neg-ctrl siRNA 72h (Agilent GPL4133)",
+  "value_kind": "quantile-normalized log2 signal",
+  "n_case": 6,
+  "n_ctrl": 12,
+  "n_genes_tested": 19749,
+  "notes": "6 siTACSTD2 (2 siRNAs x3) vs 12 neg-ctrl siRNA at 72h. log2FC>0 = up in siTACSTD2.",
+  "perturbation_qc": {
+    "TACSTD2": {
+      "log2FC": -3.024685,
+      "t_pvalue": 5.276538127327768e-15,
+      "t_fdr": 1.042063514765961e-10
+    }
+  },
+  "cldn4": {
+    "dataset": "GSE15212",
+    "gene": "CLDN4",
+    "panels": "headline;tight_junction",
+    "log2FC": 0.2738558333333341,
+    "mean_case": 11.086231666666668,
+    "mean_ctrl": 10.812375833333334,
+    "t_pvalue": 0.2737556445797447,
+    "t_fdr": 0.588611891650014,
+    "mwu_pvalue": 0.49364361129067014,
+    "cohens_d": 0.5276721587313103
+  }
+}

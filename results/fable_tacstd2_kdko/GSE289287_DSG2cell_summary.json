@@ -1,0 +1,23 @@
+{
+  "dataset": "GSE289287_DSG2cell",
+  "description": "Human T-47D DSG2 KO vs WT cells (desmosome partner, author DESeq2)",
+  "value_kind": "author DESeq2",
+  "n_genes_tested": 20975,
+  "notes": "DSG2 KO vs WT cells (comparison: desmosomal partner).",
+  "perturbation_qc": {
+    "TACSTD2": {
+      "log2FC": 0.213790831527973,
+      "pvalue": 0.150054852879685,
+      "padj": 0.349249278935048
+    }
+  },
+  "cldn4": {
+    "dataset": "GSE289287_DSG2cell",
+    "gene": "CLDN4",
+    "panels": "headline;tight_junction",
+    "log2FC": -0.127685888780993,
+    "pvalue": 0.367947869006057,
+    "padj": 0.59981084941544,
+    "wald_stat": -0.900323969146395
+  }
+}
