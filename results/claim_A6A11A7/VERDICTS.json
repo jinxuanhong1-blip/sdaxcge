@@ -1,0 +1,44 @@
+{
+  "A6": {
+    "claim": "TROP2-high samples have higher tumor fraction and lower CD8/NK in public scRNA",
+    "verdict": "PARTIALLY SUPPORTED only as a composition artifact; NOT supported as a lineage-restricted immune-exclusion phenotype",
+    "honest_split": {
+      "all_cell_TACSTD2": "Higher epithelial/tumor fraction is essentially tautological (GSE131907 tLung Spearman rho=0.945, p=1.1e-5, n=11; mixed tumor origins rho=0.56 vs author malignant fraction and 0.89 vs epithelial fraction). CD8 fraction is lower in mixed origins (rho=-0.52, p=0.001, n=37) but not in primary tLung alone (rho=-0.21, p=0.54). NK is not lower (tLung rho=+0.04; mixed rho=-0.11, p=0.50).",
+      "epithelial_or_malignant_TACSTD2": "Does not associate with higher tumor fraction or lower CD8. tLung epithelial TACSTD2 vs CD8 rho=+0.38, p=0.25. Mixed-origin malignant TACSTD2 vs CD8 rho=+0.19, p=0.40. tLung epithelial TACSTD2 vs NK rho=-0.65, p=0.032 (n=11, not replicated in mixed origins).",
+      "composition_adjusted": "Partial Spearman of all-cell TACSTD2 vs CD8 given epithelial/tumor fraction: tLung rho=+0.19, p=0.57; mixed origins rho=-0.36, p=0.029. GSE207422 all-cell TACSTD2 vs epithelial fraction rho=0.80; vs CD8 rho=-0.61; partial given tumor fraction rho=+0.06."
+    },
+    "caveats": [
+      "GSE131907 author 'Malignant cells' calls are absent from all 11 primary tLung samples; malignant labels live in metastases/EBUS. Epithelial fraction is the honest primary-tumor proxy.",
+      "n=11 primary tumors is underpowered for CD8/NK.",
+      "GSE207422 cell types are marker-score lineage calls, not author annotations or CNV-malignant calls.",
+      "Expression used log1p(UMI), not library-size CPM."
+    ]
+  },
+  "A11": {
+    "claim": "Galectin / Nectin / TGFb / CD47 travel with TACSTD2-high",
+    "verdict": "PARTIALLY SUPPORTED for CD47 and NECTIN2; Galectins mixed; TGFb not consistent at sample level",
+    "by_axis": {
+      "CD47": "Most consistent. GSE131907 malignant cells rho=0.55; malignant-sample means n=21 rho=0.86 p=5.9e-7; TCGA-LUAD bulk rho=0.26 p=2.5e-9 (holds after partial EPCAM). TCGA-LUSC bulk NS.",
+      "Nectin": "NECTIN2/PVRL2 supported (malignant cells 0.45; malignant samples 0.56 p=0.009; GSE207422 epithelial cells 0.55). PVR weaker and sign-flips in TCGA-LUAD (rho=-0.18). NECTIN1/3/4 absent from GSE131907 matrix (only PVRL2 present).",
+      "Galectin": "LGALS3/LGALS9 positive at cell level and some sample tests (malignant-sample LGALS9 rho=0.51 p=0.019; TCGA-LUAD LGALS3 0.38). LGALS1 weaker. Dropout-inflated at single-cell level.",
+      "TGFb": "NOT a robust TACSTD2 partner at sample level. Malignant-sample TGFB1 rho~0. Cell-level TGFB1 ~0.22. TCGA-LUAD TGFB1 0.15 / TGFB2 0.26. GSE207422 pretreatment bulk TGFB1 is negative (rho=-0.45, p=0.027)."
+    },
+    "specificity": "EPCAM and CLDN4 correlate with TACSTD2 more strongly than the immune-checkpoint cassette. A11 is partly an epithelial/junctional state, not a specific Galectin-Nectin-TGFb-CD47 module.",
+    "caveats": [
+      "Cell-level Spearman on zero-inflated UMI overstates concordance.",
+      "Sample-level malignant means exclude primary tLung because the atlas did not call malignant cells there.",
+      "Bulk TCGA is composition-confounded; partial EPCAM is only a partial fix."
+    ]
+  },
+  "A7": {
+    "claim": "Hunt public paired pre/post ICI TROP2 IHC or RNA (Zhejiang is private)",
+    "verdict": "NO public paired pre/post ICI TROP2 IHC dataset. NO public same-patient paired ICI TROP2 RNA matrix. Zhejiang remains private.",
+    "closest_public": "GSE207422 NSCLC neoadjuvant PD-1 + chemo scRNA: 3 pretreatment + 12 posttreatment from different patients (0 pairs). Unpaired TACSTD2_all median 0.33 pre vs 0.10 post, MW p=0.23. Epithelial TACSTD2 0.95 vs 0.60, p=0.54. Deposited bulk RNA is pretreatment only (24 samples); MPR vs NMPR TACSTD2 p=0.34.",
+    "other_public_ICI_RNA_not_paired": [
+      "GSE126044 n=16 pretreatment; TACSTD2 responder vs non-responder p=0.58",
+      "GSE135222 n=27 pretreatment; TACSTD2 present as ENSG00000184292; no post RNA",
+      "POPLAR/OAK TACSTD2 vs atezolizumab outcome is pretreatment and EGA-controlled"
+    ],
+    "paired_TROP2_IHC_that_is_not_ICI": "Inoue et al. 160 paired lung TROP2 IHC (76% unchanged) but only 5 patients received ICI. JCO 2025 abs 8591 (n=51) reports 29.4% TROP2 H-score change after mixed systemic therapy; data not public and not ICI-stratified."
+  }
+}

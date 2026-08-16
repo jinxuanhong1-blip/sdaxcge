@@ -1,0 +1,20 @@
+resource,cancer,modality,paired_pre_post_ICI,TROP2_measured,public_patient_level,n_note,usable_as_Zhejiang_analog,verdict
+Zhejiang_private_cohort,NSCLC_presumed,IHC_or_RNA_unconfirmed,claimed_yes,yes,no,private,source_claim,PRIVATE — no public release found
+GSE207422_scRNA_Hu2023,NSCLC,scRNA,no_unpaired_3pre_12post,RNA_TACSTD2,yes,15 samples from 15 patients; 0 same-patient pairs,closest_RNA_analog,UNPAIRED. TACSTD2 computable. Underpowered pre n=3
+GSE207422_bulk_Hu2023,NSCLC,bulk_RNA,no_deposited_pre_only,RNA_TACSTD2,yes,24 pretreatment samples,pretreatment_only,NOT paired. Deposited matrix is pre-biopsy only
+GSE126044_Cho2019,NSCLC,bulk_RNA,no_pretreatment,RNA_TACSTD2,yes,16 anti-PD-1; 5 responder / 11 non-responder,pretreatment_only,NOT paired. TACSTD2 median 1595 vs 1577; MW p=0.58
+GSE135222_Jung2019,NSCLC,bulk_RNA,no_pretreatment,RNA_ENSG00000184292,yes,27 anti-PD-1/PD-L1 with PFS,pretreatment_only,NOT paired
+GSE179994_Liu2022,LUAD,scRNA_Tcells_only,partial_paired_Tcells,not_informative_for_tumor_TROP2,yes_Tcell_counts,T-cell/TCR focused; no epithelial matrix,no,Wrong compartment for TROP2 IHC/RNA analog
+POPLAR_OAK_Bessede2024,NSCLC,bulk_RNA,no_pretreatment,RNA_TACSTD2,no_EGA_controlled,891 pretreatment; EGA EGAC00001002120,no_open_counts,NOT paired. Counts not open. Paper reports high TACSTD2 → worse atezolizumab PFS
+Bessede2024_BIP_mIF,NSCLC,mIF_TROP2_PanCK_CD8_PDL1,no_pretreatment,protein_TROP2,no_figure_only,n=50–53; no downloadable H-score table,no,NOT paired. Protein exists in figures only
+Inoue_JCancerResClinOncol_TROP2_IHC,lung,IHC_TROP2,paired_but_mixed_treatments,protein_TROP2,summary_tables_only,160 paired; only 5 patients (3%) received ICI,no,NOT an ICI pair set. TROP2 mostly stable (76% unchanged)
+JCO2025_8591_paired_ADC_targets,NSCLC,IHC_TROP2_Hscore,paired_biopsies_mixed_systemic_tx,protein_TROP2,abstract_only,51 pairs; 29.4% TROP2 change; not ICI-stratified,no,NOT public. NOT ICI-specific
+SciRep2025_TROP2_NivoIpi_IHC,NSCLC,IHC_TROP2,no_baseline_only,protein_TROP2,no_patient_table,110 Nivo+Ipi; high TROP2 → worse PFS/OS,no,NOT paired
+Tempus_CRC24_0605,NSCLC,commercial_RNA,some_paired_ICI_resistance,TROP2_not_reported,no,12 paired post-ICI resistance; mismatched sites,no,Not public. TROP2 not analyzed
+Ricciuti_JCO2024_DFCI,NSCLC,mIF_genomics,yes_paired_ICI,no_TROP2,no,82 ICI pairs; CD8/PD-L1/HLA not TROP2,no,Wrong markers
+BELLINI_EGAS50000000567,TNBC,bulk_and_scRNA,yes_paired_ICI,RNA_possible,no_EGA_DAC,pre/post nivo ± ipi,wrong_cancer,EGA controlled; breast not lung
+TONIC_EGAS00001003535,TNBC,bulk_RNA,yes_paired_induction_then_nivo,RNA_possible,no_EGA_DAC,97 matched samples,wrong_cancer,EGA controlled; breast not lung
+Bassez_NatCancer2021,breast,scRNA,yes_paired_antiPD1,RNA_possible,partial,window-of-opportunity,wrong_cancer,Not lung; not TROP2 IHC
+Caushi_Nature2021_CheckMate,NSCLC,scTCR_RNA,some_on_treatment,not_TROP2_IHC,no_EGA,neoadjuvant nivo,no,No public TROP2 IHC/RNA table
+IMpower150_PACIFIC_KEYNOTE_lung,NSCLC,trial_omics,mostly_baseline,TROP2_not_in_open_supplements,no,sibling hunts: no open processed TROP2 IHC,no,No public paired TROP2
+JCO_ASCO_EVOKE02_TROP2_Hscore,NSCLC,IHC_Hscore,baseline_on_SG_plus_pembro,protein_TROP2,abstract_only,efficacy independent of H-score,no,Not paired pre/post ICI monotherapy
