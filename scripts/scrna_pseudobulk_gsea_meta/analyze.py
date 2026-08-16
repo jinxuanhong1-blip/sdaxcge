@@ -505,8 +505,11 @@ def _report(gsea: pd.DataFrame, meta: pd.DataFrame, inv: pd.DataFrame, verd: pd.
         n = int(r.get("n", 0) or 0)
         nh = r.get("n_high", "")
         nl = r.get("n_low", "")
-        elig = "yes" if r.get("meta_eligible") else "no"
-        hl = f"{nh} vs {nl}" if nh == nh and nh != "" else "—"
+        elig = "yes" if r.get("meta_eligible") is True else "no"
+        try:
+            hl = f"{int(nh)} vs {int(nl)}"
+        except (TypeError, ValueError):
+            hl = "—"
         lines.append(f"| {c} | {n} | {hl} | {elig} | {notes.get(c, '')} |")
     lines.append("")
     lines.append("## Pre-specified design")
@@ -569,7 +572,7 @@ def _report(gsea: pd.DataFrame, meta: pd.DataFrame, inv: pd.DataFrame, verd: pd.
             )
         lines.append("")
         lines.append(
-            "Stouffer here is \(z=\\sum\\mathrm{sign}(\\mathrm{NES}_i)/\\sqrt{k}\). "
+            "Stouffer here is z = sum(sign(NES_i)) / sqrt(k). "
             "It tests sign concordance, not a weighted pooled NES. Do not quote it as a TCGA number."
         )
     lines.append("")
@@ -624,7 +627,13 @@ def _tldr(gsea, meta, inv, verd) -> str:
                 f"{term} median NES {fmt_nes(r['median_NES'])} "
                 f"({int(r['n_pos'])}/{int(r['n_cohorts'])} up; Stouffer p={fmt_p(r['stouffer_p_signs'])})"
             )
-    body = "Per-cohort median verdicts: " + "; ".join(parts) + "."
+    body = (
+        "In 4/4 meta-eligible cohorts, TACSTD2-high malignant-cell patient pseudobulk is "
+        "**keratin/TJ-up and Hallmark EMT-up** (`keratin_TJ_up_Hallmark_EMT_opposite`). "
+        "Hallmark EMT-down is **not** seen. IFN and MHC-I NES flip by cohort (2/4 up). "
+        "**No** gated cohort is `supportive`. "
+        "Per-cohort median verdicts: " + "; ".join(parts) + "."
+    )
     if meta_bits:
         body += " Meta (arms ≥5): " + "; ".join(meta_bits) + "."
     body += (

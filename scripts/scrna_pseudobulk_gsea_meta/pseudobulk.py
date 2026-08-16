@@ -62,7 +62,7 @@ def present(genes, columns) -> list[str]:
 
 
 def log1p_cp10k(counts: pd.DataFrame, total: pd.Series) -> pd.DataFrame:
-    tot = np.asarray(total, float)
+    tot = np.array(total, dtype=float, copy=True)
     tot[tot <= 0] = np.nan
     return pd.DataFrame(
         np.log1p(np.asarray(counts, float) / tot[:, None] * 1e4),
@@ -537,6 +537,8 @@ def run_gse291670() -> dict:
 
 def run_gse253013_inventory() -> dict:
     log("=== GSE253013 inventory-only ===")
+    import re
+
     titles = []
     path = DATA / "GSE253013_series_matrix.txt.gz"
     if path.exists():
@@ -545,7 +547,9 @@ def run_gse253013_inventory() -> dict:
                 if line.startswith("!Sample_title"):
                     titles = [t.strip().strip('"') for t in line.split("\t")[1:]]
                     break
-    patients = sorted({t.split("_")[0] for t in titles if t.startswith("MRC")})
+    patients = sorted(
+        {re.search(r"MRC0*\d+", t).group(0) for t in titles if re.search(r"MRC0*\d+", t)}
+    )
     note = (
         "9.3 GB Garnett RDS not loaded (16 GB RAM). Public series: 9 treatment-naive "
         "LUAD (tumor+adjacent), no ICI/MPR labels. Prior public marker extract: "
