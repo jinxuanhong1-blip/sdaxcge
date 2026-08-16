@@ -1,0 +1,102 @@
+{
+  "squamous": {
+    "n_samples": 250,
+    "surface_gene_universe": 2560,
+    "n_undefined_spearman_excluded": 58,
+    "focus_result": {
+      "gene": "CLDN4",
+      "in_universe": true,
+      "is_top_spearman": false,
+      "is_top_pearson": false,
+      "spearman_rank": 12,
+      "spearman_r": 0.4907320081532216,
+      "spearman_q": 2.9195255950315533e-14,
+      "spearman_percentile": 99.57,
+      "pearson_rank": 33,
+      "pearson_r": 0.4622512723358549,
+      "pearson_q": 9.216329856910966e-13,
+      "pearson_percentile": 98.75
+    },
+    "top1_spearman": {
+      "gene": "MUC21",
+      "spearman_r": 0.6006326449256308
+    },
+    "top5_spearman": [
+      {
+        "gene": "MUC21",
+        "spearman_rank": 1,
+        "spearman_r": 0.6006326449256308
+      },
+      {
+        "gene": "PVRL4",
+        "spearman_rank": 2,
+        "spearman_r": 0.598297546507002
+      },
+      {
+        "gene": "RHBDL2",
+        "spearman_rank": 3,
+        "spearman_r": 0.5979404206558521
+      },
+      {
+        "gene": "CLCA4",
+        "spearman_rank": 4,
+        "spearman_r": 0.585562589887081
+      },
+      {
+        "gene": "DUOXA1",
+        "spearman_rank": 5,
+        "spearman_r": 0.5753744014060883
+      }
+    ]
+  },
+  "adeno": {
+    "n_samples": 52,
+    "surface_gene_universe": 2464,
+    "n_undefined_spearman_excluded": 154,
+    "focus_result": {
+      "gene": "CLDN4",
+      "in_universe": true,
+      "is_top_spearman": false,
+      "is_top_pearson": false,
+      "spearman_rank": 317,
+      "spearman_r": 0.2034491590540425,
+      "spearman_q": 0.39900297666205553,
+      "spearman_percentile": 87.175,
+      "pearson_rank": 175,
+      "pearson_r": 0.2821503878745898,
+      "pearson_q": 0.15430705474816636,
+      "pearson_percentile": 92.938
+    },
+    "top1_spearman": {
+      "gene": "PVRL4",
+      "spearman_r": 0.7250917783659182
+    },
+    "top5_spearman": [
+      {
+        "gene": "PVRL4",
+        "spearman_rank": 1,
+        "spearman_r": 0.7250917783659182
+      },
+      {
+        "gene": "MUC16",
+        "spearman_rank": 2,
+        "spearman_r": 0.667378126867583
+      },
+      {
+        "gene": "SLC26A9",
+        "spearman_rank": 3,
+        "spearman_r": 0.6557670963886281
+      },
+      {
+        "gene": "GJB3",
+        "spearman_rank": 4,
+        "spearman_r": 0.5805515239477503
+      },
+      {
+        "gene": "PTPRU",
+        "spearman_rank": 5,
+        "spearman_r": 0.5687697430205755
+      }
+    ]
+  }
+}

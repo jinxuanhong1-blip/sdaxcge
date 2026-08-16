@@ -1,0 +1,200 @@
+{
+  "generated_utc": "2026-08-16T20:09:21+00:00",
+  "cohort": "TCGA-CESC",
+  "expression_dataset": "UCSC Xena TCGA.CESC.sampleMap/HiSeqV2 (log2 norm_count+1)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 303,
+  "surface_gene_universe": 2575,
+  "n_undefined_spearman_excluded": 43,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 193,
+    "spearman_r": 0.27876564581736785,
+    "spearman_q": 5.678338471096799e-06,
+    "spearman_percentile": 92.544,
+    "pearson_rank": 204,
+    "pearson_r": 0.2583065910478132,
+    "pearson_q": 2.6890001772416678e-05,
+    "pearson_percentile": 92.117
+  },
+  "top10_spearman": [
+    {
+      "gene": "PVRL4",
+      "spearman_rank": 1,
+      "spearman_r": 0.6898546104514739,
+      "spearman_q": 1.010785902588605e-40
+    },
+    {
+      "gene": "DUOXA1",
+      "spearman_rank": 2,
+      "spearman_r": 0.6404856024817227,
+      "spearman_q": 2.832356587116456e-33
+    },
+    {
+      "gene": "CLCA4",
+      "spearman_rank": 3,
+      "spearman_r": 0.6249323530783781,
+      "spearman_q": 2.704681132220556e-31
+    },
+    {
+      "gene": "TMPRSS11D",
+      "spearman_rank": 4,
+      "spearman_r": 0.6175832338729875,
+      "spearman_q": 1.9242402834190658e-30
+    },
+    {
+      "gene": "SDC1",
+      "spearman_rank": 5,
+      "spearman_r": 0.6044262642482919,
+      "spearman_q": 7.475836188150083e-29
+    },
+    {
+      "gene": "LYPD3",
+      "spearman_rank": 6,
+      "spearman_r": 0.603229275218936,
+      "spearman_q": 8.79072902506717e-29
+    },
+    {
+      "gene": "RHBDL2",
+      "spearman_rank": 7,
+      "spearman_r": 0.6017764585274086,
+      "spearman_q": 1.1421964653803579e-28
+    },
+    {
+      "gene": "GJB5",
+      "spearman_rank": 8,
+      "spearman_r": 0.5923066287945373,
+      "spearman_q": 1.4290806552306807e-27
+    },
+    {
+      "gene": "MUC21",
+      "spearman_rank": 9,
+      "spearman_r": 0.5877718146791798,
+      "spearman_q": 4.403276590474444e-27
+    },
+    {
+      "gene": "DSG3",
+      "spearman_rank": 10,
+      "spearman_r": 0.5846179264352587,
+      "spearman_q": 9.30071660781163e-27
+    }
+  ],
+  "histology_source": "UCSC Xena TCGA.CESC.sampleMap/CESC_clinicalMatrix (histological_type)",
+  "histology_counts": {
+    "adeno": 52,
+    "squamous": 250,
+    "unknown": 1
+  },
+  "histology_split": {
+    "squamous": {
+      "n_samples": 250,
+      "surface_gene_universe": 2560,
+      "n_undefined_spearman_excluded": 58,
+      "focus_result": {
+        "gene": "CLDN4",
+        "in_universe": true,
+        "is_top_spearman": false,
+        "is_top_pearson": false,
+        "spearman_rank": 12,
+        "spearman_r": 0.4907320081532216,
+        "spearman_q": 2.9195255950315533e-14,
+        "spearman_percentile": 99.57,
+        "pearson_rank": 33,
+        "pearson_r": 0.4622512723358549,
+        "pearson_q": 9.216329856910966e-13,
+        "pearson_percentile": 98.75
+      },
+      "top1_spearman": {
+        "gene": "MUC21",
+        "spearman_r": 0.6006326449256308
+      },
+      "top5_spearman": [
+        {
+          "gene": "MUC21",
+          "spearman_rank": 1,
+          "spearman_r": 0.6006326449256308
+        },
+        {
+          "gene": "PVRL4",
+          "spearman_rank": 2,
+          "spearman_r": 0.598297546507002
+        },
+        {
+          "gene": "RHBDL2",
+          "spearman_rank": 3,
+          "spearman_r": 0.5979404206558521
+        },
+        {
+          "gene": "CLCA4",
+          "spearman_rank": 4,
+          "spearman_r": 0.585562589887081
+        },
+        {
+          "gene": "DUOXA1",
+          "spearman_rank": 5,
+          "spearman_r": 0.5753744014060883
+        }
+      ]
+    },
+    "adeno": {
+      "n_samples": 52,
+      "surface_gene_universe": 2464,
+      "n_undefined_spearman_excluded": 154,
+      "focus_result": {
+        "gene": "CLDN4",
+        "in_universe": true,
+        "is_top_spearman": false,
+        "is_top_pearson": false,
+        "spearman_rank": 317,
+        "spearman_r": 0.2034491590540425,
+        "spearman_q": 0.39900297666205553,
+        "spearman_percentile": 87.175,
+        "pearson_rank": 175,
+        "pearson_r": 0.2821503878745898,
+        "pearson_q": 0.15430705474816636,
+        "pearson_percentile": 92.938
+      },
+      "top1_spearman": {
+        "gene": "PVRL4",
+        "spearman_r": 0.7250917783659182
+      },
+      "top5_spearman": [
+        {
+          "gene": "PVRL4",
+          "spearman_rank": 1,
+          "spearman_r": 0.7250917783659182
+        },
+        {
+          "gene": "MUC16",
+          "spearman_rank": 2,
+          "spearman_r": 0.667378126867583
+        },
+        {
+          "gene": "SLC26A9",
+          "spearman_rank": 3,
+          "spearman_r": 0.6557670963886281
+        },
+        {
+          "gene": "GJB3",
+          "spearman_rank": 4,
+          "spearman_r": 0.5805515239477503
+        },
+        {
+          "gene": "PTPRU",
+          "spearman_rank": 5,
+          "spearman_r": 0.5687697430205755
+        }
+      ]
+    }
+  }
+}
