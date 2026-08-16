@@ -1,0 +1,38 @@
+accession	year	platform	tissue	TACSTD2	CLDN4	decision	reason
+GSE221322	2023	GeoMx WTA	NSCLC ICI	not_rechecked	not_rechecked	exclude_given	User: do not redo
+E-MTAB-13530	2024	Visium	NSCLC	yes	yes	exclude_given	PR #134; do not redo
+10x FFPE Visium SCC	2023	Visium CytAssist	LUSC demo	yes	yes	exclude_given	PR #126; do not redo
+He2022 CosMx Lung9/12/13	2022	CosMx	lung	yes	yes	exclude_given	PR #164; do not redo
+GSE189487	2022	Visium	early LUAD	yes	yes	already_used	B6 / fable_spatial; not leftover
+GSE271689	2024	GeoMx WTA	NSCLC ICI	yes	yes	already_used	B6 / fable_spatial; not leftover
+GSE287472	2026	CosMx	1 LUAD	yes	yes	already_used	B6 CosMx matrix; not leftover
+GSE292098	2025	GeoMx WTA	NSCLC ICI Greek	yes	yes	skip_same_study	Same paper family as GSE271689
+GSE221733	2023	GeoMx CTA	NSCLC	unknown	no	skip	Prior CTA gate: CLDN4 absent
+GSE263196	2026	Visium	SCLC 5 sections	yes	yes	analyze	Leftover Visium with positions
+GSE273378	2026	Visium	stage I LUAD 16 sections	yes	yes	analyze	Leftover Visium with positions + pathology
+GSE265899	2024	GeoMx WTA	lung cancer PD-L1 tumor/immune AOIs	yes	yes	analyze	Paired tumor vs immune Q3 matrix
+GSE289483	2025	GeoMx WTA	pulmonary pleomorphic carcinoma	yes	yes	analyze	CD45± segments; 9 patients
+GSE334014	2026	GeoMx WTA	asthma / control airway	yes	yes	analyze	PanCK vs stroma AOIs
+GSE326968	2026	GeoMx WTA	CLAD allograft	yes	yes	analyze	Q3 matrix; no CD45 key
+GSE276083	2025	CosMx	mycobacterial lung	yes	yes	analyze	979-plex; public coords file has Width/Height only; FOV used
+GSE261345	2024	GeoMx CTA	ES-SCLC CANTABRICO	yes	no	skip_no_CLDN4	CTA TargetCountMatrix: TACSTD2 present, CLDN4 absent
+GSE261348	2024	GeoMx CTA	ES-SCLC IMfirst	not_downloaded	likely_no	skip	CTA panel; sister of GSE261345
+GSE186213	2023	GeoMx CTA	COVID lung	yes	no	skip_no_CLDN4	qn.exprs: TACSTD2 present, CLDN4 absent
+GSE246011	2024	Visium	LUAD-14C only	yes	yes	skip_no_coords	LUAD count matrix has genes; no tissue_positions deposited
+GSE277206	2024	Visium CytAssist	never-smoker LUAD n=2	not_checked	not_checked	skip_no_coords	Only filtered H5; no spatial folder
+GSE307534	2025	Visium CytAssist	AAH/AIS/MIA/LUAD	not_checked	not_checked	skip_size	RAW.tar 10.1 GB; no compact processed matrix
+GSE288758	2025	Visium	EGFR NSCLC n=2	not_checked	not_checked	skip_size	RAW.tar 2.5 GB slide tarballs
+GSE301973	2025	Visium	EGFR NSCLC n=2	not_checked	not_checked	skip_size	RAW.tar 3.4 GB
+GSE299786	2025	CosMx	LUAD TMA + mesothelioma	not_extracted	not_extracted	skip_archive	Members only inside 2.0 GB RAW.tar; not PR #164
+E-MTAB-14560	2024	Visium CytAssist	lung+breast+DLBCL	not_checked	not_checked	skip_no_counts	Public processed files are images/FASTQ, not count matrices
+E-MTAB-14566	2024	GeoMx WTA	lung+breast+DLBCL	not_checked	not_checked	skip_not_pulled	Sister of E-MTAB-14560; images/FASTQ-first deposit
+GSE268850	2025	GeoMx	IPF bronchioles	yes	yes	skip_limited	Both genes present; T-cell genes mostly absent (no CD3D/CD8A)
+GSE316672	2026	GeoMx WTA	bronchiolitis obliterans	yes	yes	skip_meta	Both genes present; sample TSV is malformed / not a clean segment key
+GSE305762	2026	GeoMx WTA	LUSC + IPF	likely_yes	likely_yes	skip_dcc_only	DCC + PKC only; no processed gene matrix
+GSE309894	2026	GeoMx WTA	ALK+ NSCLC alectinib	likely_yes	likely_yes	skip_dcc_only	DCC + PKC only; no processed gene matrix
+GSE250385	2025	Visium CytAssist	organizing pneumonia n=1	not_checked	not_checked	skip_no_coords	mtx deposited without tissue_positions
+GSE267226	2024	Visium	post-viral lung	not_checked	not_checked	skip_no_coords	H5 + H&E only
+GSE276934	2024	Visium/Xenium	pulmonary fibrosis	not_checked	not_checked	skip_size	Visium member 50 GB
+GSE253474	2024	CosMx	SARS-CoV-2	not_checked	not_checked	skip	Infection CosMx; GSE276083 used as leftover CosMx instead
+GSE300676	2025	Visium	CRC micropapillary	—	—	skip_not_lung	Title is colorectal, not lung
+GSE270431	2025	Visium	mouse LUAD	—	—	skip_mouse	Mus musculus
