@@ -11,13 +11,19 @@ from scipy import sparse
 from scipy.stats import mannwhitneyu, spearmanr
 
 # Human gene IDs (do not invent accessions; these are official HGNC/Ensembl).
-TACSTD2_IDS = {"TACSTD2", "ENSG00000184292", "TROP2", "GA733-1", "M1S1"}
-CLDN4_IDS = {"CLDN4", "ENSG00000189143", "CPE-R", "CPER"}
+TACSTD2_IDS = {
+    "TACSTD2", "ENSG00000184292", "TROP2", "GA733-1", "M1S1",
+    "ENSMUSG00000051397",  # mouse Tacstd2 (verified in HTAN Visium var)
+}
+CLDN4_IDS = {
+    "CLDN4", "ENSG00000189143", "CPE-R", "CPER",
+    "ENSMUSG00000047501",  # mouse Cldn4 (verified in HTAN Visium var)
+}
 
 # Compact immune / exclusion modules used across sc and spatial.
 # Coverage is reported; missing genes are skipped (never fabricated).
 SIGNATURES = {
-    "CD8_Tcell": ["CD8A", "CD8B", "CD3E", "CD3D"],
+    "CD8_Tcell": ["CD8A", "CD8B", "CD8B1", "CD3E", "CD3D"],
     "CYT": ["GZMA", "PRF1"],
     "Cytotoxic_effector": ["GZMA", "GZMB", "GZMK", "PRF1", "NKG7", "GNLY", "IFNG"],
     "IFNG_6gene": ["IDO1", "CXCL10", "CXCL9", "HLA-DRA", "STAT1", "IFNG"],
@@ -148,8 +154,10 @@ def resolve_gene_index(var, wanted):
             return i, g
     for col in ("feature_name", "gene_symbols", "gene_symbol", "symbol", "name"):
         if col in var.columns:
-            s = var[col].astype(str)
+            s = var[col].map(lambda v: "" if v is None or (isinstance(v, float) and np.isnan(v)) else str(v))
             for i, g in enumerate(s):
+                if not g or g.lower() in ("nan", "none", "<na>"):
+                    continue
                 if g.upper() in wanted_u:
                     return i, g
     return None, None

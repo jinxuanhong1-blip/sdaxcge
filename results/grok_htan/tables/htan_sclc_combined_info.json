@@ -1,0 +1,181 @@
+{
+  "key": "htan_sclc_combined",
+  "n_obs": 147137,
+  "n_vars": 22021,
+  "celltype_col": "cell_type",
+  "sample_col": "donor_id",
+  "tacstd2_name": "ENSG00000184292",
+  "cldn4_name": "ENSG00000189143",
+  "obs_columns": [
+    "ngenes",
+    "libsize",
+    "mito_frac",
+    "RBP_frac",
+    "batch",
+    "donor_id",
+    "treatment",
+    "procedure",
+    "histo",
+    "cell_type_coarse",
+    "cell_type_fine",
+    "cell_type_general",
+    "clusters",
+    "cell_type_med",
+    "H_knn",
+    "development_stage_ontology_term_id",
+    "sex_ontology_term_id",
+    "self_reported_ethnicity_ontology_term_id",
+    "assay_ontology_term_id",
+    "is_primary_data",
+    "tissue_ontology_term_id",
+    "disease_ontology_term_id",
+    "cell_type_ontology_term_id",
+    "suspension_type",
+    "HTAN_Biospecimen_ID",
+    "HTAN_Participant_ID",
+    "tissue_type",
+    "cell_type",
+    "assay",
+    "disease",
+    "sex",
+    "tissue",
+    "self_reported_ethnicity",
+    "development_stage",
+    "observation_joinid"
+  ],
+  "signature_coverage": {
+    "CD8_Tcell": {
+      "n_requested": 5,
+      "n_found": 4,
+      "found": [
+        "CD3D",
+        "CD3E",
+        "CD8A",
+        "CD8B"
+      ],
+      "missing": [
+        "CD8B1"
+      ]
+    },
+    "CYT": {
+      "n_requested": 2,
+      "n_found": 2,
+      "found": [
+        "GZMA",
+        "PRF1"
+      ],
+      "missing": []
+    },
+    "Cytotoxic_effector": {
+      "n_requested": 7,
+      "n_found": 7,
+      "found": [
+        "GNLY",
+        "GZMA",
+        "GZMB",
+        "GZMK",
+        "IFNG",
+        "NKG7",
+        "PRF1"
+      ],
+      "missing": []
+    },
+    "IFNG_6gene": {
+      "n_requested": 6,
+      "n_found": 6,
+      "found": [
+        "CXCL10",
+        "CXCL9",
+        "HLA-DRA",
+        "IDO1",
+        "IFNG",
+        "STAT1"
+      ],
+      "missing": []
+    },
+    "TLS_12chemokine": {
+      "n_requested": 12,
+      "n_found": 12,
+      "found": [
+        "CCL18",
+        "CCL19",
+        "CCL2",
+        "CCL21",
+        "CCL3",
+        "CCL4",
+        "CCL5",
+        "CCL8",
+        "CXCL10",
+        "CXCL11",
+        "CXCL13",
+        "CXCL9"
+      ],
+      "missing": []
+    },
+    "TGFB_exclusion": {
+      "n_requested": 7,
+      "n_found": 7,
+      "found": [
+        "ACTA2",
+        "COL1A1",
+        "COL1A2",
+        "FN1",
+        "SMAD3",
+        "TGFB1",
+        "TGFBR2"
+      ],
+      "missing": []
+    },
+    "Immune_general": {
+      "n_requested": 9,
+      "n_found": 9,
+      "found": [
+        "CD3E",
+        "CD4",
+        "CD68",
+        "CD79A",
+        "CD8A",
+        "LYZ",
+        "MS4A1",
+        "NKG7",
+        "PTPRC"
+      ],
+      "missing": []
+    },
+    "B_cell": {
+      "n_requested": 4,
+      "n_found": 4,
+      "found": [
+        "CD19",
+        "CD79A",
+        "CD79B",
+        "MS4A1"
+      ],
+      "missing": []
+    },
+    "Myeloid": {
+      "n_requested": 5,
+      "n_found": 5,
+      "found": [
+        "CD14",
+        "CD68",
+        "CSF1R",
+        "ITGAM",
+        "LYZ"
+      ],
+      "missing": []
+    },
+    "NK": {
+      "n_requested": 5,
+      "n_found": 5,
+      "found": [
+        "GNLY",
+        "KLRD1",
+        "KLRF1",
+        "NCR1",
+        "NKG7"
+      ],
+      "missing": []
+    }
+  }
+}
