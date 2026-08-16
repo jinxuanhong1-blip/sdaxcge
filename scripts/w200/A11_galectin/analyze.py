@@ -11,6 +11,7 @@ from pathlib import Path
 
 import numpy as np
 import requests
+import scipy
 from scipy.stats import mannwhitneyu, spearmanr
 
 
@@ -178,6 +179,7 @@ def main() -> None:
     # Correct across both histologies and all tested galectin genes.
     bh_adjust(stats, "spearman_p", "spearman_q")
     bh_adjust(stats, "mannwhitney_p", "mannwhitney_q")
+    test_count = sum(row["spearman_p"] != "" for row in stats)
 
     stats_fields = [
         "cohort",
@@ -213,14 +215,18 @@ def main() -> None:
     }
     concordant = []
     discordant = []
+    cohort_specific = []
     for gene, rows in by_gene.items():
         if len(rows) != 2 or any(row["spearman_rho"] == "" for row in rows):
             continue
         directions = [math.copysign(1, float(row["spearman_rho"])) for row in rows]
+        significant = [float(row["spearman_q"]) < 0.05 for row in rows]
         if directions[0] == directions[1] and all(float(row["spearman_q"]) < 0.05 for row in rows):
             concordant.append(gene)
-        elif directions[0] != directions[1] and any(float(row["spearman_q"]) < 0.05 for row in rows):
+        elif directions[0] != directions[1] and any(significant):
             discordant.append(gene)
+        elif directions[0] == directions[1] and sum(significant) == 1:
+            cohort_specific.append(f"{gene} ({rows[significant.index(True)]['cohort']})")
 
     def values_for(gene: str) -> str:
         rows = by_gene[gene]
@@ -248,9 +254,10 @@ Public TCGA primary tumors were analyzed separately: LUAD n={cohort_counts['LUAD
 {findings}
 
 Discordant significant genes: {", ".join(discordant) or "none"}. These are associations, not evidence that TROP2 regulates galectins. Bulk RNA mixes malignant, stromal, and immune cells; TACSTD2 is epithelial, whereas several galectins are also abundant in non-malignant compartments. Histology-stratified agreement is therefore the strongest claim supported here. Protein abundance, spatial co-expression, treatment response, and single-cell malignant-cell effects were not tested.
+One-cohort signals with matching direction: {", ".join(cohort_specific) or "none"}.
 
 ## Methods
-Values are cBioPortal PanCancer Atlas batch-normalized RNA-seq RSEM. Spearman correlation is primary; high/low median ratios and Mann–Whitney tests are descriptive. BH correction covers 28 gene-by-cohort tests. Exact values and the auditable sample-level extract are provided.
+Values are cBioPortal PanCancer Atlas batch-normalized RNA-seq RSEM. Spearman correlation is primary; high/low median ratios and Mann–Whitney tests are descriptive. BH correction covers {test_count} testable gene-by-cohort comparisons; LGALS16 was unavailable.
 
 ## Sources
 - [LUAD study](https://www.cbioportal.org/study/summary?id={STUDIES['LUAD']})
@@ -267,10 +274,14 @@ Values are cBioPortal PanCancer Atlas batch-normalized RNA-seq RSEM. Spearman co
         "measurement": "Batch-normalized RNA Seq V2 RSEM",
         "genes": GENES,
         "group_definition": "Within-cohort rank split; equal lower and upper halves",
-        "multiple_testing": "Benjamini-Hochberg over 28 gene-by-cohort tests per test family",
+        "multiple_testing": (
+            f"Benjamini-Hochberg over {test_count} testable gene-by-cohort comparisons "
+            "per test family"
+        ),
         "software": {
             "numpy": np.__version__,
             "requests": requests.__version__,
+            "scipy": scipy.__version__,
         },
     }
     (OUT / "provenance.json").write_text(json.dumps(provenance, indent=2) + "\n")
