@@ -1,0 +1,1572 @@
+[
+  {
+    "accession": "GSE127465",
+    "title": "Single cell transcriptomics of human and mouse lung cancers reveals conserved myeloid populations across individuals and species",
+    "n_samples": 40,
+    "taxon": "Mus musculus; Homo sapiens",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "HTML, MTX, TSV",
+    "pdat": "2019/04/09",
+    "summary": "Tumor-infiltrating myeloid cells (TIMs) comprise monocytes, macrophages, dendritic cells and neutrophils, and have emerged as key regulators of cancer growth. These cells can diversify into a spectrum of states, which may promote or limit tumor outgrowth, but remain poorly understood. Here, we used single-cell RNA sequencing to map TIMs in non-small cell lung cancer patients. We uncovered 25 TIM states, most of which were reproducibly found across patients. To facilitate translational research o"
+  },
+  {
+    "accession": "GSE129297",
+    "title": "Single-cell transcriptomic profiling of mouse lung tumor in response to CDK7 inhibitor, anti-PD-1 and combination treatment (Experiment 1)",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2019/12/27",
+    "summary": "We performed single-cell RNA sequencing (scRNAseq) analysis on the mouse lung tissues from small cell lung tumor-bearing mice treated with CDK7 inhibitor YKL, anti-PD-1 and combination treatment"
+  },
+  {
+    "accession": "GSE129298",
+    "title": "Single-cell transcriptomic profiling of mouse lung tumor in response to CDK7 inhibitor, anti-PD-1 and combination treatment (Experiment 2)",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2019/12/27",
+    "summary": "We performed single-cell RNA sequencing (scRNAseq) analysis on the mouse lung tissues from small cell lung tumor-bearing mice treated with CDK7 inhibitor YKL, anti-PD-1 and combination treatment"
+  },
+  {
+    "accession": "GSE129299",
+    "title": "Single-cell transcriptomic profiling of mouse lung tumor in response to CDK7 inhibitor, anti-PD-1 and combination treatment",
+    "n_samples": 12,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX",
+    "pdat": "2019/12/27",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE131927",
+    "title": "499 GRKO vs WT Single Cell Seq",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "H5, MTX, TSV",
+    "pdat": "2019/08/13",
+    "summary": "Interferon-gamma (IFNG) augments immune function yet promotes T cell exhaustion through PDL1. How these opposing effects are integrated to impact immune checkpoint blockade (ICB) is unclear. We show that while inhibiting tumor IFNG signaling decreases interferon-stimulated genes (ISGs) in cancer cells, it increases ISGs in immune cells by enhancing IFNG produced by exhausted T cells (TEX). In tumors with favorable antigenicity, these TEX mediate rejection. In tumors with neoantigen or MHC-I loss"
+  },
+  {
+    "accession": "GSE133604",
+    "title": "Single-cell transcriptomic profiling of mouse KrasG12DP53-/- (KP) lung tumors in response to tumor cell intrinsic Asf1a knockout (KO), anti-PD-1 or combination treatment (Asf1a KO + anti-PD-1).",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2019/11/26",
+    "summary": "We performed single-cell RNA sequencing (scRNAseq) analysis on the mouse lung tissues from KP tumor-bearing mice treated with tumor cell intrinsic Asf1a KO, anti-PD-1 or combination treatment"
+  },
+  {
+    "accession": "GSE143791",
+    "title": "Human prostate cancer bone metastases have an actionable immunosuppressive microenvironment",
+    "n_samples": 41,
+    "taxon": "Homo sapiens; Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV",
+    "pdat": "2021/08/29",
+    "summary": "We collected unique sets of tissue fractions from each patient: solid metastatic tissue (Tumor fraction), liquid bone marrow at the site of the metastasis (Involved), as well as liquid bone marrow from a vertebral body distant from the tumor site (Distal). This allowed for a comparison within the same individual, controlling for inter-individual variation. Bone marrow samples from patients undergoing hip replacement surgery (Benign) served as a non-malignant comparator group. The transcriptional"
+  },
+  {
+    "accession": "GSE149425",
+    "title": "The PD-1 pathway regulates development and function of memory CD8+ T cells following respiratory viral infection",
+    "n_samples": 12,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by array",
+    "suppfile": "CEL",
+    "pdat": "2020/06/30",
+    "summary": "The PD-1:PD-L co-inhibitory pathway regulates dysfunctional T cells in chronic viral infection and cancer, but the role of this pathway in effector and memory responses following acute infection or vaccination remains less clear. Here we demonstrated that in the absence of signals from the PD-1 pathway, cell intrinsic alterations during initial CD8+ T cell priming resulted in excessive early CD8+ T cell expansion, but increased CD8+ T cell contraction and aberrant effector to memory CD8+ T cell "
+  },
+  {
+    "accession": "GSE150739",
+    "title": "Tumor PD-L1 engages myeloid PD-1 to suppress type I interferon to impair cytotoxic T lymphocyte recruitment (bulk)",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2023/02/06",
+    "summary": "A hallmark of PD-1/L1 blockade is long-term, sustained remission of metastatic disease. How the immune system coordinates the destruction of macro- and micro-metastases following checkpoint blockade, however, remains unclear. Here, we show that tumor-expressed PD-L1 (tPD-L1) enhanced metastasis in a mechanism distinct from and independent of its role in primary tumor growth. This difference in metastatic growth was mediated by cytotoxic T lymphocytes (CTLs), however, tPD-L1 did not promote effec"
+  },
+  {
+    "accession": "GSE150742",
+    "title": "Tumor PD-L1 engages myeloid PD-1 to suppress type I interferon to impair cytotoxic T lymphocyte recruitment (single cells)",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, RDS, TSV",
+    "pdat": "2023/02/06",
+    "summary": "A hallmark of PD-1/L1 blockade is long-term, sustained remission of metastatic disease. How the immune system coordinates the destruction of macro- and micro-metastases following checkpoint blockade, however, remains unclear. Here, we show that tumor-expressed PD-L1 (tPD-L1) enhanced metastasis in a mechanism distinct from and independent of its role in primary tumor growth. This difference in metastatic growth was mediated by cytotoxic T lymphocytes (CTLs), however, tPD-L1 did not promote effec"
+  },
+  {
+    "accession": "GSE151421",
+    "title": "Sirt2 Inhibition Reprograms T Cell Metabolism to Confer Superior Anti-Tumor Immunity",
+    "n_samples": 12,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2020/09/16",
+    "summary": "Metabolism is a key driver of T cell functions, and the switch from oxidative-phosphorylation to aerobic glycolysis is a hallmark of T cell activation. However, the mechanisms underlying the metabolic switch remain unclear. Here, we report that the Sirtuin-2 (Sirt2) deacetylase protein functions as a metabolic checkpoint that harnesses T cell effector functions and impairs anti-tumor immunity. Specifically, upregulation of Sirt2 expression in human tumor-infiltrating T lymphocytes (TILs) negativ"
+  },
+  {
+    "accession": "GSE152618",
+    "title": "Disease-specific exhaustion features and PD-1 immunotherapy responsiveness of antigen-specific CD8+ T cells at single-cell resolution [scRNA-seq]",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TAR",
+    "pdat": "2022/11/29",
+    "summary": "We reported the CD8+ T cell exhaustion differences between chronic viral infection and tumor regarding their transcriptomic and epigenetic landscapes, immune checkpoint blockade responsiveness and underlying molecular mechanisms by using bulk RNA-seq, single-cell RNA-seq and single-cell ATAC-seq."
+  },
+  {
+    "accession": "GSE152628",
+    "title": "Disease-specific exhaustion features and PD-1 immunotherapy responsiveness of antigen-specific CD8+ T cells at single-cell resolution",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "TAR",
+    "pdat": "2022/11/29",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE155006",
+    "title": "scRNA-seq studies",
+    "n_samples": 22,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2020/12/06",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE155972",
+    "title": "Epigenetic Silencing by SETDB1 Suppresses Tumor-cell Intrinsic Immunogenicity",
+    "n_samples": 177,
+    "taxon": "Homo sapiens; Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "CSV, H5, TXT, WIG",
+    "pdat": "2021/03/18",
+    "summary": "Epigenetic dysregulation is a defining feature of tumorigenesis and has been implicated in immune escape. However, the epigenetic mechanisms that drive immune evasion in cancer are poorly understood. To systematically identify epigenetic factors that modulate the immune sensitivity of tumor cells, we performed in vivo loss of function screens targeting 936 chromatin regulators in mouse tumor models treated with immune checkpoint blockade. We identified the H3K9-methyltransferase SETDB1 and other"
+  },
+  {
+    "accession": "GSE157881",
+    "title": "Radiation-activated secretome of Scgb1a1+ club cells increase the efficacy of immune checkpoint blockade in lung cancer (0Gy4Gy scRNA-seq)",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2021/06/08",
+    "summary": "We report that airway epithelial club cells harbor the genes specifically up-regulated by 4Gy-RT"
+  },
+  {
+    "accession": "GSE157882",
+    "title": "Radiation-activated secretome of Scgb1a1+ club cells increase the efficacy of immune checkpoint blockade in lung cancer (iDTR scRNA-seq)",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2021/06/08",
+    "summary": "We report that airway epithelial club cells affected the immune landscaping in HKP1 lungs"
+  },
+  {
+    "accession": "GSE157883",
+    "title": "Radiation-activated secretome of Scgb1a1+ club cells increase the efficacy of immune checkpoint blockade in lung cancer",
+    "n_samples": 22,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2021/06/08",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE158109",
+    "title": "Immunogenic chemotherapy enhances recruitment of CAR-T cells to solid tumors and improves anti-tumor efficacy when combined with checkpoint blockade  [scRNA-Seq]",
+    "n_samples": 5,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TSV, TXT",
+    "pdat": "2020/09/18",
+    "summary": "CAR-T cell therapy is effective in hematologic malignancies but not in solid tumors. In breast and lung cancer patients, CAR-T cells targeting ROR1 infiltrated tumors poorly and became dysfunctional. To test strategies for enhancing efficacy, we induced ROR1+ lung tumors in KrasLSL-G12D/+;p53fl/f mice. Murine ROR1 CAR-T cells transferred after lymphodepletion with cyclophosphamide (Cy) transiently controlled tumor growth but infiltrated tumors poorly and lost function, as observed in patients. A"
+  },
+  {
+    "accession": "GSE162621",
+    "title": "Single cell RNA-seq analysis of the LLC-OVA tumor-infiltrating T-cell compartment.",
+    "n_samples": 1,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV",
+    "pdat": "2021/02/16",
+    "summary": "Modulation and depletion of regulatory T cells (Tregs) constitute valid approaches in antitumor immunotherapy but suffer from severe adverse effects due to their lack of selectivity for the tumor-infiltrating (ti-)Treg population. We here employed single-cell RNA-sequencing to discern two ti-Treg populations, one of which is characterized by the unique expression of Ccr8 in conjunction with Treg activation markers. Ccr8 is also expressed by dysfunctional CD4+ and CD8+ T cells, but the CCR8 prote"
+  },
+  {
+    "accession": "GSE162798",
+    "title": "Simple oligonucleotide-based multiplexing of single-cell chromatin accessibility",
+    "n_samples": 15,
+    "taxon": "Homo sapiens; Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+    "suppfile": "BED, CSV, MTX, TBI, TSV, TXT",
+    "pdat": "2021/10/20",
+    "summary": "we reported the development of an accurate, easy-to-use and scalable system (SNuBar) for multiplexing single cell ATAC or multi-omics (ATAC&RNA) assays, and applied this method to multiplex therapy combinations in a lung cancer mouse model and macro-spatial regions of normal breast tissues and samples. "
+  },
+  {
+    "accession": "GSE164487",
+    "title": "Intrapleural nano-immunotherapy promotes innate and adaptive immune responses to enhance anti-PD-L1 therapy for malignant pleural effusion",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2021/09/21",
+    "summary": "Malignant pleural effusion (MPE) is indicative of terminal malignancy with uniformly fatal prognosis. Often, two distinct compartments of tumor microenvironment, the effusion and disseminated pleural tumors, co-exist in the pleural cavity, presenting a major challenge for therapeutic interventions and drug delivery. Clinical evidence suggests that MPE comprises abundant tumor associated myeloid cells with the tumor-promoting phenotype, impairing antitumor immunity. Here, we developed liposomal c"
+  },
+  {
+    "accession": "GSE164906",
+    "title": "\"Stripe\" transcription factors provide accessibility to co-binding partners in mammalian genomes.",
+    "n_samples": 476,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing; Third-party reanalysis; Genome variation profiling by high throughput sequencing",
+    "suppfile": "BW, TAB, VCF",
+    "pdat": "2022/07/21",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE165383",
+    "title": "T-cell CX3CR1 expression as a dynamic blood-based biomarker of response to immune checkpoint inhibitors",
+    "n_samples": 12,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TSV",
+    "pdat": "2021/01/26",
+    "summary": "We investigated the frequency of CX3CR1+CD8+ T cells in peripheral blood (PB) before and during immune checkpoint inhibitor (ICI) therapy, and delineated the TCR repertoire in peripheral CX3CR1+CD8+ T-cell subsets and CD8+ tumor-infiltrating lymphocytes (TILs) using preclinical models. To understand the clinical utility of CX3CR1 as a circulating T-cell biomarker, we analyzed longitudinal PB samples from non-small cell lung cancer (NSCLC) patients undergoing anti-PD-1 therapy, and evaluated pred"
+  },
+  {
+    "accession": "GSE165404",
+    "title": "Targeting TREM2 on tumor associated macrophages enhances efficacious immunotherapy",
+    "n_samples": 15,
+    "taxon": "Homo sapiens; Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TAR, TSV",
+    "pdat": "2021/09/01",
+    "summary": "Singe-cell transcriptomic profiling of immune cells from human tumors and the CT26 murine syngeneic tumor model"
+  },
+  {
+    "accession": "GSE169688",
+    "title": "Inhibition of PGE2-EP2/EP4 signaling elicits anti-tumor immunity through reprograming of inflammatory myeloid cells and   suppression of mRegDC-Treg axis",
+    "n_samples": 16,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV",
+    "pdat": "2022/06/14",
+    "summary": "The discovery of immune checkpoint inhibitor (ICI) has highlighted the clinical importance of immune evasion in cancer. However, only a fraction of cancer patients show response to ICI, raising a question on immune suppression mechanisms other than immune checkpoint. In this study, we examined the role of the lipid inflammatory mediator PGE2 in immune evasion of the ICI-insensitive Lewis Lung Carcinoma line 1 (LLC1) mouse model. Inhibition of PGE receptors, EP2 and EP4, significantly suppressed "
+  },
+  {
+    "accession": "GSE176091",
+    "title": "Inhibition of lung tumorigenesis by a small molecule CA170 targeting the immune checkpoint protein VISTA",
+    "n_samples": 20,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2021/06/04",
+    "summary": "Expressed on cells of the myeloid and lymphoid lineages, V-domain Ig Suppressor of T cell Activation (VISTA) is an emerging target for cancer immunotherapy. Blocking VISTA activates both innate and adaptive immunity to eradicate tumors in mice. Using a tripeptide small molecule antagonist of VISTA CA170, we found that it exhibited potent anticancer efficacy on carcinogen-induced mouse lung tumorigenesis. Remarkably, lung tumor development was almost completely suppressed when CA170 was combined "
+  },
+  {
+    "accession": "GSE180110",
+    "title": "Tumor microenvironment and transcriptional analysis of CD45+ leukocytes isolated from syngeneic MC38 tumors from mice fed ketogenic diet or control diet",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2022/04/27",
+    "summary": "Tumor microenvironment (TME) has a dynamic composition that affects targeted therapies for colorectal cancer (CRC). Cancer associated fibroblasts (CAFs) direct and induce infiltration of immunosuppressive cells through secreted cytokines such as CXCL12. Here, we show that decreased ketogenesis is a signature of CRCs and that an increase in ketogenesis, using a ketogenic diet (KD), decreases CXCL12 in CAFs, tumors, serum, livers, and lungs. Increase in ketogenesis results in the decreased express"
+  },
+  {
+    "accession": "GSE182001",
+    "title": "Active eosinophils regulate host defense and immune responses during intestinal inflammation",
+    "n_samples": 5,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT, XLS",
+    "pdat": "2021/10/22",
+    "summary": "In the past decade, single-cell transcriptomics has helped uncover new cell types and states and led to the construction of a cellular compendium of health and disease1. Still, some difficult-to-sequence cell types remain absent from cell atlases. Eosinophils, elusive granulocytes implicated in a plethora of human pathologies2,3, are among these uncharted cell types. To date, the heterogeneity of eosinophils and the gene programs underpinning their pleiotropic functions remain poorly understood4"
+  },
+  {
+    "accession": "GSE182004",
+    "title": "Evading immune evasion via reprograming of the tumor microenvironment by radiotherapy and simultaneous targeting of TGF-\u03b2/PD-L1",
+    "n_samples": 72,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV",
+    "pdat": "2021/08/16",
+    "summary": "Tumor immunogenicity enhanced by radiotherapy (RT), is often counterbalanced by immune evasive mechanisms and tissue remodeling effects via upregulation of transforming growth factor-\u03b2 (TGF-\u03b2) and programmed cell death-ligand 1 (PD-L1). We report that bintrafusp alfa (BA), a bifunctional fusion protein that simultaneously inhibits TGF-\u03b2 and PD-L1, is a favorable combination partner for RT in eradicating multiple treatment-resistant tumor models. Beneficial effects of BA+RT (BART) are partly attr"
+  },
+  {
+    "accession": "GSE184388",
+    "title": "Functional state of lung cancer-reactive cytotoxic T cells is shaped during 2 T cell priming and determines sensitivity to immunotherapy",
+    "n_samples": 50,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2021/09/20",
+    "summary": "In non-small cell lung cancer (NSCLC), response to checkpoint blockade therapy (CBT) is associated with PD-L1 expression, induced by IFN-g-producing, tumor-infiltrating CD8+ T cells. However, not all tumors with a CD8+ T cell infiltrate respond to CBT, and little is known about the mechanisms governing CBT resistance in T cell-infiltrated NSCLC. We used a pre-clinical orthotopic NSCLC mouse model to study CBT-refractory CD8+ T cell responses. Single-cell RNA sequencing revealed that lung cancer-"
+  },
+  {
+    "accession": "GSE186428",
+    "title": "A T-cell resilience model associated with response to immunotherapy in multiple tumor types",
+    "n_samples": 7,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2022/03/05",
+    "summary": "Despite breakthroughs in cancer immunotherapy, most tumor-reactive T cells cannot persist in solid tumors due to an immunosuppressive environment. We developed Tres (Tumor-resilient T cell, https://resilience.ccr.cancer.gov), a computational model and web server that utilizes single-cell transcriptomic data to identify signatures of T cells that are resilient to immunosuppressive signals, such as TGF\u03b2, TRAIL, and PGE2. Analyzing T-cell transcriptomic data from 72 pretreatment and 84 pre-manufact"
+  },
+  {
+    "accession": "GSE188666",
+    "title": "Divergent clonal differentiation trajectories of T cell exhaustion (scRNA-seq)",
+    "n_samples": 46,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, MTX, TSV, TXT",
+    "pdat": "2022/07/25",
+    "summary": "T cells activated by chronic antigen exposure in the setting of viral infections or cancer can adopt an exhausted T cell (Tex) state, characterized by reduced effector function and proliferative capacity, and the upregulation of inhibitory receptors. However, whether all antigen-specific T cell clones follow the same molecular and cellular Tex differentiation trajectory remains unclear. Here, we generate a single-cell multi-omic atlas of T cell exhaustion that redefines the phenotypic diversity "
+  },
+  {
+    "accession": "GSE188670",
+    "title": "Divergent clonal differentiation trajectories of T cell exhaustion",
+    "n_samples": 57,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "CSV, TBI, TSV",
+    "pdat": "2022/07/25",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE201715",
+    "title": "Tumor-Induced Erythroid Precursor-Differentiated Myeloid Cells Mediate Immunosuppression and Curtail Anti-PD-1/PD-L1 Treatment Efficacy",
+    "n_samples": 7,
+    "taxon": "Mus musculus; Homo sapiens",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2022/04/30",
+    "summary": "Despite the unprecedented success of immune checkpoint inhibitors (ICIs) as anti-cancer therapy, it remains a prevailing clinical need to identify additional mechanisms underlying ICI therapeutic efficacy and potential drug resistance. Here, using lineage tracking in cancer patients and tumor-bearing mice, we demonstrate that erythroid progenitor cells lose their developmental potential and switch to the myeloid lineage. Single-cell transcriptome analyses reveal that, notwithstanding quantitativ"
+  },
+  {
+    "accession": "GSE202157",
+    "title": "Conserved transcriptional connectivity of regulatory T cells in the tumor microenvironment informs novel combination cancer therapy strategies [mouse]",
+    "n_samples": 112,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, H5AD, PY",
+    "pdat": "2023/05/01",
+    "summary": "While regulatory T (Treg) cells are traditionally viewed as professional suppressors of antigen presenting and effector T cells in both autoimmunity and cancer, recent findings of distinct Treg functions in tissue maintenance suggest that their regulatory purview extends to a wider range of cells and is broader than previously assumed. To elucidate tumoral Treg \u201cconnectivity\u201d to diverse tumor-supporting accessory cell types, we explored immediate early changes in their single cell transcriptomes"
+  },
+  {
+    "accession": "GSE206067",
+    "title": "Themis directs T cell exhaustion by promoting PD-1 signaling and key transcription factors TCF-1 and TOX expression",
+    "n_samples": 48,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, TXT",
+    "pdat": "2024/01/01",
+    "summary": "We adopted scRNA-seq to examine whether Themis is required for Tex initiation. To strengthen the rigorousness of scRNA-seq analysis, we contransferred P14 WT and P14 Themis cKO cells, enabling them to experience the same viral burden and inflammatory environment. Then cells from all conditions (including na\u00efve control cells) were combined and subjected to analysis."
+  },
+  {
+    "accession": "GSE210349",
+    "title": "Human PD-1 agonist treatment alleviates neutrophilic asthma by reprogramming T cells",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2022/08/07",
+    "summary": "Neutrophilic asthma is associated with disease severity and corticosteroid insensitivity. Novel therapies are required to manage this life-threatening asthma phenotype. Programmed cell death protein-1 (PD-1) is a key homeostatic modulator of the immune response for T cell effector functions. Our study was conducted to assess the therapeutic potential of a novel human PD-1 agonist in a humanized mouse model in which the PD-1 extracellular domain is entirely humanized. Using single-cell RNA sequen"
+  },
+  {
+    "accession": "GSE214485",
+    "title": "Aurora A Kinase Inhibition Induces Accumulation of Tumor Cells in Mitosis with Restored Interferon Signaling to Potentiate Response to PD-L1 Immune Checkpoint Blockade [single cell RNA-seq]",
+    "n_samples": 9,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2023/09/26",
+    "summary": "By arresting tumor cells in mitosis, aurora A kinase inhibition restores interferon signaling in small cell lung cancer tumor cells and cooperates with PD-L1 immune checkpoint blockade."
+  },
+  {
+    "accession": "GSE214614",
+    "title": "Aurora A Kinase Inhibition Induces Accumulation of Tumor Cells in Mitosis with Restored Interferon Signaling to Potentiate Response to PD-L1 Immune Checkpoint Blockade",
+    "n_samples": 14,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2023/09/26",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE215361",
+    "title": "Conserved transcriptional connectivity of regulatory T cells in the tumor microenvironment informs novel combination cancer therapy strategies [visium]",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "CSV, H5, JPG, JSON, PNG",
+    "pdat": "2023/05/03",
+    "summary": "While regulatory T (Treg) cells are traditionally viewed as professional suppressors of antigen presenting and effector T cells in both autoimmunity and cancer, recent findings of distinct Treg functions in tissue maintenance suggest that their regulatory purview extends to a wider range of cells and is broader than previously assumed. To elucidate tumoral Treg \u201cconnectivity\u201d to diverse tumor-supporting accessory cell types, we explored immediate early changes in their single cell transcriptomes"
+  },
+  {
+    "accession": "GSE216023",
+    "title": "CITE-seq analysis of Mycobacterium tuberculosis infected B6 and Sp140-deficient mouse lungs",
+    "n_samples": 9,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "MTX, RDS, TSV",
+    "pdat": "2024/01/12",
+    "summary": "Mycobacterium tuberculosis (Mtb) causes 1.5 million deaths annually. Active tuberculosis correlates with a neutrophil-driven type I interferon (IFN) signature, but the underlying cellular mechanisms remain poorly understood. We found that interstitial macrophages (IMs) and plasmacytoid dendritic cells (pDCs) are dominant producers of type I IFN during Mtb infection in mice and non-human primates, and pDCs localize near human Mtb granulomas. Depletion of pDCs reduces Mtb burdens, implicating pDCs"
+  },
+  {
+    "accession": "GSE216675",
+    "title": "Bulk RNA-Seq analysis of adoptively co-transferred PKM2 wildtype and PKM2 knockout CD8+ T cells into tumor-bearing mice subsequently treated with and without PD-1 checkpoint blockade",
+    "n_samples": 24,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2023/10/19",
+    "summary": "In this study we investigated how manipulation of the glycolytic enzyme pyruvate kinase muscle 2 (PKM2) alters CD8+ T cell gene expression and responsiveness to PD-1 checkpoint blockade in orthotopic mouse lung adenocarcinoma. In this dataset, we performed adoptive co-transfers of antigen-specific OT-I+ Thy1.1+ CD8+ T cells genetically modified by CRISPR/Cas9 ribonucleoproteins to become PKM2 knockout (in Thy1.1+/- cells) or PKM2 wildtype (in Thy1.1+/+ cells). T cells were transferred into ortho"
+  },
+  {
+    "accession": "GSE218155",
+    "title": "ILC2 development requires GATA3-related super-enhancers after lineage commitment",
+    "n_samples": 17,
+    "taxon": "Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing; Expression profiling by high throughput sequencing",
+    "suppfile": "BEDGRAPH, TXT",
+    "pdat": "2024/05/14",
+    "summary": "This SuperSeries is composed of the SubSeries listed below.  Group 2 innate lymphoid cells (ILC2) are a subset of innate lymphocytes that produce type 2 cytokines, including IL-4, IL-5, and IL-13. GATA3 being a critical transcription factor for ILC2 development at multiple stages. However, when and how GATA3 is induced to the levels required for ILC2 development remains elusive. Herein, we identified ILC2-specific tandem GATA3-related super-enhancers (G3SE) that induce high GATA3 in ILC2-committ"
+  },
+  {
+    "accession": "GSE220588",
+    "title": "Heterogenity of memory CD4 T cells",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, XLSX",
+    "pdat": "2023/07/18",
+    "summary": "Analysis of single cell gene transcription by mouse influenza virus specific CD4 T cells examined 40 days after infection."
+  },
+  {
+    "accession": "GSE222158",
+    "title": "Gene expression of immune cells in a lung cancer mouse model",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/01/03",
+    "summary": "We used in situ vaccination with autologous dendritic cell secreting CCL21, in combination with immune checkpoint inhibitor, anti-PD-1, to treat oncogene-driven non-small cell lung cancer in a murine model. The single cell transcriptome of the treated cancer tissues were measured."
+  },
+  {
+    "accession": "GSE223268",
+    "title": "Eosinophils Restrain Humoral Alloimmunity after Lung Transplantation [scRNA-seq]",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/01/14",
+    "summary": "While the function of many leukocytes in transplant biology has been well defined, the role of  eosinophils is controversial and remains poorly explored.  Conflicting data exist regarding eosinophils\u2019 role in alloimmunity based on context and organ type.   Due to their prevalence in the lung, and their defined role in other pulmonary pathology such as asthma, we set out to explore the role of eosinophils in the long-term maintenance of the lung allograft.  We noted that depletion of eosinophils "
+  },
+  {
+    "accession": "GSE224399",
+    "title": "A neutrophil response linked to tumor control in immunotherapy I",
+    "n_samples": 10,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, TSV",
+    "pdat": "2023/02/06",
+    "summary": "Neutrophils accumulate in solid tumors and their abundance correlates with poor prognosis. Neutrophils are not homogenous, however, and could play different roles in\u00a0cancer therapy. Here, we investigated the role of neutrophils in immunotherapy leading to tumor control. We show that successful therapies acutely\u00a0expanded tumor neutrophil numbers. This expansion could be attributed to a\u00a0Sell-hi state, rather than to other neutrophils that accelerate tumor progression.\u00a0Therapy-elicited neutrophils "
+  },
+  {
+    "accession": "GSE226962",
+    "title": "Interferon-stimulated neutrophils identified in preclinical models may serve as a potential biomarker for immunotherapy response in human",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "LOOM, MTX, TSV",
+    "pdat": "2024/01/05",
+    "summary": "Despite the remarkable success of immunotherapy, only ~20-30% of cancer patients display an extended\u00a0durable response. Pre-existing biomarkers for immunotherapy outcome\u00a0are significantly limited in their predictive power. While mice are the most widely used and cost-effective model to study human disease, translating preclinical biomarkers into clinical practice faces significant obstacles \u2013 in part due to the lack of diverse or appropriate models. Here, to improve translatability and identify n"
+  },
+  {
+    "accession": "GSE232730",
+    "title": "CXCL9/10-engineered dendritic cells promote T cell activation and enhances immune checkpoint blockade for lung cancer.",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2023/05/22",
+    "summary": "Immune checkpoint blockade (ICB), notably Programmed Death-1/Programmed Death-Ligand 1 (PD-1/PD-L1) inhibition, has revolutionized the treatment of non-small cell lung cancer (NSCLC). However, durable responses are only observed in a subpopulation of patients. Defective antigen presentation and an immunosuppressive tumor microenvironment can lead to deficient T-cell recruitment and ICB resistance. We evaluated in situ vaccination with CXCL9 and CXCL10-engineered dendritic cells (CXCL9/10-DC) as "
+  },
+  {
+    "accession": "GSE233659",
+    "title": "ENPP1 is an innate immune checkpoint of the anticancer cGAMP-STING pathway",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2023/08/07",
+    "summary": "ENPP1 expression correlates with poor prognosis in many cancers, and we previously discovered that ENPP1 is the dominant hydrolase of extracellular cGAMP: a cancer-cell-produced immunotransmitter that activates the anticancer STING pathway. However, ENPP1 has other catalytic activities and the molecular and cellular mechanisms contributing to its tumorigenic effects remain unclear. Here, using single cell RNA-seq (scRNA-seq), we show that ENPP1 overexpression drives primary tumor growth and meta"
+  },
+  {
+    "accession": "GSE233665",
+    "title": "EZH2 inhibtion and IFNy treatment of patient derived organoids [scRNA-Seq]",
+    "n_samples": 13,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CLOUPE",
+    "pdat": "2023/06/01",
+    "summary": "We report the transcriptomics of primary murine lung squamous cell carcinomas in mice treated with EZH2 inhibition and anti-PD1"
+  },
+  {
+    "accession": "GSE235602",
+    "title": "Lung tumor-infiltrating Treg have divergent transcriptional profiles and function linked to checkpoint blockade response [mouse]",
+    "n_samples": 52,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, MTX, TSV",
+    "pdat": "2023/09/11",
+    "summary": "Regulatory T cells (Treg) are conventionally viewed to suppress endogenous and therapy-induced anti-tumor immunity; however, their role in modulating responses to immune checkpoint blockade (ICB) is unclear. In this study, we integrated single-cell RNAseq/TCRseq of >73,000 tumor-infiltrating Treg (TIL-Treg) from anti-PD-1-treated and treatment naive non-small cell lung cancers (NSCLC) with single cell analysis of tumor-associated antigen (TAA)-specific Treg derived from a murine tumor model. We "
+  },
+  {
+    "accession": "GSE236717",
+    "title": "Synthetic essentiality of thymine DNA glycosylase in p53-deficient cancer [ATAC-seq]",
+    "n_samples": 5,
+    "taxon": "Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BW",
+    "pdat": "2024/06/21",
+    "summary": "Thymine DNA Glycosylase (TDG) is a versatile protein involved in DNA mismatch repair, DNA demethylation, and transcriptional regulation. Here, we identify TDG as a synthetic essential effector in p53-deficient tumours. We found that deletion of TDG inhibits cell proliferation specifically in p53-deficient cancer cells. Using a genetically engineered mouse model of lung adenocarcinoma (LUAD), we demonstrate that depletion of TDG suppresses tumour growth in the p53-deficient context. Notably, A no"
+  },
+  {
+    "accession": "GSE236718",
+    "title": "Synthetic essentiality of thymine DNA glycosylase in p53-deficient cancer [CUT&Tag]",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BW, NARROWPEAK",
+    "pdat": "2024/06/21",
+    "summary": "Thymine DNA Glycosylase (TDG) is a versatile protein involved in DNA mismatch repair, DNA demethylation, and transcriptional regulation. Here, we identify TDG as a synthetic essential effector in p53-deficient tumours. We found that deletion of TDG inhibits cell proliferation specifically in p53-deficient cancer cells. Using a genetically engineered mouse model of lung adenocarcinoma (LUAD), we demonstrate that depletion of TDG suppresses tumour growth in the p53-deficient context. Notably, A no"
+  },
+  {
+    "accession": "GSE236719",
+    "title": "Synthetic essentiality of thymine DNA glycosylase in p53-deficient cancer [ChIP-seq]",
+    "n_samples": 9,
+    "taxon": "Homo sapiens; Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BW, NARROWPEAK",
+    "pdat": "2024/06/21",
+    "summary": "Thymine DNA Glycosylase (TDG) is a versatile protein involved in DNA mismatch repair, DNA demethylation, and transcriptional regulation. Here, we identify TDG as a synthetic essential effector in p53-deficient tumours. We found that deletion of TDG inhibits cell proliferation specifically in p53-deficient cancer cells. Using a genetically engineered mouse model of lung adenocarcinoma (LUAD), we demonstrate that depletion of TDG suppresses tumour growth in the p53-deficient context. Notably, A no"
+  },
+  {
+    "accession": "GSE236720",
+    "title": "Synthetic essentiality of thymine DNA glycosylase in p53-deficient cancer [RNA-seq]",
+    "n_samples": 26,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV",
+    "pdat": "2024/06/21",
+    "summary": "Thymine DNA Glycosylase (TDG) is a versatile protein involved in DNA mismatch repair, DNA demethylation, and transcriptional regulation. Here, we identify TDG as a synthetic essential effector in p53-deficient tumours. We found that deletion of TDG inhibits cell proliferation specifically in p53-deficient cancer cells. Using a genetically engineered mouse model of lung adenocarcinoma (LUAD), we demonstrate that depletion of TDG suppresses tumour growth in the p53-deficient context. Notably, A no"
+  },
+  {
+    "accession": "GSE236722",
+    "title": "Synthetic essentiality of thymine DNA glycosylase in p53-deficient cancer [WGBS]",
+    "n_samples": 12,
+    "taxon": "Homo sapiens; Mus musculus",
+    "gdstype": "Methylation profiling by high throughput sequencing",
+    "suppfile": "BEDGRAPH",
+    "pdat": "2024/06/21",
+    "summary": "Thymine DNA Glycosylase (TDG) is a versatile protein involved in DNA mismatch repair, DNA demethylation, and transcriptional regulation. Here, we identify TDG as a synthetic essential effector in p53-deficient tumours. We found that deletion of TDG inhibits cell proliferation specifically in p53-deficient cancer cells. Using a genetically engineered mouse model of lung adenocarcinoma (LUAD), we demonstrate that depletion of TDG suppresses tumour growth in the p53-deficient context. Notably, A no"
+  },
+  {
+    "accession": "GSE236726",
+    "title": "Synthetic essentiality of thymine DNA glycosylase in p53-deficient cancer [strand specific RNA-seq]",
+    "n_samples": 13,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "XLSX",
+    "pdat": "2024/06/21",
+    "summary": "Thymine DNA Glycosylase (TDG) is a versatile protein involved in DNA mismatch repair, DNA demethylation, and transcriptional regulation. Here, we identify TDG as a synthetic essential effector in p53-deficient tumours. We found that deletion of TDG inhibits cell proliferation specifically in p53-deficient cancer cells. Using a genetically engineered mouse model of lung adenocarcinoma (LUAD), we demonstrate that depletion of TDG suppresses tumour growth in the p53-deficient context. Notably, A no"
+  },
+  {
+    "accession": "GSE236727",
+    "title": "Synthetic essentiality of thymine DNA glycosylase in p53-deficient cancer [scRNA-seq]",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/06/21",
+    "summary": "Thymine DNA Glycosylase (TDG) is a versatile protein involved in DNA mismatch repair, DNA demethylation, and transcriptional regulation. Here, we identify TDG as a synthetic essential effector in p53-deficient tumours. We found that deletion of TDG inhibits cell proliferation specifically in p53-deficient cancer cells. Using a genetically engineered mouse model of lung adenocarcinoma (LUAD), we demonstrate that depletion of TDG suppresses tumour growth in the p53-deficient context. Notably, A no"
+  },
+  {
+    "accession": "GSE237981",
+    "title": "Reactivation of CTLA4-expressing T cells accelerates resolution of lung fibrosis in a humanized mouse model ",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/05/15",
+    "summary": "We performed single-cell sequencing to characterize the cellular landscape in mice treated with IgG1 or ipilimumab."
+  },
+  {
+    "accession": "GSE241978",
+    "title": "IFN    -induced Immunosuppression in Lung Carcinoma is Mediated by an Environmental Chemical Receptor (AhR) through PD-L1 and IDO Control (cm167 bulk RNA)",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "XLSX",
+    "pdat": "2024/06/08",
+    "summary": "While immunotherapy has shown efficacy in non-small cell lung cancer (NSCLC) patients, many respond only partially or not at all. One limitation in improving outcomes is the lack of a complete understanding of factors regulating immune checkpoint targets. Here, we sought to address a possible link between an environmental chemical receptor implicated in NSCLC and immune regulation, the aryl hydrocarbon receptor (AhR), and a known but counterintuitive mediator of immunosuppression, IFN    , in re"
+  },
+  {
+    "accession": "GSE241979",
+    "title": "IFN    -induced Immunosuppression in Lung Carcinoma is Mediated by an Environmental Chemical Receptor (AhR) through PD-L1 and IDO Control (cmt167 scRNA)",
+    "n_samples": 5,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/06/08",
+    "summary": "While immunotherapy has shown efficacy in non-small cell lung cancer (NSCLC) patients, many respond only partially or not at all. One limitation in improving outcomes is the lack of a complete understanding of factors regulating immune checkpoint targets. Here, we sought to address a possible link between an environmental chemical receptor implicated in NSCLC and immune regulation, the aryl hydrocarbon receptor (AhR), and a known but counterintuitive mediator of immunosuppression, IFN    , in re"
+  },
+  {
+    "accession": "GSE241980",
+    "title": "IFN    -induced Immunosuppression in Lung Carcinoma is Mediated by an Environmental Chemical Receptor (AhR) through PD-L1 and IDO Control",
+    "n_samples": 17,
+    "taxon": "Mus musculus; Homo sapiens",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/06/08",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE245236",
+    "title": "Local IL-4 signaling within bone marrow drives pathogenic myelopoiesis in lung cancer",
+    "n_samples": 5,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2023/12/20",
+    "summary": "Myeloid cells, in particular monocytes and macrophages, are well-described to suppress the antitumor immune response. However, the molecular mechanisms controlling immunosuppressive myeloid cell states are ill- defined, hampering the development of myeloid-targeted therapies for cancer1,2. Here, we transcriptionally profiled over 500,000 tumor infiltrating leukocytes in non-small cell lung cancer (NSCLC) patients and in the KrasG12DTp53-/- (KP) murine lung adenocarcinoma model. In both species, "
+  },
+  {
+    "accession": "GSE249002",
+    "title": "HDAC inhibitors directly modulate T cell gene expression and signaling and promote development of effector-exhausted T cells in murine tumors [scRNA-seq]",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2023/12/07",
+    "summary": "Epigenetic regulation plays a crucial role in the development and progression of cancer, including the regulation of antitumor immunity. The reversible nature of epigenetic modifications offers potential therapeutic avenues for cancer treatment. In particular, Histone deacetylase (HDAC) inhibitors (HDACi) have been shown to promote antitumor T cell immunity by regulating myeloid cell types, enhancing tumor antigen presentation, and increasing expression of chemokines. HDACi are currently being e"
+  },
+  {
+    "accession": "GSE249003",
+    "title": "HDAC inhibitors directly modulate T cell gene expression and signaling and promote development of effector-exhausted T cells in murine tumors",
+    "n_samples": 32,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by array; Expression profiling by high throughput sequencing",
+    "suppfile": "CEL, MTX, TSV",
+    "pdat": "2023/12/07",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE249630",
+    "title": "Modeling T cell temporal response to cancer immunotherapy rationalize development of combinatorial treatments protocols",
+    "n_samples": 1372,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2024/03/01",
+    "summary": "Successful immunotherapy relies on triggering complex responses involving T-cells dynamics in tumors and the periphery. Characterizing these responses remains challenging using static human single-cell atlases or mouse models. To address this, we developed a framework for in vivo tracking of tumor-specific CD8+ T cells over time and at single-cell resolution. Our tools facilitate the modeling of gene program dynamics in the tumor microenvironment (TME) and tumor-draining lymph node (tdLN). Using"
+  },
+  {
+    "accession": "GSE250166",
+    "title": "KEAP1-mutant lung cancers weaken anti-tumor immunity and promote an M2-like macrophage phenotype.",
+    "n_samples": 15,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2024/03/20",
+    "summary": "Considerable advances have been made in lung cancer therapies, but there is still an unmet clinical need to improve survival for lung cancer patients. Immunotherapies have improved survival, although only 20-30% of patients respond to these treatments. Interestingly, cancers with mutations in KEAP1, the negative regulator of the NRF2 cytoprotective pathway, are resistant to immune checkpoint inhibition and correlate with decreased immune cell infiltration. NRF2 is known for promoting an anti-inf"
+  },
+  {
+    "accession": "GSE255833",
+    "title": "A functional single cell metabolic survey identifies Elovl1 as a target to enhance CD8+ T cell fitness in solid tumors [CRISPR]",
+    "n_samples": 43,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2025/02/04",
+    "summary": "Rewiring T cell metabolism can improve intratumoral infiltration and function. By performing a CRISPR/Cas9 metabolic survey in CD8+ T cells, we identified 83 targets enriched at the primary and/or metastatic niche in the context of pancreatic cancer. We applied single-cell RNA sequencing to disclose transcriptome changes associated with each metabolic perturbation. This revealed Elongation of Very-Long-chain fatty acids protein 1 (Elovl1) as a metabolic target to sustain proliferation and both e"
+  },
+  {
+    "accession": "GSE255922",
+    "title": "USP5 stabilizes YTHDF1 to control cancer immune surveillance through mTORC1-mediated phosphorylation",
+    "n_samples": 9,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2024/12/11",
+    "summary": "The N6-methyladenosine (m6A) binding protein YTHDF1 emerges as a frequently upregulated oncogene across various cancer types. Its depletion significantly improves the efficacy of cancer immune checkpoint blockade (ICB) treatment. A comprehensive understanding of the molecular mechanisms governing YTHDF1 protein stability is pivotal for enhancing clinical response rates and the effectiveness of ICB in cancer patients. Here, we report that USP5 interacts with YTHDF1, removing K11-linked polyubiqui"
+  },
+  {
+    "accession": "GSE259244",
+    "title": "GFPT2 knockdown effects on the tumor immune microenvironment though scRNA-seq",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/04/19",
+    "summary": "Through comprehensive genetic and pharmacological analyses across various models, we have identified glutamine fructose-6-phosphate transaminase 2 (GFPT2) as a key facilitator of immune evasion in EGFR-mutated NSCLC. GFPT2 escalates the expression and glycosylation of PD-L1, PVR and CD276, bolstering their interactions with CD8+T cells, and amplifies CD73 glycosylation, thereby intensifying adenosine-mediated CD8+T cells suppression. These actions collectively reduce tumor cell vulnerability to "
+  },
+  {
+    "accession": "GSE259379",
+    "title": "TG6050, an oncolytic vaccinia virus encoding interleukin-12 and anti-CTLA-4 antibody induces tumor regression through profound tumor microenvironment remodeling and strong antitumor adaptive immune response [scRNA-seq]",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX",
+    "pdat": "2024/07/30",
+    "summary": "By their selective infection or replication into tumors, oncolytic viruses trigger profound modifications of tumor immune microenvironment with a massive infiltration and activation of T cells. This tumor warming up can be further amplified by the local delivery of powerful immunomodulatory molecules encoded into virus\u2019 genome. Those properties are particularly of interest for tumor poorly infiltrated or infiltrated with anergic T cells to reverse patient\u2019s unresponsiveness to immune checkpoint "
+  },
+  {
+    "accession": "GSE260497",
+    "title": "the effect of knockout Brd7 on 4T07-TGL cells under in vitro condition",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BW",
+    "pdat": "2024/12/06",
+    "summary": "Metastasis is a major cause of mortality in cancer and is likely influenced by epigenetic and gene regulatory factors. Using an in vivo screen, we demonstrated that several subunits of the polybromo-associated BAF (PBAF) complex, particularly BRD7, were required for breast cancer metastatic dormancy in lung. BRD7 loss induced metastatic outgrowth, along with modifications in epigenomic landscapes and upregulated oncogenic signaling. Breast cancer cells harboring BRD7 loss also reprogrammed the s"
+  },
+  {
+    "accession": "GSE261385",
+    "title": "the effect of knockout Brd7 on 4T07-TGL cells under in vitro condition [scRNA-Seq]",
+    "n_samples": 3,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "",
+    "pdat": "2024/12/06",
+    "summary": "Metastasis is a major cause of mortality in cancer and is likely influenced by epigenetic and gene regulatory factors. Using an in vivo screen, we demonstrated that several subunits of the polybromo-associated BAF (PBAF) complex, particularly BRD7, were required for breast cancer metastatic dormancy in lung. BRD7 loss induced metastatic outgrowth, along with modifications in epigenomic landscapes and upregulated oncogenic signaling. Breast cancer cells harboring BRD7 loss also reprogrammed the s"
+  },
+  {
+    "accession": "GSE261737",
+    "title": "Mycobacterium tuberculosis bearing pulmonary transcriptomic landscape of wildtype and PD-1 deficient mice",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/09/01",
+    "summary": "It was shown that PD-1 were significantly up-regulated in several infectious diseases, suggesting the immune boosting anti-PD-1 therapy may have potential applications in the prevention and treatment of infectious diseases. Here we found that the ablation of the PD-1 was responsible for the TB consequence in a time-dependent manner. While long-term sustained PD-1 ablation results in worsen TB outcome, the early short-term PD-1 pathway perturbing have an active role in the protection of infection"
+  },
+  {
+    "accession": "GSE261898",
+    "title": "Acquired resistance to immunotherapy by physical barriers with cancer cell\u2013expressing collagens in non\u2013small cell lung cancer",
+    "n_samples": 14,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "RDS, TAR",
+    "pdat": "2025/02/01",
+    "summary": "Drug resistance is the principal challenge of cancer therapies, including recently developed immunotherapy. More and more popular use of immunotherapy, especially treatments with immune checkpoint inhibitors (ICIs), witnesses explosively increasing cases of both primary and acquired immunotherapy resistance. While primary resistance has been extensively studied, mechanisms underlying acquired resistance of immunotherapy are less understood. Here we reported that tumor cells could develop acquire"
+  },
+  {
+    "accession": "GSE262165",
+    "title": "The effect of knockout Brd7 on 4T07-TGL cells under in vitro condition",
+    "n_samples": 3,
+    "taxon": "Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BW",
+    "pdat": "2024/12/06",
+    "summary": "Metastasis is a major cause of mortality in cancer and is likely influenced by epigenetic and gene regulatory factors. Using an in vivo screen, we demonstrated that several subunits of the polybromo-associated BAF (PBAF) complex, particularly BRD7, were required for breast cancer metastatic dormancy in lung. BRD7 loss induced metastatic outgrowth, along with modifications in epigenomic landscapes and upregulated oncogenic signaling. Breast cancer cells harboring BRD7 loss also reprogrammed the s"
+  },
+  {
+    "accession": "GSE262844",
+    "title": "Antitumor progenitor exhausted CD8 T cells are sustained with TCR engagement [CUT&Tag]",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BW",
+    "pdat": "2024/04/05",
+    "summary": "Durability of an antitumor immune response is mediated in part by the persistence of progenitor exhausted CD8 T cells (Tpex). Tpex serve as a source for the pool of effector T cells, and in the absence of their cognate antigen, they are able to preserve their quantity through a process of self-renewal. However, it remains unknown how TCR engagement impacts the self-renewal capacity of Tpex in settings of continued antigen exposure. Here, we used a Lewis lung carcinoma model that elicits an optim"
+  },
+  {
+    "accession": "GSE264232",
+    "title": "Interleukin-1\u03b1 release during necrotic-like cell death generates myeloid-driven immunosuppression that restricts anti-tumor immunity",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, MTX, TSV",
+    "pdat": "2024/10/24",
+    "summary": "Necroptosis can promote antigen-specific immune responses, suggesting induced necroptosis as a therapeutic approach for cancer. Here we sought to determine the mechanism of immune activation but found the necroptosis mediators RIPK3 and MLKL dispensable for tumor growth in genetic and implantable models of breast or lung cancer. Surprisingly, inducing necroptosis within established breast tumors generated a myeloid suppressive microenvironment that inhibited T cell function, promoted tumor growt"
+  },
+  {
+    "accession": "GSE264426",
+    "title": "Intermittent MEK inhibition with GITR co-stimulation rescues T cell function for increased efficacy with CTLA-4 blockade in solid tumor models",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, TXT",
+    "pdat": "2024/06/12",
+    "summary": "MEK inhibitors (MEKis) have limited success with MAPK/ERK pathway dependent cancers due to various resistance mechanisms tumor cells can employ. CH5126766 (CKI27) is a novel inhibitor that binds to MEK and prevents release of RAF, reducing the relief of negative feedback commonly observed with other MEKis. We observed that CKI27 increased MHC expression on tumor cells and improved T cell mediated killing. Yet, CKI27 also decreased T cell proliferation, activation, and cytolytic activity by inhib"
+  },
+  {
+    "accession": "GSE266192",
+    "title": "Single Cell Analysis of Lung Lymphatic Endothelial Cells and Lymphatic Responses during Influenza Infection",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "H5",
+    "pdat": "2024/05/06",
+    "summary": "Tissue lymphatic vessels network plays critical roles in immune surveillance and tissue homeostasis in response to pathogen invasion, but how lymphatic system per se is remolded during infection is less understood. Here, we observed that influenza infection induces a significant increase of lymphatic vessel numbers in the lung, accompanied with extensive proliferation of lymphatic endothelial cells (LECs). Single-cell RNA sequencing illustrated the heterogeneity of LECs, identifying a novel PD-L"
+  },
+  {
+    "accession": "GSE267164",
+    "title": "CSF1R inhibition plus chemotherapy induces systemic anti-tumor immune responses in triple negative breast cancer and sensitizes tumors to anti-PD-1 therapy by relieving resident memory T cell dysfunction [blood]",
+    "n_samples": 49,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2026/02/23",
+    "summary": "Triple-negative breast cancer (TNBC) is a heterogeneous and aggressive disease where limited therapeutic options are available. A significant correlation exists between presence of intratumoral macrophages, tumor progression, and poor outcomes in TNBC. Preclinical in vivo studies revealed that inhibition of myelomonocytic colony stimulating factor 1 (CSF1) or its receptor (CSF1R), plus cytotoxic therapy decreases primary tumor growth kinetics and pulmonary metastases by CD8+ T cell-dependent mec"
+  },
+  {
+    "accession": "GSE267165",
+    "title": "CSF1R inhibition plus chemotherapy induces systemic anti-tumor immune responses in triple negative breast cancer and sensitizes tumors to anti-PD-1 therapy by relieving resident memory T cell dysfunction [lung]",
+    "n_samples": 120,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2026/02/23",
+    "summary": "Triple-negative breast cancer (TNBC) is a heterogeneous and aggressive disease where limited therapeutic options are available. A significant correlation exists between presence of intratumoral macrophages, tumor progression, and poor outcomes in TNBC. Preclinical in vivo studies revealed that inhibition of myelomonocytic colony stimulating factor 1 (CSF1) or its receptor (CSF1R), plus cytotoxic therapy decreases primary tumor growth kinetics and pulmonary metastases by CD8+ T cell-dependent mec"
+  },
+  {
+    "accession": "GSE267166",
+    "title": "CSF1R inhibition plus chemotherapy induces systemic anti-tumor immune responses in triple negative breast cancer and sensitizes tumors to anti-PD-1 therapy by relieving resident memory T cell dysfunction [lymph node]",
+    "n_samples": 37,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2026/02/23",
+    "summary": "Triple-negative breast cancer (TNBC) is a heterogeneous and aggressive disease where limited therapeutic options are available. A significant correlation exists between presence of intratumoral macrophages, tumor progression, and poor outcomes in TNBC. Preclinical in vivo studies revealed that inhibition of myelomonocytic colony stimulating factor 1 (CSF1) or its receptor (CSF1R), plus cytotoxic therapy decreases primary tumor growth kinetics and pulmonary metastases by CD8+ T cell-dependent mec"
+  },
+  {
+    "accession": "GSE267167",
+    "title": "CSF1R inhibition plus chemotherapy induces systemic anti-tumor immune responses in triple negative breast cancer and sensitizes tumors to anti-PD-1 therapy by relieving resident memory T cell dysfunction [tumor]",
+    "n_samples": 145,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2026/02/23",
+    "summary": "Triple-negative breast cancer (TNBC) is a heterogeneous and aggressive disease where limited therapeutic options are available. A significant correlation exists between presence of intratumoral macrophages, tumor progression, and poor outcomes in TNBC. Preclinical in vivo studies revealed that inhibition of myelomonocytic colony stimulating factor 1 (CSF1) or its receptor (CSF1R), plus cytotoxic therapy decreases primary tumor growth kinetics and pulmonary metastases by CD8+ T cell-dependent mec"
+  },
+  {
+    "accession": "GSE267197",
+    "title": "The effect of knockout Brd7 on 4T07-TGL cells under in vitro condition [RNA-seq]",
+    "n_samples": 9,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2024/12/06",
+    "summary": "Metastasis is a major cause of mortality in cancer and is likely influenced by epigenetic and gene regulatory factors. Using an in vivo screen, we demonstrated that several subunits of the polybromo-associated BAF (PBAF) complex, particularly BRD7, were required for breast cancer metastatic dormancy in lung. BRD7 loss induced metastatic outgrowth, along with modifications in epigenomic landscapes and upregulated oncogenic signaling. Breast cancer cells harboring BRD7 loss also reprogrammed the s"
+  },
+  {
+    "accession": "GSE267534",
+    "title": "TLR4-dependent fibroblast-monocyte axis in tumor-draining lymph nodes contributes to metastasis in triple-negative breast cancer",
+    "n_samples": 3,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "ZIP",
+    "pdat": "2025/09/17",
+    "summary": "Triple-negative breast cancer (TNBC) is the most aggressive form of BC and despite improvements in neoadjuvant treatment with immune checkpoint blockade (ICB) targeting PD-1, response rates vary, and patients relapse with metastatic disease. Using human samples and mouse models, we show that myeloid cells, particularly monocytes, increase in aggressive TNBC draining lymph nodes (TDLN) showing T-cell suppressive capacity via PD-L1 and iNOS. Tumor-induced TLR4 ligands reprogrammed TDLN fibroblasti"
+  },
+  {
+    "accession": "GSE267557",
+    "title": "Gene expression profile at single cell level of CD45+ cells that were isolated from the lung of anti-PD-1 Ab-treated young or aged mice",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TAR",
+    "pdat": "2024/12/31",
+    "summary": "In tumor-bearing aged mice, abberant immune cells are expected to be accumulated in damaged lung of aged mice in response to anti-PD-1 therapy. To identify subpopulation responsible for the lung damage, we analyzed for differences in CD45+ immune cell components isolated from the lung of young and aged mice, using single-cell RNA sequencing (scRNA-seq)."
+  },
+  {
+    "accession": "GSE267838",
+    "title": "Tumor-Infiltrating CTL expansion and effector functions depends on Slc7a5-dependent tryptophan update [ATAC-seq]",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BIGWIG",
+    "pdat": "2025/05/17",
+    "summary": "Tumor antigen recognition and subsequent cytotoxic T lymphocyte (CTL) tumor infiltration are essential but alone are insufficient for an antitumor response. T cells nutrient uptake and metabolic reprogramming may dictate T cell differentiation and effector function to control CTL function in the tumor microenvironment. Slc7a5 is a system L transporter of large neutral amino acids and regulates T cell receptor (TCR)-mediated T cell activation during viral infection. Using tumor-specific CTL and a"
+  },
+  {
+    "accession": "GSE267839",
+    "title": "Tumor-Infiltrating CTL expansion and effector functions depends on Slc7a5-dependent tryptophan update [RNA-seq]",
+    "n_samples": 10,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "XLS",
+    "pdat": "2025/05/17",
+    "summary": "Tumor antigen recognition and subsequent cytotoxic T lymphocyte (CTL) tumor infiltration are essential but alone are insufficient for an antitumor response. T cells nutrient uptake and metabolic reprogramming may dictate T cell differentiation and effector function to control CTL function in the tumor microenvironment. Slc7a5 is a system L transporter of large neutral amino acids and regulates T cell receptor (TCR)-mediated T cell activation during viral infection. Using tumor-specific CTL and a"
+  },
+  {
+    "accession": "GSE267840",
+    "title": "Tumor-Infiltrating CTL expansion and effector functions depends on Slc7a5-dependent tryptophan update [scRNA-seq]",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "H5",
+    "pdat": "2025/05/17",
+    "summary": "Tumor antigen recognition and subsequent cytotoxic T lymphocyte (CTL) tumor infiltration are essential but alone are insufficient for an antitumor response. T cells nutrient uptake and metabolic reprogramming may dictate T cell differentiation and effector function to control CTL function in the tumor microenvironment. Slc7a5 is a system L transporter of large neutral amino acids and regulates T cell receptor (TCR)-mediated T cell activation during viral infection. Using tumor-specific CTL and a"
+  },
+  {
+    "accession": "GSE268525",
+    "title": "SFRP2+ CAFs Hinder Abscopal Effect from Combined Radiotherapy and Immunotherapy by Forming a Hostile Perivascular Niche (scRNA-Seq)",
+    "n_samples": 3,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/02/06",
+    "summary": "Despite accumulating cases of radiotherapy-induced abscopal effect in the lung cancer with the introduction of immune checkpoint inhibitors (ICIs), the occurrence of this effect remains infrequent and unpredictable to be a therapeutic goal. Here, we showed that the combination of radiotherapy (8Gy*3F) and ICI alleviated the tumor burden at the irradiated site whereas no discernible benefit was observed in the abscopal tumors. RNA-sequencing data showed that extracellular structure organization p"
+  },
+  {
+    "accession": "GSE268555",
+    "title": "DDX54 downregulation enhances anti-PD1 therapy in immune-desert lung tumors with high tumor mutational burden",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "H5",
+    "pdat": "2025/03/19",
+    "summary": "High tumor mutational burden (TMB) is a predictive biomarker for the responsiveness of cancer to immune checkpoint inhibitor therapy that indicates whether immune cells can sufficiently recognize cancer cells as non-self. However, about 30% of all cancers from The Cancer Genome Atlas are classified as immune-desert tumors lacking T cell infiltration despite high TMB. Since the underlying mechanism of these immune-desert tumors has yet to be unraveled, there is a pressing need to transform such i"
+  },
+  {
+    "accession": "GSE269075",
+    "title": "Gene expression profiles of PD-L1 positive and PD-L1 negative lung neutrophils from Influenza A virus infected mice",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TAR",
+    "pdat": "2024/10/16",
+    "summary": "Neutrophils are often considered as foes during severe lung infections through their ability to secrete inflammatory mediators and participate in lung damages. Here, we used single cell RNA-sequencing (scRNA-seq) to assess the transcriptional heterogeneity of neutrophils in mice with severe lung infection caused by influenza A virus"
+  },
+  {
+    "accession": "GSE270050",
+    "title": "Expansion of Tumor-Infiltrating CD8+ T Cell Clonotypes Occurs in the Spleen in Response to Immune Checkpoint Blockade",
+    "n_samples": 29,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Other",
+    "suppfile": "TAB, TSV, TXT",
+    "pdat": "2024/07/19",
+    "summary": "Immune checkpoint blockade (ICB) enhances tumor-reactive T cell responses against cancer, leading to long-term tumor control and survival in a fraction of patients. Given the increasingly recognized complexity of CD8+ T cell differentiation that occurs in response to chronic antigen stimulation, it remains unclear precisely which T cell differentiation states are critical for the response to ICB, as well as the anatomic sites at which ICB-mediated reinvigoration of these T cells occurs. We used "
+  },
+  {
+    "accession": "GSE271964",
+    "title": "Single-cell RNA-seq of 4T1 breast tumors from mice treated with anti-Siglec-E and/or anti-PD-1 antibodies",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2025/08/15",
+    "summary": "Metastasis remains the leading cause of cancer-related mortality, driven by complex interactions within the tumor microenvironment (TME). Tumor-associated macrophages (TAMs) play a pivotal role in metastatic progression, yet molecular diversity and upstream regulators remain poorly defined. Glycoprotein nonmetastatic melanoma protein B (GPNMB), overexpressed in subsets of tumors including triple-negative breast cancer (TNBC), is implicated in epithelial-mesenchymal transition (EMT) and cancer st"
+  },
+  {
+    "accession": "GSE274351",
+    "title": "Type I interferon signaling pathway enhances immune-checkpoint inhibition in KRAS mutant lung tumors [LCM]",
+    "n_samples": 18,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2024/08/12",
+    "summary": "Lung cancer is the leading cause of cancer mortality worldwide. KRAS oncogenes are responsible for at least a quarter of lung adenocarcinomas, the main subtype of lung cancer. After four decades of intense research, selective inhibitors of KRAS oncoproteins are finally reaching the clinic. Yet, their effect on overall survival is limited due to the rapid appearance of drug resistance, a likely consequence of the high intratumoral heterogeneity characteristic of these tumors. In this study, we ha"
+  },
+  {
+    "accession": "GSE274352",
+    "title": "Type I interferon signaling pathway enhances immune-checkpoint inhibition in KRAS mutant lung tumors [cell lines]",
+    "n_samples": 16,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TSV",
+    "pdat": "2024/08/12",
+    "summary": "Lung cancer is the leading cause of cancer mortality worldwide. KRAS oncogenes are responsible for at least a quarter of lung adenocarcinomas, the main subtype of lung cancer. After four decades of intense research, selective inhibitors of KRAS oncoproteins are finally reaching the clinic. Yet, their effect on overall survival is limited due to the rapid appearance of drug resistance, a likely consequence of the high intratumoral heterogeneity characteristic of these tumors. In this study, we ha"
+  },
+  {
+    "accession": "GSE274477",
+    "title": "Type I interferon signaling pathway enhances immune-checkpoint inhibition in KRAS mutant lung tumors [scRNA-seq]",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TSV",
+    "pdat": "2024/08/12",
+    "summary": "Lung cancer is the leading cause of cancer mortality worldwide. KRAS oncogenes are responsible for at least a quarter of lung adenocarcinomas, the main subtype of lung cancer. After four decades of intense research, selective inhibitors of KRAS oncoproteins are finally reaching the clinic. Yet, their effect on overall survival is limited due to the rapid appearance of drug resistance, a likely consequence of the high intratumoral heterogeneity characteristic of these tumors. In this study, we ha"
+  },
+  {
+    "accession": "GSE275512",
+    "title": "Single-Cell RNA Sequencing of Lungs Infected for 24 Hours with Avirulent Coccidioides posadasii (\u0394cts2/\u0394ard1/\u0394cts3)",
+    "n_samples": 1,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, MTX, TSV, TXT",
+    "pdat": "2025/06/17",
+    "summary": "The innate immune responses to Coccidioides are not well understood, particularly regarding which immune cells initiate the response upon infection. This study uses mouse models 24 hours post-infection to explore the initial immunological response to Coccidioides. Data sets include CD45+ MACS bead-sorted lung immune cells labeled with Coccidioides to differentiate which immune cells were directly interacting with the fungus versus bystander cells. The unlabeled Coccidioides data set includes all"
+  },
+  {
+    "accession": "GSE275877",
+    "title": "Hypoxia is linked to acquired resistance to immune checkpoint inhibitors in lung cancer",
+    "n_samples": 5,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/10/23",
+    "summary": "Despite the established use of immune checkpoint inhibitors to treat non-small cell lung cancer (NSCLC), only a subset of patients benefit from treatment and approximately 50% of patients whose tumors respond eventually develop acquired resistance. To identify novel drivers of acquired resistance, we generated murine Msh2 knock-out (KO) lung tumors that initially responded but eventually developed acquired resistance to anti-PD-1, alone or in combination with anti-CTLA-4. Resistant tumors harbor"
+  },
+  {
+    "accession": "GSE276105",
+    "title": "Host MTDH orchestrates liver lipid metabolism and CD8+ T cells to suppress antitumor immunity [Tumor CD8 T cells]",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2025/12/31",
+    "summary": "Cancer affects the function of distant organs beyond metastasis, conversely, dysfunction in distant organs can also impact tumor progression. However, the mechanisms underlying these interactions remains poorly understood. Here, we uncover that metadherin (MTDH), previously identified as a cancer metastatic gene, expressed in different host tissues, manipulates systemic lipid metabolism to control CD8+ T cell-mediated antitumor immunity. Genetic ablation of MTDH in host tissues significantly sup"
+  },
+  {
+    "accession": "GSE276106",
+    "title": "Host MTDH orchestrates liver lipid metabolism and CD8+ T cells to suppress antitumor immunity [scRNA-seq]",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/12/31",
+    "summary": "Cancer affects the function of distant organs beyond metastasis, conversely, dysfunction in distant organs can also impact tumor progression. However, the mechanisms underlying these interactions remains poorly understood. Here, we uncover that metadherin (MTDH), previously identified as a cancer metastatic gene, expressed in different host tissues, manipulates systemic lipid metabolism to control CD8+ T cell-mediated antitumor immunity. Genetic ablation of MTDH in host tissues significantly sup"
+  },
+  {
+    "accession": "GSE278013",
+    "title": "Cathepsin L as a dual-target to mitigate muscle wasting while enhancing anti-tumor efficacy of anti-PD-L1 [Bulk1]",
+    "n_samples": 14,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "RESULTS",
+    "pdat": "2024/10/01",
+    "summary": "Immune checkpoint inhibitors (ICIs) have revolutionized cancer therapy; however, their use is frequently associated with immune-related adverse events (irAEs). In this study, anti-PD-L1 therapy exacerbates muscle wasting in tumor-bearing male mice despite its anti-tumor efficacy, accompanied by an accumulation of CD8+ T cells in muscle. Single-cell RNA sequencing identifies these cells as tissue-resident memory-like CD49a+ CD8+ T cells. While CD8+ T cell depletion prevents muscle wasting, it com"
+  },
+  {
+    "accession": "GSE278765",
+    "title": "Cathepsin L as a dual-target to mitigate muscle wasting while enhancing anti-tumor efficacy of anti-PD-L1",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2024/11/15",
+    "summary": "Immune checkpoint inhibitors (ICIs) have revolutionized cancer therapy; however, their use is frequently associated with immune-related adverse events (irAEs). In this study, anti-PD-L1 therapy exacerbates muscle wasting in tumor-bearing male mice despite its anti-tumor efficacy, accompanied by an accumulation of CD8+ T cells in muscle. Single-cell RNA sequencing identifies these cells as tissue-resident memory-like CD49a+ CD8+ T cells. While CD8+ T cell depletion prevents muscle wasting, it com"
+  },
+  {
+    "accession": "GSE279235",
+    "title": "S-nitrosylation of IRF7 induced by NOS1 expression in Melanoma suppresses anti-tumor immunity [scRNA-seq]",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV, TXT",
+    "pdat": "2025/10/01",
+    "summary": "Endogenous nitric oxide (NO) produced by nitric oxide synthases (NOSs) plays an important immunosuppressive role in the tumor microenvironment. In melanoma, NOS1 expression was increased with tumor progression and correlated with tumor immune escape through inhibition on type I interferon (IFN) signaling. However, the immune regulatory role and its related mechanism of NOS1 and its impacts on immune therapy such as immune checkpoint blockade (ICB) in melanoma is unclear. Here, we found that NOS1"
+  },
+  {
+    "accession": "GSE283827",
+    "title": "ERBB2 signaling drives immune cell evasion and resistance against immunotherapy in small cell lung cancer [scRNA-Seq]",
+    "n_samples": 5,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/10/09",
+    "summary": "Small cell lung cancer (SCLC) represents ~15% of all lung cancers and is characterized by its highly aggressive phenotype and its dismal outcome. Though the addition of immune checkpoint blockade to carboplatin and etoposide treatment has improved outcome in SCLC patients, SCLC cells finally acquire the ability to evade immunosurveillance and resistance against immune check point blockade. To elaborate molecular mechanisms that mediate SCLC immune cell evasion we performed high dimensional profi"
+  },
+  {
+    "accession": "GSE285342",
+    "title": "DDX54 downregulation enhances anti-PD1 therapy in immune-desert lung tumors with high tumor mutational burden",
+    "n_samples": 7,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TSV",
+    "pdat": "2025/03/19",
+    "summary": "High tumor mutational burden (TMB) is a predictive biomarker for the responsiveness of cancer to immune checkpoint inhibitor therapy that indicates whether immune cells can sufficiently recognize cancer cells as non-self. However, about 30% of all cancers from The Cancer Genome Atlas are classified as immune-desert tumors lacking T cell infiltration despite high TMB. Since the underlying mechanism of these immune-desert tumors has yet to be unraveled, there is a pressing need to transform such i"
+  },
+  {
+    "accession": "GSE285487",
+    "title": "Themis directs T cell exhaustion by promoting PD-1 signaling and regulating expression of transcription factors TCF-1 and TOX",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/12/25",
+    "summary": "T cell exhaustion is a protective mechanism during chronic viral infections, but it can impair anti-tumor immunity. Themis, a T cell-specific protein, is critical for CD8+ T cell homeostasis, cytokine responsiveness, and anti-Listeria responses. In Themis-deficient mice infected with LCMV C13, a chronic virus, we observed severe lung injury and premature death. Single-cell analysis revealed that Themis-deficient effector CD8+ T cells, while producing higher levels of TNF and IFN-\u03b3, were impaired"
+  },
+  {
+    "accession": "GSE285606",
+    "title": "Loss of miR-29a/b1 cluster reprograms the tumor microenvironment and contributes to immunosuppression in lung cancer",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/02/19",
+    "summary": "Immune checkpoint inhibitors (ICI), like those that block PD-1/PD-L1, have revolutionized oncological therapy for patients with non-small cell lung cancer (NSCLC). However, most patients demonstrate no clinical benefit or acquire resistance, even in PD-L1+ populations, highlighting the critical need to dissect tumor survival dependencies to overcome resistance. Using our unique Kras/p53-driven lung cancer models which demonstrate acquired or intrinsic resistance to ICI, we performed single cell "
+  },
+  {
+    "accession": "GSE285657",
+    "title": "Targeting tumor-intrinsic S100A1 augments antitumor immunity and potentiates immunotherapy efficacy",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/03/26",
+    "summary": "Immune checkpoint blockade (ICB) has revolutionized cancer treatment, but the therapeutic response is highly heterogeneous. A potential mode of resistance is tumor-intrinsic mechanisms leading to an immunosuppressive tumor microenvironment. However, the underlying interactive network remains elusive and the generalizable biomarkers and targeting strategies are still lacking. Here, we uncovered the potential of plasma S100 calcium-binding protein A1 (S100A1) in determining ICB efficacy based on l"
+  },
+  {
+    "accession": "GSE287865",
+    "title": "CXCR4+ PD-L1+ neutrophils are increased in non-survived septic mice",
+    "n_samples": 10,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/01/31",
+    "summary": "The dysregulated host response to infections can lead to sepsis, a complex disease characterized by a spectrum of clinical phenotypes associated with the host immune response variability and outcomes. This heterogeneity poses challenges for implementing specific therapeutic approaches. While clinical sepsis phenotypes are well distinguished, the mechanisms driving these heterogeneous responses remain poorly understood. Using an unbiased experimental approach, we analysed immune cell activation p"
+  },
+  {
+    "accession": "GSE287964",
+    "title": "A blood-brain barrier-like vascular gate limits immunotherapy efficacy in neuroendocrine cancers",
+    "n_samples": 12,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, MTX, TSV",
+    "pdat": "2026/03/23",
+    "summary": "Small cell lung cancer (SCLC), a highly aggressive neuroendocrine malignancy, is among the most immune-desert tumor types and exhibits poor response to immunotherapy. However, the mechanisms underlying this immune resistance remain unclear. Here, we identify a unique immune-excluding vascular (IEV) barrier in SCLC, distinct from non-small cell lung cancer (NSCLC) and other cancers, composed of tightly connected endothelial cells, a thickened basement membrane, and dense pericyte coverage. Functi"
+  },
+  {
+    "accession": "GSE288231",
+    "title": "Co-targeting of epigenetic regulators and BCL-XL improves efficacy of immune checkpoint blockade therapy in solid tumors",
+    "n_samples": 15,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/05/30",
+    "summary": "We have used a single-cell sequencing approach to study the changes induced in the immune cells present in the tumor microenvironment of Lewis lung cancer (LLC) mouse tumors treated with a novel therapeutic strategy based on a dual inhibitor of G9a and DNMTs (CM272), a Bcl-XL inhibitor (A1331852) and anti-PD-1 (RMP1-14)."
+  },
+  {
+    "accession": "GSE288401",
+    "title": "STING/MITA-CD38 axis in macrophages supports regulatory T cell survival and NSCLC progression.",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/11/29",
+    "summary": "Mediator of IRF3 activation (MITA, also known as STING) is a cyclic GMP-AMP (cGAMP) receptor that activates type I interferon responses to inhibit tumorigenesis in tumor cells. However, the MITA agonists have limited antitumor efficacy in clinical trials. Here we show that MITA in macrophages promotes the survival of regulatory T cell (Treg) in the tumor microenvironment (TME) and the progression of non-small cell lung cancer (NSCLC) in the KRasG12D autochthonous NSCLC mouse models. Mechanistica"
+  },
+  {
+    "accession": "GSE288416",
+    "title": "Host MTDH orchestrates liver lipid metabolism and CD8+ T cells to suppress antitumor immunity [Tumor]",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2025/12/31",
+    "summary": "Cancer affects the function of distant organs beyond metastasis, conversely, dysfunction in distant organs can also impact tumor progression. However, the mechanisms underlying these interactions remains poorly understood. Here, we uncover that metadherin (MTDH), previously identified as a cancer metastatic gene, expressed in different host tissues, manipulates systemic lipid metabolism to control CD8+ T cell-mediated antitumor immunity. Genetic ablation of MTDH in host tissues significantly sup"
+  },
+  {
+    "accession": "GSE288687",
+    "title": "Modulating AP-1 enables CAR-T cells to establish an intratumoral stem-like reservoir and overcomes resistance to PD-1 blockade ",
+    "n_samples": 12,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Other",
+    "suppfile": "CSV, MTX, TSV",
+    "pdat": "2026/01/06",
+    "summary": "CAR-T therapy has shown limited synergy with PD-1/PD-L1 blockade, but the mechanisms underlying resistance remain unclear. PD-1\u207aTCF1\u207a stem-like T cells mediate responses to PD-1/PD-L1 blockade and are maintained by MHC-dependent interactions with DCs in tumor-draining lymph nodes (dLN). Because CAR-Ts recognize intact antigen, not peptide-MHC, their activation is confined to tumors, potentially preventing maintenance of this critical subset. In ROR1\u207a lung cancer models, ROR1-targeting CAR-Ts rap"
+  },
+  {
+    "accession": "GSE289119",
+    "title": "DDX54 downregulation enhances anti-PD1 therapy in immune-desert lung tumors with high tumor mutational burden",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Non-coding RNA profiling by high throughput sequencing",
+    "suppfile": "TSV",
+    "pdat": "2025/03/19",
+    "summary": "High tumor mutational burden (TMB) is a predictive biomarker for the responsiveness of cancer to immune checkpoint inhibitor therapy that indicates whether immune cells can sufficiently recognize cancer cells as non-self. However, about 30% of all cancers from The Cancer Genome Atlas are classified as immune-desert tumors lacking T cell infiltration despite high TMB. Since the underlying mechanism of these immune-desert tumors has yet to be unraveled, there is a pressing need to transform such i"
+  },
+  {
+    "accession": "GSE292908",
+    "title": "Anti-CSF-1R therapy with combined immuno- chemotherapy coordinate an adaptive immune response to eliminate macrophage enriched Triple Negative Breast Cancers",
+    "n_samples": 8,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/12/05",
+    "summary": "Patients diagnosed with metastatic triple negative breast cancer (mTNBC) have limited treatment options, are more prone to develop resistance and are associated with high mortality. A cold tumor immune microenvironment (TIME) characterized by low T cells and high tumor associated macrophages (TAMs) in mTNBC is associated with the failure of standard-of-care chemotherapy and immune checkpoint blockade (ICB) treatment. We demonstrate that the combination of immunostimulatory metronomic Cytoxan (CT"
+  },
+  {
+    "accession": "GSE294130",
+    "title": "Innate Lymphoid Cells Originate from Fetal Liver-Derived Tissue-Resident Progenitors",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/07/14",
+    "summary": "Committed progenitors with innate lymphoid cell (ILC) developmental potential are present in the fetus and bone marrow (BM). However, how fetal and BM hematopoiesis temporally and spatially contributes to ILC pools remains unclear. Here, we elucidated the distinct origins and developmental pathways of extramedullary and intramedullary ILCs during ontogeny. ILC-restricted hematopoiesis is initiated in the fetal liver (FL) and then FL-derived PD-1+ ILC progenitors (ILCPs) seed fetal lung and intes"
+  },
+  {
+    "accession": "GSE295241",
+    "title": "PD-1high memory-phenotype CD4 T cells mediate type 2 bystander immunity and promote pulmonary fibrosis via BATF/amphiregulin axis",
+    "n_samples": 19,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV, TXT",
+    "pdat": "2025/05/31",
+    "summary": "Single-cell RNA sequencing(scRNA-seq) was performed to investigate the differentiation process of steady-state CD4 T cells following treatmernt with IL-25 and IL-33, after initial isolation via FACS. This analysis revealed that steady-state PD-1high CD4 T cell  differentiate into patogenic Th2 cells, characterized by the expression of IL-13, IL-5 and amphireguling. These findings suggest that steady-state PD-1high CD4 T cells may contribute to pulmonary fibrosis through its differntiation into p"
+  },
+  {
+    "accession": "GSE296664",
+    "title": "Hyperactive Alternative RNA Splicing Facilitates Immune Escape in Small Cell Lung Cancer [scRNA-Seq]",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TAR",
+    "pdat": "2025/12/31",
+    "summary": "The mechanisms driving cancer immune escape remain incompletely understood. In this study, we reveal that alternative RNA splicing is hyperactivated in small cell lung cancer (SCLC), particularly in the classic neuroendocrine subtypes, and is associated with poor prognosis. ASCL1, a defining transcription factor of SCLC, directly binds to and upregulates the expression of most splicing factors, including PRMT5. Elevated levels of these splicing factors correlate with an increase in skipped exon "
+  },
+  {
+    "accession": "GSE297097",
+    "title": "The ImmgenT Open-Source project",
+    "n_samples": 261,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Other",
+    "suppfile": "CSV, MTX, TSV, TXT, XLSX",
+    "pdat": "2025/05/14",
+    "summary": "This SuperSeries is composed of the SubSeries listed below.  Supplementary files current as of 7/8/2025. v1 - 5/14/2025 v2 - 7/8/2025"
+  },
+  {
+    "accession": "GSE297632",
+    "title": "Single-cell RNA sequencing data of anti-PD-1 antibody tolerant LLC cells",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/04/15",
+    "summary": "Even after anti-PD-1 antibody is administrated to subcutaneous model mouse using LLC cells, there are a few cells which survive, and these tolerant cells are considered to be the source of later recurrence. We performed single-cell analysis to explore the mechanism behind the tolerance to anti-PD-1 antibody in LLC cells"
+  },
+  {
+    "accession": "GSE298562",
+    "title": "Multifunctional exosomes inhibiting autophagy ameliorate immune tolerance in non-small cell lung cancer",
+    "n_samples": 3,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/02/18",
+    "summary": "The modulation of tumor autophagy to enhance antitumor immunity has garnered significant attention, underscoring its critical role in cancer immunotherapy. However, advanced strategies for precise autophagy-regulating drug delivery remain a pressing need. Here, we introduce a targeted exosome-based drug delivery system capable of simultaneously loading antibodies and nucleic acid drugs while ensuring their accurate release in the tumor microenvironment (TME). We developed a dual-stimulation elec"
+  },
+  {
+    "accession": "GSE298984",
+    "title": "Immature monocytic cells within tumors differentiate into immunosuppressive cells in resistant tumors to immunotherapy",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/06/05",
+    "summary": "Immune checkpoint inhibitors (ICIs) have improved outcomes in advanced cancers, yet resistance remains a major obsticle. Here, we investigated the role of myeloid cells in shaping the immunosuppressive tumor microenvironment that contributes to ICI resistance. Using mutagenized ICI-sensitive and resistant 4T1 breast cancer clones, we performed single-cell RNA sequencing to characterize immune cell populations post-ICI therapy. We identified monocytic dendritic progenitors (MDPs) and common monoc"
+  },
+  {
+    "accession": "GSE299683",
+    "title": "Longitudinal liquid biopsy identifies an early predictive biomarker of immune checkpoint blockade response in head and neck squamous cell carcinoma [scRNA-seq]",
+    "n_samples": 125,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, H5, RDS",
+    "pdat": "2025/07/15",
+    "summary": "Immune checkpoint blockade (ICB) has improved outcomes in head and neck squamous cell carcinoma (HNSCC), yet there is an unmet need for predictive, blood-based biomarkers to guide treatment. We longitudinally profiled peripheral immune responses in a mouse HNSCC model treated with anti\u2013PD-1, using single-cell and bulk RNA sequencing with paired TCR sequencing. Early expansion of effector memory T cells (Tem) and B cells was associated with ICB response. Here, we show that the LiBIO score, a comp"
+  },
+  {
+    "accession": "GSE299686",
+    "title": "Longitudinal liquid biopsy identifies an early predictive biomarker of immune checkpoint blockade response in head and neck squamous cell carcinoma [bulk RNA-seq]",
+    "n_samples": 178,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2025/07/15",
+    "summary": "Immune checkpoint blockade (ICB) has improved outcomes in head and neck squamous cell carcinoma (HNSCC), yet there is an unmet need for predictive, blood-based biomarkers to guide treatment. We longitudinally profiled peripheral immune responses in a mouse HNSCC model treated with anti\u2013PD-1, using single-cell and bulk RNA sequencing with paired TCR sequencing. Early expansion of effector memory T cells (Tem) and B cells was associated with ICB response. Here, we show that the LiBIO score, a comp"
+  },
+  {
+    "accession": "GSE300288",
+    "title": "Single-cell and spatial transcriptomics analysis of tobacco-associated lung adenocarcinoma development, and in response to targeting inflammation alone or in combination with immune checkpoint blockade in precancerous phase [scRNA-seq]",
+    "n_samples": 31,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/10/11",
+    "summary": "Understanding cellular processes underlying early lung adenocarcinoma (LUAD) development is needed to devise intervention strategies. Here, we performed single-cell RNA sequencing (scRNA-seq) of mouse lungs from Gprc5a\u2212/\u2212 mice during lung tumor development and also following therapeutic targeting of inflammation (IL-1    ) alone and in combination with immune checkpoint blockade in precancerous stages. We coupled scRNA-seq analysis with spatial transcriptomics of mouse lungs under different cond"
+  },
+  {
+    "accession": "GSE300293",
+    "title": "Single-cell and spatial transcriptomics analysis of tobacco-associated lung adenocarcinoma development, and in response to targeting inflammation alone or in combination with immune checkpoint blockade in precancerous phase [Spatial transcriptomics]",
+    "n_samples": 19,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "MTX, TAR, TSV",
+    "pdat": "2025/10/11",
+    "summary": "Understanding cellular processes underlying early lung adenocarcinoma (LUAD) development is needed to devise intervention strategies. Here, we performed single-cell RNA sequencing (scRNA-seq) of mouse lungs from Gprc5a\u2212/\u2212 mice during lung tumor development and also following therapeutic targeting of inflammation (IL-1    ) alone and in combination with immune checkpoint blockade in precancerous stages. We coupled scRNA-seq analysis with spatial transcriptomics of mouse lungs under different cond"
+  },
+  {
+    "accession": "GSE301873",
+    "title": "TGF-\u03b2RII/IL-15 Immunotherapeutic complex targets exhausted CD8+ T cell subsets in lymph nodes and tumors",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/12/31",
+    "summary": "Exhausted CD8+ T cells, located within the tumor-draining lymph nodes (TDLNs) are responsible for maintaining tumor-specific responses in cancer. Here, we demonstrate that a bifunctional TGF-\u03b2RII/IL-15 protein complex (HCW9218), with TGF-\u03b2 neutralization and IL-15 immunostimulatory activities, is capable of localizing to the TDLNs and tumors after subcutaneous administration, neutralizes TGF-\u03b2, expands progenitor stem-like exhausted T cells (TPEX) in TDLNs, and promotes their infiltration into t"
+  },
+  {
+    "accession": "GSE302517",
+    "title": "The IFN-I-DUSP2-NFAT axis Limits Tumor Remodeling and Immunotherapy Response in Lung Cancer",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/07/19",
+    "summary": "Type I interferons (IFN-I) exert context-dependent effects in tumor microenvironment (TME), but their role in shaping immunotherapy response remains unclear. Here, we performed single-cell RNA sequencing of lung squamous cell carcinoma (LUSC) samples collected before and after immune checkpoint blockade (ICB), stratified by treatment outcome. In responders, ICB induced B cell and T follicular helper (Tfh) cell expansion, promoting the formation of tertiary lymphoid structure (TLS)-like niche. By"
+  },
+  {
+    "accession": "GSE303086",
+    "title": "A pan-immunotherapy signature to predict intratumoral CD8+ T cell expansions [bulkTCR_control]",
+    "n_samples": 70,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2025/07/29",
+    "summary": "Effective cancer immunotherapy relies on the clonal proliferation and expansion of CD8+ T cells in the tumor.  However, our insights into clonal expansions are limited, owing to an inability to track the same clones in tumors over time. Here, we developed a multi-site tumor mouse model system to track hundreds of expanding and contracting CD8+ T cell clones over multiple timepoints in tumors of the same individual. Through coupling of clonal expansion dynamics and single-cell RNA/TCR-seq data, w"
+  },
+  {
+    "accession": "GSE303087",
+    "title": "A pan-immunotherapy signature to predict intratumoral CD8+ T cell expansions [bulkTCRseq_FTY]",
+    "n_samples": 120,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2025/07/29",
+    "summary": "Effective cancer immunotherapy relies on the clonal proliferation and expansion of CD8+ T cells in the tumor.  However, our insights into clonal expansions are limited, owing to an inability to track the same clones in tumors over time. Here, we developed a multi-site tumor mouse model system to track hundreds of expanding and contracting CD8+ T cell clones over multiple timepoints in tumors of the same individual. Through coupling of clonal expansion dynamics and single-cell RNA/TCR-seq data, w"
+  },
+  {
+    "accession": "GSE303089",
+    "title": "A pan-immunotherapy signature to predict intratumoral CD8+ T cell expansions [bulkRNAseq]",
+    "n_samples": 11,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV",
+    "pdat": "2025/07/29",
+    "summary": "Effective cancer immunotherapy relies on the clonal proliferation and expansion of CD8+ T cells in the tumor.  However, our insights into clonal expansions are limited, owing to an inability to track the same clones in tumors over time. Here, we developed a multi-site tumor mouse model system to track hundreds of expanding and contracting CD8+ T cell clones over multiple timepoints in tumors of the same individual. Through coupling of clonal expansion dynamics and single-cell RNA/TCR-seq data, w"
+  },
+  {
+    "accession": "GSE303155",
+    "title": "Cancer systems immunology reveals myeloid\u2014T cell interactions and B cell activation mediate response to checkpoint inhibition in metastatic breast cancer",
+    "n_samples": 24,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/08/01",
+    "summary": "Sensitization of the immune-suppressed tumor microenvironment (TME) of breast cancer by histone deacetylase inhibition shows promise, but the mechanisms of sensitization are unknown. We investigated the TME of breast-to-lung metastases by combining experimental and clinical data with theory. Knowledge-guided subclustering of single-cell RNA-sequencing data and cell circuits analysis identified 39 cell states and salient interactions, of which myeloid, T cell and B cell subpopulations were most a"
+  },
+  {
+    "accession": "GSE303232",
+    "title": "A pan-immunotherapy signature to predict intratumoral CD8+ T cell expansions [bulkTCR_Trilateral_similarity]",
+    "n_samples": 36,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "TXT",
+    "pdat": "2025/07/25",
+    "summary": "Effective cancer immunotherapy relies on the clonal proliferation and expansion of CD8+ T cells in the tumor.  However, our insights into clonal expansions are limited, owing to an inability to track the same clones in tumors over time. Here, we developed a multi-site tumor mouse model system to track hundreds of expanding and contracting CD8+ T cell clones over multiple timepoints in tumors of the same individual. Through coupling of clonal expansion dynamics and single-cell RNA/TCR-seq data, w"
+  },
+  {
+    "accession": "GSE303233",
+    "title": "A pan-immunotherapy signature to predict intratumoral CD8+ T cell expansions [bulkTCRseq_Trilateral]",
+    "n_samples": 165,
+    "taxon": "Mus musculus",
+    "gdstype": "Other",
+    "suppfile": "CSV, TXT",
+    "pdat": "2025/07/22",
+    "summary": "Effective cancer immunotherapy relies on the clonal proliferation and expansion of CD8+ T cells in the tumor.  However, our insights into clonal expansions are limited, owing to an inability to track the same clones in tumors over time. Here, we developed a multi-site tumor mouse model system to track hundreds of expanding and contracting CD8+ T cell clones over multiple timepoints in tumors of the same individual. Through coupling of clonal expansion dynamics and single-cell RNA/TCR-seq data, w"
+  },
+  {
+    "accession": "GSE303943",
+    "title": "XIAP-coordinated PKC signaling overcomes immunotherapy resistance via immunogenic rewiring to empower therapeutic rechallenge [scRNA-seq]",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/05/16",
+    "summary": "Immune-checkpoint blockade (ICB) against PD-1/PD-L1 has transformed cancer care, yet primary and acquired resistance limit its reach. By profiling substrate-based protein kinase C (PKC) activity, rather than pan-PKC expression, we uncover a superior biomarker predicting survival and anti-PD-1 responsiveness in non-small cell lung cancer (NSCLC). Critically, pharmacological pan-PKC inhibition overcomes anti-PD-1 resistance across diverse preclinical models through a coordinated immunologic progra"
+  },
+  {
+    "accession": "GSE304155",
+    "title": "HE4 regulates anticancer immune evasion by upregulating PD-L1 expression on macrophages through the IFN-\u03b3R-STAT3 axis [LLC tumors, scRNA-seq]",
+    "n_samples": 6,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/02/13",
+    "summary": "Current immune checkpoint inhibitors (ICIs) targeting PD-L1/PD-1 have achieved great success in clinical cancer treatment. However, it still faces great challenges, such as a low overall response rate and immune-related adverse events (irAEs). PD-L1 is transcriptionally induced by immune cell-secreted cytokines, such as IFN-\u03b3, in the tumor microenvironment (TME), but whether the expression of PD-L1 is regulated by cancer cell-derived molecules is still unclear. Here, we show that HE4 is another "
+  },
+  {
+    "accession": "GSE304629",
+    "title": "A pan-immunotherapy signature to predict intratumoral CD8+ T cell expansions [scTCR_untreated]",
+    "n_samples": 52,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Other",
+    "suppfile": "H5AD, TXT",
+    "pdat": "2025/08/09",
+    "summary": "Effective cancer immunotherapy relies on the clonal proliferation and expansion of CD8+ T cells in the tumor.  However, our insights into clonal expansions are limited, owing to an inability to track the same clones in tumors over time. Here, we developed a multi-site tumor mouse model system to track hundreds of expanding and contracting CD8+ T cell clones over multiple timepoints in tumors of the same individual. Through coupling of clonal expansion dynamics and single-cell RNA/TCR-seq data, w"
+  },
+  {
+    "accession": "GSE304763",
+    "title": "A pan-immunotherapy signature to predict intratumoral CD8+ T cell expansions [scTCR_immunotherapies]",
+    "n_samples": 91,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Other",
+    "suppfile": "TXT",
+    "pdat": "2025/08/09",
+    "summary": "Effective cancer immunotherapy relies on the clonal proliferation and expansion of CD8+ T cells in the tumor.  However, our insights into clonal expansions are limited, owing to an inability to track the same clones in tumors over time. Here, we developed a multi-site tumor mouse model system to track hundreds of expanding and contracting CD8+ T cell clones over multiple timepoints in tumors of the same individual. Through coupling of clonal expansion dynamics and single-cell RNA/TCR-seq data, w"
+  },
+  {
+    "accession": "GSE310249",
+    "title": "Modulating AP-1 enables CAR-T cells to establish an intratumoral stem-like reservoir and overcomes resistance to PD-1 blockade",
+    "n_samples": 18,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2026/01/06",
+    "summary": "CAR-T therapy has shown limited synergy with PD-1/PD-L1 blockade, but the mechanisms underlying resistance remain unclear. PD-1\u207aTCF1\u207a stem-like T cells mediate responses to PD-1/PD-L1 blockade and are maintained by MHC-dependent interactions with DCs in tumor-draining lymph nodes (dLN). Because CAR-Ts recognize intact antigen, not peptide-MHC, their activation is confined to tumors, potentially preventing maintenance of this critical subset. In ROR1\u207a lung cancer models, ROR1-targeting CAR-Ts rap"
+  },
+  {
+    "accession": "GSE310251",
+    "title": "Modulating AP-1 enables CAR-T cells to establish an intratumoral stem-like reservoir and overcomes resistance to PD-1 blockade",
+    "n_samples": 33,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+    "suppfile": "BIGWIG",
+    "pdat": "2026/01/06",
+    "summary": "This SuperSeries is composed of the SubSeries listed below: GSE310249 and GSE310250"
+  },
+  {
+    "accession": "GSE310446",
+    "title": "Exposed phosphatidylserine is a non-classical inhibitory molecule during CD8 T cell exhaustion [scRAN-seq]",
+    "n_samples": 4,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/03/09",
+    "summary": "In cancer and chronic infection CD8 T cell exhaustion is hallmarked by expression of inhibitory surface receptors such as PD-1, TIM-3, CTLA-4, LAG-3, and TIGIT. Thus, inhibitory receptor focus has been limited to surface expressed proteins and an expansion into different classes of inhibitory molecules is needed. In this study we identify the lipid metabolite phosphatidylserine (PS) as a regulator of T cell exhaustion. PS localizes to the inner plasma membrane of live cells but is externalized t"
+  },
+  {
+    "accession": "GSE310740",
+    "title": "Modulating AP-1 enables CAR-T cells to establish an intratumoral stem-like reservoir and overcomes resistance to PD-1 blockade",
+    "n_samples": 16,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "RDS",
+    "pdat": "2026/01/06",
+    "summary": "CAR-T therapy has shown limited synergy with PD-1/PD-L1 blockade, but the mechanisms underlying resistance remain unclear. PD-1\u207aTCF1\u207a stem-like T cells mediate responses to PD-1/PD-L1 blockade and are maintained by MHC-dependent interactions with DCs in tumor-draining lymph nodes (dLN). Because CAR-Ts recognize intact antigen, not peptide-MHC, their activation is confined to tumors, potentially preventing maintenance of this critical subset. In ROR1\u207a lung cancer models, ROR1-targeting CAR-Ts rap"
+  },
+  {
+    "accession": "GSE311571",
+    "title": "Rewiring STAT signaling from the cell surface with Trikine immunotherapeutics [scRNAseq of IL10 Trikine]",
+    "n_samples": 3,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2025/12/16",
+    "summary": "Cytokines dimerize two receptor chains to activate Janus kinases and STAT transcription factors that regulate immune cells but have therapeutic liabilities. We engineered \u201cTrikines\u201d to compel cis formation of three-chain cytokine receptor complexes at the cell surface that induce bespoke STAT transcriptional signaling programs optimized for therapeutic efficacy. Designed Trikines co-activated pSTAT5 and pSTAT3 signatures distinct from any natural cytokines, by assembling trimeric combinations of"
+  },
+  {
+    "accession": "GSE317309",
+    "title": "Combination of a CCL21-gene modified dendritic cell vaccine and pembrolizumab induces immune responses in non-small cell lung cancer",
+    "n_samples": 64,
+    "taxon": "Mus musculus; Homo sapiens",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, MTX, TSV, TXT",
+    "pdat": "2026/05/01",
+    "summary": "Immune checkpoint inhibitors (ICIs) have transformed treatment for non-small cell lung cancer (NSCLC), but resistance to these therapies is common. We report results from a phase I trial combining intratumoral administration of a CCL21-gene modified dendritic cell (CCL21-DC) vaccine with pembrolizumab in patients with advanced NSCLC. Among 23 patients that received trial therapy, there were no dose-limiting toxicities and a low incidence of treatment-related adverse events. Although no objective"
+  },
+  {
+    "accession": "GSE319479",
+    "title": "An epigenetic switch in vascular phenotype augments anti-tumor immunity [scRNA-seq]",
+    "n_samples": 2,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/02/13",
+    "summary": "The abnormal tumor vasculature can present a barrier to the infiltration of anti-tumor immune cells, which impairs immune surveillance and response to immunotherapy. Here, we show that targeting the epigenetic factor DNA  methyltransferase 1 in endothelial cells (ECs) results in reduced angiogenesis while imparting profound changes to the tumor immune microenvironment (TIME), including increased proportions of CD4+ memory T-cells and NK cells. Depleting CD4+ T-cells, or blocking lymphocyte egres"
+  },
+  {
+    "accession": "GSE320007",
+    "title": "Distinct Stemness Programs and PD-1 Responsiveness of Progenitor Exhausted CD8+ T Cells between Chronic Viral Infection and Tumor",
+    "n_samples": 10,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/02/24",
+    "summary": "We reported the CD8+ T cell exhaustion differences between chronic viral infection and tumor regarding their transcriptomic and epigenetic landscapes, immune checkpoint blockade responsiveness and underlying molecular mechanisms by using single-cell RNA-seq."
+  },
+  {
+    "accession": "GSE327494",
+    "title": "Localized PD-1 CAR T therapy reprograms neuroinflammation - mouse CAR T data.",
+    "n_samples": 302,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, TXT",
+    "pdat": "2026/07/21",
+    "summary": "B cell-depleting therapies are effective in multiple sclerosis (MS), yet many patients continue to accumulate disability, underscoring the need for more precise interventions. To identify new therapeutic targets, we generated a single-cell RNA-seq atlas of cerebrospinal fluid (CSF), brain, and blood from non-inflammatory controls and patients with MS or other neuroinflammatory diseases. We found disease-associated enrichment of class-switched IgG\u207a B cells and plasma cells in the CSF of patients "
+  },
+  {
+    "accession": "GSE327497",
+    "title": "Localized PD-1 CAR T therapy reprograms neuroinflammation.",
+    "n_samples": 390,
+    "taxon": "Mus musculus; Homo sapiens",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT",
+    "pdat": "2026/07/21",
+    "summary": "This SuperSeries is composed of the SubSeries listed below."
+  },
+  {
+    "accession": "GSE333350",
+    "title": "Therapeutic bacteria-trained NK cells confer long-term protection against cancer metastasis",
+    "n_samples": 9,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "MTX, TSV",
+    "pdat": "2026/05/28",
+    "summary": "We report that a single dose of therapeutic Salmonella, a prominent anti-tumor bacterial therapy, provides long-lasting protection against metastasis in mice by inducing trained NK cells. Integrated functional and multi-omics analyses revealed that Salmonella-trained NK (stNK) cells establish an enduring reprogrammed epigenome characterized by enhanced pro-survival signaling and immune effector functions, resulting in more potent IFN-gamma release and cytotoxicity upon secondary stimulation. We "
+  },
+  {
+    "accession": "GSE333464",
+    "title": "PLA2G2D in tumour-draining lymph nodes regulates anti-tumour immunity",
+    "n_samples": 12,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "CSV, RDS",
+    "pdat": "2026/06/23",
+    "summary": "Current cancer immunotherapies can induce tumour regression, although responses are often not durable. Recent studies have highlighted the importance of enforcing a systemic immune response from tumour-draining lymph nodes (TDLNs). However, mechanisms driving immune suppression in TDLNs remain poorly studied. We applied spatial proteogenomics on melanoma TDLNs and identified regional differences in immune cell composition in lymph nodes from patients with long-term (>5 years) disease control com"
+  },
+  {
+    "accession": "GSE337798",
+    "title": "XCR1+ and CD11b+ migratory dendritic cells cooperate for the crosspriming of intratumoral CD8+ T cells with a tissue-resident memory phenotype",
+    "n_samples": 10,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing; Other",
+    "suppfile": "CSV, MTX, TSV",
+    "pdat": "2026/07/07",
+    "summary": "The composition and diversity of tumor-infiltrating CD8+ T cell populations have important consequences on the development of anti-tumor immunity. In a murine model of lung cancer, we have addressed the role of dendritic cell subsets on the generation of various types of tumor-infiltrating CD8+ T cells. We show that CD44+PD1- effector and PD1+TIM3+ exhausted, tumor-infiltrating CD8+ T cells require XCR1+ DC1s but not IRF4-dependent CD11b+ DC2s. By contrast, CD103+CD69+ TRM-like, tumor-infiltrati"
+  },
+  {
+    "accession": "GSE89477",
+    "title": "Single-cell profiling of tumor infiltrating T cells",
+    "n_samples": 384,
+    "taxon": "Mus musculus",
+    "gdstype": "Expression profiling by high throughput sequencing",
+    "suppfile": "TXT, XLSX",
+    "pdat": "2017/11/26",
+    "summary": "Immune checkpoint blockade has shown tremendous anti-tumor potential in the clinic. However, these therapies are only effective in a subset of patients, so identification of additional immunomodulatory molecules that enhance the anti-tumor activity of these treatments may expand their clinical utility. In particular, identifying small molecules that complement existing immunotherapies has been relatively unexplored, so we performed a small molecule screen to identify compounds that can enhance c"
+  }
+]
