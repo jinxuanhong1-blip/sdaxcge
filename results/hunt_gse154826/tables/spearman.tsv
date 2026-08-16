@@ -1,0 +1,243 @@
+cohort	x	y	n	rho	p	q_global
+patient Tumor (all preps)	tac_cpm_all	lcam_diff	35	0.06162464985994398	0.7250854349378189	0.9342446950160359
+patient Tumor (all preps)	tac_cpm_gate	lcam_diff	35	0.39354877416696105	0.01933631541607545	0.4016068068809027
+patient Tumor (all preps)	tac_cpm_epi	lcam_diff	34	0.22387808292358424	0.2030808681782621	0.7280887780718085
+patient Tumor (all preps)	tac_cpm_immune	lcam_diff	35	-0.11064425770308124	0.5268935621771861	0.9020961915179546
+patient Tumor (all preps)	frac_gate	lcam_diff	35	0.17198879551820728	0.32318512351386114	0.8120026228285762
+patient Tumor (all preps)	tac_cpm_all	cd8_trm_of_T	35	0.008403361344537815	0.9617878010742488	0.9847901087233594
+patient Tumor (all preps)	tac_cpm_gate	cd8_trm_of_T	35	-0.040953756969619615	0.815307651332353	0.9406336425834375
+patient Tumor (all preps)	tac_cpm_epi	cd8_trm_of_T	34	0.06859047502867865	0.6999096095386852	0.9274633572987216
+patient Tumor (all preps)	tac_cpm_all	cd8_broad_of_T	35	0.19971988795518206	0.25002750656074685	0.7614474063440927
+patient Tumor (all preps)	tac_cpm_gate	cd8_broad_of_T	35	0.21122040409673679	0.22321855464769375	0.7280887780718085
+patient Tumor (all preps)	tac_cpm_epi	cd8_broad_of_T	34	0.3622866030038262	0.035240464911971026	0.44725301029394743
+patient Tumor (all preps)	tac_cpm_all	cd8a_cpm_immune	35	0.14649859943977592	0.4010397253043627	0.8575423913423075
+patient Tumor (all preps)	tac_cpm_gate	cd8a_cpm_immune	35	-0.028331023657065628	0.8716572851594528	0.9406336425834375
+patient Tumor (all preps)	tac_cpm_epi	cd8a_cpm_immune	34	-0.04495975208814955	0.8006701718869702	0.9406336425834375
+patient Tumor (all preps)	tac_cpm_all	bulk_lcam_diff	35	0.10364145658263306	0.5535276714987675	0.9020961915179546
+patient Tumor (all preps)	tac_cpm_gate	bulk_lcam_diff	35	0.2757365965831238	0.10887005257758063	0.588062991067213
+patient Tumor (all preps)	frac_gate	cd8_trm_of_T	35	0.03473389355742297	0.842978334980777	0.9406336425834375
+patient Tumor (all preps)	epcam_cpm_all	lcam_diff	35	0.2296918767507003	0.18439207311012376	0.7257019662724945
+patient Tumor (all preps)	epcam_cpm_all	cd8_trm_of_T	35	-0.0792717086834734	0.6507941214999843	0.9211944959260342
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_all	lcam_diff	26	0.016752136752136753	0.9352638960729228	0.9740313114541839
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_gate	lcam_diff	26	0.24786324786324784	0.22213758900788602	0.7280887780718085
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_epi	lcam_diff	26	0.08411694429658259	0.6828737038118691	0.9217068585216323
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_immune	lcam_diff	26	-0.07623931623931623	0.7112585886626264	0.9283310150726488
+patient Tumor V2 beads (paper LCAM set)	frac_gate	lcam_diff	26	-0.07076923076923076	0.731194023076702	0.9360046635179887
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_all	cd8_trm_of_T	26	0.019487179487179485	0.924722078059223	0.9680684254682491
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_gate	cd8_trm_of_T	26	-0.02222222222222222	0.9141926183026543	0.9675802908908061
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_epi	cd8_trm_of_T	26	0.020858266675168855	0.9194419679609152	0.9675802908908061
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_all	cd8_broad_of_T	26	0.23487179487179485	0.24810613571794263	0.7614474063440927
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_gate	cd8_broad_of_T	26	0.15008547008547007	0.4642834547396419	0.9020961915179546
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_epi	cd8_broad_of_T	26	0.26466062961607695	0.19135424981314533	0.7257019662724945
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_all	cd8a_cpm_immune	26	0.23555555555555555	0.24669186841814225	0.7614474063440927
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_gate	cd8a_cpm_immune	26	0.20615384615384613	0.31230813998237666	0.8094216542857646
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_epi	cd8a_cpm_immune	26	0.1094204153451481	0.5946573957902211	0.9020961915179546
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_all	bulk_lcam_diff	26	0.037948717948717944	0.8539737921729723	0.9406336425834375
+patient Tumor V2 beads (paper LCAM set)	tac_cpm_gate	bulk_lcam_diff	26	0.20615384615384613	0.31230813998237666	0.8094216542857646
+patient Tumor V2 beads (paper LCAM set)	frac_gate	cd8_trm_of_T	26	0.10905982905982906	0.5958797037499546	0.9020961915179546
+patient Tumor V2 beads (paper LCAM set)	epcam_cpm_all	lcam_diff	26	0.08854700854700855	0.66709078570047	0.9217068585216323
+patient Tumor V2 beads (paper LCAM set)	epcam_cpm_all	cd8_trm_of_T	26	-0.1911111111111111	0.3496786228612843	0.8367309904180732
+patient Tumor LUAD	tac_cpm_all	lcam_diff	30	0.14304783092324808	0.4507868543266534	0.9020961915179546
+patient Tumor LUAD	tac_cpm_gate	lcam_diff	30	0.3904134565085445	0.032925433573146964	0.44725301029394743
+patient Tumor LUAD	tac_cpm_epi	lcam_diff	29	0.19690969913065415	0.3059225820177153	0.8094216542857646
+patient Tumor LUAD	tac_cpm_immune	lcam_diff	30	-0.0843159065628476	0.6577771651218055	0.9217068585216323
+patient Tumor LUAD	frac_gate	lcam_diff	30	0.23337041156840932	0.21455668755863275	0.7280887780718085
+patient Tumor LUAD	tac_cpm_all	cd8_trm_of_T	30	-0.035817575083426034	0.8509511779244581	0.9406336425834375
+patient Tumor LUAD	tac_cpm_gate	cd8_trm_of_T	30	-0.10055766355531329	0.5970017963764238	0.9020961915179546
+patient Tumor LUAD	tac_cpm_epi	cd8_trm_of_T	29	-0.006679097834833746	0.9725691856403229	0.9847901087233594
+patient Tumor LUAD	tac_cpm_all	cd8_broad_of_T	30	0.16662958843159065	0.37882530745394066	0.8458068440440807
+patient Tumor LUAD	tac_cpm_gate	cd8_broad_of_T	30	0.15228577429773607	0.42176491798479276	0.8650484542341157
+patient Tumor LUAD	tac_cpm_epi	cd8_broad_of_T	29	0.30575425643905596	0.10674261182742284	0.588062991067213
+patient Tumor LUAD	tac_cpm_all	cd8a_cpm_immune	30	0.047385984427141266	0.8036278011377227	0.9406336425834375
+patient Tumor LUAD	tac_cpm_gate	cd8a_cpm_immune	30	-0.07826106409737242	0.6810205899396938	0.9217068585216323
+patient Tumor LUAD	tac_cpm_epi	cd8a_cpm_immune	29	-0.1113182972472291	0.5653656699804446	0.9020961915179546
+patient Tumor LUAD	tac_cpm_all	bulk_lcam_diff	30	0.1670745272525028	0.37753546837128815	0.8458068440440807
+patient Tumor LUAD	tac_cpm_gate	bulk_lcam_diff	30	0.2824979151321107	0.13039177986504918	0.6237975588898993
+patient Tumor LUAD	frac_gate	cd8_trm_of_T	30	0.020244716351501667	0.9154364690235783	0.9675802908908061
+patient Tumor LUAD	epcam_cpm_all	lcam_diff	30	0.38509454949944383	0.035602229675140096	0.44725301029394743
+patient Tumor LUAD	epcam_cpm_all	cd8_trm_of_T	30	-0.09721913236929922	0.609296324690827	0.9020961915179546
+patient Tumor LUSC	tac_cpm_all	lcam_diff	5	-0.39999999999999997	0.5046315754686912	0.9020961915179546
+patient Tumor LUSC	tac_cpm_gate	lcam_diff	5	-0.49999999999999994	0.3910022189557703	0.8458068440440807
+patient Tumor LUSC	tac_cpm_epi	lcam_diff	5	-0.6	0.28475697986529386	0.8061429993369587
+patient Tumor LUSC	tac_cpm_immune	lcam_diff	5	0.09999999999999999	0.8728885715695384	0.9406336425834375
+patient Tumor LUSC	frac_gate	lcam_diff	5	0.09999999999999999	0.8728885715695384	0.9406336425834375
+patient Tumor LUSC	tac_cpm_all	cd8_trm_of_T	5	0.49999999999999994	0.3910022189557703	0.8458068440440807
+patient Tumor LUSC	tac_cpm_gate	cd8_trm_of_T	5	-0.19999999999999998	0.7470600781046621	0.9406336425834375
+patient Tumor LUSC	tac_cpm_epi	cd8_trm_of_T	5	-0.3	0.623837664781073	0.9020961915179546
+patient Tumor LUSC	tac_cpm_all	cd8_broad_of_T	5	0.7	0.1881204043741873	0.7257019662724945
+patient Tumor LUSC	tac_cpm_gate	cd8_broad_of_T	5	0.3	0.623837664781073	0.9020961915179546
+patient Tumor LUSC	tac_cpm_epi	cd8_broad_of_T	5	0.3	0.623837664781073	0.9020961915179546
+patient Tumor LUSC	tac_cpm_all	cd8a_cpm_immune	5	0.7999999999999999	0.10408803866182788	0.588062991067213
+patient Tumor LUSC	tac_cpm_gate	cd8a_cpm_immune	5	0.7	0.1881204043741873	0.7257019662724945
+patient Tumor LUSC	tac_cpm_epi	cd8a_cpm_immune	5	0.3	0.623837664781073	0.9020961915179546
+patient Tumor LUSC	tac_cpm_all	bulk_lcam_diff	5	-0.39999999999999997	0.5046315754686912	0.9020961915179546
+patient Tumor LUSC	tac_cpm_gate	bulk_lcam_diff	5	-0.49999999999999994	0.3910022189557703	0.8458068440440807
+patient Tumor LUSC	frac_gate	cd8_trm_of_T	5	0.7	0.1881204043741873	0.7257019662724945
+patient Tumor LUSC	epcam_cpm_all	lcam_diff	5	-0.39999999999999997	0.5046315754686912	0.9020961915179546
+patient Tumor LUSC	epcam_cpm_all	cd8_trm_of_T	5	0.49999999999999994	0.3910022189557703	0.8458068440440807
+patient Tumor V2 beads LUAD	tac_cpm_all	lcam_diff	22	0.16205533596837948	0.47120361330902377	0.9020961915179546
+patient Tumor V2 beads LUAD	tac_cpm_gate	lcam_diff	22	0.24788255223037836	0.26601937978240725	0.7863219902391744
+patient Tumor V2 beads LUAD	tac_cpm_epi	lcam_diff	22	0.006211180124223602	0.9781147004348607	0.9847901087233594
+patient Tumor V2 beads LUAD	tac_cpm_immune	lcam_diff	22	-0.006211180124223602	0.9781147004348607	0.9847901087233594
+patient Tumor V2 beads LUAD	frac_gate	lcam_diff	22	0.07058159232072277	0.7549478236684113	0.9406336425834375
+patient Tumor V2 beads LUAD	tac_cpm_all	cd8_trm_of_T	22	-0.03896103896103897	0.8633265562067404	0.9406336425834375
+patient Tumor V2 beads LUAD	tac_cpm_gate	cd8_trm_of_T	22	-0.0852625635234331	0.7059795704811165	0.9274633572987216
+patient Tumor V2 beads LUAD	tac_cpm_epi	cd8_trm_of_T	22	-0.03896103896103897	0.8633265562067404	0.9406336425834375
+patient Tumor V2 beads LUAD	tac_cpm_all	cd8_broad_of_T	22	0.21852060982495766	0.3285693596146497	0.8153387812659827
+patient Tumor V2 beads LUAD	tac_cpm_gate	cd8_broad_of_T	22	0.06606437041219651	0.7702096134744482	0.9406336425834375
+patient Tumor V2 beads LUAD	tac_cpm_epi	cd8_broad_of_T	22	0.1993224167137211	0.37383975032592714	0.8458068440440807
+patient Tumor V2 beads LUAD	tac_cpm_all	cd8a_cpm_immune	22	0.11914172783738003	0.5974355927153715	0.9020961915179546
+patient Tumor V2 beads LUAD	tac_cpm_gate	cd8a_cpm_immune	22	0.14285714285714288	0.5259420073570243	0.9020961915179546
+patient Tumor V2 beads LUAD	tac_cpm_epi	cd8a_cpm_immune	22	0.03557312252964427	0.875116871458223	0.9406336425834375
+patient Tumor V2 beads LUAD	tac_cpm_all	bulk_lcam_diff	22	0.12704686617730096	0.5731558222741562	0.9020961915179546
+patient Tumor V2 beads LUAD	tac_cpm_gate	bulk_lcam_diff	22	0.233201581027668	0.2962759077686691	0.8094216542857646
+patient Tumor V2 beads LUAD	frac_gate	cd8_trm_of_T	22	0.14963297571993225	0.5062867949707297	0.9020961915179546
+patient Tumor V2 beads LUAD	epcam_cpm_all	lcam_diff	22	0.36984754376058726	0.09023504043384367	0.588062991067213
+patient Tumor V2 beads LUAD	epcam_cpm_all	cd8_trm_of_T	22	-0.18351214003387917	0.4136532337074153	0.863040034702368
+patient Tumor V2 beads LUSC	tac_cpm_all	lcam_diff	4			
+patient Tumor V2 beads LUSC	tac_cpm_gate	lcam_diff	4			
+patient Tumor V2 beads LUSC	tac_cpm_epi	lcam_diff	4			
+patient Tumor V2 beads LUSC	tac_cpm_immune	lcam_diff	4			
+patient Tumor V2 beads LUSC	frac_gate	lcam_diff	4			
+patient Tumor V2 beads LUSC	tac_cpm_all	cd8_trm_of_T	4			
+patient Tumor V2 beads LUSC	tac_cpm_gate	cd8_trm_of_T	4			
+patient Tumor V2 beads LUSC	tac_cpm_epi	cd8_trm_of_T	4			
+patient Tumor V2 beads LUSC	tac_cpm_all	cd8_broad_of_T	4			
+patient Tumor V2 beads LUSC	tac_cpm_gate	cd8_broad_of_T	4			
+patient Tumor V2 beads LUSC	tac_cpm_epi	cd8_broad_of_T	4			
+patient Tumor V2 beads LUSC	tac_cpm_all	cd8a_cpm_immune	4			
+patient Tumor V2 beads LUSC	tac_cpm_gate	cd8a_cpm_immune	4			
+patient Tumor V2 beads LUSC	tac_cpm_epi	cd8a_cpm_immune	4			
+patient Tumor V2 beads LUSC	tac_cpm_all	bulk_lcam_diff	4			
+patient Tumor V2 beads LUSC	tac_cpm_gate	bulk_lcam_diff	4			
+patient Tumor V2 beads LUSC	frac_gate	cd8_trm_of_T	4			
+patient Tumor V2 beads LUSC	epcam_cpm_all	lcam_diff	4			
+patient Tumor V2 beads LUSC	epcam_cpm_all	cd8_trm_of_T	4			
+patient Tumor digest (n=2, underpowered)	tac_cpm_all	lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_gate	lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_epi	lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_immune	lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	frac_gate	lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_all	cd8_trm_of_T	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_gate	cd8_trm_of_T	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_epi	cd8_trm_of_T	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_all	cd8_broad_of_T	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_gate	cd8_broad_of_T	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_epi	cd8_broad_of_T	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_all	cd8a_cpm_immune	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_gate	cd8a_cpm_immune	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_epi	cd8a_cpm_immune	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_all	bulk_lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	tac_cpm_gate	bulk_lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	frac_gate	cd8_trm_of_T	2			
+patient Tumor digest (n=2, underpowered)	epcam_cpm_all	lcam_diff	2			
+patient Tumor digest (n=2, underpowered)	epcam_cpm_all	cd8_trm_of_T	2			
+patient Normal (all preps)	tac_cpm_all	lcam_diff	29	-0.37093596059113293	0.04759114247470999	0.529891240332326
+patient Normal (all preps)	tac_cpm_gate	lcam_diff	29	-0.3329225712138564	0.07761158413542217	0.588062991067213
+patient Normal (all preps)	tac_cpm_epi	lcam_diff	27	-0.338424009387384	0.08422860529947926	0.588062991067213
+patient Normal (all preps)	tac_cpm_immune	lcam_diff	29	0.08423645320197042	0.6639639059569392	0.9217068585216323
+patient Normal (all preps)	frac_gate	lcam_diff	29	-0.26256157635467975	0.16881387476708334	0.7219486984719946
+patient Normal (all preps)	tac_cpm_all	cd8_trm_of_T	29	-0.10738916256157634	0.5792519109953266	0.9020961915179546
+patient Normal (all preps)	tac_cpm_gate	cd8_trm_of_T	29	0.31319382625303527	0.09805999792027445	0.588062991067213
+patient Normal (all preps)	tac_cpm_epi	cd8_trm_of_T	27	0.4141723436184951	0.031731035247748056	0.44725301029394743
+patient Normal (all preps)	tac_cpm_all	cd8_broad_of_T	29	0.10738916256157634	0.5792519109953266	0.9020961915179546
+patient Normal (all preps)	tac_cpm_gate	cd8_broad_of_T	29	0.2786685225715983	0.14323666284909703	0.6258819398406196
+patient Normal (all preps)	tac_cpm_epi	cd8_broad_of_T	27	0.31643255751383553	0.1078217649625731	0.588062991067213
+patient Normal (all preps)	tac_cpm_all	cd8a_cpm_immune	29	0.21871921182266005	0.2543290454922613	0.762987136476784
+patient Normal (all preps)	tac_cpm_gate	cd8a_cpm_immune	29	0.09617763168400296	0.619680555981441	0.9020961915179546
+patient Normal (all preps)	tac_cpm_epi	cd8a_cpm_immune	27	0.21747102408286764	0.2758679445175151	0.802719858625183
+patient Normal (all preps)	tac_cpm_all	bulk_lcam_diff	29	0.09655172413793102	0.6183130367657458	0.9020961915179546
+patient Normal (all preps)	tac_cpm_gate	bulk_lcam_diff	29	-0.1568435224385279	0.41649195704542136	0.863040034702368
+patient Normal (all preps)	frac_gate	cd8_trm_of_T	29	-0.0502463054187192	0.7957542957250501	0.9406336425834375
+patient Normal (all preps)	epcam_cpm_all	lcam_diff	29	-0.23598965568828334	0.21778470893369423	0.7280887780718085
+patient Normal (all preps)	epcam_cpm_all	cd8_trm_of_T	29	-0.042123414533086066	0.8282399655200596	0.9406336425834375
+patient Normal V2 beads	tac_cpm_all	lcam_diff	23	-0.37154150197628455	0.08088157371504434	0.588062991067213
+patient Normal V2 beads	tac_cpm_gate	lcam_diff	23	-0.33852237257817314	0.11410177438617568	0.588062991067213
+patient Normal V2 beads	tac_cpm_epi	lcam_diff	23	-0.40652838877612746	0.054230002285948785	0.5450115229737853
+patient Normal V2 beads	tac_cpm_immune	lcam_diff	23	-0.05039525691699605	0.8193712029624162	0.9406336425834375
+patient Normal V2 beads	frac_gate	lcam_diff	23	-0.2658102766798419	0.22023883150460433	0.7280887780718085
+patient Normal V2 beads	tac_cpm_all	cd8_trm_of_T	23	-0.0899209486166008	0.6832553329339464	0.9217068585216323
+patient Normal V2 beads	tac_cpm_gate	cd8_trm_of_T	23	0.3157894833247484	0.14213596597095127	0.6258819398406196
+patient Normal V2 beads	tac_cpm_epi	cd8_trm_of_T	23	0.3353117367277547	0.11779464671938182	0.5919180997648936
+patient Normal V2 beads	tac_cpm_all	cd8_broad_of_T	23	0.08498023715415019	0.6998508154199036	0.9274633572987216
+patient Normal V2 beads	tac_cpm_gate	cd8_broad_of_T	23	0.3622436483208773	0.08938967549649901	0.588062991067213
+patient Normal V2 beads	tac_cpm_epi	cd8_broad_of_T	23	0.3234422947196926	0.13220161301790986	0.6237975588898993
+patient Normal V2 beads	tac_cpm_all	cd8a_cpm_immune	23	0.3389328063241107	0.11363585102172945	0.588062991067213
+patient Normal V2 beads	tac_cpm_gate	cd8a_cpm_immune	23	0.21942180062001296	0.31443747688222684	0.8094216542857646
+patient Normal V2 beads	tac_cpm_epi	cd8a_cpm_immune	23	0.2195846771491491	0.314069344864725	0.8094216542857646
+patient Normal V2 beads	tac_cpm_all	bulk_lcam_diff	23	-0.01482213438735178	0.9464831976960982	0.975605757625209
+patient Normal V2 beads	tac_cpm_gate	bulk_lcam_diff	23	-0.2673585453500608	0.21746181351839494	0.7280887780718085
+patient Normal V2 beads	frac_gate	cd8_trm_of_T	23	0.03656126482213439	0.868457309937357	0.9406336425834375
+patient Normal V2 beads	epcam_cpm_all	lcam_diff	23	-0.19466403162055337	0.37342744743214745	0.8458068440440807
+patient Normal V2 beads	epcam_cpm_all	cd8_trm_of_T	23	0.09189723320158102	0.6766561430399165	0.9217068585216323
+sample Tumor (all preps)	tac_cpm_all	lcam_diff	49	0.09551020408163266	0.5138807155164451	0.9020961915179546
+sample Tumor (all preps)	tac_cpm_gate	lcam_diff	49	0.31524659278331374	0.027359180180837616	0.44725301029394743
+sample Tumor (all preps)	tac_cpm_epi	lcam_diff	47	0.1180095337710468	0.42951987184392115	0.8720554973800824
+sample Tumor (all preps)	tac_cpm_immune	lcam_diff	49	-0.23091836734693874	0.11040865886053507	0.588062991067213
+sample Tumor (all preps)	frac_gate	lcam_diff	49	0.26418367346938776	0.06661169846351955	0.588062991067213
+sample Tumor (all preps)	tac_cpm_all	cd8_trm_of_T	49	-0.03551020408163265	0.8086013060250385	0.9406336425834375
+sample Tumor (all preps)	tac_cpm_gate	cd8_trm_of_T	49	-0.09155946422491057	0.5315201129466033	0.9020961915179546
+sample Tumor (all preps)	tac_cpm_epi	cd8_trm_of_T	47	0.08621542142761823	0.5644652320046234	0.9020961915179546
+sample Tumor (all preps)	tac_cpm_all	cd8_broad_of_T	49	0.1860204081632653	0.20063961485791437	0.7280887780718085
+sample Tumor (all preps)	tac_cpm_gate	cd8_broad_of_T	49	0.19650541261663285	0.1759710690054439	0.7257019662724945
+sample Tumor (all preps)	tac_cpm_epi	cd8_broad_of_T	47	0.33349006888691096	0.02197848196860662	0.4016068068809027
+sample Tumor (all preps)	tac_cpm_all	cd8a_cpm_immune	49	0.09153061224489796	0.5316500157683275	0.9020961915179546
+sample Tumor (all preps)	tac_cpm_gate	cd8a_cpm_immune	49	-0.06774991605035237	0.6436951166045162	0.917607932180906
+sample Tumor (all preps)	tac_cpm_epi	cd8a_cpm_immune	47	-0.03585540406612926	0.8108962266655665	0.9406336425834375
+sample Tumor (all preps)	tac_cpm_all	bulk_lcam_diff	49	0.12520408163265306	0.3913434651547239	0.8458068440440807
+sample Tumor (all preps)	tac_cpm_gate	bulk_lcam_diff	49	0.24800761124314505	0.08576119598107121	0.588062991067213
+sample Tumor (all preps)	frac_gate	cd8_trm_of_T	49	-0.14561224489795918	0.31813089894813634	0.8094216542857646
+sample Tumor (all preps)	epcam_cpm_all	lcam_diff	49	0.3641419425149822	0.010106372867420107	0.3385634910585736
+sample Tumor (all preps)	epcam_cpm_all	cd8_trm_of_T	49	-0.21526059345253046	0.1374376400149546	0.6258819398406196
+sample Tumor V2 beads	tac_cpm_all	lcam_diff	30	0.04827586206896552	0.8000133620903566	0.9406336425834375
+sample Tumor V2 beads	tac_cpm_gate	lcam_diff	30	0.17730812013348163	0.3485802357185866	0.8367309904180732
+sample Tumor V2 beads	tac_cpm_epi	lcam_diff	30	0.01358575452611764	0.9431960193519738	0.975605757625209
+sample Tumor V2 beads	tac_cpm_immune	lcam_diff	30	-0.13637374860956616	0.4724006694910636	0.9020961915179546
+sample Tumor V2 beads	frac_gate	lcam_diff	30	-0.054505005561735265	0.774829447329479	0.9406336425834375
+sample Tumor V2 beads	tac_cpm_all	cd8_trm_of_T	30	-0.03314794215795328	0.8619506877791012	0.9406336425834375
+sample Tumor V2 beads	tac_cpm_gate	cd8_trm_of_T	30	-0.020689655172413793	0.9135847422192583	0.9675802908908061
+sample Tumor V2 beads	tac_cpm_epi	cd8_trm_of_T	30	0.0033407593097010595	0.986021310610554	0.986021310610554
+sample Tumor V2 beads	tac_cpm_all	cd8_broad_of_T	30	0.13103448275862067	0.49007218485927995	0.9020961915179546
+sample Tumor V2 beads	tac_cpm_gate	cd8_broad_of_T	30	0.11012235817575085	0.5623853600295883	0.9020961915179546
+sample Tumor V2 beads	tac_cpm_epi	cd8_broad_of_T	30	0.18084643729848401	0.3388881579861712	0.8306892653075659
+sample Tumor V2 beads	tac_cpm_all	cd8a_cpm_immune	30	0.19733036707452725	0.29592186023013933	0.8094216542857646
+sample Tumor V2 beads	tac_cpm_gate	cd8a_cpm_immune	30	0.2040044493882091	0.2795541796207105	0.802719858625183
+sample Tumor V2 beads	tac_cpm_epi	cd8a_cpm_immune	30	0.10244995216416582	0.5900809766415795	0.9020961915179546
+sample Tumor V2 beads	tac_cpm_all	bulk_lcam_diff	30	0.07230255839822024	0.7041773195709669	0.9274633572987216
+sample Tumor V2 beads	tac_cpm_gate	bulk_lcam_diff	30	0.1408231368186874	0.4579319987889402	0.9020961915179546
+sample Tumor V2 beads	frac_gate	cd8_trm_of_T	30	0.04827586206896552	0.8000133620903566	0.9406336425834375
+sample Tumor V2 beads	epcam_cpm_all	lcam_diff	30	0.1568409343715239	0.4078453205840991	0.8629148361831992
+sample Tumor V2 beads	epcam_cpm_all	cd8_trm_of_T	30	-0.22269187986651834	0.2368765131786139	0.7557488753793873
+sample Tumor with ADT (CITE-seq)	tac_cpm_all	lcam_diff	20	0.037593984962406006	0.8749652018566715	0.9406336425834375
+sample Tumor with ADT (CITE-seq)	tac_cpm_gate	lcam_diff	20	0.17142857142857143	0.46988617281087536	0.9020961915179546
+sample Tumor with ADT (CITE-seq)	tac_cpm_epi	lcam_diff	20	-0.05572295475915675	0.8155009094845299	0.9406336425834375
+sample Tumor with ADT (CITE-seq)	tac_cpm_immune	lcam_diff	20	-0.5293233082706766	0.016394084731294382	0.4016068068809027
+sample Tumor with ADT (CITE-seq)	frac_gate	lcam_diff	20	0.34736842105263155	0.13344922901624712	0.6237975588898993
+sample Tumor with ADT (CITE-seq)	tac_cpm_all	cd8_trm_of_T	20	-0.11729323308270674	0.622378981763022	0.9020961915179546
+sample Tumor with ADT (CITE-seq)	tac_cpm_gate	cd8_trm_of_T	20	-0.11428571428571428	0.6313917305184383	0.9064981273871864
+sample Tumor with ADT (CITE-seq)	tac_cpm_epi	cd8_trm_of_T	20	0.0662651353892675	0.7813424933572557	0.9406336425834375
+sample Tumor with ADT (CITE-seq)	tac_cpm_all	cd8_broad_of_T	20	0.08421052631578946	0.7241036435108114	0.9342446950160359
+sample Tumor with ADT (CITE-seq)	tac_cpm_gate	cd8_broad_of_T	20	0.05413533834586466	0.8206745196973448	0.9406336425834375
+sample Tumor with ADT (CITE-seq)	tac_cpm_epi	cd8_broad_of_T	20	-0.006024103217206135	0.9798906554461287	0.9847901087233594
+sample Tumor with ADT (CITE-seq)	tac_cpm_all	cd8a_cpm_immune	20	0.39999999999999997	0.08055387210850923	0.588062991067213
+sample Tumor with ADT (CITE-seq)	tac_cpm_gate	cd8a_cpm_immune	20	0.5097744360902255	0.02166896662153533	0.4016068068809027
+sample Tumor with ADT (CITE-seq)	tac_cpm_epi	cd8a_cpm_immune	20	0.37500042527108196	0.10327896419688029	0.588062991067213
+sample Tumor with ADT (CITE-seq)	tac_cpm_all	bulk_lcam_diff	20	0.14736842105263157	0.5352473458918693	0.9020961915179546
+sample Tumor with ADT (CITE-seq)	tac_cpm_gate	bulk_lcam_diff	20	0.28421052631578947	0.2245845982112046	0.7280887780718085
+sample Tumor with ADT (CITE-seq)	frac_gate	cd8_trm_of_T	20	-0.44360902255639095	0.05008922172295619	0.529891240332326
+sample Tumor with ADT (CITE-seq)	epcam_cpm_all	lcam_diff	20	0.6330827067669172	0.0027337868790513393	0.18316372089643973
+sample Tumor with ADT (CITE-seq)	epcam_cpm_all	cd8_trm_of_T	20	-0.6090225563909774	0.004370507553662533	0.21303938458148325
+patient Tumor CITE-seq ADT	tac_cpm_all	adt_CD8_imm	8	-0.6666666666666669	0.07098765432098755	0.588062991067213
+patient Tumor CITE-seq ADT	tac_cpm_gate	adt_CD8_imm	8	-0.14285714285714288	0.735764859879812	0.9360046635179887
+patient Tumor CITE-seq ADT	tac_cpm_epi	adt_CD8_imm	8	0.28571428571428575	0.49272624501695717	0.9020961915179546
+patient Tumor CITE-seq ADT	adt_EPCAM_mean	lcam_diff	2			
+patient Tumor CITE-seq ADT	adt_EPCAM_mean	adt_CD8_imm	2			
+patient Tumor CITE-seq ADT	adt_EPCAM_gate	lcam_diff	2			
+patient Tumor CITE-seq ADT	frac_gate	adt_CD8_imm	8	-0.6904761904761906	0.057990318164572716	0.5550501881466245
+sample Tumor CITE-seq ADT	tac_cpm_all	adt_CD8_imm	20	-0.5218045112781955	0.01828494348209757	0.4016068068809027
+sample Tumor CITE-seq ADT	tac_cpm_gate	adt_CD8_imm	20	-0.15789473684210525	0.5061465835201626	0.9020961915179546
+sample Tumor CITE-seq ADT	tac_cpm_epi	adt_CD8_imm	20	0.14759052882155033	0.5346254618173106	0.9020961915179546
+sample Tumor CITE-seq ADT	adt_EPCAM_mean	lcam_diff	11	0.7727272727272727	0.005299487178643862	0.21303938458148325
+sample Tumor CITE-seq ADT	adt_EPCAM_mean	adt_CD8_imm	11	-0.6272727272727273	0.03884525362035334	0.45928799868770714
+sample Tumor CITE-seq ADT	adt_EPCAM_gate	lcam_diff	11	0.8181818181818182	0.0020831448404786917	0.18316372089643973
+sample Tumor CITE-seq ADT	frac_gate	adt_CD8_imm	20	-0.7969924812030074	2.5917474294045437e-05	0.005209412333103133

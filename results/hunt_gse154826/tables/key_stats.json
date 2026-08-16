@@ -1,0 +1,329 @@
+{
+  "dataset": "GSE154826 / Leader et al. Cancer Cell 2021",
+  "n_annotated_cells": 361929,
+  "n_samples_annotated": 91,
+  "n_patients_annotated": 35,
+  "n_patient_tumor": 35,
+  "n_patient_tumor_v2_beads": 26,
+  "n_digest_tumor_patients": 2,
+  "trop2_adt_on_panel": false,
+  "epcam_cd8_cd45_adt": true,
+  "cd45_enrichment": "61/119 GEO libraries CD45+ beads; 10 CD45+ FACS; 22 digest/dead-cell (2 patients); 4 CD2+",
+  "lcam_hi_clusters": [
+    "T_activated",
+    "IgG",
+    "MoMac-II"
+  ],
+  "lcam_lo_clusters": [
+    "B",
+    "AM",
+    "cDC2",
+    "AZU1_mac",
+    "Tcm/naive_II",
+    "cDC1"
+  ],
+  "missing_bulk_lcam_genes": [],
+  "present_bulk_lcam_genes": [
+    "IGHG3",
+    "IGHG4",
+    "IGHG1",
+    "MZB1",
+    "FAM92B",
+    "SPAG4",
+    "DERL3",
+    "JSRP1",
+    "TBCEL",
+    "LINC01485",
+    "SLC2A5",
+    "SPP1",
+    "CCL7",
+    "HAMP",
+    "CXCL13",
+    "ZBED2",
+    "GNG4",
+    "KRT86",
+    "TNFRSF9",
+    "LAYN",
+    "GZMB",
+    "KIR2DL4",
+    "GAPT",
+    "CTB-133G6.1",
+    "AKR1C3",
+    "RSPO3",
+    "MCEMP1",
+    "RND3",
+    "HP",
+    "FOLR3",
+    "GPD1",
+    "GS1-600G8.5",
+    "PCOLCE2",
+    "CAMP",
+    "CCL17",
+    "CD1B",
+    "CD1C",
+    "CD1E",
+    "PLD4",
+    "TRPC6",
+    "CLEC10A",
+    "FCER1A",
+    "PLA1A",
+    "CFP",
+    "CEACAM8",
+    "AZU1",
+    "PKP2",
+    "RETN",
+    "LYZ",
+    "ELANE",
+    "ATP6AP1L",
+    "RP6-159A1.4",
+    "THBS1",
+    "CFD",
+    "P2RY14",
+    "DNASE1L3",
+    "PTGER3",
+    "CST3",
+    "BATF3",
+    "CPVL",
+    "RGS18",
+    "SERPINF2",
+    "LGALS2"
+  ],
+  "primary_cohort": "patient Tumor V2 beads (paper LCAM set)",
+  "primary_tac_gate_vs_lcam": {
+    "n": 26,
+    "rho": 0.24786324786324784,
+    "p": 0.22213758900788602
+  },
+  "primary_tac_epi_vs_lcam": {
+    "n": 26,
+    "rho": 0.08411694429658259,
+    "p": 0.6828737038118691
+  },
+  "primary_tac_all_vs_lcam": {
+    "n": 26,
+    "rho": 0.016752136752136753,
+    "p": 0.9352638960729228
+  },
+  "primary_tac_gate_vs_cd8trm": {
+    "n": 26,
+    "rho": -0.02222222222222222,
+    "p": 0.9141926183026543
+  },
+  "primary_tac_all_vs_cd8trm": {
+    "n": 26,
+    "rho": 0.019487179487179485,
+    "p": 0.924722078059223
+  },
+  "primary_frac_gate_vs_lcam": {
+    "n": 26,
+    "rho": -0.07076923076923076,
+    "p": 0.731194023076702
+  },
+  "all_tumor_tac_gate_vs_lcam": {
+    "n": 35,
+    "rho": 0.39354877416696105,
+    "p": 0.01933631541607545
+  },
+  "all_tumor_tac_all_vs_lcam": {
+    "n": 35,
+    "rho": 0.06162464985994398,
+    "p": 0.7250854349378189
+  },
+  "cite_patient_tac_gate_vs_cd8adt": {
+    "n": 8,
+    "rho": -0.14285714285714288,
+    "p": 0.735764859879812
+  },
+  "cite_patient_tac_all_vs_cd8adt": {
+    "n": 8,
+    "rho": -0.6666666666666669,
+    "p": 0.07098765432098755
+  },
+  "cite_patient_frac_gate_vs_cd8adt": {
+    "n": 8,
+    "rho": -0.6904761904761906,
+    "p": 0.057990318164572716
+  },
+  "cite_sample_tac_all_vs_cd8adt": {
+    "n": 20,
+    "rho": -0.5218045112781955,
+    "p": 0.01828494348209757
+  },
+  "cite_sample_tac_gate_vs_cd8adt": {
+    "n": 20,
+    "rho": -0.15789473684210525,
+    "p": 0.5061465835201626
+  },
+  "cite_sample_frac_gate_vs_cd8adt": {
+    "n": 20,
+    "rho": -0.7969924812030074,
+    "p": 2.5917474294045437e-05
+  },
+  "cite_patient_epcamadt_vs_lcam": {
+    "n": 2,
+    "rho": null,
+    "p": null
+  },
+  "user_expected": "negative TACSTD2 vs LCAM / CD8",
+  "verdict_note": "CD45+ CITE-seq. TACSTD2 protein not measured. Primary test is TACSTD2 RNA inside the authors' epi/endo/fibro gate versus the authors' own lineage-normalised LCAM difference, patient-level V2 beads Tumor.",
+  "partial": [
+    {
+      "cohort": "patient Tumor V2 beads (paper LCAM set)",
+      "x": "tac_cpm_all",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 26,
+      "rho_partial": 0.14324786324786323,
+      "p": 0.4851058860330668
+    },
+    {
+      "cohort": "patient Tumor V2 beads (paper LCAM set)",
+      "x": "tac_cpm_all",
+      "y": "cd8_trm_of_T",
+      "z": "frac_gate",
+      "n": 26,
+      "rho_partial": -0.030427350427350425,
+      "p": 0.8826955404852086
+    },
+    {
+      "cohort": "patient Tumor V2 beads (paper LCAM set)",
+      "x": "tac_cpm_gate",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 26,
+      "rho_partial": 0.2505982905982906,
+      "p": 0.21691207817332625
+    },
+    {
+      "cohort": "patient Tumor V2 beads (paper LCAM set)",
+      "x": "tac_cpm_epi",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 26,
+      "rho_partial": 0.10427350427350426,
+      "p": 0.6122046666360922
+    },
+    {
+      "cohort": "patient Tumor (all preps)",
+      "x": "tac_cpm_all",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 35,
+      "rho_partial": -0.02100840336134454,
+      "p": 0.9046521483714322
+    },
+    {
+      "cohort": "patient Tumor (all preps)",
+      "x": "tac_cpm_all",
+      "y": "cd8_trm_of_T",
+      "z": "frac_gate",
+      "n": 35,
+      "rho_partial": 0.010364145658263305,
+      "p": 0.9528805780958542
+    },
+    {
+      "cohort": "patient Tumor (all preps)",
+      "x": "tac_cpm_gate",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 35,
+      "rho_partial": 0.3840336134453782,
+      "p": 0.02275126471528401
+    },
+    {
+      "cohort": "patient Tumor (all preps)",
+      "x": "tac_cpm_epi",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 34,
+      "rho_partial": 0.15935828877005345,
+      "p": 0.3680000296621849
+    },
+    {
+      "cohort": "sample Tumor V2 beads",
+      "x": "tac_cpm_all",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 30,
+      "rho_partial": 0.12124582869855395,
+      "p": 0.5233214598378129
+    },
+    {
+      "cohort": "sample Tumor V2 beads",
+      "x": "tac_cpm_all",
+      "y": "cd8_trm_of_T",
+      "z": "frac_gate",
+      "n": 30,
+      "rho_partial": -0.053170189098998885,
+      "p": 0.7802081176079786
+    },
+    {
+      "cohort": "sample Tumor V2 beads",
+      "x": "tac_cpm_gate",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 30,
+      "rho_partial": 0.160845383759733,
+      "p": 0.3958253472885637
+    },
+    {
+      "cohort": "sample Tumor V2 beads",
+      "x": "tac_cpm_epi",
+      "y": "lcam_diff",
+      "z": "frac_gate",
+      "n": 30,
+      "rho_partial": 0.0028921023359288096,
+      "p": 0.9878984726602261
+    }
+  ],
+  "digest_patients": [
+    {
+      "pt": "695 Tumor",
+      "patient_ID": "695",
+      "disease": "LUAD",
+      "n_cells": 15757,
+      "n_gate": 2590,
+      "n_epi_like": 946,
+      "tac_cpm_all": 0.24017605022407473,
+      "tac_cpm_gate": 1.6056652581305157,
+      "tac_cpm_epi": 2.6959655684332327,
+      "lcam_diff": 10.668308366616717,
+      "cd8_trm_of_T": 0.052201704545454544,
+      "cd8_broad_of_T": 0.11008522727272728,
+      "cd8a_cpm_immune": 0.19320950588522334,
+      "frac_gate": 0.16437139049311417
+    },
+    {
+      "pt": "706 Tumor",
+      "patient_ID": "706",
+      "disease": "LUSC",
+      "n_cells": 24409,
+      "n_gate": 2752,
+      "n_epi_like": 1084,
+      "tac_cpm_all": 0.6791440509092166,
+      "tac_cpm_gate": 3.0834493520084467,
+      "tac_cpm_epi": 5.374879293177321,
+      "lcam_diff": 6.223481636155446,
+      "cd8_trm_of_T": 0.08985341709499334,
+      "cd8_broad_of_T": 0.20512088330477823,
+      "cd8a_cpm_immune": 0.5579205047041192,
+      "frac_gate": 0.11274529886517268
+    }
+  ],
+  "cell_level_cite": [
+    {
+      "test": "cell Tumor TACSTD2 UMI vs CD8 ADT (lineage sanity)",
+      "n": 72463,
+      "rho": -0.06251876784215984,
+      "p": 1.1304259555201687e-63,
+      "note": "Expected negative: TACSTD2 is epithelial, CD8 is T cells. Not a sample-level test."
+    },
+    {
+      "test": "cell Tumor TACSTD2 UMI vs EPCAM ADT",
+      "n": 72463,
+      "rho": null,
+      "p": null,
+      "note": "Same-lineage positive control if Trop-2 RNA tracks EpCAM protein."
+    }
+  ]
+}

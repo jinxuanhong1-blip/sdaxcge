@@ -1,0 +1,13 @@
+item	value
+GEO accession	GSE154826
+Paper	Leader, Grout et al. Cancer Cell 2021
+Annotated cells used	361,929
+Patients with annotated cells	35
+Tumor patient-tissue units	35
+V2 beads Tumor (paper LCAM set)	26
+Digest/dead-cell Tumor patients	2 (695 LUAD, 706 LUSC) — correlation not computed
+Trop-2 / TACSTD2 ADT	NOT on the panel
+EPCAM / CD8 / CD45 ADT	Yes, in hashed CITE-seq libraries
+CD45 enrichment	Yes for beads/sort; no for digest (2 patients)
+LCAM cell-frequency definition	T_activated + IgG + MoMac-II  minus  B+AM+cDC2+AZU1_mac+Tcm/naive_II+cDC1
+User expected sign	negative
