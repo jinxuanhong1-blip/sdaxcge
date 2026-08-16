@@ -1,0 +1,17 @@
+accession	public_date	scope	assay_or_material	disposition	reason
+GSE205335	2024-11-05	Human advanced lung cancer receiving ICI	10x scRNA-seq of tumor biopsies	analyzed	Direct tumor/ICI match; response analysis restricted to 14 pretreatment core samples from 11 patients
+GSE248249	2024-01-11	Human NSCLC with acquired ICI resistance	Clariom D tumor expression array	analyzed	Direct tumor/ICI match with 13 pre/post pairs; no responder-versus-nonresponder contrast
+GSE225620	2024-07-05	Human NSCLC receiving neoadjuvant PD-1 blockade	Whole-blood bulk RNA-seq	limited audit	Both genes are technically present but blood is not a credible epithelial-tumor readout
+GSE260770	2024-05-01	Human early-stage lung cancer receiving sintilimab	Peripheral-blood bulk RNA-seq	limited audit	Both genes are nearly absent; GEO summary alone obscures that the submitted material is blood
+GSE266219	2024-05-07	Human metastatic NSCLC receiving anti-PD-1 then anti-PD-1 plus itacitinib	Sorted PBMC/CD8 single-cell RNA-seq	excluded	No epithelial tumor cells
+GSE261345	2024-04-09	Human extensive-stage SCLC chemoimmunotherapy cohort	GeoMx Cancer Transcriptome Atlas	excluded from pair test	TACSTD2 is measured but CLDN4 is absent from the targeted panel
+GSE261348	2024-04-09	Human extensive-stage SCLC chemoimmunotherapy cohort	GeoMx Cancer Transcriptome Atlas	excluded from pair test	TACSTD2 is measured but CLDN4 is absent from the targeted panel
+GSE265899	2024-08-21	Human lung adenocarcinoma stratified by PD-L1/TME	GeoMx whole-transcriptome tumor and immune AOIs	context-only analysis	Useful compartment control, but discovery specimens are not documented as an ICI-treated cohort
+GSE237087	2024-02-28	Human lung cancer immunotherapy cohort	Cell-free DNA 5-hydroxymethylcytosine profiling	excluded	Not gene-expression measurement
+GSE207715	2024-07-28	Human NSCLC receiving nivolumab	Plasma extracellular-vesicle miRNA array	excluded	Does not measure TACSTD2 or CLDN4 mRNA
+GSE255144	2024-12-31	NSCLC experimental system	Bulk RNA-seq	excluded	Cell-plasticity model, not a clinical tumor response cohort
+GSE260597	2024-03-04	Human LAIR1/anti-PD-1 experimental system	Bulk RNA-seq	excluded	Preclinical/in-vitro component, not a clinical tumor response cohort
+GSE260598	2024-03-04	Human archival collagen-rich solid tumors	GeoMx DSP	context-only	Supports stromal biology but does not provide a lung ICI outcome test for the pair
+GSE250262	2023-12-18	Human advanced NSCLC treated with PD-(L)1 inhibitors	NanoString IO360 tumor profiling	year-excluded	Relevant cohort, but GEO release predates 2024
+GSE207422	2023-03-06	Human NSCLC receiving neoadjuvant anti-PD-1 plus chemotherapy	Single-cell and bulk tumor RNA-seq	year-excluded	Relevant cohort, but GEO release predates 2024
+HRA006761	2026-02-24	Human advanced NSCLC malignant pleural effusion	Controlled-access scRNA-seq	not GEO / context only	The explicit CLDN4-TACSTD2 paper dataset; treatment was targeted therapy or platinum chemotherapy, not ICI

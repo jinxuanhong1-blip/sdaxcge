@@ -1,0 +1,11 @@
+accession	subset	n	TACSTD2_median	CLDN4_median	TACSTD2_nonzero_fraction	CLDN4_nonzero_fraction	spearman_rho	note
+GSE248249	all	42	5.023540000000001	5.13613	1.0	1.0	0.5541690300623936	RMA signal; nonzero fraction is not a detection rate
+GSE248249	pre	13	4.83684	5.65674	1.0	1.0	0.6648351648351648	baseline tumors; 13 patients
+GSE248249	post	29	5.07454	4.82793	1.0	1.0	0.5522167487684729	acquired-resistance tumors; 29 patients
+GSE225620	all	43	4.0	0.0	0.8372093023255814	0.3953488372093023	0.04615388597590653	whole blood raw counts; epithelial-marker readout is not credible
+GSE260770	Responsed to sintilimab	26	0.0	0.0	0.038461538461538464	0.23076923076923078	-0.10833594563203601	peripheral-blood FPKM
+GSE260770	Non-responsed to sintilimab	24	0.0	0.0	0.25	0.041666666666666664	0.4553711508745755	peripheral-blood FPKM
+GSE265899	tumor	48	177.6642124	106.26883345	1.0	1.0	0.45470335993052163	context-only LUAD tumor AOIs; patients were not an ICI cohort
+GSE265899	immune	47	24.26995123	17.92242552	1.0	1.0	0.1316618953154528	context-only LUAD immune AOIs; patients were not an ICI cohort
+GSE248249	paired_post_minus_pre_TACSTD2	13	-0.16129999999999978					6/13 changes were positive; descriptive only
+GSE248249	paired_post_minus_pre_CLDN4	13		-0.8851800000000001				2/13 changes were positive; descriptive only
