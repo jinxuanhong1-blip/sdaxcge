@@ -223,15 +223,20 @@ def process_gse131907(source: Path) -> tuple[pd.DataFrame, dict]:
     labels[major == "Myeloid cells"] = "myeloid"
     labels[major == "Endothelial cells"] = "endothelial"
     labels[major == "Fibroblasts"] = "fibroblast"
-    include = metadata["Sample_Origin"].to_numpy() == "tLung"
+    malignant_samples = metadata.loc[
+        metadata["Cell_subtype"] == "Malignant cells", "Sample"
+    ].unique()
+    include = metadata["Sample"].isin(malignant_samples).to_numpy()
     result = sample_summaries(
         "GSE131907", metadata["Sample"].to_numpy(), expr, totals, labels, include
     )
+    site_by_sample = metadata.groupby("Sample")["Sample_Origin"].first()
+    result["site"] = result["sample"].map(site_by_sample)
     audit = {
         "matrix_cells": len(cell_ids),
         "matrix_genes": n_genes,
-        "primary_tumor_cells": int(include.sum()),
-        "primary_tumor_samples": int(metadata.loc[include, "Sample"].nunique()),
+        "tumor_bearing_specimen_cells": int(include.sum()),
+        "tumor_bearing_specimens": int(metadata.loc[include, "Sample"].nunique()),
         "classification": (
             "published major immune cell types; published Malignant cells subtype "
             "for tumor epithelium"
@@ -262,8 +267,7 @@ def process_gse148071(source: Path) -> tuple[pd.DataFrame, dict]:
         labels = classify(expr)
         sample_match = re.search(r"_(P\d+)_", path.name)
         sample = sample_match.group(1) if sample_match else path.stem
-        frames.append(
-            sample_summaries(
+        summary = sample_summaries(
                 "GSE148071",
                 np.repeat(sample, len(cell_ids)),
                 expr,
@@ -271,7 +275,8 @@ def process_gse148071(source: Path) -> tuple[pd.DataFrame, dict]:
                 labels,
                 np.ones(len(cell_ids), dtype=bool),
             )
-        )
+        summary["site"] = "advanced_biopsy"
+        frames.append(summary)
         audits.append(
             {
                 "file": path.name,
@@ -354,12 +359,31 @@ def run_statistics(samples: pd.DataFrame, seed: int) -> tuple[pd.DataFrame, pd.D
                 "epithelial_fraction",
                 "n_cells",
                 "median_umi",
+                "site",
             ]
             frame = atlas_df.loc[eligible, cols].dropna()
             x = frame["epithelial_module"].to_numpy()
             y = frame[score].to_numpy()
+            if len(frame) < 4 or np.ptp(x) == 0 or np.ptp(y) == 0:
+                rows.append(
+                    {
+                        "atlas": atlas,
+                        "outcome": score,
+                        "n_samples": len(frame),
+                        "spearman_rho": np.nan,
+                        "bootstrap_ci_low": np.nan,
+                        "bootstrap_ci_high": np.nan,
+                        "permutation_p": np.nan,
+                        "asymptotic_p": np.nan,
+                        "partial_spearman_rho": np.nan,
+                    }
+                )
+                continue
             rho, asymptotic_p = stats.spearmanr(x, y)
             low, high = bootstrap_ci(x, y, rng)
+            site_covariates = pd.get_dummies(
+                frame["site"], drop_first=True, dtype=float
+            ).to_numpy()
             partial = residual_rank_correlation(
                 x,
                 y,
@@ -368,6 +392,7 @@ def run_statistics(samples: pd.DataFrame, seed: int) -> tuple[pd.DataFrame, pd.D
                         frame["epithelial_fraction"].to_numpy(),
                         np.log1p(frame["n_cells"].to_numpy()),
                         np.log1p(frame["median_umi"].to_numpy()),
+                        site_covariates,
                     ]
                 ),
             )
@@ -504,8 +529,8 @@ def main() -> None:
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
-    cache131 = args.output / "_cache_v2_gse131907_scores.csv"
-    audit_cache131 = args.output / "_cache_v2_gse131907_audit.json"
+    cache131 = args.output / "_cache_v3_gse131907_scores.csv"
+    audit_cache131 = args.output / "_cache_v3_gse131907_audit.json"
     if cache131.exists() and audit_cache131.exists():
         g131 = pd.read_csv(cache131)
         with audit_cache131.open() as handle:
@@ -527,6 +552,8 @@ def main() -> None:
         g148.to_csv(cache148, index=False)
         with audit_cache148.open("w") as handle:
             json.dump(audit148, handle, indent=2)
+    if "site" not in g148:
+        g148["site"] = "advanced_biopsy"
     # Recompute atlas-level z scores even when loading an earlier raw-summary cache.
     g131 = finalize_scores(g131)
     g148 = finalize_scores(g148)

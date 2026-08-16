@@ -24,9 +24,10 @@ def main() -> None:
         audit = json.load(handle)
 
     assert set(samples["atlas"]) == {"GSE131907", "GSE148071"}
-    assert len(samples[samples["atlas"] == "GSE131907"]) == 12
+    assert len(samples[samples["atlas"] == "GSE131907"]) == 21
     assert len(samples[samples["atlas"] == "GSE148071"]) == 42
     assert audit["GSE131907"]["matrix_cells"] == 208_506
+    assert audit["GSE131907"]["tumor_bearing_specimens"] == 21
     assert audit["GSE148071"]["matrix_cells"] == 89_887
     assert audit["GSE154826"]["status"] == "excluded before analysis"
     assert audit["GSE154826"]["author_hca_rds_bytes"] > 2_000_000_000
