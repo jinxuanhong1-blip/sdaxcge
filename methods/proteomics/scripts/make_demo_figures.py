@@ -106,7 +106,7 @@ def fig_log2(protein: dict[str, pd.DataFrame], rna: dict[str, pd.DataFrame], out
     fig, axes = plt.subplots(1, 2, figsize=(9.6, 3.8), sharey=False)
     ax = axes[0]
     for cohort, mat in protein.items():
-        v = mat.stack(dropna=True).sample(min(20000, mat.size), random_state=0)
+        v = pd.Series(mat.to_numpy().ravel()).dropna().sample(min(20000, mat.size), random_state=0)
         ax.hist(v, bins=50, density=True, histtype="step", lw=1.5, label=cohort, color=COLORS[cohort])
     ax.set_title("TMT protein (already log2-ratio)")
     ax.set_xlabel("Value")
@@ -116,7 +116,7 @@ def fig_log2(protein: dict[str, pd.DataFrame], rna: dict[str, pd.DataFrame], out
 
     ax = axes[1]
     for cohort, mat in rna.items():
-        v = mat.stack(dropna=True).sample(min(20000, mat.size), random_state=0)
+        v = pd.Series(mat.to_numpy().ravel()).dropna().sample(min(20000, mat.size), random_state=0)
         ax.hist(v, bins=50, density=True, histtype="step", lw=1.5, label=cohort, color=COLORS[cohort])
     ax.set_title("RNA tables (already log2; scales differ)")
     ax.set_xlabel("Value")
@@ -204,17 +204,20 @@ def fig_immune_join(joined: pd.DataFrame, out: Path) -> None:
     else:
         ax.text(0.5, 0.5, "no Immune.Cluster column", ha="center")
     ax = axes[1]
-    cd8 = next((c for c in joined.columns if c.endswith("CD8_T") or c.endswith("CD8A")), None)
-    if prot_col and cd8:
-        d = joined[[prot_col, cd8]].dropna()
-        ax.scatter(d[cd8], d[prot_col], s=16, alpha=0.75, c=COLORS["LSCC"])
+    xcell = next((c for c in joined.columns if "xCell_ImmuneScore" in c), None)
+    cib = next((c for c in joined.columns if "CIBERSORT_Absolute" in c), None)
+    score_col = xcell or cib
+    if prot_col and score_col:
+        d = joined[[prot_col, score_col]].dropna()
+        ax.scatter(d[score_col], d[prot_col], s=16, alpha=0.75, c=COLORS["LSCC"])
         if d.shape[0] >= 5:
-            rho, p = stats.spearmanr(d[cd8], d[prot_col])
-            ax.set_title(f"TACSTD2 protein vs RNA CD8A\nSpearman ρ={rho:.2f} p={p:.3g}")
-        ax.set_xlabel("RNA CD8A (log2 table)")
+            rho, p = stats.spearmanr(d[score_col], d[prot_col])
+            label = "xCell ImmuneScore" if xcell else "CIBERSORT Absolute"
+            ax.set_title(f"TACSTD2 protein vs {label}\nSpearman ρ={rho:.2f} p={p:.3g}")
+        ax.set_xlabel(score_col.replace("pheno_", ""))
         ax.set_ylabel("TACSTD2 protein")
     else:
-        ax.text(0.5, 0.5, "no CD8A RNA column", ha="center")
+        ax.text(0.5, 0.5, "no xCell/CIBERSORT column", ha="center")
     fig.suptitle("Join is valid. Interpreting this as ICI response is not.", fontsize=12, y=1.03)
     _save(fig, out)
 

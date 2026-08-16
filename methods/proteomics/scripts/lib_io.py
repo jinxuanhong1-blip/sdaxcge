@@ -56,14 +56,24 @@ def normalize_gene_id(label: str) -> str:
 
 
 def normalize_sample_id(sample_id: str) -> str:
-    """C3L.00001 / C3L-00001 / C3L_00001 -> C3L-00001 (CPTAC submitter style)."""
+    """C3L.00001 / C3L-00001 / C3L_00001 -> C3L-00001 (CPTAC submitter style).
+
+    A trailing ``_Tumor`` / ``_NAT`` / ``_Normal`` suffix is kept so paired
+    aliquots that share a case ID stay distinct in tumor-vs-NAT matrices.
+    """
     s = str(sample_id).strip()
     s = s.replace(".rna_seq.augmented_star_gene_counts.tsv", "")
     s = re.sub(r"^X(?=\d)", "", s)  # LinkedOmics sometimes prefixes numeric IDs
+    suffix = ""
+    m_suf = re.search(r"_(Tumor|NAT|Normal|TUMOR)$", s, flags=re.I)
+    if m_suf:
+        raw = m_suf.group(1).lower()
+        suffix = "_NAT" if raw in {"nat", "normal"} else "_Tumor"
+        s = s[: m_suf.start()]
     m = re.match(r"^(C3[LN])[.\-_]?(\d+)", s, flags=re.I)
     if m:
-        return f"{m.group(1).upper()}-{m.group(2)}"
-    return s.replace(".", "-")
+        return f"{m.group(1).upper()}-{m.group(2)}{suffix}"
+    return s.replace(".", "-") + suffix
 
 
 def normalize_sample_columns(columns: Iterable) -> list[str]:
@@ -277,7 +287,7 @@ def detect_log_scale(values: pd.Series | np.ndarray, name: str = "matrix") -> di
 
 
 def apply_log2_if_needed(matrix: pd.DataFrame, name: str = "matrix") -> tuple[pd.DataFrame, dict]:
-    info = detect_log_scale(matrix.stack(dropna=True), name=name)
+    info = detect_log_scale(matrix.to_numpy().ravel(), name=name)
     if info.get("already_log", True):
         return matrix.copy(), info
     logged = np.log2(matrix.clip(lower=0) + 1.0)

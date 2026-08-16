@@ -23,6 +23,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 from scipy.optimize import minimize_scalar
+from scipy.special import digamma, polygamma
 
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
@@ -74,20 +75,20 @@ def _fit_f_dist(s2: np.ndarray, df: float) -> tuple[float, float]:
     e = float(z.mean())
     v = float(z.var(ddof=1))
     # trigamma(df/2) correction roughly as limma
-    trigamma_df = float(stats.polygamma(1, df / 2.0)) if df > 2 else 1.0
+    trigamma_df = float(polygamma(1, df / 2.0)) if df > 2 else 1.0
     evar = v - trigamma_df
     if evar <= 0:
         d0 = np.inf
     else:
         # solve trigamma(d0/2) ≈ evar
         def obj(d0: float) -> float:
-            return (float(stats.polygamma(1, d0 / 2.0)) - evar) ** 2
+            return (float(polygamma(1, d0 / 2.0)) - evar) ** 2
 
         res = minimize_scalar(obj, bounds=(1e-2, 1e4), method="bounded")
         d0 = float(res.x)
-    digamma_df = float(stats.digamma(df / 2.0)) if df > 0 else 0.0
+    digamma_df = float(digamma(df / 2.0)) if df > 0 else 0.0
     if np.isfinite(d0):
-        s0 = float(np.exp(e - stats.digamma(d0 / 2.0) + digamma_df))
+        s0 = float(np.exp(e - digamma(d0 / 2.0) + digamma_df))
     else:
         s0 = float(np.exp(e + digamma_df))
     return d0, s0

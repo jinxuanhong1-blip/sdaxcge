@@ -1,0 +1,11 @@
+table	gene	query	canonical	present	n_rows	n_samples	n_observed	n_na	na_frac	note	ensembl	counts	tpm	fpkm
+HS_CPTAC_LUAD_proteome_ratio_NArm_TUMOR.cct	TACSTD2	TACSTD2	TACSTD2	True	1.0	110.0	110.0	0.0	0.0	row present				
+HS_CPTAC_LUAD_proteome_ratio_NArm_TUMOR.cct	CLDN4	CLDN4	CLDN4	False	0.0	110.0	0.0	110.0	1.0	gene absent from table (not a row of NAs — never quantified / dropped by NArm)				
+HS_CPTAC_LSCC_2020_proteome_ratio_NArm_TUMOR.cct	TACSTD2	TACSTD2	TACSTD2	True	1.0	108.0	108.0	0.0	0.0	row present				
+HS_CPTAC_LSCC_2020_proteome_ratio_NArm_TUMOR.cct	CLDN4	CLDN4	CLDN4	False	0.0	108.0	0.0	108.0	1.0	gene absent from table (not a row of NAs — never quantified / dropped by NArm)				
+HS_CPTAC_LUAD_rnaseq_uq_rpkm_log2_NArm_TUMOR.cct	TACSTD2	TACSTD2	TACSTD2	True	1.0	110.0	110.0	0.0	0.0	row present				
+HS_CPTAC_LUAD_rnaseq_uq_rpkm_log2_NArm_TUMOR.cct	CLDN4	CLDN4	CLDN4	True	1.0	110.0	110.0	0.0	0.0	row present				
+HS_CPTAC_LSCC_2020_rnaseq_uq_fpkm_log2_NArm_TUMOR.cct	TACSTD2	TACSTD2	TACSTD2	True	1.0	108.0	108.0	0.0	0.0	row present				
+HS_CPTAC_LSCC_2020_rnaseq_uq_fpkm_log2_NArm_TUMOR.cct	CLDN4	CLDN4	CLDN4	True	1.0	108.0	108.0	0.0	0.0	row present				
+C3N-02451_e9f19a31.star.tsv	TACSTD2			True							ENSG00000184292	3921.0	250.8513	91.0752
+C3N-02451_e9f19a31.star.tsv	CLDN4			True							ENSG00000189143	10623.0	263.0604	95.5079

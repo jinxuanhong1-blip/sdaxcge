@@ -34,8 +34,9 @@ def run(cmd: list[str]) -> None:
 def write_tumor_nat_group(tumor: Path, normal: Path, dest: Path) -> Path:
     t = read_expression_matrix(tumor)
     n = read_expression_matrix(normal)
-    rows = [{"sample_id": normalize_sample_id(c), "group": "Tumor"} for c in t.columns]
-    rows += [{"sample_id": normalize_sample_id(c), "group": "NAT"} for c in n.columns]
+    # Paired CPTAC aliquots share a case ID; keep tissue in the limma sample key.
+    rows = [{"sample_id": f"{normalize_sample_id(c)}_Tumor", "group": "Tumor"} for c in t.columns]
+    rows += [{"sample_id": f"{normalize_sample_id(c)}_NAT", "group": "NAT"} for c in n.columns]
     dest.parent.mkdir(parents=True, exist_ok=True)
     pd.DataFrame(rows).drop_duplicates("sample_id").to_csv(dest, sep="\t", index=False)
     return dest
@@ -44,12 +45,10 @@ def write_tumor_nat_group(tumor: Path, normal: Path, dest: Path) -> Path:
 def merge_tumor_nat(tumor: Path, normal: Path, dest: Path) -> Path:
     t = read_expression_matrix(tumor)
     n = read_expression_matrix(normal)
-    t.columns = [normalize_sample_id(c) for c in t.columns]
-    n.columns = [normalize_sample_id(c) for c in n.columns]
-    # overlapping genes only
+    t.columns = [f"{normalize_sample_id(c)}_Tumor" for c in t.columns]
+    n.columns = [f"{normalize_sample_id(c)}_NAT" for c in n.columns]
     genes = t.index.intersection(n.index)
     merged = pd.concat([t.loc[genes], n.loc[genes]], axis=1)
-    # drop duplicated sample IDs keeping tumor
     merged = merged.loc[:, ~merged.columns.duplicated()]
     dest.parent.mkdir(parents=True, exist_ok=True)
     merged.to_csv(dest, sep="\t")
@@ -223,6 +222,10 @@ def main() -> int:
                     }
                 )
     pd.DataFrame(compact_rows).to_csv(tables / "target_gene_summary.tsv", sep="\t", index=False)
+    limma_full = pd.read_csv(tables / "limma_LUAD_protein_tumor_vs_nat.tsv", sep="\t")
+    limma_full[limma_full["gene"].isin(["TACSTD2", "CLDN4", "EPCAM", "KRT7", "NAPSA"])].to_csv(
+        tables / "limma_LUAD_targets.tsv", sep="\t", index=False
+    )
 
     manifest = {
         "created_utc": datetime.now(timezone.utc).isoformat(),

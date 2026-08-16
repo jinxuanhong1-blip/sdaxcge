@@ -146,7 +146,7 @@ CLDN4 是约 22 kDa 的四次跨膜蛋白，可定量的胰酶肽很少。DDA/TM
 
 Pair on **harmonized case IDs** (`C3L.00001` = `C3L-00001`). Use **Spearman ρ** on samples with both values. Gene-wise RNA–protein ρ in CPTAC LUAD literature is typically ~0.14–0.53; a single gene can sit anywhere in that range.
 
-**Demo (LinkedOmics tumor tables):** TACSTD2 has paired protein+RNA in LUAD and LSCC (see `demo/tables/protein_rna_concordance.tsv`). CLDN4 has RNA only → status `protein_absent`, ρ = NA. That is the correct output.
+**Demo (LinkedOmics tumor tables):** TACSTD2 Spearman ρ = 0.64 (LUAD, n=110) and 0.88 (LSCC, n=108). CLDN4 has RNA only → status `protein_absent`, ρ = NA. That is the correct output (`demo/tables/protein_rna_concordance.tsv`).
 
 If you start from S3 STAR files, collapse per-sample TSVs with `extract_star_targets` (Ensembl → symbol), then join to a protein matrix on `sample_id`. Use the same RNA transform on all samples of one cohort (`log2(TPM+1)` **or** the LinkedOmics log2 table — do not mix).
 
@@ -210,6 +210,8 @@ Deconvolution is **RNA-derived**. Join it to protein on **case ID**, not aliquot
 | ESTIMATE / xCell published supplements | watch `.` vs `-` | `lib_io.normalize_sample_id` |
 
 `scripts/join_deconvolution.py` also computes a few **RNA marker columns** (`CD8A`, `CD274`, `CXCL13`, …) from the RNA matrix so a join exists when you do not have a CIBERSORT run. Label them as marker scores, not CIBERSORT.
+
+The LinkedOmics LSCC molecular phenotype table already ships **published** `xCell_ImmuneScore_rna`, `CIBERSORT_AbsoluteScore_rna`, and `Immune.Cluster.rna` — the demo joins those on case ID (see `demo/tables/LSCC_protein_rna_immune_join.tsv`).
 
 **Interpretation limit.** A correlation between TACSTD2 protein and CD8A RNA / “Cold Tumor” in **treatment-naive** LSCC is a **co-expression / microenvironment** statement. It is **not** an ICI-response association (next section).
 

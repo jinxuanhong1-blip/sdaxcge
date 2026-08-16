@@ -1,0 +1,5 @@
+cohort	gene	status	n_paired	spearman_rho	spearman_p	protein_median	rna_median	note	n_rna
+LUAD	TACSTD2	ok	110	0.6371540183367591	7.248007641215013e-14	-0.5242	6.1359	Spearman on paired samples; IDs harmonized to C3L/C3N	
+LUAD	CLDN4	protein_absent	0					RNA present, protein row absent (typical CLDN4 TMT/NArm). Concordance is undefined — do not impute protein from RNA.	110.0
+LSCC	TACSTD2	ok	108	0.8779997523031048	1.0630706521868495e-35	-0.15715	20.87375	Spearman on paired samples; IDs harmonized to C3L/C3N	
+LSCC	CLDN4	protein_absent	0					RNA present, protein row absent (typical CLDN4 TMT/NArm). Concordance is undefined — do not impute protein from RNA.	108.0
