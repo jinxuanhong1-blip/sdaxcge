@@ -1,0 +1,223 @@
+{
+  "accession": "GSE131907",
+  "histology": "LUAD",
+  "public_only": true,
+  "n_cells": 10973,
+  "n_cells_nLung": 3703,
+  "n_cells_tLung": 7270,
+  "n_samples": 22,
+  "n_samples_nLung": 11,
+  "n_samples_tLung": 11,
+  "n_samples_eligible": 22,
+  "n_patients": 12,
+  "subtype_counts": {
+    "tS1": 3270,
+    "tS2": 3018,
+    "AT2": 2020,
+    "NA": 918,
+    "Ciliated": 654,
+    "AT1": 530,
+    "Club": 439,
+    "tS3": 64,
+    "Undetermined": 60
+  },
+  "genes_absent": {
+    "AT2": [],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": []
+  },
+  "root": {
+    "n_nLung": 3703,
+    "n_nLung_author_AT2": 2020,
+    "rule": "nLung author AT2 (median AT2 score)",
+    "index": 1217,
+    "root_sample": "LUNG_N34",
+    "root_origin": "nLung",
+    "root_subtype": "AT2"
+  },
+  "n_paga_components": 1,
+  "leiden_resolution": 0.6,
+  "primary_spearman": [
+    {
+      "contrast": "TACSTD2 vs DPT",
+      "n": 22,
+      "rho": 0.6171654432523999,
+      "p": 0.002214800218193569,
+      "q": 0.002887206916138686
+    },
+    {
+      "contrast": "CLDN4 vs DPT",
+      "n": 22,
+      "rho": 0.6182947487295314,
+      "p": 0.0021621583150805016,
+      "q": 0.002887206916138686
+    },
+    {
+      "contrast": "TACSTD2 vs CLDN4",
+      "n": 22,
+      "rho": 0.8633540372670809,
+      "p": 2.3025547385902737e-07,
+      "q": 2.939586796703391e-06
+    },
+    {
+      "contrast": "TACSTD2 vs AT2 score",
+      "n": 22,
+      "rho": -0.8430265386787127,
+      "p": 8.433564994662839e-07,
+      "q": 3.935663664175991e-06
+    },
+    {
+      "contrast": "TACSTD2 vs club score",
+      "n": 22,
+      "rho": 0.044607566346696784,
+      "p": 0.8437394727309631,
+      "q": 0.8437394727309631
+    },
+    {
+      "contrast": "TACSTD2 vs basal score",
+      "n": 22,
+      "rho": 0.6973461321287409,
+      "p": 0.00030957279078606216,
+      "q": 0.0006191455815721243
+    },
+    {
+      "contrast": "TACSTD2 vs barrier/keratin score",
+      "n": 22,
+      "rho": 0.8543195934500282,
+      "p": 4.199409709576273e-07,
+      "q": 2.939586796703391e-06
+    },
+    {
+      "contrast": "TACSTD2 vs malignant-like score",
+      "n": 22,
+      "rho": 0.6160361377752683,
+      "p": 0.002268519719823253,
+      "q": 0.002887206916138686
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 22,
+      "rho": -0.8328627893845286,
+      "p": 1.5104375042937865e-06,
+      "q": 5.286531265028252e-06
+    },
+    {
+      "contrast": "CLDN4 vs club score",
+      "n": 22,
+      "rho": -0.18690005646527386,
+      "p": 0.40493287244281234,
+      "q": 0.4360815549384133
+    },
+    {
+      "contrast": "CLDN4 vs basal score",
+      "n": 22,
+      "rho": 0.6103896103896105,
+      "p": 0.0025539020592147206,
+      "q": 0.002979552402417174
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin score",
+      "n": 22,
+      "rho": 0.8170525127046867,
+      "p": 3.477900567126601e-06,
+      "q": 9.738121587954483e-06
+    },
+    {
+      "contrast": "CLDN4 vs malignant-like score",
+      "n": 22,
+      "rho": 0.7210615471485038,
+      "p": 0.0001528714095424258,
+      "q": 0.0003566999555989936
+    },
+    {
+      "contrast": "SFTPC vs DPT (control)",
+      "n": 22,
+      "rho": -0.6736307171089779,
+      "p": 0.0005887354485823171,
+      "q": 0.0010302870350190549
+    }
+  ],
+  "tlung_only_TACSTD2_vs_dpt": {
+    "n": 11,
+    "rho": 0.3454545454545455,
+    "p": 0.2980892209030385
+  },
+  "tlung_only_CLDN4_vs_dpt": {
+    "n": 11,
+    "rho": 0.6454545454545455,
+    "p": 0.03196279932801746
+  },
+  "sensitivity_spearman": [
+    {
+      "contrast": "tLung-only TACSTD2 vs DPT",
+      "n": 11,
+      "rho": 0.3454545454545455,
+      "p": 0.2980892209030385
+    },
+    {
+      "contrast": "tLung-only CLDN4 vs DPT",
+      "n": 11,
+      "rho": 0.6454545454545455,
+      "p": 0.03196279932801746
+    },
+    {
+      "contrast": "nLung-only TACSTD2 vs DPT",
+      "n": 11,
+      "rho": 0.8363636363636365,
+      "p": 0.0013331850799508565
+    },
+    {
+      "contrast": "nLung-only CLDN4 vs DPT",
+      "n": 11,
+      "rho": 0.6818181818181819,
+      "p": 0.020842853610945084
+    },
+    {
+      "contrast": "tLung-only TACSTD2 vs barrier/keratin",
+      "n": 11,
+      "rho": 0.6272727272727273,
+      "p": 0.03884525362035334
+    }
+  ],
+  "cell_level_descriptive": {
+    "TACSTD2_vs_dpt": {
+      "n": 10973,
+      "rho": 0.38865468393290886,
+      "p": 0.0
+    },
+    "CLDN4_vs_dpt": {
+      "n": 10973,
+      "rho": 0.41238215372477915,
+      "p": 0.0
+    },
+    "TACSTD2_vs_barrier": {
+      "n": 10973,
+      "rho": 0.520989070018747,
+      "p": 0.0
+    },
+    "note": "descriptive only; n_cells is not the experimental unit"
+  },
+  "extra_barrier_figure": {
+    "emitted": true,
+    "rho": 0.8543195934500282,
+    "p": 4.199409709576273e-07,
+    "n": 22,
+    "rule": "rho>0.0 and p<0.05 at sample level"
+  },
+  "qc": {
+    "min_genes": 200,
+    "min_umi": 500,
+    "min_cells_per_gene": 10,
+    "lineage_EPCAM_mean": 1.1993217967782646,
+    "lineage_PTPRC_mean": 0.04225934089550094
+  },
+  "verdict": "Sample-level TACSTD2 vs DPT: n=22, ρ=0.617, p=0.00221. CLDN4 vs DPT: n=22, ρ=0.618, p=0.00216. TACSTD2 vs CLDN4 co-expression: n=22, ρ=0.863, p=2.3e-07. TACSTD2 vs barrier/keratin: n=22, ρ=0.854, p=4.2e-07; extra figure yes. PAGA has 1 component among 21 Leiden vertices at connectivity>0. tLung-only TACSTD2 vs DPT: n=11, ρ=0.345, p=0.298 (inconclusive). Author basal n_cells=0; basal score is a KRT5/KRT15/TP63/NGFR proxy, not an author state. Club vs TACSTD2 is a sample-level null. Do not write that TACSTD2 marks club on this object. The n=22 DPT correlations mix nLung and tLung; they are not a within-tumor progression test.",
+  "skipped": {
+    "GSE253013": "processed RDS ~9.3 GB; over public-file cap",
+    "GSE207422": "NSCLC mixed histology; not pooled into this LUAD-only graph"
+  }
+}

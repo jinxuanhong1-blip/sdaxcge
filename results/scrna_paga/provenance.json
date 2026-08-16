@@ -1,0 +1,43 @@
+{
+  "accession": "GSE131907",
+  "paper": "Kim et al. Nat Commun 2020 PMID 32385277",
+  "files": {
+    "annotation": "GSE131907_Lung_Cancer_cell_annotation.txt.gz",
+    "umi": "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz",
+    "series_matrix": "GSE131907_series_matrix.txt.gz"
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131907",
+  "refused": [
+    "GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz (~2.9 GB)",
+    "GSE253013_all_luad_garnett_temp.rds.gz (~9.3 GB)",
+    "EGA FASTQ EGAD00001005054",
+    "GSE207422 NSCLC mixed histology (not LUAD-only)"
+  ],
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "nLung author AT2"
+  },
+  "download_manifest": {
+    "accession": "GSE131907",
+    "files": [
+      {
+        "file": "GSE131907_Lung_Cancer_cell_annotation.txt.gz",
+        "bytes": 1886187,
+        "sha256": "9d017652a31a489c1f62cacc436936d48a5b07bb554fc0dbe602da7474532205"
+      },
+      {
+        "file": "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz",
+        "bytes": 408736818,
+        "sha256": "b44a9c6635d0b59ec66b5eb6b40b40e7292c3a75aaf8afc4f933eb0550a26372"
+      },
+      {
+        "file": "GSE131907_series_matrix.txt.gz",
+        "bytes": 6300,
+        "sha256": "2d12f710c96054a75e53344b70b1b0708c9ef43b12868c837212386b1c7ff23f"
+      }
+    ]
+  }
+}
