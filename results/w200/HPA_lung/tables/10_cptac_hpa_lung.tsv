@@ -1,0 +1,4 @@
+Cancer	Gene	Gene name	p-value adjusted	logFC	present_in_hpa_cptac_lung	hpa_version	source_file	source_url	note
+Lung AC	ENSG00000184292	TACSTD2	1.72E-4	-0.302233	yes	25.1	cancer_cptac.tsv	https://www.proteinatlas.org/download/tsv/cancer_cptac.tsv.zip	HPA-hosted CPTAC tumor-vs-normal MS logFC. Not IHC. Treatment-naive CPTAC, not ICI.
+Lung SQCC	ENSG00000184292	TACSTD2	1.00E0	0.254722	yes	25.1	cancer_cptac.tsv	https://www.proteinatlas.org/download/tsv/cancer_cptac.tsv.zip	HPA-hosted CPTAC tumor-vs-normal MS logFC. Not IHC. Treatment-naive CPTAC, not ICI.
+Lung AC; Lung SQCC	ENSG00000189143	CLDN4			no	25.1	cancer_cptac.tsv	https://www.proteinatlas.org/download/tsv/cancer_cptac.tsv.zip	No lung CPTAC row in the official HPA cancer_cptac.tsv. Other cancers present: Colon AC, Liver HC, Ovary SC, Pancreatic DAC

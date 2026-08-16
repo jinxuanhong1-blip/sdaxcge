@@ -1,0 +1,12 @@
+table	gene_name	tissue_or_cancer	cell_type	v25_level_or_counts	v23_level_or_counts	same
+normal_IHC	TACSTD2	Bronchus	respiratory epithelial cells	Medium	Medium	yes
+normal_IHC	TACSTD2	Lung	alveolar cells	Not detected	Not detected	yes
+normal_IHC	TACSTD2	Lung	macrophages	Not detected	Not detected	yes
+normal_IHC	TACSTD2	Nasopharynx	respiratory epithelial cells	Medium	Medium	yes
+normal_IHC	CLDN4	Bronchus	respiratory epithelial cells	Medium	Medium	yes
+normal_IHC	CLDN4	Lung	alveolar cells type I	Low	Low	yes
+normal_IHC	CLDN4	Lung	alveolar cells type II	Not detected	Not detected	yes
+normal_IHC	CLDN4	Lung	endothelial cells	Not detected	Not detected	yes
+normal_IHC	CLDN4	Lung	macrophages	Not detected	Not detected	yes
+cancer_IHC	TACSTD2	lung cancer	tumor cells (knowledge-based counts)	H0/M2/L3/ND5	H0/M2/L3/ND5	yes
+cancer_IHC	CLDN4	lung cancer	tumor cells (knowledge-based counts)	H0/M9/L2/ND0	H0/M9/L2/ND0	yes
