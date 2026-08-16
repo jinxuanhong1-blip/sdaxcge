@@ -523,6 +523,17 @@ def main() -> int:
     replication = []
     for r in repl.itertuples(index=False):
         tcga_rho = tcga_prim[tcga_prim["gene_y"] == r.gene_y]
+        tcga_dir = None if tcga_rho.empty else str(tcga_rho.iloc[0]["direction"])
+        tcga_val = None if tcga_rho.empty else tcga_rho.iloc[0]["spearman_rho"]
+        # A near-zero / NULL primary ρ has no meaningful sign to match.
+        if (
+            r.spearman_rho is None
+            or tcga_val is None
+            or tcga_dir in (None, "NULL", "NOT_COMPUTED")
+        ):
+            same_sign = None
+        else:
+            same_sign = bool(np.sign(r.spearman_rho) == np.sign(tcga_val))
         replication.append(
             {
                 "cohort": r.cohort,
@@ -531,13 +542,7 @@ def main() -> int:
                 "n": r.n,
                 "spearman_rho": r.spearman_rho,
                 "direction": r.direction,
-                "same_sign_as_tcga_luad": (
-                    None
-                    if r.spearman_rho is None
-                    or tcga_rho.empty
-                    or tcga_rho.iloc[0]["spearman_rho"] is None
-                    else bool(np.sign(r.spearman_rho) == np.sign(tcga_rho.iloc[0]["spearman_rho"]))
-                ),
+                "same_sign_as_tcga_luad": same_sign,
             }
         )
 
@@ -779,11 +784,22 @@ def write_results_readme(out: Path, summary: dict, table: pd.DataFrame) -> None:
         "## Caveats",
         "",
         "1. Bulk tumor RNA mixes epithelium, stroma, endothelium, and immune cells. "
-        "KLF4 is expressed in several of those compartments (hence PECAM1 as a context gene).",
-        "2. CPTAC protein missingness is pairwise; a protein row with n << RNA n is not a failed download.",
-        "3. DepMap cell lines are not tumors. They test a tumor-cell-intrinsic association only.",
-        "4. The TACSTD2–CLDN4 pair is a positive-control epithelial/TJ check, not part of the claim.",
-        "5. TCGA/CPTAC/DepMap are not ICI cohorts.",
+        "In TCGA-LUAD, KLF4 tracks PECAM1 (ρ = 0.33) as well as TACSTD2 (ρ = 0.21). "
+        "That does not prove the TACSTD2 association is endothelial, but it forbids "
+        "reading KLF4 as a purely epithelial/TJ transcription factor from bulk RNA.",
+        "2. TCGA-LUAD KLF4–CLDN4 is a true null (ρ = −0.004, CI includes 0), not a "
+        "weak inverse that we rounded away. Purity adjustment does not create an inverse.",
+        "3. CPTAC-LUAD RNA is not a silent non-replication: KLF4–CLDN4 is significantly "
+        "inverse (ρ = −0.31, n=110) while KLF4–TACSTD2 is null. That is the opposite "
+        "of a same-sign pair. CPTAC-LUAD protein is null for both, with KLF4 missing "
+        "in 25/110 and CLDN4 missing in 31/110 tumors.",
+        "4. TCGA-LUSC and DepMap lung lines are concordant-positive. They are reported; "
+        "they do not override the pre-specified LUAD verdict. DepMap lung n=214 includes "
+        "NSCLC, neuroendocrine, and a few non-cancerous lines; the LUAD-only subset "
+        "(n=80) is also positive for both pairs.",
+        "5. The TACSTD2–CLDN4 pair itself is robustly positive in TCGA LUAD/LUSC and "
+        "DepMap. The assay is not broken; the KLF4 same-sign claim is.",
+        "6. TCGA/CPTAC/DepMap are not ICI cohorts.",
         "",
         "## Rerun",
         "",

@@ -1,0 +1,248 @@
+{
+  "claim": "KLF4 is associated in the same direction with TACSTD2 and with CLDN4 in public lung.",
+  "honest_verdict": {
+    "primary_cohort": "TCGA-LUAD primary tumors (-01, one per patient)",
+    "primary_statistic": "Spearman rho",
+    "pair_direction_tcga_luad": {
+      "TACSTD2": "POSITIVE",
+      "CLDN4": "NULL"
+    },
+    "pair_direction_tcga_lusc": {
+      "TACSTD2": "POSITIVE",
+      "CLDN4": "POSITIVE"
+    },
+    "label": "PARTIAL",
+    "statement": "TCGA-LUAD primary tumors: KLF4 is significant for one target only (TACSTD2=POSITIVE, CLDN4=NULL). Same-direction tracking of both genes is not supported. TCGA-LUSC (pre-specified second histology): TACSTD2=POSITIVE, CLDN4=POSITIVE.",
+    "did_we_tune_filters_to_force_concordance": false
+  },
+  "replication": [
+    {
+      "cohort": "TCGA-LUSC",
+      "layer": "RNA_log2TPM",
+      "gene_y": "TACSTD2",
+      "n": 501,
+      "spearman_rho": 0.3694257699739963,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga_luad": true
+    },
+    {
+      "cohort": "TCGA-LUSC",
+      "layer": "RNA_log2TPM",
+      "gene_y": "CLDN4",
+      "n": 501,
+      "spearman_rho": 0.19802142328888042,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga_luad": null
+    },
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "RNA_RSEM_UQ_log2",
+      "gene_y": "TACSTD2",
+      "n": 110,
+      "spearman_rho": 0.04918579698322675,
+      "direction": "NULL",
+      "same_sign_as_tcga_luad": true
+    },
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "RNA_RSEM_UQ_log2",
+      "gene_y": "CLDN4",
+      "n": 110,
+      "spearman_rho": -0.3116707467199668,
+      "direction": "INVERSE",
+      "same_sign_as_tcga_luad": null
+    },
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "protein_TMT_log2",
+      "gene_y": "TACSTD2",
+      "n": 85,
+      "spearman_rho": -0.0843267539573969,
+      "direction": "NULL",
+      "same_sign_as_tcga_luad": false
+    },
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "protein_TMT_log2",
+      "gene_y": "CLDN4",
+      "n": 60,
+      "spearman_rho": 0.08780216726868575,
+      "direction": "NULL",
+      "same_sign_as_tcga_luad": null
+    },
+    {
+      "cohort": "CPTAC-LSCC",
+      "layer": "RNA_RSEM_UQ_log2",
+      "gene_y": "TACSTD2",
+      "n": 108,
+      "spearman_rho": 0.40341166222245545,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga_luad": true
+    },
+    {
+      "cohort": "CPTAC-LSCC",
+      "layer": "RNA_RSEM_UQ_log2",
+      "gene_y": "CLDN4",
+      "n": 108,
+      "spearman_rho": 0.17057956276173827,
+      "direction": "NULL",
+      "same_sign_as_tcga_luad": null
+    },
+    {
+      "cohort": "CPTAC-LSCC",
+      "layer": "protein_TMT_log2",
+      "gene_y": "TACSTD2",
+      "n": 103,
+      "spearman_rho": 0.4937618064402759,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga_luad": true
+    },
+    {
+      "cohort": "CPTAC-LSCC",
+      "layer": "protein_TMT_log2",
+      "gene_y": "CLDN4",
+      "n": 73,
+      "spearman_rho": 0.20760829322473162,
+      "direction": "NULL",
+      "same_sign_as_tcga_luad": null
+    },
+    {
+      "cohort": "DepMap24Q4-lung",
+      "layer": "RNA_log2TPM",
+      "gene_y": "TACSTD2",
+      "n": 214,
+      "spearman_rho": 0.40094281447039326,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga_luad": true
+    },
+    {
+      "cohort": "DepMap24Q4-lung",
+      "layer": "RNA_log2TPM",
+      "gene_y": "CLDN4",
+      "n": 214,
+      "spearman_rho": 0.39153237989512335,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga_luad": null
+    }
+  ],
+  "coverage": {
+    "tcga_luad": {
+      "n_primary_tumors": 516,
+      "n_with_absolute_purity": 503,
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4",
+        "KRT5",
+        "CLDN7",
+        "PECAM1"
+      ],
+      "genes_absent": []
+    },
+    "tcga_lusc": {
+      "n_primary_tumors": 501,
+      "n_with_absolute_purity": 493,
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4",
+        "KRT5",
+        "CLDN7",
+        "PECAM1"
+      ],
+      "genes_absent": []
+    },
+    "cptac_luad_rna": {
+      "n_tumors": 110,
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "genes_absent": [],
+      "n_non_na": {
+        "KLF4": 110,
+        "TACSTD2": 110,
+        "CLDN4": 110
+      }
+    },
+    "cptac_luad_protein": {
+      "n_tumors": 110,
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "genes_absent": [],
+      "n_non_na": {
+        "KLF4": 85,
+        "TACSTD2": 110,
+        "CLDN4": 79
+      }
+    },
+    "cptac_lscc_rna": {
+      "n_tumors": 108,
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "genes_absent": [],
+      "n_non_na": {
+        "KLF4": 108,
+        "TACSTD2": 108,
+        "CLDN4": 108
+      }
+    },
+    "cptac_lscc_protein": {
+      "n_tumors": 108,
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "genes_absent": [],
+      "n_non_na": {
+        "KLF4": 103,
+        "TACSTD2": 108,
+        "CLDN4": 78
+      }
+    },
+    "depmap_lung_cell_lines": {
+      "n": 214,
+      "filter": "OncotreeLineage==Lung AND ModelType==Cell Line",
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "primary_disease_counts": {
+        "Non-Small Cell Lung Cancer": 143,
+        "Lung Neuroendocrine Tumor": 60,
+        "Non-Cancerous": 6,
+        "SMARCA4-deficient undifferentiated tumor": 5
+      }
+    },
+    "depmap_luad_cell_lines": {
+      "n": 80,
+      "filter": "OncotreeLineage==Lung AND ModelType==Cell Line AND (Adenocarcinoma subtype OR OncotreeCode==LUAD)",
+      "genes_present": [
+        "KLF4",
+        "TACSTD2",
+        "CLDN4"
+      ]
+    }
+  },
+  "cannot_test": [
+    "Direct KLF4 binding or transcriptional control at TACSTD2/CLDN4 (no ChIP/perturbation in this slice).",
+    "ICI response or TROP2-ADC outcome.",
+    "KLF4 IHC or protein from RNA (except the CPTAC protein rows, which are reported separately)."
+  ],
+  "methods": {
+    "tcga_matrix": "Xena GDC hub TCGA-LUAD/LUSC.star_tpm.tsv.gz, log2(TPM+1), GENCODE v36",
+    "cptac_freeze": "data_freeze_v1.2_reorganized/LUAD and LSCC",
+    "depmap_release": "DepMap Public 24Q4",
+    "fdr": "BH within pre-specified KLF4 vs TACSTD2/CLDN4 primary rows only",
+    "purity": "ABSOLUTE (PanCanAtlas); partial Spearman is secondary"
+  }
+}
