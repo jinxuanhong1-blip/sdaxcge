@@ -1,0 +1,6 @@
+# Keep the published demo tables (small) so the playbook numbers are auditable
+# without a GEO/Xena download. Everything else is generated.
+*
+!.gitignore
+!demo/
+!demo/**

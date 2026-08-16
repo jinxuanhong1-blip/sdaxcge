@@ -1,0 +1,86 @@
+{
+  "_comment": [
+    "Small, fully-published gene sets that are quoted verbatim in their source papers.",
+    "Larger pathway sets are NOT stored here: they are downloaded from MSigDB by",
+    "scripts/00_fetch_resources.py so that the version is recorded and auditable.",
+    "Every entry carries its citation; if you add a set, add the citation too."
+  ],
+  "signatures": {
+    "IFNG_Ayers6": {
+      "genes": ["IDO1", "CXCL10", "CXCL9", "HLA-DRA", "STAT1", "IFNG"],
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338",
+      "note": "The 'refined' 6-gene IFN-gamma signature. Reported as an unweighted mean of normalised log expression in the source.",
+      "family": "IFN"
+    },
+    "IFNG_Ayers_preliminary10": {
+      "genes": ["IFNG", "STAT1", "CCR5", "CXCL9", "CXCL10", "CXCL11", "IDO1", "PRF1", "GZMA", "HLA-DRA"],
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338",
+      "note": "The 10-gene 'preliminary IFN-gamma' signature from the 19-patient melanoma pilot.",
+      "family": "IFN"
+    },
+    "ExpandedImmune_Ayers18": {
+      "genes": ["CD3D", "IDO1", "CIITA", "CD3E", "CCL5", "GZMK", "CD2", "HLA-DRA", "CXCL13",
+                "IL2RG", "NKG7", "HLA-E", "CXCR6", "LAG3", "TAGAP", "CXCL10", "STAT1", "GZMB"],
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338",
+      "note": "The 18-gene 'expanded immune' signature. This is NOT the same 18 genes as the T cell-inflamed GEP below - the two are routinely confused in the literature.",
+      "family": "IFN"
+    },
+    "TcellInflamed_GEP18": {
+      "genes": ["CCL5", "CD27", "CD274", "CD276", "CD8A", "CMKLR1", "CXCL9", "CXCR6",
+                "HLA-DQA1", "HLA-DRB1", "HLA-E", "IDO1", "LAG3", "NKG7", "PDCD1LG2",
+                "PSMB10", "STAT1", "TIGIT"],
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338; Danaher P et al. J Immunother Cancer 2018;6:63 (Tumour Inflammation Signature, TIS)",
+      "note": "The clinical-grade T cell-inflamed GEP / NanoString TIS. The clinical assay uses a WEIGHTED sum on housekeeping-normalised NanoString counts; an unweighted ssGSEA score on RNA-seq is a proxy for it, not the assay, and its published -1.54 cut-off does not transfer.",
+      "family": "IFN"
+    },
+    "CD8_Teffector_Mariathasan": {
+      "genes": ["CD8A", "GZMA", "GZMB", "IFNG", "EOMES", "CXCL9", "CXCL10", "TBX21"],
+      "citation": "Mariathasan S et al. Nature 2018;554:544-548. PMID 29443960",
+      "note": "CD8+ T-effector signature used to define the inflamed axis in IMvigor210.",
+      "family": "effector"
+    },
+    "Cytolytic_CYT_Rooney": {
+      "genes": ["GZMA", "PRF1"],
+      "citation": "Rooney MS et al. Cell 2015;160:48-61. PMID 25594174",
+      "note": "Cytolytic activity. Defined as the GEOMETRIC mean of GZMA and PRF1 in TPM (+1.0 offset), not an ssGSEA score. Use bulkimmune.signatures.cytolytic_activity().",
+      "family": "effector"
+    },
+    "TLS_12chemokine_Coppola": {
+      "genes": ["CCL2", "CCL3", "CCL4", "CCL5", "CCL8", "CCL18", "CCL19", "CCL21",
+                "CXCL9", "CXCL10", "CXCL11", "CXCL13"],
+      "citation": "Coppola D et al. Am J Pathol 2011;179:37-45. PMID 21703392",
+      "note": "The 12-CK score. Note the heavy overlap with the IFN-gamma signatures (CCL5, CXCL9, CXCL10): a 12-CK/IFN correlation is partly definitional, not biological.",
+      "family": "TLS"
+    },
+    "TLS_Cabrita9": {
+      "genes": ["CD79B", "CD1D", "CCR6", "LAT", "SKAP1", "CETP", "EIF1AY", "RBP5", "PTGDS"],
+      "citation": "Cabrita R et al. Nature 2020;577:561-565. PMID 31942071",
+      "note": "9-gene TLS signature. WARNING: EIF1AY is Y-chromosomal, so this score is systematically lower in female patients regardless of TLS biology. Check the sex balance of your cohort, or drop EIF1AY and say so.",
+      "family": "TLS"
+    },
+    "TLS_Cabrita9_noY": {
+      "genes": ["CD79B", "CD1D", "CCR6", "LAT", "SKAP1", "CETP", "RBP5", "PTGDS"],
+      "citation": "Cabrita R et al. Nature 2020;577:561-565, with the Y-linked EIF1AY removed",
+      "note": "Sex-neutral variant of the Cabrita signature. Report both if your cohort is sex-imbalanced.",
+      "family": "TLS"
+    },
+    "Bcell_follicular": {
+      "genes": ["MS4A1", "CD79A", "CD79B", "CR2", "CXCL13", "CXCR5", "SELL", "LAMP3", "CCL19", "CCL21"],
+      "citation": "Composite of the B-cell/follicular-DC markers used to call TLS histologically (Sautes-Fridman C et al. Nat Rev Cancer 2019;19:307-325).",
+      "note": "Descriptive marker set, not a validated predictive signature. Included to sanity-check the TLS scores against B-cell content.",
+      "family": "TLS"
+    },
+    "MHC_class_I": {
+      "genes": ["HLA-A", "HLA-B", "HLA-C", "B2M", "TAP1", "TAP2", "TAPBP", "PSMB8", "PSMB9", "NLRC5"],
+      "citation": "Antigen-presentation machinery; NLRC5 as the MHC-I transactivator (Meissner TB et al. PNAS 2010).",
+      "note": "Loss of this axis is a canonical resistance mechanism and a useful covariate when interpreting exclusion scores.",
+      "family": "antigen_presentation"
+    },
+    "Immunoproteasome": {
+      "genes": ["PSMB8", "PSMB9", "PSMB10", "PSME1", "PSME2"],
+      "citation": "Standard immunoproteasome subunits.",
+      "note": "Descriptive.",
+      "family": "antigen_presentation"
+    }
+  }
+}

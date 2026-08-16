@@ -1,0 +1,287 @@
+{
+  "name": "GSE135222",
+  "n_samples": 27,
+  "n_genes_log": 39643,
+  "n_scores": 103,
+  "targets": [
+    "TACSTD2",
+    "CLDN4",
+    "TACSTD2_CLDN4_mean"
+  ],
+  "blocks": {
+    "ssgsea": [
+      "IFNG_Ayers6",
+      "IFNG_Ayers_preliminary10",
+      "ExpandedImmune_Ayers18",
+      "TcellInflamed_GEP18",
+      "CD8_Teffector_Mariathasan",
+      "Cytolytic_CYT_Rooney",
+      "TLS_12chemokine_Coppola",
+      "TLS_Cabrita9",
+      "TLS_Cabrita9_noY",
+      "Bcell_follicular",
+      "MHC_class_I",
+      "Immunoproteasome",
+      "HALLMARK_ALLOGRAFT_REJECTION",
+      "HALLMARK_ANGIOGENESIS",
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "HALLMARK_HYPOXIA",
+      "HALLMARK_IL6_JAK_STAT3_SIGNALING",
+      "HALLMARK_INFLAMMATORY_RESPONSE",
+      "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "HALLMARK_TGF_BETA_SIGNALING",
+      "HALLMARK_TNFA_SIGNALING_VIA_NFKB",
+      "CYT"
+    ],
+    "mcp": [
+      "T cells",
+      "CD8 T cells",
+      "Cytotoxic lymphocytes",
+      "B lineage",
+      "NK cells",
+      "Monocytic lineage",
+      "Myeloid dendritic cells",
+      "Neutrophils",
+      "Endothelial cells",
+      "Fibroblasts"
+    ],
+    "estimate": [
+      "StromalScore",
+      "ImmuneScore",
+      "ESTIMATEScore"
+    ],
+    "xcell": [
+      "B-cells",
+      "CD4+ T-cells",
+      "CD8+ T-cells",
+      "Tregs",
+      "NK cells",
+      "Monocytes",
+      "Macrophages",
+      "Macrophages M1",
+      "Macrophages M2",
+      "DC",
+      "cDC",
+      "pDC",
+      "Neutrophils",
+      "Mast cells",
+      "Eosinophils",
+      "Fibroblasts",
+      "Endothelial cells",
+      "Adipocytes"
+    ],
+    "tide": [
+      "No benefits",
+      "Responder",
+      "TIDE",
+      "IFNG",
+      "MSI Score",
+      "CD274",
+      "CD8",
+      "CTL.flag",
+      "Dysfunction",
+      "Exclusion",
+      "MDSC",
+      "CAF",
+      "TAM M2",
+      "CTL"
+    ],
+    "tip": [
+      "Step1_release_of_cancer_antigens",
+      "Step2_cancer_antigen_presentation",
+      "Step3_priming_and_activation",
+      "Step4_trafficking_of_immune_cells",
+      "Step5_infiltration_of_immune_cells",
+      "Step6_recognition_of_cancer_cells",
+      "Step7_killing_of_cancer_cells",
+      "Step4_B_cell",
+      "Step4_Basophil",
+      "Step4_CD4_T_cell",
+      "Step4_CD8_T_cell",
+      "Step4_Dendritic_cell",
+      "Step4_Eosinophil",
+      "Step4_MDSC",
+      "Step4_Macrophage",
+      "Step4_Monocyte",
+      "Step4_NK_cell",
+      "Step4_Neutrophil",
+      "Step4_T_cell",
+      "Step4_TH1_cell",
+      "Step4_TH17_cell",
+      "Step4_TH22_cell",
+      "Step4_Th2_cell",
+      "Step4_Treg_cell"
+    ],
+    "quantiseq_style": [
+      "B.cells",
+      "Macrophages.M1",
+      "Macrophages.M2",
+      "Monocytes",
+      "Neutrophils",
+      "NK.cells",
+      "T.cells.CD4",
+      "T.cells.CD8",
+      "Tregs",
+      "Dendritic.cells",
+      "Other"
+    ]
+  },
+  "skipped": {},
+  "signature_table": [
+    {
+      "signature": "IFNG_Ayers6",
+      "n_genes": 6,
+      "family": "IFN",
+      "source": "curated_signatures.json",
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338"
+    },
+    {
+      "signature": "IFNG_Ayers_preliminary10",
+      "n_genes": 10,
+      "family": "IFN",
+      "source": "curated_signatures.json",
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338"
+    },
+    {
+      "signature": "ExpandedImmune_Ayers18",
+      "n_genes": 18,
+      "family": "IFN",
+      "source": "curated_signatures.json",
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338"
+    },
+    {
+      "signature": "TcellInflamed_GEP18",
+      "n_genes": 18,
+      "family": "IFN",
+      "source": "curated_signatures.json",
+      "citation": "Ayers M et al. J Clin Invest 2017;127:2930-2940. PMID 28650338; Danaher P et al. J Immunother Cancer 2018;6:63 (Tumour Inflammation Signature, TIS)"
+    },
+    {
+      "signature": "CD8_Teffector_Mariathasan",
+      "n_genes": 8,
+      "family": "effector",
+      "source": "curated_signatures.json",
+      "citation": "Mariathasan S et al. Nature 2018;554:544-548. PMID 29443960"
+    },
+    {
+      "signature": "Cytolytic_CYT_Rooney",
+      "n_genes": 2,
+      "family": "effector",
+      "source": "curated_signatures.json",
+      "citation": "Rooney MS et al. Cell 2015;160:48-61. PMID 25594174"
+    },
+    {
+      "signature": "TLS_12chemokine_Coppola",
+      "n_genes": 12,
+      "family": "TLS",
+      "source": "curated_signatures.json",
+      "citation": "Coppola D et al. Am J Pathol 2011;179:37-45. PMID 21703392"
+    },
+    {
+      "signature": "TLS_Cabrita9",
+      "n_genes": 9,
+      "family": "TLS",
+      "source": "curated_signatures.json",
+      "citation": "Cabrita R et al. Nature 2020;577:561-565. PMID 31942071"
+    },
+    {
+      "signature": "TLS_Cabrita9_noY",
+      "n_genes": 8,
+      "family": "TLS",
+      "source": "curated_signatures.json",
+      "citation": "Cabrita R et al. Nature 2020;577:561-565, with the Y-linked EIF1AY removed"
+    },
+    {
+      "signature": "Bcell_follicular",
+      "n_genes": 10,
+      "family": "TLS",
+      "source": "curated_signatures.json",
+      "citation": "Composite of the B-cell/follicular-DC markers used to call TLS histologically (Sautes-Fridman C et al. Nat Rev Cancer 2019;19:307-325)."
+    },
+    {
+      "signature": "MHC_class_I",
+      "n_genes": 10,
+      "family": "antigen_presentation",
+      "source": "curated_signatures.json",
+      "citation": "Antigen-presentation machinery; NLRC5 as the MHC-I transactivator (Meissner TB et al. PNAS 2010)."
+    },
+    {
+      "signature": "Immunoproteasome",
+      "n_genes": 5,
+      "family": "antigen_presentation",
+      "source": "curated_signatures.json",
+      "citation": "Standard immunoproteasome subunits."
+    },
+    {
+      "signature": "HALLMARK_ALLOGRAFT_REJECTION",
+      "n_genes": 200,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_ANGIOGENESIS",
+      "n_genes": 36,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "n_genes": 200,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_HYPOXIA",
+      "n_genes": 200,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_IL6_JAK_STAT3_SIGNALING",
+      "n_genes": 87,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_INFLAMMATORY_RESPONSE",
+      "n_genes": 200,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "n_genes": 97,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "n_genes": 200,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_TGF_BETA_SIGNALING",
+      "n_genes": 54,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    },
+    {
+      "signature": "HALLMARK_TNFA_SIGNALING_VIA_NFKB",
+      "n_genes": 200,
+      "family": "hallmark",
+      "source": "h.all.v2025.1.Hs.symbols.gmt",
+      "citation": "MSigDB (Liberzon A et al. Cell Syst 2015)"
+    }
+  ]
+}

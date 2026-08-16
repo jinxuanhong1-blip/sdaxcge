@@ -1,0 +1,38 @@
+{
+  "n_genes": 20530,
+  "n_samples": 1017,
+  "cohorts": {
+    "LUAD": 515,
+    "LUSC": 502
+  },
+  "sex": {
+    "male": 609,
+    "female": 407,
+    "NaN": 1
+  },
+  "scale_log": {
+    "median_column_sum": 134130.2433,
+    "min_column_sum": 122382.65669999999,
+    "max_column_sum": 148235.1265,
+    "max_value": 20.7286,
+    "min_value": 0.0,
+    "is_integer": false,
+    "looks_log": true,
+    "guess": "log-transformed"
+  },
+  "scale_linear": {
+    "median_column_sum": 19792692.251251124,
+    "min_column_sum": 16602912.517942842,
+    "max_column_sum": 29305774.219928004,
+    "max_value": 1737521.2236946004,
+    "min_value": 0.0,
+    "is_integer": false,
+    "looks_log": false,
+    "guess": "linear, not sum-normalised (FPKM or similar)"
+  },
+  "targets_present": {
+    "TACSTD2": true,
+    "CLDN4": true
+  },
+  "note": "TCGA is treatment-naive surgical NSCLC, not an ICI cohort. Use it for TACSTD2/CLDN4 ~ immune-score correlations; do not quote it as ICI-response evidence."
+}

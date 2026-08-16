@@ -1,0 +1,107 @@
+score	n	events	hr	p	method	score_short	family	p_adj	rejected_0.05
+TACSTD2	27	21		0.42965018365532515	logrank_median_split	TACSTD2	other	0.7201520393829755	False
+CLDN4	27	21		0.703732997394527	logrank_median_split	CLDN4	other	0.973425713815207	False
+TACSTD2_CLDN4_mean	27	21		0.21368730493714688	logrank_median_split	TACSTD2_CLDN4_mean	other	0.550225150267821	False
+ssgsea:IFNG_Ayers6	27	21		0.02683451551144229	logrank_median_split	IFNG_Ayers6	inflamed	0.1655634571805521	False
+ssgsea:IFNG_Ayers_preliminary10	27	21		0.038950392696749214	logrank_median_split	IFNG_Ayers_preliminary10	inflamed	0.1655634571805521	False
+ssgsea:ExpandedImmune_Ayers18	27	21		0.06044678171739925	logrank_median_split	ExpandedImmune_Ayers18	inflamed	0.1860850673742347	False
+ssgsea:TcellInflamed_GEP18	27	21		0.04343529006409767	logrank_median_split	TcellInflamed_GEP18	inflamed	0.1655634571805521	False
+ssgsea:CD8_Teffector_Mariathasan	27	21		0.038950392696749214	logrank_median_split	CD8_Teffector_Mariathasan	inflamed	0.1655634571805521	False
+ssgsea:Cytolytic_CYT_Rooney	27	21		0.09233474356189163	logrank_median_split	Cytolytic_CYT_Rooney	other	0.39064699199261843	False
+ssgsea:TLS_12chemokine_Coppola	27	21		0.13154980193458407	logrank_median_split	TLS_12chemokine_Coppola	inflamed	0.2132477060088877	False
+ssgsea:TLS_Cabrita9	27	21		0.5131002268627864	logrank_median_split	TLS_Cabrita9	inflamed	0.6117733474133222	False
+ssgsea:TLS_Cabrita9_noY	27	21		0.7651098441724327	logrank_median_split	TLS_Cabrita9_noY	inflamed	0.8178760403222557	False
+ssgsea:Bcell_follicular	27	21		0.15346556058840238	logrank_median_split	Bcell_follicular	inflamed	0.2132477060088877	False
+ssgsea:MHC_class_I	27	21		0.38602362277967606	logrank_median_split	MHC_class_I	other	0.7008586817204914	False
+ssgsea:Immunoproteasome	27	21		0.767762020181182	logrank_median_split	Immunoproteasome	other	0.973425713815207	False
+ssgsea:HALLMARK_ALLOGRAFT_REJECTION	27	21		0.06603018519730909	logrank_median_split	HALLMARK_ALLOGRAFT_REJECTION	inflamed	0.1860850673742347	False
+ssgsea:HALLMARK_ANGIOGENESIS	27	21		0.13839657506547617	logrank_median_split	HALLMARK_ANGIOGENESIS	exclusion	0.33610596801615644	False
+ssgsea:HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	27	21		0.4104014477810717	logrank_median_split	HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	exclusion	0.6342567829343835	False
+ssgsea:HALLMARK_HYPOXIA	27	21		0.22291855781667752	logrank_median_split	HALLMARK_HYPOXIA	exclusion	0.4210683869870575	False
+ssgsea:HALLMARK_IL6_JAK_STAT3_SIGNALING	27	21		0.04464282518812968	logrank_median_split	HALLMARK_IL6_JAK_STAT3_SIGNALING	other	0.2728172650385703	False
+ssgsea:HALLMARK_INFLAMMATORY_RESPONSE	27	21		0.03530560892556589	logrank_median_split	HALLMARK_INFLAMMATORY_RESPONSE	inflamed	0.1655634571805521	False
+ssgsea:HALLMARK_INTERFERON_ALPHA_RESPONSE	27	21		0.19453763702864962	logrank_median_split	HALLMARK_INTERFERON_ALPHA_RESPONSE	inflamed	0.24122666991552555	False
+ssgsea:HALLMARK_INTERFERON_GAMMA_RESPONSE	27	21		0.11597958383495681	logrank_median_split	HALLMARK_INTERFERON_GAMMA_RESPONSE	inflamed	0.2132477060088877	False
+ssgsea:HALLMARK_TGF_BETA_SIGNALING	27	21		0.021284273000637878	logrank_median_split	HALLMARK_TGF_BETA_SIGNALING	exclusion	0.1784739875486177	False
+ssgsea:HALLMARK_TNFA_SIGNALING_VIA_NFKB	27	21		0.7714247808653932	logrank_median_split	HALLMARK_TNFA_SIGNALING_VIA_NFKB	other	0.973425713815207	False
+ssgsea:CYT	27	21		0.1650949982004292	logrank_median_split	CYT	inflamed	0.2132477060088877	False
+estimate:StromalScore	27	21		0.6068642844511447	logrank_median_split	StromalScore	exclusion	0.7369066311192471	False
+estimate:ImmuneScore	27	21		0.08892005615493204	logrank_median_split	ImmuneScore	inflamed	0.21204013390791485	False
+estimate:ESTIMATEScore	27	21		0.1949758849418554	logrank_median_split	ESTIMATEScore	other	0.550113007200715	False
+xcell:B-cells	27	21		0.04806681014919255	logrank_median_split	B-cells	inflamed	0.1655634571805521	False
+xcell:CD4+ T-cells	27	21		0.9941240359530353	logrank_median_split	CD4+ T-cells	inflamed	0.9941240359530353	False
+xcell:CD8+ T-cells	27	21		0.034759724139510166	logrank_median_split	CD8+ T-cells	inflamed	0.1655634571805521	False
+xcell:Tregs	27	21		0.22009006010712845	logrank_median_split	Tregs	other	0.550225150267821	False
+xcell:NK cells	27	21		0.03306405399160991	logrank_median_split	NK cells	inflamed	0.1655634571805521	False
+xcell:Monocytes	27	21		0.2588344629155089	logrank_median_split	Monocytes	other	0.5694358184141195	False
+xcell:Macrophages	27	21		0.028239751172135657	logrank_median_split	Macrophages	other	0.23730629391470134	False
+xcell:Macrophages M1	27	21		0.03631752063915543	logrank_median_split	Macrophages M1	other	0.24968295439419358	False
+xcell:Macrophages M2	27	21		0.017875318955734288	logrank_median_split	Macrophages M2	other	0.23730629391470134	False
+xcell:DC	27	21		0.20004109352753274	logrank_median_split	DC	other	0.550113007200715	False
+xcell:cDC	27	21		0.20004109352753274	logrank_median_split	cDC	other	0.550113007200715	False
+xcell:pDC	27	21		0.05774228962089171	logrank_median_split	pDC	other	0.31758259291490437	False
+xcell:Neutrophils	27	21		0.09188936088529487	logrank_median_split	Neutrophils	other	0.39064699199261843	False
+xcell:Mast cells	27	21		0.23052345981999867	logrank_median_split	Mast cells	other	0.5510437693860967	False
+xcell:Eosinophils	27	21		0.9564067931461627	logrank_median_split	Eosinophils	other	0.9741180300562768	False
+xcell:Fibroblasts	27	21		0.880738768345284	logrank_median_split	Fibroblasts	exclusion	0.880738768345284	False
+xcell:Endothelial cells	27	21		0.025017415878131465	logrank_median_split	Endothelial cells	exclusion	0.1784739875486177	False
+xcell:Adipocytes	27	21		0.5681223733015295	logrank_median_split	Adipocytes	other	0.8679647369884478	False
+tide:No benefits	27	21			logrank_median_split	No benefits	other		
+tide:Responder	27	21		0.951940131766056	logrank_median_split	Responder	other	0.9741180300562768	False
+tide:TIDE	27	21		0.7904990664339437	logrank_median_split	TIDE	exclusion	0.8399052580860652	False
+tide:IFNG	27	21		0.11571716315201391	logrank_median_split	IFNG	inflamed	0.2132477060088877	False
+tide:MSI Score	27	21		0.7078146960422478	logrank_median_split	MSI Score	other	0.973425713815207	False
+tide:CD274	27	21		0.38174375328487486	logrank_median_split	CD274	other	0.7008586817204914	False
+tide:CD8	27	21		0.03167309185011614	logrank_median_split	CD8	inflamed	0.1655634571805521	False
+tide:CTL.flag	27	21		0.951940131766056	logrank_median_split	CTL.flag	inflamed	0.9836714694915911	False
+tide:Dysfunction	27	21		0.7115411584726741	logrank_median_split	Dysfunction	exclusion	0.8064133129356973	False
+tide:Exclusion	27	21		0.031495409567403126	logrank_median_split	Exclusion	exclusion	0.1784739875486177	False
+tide:MDSC	27	21		0.11069326891375021	logrank_median_split	MDSC	exclusion	0.33610596801615644	False
+tide:CAF	27	21		0.39416931838943936	logrank_median_split	CAF	exclusion	0.6342567829343835	False
+tide:TAM M2	27	21		0.4631639932018995	logrank_median_split	TAM M2	exclusion	0.651957367656104	False
+tide:CTL	27	21		0.1650949982004292	logrank_median_split	CTL	inflamed	0.2132477060088877	False
+tip:Step1_release_of_cancer_antigens	27	21		0.3950294387879133	logrank_median_split	Step1_release_of_cancer_antigens	other	0.7008586817204914	False
+tip:Step2_cancer_antigen_presentation	27	21		0.24045546300484216	logrank_median_split	Step2_cancer_antigen_presentation	other	0.5510437693860967	False
+tip:Step3_priming_and_activation	27	21		0.3683861091257329	logrank_median_split	Step3_priming_and_activation	other	0.7008586817204914	False
+tip:Step4_trafficking_of_immune_cells	27	21		0.689108435045463	logrank_median_split	Step4_trafficking_of_immune_cells	inflamed	0.762941481657477	False
+tip:Step5_infiltration_of_immune_cells	27	21		0.49855563408996184	logrank_median_split	Step5_infiltration_of_immune_cells	exclusion	0.651957367656104	False
+tip:Step6_recognition_of_cancer_cells	27	21		0.03020261922550744	logrank_median_split	Step6_recognition_of_cancer_cells	other	0.23730629391470134	False
+tip:Step7_killing_of_cancer_cells	27	21		0.1650949982004292	logrank_median_split	Step7_killing_of_cancer_cells	inflamed	0.2132477060088877	False
+tip:Step4_B_cell	27	21		0.1217423974660837	logrank_median_split	Step4_B_cell	other	0.4482911143793175	False
+tip:Step4_Basophil	27	21		0.6071710103541673	logrank_median_split	Step4_Basophil	other	0.9025515018778163	False
+tip:Step4_CD4_T_cell	27	21		0.950363107503506	logrank_median_split	Step4_CD4_T_cell	other	0.9741180300562768	False
+tip:Step4_CD8_T_cell	27	21		0.008564906721755016	logrank_median_split	Step4_CD8_T_cell	other	0.23553493484826293	False
+tip:Step4_Dendritic_cell	27	21		0.8849324671047336	logrank_median_split	Step4_Dendritic_cell	other	0.973425713815207	False
+tip:Step4_Eosinophil	27	21		0.32220610579637055	logrank_median_split	Step4_Eosinophil	other	0.68158983918463	False
+tip:Step4_MDSC	27	21		0.1202298892935258	logrank_median_split	Step4_MDSC	exclusion	0.33610596801615644	False
+tip:Step4_Macrophage	27	21		0.006569888816238025	logrank_median_split	Step4_Macrophage	other	0.23553493484826293	False
+tip:Step4_Monocyte	27	21		0.43209122362978525	logrank_median_split	Step4_Monocyte	other	0.7201520393829755	False
+tip:Step4_NK_cell	27	21		0.02683451551144229	logrank_median_split	Step4_NK_cell	other	0.23730629391470134	False
+tip:Step4_Neutrophil	27	21		0.881449001109798	logrank_median_split	Step4_Neutrophil	other	0.973425713815207	False
+tip:Step4_T_cell	27	21		0.5378450028499013	logrank_median_split	Step4_T_cell	other	0.8451850044784164	False
+tip:Step4_TH1_cell	27	21		0.02683451551144229	logrank_median_split	Step4_TH1_cell	other	0.23730629391470134	False
+tip:Step4_TH17_cell	27	21		0.0771249307021161	logrank_median_split	Step4_TH17_cell	other	0.38562465351058045	False
+tip:Step4_TH22_cell	27	21		0.8212019838781415	logrank_median_split	Step4_TH22_cell	other	0.973425713815207	False
+tip:Step4_Th2_cell	27	21		0.915084708397796	logrank_median_split	Step4_Th2_cell	other	0.9741180300562768	False
+tip:Step4_Treg_cell	27	21		0.8085454106886174	logrank_median_split	Step4_Treg_cell	other	0.973425713815207	False
+quantiseq_style:B.cells	27	21		0.7922754762395345	logrank_median_split	B.cells	other	0.973425713815207	False
+quantiseq_style:Macrophages.M1	27	21		0.8680204100070469	logrank_median_split	Macrophages.M1	other	0.973425713815207	False
+quantiseq_style:Macrophages.M2	27	21		0.7452059872071669	logrank_median_split	Macrophages.M2	other	0.973425713815207	False
+quantiseq_style:Monocytes	27	21		0.9840900385350314	logrank_median_split	Monocytes	other	0.9840900385350314	False
+quantiseq_style:Neutrophils	27	21		0.3705045543349459	logrank_median_split	Neutrophils	other	0.7008586817204914	False
+quantiseq_style:NK.cells	27	21		0.8377587171317408	logrank_median_split	NK.cells	other	0.973425713815207	False
+quantiseq_style:T.cells.CD4	27	21			logrank_median_split	T.cells.CD4	other		
+quantiseq_style:T.cells.CD8	27	21		0.10727311524479444	logrank_median_split	T.cells.CD8	inflamed	0.2132477060088877	False
+quantiseq_style:Tregs	27	21		0.12226121301254113	logrank_median_split	Tregs	other	0.4482911143793175	False
+quantiseq_style:Dendritic.cells	27	21			logrank_median_split	Dendritic.cells	other		
+quantiseq_style:Other	27	21		0.8087930213593508	logrank_median_split	Other	other	0.973425713815207	False
+mcp:T cells	27	21		0.08669448264269171	logrank_median_split	T cells	inflamed	0.21204013390791485	False
+mcp:CD8 T cells	27	21		0.13384444354887534	logrank_median_split	CD8 T cells	inflamed	0.2132477060088877	False
+mcp:Cytotoxic lymphocytes	27	21		0.158895528140479	logrank_median_split	Cytotoxic lymphocytes	inflamed	0.2132477060088877	False
+mcp:B lineage	27	21		0.5464255555066336	logrank_median_split	B lineage	inflamed	0.6273774896557646	False
+mcp:NK cells	27	21		0.13293072516628962	logrank_median_split	NK cells	inflamed	0.2132477060088877	False
+mcp:Monocytic lineage	27	21		0.15037936921758843	logrank_median_split	Monocytic lineage	other	0.5169290816854603	False
+mcp:Myeloid dendritic cells	27	21		0.18780205392689964	logrank_median_split	Myeloid dendritic cells	other	0.550113007200715	False
+mcp:Neutrophils	27	21		0.5297459375173932	logrank_median_split	Neutrophils	other	0.8451850044784164	False
+mcp:Endothelial cells	27	21		0.04376311593989699	logrank_median_split	Endothelial cells	exclusion	0.18599324274456222	False
+mcp:Fibroblasts	27	21		0.18634995790608017	logrank_median_split	Fibroblasts	exclusion	0.39599366055042035	False
