@@ -24,7 +24,9 @@ CP10k → log1p → gene z-score → PCA (30 PCs) → `harmonypy` with batch = d
 Patient / post-treatment sample is the unit. GSE207422 MPR tests use the 12 post-treatment surgery samples (pCR counted as MPR). Minimum 20 malignant-like cells; T/NK pairing also ≥20 T/NK.
 
 1. Malignant-like mean log1p(CP10k) `TACSTD2` and `CLDN4`: two-sided MWU (exact when the assignment count is small) and OLS `score ~ C(MPR) + C(cohort)`.
-2. Spearman of that score vs joint-embedding T/NK fraction; partial Spearman after residualizing cohort.
+2. Spearman of that score vs joint-embedding T/NK fraction; partial Spearman after residualizing cohort. Unadjusted ρ is reported but is not interpreted without the cohort residual.
 3. LUAD vs LUSC where labeled (GSE207422 Pathology; GSE241934 Histology). ASC is not LUSC.
+
+GSE291670 is nuclear RNA; patient-level CP10k scores are not Harmony-corrected, so the cohort term is required. Sensitivities at ≥5 and ≥10 malignant-like cells are stored in `tables/sensitivity_floors.json`.
 
 No cell-level p-values for patient-level labels.
