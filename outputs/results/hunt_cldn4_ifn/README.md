@@ -3,6 +3,10 @@
 Search frozen: **2026-08-16**. Direction throughout is **CLDN4 KD/KO/siRNA
 relative to its stated control**.
 
+The repository contained no private RNA-seq files or differential-expression
+table. I therefore matched only the six genes named in the request and did not
+claim to validate the full private signature.
+
 ## Bottom line
 
 I found **three accessioned public expression datasets with direct CLDN4/Cldn4
