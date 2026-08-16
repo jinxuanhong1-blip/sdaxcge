@@ -1,0 +1,166 @@
+PRIMARY ORR
+$n_eval
+[1] 298
+
+$n_high
+[1] 149
+
+$n_low
+[1] 149
+
+$n_resp_high
+[1] 39
+
+$n_resp_low
+[1] 29
+
+$orr_high
+[1] 0.261745
+
+$orr_low
+[1] 0.1946309
+
+$fisher_or
+[1] 1.465178
+
+$fisher_or_lo
+[1] 0.8211472
+
+$fisher_or_hi
+[1] 2.637092
+
+$fisher_p
+[1] 0.2139422
+
+$logit_or
+[1] 1.467085
+
+$logit_or_lo
+[1] 0.8499885
+
+$logit_or_hi
+[1] 2.532196
+
+$logit_p
+[1] 0.1687144
+
+
+2x2
+      resp
+g        0   1
+  low  120  29
+  high 110  39
+
+PRIMARY OS
+$n
+[1] 347
+
+$n_event
+[1] 231
+
+$n_high
+[1] 174
+
+$n_low
+[1] 173
+
+$logrank_p
+[1] 0.3765408
+
+$hr
+[1] 0.8901236
+
+$hr_lo
+[1] 0.6876911
+
+$hr_hi
+[1] 1.152145
+
+$cox_p
+[1] 0.3766134
+
+
+CONTINUOUS ORR per SD
+$or
+[1] 1.128582
+
+$or_lo
+[1] 0.8498095
+
+$or_hi
+[1] 1.498802
+
+$p
+[1] 0.4033381
+
+$n
+[1] 298
+
+
+CONTINUOUS OS per SD
+$hr
+[1] 0.9794839
+
+$hr_lo
+[1] 0.8625193
+
+$hr_hi
+[1] 1.11231
+
+$p
+[1] 0.7493548
+
+$n
+[1] 347
+
+$n_event
+[1] 231
+
+
+MV ORR high
+$or
+[1] 1.132869
+
+$or_lo
+[1] 0.5200839
+
+$or_hi
+[1] 2.467665
+
+$p
+[1] 0.7534604
+
+$n
+[1] 210
+
+
+MV OS high
+$hr
+[1] 0.769571
+
+$hr_lo
+[1] 0.5277846
+
+$hr_hi
+[1] 1.122124
+
+$p
+[1] 0.1734606
+
+$n
+[1] 210
+
+$n_event
+[1] 134
+
+
+Wilcoxon
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  CLDN4_log2_deseq by factor(responder)
+W = 7065, p-value = 0.2268
+alternative hypothesis: true location shift is not equal to 0
+
+
+4-level simulated Fisher p= 0.07874606 
