@@ -1,0 +1,16 @@
+id	lane_it_almost_fits	doi_or_url	pmid	what_it_actually_is	why_not_a_hit
+nakatsukasa2010_coip_neg	coip_af2	10.2353/ajpath.2010.100149	20651236	TACSTD2 Co-IP of CLDN1 and CLDN7; CLDN4/TJP1/OCLN negative	Negative Co-IP is not a positive TROP2–CLDN4 interaction analog
+zhao2026_jitc_cldn7	coloc; adc_proteomics; coip	10.1136/jitc-2025-012265	41932810	TROP2 Co-IP and IF colocalization with claudin-7 in TNBC; hRS7 (SG antibody) lowers CLDN7	Wrong claudin (7 not 4); not ADC proteomics; breast not a TROP2–CLDN4 Co-IP
+huttlin2021_bioplex	coip	10.1016/j.cell.2021.04.011	33961781	Tagged Co-IP TACSTD2–CLDN7 (IntAct EBI-54945048)	CLDN7 not CLDN4
+szabo2020_cancers_review	coloc	10.3390/cancers12113328	33187148	Review: Trop2 binds CLDN1/7; knockdown mislocalizes claudins	Secondary; no new TROP2–CLDN4 Co-IP or dual-IF
+shvartsur2015_gac	coloc	10.18632/genesandcancer.40	26000093	Review restates Nakatsukasa: CLDN4 next to Trop2 but does not bind	Review, not primary coloc data
+epcam_cldn7_ladwein	coip	10.1016/j.yexcr.2005.06.013		EpCAM (TACSTD1) binds CLDN7	Paralog, not TROP2–CLDN4
+sun_npj_rna	coloc	10.1038/s41698-026-01523-w		TACSTD2 RNA co-expression with CLDN4/CLDN7	Transcriptomic correlation, not protein coloc
+chen2024_ctm_scrna	coloc	10.1002/ctm2.1649	38629624	scRNA CLDN4+ MPE cells; TACSTD2 mentioned	RNA, not protein coloc
+jco2026_e13006_sg_ms	adc_proteomics	10.1200/jco.2026.44.16_suppl.e13006		Paired pre/post-SG MS of Trop2, TOPO1, HER2/3, Nectin4, SLFN11 (n=14)	No TJ/claudin proteins reported
+creative_biomart_cldn4	coip	https://www.creativebiomart.net/symbolsearch_cldn4.htm		Vendor page lists TACSTD2 among CLDN4 interactors	Not a paper; source not a Co-IP
+af3_trop2_nanobody	coip_af2	10.3390/pharmaceutics16101255		AF3 of Trop2-ECD with nanobodies	Not CLDN4
+cldn4_cpe_af2	coip_af2	10.1101/2024.08.02.605804		AF2 of CLDN4–C. perfringens enterotoxin	Wrong partner
+aacr2025_2930_dato_pdac	ic50	10.1158/1538-7445.am2025-2930		Dato-DXd: TROP2 necessary but payload resistance dominates in TROP2+ PDAC	Abstract; supports nuance, not a missing IC50 table
+goldenberg_cardillo_reviews	ic50	10.7150/thno.98178	38948057	TROP2-ADC reviews citing IC50 ranges	Secondary
+pxd039272	adc_proteomics	PXD039272		Trop2 xenograft prostate proteome listing	Not SG/Dato/SKB264 treatment; not TJ-down claim
