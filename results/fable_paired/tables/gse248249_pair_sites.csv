@@ -1,0 +1,14 @@
+patient,pre_site,post_site,same_site,lung_to_lung,either_lung
+01,Lung,Lung,True,True,True
+06,Bone,Lung,False,False,True
+08,Lung,Liver,False,False,True
+09,Liver,Lymph node,False,False,False
+12,Adrenal,Adrenal,True,False,False
+14,Brain,Adrenal,False,False,False
+19,Adrenal,Adrenal,True,False,False
+20,Lymph node,Lung,False,False,True
+25,Lung,Sternum,False,False,True
+26,Lung,Lymph node,False,False,True
+27,Lung,Lymph node,False,False,True
+29,Lung,Spine,False,False,True
+23,Lymph node,Lymph node,True,False,False

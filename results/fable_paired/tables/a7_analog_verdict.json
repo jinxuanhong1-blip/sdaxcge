@@ -1,0 +1,50 @@
+{
+  "claim_id": "A7",
+  "claim_text": "Paired pre/post ICI TROP2 (TACSTD2) rises after immunotherapy (TISMO; Zhejiang IHC H-score 94 -> 121).",
+  "public_analog": "GSE248249 (Memon et al. Cancer Cell 2024): 13 same-patient NSCLC tumor pairs, PD-(L)1 blockade, pre vs acquired-resistance FFPE Clariom D RNA.",
+  "verdict": "NOT_SUPPORTED",
+  "direction_match": false,
+  "honest_stats": {
+    "all_13_pairs": {
+      "TACSTD2_wilcoxon_p": 0.946,
+      "TACSTD2_median_delta_log2": -0.161,
+      "TACSTD2_up_down": "6/7",
+      "CLDN4_wilcoxon_p": 0.017,
+      "CLDN4_median_delta_log2": -0.885,
+      "CLDN4_up_down": "2/11"
+    },
+    "same_anatomic_site_n4": {
+      "pairs": ["01 Lung-Lung", "12 Adrenal-Adrenal", "19 Adrenal-Adrenal", "23 LN-LN"],
+      "TACSTD2_wilcoxon_p": 1.0,
+      "TACSTD2_median_delta_log2": -0.020,
+      "TACSTD2_up_down": "2/2",
+      "CLDN4_wilcoxon_p": 0.125,
+      "CLDN4_median_delta_log2": -0.744,
+      "CLDN4_up_down": "0/4"
+    },
+    "lung_to_lung_n1": {
+      "patient": "01",
+      "TACSTD2_delta_log2": 0.598,
+      "CLDN4_delta_log2": -0.907,
+      "note": "Single pair; no p-value. Cannot support a rise claim."
+    },
+    "note": "12 of 13 pairs are different metastatic sites or non-lung same-site. Post biopsies are acquired-resistance, not unselected on-treatment. EPCAM control is flat (p=0.79)."
+  },
+  "secondary_analogs": [
+    {
+      "id": "GSE207422_scRNA",
+      "pairs": 0,
+      "note": "3 pre + 12 post, different patients, neoadjuvant PD-1+chemo. TACSTD2 slightly lower post (log2FC -0.26, p=0.29)."
+    },
+    {
+      "id": "GSE246922_mouse_lung",
+      "note": "KP and LLC1 ICB-resistant vs parental. Tacstd2 slightly down, n.s. TISMO UI not programmatically downloadable."
+    },
+    {
+      "id": "GSE91061_melanoma",
+      "note": "Not lung. Responders increase TACSTD2 on-treatment vs PD (p=0.019, FDR q=0.23)."
+    }
+  ],
+  "public_paired_lung_TROP2_IHC": "none_found",
+  "zhejiang_data_used": false
+}
