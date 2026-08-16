@@ -1,0 +1,116 @@
+{
+  "accession" : "PXD059688",
+  "title" : "High-dose ascorbic acid synergizes with anti-PD1 therapy in non-small cell lung cancer in vitro and in vivo models",
+  "additionalAttributes" : [ ],
+  "projectDescription" : "Introduction: Immune checkpoint inhibitors(ICIs) targeting programmed cell death protein 1 (PD1) confer significant survival benefits to  patients with non-small cell lung cancer (NSCLC). However, there remains a substantial unmet need to identify therapeutic approaches to overcome resistance and provide benefits to these patients. High-dose ascorbic acid (AA) acts synergistically with many standard anticancer treatments. However, little is known about the effect of high-dose AA on improving the efficacy of anti-PD1 inhibitors in NSCLC. This study aimed to elucidate the effects of high-dose AA on anti-PD1 immunotherapy in NSCLC. Methods: The combined effects of high-dose AA and anti-PD1 were investigated using a coculture model of H460 cells and CD8+ T cells and an LLC1 lung cancer syngeneic mouse model. To investigate the molecular mechanism,  tumor tissues from mice were analyzed by comprehensive proteomic profiling using nano-LC-ESI-MS/MS.  Results: Pretreatment with a high dose of AA led to enhanced the sensitivity to the cytotoxicity of CD8+ T cells derived from healthy donor for H460 cells. Additionally, the combination of anti-PD1 and high-dose AA significantly increased CD8+ T cell cytotoxicity in H460 cells. The combination of anti-PD1 and high-dose AA showed dramatic antitumor effects in a syngeneic mouse model of lung cancer by significantly reducing tumor growth and increasing CD8+ T cell-dependent cytotoxicity and macrophage activity. Comprehensive protein analysis confirmed that high-dose AA in anti-PD1-treated tumor tissues enhanced the antitumor effects by regulating various immune-related mechanisms, including the B cell and T cell receptor signaling pathways, Fc gamma R-mediated phagocytosis, and natural killer (NK) cell-mediated cytotoxicity.  Discussion: Our results suggest that high-dose AA may be a promising adjuvant to potentiate the efficacy of anti-PD1 immunotherapy.",
+  "sampleProcessingProtocol" : "Syngeneic animal model Seven-week-old female C57BL/6J mice were obtained from Orient Bio (Seongnam-si, Gyeonggi-do, South Korea) and acclimatized for one week before the experiments. Mice were housed under specific pathogen-free conditions in an air conditioned (22 ± 2 °C) and humidity-controlled (45–55%) room under a 12-h light and 12-h dark cycle with ad libitum access to food and water. 1x106 LLC1 mouse lung cancer cells in matrigel were injected subcutaneously into the right abdominal region. After seven days, when the tumor masses reached ~130 mm3, the mice were randomly divided into four groups: 1) vehicle plus isotype control (n=5), 2) vehicle plus anti-PD1 (n=5), 3) AA plus isotype control (n=6), and 4) AA plus anti-PD1 (n=6). 300-μL intraperitoneal (i.p.) injections of 1.5 M ascorbate or NaCl were given daily. To balance the osmotic effect of sodium L-ascorbate, the mice that did not receive ascorbate (vehicle or anti-PD1) were administered NaCl (Sigma-Aldrich). Added to these i.p. injections every other day was 200 μg anti-PD1 (BE0146; BioXCell) (anti-PD1 and AA+anti-PD1 groups) or isotype control (BE0089; BioXCell) (vehicle and AA groups) beginning on the first day of treatment, tumor volume and mouse weight were monitored every 3 days for 3 weeks. Tumor volume was evaluated in accordance with the formula (L х l2)/2 through the measurement of tumor length (L) and width (l) using calipers. The mice were then sacrificed, and their tumors and blood PBMC were harvested on day 21. Tumor tissues from mice were divided into two parts, the one was fixed at 4% paraformaldehyde for immunofluorescence analysis, and the other was stored at −80 °C for Proteomic analysis. The coefficient of drug interaction (CDI) was used to calculate the synergy with the combination using mean tumor volume measurements and was evaluated in accordance with the formula AB/(A × B), where AB is the ratio of the 2 drugs combination group to the control group, and A or B is the ratio of the single drug group to the control group. CDI < 1 indicates synergism, CDI = 1 indicates an additive effect, CDI > 1 indicates antagonism, and CDI<0.7 indicates a significant synergistic effect. Nano-LC-ESI-MS/MS analysis Each tumor tissue from mice dissolved in 100 µL of 5% SDS buffer was treated with 20 mM dithiothreitol in 50 mM ammonium bicarbonate, reduced for 10 minutes at 95 °C, and then alkylated with 40 mM iodoacetamide in 50 mM ammonium bicarbonate for 30 minutes in darkness. Proteomic samples were prepared using S-TRAPTM (Protifi, Farmingdale, NY, USA) according to the manufacturer’s protocol and a previous study. Each sample was incubated with 12.5 µg of sequencing-grade modified trypsin/LysC (Promega, Madison, Wisconsin, USA) in a 50 mM ammonium bicarbonate solution (pH 7.8) using an S-TRAP column overnight at 37 °C. The eluted peptide samples were then dried and quantified. The samples were resuspended in 0.1% formic acid and analyzed using an UltiMate 3000 RSLCnano system coupled to a Q Exactive Plus Hybrid Quadrupole-Orbitrap mass spectrometer with a Nano-ESI source (Thermo Fisher Scientific), according previous study. Tryptic peptides separated on an Acclaim™ Pepmap 100 C18 column (500 mm × 75 μm i.d., 3 μm, 100 Å) equipped with a C18 Pepmap trap column (20 mm × 100 μm i.d., 5 μm, 100 Å; Thermo Fisher Scientific) over 200 min (250 nL/min) using a 5–40% ACN gradient in 0.1% formic acid and 5% dimthyl sulfoxide for 150 min (250 nL/min) at 50 °C. Mass spectra were acquired in the data-dependent mode with an automatic switch between the full scan and the top 20 data-dependent MS/MS scans. The target value for the full-scan MS spectra, selected from 350 to 1800 m/z, was 3,000,000 ACS targets with a maximum injection time of 100 ms and a resolution of 70,000.",
+  "dataProcessingProtocol" : "The MS/MS spectra were assigned to proteins using Sequest-HT on Proteome Discoverer (Version 2.4, Thermo Fisher Scientific) and the UniProt mouse database. The identified proteins were analyzed and visualized using Perseus software (Version 2.0.7.0). One-way analysis of variance (ANOVA) with Benjamini-Hochberg method-based false discovery rate (FDR) and a significance level of 0.05 were used to identify significant differences in the protein expression levels. Gene Ontology (GO) annotation of the proteins identified from the proteome analysis was performed using Proteome Discoverer (Version 2.4; Thermo Fisher Scientific).",
+  "projectTags" : [ ],
+  "keywords" : [ "Lc-msms", "Mouse", "Lung cancer" ],
+  "doi" : "10.6019/PXD059688",
+  "submissionType" : "COMPLETE",
+  "license" : "Creative Commons Public Domain (CC0)",
+  "submissionDate" : "2025-01-13",
+  "publicationDate" : "2025-01-15",
+  "submitters" : [ {
+    "title" : "Dr",
+    "firstName" : "Hak Su",
+    "lastName" : "Kim",
+    "identifier" : "3549990",
+    "affiliation" : "Veterans Medical Research Institute, Veterans Health Service Medical Center",
+    "email" : "khs401@bohun.or.kr",
+    "country" : "South Korea",
+    "orcid" : "",
+    "name" : "Hak Su Kim",
+    "id" : "3549990"
+  } ],
+  "labPIs" : [ {
+    "title" : "Dr",
+    "firstName" : "Taekyu",
+    "lastName" : "Lim",
+    "identifier" : "3089168",
+    "affiliation" : "Division of Hematology-Oncology, Department of Internal Medicine, Veterans Health Service Medical Center, Seoul 05368, Republic of Korea",
+    "email" : "imegene@naver.com",
+    "country" : "",
+    "orcid" : "",
+    "name" : "Taekyu Lim",
+    "id" : "3089168"
+  } ],
+  "instruments" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "MS",
+    "accession" : "MS:1001911",
+    "name" : "Q Exactive"
+  } ],
+  "softwares" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "MS",
+    "accession" : "MS:1000650",
+    "name" : "Proteome Discoverer"
+  } ],
+  "experimentTypes" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "PRIDE",
+    "accession" : "PRIDE:0000428",
+    "name" : "Bottom-up proteomics"
+  } ],
+  "quantificationMethods" : [ ],
+  "countries" : [ "South Korea" ],
+  "sampleAttributes" : [ {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "EFO:0000635",
+      "name" : "organism part"
+    },
+    "value" : [ {
+      "cvLabel" : "BTO",
+      "accession" : "BTO:0000763",
+      "name" : "lung"
+    } ]
+  }, {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "OBI:0100026",
+      "name" : "organism"
+    },
+    "value" : [ {
+      "cvLabel" : "NEWT",
+      "accession" : "NEWT:10090",
+      "name" : "Mus musculus (Mouse)"
+    } ]
+  } ],
+  "organisms" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "NEWT",
+    "accession" : "NEWT:10090",
+    "name" : "Mus musculus (mouse)"
+  } ],
+  "organismParts" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "BTO",
+    "accession" : "BTO:0000763",
+    "name" : "Lung"
+  } ],
+  "diseases" : [ ],
+  "references" : [ {
+    "pubmedID" : 0,
+    "doi" : "10.3389/FIMMU.2024.1512605"
+  } ],
+  "identifiedPTMStrings" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "MOD",
+    "accession" : "MOD:00696",
+    "name" : "phosphorylated residue"
+  }, {
+    "@type" : "CvParam",
+    "cvLabel" : "MOD",
+    "accession" : "MOD:00394",
+    "name" : "acetylated residue"
+  } ],
+  "totalFileDownloads" : 986,
+  "botCount" : 282,
+  "hubCount" : 685,
+  "organicCount" : 19
+}
