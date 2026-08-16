@@ -82,7 +82,7 @@ def parse_patient(text: str) -> str:
 
 def parse_tissue(text: str) -> str:
     t = str(text).upper()
-    if "ANT" in t or "ADJACENT" in t or "NORMAL" in t:
+    if t in {"NAT", "ANT", "NORMAL"} or "ANT" in t or "ADJACENT" in t or t == "NAT":
         return "ANT"
     return "Tumor"
 
@@ -199,14 +199,13 @@ def main() -> int:
         if g in expr and g not in meta.columns:
             meta[g] = expr[g]
 
-    if "total" not in meta.columns:
-        if "nCount_RNA" in meta.columns:
-            meta["total"] = meta["nCount_RNA"]
-        else:
-            # fallback: sum of extracted genes only (documented)
-            cols = [g for g in expr if g != "total"]
-            meta["total"] = np.sum([expr[g] for g in cols], axis=0)
-            audit["library_size"] = "sum_of_extracted_panel_only"
+    if "nCount_RNA" in meta.columns:
+        meta["total"] = meta["nCount_RNA"]
+        audit["library_size"] = "Seurat nCount_RNA"
+    elif "total" not in meta.columns:
+        cols = [g for g in expr if g != "total"]
+        meta["total"] = np.sum([expr[g] for g in cols], axis=0)
+        audit["library_size"] = "sum_of_extracted_panel_only"
 
     if "patient" not in meta.columns:
         src = meta["orig.ident"] if "orig.ident" in meta.columns else meta.iloc[:, 0]
@@ -239,8 +238,10 @@ def main() -> int:
 
     if author_type_col:
         lab = meta[author_type_col].astype(str).str.lower()
-        epi_author = lab.str.contains("epithel|tumor|malign|cancer|at2|at1|club|ciliated|aluad|luad")
-        tnk_author = lab.str.contains(r"\bt\b|t cell|tcell|nk|natural killer")
+        epi_author = lab.isin(["epithelial"]) | lab.str.fullmatch("epithelial")
+        tnk_author = lab.isin(["t cells", "t cell", "nk", "nk cells"]) | lab.str.contains(
+            r"^t cells$|^nk"
+        )
         meta["author_epithelial"] = epi_author
         meta["author_tnk"] = tnk_author
     else:
@@ -315,6 +316,49 @@ def main() -> int:
             "note": "no_public_response_labels",
         }
     )
+
+    # Sensitivity: drop patients with very small malignant-like compartments
+    robust = tumor[tumor["n_malignant_like"] >= 50]
+    for gene in TARGETS:
+        if gene not in present:
+            continue
+        tests.append(
+            spearman_block(
+                robust[f"{gene}_mean_log1p"],
+                robust["tnk_fraction"],
+                f"tumor malig-like {gene} mean_log1p vs T/NK (n_malig>=50)",
+            )
+        )
+
+    # Author Seurat labels: Epithelial vs T cells (no NK class in this object)
+    if "cell_type" in meta.columns:
+        arows = []
+        for patient, pdf in meta[meta["tissue"] == "Tumor"].groupby("patient"):
+            epi = pdf[pdf["cell_type"] == "Epithelial"]
+            tnk = pdf[pdf["cell_type"] == "T cells"]
+            rec = {
+                "patient": patient,
+                "n_author_epithelial": int(len(epi)),
+                "n_author_tcells": int(len(tnk)),
+                "author_t_fraction": len(tnk) / len(pdf) if len(pdf) else np.nan,
+            }
+            for gene in TARGETS:
+                if gene in epi:
+                    rec[f"author_epi_{gene}_mean_log1p"] = float(np.mean(np.log1p(epi[gene]))) if len(epi) else np.nan
+            arows.append(rec)
+        adf = pd.DataFrame(arows)
+        adf.to_csv(out / "author_label_per_patient.tsv", sep="\t", index=False)
+        for gene in TARGETS:
+            if f"author_epi_{gene}_mean_log1p" not in adf:
+                continue
+            ok = adf[adf["n_author_epithelial"] >= MIN_EPI]
+            tests.append(
+                spearman_block(
+                    ok[f"author_epi_{gene}_mean_log1p"],
+                    ok["author_t_fraction"],
+                    f"tumor author-Epithelial {gene} vs author T-cell fraction",
+                )
+            )
     tests_df = pd.DataFrame(tests)
     tests_df.to_csv(out / "association_statistics.tsv", sep="\t", index=False)
 

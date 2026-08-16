@@ -26,6 +26,10 @@ python3 methods/gse253013_analyze.py \
 
 The RDS does not fit in 16 GB RAM as a Seurat object. `gse253013_extract.py` walks the XDR stream and writes large sparse slots to disk, then keeps only the gene panel.
 
+## Primary numbers (after the public RDS run)
+
+Tumor, marker malignant-like, patient unit, n=9: TACSTD2 vs T/NK ρ=−0.72, p=0.030; CLDN4 ρ=−0.33, p=0.38. No MPR/R labels. See `results/gse253013/` and `paper/extra_gse253013_luad_scrna.md`.
+
 ## Scoring
 
 - Lineage = argmax of mean log1p marker scores (epithelial / T / NK / B / myeloid / fibroblast / endothelial).

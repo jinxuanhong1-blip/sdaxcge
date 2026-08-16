@@ -52,64 +52,56 @@ def parse_tissue(text: str) -> str:
 
 
 def pick_csc(arrays: list[dict], n_genes: int) -> dict | None:
-    by_len = {}
-    for a in arrays:
-        by_len.setdefault(a["length"], []).append(a)
-    # p is n_cells+1; i and x share nnz
-    candidates = []
-    for a in arrays:
-        if a["dtype"] != "int32":
-            continue
-        # possible p
-        n_cells = a["length"] - 1
-        if n_cells < 1000:
-            continue
-        nnz_groups = [k for k, v in by_len.items() if k > n_cells and len(v) >= 1]
-        for nnz in nnz_groups:
-            ints = [x for x in by_len[nnz] if x["dtype"] == "int32"]
-            reals = [x for x in by_len[nnz] if x["dtype"] == "float64"]
-            if ints and reals:
-                candidates.append(
-                    {
-                        "n_genes": n_genes,
-                        "n_cells": n_cells,
-                        "nnz": nnz,
-                        "p": a,
-                        "i": ints[0],
-                        "x": reals[0],
-                    }
-                )
-    if not candidates:
-        return None
-    # Prefer the largest nnz (counts usually denser than a subset assay)
-    candidates.sort(key=lambda c: c["nnz"], reverse=True)
-    return candidates[0]
+    """Prefer RNA @counts (assays/[0]/counts/i), not SCT or @data."""
+    by_path = {a["path"]: a for a in arrays}
+    prefer = [
+        ("assays/[0]/counts/i", "assays/[0]/counts/i/p", "assays/[0]/counts/i/p/Dim/Dimnames/x"),
+        ("assays/[0]/counts/data/i", "assays/[0]/counts/data/i/p", "assays/[0]/counts/data/i/p/Dim/Dimnames/x"),
+    ]
+    for ip, pp, xp in prefer:
+        if ip in by_path and pp in by_path and xp in by_path:
+            p = by_path[pp]
+            return {
+                "n_genes": n_genes,
+                "n_cells": p["length"] - 1,
+                "nnz": by_path[ip]["length"],
+                "p": p,
+                "i": by_path[ip],
+                "x": by_path[xp],
+            }
+    return None
 
 
 def extract_rows(i_file: Path, p_file: Path, x_file: Path, gene_idx: dict[str, int], n_cells: int):
     i = np.load(i_file, mmap_mode="r")
     p = np.load(p_file, mmap_mode="r")
     x = np.load(x_file, mmap_mode="r")
-    want = {idx: name for name, idx in gene_idx.items()}
-    out = {name: np.zeros(n_cells, dtype=np.float32) for name in gene_idx}
+    n_cells = len(p) - 1
+    max_row = int(max(gene_idx.values())) if gene_idx else 0
+    inv = np.full(max_row + 1, -1, dtype=np.int32)
+    names = list(gene_idx)
+    for slot, (name, idx) in enumerate(gene_idx.items()):
+        if idx >= 0:
+            inv[int(idx)] = slot
+    out_mat = np.zeros((len(names), n_cells), dtype=np.float32)
     total = np.zeros(n_cells, dtype=np.float64)
-    if len(p) != n_cells + 1:
-        n_cells = len(p) - 1
-        out = {name: np.zeros(n_cells, dtype=np.float32) for name in gene_idx}
-        total = np.zeros(n_cells, dtype=np.float64)
-    for col in range(n_cells):
-        a, b = int(p[col]), int(p[col + 1])
-        if b <= a:
+    nnz = len(i)
+    chunk = 4_000_000
+    for start in range(0, nnz, chunk):
+        stop = min(start + chunk, nnz)
+        rows = np.asarray(i[start:stop])
+        vals = np.asarray(x[start:stop], dtype=np.float64)
+        # library size from this counts matrix
+        cols_all = np.searchsorted(p, np.arange(start, stop, dtype=np.int64), side="right") - 1
+        np.add.at(total, cols_all, vals)
+        mapped = np.where((rows >= 0) & (rows <= max_row), inv[np.clip(rows, 0, max_row)], -1)
+        hit = mapped >= 0
+        if not np.any(hit):
+            print(f"CSC {stop}/{nnz}", flush=True)
             continue
-        rows = np.asarray(i[a:b])
-        vals = np.asarray(x[a:b], dtype=np.float64)
-        total[col] = float(vals.sum())
-        for row, val in zip(rows.tolist(), vals.tolist()):
-            name = want.get(int(row))
-            if name is not None:
-                out[name][col] = float(val)
-        if col and col % 50000 == 0:
-            print(f"CSC {col}/{n_cells}", flush=True)
+        out_mat[mapped[hit], cols_all[hit]] = vals[hit].astype(np.float32)
+        print(f"CSC {stop}/{nnz}", flush=True)
+    out = {name: out_mat[j] for j, name in enumerate(names)}
     out["total"] = total.astype(np.float32)
     return out
 
@@ -143,38 +135,74 @@ def main() -> int:
 
     n_cells = len(next(iter(expr.values())))
     meta = pd.DataFrame({"cell_index": np.arange(n_cells)})
-
-    # Attach string vectors whose length matches n_cells.
     used = []
-    for rec in str_index:
-        path = rec.get("file")
-        if not path or not Path(path).exists():
-            continue
-        strings = Path(path).read_text().splitlines()
-        if len(strings) != n_cells:
-            continue
-        col = rec.get("path") or Path(path).stem
-        col = re.sub(r"[^A-Za-z0-9_.]+", "_", col)[-40:] or "meta"
-        if col in meta.columns:
-            col = col + "_2"
-        meta[col] = strings
-        used.append({"path": rec.get("path"), "col": col})
 
-    # Patient / tissue from the most barcode-like or orig.ident-like column
-    src_col = None
-    for c in meta.columns:
-        if meta[c].astype(str).str.contains("MRC", regex=False).mean() > 0.5:
-            src_col = c
-            break
-    if src_col is None:
-        for c in meta.columns:
-            if c != "cell_index":
-                src_col = c
-                break
-    if src_col:
-        meta["orig.ident"] = meta[src_col]
-        meta["patient"] = [parse_patient(x) for x in meta[src_col]]
-        meta["tissue"] = [parse_tissue(x) for x in meta[src_col]]
+    def add_str(path_suffix: str, col: str) -> None:
+        for rec in str_index:
+            if rec.get("length") != n_cells:
+                continue
+            if rec.get("path") == path_suffix or (rec.get("file") and path_suffix in str(rec.get("path"))):
+                fp = rec.get("file")
+                if fp and Path(fp).exists():
+                    vals = Path(fp).read_text().splitlines()
+                    if len(vals) == n_cells:
+                        meta[col] = vals
+                        used.append({"path": rec.get("path"), "col": col})
+                        return
+
+    # Author Seurat meta.data columns recovered from the RDS walk
+    add_str("assays/[1]/counts/data/scale.data/key/var.features/meta.features/misc/[0]/[9]/[3]", "library_id")
+    add_str("assays/[1]/counts/data/scale.data/key/var.features/meta.features/misc/[0]/[9]/[4]", "patient")
+    add_str("assays/[1]/counts/data/scale.data/key/var.features/meta.features/misc/[0]/[9]/[5]", "tissue_raw")
+    add_str("assays/[1]/counts/data/scale.data/key/var.features/meta.features/misc/[0]/[9]/[15]", "treatment")
+
+    # Fallback: first 256379 STR with MRC* and T/NAT
+    if "patient" not in meta.columns:
+        for rec in str_index:
+            fp = rec.get("file")
+            if not fp or not Path(fp).exists():
+                continue
+            vals = Path(fp).read_text().splitlines()
+            if len(vals) != n_cells:
+                continue
+            if sum(v.startswith("MRC") for v in vals[:200]) > 50:
+                meta["patient"] = vals
+                used.append({"path": rec.get("path"), "col": "patient"})
+            if set(vals[:5000]).issubset({"T", "NAT", "ANT"}):
+                meta["tissue_raw"] = vals
+                used.append({"path": rec.get("path"), "col": "tissue_raw"})
+
+    if "patient" in meta.columns:
+        meta["orig.ident"] = meta["patient"]
+        meta["patient"] = [parse_patient(x) for x in meta["patient"]]
+    if "tissue_raw" in meta.columns:
+        meta["tissue"] = [
+            "ANT" if str(x).upper() in {"NAT", "ANT", "NORMAL"} else "Tumor" for x in meta["tissue_raw"]
+        ]
+
+    # Author coarse cell types: active.ident factor (1-based) + 10 levels
+    levels_file = ex / "str_092_n10.txt"
+    ident_arr = ex / "tmp_arrays" / "arr_0038_int32.npy"
+    if levels_file.exists() and ident_arr.exists():
+        levels = levels_file.read_text().splitlines()
+        codes = np.load(ident_arr)
+        mapped = []
+        for c in codes:
+            if 1 <= int(c) <= len(levels):
+                mapped.append(levels[int(c) - 1])
+            else:
+                mapped.append("Unknown")
+        meta["cell_type"] = mapped
+        used.append({"path": "active.ident", "col": "cell_type"})
+
+    ncount = ex / "tmp_arrays" / "arr_0014_f64.npy"
+    nfeat = ex / "tmp_arrays" / "arr_0015_int32.npy"
+    if ncount.exists() and np.load(ncount).shape[0] == n_cells:
+        meta["nCount_RNA"] = np.load(ncount)
+        used.append({"path": "meta.data nCount_RNA", "col": "nCount_RNA"})
+    if nfeat.exists() and np.load(nfeat).shape[0] == n_cells:
+        meta["nFeature_RNA"] = np.load(nfeat)
+        used.append({"path": "meta.data nFeature_RNA", "col": "nFeature_RNA"})
 
     meta.to_csv(ex / "cell_metadata.tsv", sep="\t", index=False)
     (ex / "assemble_summary.json").write_text(
