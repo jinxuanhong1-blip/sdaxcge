@@ -1,0 +1,44 @@
+{
+  "gene": "Tacstd2",
+  "source": "TISMO Gene module, in vivo (tismo.cistrome.org -> tismo.pku-genomics.org)",
+  "slice": "colon/CRC only (cellLineMeta cancerType == Colorectal carcinoma)",
+  "value_units": "quantile-normalised, ComBat-corrected log-scale TPM as served by TISMO",
+  "claim_tested": "Tacstd2 up in 49/64 ICI-treated models, p=5.8e-05",
+  "claim_scope_as_stated": "all-cancer TISMO; this slice is colon-only",
+  "n_rows_returned_all_cancer": 619,
+  "n_rows_colon": 96,
+  "n_rows_dropped_malformed": 0,
+  "n_rows_dropped_wrong_gene": 0,
+  "n_all_cancer_paired_cohorts": 64,
+  "n_colon_paired_cohorts": 10,
+  "n_colon_baseline_samples": 46,
+  "n_colon_icb_samples": 50,
+  "n_samples_in_multiple_colon_cohorts": 0,
+  "colorectal_models_in_cellLineMeta": [
+    "1638N-T1",
+    "CMT93",
+    "CT26",
+    "MC38"
+  ],
+  "colorectal_models_in_icb_gene_module": [
+    "CT26",
+    "MC38"
+  ],
+  "colorectal_models_absent_from_icb_gene_module": [
+    "1638N-T1",
+    "CMT93"
+  ],
+  "colon_cell_lines_with_pairs": [
+    "CT26",
+    "MC38"
+  ],
+  "colon_studies": [
+    "ERP114266",
+    "GSE139475",
+    "GSE153239",
+    "GSE172162",
+    "GSE93017"
+  ],
+  "all_cancer_n_up": 49,
+  "all_cancer_n_down": 15
+}
