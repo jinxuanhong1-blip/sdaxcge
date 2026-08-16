@@ -1,0 +1,20 @@
+item	n	note
+GEO_cells_in_UMI_matrix	92330	Hu et al. GSE207422
+DRMref_annotated_cells	30877	Liu et al. NAR 2024; post-tx only
+joined_DRMref_x_GEO	30877	barcode match
+post_tx_patients	12	P02–P04, P06, P07, P09–P15
+MPR_patients	4	pCR counted as MPR
+NMPR_patients	8	
+malignant_cells_post	2051	DRMref Malignant cells
+high_barrier_malignant	674	TACSTD2 and CLDN4 >= malignant median
+high_barrier_MPR_cells	76	not a patient replicate
+high_barrier_NMPR_cells	598	not a patient replicate
+TNK_cells_post	11083	CD4+T + CD8+T + NK
+TNK_MPR_cells	2761	not a patient replicate
+TNK_NMPR_cells	8322	not a patient replicate
+potential_ligands_pooled	146	high-barrier ligand + T/NK receptor
+potential_ligands_MPR	167	combinatorial MPR senders/receivers
+potential_ligands_NMPR	140	combinatorial NMPR senders/receivers
+background_genes_restricted	256	panel ∩ prior ∩ T/NK-expressed
+empirical_NMPR_up_genes	5	patient Wilcoxon p<0.15
+empirical_NMPR_down_genes	11	patient Wilcoxon p<0.15

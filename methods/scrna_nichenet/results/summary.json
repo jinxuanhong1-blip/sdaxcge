@@ -1,0 +1,490 @@
+{
+  "dataset": "GSE207422",
+  "skipped": {
+    "GSE253013": "9.3 GB RDS; no MPR/NMPR labels; not used",
+    "full_nichenetr": "R/nichenetr not installed; v2 ligand-target prior used in Python"
+  },
+  "n": {
+    "MPR_patients": 4,
+    "NMPR_patients": 8,
+    "malignant_cells": 2051,
+    "high_barrier_malignant": 674,
+    "tnk_cells": 11083,
+    "potential_ligands": 146
+  },
+  "barrier_cutoffs": {
+    "median_log1p_cp10k_TACSTD2": 1.5027022173783695,
+    "median_log1p_cp10k_CLDN4": 1.3925410157887006
+  },
+  "hypothesis_patient_tests": {
+    "NMPR_vs_MPR_tnk_cyto": {
+      "contrast": "NMPR vs MPR",
+      "n_a": 4.0,
+      "n_b": 8.0,
+      "mean_a": 0.7450658496794411,
+      "mean_b": 0.7864988989736199,
+      "median_a": 0.8044112698253687,
+      "median_b": 0.706964170347993,
+      "U": 16.0,
+      "p": 1.0,
+      "n": NaN,
+      "rho": NaN
+    },
+    "NMPR_vs_MPR_tnk_exh": {
+      "contrast": "NMPR vs MPR",
+      "n_a": 4.0,
+      "n_b": 8.0,
+      "mean_a": 0.3245647499252724,
+      "mean_b": 0.37166625721077096,
+      "median_a": 0.27813308887465255,
+      "median_b": 0.3508906419907185,
+      "U": 19.0,
+      "p": 0.6828282828282828,
+      "n": NaN,
+      "rho": NaN
+    },
+    "NMPR_vs_MPR_tnk_exh_minus_cyto": {
+      "contrast": "NMPR vs MPR",
+      "n_a": 4.0,
+      "n_b": 8.0,
+      "mean_a": -0.4205010997541687,
+      "mean_b": -0.4148326417628489,
+      "median_a": -0.4094399905428532,
+      "median_b": -0.3781155457208783,
+      "U": 18.0,
+      "p": 0.8080808080808081,
+      "n": NaN,
+      "rho": NaN
+    },
+    "spearman_mal_barrier__tnk_cyto": {
+      "contrast": "mal_barrier vs tnk_cyto",
+      "n_a": NaN,
+      "n_b": NaN,
+      "mean_a": NaN,
+      "mean_b": NaN,
+      "median_a": NaN,
+      "median_b": NaN,
+      "U": NaN,
+      "p": 0.696683109395766,
+      "n": 12.0,
+      "rho": 0.1258741258741259
+    },
+    "spearman_mal_barrier__tnk_exh": {
+      "contrast": "mal_barrier vs tnk_exh",
+      "n_a": NaN,
+      "n_b": NaN,
+      "mean_a": NaN,
+      "mean_b": NaN,
+      "median_a": NaN,
+      "median_b": NaN,
+      "U": NaN,
+      "p": 0.9140933424107599,
+      "n": 12.0,
+      "rho": 0.034965034965034975
+    }
+  },
+  "empirical_sets": {
+    "up": [
+      "AIMP1",
+      "ISG15",
+      "JMJD6",
+      "MX1",
+      "NAMPT"
+    ],
+    "down": [
+      "BTLA",
+      "CD160",
+      "FGFBP2",
+      "HSP90B1",
+      "ITGA4",
+      "KLRB1",
+      "LY9",
+      "NUCB2",
+      "PTPRC",
+      "TNFSF14",
+      "TOX2"
+    ],
+    "p_cutoff": 0.15
+  },
+  "top_ligands": {
+    "high_barrier_to_all_TNK__exhaustion": [
+      {
+        "rank": 1,
+        "ligand": "CD274",
+        "pearson": 0.12866406773429612,
+        "auroc": 0.5799881936245572
+      },
+      {
+        "rank": 2,
+        "ligand": "ALCAM",
+        "pearson": 0.05328962835344884,
+        "auroc": 0.46340023612750886
+      },
+      {
+        "rank": 3,
+        "ligand": "TNFSF9",
+        "pearson": 0.05135909667712393,
+        "auroc": 0.48110979929161746
+      },
+      {
+        "rank": 4,
+        "ligand": "COL6A1",
+        "pearson": 0.034618877589499296,
+        "auroc": 0.37544273907910264
+      },
+      {
+        "rank": 5,
+        "ligand": "PDGFA",
+        "pearson": 0.025284179145524784,
+        "auroc": 0.4135182998819362
+      },
+      {
+        "rank": 6,
+        "ligand": "CALR",
+        "pearson": 0.02347237671005066,
+        "auroc": 0.38252656434474613
+      },
+      {
+        "rank": 7,
+        "ligand": "HLA-DRB1",
+        "pearson": 0.015257906663496055,
+        "auroc": 0.38961038961038963
+      },
+      {
+        "rank": 8,
+        "ligand": "CD40",
+        "pearson": 0.014820295950424205,
+        "auroc": 0.4589728453364817
+      },
+      {
+        "rank": 9,
+        "ligand": "CX3CL1",
+        "pearson": 0.009354929526352779,
+        "auroc": 0.37042502951593864
+      },
+      {
+        "rank": 10,
+        "ligand": "ADAM17",
+        "pearson": 0.0038774705584873337,
+        "auroc": 0.41233766233766234
+      }
+    ],
+    "high_barrier_to_all_TNK__cytotoxicity": [
+      {
+        "rank": 1,
+        "ligand": "HLA-DRA",
+        "pearson": 0.2996943521546148,
+        "auroc": 0.39315230224321135
+      },
+      {
+        "rank": 2,
+        "ligand": "TYROBP",
+        "pearson": 0.29550536641426584,
+        "auroc": 0.4988193624557261
+      },
+      {
+        "rank": 3,
+        "ligand": "CCL4",
+        "pearson": 0.28038209107931455,
+        "auroc": 0.42237308146399055
+      },
+      {
+        "rank": 4,
+        "ligand": "HLA-DQB1",
+        "pearson": 0.26075148886110755,
+        "auroc": 0.404073199527745
+      },
+      {
+        "rank": 5,
+        "ligand": "CD47",
+        "pearson": 0.21811653318761742,
+        "auroc": 0.35094451003541915
+      },
+      {
+        "rank": 6,
+        "ligand": "CD58",
+        "pearson": 0.21386345212095062,
+        "auroc": 0.345926800472255
+      },
+      {
+        "rank": 7,
+        "ligand": "CD274",
+        "pearson": 0.21164027332108856,
+        "auroc": 0.6490554899645808
+      },
+      {
+        "rank": 8,
+        "ligand": "HLA-A",
+        "pearson": 0.20139766961430206,
+        "auroc": 0.4743211334120425
+      },
+      {
+        "rank": 9,
+        "ligand": "TNC",
+        "pearson": 0.1941177087872229,
+        "auroc": 0.3438606847697756
+      },
+      {
+        "rank": 10,
+        "ligand": "ULBP2",
+        "pearson": 0.17576375681785444,
+        "auroc": 0.4309327036599764
+      }
+    ],
+    "NMPR_to_NMPR__exhaustion": [
+      {
+        "rank": 1,
+        "ligand": "CD274",
+        "pearson": 0.12866406773429612,
+        "auroc": 0.5799881936245572
+      },
+      {
+        "rank": 2,
+        "ligand": "ALCAM",
+        "pearson": 0.05328962835344884,
+        "auroc": 0.46340023612750886
+      },
+      {
+        "rank": 3,
+        "ligand": "TNFSF9",
+        "pearson": 0.05135909667712393,
+        "auroc": 0.48110979929161746
+      },
+      {
+        "rank": 4,
+        "ligand": "COL6A1",
+        "pearson": 0.034618877589499296,
+        "auroc": 0.37544273907910264
+      },
+      {
+        "rank": 5,
+        "ligand": "PDGFA",
+        "pearson": 0.025284179145524784,
+        "auroc": 0.4135182998819362
+      },
+      {
+        "rank": 6,
+        "ligand": "CALR",
+        "pearson": 0.02347237671005066,
+        "auroc": 0.38252656434474613
+      },
+      {
+        "rank": 7,
+        "ligand": "HLA-DRB1",
+        "pearson": 0.015257906663496055,
+        "auroc": 0.38961038961038963
+      },
+      {
+        "rank": 8,
+        "ligand": "CX3CL1",
+        "pearson": 0.009354929526352779,
+        "auroc": 0.37042502951593864
+      },
+      {
+        "rank": 9,
+        "ligand": "ADAM17",
+        "pearson": 0.0038774705584873337,
+        "auroc": 0.41233766233766234
+      },
+      {
+        "rank": 10,
+        "ligand": "HMGB1",
+        "pearson": 0.0036224259573410106,
+        "auroc": 0.39935064935064934
+      }
+    ],
+    "MPR_to_MPR__exhaustion": [
+      {
+        "rank": 1,
+        "ligand": "CD274",
+        "pearson": 0.12866406773429612,
+        "auroc": 0.5799881936245572
+      },
+      {
+        "rank": 2,
+        "ligand": "ALCAM",
+        "pearson": 0.05328962835344884,
+        "auroc": 0.46340023612750886
+      },
+      {
+        "rank": 3,
+        "ligand": "TNFSF9",
+        "pearson": 0.05135909667712393,
+        "auroc": 0.48110979929161746
+      },
+      {
+        "rank": 4,
+        "ligand": "COL6A1",
+        "pearson": 0.034618877589499296,
+        "auroc": 0.37544273907910264
+      },
+      {
+        "rank": 5,
+        "ligand": "PDGFA",
+        "pearson": 0.025284179145524784,
+        "auroc": 0.4135182998819362
+      },
+      {
+        "rank": 6,
+        "ligand": "CALR",
+        "pearson": 0.02347237671005066,
+        "auroc": 0.38252656434474613
+      },
+      {
+        "rank": 7,
+        "ligand": "HLA-DRB1",
+        "pearson": 0.015257906663496055,
+        "auroc": 0.38961038961038963
+      },
+      {
+        "rank": 8,
+        "ligand": "CD40",
+        "pearson": 0.014820295950424205,
+        "auroc": 0.4589728453364817
+      },
+      {
+        "rank": 9,
+        "ligand": "CX3CL1",
+        "pearson": 0.009354929526352779,
+        "auroc": 0.37042502951593864
+      },
+      {
+        "rank": 10,
+        "ligand": "ADAM17",
+        "pearson": 0.0038774705584873337,
+        "auroc": 0.41233766233766234
+      }
+    ],
+    "NMPR_to_NMPR__empirical_up": [
+      {
+        "rank": 1,
+        "ligand": "ADAM9",
+        "pearson": 0.3088871807567314,
+        "auroc": 0.6924302788844621
+      },
+      {
+        "rank": 2,
+        "ligand": "TGFA",
+        "pearson": 0.21405381312392374,
+        "auroc": 0.7059760956175298
+      },
+      {
+        "rank": 3,
+        "ligand": "IFITM1",
+        "pearson": 0.16589734076383883,
+        "auroc": 0.7235059760956175
+      },
+      {
+        "rank": 4,
+        "ligand": "HLA-DRA",
+        "pearson": 0.113448249722979,
+        "auroc": 0.6852589641434264
+      },
+      {
+        "rank": 5,
+        "ligand": "TNFSF9",
+        "pearson": 0.10187099528958393,
+        "auroc": 0.5625498007968128
+      },
+      {
+        "rank": 6,
+        "ligand": "ANGPTL4",
+        "pearson": 0.09465255334014208,
+        "auroc": 0.6908366533864542
+      },
+      {
+        "rank": 7,
+        "ligand": "WNT7B",
+        "pearson": 0.08308363020999708,
+        "auroc": 0.6422310756972112
+      },
+      {
+        "rank": 8,
+        "ligand": "MDK",
+        "pearson": 0.07944999711153208,
+        "auroc": 0.7330677290836654
+      },
+      {
+        "rank": 9,
+        "ligand": "CLCF1",
+        "pearson": 0.0749334036702875,
+        "auroc": 0.6071713147410358
+      },
+      {
+        "rank": 10,
+        "ligand": "MELTF",
+        "pearson": 0.07343469429165485,
+        "auroc": 0.7043824701195219
+      }
+    ],
+    "NMPR_to_NMPR__empirical_down": [
+      {
+        "rank": 1,
+        "ligand": "HBEGF",
+        "pearson": 0.23500044609809972,
+        "auroc": 0.5254174397031539
+      },
+      {
+        "rank": 2,
+        "ligand": "EDN1",
+        "pearson": 0.07617569995344889,
+        "auroc": 0.42634508348794065
+      },
+      {
+        "rank": 3,
+        "ligand": "CD274",
+        "pearson": 0.048926663597309086,
+        "auroc": 0.5354359925788497
+      },
+      {
+        "rank": 4,
+        "ligand": "TNFSF9",
+        "pearson": 0.04553224271142353,
+        "auroc": 0.4538033395176252
+      },
+      {
+        "rank": 5,
+        "ligand": "PDGFA",
+        "pearson": 0.02474554530706561,
+        "auroc": 0.4007421150278293
+      },
+      {
+        "rank": 6,
+        "ligand": "ANGPTL4",
+        "pearson": 0.015848338083603485,
+        "auroc": 0.4471243042671614
+      },
+      {
+        "rank": 7,
+        "ligand": "PRNP",
+        "pearson": 0.0015332031168857688,
+        "auroc": 0.3803339517625232
+      },
+      {
+        "rank": 8,
+        "ligand": "HMGB1",
+        "pearson": -0.010071124054426747,
+        "auroc": 0.37031539888682746
+      },
+      {
+        "rank": 9,
+        "ligand": "TGM2",
+        "pearson": -0.03423363868534672,
+        "auroc": 0.4096474953617811
+      },
+      {
+        "rank": 10,
+        "ligand": "CD99",
+        "pearson": -0.040140156702321926,
+        "auroc": 0.3450834879406308
+      }
+    ]
+  },
+  "caveats": [
+    "n=4 MPR vs n=8 NMPR; all patient-level p-values are underpowered",
+    "NicheNet prior is unsigned regulatory potential, not signed up/down",
+    "Background genes are panel-restricted (not the full receiver transcriptome)",
+    "DRMref labels are marker-based, not Hu CopyKAT malignant IDs",
+    "Cell counts are descriptive; inference is patient-level"
+  ]
+}
