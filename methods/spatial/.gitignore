@@ -1,0 +1,7 @@
+# Python bytecode / caches
+__pycache__/
+*.pyc
+# Local virtualenvs
+.venv/
+# Demo outputs (results are generated locally, never committed)
+demo/out/
