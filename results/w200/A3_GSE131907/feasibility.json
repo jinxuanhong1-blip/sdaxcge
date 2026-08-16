@@ -1,0 +1,13 @@
+{
+  "dataset": "GSE131907",
+  "task": "W200-A3 analog: epithelial TACSTD2 vs T/NK (no MPR labels in this atlas)",
+  "size_budget_gb": 2.0,
+  "processed_umi_bytes": 408736818,
+  "processed_umi_gb": 0.381,
+  "umi_within_budget": true,
+  "skipped_log2tpm_txt_bytes": 3065932358,
+  "skipped_log2tpm_txt_gb": 2.855,
+  "skipped_raw_ega": "EGAD00001005054",
+  "decision": "ANALYZE",
+  "workdir": "/tmp/gse131907"
+}
