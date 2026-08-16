@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+"""Write the curated include/exclude table for this slice."""
+from __future__ import annotations
+
+import csv
+import os
+
+ROWS = [
+    # included
+    ["GSE182228", "include", "KL ICI", "Lkb1-deficient LUAD + anti-PD-1 ± palbociclib; n=3/arm; FPKM", "PMID 36871040"],
+    ["GSE114601", "include", "KP ICI", "KP GEMM nodules + anti-PD-1 ± JQ1; n=2/arm; raw counts", "PMID 30087114"],
+    ["GSE169194", "include", "KP ICI", "Kras;Trp53;Msh2null unfractionated tumours, A2V ± anti-PD-1; n=3/arm", "PMID 34380768"],
+    ["GSE246922", "include", "KP ICB-relapse", "KP CD45- cells: parental / chronic IFNg / ICB-relapsed; VST", "PMID 38215748"],
+    ["GSE260596", "include", "344SQ ICI-combo", "344SQ (KrasLA1;p53) all on anti-PD-1 ± anti-LAIR1", "PMID 38648067"],
+    ["GSE197260", "include", "EGFR ICI descriptive", "Egfr-del19 tumours; one library per arm including sequential anti-PD-1 (4H2)", "PMID 35405020"],
+    ["GSE274351", "include", "KL genotype", "LCM K / KP / KL adenomas + normal lung; TPM", "PMID 39186651"],
+    ["GSE137396", "include", "KL genotype", "KL vs KP GEMM nodules; raw counts", "PMID 34142094"],
+    ["GSE175479", "include", "KL genotype", "K vs KL vs Kras;AMPK tumours; raw counts", "PMID 34667030"],
+    ["GSE274352", "include", "KL mechanism", "KP/KL lines + IFN-beta or STING-V154M", "PMID 39186651"],
+    ["GSE295685", "include", "KL mechanism", "KL cells ± TNG260 (CoREST inhibitor; aPD-1 sensitiser); n=2", "GEO GSE295685"],
+    ["GSE236258", "include", "CMT167/KLA mechanism", "CMT167 and KLA ± trametinib (PD-1-sensitisation paper)", "PMID 38643157"],
+    ["GSE241978", "include", "CMT167 mechanism", "CMT167 AhR KO vs Cas9 (PD-L1/IDO paper)", "PMID 39185148"],
+    ["GSE217405", "include", "EGFR mechanism", "Egfr-mutant lines ± osimertinib", "PMID 36657561"],
+    ["GSE330658", "include", "EGFR in vivo", "Egfr-mutant tumours; anti-PD-L1 arms not deposited", "PMID 42346215"],
+    # excluded
+    ["GSE309199", "exclude", "SCLC GEMM", "RPM autochthonous SCLC + aPD-1; out of NSCLC/KL scope", "PMID 42068133"],
+    ["GSE297817", "exclude", "SCLC", "RP (Rb1/Trp53) SCLC + ITc (aPD-1+aCTLA-4)", "GEO GSE297817"],
+    ["GSE297818", "exclude", "SCLC", "RP SCLC independent ITc cohort", "GEO GSE297818"],
+    ["GSE208614", "exclude", "SCLC", "RP-48OVA SCLC flank + aPD-1 ± bomedemstat", "PMID 35920742"],
+    ["GSE262975", "exclude", "SCLC", "5B/KP1 SCLC + cisplatin ± aPD-L1 ± savolitinib", "PMID 40543507"],
+    ["GSE274960", "exclude", "LLC-only", "LL/2 (Lewis lung) + aPD-1 ± entrectinib", "GEO GSE274960"],
+    ["GSE301822", "exclude", "CRISPR counts not RNA", "LLC and KP in-vivo CRISPR screen sgRNA counts, not gene expression", "GEO GSE301822"],
+    ["GSE194166", "exclude", "scRNA CD45+", "KP/KPL + aPD-1 immune-cell scRNA; no bulk epithelial matrix <2GB with gene-level Tacstd2", "PMID 35492873"],
+    ["GSE232730", "exclude", "scRNA CD45+", "KPL-3M + aPD-1, sorted CD45+ only", "PMID 38518770"],
+    ["GSE244452", "exclude", "DEG table only", "KP vs KL tumours; deposited file is a DEG table, not a count matrix", "PMID 38291516"],
+    ["GSE298051", "exclude", "ChIP-seq", "KL/KP H3K9ac ChIP including TNG260+aPD-1 tumours; not RNA-seq", "GEO GSE298051"],
+    ["GSE285606", "exclude", "scRNA 10x", "344SQ vs PD-1-resistant 140P; 230 MB 10x MTX, IgG-only treatment on the deposited samples", "PMID 41739590"],
+    ["GSE256071", "exclude", "no ICI arm on samples", "KP ± Sox2 in vitro; ICI is in the paper not the GEO samples", "PMID 39745382"],
+    ["GSE133604", "exclude", "scRNA", "KP + aPD-1 10x; no compact gene-level matrix", "PMID 31744829"],
+    ["GSE129297", "exclude", "SCLC scRNA", "SCLC + CDK7i + aPD-1", "PMID 31883968"],
+]
+
+
+def main() -> None:
+    path = "results/opus_gemm/dataset_verification.tsv"
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", newline="") as fh:
+        w = csv.writer(fh, delimiter="\t")
+        w.writerow(["accession", "decision", "category", "reason", "citation"])
+        w.writerows(ROWS)
+    print(f"wrote {path} ({len(ROWS)} rows)")
+
+
+if __name__ == "__main__":
+    main()
