@@ -9,7 +9,9 @@ mkdir -p \
   "${DATA}/candidate_GSE93157" \
   "${DATA}/candidate_GSE190575" \
   "${DATA}/candidate_GSE212549" \
-  "${DATA}/candidate_GSE301741"
+  "${DATA}/candidate_GSE212550" \
+  "${DATA}/candidate_GSE301741" \
+  "${DATA}/candidate_GSE179730"
 
 download() {
   local url="$1"
@@ -57,7 +59,18 @@ if [[ ! -s "${ANNOTATION_SQLITE}" ]]; then
 fi
 
 download \
+  "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE212nnn/GSE212550/matrix/GSE212550_series_matrix.txt.gz" \
+  "${DATA}/candidate_GSE212550/GSE212550_series_matrix.txt.gz"
+
+download \
   "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE301nnn/GSE301741/matrix/GSE301741_series_matrix.txt.gz" \
   "${DATA}/candidate_GSE301741/GSE301741_series_matrix.txt.gz"
+
+download \
+  "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179730/matrix/GSE179730_series_matrix.txt.gz" \
+  "${DATA}/candidate_GSE179730/GSE179730_series_matrix.txt.gz"
+download \
+  "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179730/suppl/GSE179730_RNAseq-combinedCPM.txt.gz" \
+  "${DATA}/candidate_GSE179730/GSE179730_RNAseq-combinedCPM.txt.gz"
 
 python3 "${ROOT}/analyze.py"
