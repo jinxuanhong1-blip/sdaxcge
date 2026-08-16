@@ -1,0 +1,135 @@
+{
+  "source": {
+    "citation": "Braun DA et al. Nature Medicine 2020;26:909-918. doi:10.1038/s41591-020-0839-y",
+    "supplement_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-020-0839-y/MediaObjects/41591_2020_839_MOESM2_ESM.xlsx",
+    "supplement_sha256": "a1f8683676d416b255291dcaa007aa0fa48c736c23e6a7a566664ba528bf205b",
+    "clinical_sheet": "S1_Clinical_and_Immune_Data",
+    "expression_sheet": "S4A_RNA_Expression"
+  },
+  "analysis_set": {
+    "included_n": 172,
+    "definition": "Nivolumab-treated, RNA-profiled subjects with evaluable ORR; responder=CR/PR (including pooled source label CRPR), nonresponder=SD/PD",
+    "excluded": {
+      "non_nivolumab_arm": 130,
+      "objective_response_not_evaluable": 9
+    }
+  },
+  "headline_or_n_p": {
+    "cohort": "open RCC ICI (Braun 2020 CheckMate 009/010/025 nivolumab RNA)",
+    "endpoint": "objective response CR/PR vs SD/PD",
+    "exposure": "CLDN4 high vs low (median split)",
+    "OR": 0.7167325428194994,
+    "OR_95_ci": [
+      0.34938205283574464,
+      1.4703260621632859
+    ],
+    "n": 172,
+    "p": 0.4666781353079638,
+    "p_test": "two-sided Fisher exact"
+  },
+  "pooled_result": {
+    "responder": {
+      "n": 39,
+      "median": 28.4258761364654,
+      "q1": 27.49270215834065,
+      "q3": 29.030079095478747
+    },
+    "nonresponder": {
+      "n": 133,
+      "median": 28.8140261343839,
+      "q1": 27.4706501451544,
+      "q3": 29.8109916066547
+    },
+    "median_difference_responder_minus_nonresponder": -0.38814999791850013,
+    "median_difference_bootstrap_95_ci": [
+      -1.007251064624601,
+      0.21018076654859996
+    ],
+    "mann_whitney_u": 2141.0,
+    "p_value_two_sided": 0.09834624064600586,
+    "common_language_effect_probability": 0.41276267592057064,
+    "median_split_odds_ratio": {
+      "cut": "pre-specified median of included CLDN4 values; high = at or above median",
+      "median_cut": 28.7379964735051,
+      "n": 172,
+      "n_high": 86,
+      "n_low": 86,
+      "high_responder": 17,
+      "high_nonresponder": 69,
+      "low_responder": 22,
+      "low_nonresponder": 64,
+      "odds_ratio": 0.7167325428194994,
+      "odds_ratio_95_ci": [
+        0.34938205283574464,
+        1.4703260621632859
+      ],
+      "fisher_p_value_two_sided": 0.4666781353079638,
+      "odds_ratio_definition": "odds of CR/PR in CLDN4-high versus CLDN4-low"
+    },
+    "logistic_odds_ratio_per_sd": {
+      "log_odds_per_sd": -0.28380836256429515,
+      "odds_ratio_per_sd": 0.7529109167991973,
+      "odds_ratio_per_sd_95_ci": [
+        0.539480638178978,
+        1.0507788575117345
+      ],
+      "wald_p_value_two_sided": 0.09516501387812992
+    }
+  },
+  "cohort_descriptive_results": [
+    {
+      "cohort": "CM-009",
+      "responder": {
+        "n": 3,
+        "median": 28.353049132602,
+        "q1": 28.03846262278715,
+        "q3": 28.8117293342242
+      },
+      "nonresponder": {
+        "n": 13,
+        "median": 29.4132310703939,
+        "q1": 26.8324327017406,
+        "q3": 29.8501680411395
+      },
+      "mann_whitney_u": 15.0,
+      "p_value_two_sided": 0.5904816173489396,
+      "common_language_effect_probability": 0.38461538461538464
+    },
+    {
+      "cohort": "CM-010",
+      "responder": {
+        "n": 11,
+        "median": 28.0314221841833,
+        "q1": 26.847770975950247,
+        "q3": 28.62002129211175
+      },
+      "nonresponder": {
+        "n": 34,
+        "median": 28.8613765832004,
+        "q1": 28.147835507148425,
+        "q3": 29.800039136925
+      },
+      "mann_whitney_u": 117.0,
+      "p_value_two_sided": 0.06624871711488609,
+      "common_language_effect_probability": 0.31283422459893045
+    },
+    {
+      "cohort": "CM-025",
+      "responder": {
+        "n": 25,
+        "median": 28.7877033197919,
+        "q1": 27.4937803379715,
+        "q3": 29.2043744425321
+      },
+      "nonresponder": {
+        "n": 86,
+        "median": 28.72594300962535,
+        "q1": 27.404761191634375,
+        "q3": 29.66159618464355
+      },
+      "mann_whitney_u": 977.0,
+      "p_value_two_sided": 0.49127463044768127,
+      "common_language_effect_probability": 0.4544186046511628
+    }
+  ]
+}
