@@ -1,0 +1,112 @@
+{
+  "datasets": {
+    "GSE248378_durvalumab": {
+      "drug": "durvalumab (anti-PD-L1)",
+      "context": "neoadjuvant +/- radiation, resected NSCLC (post-treatment)",
+      "source": "GEO GSE248378 (open); file GSE248378_Durva_Post_FPKMs.txt.gz",
+      "n_samples": 29,
+      "n_genes_estimate_common": 8886,
+      "immune_metric": "ESTIMATE ImmuneScore (ssGSEA)",
+      "purity_metric": "ESTIMATE ESTIMATEScore->Affy purity formula (PROXY; Affy-calibrated, off-label for RNA-seq)",
+      "spearman_TACSTD2_vs_ImmuneScore": {
+        "rho": -0.6487684729064038,
+        "p": 0.0001408006623619051
+      },
+      "spearman_TACSTD2_vs_ESTIMATEScore": {
+        "rho": -0.531527093596059,
+        "p": 0.0030049560538293195
+      },
+      "spearman_TACSTD2_vs_purityProxy": {
+        "rho": 0.531527093596059,
+        "p": 0.0030049560538293195
+      },
+      "spearman_ImmuneScore_vs_purityProxy": {
+        "rho": -0.9029556650246303,
+        "p": 2.087484185460394e-11
+      },
+      "purity_partial_spearman_TACSTD2_vs_ImmuneScore": {
+        "rho": -0.46379684443726815,
+        "p": 0.012920636757177075,
+        "n": 29
+      },
+      "caveats": [
+        "ESTIMATE tumour-purity formula is Affymetrix-calibrated; on RNA-seq it is only a rank proxy.",
+        "Small n; post-treatment resected tumours, not the reported anti-PD-L1 discovery cohort."
+      ]
+    },
+    "OncoSG_luad_oncosg_2020": {
+      "drug": "none (treatment-naive LUAD resection cohort, East-Asian)",
+      "source": "cBioPortal study luad_oncosg_2020 (Chen et al., Nat Genet 2020); open",
+      "n_samples": 169,
+      "immune_metric": "IMSIG immune-cell composite (mean of z-scored IMSIG immune signatures), from cBioPortal clinical",
+      "purity_metric": "OncoSG per-sample tumour PURITY (real, from cBioPortal clinical) -- independent of immune score",
+      "spearman_TACSTD2_vs_immuneComposite": {
+        "rho": -0.5038759882651286,
+        "p": 2.879687435027002e-12
+      },
+      "spearman_TACSTD2_vs_PURITY": {
+        "rho": 0.2378964909710367,
+        "p": 0.0018423150526558094
+      },
+      "spearman_immuneComposite_vs_PURITY": {
+        "rho": -0.6187950111328901,
+        "p": 3.0803333869066255e-19
+      },
+      "purity_partial_spearman_TACSTD2_vs_immuneComposite": {
+        "rho": -0.4674534339775206,
+        "p": 1.6796124760300664e-10,
+        "n": 169
+      },
+      "per_signature": {
+        "IMSIG_B_CELLS": {
+          "spearman_rho": -0.3216597881756253,
+          "spearman_p": 2.0041239092008365e-05,
+          "purity_partial_rho": -0.2401166834772749,
+          "purity_partial_p": 0.0017183823007297263
+        },
+        "IMSIG_T_CELLS": {
+          "spearman_rho": -0.45539754363283785,
+          "spearman_p": 4.941152399405523e-10,
+          "purity_partial_rho": -0.4041324582507455,
+          "purity_partial_p": 5.554399398804224e-08
+        },
+        "IMSIG_NK_CELLS": {
+          "spearman_rho": -0.471000944756601,
+          "spearman_p": 1.0291575891033187e-10,
+          "purity_partial_rho": -0.42133557097674007,
+          "purity_partial_p": 1.290009680830212e-08
+        },
+        "IMSIG_MACROPHAGES": {
+          "spearman_rho": -0.4623256316976875,
+          "spearman_p": 2.486209329367248e-10,
+          "purity_partial_rho": -0.40814003100726604,
+          "purity_partial_p": 3.9820273509310085e-08
+        },
+        "IMSIG_MONOCYTES": {
+          "spearman_rho": -0.44012659754222955,
+          "spearman_p": 2.1291116913952405e-09,
+          "purity_partial_rho": -0.381353278253753,
+          "purity_partial_p": 3.3953554949560785e-07
+        },
+        "IMSIG_NEUTROPHILS": {
+          "spearman_rho": -0.5030008453085376,
+          "spearman_p": 3.183245185348025e-12,
+          "purity_partial_rho": -0.4563716697941499,
+          "purity_partial_p": 5.061157875249851e-10
+        },
+        "IMSIG_PLASMA_CELLS": {
+          "spearman_rho": -0.32949629555964405,
+          "spearman_p": 1.2173984592517861e-05,
+          "purity_partial_rho": -0.28536307898056523,
+          "purity_partial_p": 0.00017727311634192205
+        },
+        "IMSIG_INTERFERON": {
+          "spearman_rho": -0.13015762518024962,
+          "spearman_p": 0.0916660872904257,
+          "purity_partial_rho": -0.06314866597296866,
+          "purity_partial_p": 0.4161026427489706
+        }
+      }
+    }
+  }
+}
