@@ -1,0 +1,12 @@
+{
+  "dataset": "GSE131907",
+  "task": "W200-A3 analog: epithelial TACSTD2 vs T/NK",
+  "honest_verdict": "A3-style epithelial TACSTD2 vs T/NK fraction is a null (tumor-site ρ=0.17, p=0.33, n=36). TACSTD2 is epithelial-restricted (median %pos 76.1 vs 2.9). NMPR>MPR cannot be tested (no ICI/MPR labels). Skipped 2.86 GB log2TPM text and EGA raw FASTQ.",
+  "mpr_contrast_possible": false,
+  "immune_anticorrelation_supported": false,
+  "tacstd2_epithelial_restricted": true,
+  "skipped_huge_files": [
+    "GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz",
+    "EGAD00001005054"
+  ]
+}
