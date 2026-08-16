@@ -1,0 +1,204 @@
+{
+  "task": "B2_protein_followup",
+  "user_correction": "claimed \u03c1=0.69 was CCLE NSCLC protein n=118, not DepMap RNA",
+  "honest_verdict": {
+    "n_118_is": "CCLE RPPA 20180123 lung lines with lineage==lung and subtype!=SCLC (n=118: 117 NSCLC + 1 carcinoid). This is a sample headcount, not a TACSTD2\u2013CLDN4 complete-case n.",
+    "rho_0.69_is": "Gygi/Nusinow CCLE MS, _LUNG columns with both proteins quantified: Spearman \u03c1=0.6931 (n=45), rounds to 0.69. Bootstrap 95% CI [0.483, 0.822].",
+    "same_cohort": false,
+    "rppa_can_compute_pair": false,
+    "procan_can_compute_pair": false,
+    "did_we_tune": false,
+    "statement": "n=118 and \u03c1=0.69 do not come from the same table. n=118 is the RPPA lung-not-SCLC headcount (no TACSTD2/CLDN4 antibodies). \u03c1=0.69 is Gygi MS lung complete cases (n=45, not 118). NSCLC-only Gygi MS is n=36, \u03c1=0.73 \u2014 closer histology, farther from 0.69."
+  },
+  "gygi_meta": {
+    "TACSTD2_id": "sp|P09758|TACD2_HUMAN",
+    "CLDN4_id": "sp|O14493|CLD4_HUMAN",
+    "n_quant_columns": 378
+  },
+  "primary_gygi_lung_complete": {
+    "dataset": "Gygi_CCLE_MS",
+    "cohort": "lung_suffix_complete",
+    "note": "PRIMARY protein correlation: CCLE ID contains _LUNG, both proteins quantified.",
+    "n": 45,
+    "spearman_rho": 0.6931488801054019,
+    "spearman_p": 1.3117431950020398e-07,
+    "pearson_r": 0.6871878120527255,
+    "pearson_p": 1.8535570143264805e-07,
+    "spearman_ci95_low": 0.4833291593279783,
+    "spearman_ci95_high": 0.8222327111970432,
+    "rounds_to_0.69": true,
+    "abs_diff_vs_0.69": 0.00314888010540193,
+    "n_equals_118": false,
+    "user_0.69_inside_ci95": true
+  },
+  "all_gygi_cohorts": [
+    {
+      "dataset": "Gygi_CCLE_MS",
+      "cohort": "all_complete",
+      "note": "All Gygi lines with both proteins.",
+      "n": 198,
+      "spearman_rho": 0.6122529274583964,
+      "spearman_p": 9.352962685023365e-22,
+      "pearson_r": 0.6091216343280956,
+      "pearson_p": 1.7088387881812573e-21,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "rounds_to_0.69": false,
+      "abs_diff_vs_0.69": 0.07774707254160351,
+      "n_equals_118": false
+    },
+    {
+      "dataset": "Gygi_CCLE_MS",
+      "cohort": "lung_suffix_complete",
+      "note": "PRIMARY protein correlation: CCLE ID contains _LUNG, both proteins quantified.",
+      "n": 45,
+      "spearman_rho": 0.6931488801054019,
+      "spearman_p": 1.3117431950020398e-07,
+      "pearson_r": 0.6871878120527255,
+      "pearson_p": 1.8535570143264805e-07,
+      "spearman_ci95_low": 0.4833291593279783,
+      "spearman_ci95_high": 0.8222327111970432,
+      "rounds_to_0.69": true,
+      "abs_diff_vs_0.69": 0.00314888010540193,
+      "n_equals_118": false,
+      "user_0.69_inside_ci95": true
+    },
+    {
+      "dataset": "Gygi_CCLE_MS",
+      "cohort": "s1_tissue_Lung",
+      "note": "Gygi Table S1 Tissue of Origin == Lung.",
+      "n": 45,
+      "spearman_rho": 0.6931488801054019,
+      "spearman_p": 1.3117431950020398e-07,
+      "pearson_r": 0.6871878120527255,
+      "pearson_p": 1.8535570143264805e-07,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "rounds_to_0.69": true,
+      "abs_diff_vs_0.69": 0.00314888010540193,
+      "n_equals_118": false
+    },
+    {
+      "dataset": "Gygi_CCLE_MS",
+      "cohort": "lineage_lung",
+      "note": "DepMap 22Q2 sample_info lineage==lung (includes meso).",
+      "n": 46,
+      "spearman_rho": 0.6964539007092199,
+      "spearman_p": 7.659456541913762e-08,
+      "pearson_r": 0.6879316129560178,
+      "pearson_p": 1.275090200285162e-07,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "rounds_to_0.69": false,
+      "abs_diff_vs_0.69": 0.006453900709219917,
+      "n_equals_118": false
+    },
+    {
+      "dataset": "Gygi_CCLE_MS",
+      "cohort": "NSCLC",
+      "note": "22Q2 lineage_subtype==NSCLC.",
+      "n": 36,
+      "spearman_rho": 0.7305019305019306,
+      "spearman_p": 4.2438356941709085e-07,
+      "pearson_r": 0.7428213656767322,
+      "pearson_p": 2.1285725730712326e-07,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "rounds_to_0.69": false,
+      "abs_diff_vs_0.69": 0.04050193050193063,
+      "n_equals_118": false
+    },
+    {
+      "dataset": "Gygi_CCLE_MS",
+      "cohort": "SCLC",
+      "note": "22Q2 lineage_subtype==SCLC.",
+      "n": 9,
+      "spearman_rho": 0.25,
+      "spearman_p": 0.5164895523012261,
+      "pearson_r": -0.017033846580037516,
+      "pearson_p": 0.9653073220857465,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "rounds_to_0.69": false,
+      "abs_diff_vs_0.69": 0.43999999999999995,
+      "n_equals_118": false
+    },
+    {
+      "dataset": "Gygi_CCLE_MS",
+      "cohort": "lung_not_SCLC",
+      "note": "22Q2 lineage==lung excluding SCLC (still includes meso if present).",
+      "n": 37,
+      "spearman_rho": 0.7377904220009482,
+      "spearman_p": 1.8872331400743734e-07,
+      "pearson_r": 0.7445233688019034,
+      "pearson_p": 1.2703356372449288e-07,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "rounds_to_0.69": false,
+      "abs_diff_vs_0.69": 0.047790422000948296,
+      "n_equals_118": false
+    }
+  ],
+  "rppa": {
+    "dataset": "CCLE_RPPA_20180123",
+    "n_samples": 899,
+    "n_lung_suffix": 164,
+    "n_lung_NSCLC": 117,
+    "n_lung_not_SCLC": 118,
+    "has_TACSTD2_or_TROP2_antibody": false,
+    "has_CLDN4_antibody": false,
+    "claudin_antibodies_present": [
+      "Claudin-7"
+    ],
+    "antibody_hits_TACSTD2_CLDN4": [],
+    "can_compute_TACSTD2_CLDN4_rho": false,
+    "n_118_match": {
+      "n_lung_not_SCLC": true,
+      "n_NSCLC": false
+    },
+    "note": "n=118 is the RPPA lung-not-SCLC headcount (117 NSCLC + 1 carcinoid). RPPA has neither TACSTD2/TROP2 nor CLDN4, so this n cannot be the correlation sample."
+  },
+  "procan": {
+    "dataset": "ProCan-DepMapSanger_8498",
+    "n_cell_lines": 949,
+    "n_proteins": 8498,
+    "has_TACSTD2": true,
+    "has_CLDN4": false,
+    "claudins_present": [
+      "P56747;CLD6_HUMAN",
+      "O95832;CLD1_HUMAN",
+      "O95471;CLD7_HUMAN",
+      "O15551;CLD3_HUMAN",
+      "P56856;CLD18_HUMAN"
+    ],
+    "n_mapping_Lung": 187,
+    "n_mapping_NSCLC": 101,
+    "can_compute_TACSTD2_CLDN4_rho": false,
+    "note": "TACSTD2 is present; CLDN4 is absent (CLDN1/3/7 only). No TACSTD2\u2013CLDN4 \u03c1."
+  },
+  "which_n_hits_0.69": [
+    {
+      "cohort": "lung_suffix_complete",
+      "n": 45,
+      "spearman_rho": 0.6931488801054019,
+      "abs_diff_vs_0.69": 0.00314888010540193
+    },
+    {
+      "cohort": "s1_tissue_Lung",
+      "n": 45,
+      "spearman_rho": 0.6931488801054019,
+      "abs_diff_vs_0.69": 0.00314888010540193
+    }
+  ],
+  "named_n_inventory": {
+    "rppa_lung_not_SCLC": 118,
+    "rppa_NSCLC": 117,
+    "gygi_lung_complete": 45,
+    "gygi_NSCLC_complete": 36,
+    "procan_mapping_NSCLC": 101,
+    "procan_mapping_Lung": 187
+  },
+  "prior_rna_result": {
+    "depmap_24q4_lung_RNA": "Spearman 0.607 n=214 \u2014 wrong modality for this claim"
+  }
+}

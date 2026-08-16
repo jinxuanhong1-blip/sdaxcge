@@ -1,0 +1,9 @@
+CLAIM: TACSTD2-CLDN4 rho = 0.69 in DepMap/CCLE lung lines only
+PRIMARY: DepMap Public 24Q4, OncotreeLineage==Lung, n=214 complete RNA cases
+SPEARMAN: 0.6075 (p=5.64e-23)  -> 0.61 at 2 d.p.
+PEARSON:  0.5624               -> 0.56 at 2 d.p.
+BOOTSTRAP_95CI_SPEARMAN: [0.513, 0.687]
+USER_0.69_IN_PRIMARY_CI: no
+VERDICT: DOES_NOT_MATCH
+NSCLC_ONLY_SPEARMAN: 0.6674 (n=143) -> 0.67; nearby, not a match
+DID_WE_TUNE_TO_0.69: no

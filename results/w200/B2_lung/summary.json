@@ -1,0 +1,393 @@
+{
+  "task": "B2_lung",
+  "question": "TACSTD2\u2013CLDN4 correlation in DepMap/CCLE lung lines only",
+  "user_claimed_rho": 0.69,
+  "user_claimed_stat": "\u03c1 (interpreted as Spearman unless a Pearson match is closer; both reported)",
+  "primary_cohort": "lung_cell_lines",
+  "primary": {
+    "cohort": "lung_cell_lines",
+    "note": "PRIMARY: OncotreeLineage==Lung and ModelType==Cell Line. This is the pre-specified B2 lung-lines cohort.",
+    "n": 214,
+    "spearman_rho": 0.6074923026927191,
+    "spearman_p": 5.636455165585778e-23,
+    "pearson_r": 0.5624370891915033,
+    "pearson_p": 3.001007452146409e-19,
+    "spearman_ci95_low": 0.5133482836771316,
+    "spearman_ci95_high": 0.6871859820977054,
+    "user_0.69_inside_spearman_ci95": false,
+    "verdict_vs_user_spearman": {
+      "user_claimed_rho": 0.69,
+      "rounded_2dp": 0.61,
+      "matches_user_0.69_at_2dp": false,
+      "abs_diff": 0.0825076973072808,
+      "within_0.05": false,
+      "label": "DOES_NOT_MATCH"
+    }
+  },
+  "honest_verdict": {
+    "stat_compared": "Spearman rho on primary cohort",
+    "user_claimed_rho": 0.69,
+    "rounded_2dp": 0.61,
+    "matches_user_0.69_at_2dp": false,
+    "abs_diff": 0.0825076973072808,
+    "within_0.05": false,
+    "label": "DOES_NOT_MATCH",
+    "pearson_on_primary": {
+      "user_claimed_rho": 0.69,
+      "rounded_2dp": 0.56,
+      "matches_user_0.69_at_2dp": false,
+      "abs_diff": 0.1275629108084967,
+      "within_0.05": false,
+      "label": "DOES_NOT_MATCH"
+    },
+    "statement": "Primary lung cell-line Spearman \u03c1 = 0.6075 (n=214), which does not match the user claim 0.69 (absolute difference 0.0825; rounds to 0.61). Pearson r = 0.5624. The user number is not reproduced on this public 24Q4 lung-cell-line slice. Bootstrap 95% CI [0.513, 0.687]; 0.69 is not inside this CI."
+  },
+  "all_cohorts": [
+    {
+      "cohort": "lung_cell_lines",
+      "note": "PRIMARY: OncotreeLineage==Lung and ModelType==Cell Line. This is the pre-specified B2 lung-lines cohort.",
+      "n": 214,
+      "spearman_rho": 0.6074923026927191,
+      "spearman_p": 5.636455165585778e-23,
+      "pearson_r": 0.5624370891915033,
+      "pearson_p": 3.001007452146409e-19,
+      "spearman_ci95_low": 0.5133482836771316,
+      "spearman_ci95_high": 0.6871859820977054,
+      "user_0.69_inside_spearman_ci95": false,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.61,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.0825076973072808,
+        "within_0.05": false,
+        "label": "DOES_NOT_MATCH"
+      }
+    },
+    {
+      "cohort": "lung_all_model_types",
+      "note": "Sensitivity: all Lung-lineage models with RNA (includes organoids / non-cell-line if present).",
+      "n": 214,
+      "spearman_rho": 0.6074923026927191,
+      "spearman_p": 5.636455165585778e-23,
+      "pearson_r": 0.5624370891915033,
+      "pearson_p": 3.001007452146409e-19,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.61,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.0825076973072808,
+        "within_0.05": false,
+        "label": "DOES_NOT_MATCH"
+      }
+    },
+    {
+      "cohort": "lung_NSCLC_cell_lines",
+      "note": "Sensitivity: NSCLC primary disease only (excludes SCLC/NET and non-cancerous).",
+      "n": 143,
+      "spearman_rho": 0.667437179146622,
+      "spearman_p": 8.811122112650595e-20,
+      "pearson_r": 0.6287018480097553,
+      "pearson_p": 4.206048059022061e-17,
+      "spearman_ci95_low": 0.5593342424824413,
+      "spearman_ci95_high": 0.7530464246168322,
+      "user_0.69_inside_spearman_ci95": true,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.67,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.022562820853377907,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "lung_NET_SCLC_cell_lines",
+      "note": "Sensitivity: Lung Neuroendocrine Tumor (mostly SCLC).",
+      "n": 60,
+      "spearman_rho": 0.36990607984022494,
+      "spearman_p": 0.003626401814035375,
+      "pearson_r": 0.3666016513348643,
+      "pearson_p": 0.003964337414969543,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.37,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.320093920159775,
+        "within_0.05": false,
+        "label": "DOES_NOT_MATCH"
+      }
+    },
+    {
+      "cohort": "lung_other_cell_lines",
+      "note": "Sensitivity: Lung lineage cell lines that are neither NSCLC nor NET.",
+      "n": 11,
+      "spearman_rho": 0.6697056099399616,
+      "spearman_p": 0.024178155822074807,
+      "pearson_r": 0.8106356540860812,
+      "pearson_p": 0.002472604145697889,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.67,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.020294390060038303,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "lung_LUAD_cell_lines",
+      "note": "Sensitivity: OncotreeSubtype == Lung Adenocarcinoma.",
+      "n": 80,
+      "spearman_rho": 0.7561387264786419,
+      "spearman_p": 5.108416933686581e-16,
+      "pearson_r": 0.7453066521180682,
+      "pearson_p": 2.216189643340584e-15,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.76,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.06613872647864194,
+        "within_0.05": false,
+        "label": "DOES_NOT_MATCH"
+      }
+    },
+    {
+      "cohort": "lung_LUSC_cell_lines",
+      "note": "Sensitivity: OncotreeSubtype == Lung Squamous Cell Carcinoma.",
+      "n": 27,
+      "spearman_rho": 0.5317460317460317,
+      "spearman_p": 0.0043096289274127475,
+      "pearson_r": 0.4888015194954136,
+      "pearson_p": 0.009675820606738685,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.53,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.1582539682539682,
+        "within_0.05": false,
+        "label": "DOES_NOT_MATCH"
+      }
+    },
+    {
+      "cohort": "lung_SCLC_subtype_cell_lines",
+      "note": "Sensitivity: OncotreeSubtype == Small Cell Lung Cancer.",
+      "n": 59,
+      "spearman_rho": 0.34770790846716215,
+      "spearman_p": 0.006967118748925905,
+      "pearson_r": 0.3610768469976896,
+      "pearson_p": 0.004960223270154145,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.35,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.3422920915328378,
+        "within_0.05": false,
+        "label": "DOES_NOT_MATCH"
+      }
+    },
+    {
+      "cohort": "all_lineages_cell_lines",
+      "note": "Context only: all lineages, cell lines. Not the B2 request.",
+      "n": 1673,
+      "spearman_rho": 0.7207441224724889,
+      "spearman_p": 3.223077433012373e-268,
+      "pearson_r": 0.7261528255480857,
+      "pearson_p": 3.523620666370625e-274,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.72,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.03074412247248892,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "all_lineages_all_models",
+      "note": "Context only: all lineages, all model types with RNA. Not the B2 request.",
+      "n": 1673,
+      "spearman_rho": 0.7207441224724889,
+      "spearman_p": 3.223077433012373e-268,
+      "pearson_r": 0.7261528255480857,
+      "pearson_p": 3.523620666370625e-274,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.72,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.03074412247248892,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "hist_22q2_lineage_lung",
+      "note": "Historical: DepMap 22Q2 CCLE_expression.csv, sample_info lineage==lung (this older annotation includes mesothelioma).",
+      "n": 207,
+      "spearman_rho": 0.6636270621306597,
+      "spearman_p": 1.1977821879501611e-27,
+      "pearson_r": 0.6110638003901369,
+      "pearson_p": 1.4046964320043372e-22,
+      "spearman_ci95_low": 0.5763324010079306,
+      "spearman_ci95_high": 0.7373069348339658,
+      "user_0.69_inside_spearman_ci95": true,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.66,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.02637293786934025,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "hist_22q2_lineage_lung_no_meso",
+      "note": "Historical: 22Q2 lineage==lung excluding mesothelioma.",
+      "n": 187,
+      "spearman_rho": 0.6179308544731498,
+      "spearman_p": 4.467584854295112e-21,
+      "pearson_r": 0.5758174974652064,
+      "pearson_p": 6.6198147984173204e-18,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.62,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.07206914552685018,
+        "within_0.05": false,
+        "label": "DOES_NOT_MATCH"
+      }
+    },
+    {
+      "cohort": "hist_22q2_NSCLC",
+      "note": "Historical: 22Q2 lineage_subtype==NSCLC.",
+      "n": 135,
+      "spearman_rho": 0.6526730775813092,
+      "spearman_p": 9.745585150066352e-18,
+      "pearson_r": 0.625491296184925,
+      "pearson_p": 5.055941146014364e-16,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.65,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.03732692241869073,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "hist_22q2_all_lines",
+      "note": "Context only: 22Q2 all lineages. Not the B2 lung-only request.",
+      "n": 1406,
+      "spearman_rho": 0.7248552055767284,
+      "spearman_p": 1.7379540580930203e-229,
+      "pearson_r": 0.7253509176817287,
+      "pearson_p": 5.992091631329126e-230,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.72,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.0348552055767285,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "hist_2018_suffix_LUNG_RPKM",
+      "note": "Historical: CCLE RNAseq RPKM 20180929, CCLE_ID suffix == LUNG. Spearman is rank-based so log transform does not change \u03c1.",
+      "n": 188,
+      "spearman_rho": 0.6415107629125151,
+      "spearman_p": 3.468160225973317e-23,
+      "pearson_r": 0.535482138550777,
+      "pearson_p": 2.4225553045519607e-15,
+      "spearman_ci95_low": 0.5521467931207226,
+      "spearman_ci95_high": 0.7147439702787335,
+      "user_0.69_inside_spearman_ci95": true,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.64,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.04848923708748487,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "hist_2018_SitePrimary_lung_RPKM",
+      "note": "Historical: CCLE 2018 RPKM, annotation Site_Primary==lung.",
+      "n": 181,
+      "spearman_rho": 0.6741667172606398,
+      "spearman_p": 2.434342955290169e-25,
+      "pearson_r": 0.5455117005641822,
+      "pearson_p": 2.0084633796516407e-15,
+      "spearman_ci95_low": 0.5903425948708175,
+      "spearman_ci95_high": 0.7402806233483327,
+      "user_0.69_inside_spearman_ci95": true,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.67,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.015833282739360133,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    },
+    {
+      "cohort": "hist_2018_all_lines_RPKM",
+      "note": "Context only: CCLE 2018 RPKM all tissues. Not the B2 lung-only request.",
+      "n": 1019,
+      "spearman_rho": 0.6793960251511133,
+      "spearman_p": 6.935902484941722e-139,
+      "pearson_r": 0.5226837803692772,
+      "pearson_p": 1.617333285094048e-72,
+      "spearman_ci95_low": null,
+      "spearman_ci95_high": null,
+      "verdict_vs_user_spearman": {
+        "user_claimed_rho": 0.69,
+        "rounded_2dp": 0.68,
+        "matches_user_0.69_at_2dp": false,
+        "abs_diff": 0.010603974848886644,
+        "within_0.05": true,
+        "label": "NEARBY_NOT_EXACT"
+      }
+    }
+  ],
+  "counts": {
+    "n_expression_models_after_numeric": 1673,
+    "n_lung_lineage_with_rna": 214,
+    "n_lung_cell_lines_with_rna": 214,
+    "n_nsclc_cell_lines": 143,
+    "n_net_cell_lines": 60,
+    "n_lung_models_in_Model_csv": 260
+  },
+  "methods": {
+    "release": "DepMap Public 24Q4",
+    "expression": "OmicsExpressionProteinCodingGenesTPMLogp1.csv = log2(TPM+1)",
+    "lineage_field": "OncotreeLineage == Lung",
+    "line_definition": "ModelType == Cell Line",
+    "correlation": "scipy.stats.spearmanr and pearsonr, two-sided, complete cases",
+    "did_we_tune_to_0.69": false,
+    "bootstrap": "percentile 95% CI, 5000 resamples, seed=0, primary and NSCLC only",
+    "note": "In 24Q4 every Lung-lineage model is ModelType==Cell Line. Historical 22Q2/2018 files are extra named sensitivities, not used to redefine the primary cohort."
+  }
+}

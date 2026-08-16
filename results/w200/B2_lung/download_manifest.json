@@ -1,0 +1,28 @@
+{
+  "release": "DepMap Public 24Q4",
+  "citation": "DepMap, Broad (2024). DepMap 24Q4 Public. Figshare+. https://doi.org/10.25452/figshare.plus.27993248.v1",
+  "figshare_article": "https://doi.org/10.25452/figshare.plus.27993248.v1",
+  "files": {
+    "Model.csv": {
+      "url": "https://ndownloader.figshare.com/files/51065297",
+      "figshare_file_id": 51065297,
+      "sha256": "b7a0c1385e6cef30132b56aff61f1261d11e3f490490b355c430d32ee0dbdcfa",
+      "bytes": 645696
+    },
+    "OmicsExpressionProteinCodingGenesTPMLogp1.csv": {
+      "url": "https://ndownloader.figshare.com/files/51065489",
+      "figshare_file_id": 51065489,
+      "sha256": "2a71dc94110efcc0221eae821bb93a9f03b54bea16f005818911a09d33383d56",
+      "bytes": 506628654,
+      "note": "full matrix cached locally only; repo stores the two-gene extract"
+    }
+  },
+  "extract": {
+    "n_models_in_expression": 1673,
+    "id_column": "",
+    "TACSTD2_column": "TACSTD2 (4070)",
+    "CLDN4_column": "CLDN4 (1364)"
+  },
+  "expression_scale": "log2(TPM+1)",
+  "expression_file": "OmicsExpressionProteinCodingGenesTPMLogp1.csv"
+}
