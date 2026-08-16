@@ -97,7 +97,9 @@ def map_author(label: str) -> str:
         return ""
     if "patient" in s and "specific" in s:
         return "epithelial"
-    if s in AUTHOR_EPI or s.startswith("epithelial"):
+    if "airway" in s and "epithel" in s:
+        return "epithelial"
+    if s in AUTHOR_EPI or s.startswith("epithelial") or "epithel" in s:
         return "epithelial"
     if s in AUTHOR_T or s.startswith("t cell") or s.startswith("tt cell"):
         return "T"
@@ -236,18 +238,25 @@ def main() -> int:
     for name, expr, meta in loaded:
         n = len(meta)
         tumor = meta["tissue"].astype(str).str.upper().isin({"TUMOR", "T", "TLUNG"})
-        # GSE253013 uses Tumor / ANT
         if name == "GSE253013":
             tumor = meta["tissue"].astype(str).eq("Tumor")
         if name == "GSE131907":
-            tumor = np.ones(n, dtype=bool)  # already tumor-site filtered
-        meta = meta.loc[tumor].copy()
-        expr = {g: v[tumor.to_numpy()] for g, v in expr.items()}
+            tumor = pd.Series(True, index=meta.index)
+        tumor_mask = tumor.to_numpy() if hasattr(tumor, "to_numpy") else np.asarray(tumor, dtype=bool)
+        meta = meta.loc[tumor_mask].copy()
+        expr = {g: v[tumor_mask] for g, v in expr.items()}
         n = len(meta)
         lineage = assign_lineage(expr, n)
         meta["lineage"] = lineage
-        author = meta["author_cell_type"].map(map_author) if "author_cell_type" in meta.columns else ""
-        meta["author_lineage"] = author if isinstance(author, pd.Series) else ""
+        author_src = None
+        for cand in ("author_cell_type", "cell_type", "Cell_type"):
+            if cand in meta.columns and meta[cand].notna().any():
+                author_src = cand
+                break
+        if author_src:
+            meta["author_lineage"] = meta[author_src].map(map_author)
+        else:
+            meta["author_lineage"] = ""
         normal = marker_score(expr, [g for g in NORMAL_LUNG if g in expr], n)
         meta["malignant_like"] = (meta["lineage"] == "epithelial") & (normal <= 0.05)
         if name == "GSE131907" and "author_subtype" in meta.columns:
@@ -372,7 +381,9 @@ def main() -> int:
     n_pc = min(HARMONY_NPC, Xs.shape[1], Xs.shape[0] - 1)
     pcs = PCA(n_components=n_pc, random_state=RANDOM_SEED).fit_transform(Xs)
     ho = hm.run_harmony(pcs, sub, vars_use=["dataset"], max_iter_harmony=20, verbose=False)
-    Z = np.asarray(ho.Z_corr).T
+    Z = np.asarray(ho.Z_corr)
+    if Z.shape[0] != len(sub):
+        Z = Z.T
     sub["harmony_1"] = Z[:, 0]
     sub["harmony_2"] = Z[:, 1]
     sub.to_csv(RESULTS / "harmony_subsample.tsv", sep="\t", index=False)

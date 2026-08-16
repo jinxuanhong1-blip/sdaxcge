@@ -65,4 +65,21 @@ Outputs: `results/scrna_harmony_naive/`.
 
 ## Honest joint numbers
 
-Filled after the public-matrix run (see `results/scrna_harmony_naive/summary.json`).
+Joint tumor cells = 435,519 from four public atlases. Eligible donors
+(≥20 epithelial and ≥20 T/NK) **n = 76**.
+
+| Contrast | n | ρ | p | BH-FDR |
+|---|---:|---:|---:|---:|
+| Epithelial TACSTD2 vs T/NK | 76 | +0.15 | 0.18 | 0.61 |
+| Epithelial CLDN4 vs T/NK | 76 | +0.12 | 0.30 | 0.76 |
+| Malignant-like TACSTD2 vs T/NK | 73 | −0.33 | 0.0038 | 0.038 |
+| Malignant-like CLDN4 vs T/NK | 73 | −0.27 | 0.020 | 0.099 |
+| Epithelial TACSTD2 vs B/TLS-like | 71 | −0.0004 | 1.00 | 1.00 |
+| Epithelial CLDN4 vs B/TLS-like | 71 | +0.058 | 0.63 | 0.95 |
+
+Dataset-residualized malignant-like TACSTD2 vs T/NK: n=73 ρ=−0.25 p=0.031.
+Per-atlas malignant-like TACSTD2 vs T/NK: GSE253013 n=9 ρ=−0.72 p=0.030;
+GSE131907 n=31 ρ=−0.32 p=0.080; GSE148071 n=26 ρ=−0.15 p=0.45;
+GSE127465 n=7 ρ=+0.43 p=0.34.
+
+See `results/scrna_harmony_naive/`.
