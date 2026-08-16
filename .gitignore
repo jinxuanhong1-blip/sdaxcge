@@ -1,0 +1,10 @@
+# Raw / downloaded data (re-downloadable from GEO; too large for git)
+data/
+
+# Large processed AnnData artifact (regenerate with analysis/run_hunt_gse180963.py)
+*.h5ad
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
