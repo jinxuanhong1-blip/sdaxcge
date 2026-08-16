@@ -1,0 +1,26 @@
+qid	arm	query	hit_count	retrieved
+A01	A	TITLE_ABS:"CLDN4" AND TITLE_ABS:("PD-L1" OR "PDL1" OR "CD274")	2	2
+A02	A	TITLE_ABS:"claudin-4" AND TITLE_ABS:("PD-L1" OR "PDL1" OR "CD274")	6	6
+A03	A	"CLDN4" AND ("PD-L1" OR "CD274")	322	322
+A04	A	TITLE_ABS:("CLDN4" OR "claudin-4" OR "claudin 4") AND TITLE_ABS:("knockdown" OR "knockout" OR "silencing" OR "CRISPR" OR "siRNA" OR "shRNA" OR "depletion" OR "loss")	347	347
+A05	A	TITLE_ABS:("CLDN4" OR "claudin-4") AND TITLE_ABS:("immune evasion" OR "immune escape" OR "immune checkpoint" OR "tumor microenvironment" OR "T cell" OR "T-cell")	37	37
+A06	A	TITLE_ABS:("claudin") AND TITLE_ABS:("PD-L1" OR "CD274") AND TITLE_ABS:("knockdown" OR "knockout" OR "silencing" OR "CRISPR" OR "siRNA" OR "shRNA" OR "overexpression")	15	15
+A07	A	TITLE_ABS:("tight junction") AND TITLE_ABS:("PD-L1" OR "CD274")	29	29
+A08	A	TITLE_ABS:("CLDN4" OR "claudin-4") AND TITLE_ABS:("interferon" OR "IFN" OR "STAT1" OR "NF-kB" OR "NF-kappaB")	69	69
+B01	B	TITLE_ABS:("TROP2" OR "TROP-2" OR "TACSTD2") AND TITLE_ABS:("PD-L1" OR "PDL1" OR "CD274")	102	102
+B02	B	TITLE_ABS:("sacituzumab") AND TITLE_ABS:("PD-L1" OR "PDL1" OR "CD274" OR "PD-1" OR "immune")	147	147
+B03	B	TITLE_ABS:("datopotamab" OR "Dato-DXd" OR "DS-1062") AND TITLE_ABS:("PD-L1" OR "PDL1" OR "CD274" OR "PD-1" OR "immune")	27	27
+B04	B	TITLE_ABS:("SN-38" OR "SN38") AND TITLE_ABS:("PD-L1" OR "PDL1" OR "CD274")	19	19
+B05	B	TITLE_ABS:("deruxtecan" OR "DXd") AND TITLE_ABS:("PD-L1" OR "PDL1" OR "CD274")	80	80
+B06	B	TITLE_ABS:("antibody-drug conjugate" OR "antibody drug conjugate" OR "ADC") AND TITLE_ABS:("PD-L1" OR "CD274") AND TITLE_ABS:("upregulat*" OR "up-regulat*" OR "induc*" OR "increase*")	15	15
+B07	B	TITLE_ABS:("topoisomerase I" OR "topoisomerase 1" OR "irinotecan" OR "topotecan" OR "camptothecin") AND TITLE_ABS:("PD-L1" OR "CD274")	148	148
+B08	B	TITLE_ABS:("sacituzumab tirumotecan" OR "SKB264" OR "MK-2870") AND TITLE_ABS:("PD-L1" OR "immune" OR "pembrolizumab")	7	7
+B09	B	("sacituzumab govitecan" OR "datopotamab deruxtecan") AND ("PD-L1" OR "CD274")	1910	400
+B10	B	TITLE_ABS:("TROP2" OR "TACSTD2") AND TITLE_ABS:("immunogenic cell death" OR "STING" OR "cGAS" OR "interferon")	13	13
+B11	B	TITLE_ABS:("antibody-drug conjugate" OR "ADC") AND TITLE_ABS:("immunogenic cell death") AND TITLE_ABS:("PD-1" OR "PD-L1")	15	15
+M01	M	TITLE_ABS:("DNA damage") AND TITLE_ABS:("PD-L1" OR "CD274") AND TITLE_ABS:("STING" OR "cGAS" OR "interferon")	131	131
+M02	M	TITLE_ABS:("CD274") AND TITLE_ABS:("transcriptional regulation" OR "promoter" OR "3'UTR" OR "3' UTR" OR "mRNA stability")	115	115
+M03	M	TITLE_ABS:("EMT" OR "epithelial-mesenchymal transition") AND TITLE_ABS:("PD-L1" OR "CD274") AND TITLE_ABS:("claudin" OR "E-cadherin" OR "tight junction")	84	84
+X01	X	TITLE_ABS:("claudin-low") AND TITLE_ABS:("PD-L1" OR "CD274" OR "immune")	61	61
+X02	X	TITLE_ABS:("CLDN18.2" OR "claudin-18.2" OR "CLDN18") AND TITLE_ABS:("PD-L1" OR "CD274")	120	120
+X03	X	TITLE_ABS:("CLDN4" OR "claudin-4") AND TITLE_ABS:("prognosis" OR "prognostic" OR "survival")	265	265

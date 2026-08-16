@@ -1,0 +1,20 @@
+accession	source	kind	used_for_C3	cd274_result	why
+GSE207704	GEO	CLDN4 KO RNA-seq, MCF7 + T47D	YES_ARM_A	SPLIT: MCF7 CD274 down (FPKM 0.93→0.11); T47D up (0.27→0.80). Replicates collapsed in deposit. CLDN4 RNA only ~2-fold down.	Best public cancer-line CLDN4 KO. Does not support a general rise.
+GSE50927	GEO	mouse lung Cldn4 KO RNA-seq ± VILI	YES_ARM_A_NOT_CANCER	Cd274 logFC +0.14, p=0.46, FDR=1. Cldn4 logFC −6.06 (KO real).	Not a tumor. No PD-L1 rise.
+GSE22493	GEO	SKOV-3 CLDN4 siRNA vs overexpression microarray	YES_ARM_A_LIMITED	CD274 not annotated on GPL10555. CLDN4 log2(KD/OE) −1.74 / −0.71.	Cannot test C3. Same accession C4 used; IFN did not open.
+GSE22421	GEO	SKOV-3 C-CPE (CLDN3/4 binder) microarray	NEAR_MISS	Same platform; CD274 not annotated.	Ligand, not genetic loss.
+GSE274940	GEO	EpH4 complete Cldn-family null RNA-seq	NEAR_MISS	Cd274 not up (log2FC −0.40, p=0.63). Cldn4 RNA not depleted.	Not CLDN4-specific; cannot be read as CLDN4 loss.
+GSE245459	GEO	SKOV-3 TACSTD2 shRNA FPKM	NEAR_MISS	CD274 flat (log2FC −0.10, p=0.38).	TROP2 KD, not ADC, not CLDN4.
+GSE334497	GEO	4T1 Trop2 KO tumor RNA-seq	NEAR_MISS	Cd274 log2FC +0.77, p=0.10 (n=5).	TROP2 loss, not TROP2 ADC. Paper is claudin-7 barrier, not PD-L1 induction.
+GSE312098	GEO	CX-1 CRC, 2-day IMMU132 (SG) FPKM	YES_ARM_B	CD274 log2FC +0.32, p=0.019. Absolute FPKM 0.22→0.56 (barely expressed).	Only public bulk SG-vs-control cell-line hit. Small absolute change.
+GSE311016	GEO	CRC PDX, 29-day IMMU132 vs control FPKM	YES_ARM_B	CD274 paired mean log2FC −0.08, p=0.61. Flat.	Same paper as GSE312098; in vivo 29-day does not reproduce the 2-day bump.
+GSE222450	GEO	mouse HNSCC SN-38 ± anti-PD1 counts	MECH_PAYLOAD	Cd274 SN-38 vs vehicle log2FC −0.11, p=0.85. Flat.	Payload only. Paper claims protein PD-L1 down.
+GSE278664	GEO	ovarian biopsies BRCA-mut vs wt	EXCLUDED	Not a treatment contrast.	Title mentions SG; samples are baseline.
+E-MTAB-16849	ArrayExpress	CRC liver-met scRNA-seq, SG vs IgG1-SN-38 time course	OPEN_NOT_QUANTIFIED	Not quantified here (processed counts 5–23 GB).	Real TROP2-ADC single-cell series. Exists; too large for this slice.
+E-MTAB-16433	ArrayExpress	CRC PDOX scRNA-seq, SG vs vehicle 28 days	OPEN_NOT_QUANTIFIED	Not quantified here (log1p matrix ~0.9 GB).	Real TROP2-ADC single-cell series. Exists; not read for CD274.
+GSE302284	GEO	EGFR NSCLC osimertinib / TROP2-title	EXCLUDED	Samples are Veh/Osi, not ADC.	Title keyword false hit.
+GSE309617	GEO	TNBC PDX carboplatin	EXCLUDED	No SG treatment columns.	Title keyword false hit.
+TCGA PanCan LUAD/LUSC/BRCA/OV/STAD/COADREAD	cBioPortal	bulk mRNA co-expression	ASSOC_ONLY	CLDN4–CD274 Spearman ≈ 0 in LUAD/LUSC/OV/STAD; BRCA −0.12; COADREAD −0.30. Purity-unadjusted.	Not loss-of-function. Immune CD274 confounds bulk.
+CCLE Broad 2019	cBioPortal	cell-line mRNA	ASSOC_ONLY	CLDN4–CD274 Spearman +0.20 (n=1156). Lung +0.22 (n=119, p=0.018).	Tumor-intrinsic association is weakly positive, opposite of “low CLDN4 ⇒ high PD-L1”.
+LINCS/L1000 CLDN4 KD	not retrieved	perturbation signature	NOT_RUN	—	No CLDN4-loss→CD274 claim to confirm; skipped rather than over-fit L1000.
+PMID 41016339 / 40892111 RNA-seq	papers only	CLDN4 KO/KD RNA-seq	NO_MATRIX	—	Authors report RNA-seq; no GEO/SRA/AE accession found.
