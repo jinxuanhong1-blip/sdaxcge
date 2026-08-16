@@ -1,0 +1,11 @@
+cohort,gene,endpoint,model,n,events,hr_per_sd,ci_low,ci_high,p
+Yale,TACSTD2,OS,univariable,37,17,1.687,1.013,2.81,0.044665669479178105
+Yale,TACSTD2,OS,adjusted for stromal T-eff score,35,16,2.01,1.137,3.555,0.01635595656957545
+Yale,CLDN4,OS,univariable,37,17,1.503,0.959,2.357,0.07550614003324624
+Yale,CLDN4,OS,adjusted for stromal T-eff score,35,16,1.568,0.986,2.493,0.05727629641817099
+Yale,stromal_Teff_score,OS,univariable,35,16,1.367,0.783,2.384,0.27119292566120123
+Greek,TACSTD2,OS,univariable,61,33,0.858,0.613,1.2,0.3715247791507693
+Greek,TACSTD2,OS,adjusted for stromal T-eff score,61,33,0.875,0.621,1.234,0.44743954664774677
+Greek,CLDN4,OS,univariable,61,33,0.86,0.607,1.219,0.3973908425224083
+Greek,CLDN4,OS,adjusted for stromal T-eff score,61,33,0.845,0.594,1.202,0.3492154214699097
+Greek,stromal_Teff_score,OS,univariable,61,33,1.214,0.8,1.842,0.3613163361233609
