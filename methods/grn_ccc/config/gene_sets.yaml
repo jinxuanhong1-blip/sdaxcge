@@ -1,0 +1,131 @@
+# =============================================================================
+# gene_sets.yaml
+# Central gene panels for the GRN/CCC playbook (human, symbols on GRCh38).
+# Single source of truth imported by every script in ../scripts and ../demo.
+# Edit here, not in the scripts. All symbols are human HGNC.
+# =============================================================================
+
+# --- The state under investigation -------------------------------------------
+# TACSTD2 (TROP2) and CLDN4 mark a common malignant/reactive lung epithelial
+# state. We score epithelium on these and split into "high" vs "low".
+state_markers:
+  positive:            # up in the state of interest
+    - TACSTD2
+    - CLDN4
+  companion:           # frequently co-move; use to sanity-check the score
+    - CLDN3
+    - CLDN7
+    - ELF3
+    - KRT8
+    - KRT18
+    - KRT19
+
+# --- Lineage markers used for annotation / gating ----------------------------
+lineage_markers:
+  epithelial:
+    - EPCAM
+    - KRT8
+    - KRT18
+    - KRT19
+    - CDH1
+    - SFTPC          # AT2 (normal alveolar); helps flag ambient surfactant
+    - SFTPB
+  t_cell:
+    - CD3D
+    - CD3E
+    - CD3G
+    - CD8A
+    - CD8B
+    - CD4
+    - IL7R
+    - TRAC
+  nk_cell:
+    - NKG7
+    - KLRD1
+    - GNLY
+  myeloid:
+    - LYZ
+    - CD68
+    - ITGAM
+    - FCGR3A
+  b_cell:
+    - CD79A
+    - MS4A1
+  fibroblast:
+    - COL1A1
+    - DCN
+    - PDGFRB
+  endothelial:
+    - PECAM1
+    - VWF
+
+# --- The biological readout: T-cell recruitment ligands ----------------------
+# "Reduced T-cell recruitment signal" = lower expression of these chemokine
+# LIGANDS in TACSTD2/CLDN4-high epithelium (senders), and/or weaker inferred
+# communication toward T cells carrying the matching RECEPTORS.
+t_cell_recruitment:
+  # Canonical effector CD8/Th1 recruitment axis; strongest ICI-response link.
+  cxcr3_axis:
+    ligands: [CXCL9, CXCL10, CXCL11]
+    receptor: [CXCR3]
+  # Cytotoxic / effector-memory recruitment.
+  ccr5_axis:
+    ligands: [CCL5, CCL3, CCL4]
+    receptor: [CCR5, CCR1]
+  # Tissue-resident memory CD8 recruitment/retention.
+  cxcr6_axis:
+    ligands: [CXCL16]
+    receptor: [CXCR6]
+  # Tertiary lymphoid structure / naive-central memory homing.
+  ccr7_axis:
+    ligands: [CCL19, CCL21]
+    receptor: [CCR7]
+  # TLS / B-Tfh organization (context for T-cell help).
+  cxcr5_axis:
+    ligands: [CXCL13]
+    receptor: [CXCR5]
+
+# Chemokines whose gain would argue AGAINST simple "T-cell exclusion"
+# (they recruit Treg / Th2 / suppressive myeloid). Track them so an increase
+# here is not mis-read as increased anti-tumor recruitment.
+immunosuppressive_recruitment:
+  ccr4_axis:
+    ligands: [CCL17, CCL22]      # Treg/Th2
+    receptor: [CCR4]
+  myeloid_recruitment:
+    ligands: [CXCL1, CXCL2, CXCL5, CXCL8, CCL2]  # neutrophils/MDSC/monocytes
+    receptor: [CXCR1, CXCR2, CCR2]
+
+# --- Explicit ligand->receptor pairs to spotlight in every tool's output -----
+# Directed sender(epithelium) -> receiver(T/NK). Used to filter LIANA/CellChat
+# results down to the hypothesis instead of eyeballing whole networks.
+focus_lr_pairs:
+  - ligand: CXCL9
+    receptor: CXCR3
+  - ligand: CXCL10
+    receptor: CXCR3
+  - ligand: CXCL11
+    receptor: CXCR3
+  - ligand: CCL5
+    receptor: CCR5
+  - ligand: CXCL16
+    receptor: CXCR6
+
+# --- Analysis parameters (shared defaults) -----------------------------------
+params:
+  species: human
+  assembly: GRCh38
+  # Column in adata.obs holding fine cell-type labels.
+  celltype_key: cell_type
+  # Column holding patient/sample id -- REQUIRED for honest cross-condition stats.
+  sample_key: patient_id
+  # Column holding the ICI condition (e.g. responder/non-responder, pre/post).
+  condition_key: ici_response
+  # How to split epithelium on the state score.
+  state_score_method: quantile   # quantile | otsu | cluster
+  state_high_quantile: 0.75      # top quartile = "high" when method=quantile
+  # Minimum fraction of a cluster expressing a gene before we trust its "signal".
+  min_expr_fraction: 0.10
+  # Minimum patients per group for any cross-condition claim.
+  min_patients_per_group: 3
+  random_seed: 0

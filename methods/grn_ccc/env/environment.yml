@@ -1,0 +1,61 @@
+# Full conda environment for the playbook: Python (LIANA / pySCENIC / pseudobulk)
+# + R (CellChat / NicheNet / inferCNV / DE). CellChat and NicheNet are R-only;
+# there is no maintained Python port, so R is required for scripts 02 and 03.
+#
+#   conda env create -f environment.yml && conda activate grn_ccc
+#   # then in R: see the install.packages / BiocManager / devtools notes below.
+
+name: grn_ccc
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  # --- Python ---------------------------------------------------------------
+  - python=3.12
+  - pip
+  - scanpy=1.12
+  - anndata
+  - liana
+  - leidenalg
+  - scipy
+  - statsmodels
+  - pandas
+  - numpy
+  - plotnine
+  - pyyaml
+  - scikit-image
+  - harmonypy
+  - decoupler
+  - loompy
+  - pyscenic            # bioconda; pulls arboreto/ctxcore for GRNBoost2+cisTarget
+  # --- R base + CCC/GRN stack ----------------------------------------------
+  - r-base>=4.3
+  - r-seurat
+  - r-tidyverse
+  - r-yaml
+  - r-patchwork
+  - r-matrix
+  - bioconductor-cellchat        # if unavailable on bioconda, install via devtools (below)
+  - bioconductor-infercnv
+  - bioconductor-limma
+  - bioconductor-edger
+  - bioconductor-deseq2
+  - pip:
+      - scrublet
+      - celltypist
+
+# --- R packages not always on conda (run inside R) ---------------------------
+# install.packages("BiocManager")
+# BiocManager::install(c("ComplexHeatmap"))
+# devtools::install_github("jinworks/CellChat")     # CellChat v2
+# devtools::install_github("saeyslab/nichenetr")    # NicheNet v2
+#
+# NicheNet prior model (download once, Zenodo 7074291):
+#   ligand_target_matrix_nsga2r_final.rds
+#   lr_network_human_21122021.rds
+#   weighted_networks_nsga2r_final.rds
+#
+# SCENIC resources (GRCh38; aertslab):
+#   allTFs_hg38.txt
+#   hg38_*_v10_clust.genes_vs_motifs.rankings.feather
+#   motifs-v10nr_clust-nr.hgnc-m0.001-o0.0.tbl
