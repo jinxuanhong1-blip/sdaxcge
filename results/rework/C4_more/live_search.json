@@ -1,0 +1,1148 @@
+{
+  "audit_date": "2026-08-16",
+  "excluded_known": [
+    "GSE207704",
+    "GSE22493",
+    "GSE245459",
+    "GSE50927"
+  ],
+  "geo_queries": {
+    "CLDN4_gse": {
+      "term": "CLDN4[All Fields] AND gse[Entry Type]",
+      "count": "21",
+      "idlist": [
+        "200310539",
+        "200309751",
+        "200330007",
+        "200309894",
+        "200279689",
+        "200282371",
+        "200244820",
+        "200268909",
+        "200247271",
+        "200247130",
+        "200264098",
+        "200207704",
+        "200196005",
+        "200108417",
+        "200099417",
+        "200099416",
+        "200099415",
+        "200084742",
+        "200060885",
+        "200050927",
+        "200022493"
+      ],
+      "querytranslation": "CLDN4[All Fields] AND gse[Entry Type]"
+    },
+    "Cldn4_gse": {
+      "term": "Cldn4[All Fields] AND gse[Entry Type]",
+      "count": "21",
+      "idlist": [
+        "200310539",
+        "200309751",
+        "200330007",
+        "200309894",
+        "200279689",
+        "200282371",
+        "200244820",
+        "200268909",
+        "200247271",
+        "200247130",
+        "200264098",
+        "200207704",
+        "200196005",
+        "200108417",
+        "200099417",
+        "200099416",
+        "200099415",
+        "200084742",
+        "200060885",
+        "200050927",
+        "200022493"
+      ],
+      "querytranslation": "Cldn4[All Fields] AND gse[Entry Type]"
+    },
+    "claudin4_quoted_gse": {
+      "term": "\"claudin 4\"[All Fields] AND gse[Entry Type]",
+      "count": "10",
+      "idlist": [
+        "200268909",
+        "200207704",
+        "200099416",
+        "200099415",
+        "200065107",
+        "200060885",
+        "200050927",
+        "200048443",
+        "200026055",
+        "200011759"
+      ],
+      "querytranslation": "\"claudin 4\"[All Fields] AND gse[Entry Type]"
+    },
+    "claudin-4_gse": {
+      "term": "claudin-4[All Fields] AND gse[Entry Type]",
+      "count": "10",
+      "idlist": [
+        "200268909",
+        "200207704",
+        "200099416",
+        "200099415",
+        "200065107",
+        "200060885",
+        "200050927",
+        "200048443",
+        "200026055",
+        "200011759"
+      ],
+      "querytranslation": "(\"claudin-4\"[All Fields] OR \"claudin-4\"[MeSH Terms] OR claudin-4[All Fields]) AND gse[Entry Type]"
+    },
+    "CLDN4_kdko_gse": {
+      "term": "CLDN4[All Fields] AND (knockdown OR knockout OR siRNA OR shRNA OR CRISPR OR silencing) AND gse[Entry Type]",
+      "count": "4",
+      "idlist": [
+        "200207704",
+        "200084742",
+        "200060885",
+        "200022493"
+      ],
+      "querytranslation": "CLDN4[All Fields] AND (knockdown[All Fields] OR knockout[All Fields] OR (\"rna, small interfering\"[All Fields] OR \"rna, small interfering\"[MeSH Terms] OR siRNA[All Fields]) OR (\"rna, small interfering\"[All Fields] OR \"rna, small interfering\"[MeSH Terms] OR shRNA[All Fields]) OR CRISPR[All Fields] OR silencing[All Fields]) AND gse[Entry Type]"
+    },
+    "Cldn4_kdko_gse": {
+      "term": "Cldn4[All Fields] AND (knockdown OR knockout OR KO OR siRNA OR shRNA OR CRISPR) AND gse[Entry Type]",
+      "count": "5",
+      "idlist": [
+        "200207704",
+        "200084742",
+        "200060885",
+        "200050927",
+        "200022493"
+      ],
+      "querytranslation": "Cldn4[All Fields] AND (knockdown[All Fields] OR knockout[All Fields] OR KO[All Fields] OR (\"rna, small interfering\"[All Fields] OR \"rna, small interfering\"[MeSH Terms] OR siRNA[All Fields]) OR (\"rna, small interfering\"[All Fields] OR \"rna, small interfering\"[MeSH Terms] OR shRNA[All Fields]) OR CRISPR[All Fields]) AND gse[Entry Type]"
+    },
+    "Cldn-null_gse": {
+      "term": "Cldn-null AND gse[Entry Type]",
+      "count": "1",
+      "idlist": [
+        "200274940"
+      ],
+      "querytranslation": "Cldn-null[All Fields] AND gse[Entry Type]"
+    },
+    "GSE22421": {
+      "term": "GSE22421[All Fields]",
+      "count": "5",
+      "idlist": [
+        "200022421",
+        "100010555",
+        "300557402",
+        "300557401",
+        "300557400"
+      ],
+      "querytranslation": "GSE22421[All Fields]"
+    },
+    "GSE274940": {
+      "term": "GSE274940[All Fields]",
+      "count": "8",
+      "idlist": [
+        "200274940",
+        "100034290",
+        "308462263",
+        "308462262",
+        "308462261",
+        "308462260",
+        "308462259",
+        "308462258"
+      ],
+      "querytranslation": "GSE274940[All Fields]"
+    },
+    "GSE245459": {
+      "term": "GSE245459[All Fields]",
+      "count": "14",
+      "idlist": [
+        "200245459",
+        "100024676",
+        "307846652",
+        "307846651",
+        "307846650",
+        "307843084",
+        "307843083",
+        "307843082",
+        "307843081",
+        "307843080",
+        "307843079",
+        "307843078",
+        "307843077",
+        "307843076"
+      ],
+      "querytranslation": "GSE245459[All Fields]"
+    },
+    "GSE334497": {
+      "term": "GSE334497[All Fields]",
+      "count": "12",
+      "idlist": [
+        "200334497",
+        "100021103",
+        "309789687",
+        "309789686",
+        "309789685",
+        "309789684",
+        "309789683",
+        "309789682",
+        "309789681",
+        "309789680",
+        "309789679",
+        "309789678"
+      ],
+      "querytranslation": "GSE334497[All Fields]"
+    }
+  },
+  "geo_series": [
+    {
+      "accession": "GSE11759",
+      "title": "Role of HNF4alpha in the adult colon",
+      "summary": "Background & Aims: HNF4\u03b1 is an important transcriptional regulator of hepatocyte and pancreatic function. Hnf4\u03b1 deletion is embryonically lethal with severe defects in visceral endoderm formation, liver maturation and colon development.  However, the precise role of this transcription factor in maintaining homeostasis of the adult intestine remains unclear.  Herein, we aimed to elucidate the adult intestinal functions of Hnf4\u03b1.  Methods: A conditional intestinal epithelial Hnf4\u03b1 knockout mouse was generated.  Histological abnormality of the colonic mucosa was assessed by immunodetection and Western.  Changes in global gene expression and biological network were analyzed.  Results: Hnf4\u03b1 intestine null mice developed normally until reaching young adulthood. Crypt distortion became apparent in the Hnf4\u03b1 null colon at 3 months of age followed by focal areas of crypt dropout, increased immune cell infiltrates, crypt hyperplasia and early signs of polyposis later in life.  A gene profiling analysis identified cell death and cell cycle related to cancer as the most significant sets of genes altered in the Hnf4\u03b1 colon null mice.  Expression levels of the tight junction proteins claudin 4, 8 and 15 were altered early in the colon epithelium of Hnf4\u03b1 mutants and correlated with increased barrier permeability to a molecular tracer that does not normally penetrate normal mucosa.  Conclusion: These observations support a functional role for Hnf4\u03b1 in protecting the colonic mucosa against the initiation of the changes resembling inflammatory bowel diseases and polyp formation.",
+      "gdstype": "Expression profiling by array",
+      "taxon": "Mus musculus",
+      "n_samples": 6,
+      "pdat": "2008/12/01",
+      "pubmedids": [
+        "19898610"
+      ],
+      "bioproject": "PRJNA106055",
+      "sample_titles": [
+        "mouse colon_hnf4control_rep2",
+        "mouse colon_hnf4mutant_rep3",
+        "mouse colon_hnf4mutant_rep1",
+        "mouse colon_hnf4control_rep3",
+        "mouse colon_hnf4mutant_rep2",
+        "mouse colon_hnf4control_rep1"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE11759"
+    },
+    {
+      "accession": "GSE22421",
+      "title": "Comparisons of the global gene profile between C-CPE treated- and untreated- SKOV-3 ovarian cancer cells.",
+      "summary": "A microarray analysis was performed to compare the global gene expression profile between C-CPE treated- and untreated- SKOV-3 ovarian cancer cells.",
+      "gdstype": "Expression profiling by array",
+      "taxon": "Homo sapiens",
+      "n_samples": 3,
+      "pdat": "2010/06/23",
+      "pubmedids": [
+        "21123456"
+      ],
+      "bioproject": "PRJNA128569",
+      "sample_titles": [
+        "CCPE Replicate 2",
+        "CCPE Replicate 3",
+        "CCPE Replicate 1"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22421"
+    },
+    {
+      "accession": "GSE22493",
+      "title": "Comparisons of the global gene profile between CLDN4-overexpressing and CLDN4-silencing ovarian cancer cells.",
+      "summary": "A microarray analysis was performed to compare the global gene expression profile between CLDN4-overexpressing (Control) and CLDN4-silencing SKOV-3 ovarian cancer cells.",
+      "gdstype": "Expression profiling by array",
+      "taxon": "Homo sapiens",
+      "n_samples": 3,
+      "pdat": "2010/12/15",
+      "pubmedids": [],
+      "bioproject": "PRJNA128653",
+      "sample_titles": [
+        "CLDN4 Replicate 3",
+        "CLDN4 Replicate 1",
+        "CLDN4 Replicate 2"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22493"
+    },
+    {
+      "accession": "GSE26055",
+      "title": "Claudin-7 is frequently overexpressed in ovarian cancer and promotes invasion",
+      "summary": "Claudins are tight junction proteins that are involved in tight junction formation and function. Previous studies have shown that claudin-7 is frequently upregulated in epithelial ovarian cancer (EOC) along with claudin-3 and claudin-4. Here, we investigate in detail the expression patterns of claudin-7, as well as its possible functions in EOC.  Initially a total of 95 ovarian tissue samples (7 normal ovarian tissues, 65 serous carcinomas, 11 clear cell carcinomas, 8 endometrioid carcinomas and 4 mucinous carcinomas) were studied for claudin-7 expression using RT-PCR analysis. The gene for claudin-7, CLDN7, was found to be significantly upregulated in all the tumor tissue samples studied. Similarly, immunohistochemical analysis and western blotting showed that claudin-7 protein was significantly overexpressed in the vast majority of EOCs. Two cell lines(OVCAR-2 and OVCA420) were chosen for microarray based gene expression analysis using small interfering RNA-mediated(SiRNA) knockdown of claudin-7.  This treatment led to significant changes in gene expression that was validated by RT-PCR and immunoblotting.",
+      "gdstype": "Expression profiling by array",
+      "taxon": "Homo sapiens",
+      "n_samples": 8,
+      "pdat": "2012/09/19",
+      "pubmedids": [
+        "21789222"
+      ],
+      "bioproject": "PRJNA135561",
+      "sample_titles": [
+        "OVCA R2 cont Si2",
+        "OVCA 420 cldn7 Si2",
+        "OVCA R2 cldn7 Si1",
+        "OVCA R2 cldn7 Si2",
+        "OVCA 420 cldn7 Si1",
+        "OVCA 420 cont Si1",
+        "OVCA R2 cont Si1",
+        "OVCA 420 cont Si2"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE26055"
+    },
+    {
+      "accession": "GSE48443",
+      "title": "Knockout mice reveal key roles for claudin-18 in alveolar fluid homeostasis.",
+      "summary": "Claudin proteins are major constituents of epithelial and endothelial tight junctions (TJ), where they serve as regulators of paracellular permeability to ions and solutes. Claudin-18, a member of the large claudin family, is highly expressed in lung epithelium. To elucidate the role of claudin-18 in alveolar epithelial barrier function and fluid homeostasis, we generated claudin-18 knockout (C18 KO) mice. Increased alveolar fluid clearance (AFC) observed in C18 KO mice may have accounted for absence of lung edema despite increased alveolar solute permeability compared to wild type (WT) controls. Higher AFC in C18 KO mice was associated with higher Na-K-ATPase activity and increased expression of the Na-K-ATPase \u03b21 subunit compared to WT controls. Consistent with in vivo findings, alveolar epithelial cell (AEC) monolayers derived from C18 KO mice exhibited lower transepithelial electrical resistance (RT) accompanied by increased solute and ion permeability without changes in ion selectivity. Expression of claudin-3 and claudin-4 was markedly increased in whole lung and in freshly isolated AEC from C18 KO mice, while claudin-5 was unchanged. In contrast, occludin, another major component of the TJ complex, was significantly decreased in C18 KO lung. Further analysis revealed rearrangements in the F-actin cytoskeleton in C18 KO MAECM. These findings demonstrate a crucial non-redundant role for claudin-18 in regulation of alveolar epithelial tight junction composition and permeability to ions and solutes.  Importantly, increased AFC in C18 KO mice identifies additional roles for claudin-18 in alveolar fluid homeostasis beyond its direct contributions to barrier properties of the alveolar epithelium.",
+      "gdstype": "Expression profiling by array",
+      "taxon": "Mus musculus",
+      "n_samples": 7,
+      "pdat": "2014/04/06",
+      "pubmedids": [
+        "24588076"
+      ],
+      "bioproject": "PRJNA210147",
+      "sample_titles": [
+        "WildType_3",
+        "CLDN18_KnockOut_1",
+        "WildType_1",
+        "WildType_4",
+        "WildType_2",
+        "CLDN18_KnockOut_2",
+        "CLDN18_KnockOut_3"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE48443"
+    },
+    {
+      "accession": "GSE50927",
+      "title": "RNAseq on lungs from WT vs claudin 4 KO mice that underwent ventilator-induced lung injury",
+      "summary": "WT mice and claudin 4 KO mice were exposed to ventilator-induced lung injury (VILI) for 2 hours. We found that in some Cldn4 KO mice, injury was similar to WT, while in others, injury was higher, as assessed by amount of protein leak into broncho-alveolar lavage fluid. We performed RNAseq to find which genes were responsible for higher injury in Cldn4 KO mice.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 5,
+      "pdat": "2014/11/04",
+      "pubmedids": [
+        "25106430"
+      ],
+      "bioproject": "PRJNA219385",
+      "sample_titles": [
+        "Cldn4 KO VILIlow",
+        "WT no VILI",
+        "Cldn4 KO VILIhigh",
+        "Cldn4 KO no VILI",
+        "WT VILI"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50927"
+    },
+    {
+      "accession": "GSE60885",
+      "title": "Genome-wide DNA methylation identifies trophoblast invasion-related genes: Claudin-4 and Fucosyltransferase IV control mobility via altering matrix metalloproteinase activity",
+      "summary": "Previously we have shown that extravillous cytotrophoblast (EVT) outgrowth and migration on a collagen gel explant model were restricted by exposure to decidual natural killer cells (dNK). This study investigates the molecular causes behind this phenomenon. Genome wide DNA methylation of exposed and unexposed EVT was assessed using the Illumina Infinium HumanMethylation450 BeadChip array (450K array). The array identified 444 differentially methylated CpG loci in dNK-treated EVT compared to medium control (P<0.05). The represented genes from these loci had critical biological roles in cellular development, cellular organization and maintenance by Ingenuity Pathway Analysis (IPA). Furthermore, 23 mobility-related genes were identified by IPA from dNK-treated EVT. Among these genes, CLDN4 (encoding claudin-4) and FUT4 (encoding fucosyltranferase IV) were chosen for follow-up studies because of the biological relevance found in the research on tumor cells. The results showed that the mRNA and protein expressions of both CLDN4 and FUT4 in dNK-treated EVT were significantly reduced, and were inversely correlated with DNA methylation. Knocking down CLDN4 and FUT4 by siRNA reduced trophoblast invasion, possibly through the altered MMP-2 and/or MMP-9 expression and activity. Taken together, dNK alter EVT mobility at least partially in association with an alteration of DNA methylation profile. Hypermethylation of CLDN4 and FUT4 reduce protein expressions. CLDN4 and FUT4 are representative genes that participate in modulating trophoblast mobility.",
+      "gdstype": "Methylation profiling by genome tiling array",
+      "taxon": "Homo sapiens",
+      "n_samples": 17,
+      "pdat": "2015/04/07",
+      "pubmedids": [
+        "25697377"
+      ],
+      "bioproject": "PRJNA259741",
+      "sample_titles": [
+        "Control 7",
+        "Hollow Fibre 4",
+        "Hollow Fibre 8",
+        "IL-15 4",
+        "IL-15 8",
+        "IL-15 7",
+        "Hollow Fibre 7",
+        "Control 1",
+        "IL-15 1",
+        "IL-15 9",
+        "IL-15 5",
+        "Control 5",
+        "Control 9",
+        "Control 4",
+        "Hollow Fibre 9",
+        "Control 8",
+        "Hollow Fibre 5"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60885"
+    },
+    {
+      "accession": "GSE65107",
+      "title": "Diarrhea in lymphocytic colitis: ERK1/2-dependent ENaC dysregulation and claudin-4-, -5- and -8-related barrier defects",
+      "summary": "Background: Lymphocytic colitis (LC) causes watery diarrhea. This study aimed to identify the inherent pathomechanisms of epithelial transport and barrier dysfunction and regulatory inputs. Methods: 8 (4 LC samples and 4 unrelated control samples) biopsies of fresh sigmoid colon were analysed by paired end sequencing (Illumina High Seq 2500) Conclusions: ENaC-mediated Na+ malabsorption via ERK1/2 and epithelial barrier dysfunction from tight junction downregulation through claudin-4, -5, and -8 are mechanisms causing malabsorptive and leak flux diarrhea in LC resulting from the key effector cytokines TNFa and INFg.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Homo sapiens",
+      "n_samples": 8,
+      "pdat": "2016/01/19",
+      "pubmedids": [
+        "26658215"
+      ],
+      "bioproject": "PRJNA273003",
+      "sample_titles": [
+        "Ctrl rep2",
+        "LC rep1",
+        "LC rep4",
+        "Ctrl rep3",
+        "LC rep2",
+        "Ctrl rep1",
+        "Ctrl rep4",
+        "LC rep3"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65107"
+    },
+    {
+      "accession": "GSE84742",
+      "title": "Claudin-based barrier differentiation in the colonic epithelial crypt niche involves Hopx/Klf4 and Tcf7l2/Hnf4-alpha cascades",
+      "summary": "Analysis of the complex expression of claudin genes and transcription factors during intestinal epithelial cell differentiation across the crypt-to-surface colonic axis. Characterization of the complex expression gradients of transcription factors Hopx, Hnf4a, Klf4 and Tcfl2 and 12 claudin genes. In vitro confirmatory methods identified two pathways that stimulate claudin expression; Hopx/Klf4 activation of Cldn4, 7 and 15, and Tcf7l2/Hnf4a upregulation of Cldn23. Chromatin Immunoprecipitation confirmed a Tcf7l2/Hnf4a/Claudin23 cascade. Hnf4a conditional knockout mice fail to induce Cldn23 during colonocyte differentiation.",
+      "gdstype": "Expression profiling by array",
+      "taxon": "Mus musculus",
+      "n_samples": 8,
+      "pdat": "2016/07/23",
+      "pubmedids": [],
+      "bioproject": "PRJNA330979",
+      "sample_titles": [
+        "Wild Type base crypt cells 2",
+        "Wild Type surface cells 3",
+        "Wild Type base crypt cells 3",
+        "Wild Type base crypt cells 1",
+        "Wild Type surface cells 2",
+        "Wild Type surface cells 4",
+        "Wild Type surface cells 1",
+        "Wild Type base crypt cells 4"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84742"
+    },
+    {
+      "accession": "GSE99415",
+      "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion (miRNA)",
+      "summary": "Thousands of genes have been well demonstrated to play important roles in cancer progression. As genes do not function in isolation, they can be grouped into \u201cnetworks\u201d based on their interactions. In this study, we discover a network regulating Claudin-4 (CLDN4) in gastric cancer. We observe that CLDN4 is up-regulated in gastric cancer and is associated with poor prognosis. CLDN4 reinforce proliferation, invasion, and EMT in AGS, HGC-27, and SGC-7901 cells, which could be reversed by miR-596 and miR-3620-3p. Additionally, lncRNA-KRTAP5-AS1 and lncRNA-TUBB2A could act as competing endogenous RNAs to affect the function of CLDN4. Our results suggest that non-coding RNAs (ncRNAs) play important roles in the regulatory network of CLDN4. As such, ncRNAs should be considered as potential biomarkers and therapeutic targets against gastric cancer",
+      "gdstype": "Non-coding RNA profiling by array",
+      "taxon": "Homo sapiens; Mus musculus; Rattus norvegicus",
+      "n_samples": 12,
+      "pdat": "2017/05/31",
+      "pubmedids": [
+        "28819095"
+      ],
+      "bioproject": "PRJNA388528",
+      "sample_titles": [
+        "Gastric cancer tissues_rep6",
+        "Gastric cancer tissues_rep3",
+        "non-tumorous adjacent tissues_rep1",
+        "non-tumorous adjacent tissues_rep4",
+        "Gastric cancer tissues_rep1",
+        "Gastric cancer tissues_rep4",
+        "non-tumorous adjacent tissues_rep2",
+        "non-tumorous adjacent tissues_rep5",
+        "Gastric cancer tissues_rep5",
+        "Gastric cancer tissues_rep2",
+        "non-tumorous adjacent tissues_rep6",
+        "non-tumorous adjacent tissues_rep3"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE99415"
+    },
+    {
+      "accession": "GSE99416",
+      "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion (lncRNA)",
+      "summary": "Thousands of genes have been well demonstrated to play important roles in cancer progression. As genes do not function in isolation, they can be grouped into \u201cnetworks\u201d based on their interactions. In this study, we discover a network regulating Claudin-4 (CLDN4) in gastric cancer. We observe that CLDN4 is up-regulated in gastric cancer and is associated with poor prognosis. CLDN4 reinforce proliferation, invasion, and EMT in AGS, HGC-27, and SGC-7901 cells, which could be reversed by miR-596 and miR-3620-3p. Additionally, lncRNA-KRTAP5-AS1 and lncRNA-TUBB2A could act as competing endogenous RNAs to affect the function of CLDN4. Our results suggest that non-coding RNAs (ncRNAs) play important roles in the regulatory network of CLDN4. As such, ncRNAs should be considered as potential biomarkers and therapeutic targets against gastric cancer",
+      "gdstype": "Non-coding RNA profiling by array; Expression profiling by array",
+      "taxon": "Homo sapiens",
+      "n_samples": 12,
+      "pdat": "2017/05/31",
+      "pubmedids": [
+        "28819095"
+      ],
+      "bioproject": "PRJNA388527",
+      "sample_titles": [
+        "Gastric cancer tissues_rep1",
+        "non-tumorous adjacent tissues_rep4",
+        "Gastric cancer tissues_rep4",
+        "non-tumorous adjacent tissues_rep2",
+        "Gastric cancer tissues_rep2",
+        "non-tumorous adjacent tissues_rep5",
+        "Gastric cancer tissues_rep5",
+        "non-tumorous adjacent tissues_rep3",
+        "non-tumorous adjacent tissues_rep6",
+        "non-tumorous adjacent tissues_rep1",
+        "Gastric cancer tissues_rep3",
+        "Gastric cancer tissues_rep6"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE99416"
+    },
+    {
+      "accession": "GSE99417",
+      "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion",
+      "summary": "This SuperSeries is composed of the SubSeries listed below.",
+      "gdstype": "Non-coding RNA profiling by array; Expression profiling by array",
+      "taxon": "Homo sapiens; Mus musculus; Rattus norvegicus",
+      "n_samples": 24,
+      "pdat": "2017/05/31",
+      "pubmedids": [
+        "28819095"
+      ],
+      "bioproject": "PRJNA388410",
+      "sample_titles": [
+        "Gastric cancer tissues_rep5",
+        "Gastric cancer tissues_rep2",
+        "non-tumorous adjacent tissues_rep3",
+        "non-tumorous adjacent tissues_rep6",
+        "Gastric cancer tissues_rep3",
+        "Gastric cancer tissues_rep6",
+        "non-tumorous adjacent tissues_rep3",
+        "non-tumorous adjacent tissues_rep6",
+        "Gastric cancer tissues_rep3",
+        "Gastric cancer tissues_rep6",
+        "non-tumorous adjacent tissues_rep4",
+        "Gastric cancer tissues_rep1",
+        "non-tumorous adjacent tissues_rep1",
+        "Gastric cancer tissues_rep4",
+        "Gastric cancer tissues_rep4",
+        "non-tumorous adjacent tissues_rep2",
+        "non-tumorous adjacent tissues_rep1",
+        "non-tumorous adjacent tissues_rep5",
+        "Gastric cancer tissues_rep2",
+        "non-tumorous adjacent tissues_rep5",
+        "non-tumorous adjacent tissues_rep2",
+        "non-tumorous adjacent tissues_rep4",
+        "Gastric cancer tissues_rep1",
+        "Gastric cancer tissues_rep5"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE99417"
+    },
+    {
+      "accession": "GSE108417",
+      "title": "Airway epithelial barrier, mucins and inflammasome in distinct eosinophilic, neutrophilic and mixed inflammatory phenotypes of asthma",
+      "summary": "Asthma is a complex, chronic respiratory disease with marked clinical and pathophysiological heterogeneity. Distinct inflammatory phenotypes of eosinophilic, mixed, neutrophilic and paucigranulocytic asthma are identified in patients, but most in vivo mouse models, studying asthma mechanisms, mimic only eosinophilic phenotype in humans. The detailed unbiased in vivo studies on molecular responses among different kinds of inflammation in asthma models are lacking. Therefore, we  developed mouse models representing three different inflammatory phenotypes of airway inflammation, namely eosinophilic, mixed, and neutrophilic asthma via different methods of house dust mite sensitisation. We used microarrays to determine the global gene expression in the lungs of  mice with eosinophilic, mixed and neutrophilic inflammatory phenotypes to uncover underlying differences in clinical presentation and to find novel molecular targets and pathways, which might reflect different molecular mechanisms of the disease. By whole genome transcriptome profiling, we found that airway tight junction (TJ) molecules, mucins and inflammasome-related genes are differentially expressed in distinct phenotypes of allergic airway inflammation. Next, detailed analysis of several molecules from these families by quantitative RT-PCR, western blot and confocal microscopy revealed that (i) Zo-1 and Cldn18 were downregulated in all phenotypes, while Cldn4 upregulation was characteristic for neutrophilic airway inflammation; (ii) mucins Clca1 (Gob5) and Muc5ac were upregulated in eosinophilic and even more in neutrophilic asthma, and (iii) upregulation of inflammasome-related molecules such as Nlrp3, Nlrc4, Casp-1 and IL-1b was characteristic for neutrophilic asthma. Finally, we showed that inflammasome/Th-17/neutrophilic axis cytokines, namely IL-1b and IL-17 impaired epithelial barrier function and increased mucins expressions in primary human bronchial epithelial cells from normal and asthmatic donors. Our findings suggest that differential expression of TJs, mucins and inflammasome-related molecules in distinct asthma phenotypes could be mechanistically linked and might further reflect the differences observed in the clinic.",
+      "gdstype": "Expression profiling by array",
+      "taxon": "Mus musculus",
+      "n_samples": 12,
+      "pdat": "2018/10/03",
+      "pubmedids": [
+        "30267575"
+      ],
+      "bioproject": "PRJNA427213",
+      "sample_titles": [
+        "mixed asthma_III_16",
+        "control_I_2",
+        "eosinophilic asthma_II_8",
+        "control_I_3",
+        "neutrophilic asthma_IV_24",
+        "eosinophilic asthma_II_9",
+        "mixed asthma_III_17",
+        "mixed asthma_III_15",
+        "neutrophilic asthma_IV_25",
+        "neutrophilic asthma_IV_23",
+        "control_I_1",
+        "eosinophilic asthma_II_7"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE108417"
+    },
+    {
+      "accession": "GSE196005",
+      "title": "CD90 marks a mesenchymal program in human thymic epithelial cells in vitro and in vivo",
+      "summary": "Thymic epithelium is critical for the structural integrity of the thymus and for T cell development. Within the fully formed thymus, large numbers of hematopoietic cells shape the thymic epithelium into a scaffold-like structure which bears little similarity to classical epithelial layers, such as those observed in the skin, intestine or pancreas. Here, we show that human thymic epithelial cells (TECs) possess an epithelial identity that also incorporates the expression of mesenchymal cell associated genes, whose expression levels vary between medullary and cortical TECs (m/cTECs). Using pluripotent stem cell (PSC) differentiation systems, we identified a unique population of cells that co-expressed the master TEC transcription factor FOXN1, as well as the epithelial associated marker EPCAM and the mesenchymal associated gene CD90. Using the same serum free culture conditions, we also observed co-expression of EPCAM and CD90 on cultured TECs derived from neonatal human thymus in vitro. Single cell RNA-sequencing revealed these cultured TECs possessed an immature mTEC phenotype and expressed epithelial and mesenchymal associated genes, such as EPCAM, CLDN4, CD90 and COL1A1. Importantly, flow cytometry and single cell RNA-sequencing analysis further confirmed the presence of an EPCAM+CD90+ population in the CD45- fraction of neonatal human thymic stromal cells in vivo. Using the human thymus cell atlas, we found that cTECs displayed more pronounced mesenchymal characteristics than mTECs during embryonic development. Collectively, these results suggest human TECs possess a hybrid gene expression program comprising both epithelial and mesenchymal elements, and provide a basis for the further exploration of thymus development from primary tissues and from the in vitro differentiation of PSCs.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Homo sapiens",
+      "n_samples": 22,
+      "pdat": "2022/02/28",
+      "pubmedids": [
+        "35371075"
+      ],
+      "bioproject": "PRJNA803450",
+      "sample_titles": [
+        "HTS-10 KGF CD104-EPCAM-",
+        "HTS donor 19",
+        "HTS-7 KGF CD104+EPCAM-",
+        "HTS-15 KGF CD104-EPCAM-",
+        "HTS-15 KGF (3) unsort",
+        "HTS donor 20",
+        "CD90neg3",
+        "CD90pos2",
+        "HTS-10 KGF CD104+EPCAM+",
+        "HTS-10 KGF unsort",
+        "HTS-7 KGF CD104-EPCAM-",
+        "HTS-10 KGF CD104+EPCAM-",
+        "HTS donor 18",
+        "HTS donor 21",
+        "HTS-15 KGF CD104+EPCAM+",
+        "HTS-15 KGF CD104+EPCAM-",
+        "CD90neg2",
+        "HTS-7 KGF unsort",
+        "HTS-7 KGF CD104+EPCAM+",
+        "CD90pos1",
+        "CD90pos3",
+        "CD90neg1"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE196005"
+    },
+    {
+      "accession": "GSE207704",
+      "title": "Claudin-4\u2013adhesion signaling drives breast cancer metabolism and progression via liver X receptor \u03b2",
+      "summary": "Cell adhesion molecules exhibit the signaling abilities to control a variety of physiological and pathological processes; however, the underlying molecular basis remains poorly defined. Here, we demonstrate that the claudin-4 (CLDN4)-adhesion signaling accelerates breast cancer metabolism and progression via the nuclear receptor LXRb (liver X receptor b). Knockout and rescue experiments revealed that the CLDN4 signaling targets S432 in LXRb, leading to enhanced cell proliferation and tumor growth in breast cancer cells. In addition, RT-qPCR analysis showed the CLDN4-regulated genes are classified into at least six groups by distinct LXRb- and LXRbS432-dependence. Collectively, our results provide a link between cell adhesion and nuclear receptor signalings to coordinate cancer metabolism and advancement.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Homo sapiens",
+      "n_samples": 8,
+      "pdat": "2023/04/19",
+      "pubmedids": [
+        "37059993"
+      ],
+      "bioproject": "PRJNA856719",
+      "sample_titles": [
+        "MCF7:CLDN4-/-_rep2",
+        "MCF7_rep1",
+        "MCF7_rep2",
+        "T47D:CLDN4-/-_rep1",
+        "MCF7:CLDN4-/-_rep1",
+        "T47D:CLDN4-/-_rep2",
+        "T47D_rep1",
+        "T47D_rep2"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207704"
+    },
+    {
+      "accession": "GSE244820",
+      "title": "Activation of alveolar epithelial ER stress by b-coronavirus infection disrupts surfactant homeostasis in mice: implications for COVID-19 respiratory failure",
+      "summary": "Covid-19 syndrome is characterized by an acute lung injury phenotype marked by hypoxemic respiratory failure and high mortality. Alveolar Type 2 (AT2) cells are essential for gas exchange, repair, and regeneration of distal lung epithelium. We have shown that the causative agent, SARS-CoV-2 and other members of the b coronavirus genus induces an ER stress response in vitro however the consequences for host AT2 cell function in vivo are less understood.  To study this, two murine models of coronavirus infection were employed\u2013 mouse hepatitis virus-1 (MHV-1) in A/J mice and a C57BL6/j adapted SARS-CoV-2 strain.  MHV-1 infected mice exhibited dose-dependent weight loss through Day 8 (8dpi) with histological evidence of distal lung injury accompanied by elevated BALF cell counts and total protein.  AT2 cells isolated at 4dpi and 8dpi showed evidence of both viral infection and increases in Bip /GRP78 expression, consistent with activation of the unfolded protein response (UPR).  AT2 UPR signaling included elevations in spliced XBP-1 indicating activation of IRE1a signaling as well as a biphasic response in PERK signaling mark by phosphorylated eIF2a protein levels and expression of Atf4, Ppp1r15a, and Ddit3. Viral UPR activation was accompanied by marked reductions in AT2 and BALF surfactant protein (SP-B, SP-C) content, increases in surfactant surface tension, and emergence of a re-programmed epithelial cell population (Krt8+, Cldn4+, and Gdf15+) which was attenuated by treatment with the IRE1a inhibitor OPK711.  As proof-of-concept, C57BL6 mice infected with mouse-adapted SARS-CoV-2 demonstrated similar lung injury and evidence of disrupted surfactant homeostasis.  We conclude that hypoxic respiratory failure from b-coronavirus infection results from an aberrant AT2 cell host response activating multiple ER stress pathways, altering surfactant metabolism / function, and changing AT2 endophenotypes offering a mechanistic link between SARS-CoV-2 infection, AT2 cell biology, and hypoxemic respiratory failure.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 10,
+      "pdat": "2024/06/27",
+      "pubmedids": [
+        "38860845"
+      ],
+      "bioproject": "PRJNA1024962",
+      "sample_titles": [
+        "Infected AT2 -1",
+        "WT AT2 - 1",
+        "Infected AT2 -4",
+        "WT AT2 - 2",
+        "Transitional AT2 -3",
+        "Transitional AT2 -1",
+        "Infected AT2 -2",
+        "Transitional AT2 -2",
+        "Infected AT2 -3",
+        "WT AT2 - 3"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE244820"
+    },
+    {
+      "accession": "GSE245459",
+      "title": "Exploring the Mechanism of TACSTD2 Causing Cisplatin Resistance",
+      "summary": "TACSTD2 has been confirmed to be highly expressed in various cancers, but the mechanism has not been explored in ovarian cancer",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Homo sapiens",
+      "n_samples": 12,
+      "pdat": "2023/10/16",
+      "pubmedids": [],
+      "bioproject": "PRJNA1028551",
+      "sample_titles": [
+        "sh2",
+        "shDDP2",
+        "shNC2",
+        "shNCDDP3",
+        "shNC3",
+        "sh3",
+        "shNCDDP1",
+        "shNCDDP2",
+        "shDDP3",
+        "shNC1",
+        "sh1",
+        "shDDP1"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245459"
+    },
+    {
+      "accession": "GSE247130",
+      "title": "CEBPA restricts alveolar type 2 cell plasticity during development and injury-repair [1]",
+      "summary": "Cell plasticity theoretically extends to all possible cell types, but naturally decreases as cells differentiate, whereas injury-repair re-engages the developmental plasticity. Here we show that the lung alveolar type 2 (AT2)-specific transcription factor (TF), CEBPA, restricts AT2 cell plasticity in the mouse lung. AT2 cells undergo transcriptional and epigenetic maturation postnatally. Without CEBPA, both neonatal and mature AT2 cells reduce the AT2 program, but only the former reactivate the SOX9 progenitor program. Sendai virus infection bestows mature AT2 cells with neonatal plasticity where Cebpa mutant, but not wild type, AT2 cells express SOX9, as well as more readily proliferate and form KRT8/CLDN4+ transitional cells. CEBPA promotes the AT2 program by recruiting the lung lineage TF NKX2-1. The temporal change in CEBPA-dependent plasticity reflects AT2 cell developmental history. The ontogeny of AT2 cell plasticity and its transcriptional and epigenetic mechanisms have implications in lung regeneration and cancer.",
+      "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 12,
+      "pdat": "2024/04/18",
+      "pubmedids": [
+        "38755149"
+      ],
+      "bioproject": "PRJNA1036384",
+      "sample_titles": [
+        "SeV control scmultiome ATAC",
+        "SeV mutant scmultiome GE",
+        "7-wk mutant scmultiome ATAC",
+        "control P9 scmultiome GE",
+        "mutant P9 scmultiome GE",
+        "7-wk control scmultiome GE",
+        "mutant P9 scmultiome ATAC",
+        "control P9 scmultiome ATAC",
+        "SeV control scmultiome GE",
+        "SeV mutant scmultiome ATAC",
+        "7-wk control scmultiome ATAC",
+        "7 wk mutant scmultiome GE"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE247130"
+    },
+    {
+      "accession": "GSE247271",
+      "title": "CEBPA restricts alveolar type 2 cell plasticity during development and injury-repair [ChIP-seq]",
+      "summary": "Cell plasticity theoretically extends to all possible cell types, but naturally decreases as cells differentiate, whereas injury-repair re-engages the developmental plasticity. Here we show that the lung alveolar type 2 (AT2)-specific transcription factor (TF), CEBPA, restricts AT2 cell plasticity in the mouse lung. AT2 cells undergo transcriptional and epigenetic maturation postnatally. Without CEBPA, both neonatal and mature AT2 cells reduce the AT2 program, but only the former reactivate the SOX9 progenitor program. Sendai virus infection bestows mature AT2 cells with neonatal plasticity where Cebpa mutant, but not wild type, AT2 cells express SOX9, as well as more readily proliferate and form KRT8/CLDN4+ transitional cells. CEBPA promotes the AT2 program by recruiting the lung lineage TF NKX2-1. The temporal change in CEBPA-dependent plasticity reflects AT2 cell developmental history. The ontogeny of AT2 cell plasticity and its transcriptional and epigenetic mechanisms have implications in lung regeneration and cancer.",
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 30,
+      "pdat": "2024/04/19",
+      "pubmedids": [
+        "38755149"
+      ],
+      "bioproject": "PRJNA1037037",
+      "sample_titles": [
+        "P8 ctrl AT2 input rep2",
+        "6-wk AT2 cell CEBPA ChIP-seq rep3",
+        "P2 AT2 cell CEBPA ChIP-seq rep3",
+        "E14.5 whole lung Input ChIP-seq rep1",
+        "7-wk ctrl AT2 input rep1",
+        "P8 control AT2 cell NKX2-1 ChIP-seq rep2",
+        "P2 AT2 cell CEBPA ChIP-seq rep1",
+        "E14.5 whole lung NKX2-1 ChIP-seq rep2",
+        "E14.5 whole lung Input ChIP-seq rep2",
+        "6-wk AT2 Input rep1",
+        "7-wk control AT2 cell NKX2-1 ChIP-seq rep1",
+        "7-wk mutant AT2 cell NKX2-1 ChIP-seq rep2",
+        "P8 mutant  AT2 cell NKX2-1 ChIP-seq rep1",
+        "P8 mutant  AT2 cell NKX2-1 ChIP-seq rep2",
+        "P2 ctrl AT2 input rep1",
+        "P8 mutant AT2 input rep1",
+        "P2 ctrl AT2 input rep2",
+        "7-wk mutAT2 input rep2",
+        "P2 AT2 cell NKX2-1 ChIP-seq rep2",
+        "6-wk AT2 Input rep2",
+        "P8 mutant AT2 input rep2",
+        "7-wk mutant AT2 cell NKX2-1 ChIP-seq rep1",
+        "6-wk AT2 cell CEBPA ChIP-seq rep2",
+        "P8 control AT2 cell NKX2-1 ChIP-seq rep1",
+        "P2 AT2 cell NKX2-1 ChIP-seq rep1",
+        "P8 ctrl AT2 input rep1",
+        "E14.5 whole lung NKX2-1 ChIP-seq rep1",
+        "7-wk control AT2 cell NKX2-1 ChIP-seq rep2",
+        "P2 AT2 cell CEBPA ChIP-seq rep2",
+        "6-wk AT2 cell CEBPA ChIP-seq rep1"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE247271"
+    },
+    {
+      "accession": "GSE264098",
+      "title": "CEBPA restricts alveolar type 2 cell plasticity during development and injury-repair [scATAC-seq]",
+      "summary": "Cell plasticity theoretically extends to all possible cell types, but naturally decreases as cells differentiate, whereas injury-repair re-engages the developmental plasticity. Here we show that the lung alveolar type 2 (AT2)-specific transcription factor (TF), CEBPA, restricts AT2 cell plasticity in the mouse lung. AT2 cells undergo transcriptional and epigenetic maturation postnatally. Without CEBPA, both neonatal and mature AT2 cells reduce the AT2 program, but only the former reactivate the SOX9 progenitor program. Sendai virus infection bestows mature AT2 cells with neonatal plasticity where Cebpa mutant, but not wild type, AT2 cells express SOX9, as well as more readily proliferate and form KRT8/CLDN4+ transitional cells. CEBPA promotes the AT2 program by recruiting the lung lineage TF NKX2-1. The temporal change in CEBPA-dependent plasticity reflects AT2 cell developmental history. The ontogeny of AT2 cell plasticity and its transcriptional and epigenetic mechanisms have implications in lung regeneration and cancer.",
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 4,
+      "pdat": "2024/04/16",
+      "pubmedids": [
+        "38755149"
+      ],
+      "bioproject": "PRJNA1100986",
+      "sample_titles": [
+        "E18.5_WT_lung",
+        "E16.5_WT_lung",
+        "9-wks_WT",
+        "P8_WT_lung"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE264098"
+    },
+    {
+      "accession": "GSE268909",
+      "title": "Effects of hyperglycemia on airway epithelial barrier function in WT and CF 16HBE cells",
+      "summary": "Cystic Fibrosis Related Diabetes (CFRD), the main co-morbidity in Cystic Fibrosis (CF), is associated with higher rates of lung function decline. We hypothesize that airway epithelial barrier function is impaired in CF and is further exacerbated under hyperglycemia, worsening pulmonary outcomes. Using 16HBE cells as a model cell line, we studied the effects of hyperglycemia in airway epithelial barrier function. Results show increased paracellular dye flux in CF cells in response to insulin treatment under hyperglycemia, suggesting impaired barrier integrity. Gene expression experiments identified Claudin-4 (CLDN4) as a key tight junction protein dysregulated in CF cells. Further investigation into CLDN4 protein localization by confocal microscopy showed that CLDN4 was tightly localized at tight junctions in WT cells and localization did not change under hyperglycemia. ln contrast, CLDN4 was less well-localized in CF cells at normal glucose and localization was worsened in CF cells conditioned to hyperglycemia. Treatment with highly effective modulator compounds (ETI) reversed this trend, and CFTR rescue by ETI in CF cells was not affected by insulin treatment or hyperglycemia. Bulk RNA sequencing showed differences in transcriptional responses in CF compared to WT cells under normal or high glucose, highlighting PTPRG as a promising target for further investigation.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Homo sapiens",
+      "n_samples": 26,
+      "pdat": "2024/06/03",
+      "pubmedids": [
+        "39443580"
+      ],
+      "bioproject": "PRJNA1119454",
+      "sample_titles": [
+        "NG16HBEWT5",
+        "HG16HBECF2",
+        "NG16HBEWT2",
+        "NG16HBECF5",
+        "HG16HBECF5",
+        "Standard2",
+        "HG16HBEWT2",
+        "NG16HBECF6",
+        "NG16HBECF3",
+        "NG16HBEWT6",
+        "HG16HBECF3",
+        "NG16HBEWT3",
+        "HG16HBEWT5",
+        "NG16HBECF1",
+        "Standard3",
+        "HG16HBEWT3",
+        "HG16HBECF6",
+        "NG16HBECF4",
+        "NG16HBEWT1",
+        "HG16HBECF4",
+        "HG16HBECF1",
+        "HG16HBEWT1",
+        "NG16HBECF2",
+        "HG16HBEWT4",
+        "Standard1",
+        "NG16HBEWT4"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE268909"
+    },
+    {
+      "accession": "GSE274940",
+      "title": "Comparative bulk RNAseq between EpH4 WT and Cldn-null cells",
+      "summary": "The claudin (CLDN) family, comprising 27 members, includes crucial cell\u2013cell adhesion molecules that form tight junctions (TJs), essential for paracellular barrier and channel functions. The functional diversity among CLDNs may lead to diversity of TJs, contributing to various biological systems and pathological processes. To characterize the functional diversity of CLDNs, we developed a first-ever complete Cldn-null EpH4 epithelial cell line. This cell line was used for the expression of single Cldn family members, uncovering their specific intrinsic properties. Unlike the conventional binary classification of CLDNs as either paracellular barrier or channel forming, we discovered a novel classification axis where CLDNs form TJs autonomously or non-autonomously, exhibiting extensive variation in ion conductivity and selectivity, leading to an innovative classification. This classification offers a fundamental framework for understanding the mechanisms underlying TJ diversity in vivo, and provides a basis for the development of therapies targeting the epithelial barrier.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 6,
+      "pdat": "2025/09/24",
+      "pubmedids": [
+        "41171911"
+      ],
+      "bioproject": "PRJNA1148533",
+      "sample_titles": [
+        "EpH4 Cldn-null_2",
+        "EpH4 WT_2",
+        "EpH4 WT_3",
+        "EpH4 Cldn-null_1",
+        "EpH4 Cldn-null_3",
+        "EpH4 WT_1"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE274940"
+    },
+    {
+      "accession": "GSE279689",
+      "title": "Gonadotropins regulate cell adhesion and spermiation through a cross-talk between oxytocin and relaxin pathways in Senegalese sole",
+      "summary": "Our understanding of semi-cystic spermatogenesis in the Senegalese sole (Solea senegalensis), specifically the process where spermatids are released and undergo differentiation in the lumen, remains limited. Previously, we demonstrated that Luteinizing hormone (Lh) has the ability to penetrate the blood-testis barrier and reach released spermatids expressing the Lh receptor, thereby stimulating spermiogenesis. To deepen our knowledge, the current study aims to investigate how gonadotropins regulate the release of spermatids from Sertoli cells, known as spermiation. We conducted a six-week experiment exposing male Senegalese sole to recombinant gonadotropins (Follicle-stimulating hormone, rFsh, or rLh) via weekly injections at a dose of 6 \u03bcg/kg. Following treatment, we performed transcriptomic analysis using RNA-seq to identify differentially expressed genes (DEGs). We found that rLh significantly regulated 1316 genes, while rFsh regulated 717 genes, with 357 DEGs common to both. Pathway analysis revealed that both gonadotropins influenced the expression of cell-cell junctions and adhesion proteins. Notably, other affected pathways included those involving oxytocin (OXT) and relaxin (RLN), suggesting their potential roles in regulating spermiation. Immunohistochemistry (IHC) and in situ hybridization (ISH) were employed to investigate the cellular localization of OXT and RLN receptors in the testicular cortex and medulla, primarily finding them in Sertoli cells and spermatids. Proteins associated with cell adhesion identified through RNA-seq, such as CTNNB1, PARD3, GJA3, TJP2, CLDN4, TMEM47, and ITBG1, were observed in either spermatids or Sertoli cells, with their expression mainly repressed by gonadotropins. This repression indicates a disruption in Sertoli cell-spermatid junctions, potentially responsible for active spermiation and the enhanced permeability of the blood-testis barrier. Furthermore, we conducted an in vitro assay where testes explants were incubated with OXT, RLN, OXT inhibitor (L-371), RLN inhibitor (AT001), in combination with rFsh and rLh. Subsequent qPCR analysis indicated a trend towards decreased expression of cell adhesion genes by OXT and RLN, most notably by Lh by acting through the OXT and RLN pathways. In summary, our findings suggest that gonadotropins regulate cell adhesion and spermiation through a cross-talk between OXT and RLN pathways. These insights lay the groundwork for further research aimed at unraveling the process of spermiation in fish species.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Solea senegalensis",
+      "n_samples": 15,
+      "pdat": "2025/06/25",
+      "pubmedids": [
+        "40530338"
+      ],
+      "bioproject": "PRJNA1174088",
+      "sample_titles": [
+        "Testis_Saline_m64",
+        "Testis_FSH_m61",
+        "Testis_Saline_m68",
+        "Testis_LH_m67",
+        "Testis_Saline_m66",
+        "Testis_LH_m64",
+        "Testis_LH_m68",
+        "Testis_LH_m66",
+        "Testis_FSH_m68",
+        "Testis_FSH_m62",
+        "Testis_FSH_m69",
+        "Testis_Saline_m63",
+        "Testis_FSH_m64",
+        "Testis_LH_m63",
+        "Testis_Saline_m67"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE279689"
+    },
+    {
+      "accession": "GSE282371",
+      "title": "Combined Th2 and Th17/22 cytokines models atopic dermatitis pathophysiology in vitro",
+      "summary": "In atopic dermatitis (AD), epidermal disease hallmarks are driven by a complex cutaneous inflammatory milieu that varies between patients. How these variable inflammatory signatures translate to patient-specific disease endotypes is poorly understood, which hampers the personalized use of targeted drugs. We here employed primary and immortalized keratinocyte-derived human epidermal equivalents stimulated with T helper (Th)2, -17 and -22 cytokines, to unravel which AD-associated cytokines drive specific epidermal disease hallmarks. Th2 cytokines IL-4 and IL-13 were main inducers of a pro-inflammatory and hyperproliferative response. The presence of IL-17A or IL-22 in the Th2 milieu caused spongiosis, impaired keratinocyte differentiation (loss of FLG, IVL, KRT2) and epidermal barrier defects (altered CLDN1, CLDN4, transepithelial impedance). Transcriptomic analyses revealed upregulation of proliferation genes by Th2 cytokines, and activation of different immune pathways upon Th2 cytokines alone and combination of Th2 and Th17/22 cytokines. Downregulation of epidermis development was most apparent upon combined exposure to Th2 cytokines and IL-22. Single-cell spatial transcriptomics showed expansion of keratinocytes expressing high level of proliferation  genes in all epidermal layers, and downregulation of terminal differentiation genes in the upper epidermal layers. Our in vitro AD model using Th2 + IL-22 showed the highest transcriptome resemblance with in vivo AD lesional epidermis and we identified IL-22 specific alteration of epidermis development by lipid mediators like ACER1 and AKR1C3. Finally, we revealed that Aryl Hydrocarbon Receptor (AHR) ligands partially restored the barrier defects caused by Th2 and IL-22, whereas combination of AHR ligand Tapinarof with Janus Kinase (JAK) inhibitor I had an even greater restoring effect. Thus, specific combinations of cytokines upregulated in AD skin drive differential disease hallmarks highlighting the importance of personalized medicine and the need for prediction models in the targeted treatment of AD patients.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Homo sapiens",
+      "n_samples": 26,
+      "pdat": "2025/06/24",
+      "pubmedids": [
+        "40409379"
+      ],
+      "bioproject": "PRJNA1188462",
+      "sample_titles": [
+        "Exp2_NHEK37_Control_4",
+        "Exp2_NTERT2G_TH2IL22_4",
+        "Exp2_NTERT2G_TH2IL17_5",
+        "Exp2_NHEK37_TH2IL22_3",
+        "Exp2_NHEK38_TH2_3",
+        "Exp2_NHEK38_Control_3",
+        "Exp1_NHEK38_TH2IL22_1",
+        "Exp2_NTERT2G_TH2IL22_6",
+        "Exp1_NHEK38_TH2_2",
+        "Exp2_NTERT2G_Control_5",
+        "Exp1_NHEK38_Control_2",
+        "Exp1_NHEK38_TH2IL17_1",
+        "Exp1_NHEK38_TH2IL22_3",
+        "Exp2_NHEK38_TH2IL22_2",
+        "Exp2_NTERT2G_TH2_7",
+        "Exp2_NTERT2G_Control_7",
+        "Exp2_NHEK38_TH2IL17_3",
+        "Exp2_NHEK37_TH2IL17_4",
+        "Exp2_NTERT2G_TH2IL17_2",
+        "Exp2_NTERT2G_TH2_5",
+        "Exp2_NTERT2G_Control_6",
+        "Exp2_NHEK37_TH2_4",
+        "Exp1_NHEK38_TH2_1",
+        "Exp1_NHEK38_Control_1",
+        "Exp2_NTERT2G_TH2IL22_5",
+        "Exp2_NTERT2G_TH2IL17_6"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE282371"
+    },
+    {
+      "accession": "GSE309751",
+      "title": "AP-1 mediated chromatin changes govern alveolar type 2 cell transition in lung injury-repair",
+      "summary": "Facultative stem cells including alveolar type 2 (AT2) cells in the lung must toggle between unipotent specialization and multipotent plasticity during injury-repair. The underlying molecular switches and epigenetic changes remain unclear yet dictate regeneration versus pathology. Using multiomics and mouse genetics, we show that AP-1 members FOS, FOSB, and JUNB promote an injury-induced transitional AT2 cell state and associated chromatin landscape. Joint transcriptomic-epigenomic profiling and immunostaining distinguish CLDN4+ AT2 cells as a KRT8high subset with open chromatin highly enriched for AP-1 motifs. JUNB and FOSB accumulate in these cells upon viral injury and, along with constitutive FOS, are required for CLDN4 induction, AT2 cell dispersion, and senescence signaling toward fibroblasts, while impacting region-specific alveolar type 1 (AT1) differentiation. AP-1 activation also occurs in mouse AT2 cells expressing oncogenic Kras and transitional cells of human lung adenocarcinoma. Our work refines AT2 transitional states and reveals a gene regulatory logic shared by tissue repair and tumorigenesis.",
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 14,
+      "pdat": "2026/07/01",
+      "pubmedids": [],
+      "bioproject": "PRJNA1336875",
+      "sample_titles": [
+        "KRAS induced, AT2 cells, replicate 02, ATAC",
+        "KRAS negative control, AT2 cells, replicate 01, ATAC",
+        "14 day SeV infected, AT2 cells, replicate 02, ATAC",
+        "49 day mock PBS, AT2 cells, repliate 02, ATAC",
+        "14 day mock PBS, AT2 cells, repliate 01, ATAC",
+        "14 day SeV infected, AT2 cells, replicate 03, ATAC",
+        "14 day mock PBS, AT2 cells, repliate 02, ATAC",
+        "49 day SeV infected, AT2 cells, replicate 01, ATAC",
+        "14 day SeV infected, AT2 cells, replicate 01, ATAC",
+        "KRAS induced, AT2 cells, replicate 03, ATAC",
+        "49 day SeV infected, AT2 cells, replicate 02, ATAC",
+        "49 day mock PBS, AT2 cells, repliate 01, ATAC",
+        "KRAS induced, AT2 cells, replicate 01, ATAC",
+        "KRAS negative control, AT2 cells, replicate 02, ATAC"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE309751"
+    },
+    {
+      "accession": "GSE309894",
+      "title": "Clinical Characteristics and Spatial transcriptome analysis of Early Resistance to Alectinib in ALK-Positive non-small cell lung cancer: A Retrospective OLCSG Study",
+      "summary": "In anaplastic lymphoma kinase (ALK) gene rearrangements positive lung cancer, alectinib has shown good efficacy and is used as a first-line drug. However, some cases show early resistance within 3 months, but the characteristics of these cases have not been established. We analyzed patients with unresectable stage III/IV without indications for radical radiotherapy and recurrent ALK-positive lung cancer who received alectinib for primary ALK-TKI. Spatial transcriptome analysis and immunohistochemical staining revealed upregulation of Annexin A1 (ANXA1) in the early resistant group.",
+      "gdstype": "Other",
+      "taxon": "Homo sapiens",
+      "n_samples": 34,
+      "pdat": "2026/01/08",
+      "pubmedids": [
+        "41529251"
+      ],
+      "bioproject": "PRJNA1363954",
+      "sample_titles": [
+        "T0330339-02_non-res",
+        "T0330339-05_non-res",
+        "T0322090-4_res",
+        "T0326937-1_res",
+        "T0326937-4_res",
+        "T0268363-8_res",
+        "T0290847-2_res",
+        "T0322090-1_res",
+        "T0322090-2_res",
+        "T0322090-5_res",
+        "S03545-1-03_non-res",
+        "S03545-1-05_non-res",
+        "S03545-1-07_non-res",
+        "T0290847-4_res",
+        "T0268363-6_res",
+        "T0268363-9_res",
+        "T0268363-7_res",
+        "S03545-1-02_non-res",
+        "T0330339-03_non-res",
+        "T0268363-1_res",
+        "T0330339-06_non-res",
+        "T0268363-2_res",
+        "S03545-1-01_non-res",
+        "T0326937-2_res",
+        "T0268363-3_res",
+        "T0290847-1_res",
+        "T0330339-07_non-res",
+        "T0326937-3_res",
+        "T0330339-01_non-res",
+        "T0330339-04_non-res",
+        "S03545-1-04_non-res",
+        "T0322090-6_res",
+        "T0322090-3_res",
+        "T0290847-5_res"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE309894"
+    },
+    {
+      "accession": "GSE310539",
+      "title": "AP-1 mediated chromatin changes govern alveolar type 2 cell transition in lung injury-repair [multiome]",
+      "summary": "Facultative stem cells including alveolar type 2 (AT2) cells in the lung must toggle between unipotent specialization and multipotent plasticity during injury-repair. The underlying molecular switches and epigenetic changes remain unclear yet dictate regeneration versus pathology. Using multiomics and mouse genetics, we show that AP-1 members FOS, FOSB, and JUNB promote an injury-induced transitional AT2 cell state and associated chromatin landscape. Joint transcriptomic-epigenomic profiling and immunostaining distinguish CLDN4+ AT2 cells as a KRT8high subset with open chromatin highly enriched for AP-1 motifs. JUNB and FOSB accumulate in these cells upon viral injury and, along with constitutive FOS, are required for CLDN4 induction, AT2 cell dispersion, and senescence signaling toward fibroblasts, while impacting region-specific alveolar type 1 (AT1) differentiation. AP-1 activation also occurs in mouse AT2 cells expressing oncogenic Kras and transitional cells of human lung adenocarcinoma. Our work refines AT2 transitional states and reveals a gene regulatory logic shared by tissue repair and tumorigenesis.",
+      "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 8,
+      "pdat": "2026/07/01",
+      "pubmedids": [],
+      "bioproject": "PRJNA1366485",
+      "sample_titles": [
+        "Multiome, AP-1 mut PBS control lung epithelial cells, ATAC",
+        "Multiome, AP-1 mut PBS control lung epithelial cells, GEX",
+        "Multiome, AP-1 mutant SeV infected lung epithelial cells, ATAC",
+        "Multiome, wildtype SeV infected lung epithelial cells, GEX",
+        "Multiome, AP-1 mutant SeV infected lung epithelial cells, GEX",
+        "Multiome, wildtype SeV infected lung epithelial cells, ATAC",
+        "Multiome, wildtype PBS control lung epithelial cells, GEX",
+        "Multiome, wildtype PBS control lung epithelial cells, ATAC"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE310539"
+    },
+    {
+      "accession": "GSE330007",
+      "title": "Transcriptomic Analysis Reveals Molecular Signatures Distinguishing Vocal Fold Leukoplakia from Benign Lesions: Synergistic Dysregulation of Chronic Inflammation, Immune Dysfunction, and Epithelial Barrier Disruption",
+      "summary": "Objective: Vocal cord leukoplakia (VCL) represents a precancerous laryngeal lesion with a risk of malignant transformation. By employing transcriptomic analysis, this research sought to ascertain the key signatures and regulatory networks capable of distinguishing VCL from benign lesions. Methods: Surgically resected tissues from 8 individuals with VCL and 11 individuals with vocal cord polyps (VCP) were included for RNA sequencing and bioinformatics analysis. Core genes were identified through differential expression analysis, and functional enrichment analyses were utilized to characterize the associated biological processes. Results: The transcriptomic profile of VCL was characterized by abnormalities in three primary aspects: activation of inflammation-related pathways (e.g., NF-\u03baB), downregulation of immune function-related genes (e.g., CD8A, CD19), and downregulation of epithelial barrier-related molecules (e.g., CLDN4). Conclusion: The transcriptomic signatures of VCL are linked to the coordinated dysregulation of pathways related to inflammation, immunity, and the epithelial barrier.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Homo sapiens",
+      "n_samples": 19,
+      "pdat": "2026/05/10",
+      "pubmedids": [],
+      "bioproject": "PRJNA1462375",
+      "sample_titles": [
+        "Vocal cord polyp tissue, biological replicate 9",
+        "Vocal cord polyp tissue, biological replicate 6",
+        "Vocal cord leukoplakia tissue, biological replicate 3",
+        "Vocal cord leukoplakia tissue, biological replicate 8",
+        "Vocal cord polyp tissue, biological replicate 4",
+        "Vocal cord polyp tissue, biological replicate 1",
+        "Vocal cord leukoplakia tissue, biological replicate 1",
+        "Vocal cord polyp tissue, biological replicate 7",
+        "Vocal cord leukoplakia tissue, biological replicate 9",
+        "Vocal cord leukoplakia tissue, biological replicate 4",
+        "Vocal cord polyp tissue, biological replicate 10",
+        "Vocal cord polyp tissue, biological replicate 2",
+        "Vocal cord polyp tissue, biological replicate 8",
+        "Vocal cord polyp tissue, biological replicate 5",
+        "Vocal cord polyp tissue, biological replicate 11",
+        "Vocal cord leukoplakia tissue, biological replicate 2",
+        "Vocal cord polyp tissue, biological replicate 3",
+        "Vocal cord leukoplakia tissue, biological replicate 10",
+        "Vocal cord leukoplakia tissue, biological replicate 6"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE330007"
+    },
+    {
+      "accession": "GSE334497",
+      "title": "TROP2/claudin program mediates immune exclusion to impede checkpoint blockade in breast cancer",
+      "summary": "To investigate TROP2-dependent transcriptomic changes in breast cancer, we performed RNA-seq on frozen tumor sections from 4T1 Trop2 wild-type and Trop2 knockout tumors. This dataset was generated to define transcriptional programs regulated by TROP2 in the tumor microenvironment and to determine how TROP2 contributes to immune exclusion and resistance to immune checkpoint blockade. Analysis of these tumors identified TROP2-associated enrichment of cell-cell contact and tight-junction pathways, while inflammatory, antitumor immune response, and T-cell cytotoxicity programs were relatively increased in Trop2 knockout tumors. These findings supported the conclusion that TROP2 promotes a claudin/tight-junction-mediated barrier that limits T-cell infiltration and impairs response to anti-PD-1 therapy in triple-negative breast cancer.",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "taxon": "Mus musculus",
+      "n_samples": 10,
+      "pdat": "2026/06/09",
+      "pubmedids": [],
+      "bioproject": "PRJNA1475339",
+      "sample_titles": [
+        "4T1, WT, rep5",
+        "4T1, KO, rep4",
+        "4T1, WT, rep2",
+        "4T1, WT, rep3",
+        "4T1, KO, rep2",
+        "4T1, KO, rep5",
+        "4T1, KO, rep3",
+        "4T1, KO, rep1",
+        "4T1, WT, rep1",
+        "4T1, WT, rep4"
+      ],
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE334497"
+    }
+  ],
+  "pubmed_queries": {
+    "Cldn4_KO_RNAseq": {
+      "term": "Cldn4 knockout RNA-seq",
+      "count": "4",
+      "idlist": [
+        "41686483",
+        "41016339",
+        "36691073",
+        "31919242"
+      ]
+    },
+    "CLDN4_CRISPR_RNAseq": {
+      "term": "CLDN4 CRISPR RNA-seq",
+      "count": "1",
+      "idlist": [
+        "41686483"
+      ]
+    },
+    "claudin4_silencing_transcriptome": {
+      "term": "claudin-4 silencing transcriptome",
+      "count": "3",
+      "idlist": [
+        "33006362",
+        "26243458",
+        "20086175"
+      ]
+    },
+    "CLDN4_KD_GEO": {
+      "term": "CLDN4 AND (knockdown OR knockout) AND (RNA-seq OR microarray) AND (\"Gene Expression Omnibus\" OR GSE OR ArrayExpress)",
+      "count": "1",
+      "idlist": [
+        "37643553"
+      ]
+    }
+  },
+  "pubmed_hits": [
+    {
+      "pmid": "20086175",
+      "title": "Smad signaling is required to maintain epigenetic silencing during breast cancer progression.",
+      "source": "Cancer Res",
+      "pubdate": "2010 Feb 1",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20086175/"
+    },
+    {
+      "pmid": "26243458",
+      "title": "CITED4 gene silencing in colorectal cancer cells modulates adherens/tight junction gene expression and reduces cell proliferation.",
+      "source": "J Cancer Res Clin Oncol",
+      "pubdate": "2016 Jan",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26243458/"
+    },
+    {
+      "pmid": "31919242",
+      "title": "BACH1 Promotes Pancreatic Cancer Metastasis by Repressing Epithelial Genes and Enhancing Epithelial-Mesenchymal Transition.",
+      "source": "Cancer Res",
+      "pubdate": "2020 Mar 15",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31919242/"
+    },
+    {
+      "pmid": "33006362",
+      "title": "Knockdown of CRAD suppresses the growth and promotes the apoptosis of human lung cancer cells via Claudin 4.",
+      "source": "Biosci Rep",
+      "pubdate": "2020 Oct 30",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33006362/"
+    },
+    {
+      "pmid": "36691073",
+      "title": "GRHL2-controlled gene expression networks in luminal breast cancer.",
+      "source": "Cell Commun Signal",
+      "pubdate": "2023 Jan 23",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36691073/"
+    },
+    {
+      "pmid": "37643553",
+      "title": "IGF2BP3 drives gallbladder cancer progression by m6A-modified CLDN4 and inducing macrophage immunosuppressive polarization.",
+      "source": "Transl Oncol",
+      "pubdate": "2023 Nov",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37643553/"
+    },
+    {
+      "pmid": "41016339",
+      "title": "CLDN4 regulates cell proliferation in small cell lung cancer cells via SAA1 inhibition.",
+      "source": "Biochem Biophys Res Commun",
+      "pubdate": "2025 Oct 20",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41016339/"
+    },
+    {
+      "pmid": "41686483",
+      "title": "Distinct mutations in the autoimmune regulator gene differentially affect transcriptional and functional properties of medullary thymic epithelial cells.",
+      "source": "Hum Mol Genet",
+      "pubdate": "2026 Feb 23",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41686483/"
+    }
+  ],
+  "sra_queries": {
+    "CLDN4_KO_RNAseq": {
+      "term": "CLDN4 knockout RNA-seq",
+      "count": "0",
+      "idlist": []
+    },
+    "Cldn4_KO_transcriptome": {
+      "term": "Cldn4 knockout transcriptome",
+      "count": "0",
+      "idlist": []
+    },
+    "CLDN4_KD_RNAseq": {
+      "term": "CLDN4 knockdown RNA-seq",
+      "count": "0",
+      "idlist": []
+    },
+    "CLDN4_shRNA_RNAseq": {
+      "term": "CLDN4 shRNA RNA-seq",
+      "count": "0",
+      "idlist": []
+    }
+  },
+  "verdict": "none"
+}
