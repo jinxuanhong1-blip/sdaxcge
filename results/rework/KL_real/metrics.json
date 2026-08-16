@@ -1,0 +1,244 @@
+{
+  "GSE76628_mismatch": {
+    "accession": "GSE76628",
+    "is_KL_lung": false,
+    "what_it_actually_is": "Uhlik et al. Cancer Res 2016 (PMID 27197264), superseries GSE76630 'Stromal-Based Signatures for the Classification of Gastric Cancer [part II]'. 78 Affymetrix Mouse430_2 bulk arrays of athymic nude (Foxn1nu) female flank skin after Ad-VEGF-A164 injection (tumor-surrogate angiogenesis / wound-stroma model). No lung, no Kras, no Lkb1/Stk11, no tumor epithelium, no T cells (nude).",
+    "why_Tacstd2_is_high_there": "Trop2 is constitutively expressed in normal mouse skin epithelium."
+  },
+  "GSE180963": {
+    "accession": "GSE180963",
+    "open": true,
+    "organism": "Mus musculus",
+    "model": "KrasG12D/+ vs KrasG12D/+;Lkb1fl/fl lung GEMM, whole nodules",
+    "n_mice": {
+      "K": 1,
+      "KL": 1
+    },
+    "n_cells": {
+      "K": 6696,
+      "KL": 7564
+    },
+    "n_epithelial": {
+      "K": 28,
+      "KL": 170
+    },
+    "Tacstd2_epithelial_pct_pos": {
+      "K": 17.857142857142858,
+      "KL": 64.70588235294117
+    },
+    "Tacstd2_immune_pct_pos": {
+      "K": 2.272317403065825,
+      "KL": 4.322673951470351
+    },
+    "KL_vs_K_epithelial": {
+      "contrast": "epithelial Tacstd2: KL vs K",
+      "n_KL_epi_cells": 170,
+      "n_K_epi_cells": 28,
+      "n_mice_per_genotype": 1,
+      "KL_n": 170,
+      "KL_mean_lognorm": 0.613888115834634,
+      "KL_median_lognorm": 0.6071460565279321,
+      "KL_pct_pos": 64.70588235294117,
+      "KL_n_pos": 110,
+      "K_n": 28,
+      "K_mean_lognorm": 0.2201446424453155,
+      "K_median_lognorm": 0.0,
+      "K_pct_pos": 17.857142857142858,
+      "K_n_pos": 5,
+      "U": 3506.0,
+      "p": 3.152468316664203e-05,
+      "log2fc_mean": 1.4795198033870034,
+      "note": "n=1 mouse/genotype; genotype confounded with sample; p-value is NOT a biological-replicate test"
+    },
+    "missing_genes": [],
+    "caveat": "n=1 biological replicate per genotype. Do not treat cell-level p as inferential."
+  },
+  "GSE179502": {
+    "accession": "GSE179502",
+    "open": true,
+    "organism": "Mus musculus",
+    "model": "KT;Lkb1XTR sorted neoplastic lung tumor cells; Lkb1 restoration",
+    "n_mice": {
+      "NonRestored": 3,
+      "Restored": 3
+    },
+    "heterogeneity": {
+      "n_cells": 16017,
+      "pct_Tacstd2_pos": 54.6918898670163,
+      "pct_Tacstd2_high_among_all": 13.672972466754075,
+      "high_cutoff_lognorm": 1.4058580158615923,
+      "pct_Epcam_pos": 73.11606418180683,
+      "pct_Ptprc_pos": 0.6742835737029407
+    },
+    "per_mouse": [
+      {
+        "mouse": "CM0875",
+        "cohort": "NonRestored",
+        "n": 3011,
+        "pct_Epcam": 73.86250415144471,
+        "pct_Ptprc": 0.09963467286615742,
+        "pct_tumor_like": 73.76286947857854,
+        "mean_Stk11": 0.004502893109045283,
+        "mean_Tacstd2": 0.6469133702067347,
+        "pct_Tacstd2_pos": 57.057455994686144,
+        "pct_Tacstd2_high": 16.439721022915972
+      },
+      {
+        "mouse": "CM0879",
+        "cohort": "Restored",
+        "n": 4663,
+        "pct_Epcam": 63.435556508685394,
+        "pct_Ptprc": 0.30023589963542785,
+        "pct_tumor_like": 63.34977482307528,
+        "mean_Stk11": 0.2535268062502928,
+        "mean_Tacstd2": 0.4320665137230023,
+        "pct_Tacstd2_pos": 40.703409822003,
+        "pct_Tacstd2_high": 9.950675530774179
+      },
+      {
+        "mouse": "CM0884",
+        "cohort": "Restored",
+        "n": 952,
+        "pct_Epcam": 86.76470588235294,
+        "pct_Ptprc": 0.21008403361344538,
+        "pct_tumor_like": 86.5546218487395,
+        "mean_Stk11": 0.29372099980898436,
+        "mean_Tacstd2": 0.6136244999775424,
+        "pct_Tacstd2_pos": 66.91176470588235,
+        "pct_Tacstd2_high": 11.344537815126051
+      },
+      {
+        "mouse": "ZR1932",
+        "cohort": "NonRestored",
+        "n": 1103,
+        "pct_Epcam": 82.32094288304623,
+        "pct_Ptprc": 0.1813236627379873,
+        "pct_tumor_like": 82.23028105167725,
+        "mean_Stk11": 0.012527497205575671,
+        "mean_Tacstd2": 0.8667443035215529,
+        "pct_Tacstd2_pos": 71.44152311876701,
+        "pct_Tacstd2_high": 24.025385312783317
+      },
+      {
+        "mouse": "ZR1966",
+        "cohort": "NonRestored",
+        "n": 3652,
+        "pct_Epcam": 75.41073384446878,
+        "pct_Ptprc": 1.3964950711938664,
+        "pct_tumor_like": 74.4249726177437,
+        "mean_Stk11": 0.0030509186473690266,
+        "mean_Tacstd2": 0.6782940592815416,
+        "pct_Tacstd2_pos": 59.88499452354874,
+        "pct_Tacstd2_high": 16.210295728368017
+      },
+      {
+        "mouse": "ZR1969",
+        "cohort": "Restored",
+        "n": 2636,
+        "pct_Epcam": 77.42792109256449,
+        "pct_Ptprc": 1.3657056145675266,
+        "pct_tumor_like": 76.896813353566,
+        "mean_Stk11": 0.27366765404883336,
+        "mean_Tacstd2": 0.5471424630037354,
+        "pct_Tacstd2_pos": 58.11836115326252,
+        "pct_Tacstd2_high": 10.09104704097117
+      }
+    ],
+    "mouse_level_contrast": {
+      "unit": "mouse",
+      "n_NonRestored": 3,
+      "n_Restored": 3,
+      "mean_NonRestored": 0.7306505776699431,
+      "mean_Restored": 0.53094449223476,
+      "log2fc_NonRestored_over_Restored": 0.4606198399525627,
+      "mw_U": 9.0,
+      "mw_p": 0.1,
+      "mw_log2fc_mean": 0.4606198399525627,
+      "note": "n=3 vs 3 mice; Mann-Whitney on mouse means. Underpowered."
+    },
+    "cell_level_contrast_PSEUDO": {
+      "unit": "cell (PSEUDOREPLICATION \u2014 do not use as inference)",
+      "n_NonRestored_cells": 7766,
+      "n_Restored_cells": 8251,
+      "mw_U": 37447840.0,
+      "mw_p": 5.149986141221375e-84,
+      "mw_log2fc_mean": 0.5005010896353773
+    },
+    "stk11_sanity": {
+      "mean_Stk11_NonRestored": 0.00669376965399666,
+      "mean_Stk11_Restored": 0.2736384867027035
+    },
+    "caveat": "Sorted tumor cells only \u2014 no immune compartment. Mouse-level n=3 vs 3 is the inferential unit."
+  },
+  "GSE280232": {
+    "accession": "GSE280232",
+    "open": true,
+    "organism": "Homo sapiens",
+    "model": "resectable KRAS-mut NSCLC \u00b1 STK11, neoadjuvant ICB; mostly sorted CD3+ T cells",
+    "n_patients_GEX_tumor": 12,
+    "n_mixed_CD45_tumor_patients_STK11mut": 2,
+    "n_mixed_CD45_tumor_patients_STK11wt": 3,
+    "tacstd2_absent_from_sorted_T": true,
+    "caveat": "Primary assay is sorted T cells \u2014 TACSTD2 (epithelial) is not a T-cell gene. Only the mixed CD45+/- libraries can test tumor-cell TACSTD2, and those are n=2 STK11mut vs n=2\u20133 STK11wt tumors."
+  },
+  "GSE179500": {
+    "accession": "GSE179500",
+    "open": true,
+    "role": "companion bulk from the same Lkb1XTR paper as GSE179502 (not requested, but it is the only open KL lung series with real biological-replicate DE for Tacstd2)",
+    "author_DE_Restored_vs_NonRestored_Tacstd2": {
+      "log2FoldChange": -0.463325955412396,
+      "pvalue": 0.0016024962646403,
+      "padj": 0.0316062589716054,
+      "note": "author contrast may include Trp53-null samples; negative log2FC = higher in Non-Restored (LKB1-off)"
+    },
+    "p53WT_cohort_stats": [
+      {
+        "cohort": "Non-Restored",
+        "n_samples": 10,
+        "mean": 318.7886348368658,
+        "sd": 52.24926830143728,
+        "median": 318.0245528825475
+      },
+      {
+        "cohort": "Restored",
+        "n_samples": 7,
+        "mean": 219.97129616775572,
+        "sd": 56.835269767150734,
+        "median": 188.425334026522
+      },
+      {
+        "cohort": "wild-type",
+        "n_samples": 4,
+        "mean": 257.9015376807385,
+        "sd": 119.73423035657532,
+        "median": 243.81557090453902
+      }
+    ],
+    "p53WT_contrasts": [
+      {
+        "contrast": "Non-Restored vs wild-type (p53-WT samples)",
+        "n_a": 10,
+        "n_b": 4,
+        "U": 26.0,
+        "p": 0.4535464535464536,
+        "log2fc_mean": 0.30577982062021686
+      },
+      {
+        "contrast": "Non-Restored vs Restored (p53-WT samples)",
+        "n_a": 10,
+        "n_b": 7,
+        "U": 64.0,
+        "p": 0.0030851501439736733,
+        "log2fc_mean": 0.5352849143448202
+      },
+      {
+        "contrast": "Restored vs wild-type (p53-WT samples)",
+        "n_a": 7,
+        "n_b": 4,
+        "U": 13.0,
+        "p": 0.9272727272727272,
+        "log2fc_mean": -0.2295050937246033
+      }
+    ]
+  }
+}
