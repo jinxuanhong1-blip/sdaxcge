@@ -1,0 +1,38 @@
+Comment[ArrayExpressAccession]	E-MTAB-13526
+MAGE-TAB Version	1.1
+Comment[Submitted Name]	Single cell RNA-seq atlas of human NSCLC lesions and non-involved tissue
+Investigation Title	Single cell RNA-seq atlas of human NSCLC lesions and non-involved tissue
+Experiment Description	We performed single cell RNA sequencing (scRNA-seq) of NSCLC tumours and matched, adjacent, non-involved lung tissue from 24 patients. The data set is composed of approximately 900,000 cells from two different populations: CD235- (haematopoietic and non-haematopoietic cells depleted of erythrocytes), and CD45+ (all haematopoietic cells).
+Experimental Design	disease state design
+Experimental Design Term Source REF	EFO
+Experimental Design Term Accession Number	EFO:0001756
+Experimental Factor Name	disease
+Experimental Factor Type	disease
+Experimental Factor Term Source REF	EFO
+Experimental Factor Term Accession Number	EFO_0000408
+Person Last Name	Zuani	Cvejic	Xue
+Person First Name	Marco De	Ana	Haoliang
+Person Mid Initials			
+Person Email	md38@sanger.ac.uk	ana.cvejic@bric.ku.dk	hx2@sanger.ac.uk
+Person Phone
+Person Fax
+Person Address	Wellcome Trust Genome Campus, Hinxton, CB10 1SA, UK	Biotech Research & Innovation Centre (BRIC), University of Copenhagen, Copenhagen, Denmark	Wellcome Trust Genome Campus, Hinxton, CB10 1SA, UK
+Person Affiliation	Wellcome Trust Sanger Institute, Wellcome Trust Genome Campus, Hinxton, CB10 1SA, UK University of Cambridge, Department of Haematology, Cambridge, CB2 0AW, UK Wellcome Trust – Medical Research Council Cambridge Stem Cell Institute, Cambridge, CB2 0AW, UK	Biotech Research & Innovation Centre (BRIC), University of Copenhagen, Copenhagen, Denmark  Wellcome Trust Sanger Institute, Wellcome Trust Genome Campus, Hinxton, CB10 1SA, UK University of Cambridge, Department of Haematology, Cambridge, CB2 0AW, UK Wellcome Trust – Medical Research Council Cambridge Stem Cell Institute, Cambridge, CB2 0AW, UK	Wellcome Trust Sanger Institute, Wellcome Trust Genome Campus, Hinxton, CB10 1SA, UK University of Cambridge, Department of Haematology, Cambridge, CB2 0AW, UK Wellcome Trust – Medical Research Council Cambridge Stem Cell Institute, Cambridge, CB2 0AW, UK
+Person Roles	submitter	investigator	investigator
+Date of Experiment	2023-08-01
+Public Release Date	2024-04-29
+Protocol Name	P-MTAB-137966	P-MTAB-137967	P-MTAB-137968	P-MTAB-137969	P-MTAB-137970	P-MTAB-137971
+Protocol Type	sample collection protocol	nucleic acid extraction protocol	nucleic acid library construction protocol	nucleic acid sequencing protocol	high throughput sequence alignment protocol	normalization data transformation protocol
+Protocol Term Source REF	EFO	EFO	EFO	EFO	EFO	EFO
+Protocol Term Accession Number	EFO_0005518	EFO_0002944	EFO_0004184	EFO_0004170	EFO_0004917	EFO_0003816
+Protocol Description	Tissues were kept in cold complete RPMI medium (RPMI [Invitrogen] supplemented with  10% FBS [Sigma Millipore], 2mM L-Glutamine [Life Technologies] and 100U/ml Penicillin-Streptomycin [Thermofisher]) until dissection, which was performed on the same day of collection. Single-cell suspensions were generated as previously described25. Briefly, tissues were placed into a petri dish and cutted into small pieces of 2-4 mm and transferred into a 1.5ml tube containing the digestion mix (complete RPMI media supplemented with  1 mg ml−1 collagenase IV and 0.1 mg ml−1 DNase I) and minced using surgical scissors. Minced tissues were incubated for 45 minutes at 37℃ and vortexed every 15 minutes. Digested tissues were passed through a 100 μm strain into a falcon tube prefilled with cold PBS.  Cells were then centrifuged for 5 minutes at 300 g, 4°C and the pellet was resuspended into 1x RBC lysis buffer (eBioscience) for 2 minutes at room temperature, after which 20 ml of cold PBS were added to stop the lysis reaction. Cells were cryopreserved in 5% DMSO in KnockOut Serum Replacement (KOSR; GibcoTM) until further use.  On the day of the experiment, cells were rapidly thawed at 37℃ and transferred to complete RPMI media. Live cell enrichment was performed using MACS Dead Cell Removal Kit (Miltenyi Biotec) following the manufacturer's instructions. Red blood cells were further depleted by negative selection using CD235a Microbeads (Miltenyi Biotec) and MACS LS columns (Miltenyi Biotec), following the manufacturer's instructions.  For FACS sorting, ce​lls were stained with Zombie Aqua to exclude dead cells and the cocktail of antibodies  for 30 minutes at ​4°C. Cells were centrifuged for 5 minutes at 300 g, 4°C, resuspended in 500 μl of 5% FBS in PBS and subsequently filtered into polypropylene FACS tubes.   Immune  cells were sorted as live, CD45+; MDSC were sorted as live, CD45+, Lineage- (Lin: CD3, CD56, CD19), CD11b+, CD33+;. e-MDSC were sorted as live, CD45+, Lin-, CD33+, HLA-DR-/low. Cells were sorted into a 1.5 ml tube, counted and submitted for 10x scRNA seq library preparation.	Each cell suspension was submitted for 3’ single cell RNA sequencing using Single Cell G Chip Kit, chemistry v3.1 (10x Genomics Pleasanton, CA, USA), following the manufacturer’s instructions. 	Each cell suspension was submitted for 3’ single cell RNA sequencing using Single Cell G Chip Kit, chemistry v3.1 (10x Genomics Pleasanton, CA, USA), following the manufacturer’s instructions.	Libraries were sequenced on an Illumina NovaSeq 6000, and mapped to the GRCh38 human reference genome using the Cell Ranger toolkit (version 3.0.0).	Sequenced libraries were mapped to the GRCh38 human reference genome using the Cell Ranger toolkit (version 3.0.0).	CellRanger 3.1.0 was used to build raw count matrices using the GRCh38.3.0.0 as reference. The matrix contains all unfiltered cells.
+Protocol Hardware				Illumina NovaSeq 6000
+Protocol Software
+Term Source Name	EFO
+Term Source File	http://www.ebi.ac.uk/efo/
+Term Source Version
+Comment[AEExperimentType]	RNA-seq of coding RNA from single cells
+Comment[TemplateType]	Human - Single-cell sequencing
+Comment[AdditionalFile:h5ad]	10X_Lung_Healthy_Background_Annotated_v2.h5ad	10X_Lung_Tumour_Annotated_v2.h5ad
+Comment[SecondaryAccession]	ERP153272
+SDRF File	E-MTAB-13526.sdrf.txt
