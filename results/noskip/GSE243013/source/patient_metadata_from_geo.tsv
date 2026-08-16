@@ -1,0 +1,244 @@
+sampleID	n_cells	pathological_response	pathological_response_rate	radiological_response	cancer_type	gender	age	smoking_history	pre_treatment_staging	anti-PD1_therapy	chemotherapy	targeted_therapy	cycles
+P1	8585	non-MPR	0.7	SD	LUSC	M	62.0	N	IIB	Camrelizumab	No	Apatinib	3
+P10	81	non-MPR	0.75	SD	LUAD	M	50.0	N	IIIA	Camrelizumab	No	Apatinib	2
+P102	8071	pCR	1	SD	LUSC	M	74.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	4
+P103	7819	non-MPR	0.5	PR	LUSC	M	67.0	Y	IIIB	Nivolumab	Carboplatin + Paclitaxel	No	3
+P105	6538	non-MPR	0.75	PR	LUAD	M	65.0	Y	IIIA	Pembrolizumab	Carboplatin + Pemetrexed	No	3
+P106	3160	non-MPR	0.3	SD	LUSC	M	57.0	Y	IIIA	Camrelizumab	Carboplatin + Abraxane	No	2
+P107	7198	pCR	1	影像上非典型肿块影，无法评估	LUSC	M	78.0	Y	IIB	Camrelizumab	Nedaplatin + Abraxane	No	2
+P111	4341	non-MPR	0.8	PR	LUSC	M	55.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	2
+P113	5985	pCR	1	PR	LUSC	M	72.0	Y	IIB	Sintilimab	Carboplatin + Abraxane	No	4
+P114	3438	pCR	1	PR	LUSC	M	65.0	Y	IIIA	Camrelizumab	Carboplatin + Abraxane	No	2
+P115	5929	MPR	0.95	PR	LUSC	M	60.0	N	IIIB	Pembrolizumab	Carboplatin + Abraxane	No	2
+P118	3774	MPR	0.95	PR	LUSC	M	46.0	Y	IIIC	Pembrolizumab	Carboplatin + Abraxane	No	2
+P119	6305	pCR	1	PR	LUSC	M	64.0	Y	IIIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P120	473	non-MPR	0.7	PR	LUSC	M	64.0	Y	IIIC	Toripalimab	Carboplatin + Abraxane	No	3
+P121	10451	pCR	1	PR	LUSC	M	59.0	Y	IIIA	Tislelizumab	Carboplatin + Abraxane	No	2
+P122	8480	MPR	0.99	PR	LUAD	M	62.0	Y	IIIA	Sintilimab	Carboplatin + Pemetrexed	No	2
+P124	8474	MPR	0.95	PR	LUSC	M	64.0	Y	IIIA	Camrelizumab	No	Apatinib	3
+P125	4237	pCR	1	PR	LUSC	M	67.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	2
+P127	6696	non-MPR	0.85	PR	LUSC	M	58.0	Y	IIIB	Sintilimab	Carboplatin + Abraxane	No	3
+P130	7328	MPR	0.95	SD	LUAD	M	59.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P131	6780	non-MPR	0.4	PR	LUSC	M	61.0	Y	IIA	Camrelizumab	No	Apatinib	3
+P137	6683	non-MPR	0.8	SD	LUSC	M	63.0	Y	IIIB	Nivolumab	Nedaplatin + Paclitaxel	No	3
+P142	4650	pCR	1	PR	LUSC	M	61.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	3
+P146	6775	pCR	1	PR	LUSC	M	67.0	Y	IB	Camrelizumab	No	Apatinib	3
+P150	3669	MPR	0.95	CR	LUSC	M	72.0	Y	IIIA	Pembrolizumab	Nedaplatin + Abraxane	No	2
+P156	2811	pCR	1	影像上非典型肿块影，无法评估	LUSC	M	63.0	Y	IIA	Camrelizumab	Carboplatin + Abraxane	No	3
+P158	4685	pCR	1	PR	LUSC	M	59.0	Y	IIIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P159	99	MPR	1	unknowm	LUSC	M	59.0	Y	IIIB	Pembrolizumab	Cisplatin + Abraxane	No	unknowm
+P16	7786	non-MPR	0.15	PR	LUSC	M	72.0	Y	IIIA	Pembrolizumab(C1) + Camrelizumab(C2)	Carboplatin + Paclitaxel Liposome	No	2
+P160	938	MPR	0.95	SD	LUAD	F	36.0	N	IIIA	Pembrolizumab	Carboplatin + Pemetrexed	No	8
+P161	747	pCR	1	PR	LUSC	M	59.0	Y	IA3	Nivolumab	Carboplatin + Abraxane	No	3
+P164	2984	non-MPR	0.6	PR	LUSC	M	49.0	Y	IIA	Tislelizumab	Cisplatin + Gemcitabine	No	4
+P166	6140	pCR	1	影像学上非典型肿块影，无法评估	LUSC	F	52.0	N	IIIA	Camrelizumab	Carboplatin + Abraxane	No	2
+P168	1909	MPR	0.95	PR	LUSC	M	73.0	Y	IIIA	Tislelizumab	Carboplatin + Abraxane	No	3
+P172	3752	MPR	0.98	PR	LUAD	F	49.0	N	IIIA	Camrelizumab	Cisplatin + Pemetrexed	No	4
+P174	4103	pCR	1	SD	LUSC	M	64.0	Y	IIIA	Tislelizumab	Cisplatin + Abraxane	No	2
+P179	5773	non-MPR	0.4	PR	LUAD	M	66.0	Y	IIIB	Camrelizumab	Carboplatin + Pemetrexed	No	2
+P18	10121	pCR	1	PR	LUAD	F	52.0	N	IIB	Pembrolizumab	Carboplatin + Pemetrexed	No	2
+P180	5727	MPR	0.9	PR	LUAD	M	63.0	Y	IIA	Tislelizumab	Cisplatin + Pemetrexed	No	2
+P181	339	pCR	1	PR	LUSC	M	52.0	Y	IIIA	Sintilimab	Carboplatin + Abraxane	No	3
+P182	6654	non-MPR	0.2	PR	LUAD	M	55.0	Y	IIIA	Camrelizumab	No	Apatinib	3
+P184	2817	pCR	1	影像学上非典型肿块影，无法评估	LUSC	M	56.0	Y	IIA	Nivolumab(C1)	Carboplatin + Abraxane	No	3
+P185	6404	pCR	1	影像学上非典型肿块影，无法评估	LUSC	M	58.0	Y	IIA	Tislelizumab	Carboplatin + Abraxane	No	3
+P189	5420	non-MPR	0.2	PR	LUSC	M	61.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P190	4581	pCR	1	PR	LUSC	M	51.0	Y	IIIA	Pembrolizumab	Carboplatin + Pemetrexed	No	3
+P192	3949	MPR	0.99	PR	LUSC	M	73.0	Y	IIIA	Camrelizumab	No	Apatinib	4
+P199	7504	pCR	1	CR	LUSC	M	54.0	Y	IVA	Pembrolizumab	Carboplatin + Abraxane	No	3
+P2	5594	pCR	1	PR	LUSC	M	66.0	N	IIB	Nivolumab/Placebo	Carboplatin + Paclitaxel	No	4
+P20	10257	pCR	1	SD	LUSC	M	49.0	Y	IIB	Sintilimab	Carboplatin + Abraxane	No	2
+P200	4641	MPR	0.99	PR	LUSC	M	51.0	N	IIIA	Camrelizumab	Carboplatin + Abraxane	No	4
+P201	6666	pCR	1	CR	LUSC	M	56.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	2
+P204	5271	pCR	1	SD	LUSC	M	50.0	Y	IIIB	Pembrolizumab	Carboplatin + Abraxane	No	3
+P205	7749	pCR	1	PR	LUSC	M	62.0	Y	IIIB	Nivolumab	Carboplatin + Abraxane	No	4
+P206	1372	non-MPR	0.5	SD	LUSC	F	64.0	N	IIIB	Tislelizumab	Carboplatin + Abraxane	No	3
+P207	3058	MPR	1	SD	LUSC	M	63.0	N	IIIA	Sintilimab	Carboplatin + Abraxane	No	4
+P209	7729	non-MPR	0.1	PR	LUAD	F	59.0	N	IIIA	Sintilimab	Carboplatin + Pemetrexed	No	3
+P213	3767	MPR	0.97	PR	LUAD	M	67.0	Y	IIIA	Camrelizumab	Carboplatin + Pemetrexed	No	3
+P218	4019	MPR	0.99	PR	LUAD	M	64.0	N	IIIB	Sintilimab	Carboplatin + Gemcitabine	No	4
+P22	5904	non-MPR	0.2	PR	LUSC	M	68.0	Y	IIIB	Sintilimab	Carboplatin + Abraxane	No	2
+P221	3612	non-MPR	0.7	SD	LUSC	F	55.0	N	IIB	Camrelizumab	Cisplatin + Abraxane	No	2
+P223	751	non-MPR	0.6	PR	LUAD	M	66.0	N	IIIB	Sintilimab	Carboplatin + Abraxane	No	3
+P224	4246	MPR	1	unknowm	LUSC	M	46.0	Y	unknowm	No	Carboplatin + Abraxane	No	4
+P226	6549	non-MPR	0.4	SD	LUAD	F	69.0	Y	IIIC	Sintilimab	Carboplatin + Pemetrexed	No	4
+P227	4422	MPR	0.95	PR	LUSC	M	63.0	N	IVA	Tislelizumab	Carboplatin + Abraxane	No	6
+P23	8145	pCR	1	PR	LUSC	F	68.0	N	IIB	Nivolumab	Carboplatin + Abraxane	No	2
+P233	3238	pCR	1	PR	LUSC	M	71.0	Y	IIIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P234	3503	pCR	1	SD	LUSC	M	64.0	N	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	4
+P235	3569	non-MPR	0.65	PR	LUSC	M	63.0	Y	IIB	Tislelizumab	Carboplatin + Paclitaxel	No	3
+P24	6612	non-MPR	中重度治疗后改变（未报）	PR	LUSC	M	55.0	Y	IIIA	Camrelizumab	Cisplatin + Paclitaxel	No	2
+P243	3204	pCR	1	PR	LUSC	M	62.0	Y	IIIA	Tislelizumab	Carboplatin + Abraxane	No	3
+P247	5000	non-MPR	0.5	SD	LUSC	M	68.0	Y	IIIB	Sintilimab	Carboplatin + Abraxane	No	4
+P248	2714	pCR	1	CR	LUSC	M	65.0	Y	IVA	Pembrolizumab	Nedaplatin + Abraxane	No	4
+P249	4438	pCR	1	PR	LUSC	M	71.0	Y	IIIB	Sintilimab	No	Bevacizumab	4
+P257	5736	MPR	1	PR	LUSC	M	69.0	Y	IIB	Sintilimab	No	No	4
+P258	4338	pCR	1	unknowm	LUSC	M	57.0	N	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	6
+P259	4157	non-MPR	0.5	SD	LUSC	M	59.0	Y	IIIA	Tislelizumab	Cisplatin + Abraxane	No	2
+P26	6122	non-MPR	0.6	PR	LUSC	M	54.0	Y	IIIA	Camrelizumab	No	Apatinib	3
+P261	2855	non-MPR	0.05	PR	LUSC	M	51.0	Y	IIB	Sintilimab	Carboplatin + Paclitaxel	No	3
+P264	3089	MPR	1	PR	LUSC	M	53.0	Y	IIIB	Pembrolizumab	Cisplatin + Paclitaxel Liposome	No	6
+P265	1486	non-MPR	0.3	PR	LUSC	M	67.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P266	3307	non-MPR	0.05	SD	LUAD	M	64.0	Y	IIB	Camrelizumab	Carboplatin + Abraxane	No	3
+P267	2978	pCR	1	PR	LUSC	M	69.0	Y	IIIA	Camrelizumab	Carboplatin + Abraxane	No	3
+P268	3282	pCR	1	PD	LUSC	M	69.0	Y	IB	Tislelizumab	Carboplatin + Abraxane	No	4
+P270	3364	non-MPR	0.7	PR	LUAD	M	55.0	Y	IIIA	Tislelizumab	Carboplatin + Pemetrexed	No	3
+P271	5865	non-MPR	0.1	PR	LUSC	M	58.0	Y	IIB	No	Cisplatin + Paclitaxel	No	2
+P273	3433	pCR	1	SD	LUAD	M	67.0	Y	IB	Tislelizumab	Carboplatin + Pemetrexed	No	3
+P276	2012	non-MPR	0.4	PR	LUSC	M	67.0	Y	IIIB	No	Carboplatin + Abraxane	No	3
+P277	5589	MPR	1	PR	LUSC	M	71.0	Y	IIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P278	5696	MPR	0.95	SD	LUSC	M	73.0	Y	IVB	Camrelizumab(C2)	Lobaplatin(C1)+ Abraxane(C1-C2) + Cisplatin(C2)	No	2
+P279	4592	non-MPR	0.85	SD	LUSC	M	48.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P280	3520	non-MPR	0.4	SD	LUSC	M	67.0	N	IIIA	Tislelizumab	Carboplatin + Abraxane	No	2
+P281	2587	non-MPR	0.3	SD	LUSC	M	72.0	Y	IIIA	Camrelizumab	No	Apatinib	3
+P282	3170	non-MPR	0.4	PR	LUAD	M	67.0	Y	IIIA	Sintilimab(C2-C3)	Carboplatin + Pemetrexed	Bevacizumab(C2-C3) + Endostar(C2-C3)	3
+P285	6691	non-MPR	0.85	SD	LUSC	M	64.0	Y	IIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P286	4767	pCR	1	PR	LUSC	M	61.0	N	IIIA	Tislelizumab	Carboplatin + Abraxane	No	2
+P287	8332	non-MPR	0.3	SD	LUSC	M	66.0	Y	IIIA	Tislelizumab(C2-C4)	Lobaplatin + Abraxane	Endostar(C1-C4)	4
+P288	4009	pCR	1	PR	LUSC	M	66.0	Y	IIIA	Tislelizumab	Carboplatin + Abraxane	No	2
+P289	6708	non-MPR	0.6	PR	LUAD	M	59.0	N	IIIB	Sintilimab	Carboplatin + Abraxane	No	6
+P29	4766	non-MPR	0.5	SD	LUSC	M	70.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P290	5251	pCR	1	PR	LUSC	M	58.0	Y	IIIA	No	Carboplatin + Abraxane	No	3
+P291	4864	pCR	1	PR	LUSC	M	57.0	N	IIIB	Nivolumab	Carboplatin + Abraxane	No	3
+P292	4043	MPR	1	PR	LUAD	M	42.0	Y	IVA	Tislelizumab	Carboplatin + Pemetrexed	No	4
+P293	5912	pCR	1	PR	LUAD	M	59.0	Y	IIB	Nivolumab	Carboplatin + Abraxane	No	3
+P296	1879	pCR	1	SD	LUSC	M	62.0	Y	IVA	Tislelizumab	Nedaplatin + Abraxane	No	4
+P297	3447	non-MPR	0.7	PR	LUAD	F	46.0	N	IVA	Pembrolizumab(C1)	Nedaplatin(C1) + Pemetrexed(C1)	No	6
+P298	3794	pCR	1	PR	LUSC	M	64.0	Y	IIB	Nivolumab	Carboplatin + Abraxane	No	3
+P3	7790	MPR	0.98	PR	LUSC	M	64.0	Y	IIB	Camrelizumab	No	Apatinib	2
+P303	6010	MPR	1	unknowm	LUSC	M	65.0	Y	IIIA	No	Carboplatin + Gemcitabine	No	4
+P304	5686	pCR	1	PR	LUSC	M	67.0	Y	IIIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P309	7850	pCR	1	SD	LUSC	M	54.0	Y	IVA	Tislelizumab	Cisplatin + Abraxane	No	2
+P31	8818	pCR	1	PR	LUSC	M	58.0	N	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	2
+P312	6666	non-MPR	0.6	PR	LUAD	M	55.0	N	IVA	Tislelizumab	Carboplatin + Pemetrexed	No	6
+P32	7188	non-MPR	0.35	SD	LUSC	M	69.0	Y	IIIA	Camrelizumab	No	Apatinib	3
+P321	7584	pCR	1	明显缓解	LUSC	M	67.0	Y	IIIA	Tislelizumab	Carboplatin + Gemcitabine	No	2
+P322	6294	MPR	1	SD	LUSC	M	68.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	2
+P323	3643	non-MPR	0.4	SD	LUSC	M	64.0	Y	IIIB	Pembrolizumab	Carboplatin + Paclitaxel Liposome	No	4
+P325	6947	MPR	0.95	PR	LUSC	M	59.0	Y	IIIA	Tislelizumab	Carboplatin + Abraxane	No	2
+P328	2698	non-MPR	0.8	PR	LUSC	M	58.0	Y	IIIA	Sintilimab	Carboplatin + Abraxane	No	2
+P329	5644	pCR	1	PR	LUSC	M	65.0	unknowm	IIB	Tislelizumab(C2-C3)	Carboplatin + Abraxane	No	3
+P33	11023	non-MPR	0.7	PR	LUAD	M	63.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	3
+P334	3252	pCR	1	PR	LUSC	M	57.0	Y	IIIA	Pembrolizumab	Cisplatin + Paclitaxel Liposome	No	4
+P337	4382	MPR	0.9	PR	LUSC	M	72.0	Y	IIIA	Sintilimab	Cisplatin + Abraxane	No	2
+P339	5268	pCR	1	CR	LUSC	M	62.0	N	IIA	Nivolumab	Carboplatin + Abraxane	No	3
+P34	4290	non-MPR	0.15	SD	LUAD	F	64.0	N	IA2	Pembrolizumab	Carboplatin + Pemetrexed	No	2
+P340	5412	non-MPR	0.2	SD	LUAD	F	55.0	N	IIA	Tislelizumab	Carboplatin + Pemetrexed	Avastin	4
+P346	8217	non-MPR	0.4	PR	LUAD	F	75.0	N	IIB	Nivolumab	Carboplatin + Abraxane	No	2
+P347	7407	pCR	1	PR	LUSC	M	62.0	Y	IB	Tislelizumab	Cisplatin + Abraxane	No	2
+P349	7568	pCR	1	PR	LUSC	M	64.0	N	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P35	5741	non-MPR	0.6	PR	LUSC	M	57.0	Y	IB	Tislelizumab	Cisplatin + Abraxane	No	2
+P355	2107	non-MPR	0.6	SD	LUAD	M	52.0	Y	IIIA	No	Carboplatin + Pemetrexed	No	3
+P36	6248	pCR	1	PR	LUAD	M	56.0	Y	IVA	Pembrolizumab(C1) + Sintilimab(C2-C3)	Carboplatin(C1) + Pemetrexed(C1-C3)	No	3
+P365	7804	pCR	1	PR	LUSC	M	65.0	Y	IIA	Tislelizumab	Carboplatin + Paclitaxel Liposome	No	2
+P367	5314	MPR	0.95	PR	LUSC	M	67.0	N	IIIA	Sintilimab	Carboplatin + Abraxane	No	2
+P368	6845	pCR	1	PR	LUSC	M	68.0	unknowm	unknowm	Tislelizumab(C2-C3)	Carboplatin + Abraxane	No	3
+P371	308	non-MPR	0.7	PR	LUSC	M	57.0	Y	IIB	Nivolumab	Carboplatin + Abraxane	No	6
+P372	8546	pCR	1	PR	LUSC	F	60.0	N	IIIB	Tislelizumab	Carboplatin + Docetaxel	No	3
+P377	6659	pCR	1	PR	LUSC	M	72.0	Y	IIB	No	Carboplatin + Abraxane	No	2
+P380	6492	non-MPR	0.4	PD	LUSC	M	59.0	Y	IIIA	Tislelizumab	Cisplatin + Abraxane	No	3
+P382	6050	non-MPR	0.1	SD	LUAD	F	51.0	N	IIIA	No	Carboplatin + Pemetrexed	No	2
+P387	1339	non-MPR	<10%	PR	LUSC	M	64.0	Y	IVB	Pembrolizumab	Carboplatin + Abraxane	No	4
+P389	7700	pCR	1	PR	LUAD	M	58.0	Y	IIIB	Pembrolizumab	Carboplatin + Pemetrexed	No	2
+P39	1777	non-MPR	0.1	PR	LUAD	M	67.0	Y	IIIA	Camrelizumab	Carboplatin(C1-C6) + Pemetrexed(C1-C6)	Bevacizumab	7
+P390	4552	non-MPR	0.2	PR	LUAD	F	43.0	N	IIIB	Tislelizumab	Nedaplatin + Pemetrexed	No	4
+P391	4466	non-MPR	0.4	PR	LUSC	M	50.0	Y	IIIC	Tislelizumab(C3-C4)	Carboplatin(C1-C2) + Cisplatin(C3-C4) + Abraxane(C1-C4)	No	4
+P394	7897	pCR	1	PR	LUAD	M	67.0	N	IIIB	Pembrolizumab	Carboplatin + Pemetrexed	No	2
+P395	3981	non-MPR	0.7	PR	LUSC	M	62.0	Y	IIIA	Camrelizumab	Carboplatin + Abraxane	No	4
+P399	7178	MPR	>90%	PR	LUAD	M	58.0	Y	IIIA	Sintilimab(C2-C3)	Cisplatin + Pemetrexed	No	3
+P4	8992	MPR	0.99	PR	LUSC	M	64.0	Y	IIIA	Tislelizumab	Carboplatin + Abraxane	No	3
+P402	1187	non-MPR	0.1	SD	LUAD	F	54.0	N	IB	unknowm	unknowm	No	3
+P403	3631	non-MPR	0.2	SD	LUSC	M	52.0	Y	IIIA	Camrelizumab(C1)	Carboplatin + Abraxane	No	2
+P404	6132	non-MPR	0.5	SD	LUAD	M	59.0	N	IIIA	Pembrolizumab	Carboplatin + Pemetrexed	No	2
+P405	4053	MPR	0.95	CR	LUSC	M	62.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P407	2034	pCR	1	unknowm	LUAD	F	70.0	N	IIIB	Sintilimab	Carboplatin + Pemetrexed	No	2
+P412	7834	pCR	1	PR	LUSC	M	67.0	N	IIIB	Camrelizumab	Carboplatin + Abraxane	No	4
+P414	2402	non-MPR	0.2	PR	LUSC	M	63.0	Y	IIIB	Camrelizumab	Carboplatin + Abraxane	No	4
+P416	1760	non-MPR	0.5	SD	LUSC	M	53.0	Y	IIB	Sintilimab	Carboplatin + Abraxane	No	2
+P417	3988	pCR	1	SD	LUSC	M	56.0	N	IIIB	Pembrolizumab	Carboplatin + Paclitaxel	No	4
+P418	6773	pCR	1	PR	LUSC	M	64.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	2
+P420	3160	pCR	1	unknowm	LUSC	M	68.0	N	IIIA	Camrelizumab	Cisplatin + Gemcitabine	No	2
+P423	6168	pCR	1	PR	LUSC	M	59.0	Y	IIB	Camrelizumab	Cisplatin + Paclitaxel Liposome	No	2
+P427	5516	MPR	0.9	SD	LUSC	M	59.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	2
+P428	4386	non-MPR	0.3	SD	LUSC	M	73.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	2
+P43	5378	non-MPR	0.7	PR	LUAD	M	46.0	N	IIB	Camrelizumab	Cisplatin(C1) + Carboplatin(C2) + Pemetrexed(C1-C2)	Bevacizumab	2
+P432	1631	non-MPR	0.05	SD	LUSC	M	71.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P433	1589	unknowm	unknowm	PD	LUSC	M	74.0	Y	unknowm	Sintilimab	Nedaplatin + Gemcitabine	No	4
+P435	3131	non-MPR	0.15	SD	LUSC	M	64.0	N	IIIA	Sintilimab	Carboplatin + Paclitaxel	No	3
+P44	7328	pCR	1	PR	LUSC	M	68.0	Y	IIIB	Tislelizumab	Cisplatin + Abraxane	No	2
+P445	8379	pCR	1	PR	LUSC	M	59.0	Y	IIIA	Camrelizumab	Lobaplatin + Abraxane	No	3
+P45	9935	MPR	0.9	PR	LUSC	M	64.0	Y	IIB	Camrelizumab	No	Apatinib	3
+P453	6641	MPR	0.95	PR	LUSC	M	52.0	Y	IIIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P454	3918	non-MPR	0.3	SD	LUSC	M	54.0	N	IIIA	Tislelizumab	Nedaplatin + Paclitaxel Liposome	No	5
+P457	4986	MPR	0.95	PR	LUSC	F	72.0	N	IIIA	Yes	Yes	No	2
+P459	5331	non-MPR	0.1	PR	LUSC	F	53.0	N	IIIB	Tislelizumab	Carboplatin + Abraxane	No	4
+P46	7241	MPR	0.99	PR	LUSC	M	55.0	Y	IIIB	Camrelizumab	No	Apatinib	3
+P462	4864	non-MPR	轻中度	PR	LUSC	M	64.0	Y	IIIB	Pembrolizumab	Cisplatin + Paclitaxel Liposome	No	3
+P463	6559	MPR	0.95	PR	LUSC	M	68.0	N	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	2
+P464	4168	non-MPR	0.85	PR	LUSC	M	57.0	N	IIIA	Tislelizumab	Carboplatin + Paclitaxel	No	2
+P467	706	non-MPR	0.2	SD	LUSC	M	63.0	N	IIIB	Tislelizumab	Carboplatin + Abraxane	No	4
+P469	8115	MPR	0.95	PR	LUSC	M	65.0	Y	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	2
+P47	8410	pCR	1	PR	LUSC	M	76.0	Y	IIB	Tislelizumab	Carboplatin + Paclitaxel	No	2
+P470	5836	pCR	1	PR	LUSC	M	66.0	Y	III	Pembrolizumab	Carboplatin + Abraxane	No	4
+P471	5744	non-MPR	中度	PR	LUSC	M	73.0	N	IIIA	Pembrolizumab	Abraxane	No	4
+P472	4896	non-MPR	0.1	PR	LUAD	M	61.0	Y	IIB	Camrelizumab	Carboplatin + Pemetrexed	No	2
+P473	7600	non-MPR	0.8	SD	LUSC	M	45.0	N	IIIA	Sintilimab	Carboplatin + Paclitaxel Liposome	No	4
+P477	4952	non-MPR	0.2	SD	LUSC	M	69.0	N	IIIB	Tislelizumab	Carboplatin + Abraxane	No	2
+P481	7107	non-MPR	0.8	PR	LUAD	F	71.0	N	IIIB	Nivolumab	Carboplatin + Pemetrexed	No	4
+P482	6200	non-MPR	0.8	PR	LUSC	M	59.0	Y	IIIB	Tislelizumab	Nedaplatin + Abraxane	No	2
+P483	3178	non-MPR	0.25	PR	LUAD	F	68.0	N	IIIA	Pembrolizumab	Carboplatin + Pemetrexed Disodium	No	3
+P485	5545	pCR	1	CR	LUSC	M	72.0	Y	IIB	Tislelizumab	Nedaplatin + Abraxane	No	3
+P486	6746	pCR	1	unknowm	LUSC	M	65.0	N	unknowm	Pembrolizumab	Carboplatin + Abraxane	No	3
+P488	3412	MPR	0.95	PR	LUSC	M	72.0	unknowm	IIA	No	Cisplatin + Paclitaxel Liposome	No	2
+P49	196	non-MPR	0.4	unknowm	LUSC	M	72.0	Y	IIIB	Tislelizumab	Cisplatin + Abraxane	No	unknowm
+P490	387	non-MPR	0.55	SD	LUSC	M	55.0	Y	IIIB	Pembrolizumab(C4-C5)	Carboplatin + Paclitaxel(C1-C3) + Abraxane(C4-C5)	No	5
+P491	3768	non-MPR	中度	PR	LUSC	M	62.0	Y	IIIB	Pembrolizumab	Carboplatin + Abraxane	No	2
+P494	4451	pCR	1	unknowm	LUSC	M	62.0	N	unknowm	Sintilimab	Carboplatin(?) + Nedaplatin(?) + Abraxane	No	unknowm
+P495	467	non-MPR	0.3	unknowm	LUSC	M	65.0	N	unknowm	Toripalimab	Carboplatin + Abraxane	No	unknowm
+P496	591	non-MPR	0.5	SD	LUSC	M	69.0	Y	IIIB	Pembrolizumab	Carboplatin + Abraxane	No	3
+P498	614	pCR	1	PR	LUAD	M	63.0	Y	IIB	Nivolumab	Carboplatin + Abraxane	No	3
+P5	6470	non-MPR	0.2	PR	LUAD	M	56.0	Y	IIIB	Pembrolizumab	Pemetrexed	Bevacizumab	4
+P502	4705	pCR	1	PR	LUSC	M	56.0	Y	IIIB	Pembrolizumab	Carboplatin + Abraxane	No	3
+P509	5478	non-MPR	0.1	SD	LUAD	F	49.0	N	IIIA	Sintilimab	Cisplatin + Pemetrexed	No	4
+P510	8602	non-MPR	0.15	PR	LUAD	M	56.0	Y	IIIC	Toripalimab	Carboplatin + Paclitaxel	No	4
+P511	7652	non-MPR	0.05	PD	LUSC	M	65.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P52	6042	non-MPR	0.6	PR	LUAD	F	34.0	N	IIIB	Sintilimab(C1)	Carboplatin + Pemetrexed	No	3
+P520	4893	non-MPR	0.1	PR	LUAD	F	49.0	N	IIIA	Tislelizumab	Carboplatin + Pemetrexed	No	15
+P523	7239	non-MPR	0.85	PR	LUAD	M	70.0	N	IIIA	Nivolumab	Carboplatin + Pemetrexed	No	3
+P524	2031	non-MPR	0.8	PR	LUSC	M	69.0	N	IIIA	Sintilimab	No	Bevacizumab	4
+P525	5408	pCR	1	PR	LUSC	M	54.0	Y	IIA	Tislelizumab	Carboplatin + Paclitaxel	No	4
+P527	3841	non-MPR	0.8	SD	LUSC	M	65.0	N	IIIA	Nivolumab	Carboplatin + Abraxane	No	2
+P528	9562	non-MPR	0.15	SD	LUAD	M	64.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P53	7250	pCR	1	PR	LUSC	M	64.0	Y	IIIB	Pembrolizumab	Cisplatin + Abraxane	No	2
+P533	6635	MPR	0.98	unknowm	LUAD	M	56.0	Y	IIIA	Tislelizumab	见备注	No	4
+P540	4762	non-MPR	0.4	SD	LUSC	M	73.0	Y	IVA	Sintilimab	Carboplatin + Abraxane	No	2
+P550	7426	pCR	1	PR	LUAD	M	64.0	Y	IIIA	Tislelizumab	Carboplatin + Pemetrexed	No	2
+P567	4668	non-MPR	0.75	SD	LUAD	M	69.0	Y	IIIA	Nivolumab	Carboplatin + Abraxane	No	3
+P57	6557	MPR	0.95	PR	LUSC	M	57.0	Y	IIIC	Tislelizumab	Carboplatin + Abraxane	No	2
+P574	6167	non-MPR	0.8	PR	LUAD	F	55.0	N	IIIB	Tislelizumab	Cisplatin + Abraxane	No	2
+P579	5280	pCR	1	PR	LUAD	M	55.0	N	IIIB	Nivolumab	Carboplatin + Abraxane	No	3
+P58	5244	non-MPR	中度治疗改变	SD	LUSC	M	50.0	Y	IIIA	Sintilimab	Carboplatin + Abraxane	No	2
+P587	6253	non-MPR	0.2	PR	LUAD	F	58.0	N	IIIA	Camrelizumab	Nedaplatin + Pemetrexed	No	2
+P59	6163	pCR	1	SD	LUSC	M	58.0	Y	IIIA	Pembrolizumab	Cisplatin + Abraxane	No	3
+P592	5346	non-MPR	0.8	PR	LUAD	M	44.0	N	IIB	Nivolumab	Carboplatin + Abraxane	No	3
+P595	4921	non-MPR	<90%	SD	LUAD	M	64.0	Y	IVA	Nivolumab	Carboplatin + Abraxane	No	4
+P6	7935	MPR	0.9	PR	LUSC	M	56.0	Y	IIB	Camrelizumab	No	Apatinib	2
+P62	4480	MPR	0.9	SD	LUSC	M	68.0	Y	IIIA	Camrelizumab	No	Apatinib	3
+P63	6263	non-MPR	0.8	SD	LUSC	M	63.0	Y	IIIA	Camrelizumab	No	Apatinib	2
+P64	4288	non-MPR	0.85	PR	LUAD	M	64.0	N	IIIA	Pembrolizumab	Carboplatin + Pemetrexed	No	3
+P66	3975	non-MPR	中重度治疗后改变（未报）	SD	LUSC	M	66.0	Y	IIIB	Sintilimab	Cisplatin + Gemcitabine	No	2
+P67	8050	pCR	1	CR	LUSC	M	65.0	N	IIIA	Tislelizumab	Cisplatin + Abraxane	No	2
+P68	8659	pCR	1	PR	LUSC	M	53.0	Y	IIB	Camrelizumab	No	Apatinib	3
+P69	3740	non-MPR	0.88	SD	LUSC	M	74.0	Y	IIIB	Sintilimab	Carboplatin + Abraxane	No	2
+P70	6657	non-MPR	0.1	SD	LUAD	M	71.0	N	IIIA	Sintilimab	Carboplatin + Pemetrexed	No	3
+P71	4425	pCR	1	SD	LUAD	M	50.0	Y	IIIA	Camrelizumab(C2) + Sintilimab(C3-C7)	Cisplatin(C1-C2) + Carboplatin(C7) + Pemetrexed(C1) + Paclitaxel Liposome(C2) + Abraxane(C3-C7) + Gemcitabine(C7)	Anlotinib(C3-C7)	7
+P73	5855	non-MPR	0.1	SD	LUSC	M	54.0	Y	IIIA	Sintilimab	Carboplatin + Paclitaxel Liposome	No	2
+P74	5001	pCR	1	SD	LUSC	M	66.0	Y	IIIA	Pembrolizumab	Lobaplatin + Abraxane	No	2
+P84	4408	MPR	0.98	SD	LUSC	M	60.0	N	IIIA	Pembrolizumab	Carboplatin + Abraxane	No	3
+P9	6964	pCR	1	PR	LUSC	M	64.0	N	IIB	Camrelizumab	No	Apatinib	2
+P90	7106	non-MPR	0.5	PR	LUSC	M	67.0	Y	IIIA	Sintilimab	Nedaplatin + Gemcitabine	No	3
+P92	5989	pCR	1	SD	LUSC	M	53.0	Y	IIIA	Tislelizumab(C2)	Carboplatin + Abraxane	Endostar(C1)	2
+P93	8204	pCR	1	PR	LUSC	M	74.0	Y	IIIB	Sintilimab	Carboplatin + Gemcitabine	No	2
+P94	5892	non-MPR	<40%	SD	LUSC	M	74.0	Y	IIIA	Tislelizumab	Paclitaxel Liposome	No	2
+P96	5099	non-MPR	0.85	PR	LUAD	M	67.0	Y	IIIB	Sintilimab	Carboplatin + Pemetrexed	No	3
+P97	5673	non-MPR	0.3	SD	LUSC	M	71.0	Y	IIIA	Tislelizumab	Carboplatin + Docetaxel	No	3
