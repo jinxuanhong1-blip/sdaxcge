@@ -1,0 +1,9 @@
+item,claim,observed,verdict
+n_units,64 tumor models,64 TISMO ICB cohorts (17 cell lines; 22 studies; 9 cancer types). TISMO also lists MOC22; that 65th cohort is served for other genes but not for Tacstd2.,headline n matches; the unit is a cohort not an independent model
+direction,49/64 up,49 up / 15 down / 0 ties (76.6%),exact match
+mean_baseline,~1.05,1.051 (median 0.245),match after rounding
+mean_icb,~1.3,1.317 (median 0.601),match after rounding
+paired_p,5.8e-5,Wilcoxon signed-rank two-sided p = 5.84e-05 (paired t p = 3.48e-03; sign-test p = 2.44e-05),the claimed p is the Wilcoxon not the t-test
+lung,report separately,2 LLC cohorts from GSE155972 only; both up (0.22 -> 0.65); Wilcoxon p = 0.5,too few independent units to support a lung-specific claim
+independence,implied by n=64,14 baseline samples reused across two cohorts; many cohorts share a cell line or a study,headline p treats 64 pairs as independent
+genome_wide,not claimed,500-gene null: 43.6% of random genes have Wilcoxon p<0.05 under this design; Tacstd2 empirical p on n_up = 0.014; Bonferroni x 21235 = 1.24,the 5.8e-5 p is anti-conservative as a discovery statistic

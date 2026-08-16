@@ -1,0 +1,39 @@
+==============================================================================
+Null calibration for Tacstd2 (500 random genes)
+==============================================================================
+{
+  "gene": "Tacstd2",
+  "target": {
+    "n_cohorts": 64,
+    "n_up": 49,
+    "frac_up": 0.765625,
+    "mean_baseline": 1.0514843840706152,
+    "mean_icb": 1.31687651644132,
+    "mean_delta": 0.265392132370705,
+    "paired_t_p": 0.0034819101337064257,
+    "wilcoxon_p": 5.8398482923347564e-05,
+    "cohens_dz": 0.37952121321839566
+  },
+  "null_panel_size": 500,
+  "null_median_n_up": 25.0,
+  "null_mean_n_up": 23.992,
+  "null_frac_of_genes_with_majority_up": 0.228,
+  "null_median_mean_delta": -0.00274767584165591,
+  "null_frac_mean_delta_positive": 0.364,
+  "null_frac_wilcoxon_p_below_0.05": 0.436,
+  "null_frac_wilcoxon_p_below_target": 0.048,
+  "empirical_p_n_up": 0.014,
+  "empirical_p_mean_delta": 0.016,
+  "target_wilcoxon_p_times_transcriptome": 1.2400917848772854
+}
+
+Reference genes (same cohort-level paired statistic):
+   gene  n_cohorts  n_up  mean_baseline  mean_icb  mean_delta  paired_t_p  wilcoxon_p
+   Actb         65    41          11.64     11.83      0.1966   0.0006362    0.002344
+  Cd274         65    52          3.085     3.674      0.5887   8.194e-08   2.949e-07
+   Cd8a         65    54          1.535      2.13      0.5948   2.519e-07   1.223e-07
+  Epcam         65    43          2.857     2.971      0.1134      0.1077     0.01728
+   Ifng         63    48           1.04     1.578      0.5385   1.949e-07   6.546e-07
+   Krt8         65    31          4.384     4.306    -0.07801      0.4258      0.5066
+  Pdcd1         64    49          1.323     1.754      0.4313   3.287e-06   6.773e-06
+Tacstd2         64    49          1.051     1.317      0.2654    0.003482    5.84e-05

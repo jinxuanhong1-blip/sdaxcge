@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Working cache for the null panel; the committed artefact is
+# results/align_tismo/data/null_genes.tar.gz, which the scripts unpack on demand.
+results/align_tismo/data/null_genes/
