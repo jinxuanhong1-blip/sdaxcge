@@ -1,0 +1,163 @@
+{
+  "dataset": "GSE207422",
+  "citation": "Hu et al. Genome Medicine 2023 PMID 36869384",
+  "n_cells": 92330,
+  "n_patients": 15,
+  "n_malignant": 9849,
+  "n_malig_broad": 8028,
+  "cnv_cut": 0.23795495927333832,
+  "min_malignant_cells": 10,
+  "n_patients_malignant_ge10": 15,
+  "genes_present": {
+    "TACSTD2": true,
+    "CLDN4": true
+  },
+  "mpr_2x2_patients": {
+    "pre_MPR": [],
+    "pre_NMPR": [
+      "P05",
+      "P08"
+    ],
+    "post_MPR": [
+      "P03",
+      "P06",
+      "P11",
+      "P14"
+    ],
+    "post_NMPR": [
+      "P02",
+      "P04",
+      "P07",
+      "P09",
+      "P10",
+      "P12",
+      "P13",
+      "P15"
+    ],
+    "pre_NE": [
+      "P01"
+    ]
+  },
+  "recist_2x2_patients": {
+    "pre_PR": [
+      "P05"
+    ],
+    "pre_SD": [
+      "P01",
+      "P08"
+    ],
+    "post_PR": [
+      "P02",
+      "P03",
+      "P04",
+      "P06",
+      "P09",
+      "P10",
+      "P13",
+      "P14"
+    ],
+    "post_SD": [
+      "P07",
+      "P11",
+      "P12",
+      "P15"
+    ]
+  },
+  "missing": {
+    "pre_MPR": "No public GSE207422 pre-treatment biopsy is labeled MPR. P01 is pre / pathologic NE (RECIST SD). P05 and P08 are pre / NMPR.",
+    "paired_pre_post": "The 3 pre patients (P01, P05, P08) are not the same people as the 12 post patients. This is a cross-sectional 2\u00d72, not a paired delta.",
+    "second_series": "No second public lung scRNA series with both a timepoint axis and a response axis and a malignant/epithelial matrix was found to stack."
+  },
+  "stacked_series": [],
+  "primary_post_NMPR_vs_MPR": [
+    {
+      "n_a": 8,
+      "n_b": 4,
+      "median_a": 1.71936332752181,
+      "median_b": 1.3333168592657318,
+      "mean_a": 1.6880533260629353,
+      "mean_b": 1.327938470472299,
+      "U": 24.0,
+      "p": 0.21414141414141416,
+      "note": "",
+      "scope": "cnv_or_program|post_NMPR_vs_MPR",
+      "metric": "mal_tacstd2_mean_log1p_cp10k",
+      "gene": "TACSTD2",
+      "kind": "mean_log1p_cp10k",
+      "group_a": "post_NMPR",
+      "group_b": "post_MPR",
+      "patients_a": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_b": "P03,P06,P11,P14"
+    },
+    {
+      "n_a": 8,
+      "n_b": 4,
+      "median_a": 88.35937114977084,
+      "median_b": 86.08663132906247,
+      "mean_a": 84.29075572842254,
+      "mean_b": 85.20578706041223,
+      "U": 14.0,
+      "p": 0.8080808080808081,
+      "note": "",
+      "scope": "cnv_or_program|post_NMPR_vs_MPR",
+      "metric": "mal_tacstd2_pct_pos",
+      "gene": "TACSTD2",
+      "kind": "pct_pos",
+      "group_a": "post_NMPR",
+      "group_b": "post_MPR",
+      "patients_a": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_b": "P03,P06,P11,P14"
+    },
+    {
+      "n_a": 8,
+      "n_b": 4,
+      "median_a": 1.6456847055967914,
+      "median_b": 1.5991258095668777,
+      "mean_a": 1.5152898194565991,
+      "mean_b": 1.5468854294171028,
+      "U": 15.0,
+      "p": 0.9333333333333333,
+      "note": "",
+      "scope": "cnv_or_program|post_NMPR_vs_MPR",
+      "metric": "mal_cldn4_mean_log1p_cp10k",
+      "gene": "CLDN4",
+      "kind": "mean_log1p_cp10k",
+      "group_a": "post_NMPR",
+      "group_b": "post_MPR",
+      "patients_a": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_b": "P03,P06,P11,P14"
+    },
+    {
+      "n_a": 8,
+      "n_b": 4,
+      "median_a": 87.12539951118632,
+      "median_b": 91.46779993461915,
+      "mean_a": 82.8646622153054,
+      "mean_b": 90.19266457945992,
+      "U": 12.0,
+      "p": 0.5696969696969697,
+      "note": "",
+      "scope": "cnv_or_program|post_NMPR_vs_MPR",
+      "metric": "mal_cldn4_pct_pos",
+      "gene": "CLDN4",
+      "kind": "pct_pos",
+      "group_a": "post_NMPR",
+      "group_b": "post_MPR",
+      "patients_a": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_b": "P03,P06,P11,P14"
+    }
+  ],
+  "lineage_counts": {
+    "T": 34398,
+    "Myeloid": 18367,
+    "Epithelial": 10669,
+    "Neutrophil": 10053,
+    "B": 7604,
+    "Plasma": 4744,
+    "NK": 4023,
+    "Fibroblast": 1004,
+    "Mast": 916,
+    "Endothelial": 299,
+    "Unassigned": 253
+  }
+}
