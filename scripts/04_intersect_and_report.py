@@ -56,9 +56,9 @@ def _md_table(df):
     def fmt(v):
         if isinstance(v, (bool, np.bool_)):
             return "True" if v else "False"
+        if v is None or (isinstance(v, float) and np.isnan(v)) or pd.isna(v):
+            return "NA"
         if isinstance(v, (float, np.floating)):
-            if np.isnan(v):
-                return ""
             return f"{v:.4g}"
         return str(v)
     lines = ["| " + " | ".join(cols) + " |",
@@ -114,23 +114,30 @@ def load_existing():
     return pd.DataFrame(rows), pd.DataFrame(gsea_rows)
 
 
+def _call(call, gene, did):
+    if did not in call.columns or gene not in call.index or pd.isna(call.loc[gene, did]):
+        return None
+    return bool(call.loc[gene, did])
+
+
 def intersection_table(panel_long):
-    """Wide call matrix + explicit intersection sets."""
+    """Wide call matrix + explicit intersection sets.
+
+    Missing datasets stay as NA. They are not coerced to False — that would
+    invent a negative result for an analysis that has not been run.
+    """
     call = panel_long.pivot_table(index="gene", columns="dataset_id",
                                   values="up_in_trop2_high", aggfunc="first")
     direction = panel_long.pivot_table(index="gene", columns="dataset_id",
                                        values="same_direction", aggfunc="first")
     recs = []
     for gene in L.PANEL:
-        luad = bool(call.loc[gene, "tcga_luad"]) if "tcga_luad" in call.columns and gene in call.index else False
-        gse = bool(call.loc[gene, "gse207422"]) if "gse207422" in call.columns and gene in call.index else False
-        lusc = bool(call.loc[gene, "tcga_lusc"]) if "tcga_lusc" in call.columns and gene in call.index else False
-        pb = bool(call.loc[gene, "gse131907_tlung_pb"]) if "gse131907_tlung_pb" in call.columns and gene in call.index else False
-        cell = bool(call.loc[gene, "gse131907_tlung_cell"]) if "gse131907_tlung_cell" in call.columns and gene in call.index else False
-        # direction-only for underpowered GSE131907 pseudobulk
-        pb_dir = False
-        if "gse131907_tlung_pb" in direction.columns and gene in direction.index:
-            pb_dir = bool(direction.loc[gene, "gse131907_tlung_pb"])
+        luad = _call(call, gene, "tcga_luad")
+        gse = _call(call, gene, "gse207422")
+        lusc = _call(call, gene, "tcga_lusc")
+        pb = _call(call, gene, "gse131907_tlung_pb")
+        cell = _call(call, gene, "gse131907_tlung_cell")
+        pb_dir = _call(direction, gene, "gse131907_tlung_pb")
         recs.append({
             "gene": gene,
             "pass_TCGA_LUAD": luad,
@@ -139,10 +146,13 @@ def intersection_table(panel_long):
             "pass_GSE131907_tLung_pseudobulk": pb,
             "same_direction_GSE131907_tLung_pseudobulk": pb_dir,
             "pass_GSE131907_tLung_cell_exploratory": cell,
-            "intersection_LUAD_and_GSE207422": luad and gse,
-            "intersection_LUAD_GSE207422_and_GSE131907_pb": luad and gse and pb,
-            "intersection_LUAD_GSE207422_and_GSE131907_pb_direction": luad and gse and pb_dir,
-            "intersection_LUAD_LUSC_GSE207422": luad and lusc and gse,
+            "intersection_LUAD_and_GSE207422": None if None in (luad, gse) else (luad and gse),
+            "intersection_LUAD_GSE207422_and_GSE131907_pb":
+                None if None in (luad, gse, pb) else (luad and gse and pb),
+            "intersection_LUAD_GSE207422_and_GSE131907_pb_direction":
+                None if None in (luad, gse, pb_dir) else (luad and gse and pb_dir),
+            "intersection_LUAD_LUSC_GSE207422":
+                None if None in (luad, lusc, gse) else (luad and lusc and gse),
         })
     return pd.DataFrame(recs).set_index("gene"), call
 
@@ -264,14 +274,16 @@ def write_markdown(panel_long, gsea_long, inter, path):
     lines.append("")
     lines.append(_md_table(inter.reset_index()))
     lines.append("")
-    primary_pass = inter.index[inter["intersection_LUAD_and_GSE207422"]].tolist()
-    plus_pb = inter.index[inter["intersection_LUAD_GSE207422_and_GSE131907_pb"]].tolist()
-    plus_dir = inter.index[inter["intersection_LUAD_GSE207422_and_GSE131907_pb_direction"]].tolist()
-    luad_lusc_gse = inter.index[inter["intersection_LUAD_LUSC_GSE207422"]].tolist()
-    lines.append(f"- **LUAD ∩ GSE207422 (primary):** {primary_pass or 'none'}")
-    lines.append(f"- **LUAD ∩ LUSC ∩ GSE207422:** {luad_lusc_gse or 'none'}")
-    lines.append(f"- **LUAD ∩ GSE207422 ∩ GSE131907 tLung pseudobulk (strict):** {plus_pb or 'none'}")
-    lines.append(f"- **LUAD ∩ GSE207422 ∩ GSE131907 tLung pseudobulk (direction only):** {plus_dir or 'none'}")
+    def _passed(col):
+        s = inter[col]
+        if s.isna().all():
+            return "not yet computed"
+        return s[s == True].index.tolist() or "none"
+
+    lines.append(f"- **LUAD ∩ GSE207422 (primary):** {_passed('intersection_LUAD_and_GSE207422')}")
+    lines.append(f"- **LUAD ∩ LUSC ∩ GSE207422:** {_passed('intersection_LUAD_LUSC_GSE207422')}")
+    lines.append(f"- **LUAD ∩ GSE207422 ∩ GSE131907 tLung pseudobulk (strict):** {_passed('intersection_LUAD_GSE207422_and_GSE131907_pb')}")
+    lines.append(f"- **LUAD ∩ GSE207422 ∩ GSE131907 tLung pseudobulk (direction only):** {_passed('intersection_LUAD_GSE207422_and_GSE131907_pb_direction')}")
     lines.append("")
     lines.append("PARD3 is listed because it is in the a priori panel, not because it passed.")
     lines.append("A False in the table is a real negative under this criterion, not a missing value.")
@@ -312,14 +324,22 @@ def main():
     plot_gsea(gsea_long, f"{OUT}/fig_gsea_nes.png")
     write_markdown(panel_long, gsea_long, inter, f"{OUT}/REPORT.md")
 
+    def _list_or_pending(col):
+        s = inter[col]
+        if s.isna().all():
+            return None
+        return s[s == True].index.tolist()
+
+    present = sorted(panel_long["dataset_id"].unique().tolist())
     summary = {
-        "primary_intersection_LUAD_GSE207422": inter.index[inter["intersection_LUAD_and_GSE207422"]].tolist(),
-        "intersection_LUAD_LUSC_GSE207422": inter.index[inter["intersection_LUAD_LUSC_GSE207422"]].tolist(),
-        "intersection_plus_GSE131907_pb_strict": inter.index[inter["intersection_LUAD_GSE207422_and_GSE131907_pb"]].tolist(),
-        "intersection_plus_GSE131907_pb_direction": inter.index[inter["intersection_LUAD_GSE207422_and_GSE131907_pb_direction"]].tolist(),
+        "datasets_present": present,
+        "primary_intersection_LUAD_GSE207422": _list_or_pending("intersection_LUAD_and_GSE207422"),
+        "intersection_LUAD_LUSC_GSE207422": _list_or_pending("intersection_LUAD_LUSC_GSE207422"),
+        "intersection_plus_GSE131907_pb_strict": _list_or_pending("intersection_LUAD_GSE207422_and_GSE131907_pb"),
+        "intersection_plus_GSE131907_pb_direction": _list_or_pending("intersection_LUAD_GSE207422_and_GSE131907_pb_direction"),
         "criterion": "up_in_trop2_high = spearman_rho>0 AND log2FC_high_vs_low>0 AND welch_fdr<0.05",
         "panel": L.PANEL,
-        "note": "Empty lists are real negatives, not missing analyses.",
+        "note": "null = dataset not yet computed. Empty list = computed and no gene passed.",
     }
     with open(f"{OUT}/intersection_summary.json", "w") as fh:
         json.dump(summary, fh, indent=2)

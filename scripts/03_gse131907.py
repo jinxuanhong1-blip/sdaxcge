@@ -37,26 +37,23 @@ def load_annotation():
 
 
 def stream_umi(keep_barcodes):
-    """Return genes x cells UMI DataFrame for the requested barcodes."""
-    keep = set(keep_barcodes)
+    """Return genes x cells UMI DataFrame for the requested barcodes.
+
+    Uses the pandas C parser with usecols so the 208k-cell file is never
+    materialised in full. Header is scanned first to drop missing barcodes.
+    """
     path = f"{RAW}/GSE131907_raw_UMI.txt.gz"
-    print(f"Streaming UMI matrix for {len(keep)} cells ...")
+    print(f"Reading UMI matrix for {len(keep_barcodes)} requested cells ...")
     with gzip.open(path, "rt") as fh:
         header = fh.readline().rstrip("\n").split("\t")
-        barcodes = header[1:]
-        idx = [i for i, b in enumerate(barcodes) if b in keep]
-        names = [barcodes[i] for i in idx]
-        print(f"  matched {len(idx)} / {len(keep)} requested barcodes")
-        genes, rows = [], []
-        for n, line in enumerate(fh, 1):
-            parts = line.rstrip("\n").split("\t")
-            gene = parts[0]
-            vals = np.fromiter((parts[i + 1] for i in idx), dtype=np.float32, count=len(idx))
-            genes.append(gene)
-            rows.append(vals)
-            if n % 5000 == 0:
-                print(f"  ... {n} genes")
-    mat = pd.DataFrame(np.vstack(rows), index=genes, columns=names)
+    available = set(header[1:])
+    keep = [b for b in keep_barcodes if b in available]
+    missing = len(keep_barcodes) - len(keep)
+    print(f"  matched {len(keep)} barcodes (missing {missing})")
+    mat = pd.read_csv(
+        path, sep="\t", index_col=0, usecols=["Index"] + keep,
+        dtype={b: np.float32 for b in keep},
+    )
     print("  UMI matrix:", mat.shape)
     return mat
 
