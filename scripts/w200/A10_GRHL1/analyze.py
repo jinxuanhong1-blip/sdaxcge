@@ -183,7 +183,22 @@ def main() -> int:
     else:
         verdict_label = "NOT_SUPPORTED"
 
-    statement = _statement(g1_trop2, g1_cldn4, trop2_ok, cldn4_ok, per_slice, PRIMARY)
+    luad_trop2 = get("LUAD_primary_tumor", "GRHL1", "TACSTD2")
+    luad_cldn4 = get("LUAD_primary_tumor", "GRHL1", "CLDN4")
+    lusc_trop2 = get("LUSC_primary_tumor", "GRHL1", "TACSTD2")
+    lusc_cldn4 = get("LUSC_primary_tumor", "GRHL1", "CLDN4")
+
+    statement = _statement(
+        g1_trop2,
+        g1_cldn4,
+        trop2_ok,
+        cldn4_ok,
+        luad_trop2,
+        luad_cldn4,
+        lusc_trop2,
+        lusc_cldn4,
+        PRIMARY,
+    )
 
     summary = {
         "task": "A10_GRHL1",
@@ -203,8 +218,31 @@ def main() -> int:
             "GRHL1_vs_TACSTD2": g1_trop2,
             "GRHL1_vs_CLDN4": g1_cldn4,
         },
+        "claim_pairs_by_histology": {
+            "LUAD_primary_tumor": {
+                "GRHL1_vs_TACSTD2": luad_trop2,
+                "GRHL1_vs_CLDN4": luad_cldn4,
+                "both_supported": supports_claim(
+                    luad_trop2.get("spearman_rho"), luad_trop2.get("spearman_p")
+                )
+                and supports_claim(
+                    luad_cldn4.get("spearman_rho"), luad_cldn4.get("spearman_p")
+                ),
+            },
+            "LUSC_primary_tumor": {
+                "GRHL1_vs_TACSTD2": lusc_trop2,
+                "GRHL1_vs_CLDN4": lusc_cldn4,
+                "both_supported": supports_claim(
+                    lusc_trop2.get("spearman_rho"), lusc_trop2.get("spearman_p")
+                )
+                and supports_claim(
+                    lusc_cldn4.get("spearman_rho"), lusc_cldn4.get("spearman_p")
+                ),
+            },
+        },
         "honest_verdict": {
             "label": verdict_label,
+            "applied_to": PRIMARY,
             "GRHL1_TACSTD2_supported": trop2_ok,
             "GRHL1_CLDN4_supported": cldn4_ok,
             "statement": statement,
@@ -212,14 +250,15 @@ def main() -> int:
         "per_cohort": per_slice,
         "caveats": [
             "Co-expression correlation only; not evidence of direct transcriptional regulation.",
-            "GRHL2 is included because it, not GRHL1, is the paralog most tied to claudin/TROP2 epithelial programs; compare the context rows.",
-            "LUAD+LUSC are also reported separately to expose any cohort-mixing effect.",
+            "Primary verdict is mixed NSCLC. LUAD and LUSC are pre-specified sensitivities, not a search for a nicer number.",
+            "Pooling LUAD+LUSC can cancel a within-histology GRHL1–CLDN4 correlation (different means / ranks across histologies).",
+            "GRHL2/GRHL3 rows are context. They are not used to rescue or replace the GRHL1 claim.",
             "No cohort or correlation method was chosen to favor the claim.",
         ],
     }
     (out / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
 
-    _figures(slices, PRIMARY, out, g1_trop2, g1_cldn4)
+    _figures(slices, PRIMARY, out, g1_trop2, g1_cldn4, per_slice)
 
     print(json.dumps(summary["honest_verdict"], indent=2))
     print()
@@ -227,7 +266,17 @@ def main() -> int:
     return 0
 
 
-def _statement(trop2, cldn4, trop2_ok, cldn4_ok, per_slice, primary) -> str:
+def _statement(
+    trop2,
+    cldn4,
+    trop2_ok,
+    cldn4_ok,
+    luad_trop2,
+    luad_cldn4,
+    lusc_trop2,
+    lusc_cldn4,
+    primary,
+) -> str:
     def fmt(rec):
         if not rec or rec.get("spearman_rho") is None:
             return "not computed"
@@ -243,60 +292,96 @@ def _statement(trop2, cldn4, trop2_ok, cldn4_ok, per_slice, primary) -> str:
     if trop2_ok and cldn4_ok:
         parts.append(
             "Both associations are positive, significant, and at least moderate, "
-            "so the claim that GRHL1 tracks both TROP2 and CLDN4 in lung is supported."
+            "so the claim that GRHL1 tracks both TROP2 and CLDN4 in mixed NSCLC is supported."
         )
     elif trop2_ok and not cldn4_ok:
         parts.append(
-            "GRHL1 tracks TACSTD2 (TROP2) but NOT CLDN4 at the moderate+significant "
-            "bar. The 'both targets' claim is only half true: the GRHL1-CLDN4 link is "
-            "the weak point."
+            "On the pre-specified mixed-NSCLC slice, GRHL1 tracks TACSTD2 (TROP2) "
+            "but not CLDN4 (near-zero, not significant). The shared-target claim is "
+            "only half true here."
         )
     elif cldn4_ok and not trop2_ok:
         parts.append(
-            "GRHL1 tracks CLDN4 but NOT TACSTD2 at the moderate+significant bar; the "
-            "claim is only partially supported."
+            "GRHL1 tracks CLDN4 but not TACSTD2 at the moderate+significant bar; "
+            "the claim is only partially supported on mixed NSCLC."
         )
     else:
         parts.append(
-            "Neither association clears the moderate+significant bar, so public TCGA "
-            "lung data do not support GRHL1 as a shared correlate of TROP2 and CLDN4."
+            "Neither association clears the moderate+significant bar on mixed NSCLC, "
+            "so this public slice does not support GRHL1 as a shared correlate of "
+            "TROP2 and CLDN4."
         )
-    # Add the GRHL2 context, since it usually carries the claudin signal.
-    g2_cldn4 = next(
-        (r for r in per_slice[primary]["pairs"]
-         if r["gene_a"] == "GRHL2" and r["gene_b"] == "CLDN4"),
-        None,
+    parts.append(
+        f"Histology split (pre-specified sensitivity, not a rescue): "
+        f"LUAD GRHL1–TACSTD2 {fmt(luad_trop2)}; LUAD GRHL1–CLDN4 {fmt(luad_cldn4)}; "
+        f"LUSC GRHL1–TACSTD2 {fmt(lusc_trop2)}; LUSC GRHL1–CLDN4 {fmt(lusc_cldn4)}. "
+        "Pooling LUAD+LUSC can cancel a within-LUAD GRHL1–CLDN4 correlation. "
+        "We still score the claim on mixed NSCLC because that was the primary cohort."
     )
-    if g2_cldn4 and g2_cldn4.get("spearman_rho") is not None:
-        parts.append(
-            f"For context, GRHL2 vs CLDN4 is rho={g2_cldn4['spearman_rho']:.3f} "
-            f"({g2_cldn4['spearman_strength']}), i.e. the claudin link tends to run "
-            f"through GRHL2 rather than GRHL1."
-        )
     return " ".join(parts)
 
 
-def _figures(slices, primary, out, trop2, cldn4) -> None:
+def _figures(slices, primary, out, trop2, cldn4, per_slice) -> None:
     sub = slices[primary]
+    colors = {"LUAD": "#1f77b4", "LUSC": "#d62728"}
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.8))
-    for ax, (gy, rec, color) in zip(
-        axes,
-        [("TACSTD2", trop2, "#1f77b4"), ("CLDN4", cldn4, "#d62728")],
+    for ax, gy, rec in (
+        (axes[0], "TACSTD2", trop2),
+        (axes[1], "CLDN4", cldn4),
     ):
-        x = sub["GRHL1"].to_numpy(float)
-        y = sub[gy].to_numpy(float)
-        m = np.isfinite(x) & np.isfinite(y)
-        ax.scatter(x[m], y[m], s=14, alpha=0.5, c=color, edgecolors="none")
+        for hist, g in sub.groupby("cohort"):
+            ax.scatter(
+                g["GRHL1"],
+                g[gy],
+                s=14,
+                alpha=0.55,
+                c=colors.get(hist, "#7f7f7f"),
+                edgecolors="none",
+                label=f"{hist} (n={len(g)})",
+            )
         rho = rec.get("spearman_rho")
         title = f"GRHL1 vs {gy}\n"
-        title += f"Spearman rho = {rho:.3f} (n={rec.get('n')})" if rho is not None else "n/a"
+        title += (
+            f"mixed NSCLC Spearman rho = {rho:.3f} (n={rec.get('n')})"
+            if rho is not None
+            else "n/a"
+        )
         ax.set_title(title)
         ax.set_xlabel("GRHL1  log2(norm_count+1)")
         ax.set_ylabel(f"{gy}  log2(norm_count+1)")
+        ax.legend(loc="best", fontsize=8, frameon=False)
         ax.grid(True, alpha=0.25)
-    fig.suptitle(f"TCGA {primary}: GRHL1 vs TROP2/CLDN4")
+    fig.suptitle("TCGA NSCLC primary tumors: GRHL1 vs TROP2 / CLDN4")
     fig.tight_layout()
     fig.savefig(out / "fig_grhl1_vs_targets_nsclc.png", dpi=160)
+    plt.close(fig)
+
+    # Bar of the two claim pairs across the three tumor slices.
+    cohorts = ["NSCLC_primary_tumor", "LUAD_primary_tumor", "LUSC_primary_tumor"]
+    labels = ["NSCLC mixed", "LUAD", "LUSC"]
+    fig, ax = plt.subplots(figsize=(7.2, 4.4))
+    x = np.arange(len(cohorts))
+    width = 0.36
+    trop2_vals = []
+    cldn4_vals = []
+    for c in cohorts:
+        t = next(r for r in per_slice[c]["pairs"] if r["gene_a"] == "GRHL1" and r["gene_b"] == "TACSTD2")
+        d = next(r for r in per_slice[c]["pairs"] if r["gene_a"] == "GRHL1" and r["gene_b"] == "CLDN4")
+        trop2_vals.append(t["spearman_rho"])
+        cldn4_vals.append(d["spearman_rho"])
+    ax.bar(x - width / 2, trop2_vals, width, color="#1f77b4", label="GRHL1–TACSTD2")
+    ax.bar(x + width / 2, cldn4_vals, width, color="#d62728", label="GRHL1–CLDN4")
+    ax.axhline(0.30, color="0.35", ls="--", lw=1, label="support bar (ρ=0.30)")
+    ax.axhline(0, color="0.5", lw=0.8)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylabel("Spearman ρ")
+    ax.set_ylim(-0.15, 0.65)
+    ax.set_title("GRHL1 vs TACSTD2 / CLDN4 by TCGA lung slice")
+    ax.legend(loc="upper right", fontsize=8, frameon=False)
+    ax.grid(True, axis="y", alpha=0.25)
+    fig.tight_layout()
+    fig.savefig(out / "fig_grhl1_rho_by_histology.png", dpi=160)
     plt.close(fig)
 
 

@@ -23,6 +23,8 @@ A pair supports the claim if Spearman ρ ≥ 0.30, p ≤ 0.05, and the sign is p
 
 GRHL2 / GRHL3 and CLDN3 / CLDN7 are context only (the closest paralog and neighboring claudins). They are not used to rescue the claim.
 
+Pooling LUAD+LUSC can cancel a within-LUAD GRHL1–CLDN4 correlation. That split is reported as sensitivity. The primary score stays on mixed NSCLC.
+
 ## Data
 
 UCSC Xena TCGA hub, HiSeqV2 RSEM gene-level `log2(norm_count+1)`:

@@ -1,0 +1,58 @@
+{
+  "task": "A10_GRHL1",
+  "release": "UCSC Xena TCGA hub, HiSeqV2 (RSEM gene-level, log2(norm_count+1))",
+  "citation": "Goldman MJ et al. (2020) Visualizing and interpreting cancer genomics data via the Xena platform. Nat Biotechnol. TCGA LUAD/LUSC HiSeqV2.",
+  "expression_scale": "log2(norm_count+1) RSEM gene-level",
+  "target_genes": [
+    "GRHL1",
+    "GRHL2",
+    "GRHL3",
+    "TACSTD2",
+    "CLDN4",
+    "CLDN3",
+    "CLDN7",
+    "ELF3",
+    "KLF5"
+  ],
+  "files": {
+    "LUAD": {
+      "url": "https://tcga-xena-hub.s3.dualstack.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap/HiSeqV2.gz",
+      "sha256": "5432e5a67fc4c4fd6ca22f76f18494756f0e8409a8969df3157935f39947aa00",
+      "bytes": 30884695,
+      "n_samples": 576,
+      "genes_found": [
+        "CLDN3",
+        "CLDN4",
+        "CLDN7",
+        "ELF3",
+        "GRHL1",
+        "GRHL2",
+        "GRHL3",
+        "KLF5",
+        "TACSTD2"
+      ],
+      "genes_missing": []
+    },
+    "LUSC": {
+      "url": "https://tcga-xena-hub.s3.dualstack.us-east-1.amazonaws.com/download/TCGA.LUSC.sampleMap/HiSeqV2.gz",
+      "sha256": "baa2b486d38cb68be6921b72dd798dd71a08a560ce3d4b5e690aa8c2a77bfa0d",
+      "bytes": 30037912,
+      "n_samples": 553,
+      "genes_found": [
+        "CLDN3",
+        "CLDN4",
+        "CLDN7",
+        "ELF3",
+        "GRHL1",
+        "GRHL2",
+        "GRHL3",
+        "KLF5",
+        "TACSTD2"
+      ],
+      "genes_missing": []
+    }
+  },
+  "tidy_output": "results/w200/A10_GRHL1/expression_tcga_lung.csv",
+  "n_rows": 1129,
+  "note": "Raw matrices cached locally only; repo stores the small gene extract."
+}
