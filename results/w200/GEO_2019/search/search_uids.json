@@ -1,0 +1,168 @@
+{
+  "date_filter": "(\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+  "queries": {
+    "lung_x_ici": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND (\"immune checkpoint\"[All Fields] OR \"checkpoint inhibitor\"[All Fields] OR \"checkpoint blockade\"[All Fields] OR \"immunotherapy\"[All Fields] OR \"immuno-oncology\"[All Fields] OR \"PD-1\"[All Fields] OR \"PD1\"[All Fields] OR \"PD-L1\"[All Fields] OR \"PDL1\"[All Fields] OR \"PDCD1\"[All Fields] OR \"CD274\"[All Fields] OR \"CTLA-4\"[All Fields] OR \"CTLA4\"[All Fields] OR \"anti-PD-1\"[All Fields] OR \"anti-PD-L1\"[All Fields] OR \"nivolumab\"[All Fields] OR \"pembrolizumab\"[All Fields] OR \"atezolizumab\"[All Fields] OR \"durvalumab\"[All Fields] OR \"avelumab\"[All Fields] OR \"ipilimumab\"[All Fields] OR \"cemiplimab\"[All Fields] OR \"tremelimumab\"[All Fields] OR \"camrelizumab\"[All Fields] OR \"sintilimab\"[All Fields] OR \"tislelizumab\"[All Fields] OR \"toripalimab\"[All Fields] OR \"immune-related adverse\"[All Fields] OR \"ICB\"[All Fields] OR \"ICI\"[All Fields] OR \"neoadjuvant immunotherapy\"[All Fields] OR \"chemoimmunotherapy\"[All Fields] OR \"adjuvant immunotherapy\"[All Fields]) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "24",
+      "n_ids": 24,
+      "n_new": 24,
+      "uids": [
+        "200111894",
+        "200111898",
+        "200117570",
+        "200118933",
+        "200119144",
+        "200120028",
+        "200120101",
+        "200124574",
+        "200127462",
+        "200127465",
+        "200127471",
+        "200127825",
+        "200129380",
+        "200129381",
+        "200133605",
+        "200135164",
+        "200135222",
+        "200135976",
+        "200136932",
+        "200136933",
+        "200136934",
+        "200138571",
+        "200139555",
+        "200142620"
+      ]
+    },
+    "lung_x_target": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND (\"TACSTD2\"[All Fields] OR \"TROP2\"[All Fields] OR \"TROP-2\"[All Fields] OR \"CLDN4\"[All Fields] OR \"claudin-4\"[All Fields] OR \"claudin 4\"[All Fields] OR \"sacituzumab\"[All Fields] OR \"datopotamab\"[All Fields] OR \"Dato-DXd\"[All Fields] OR \"SKB264\"[All Fields] OR \"sacituzumab govitecan\"[All Fields]) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "lung_x_response": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND (\"responder\"[All Fields] OR \"non-responder\"[All Fields] OR \"durable clinical benefit\"[All Fields] OR \"progression-free survival\"[All Fields] OR \"treatment response\"[All Fields] OR \"resistance to therapy\"[All Fields]) AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "4",
+      "n_ids": 4,
+      "n_new": 2,
+      "uids": [
+        "200071799",
+        "200117049",
+        "200124574",
+        "200135222"
+      ]
+    },
+    "drug_nivolumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"nivolumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_pembrolizumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"pembrolizumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_atezolizumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"atezolizumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_durvalumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"durvalumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_ipilimumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"ipilimumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_avelumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"avelumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_cemiplimab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"cemiplimab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_tremelimumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"tremelimumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_camrelizumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"camrelizumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_sintilimab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"sintilimab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_tislelizumab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"tislelizumab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    },
+    "drug_toripalimab": {
+      "term": "(\"lung\"[All Fields] OR \"NSCLC\"[All Fields] OR \"non-small cell lung\"[All Fields] OR \"non small cell lung\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"LUAD\"[All Fields] OR \"lung squamous\"[All Fields] OR \"LUSC\"[All Fields] OR \"small cell lung\"[All Fields] OR \"SCLC\"[All Fields] OR \"pulmonary carcinoma\"[All Fields] OR \"pleural\"[All Fields] OR \"bronchial carcinoma\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung cancer\"[All Fields]) AND \"toripalimab\"[All Fields] AND \"Homo sapiens\"[Organism] AND \"gse\"[Entry Type] AND (\"2019/01/01\"[PDAT] : \"2019/12/31\"[PDAT])",
+      "count": "0",
+      "n_ids": 0,
+      "n_new": 0,
+      "uids": []
+    }
+  },
+  "uids": [
+    "200071799",
+    "200111894",
+    "200111898",
+    "200117049",
+    "200117570",
+    "200118933",
+    "200119144",
+    "200120028",
+    "200120101",
+    "200124574",
+    "200127462",
+    "200127465",
+    "200127471",
+    "200127825",
+    "200129380",
+    "200129381",
+    "200133605",
+    "200135164",
+    "200135222",
+    "200135976",
+    "200136932",
+    "200136933",
+    "200136934",
+    "200138571",
+    "200139555",
+    "200142620"
+  ]
+}
