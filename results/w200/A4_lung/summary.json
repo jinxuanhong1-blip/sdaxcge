@@ -1,0 +1,83 @@
+{
+  "task": "A4 lung-only TISMO Tacstd2/Cldn4 paired ICB",
+  "verdict": "NOT SUPPORTED as a lung/NSCLC result. TISMO has two lung-carcinoma lines (LLC, CMT-167). The only paired ICB design is GSE155972 LLC anti-PD1+anti-CTLA4 (2 genotype arms). Tacstd2 and Cldn4 sit near the detection floor (mean TPM ~0.1\u20130.2). One uncorrected MWU (Tacstd2 WT ICB vs baseline p=0.045) is nominally <0.05 but does not survive BH FDR across the 4 primary tests; Welch t is n.s. (p=0.15). Cldn4 is n.s. in both arms. The Setdb1_KO mean-up is one outlier (SRX8918393). The A4 49/64 count is a pan-TISMO mean-direction tally, not a lung finding. Immune controls (Cd8a/Cd274/Gzmb) do rise, so the design can detect ICB effects.",
+  "claim_A4": {
+    "stated": "Tacstd2 up in 49/64 ICI-treated mouse models, p=5.8e-5",
+    "universe_reproduced": "64 TISMO in-vivo ICB treated-vs-baseline cohorts from gene export",
+    "tacstd2_mean_direction": {
+      "rule": "mean",
+      "n_up": 49,
+      "n_down": 15,
+      "n_tie": 0,
+      "n": 64,
+      "binom_two_sided_p": 2.436457216293327e-05,
+      "binom_one_sided_greater_p": 1.2182286081466635e-05,
+      "binom_two_sided_excl_tie_p": 2.436457216293327e-05,
+      "lung_n": 2,
+      "lung_n_up": 2,
+      "claim_49_of_64": true,
+      "gene": "Tacstd2"
+    },
+    "tacstd2_median_direction": {
+      "rule": "median",
+      "n_up": 40,
+      "n_down": 18,
+      "n_tie": 6,
+      "n": 64,
+      "binom_two_sided_p": 0.05994118956699923,
+      "binom_one_sided_greater_p": 0.029970594783499616,
+      "binom_two_sided_excl_tie_p": 0.005354859650800294,
+      "lung_n": 2,
+      "lung_n_up": 2,
+      "claim_49_of_64": false,
+      "gene": "Tacstd2"
+    },
+    "cldn4_mean_direction": {
+      "rule": "mean",
+      "n_up": 34,
+      "n_down": 29,
+      "n_tie": 2,
+      "n": 65,
+      "binom_two_sided_p": 0.8043170001933984,
+      "binom_one_sided_greater_p": 0.4021585000966992,
+      "binom_two_sided_excl_tie_p": 0.6146550157654618,
+      "lung_n": 2,
+      "lung_n_up": 2,
+      "claim_49_of_64": false,
+      "gene": "Cldn4"
+    },
+    "wilcoxon_signed_rank_greater_on_mean_deltas": {
+      "W": 1641.0,
+      "p": 2.9199241461673782e-05,
+      "n": 64
+    },
+    "claimed_p_5_8e5_reproduced": false,
+    "exact_two_sided_binomial_p": 2.436457216293327e-05,
+    "note_on_p": "49/64 vs 0.5 has exact two-sided binomial p=2.44e-5 and one-sided greater p=1.22e-5. The user-reported 5.8e-5 was not recovered.",
+    "independence_caveat": "Two 4T1 GSE130472 cohort pairs share the same baseline samples (old antiCTLA4 vs old antiPDL1; young antiCTLA4 vs young antiPDL1). The binomial treats 64 comparisons as independent."
+  },
+  "lung_scope": {
+    "tismo_lung_models": [
+      "CMT-167",
+      "LLC"
+    ],
+    "lung_design_groups": 19,
+    "lung_icb_studies": [
+      "GSE155972"
+    ],
+    "paired_icb_study": "GSE155972",
+    "paired_icb_model": "LLC (Lewis lung carcinoma), subcutaneous flank",
+    "n_lung_icb_cohorts_in_64": 2,
+    "cmt167_has_icb": false,
+    "response_confound": "WT ICB arm is labeled Non-responders; Setdb1_KO ICB arm is labeled Responders. Response is confounded with Setdb1 genotype. There is no within-genotype R vs NR contrast."
+  },
+  "lung_tests_nominal_p_lt_0.05": true,
+  "lung_tests_bh_fdr_lt_0.05": false,
+  "outlier": {
+    "sample": "SRX8918393",
+    "note": "Setdb1_KO ICB sample SRX8918393 is Tacstd2=5.41 and Cldn4=3.23; all other LLC Tacstd2 values are \u22641.10. TISMO's LLC-only Tacstd2 export drops this sample; the All-models export keeps it. Mean-direction 'up' on the KO arm is this one point."
+  },
+  "n_tacstd2_icb_cohorts": 64,
+  "n_cldn4_icb_cohorts": 65,
+  "claim_reproduced_pan_tismo_mean": true
+}
