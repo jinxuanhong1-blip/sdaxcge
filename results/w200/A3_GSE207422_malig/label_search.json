@@ -1,0 +1,34 @@
+{
+  "dataset": "GSE207422",
+  "paper": "Hu J et al. Genome Medicine 2023;15:14. PMID 36869384. DOI 10.1186/s13073-023-01164-9",
+  "author_per_cell_labels_public": false,
+  "author_method": "Seurat v3.2.2 clustering (resolution 0.6) then CopyKAT v0.1.0 on epithelium (stromal reference) to call malignant vs normal",
+  "sources_checked": [
+    {
+      "source": "GEO GSE207422 supplementary",
+      "result": "UMI matrix (175.5 MB) + sample-level xlsx only. No barcode / cell-type table.",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207422"
+    },
+    {
+      "source": "Paper ESM MOESM1–4",
+      "result": "Table S1 clinical; Fig S PDF; gene-module lists; steroid intensities. No cell barcodes.",
+      "url": "https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-023-01164-9"
+    },
+    {
+      "source": "Author GitHub Junjie-Hu/NSCLC-immunotherapy",
+      "result": "Analysis scripts only (71 KB). Reads local metadata_scrublet.csv, all_cell.rds, epithelium.rds, copykat_res.rds — none deposited.",
+      "url": "https://github.com/Junjie-Hu/NSCLC-immunotherapy"
+    },
+    {
+      "source": "TISCH2 NSCLC_GSE207422 CellMetainfo",
+      "result": "HTTP 404 on tisch.compbio.cn static/data paths. Not used.",
+      "url": "https://tisch.compbio.cn/static/data/NSCLC_GSE207422/NSCLC_GSE207422_CellMetainfo_table.tsv"
+    },
+    {
+      "source": "GSA-Human HRA001033",
+      "result": "Raw FASTQ. Controlled. Not processed cell labels. Not downloaded.",
+      "url": "https://ngdc.cncb.ac.cn/gsa-human/browse/HRA001033"
+    }
+  ],
+  "fallback_used": "Marker-based lineages from Hu canonical markers; malignant-like = epithelial AND zero UMI for SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3. Not CopyKAT."
+}

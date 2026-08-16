@@ -1,0 +1,6 @@
+file	role	size_bytes	size_gb	within_2gb_budget	action	url
+GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz	processed_umi	184001817	0.171	True	already_present	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz
+GSE207422_NSCLC_scRNAseq_metadata.xlsx	sample_metadata	11323	0.0	True	already_present	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_metadata.xlsx
+GSE207422_NSCLC_bulk_RNAseq_metadata.xlsx	bulk_metadata_unused	12056	0.0	True	skip_unused	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_metadata.xlsx
+GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz	bulk_unused	5629640	0.005	True	skip_unused	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz
+13073_2023_1164_MOESM1_ESM.xlsx	paper_table_s1_clinical	21856	0.0	True	download	https://static-content.springer.com/esm/art%3A10.1186%2Fs13073-023-01164-9/MediaObjects/13073_2023_1164_MOESM1_ESM.xlsx
