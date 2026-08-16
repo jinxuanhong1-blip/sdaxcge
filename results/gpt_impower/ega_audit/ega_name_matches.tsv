@@ -1,0 +1,19 @@
+collection	matched_trials	accession_id	title	access_type	is_released	description
+datasets	IMpower150	EGAD00001009725	ctDNA data	controlled	True	ctDNA data for IMpower150, including individual mutation calls (one mutation per sample per line), sample list including ctDNA status (one sample per line), and patient-level ctDNA summaries called ctDNA features (one patient per line).
+datasets	IMpower150	EGAD00001009726	Clinical data	controlled	True	Clinical data for IMpower150 (one patient per line): anonymized_patient_id, train_test_split, ctDNA_status, ARM1, OS_months, OS_event, PFS_months, PFS_event, TTEOS_rebaseline_BL, TTEPFS_rebaseline_BL, TTEOS_rebaseline_C2D1, TTEPFS_rebaseline_C2D1, TTEOS_rebaseline_C3D1, TTEPFS_rebaseline_C3D1, TTEOS_rebaseline_C4D1, TTEPFS_rebaseline_C4D1, TTEOS_rebaseline_C8D1, TTEPFS_rebaseline_C8D1, pdl1_high, number_metastatic_sites, baseline_ECOG, age, sex_female, history_of_tobacco_use, sld_baseline, sld_wk6, sld_percent_change_bl_to_wk6, sld_difference_bl_to_wk6, AGEGRP, tumor_assessment_week_6, tumor_assessment_week_12, tumor_assessment_week_18, tumor_assessment_week_24, PFS_days, days_between_randomization_c3
+datasets	IMpower150	EGAD50000001814	RNA-seq TPMs quantification for baseline tumor samples originating from IMpower150, and relevant clinical metadata 	controlled	True	This dataset includes full tumor transcriptomes from 558 advanced NSCLC tumors. These data originate from pre-treatment samples from a  clinical trial for first-line non-small cell lung cancer (IMpower150). The patients in this trial were treated with the PD-L1 inhibitor atezolizumab +bevacizumab + chemotherapy or bevacizumab + chemotherapy or atezolizumab + chemotherapy.
+studies	IMpower150	EGAS50000001272	Non-small cell lung cancer molecular subtypes and vulnerability to immunotherapy treatment combinations		True	"The phase 3 IMpower150 trial in treatment-naïve patients with metastatic non-small-cell lung
+cancer (NSCLC) demonstrated significantly longer progression-free (PFS) and overall survival
+(OS) with first-line atezolizumab (anti-PD-L1)-bevacizumab (anti-VEGF)-carboplatin-paclitaxel
+(ABCP) than with bevacizumab-carboplatin-paclitaxel (BCP). We characterised four molecular
+NSCLC subtypes identified by unsupervised clustering of transcriptomes of 564 pre-treatment
+primary tumour samples from IMpower150 using non-negative matrix factorization (NMF1-4).
+Each subtype had distinct tumour PD-L1 expression levels, epithelial characteristics, immune
+composition, and treatment outcomes. Both NMF2 (enriched in tumour proliferation signal,
+macrophages, and monocytes) and NMF4 (enriched in B-cells and T cells) had elevated tumour
+PD-L1 expression. Of these two, only NMF4 demonstrated PFS and OS benefits with ABCP
+versus either BCP or atezolizumab-carboplatin-paclitaxel (ACP). Patients with NMF1 (enriched
+in basal and squamous-like cells) had improved outcomes on ABCP compared with ACP or
+BCP; those with NMF3 (enriched in adenocarcinoma signatures) showed similar outcomes
+among treatments. These insights could help inform individualised first-line treatment for
+metastatic NSCLC."

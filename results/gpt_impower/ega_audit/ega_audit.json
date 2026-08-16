@@ -1,0 +1,406 @@
+{
+  "api": "https://metadata.ega-archive.org",
+  "query_terms": {
+    "IMpower150": [
+      "impower150",
+      "impower 150"
+    ],
+    "IMpower110": [
+      "impower110",
+      "impower 110"
+    ],
+    "IMpower130": [
+      "impower130",
+      "impower 130"
+    ],
+    "PACIFIC": [
+      "pacific trial",
+      "pacific study",
+      "nct02125461"
+    ]
+  },
+  "objects_scanned": {
+    "datasets": 21321,
+    "studies": 10502
+  },
+  "matches": [
+    {
+      "collection": "datasets",
+      "matched_trials": [
+        "IMpower150"
+      ],
+      "accession_id": "EGAD00001009725",
+      "title": "ctDNA data",
+      "description": "ctDNA data for IMpower150, including individual mutation calls (one mutation per sample per line), sample list including ctDNA status (one sample per line), and patient-level ctDNA summaries called ctDNA features (one patient per line).",
+      "dataset_types": [
+        "Phenotype information"
+      ],
+      "technologies": null,
+      "num_samples": 0,
+      "access_type": "controlled",
+      "is_in_beacon": false,
+      "is_released": true,
+      "released_date": "2001-01-01T00:00:00+01:00",
+      "is_deprecated": false,
+      "policy_accession_id": "EGAP00001002992"
+    },
+    {
+      "collection": "datasets",
+      "matched_trials": [
+        "IMpower150"
+      ],
+      "accession_id": "EGAD00001009726",
+      "title": "Clinical data",
+      "description": "Clinical data for IMpower150 (one patient per line): anonymized_patient_id, train_test_split, ctDNA_status, ARM1, OS_months, OS_event, PFS_months, PFS_event, TTEOS_rebaseline_BL, TTEPFS_rebaseline_BL, TTEOS_rebaseline_C2D1, TTEPFS_rebaseline_C2D1, TTEOS_rebaseline_C3D1, TTEPFS_rebaseline_C3D1, TTEOS_rebaseline_C4D1, TTEPFS_rebaseline_C4D1, TTEOS_rebaseline_C8D1, TTEPFS_rebaseline_C8D1, pdl1_high, number_metastatic_sites, baseline_ECOG, age, sex_female, history_of_tobacco_use, sld_baseline, sld_wk6, sld_percent_change_bl_to_wk6, sld_difference_bl_to_wk6, AGEGRP, tumor_assessment_week_6, tumor_assessment_week_12, tumor_assessment_week_18, tumor_assessment_week_24, PFS_days, days_between_randomization_c3",
+      "dataset_types": [
+        "Phenotype information"
+      ],
+      "technologies": null,
+      "num_samples": 0,
+      "access_type": "controlled",
+      "is_in_beacon": false,
+      "is_released": true,
+      "released_date": "2001-01-01T00:00:00+01:00",
+      "is_deprecated": false,
+      "policy_accession_id": "EGAP00001002992"
+    },
+    {
+      "collection": "datasets",
+      "matched_trials": [
+        "IMpower150"
+      ],
+      "accession_id": "EGAD50000001814",
+      "title": "RNA-seq TPMs quantification for baseline tumor samples originating from IMpower150, and relevant clinical metadata ",
+      "description": "This dataset includes full tumor transcriptomes from 558 advanced NSCLC tumors. These data originate from pre-treatment samples from a  clinical trial for first-line non-small cell lung cancer (IMpower150). The patients in this trial were treated with the PD-L1 inhibitor atezolizumab +bevacizumab + chemotherapy or bevacizumab + chemotherapy or atezolizumab + chemotherapy.",
+      "dataset_types": [
+        "Transcriptome profiling by high-throughput sequencing"
+      ],
+      "technologies": null,
+      "num_samples": 277,
+      "access_type": "controlled",
+      "is_in_beacon": false,
+      "is_released": true,
+      "released_date": "2025-11-14T16:05:37.001176+01:00",
+      "is_deprecated": false,
+      "policy_accession_id": "EGAP50000000054"
+    },
+    {
+      "collection": "studies",
+      "matched_trials": [
+        "IMpower150"
+      ],
+      "accession_id": "EGAS50000001272",
+      "title": "Non-small cell lung cancer molecular subtypes and vulnerability to immunotherapy treatment combinations",
+      "description": "The phase 3 IMpower150 trial in treatment-naïve patients with metastatic non-small-cell lung\r\ncancer (NSCLC) demonstrated significantly longer progression-free (PFS) and overall survival\r\n(OS) with first-line atezolizumab (anti-PD-L1)-bevacizumab (anti-VEGF)-carboplatin-paclitaxel\r\n(ABCP) than with bevacizumab-carboplatin-paclitaxel (BCP). We characterised four molecular\r\nNSCLC subtypes identified by unsupervised clustering of transcriptomes of 564 pre-treatment\r\nprimary tumour samples from IMpower150 using non-negative matrix factorization (NMF1-4).\r\nEach subtype had distinct tumour PD-L1 expression levels, epithelial characteristics, immune\r\ncomposition, and treatment outcomes. Both NMF2 (enriched in tumour proliferation signal,\r\nmacrophages, and monocytes) and NMF4 (enriched in B-cells and T cells) had elevated tumour\r\nPD-L1 expression. Of these two, only NMF4 demonstrated PFS and OS benefits with ABCP\r\nversus either BCP or atezolizumab-carboplatin-paclitaxel (ACP). Patients with NMF1 (enriched\r\nin basal and squamous-like cells) had improved outcomes on ABCP compared with ACP or\r\nBCP; those with NMF3 (enriched in adenocarcinoma signatures) showed similar outcomes\r\namong treatments. These insights could help inform individualised first-line treatment for\r\nmetastatic NSCLC.",
+      "abstract": null,
+      "study_type": "RNASeq",
+      "pubmed_ids": [],
+      "external_links": null,
+      "is_released": true,
+      "released_date": "2025-11-14T16:05:37.001176+01:00",
+      "is_deprecated": false
+    }
+  ],
+  "known_impower150_datasets": [
+    {
+      "dataset": {
+        "accession_id": "EGAD00001009725",
+        "title": "ctDNA data",
+        "description": "ctDNA data for IMpower150, including individual mutation calls (one mutation per sample per line), sample list including ctDNA status (one sample per line), and patient-level ctDNA summaries called ctDNA features (one patient per line).",
+        "dataset_types": [
+          "Phenotype information"
+        ],
+        "technologies": null,
+        "num_samples": 0,
+        "access_type": "controlled",
+        "is_in_beacon": false,
+        "is_released": true,
+        "released_date": "2001-01-01T00:00:00+01:00",
+        "is_deprecated": false,
+        "policy_accession_id": "EGAP00001002992"
+      },
+      "studies": [
+        {
+          "accession_id": "EGAS00001006703",
+          "title": "High-resolution testing of ctDNA dynamics predicts survival in metastatic NSCLC",
+          "description": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "abstract": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2022-10-20T01:09:21+02:00",
+          "is_deprecated": false
+        }
+      ],
+      "files": [
+        {
+          "accession_id": "EGAF00007700270",
+          "unencrypted_checksum": "6da7764bb53b6492ecd5cea796f67f6c",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 3712245,
+          "extension": "csv",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        },
+        {
+          "accession_id": "EGAF00007700271",
+          "unencrypted_checksum": "4fb9c3b7af51b148181ac4faf09ffde3",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 1377981,
+          "extension": "csv",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        },
+        {
+          "accession_id": "EGAF00007700273",
+          "unencrypted_checksum": "c760e9da8836661c2133be660c435622",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 399898,
+          "extension": "csv",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": {
+        "accession_id": "EGAD00001009726",
+        "title": "Clinical data",
+        "description": "Clinical data for IMpower150 (one patient per line): anonymized_patient_id, train_test_split, ctDNA_status, ARM1, OS_months, OS_event, PFS_months, PFS_event, TTEOS_rebaseline_BL, TTEPFS_rebaseline_BL, TTEOS_rebaseline_C2D1, TTEPFS_rebaseline_C2D1, TTEOS_rebaseline_C3D1, TTEPFS_rebaseline_C3D1, TTEOS_rebaseline_C4D1, TTEPFS_rebaseline_C4D1, TTEOS_rebaseline_C8D1, TTEPFS_rebaseline_C8D1, pdl1_high, number_metastatic_sites, baseline_ECOG, age, sex_female, history_of_tobacco_use, sld_baseline, sld_wk6, sld_percent_change_bl_to_wk6, sld_difference_bl_to_wk6, AGEGRP, tumor_assessment_week_6, tumor_assessment_week_12, tumor_assessment_week_18, tumor_assessment_week_24, PFS_days, days_between_randomization_c3",
+        "dataset_types": [
+          "Phenotype information"
+        ],
+        "technologies": null,
+        "num_samples": 0,
+        "access_type": "controlled",
+        "is_in_beacon": false,
+        "is_released": true,
+        "released_date": "2001-01-01T00:00:00+01:00",
+        "is_deprecated": false,
+        "policy_accession_id": "EGAP00001002992"
+      },
+      "studies": [
+        {
+          "accession_id": "EGAS00001006703",
+          "title": "High-resolution testing of ctDNA dynamics predicts survival in metastatic NSCLC",
+          "description": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "abstract": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2022-10-20T01:09:21+02:00",
+          "is_deprecated": false
+        }
+      ],
+      "files": [
+        {
+          "accession_id": "EGAF00007700272",
+          "unencrypted_checksum": "a3b61805dd9940bd5fd7419e9bda0a34",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 166574,
+          "extension": "csv",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": {
+        "accession_id": "EGAD00001009764",
+        "title": "ML modeling data &amp; code",
+        "description": "Rmarkdown code, PDF,  and Rdata file to recapitulate the paper's primary figures and machine learning model development.",
+        "dataset_types": [
+          "Phenotype information"
+        ],
+        "technologies": null,
+        "num_samples": 0,
+        "access_type": "controlled",
+        "is_in_beacon": false,
+        "is_released": true,
+        "released_date": "2001-01-01T00:00:00+01:00",
+        "is_deprecated": false,
+        "policy_accession_id": "EGAP00001002992"
+      },
+      "studies": [
+        {
+          "accession_id": "EGAS00001006703",
+          "title": "High-resolution testing of ctDNA dynamics predicts survival in metastatic NSCLC",
+          "description": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "abstract": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2022-10-20T01:09:21+02:00",
+          "is_deprecated": false
+        }
+      ],
+      "files": [
+        {
+          "accession_id": "EGAF00007808224",
+          "unencrypted_checksum": "e072826d9f01f819a79a853637871c64",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 415442,
+          "extension": "pdf",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        },
+        {
+          "accession_id": "EGAF00007808225",
+          "unencrypted_checksum": "7c04e25e404b72e0e100f690d41742bf",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 40471,
+          "extension": "rmd",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        },
+        {
+          "accession_id": "EGAF00007808226",
+          "unencrypted_checksum": "d17cf59bd90881a53ee60360a8cf5c9a",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 4064181,
+          "extension": "RData",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": {
+        "accession_id": "EGAD50000000273",
+        "title": "Gene list ",
+        "description": "311 genes ",
+        "dataset_types": [
+          "Phenotype information"
+        ],
+        "technologies": null,
+        "num_samples": 1,
+        "access_type": "controlled",
+        "is_in_beacon": false,
+        "is_released": true,
+        "released_date": "2024-02-14T17:24:25.44894+01:00",
+        "is_deprecated": false,
+        "policy_accession_id": "EGAP50000000054"
+      },
+      "studies": [
+        {
+          "accession_id": "EGAS00001006703",
+          "title": "High-resolution testing of ctDNA dynamics predicts survival in metastatic NSCLC",
+          "description": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "abstract": "One of the great challenges of therapeutic oncology is determining who might achieve survival benefit from a particular therapy. Circulating tumor DNA (ctDNA) provides real-time assessments of patient prognosis and response to treatment using a simple blood draw. While ctDNA positivity is established as a poor prognostic factor, studies on longitudinal ctDNA dynamics have been small and non-randomized, with ctDNA assessments done at disparate time points. To address this, we performed high-sensitivity longitudinal ctDNA testing in 466 patients across 5 time points (1,954 samples total) in a randomized phase III study comparing different chemotherapy-immunotherapy combinations.  We leverage machine learning to jointly model multiple ctDNA metrics to predict overall survival in a training/testing framework. _   . Treatment initiation correlated with reductions in ctDNA levels, and training of our machine learning model suggests that assessment of ctDNA dynamics at C3D1 (cycle 3 day 1) of chemo-IO treatment may be optimal to predict OS. The model performs well in the hold-back test data, enabling stratification of patients with Stable Disease (SD) into high-risk vs low-intermediate-risk (HR = 3.2 [2.0-5.3], p &lt;0.001; median 7.1 versus 22.3 months respectively); similarly, the model stratifies patients with a Partial Response (PR) (HR =3.3 [1.7-6.4], p &lt;0.001; median 8.8 versus 28.6 months). Importantly, the model validates well in an external cohort of patients in a different treatment setting and assayed with a different ctDNA technology, in which model predictions similarly identified high-risk patients (OS HR=3.73 [1.83-7.60], logrank p=0.00012). Simulations of clinical trial scenarios employing our ctDNA model further suggest that early ctDNA testing outperforms early radiographic imaging for predicting trial outcomes (increasing the rate of ‘True Go’ decisions by 5.2 - 22.8% depending on the drug combination). Overall, we show that measuring ctDNA dynamics during the course of therapy dramatically improves patient risk stratification, and may provide a means to differentiate between competing therapies at an early time point during clinical trials.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2022-10-20T01:09:21+02:00",
+          "is_deprecated": false
+        }
+      ],
+      "files": [
+        {
+          "accession_id": "EGAF50000084718",
+          "unencrypted_checksum": "4bbdd971087b9072e6232309dabe5013e59b0b732d7d839229f0f99a7efa437a",
+          "unencrypted_checksum_type": "SHA256",
+          "filesize": 1941,
+          "extension": "txt",
+          "has_report": false,
+          "locations": [
+            "crg"
+          ]
+        }
+      ]
+    },
+    {
+      "dataset": {
+        "accession_id": "EGAD50000001814",
+        "title": "RNA-seq TPMs quantification for baseline tumor samples originating from IMpower150, and relevant clinical metadata ",
+        "description": "This dataset includes full tumor transcriptomes from 558 advanced NSCLC tumors. These data originate from pre-treatment samples from a  clinical trial for first-line non-small cell lung cancer (IMpower150). The patients in this trial were treated with the PD-L1 inhibitor atezolizumab +bevacizumab + chemotherapy or bevacizumab + chemotherapy or atezolizumab + chemotherapy.",
+        "dataset_types": [
+          "Transcriptome profiling by high-throughput sequencing"
+        ],
+        "technologies": null,
+        "num_samples": 277,
+        "access_type": "controlled",
+        "is_in_beacon": false,
+        "is_released": true,
+        "released_date": "2025-11-14T16:05:37.001176+01:00",
+        "is_deprecated": false,
+        "policy_accession_id": "EGAP50000000054"
+      },
+      "studies": [
+        {
+          "accession_id": "EGAS50000001272",
+          "title": "Non-small cell lung cancer molecular subtypes and vulnerability to immunotherapy treatment combinations",
+          "description": "The phase 3 IMpower150 trial in treatment-naïve patients with metastatic non-small-cell lung\r\ncancer (NSCLC) demonstrated significantly longer progression-free (PFS) and overall survival\r\n(OS) with first-line atezolizumab (anti-PD-L1)-bevacizumab (anti-VEGF)-carboplatin-paclitaxel\r\n(ABCP) than with bevacizumab-carboplatin-paclitaxel (BCP). We characterised four molecular\r\nNSCLC subtypes identified by unsupervised clustering of transcriptomes of 564 pre-treatment\r\nprimary tumour samples from IMpower150 using non-negative matrix factorization (NMF1-4).\r\nEach subtype had distinct tumour PD-L1 expression levels, epithelial characteristics, immune\r\ncomposition, and treatment outcomes. Both NMF2 (enriched in tumour proliferation signal,\r\nmacrophages, and monocytes) and NMF4 (enriched in B-cells and T cells) had elevated tumour\r\nPD-L1 expression. Of these two, only NMF4 demonstrated PFS and OS benefits with ABCP\r\nversus either BCP or atezolizumab-carboplatin-paclitaxel (ACP). Patients with NMF1 (enriched\r\nin basal and squamous-like cells) had improved outcomes on ABCP compared with ACP or\r\nBCP; those with NMF3 (enriched in adenocarcinoma signatures) showed similar outcomes\r\namong treatments. These insights could help inform individualised first-line treatment for\r\nmetastatic NSCLC.",
+          "abstract": null,
+          "study_type": "RNASeq",
+          "pubmed_ids": [],
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2025-11-14T16:05:37.001176+01:00",
+          "is_deprecated": false
+        }
+      ],
+      "files": [
+        {
+          "accession_id": "EGAF00008907812",
+          "unencrypted_checksum": "019a5626604dd088f63360a57dc471c6",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 118050,
+          "extension": "csv",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        },
+        {
+          "accession_id": "EGAF00008907814",
+          "unencrypted_checksum": "938fc119d70fa277611f479648a55ee6",
+          "unencrypted_checksum_type": "MD5",
+          "filesize": 162304203,
+          "extension": "csv",
+          "has_report": false,
+          "locations": [
+            "crg",
+            "ebi"
+          ]
+        },
+        {
+          "accession_id": "EGAF50000836797",
+          "unencrypted_checksum": "1ae3fdcc1279a6e3954d682f8dba4f635e41d453d65fc06ac687628ad5aaabf8",
+          "unencrypted_checksum_type": "SHA256",
+          "filesize": 162873079,
+          "extension": "csv",
+          "has_report": false,
+          "locations": [
+            "crg"
+          ]
+        }
+      ]
+    }
+  ]
+}
