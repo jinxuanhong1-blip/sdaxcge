@@ -1,0 +1,10 @@
+# Re-downloadable GEO matrices and large AnnData
+data/
+*.h5ad
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
