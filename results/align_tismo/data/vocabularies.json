@@ -1,0 +1,33 @@
+{
+  "icb_treatments": [
+    "antiCTLA4",
+    "antiCTLA4&antiPD1",
+    "antiCTLA4&antiPDL1",
+    "antiPD1",
+    "antiPDL1",
+    "antiPDL2"
+  ],
+  "tumor_models": [
+    "402230",
+    "4T1",
+    "B16",
+    "BNL-MEA",
+    "CT26",
+    "D3UV2",
+    "D4M.3A.3",
+    "E0771",
+    "EMT6",
+    "KPB25L",
+    "LLC",
+    "MC38",
+    "MOC22",
+    "p53-2225L",
+    "p53-2336R",
+    "T11",
+    "YTN16",
+    "YUMM1.7"
+  ],
+  "n_genes": 21235,
+  "api_meta_base": "https://tismo.pku-genomics.org/tismo",
+  "api_r_base": "https://tismo.pku-genomics.org/rtismo"
+}
