@@ -1,0 +1,28 @@
+name: scrna-ici
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - scikit-misc
+  - python-igraph
+  - leidenalg
+  - h5py
+  - openpyxl
+  - jupyterlab
+  - pip:
+      - scanpy>=1.10
+      - anndata>=0.10
+      - harmonypy
+      - celltypist
+      - decoupler>=1.8
+      - liana>=1.2
+      - scvi-tools>=1.1        # install CUDA torch/jax separately for GPU
+      - scdblfinder            # optional python shim; prefer R scDblFinder
