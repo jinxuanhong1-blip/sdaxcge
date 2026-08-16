@@ -41,7 +41,7 @@ The same public labels and matrix recover the expected immune-gene signal
 | CLDN4 | CR vs PD (drop SD) | 7/9 | 6/9 | 1.17 | 0.28–4.87 | 31 | 1.0 |
 | CLDN4 | CR+SD vs PD | 13/10 | 14/8 | 0.74 | 0.22–2.46 | 45 | 0.76 |
 | TACSTD2 | CR vs SD+PD | 7/16 | 6/16 | 1.17 | 0.32–4.25 | 45 | 1.0 |
-| EPCAM | CR vs SD+PD | 7/16 | 6/16 | 1.17 | 0.32–4.25 | 45 | 1.0 |
+| EPCAM | CR vs SD+PD | 6/17 | 7/15 | 0.76 | 0.21–2.75 | 45 | 0.75 |
 | CD274 (control) | CR vs SD+PD | 10/13 | 3/19 | 4.87 | 1.12–21.2 | 45 | 0.047 |
 
 CLDN4 high is not enriched for response. The 2×2 is essentially balanced
@@ -52,11 +52,11 @@ includes both a 3-fold protective effect and a 4-fold harmful effect.
 
 | Gene | Contrast | R / NR | Median R | Median NR | AUC (R higher) | 95% bootstrap CI | MW p |
 |---|---|---:|---:|---:|---:|---|---:|
-| CLDN4 | CR vs SD+PD | 13 / 32 | 7.33 | 6.54 | 0.618 | 0.434–0.790 | 0.225 |
-| CLDN4 | CR vs PD | 13 / 18 | 7.33 | 6.94 | 0.611 | 0.403–0.803 | 0.307 |
-| TACSTD2 | CR vs SD+PD | 13 / 32 | 6.06 | 5.85 | 0.526 | 0.332–0.716 | 0.793 |
-| EPCAM | CR vs SD+PD | 13 / 32 | 8.45 | 8.99 | 0.519 | 0.322–0.711 | 0.851 |
-| CD274 | CR vs SD+PD | 13 / 32 | 2.86 | 0.99 | 0.781 | 0.619–0.918 | 0.0035 |
+| CLDN4 | CR vs SD+PD | 13 / 32 | 7.33 | 6.54 | 0.618 | 0.421–0.803 | 0.225 |
+| CLDN4 | CR vs PD | 13 / 18 | 7.33 | 6.94 | 0.611 | 0.393–0.816 | 0.307 |
+| TACSTD2 | CR vs SD+PD | 13 / 32 | 6.06 | 5.85 | 0.526 | 0.298–0.755 | 0.793 |
+| EPCAM | CR vs SD+PD | 13 / 32 | 8.45 | 8.99 | 0.519 | 0.324–0.714 | 0.851 |
+| CD274 | CR vs SD+PD | 13 / 32 | 2.86 | 0.99 | 0.781 | 0.608–0.923 | 0.0035 |
 
 Medians are on the release log2 TPM scale. Bootstrap CIs use 20,000
 patient-level resamples (seed 25780). Direction for CLDN4 is slightly
@@ -100,8 +100,9 @@ python3 analyze.py
 ```
 
 The script downloads `ICB_Kim.zip` when absent, checks the published MD5,
-extracts the three needed TSVs, verifies 45 samples and the CR/SD/PD counts,
-and regenerates tables and figures. `provenance.tsv` records checksums.
+extracts the three needed TSVs, drops the extra R rownames column in the
+metadata/gene tables, verifies 45 samples and the CR/SD/PD counts, and
+regenerates tables and figures. `provenance.tsv` records checksums.
 
 Outputs:
 
