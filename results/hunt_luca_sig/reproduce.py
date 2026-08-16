@@ -56,7 +56,7 @@ def query_tacstd2() -> pd.DataFrame:
             measurement_name="RNA",
             X_name="normalized",
             obs_value_filter=f"dataset_id == '{DATASET_ID}'",
-            obs_column_names=["cell_type", "assay"],
+            obs_column_names=["cell_type", "assay", "disease"],
             var_value_filter="feature_name == 'TACSTD2'",
             var_column_names=["feature_name", "feature_id"],
         )
@@ -64,7 +64,7 @@ def query_tacstd2() -> pd.DataFrame:
     if adata.shape != (1_283_972, 1):
         raise RuntimeError(f"Unexpected query shape: {adata.shape}")
 
-    frame = adata.obs[["cell_type", "assay"]].copy()
+    frame = adata.obs[["cell_type", "assay", "disease"]].copy()
     frame["expression"] = np.asarray(adata.X.toarray()).ravel()
     frame["detected"] = frame["expression"] > 0
     return frame
@@ -96,6 +96,26 @@ def write_expression_summaries(frame: pd.DataFrame, output_dir: Path) -> None:
     )
     by_assay.to_csv(
         output_dir / "tacstd2_malignant_vs_neutrophil_by_assay.tsv",
+        sep="\t",
+        index=False,
+        float_format="%.6f",
+    )
+
+    disease_types = [
+        "malignant cell",
+        "epithelial cell of lung",
+        "neutrophil",
+        "plasma cell",
+        "macrophage",
+        "CD8-positive, alpha-beta T cell",
+        "CD4-positive, alpha-beta T cell",
+    ]
+    by_disease = summarize(
+        frame[frame["cell_type"].isin(disease_types)],
+        ["cell_type", "disease"],
+    ).sort_values(["cell_type", "n_cells"], ascending=[True, False])
+    by_disease.to_csv(
+        output_dir / "tacstd2_by_disease.tsv",
         sep="\t",
         index=False,
         float_format="%.6f",
