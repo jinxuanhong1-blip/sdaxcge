@@ -1,0 +1,87 @@
+{
+  "dataset": "GSE131907",
+  "citation": "Kim et al. Nat Commun 2020 PMID 32385277",
+  "n_cells": 208506,
+  "n_samples": 58,
+  "n_patients": 44,
+  "n_epithelial": 36467,
+  "n_immune": 164525,
+  "expression_metric_primary": "author normalized log2(TPM+1)",
+  "expression_metric_sensitivity": "raw UMI and log1p(UMI)",
+  "matrices_used": [
+    "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz",
+    "GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz"
+  ],
+  "skipped_for_size": [],
+  "not_used_and_why": {
+    "EGAD00001005054": "controlled-access FASTQ; not a processed GEO supplement",
+    "GSE131907_Lung_Cancer_normalized_log2TPM_matrix.rds.gz": "same matrix as the 2.9 GB text; no R runtime, text used instead",
+    "GSE131907_Lung_Cancer_raw_UMI_matrix.rds.gz": "same matrix as the raw UMI text; text used instead"
+  },
+  "ici_or_mpr_labels": false,
+  "min_cells": {
+    "epithelial": 20,
+    "immune": 20,
+    "T_NK": 20
+  },
+  "n_eligible_tumor_epi_imm": 36,
+  "n_eligible_tLung": 11,
+  "n_eligible_tumor_epi_tnk": 36,
+  "cell_level_primary": {
+    "contrast": "all_cells: epithelial vs immune TACSTD2 log2TPM",
+    "n_a": 36467,
+    "n_b": 164525,
+    "median_a": 1.7542913,
+    "median_b": 0.0,
+    "mean_a": 1.7177711631159678,
+    "mean_b": 0.052947666113235085,
+    "pct_pos_a": 74.54136616667124,
+    "pct_pos_b": 3.090715696702629,
+    "cliffs_delta": 0.722260616531501,
+    "mwu_u": 5166552078.5,
+    "mwu_p": 0.0,
+    "note": ""
+  },
+  "sample_level_tumor_vs_immune": {
+    "contrast": "tumor_sites: epi TACSTD2 mean log2TPM vs immune fraction",
+    "n": 36,
+    "spearman_rho": 0.06216616268745266,
+    "spearman_p": 0.7187110645915221,
+    "note": ""
+  },
+  "sample_level_tumor_vs_tnk": {
+    "contrast": "tumor_sites: epi TACSTD2 mean log2TPM vs T/NK fraction",
+    "n": 36,
+    "spearman_rho": 0.10180835338669784,
+    "spearman_p": 0.5546338639156132,
+    "note": ""
+  },
+  "concordance": {
+    "cell_level_TACSTD2_umi_vs_log2tpm_spearman_rho": 0.9959190775199883,
+    "cell_level_TACSTD2_umi_vs_log2tpm_spearman_p": 0.0,
+    "sample_epi_mean_log1pUMI_vs_log2TPM_spearman_rho": 0.8340118330347935,
+    "sample_epi_mean_log1pUMI_vs_log2TPM_spearman_p": 1.8330512127275651e-13,
+    "n_cells": 208506,
+    "n_samples_with_epi": 48
+  },
+  "paired_compartment": {
+    "contrast": "paired tumor samples: epi TACSTD2 > immune TACSTD2 (Wilcoxon signed-rank, log2TPM)",
+    "n": 36,
+    "wilcoxon_stat": 662.0,
+    "wilcoxon_p": 1.0186340659856796e-10,
+    "median_epi_mean_log2tpm": 1.7023407681947245,
+    "median_imm_mean_log2tpm": 0.06572827219388214,
+    "median_epi_pct_pos": 76.09001934106976,
+    "median_imm_pct_pos": 5.133858161269681,
+    "median_tnk_pct_pos": 2.8504514588932093
+  },
+  "sanity": {
+    "epi_EPCAM_mean_log2tpm_all": 2.094902809293608,
+    "imm_EPCAM_mean_log2tpm_all": 0.0432033273794864,
+    "epi_PTPRC_mean_log2tpm_all": 0.03086873620835276,
+    "imm_PTPRC_mean_log2tpm_all": 1.5007353795249354,
+    "n_epithelial": 36467,
+    "n_immune": 164525,
+    "n_other": 7514
+  }
+}

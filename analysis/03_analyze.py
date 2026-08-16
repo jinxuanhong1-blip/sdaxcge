@@ -498,6 +498,8 @@ def main() -> None:
         "n_other": int((df["immune_group"] == "non_immune_other").sum()),
     }
     (args.outdir / "sanity_checks.json").write_text(json.dumps(sanity, indent=2) + "\n")
+    if inventory:
+        (args.outdir / "extract_inventory.json").write_text(json.dumps(inventory, indent=2) + "\n")
 
     # --- figures ---
     order_types = [
@@ -740,8 +742,8 @@ def write_writeup(
         "",
         "## Definitions",
         "",
-        "- Epithelial = author `Cell_type == Epithelial cells` (36,467 cells). In tLung these are mostly tS1/tS2/tS3; author `Malignant cells` are labeled in metastases / PE / tL-B.",
-        "- Immune = T lymphocytes + NK cells + B lymphocytes + Myeloid cells + MAST cells (164,501 cells).",
+        f"- Epithelial = author `Cell_type == Epithelial cells` ({sanity['n_epithelial']:,} cells). In tLung these are mostly tS1/tS2/tS3; author `Malignant cells` are labeled in metastases / PE / tL-B.",
+        f"- Immune = T lymphocytes + NK cells + B lymphocytes + Myeloid cells + MAST cells ({sanity['n_immune']:,} cells).",
         "- T/NK is reported as a secondary split to match the earlier A3 write-up.",
         "- Primary expression metric = author log2(TPM+1). Sensitivity = raw UMI / log1p(UMI).",
         "- Eligible sample for sample-level tests: ≥20 epithelial and ≥20 immune (or T/NK) cells.",
@@ -766,6 +768,8 @@ def write_writeup(
         f"epithelial PTPRC={sanity['epi_PTPRC_mean_log2tpm_all']:.3f} vs immune {sanity['imm_PTPRC_mean_log2tpm_all']:.3f}.",
         f"- UMI vs log2TPM concordance: cell-level TACSTD2 Spearman ρ={concordance['cell_level_TACSTD2_umi_vs_log2tpm_spearman_rho']:.3f}; "
         f"sample epithelial means ρ={concordance['sample_epi_mean_log1pUMI_vs_log2TPM_spearman_rho']:.3f}.",
+        "- Myeloid TACSTD2 detection is higher than lymphocytes (7.3% vs 1.6% T/NK) but still far below epithelial (74.5%). That leak is not treated as a real immune TACSTD2 program.",
+        "- Epithelial subtypes (author labels): tS2 95% pos / mean 2.70; tS1 82% / 2.14; author malignant (mostly mets) 68–83% depending on site; nLung AT1/Club high, AT2 lower (60% / mean 1.07).",
         "",
         "## Sample-level results",
         "",

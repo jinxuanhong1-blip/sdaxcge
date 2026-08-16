@@ -1,0 +1,12 @@
+contrast	n	spearman_rho	spearman_p	note
+tumor_sites: epi TACSTD2 mean log2TPM vs immune fraction	36	0.06216616268745266	0.7187110645915221	
+tumor_sites: epi TACSTD2 mean log2TPM vs T/NK fraction	36	0.10180835338669784	0.5546338639156132	
+tumor_sites: epi TACSTD2 %pos vs immune fraction	36	-0.011969882256590264	0.9447611361154633	
+tumor_sites eligible-T/NK: epi TACSTD2 mean log2TPM vs T/NK fraction	36	0.10180835338669784	0.5546338639156132	
+tLung: epi TACSTD2 mean log2TPM vs immune fraction	11	-0.28181818181818186	0.40114489796047825	
+tLung: epi TACSTD2 mean log2TPM vs T/NK fraction	11	0.05454545454545456	0.8734465775233149	
+nLung: epi TACSTD2 mean log2TPM vs immune fraction	11	-0.44545454545454555	0.16973260492681186	
+mets/PE/tL-B: malignant TACSTD2 mean log2TPM vs immune fraction	21	-0.02077922077922078	0.9287633909628463	
+mets/PE/tL-B: malignant TACSTD2 mean log2TPM vs T/NK fraction	21	0.012987012987012986	0.9554439323134464	
+tumor_sites: epi TACSTD2 mean log1p UMI vs immune fraction	36	0.1424802113768325	0.40713128299556267	
+tumor_sites: epi TACSTD2 mean log1p UMI vs T/NK fraction	36	0.16847931047179202	0.325979079499522	
