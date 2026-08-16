@@ -103,19 +103,28 @@ def log1p_cp10k(umi: np.ndarray, total: np.ndarray) -> np.ndarray:
     return np.log1p(cp).astype(np.float32)
 
 
-def partner_stats(units: list[str], logx: dict[str, np.ndarray], mask: np.ndarray) -> tuple[float, float, int]:
-    """CellPhoneDB complex rule: min of subunit means; min of subunit %pos."""
-    means, fracs = [], []
+def group_gene_stats(logx: dict[str, np.ndarray], mask: np.ndarray) -> tuple[dict[str, float], dict[str, float], int]:
+    """Precompute mean and fraction-positive for every gene in a cell mask."""
     n = int(mask.sum())
+    means, fracs = {}, {}
     if n == 0:
-        return np.nan, np.nan, 0
+        return means, fracs, 0
+    for g, arr in logx.items():
+        v = arr[mask]
+        means[g] = float(np.mean(v))
+        fracs[g] = float(np.mean(v > 0))
+    return means, fracs, n
+
+
+def partner_from_stats(units: list[str], means: dict[str, float], fracs: dict[str, float]) -> tuple[float, float]:
+    """CellPhoneDB complex rule: min of subunit means; min of subunit %pos."""
+    m, f = [], []
     for g in units:
-        if g not in logx:
-            return np.nan, np.nan, n
-        v = logx[g][mask]
-        means.append(float(np.mean(v)))
-        fracs.append(float(np.mean(v > 0)))
-    return float(np.min(means)), float(np.min(fracs)), n
+        if g not in means:
+            return np.nan, np.nan
+        m.append(means[g])
+        f.append(fracs[g])
+    return float(np.min(m)), float(np.min(f))
 
 
 def score_pairs(
@@ -125,15 +134,17 @@ def score_pairs(
     receiver: np.ndarray,
     expr_prop: float,
 ) -> pd.DataFrame:
+    s_mean, s_frac, n_s = group_gene_stats(logx, sender)
+    r_mean, r_frac, n_r = group_gene_stats(logx, receiver)
     rows = []
     for rec in pairs.itertuples(index=False):
         lig_u = str(rec.ligand).split("+")
         rec_u = str(rec.receptor).split("+")
-        l_mean, l_frac, n_s = partner_stats(lig_u, logx, sender)
-        r_mean, r_frac, n_r = partner_stats(rec_u, logx, receiver)
-        if not np.isfinite(l_mean) or not np.isfinite(r_mean):
+        l_mean, l_frac = partner_from_stats(lig_u, s_mean, s_frac)
+        rec_m, rec_f = partner_from_stats(rec_u, r_mean, r_frac)
+        if not np.isfinite(l_mean) or not np.isfinite(rec_m):
             continue
-        pass_prop = (l_frac >= expr_prop) and (r_frac >= expr_prop)
+        pass_prop = (l_frac >= expr_prop) and (rec_f >= expr_prop)
         rows.append(
             {
                 "ligand": rec.ligand,
@@ -144,11 +155,11 @@ def score_pairs(
                 "n_sender": n_s,
                 "n_receiver": n_r,
                 "ligand_mean": l_mean,
-                "receptor_mean": r_mean,
+                "receptor_mean": rec_m,
                 "ligand_frac": l_frac,
-                "receptor_frac": r_frac,
-                "cpdb_mean_score": 0.5 * (l_mean + r_mean),
-                "product_score": l_mean * r_mean,
+                "receptor_frac": rec_f,
+                "cpdb_mean_score": 0.5 * (l_mean + rec_m),
+                "product_score": l_mean * rec_m,
                 "pass_expr_prop": pass_prop,
             }
         )

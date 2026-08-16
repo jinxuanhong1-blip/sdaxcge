@@ -1,0 +1,31 @@
+{
+  "dataset": "GSE207422",
+  "n_cells": 92330,
+  "n_patients": 15,
+  "n_epithelial": 11019,
+  "n_malig": 6627,
+  "n_T": 28313,
+  "n_NK": 8010,
+  "n_tnk": 36323,
+  "n_tacstd2_high": 3314,
+  "n_tacstd2_low": 3313,
+  "n_cldn4_high": 3314,
+  "n_cldn4_low": 3313,
+  "tacstd2_threshold": 2.026517391204834,
+  "cldn4_threshold": 1.45650053024292,
+  "min_malig_per_state": 10,
+  "min_tnk": 20,
+  "n_patients_tacstd2_paired": 8,
+  "n_patients_cldn4_paired": 8,
+  "n_pairs_scored": 2920,
+  "liana_status": "ran_cellphonedb_method",
+  "cellchat_status": "not_run_R_unavailable",
+  "liana_notes": [
+    "import: ok",
+    "TACSTD2: LIANA_OK n_edges=923 file=liana_cellphonedb_tacstd2.csv; downsampled groups={'Malig_TACSTD2high': 2000, 'Malig_TACSTD2low': 2000, 'NK': 2000, 'T': 2000}",
+    "CLDN4: LIANA_OK n_edges=904 file=liana_cellphonedb_cldn4.csv; downsampled groups={'Malig_CLDN4high': 2000, 'Malig_CLDN4low': 2000, 'NK': 2000, 'T': 2000}"
+  ],
+  "trend_sentence": "On the patient-level CellPhoneDB-style score, TACSTD2-high vs TACSTD2-low outgoing T-recruit/IFN/MHC-I pairs: 2/12 have median \u0394 < 0; 0 reach FDR < 0.05. By axis: {'MHC_I': '0/7 \u0394<0, median \u0394=+0.122', 'T_recruit': '2/5 \u0394<0, median \u0394=+0.010'}. This is the observed rank in this 15-patient public object, not a general rule.",
+  "a3_taken_as_given": true,
+  "method": "cellphonedb_mean_of_means_on_log1p_cp10k"
+}
