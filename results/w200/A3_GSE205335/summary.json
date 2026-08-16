@@ -1,0 +1,65 @@
+{
+  "dataset": "GSE205335",
+  "primary_contrast": "malignant_vs_tnk_paired_within_patient",
+  "min_cells_per_compartment": 20,
+  "n_total_cells": 96505,
+  "n_malignant_cells": 28512,
+  "n_tnk_cells": 39875,
+  "n_evaluable_patient_pairs": 22,
+  "paired_results": {
+    "mean_log1p_cp10k": {
+      "n_pairs": 22,
+      "malignant_median": 0.9291986572138183,
+      "tnk_median": 0.02074731090292969,
+      "wilcoxon_w": 0.0,
+      "p_value": 4.76837158203125e-07
+    },
+    "pct_pos": {
+      "n_pairs": 22,
+      "malignant_median": 58.421487938973016,
+      "tnk_median": 1.2080414180214634,
+      "wilcoxon_w": 0.0,
+      "p_value": 4.76837158203125e-07
+    },
+    "pseudobulk_cpm": {
+      "n_pairs": 22,
+      "malignant_median": 495.14009795689924,
+      "tnk_median": 3.897082898688705,
+      "wilcoxon_w": 0.0,
+      "p_value": 4.76837158203125e-07
+    }
+  },
+  "secondary_response_results": {
+    "mean_log1p_cp10k": {
+      "n_r": 6,
+      "n_nr": 10,
+      "r_median": 1.0978388323807038,
+      "nr_median": 0.9104557428014888,
+      "mannwhitney_u": 29.0,
+      "p_value": 0.9577922077922078
+    },
+    "pct_pos": {
+      "n_r": 6,
+      "n_nr": 10,
+      "r_median": 70.85072764952696,
+      "nr_median": 51.98663042177429,
+      "mannwhitney_u": 34.0,
+      "p_value": 0.7127872127872128
+    },
+    "pseudobulk_cpm": {
+      "n_r": 6,
+      "n_nr": 10,
+      "r_median": 481.25372800900635,
+      "nr_median": 574.3485249583143,
+      "mannwhitney_u": 25.0,
+      "p_value": 0.6353646353646354
+    }
+  },
+  "marker_sanity": {
+    "epcam_positive_malignant_pct": 69.31116722783389,
+    "epcam_positive_tnk_pct": 2.485266457680251,
+    "ptprc_positive_malignant_pct": 4.219276094276094,
+    "ptprc_positive_tnk_pct": 80.87272727272727
+  },
+  "raw_data": "not accessed; controlled EGA raw intentionally skipped"
+}

@@ -1,0 +1,20 @@
+GSE205335 TACSTD2 (TROP2) analysis — statistical results
+============================================================
+Cells total: 96505; malignant: 28512; T/NK: 39875
+Patients with >= 20 malignant cells: 22 (R=6, NR=10, NE=6)
+Patients excluded (< min malignant cells captured): P2016(0 cells, RECIST PD), P2001(0 cells, RECIST PR), P2009(0 cells, RECIST PR), P3032(0 cells, RECIST PR)
+    NOTE: dropout is asymmetric — 3 responder vs 1 non-responder patients had (near-)zero malignant cells captured.
+
+[1] Primary: TACSTD2 in malignant vs T/NK cells, paired within patient (all patients incl. NE)
+    Patients require >= 20 cells in each compartment.
+    mean_log1p_cp10k: n=22 pairs | malignant median=0.929 | T/NK median=0.021 | Wilcoxon signed-rank W=0.0, p=4.77e-07
+    pct_pos: n=22 pairs | malignant median=58.421 | T/NK median=1.208 | Wilcoxon signed-rank W=0.0, p=4.77e-07
+    pseudobulk_cpm: n=22 pairs | malignant median=495.140 | T/NK median=3.897 | Wilcoxon signed-rank W=0.0, p=4.77e-07
+
+[2] Secondary: malignant-cell TACSTD2 in responders (PR) vs non-responders (SD/PD)
+    Unit = patient; NE patients excluded.
+    mean_log1p_cp10k: R n=6 median=1.098 | NR n=10 median=0.910 | Mann-Whitney U=29.0, p=0.9578
+    pct_pos: R n=6 median=70.851 | NR n=10 median=51.987 | Mann-Whitney U=34.0, p=0.7128
+    pseudobulk_cpm: R n=6 median=481.254 | NR n=10 median=574.349 | Mann-Whitney U=25.0, p=0.6354
+
+[sanity] EPCAM+ fraction: malignant 69.3% vs T/NK 2.5%; PTPRC(CD45)+ fraction: malignant 4.2% vs T/NK 80.9%
