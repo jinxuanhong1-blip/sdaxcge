@@ -1,0 +1,21 @@
+table	series	gene	endpoint	n	effect	value	ci95	p	note
+NSCLC	GSE274975	CLDN4	ORR_CRPR_vs_SDPD_median	56	OR	1.00	0.30-3.35	1.00	not pooled into B5
+NSCLC	GSE274975	TACSTD2	ORR_CRPR_vs_SDPD_median	56	OR	1.00	0.30-3.35	1.00	not pooled into B5
+NSCLC	GSE274975	CLDN4	ORR_continuous	56	rank_biserial	-0.034		0.86	14R/42NR
+NSCLC	GSE274975	TACSTD2	ORR_continuous	56	rank_biserial	0.150		0.41	14R/42NR
+NSCLC	GSE274975	CLDN4	DCB_PFS_ge6_median	60	OR	1.00	0.36-2.78	1.00	
+NSCLC	GSE274975	TACSTD2	DCB_PFS_ge6_median	60	OR	0.76	0.27-2.12	0.79	
+NSCLC	GSE274975	CLDN4	PFS_cox_per_SD	60	HR	1.02		0.89	
+NSCLC	GSE274975	TACSTD2	PFS_cox_per_SD	60	HR	0.98		0.90	
+NSCLC	GSE283829	CLDN4	CR_vs_PD_median	17	OR	0.75	0.11-5.24	1.00	no PR labels
+NSCLC	GSE283829	TACSTD2	CR_vs_PD_median	17	OR	0.75	0.11-5.24	1.00	no PR labels
+NSCLC	GSE283829	CLDN4	CR_vs_PD_continuous	17	rank_biserial	-0.029		0.96	7CR/10PD
+NSCLC	GSE283829	TACSTD2	CR_vs_PD_continuous	17	rank_biserial	-0.086		0.81	7CR/10PD
+SCLC	GSE244945_H82	CLDN4	NOTCH1_dox_vs_parental	6	rank_biserial	1.00		0.10	cell line; not patient ICB
+SCLC	GSE244945_H82	TACSTD2	NOTCH1_dox_vs_parental	6	rank_biserial	1.00		0.064	cell line; not patient ICB
+SCLC	GSE244945_H69	CLDN4	NOTCH1_dox_vs_parental	6	rank_biserial	-1.00		0.10	cell line; not patient ICB
+SCLC	GSE244945_H69	TACSTD2	NOTCH1_dox_vs_parental	6	rank_biserial	1.00		0.077	cell line; not patient ICB
+SCLC	GSE244944	NA	ChIP-seq	18	NA			no expression-vs-ICB test
+SCLC	GSE244946	NA	scRNA_CORL88	3	NA			not patient ICB
+cell_line_not_ICI	GSE328294_H23	CLDN4	IBI351_vs_DMSO	6	rank_biserial	-1.00		0.10	not an ICI OR
+cell_line_not_ICI	GSE328294_H23	TACSTD2	IBI351_vs_DMSO	6	rank_biserial	1.00		0.10	not an ICI OR

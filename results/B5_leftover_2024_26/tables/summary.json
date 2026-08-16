@@ -1,0 +1,24 @@
+{
+  "claim_B5_taken_as_given": {
+    "statement": "11-cohort CLDN4-high ICI OR=0.42",
+    "recut": false,
+    "pooled_with_new_rows": false
+  },
+  "n_GSE274975_joined": 61,
+  "n_GSE274975_NSCLC": 60,
+  "n_GSE274975_SCLC_excluded": 1,
+  "GSE274975_RECIST": {
+    "SD": 25,
+    "PD": 17,
+    "PR": 11,
+    "CR": 3
+  },
+  "n_GSE283829": 27,
+  "GSE283829_RECIST": {
+    "SD": 10,
+    "PD": 10,
+    "CR": 7
+  },
+  "GSE328294_note": "H23 cell line \u00b1 IBI351; no patient ICI labels",
+  "GSE24494x_note": "SCLC cell line / ChIP / scRNA; IMpower133 RNA not public on GEO"
+}

@@ -1,0 +1,25 @@
+cohort	gene	endpoint	cutoff	n	n_high_or_R	n_low_or_NR	effect	effect_value	ci_low	ci_high	p	note
+GSE274975_NSCLC	TACSTD2	ORR_CRPR_vs_SDPD	continuous	56	14	42	rank_biserial_R_minus_NR	0.14965986394557818			0.41044984915308635	Cliff_delta=0.1497; MWU_U=338.0
+GSE274975_NSCLC	TACSTD2	ORR_CRPR_vs_SDPD	median	56	28	28	OR_high_vs_low	1.0	0.29827533869666645	3.3526070387500533	1.0	table high-R/high-NR/low-R/low-NR=7/21/7/21
+GSE274975_NSCLC	TACSTD2	ORR_CRPR_vs_SDPD	tertile_T3_vs_T1	38	19	19	OR_high_vs_low	2.1875	0.5161561618347967	9.270752930644193	0.47563358686829216	table high-R/high-NR/low-R/low-NR=7/12/4/15
+GSE274975_NSCLC	TACSTD2	DCB_PFS_ge_6mo	continuous	60	34	26	rank_biserial_R_minus_NR	-0.011312217194570096			0.9464787723794106	Cliff_delta=-0.0113; MWU_U=437.0
+GSE274975_NSCLC	TACSTD2	DCB_PFS_ge_6mo	median	60	30	30	OR_high_vs_low	0.7619047619047619	0.27371179734174267	2.1208397732611077	0.7947745256391852	table high-R/high-NR/low-R/low-NR=16/14/18/12
+GSE274975_NSCLC	TACSTD2	DCB_PFS_ge_6mo	tertile_T3_vs_T1	40	20	20	OR_high_vs_low	0.8181818181818182	0.23612122721189638	2.8350754208242517	1.0	table high-R/high-NR/low-R/low-NR=10/10/11/9
+GSE274975_NSCLC	TACSTD2	PFS_cox_per_SD	continuous	60	41	19	HR_per_SD	0.9804422093138233			0.8995630254501003	univariable Cox; event column as above
+GSE274975_NSCLC	CLDN4	ORR_CRPR_vs_SDPD	continuous	56	14	42	rank_biserial_R_minus_NR	-0.03401360544217691			0.857342586821267	Cliff_delta=-0.0340; MWU_U=284.0
+GSE274975_NSCLC	CLDN4	ORR_CRPR_vs_SDPD	median	56	28	28	OR_high_vs_low	1.0	0.29827533869666645	3.3526070387500533	1.0	table high-R/high-NR/low-R/low-NR=7/21/7/21
+GSE274975_NSCLC	CLDN4	ORR_CRPR_vs_SDPD	tertile_T3_vs_T1	38	19	19	OR_high_vs_low	1.0	0.21017559006346326	4.757926454247358	1.0	table high-R/high-NR/low-R/low-NR=4/15/4/15
+GSE274975_NSCLC	CLDN4	DCB_PFS_ge_6mo	continuous	60	34	26	rank_biserial_R_minus_NR	0.03167420814479649			0.840395287310292	Cliff_delta=0.0317; MWU_U=456.0
+GSE274975_NSCLC	CLDN4	DCB_PFS_ge_6mo	median	60	30	30	OR_high_vs_low	1.0	0.36014152232642166	2.7766862136314	1.0	table high-R/high-NR/low-R/low-NR=17/13/17/13
+GSE274975_NSCLC	CLDN4	DCB_PFS_ge_6mo	tertile_T3_vs_T1	40	20	20	OR_high_vs_low	1.2272727272727273	0.3496722792404499	4.307457114928205	1.0	table high-R/high-NR/low-R/low-NR=12/8/11/9
+GSE274975_NSCLC	CLDN4	PFS_cox_per_SD	continuous	60	41	19	HR_per_SD	1.023134899932209			0.8879558622061108	univariable Cox; event column as above
+GSE283829_NSCLC	TACSTD2	CR_vs_PD	continuous	17	7	10	rank_biserial_R_minus_NR	-0.08571428571428574			0.8125257095845331	Cliff_delta=-0.0857; MWU_U=32.0
+GSE283829_NSCLC	TACSTD2	CR_vs_PD	median	17	8	9	OR_high_vs_low	0.75	0.10739086993298691	5.23787543904809	1.0	table high-R/high-NR/low-R/low-NR=3/5/4/5
+GSE283829_NSCLC	TACSTD2	CR_vs_PD	tertile_T3_vs_T1	12	6	6	OR_high_vs_low	0.5	0.04850861826929884	5.153723377815221	1.0	table high-R/high-NR/low-R/low-NR=2/4/3/3
+GSE283829_NSCLC	CLDN4	CR_vs_PD	continuous	17	7	10	rank_biserial_R_minus_NR	-0.02857142857142858			0.9622583299053886	Cliff_delta=-0.0286; MWU_U=34.0
+GSE283829_NSCLC	CLDN4	CR_vs_PD	median	17	8	9	OR_high_vs_low	0.75	0.10739086993298691	5.23787543904809	1.0	table high-R/high-NR/low-R/low-NR=3/5/4/5
+GSE283829_NSCLC	CLDN4	CR_vs_PD	tertile_T3_vs_T1	12	6	6	OR_high_vs_low	2.0	0.19403447307719537	20.61489351126089	1.0	table high-R/high-NR/low-R/low-NR=3/3/2/4
+GSE244945_SCLC_H82_cellline	TACSTD2	NOTCH1_dox_vs_parental	continuous	6	3	3	rank_biserial_NOTCH1_minus_parental	1.0			0.06360256962075367	SCLC cell line, not patient ICB. Do not mix into NSCLC OR.
+GSE244945_SCLC_H82_cellline	CLDN4	NOTCH1_dox_vs_parental	continuous	6	3	3	rank_biserial_NOTCH1_minus_parental	1.0			0.1	SCLC cell line, not patient ICB. Do not mix into NSCLC OR.
+GSE244945_SCLC_H69_cellline	TACSTD2	NOTCH1_dox_vs_parental	continuous	6	3	3	rank_biserial_NOTCH1_minus_parental	1.0			0.07652250047505922	SCLC cell line, not patient ICB. Do not mix into NSCLC OR.
+GSE244945_SCLC_H69_cellline	CLDN4	NOTCH1_dox_vs_parental	continuous	6	3	3	rank_biserial_NOTCH1_minus_parental	-1.0			0.1	SCLC cell line, not patient ICB. Do not mix into NSCLC OR.
