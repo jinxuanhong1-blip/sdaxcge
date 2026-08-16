@@ -1,0 +1,8 @@
+dataset	analysis	comparison	metric	n	stat	value	p_value	note
+GSE207422_DRMref	post_NMPR_vs_MPR	NMPR vs MPR	malig_TACSTD2_mean	8v4	MannWhitneyU	25.0	0.15353535353535355	median NMPR=1.5341 MPR=1.0480; mean NMPR=1.5707 MPR=1.1202; DRMref malignant labels; pCR=MPR; all 12 post-tx samples
+GSE207422_DRMref	spearman_post12	malig_TACSTD2_mean~frac_tnk	frac_tnk	12	spearman_rho	-0.4895104895104896	0.10625237175934595	DRMref labels; 12 post-tx patients
+GSE207422_DRMref	spearman_post12	malig_TACSTD2_mean~tnk_cyto_mean	tnk_cyto_mean	12	spearman_rho	0.15384615384615385	0.6330906812462617	DRMref labels; 12 post-tx patients
+GSE207422_DRMref	spearman_post12	malig_TACSTD2_mean~tnk_exh_mean	tnk_exh_mean	12	spearman_rho	0.02097902097902098	0.9484022252365222	DRMref labels; 12 post-tx patients
+GSE207422_DRMref	spearman_post12_secondary	malig_TACSTD2_pct~frac_tnk	frac_tnk	12	spearman_rho	-0.6433566433566434	0.024003191200713647	secondary: % TACSTD2+ malignant vs T/NK
+GSE207422_DRMref	post_NMPR_vs_MPR_min20mal	NMPR vs MPR	malig_TACSTD2_mean	8v3	MannWhitneyU	22.0	0.048484848484848485	drops P06 (n_mal=15); mean NMPR=1.5707 MPR=0.9712; POST-HOC
+GSE207422_DRMref	spearman_min20mal	malig_TACSTD2_mean~frac_tnk	frac_tnk	11	spearman_rho	-0.4090909090909091	0.21154501034209602	drops P06; POST-HOC
