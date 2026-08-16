@@ -33,7 +33,7 @@ The bulk T-cell proxy is the mean within-cohort z-score of **CD3D, CD3E, and CD8
 
 ![GSE135222 PFS](gse135222_pfs_km.png)
 
-**T-cell proxy and the Bessede et al. claim.** Bessede et al. reported that high TACSTD2 was associated with worse atezolizumab benefit and lower T-cell infiltration in OAK/POPLAR (Clin Cancer Res 2024;30:779–785, DOI [10.1158/1078-0432.CCR-23-2566](https://doi.org/10.1158/1078-0432.CCR-23-2566)). Their controlled data are listed as EGAS00001005013 and were not downloaded. In that report, the atezolizumab group had median PFS 2.5 versus 4.1 months (p<0.001), median OS 12.6 versus 16.3 months (p=0.007), and DCB 15.7% versus 26.2% (p=0.009) for TACSTD2-high versus low; these are published statistics, not estimates from the present analysis.
+**T-cell proxy and the Bessede et al. claim.** Bessede et al. reported that high TACSTD2 was associated with worse outcomes on atezolizumab and lower estimated T-cell infiltration in OAK/POPLAR (Clin Cancer Res 2024;30:779–785; PMID 38048058; DOI [10.1158/1078-0432.CCR-23-2566](https://doi.org/10.1158/1078-0432.CCR-23-2566)). Their controlled data are listed as EGAS00001005013 and were not downloaded. In that report, the atezolizumab group had median PFS 2.5 versus 4.1 months (p<0.001), median OS 12.6 versus 16.3 months (p=0.007), and DCB 15.7% versus 26.2% (p=0.009) for TACSTD2-high versus low; these are published statistics, not estimates from the present analysis. The paper did not report a treatment-by-TACSTD2 interaction test, so “predictive of reduced incremental atezolizumab benefit” would be stronger than the evidence. Its principal infiltration evidence was bulk-RNA deconvolution rather than direct T-cell counting.
 
 The open-cohort test here does **not consistently replicate** the response component: TACSTD2 was lower with response/MPR in GSE126044 and GSE207422 but higher with response in GSE166449, and all response tests were non-significant. TACSTD2 correlated inversely with the T-cell proxy in GSE207422 (Spearman rho=−0.568, p=0.00380, BH q=0.0152), but not in GSE126044 (rho=−0.159, p=0.557), GSE166449 (rho=−0.010, p=0.966), or GSE135222 (rho=−0.117, p=0.562). Thus, one chemo-immunotherapy cohort supports the infiltration direction, while three small cohorts do not; this is partial, context-dependent support rather than independent validation.
 
@@ -47,6 +47,7 @@ The open-cohort test here does **not consistently replicate** the response compo
 - Median splits lose information and are shown only for interpretability; continuous/rank tests are primary.
 - Bulk CD3D/CD3E/CD8A expression reflects both abundance and transcriptional state and cannot establish T-cell exclusion.
 - The controlled OAK/POPLAR comparison has a chemotherapy control arm and 891 tumors; these open cohorts do not provide an equivalent treatment-by-biomarker interaction test.
+- The Bessede high/low threshold was selected using PFS and its numerical cutoff was not reported, limiting exact independent reproduction even with controlled access.
 - CLDN4 and TACSTD2 are correlated epithelial-state markers in some settings; these univariable analyses do not establish causality or independence from histology, tumor purity, PD-L1, or other covariates.
 
 ## 中文
@@ -71,7 +72,7 @@ GSE126044 采用 log2(CPM+0.5)，GSE135222 采用 log2(value+1)，其余使用 G
 
 **生存：** GSE135222 中两基因均未与 PFS 显著相关（[完整结果](survival_statistics.tsv)）。TACSTD2 每 1 SD 的 HR=1.07（95% CI 0.68–1.69，Cox p=0.776）；CLDN4 HR=1.12（95% CI 0.72–1.75，p=0.608）。GEO 未提供该队列 OS，因此未作推断。
 
-**对 Bessede 等人结论的检验：** 该研究报道 OAK/POPLAR 中 TACSTD2 高表达与较差的阿替利珠单抗获益及较少 T 细胞浸润相关（DOI 同上）；其受控数据 EGAS00001005013 仅列出，未下载。本次开放队列分析未一致复现应答方向：GSE126044 和 GSE207422 中 TACSTD2 在获益组较低，而 GSE166449 中较高，且均不显著。TACSTD2 与 T 细胞代理指标仅在 GSE207422 呈显著负相关（rho=−0.568，p=0.00380，BH q=0.0152）；GSE126044、GSE166449 和 GSE135222 均不显著。因此结果只是在一个联合化疗队列中部分支持“较少 T 细胞浸润”的方向，不能视为独立验证。
+**对 Bessede 等人结论的检验：** 该研究报道 OAK/POPLAR 中 TACSTD2 高表达与阿替利珠单抗治疗期间较差结局及较低的推算 T 细胞浸润相关（PMID 38048058；DOI 同上）；其受控数据 EGAS00001005013 仅列出，未下载。论文未报告治疗×TACSTD2 交互作用检验，因此不能仅凭阿替利珠单抗组显著而多西他赛组不显著，就认定 TACSTD2 已是“降低阿替利珠单抗相对获益”的预测标志物；主要浸润证据也来自 bulk RNA 去卷积，而非直接 T 细胞计数。本次开放队列分析未一致复现应答方向：GSE126044 和 GSE207422 中 TACSTD2 在获益组较低，而 GSE166449 中较高，且均不显著。TACSTD2 与 T 细胞代理指标仅在 GSE207422 呈显著负相关（rho=−0.568，p=0.00380，BH q=0.0152）；GSE126044、GSE166449 和 GSE135222 均不显著。因此结果只是在一个联合化疗队列中部分支持“较少 T 细胞浸润”的方向，不能视为独立验证。
 
 ### 局限性
 
@@ -81,4 +82,5 @@ GSE126044 采用 log2(CPM+0.5)，GSE135222 采用 log2(value+1)，其余使用 G
 - 中位数分组会损失信息；主要依据连续/秩检验。
 - bulk RNA 的 T 细胞代理指标不能证明空间性免疫排斥。
 - 开放队列没有 OAK/POPLAR 那样的化疗对照臂，不能检验治疗×生物标志物交互作用。
+- Bessede 研究按 PFS 优化高/低阈值且未报告数值 cutoff，即使获得受控数据也难以精确复现。
 - 单因素结果未校正组织学、肿瘤纯度、PD-L1 等因素，不能推出 TACSTD2 或 CLDN4 的因果作用。
