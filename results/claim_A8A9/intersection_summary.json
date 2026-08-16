@@ -1,0 +1,26 @@
+{
+  "datasets_present": [
+    "gse207422",
+    "tcga_luad",
+    "tcga_lusc"
+  ],
+  "primary_intersection_LUAD_GSE207422": [
+    "CLDN1",
+    "F11R"
+  ],
+  "intersection_LUAD_LUSC_GSE207422": [
+    "CLDN1",
+    "F11R"
+  ],
+  "intersection_plus_GSE131907_pb_strict": null,
+  "intersection_plus_GSE131907_pb_direction": null,
+  "criterion": "up_in_trop2_high = spearman_rho>0 AND log2FC_high_vs_low>0 AND welch_fdr<0.05",
+  "panel": [
+    "CLDN1",
+    "CLDN4",
+    "CLDN7",
+    "F11R",
+    "PARD3"
+  ],
+  "note": "null = dataset not yet computed. Empty list = computed and no gene passed."
+}
