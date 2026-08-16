@@ -36,7 +36,12 @@ NEARBY_ABS = 0.05
 DID_WE_TUNE = False
 
 PRIMARY_GENE = "CLDN4"
-POOLED_COHORTS = ["IMvigor210", "BACI", "Snyder"]   # IMvigor210_PredictIO excluded
+POOLED_COHORTS = ["IMvigor210", "BACI", "Snyder"]   # locked primary; IMvigor210_PredictIO excluded
+# Post-hoc open cohorts found after the primary was locked. UC-GENOME has full
+# RECIST-like IO response. GSE111636 is binary responder/progressor, n=11.
+POSTHOC_RECIST_COHORTS = ["UC-GENOME"]
+POSTHOC_COARSE_COHORTS = ["GSE111636"]
+OPEN_COHORTS = POOLED_COHORTS + POSTHOC_RECIST_COHORTS + POSTHOC_COARSE_COHORTS
 CONCORDANCE_COHORT = "IMvigor210_PredictIO"
 EXPLORATORY_GENES = ["CLDN1", "CLDN2", "CLDN3", "CLDN7", "CLDN18", "TACSTD2",
                      "EPCAM", "CDH1", "OCLN", "TJP1", "CD274"]
@@ -381,6 +386,31 @@ def main() -> int:
               f"low={blk['orr_low_pct']:.1f}% OR={blk['or_conditional_mle']:.3f} "
               f"[{blk['ci_low']:.3f},{blk['ci_high']:.3f}] p={blk['fisher_p']:.4f}")
 
+    posthoc_effects = []
+    for cohort in POSTHOC_RECIST_COHORTS + POSTHOC_COARSE_COHORTS:
+        sub = analysis_set(df, cohort)
+        if len(sub) < 4:
+            print(f"[posthoc] {cohort}: too few evaluable ({len(sub)})")
+            continue
+        high, meta, keep = split_high(sub[PRIMARY_GENE].values, "median")
+        tab = table_2x2(high, sub["responder"].values == 1)
+        blk = fisher_block(tab)
+        blk.update({"cohort": cohort, "cutoff_rule": "median",
+                    "threshold": meta.get("threshold"),
+                    "expression_scale": sub["expression_scale"].iloc[0],
+                    "posthoc": True,
+                    "endpoint": ("binary responder/progressor" if cohort in POSTHOC_COARSE_COHORTS
+                                 else "IO best response CR/PR vs SD/PD")})
+        posthoc_effects.append(blk)
+        print(f"[posthoc] {cohort}: n={blk['n']} ORR high={blk['orr_high_pct']:.1f}% "
+              f"low={blk['orr_low_pct']:.1f}% OR={blk['or_conditional_mle']:.3f} "
+              f"[{blk['ci_low']:.3f},{blk['ci_high']:.3f}] p={blk['fisher_p']:.4f}")
+
+    recist_expanded = effects + [e for e in posthoc_effects if e["cohort"] in POSTHOC_RECIST_COHORTS]
+    expanded_pooled = meta_analyze(recist_expanded) if recist_expanded else None
+    all_open = effects + posthoc_effects
+    all_open_pooled = meta_analyze(all_open) if all_open else None
+
     pooled = meta_analyze(effects)
     print(f"[meta] random-effects OR={pooled['random_dl']['or']:.3f} "
           f"[{pooled['random_dl']['ci_low']:.3f},{pooled['random_dl']['ci_high']:.3f}] "
@@ -638,6 +668,63 @@ def main() -> int:
                     "or_conditional_mle", "ci_low", "ci_high", "fisher_p",
                     "log_or_woolf", "se_log_or", "haldane_corrected"]
     write_csv("cohort_effects.csv", per_cohort, primary_cols)
+    write_csv("cohort_effects_posthoc.csv", posthoc_effects,
+              primary_cols + ["posthoc", "endpoint"])
+
+    # Headline OR / n / p table the user asked for — every open BLCA ICI cohort
+    # with CLDN4, plus both the locked primary pool and the post-hoc expansion.
+    ornp = []
+    for e, pool in ([(x, "prespecified_primary") for x in effects]
+                    + [(x, "posthoc_open") for x in posthoc_effects]):
+        ornp.append({
+            "cohort": e["cohort"],
+            "pool": pool,
+            "n": e["n"],
+            "n_responder": e["high_responder"] + e["low_responder"],
+            "n_nonresponder": e["high_nonresponder"] + e["low_nonresponder"],
+            "n_cldn4_high": e["high_responder"] + e["high_nonresponder"],
+            "n_cldn4_low": e["low_responder"] + e["low_nonresponder"],
+            "orr_high_pct": round(e["orr_high_pct"], 2),
+            "orr_low_pct": round(e["orr_low_pct"], 2),
+            "OR": round(e["or_conditional_mle"], 3),
+            "CI_low": round(e["ci_low"], 3),
+            "CI_high": round(e["ci_high"], 3),
+            "p": e["fisher_p"],
+            "p_rounded": f"{e['fisher_p']:.3g}",
+        })
+    ornp.append({
+        "cohort": "POOLED_3_prespecified",
+        "pool": "prespecified_primary",
+        "n": sum(e["n"] for e in effects),
+        "n_responder": sum(e["high_responder"] + e["low_responder"] for e in effects),
+        "n_nonresponder": sum(e["high_nonresponder"] + e["low_nonresponder"] for e in effects),
+        "n_cldn4_high": "", "n_cldn4_low": "",
+        "orr_high_pct": "", "orr_low_pct": "",
+        "OR": round(pooled["random_dl"]["or"], 3),
+        "CI_low": round(pooled["random_dl"]["ci_low"], 3),
+        "CI_high": round(pooled["random_dl"]["ci_high"], 3),
+        "p": pooled["random_dl"]["p"],
+        "p_rounded": f"{pooled['random_dl']['p']:.3g}",
+    })
+    if expanded_pooled:
+        ornp.append({
+            "cohort": "POOLED_4_plus_UC-GENOME",
+            "pool": "posthoc_open",
+            "n": sum(e["n"] for e in recist_expanded),
+            "n_responder": sum(e["high_responder"] + e["low_responder"] for e in recist_expanded),
+            "n_nonresponder": sum(e["high_nonresponder"] + e["low_nonresponder"] for e in recist_expanded),
+            "n_cldn4_high": "", "n_cldn4_low": "",
+            "orr_high_pct": "", "orr_low_pct": "",
+            "OR": round(expanded_pooled["random_dl"]["or"], 3),
+            "CI_low": round(expanded_pooled["random_dl"]["ci_low"], 3),
+            "CI_high": round(expanded_pooled["random_dl"]["ci_high"], 3),
+            "p": expanded_pooled["random_dl"]["p"],
+            "p_rounded": f"{expanded_pooled['random_dl']['p']:.3g}",
+        })
+    write_csv("or_n_p.csv", ornp,
+              ["cohort", "pool", "n", "n_responder", "n_nonresponder",
+               "n_cldn4_high", "n_cldn4_low", "orr_high_pct", "orr_low_pct",
+               "OR", "CI_low", "CI_high", "p", "p_rounded"])
     write_csv("sensitivity_cutoffs.csv", sens_cutoffs,
               ["cohort", "cutoff_rule", "n", "high_responder", "high_nonresponder",
                "low_responder", "low_nonresponder", "orr_high_pct", "orr_low_pct",
@@ -851,6 +938,14 @@ def main() -> int:
         "primary_endpoint": "ORR: responder = CR or PR; non-responder = SD or PD; non-evaluable excluded",
         "primary_exposure": "CLDN4 > cohort median (response-blind), ties to low group",
         "cohorts_pooled": POOLED_COHORTS,
+        "posthoc_open_cohorts": {
+            "note": "Added after the 3-cohort primary was locked, at the request to include every open BLCA ICI RNA+CLDN4 cohort. Not used to chase 0.42.",
+            "recist_compatible": POSTHOC_RECIST_COHORTS,
+            "coarse_endpoint": POSTHOC_COARSE_COHORTS,
+            "per_cohort": posthoc_effects,
+            "pooled_4_plus_UC_GENOME": expanded_pooled,
+            "pooled_all_open_including_GSE111636": all_open_pooled,
+        },
         "n_response_evaluable_total": n_total,
         "n_objective_responders_total": n_resp,
         "per_cohort": per_cohort,

@@ -17,6 +17,139 @@
     "BACI",
     "Snyder"
   ],
+  "posthoc_open_cohorts": {
+    "note": "Added after the 3-cohort primary was locked, at the request to include every open BLCA ICI RNA+CLDN4 cohort. Not used to chase 0.42.",
+    "recist_compatible": [
+      "UC-GENOME"
+    ],
+    "coarse_endpoint": [
+      "GSE111636"
+    ],
+    "per_cohort": [
+      {
+        "n": 89,
+        "high_responder": 15,
+        "high_nonresponder": 29,
+        "low_responder": 19,
+        "low_nonresponder": 26,
+        "orr_high_pct": 34.09090909090909,
+        "orr_low_pct": 42.22222222222222,
+        "or_conditional_mle": 0.7105678095389554,
+        "ci_low": 0.2737214619123023,
+        "ci_high": 1.8190926302140982,
+        "fisher_p": 0.5145666832698986,
+        "log_or_woolf": -0.3455880700292223,
+        "se_log_or": 0.4384547213752672,
+        "haldane_corrected": false,
+        "cohort": "UC-GENOME",
+        "cutoff_rule": "median",
+        "threshold": 1.2895,
+        "expression_scale": "cBioPortal RNA-seq V2 median z-score",
+        "posthoc": true,
+        "endpoint": "IO best response CR/PR vs SD/PD"
+      },
+      {
+        "n": 11,
+        "high_responder": 4,
+        "high_nonresponder": 1,
+        "low_responder": 2,
+        "low_nonresponder": 4,
+        "orr_high_pct": 80.0,
+        "orr_low_pct": 33.333333333333336,
+        "or_conditional_mle": 6.439146409959159,
+        "ci_low": 0.32490046755594004,
+        "ci_high": 490.1562752310012,
+        "fisher_p": 0.24242424242424238,
+        "log_or_woolf": 2.0794415416798357,
+        "se_log_or": 1.4142135623730951,
+        "haldane_corrected": false,
+        "cohort": "GSE111636",
+        "cutoff_rule": "median",
+        "threshold": 5.106750138,
+        "expression_scale": "HTA-2.0 transcript-cluster intensity (TC07000447.hg.1)",
+        "posthoc": true,
+        "endpoint": "binary responder/progressor"
+      }
+    ],
+    "pooled_4_plus_UC_GENOME": {
+      "k": 4,
+      "fixed_iv": {
+        "or": 1.1377744561749619,
+        "ci_low": 0.7527510989018067,
+        "ci_high": 1.7197327443464767,
+        "log_or": 0.12907412289340595,
+        "se": 0.21076264013527474,
+        "p": 0.5402634690612118
+      },
+      "random_dl": {
+        "or": 1.1377744561749619,
+        "ci_low": 0.7527510989018067,
+        "ci_high": 1.7197327443464767,
+        "log_or": 0.12907412289340595,
+        "se": 0.21076264013527474,
+        "p": 0.5402634690612118
+      },
+      "random_dl_hartung_knapp": {
+        "or": 1.1377744561749619,
+        "ci_low": 0.6374376661907447,
+        "ci_high": 2.0308349847918445,
+        "se": 0.18205268921144155,
+        "p": 0.5294597232034274
+      },
+      "mantel_haenszel": {
+        "or": 1.1375284341038054,
+        "ci_low": 0.7549373732888248,
+        "ci_high": 1.7140109685622977,
+        "se_log": 0.20917262806367454
+      },
+      "heterogeneity": {
+        "Q": 2.238351007377989,
+        "df": 3,
+        "p": 0.5244339742259891,
+        "I2_percent": 0.0,
+        "tau2": 0.0
+      }
+    },
+    "pooled_all_open_including_GSE111636": {
+      "k": 5,
+      "fixed_iv": {
+        "or": 1.1870264906888384,
+        "ci_low": 0.7888880449843396,
+        "ci_high": 1.786098672118969,
+        "log_or": 0.17145143272377508,
+        "se": 0.2084603549752336,
+        "p": 0.4108120615049421
+      },
+      "random_dl": {
+        "or": 1.180428899791883,
+        "ci_low": 0.7748044230850165,
+        "ci_high": 1.7984053084206273,
+        "log_or": 0.16587784683665685,
+        "se": 0.21480739062375862,
+        "p": 0.43998611276847377
+      },
+      "random_dl_hartung_knapp": {
+        "or": 1.180428899791883,
+        "ci_low": 0.6505898964823493,
+        "ci_high": 2.1417676404104427,
+        "se": 0.21457425551946438,
+        "p": 0.48263286646055387
+      },
+      "mantel_haenszel": {
+        "or": 1.1952152246268677,
+        "ci_low": 0.7985594675117748,
+        "ci_high": 1.7888954940713793,
+        "se_log": 0.20575107833087247
+      },
+      "heterogeneity": {
+        "Q": 4.098991879315324,
+        "df": 4,
+        "p": 0.39277449794205704,
+        "I2_percent": 2.415029895884046,
+        "tau2": 0.007031407571824112
+      }
+    }
+  },
   "n_response_evaluable_total": 406,
   "n_objective_responders_total": 91,
   "per_cohort": [

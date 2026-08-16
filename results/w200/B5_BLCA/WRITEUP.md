@@ -224,6 +224,29 @@ Two clarifications, neither affecting the primary result:
 Nothing was removed from the plan, and no cohort, cutoff or covariate was changed
 after seeing a result.
 
+## 9. Post-hoc open-cohort expansion (requested after the primary was locked)
+
+Two further **open** BLCA ICI RNA+CLDN4 cohorts were added after commit `b1e1159`,
+because the follow-up request was to report OR/n/p for every open BLCA ICI dataset
+with CLDN4. They are **not** part of the locked primary and were not used to chase
+0.42.
+
+| Cohort | Source | n | responders | OR (95% CI) | p | Endpoint |
+|---|---|---|---|---|---|---|
+| UC-GENOME | cBioPortal `blca_bcan_hcrn_2022` (Damrauer 2022, PMID 36333289) | 89 | 34 | 0.71 (0.27–1.82) | 0.515 | IO best response CR/PR vs SD/PD |
+| GSE111636 | GEO GSE111636 (pembrolizumab, HTA-2.0) | 11 | 6 | 6.44 (0.33–490) | 0.242 | depositor binary responder/progressor |
+
+UC-GENOME is independent of BACI/GSE176307: the UC-GENOME paper used GSE176307 as
+an external validation set, and the patient identifiers do not overlap.
+
+Post-hoc 4-cohort pool (prespecified 3 + UC-GENOME; GSE111636 held out because
+its endpoint is not RECIST): **OR 1.14 (0.75–1.72), p = 0.540, I² = 0%**. Testing
+H₀: OR = 0.42 still rejects at **z = 4.73, p = 2.3 × 10⁻⁶**. Adding the only
+open cohort that points in the claimed direction moves the estimate from 1.31
+toward 1, not toward 0.42.
+
+Full OR/n/p table: `or_n_p.md` / `or_n_p.csv`.
+
 ---
 
 # 中文 / Chinese
@@ -414,3 +437,23 @@ inflamed 4.17（Kruskal–Wallis H = 3.56，p = 0.169，不显著）。因此在
    一并报告。
 
 方案中没有任何内容被删除，也没有在看到结果后更改任何队列、切点或协变量。
+
+## 9. 事后开放队列扩展（主要分析锁定后应要求加入）
+
+在提交 `b1e1159` 之后，又加入了两个**开放**的膀胱/尿路上皮癌 ICI RNA+CLDN4 队列，因后续
+要求报告每一个开放队列的 OR/n/p。它们**不属于**已锁定的主要分析，也未被用于追逐 0.42。
+
+| 队列 | 来源 | n | 缓解者 | OR（95% CI） | p | 终点 |
+|---|---|---|---|---|---|---|
+| UC-GENOME | cBioPortal `blca_bcan_hcrn_2022`（Damrauer 2022，PMID 36333289） | 89 | 34 | 0.71（0.27–1.82） | 0.515 | IO 最佳缓解 CR/PR 对 SD/PD |
+| GSE111636 | GEO GSE111636（pembrolizumab，HTA-2.0） | 11 | 6 | 6.44（0.33–490） | 0.242 | 提交者二分的缓解/进展 |
+
+UC-GENOME 与 BACI/GSE176307 相互独立：UC-GENOME 论文将 GSE176307 用作外部验证集，且
+患者编号无重叠。
+
+事后 4 队列合并（预设 3 个 + UC-GENOME；因终点不是 RECIST，GSE111636 未纳入）：
+**OR 1.14（0.75–1.72），p = 0.540，I² = 0%**。对 H₀: OR = 0.42 仍以
+**z = 4.73，p = 2.3 × 10⁻⁶** 拒绝。加入唯一指向所称方向的开放队列，只是把估计从 1.31
+拉向 1，而不是拉向 0.42。
+
+完整 OR/n/p 表见 `or_n_p.md` / `or_n_p.csv`。

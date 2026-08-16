@@ -286,6 +286,132 @@ def load_predictio(raw_dir, study, cohort_label):
     return out
 
 
+def classify_ucgenome(text):
+    t = str(text or "").strip().lower()
+    if t in ("complete response", "partial response"):
+        return 1
+    if t in ("stable disease", "progressive disease"):
+        return 0
+    return None
+
+
+def load_ucgenome(raw_dir):
+    """cBioPortal blca_bcan_hcrn_2022. Expression is already a per-gene z-score."""
+    base = os.path.join(raw_dir, "ucgenome")
+    clin_raw = json.load(open(os.path.join(base, "clinical_patient.json")))
+    clin = {}
+    for rec in clin_raw:
+        clin.setdefault(rec["patientId"], {})[rec["clinicalAttributeId"]] = rec.get("value", "")
+
+    gene_by_pt = {}
+    for gene in PANEL:
+        path = os.path.join(base, f"{gene}_zscore.json")
+        if not os.path.exists(path):
+            continue
+        for rec in json.load(open(path)):
+            gene_by_pt.setdefault(rec["patientId"], {})[gene] = rec.get("value")
+            gene_by_pt[rec["patientId"]]["sample_id"] = rec.get("sampleId")
+
+    out = []
+    for pid, g in gene_by_pt.items():
+        c = clin.get(pid, {})
+        recist = c.get("BEST_RESPONSE_IMMUNOTHERAPY", "")
+        io = c.get("IMMUNOTHERAPY", "")
+        # Keep everyone with RNA; analysis_set later requires responder not-null,
+        # which already drops patients who never received ICI or were non-evaluable.
+        row = {
+            "cohort": "UC-GENOME",
+            "sample_id": g.get("sample_id", pid),
+            "patient_id": pid,
+            "expression_scale": "cBioPortal RNA-seq V2 median z-score",
+            "recist": recist,
+            "responder": classify_ucgenome(recist) if io == "Yes" else None,
+            "treatment": "immunotherapy" if io == "Yes" else "",
+            "tissue": c.get("PRIMARY_TUMOR_LOCATION", ""),
+            "immune_phenotype": "",
+            "ecog": c.get("BASELINE_ECOG", ""),
+            "received_platinum": c.get("CHEMOTHERAPY", ""),
+            "tmb_per_mb": "",
+            "tcga_subtype": "",
+            "CLDN4_deseq_norm": None,
+            "n_rna_runs": 1,
+        }
+        for gene in PANEL:
+            v = g.get(gene)
+            try:
+                row[gene] = float(v) if v is not None and v != "" else None
+            except (TypeError, ValueError):
+                row[gene] = None
+        out.append(row)
+    return out
+
+
+def load_gse111636(raw_dir):
+    """Pembrolizumab HTA-2.0 array, n=11. CLDN4 = transcript cluster TC07000447.hg.1.
+    Endpoint is the depositor's binary responder/progressor label, not full RECIST."""
+    path = os.path.join(raw_dir, "GSE111636", "GSE111636_series_matrix.txt.gz")
+    titles, accs, responses, treatments = [], [], [], []
+    cldn4 = None
+    with gzip.open(path, "rt", encoding="utf-8", errors="replace") as fh:
+        for line in fh:
+            if line.startswith("!Sample_title"):
+                titles = [f.strip().strip('"') for f in line.rstrip("\n").split("\t")[1:]]
+            elif line.startswith("!Sample_geo_accession"):
+                accs = [f.strip().strip('"') for f in line.rstrip("\n").split("\t")[1:]]
+            elif line.startswith("!Sample_characteristics_ch1"):
+                fields = [f.strip().strip('"') for f in line.rstrip("\n").split("\t")[1:]]
+                if fields and fields[0].startswith("treatment response:"):
+                    responses = [f.split(":", 1)[1].strip() for f in fields]
+                elif fields and fields[0].startswith("treatment:"):
+                    treatments = [f.split(":", 1)[1].strip() for f in fields]
+            elif line.startswith('"TC07000447.hg.1"') or line.startswith("TC07000447.hg.1"):
+                parts = line.rstrip("\n").split("\t")
+                cldn4 = []
+                for v in parts[1:]:
+                    try:
+                        cldn4.append(float(v.strip().strip('"')))
+                    except (TypeError, ValueError):
+                        cldn4.append(None)
+    if cldn4 is None:
+        raise RuntimeError("CLDN4 transcript cluster TC07000447.hg.1 not found in GSE111636")
+    out = []
+    for i, acc in enumerate(accs):
+        resp = responses[i] if i < len(responses) else ""
+        rl = resp.lower()
+        if "responder" in rl:
+            binary = 1
+            recist = "responder"
+        elif "progressor" in rl:
+            binary = 0
+            recist = "progressor"
+        else:
+            binary = None
+            recist = resp
+        row = {
+            "cohort": "GSE111636",
+            "sample_id": acc,
+            "patient_id": acc,
+            "expression_scale": "HTA-2.0 transcript-cluster intensity (TC07000447.hg.1)",
+            "recist": recist,
+            "responder": binary,
+            "treatment": treatments[i] if i < len(treatments) else "pembrolizumab",
+            "tissue": "Bladder",
+            "immune_phenotype": "",
+            "ecog": "",
+            "received_platinum": "",
+            "tmb_per_mb": "",
+            "tcga_subtype": "",
+            "CLDN4": cldn4[i] if i < len(cldn4) else None,
+            "CLDN4_deseq_norm": None,
+            "n_rna_runs": 1,
+        }
+        for gene in PANEL:
+            if gene != "CLDN4":
+                row[gene] = None
+        out.append(row)
+    return out
+
+
 # --------------------------------------------------------------------------- #
 def add_scores(rows):
     """Per-cohort z-scored control signatures."""
@@ -321,11 +447,13 @@ def main() -> int:
     baci = load_baci(args.raw_dir)
     snyder = load_predictio(args.raw_dir, "Snyder", "Snyder")
     imv_harm = load_predictio(args.raw_dir, "Mariathasan", "IMvigor210_PredictIO")
+    ucg = load_ucgenome(args.raw_dir)
+    gse11 = load_gse111636(args.raw_dir)
 
     print(f"[n] IMvigor210={len(imv)} BACI={len(baci)} Snyder={len(snyder)} "
-          f"IMvigor210_PredictIO={len(imv_harm)}")
+          f"IMvigor210_PredictIO={len(imv_harm)} UC-GENOME={len(ucg)} GSE111636={len(gse11)}")
 
-    rows = add_scores(imv + baci + snyder + imv_harm)
+    rows = add_scores(imv + baci + snyder + imv_harm + ucg + gse11)
 
     fields = (["cohort", "sample_id", "patient_id", "expression_scale", "recist",
                "responder", "treatment", "tissue", "immune_phenotype", "ecog",
@@ -347,7 +475,8 @@ def main() -> int:
                     "n_evaluable_analysed", "n_responders", "n_nonresponders",
                     "orr_percent", "n_excluded_nonevaluable", "expression_scale",
                     "pooled_in_meta"])
-        for cohort in ["IMvigor210", "BACI", "Snyder", "IMvigor210_PredictIO"]:
+        for cohort in ["IMvigor210", "BACI", "Snyder", "UC-GENOME", "GSE111636",
+                       "IMvigor210_PredictIO"]:
             rs = [r for r in rows if r["cohort"] == cohort]
             n_av = len(rs)
             n_g = sum(1 for r in rs if r.get(PRIMARY_GENE) is not None)
@@ -359,7 +488,9 @@ def main() -> int:
                         round(100.0 * nr / len(an), 2) if an else "",
                         n_g - len(an),
                         rs[0]["expression_scale"] if rs else "",
-                        "no (duplicate of IMvigor210)" if cohort == "IMvigor210_PredictIO" else "yes"])
+                        ("no (duplicate of IMvigor210)" if cohort == "IMvigor210_PredictIO"
+                         else "no (post-hoc; not in locked 3-cohort primary)" if cohort in ("UC-GENOME", "GSE111636")
+                         else "yes (prespecified primary)")])
     print(f"[write] {flow_path}")
 
     # ---- validation of the mirrored IMvigor210 against published values ----- #

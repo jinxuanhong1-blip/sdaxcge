@@ -1,0 +1,3 @@
+cohort,cutoff_rule,threshold,expression_scale,n,high_responder,high_nonresponder,low_responder,low_nonresponder,orr_high_pct,orr_low_pct,or_conditional_mle,ci_low,ci_high,fisher_p,log_or_woolf,se_log_or,haldane_corrected,posthoc,endpoint
+UC-GENOME,median,1.2895,cBioPortal RNA-seq V2 median z-score,89,15,29,19,26,34.09090909090909,42.22222222222222,0.7105678095389554,0.2737214619123023,1.8190926302140982,0.5145666832698986,-0.3455880700292223,0.4384547213752672,False,True,IO best response CR/PR vs SD/PD
+GSE111636,median,5.106750138,HTA-2.0 transcript-cluster intensity (TC07000447.hg.1),11,4,1,2,4,80.0,33.333333333333336,6.439146409959159,0.32490046755594004,490.1562752310012,0.24242424242424238,2.0794415416798357,1.4142135623730951,False,True,binary responder/progressor

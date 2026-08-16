@@ -5,6 +5,10 @@ Claimed OR = 0.42. Observed pooled OR = **1.31 (95 % CI 0.82–2.10)** across
 n = 406 response-evaluable patients in 3 public cohorts. Opposite direction;
 0.42 is rejected at **p = 2.1 × 10⁻⁶**. `did_we_tune_to_0.42: false`.
 
+**OR / n / p for every open BLCA ICI cohort with CLDN4 is in `or_n_p.md`.**
+A fourth open cohort (UC-GENOME, n=89, OR=0.71, p=0.515) was added post-hoc;
+the 4-cohort pool is **1.14 (0.75–1.72)** and still rejects 0.42 at p=2.3×10⁻⁶.
+
 Read `WRITEUP.md` (bilingual EN/中文) for the full report and `analysis_plan.md`
 for the prespecification, which was committed before any result was computed.
 

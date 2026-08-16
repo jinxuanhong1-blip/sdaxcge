@@ -103,6 +103,17 @@ SOURCES = [
         "note": "Same trial as imvigor210_cds. Used ONLY for pipeline concordance (S7); excluded from pooling to avoid double counting.",
         "unzip": True,
     },
+    {
+        "key": "gse111636_series_matrix",
+        "cohort": "GSE111636",
+        "file_name": "GSE111636_series_matrix.txt.gz",
+        "subdir": "GSE111636",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE111nnn/GSE111636/matrix/GSE111636_series_matrix.txt.gz",
+        "accession": "GSE111636",
+        "citation": "Homet Moreno B et al. Identification of potential biomarkers of response and resistance to PD-1 blockade in advanced urothelial tumors. GEO GSE111636 (pembrolizumab, n=11, Affymetrix HTA-2.0).",
+        "expression_scale": "HTA-2.0 transcript-cluster intensity; CLDN4 = TC07000447.hg.1",
+        "note": "Post-hoc open cohort. Endpoint is depositor binary responder/progressor, not full RECIST.",
+    },
 ]
 
 
@@ -112,6 +123,64 @@ def sha256_of(path: str) -> str:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+UC_GENOME_GENES = {
+    "CLDN4": 1364, "CD8A": 925, "GZMA": 3001, "GZMB": 3002, "IFNG": 3458,
+    "EOMES": 8320, "CXCL9": 4283, "CXCL10": 3627, "TBX21": 30009, "PRF1": 5551,
+    "ACTB": 60, "GAPDH": 2597, "TBP": 6908, "RPL13A": 23521, "PGK1": 5230,
+    "TACSTD2": 4070, "CLDN1": 9076, "CLDN3": 1365, "CLDN7": 1366, "CD274": 29126,
+}
+
+
+def fetch_ucgenome(dest_dir: str) -> list:
+    """Download UC-GENOME clinical + gene z-scores from the public cBioPortal API."""
+    out = []
+    clin_url = "https://www.cbioportal.org/api/studies/blca_bcan_hcrn_2022/clinical-data?clinicalDataType=PATIENT"
+    clin_path = os.path.join(dest_dir, "clinical_patient.json")
+    if not os.path.exists(clin_path):
+        print(f"[get ] {clin_url}")
+        fetch(clin_url, clin_path)
+    else:
+        print(f"[have] {clin_path}")
+    out.append({
+        "key": "ucgenome_clinical",
+        "cohort": "UC-GENOME",
+        "file_name": "clinical_patient.json",
+        "url": clin_url,
+        "accession": "blca_bcan_hcrn_2022",
+        "citation": "Damrauer JS et al. Collaborative study from the Bladder Cancer Advocacy Network for the genomic analysis of metastatic urothelial cancer. Nat Commun 2022;13:6658. PMID 36333289.",
+        "doi": "10.1038/s41467-022-33980-9",
+        "expression_scale": "n/a (clinical: IMMUNOTHERAPY, BEST_RESPONSE_IMMUNOTHERAPY)",
+        "local_path": clin_path,
+        "bytes": os.path.getsize(clin_path),
+        "sha256": sha256_of(clin_path),
+        "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+        "note": "Post-hoc open cohort added after the 3-cohort primary was locked.",
+    })
+    for gene, eid in UC_GENOME_GENES.items():
+        url = ("https://www.cbioportal.org/api/molecular-profiles/"
+               "blca_bcan_hcrn_2022_rna_seq_v2_mrna_median_Zscores/molecular-data"
+               f"?entrezGeneId={eid}&sampleListId=blca_bcan_hcrn_2022_all")
+        path = os.path.join(dest_dir, f"{gene}_zscore.json")
+        if not os.path.exists(path):
+            print(f"[get ] UC-GENOME {gene}")
+            fetch(url, path)
+        else:
+            print(f"[have] {path}")
+        out.append({
+            "key": f"ucgenome_{gene}",
+            "cohort": "UC-GENOME",
+            "file_name": f"{gene}_zscore.json",
+            "url": url,
+            "accession": "blca_bcan_hcrn_2022",
+            "expression_scale": "cBioPortal RNA-seq V2 median z-score",
+            "local_path": path,
+            "bytes": os.path.getsize(path),
+            "sha256": sha256_of(path),
+            "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+        })
+    return out
 
 
 def fetch(url: str, dest: str, retries: int = 4) -> None:
@@ -190,6 +259,20 @@ def main() -> int:
                 digest,
             ]
         )
+
+    # UC-GENOME is served as JSON from the cBioPortal API (no single tarball; the
+    # datahub S3 link returns 403). Fetch clinical + selected genes here so the
+    # rest of the pipeline is offline.
+    uc_dir = os.path.join(args.data_dir, "ucgenome")
+    os.makedirs(uc_dir, exist_ok=True)
+    uc_files = fetch_ucgenome(uc_dir)
+    entries.extend(uc_files)
+    for e in uc_files:
+        catalog_rows.append([
+            "UC-GENOME", e.get("accession", "blca_bcan_hcrn_2022"), "cBioPortal",
+            e["url"], e["retrieved_at_utc"], f"HTTP 200; {e['bytes']} bytes retrieved",
+            e["file_name"], str(e["bytes"]), "accepted", "", e["sha256"],
+        ])
 
     manifest = {
         "slice": "B5_BLCA",
