@@ -1,0 +1,320 @@
+{
+  "series": "GSE180963",
+  "data_root": "/tmp/gse180963",
+  "n_samples": 2,
+  "n_mice_per_genotype": 1,
+  "targets": [
+    "Tacstd2",
+    "Cldn4"
+  ],
+  "honesty": [
+    "n=2 (1 K + 1 KL). Genotype is fully confounded with mouse and the single pooled 10x library.",
+    "Cell-level p-values are pseudoreplication and are reported as descriptive only.",
+    "Matrices are author-prefiltered (500-6000 genes, mito<20%). No SoupX/CellBender possible.",
+    "Cldn4 is not used to define epithelium."
+  ],
+  "cells_loaded": {
+    "K": 6696,
+    "KL": 7564,
+    "total": 14260
+  },
+  "genes_loaded": 20304,
+  "targets_present": {
+    "Tacstd2": true,
+    "Cldn4": true
+  },
+  "cells_after_refilter": {
+    "before": 14260,
+    "after": 14260
+  },
+  "n_leiden_clusters": 35,
+  "markers_present": {
+    "Epithelial/Tumor": [
+      "Epcam",
+      "Krt8",
+      "Krt18",
+      "Krt19",
+      "Cldn18",
+      "Cdh1",
+      "Nkx2-1"
+    ],
+    "T/NK": [
+      "Cd3e",
+      "Cd3d",
+      "Cd3g",
+      "Cd8a",
+      "Cd4",
+      "Trbc2",
+      "Nkg7",
+      "Ncr1",
+      "Gzmb"
+    ],
+    "B": [
+      "Cd79a",
+      "Cd79b",
+      "Ms4a1",
+      "Cd19",
+      "Ighm"
+    ],
+    "Myeloid": [
+      "Lyz2",
+      "Itgam",
+      "Cd68",
+      "C1qa",
+      "Adgre1",
+      "Csf1r",
+      "S100a8",
+      "S100a9"
+    ],
+    "Endothelial": [
+      "Pecam1",
+      "Cldn5",
+      "Cdh5",
+      "Flt1"
+    ],
+    "Fibroblast": [
+      "Col1a1",
+      "Col1a2",
+      "Dcn",
+      "Pdgfra"
+    ]
+  },
+  "immune_fraction_cluster": {
+    "K": 0.8179510155316607,
+    "KL": 0.817028027498678
+  },
+  "ambient_qc": [
+    {
+      "genotype": "K",
+      "n_cells": 6696,
+      "pct_Ptprc_pos": 82.81063321385902,
+      "pct_Sftpc_pos_AMBIENT_FLAG": 76.46356033452808,
+      "n_epi_cluster": 20,
+      "n_epi_marker": 28,
+      "n_immune_cluster": 5477
+    },
+    {
+      "genotype": "KL",
+      "n_cells": 7564,
+      "pct_Ptprc_pos": 82.27128503437335,
+      "pct_Sftpc_pos_AMBIENT_FLAG": 77.74986779481756,
+      "n_epi_cluster": 231,
+      "n_epi_marker": 170,
+      "n_immune_cluster": 6180
+    }
+  ],
+  "contrasts": [
+    {
+      "gene": "Tacstd2",
+      "contrast": "K: Epithelial/Tumor vs Immune (cluster)",
+      "n_a": 20,
+      "n_b": 5477,
+      "mean_a": 0.26910191774368286,
+      "mean_b": 0.0270554106682539,
+      "pct_pos_a": 40.0,
+      "pct_pos_b": 2.1727222932262187,
+      "log2FC_mean(a/b)": 3.267152947232135,
+      "mannwhitney_U": 75170.0,
+      "mannwhitney_p": 1.8510110288093293e-28,
+      "rank_biserial_a_gt_b": 0.37246668338775635,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Tacstd2",
+      "contrast": "K: epi(marker) vs Ptprc+ (annotation-independent)",
+      "n_a": 28,
+      "n_b": 5545,
+      "mean_a": 0.22014464437961578,
+      "mean_b": 0.02748849056661129,
+      "pct_pos_a": 17.857142857142858,
+      "pct_pos_b": 2.272317403065825,
+      "log2FC_mean(a/b)": 2.9565392147809484,
+      "mannwhitney_U": 89671.5,
+      "mannwhitney_p": 6.563788446101171e-08,
+      "rank_biserial_a_gt_b": 0.1551140546798706,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Tacstd2",
+      "contrast": "KL: Epithelial/Tumor vs Immune (cluster)",
+      "n_a": 231,
+      "n_b": 6180,
+      "mean_a": 0.5773835182189941,
+      "mean_b": 0.038514021784067154,
+      "pct_pos_a": 62.77056277056276,
+      "pct_pos_b": 3.6245954692556634,
+      "log2FC_mean(a/b)": 3.871589843310963,
+      "mannwhitney_U": 1133372.5,
+      "mannwhitney_p": 0.0,
+      "rank_biserial_a_gt_b": 0.5878233909606934,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Tacstd2",
+      "contrast": "KL: epi(marker) vs Ptprc+ (annotation-independent)",
+      "n_a": 170,
+      "n_b": 6223,
+      "mean_a": 0.6138961911201477,
+      "mean_b": 0.04430842399597168,
+      "pct_pos_a": 64.70588235294117,
+      "pct_pos_b": 4.322673951470351,
+      "log2FC_mean(a/b)": 3.7624916560277413,
+      "mannwhitney_U": 847075.0,
+      "mannwhitney_p": 0.0,
+      "rank_biserial_a_gt_b": 0.6014121770858765,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Tacstd2",
+      "contrast": "Epithelial/Tumor: KL vs K (CONFOUNDED with sample)",
+      "n_a": 231,
+      "n_b": 20,
+      "mean_a": 0.5773835182189941,
+      "mean_b": 0.26910191774368286,
+      "pct_pos_a": 62.77056277056276,
+      "pct_pos_b": 40.0,
+      "log2FC_mean(a/b)": 1.0985225583019291,
+      "mannwhitney_U": 3084.0,
+      "mannwhitney_p": 0.010447070933878422,
+      "rank_biserial_a_gt_b": 0.3350648880004883,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Cldn4",
+      "contrast": "K: Epithelial/Tumor vs Immune (cluster)",
+      "n_a": 20,
+      "n_b": 5477,
+      "mean_a": 0.03773895651102066,
+      "mean_b": 0.0,
+      "pct_pos_a": 5.0,
+      "pct_pos_b": 0.0,
+      "log2FC_mean(a/b)": 5.275713188305786,
+      "mannwhitney_U": 57508.5,
+      "mannwhitney_p": 0.0,
+      "rank_biserial_a_gt_b": 0.04999995231628418,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Cldn4",
+      "contrast": "K: epi(marker) vs Ptprc+ (annotation-independent)",
+      "n_a": 28,
+      "n_b": 5545,
+      "mean_a": 0.02695639617741108,
+      "mean_b": 0.0,
+      "pct_pos_a": 3.571428571428571,
+      "pct_pos_b": 0.0,
+      "log2FC_mean(a/b)": 4.80510649164953,
+      "mannwhitney_U": 80402.5,
+      "mannwhitney_p": 5.605193857299268e-45,
+      "rank_biserial_a_gt_b": 0.03571426868438721,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Cldn4",
+      "contrast": "KL: Epithelial/Tumor vs Immune (cluster)",
+      "n_a": 231,
+      "n_b": 6180,
+      "mean_a": 0.09346653521060944,
+      "mean_b": 0.0003554728755261749,
+      "pct_pos_a": 9.956709956709958,
+      "pct_pos_b": 0.032362459546925564,
+      "log2FC_mean(a/b)": 6.122935196129972,
+      "mannwhitney_U": 784620.0,
+      "mannwhitney_p": 0.0,
+      "rank_biserial_a_gt_b": 0.09923088550567627,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Cldn4",
+      "contrast": "KL: epi(marker) vs Ptprc+ (annotation-independent)",
+      "n_a": 170,
+      "n_b": 6223,
+      "mean_a": 0.09929284453392029,
+      "mean_b": 0.0011100443080067635,
+      "pct_pos_a": 10.0,
+      "pct_pos_b": 0.12855535915153463,
+      "log2FC_mean(a/b)": 5.57080157542005,
+      "mannwhitney_U": 581166.5,
+      "mannwhitney_p": 0.0,
+      "rank_biserial_a_gt_b": 0.09870684146881104,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    },
+    {
+      "gene": "Cldn4",
+      "contrast": "Epithelial/Tumor: KL vs K (CONFOUNDED with sample)",
+      "n_a": 231,
+      "n_b": 20,
+      "mean_a": 0.09346653521060944,
+      "mean_b": 0.03773895651102066,
+      "pct_pos_a": 9.956709956709958,
+      "pct_pos_b": 5.0,
+      "log2FC_mean(a/b)": 1.2860182514052614,
+      "mannwhitney_U": 2425.0,
+      "mannwhitney_p": 0.4712143838405609,
+      "rank_biserial_a_gt_b": 0.04978358745574951,
+      "note": "cell-level p; n=1 mouse/genotype; descriptive only"
+    }
+  ],
+  "coexpression": [
+    {
+      "genotype": "K",
+      "epithelial_definition": "cluster",
+      "n_epi": 20,
+      "n_Tacstd2_pos": 8,
+      "n_Cldn4_pos": 1,
+      "n_both_pos": 1,
+      "n_Tacstd2_only": 7,
+      "n_Cldn4_only": 0,
+      "n_neither": 12,
+      "pct_both_of_epi": 5.0,
+      "pct_Cldn4_among_Tacstd2pos": 12.5,
+      "spearman_rho": 0.4266055990780606,
+      "spearman_p": 0.06068470518866729
+    },
+    {
+      "genotype": "K",
+      "epithelial_definition": "marker",
+      "n_epi": 28,
+      "n_Tacstd2_pos": 5,
+      "n_Cldn4_pos": 1,
+      "n_both_pos": 1,
+      "n_Tacstd2_only": 4,
+      "n_Cldn4_only": 0,
+      "n_neither": 23,
+      "pct_both_of_epi": 3.5714285714285716,
+      "pct_Cldn4_among_Tacstd2pos": 20.0,
+      "spearman_rho": 0.4458906259972199,
+      "spearman_p": 0.0173991627797491
+    },
+    {
+      "genotype": "KL",
+      "epithelial_definition": "cluster",
+      "n_epi": 231,
+      "n_Tacstd2_pos": 145,
+      "n_Cldn4_pos": 23,
+      "n_both_pos": 20,
+      "n_Tacstd2_only": 125,
+      "n_Cldn4_only": 3,
+      "n_neither": 83,
+      "pct_both_of_epi": 8.658008658008658,
+      "pct_Cldn4_among_Tacstd2pos": 13.793103448275861,
+      "spearman_rho": 0.16493792541684477,
+      "spearman_p": 0.012057463904776283
+    },
+    {
+      "genotype": "KL",
+      "epithelial_definition": "marker",
+      "n_epi": 170,
+      "n_Tacstd2_pos": 110,
+      "n_Cldn4_pos": 17,
+      "n_both_pos": 14,
+      "n_Tacstd2_only": 96,
+      "n_Cldn4_only": 3,
+      "n_neither": 57,
+      "pct_both_of_epi": 8.235294117647058,
+      "pct_Cldn4_among_Tacstd2pos": 12.727272727272727,
+      "spearman_rho": 0.08614330697176302,
+      "spearman_p": 0.2640104540645665
+    }
+  ]
+}
