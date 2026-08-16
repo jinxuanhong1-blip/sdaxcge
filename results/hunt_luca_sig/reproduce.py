@@ -81,7 +81,12 @@ def write_expression_summaries(frame: pd.DataFrame, output_dir: Path) -> None:
         )
         .sort_values("cell_type")
     )
-    by_type.to_csv(output_dir / "tacstd2_relevant_cell_types.tsv", sep="\t", index=False)
+    by_type.to_csv(
+        output_dir / "tacstd2_relevant_cell_types.tsv",
+        sep="\t",
+        index=False,
+        float_format="%.6f",
+    )
 
     by_assay = summarize(
         frame[frame["cell_type"].isin(["malignant cell", "neutrophil"])],
@@ -93,6 +98,7 @@ def write_expression_summaries(frame: pd.DataFrame, output_dir: Path) -> None:
         output_dir / "tacstd2_malignant_vs_neutrophil_by_assay.tsv",
         sep="\t",
         index=False,
+        float_format="%.6f",
     )
 
 
