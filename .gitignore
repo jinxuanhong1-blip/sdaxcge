@@ -1,0 +1,15 @@
+# Local processed matrices (do not commit)
+data/
+methods/scrna_harmony_neoadj/data/
+*.h5ad
+*.rds
+*.rds.gz
+*.mtx
+*.mtx.gz
+*_RAW.tar
+*UMI_matrix*
+*.npz
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
