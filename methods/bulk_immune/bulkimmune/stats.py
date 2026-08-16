@@ -65,8 +65,11 @@ DEFAULT_FAMILIES = {
         "HALLMARK_ALLOGRAFT_REJECTION",
         "CD8 T cells", "T cells", "Cytotoxic lymphocytes", "B lineage",
         "CD8+ T-cells", "CD4+ T-cells", "B-cells", "NK cells",
+        "T.cells.CD8", "T.cells.CD4", "NK.cells", "B.cells",
         "Step4_trafficking_of_immune_cells",
+        "Step4_CD8_T_cell", "Step4_T_cell", "Step4_NK_cell", "Step4_B_cell",
         "Step7_killing_of_cancer_cells",
+        "Cytolytic_CYT_Rooney",
     ],
 }
 
@@ -283,7 +286,7 @@ def _logrank_p(t1, e1, t2, e2) -> float:
             var += d * (n - d) * n1 * n2 / (n ** 2 * (n - 1))
             o1 += d1
             o2 += d2
-        n1 -= float((t1 == t).sum()) if False else float(np.sum(t1 == t))
+        n1 -= float(np.sum(t1 == t))
         n2 -= float(np.sum(t2 == t))
     if var <= 0:
         return np.nan

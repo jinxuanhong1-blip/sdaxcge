@@ -48,5 +48,6 @@ python3 scripts/04_correlate.py \
   --purity-col estimate:ESTIMATEScore
 
 python3 scripts/06_make_figures.py --root "$HERE"
+python3 scripts/07_concordance.py --root "$HERE"
 
 echo "demo complete. see $HERE/results/"

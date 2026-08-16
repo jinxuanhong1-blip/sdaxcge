@@ -29,4 +29,5 @@ __all__ = [
     "geo",
     "tcga",
     "pipeline",
+    "concordance",
 ]

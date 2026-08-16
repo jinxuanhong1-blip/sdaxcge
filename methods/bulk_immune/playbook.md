@@ -344,6 +344,7 @@ bash scripts/05_run_demo.sh
 | `scripts/03_score_cohort.py` | every method, skip-and-record if a resource is missing |
 | `scripts/04_correlate.py` | Spearman, partial, batch KW, two-group, survival; family-wise BH |
 | `scripts/06_make_figures.py` | optional bar plots of the two pre-specified families |
+| `scripts/07_concordance.py` | cross-method Spearman on CD8/IFN/exclusion/TLS axes; cross-cohort sign table |
 | `scripts/R/run_cibersortx.sh` | official CIBERSORTx Docker (licence + token required) |
 
 Python 3.12, no R required for the GEO/TCGA demo once xCell resources have
@@ -462,10 +463,13 @@ r = −0.547, p = 0.0032, exclusion-family FDR = 0.054 — report as
 nominal. Median-split log-rank on 21 events: no score survives family
 FDR (top nominal: TIP step-4 macrophage p = 0.0066, FDR = 0.24;
 Hallmark TGF-β p = 0.021, FDR = 0.18). Cabrita TLS was computed with
-and without EIF1AY because the cohort is 22 male / 5 female.
+and without EIF1AY because the cohort is 22 male / 5 female. The Coppola
+12-CK set is **8/12 genes** here: CCL3, CCL4, CCL5 and CCL18 are absent
+from the published FPKM matrix after Ensembl→symbol mapping. Do not quote
+that TLS score as the published 12-gene signature.
 
 **中文。** 目标基因与预设家族相关、以及生存，全部不过家族 FDR。Cabrita TLS
-因 22 男 / 5 女同时报告去 Y 版本。
+因 22 男 / 5 女同时报告去 Y 版本。本队列 12-CK 只覆盖 8/12（缺 CCL3/4/5/18）。
 
 ### 8.6 What the demo did *not* run / 演示未跑的部分
 
@@ -473,6 +477,75 @@ LM22 / official CIBERSORTx (no Stanford token in this environment).
 quanTIseq-style TIL10 *was* run and is in `block_quantiseq_style.tsv`.
 ESTIMATE TumorPurity was not emitted (RNA-seq). xCell used the 18
 biopsy-plausible types, not all 64.
+
+### 8.7 Cross-method concordance / 方法间一致性
+
+Tables: `results/demo/method_concordance.tsv`, `CONCORDANCE.json`.
+Median pairwise Spearman among the pre-specified axes:
+
+| Axis | GSE126044 median r (pairs ≥0.5 / all) | GSE135222 | TCGA |
+|---|---|---|---|
+| CD8 / cytotoxic | 0.80 (42/45) | 0.76 (43/45) | 0.70 (36/45) |
+| IFN / inflamed | 0.84 (15/15) | 0.81 (15/15) | 0.87 (15/15) |
+| TLS / B cell | 0.76 (13/15) | 0.67 (13/15) | 0.79 (15/15) |
+| Exclusion / stroma | 0.34 (10/28) | 0.55 (16/28) | 0.60 (17/28) |
+
+**CD8.** MCP-counter CD8B, TIDE CD8 and TIDE CTL are almost the same
+ranking in TCGA (MCP vs TIDE CD8 r = 0.960). xCell CD8 vs MCP CD8 is
+0.682 — same direction, not interchangeable. quanTIseq-style TIL10
+`T.cells.CD8` agrees with nobody (r = 0.07–0.20). That block is a
+licence-free smoke test, not a CD8 readout; do not put it in a TACSTD2
+figure next to MCP/xCell/TIDE.
+
+**IFN.** Ayers 6-gene vs TIDE IFNG r = 0.982 in TCGA. GEP18 vs
+ExpandedImmune18 r = 0.971 (different gene lists, same axis). Hallmark
+IFNG vs ImmuneScore r = 0.869.
+
+**Exclusion is not one axis.** TIDE Exclusion vs MDSC r = 0.805, vs CAF
+r = 0.515, vs MCP fibroblasts r = 0.311, vs ESTIMATE StromalScore
+r = **−0.170**. MDSC vs StromalScore r = −0.572. A “TACSTD2 vs
+exclusion family” result that is carried by MDSC is not a fibroblast
+result, and vice versa. Report the member, not the family name.
+
+**Sign concordance of TACSTD2/CLDN4 vs headline scores**
+(`results/demo/sign_concordance.tsv`) — three cohorts, sign only:
+
+| Pair | 126044 r | 135222 r | TCGA r | signs agree? |
+|---|---|---|---|---|
+| TACSTD2 vs xCell CD8 | −0.26 | −0.25 | −0.229 | **yes, all −** |
+| TACSTD2 vs ImmuneScore | −0.24 | −0.22 | −0.080 | **yes, all −** |
+| TACSTD2 vs TIDE Exclusion | +0.49 | +0.07 | +0.099 | **yes, all +** |
+| CLDN4 vs xCell CD8 | −0.31 | −0.30 | −0.052 | **yes, all −** |
+| TACSTD2 vs MCP CD8 | −0.26 | +0.09 | −0.164 | no |
+| CLDN4 vs TIDE Exclusion | +0.68 | −0.02 | −0.316 | no |
+
+The only TACSTD2–immune statement that is sign-stable across the ICI
+n=16, the ICI n=27 and TCGA n=1017 is: **higher TACSTD2, lower CD8 /
+ImmuneScore, slightly higher TIDE Exclusion**. Magnitude in the ICI
+cohorts is not distinguishable from noise after FDR. CLDN4 vs Exclusion
+is the pair that flips.
+
+**中文。** CD8/IFN/TLS 轴在方法间高度一致（TCGA 中位 r 0.70–0.87）；quanTIseq
+风格的 TIL10 CD8 与谁都不一致（r 0.07–0.20），不能当 CD8 读数。Exclusion
+家族不是一条轴：Exclusion–MDSC r = 0.81，Exclusion–StromalScore r = −0.17。
+三队列符号一致的只有：TACSTD2↑ 伴随 xCell CD8↓ / ImmuneScore↓ / TIDE
+Exclusion↑；CLDN4–Exclusion 符号不一致。
+
+### 8.8 Signature coverage / 签名覆盖率
+
+`results/demo/signature_overlap_all.tsv`. Curated IFN/GEP/TLS sets are
+complete in GSE126044 and TCGA. Exceptions that change interpretation:
+
+- GSE135222 Coppola 12-CK: **8/12** (CCL3, CCL4, CCL5, CCL18 missing from
+  the published matrix).
+- MCP-counter CD8 is officially 1 gene (CD8B) in all three cohorts.
+- MCP myeloid DC misses WFDC21P (5/6) everywhere; T-cell set misses
+  CHRM3-AS2 / MGC40069 (14/16).
+- ESTIMATE common-gene background: 9821/10412 (GSE126044), 9781/10412
+  (GSE135222), **10412/10412** (TCGA Xena symbols).
+
+**中文。** GSE135222 的 12-CK 只有 8/12。MCP CD8 官方就是单基因 CD8B。
+ESTIMATE 背景在 TCGA 上齐，在两个 GEO 上缺约 600 个 common genes。
 
 ---
 

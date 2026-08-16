@@ -80,6 +80,35 @@ def test_strip_ensembl():
     assert strip_ensembl_version(["ENSG0001.10", "TACSTD2"]) == ["ENSG0001", "TACSTD2"]
 
 
+def test_assign_family_quantiseq_and_prefixes():
+    from bulkimmune.stats import assign_family
+
+    assert assign_family("T.cells.CD8") == "inflamed"
+    assert assign_family("CD8+ T-cells") == "inflamed"
+    assert assign_family("Exclusion") == "exclusion"
+    assert assign_family("StromalScore") == "exclusion"
+    assert assign_family("Macrophages.M2") == "other"
+
+
+def test_sign_concordance_requires_agreement():
+    from bulkimmune.concordance import sign_concordance
+
+    def _frame(pairs):
+        rows = [{"target": t, "score": s, "spearman_r": r, "p": 0.01, "p_adj": 0.02} for t, s, r in pairs]
+        return __import__("pandas").DataFrame(rows)
+
+    tables = {
+        "A": _frame([("TACSTD2", "xcell:CD8+ T-cells", -0.2)]),
+        "B": _frame([("TACSTD2", "xcell:CD8+ T-cells", -0.3)]),
+        "C": _frame([("TACSTD2", "xcell:CD8+ T-cells", 0.1)]),
+    }
+    out = sign_concordance(tables)
+    row = out[(out.target == "TACSTD2") & (out.score == "xcell:CD8+ T-cells")].iloc[0]
+    assert row["n_negative"] == 2
+    assert row["n_positive"] == 1
+    assert bool(row["sign_agree"]) is False
+
+
 def test_spearman_and_fdr_families():
     rng = np.random.default_rng(1)
     n = 40

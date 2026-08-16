@@ -14,4 +14,5 @@ bash scripts/05_run_demo.sh
 
 Outputs land in `results/<cohort>/`. The numbers quoted in the playbook are
 copied to `results/demo/` so they remain auditable without re-downloading GEO
-or Xena.
+or Xena. Method-method and cross-cohort sign tables:
+`results/demo/method_concordance.tsv`, `sign_concordance.tsv`.

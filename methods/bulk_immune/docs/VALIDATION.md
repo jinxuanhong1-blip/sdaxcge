@@ -49,4 +49,7 @@ Sample matching is by normalised ID, not column order. In GSE126044 the count
 table and the series matrix disagree on the order of Dis_06 / Dis_07 / Dis_10.
 
 Exact statistics cited in `playbook.md` are stored in
-`results/demo/KEY_STATS.json` and the accompanying TSV files.
+`results/demo/KEY_STATS.json`, `results/demo/CONCORDANCE.json` and the
+accompanying TSV files. Cross-method / cross-cohort tables are produced by
+`scripts/07_concordance.py` from the already-written score matrices (no
+re-scoring).
