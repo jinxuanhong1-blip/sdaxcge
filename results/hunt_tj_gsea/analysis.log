@@ -1,0 +1,200 @@
+[19:42:56] primary sets: ['HALLMARK_APICAL_JUNCTION', 'HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION', 'KEGG_TIGHT_JUNCTION', 'GOBP_CORNIFICATION', 'GOBP_EPIDERMAL_CELL_DIFFERENTIATION', 'GOBP_EPITHELIAL_TO_MESENCHYMAL_TRANSITION', 'GOBP_ESTABLISHMENT_OF_SKIN_BARRIER', 'GOBP_KERATINIZATION', 'GOBP_KERATINOCYTE_DIFFERENTIATION', 'GOBP_TIGHT_JUNCTION_ORGANIZATION', 'CUSTOM_TJ_CORE', 'CUSTOM_CLAUDIN_PAR_FOCAL', 'CUSTOM_BARRIER_KERATIN', 'CUSTOM_EMT_CORE']
+[19:42:56] load TCGA-LUAD
+[19:42:56]   TCGA-LUAD (20530, 515)
+[19:42:56] load TCGA-LUSC
+[19:42:57]   TCGA-LUSC (20530, 502)
+[19:42:57] load TCGA-HNSC
+[19:42:58]   TCGA-HNSC (20530, 520)
+[19:42:58] load TCGA-BLCA
+[19:42:59]   TCGA-BLCA (20530, 407)
+[19:42:59] load TCGA-CESC
+[19:42:59]   TCGA-CESC (20530, 303)
+[19:42:59] load TCGA-BRCA
+[19:43:02]   TCGA-BRCA (20530, 1097)
+[19:43:02] load TCGA-COAD
+[19:43:02]   TCGA-COAD (20530, 286)
+[19:43:02] load TCGA-ESCA
+[19:43:03]   TCGA-ESCA (20530, 184)
+[19:43:03] load TCGA-STAD
+[19:43:03]   TCGA-STAD (20530, 415)
+[19:43:03] load TCGA-PAAD
+[19:43:04]   TCGA-PAAD (20530, 178)
+[19:43:04] load TCGA-OV
+[19:43:04]   TCGA-OV (20530, 304)
+[19:43:04] load TCGA-UCEC
+[19:43:04]   TCGA-UCEC (20530, 176)
+[19:43:04] load TCGA-SKCM
+[19:43:05]   TCGA-SKCM (20530, 472)
+[19:43:05] load TCGA-KIRC
+[19:43:06]   TCGA-KIRC (20530, 533)
+[19:43:06] load TCGA-GBM
+[19:43:06]   TCGA-GBM (20530, 154)
+[19:43:06] load GSE207422 bulk
+[19:43:07]   (58387, 24)
+[19:43:07] load GSE31210
+[19:43:10]   (20848, 226)
+[19:43:10] load GSE131907 malignant pseudobulk
+[19:43:10]   pseudobulk GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz: 24784 cells -> 21 samples
+[19:45:27]     genes 5000 elapsed 136s
+[19:47:44]     genes 10000 elapsed 274s
+[19:50:02]     genes 15000 elapsed 411s
+[19:52:18]     genes 20000 elapsed 548s
+[19:54:35]     genes 25000 elapsed 684s
+[19:56:43]   (29634, 21)
+[19:56:43] load GSE207422 sc epithelial pseudobulk
+[19:56:43]   GSE207422 scRNA: streaming lineage markers
+[19:56:48]   pseudobulk GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz: 9008 cells -> 14 samples
+[19:57:14]     genes 5000 elapsed 26s
+[19:57:40]     genes 10000 elapsed 52s
+[19:58:06]     genes 15000 elapsed 79s
+[19:58:33]     genes 20000 elapsed 105s
+[19:58:56]   (24292, 14)
+[19:58:56] analyze TCGA-LUAD quartile n=515
+2026-08-16 19:58:56,536 [WARNING] Duplicated values found in preranked stats: 0.34% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:58:58]   verdict FDR0.25=contradicts_EMT
+[19:58:58] analyze TCGA-LUAD median n=515
+2026-08-16 19:58:58,355 [WARNING] Duplicated values found in preranked stats: 0.14% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:58:59]   verdict FDR0.25=contradicts_EMT
+[19:58:59] analyze TCGA-LUSC quartile n=502
+2026-08-16 19:58:59,529 [WARNING] Duplicated values found in preranked stats: 0.41% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:00]   verdict FDR0.25=supportive
+[19:59:00] analyze TCGA-LUSC median n=502
+2026-08-16 19:59:00,717 [WARNING] Duplicated values found in preranked stats: 0.14% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:01]   verdict FDR0.25=supportive
+[19:59:01] analyze TCGA-HNSC quartile n=520
+2026-08-16 19:59:02,024 [WARNING] Duplicated values found in preranked stats: 0.13% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:03]   verdict FDR0.25=supportive
+[19:59:03] analyze TCGA-HNSC median n=520
+2026-08-16 19:59:03,253 [WARNING] Duplicated values found in preranked stats: 0.04% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:04]   verdict FDR0.25=supportive
+[19:59:04] analyze TCGA-BLCA quartile n=407
+2026-08-16 19:59:04,467 [WARNING] Duplicated values found in preranked stats: 0.30% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:05]   verdict FDR0.25=supportive
+[19:59:05] analyze TCGA-BLCA median n=407
+2026-08-16 19:59:05,772 [WARNING] Duplicated values found in preranked stats: 0.14% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:06]   verdict FDR0.25=supportive
+[19:59:06] analyze TCGA-CESC quartile n=303
+2026-08-16 19:59:06,924 [WARNING] Duplicated values found in preranked stats: 0.52% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:08]   verdict FDR0.25=mixed
+[19:59:08] analyze TCGA-CESC median n=303
+2026-08-16 19:59:08,177 [WARNING] Duplicated values found in preranked stats: 0.30% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:09]   verdict FDR0.25=supportive
+[19:59:09] analyze TCGA-BRCA quartile n=1097
+2026-08-16 19:59:09,364 [WARNING] Duplicated values found in preranked stats: 0.09% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:10]   verdict FDR0.25=contradicts_EMT
+[19:59:10] analyze TCGA-BRCA median n=1097
+2026-08-16 19:59:10,765 [WARNING] Duplicated values found in preranked stats: 0.03% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:11]   verdict FDR0.25=contradicts_EMT
+[19:59:11] analyze TCGA-COAD quartile n=286
+2026-08-16 19:59:11,968 [WARNING] Duplicated values found in preranked stats: 0.72% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:13]   verdict FDR0.25=contradicts_EMT
+[19:59:13] analyze TCGA-COAD median n=286
+2026-08-16 19:59:13,122 [WARNING] Duplicated values found in preranked stats: 0.54% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:14]   verdict FDR0.25=contradicts_EMT
+[19:59:14] analyze TCGA-ESCA quartile n=184
+2026-08-16 19:59:14,220 [WARNING] Duplicated values found in preranked stats: 0.29% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:15]   verdict FDR0.25=mixed
+[19:59:15] analyze TCGA-ESCA median n=184
+2026-08-16 19:59:15,334 [WARNING] Duplicated values found in preranked stats: 0.09% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:16]   verdict FDR0.25=contradicts_EMT
+[19:59:16] analyze TCGA-STAD quartile n=415
+2026-08-16 19:59:16,697 [WARNING] Duplicated values found in preranked stats: 0.04% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:17]   verdict FDR0.25=supportive
+[19:59:17] analyze TCGA-STAD median n=415
+2026-08-16 19:59:18,023 [WARNING] Duplicated values found in preranked stats: 0.01% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:19]   verdict FDR0.25=supportive
+[19:59:19] analyze TCGA-PAAD quartile n=178
+2026-08-16 19:59:19,249 [WARNING] Duplicated values found in preranked stats: 0.75% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:20]   verdict FDR0.25=contradicts_EMT
+[19:59:20] analyze TCGA-PAAD median n=178
+2026-08-16 19:59:20,427 [WARNING] Duplicated values found in preranked stats: 0.54% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:21]   verdict FDR0.25=contradicts_EMT
+[19:59:21] analyze TCGA-OV quartile n=304
+2026-08-16 19:59:21,609 [WARNING] Duplicated values found in preranked stats: 0.40% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:22]   verdict FDR0.25=contradicts_EMT
+[19:59:22] analyze TCGA-OV median n=304
+2026-08-16 19:59:22,857 [WARNING] Duplicated values found in preranked stats: 0.18% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:24]   verdict FDR0.25=contradicts_EMT
+[19:59:24] analyze TCGA-UCEC quartile n=176
+2026-08-16 19:59:24,058 [WARNING] Duplicated values found in preranked stats: 0.75% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:25]   verdict FDR0.25=contradicts_EMT
+[19:59:25] analyze TCGA-UCEC median n=176
+2026-08-16 19:59:25,221 [WARNING] Duplicated values found in preranked stats: 0.46% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:26]   verdict FDR0.25=contradicts_EMT
+[19:59:26] analyze TCGA-SKCM quartile n=472
+2026-08-16 19:59:26,571 [WARNING] Duplicated values found in preranked stats: 0.25% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:27]   verdict FDR0.25=contradicts_EMT
+[19:59:27] analyze TCGA-SKCM median n=472
+2026-08-16 19:59:28,036 [WARNING] Duplicated values found in preranked stats: 0.04% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:29]   verdict FDR0.25=contradicts_EMT
+[19:59:29] analyze TCGA-KIRC quartile n=533
+2026-08-16 19:59:29,393 [WARNING] Duplicated values found in preranked stats: 0.14% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:30]   verdict FDR0.25=contradicts_EMT
+[19:59:30] analyze TCGA-KIRC median n=533
+2026-08-16 19:59:30,839 [WARNING] Duplicated values found in preranked stats: 0.04% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:32]   verdict FDR0.25=contradicts_EMT
+[19:59:32] analyze TCGA-GBM quartile n=154
+2026-08-16 19:59:32,103 [WARNING] Duplicated values found in preranked stats: 1.12% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:33]   verdict FDR0.25=contradicts_EMT
+[19:59:33] analyze TCGA-GBM median n=154
+2026-08-16 19:59:33,304 [WARNING] Duplicated values found in preranked stats: 0.76% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:34]   verdict FDR0.25=contradicts_EMT
+[19:59:34] analyze GSE207422_bulk quartile n=24
+2026-08-16 19:59:34,452 [WARNING] Duplicated values found in preranked stats: 10.92% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:37]   verdict FDR0.25=underpowered
+[19:59:37] analyze GSE207422_bulk median n=24
+2026-08-16 19:59:37,384 [WARNING] Duplicated values found in preranked stats: 9.26% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:39]   verdict FDR0.25=supportive
+[19:59:39] analyze GSE31210 quartile n=226
+[19:59:41]   verdict FDR0.25=supportive
+[19:59:41] analyze GSE31210 median n=226
+[19:59:42]   verdict FDR0.25=supportive
+[19:59:42] analyze GSE131907_malignant_pseudobulk quartile n=21
+2026-08-16 19:59:42,315 [WARNING] Duplicated values found in preranked stats: 14.32% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:43]   verdict FDR0.25=underpowered
+[19:59:43] analyze GSE131907_malignant_pseudobulk median n=21
+2026-08-16 19:59:43,714 [WARNING] Duplicated values found in preranked stats: 9.98% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:45]   verdict FDR0.25=contradicts_EMT
+[19:59:45] analyze GSE207422_sc_epithelial_pseudobulk quartile n=14
+2026-08-16 19:59:45,272 [WARNING] Duplicated values found in preranked stats: 6.81% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:46]   verdict FDR0.25=underpowered
+[19:59:46] analyze GSE207422_sc_epithelial_pseudobulk median n=14
+2026-08-16 19:59:46,530 [WARNING] Duplicated values found in preranked stats: 2.86% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+[19:59:47]   verdict FDR0.25=underpowered
+[19:59:48] wrote /workspace/results/hunt_tj_gsea
