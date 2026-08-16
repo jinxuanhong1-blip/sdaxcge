@@ -1,8 +1,9 @@
 # TACSTD2 / CLDN4 vs ICI response in new GEO lung-cancer series (2024–2026)
 
 > Parallel slice. All outputs live under `notes/fable_geo_2026/`,
-> `scripts/fable_geo_2026/`, and `results/fable_geo_2026/`.
+> `scripts/fable_geo_2026/`, and `results/w200/GEO_2026/`.
 > 中文在后 / English first, 中文 second.
+> Search and source checks refreshed on **2026-08-16 UTC**.
 
 ---
 
@@ -25,13 +26,13 @@ where per-sample response labels exist.
 3. `03_list_supp.py` — GEO FTP supplementary listing + file sizes (enforce
    "open processed" and "< 2 GB").
 4. `04`/`06_*` — series-matrix sample-characteristic scans; **17 of 155** series
-   carry a response/outcome field (`results/fable_geo_2026/label_scan_all.tsv`).
+   carry a response/outcome field (`results/w200/GEO_2026/label_scan_all.tsv`).
 5. `05_download.py` — download qualifying processed matrices.
 6. `07_analyze.py` — TACSTD2/CLDN4 vs response (Mann–Whitney U, Cliff's delta,
    Spearman, log-rank).
 
 No accessions were invented — every GSE / GSM / URL is captured from live
-E-utilities and GEO FTP responses stored under `results/fable_geo_2026/`.
+E-utilities and GEO FTP responses stored under `results/w200/GEO_2026/`.
 
 ### Why these genes need tumor tissue
 TACSTD2 (TROP2) and CLDN4 are **epithelial / tumor-cell** genes. They are only
@@ -51,7 +52,7 @@ scRNA), **not** in blood/PBMC assays. This drove dataset selection.
 Effect direction is expressed as **Cliff's delta** (responder vs non-responder;
 positive = higher in responders). P-values are two-sided Mann–Whitney U
 (group comparison) or Spearman/log-rank (survival). Full table:
-`results/fable_geo_2026/analysis_results.tsv`.
+`results/w200/GEO_2026/analysis_results.tsv`.
 
 **GSE261345 (ES-SCLC, 26 patients, 121 tumor ROIs)**
 - TACSTD2, responder (CR/PR, n=17) vs non-responder (SD/PD, n=9): medians 7.24 vs
@@ -64,10 +65,13 @@ positive = higher in responders). P-values are two-sided Mann–Whitney U
   Cliff's δ = −0.04; **p = 0.89** (ns).
 - TACSTD2 vs PFS days: Spearman ρ = −0.26 (p = 0.15); log-rank p = 0.64 (ns).
 
-**GSE233203 (NSCLC, 3 responders vs 4 non-responders, scRNA pseudobulk)**
+**GSE233203 (NSCLC, 3 responders vs 4 non-responders, whole-sample scRNA pseudobulk)**
 - TACSTD2: responder median 5.74 vs non-responder 3.70 log2(CPM+1);
   **Cliff's δ = 0.83** (large, higher in responders); p = 0.11 (ns, underpowered).
 - CLDN4: responder 5.54 vs non-responder 3.18; Cliff's δ = 0.50; p = 0.40 (ns).
+- The markers are strongly concordant across the seven samples (Spearman
+  ρ = 0.89, p = 0.0068). This is not an independent outcome test and may
+  reflect their shared epithelial program and/or tumor-cell abundance.
 
 ### Interpretation
 - In the two **ES-SCLC** GeoMx cohorts, tumor **TACSTD2 shows no association**
@@ -102,6 +106,13 @@ positive = higher in responders). P-values are two-sided Mann–Whitney U
   and not multiple-testing corrected.
 - DSP values are Q3-normalized counts from mixed "Full ROI" segments;
   patient-level means were used to avoid ROI pseudoreplication.
+- GSE233203 values are pseudobulked over **all captured cells**, because GEO
+  provides count matrices but no validated cell-type labels. They mix per-cell
+  expression with epithelial/tumor-cell abundance and must not be interpreted
+  as tumor-cell-intrinsic expression.
+- Spearman tests against PFS ignore right-censoring and are descriptive. The
+  accompanying log-rank tests use event indicators but rely on an
+  information-losing median split. Neither survival analysis is confirmatory.
 - GSE261345 biopsy sites include metastatic tissue (e.g. skin) as well as lung;
   all are ES-SCLC patients on chemo-immunotherapy.
 
@@ -116,11 +127,13 @@ python3 scripts/fable_geo_2026/07_analyze.py
 ```
 Dependencies: `pandas scipy numpy matplotlib openpyxl lifelines`.
 Large downloads are reproducible and are not committed (see
-`results/fable_geo_2026/data/.gitignore`).
+`results/w200/GEO_2026/data/.gitignore`).
 
 ---
 
 ## 中文
+
+> 检索与数据源核查更新于 **2026-08-16 UTC**。
 
 ### 目标
 在 GEO 数据库中检索 **2024–2026 年新发布的、人类肺癌免疫检查点抑制剂（ICI）相关
@@ -137,13 +150,13 @@ GSE166449、GSE93157、GSE207422、GSE205335）；下载开放的已处理数据
 3. `03_list_supp.py` — 读取 GEO FTP 附件清单与文件大小（确保"开放已处理"且
    "< 2 GB"）。
 4. `04`/`06_*` — 扫描 series-matrix 样本特征；155 个中有 **17 个**含疗效/结局字段
-   （`results/fable_geo_2026/label_scan_all.tsv`）。
+   （`results/w200/GEO_2026/label_scan_all.tsv`）。
 5. `05_download.py` — 下载符合条件的已处理矩阵。
 6. `07_analyze.py` — TACSTD2/CLDN4 与疗效关联分析（Mann–Whitney U、Cliff's
    delta、Spearman、log-rank）。
 
 **未杜撰任何编号**：所有 GSE / GSM / URL 均来自实时 E-utilities 与 GEO FTP 响应，
-并保存在 `results/fable_geo_2026/` 下。
+并保存在 `results/w200/GEO_2026/` 下。
 
 ### 为什么这两个基因需要肿瘤组织
 TACSTD2（TROP2）与 CLDN4 是**上皮/肿瘤细胞**基因，只有在肿瘤组织
@@ -162,7 +175,7 @@ TACSTD2（TROP2）与 CLDN4 是**上皮/肿瘤细胞**基因，只有在肿瘤�
 
 效应方向以 **Cliff's delta**（缓解 vs 未缓解，正值＝缓解者更高）表示；P 值为
 双侧 Mann–Whitney U（组间）或 Spearman/log-rank（生存）。完整结果见
-`results/fable_geo_2026/analysis_results.tsv`。
+`results/w200/GEO_2026/analysis_results.tsv`。
 
 **GSE261345（广泛期 SCLC，26 例，121 个肿瘤 ROI）**
 - TACSTD2：缓解者（CR/PR，n=17）vs 未缓解者（SD/PD，n=9）中位数 7.24 vs 7.36；
@@ -175,10 +188,12 @@ TACSTD2（TROP2）与 CLDN4 是**上皮/肿瘤细胞**基因，只有在肿瘤�
   Cliff's δ = −0.04；**p = 0.89**（不显著）。
 - TACSTD2 与 PFS 天数：Spearman ρ = −0.26（p = 0.15）；log-rank p = 0.64（不显著）。
 
-**GSE233203（NSCLC，缓解 3 例 vs 未缓解 4 例，scRNA 拟 bulk）**
+**GSE233203（NSCLC，缓解 3 例 vs 未缓解 4 例，全样本 scRNA 拟 bulk）**
 - TACSTD2：缓解者中位 5.74 vs 未缓解 3.70 log2(CPM+1)；**Cliff's δ = 0.83**
   （效应大，缓解者更高）；p = 0.11（不显著，样本量不足）。
 - CLDN4：缓解者 5.54 vs 未缓解 3.18；Cliff's δ = 0.50；p = 0.40（不显著）。
+- 两个标志物在 7 个样本间高度一致（Spearman ρ = 0.89，p = 0.0068）。这并非独立的
+  疗效检验，可能反映二者共享的上皮程序和/或肿瘤细胞丰度。
 
 ### 解读
 - 在两个 **广泛期 SCLC** GeoMx 队列中，肿瘤 **TACSTD2 与 RECIST 疗效或 PFS 均无
@@ -208,6 +223,10 @@ TACSTD2（TROP2）与 CLDN4 是**上皮/肿瘤细胞**基因，只有在肿瘤�
 ### 注意事项
 - 样本量偏小（尤其 GSE233203，n=7）；P 值为探索性，未做多重检验校正。
 - DSP 数值为混合 "Full ROI" 片段的 Q3 归一化计数；采用患者级均值以避免 ROI 伪重复。
+- GSE233203 仅提供计数矩阵、无经验证的细胞类型标签，因此数值是在**全部捕获细胞**
+  上拟 bulk；它混合了单细胞表达与上皮/肿瘤细胞丰度，不能解读为肿瘤细胞内在表达。
+- TACSTD2 与 PFS 的 Spearman 分析忽略右删失，仅为描述性；配套 log-rank 使用事件
+  指标但依赖损失信息的中位数切分。两种生存分析均非确证性。
 - GSE261345 活检部位含转移灶（如皮肤）与肺；均为接受化免联合的广泛期 SCLC 患者。
 
 ### 复现
@@ -220,4 +239,4 @@ python3 scripts/fable_geo_2026/05_download.py
 python3 scripts/fable_geo_2026/07_analyze.py
 ```
 依赖：`pandas scipy numpy matplotlib openpyxl lifelines`。大文件可复现且不纳入
-版本库（见 `results/fable_geo_2026/data/.gitignore`）。
+版本库（见 `results/w200/GEO_2026/data/.gitignore`）。

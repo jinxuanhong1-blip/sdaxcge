@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Scan ALL candidate GSEs' series-matrix sample characteristics for ICI
 response / outcome labels. Downloads only the small metadata matrices.
-Writes results/fable_geo_2026/label_scan_all.tsv with, per GSE, whether a
+Writes results/w200/GEO_2026/label_scan_all.tsv with, per GSE, whether a
 response-like field exists and which characteristic keys were seen.
 """
 import csv
@@ -11,7 +11,7 @@ import time
 import urllib.request
 from pathlib import Path
 
-RES = Path(__file__).resolve().parents[2] / "results" / "fable_geo_2026"
+RES = Path(__file__).resolve().parents[2] / "results" / "w200" / "GEO_2026"
 META = RES / "series_matrix"
 META.mkdir(exist_ok=True)
 

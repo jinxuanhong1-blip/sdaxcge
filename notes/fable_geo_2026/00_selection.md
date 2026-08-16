@@ -1,16 +1,16 @@
 # Dataset selection — GEO 2024–2026 human lung ICI series
 
 Parallel slice. Outputs restricted to `notes/fable_geo_2026/`,
-`scripts/fable_geo_2026/`, `results/fable_geo_2026/`.
+`scripts/fable_geo_2026/`, `results/w200/GEO_2026/`.
 
 ## Search
 - NCBI E-utilities (`db=gds`), query: lung-cancer terms AND ICI terms AND
   `Homo sapiens` AND `gse[Entry Type]` AND PDAT 2024/01/01–2026/12/31.
 - 156 hits → 155 GSE candidates after dropping the pre-specified exclusion set
   (GSE126044, GSE135222, GSE136961, GSE166449, GSE93157, GSE207422, GSE205335).
-- Raw ESummary + candidate table: `results/fable_geo_2026/geo_search_*.{json,tsv}`.
+- Raw ESummary + candidate table: `results/w200/GEO_2026/geo_search_*.{json,tsv}`.
 - Full sample-characteristic label scan over all 155:
-  `results/fable_geo_2026/label_scan_all.tsv` (17 series carry response/outcome
+  `results/w200/GEO_2026/label_scan_all.tsv` (17 series carry response/outcome
   fields).
 
 ## Target genes
@@ -45,4 +45,4 @@ blood/PBMC assays.
 - Only open, processed supplementary files; each downloaded file < 2 GB.
 - Excluded prior-slice accessions.
 - No invented accessions — every GSE/GSM/URL comes from live E-utilities / GEO
-  FTP responses saved under `results/fable_geo_2026/`.
+  FTP responses saved under `results/w200/GEO_2026/`.

@@ -8,7 +8,7 @@ Datasets (all downloaded by 05_download.py):
 
 CLDN4 is NOT on the GeoMx CTA panel, so it is only assessable in GSE233203.
 
-Outputs -> results/fable_geo_2026/:
+Outputs -> results/w200/GEO_2026/:
   analysis_summary.json, analysis_results.tsv,
   per-dataset value tables, and boxplot PNGs.
 """
@@ -28,7 +28,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
-RES = Path(__file__).resolve().parents[2] / "results" / "fable_geo_2026"
+RES = Path(__file__).resolve().parents[2] / "results" / "w200" / "GEO_2026"
 DATA = RES / "data"
 GENES = ["TACSTD2", "CLDN4"]
 RESULTS = []  # collected rows for analysis_results.tsv
@@ -88,12 +88,14 @@ def parse_series(gse: str) -> pd.DataFrame:
     return df
 
 
-def mannwhitney(a, b):
+def mannwhitney(a, b, method="auto"):
     a = np.asarray(a, float)
     b = np.asarray(b, float)
     if len(a) < 2 or len(b) < 2:
         return float("nan"), float("nan")
-    u, p = stats.mannwhitneyu(a, b, alternative="two-sided")
+    u, p = stats.mannwhitneyu(
+        a, b, alternative="two-sided", method=method
+    )
     return u, p
 
 
@@ -121,6 +123,26 @@ def boxplot(groups, labels, title, ylab, path):
         ax.scatter(x, g, s=18, color="black", zorder=3, alpha=0.7)
     ax.set_title(title, fontsize=10)
     ax.set_ylabel(ylab)
+    fig.tight_layout()
+    fig.savefig(path, dpi=130)
+    plt.close(fig)
+
+
+def marker_scatter(df, path):
+    colors = df["response"].map(
+        {"Response": "#4C9F70", "Non-response": "#C0504D"}
+    )
+    fig, ax = plt.subplots(figsize=(4.2, 4))
+    ax.scatter(df["CLDN4"], df["TACSTD2"], c=colors, s=38, alpha=0.85)
+    for _, row in df.iterrows():
+        ax.annotate(
+            row["sample_file"].split("_", 1)[1],
+            (row["CLDN4"], row["TACSTD2"]),
+            xytext=(3, 3), textcoords="offset points", fontsize=6,
+        )
+    ax.set_xlabel("CLDN4 log2(pseudobulk CPM+1)")
+    ax.set_ylabel("TACSTD2 log2(pseudobulk CPM+1)")
+    ax.set_title("GSE233203: whole-sample marker concordance", fontsize=10)
     fig.tight_layout()
     fig.savefig(path, dpi=130)
     plt.close(fig)
@@ -207,11 +229,14 @@ def analyze_dsp(gse: str, xlsx: str):
     RESULTS.append({
         "dataset": gse, "cohort": "ES-SCLC (DSP)", "gene": "TACSTD2",
         "comparison": "RECIST responder(CR/PR) vs non(SD/PD), patient-level",
+        "test": "Mann-Whitney U (two-sided)",
         "n_group1": len(r), "n_group2": len(nr),
         "median_group1": round(float(r.median()), 4) if len(r) else None,
         "median_group2": round(float(nr.median()), 4) if len(nr) else None,
-        "mwu_p": round(float(p), 4) if not math.isnan(p) else None,
-        "cliffs_delta": round(float(d), 4) if not math.isnan(d) else None,
+        "statistic": round(float(u), 4) if not math.isnan(u) else None,
+        "p_value": round(float(p), 4) if not math.isnan(p) else None,
+        "effect_type": "Cliff's delta (R minus NR)",
+        "effect_value": round(float(d), 4) if not math.isnan(d) else None,
     })
     if len(r) >= 2 and len(nr) >= 2:
         boxplot([r.values, nr.values], [f"R\n(n={len(r)})", f"NR\n(n={len(nr)})"],
@@ -243,10 +268,13 @@ def analyze_dsp(gse: str, xlsx: str):
         RESULTS.append({
             "dataset": gse, "cohort": "ES-SCLC (DSP)", "gene": "TACSTD2",
             "comparison": "Spearman TACSTD2 vs PFS days (patient-level)",
+            "test": "Spearman rank correlation (censoring ignored)",
             "n_group1": len(surv), "n_group2": None,
             "median_group1": None, "median_group2": None,
-            "mwu_p": round(float(prho), 4),
-            "cliffs_delta": round(float(rho), 4),
+            "statistic": round(float(rho), 4),
+            "p_value": round(float(prho), 4),
+            "effect_type": "Spearman rho",
+            "effect_value": round(float(rho), 4),
         })
         # median-split logrank if lifelines present
         try:
@@ -261,9 +289,12 @@ def analyze_dsp(gse: str, xlsx: str):
             RESULTS.append({
                 "dataset": gse, "cohort": "ES-SCLC (DSP)", "gene": "TACSTD2",
                 "comparison": "PFS logrank TACSTD2 hi vs lo (median split)",
+                "test": "Log-rank (median split)",
                 "n_group1": len(hi), "n_group2": len(lo),
                 "median_group1": None, "median_group2": None,
-                "mwu_p": round(float(lr.p_value), 4), "cliffs_delta": None,
+                "statistic": round(float(lr.test_statistic), 4),
+                "p_value": round(float(lr.p_value), 4),
+                "effect_type": None, "effect_value": None,
             })
         except Exception as e:  # noqa: BLE001
             print("  (lifelines unavailable, skipping logrank:", e, ")")
@@ -292,7 +323,7 @@ def analyze_scrna(gse: str):
                 t.extractfile(s + "_features.tsv.gz").read()).decode().splitlines()
             syms = [ln.split("\t")[1] if "\t" in ln else ln for ln in feats]
             mtx = mmread(io.BytesIO(gzip.decompress(
-                t.extractfile(s + "_matrix.mtx.gz").read())))
+                t.extractfile(s + "_matrix.mtx.gz").read())), spmatrix=True)
             mtx = mtx.tocsr()  # genes x cells
             total = mtx.sum()
             gene_sum = np.asarray(mtx.sum(axis=1)).ravel()
@@ -320,25 +351,45 @@ def analyze_scrna(gse: str):
     for g in GENES:
         r = df.loc[df.response == "Response", g].dropna()
         nr = df.loc[df.response == "Non-response", g].dropna()
-        u, p = mannwhitney(r, nr)
+        u, p = mannwhitney(r, nr, method="exact")
         d = cliffs_delta(r, nr)
         print(f"  {g}: R median={r.median():.3f} (n={len(r)}), "
               f"NR median={nr.median():.3f} (n={len(nr)}), MWU p={p:.3f}, "
               f"cliff={d:.3f}")
         RESULTS.append({
-            "dataset": gse, "cohort": "NSCLC (scRNA pseudobulk)", "gene": g,
-            "comparison": "Response vs Non-response, patient-level pseudobulk",
+            "dataset": gse,
+            "cohort": "NSCLC (whole-sample scRNA pseudobulk)", "gene": g,
+            "comparison": "Response vs Non-response, one whole-sample pseudobulk per patient",
+            "test": "Mann-Whitney U (two-sided, exact)",
             "n_group1": len(r), "n_group2": len(nr),
             "median_group1": round(float(r.median()), 4) if len(r) else None,
             "median_group2": round(float(nr.median()), 4) if len(nr) else None,
-            "mwu_p": round(float(p), 4) if not math.isnan(p) else None,
-            "cliffs_delta": round(float(d), 4) if not math.isnan(d) else None,
+            "statistic": round(float(u), 4) if not math.isnan(u) else None,
+            "p_value": round(float(p), 4) if not math.isnan(p) else None,
+            "effect_type": "Cliff's delta (R minus NR)",
+            "effect_value": round(float(d), 4) if not math.isnan(d) else None,
         })
         if len(r) >= 2 and len(nr) >= 2:
             boxplot([r.values, nr.values],
                     [f"R\n(n={len(r)})", f"NR\n(n={len(nr)})"],
                     f"{gse}: {g} vs response", "log2(pseudobulk CPM+1)",
                     RES / f"{gse}_{g}_response.png")
+
+    rho, p = stats.spearmanr(df["TACSTD2"], df["CLDN4"])
+    RESULTS.append({
+        "dataset": gse,
+        "cohort": "NSCLC (whole-sample scRNA pseudobulk)",
+        "gene": "TACSTD2~CLDN4",
+        "comparison": "Marker concordance across patients",
+        "test": "Spearman rank correlation",
+        "n_group1": len(df), "n_group2": None,
+        "median_group1": None, "median_group2": None,
+        "statistic": round(float(rho), 4),
+        "p_value": round(float(p), 4),
+        "effect_type": "Spearman rho",
+        "effect_value": round(float(rho), 4),
+    })
+    marker_scatter(df, RES / f"{gse}_TACSTD2_CLDN4_scatter.png")
 
 
 def main():

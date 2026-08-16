@@ -2,13 +2,13 @@
 """Triage GEO search candidates: score by keywords suggesting a patient ICI
 cohort with response annotation vs cell-line/mechanistic studies.
 
-Writes results/fable_geo_2026/geo_triage.tsv sorted by score desc.
+Writes results/w200/GEO_2026/geo_triage.tsv sorted by score desc.
 """
 import csv
 import re
 from pathlib import Path
 
-RES_DIR = Path(__file__).resolve().parents[2] / "results" / "fable_geo_2026"
+RES_DIR = Path(__file__).resolve().parents[2] / "results" / "w200" / "GEO_2026"
 
 POS = {
     r"\bresponder": 4, r"non-?responder": 5, r"\bresponse\b": 2,

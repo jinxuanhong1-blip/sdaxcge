@@ -2,17 +2,17 @@
 """List supplementary files + sizes for a shortlist of GSEs via GEO FTP dir
 listing (https). Records everything so nothing is invented and the <2GB /
 open-processed constraints can be checked.
-Writes results/fable_geo_2026/supp_listing.tsv.
+Writes results/w200/GEO_2026/supp_listing.tsv.
 """
 import json
 import time
 import urllib.request
 from pathlib import Path
 
-RES = Path(__file__).resolve().parents[2] / "results" / "fable_geo_2026"
+RES = Path(__file__).resolve().parents[2] / "results" / "w200" / "GEO_2026"
 
 SHORTLIST = [
-    "GSE253564", "GSE309652", "GSE248249", "GSE285029", "GSE292421",
+    "GSE233203", "GSE253564", "GSE309652", "GSE248249", "GSE285029", "GSE292421",
     "GSE266219", "GSE265899", "GSE280232", "GSE241934", "GSE243013",
     "GSE271689", "GSE292098", "GSE261345", "GSE261348", "GSE311200",
     "GSE300685", "GSE270711", "GSE285298", "GSE237087",

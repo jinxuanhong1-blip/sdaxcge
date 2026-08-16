@@ -2,7 +2,7 @@
 """Download GEO series_matrix files (metadata only, small) for the shortlist
 and extract per-sample characteristics so we can see which series carry ICI
 response labels. Writes one *.characteristics.txt per GSE and a combined
-results/fable_geo_2026/label_scan.txt summary.
+results/w200/GEO_2026/label_scan.txt summary.
 """
 import gzip
 import io
@@ -10,7 +10,7 @@ import time
 import urllib.request
 from pathlib import Path
 
-RES = Path(__file__).resolve().parents[2] / "results" / "fable_geo_2026"
+RES = Path(__file__).resolve().parents[2] / "results" / "w200" / "GEO_2026"
 META = RES / "series_matrix"
 META.mkdir(exist_ok=True)
 

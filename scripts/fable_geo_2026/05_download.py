@@ -2,13 +2,14 @@
 """Download open processed supplementary files (<2GB each) for the datasets
 selected for TACSTD2/CLDN4 vs response analysis. All URLs are the live GEO
 FTP paths recorded in supp_listing.tsv (no invented accessions).
-Files land in results/fable_geo_2026/data/<GSE>/.
+Files land in results/w200/GEO_2026/data/<GSE>/.
 """
+import hashlib
 import time
 import urllib.request
 from pathlib import Path
 
-RES = Path(__file__).resolve().parents[2] / "results" / "fable_geo_2026"
+RES = Path(__file__).resolve().parents[2] / "results" / "w200" / "GEO_2026"
 DATA = RES / "data"
 
 FILES = {
@@ -20,6 +21,7 @@ FILES = {
         "GSE261348_IMfirst_DSP_normalizedcounts.xlsx",
         "GSE261348_IMfirst_DSP_rawcounts.xlsx",
     ],
+    "GSE233203": ["GSE233203_RAW.tar"],
     "GSE309652": ["GSE309652_RAW.tar", "filelist.txt"],
     "GSE253564": ["GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz"],
     "GSE292421": ["GSE292421_FPKM.csv.gz", "GSE292421_COUNTS.csv.gz"],
@@ -57,6 +59,21 @@ def main() -> None:
         print(gse)
         for f in files:
             download(url_for(gse, f), DATA / gse / f)
+    with (RES / "input_manifest.tsv").open("w") as fh:
+        fh.write("gse\tfile\tbytes\tsha256\turl\n")
+        for gse, files in FILES.items():
+            for name in files:
+                path = DATA / gse / name
+                if not path.exists():
+                    continue
+                digest = hashlib.sha256()
+                with path.open("rb") as src:
+                    for chunk in iter(lambda: src.read(1 << 20), b""):
+                        digest.update(chunk)
+                fh.write(
+                    f"{gse}\t{name}\t{path.stat().st_size}\t"
+                    f"{digest.hexdigest()}\t{url_for(gse, name)}\n"
+                )
 
 
 if __name__ == "__main__":

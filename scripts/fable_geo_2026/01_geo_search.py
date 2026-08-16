@@ -3,8 +3,8 @@
 
 Uses NCBI E-utilities (esearch + esummary). Excludes a fixed list of GSEs
 already analyzed in prior slices. Writes candidate table to
-results/fable_geo_2026/geo_search_candidates.tsv and the raw esummary JSON
-to results/fable_geo_2026/geo_search_raw.json.
+results/w200/GEO_2026/geo_search_candidates.tsv and the raw esummary JSON
+to results/w200/GEO_2026/geo_search_raw.json.
 
 No accessions are invented: everything comes directly from the live
 E-utilities responses.
@@ -16,7 +16,7 @@ import urllib.request
 from pathlib import Path
 
 BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
-OUT_DIR = Path(__file__).resolve().parents[2] / "results" / "fable_geo_2026"
+OUT_DIR = Path(__file__).resolve().parents[2] / "results" / "w200" / "GEO_2026"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 EXCLUDE = {
