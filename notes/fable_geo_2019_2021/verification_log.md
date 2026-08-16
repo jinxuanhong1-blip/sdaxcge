@@ -64,3 +64,14 @@ Per-sample clinical tables parsed from `*_series_matrix.txt.gz` are in
   genes and are ~0 here — included only as a negative/QC control.
 - **GSE136961** is verified as a genuine NSCLC anti-PD-1 cohort but its targeted
   panel does not measure the two genes, so it cannot contribute to the analysis.
+
+## 5. No-skip leftover pass
+
+53 leftover lung+ICI series were inventoried (`results/noskip/GEO_2019_2021/`).
+Blood and large files were downloaded, not skipped. Computes and honest
+non-computes are in `results/noskip/GEO_2019_2021/tables/` and `WRITEUP.md`.
+
+Key leftover ICI-outcome series: **GSE190266** (real accession, n=70, CLDN4 vs
+6-month PFS deposited in series_matrix). TACSTD2 is truly absent from that TPM
+file. GSE176021 has response labels but no processed expression matrix — recorded,
+not computed. No p-values were invented for missing data.

@@ -71,6 +71,20 @@ Run in order: `01_search_geo.py` → `02_fetch_metadata.py` → `03_download.py`
 → `04_build_clinical.py` → `05_analyze.py` → `06_triage.py` (Python 3,
 pandas/numpy/scipy/lifelines/matplotlib).
 
+### 8. Leftover / no-skip pass (do not skip for size or tissue)
+A second pass revisited all **53 leftover** lung+ICI series (blood, large scRNA,
+RAW.tar-only). Full audit: `results/noskip/GEO_2019_2021/` (catalog, gene scan,
+computes, bilingual writeup).
+
+The only leftover series with a processed target-gene matrix **and** a deposited
+patient ICI-related survival endpoint is **GSE190266** (n=70, CLDN4 present,
+TACSTD2 absent): 6-month PFS Cox HR = 0.917, p = 0.1246; log-rank p = 0.2105.
+**Not significant.** Blood leftovers GSE152590 / GSE141479 were downloaded;
+target gene symbols are absent. GSE176021 has response labels but no processed
+expression matrix — not computed. **No statistics were fabricated.**
+
+See `results/noskip/GEO_2019_2021/WRITEUP.md`.
+
 ---
 
 ## 中文
@@ -125,3 +139,12 @@ PFS 用 Cox 回归（每 log2 单位）与 Kaplan–Meier 中位数分组 log-ra
 按序运行：`01_search_geo.py` → `02_fetch_metadata.py` → `03_download.py` →
 `04_build_clinical.py` → `05_analyze.py` → `06_triage.py`（Python 3，依赖
 pandas/numpy/scipy/lifelines/matplotlib）。
+
+### 8. 遗留 / 不跳过体积与组织类型
+第二轮复查全部 **53 个遗留** 肺癌+ICI 系列（血液、大体积 scRNA、仅有 RAW.tar）。
+完整审计见 `results/noskip/GEO_2019_2021/`。
+
+遗留中唯一同时具备已处理目标基因矩阵与患者 ICI 相关生存终点的是 **GSE190266**
+（n=70，有 CLDN4、无 TACSTD2）：6 个月 PFS Cox HR=0.917，p=0.1246；log-rank
+p=0.2105。**不显著。** 血液系列 GSE152590 / GSE141479 已下载，目标基因符号不在
+沉积矩阵中。GSE176021 有应答标签但无已处理表达矩阵，故未计算。**未编造任何统计量。**
