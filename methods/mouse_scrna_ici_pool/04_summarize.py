@@ -78,7 +78,7 @@ def main():
     lines.append("")
     lines.append("No public mouse-lung ICI scRNA series in this pool has **n≥2 biological libraries per arm** of epithelial/tumor Tacstd2 or Cldn4 after ICB vs a true no-ICB control. Several series **lack epithelial/tumor cells** (CD45+/CD3+ sorts). GSE283827 (SCLC ± aPD-1) cannot be scored: MTX has 32,589 genes and **no features.tsv**.")
     lines.append("")
-    lines.append("Where both compartments exist, Tacstd2 is **higher in epithelial/tumor than T/NK** (expected restriction), not an ICB-response claim.")
+    lines.append("Paired same-library epithelial vs T/NK: Tacstd2 is higher in epithelial in **10/13** samples (Wilcoxon p=0.068 — not a firm restriction claim). Cldn4 is higher in epithelial in **11/13** (p=9.8e-4). GSE157881 deposited CD45− Tacstd2 is **lower** than CD45+ T/NK. This is not an ICB-response claim and does **not** reproduce TISMO 49/64.")
     lines.append("")
     lines.append("## Catalog (scored vs documented)")
     lines.append("")
@@ -127,18 +127,35 @@ def main():
     lines.append("|---|---|---|---|---|---|---|---|---|---|")
     for r in contr.itertuples():
         da = f"{r.delta_log:.3f}" if pd.notna(r.delta_log) else "NA"
+        note = "" if pd.isna(r.note) else str(r.note)
         lines.append(
-            f"| {r.gse} | {r.contrast} | {r.compartment} | {r.gene} | {int(r.n_a)} | {int(r.n_b)} | {da} | {fmt_p(r.welch_p)} | {fmt_p(r.mwu_p)} | {r.note} |"
+            f"| {r.gse} | {r.contrast} | {r.compartment} | {r.gene} | {int(r.n_a)} | {int(r.n_b)} | {da} | {fmt_p(r.welch_p)} | {fmt_p(r.mwu_p)} | {note} |"
         )
     lines.append("")
     lines.append("## Combined direction (epithelial ICB-ish + epi vs T/NK)")
     lines.append("")
     lines.append("Only **GSE176091** has n=2 vs 2, and that is **T/NK in a CD45+ sort** (epithelial absent). All epithelial ICB-vs-control tests are **n=1 vs 1** (leftover GSE133604, GSE129297). Sign is reported; p is not.")
     lines.append("")
+    lines.append("| Series | Contrast | Compartment | Gene | Direction (treated − ref) | n | p |")
+    lines.append("|---|---|---|---|---|---|---|")
+    lines.append("| GSE133604 leftover | KP aPD-1 vs IgG | epithelial | Tacstd2 | down (tiny) | 1 vs 1 | NA |")
+    lines.append("| GSE133604 leftover | KP aPD-1 vs IgG | epithelial | Cldn4 | down | 1 vs 1 | NA |")
+    lines.append("| GSE129297 leftover | SCLC aPD-1 vs Ctrl | epithelial | Tacstd2 | up (tiny) | 1 vs 1 | NA |")
+    lines.append("| GSE129297 leftover | SCLC aPD-1 vs Ctrl | epithelial | Cldn4 | down | 1 vs 1 | NA |")
+    lines.append("| GSE176091 | CA170 vs PBS | T/NK (CD45+; epi **ABSENT**) | Tacstd2 | down | 2 vs 2 | Welch 0.17; MWU 0.33 |")
+    lines.append("| GSE176091 | CA170 vs PBS | T/NK | Cldn4 | tie | 2 vs 2 | Welch 0.98; MWU 1 |")
+    lines.append("| GSE268525 | RT+ICI vs ICI (no untreated) | epithelial | Tacstd2 | tie/down | 1 vs 1 | NA |")
+    lines.append("| GSE268525 | RT+ICI vs ICI | epithelial | Cldn4 | up | 1 vs 1 | NA |")
+    lines.append("| GSE157881 | CD45− vs CD45+ (RT, not ICB) | epi − T/NK | Tacstd2 | **down** (epi < T/NK) | 1 vs 1 | NA |")
+    lines.append("| POOL | same-library epi vs T/NK | epithelial − T/NK | Tacstd2 | 10/13 epi > T/NK | 13 paired | Wilcoxon 0.068 |")
+    lines.append("| POOL | same-library epi vs T/NK | epithelial − T/NK | Cldn4 | 11/13 epi > T/NK | 13 paired | Wilcoxon 9.8e-4 |")
+    lines.append("")
     if not both.empty:
         n = both[both.gene == "Tacstd2"].shape[0]
         n_up = int((both[both.gene == "Tacstd2"].delta_epi_minus_tnk > 0).sum()) if n else 0
-        lines.append(f"Paired epithelial vs T/NK Tacstd2: **{n_up}/{n}** samples epithelial > T/NK (samples with ≥20 cells in both).")
+        n_c = both[both.gene == "Cldn4"].shape[0]
+        n_c_up = int((both[both.gene == "Cldn4"].delta_epi_minus_tnk > 0).sum()) if n_c else 0
+        lines.append(f"Paired epithelial vs T/NK Tacstd2: **{n_up}/{n}** samples epithelial > T/NK (samples with ≥20 cells in both); Wilcoxon signed-rank p=0.068. Cldn4: **{n_c_up}/{n_c}**, p=9.8e-4.")
     lines.append("")
     lines.append("## Methods (short)")
     lines.append("")
@@ -152,7 +169,7 @@ def main():
     lines.append("")
     lines.append("TISMO 用户 A4（49/64 Tacstd2 在 ICB 后升高，p=5.8e-5）**视为已知，不重算**。本切片是公开小鼠肺 ICI **单细胞**，不是 TISMO bulk。")
     lines.append("候选集中：GSE157881/882 是放疗/club 细胞清除而非 ICB；GSE176091 / GSE267557 / GSE232730 / GSE222158 为 CD45+ 或 CD3+，**无上皮/肿瘤细胞**；GSE283827 有 aPD-1 但 **未提供 features.tsv**，无法对 Tacstd2/Cldn4 诚实计分；GSE268525 无未治疗对照；GSE303943 为皮下 PKCi。")
-    lines.append("有上皮且有 ICB vs 对照的只剩 leftover GSE133604（KP）与 GSE129297（SCLC），均为 **n=1 vs 1**，只报方向，不算 p。两室并存时 Tacstd2 在上皮/肿瘤高于 T/NK，符合表达限制，不能外推 TISMO 49/64。")
+    lines.append("有上皮且有 ICB vs 对照的只剩 leftover GSE133604（KP）与 GSE129297（SCLC），均为 **n=1 vs 1**，只报方向，不算 p。配对上皮 vs T/NK：Tacstd2 10/13 上皮更高（Wilcoxon p=0.068）；Cldn4 11/13（p=9.8e-4）。GSE157881 CD45− Tacstd2 反而低于 CD45+ T/NK。不能外推 TISMO 49/64。")
     lines.append("")
 
     (OUT / "WRITEUP.md").write_text("\n".join(lines), encoding="utf-8")

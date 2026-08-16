@@ -1,0 +1,25 @@
+gse	contrast	compartment	gene	n_a	n_b	mean_a	mean_b	delta_log	direction	welch_p	mwu_p	note
+GSE157881	CD45neg_vs_CD45pos_0Gy	epithelial_minus_tnk	Tacstd2	1	1	0.0774032473564148	0.0429216139018535	-0.0344816334545612	down			author CD45 sort; n=1 library each
+GSE157881	CD45neg_vs_CD45pos_0Gy	epithelial_minus_tnk	Cldn4	1	1	0.0062659382820129	0.0076246145181357	0.0013586762361227	up			author CD45 sort; n=1 library each
+GSE157881	CD45neg_vs_CD45pos_4Gy	epithelial_minus_tnk	Tacstd2	1	1	0.0991250425577163	0.0578242093324661	-0.0413008332252502	down			author CD45 sort; n=1 library each
+GSE157881	CD45neg_vs_CD45pos_4Gy	epithelial_minus_tnk	Cldn4	1	1	0.0	0.0218792762607336	0.0218792762607336	up			author CD45 sort; n=1 library each
+GSE176091	CA170_vs_control	tnk	Tacstd2	2	2	0.0148003678768873	0.007343686884269	-0.0074566809926182	down	0.1700770591117607	0.3333333333333333	CD45+ TILs; epithelial ABSENT
+GSE176091	CA170_vs_control	tnk	Cldn4	2	2	9.859845886235e-05	9.41264515859e-05	-4.472007276450012e-06	down	0.9768140640809538	1.0	CD45+ TILs; epithelial ABSENT
+GSE268525	RTICI_vs_ICI	epithelial	Tacstd2	1	1	0.1255930513143539	0.1245851442217826	-0.0010079070925712	down			no untreated arm; n=1 vs 1
+GSE268525	RTICI_vs_ICI	epithelial	Cldn4	1	1	0.0120547339320182	0.0160265248268842	0.003971790894866	up			no untreated arm; n=1 vs 1
+GSE268525	RTICI_vs_ICI	tnk	Tacstd2	1	1	0.0043533318676054	0.0	-0.0043533318676054	down			
+GSE268525	RTICI_vs_ICI	tnk	Cldn4	1	1	0.0	0.0	0.0	tie			
+GSE133604	KP_aPD1_vs_IgG	epithelial	Tacstd2	1	1	0.0203173998743295	0.018928175792098	-0.0013892240822315	down			leftover; n=1 vs 1
+GSE133604	KP_aPD1_vs_IgG	epithelial	Cldn4	1	1	0.0139582511037588	0.0039495564997196	-0.0100086946040392	down			leftover; n=1 vs 1
+GSE133604	KP_aPD1_vs_IgG	tnk	Tacstd2	1	1	0.0133068775758147	0.0151053592562675	0.0017984816804528	up			leftover
+GSE133604	KP_aPD1_vs_IgG	tnk	Cldn4	1	1	0.0	0.0	0.0	tie			leftover
+GSE129297	SCLC_aPD1_vs_Ctrl	epithelial	Tacstd2	1	1	0.0028181865345686	0.0036613524425774	0.0008431659080088	up			leftover; n=1 vs 1
+GSE129297	SCLC_aPD1_vs_Ctrl	epithelial	Cldn4	1	1	0.1240184009075164	0.1057734340429306	-0.0182449668645857	down			leftover; n=1 vs 1
+GSE129297	SCLC_aPD1_vs_Ctrl	tnk	Tacstd2	1	1	0.0026887012645602	0.0029001974035054	0.0002114961389451	up			leftover
+GSE129297	SCLC_aPD1_vs_Ctrl	tnk	Cldn4	1	1	0.0005377402412705	0.0007250493508763	0.0001873091096058	up			leftover
+GSE232730	aPD1_vs_control	tnk	Tacstd2	1	1	0.0692676156759262	0.0598302967846393	-0.0094373188912868	down			CD45+ only; leftover; n=1 vs 1
+GSE232730	aPD1_vs_control	tnk	Cldn4	1	1	0.0	0.0	0.0	tie			CD45+ only
+GSE222158	aPD1_vs_control	tnk	Tacstd2	1	1	0.0784980058670044	0.0644892305135726	-0.0140087753534317	down			CD45+ only; leftover; n=1 vs 1
+GSE222158	aPD1_vs_control	tnk	Cldn4	1	1	0.0	0.0	0.0	tie			CD45+ only
+POOL	epithelial_vs_tnk_paired	epithelial_minus_tnk	Cldn4	13	13	0.0004389519274879	0.0421549730504361	0.0417160211229481	11/13 epi>tnk		0.0009765625	Wilcoxon signed-rank W=1.0; samples with ≥20 cells each compartment
+POOL	epithelial_vs_tnk_paired	epithelial_minus_tnk	Tacstd2	13	13	0.0090752573719677	0.0377230329009202	0.0286477755289524	10/13 epi>tnk		0.068115234375	Wilcoxon signed-rank W=19.0; samples with ≥20 cells each compartment

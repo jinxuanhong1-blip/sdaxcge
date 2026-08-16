@@ -155,7 +155,7 @@ def classify(mat, roles, presort: str | None):
     """
     n = len(next(iter(mat.values())))
     if presort == "cd45neg":
-        return np.array(["epithelial"] * n)
+        return np.array(["epithelial"] * n, dtype=object)
     tnk = (
         _pos(mat, "Cd3e", n)
         | _pos(mat, "Cd3d", n)
@@ -164,11 +164,11 @@ def classify(mat, roles, presort: str | None):
         | _pos(mat, "Ncr1", n)
     )
     if presort == "cd45pos":
-        lab = np.array(["immune"] * n)
+        lab = np.array(["immune"] * n, dtype=object)
         lab[tnk] = "tnk"
         return lab
     if presort == "cd3":
-        return np.array(["tnk"] * n)
+        return np.array(["tnk"] * n, dtype=object)
     epi = (
         _pos(mat, "Epcam", n)
         | (_pos(mat, "Cdh1", n) & _pos(mat, "Krt8", n))
@@ -176,7 +176,7 @@ def classify(mat, roles, presort: str | None):
         | _pos(mat, "Chga", n)
         | _pos(mat, "Insm1", n)
     )
-    lab = np.array(["other"] * n)
+    lab = np.array(["other"] * n, dtype=object)
     # Epcam/tumor markers win over ambient T-lineage UMIs
     lab[tnk] = "tnk"
     lab[epi] = "epithelial"
@@ -423,8 +423,8 @@ def main():
 
     def add_contrast(gse, name, a_samples, b_samples, compartment, gene, extra=""):
         sub = cells[(cells.gse == gse) & (cells.compartment == compartment)]
-        a = sub[sub.sample.isin(a_samples)][f"{gene}_mean"].astype(float).tolist()
-        b = sub[sub.sample.isin(b_samples)][f"{gene}_mean"].astype(float).tolist()
+        a = sub[sub["sample"].isin(a_samples)][f"{gene}_mean"].astype(float).tolist()
+        b = sub[sub["sample"].isin(b_samples)][f"{gene}_mean"].astype(float).tolist()
         na, nb = len(a), len(b)
         if na == 0 or nb == 0:
             return

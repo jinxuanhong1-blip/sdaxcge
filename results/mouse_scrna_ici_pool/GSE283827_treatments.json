@@ -1,0 +1,14 @@
+{
+  "accession": "GSE283827",
+  "n_genes_mtx": 32589,
+  "features_deposited": false,
+  "scored": false,
+  "reason": "MTX + barcodes only; no features.tsv. Cannot map Tacstd2/Cldn4 honestly.",
+  "samples": [
+    {"gsm": "GSM8672740", "title": "Ly8", "treatment": "Mubritinib + aPD-1"},
+    {"gsm": "GSM8672741", "title": "Ly10", "treatment": "Mubritinib"},
+    {"gsm": "GSM8672742", "title": "Ly16", "treatment": "aPD-1"},
+    {"gsm": "GSM8672743", "title": "Ly29", "treatment": "Vehicle"},
+    {"gsm": "GSM8672744", "title": "Ly35", "treatment": "Mubritinib + aPD-1 in response"}
+  ]
+}

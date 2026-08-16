@@ -39,7 +39,7 @@ Large 10x files stay under `notes/mouse_scrna_ici_pool/raw/data/` (gitignored).
 ## Statistics
 
 - Per sample: mean log1p (or deposited log-like) Tacstd2/Cldn4 in epithelial/tumor vs T/NK
-- Epithelial = author CD45− sort, or Epcam/Krt/Cdh1/Nkx2-1/Sftpc/Scgb1a1 (and SCLC Ascl1/Insm1/Chga) with Ptprc=0
-- T/NK = CD3 sort, or Cd3/Cd8/Nkg7/Gzmb/Ncr1 with epithelial score 0
+- Epithelial/tumor = author CD45− sort, or Epcam+ or (Cdh1+ and Krt8+) or Ascl1/Chga/Insm1+. Do **not** use Sftpc/Scgb1a1 (ambient / normal AT2-club). Do not require Ptprc==0 (ambient CD45).
+- T/NK = CD3 sort, or Cd3d/e, Cd8a, Nkg7, Ncr1; Epcam/tumor markers win over ambient T UMIs
 - ICB vs control: Welch + MWU only if **n≥2 samples per arm**; n=1 vs 1 reports delta only
 - Combined direction table: sign of epithelial Tacstd2/Cldn4 on ICB-vs-control contrasts that exist
