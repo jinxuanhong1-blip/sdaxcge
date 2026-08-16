@@ -1,0 +1,62 @@
+series,gsm,sample_title,patient,arm_canonical,arm_geo,arm_pub,arm_conflict,mpr,path_response_pct,path_response_2group,recurrence_event,pfs_months,arm_natcomm,dfs_months,dfs_status_raw,egfr_status,histology,histology_geo,pdl1_pct,pi_cluster,post_rnaseq,pre_rnaseq,progression_status_raw,pstage,resected,smoking,study_number_raw
+GSE253564,GSM8023392,durva036,durva036,arm1,Arm1,Arm1,0,0,-10.0,None,1,13.61,Durvalumab,13.61,Recurrence /Dead,Negative,Squamous,Squamous,50,High PI,Yes,Yes,Dead for lung cancer only,IIIA,Yes,Former,durva036
+GSE253564,GSM8023393,durva037,durva037,arm2,Arm2,Arm2,0,1,-100.0,Major,0,44.22,SBRT + durva,44.22,Alive,Negative,Squamous,Squamous,95,High PI,Yes,Yes,Alive  NED,,Yes,Former,durva037
+GSE253564,GSM8023394,durva038,durva038,arm1,Arm1,Arm1,0,0,-45.0,None,0,50.96,Durvalumab,47.38,Alive,Negative,Squamous,Squamous,30,High PI,Yes,Yes,Alive  NED,IIIA,Yes,Former,durva038
+GSE253564,GSM8023395,durva039,durva039,arm2,Arm2,Arm2,0,1,-100.0,Major,0,50.01,SBRT + durva,47.44,Alive,Negative,Adenocarcinoma,Adenocarcinoma,5,High PI,Yes,Yes,Alive  NED,IIIA,Yes,Current,durva039
+GSE253564,GSM8023396,durva040,durva040,arm1,Arm1,Arm1,0,0,-70.0,None,0,49.94,Durvalumab,46.19,Alive,Negative,NOS,NOS,,High PI,Yes,Yes,Alive  NED,IB,Yes,Current,durva040
+GSE253564,GSM8023397,durva042,durva042,arm2,Arm2,Arm2,0,1,-99.0,Major,0,49.91,SBRT + durva,47.38,Alive,Negative,Adenocarcinoma,Adenocarcinoma,95,High PI,Yes,Yes,Alive  NED,IA,Yes,Current,durva042
+GSE253564,GSM8023398,durva044,durva044,arm2,Arm2,Arm2,0,0,-40.0,None,0,49.87,SBRT + durva,43.46,Alive,Negative,Adenocarcinoma,Adenocarcinoma,1,Low PI,Yes,Yes,Alive  NED,IIA,Yes,Former,durva044
+GSE253564,GSM8023399,durva045,durva045,arm1,Arm1,Arm1,0,0,-20.0,None,0,44.48,Durvalumab,44.48,Alive,Negative,Adenocarcinoma,Adenocarcinoma,,High PI,Yes,Yes,Alive  NED,IB,Yes,Former,durva045
+GSE253564,GSM8023400,durva046,durva046,arm2,Arm2,Arm2,0,0,-25.0,None,0,45.37,SBRT + durva,45.37,Alive,Positive,Adenocarcinoma,Adenocarcinoma,1,Low PI,Yes,Yes,Alive  NED,IIA,Yes,Former,durva046
+GSE253564,GSM8023401,durva053,durva053,arm1,Arm1,Arm1,0,0,-10.0,None,0,38.17,Durvalumab,38.17,Alive,Negative,Adenocarcinoma,Adenocarcinoma,4,Low PI,Yes,Yes,Alive  NED,IIIA,Yes,Current,durva053
+GSE253564,GSM8023402,durva055,durva055,arm1,Arm1,Arm1,0,0,-20.0,None,1,13.05,Durvalumab,13.05,Recurrence /Dead,Positive,Adenocarcinoma,Adenocarcinoma,5,Low PI,Yes,Yes,Dead for lung cancer only,IIIA,Yes,Never,durva055
+GSE253564,GSM8023403,durva056,durva056,arm2,Arm2,Arm2,0,1,-100.0,Major,0,42.51,SBRT + durva,38.7,Alive,Negative,Adenocarcinoma,Adenocarcinoma,90,High PI,Yes,Yes,Alive  NED,,Yes,Former,durva056
+GSE253564,GSM8023404,durva057,durva057,arm1,Arm1,Arm1,0,0,-25.0,None,0,42.44,Durvalumab,38.33,Alive,Positive,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Alive  NED,IA,Yes,Never,durva057
+GSE253564,GSM8023405,durva060,durva060,arm2,Arm2,Arm2,0,1,-99.0,Major,0,38.2,SBRT + durva,36.89,Alive,Positive,Adenocarcinoma,Adenocarcinoma,90,High PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva060
+GSE253564,GSM8023406,durva061,durva061,arm1,Arm1,Arm1,0,0,-70.0,None,0,39.91,Durvalumab,36.76,Alive,Negative,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva061
+GSE253564,GSM8023407,durva001,durva001,arm2,Arm2,Arm2,0,0,-70.0,None,0,77.49,SBRT + durva,74.07,Alive,Negative,Adenocarcinoma,Adenocarcinoma,90,Low PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva001
+GSE253564,GSM8023408,durva003,durva003,arm2,Arm2,Arm2,0,1,-95.0,Major,0,70.85,SBRT + durva,67.04,Alive,Negative,Adenocarcinoma,Adenocarcinoma,20,High PI,Yes,Yes,Alive  NED,IA,Yes,Current,durva003
+GSE253564,GSM8023409,durva006,durva006,arm2,Arm2,Arm2,0,1,-95.0,Major,0,43.3,SBRT + durva,43.3,Dead,Negative,Squamous,Squamous,40,High PI,Yes,Yes,Death from other diseases,IA,Yes,Current,durva006
+GSE253564,GSM8023410,durva007,durva007,arm2,Arm2,Arm2,0,0,-60.0,None,0,7.5,SBRT + durva,7.5,Dead,Negative,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Death from other diseases,IVA,Yes,Former,durva007
+GSE253564,GSM8023411,durva008,durva008,arm1,Arm1,Arm1,0,0,-40.0,None,1,23.47,Durvalumab,23.47,Alive Lung cancer recurrence,Positive,Adenocarcinoma,Adenocarcinoma,20,Low PI,Yes,Yes,Alive Lung cancer recurrence,IIIA,Yes,Never,durva008
+GSE253564,GSM8023412,durva009,durva009,arm2,Arm2,Arm2,0,0,-50.0,None,0,32.58,SBRT + durva,32.58,Dead,Positive,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Death from other diseases,IIA,Yes,Former,durva009
+GSE253564,GSM8023413,durva012,durva012,arm1,Arm1,Arm1,0,0,-50.0,None,1,21.37,Durvalumab,21.37,Recurrence /Dead,Positive,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Dead for lung cancer only,IIIA,Yes,Former,durva012
+GSE253564,GSM8023414,durva017,durva017,arm2,Arm2,Arm2,0,1,-99.0,Major,0,67.43,SBRT + durva,61.02,Alive,Negative,Squamous,Squamous,90,High PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva017
+GSE253564,GSM8023415,durva018,durva018,arm2,Arm2,Arm2,0,0,-40.0,None,1,19.27,SBRT + durva,19.27,Recurrence /Dead,Negative,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Dead for lung cancer only,IIB and IA,Yes,Former,durva018
+GSE253564,GSM8023416,durva021,durva021,arm2,Arm2,Arm2,0,1,-99.0,Major,0,60.39,SBRT + durva,58.92,Alive,Negative,Squamous,Squamous,50,High PI,Yes,Yes,Alive  NED,IIA,Yes,Current,durva021
+GSE253564,GSM8023417,durva023,durva023,arm1,Arm1,Arm1,0,0,-75.0,None,0,62.56,Durvalumab,49.22,Alive,Negative,Squamous,Squamous,20,Low PI,Yes,Yes,Alive  NED,IB,Yes,Former,durva023
+GSE253564,GSM8023418,durva026,durva026,arm1,Arm1,Arm1,0,0,-25.0,None,0,61.22,Durvalumab,49.28,Alive,Negative,Sarcomatoid,Sarcomatoid,,High PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva026
+GSE253564,GSM8023419,durva027,durva027,arm1,Arm1,Arm1,0,0,-30.0,None,0,58.09,Durvalumab,56.84,Alive,Negative,Adenocarcinoma,Adenocarcinoma,,High PI,Yes,Yes,Alive  NED,IB,Yes,Current,durva027
+GSE253564,GSM8023420,durva028,durva028,arm1,Arm1,Arm1,0,0,-75.0,None,0,56.52,Durvalumab,55.13,Alive,Negative,Squamous,Squamous,2,High PI,No,Yes,Alive  NED,IIIB,Yes,Former,durva028
+GSE253564,GSM8023421,durva029,durva029,arm2,Arm2,Arm2,0,1,-100.0,Major,1,27.35,SBRT + durva,27.35,Recurrence /Dead,Negative,Squamous,Squamous,60,High PI,Yes,Yes,Dead for lung cancer only,,Yes,Current,durva029
+GSE253564,GSM8023422,durva030,durva030,arm1,Arm1,Arm1,0,0,-40.0,None,1,12.76,Durvalumab,12.76,Alive Lung cancer recurrence,Positive,Adenocarcinoma,Adenocarcinoma,2,Low PI,Yes,Yes,Alive Lung cancer recurrence,IIIA,Yes,Never,durva030
+GSE253564,GSM8023423,durva033,durva033,arm1,Arm1,Arm1,0,1,-100.0,Major,0,55.2,Durvalumab,49.45,Alive,Negative,Squamous,Squamous,10,High PI,Yes,Yes,Alive  NED,IIIA and IA,Yes,Former,durva033
+GSE248378,GSM7912309,pod01,durva001,arm2,Arm2,Arm2,0,0,-70.0,None,0,77.49,SBRT + durva,74.07,Alive,Negative,Adenocarcinoma,Adenocarcinoma,90,Low PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva001
+GSE248378,GSM7912310,pod04,durva004,arm1,Arm1,Arm1,0,0,-40.0,None,0,70.06,Durvalumab,61.91,Alive,Negative,Squamous,Squamous,nd,Not Applicable (no data),Yes,No,Alive NED,IIIA,Yes,Former,durva004
+GSE248378,GSM7912311,pod07,durva007,arm2,Arm2,Arm2,0,0,-60.0,None,0,7.5,SBRT + durva,7.5,Dead,Negative,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Death from other diseases,IVA,Yes,Former,durva007
+GSE248378,GSM7912312,pod08,durva008,arm1,Arm1,Arm1,0,0,-40.0,None,1,23.47,Durvalumab,23.47,Alive Lung cancer recurrence,Positive,Adenocarcinoma,Adenocarcinoma,20,Low PI,Yes,Yes,Alive Lung cancer recurrence,IIIA,Yes,Never,durva008
+GSE248378,GSM7912313,pod09,durva009,arm2,Arm2,Arm2,0,0,-50.0,None,0,32.58,SBRT + durva,32.58,Dead,Positive,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Death from other diseases,IIA,Yes,Former,durva009
+GSE248378,GSM7912314,pod12,durva012,arm1,Arm1,Arm1,0,0,-50.0,None,1,21.37,Durvalumab,21.37,Recurrence /Dead,Positive,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Dead for lung cancer only,IIIA,Yes,Former,durva012
+GSE248378,GSM7912315,pod13,durva013,arm2,Arm2,Arm2,0,0,-50.0,None,0,64.6,SBRT + durva,64.6,Alive,Positive,Adenocarcinoma,Adenocarcinoma,,Not Applicable (no data),Yes,No,Alive  NED,IB,Yes,Never,durva013
+GSE248378,GSM7912316,pod15,durva015,arm1,Arm1,Arm1,0,0,-50.0,None,0,59.61,Durvalumab,59.61,Alive,Negative,Adenocarcinoma,Adenocarcinoma,,Not Applicable (no data),Yes,No,Alive  NED,IA,Yes,Former,durva015
+GSE248378,GSM7912317,pod18,durva018,arm2,Arm2,Arm2,0,0,-40.0,None,1,19.27,SBRT + durva,19.27,Recurrence /Dead,Negative,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Dead for lung cancer only,IIB and IA,Yes,Former,durva018
+GSE248378,GSM7912318,POD20R,durva020,arm1,Arm1,Arm1,0,0,-70.0,None,1,16.5,Durvalumab,16.5,Recurrence /Dead,Negative,Adenocarcinoma,Adenocarcinoma,,Not Applicable (no data),Yes,No,Dead for lung cancer only,IIIA,Yes,Never,durva020
+GSE248378,GSM7912319,POD23R,durva023,arm1,Arm1,Arm1,0,0,-75.0,None,0,62.56,Durvalumab,49.22,Alive,Negative,Squamous,Squamous,20,Low PI,Yes,Yes,Alive  NED,IB,Yes,Former,durva023
+GSE248378,GSM7912320,POD26R,durva026,arm1,Arm1,Arm1,0,0,-25.0,None,0,61.22,Durvalumab,49.28,Alive,Negative,Sarcomatoid,Sarcomatoid,,High PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva026
+GSE248378,GSM7912321,POD27R,durva027,arm1,Arm1,Arm1,0,0,-30.0,None,0,58.09,Durvalumab,56.84,Alive,Negative,Adenocarcinoma,Adenocarcinoma,,High PI,Yes,Yes,Alive  NED,IB,Yes,Current,durva027
+GSE248378,GSM7912322,POD30R,durva030,arm1,Arm1,Arm1,0,0,-40.0,None,1,12.76,Durvalumab,12.76,Alive Lung cancer recurrence,Positive,Adenocarcinoma,Adenocarcinoma,2,Low PI,Yes,Yes,Alive Lung cancer recurrence,IIIA,Yes,Never,durva030
+GSE248378,GSM7912323,POD32R,durva032,arm2,Arm2,Arm2,0,0,-80.0,None,0,7.79,SBRT + durva,7.79,Dead,Negative,Squamous,Squamous,5,Not Applicable (no data),Yes,No,Death from other diseases,IIIA,Yes,Current,durva032
+GSE248378,GSM7912324,36-M-PO,durva036,arm1,Arm1,Arm1,0,0,-10.0,None,1,13.61,Durvalumab,13.61,Recurrence /Dead,Negative,Squamous,Squamous,50,High PI,Yes,Yes,Dead for lung cancer only,IIIA,Yes,Former,durva036
+GSE248378,GSM7912325,38-M-PO,durva038,arm1,Arm1,Arm1,0,0,-45.0,None,0,50.96,Durvalumab,47.38,Alive,Negative,Squamous,Squamous,30,High PI,Yes,Yes,Alive  NED,IIIA,Yes,Former,durva038
+GSE248378,GSM7912326,40-M-PO,durva040,arm1,Arm1,Arm1,0,0,-70.0,None,0,49.94,Durvalumab,46.19,Alive,Negative,NOS,NOS,,High PI,Yes,Yes,Alive  NED,IB,Yes,Current,durva040
+GSE248378,GSM7912327,41-M-PO,durva041,arm1,Arm1,Arm1,0,0,-80.0,None,1,13.64,Durvalumab,13.64,Recurrence /Dead,Negative,Squamous,Squamous,,Not Applicable (no data),Yes,No,Dead for lung cancer only,IIIA,Yes,Current,durva041
+GSE248378,GSM7912328,44-RT-PO,durva044,arm2,Arm2,Arm2,0,0,-40.0,None,0,49.87,SBRT + durva,43.46,Alive,Negative,Adenocarcinoma,Adenocarcinoma,1,Low PI,Yes,Yes,Alive  NED,IIA,Yes,Former,durva044
+GSE248378,GSM7912329,45-M-PO,durva045,arm1,Arm2,Arm1,1,0,-20.0,None,0,44.48,Durvalumab,44.48,Alive,Negative,Adenocarcinoma,Adenocarcinoma,,High PI,Yes,Yes,Alive  NED,IB,Yes,Former,durva045
+GSE248378,GSM7912330,46-RT-PO,durva046,arm2,Arm2,Arm2,0,0,-25.0,None,0,45.37,SBRT + durva,45.37,Alive,Positive,Adenocarcinoma,Adenocarcinoma,1,Low PI,Yes,Yes,Alive  NED,IIA,Yes,Former,durva046
+GSE248378,GSM7912331,47-M-PO,durva047,arm1,Arm1,Arm1,0,0,-30.0,None,0,39.55,Durvalumab,39.55,Alive,Negative,Squamous,Squamous,30,Not Applicable (no data),Yes,No,Alive  NED,IIIB,Yes,Current,durva047
+GSE248378,GSM7912332,52-RT-PO,durva052,arm2,Arm2,Arm2,0,0,-75.0,None,0,44.81,SBRT + durva,41.36,Alive,Negative,Adenocarcinoma,Adenocarcinoma,70,Not Applicable (no data),Yes,No,Alive  NED,IIA,Yes,Former,durva052
+GSE248378,GSM7912333,53-M-PO,durva053,arm1,Arm1,Arm1,0,0,-10.0,None,0,38.17,Durvalumab,38.17,Alive,Negative,Adenocarcinoma,Adenocarcinoma,4,Low PI,Yes,Yes,Alive  NED,IIIA,Yes,Current,durva053
+GSE248378,GSM7912334,55-M-PO,durva055,arm1,Arm1,Arm1,0,0,-20.0,None,1,13.05,Durvalumab,13.05,Recurrence /Dead,Positive,Adenocarcinoma,Adenocarcinoma,5,Low PI,Yes,Yes,Dead for lung cancer only,IIIA,Yes,Never,durva055
+GSE248378,GSM7912335,57-M-PO,durva057,arm1,Arm1,Arm1,0,0,-25.0,None,0,42.44,Durvalumab,38.33,Alive,Positive,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Alive  NED,IA,Yes,Never,durva057
+GSE248378,GSM7912336,59-RT-PO,durva059,arm2,Arm2,Arm2,0,0,-70.0,None,1,17.29,SBRT + durva,17.29,Recurrence /Dead,Positive,Adenocarcinoma,Adenocarcinoma,,Not Applicable (no data),Yes,No,Dead for lung cancer only,IIIA,Yes,Never,durva059
+GSE248378,GSM7912337,61-M-PO,durva061,arm1,Arm1,Arm1,0,0,-70.0,None,0,39.91,Durvalumab,36.76,Alive,Negative,Adenocarcinoma,Adenocarcinoma,,Low PI,Yes,Yes,Alive  NED,IA,Yes,Former,durva061
