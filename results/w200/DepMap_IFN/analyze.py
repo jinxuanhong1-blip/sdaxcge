@@ -132,12 +132,14 @@ def partial_spearman(
     return {"n": len(frame), "rho": float(result.statistic), "p": float(result.pvalue)}
 
 
-def bh(frame: pd.DataFrame, p_col: str = "p") -> pd.DataFrame:
+def bh(frame: pd.DataFrame, p_col: str = "p", q_col: str = "q") -> pd.DataFrame:
     frame = frame.copy()
-    frame["q"] = np.nan
+    frame[q_col] = np.nan
     valid = frame[p_col].notna()
     if valid.any():
-        frame.loc[valid, "q"] = multipletests(frame.loc[valid, p_col], method="fdr_bh")[1]
+        frame.loc[valid, q_col] = multipletests(
+            frame.loc[valid, p_col], method="fdr_bh"
+        )[1]
     return frame
 
 
@@ -208,17 +210,25 @@ def write_report(
 ) -> None:
     def rows_as_markdown(frame: pd.DataFrame, columns: list[str]) -> str:
         shown = frame[columns].copy()
-        for col in ["rho", "ci_low", "ci_high"]:
+        for col in ["rho", "rho_adjusted", "ci_low", "ci_high"]:
             if col in shown:
                 shown[col] = shown[col].map(lambda x: "NA" if pd.isna(x) else f"{x:.3f}")
-        for col in ["p", "q"]:
+        for col in ["p", "q", "p_adjusted", "q_adjusted"]:
             if col in shown:
                 shown[col] = shown[col].map(fmt_p)
         return shown.to_markdown(index=False)
 
     top_expr = candidates[candidates["predictor"].eq("tacstd2_expression")].nsmallest(15, "q")
     overlap = len(set(IFNA) & set(IFNG))
-    n_sig = int((top_expr["q"] < 0.05).sum())
+    expression_candidates = candidates[
+        candidates["predictor"].eq("tacstd2_expression")
+    ]
+    n_sig = int((expression_candidates["q"] < 0.05).sum())
+    n_adjusted_sig = int((expression_candidates["q_adjusted"] < 0.05).sum())
+    dependency_candidates = candidates[
+        candidates["predictor"].eq("tacstd2_gene_effect")
+    ]
+    n_dependency_sig = int((dependency_candidates["q"] < 0.05).sum())
     lines = [
         "# DepMap lung TACSTD2 vs interferon analysis",
         "",
@@ -234,9 +244,12 @@ def write_report(
             f"{row.ci_high:.3f}, BH q={fmt_p(row.q)}, n={int(row.n)})."
         )
     lines += [
-        f"- In the candidate CRISPR screen, {n_sig} of the 15 strongest listed "
-        "IFN-gene associations had q<0.05; this is an association screen, not evidence "
-        "that TACSTD2 controls those genes.",
+        f"- In the candidate CRISPR screen, {n_sig} of "
+        f"{len(expression_candidates)} IFN-gene associations with TACSTD2 RNA had "
+        f"q<0.05; {n_adjusted_sig} remained at q<0.05 after model-type adjustment. "
+        "This is an association screen, not evidence that TACSTD2 controls those genes.",
+        f"- No IFN-gene effect correlated with TACSTD2 gene effect at q<0.05 "
+        f"({n_dependency_sig}/{len(dependency_candidates)}).",
         "- The analysis is observational and cross-sectional. Histology, lineage state, "
         "culture conditions, and screen quality can create correlations. No causal claim "
         "is supported.",
@@ -293,9 +306,13 @@ def write_report(
         "For every available unique gene in the union of the two Hallmark sets, its "
         "Chronos gene effect was correlated with TACSTD2 RNA. BH correction is across "
         "all candidate genes for that predictor. Positive rho means high-TACSTD2 lines "
-        "are less dependent on the gene; negative rho means they are more dependent.",
+        "are less dependent on the gene; negative rho means they are more dependent. "
+        "Adjusted columns are a sensitivity analysis residualizing ranks on model type.",
         "",
-        rows_as_markdown(top_expr, ["gene", "sets", "n", "rho", "p", "q"]),
+        rows_as_markdown(
+            top_expr,
+            ["gene", "sets", "n", "rho", "q", "rho_adjusted", "q_adjusted"],
+        ),
         "",
         "The full table also contains a secondary screen using TACSTD2 gene effect as "
         "the predictor, corrected as a separate family.",
@@ -329,7 +346,8 @@ def write_report(
         "- `tables/tacstd2_dependency_correlations.csv`: TACSTD2 dependency tests",
         "- `tables/histology_adjusted_correlations.csv`: partial Spearman sensitivity",
         "- `tables/subgroup_correlations.csv`: major subtype sensitivity",
-        "- `tables/ifn_gene_crispr_correlations.csv`: full candidate CRISPR screen",
+        "- `tables/ifn_gene_crispr_correlations.csv`: full raw and model-type-adjusted "
+        "candidate CRISPR screen",
         "- `figures/`: scatter and candidate-screen plots",
         "- `qc_summary.json`: counts, coverage, checksums, and software-independent inputs",
     ]
@@ -437,16 +455,28 @@ def main() -> None:
     for predictor in ["tacstd2_expression", "tacstd2_gene_effect"]:
         for gene in sorted((set(IFNA) | set(IFNG)) & effect_genes):
             result = spearman(models[predictor], effects[gene])
+            adjusted_result = partial_spearman(
+                models[predictor], effects[gene], collapsed_type
+            )
             gene_sets = "+".join(
                 name for name, members in [("IFNA", IFNA), ("IFNG", IFNG)] if gene in members
             )
             candidate_rows.append({
-                "predictor": predictor, "gene": gene, "sets": gene_sets, **result
+                "predictor": predictor,
+                "gene": gene,
+                "sets": gene_sets,
+                **result,
+                "n_adjusted": adjusted_result["n"],
+                "rho_adjusted": adjusted_result["rho"],
+                "p_adjusted": adjusted_result["p"],
             })
-    candidates = pd.concat([
-        bh(pd.DataFrame(candidate_rows).loc[lambda x: x.predictor.eq(predictor)])
-        for predictor in ["tacstd2_expression", "tacstd2_gene_effect"]
-    ], ignore_index=True)
+    candidate_families = []
+    for predictor in ["tacstd2_expression", "tacstd2_gene_effect"]:
+        family = pd.DataFrame(candidate_rows).loc[lambda x: x.predictor.eq(predictor)]
+        family = bh(family)
+        family = bh(family, p_col="p_adjusted", q_col="q_adjusted")
+        candidate_families.append(family)
+    candidates = pd.concat(candidate_families, ignore_index=True)
     candidates = candidates.sort_values(["predictor", "q", "p", "gene"])
 
     models.index.name = "ModelID"
