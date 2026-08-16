@@ -1,0 +1,28 @@
+{
+  "target_gene": "TACSTD2",
+  "target_aliases": ["TROP2", "GA733-1", "EGP-1"],
+  "signatures": {
+    "immune_tcell_effector": {
+      "description": "CD8 T-cell / T-cell-inflamed effector signature (immune infiltration).",
+      "genes": ["CD8A", "GZMA", "GZMB", "IFNG", "EOMES", "CXCL9", "CXCL10", "TBX21"],
+      "reference": "CD8 T-effector / T-cell-inflamed signature as used in IMvigor210/POPLAR IO studies (Rosenberg et al., Lancet 2016; Ayers et al., J Clin Invest 2017 T-cell-inflamed GEP)."
+    },
+    "cytotoxic": {
+      "description": "Cytotoxic effector program (granzymes, perforin, NK/CTL effectors).",
+      "genes": ["GZMA", "GZMB", "GZMH", "GZMK", "PRF1", "GNLY", "NKG7", "KLRD1"],
+      "reference": "Extended cytotoxic panel; core CYT (GZMA, PRF1) from Rooney et al., Cell 2015."
+    },
+    "exhaustion": {
+      "description": "T-cell exhaustion / immune-checkpoint markers.",
+      "genes": ["PDCD1", "CTLA4", "LAG3", "HAVCR2", "TIGIT", "BTLA", "CD160", "VSIR", "TOX", "ENTPD1", "CD274", "PDCD1LG2"],
+      "reference": "Canonical inhibitory checkpoint / exhaustion markers (Wherry & Kurachi, Nat Rev Immunol 2015; Thommen & Schumacher, Cancer Cell 2018)."
+    }
+  },
+  "cytotoxic_rooney_CYT": {
+    "description": "Rooney cytolytic activity = geometric mean of GZMA and PRF1 (computed from raw RSEM where available).",
+    "genes": ["GZMA", "PRF1"],
+    "reference": "Rooney et al., Cell 2015."
+  },
+  "individual_gene_checks": ["CD8A", "GZMA", "PDCD1", "CTLA4", "HAVCR2", "CD274"],
+  "scoring": "Signature score = mean of per-gene, per-cohort z-scores (mRNA z-scores relative to all samples, log RSEM). Spearman correlation is invariant to any monotonic per-gene transform, so ranks are identical to raw RSEM."
+}

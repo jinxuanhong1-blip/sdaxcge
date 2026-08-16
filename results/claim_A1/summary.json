@@ -1,0 +1,43 @@
+{
+  "target_gene": "TACSTD2",
+  "cohorts": [
+    {
+      "cohort": "TCGA_LUAD",
+      "study_id": "luad_tcga_pan_can_atlas_2018",
+      "histology": "lung adenocarcinoma",
+      "n_expression": 510,
+      "n_expr_and_purity": 497
+    },
+    {
+      "cohort": "TCGA_LUSC",
+      "study_id": "lusc_tcga_pan_can_atlas_2018",
+      "histology": "lung squamous cell carcinoma",
+      "n_expression": 484,
+      "n_expr_and_purity": 479
+    },
+    {
+      "cohort": "OncoSG_LUAD",
+      "study_id": "luad_oncosg_2020",
+      "histology": "lung adenocarcinoma",
+      "n_expression": 169,
+      "n_expr_and_purity": 169
+    }
+  ],
+  "primary_pool": "TCGA_plus_OncoSG",
+  "primary_pool_n_partial": {
+    "immune_tcell_effector": 1145,
+    "cytotoxic": 1145,
+    "exhaustion": 1145
+  },
+  "primary_pool_partial_rho": {
+    "immune_tcell_effector": -0.2125111776904755,
+    "cytotoxic": -0.1876779197873145,
+    "exhaustion": -0.19374968374313048
+  },
+  "primary_pool_partial_p": {
+    "immune_tcell_effector": 3.7849401234246004e-13,
+    "cytotoxic": 1.5759484502019744e-10,
+    "exhaustion": 3.875418018286586e-11
+  },
+  "all_partial_negative_after_purity": true
+}

@@ -1,0 +1,42 @@
+{
+  "cbioportal_api": "https://www.cbioportal.org/api",
+  "expression_profile_suffix": "_rna_seq_v2_mrna_median_all_sample_Zscores",
+  "cohorts": [
+    {
+      "id": "TCGA_LUAD",
+      "study_id": "luad_tcga_pan_can_atlas_2018",
+      "histology": "lung adenocarcinoma",
+      "sample_list": "luad_tcga_pan_can_atlas_2018_rna_seq_v2_mrna",
+      "purity_source": "TCGA_ABSOLUTE"
+    },
+    {
+      "id": "TCGA_LUSC",
+      "study_id": "lusc_tcga_pan_can_atlas_2018",
+      "histology": "lung squamous cell carcinoma",
+      "sample_list": "lusc_tcga_pan_can_atlas_2018_rna_seq_v2_mrna",
+      "purity_source": "TCGA_ABSOLUTE"
+    },
+    {
+      "id": "OncoSG_LUAD",
+      "study_id": "luad_oncosg_2020",
+      "histology": "lung adenocarcinoma",
+      "sample_list": "luad_oncosg_2020_rna_seq_v2_mrna",
+      "purity_source": "cbioportal_clinical_PURITY"
+    }
+  ],
+  "purity_sources": {
+    "TCGA_ABSOLUTE": {
+      "description": "TCGA PanCanAtlas ABSOLUTE purity (Aran/Taylor). Field 'purity' keyed by 15-char TCGA sample barcode.",
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "file": "data/abs_purity.txt"
+    },
+    "cbioportal_clinical_PURITY": {
+      "description": "OncoSG sample-level PURITY clinical attribute from cBioPortal.",
+      "endpoint": "/studies/luad_oncosg_2020/clinical-data?clinicalDataType=SAMPLE&attributeId=PURITY"
+    }
+  },
+  "pooled_definitions": {
+    "TCGA_NSCLC": ["TCGA_LUAD", "TCGA_LUSC"],
+    "TCGA_plus_OncoSG": ["TCGA_LUAD", "TCGA_LUSC", "OncoSG_LUAD"]
+  }
+}
