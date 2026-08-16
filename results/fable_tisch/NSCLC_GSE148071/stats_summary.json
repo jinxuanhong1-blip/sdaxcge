@@ -1,0 +1,270 @@
+{
+  "dataset": "NSCLC_GSE148071",
+  "malignant_definition": "TISCH2 major-lineage == \"Malignant\"",
+  "n_cells_total": 82267,
+  "n_malignant": 48118,
+  "n_immune": 20077,
+  "immune_lineages_present": [
+    "CD8T",
+    "Mono/Macro",
+    "Plasma",
+    "Tprolif"
+  ],
+  "genes_found": [
+    "CLDN4",
+    "EPCAM",
+    "PTPRC",
+    "TACSTD2"
+  ],
+  "cell_level_malignant_vs_all_immune": {
+    "TACSTD2": {
+      "mean_malignant": 1.188979148864746,
+      "mean_other": 0.06700541079044342,
+      "pct_pos_malignant": 62.79354919157072,
+      "pct_pos_other": 4.273546844648105,
+      "log2FC_of_means": 4.149302005767822,
+      "auroc": 0.795537421999329,
+      "p_value": 0.0
+    },
+    "CLDN4": {
+      "mean_malignant": 1.116219162940979,
+      "mean_other": 0.05657905712723732,
+      "pct_pos_malignant": 61.25150671266469,
+      "pct_pos_other": 3.9298700004980827,
+      "log2FC_of_means": 4.302208423614502,
+      "auroc": 0.7902611563792711,
+      "p_value": 0.0
+    },
+    "EPCAM": {
+      "mean_malignant": 1.3939094543457031,
+      "mean_other": 0.04826800525188446,
+      "pct_pos_malignant": 70.40400681657592,
+      "pct_pos_other": 3.411864322358918,
+      "log2FC_of_means": 4.851925849914551,
+      "auroc": 0.8406182106864796,
+      "p_value": 0.0
+    },
+    "PTPRC": {
+      "mean_malignant": 0.03798007592558861,
+      "mean_other": 1.5153343677520752,
+      "pct_pos_malignant": 3.131884118209402,
+      "pct_pos_other": 71.14110673905463,
+      "log2FC_of_means": -5.318249702453613,
+      "auroc": 0.1519867120008931,
+      "p_value": 0.0
+    }
+  },
+  "per_patient_paired_wilcoxon": {
+    "TACSTD2": {
+      "n_patients": 36,
+      "median_mean_malignant": 1.3071401715278625,
+      "median_mean_immune": 0.06847896799445152,
+      "n_patients_malignant_higher": 35,
+      "wilcoxon_W": 0.0,
+      "p_value": 2.4770276393652366e-07
+    },
+    "CLDN4": {
+      "n_patients": 36,
+      "median_mean_malignant": 1.3769944310188293,
+      "median_mean_immune": 0.045184023678302765,
+      "n_patients_malignant_higher": 36,
+      "wilcoxon_W": 0.0,
+      "p_value": 2.9103830456733704e-11
+    },
+    "EPCAM": {
+      "n_patients": 36,
+      "median_mean_malignant": 1.1834562420845032,
+      "median_mean_immune": 0.031273419968783855,
+      "n_patients_malignant_higher": 35,
+      "wilcoxon_W": 0.0,
+      "p_value": 2.4770276393652366e-07
+    },
+    "PTPRC": {
+      "n_patients": 36,
+      "median_mean_malignant": 0.04511642828583717,
+      "median_mean_immune": 1.4962894320487976,
+      "n_patients_malignant_higher": 0,
+      "wilcoxon_W": 0.0,
+      "p_value": 2.9103830456733704e-11
+    }
+  },
+  "tumor_tissue_only_sensitivity": {
+    "TACSTD2": {
+      "source_column": "Tissue",
+      "n_malignant": 48118,
+      "n_immune": 20077,
+      "mean_malignant": 1.188979148864746,
+      "mean_immune": 0.06700541079044342,
+      "pct_pos_malignant": 62.79354919157072,
+      "pct_pos_immune": 4.273546844648105,
+      "log2FC_of_means": 4.149302005767822,
+      "auroc": 0.795537421999329,
+      "p_value": 0.0
+    },
+    "CLDN4": {
+      "source_column": "Tissue",
+      "n_malignant": 48118,
+      "n_immune": 20077,
+      "mean_malignant": 1.116219162940979,
+      "mean_immune": 0.05657905712723732,
+      "pct_pos_malignant": 61.25150671266469,
+      "pct_pos_immune": 3.9298700004980827,
+      "log2FC_of_means": 4.302208423614502,
+      "auroc": 0.7902611563792711,
+      "p_value": 0.0
+    },
+    "EPCAM": {
+      "source_column": "Tissue",
+      "n_malignant": 48118,
+      "n_immune": 20077,
+      "mean_malignant": 1.3939094543457031,
+      "mean_immune": 0.04826800525188446,
+      "pct_pos_malignant": 70.40400681657592,
+      "pct_pos_immune": 3.411864322358918,
+      "log2FC_of_means": 4.851925849914551,
+      "auroc": 0.8406182106864796,
+      "p_value": 0.0
+    },
+    "PTPRC": {
+      "source_column": "Tissue",
+      "n_malignant": 48118,
+      "n_immune": 20077,
+      "mean_malignant": 0.03798007592558861,
+      "mean_immune": 1.5153343677520752,
+      "pct_pos_malignant": 3.131884118209402,
+      "pct_pos_immune": 71.14110673905463,
+      "log2FC_of_means": -5.318249702453613,
+      "auroc": 0.1519867120008931,
+      "p_value": 0.0
+    }
+  },
+  "epithelial_restriction": {
+    "n_nonmalignant_epithelial": 8147,
+    "nonmalignant_epithelial_lineages": [
+      "Alveolar",
+      "Basal",
+      "Epithelial"
+    ],
+    "TACSTD2": {
+      "n_malignant": 48118,
+      "n_nonmalignant_epithelial": 8147,
+      "n_immune": 20077,
+      "mean_malignant": 1.188979148864746,
+      "mean_nonmalignant_epithelial": 1.014238715171814,
+      "mean_immune": 0.06700541079044342,
+      "pct_pos_malignant": 62.79354919157072,
+      "pct_pos_nonmalignant_epithelial": 62.25604517000123,
+      "pct_pos_immune": 4.273546844648105,
+      "log2FC_malignant_vs_nonmalig_epi": 0.22932609915733337,
+      "log2FC_nonmalig_epi_vs_immune": 3.919975757598877,
+      "auroc_malignant_vs_nonmalig_epi": 0.5372046368580843,
+      "p_malignant_vs_nonmalig_epi": 2.2476002081462503e-28,
+      "auroc_nonmalig_epi_vs_immune": 0.790421172092452,
+      "p_nonmalig_epi_vs_immune": 0.0
+    },
+    "CLDN4": {
+      "n_malignant": 48118,
+      "n_nonmalignant_epithelial": 8147,
+      "n_immune": 20077,
+      "mean_malignant": 1.116219162940979,
+      "mean_nonmalignant_epithelial": 1.3677420616149902,
+      "mean_immune": 0.05657905712723732,
+      "pct_pos_malignant": 61.25150671266469,
+      "pct_pos_nonmalignant_epithelial": 73.7326623296919,
+      "pct_pos_immune": 3.9298700004980827,
+      "log2FC_malignant_vs_nonmalig_epi": -0.2931758463382721,
+      "log2FC_nonmalig_epi_vs_immune": 4.595384120941162,
+      "auroc_malignant_vs_nonmalig_epi": 0.4282021132809771,
+      "p_malignant_vs_nonmalig_epi": 0.0,
+      "auroc_nonmalig_epi_vs_immune": 0.8541707283225691,
+      "p_nonmalig_epi_vs_immune": 0.0
+    },
+    "EPCAM": {
+      "n_malignant": 48118,
+      "n_nonmalignant_epithelial": 8147,
+      "n_immune": 20077,
+      "mean_malignant": 1.3939094543457031,
+      "mean_nonmalignant_epithelial": 1.051300048828125,
+      "mean_immune": 0.04826800525188446,
+      "pct_pos_malignant": 70.40400681657592,
+      "pct_pos_nonmalignant_epithelial": 68.82287958757824,
+      "pct_pos_immune": 3.411864322358918,
+      "log2FC_malignant_vs_nonmalig_epi": 0.4069623351097107,
+      "log2FC_nonmalig_epi_vs_immune": 4.444963455200195,
+      "auroc_malignant_vs_nonmalig_epi": 0.5984832314027247,
+      "p_malignant_vs_nonmalig_epi": 0.0,
+      "auroc_nonmalig_epi_vs_immune": 0.8285818513660421,
+      "p_nonmalig_epi_vs_immune": 0.0
+    },
+    "PTPRC": {
+      "n_malignant": 48118,
+      "n_nonmalignant_epithelial": 8147,
+      "n_immune": 20077,
+      "mean_malignant": 0.03798007592558861,
+      "mean_nonmalignant_epithelial": 0.08902651816606522,
+      "mean_immune": 1.5153343677520752,
+      "pct_pos_malignant": 3.131884118209402,
+      "pct_pos_nonmalignant_epithelial": 7.573339879710322,
+      "pct_pos_immune": 71.14110673905463,
+      "log2FC_malignant_vs_nonmalig_epi": -1.2289923429489136,
+      "log2FC_nonmalig_epi_vs_immune": -4.08925724029541,
+      "auroc_malignant_vs_nonmalig_epi": 0.47783746793694176,
+      "p_malignant_vs_nonmalig_epi": 0.0,
+      "auroc_nonmalig_epi_vs_immune": 0.16205663919942345,
+      "p_nonmalig_epi_vs_immune": 0.0
+    }
+  },
+  "positive_population_composition": {
+    "TACSTD2": {
+      "n_positive": 36749,
+      "pct_of_positive_in_malignant": 82.21992435168303,
+      "pct_of_positive_in_nonmalignant_epithelial": 13.801736101662632,
+      "pct_of_positive_in_immune": 2.3347574083648537,
+      "pct_of_positive_in_other": 1.643582138289477
+    },
+    "CLDN4": {
+      "n_positive": 36828,
+      "pct_of_positive_in_malignant": 80.02878244813729,
+      "pct_of_positive_in_nonmalignant_epithelial": 16.310959052894535,
+      "pct_of_positive_in_immune": 2.142391658520691,
+      "pct_of_positive_in_other": 1.5178668404474855
+    },
+    "EPCAM": {
+      "n_positive": 40752,
+      "pct_of_positive_in_malignant": 83.12966234786022,
+      "pct_of_positive_in_nonmalignant_epithelial": 13.758833922261484,
+      "pct_of_positive_in_immune": 1.6808990969768356,
+      "pct_of_positive_in_other": 1.4306046329014528
+    },
+    "PTPRC": {
+      "n_positive": 16958,
+      "pct_of_positive_in_malignant": 8.886661162872981,
+      "pct_of_positive_in_nonmalignant_epithelial": 3.6384007548059913,
+      "pct_of_positive_in_immune": 84.22573416676495,
+      "pct_of_positive_in_other": 3.24920391555608
+    }
+  },
+  "immune_fraction_spearman": {
+    "TACSTD2": {
+      "n_patients": 36,
+      "spearman_rho_immune_frac_vs_malignant_mean": -0.09266409266409266,
+      "p_value": 0.5909072866504811
+    },
+    "CLDN4": {
+      "n_patients": 36,
+      "spearman_rho_immune_frac_vs_malignant_mean": -0.054568854568854575,
+      "p_value": 0.7519313401584008
+    },
+    "EPCAM": {
+      "n_patients": 36,
+      "spearman_rho_immune_frac_vs_malignant_mean": -0.311969111969112,
+      "p_value": 0.06398475061874366
+    },
+    "PTPRC": {
+      "n_patients": 36,
+      "spearman_rho_immune_frac_vs_malignant_mean": 0.3112169386713469,
+      "p_value": 0.06466257177972393
+    }
+  },
+  "tumor_vs_normal_epithelial": {}
+}
