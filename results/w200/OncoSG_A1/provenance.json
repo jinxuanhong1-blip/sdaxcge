@@ -1,0 +1,22 @@
+{
+  "study_id": "luad_oncosg_2020",
+  "study_url": "https://www.cbioportal.org/study/summary?id=luad_oncosg_2020",
+  "datahub_revision": "165bd77077b03038f9c2ee104959eb474770b2a9",
+  "sources": {
+    "expression": {
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/165bd77077b03038f9c2ee104959eb474770b2a9/public/luad_oncosg_2020/data_mrna_seq_v2_rsem_zscores_ref_all_samples.txt",
+      "sha256": "44093dbc6633e5280d0fcd18fb07f5c6ee5c2cff175cd76b48b3665c3d4ff54f",
+      "bytes": 23493696
+    },
+    "clinical": {
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/165bd77077b03038f9c2ee104959eb474770b2a9/public/luad_oncosg_2020/data_clinical_sample.txt",
+      "sha256": "55739b69bf4f2e8e624aab51a0b5903ea797751905219b7bf6581afb4c96f368",
+      "bytes": 50145
+    }
+  },
+  "expression_samples": 169,
+  "clinical_samples": 305,
+  "overlap_samples": 169,
+  "tacstd2_entrez_id": 4070,
+  "expression_profile": "rna_seq_v2_mrna_median_all_sample_Zscores"
+}
