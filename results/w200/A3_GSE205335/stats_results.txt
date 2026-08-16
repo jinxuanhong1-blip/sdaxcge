@@ -1,0 +1,35 @@
+GSE205335 TACSTD2 (TROP2) analysis — statistical results
+============================================================
+Cells total: 96505; malignant: 28512; T/NK: 39875
+Patients with >= 20 malignant cells: 22 (R=6, NR=10, NE=6)
+Patients excluded (< min malignant cells captured): P2016(0 cells, RECIST PD), P2001(0 cells, RECIST PR), P2009(0 cells, RECIST PR), P3032(0 cells, RECIST PR)
+    NOTE: dropout is asymmetric — 3 responder vs 1 non-responder patients had (near-)zero malignant cells captured.
+
+[1] Primary: TACSTD2 in malignant vs T/NK cells, paired within patient (all patients incl. NE)
+    Patients require >= 20 cells in each compartment.
+    mean_log1p_cp10k: n=22 pairs | malignant median=0.929 | T/NK median=0.021 | Wilcoxon signed-rank W=0.0, p=4.77e-07
+    pct_pos: n=22 pairs | malignant median=58.421 | T/NK median=1.208 | Wilcoxon signed-rank W=0.0, p=4.77e-07
+    pseudobulk_cpm: n=22 pairs | malignant median=495.140 | T/NK median=3.897 | Wilcoxon signed-rank W=0.0, p=4.77e-07
+
+[2] MPR vs NMPR: not labeled. GEO characteristics and the author cell table contain RECIST only. RECIST is not used as a silent MPR substitute.
+
+[3] Secondary: malignant-cell TACSTD2 in responders (PR) vs non-responders (SD/PD)
+    Unit = patient; NE patients excluded. This is RECIST, not MPR.
+    mean_log1p_cp10k: R n=6 median=1.098 | NR n=10 median=0.910 | Mann-Whitney U=29.0, p=0.9578
+    pct_pos: R n=6 median=70.851 | NR n=10 median=51.987 | Mann-Whitney U=34.0, p=0.7128
+    pseudobulk_cpm: R n=6 median=481.254 | NR n=10 median=574.349 | Mann-Whitney U=25.0, p=0.6354
+    NSCLC-only (ADC+SQ) sensitivity, not used as the verdict:
+        mean_log1p_cp10k: R n=4 median=1.673 | NR n=8 median=0.910 | Mann-Whitney U=22.0, p=0.3677
+        pct_pos: R n=4 median=74.147 | NR n=8 median=51.987 | Mann-Whitney U=28.0, p=0.0485
+        pseudobulk_cpm: R n=4 median=1006.819 | NR n=8 median=574.349 | Mann-Whitney U=18.0, p=0.8081
+
+[4] Exploratory: malignant TACSTD2 vs T/NK fraction among (malignant + T/NK) cells
+    This is the GSE207422-style continuous analog. It is not an MPR test.
+    all_evaluable_pairs mean_log1p_cp10k: n=22 ρ=0.234, p=0.2939
+    all_evaluable_pairs pct_pos: n=22 ρ=0.185, p=0.4107
+    recist_r_vs_nr mean_log1p_cp10k: n=16 ρ=0.385, p=0.1405
+    recist_r_vs_nr pct_pos: n=16 ρ=0.306, p=0.2493
+    nsclc_adc_sq mean_log1p_cp10k: n=17 ρ=-0.201, p=0.4392
+    nsclc_adc_sq pct_pos: n=17 ρ=-0.265, p=0.3045
+
+[sanity] EPCAM+ fraction: malignant 69.3% vs T/NK 2.5%; PTPRC(CD45)+ fraction: malignant 4.2% vs T/NK 80.9%
