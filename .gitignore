@@ -1,0 +1,20 @@
+# Raw public downloads and caches (do not commit)
+data/
+*.h5ad
+*.h5
+*.rds
+*.RDS
+*.mtx
+*.gz
+!data/genesets/**
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.venv/
+venv/
