@@ -1,0 +1,26 @@
+{
+  "source": "TISMO /gene/downVivoExprn gene=Tacstd2 type=3 (table)",
+  "url": "https://tismo.pku-genomics.org/",
+  "n_rows": 619,
+  "n_unique_samples": 605,
+  "n_tismo_slices": 64,
+  "n_cell_lines": 17,
+  "n_gse": 22,
+  "n_gse124821_slices": 19,
+  "n_baseline_samples_reused_across_slices": 14,
+  "gene": "Tacstd2",
+  "pairing": "within-slice Baseline==1 vs Baseline==0 (ICB-treated, R+NR pooled)",
+  "primary_test": "two-sided exact binomial sign test on median(ICB)-median(baseline); ties dropped",
+  "user_claim": {
+    "n_up": 49,
+    "n_models": 64,
+    "p": 5.8e-05,
+    "label": "sign test"
+  },
+  "user_claim_reproduced_as": {
+    "n_up_mean": 49,
+    "n_down_mean": 15,
+    "sign_test_p_two_sided_on_means": 2.436457216293327e-05,
+    "wilcoxon_p_two_sided_on_mean_deltas": 5.8398482923347564e-05
+  }
+}

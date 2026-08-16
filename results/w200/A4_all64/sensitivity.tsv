@@ -1,0 +1,12 @@
+analysis	n_models	n_up	n_down	n_tie	n_tested	sign_p_two_sided	sign_p_greater	note
+sign_test_median_64_slices	64	40	18	6	58	0.005354859650800294	0.002677429825400147	primary honest sign test
+sign_test_mean_64_slices	64	49	15	0	64	2.436457216293327e-05	1.2182286081466635e-05	reproduces user 49/64 count
+wilcoxon_signed_rank_median_deltas	58	40	18	6	58	0.007135232107466571		Wilcoxon on median deltas; zeros dropped
+wilcoxon_signed_rank_mean_deltas	64	49	15	0	64	5.8398482923347564e-05		reproduces user p=5.8e-5 (this is Wilcoxon, not a sign test)
+sign_test_median_last_timepoint	49	31	13	5	44	0.009559878856634896	0.004779939428317448	n_slices=49
+sign_test_mean_last_timepoint	49	37	12	0	49	0.0004697573180081349	0.00023487865900406746	n_slices=49
+sign_test_median_drop_GSE124821	45	29	11	5	40	0.006426576095691416	0.003213288047845708	GSE124821 is 19/64 time-course slices
+sign_test_median_drop_both_zero	58	40	18	0	58	0.005354859650800294	0.002677429825400147	drop slices with median Tacstd2 = 0 in both arms
+sign_test_median_unique_cell_line	17	12	4	1	16	0.076812744140625	0.0384063720703125	unique SRX pooled per cell line
+sign_test_median_independent_key	46	30	11	5	41	0.00432400493446039	0.002162002467230195	collapse ICB agent + timepoint; unique SRX
+sign_test_median_unique_GSE	22	16	5	1	21	0.02660369873046875	0.013301849365234375	median of slice-level median deltas per GSE
