@@ -1,0 +1,6 @@
+# Raw downloaded GEO series matrices / supplementary blobs are intermediate.
+# Derived tables (stats, catalogs) are committed; the raw payloads are not.
+matrices/
+supp/
+annot/
+__pycache__/
