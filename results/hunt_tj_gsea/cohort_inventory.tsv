@@ -1,0 +1,20 @@
+cohort	source	modality	n_genes	n_samples	has_TACSTD2	has_all_focal	notes
+TCGA-LUAD	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	515	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-LUSC	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	502	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-HNSC	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	520	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-BLCA	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	407	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-CESC	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	303	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-BRCA	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	1097	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-COAD	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	286	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-ESCA	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	184	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-STAD	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	415	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-PAAD	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	178	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-OV	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	304	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-UCEC	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	176	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-SKCM	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	472	True	True	TCGA Xena HiSeqV2; primary (01) + metastatic (06) kept because SKCM is mostly metastases
+TCGA-KIRC	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	533	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+TCGA-GBM	UCSC Xena TCGA Hub HiSeqV2	bulk_rnaseq	20530	154	True	True	TCGA Xena HiSeqV2 log2(norm+1); primary tumors (sample type 01) only
+GSE207422_bulk	GEO GSE207422 Hu et al. Genome Med 2023; NSCLC neoadjuvant PD-1 + chemo	bulk_rnaseq	58387	24	True	True	log2(TPM); n=24 pre-treatment biopsies. Quartile split is 6 vs 6 — underpowered.
+GSE31210	GEO GSE31210 Okayama et al. stage I-II LUAD Affymetrix GPL570	microarray	20848	226	True	True	MAS5 series matrix; multi-gene probes dropped; remaining probes collapsed by mean. Primary tumors only.
+GSE131907_malignant_pseudobulk	GEO GSE131907 Kim et al. Nat Commun 2020 LUAD scRNA; malignant cells, tumor/met sites	scrna_pseudobulk	29634	21	True	True	Malignant-cell UMI sums per sample; log2(CPM+1). Excludes nLung/nLN. Samples with <30 malignant cells dropped.
+GSE207422_sc_epithelial_pseudobulk	GEO GSE207422 scRNA; epithelial cells inferred by EPCAM/KRT+ PTPRC/PECAM1/COL- 	scrna_pseudobulk	24292	14	True	True	No official cell-type table on GEO. Epithelial gate: (EPCAM+KRT8+KRT18+KRT19)>=1 UMI and PTPRC=PECAM1=COL1A1/COL3A1=0. 9021 cells. Marker-based, not author annotation.
