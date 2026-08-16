@@ -1,0 +1,730 @@
+[
+  {
+    "path": "/workspace/methods/proteomics/demo/cache/linkedomics/HS_CPTAC_LUAD_proteome_ratio_NArm_TUMOR.cct",
+    "kind": "matrix",
+    "n_genes": 10316,
+    "n_samples": 110,
+    "log2_check": {
+      "name": "HS_CPTAC_LUAD_proteome_ratio_NArm_TUMOR.cct",
+      "already_log": true,
+      "transform": "none",
+      "reason": "negative values and compact range typical of TMT log2-ratio",
+      "n": 1048094,
+      "min": -37.2875,
+      "max": 20.7852,
+      "median": -0.1138,
+      "frac_neg": 0.5421861016282891
+    },
+    "missingness": {
+      "median_gene_na_frac": 0.0,
+      "p90_gene_na_frac": 0.3181818181818182,
+      "max_gene_na_frac": 0.7363636363636363,
+      "n_genes_all_na": 0,
+      "n_genes_absent_targets_note": "CLDN4 is often *missing as a row* after NArm, not a row of NAs. That is worse than MNAR: the protein never enters the matrix."
+    },
+    "targets": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 110,
+        "n_observed": 0,
+        "n_na": 110,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      }
+    },
+    "claudin_panel": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN1": {
+        "query": "CLDN1",
+        "canonical": "CLDN1",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 110,
+        "n_observed": 0,
+        "n_na": 110,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      },
+      "CLDN2": {
+        "query": "CLDN2",
+        "canonical": "CLDN2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 98,
+        "n_na": 12,
+        "na_frac": 0.10909090909090909,
+        "note": "row present"
+      },
+      "CLDN3": {
+        "query": "CLDN3",
+        "canonical": "CLDN3",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 94,
+        "n_na": 16,
+        "na_frac": 0.14545454545454545,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 110,
+        "n_observed": 0,
+        "n_na": 110,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      },
+      "CLDN5": {
+        "query": "CLDN5",
+        "canonical": "CLDN5",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 110,
+        "n_observed": 0,
+        "n_na": 110,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      },
+      "CLDN7": {
+        "query": "CLDN7",
+        "canonical": "CLDN7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN12": {
+        "query": "CLDN12",
+        "canonical": "CLDN12",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 43,
+        "n_na": 67,
+        "na_frac": 0.6090909090909091,
+        "note": "row present"
+      },
+      "CLDN18": {
+        "query": "CLDN18",
+        "canonical": "CLDN18",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "EPCAM": {
+        "query": "EPCAM",
+        "canonical": "EPCAM",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "KRT7": {
+        "query": "KRT7",
+        "canonical": "KRT7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      }
+    },
+    "double_log_warning": "Values already look log-scaled. Do not apply log2 again.",
+    "logged_preview_used": true,
+    "n_logged_equal_raw": 10316
+  },
+  {
+    "path": "/workspace/methods/proteomics/demo/cache/linkedomics/HS_CPTAC_LSCC_2020_proteome_ratio_NArm_TUMOR.cct",
+    "kind": "matrix",
+    "n_genes": 11111,
+    "n_samples": 108,
+    "log2_check": {
+      "name": "HS_CPTAC_LSCC_2020_proteome_ratio_NArm_TUMOR.cct",
+      "already_log": true,
+      "transform": "none",
+      "reason": "negative values and compact range typical of TMT log2-ratio",
+      "n": 1121647,
+      "min": -31.7706,
+      "max": 22.483,
+      "median": -0.1156,
+      "frac_neg": 0.5428641988076462
+    },
+    "missingness": {
+      "median_gene_na_frac": 0.0,
+      "p90_gene_na_frac": 0.2777777777777778,
+      "max_gene_na_frac": 0.6944444444444444,
+      "n_genes_all_na": 0,
+      "n_genes_absent_targets_note": "CLDN4 is often *missing as a row* after NArm, not a row of NAs. That is worse than MNAR: the protein never enters the matrix."
+    },
+    "targets": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 108,
+        "n_observed": 0,
+        "n_na": 108,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      }
+    },
+    "claudin_panel": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN1": {
+        "query": "CLDN1",
+        "canonical": "CLDN1",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 53,
+        "n_na": 55,
+        "na_frac": 0.5092592592592593,
+        "note": "row present"
+      },
+      "CLDN2": {
+        "query": "CLDN2",
+        "canonical": "CLDN2",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 108,
+        "n_observed": 0,
+        "n_na": 108,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      },
+      "CLDN3": {
+        "query": "CLDN3",
+        "canonical": "CLDN3",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 83,
+        "n_na": 25,
+        "na_frac": 0.23148148148148148,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 108,
+        "n_observed": 0,
+        "n_na": 108,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      },
+      "CLDN5": {
+        "query": "CLDN5",
+        "canonical": "CLDN5",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 108,
+        "n_observed": 0,
+        "n_na": 108,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      },
+      "CLDN7": {
+        "query": "CLDN7",
+        "canonical": "CLDN7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 103,
+        "n_na": 5,
+        "na_frac": 0.046296296296296294,
+        "note": "row present"
+      },
+      "CLDN12": {
+        "query": "CLDN12",
+        "canonical": "CLDN12",
+        "present": false,
+        "n_rows": 0,
+        "n_samples": 108,
+        "n_observed": 0,
+        "n_na": 108,
+        "na_frac": 1.0,
+        "note": "gene absent from table (not a row of NAs \u2014 never quantified / dropped by NArm)"
+      },
+      "CLDN18": {
+        "query": "CLDN18",
+        "canonical": "CLDN18",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "EPCAM": {
+        "query": "EPCAM",
+        "canonical": "EPCAM",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "KRT7": {
+        "query": "KRT7",
+        "canonical": "KRT7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      }
+    },
+    "double_log_warning": "Values already look log-scaled. Do not apply log2 again.",
+    "logged_preview_used": true,
+    "n_logged_equal_raw": 11111
+  },
+  {
+    "path": "/workspace/methods/proteomics/demo/cache/linkedomics/HS_CPTAC_LUAD_rnaseq_uq_rpkm_log2_NArm_TUMOR.cct",
+    "kind": "matrix",
+    "n_genes": 18099,
+    "n_samples": 110,
+    "log2_check": {
+      "name": "HS_CPTAC_LUAD_rnaseq_uq_rpkm_log2_NArm_TUMOR.cct",
+      "already_log": true,
+      "transform": "none",
+      "reason": "negative values and compact range typical of TMT log2-ratio",
+      "n": 1926570,
+      "min": -10.0306,
+      "max": 14.8844,
+      "median": 2.4979,
+      "frac_neg": 0.238834820432167
+    },
+    "missingness": {
+      "median_gene_na_frac": 0.0,
+      "p90_gene_na_frac": 0.05454545454545454,
+      "max_gene_na_frac": 0.9272727272727272,
+      "n_genes_all_na": 0,
+      "n_genes_absent_targets_note": "CLDN4 is often *missing as a row* after NArm, not a row of NAs. That is worse than MNAR: the protein never enters the matrix."
+    },
+    "targets": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      }
+    },
+    "claudin_panel": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN1": {
+        "query": "CLDN1",
+        "canonical": "CLDN1",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN2": {
+        "query": "CLDN2",
+        "canonical": "CLDN2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN3": {
+        "query": "CLDN3",
+        "canonical": "CLDN3",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN5": {
+        "query": "CLDN5",
+        "canonical": "CLDN5",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN7": {
+        "query": "CLDN7",
+        "canonical": "CLDN7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN12": {
+        "query": "CLDN12",
+        "canonical": "CLDN12",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN18": {
+        "query": "CLDN18",
+        "canonical": "CLDN18",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "EPCAM": {
+        "query": "EPCAM",
+        "canonical": "EPCAM",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "KRT7": {
+        "query": "KRT7",
+        "canonical": "KRT7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 110,
+        "n_observed": 110,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      }
+    },
+    "double_log_warning": "Values already look log-scaled. Do not apply log2 again.",
+    "logged_preview_used": true,
+    "n_logged_equal_raw": 18099
+  },
+  {
+    "path": "/workspace/methods/proteomics/demo/cache/linkedomics/HS_CPTAC_LSCC_2020_rnaseq_uq_fpkm_log2_NArm_TUMOR.cct",
+    "kind": "matrix",
+    "n_genes": 21792,
+    "n_samples": 108,
+    "log2_check": {
+      "name": "HS_CPTAC_LSCC_2020_rnaseq_uq_fpkm_log2_NArm_TUMOR.cct",
+      "already_log": true,
+      "transform": "none",
+      "reason": "ambiguous; default to already-logged to avoid double-log",
+      "n": 2216154,
+      "min": 3.5969,
+      "max": 32.4281,
+      "median": 16.0367,
+      "frac_neg": 0.0
+    },
+    "missingness": {
+      "median_gene_na_frac": 0.0,
+      "p90_gene_na_frac": 0.24074074074074073,
+      "max_gene_na_frac": 0.9351851851851852,
+      "n_genes_all_na": 0,
+      "n_genes_absent_targets_note": "CLDN4 is often *missing as a row* after NArm, not a row of NAs. That is worse than MNAR: the protein never enters the matrix."
+    },
+    "targets": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      }
+    },
+    "claudin_panel": {
+      "TACSTD2": {
+        "query": "TACSTD2",
+        "canonical": "TACSTD2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN1": {
+        "query": "CLDN1",
+        "canonical": "CLDN1",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN2": {
+        "query": "CLDN2",
+        "canonical": "CLDN2",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 104,
+        "n_na": 4,
+        "na_frac": 0.037037037037037035,
+        "note": "row present"
+      },
+      "CLDN3": {
+        "query": "CLDN3",
+        "canonical": "CLDN3",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN4": {
+        "query": "CLDN4",
+        "canonical": "CLDN4",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN5": {
+        "query": "CLDN5",
+        "canonical": "CLDN5",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN7": {
+        "query": "CLDN7",
+        "canonical": "CLDN7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN12": {
+        "query": "CLDN12",
+        "canonical": "CLDN12",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "CLDN18": {
+        "query": "CLDN18",
+        "canonical": "CLDN18",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 103,
+        "n_na": 5,
+        "na_frac": 0.046296296296296294,
+        "note": "row present"
+      },
+      "EPCAM": {
+        "query": "EPCAM",
+        "canonical": "EPCAM",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      },
+      "KRT7": {
+        "query": "KRT7",
+        "canonical": "KRT7",
+        "present": true,
+        "n_rows": 1,
+        "n_samples": 108,
+        "n_observed": 108,
+        "n_na": 0,
+        "na_frac": 0.0,
+        "note": "row present"
+      }
+    },
+    "double_log_warning": "Values already look log-scaled. Do not apply log2 again.",
+    "logged_preview_used": true,
+    "n_logged_equal_raw": 21792
+  },
+  {
+    "path": "/workspace/methods/proteomics/demo/cache/star/C3N-02451_e9f19a31.star.tsv",
+    "kind": "gdc_star",
+    "n_genes": 60660,
+    "targets": {
+      "TACSTD2": {
+        "ensembl": "ENSG00000184292",
+        "present": true,
+        "counts": 3921.0,
+        "tpm": 250.8513,
+        "fpkm": 91.0752
+      },
+      "CLDN4": {
+        "ensembl": "ENSG00000189143",
+        "present": true,
+        "counts": 10623.0,
+        "tpm": 263.0604,
+        "fpkm": 95.5079
+      }
+    },
+    "log2_check": {
+      "name": "C3N-02451_e9f19a31.star.tsv:tpm",
+      "already_log": false,
+      "transform": "log2(x+1)",
+      "reason": "raw intensity/counts (wide non-negative range)",
+      "n": 60660,
+      "min": 0.0,
+      "max": 233020.7467,
+      "median": 0.7369,
+      "frac_neg": 0.0
+    }
+  }
+]

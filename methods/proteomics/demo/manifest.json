@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-08-16T19:43:37.608619+00:00",
+  "ensembl": {
+    "ENSG00000184292": "TACSTD2",
+    "ENSG00000189143": "CLDN4"
+  },
+  "star_targets_n": 8,
+  "figures": [
+    "01_cldn4_missingness.png",
+    "02_log2_scale_check.png",
+    "03_protein_rna_concordance.png",
+    "04_limma_tumor_vs_nat.png",
+    "05_join_immune_deconv.png",
+    "06_naive_not_ici.png"
+  ],
+  "note": "Full CCT matrices stay in demo/cache (gitignored). CLDN4 protein is absent from NArm TMT tables; RNA and GDC STAR are not."
+}
