@@ -1,0 +1,50 @@
+{
+  "claim": "C3: PD-L1/CD274 rises after CLDN4 loss, or after TROP2 ADC",
+  "verdict": "not_supported",
+  "verdict_arm_A": "not_supported",
+  "verdict_arm_B": "not_generally_supported",
+  "date_searched": "2026-08-16",
+  "literature": {
+    "europepmc_unique_records": 2235,
+    "title_abs_CLDN4_and_PDL1_hits": 8,
+    "papers_showing_CLDN4_loss_raises_PDL1": 0,
+    "papers_showing_TROP2_ADC_raises_PDL1_as_endpoint": 0,
+    "sn38_PDL1_literature": "contradictory (up via STING/STAT1 in some models; down via FoxO3a in HNSCC)"
+  },
+  "arm_A_public": {
+    "GSE207704_MCF7_CD274_log2FC": -0.798,
+    "GSE207704_T47D_CD274_log2FC": 0.497,
+    "GSE207704_note": "deposited FPKM is one value per condition; CLDN4 residual RNA remains high",
+    "GSE50927_Cd274_logFC": 0.141,
+    "GSE50927_Cd274_p": 0.456,
+    "GSE50927_Cldn4_logFC": -6.061,
+    "GSE22493_CD274": "not_on_GPL10555"
+  },
+  "arm_B_public": {
+    "GSE312098_CD274_log2FC_IMMU132_2d": 0.324,
+    "GSE312098_CD274_welch_p": 0.0195,
+    "GSE312098_CD274_FPKM_ctrl_mean": 0.232,
+    "GSE312098_CD274_FPKM_SG_mean": 0.544,
+    "GSE311016_CD274_paired_mean_log2FC_29d": -0.081,
+    "GSE311016_CD274_welch_p": 0.615,
+    "E-MTAB-16849_and_16433": "open_scRNA_SG_series_not_quantified_here_files_are_GB_scale"
+  },
+  "association_not_causation": {
+    "TCGA_LUAD_spearman_CLDN4_CD274": 0.050,
+    "TCGA_LUSC_spearman_CLDN4_CD274": 0.023,
+    "TCGA_BRCA_spearman_CLDN4_CD274": -0.121,
+    "TCGA_COADREAD_spearman_CLDN4_CD274": -0.299,
+    "CCLE_all_spearman_CLDN4_CD274": 0.203,
+    "CCLE_lung_spearman_CLDN4_CD274": 0.217
+  },
+  "honesty": [
+    "No title/abstract in Europe PMC states that CLDN4 knockdown or knockout raises PD-L1.",
+    "Tight-junction / claudin-low / CLDN18.2 papers are lookalikes and were not counted.",
+    "SG + pembrolizumab trials are not PD-L1 induction experiments.",
+    "GSE207704 directions disagree across two lines and the deposit collapsed replicates.",
+    "GSE312098 CD274 is statistically up but FPKM stays <1; GSE311016 (same paper, PDX 29d) is flat.",
+    "E-MTAB-16849 / 16433 are real open SG single-cell series; they were not quantified here because the processed matrices are 0.9–23 GB.",
+    "Bulk TCGA CLDN4 vs CD274 is not a loss-of-function test and is purity-confounded.",
+    "CCLE (no infiltrate) is weakly positive, the opposite of low-CLDN4 => high-PD-L1."
+  ]
+}
