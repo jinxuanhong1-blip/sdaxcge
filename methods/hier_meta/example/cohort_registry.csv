@@ -1,0 +1,13 @@
+cohort_id,status,access,n,events,response_rate,cancer_type,ici_target,notes
+SYNTH_OPEN_01,included,open,18,8,0.33,NSCLC,PD-1,SYNTHETIC open GEO-like cohort
+SYNTH_OPEN_02,included,open,27,12,0.30,NSCLC,PD-1,SYNTHETIC
+SYNTH_OPEN_03,included,open,22,10,0.32,NSCLC,PD-L1,SYNTHETIC
+SYNTH_OPEN_04,included,open,31,14,0.32,NSCLC,PD-1,SYNTHETIC
+SYNTH_OPEN_05,included,open,16,7,0.31,NSCLC,PD-1,SYNTHETIC
+SYNTH_OPEN_06,included,open,38,16,0.32,NSCLC,PD-1,SYNTHETIC
+SYNTH_OPEN_07,included,open,24,11,0.29,NSCLC,PD-L1,SYNTHETIC
+SYNTH_OPEN_08,included,open,20,9,0.30,NSCLC,PD-1,SYNTHETIC
+SYNTH_OPEN_ABSENT,gene_absent,open,21,,0.43,NSCLC,PD-1,SYNTHETIC; targeted panel without TACSTD2/CLDN4
+SYNTH_EGA_OAK,missing,ega,425,210,0.14,NSCLC,PD-L1,SYNTHETIC stand-in for a controlled atezolizumab trial transcriptome
+SYNTH_EGA_CM017,missing,ega,135,80,0.20,NSCLC,PD-1,SYNTHETIC stand-in for a controlled nivolumab trial transcriptome
+SYNTH_DBGAP_MARK,missing,dbgap,347,160,0.22,NSCLC,PD-1,SYNTHETIC stand-in for a controlled multi-omic ICI study

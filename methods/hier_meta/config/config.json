@@ -1,0 +1,39 @@
+{
+  "gene": "TACSTD2",
+  "genes": ["TACSTD2", "CLDN4"],
+  "primary_endpoint": "DCB",
+  "effect_family": "smd",
+  "effect_unit": "hedges_g",
+  "orientation": "harm",
+  "access_policy": "open_only",
+  "allow_unit_conversion": true,
+  "model_adjust": "univariable",
+  "overlap_policy": "drop",
+  "overlap_rho": 0.5,
+  "overlap_precedence": ["pre_treatment", "baseline", "on_treatment", "post_treatment"],
+  "prior": {
+    "mu_mean": 0.0,
+    "mu_sd": 1.0,
+    "tau_family": "half_normal",
+    "tau_scale": 0.5
+  },
+  "rope": 0.2,
+  "tau_grid": {"max": null, "n": 801},
+  "publication_bias": {
+    "egger_predictor": "sei",
+    "selection_alpha": 0.025,
+    "omega_grid": [1.0, 0.5, 0.25, 0.1],
+    "trimfill_estimator": "L0",
+    "null_gene_results": ""
+  },
+  "missingness": {
+    "registry": "methods/hier_meta/example/cohort_registry.csv",
+    "delta_grid": [-1.0, -0.8, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1, 0.0,
+                   0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0],
+    "decision_threshold": 0.95,
+    "se_rule": "auto",
+    "max_failsafe_k": 200
+  },
+  "meta_regression": {"moderators": []},
+  "quantiles": [0.025, 0.05, 0.25, 0.5, 0.75, 0.95, 0.975]
+}

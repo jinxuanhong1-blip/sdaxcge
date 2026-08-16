@@ -1,0 +1,21 @@
+cohort_id,gene,endpoint,unit,yi,sei,ni,responders,access,cancer_type,ici_target,tissue_timing,sample_group,model_adjust,platform,study,notes
+SYNTH_OPEN_01,TACSTD2,DCB,hedges_g,-0.42,0.48,18,6,open,NSCLC,PD-1,pre_treatment,synth_A,univariable,RNAseq,Synthetic A,SYNTHETIC; responder-minus-nonresponder SMD
+SYNTH_OPEN_02,TACSTD2,DCB,hedges_g,0.11,0.39,27,8,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic B,SYNTHETIC
+SYNTH_OPEN_03,TACSTD2,DCB,hedges_g,0.28,0.44,22,7,open,NSCLC,PD-L1,pre_treatment,,univariable,RNAseq,Synthetic C,SYNTHETIC
+SYNTH_OPEN_04,TACSTD2,DCB,hedges_g,-0.08,0.36,31,10,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic D,SYNTHETIC
+SYNTH_OPEN_05,TACSTD2,DCB,hedges_g,0.35,0.52,16,5,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic E,SYNTHETIC
+SYNTH_OPEN_06,TACSTD2,DCB,hedges_g,0.05,0.33,38,12,open,NSCLC,PD-1,pre_treatment,,univariable,microarray,Synthetic F,SYNTHETIC
+SYNTH_OPEN_07,TACSTD2,DCB,hedges_g,-0.19,0.41,24,7,open,NSCLC,PD-L1,pre_treatment,,univariable,RNAseq,Synthetic G,SYNTHETIC
+SYNTH_OPEN_08,TACSTD2,DCB,hedges_g,0.22,0.47,20,6,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic H,SYNTHETIC
+SYNTH_OPEN_01,CLDN4,DCB,hedges_g,-0.51,0.49,18,6,open,NSCLC,PD-1,pre_treatment,synth_A,univariable,RNAseq,Synthetic A,SYNTHETIC
+SYNTH_OPEN_02,CLDN4,DCB,hedges_g,0.04,0.39,27,8,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic B,SYNTHETIC
+SYNTH_OPEN_03,CLDN4,DCB,hedges_g,0.17,0.44,22,7,open,NSCLC,PD-L1,pre_treatment,,univariable,RNAseq,Synthetic C,SYNTHETIC
+SYNTH_OPEN_04,CLDN4,DCB,hedges_g,-0.14,0.36,31,10,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic D,SYNTHETIC
+SYNTH_OPEN_05,CLDN4,DCB,hedges_g,0.21,0.52,16,5,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic E,SYNTHETIC
+SYNTH_OPEN_06,CLDN4,DCB,hedges_g,0.02,0.33,38,12,open,NSCLC,PD-1,pre_treatment,,univariable,microarray,Synthetic F,SYNTHETIC
+SYNTH_OPEN_07,CLDN4,DCB,hedges_g,-0.27,0.41,24,7,open,NSCLC,PD-L1,pre_treatment,,univariable,RNAseq,Synthetic G,SYNTHETIC
+SYNTH_OPEN_08,CLDN4,DCB,hedges_g,0.09,0.47,20,6,open,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic H,SYNTHETIC
+SYNTH_EGA_01,TACSTD2,DCB,hedges_g,0.80,0.22,180,70,ega,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic restricted,SYNTHETIC; MUST be dropped by open_only
+SYNTH_EGA_01,CLDN4,DCB,hedges_g,0.75,0.22,180,70,ega,NSCLC,PD-1,pre_treatment,,univariable,RNAseq,Synthetic restricted,SYNTHETIC; MUST be dropped by open_only
+SYNTH_OPEN_01,TACSTD2,OS,per_sd,0.12,0.31,18,6,open,NSCLC,PD-1,pre_treatment,synth_A,univariable,RNAseq,Synthetic A,SYNTHETIC; different endpoint; not pooled with DCB
+SYNTH_OPEN_09,TACSTD2,DCB,hedges_g,0.40,0.55,14,4,open,NSCLC,PD-1,on_treatment,synth_A,univariable,RNAseq,Synthetic A on-tx,SYNTHETIC; same sample_group as 01; dropped by overlap policy
