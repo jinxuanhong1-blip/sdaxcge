@@ -1,0 +1,517 @@
+{
+  "interpretation": "Literal GEO KEYNOTE hits include GSE216069/GSE216055, whose KEYNOTE-001 patient is melanoma, not lung. Other literal hits are unrelated uses of the ordinary word 'keynote'.",
+  "query": "KEYNOTE[All Fields]",
+  "query_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=KEYNOTE%5BAll%20Fields%5D&retmode=json&retmax=100",
+  "search": {
+    "esearchresult": {
+      "count": "4",
+      "idlist": [
+        "200278005",
+        "200248271",
+        "200216069",
+        "200216055"
+      ],
+      "querytranslation": "KEYNOTE[All Fields]",
+      "retmax": "4",
+      "retstart": "0",
+      "translationset": [],
+      "translationstack": [
+        {
+          "count": "4",
+          "explode": "N",
+          "field": "All Fields",
+          "term": "KEYNOTE[All Fields]"
+        },
+        "GROUP"
+      ]
+    },
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    }
+  },
+  "summaries": {
+    "header": {
+      "type": "esummary",
+      "version": "0.3"
+    },
+    "result": {
+      "200216055": {
+        "accession": "GSE216055",
+        "bioproject": "PRJNA891776",
+        "entrytype": "GSE",
+        "extrelations": [],
+        "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE216nnn/GSE216055/",
+        "gds": "",
+        "gdstype": "Expression profiling by high throughput sequencing",
+        "geo2r": "no",
+        "gpl": "20301",
+        "gse": "216055",
+        "n_samples": 3,
+        "pdat": "2022/10/19",
+        "platformtaxa": "",
+        "platformtitle": "",
+        "projects": [],
+        "ptechtype": "",
+        "pubmedids": [
+          "36624340"
+        ],
+        "relations": [],
+        "samples": [
+          {
+            "accession": "GSM6657935",
+            "title": "ribas_pre_slide"
+          },
+          {
+            "accession": "GSM6657936",
+            "title": "ribas_on_slide"
+          },
+          {
+            "accession": "GSM6657937",
+            "title": "ribas_on_later_slide"
+          }
+        ],
+        "samplestaxa": "",
+        "seriestitle": "",
+        "ssinfo": "",
+        "subsetinfo": "",
+        "summary": "We provide 5' and/or 3' single cell and single nuclei RNA sequencing data for matched comparisons of profiling from fresh (single cells) and frozen (single nuclei) samples of a non small cell lung cancer sample, a cutaneous melanoma sample , and a primary uveal melanoma sample. We also provide matched samples processed with published dissociation protocols (*TST and *CST) for two samples as comparison. Next, we profiled three sequential biopsies (one pre-treatment and two on-treatment) from the KEYNOTE-001 trial by 5' single-nuclei RNA sequencing from frozen specimens. For these three datapoints we provide matched SlideSeq V2 spatial transcriptomic data. Finally, we provide 5' single nuclei RNA-sequencing data for 7 liver-metastatic uveal melanoma samples profiled at pre, on, and post treatment timepoints with MEK-inhibitor selumetinib. For all samples profiled with 5' capture we also provide TCR receptor information. This study provides a framework for the application of single nuclei RNA-sequencing on clinical grade specimens, and demonstrates the feasibility of this approach to dissect the biology of archival specimens or rare diseases.",
+        "suppfile": "CSV",
+        "taxon": "Homo sapiens",
+        "title": "Multi-modal single-cell and whole-genome sequencing of minute, frozen specimens to propel clinical applications [slideseq]",
+        "uid": "200216055",
+        "valtype": ""
+      },
+      "200216069": {
+        "accession": "GSE216069",
+        "bioproject": "PRJNA791349",
+        "entrytype": "GSE",
+        "extrelations": [],
+        "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE216nnn/GSE216069/",
+        "gds": "",
+        "gdstype": "Expression profiling by high throughput sequencing; Other",
+        "geo2r": "no",
+        "gpl": "20301",
+        "gse": "216069",
+        "n_samples": 71,
+        "pdat": "2022/10/19",
+        "platformtaxa": "",
+        "platformtitle": "",
+        "projects": [],
+        "ptechtype": "",
+        "pubmedids": [
+          "36624340"
+        ],
+        "relations": [],
+        "samples": [
+          {
+            "accession": "GSM5746410",
+            "title": "UMEL_3_1_TCR"
+          },
+          {
+            "accession": "GSM5746407",
+            "title": "UMEL_2_1_TCR"
+          },
+          {
+            "accession": "GSM5746390",
+            "title": "UMEL_5_3"
+          },
+          {
+            "accession": "GSM5746370",
+            "title": "Mel_sn_5p_v2"
+          },
+          {
+            "accession": "GSM5746387",
+            "title": "UMEL_4_2"
+          },
+          {
+            "accession": "GSM5776898",
+            "title": "ribas_310_on_TCR"
+          },
+          {
+            "accession": "GSM5746413",
+            "title": "UMEL_4_1_TCR"
+          },
+          {
+            "accession": "GSM5746401",
+            "title": "Mel_sn_5_TCR"
+          },
+          {
+            "accession": "GSM5746361",
+            "title": "NSCLC_sn_5p_v2"
+          },
+          {
+            "accession": "GSM5746367",
+            "title": "Mel_sc_5p_CD45+"
+          },
+          {
+            "accession": "GSM5746381",
+            "title": "UMEL_2_2"
+          },
+          {
+            "accession": "GSM5746364",
+            "title": "NSCLC_sn_5p"
+          },
+          {
+            "accession": "GSM6658092",
+            "title": "BI5CST"
+          },
+          {
+            "accession": "GSM5746378",
+            "title": "UMEL_1_2"
+          },
+          {
+            "accession": "GSM5746384",
+            "title": "UMEL_3_2"
+          },
+          {
+            "accession": "GSM5746421",
+            "title": "UMEL_7_1_TCR"
+          },
+          {
+            "accession": "GSM5746404",
+            "title": "UM_sn_5_inhib_TCR"
+          },
+          {
+            "accession": "GSM5746382",
+            "title": "UMEL_2_3"
+          },
+          {
+            "accession": "GSM5746365",
+            "title": "NSCLC_sn_5p_inhib"
+          },
+          {
+            "accession": "GSM5746408",
+            "title": "UMEL_2_2_TCR"
+          },
+          {
+            "accession": "GSM5746362",
+            "title": "NSCLC_sn_3p"
+          },
+          {
+            "accession": "GSM6658093",
+            "title": "BI5TST"
+          },
+          {
+            "accession": "GSM5746405",
+            "title": "UMEL_1_1_TCR"
+          },
+          {
+            "accession": "GSM5746422",
+            "title": "UMEL_7_2_TCR"
+          },
+          {
+            "accession": "GSM5746419",
+            "title": "UMEL_6_2_TCR"
+          },
+          {
+            "accession": "GSM5746385",
+            "title": "UMEL_3_3"
+          },
+          {
+            "accession": "GSM5746402",
+            "title": "UM_sc_5_TCR"
+          },
+          {
+            "accession": "GSM6658090",
+            "title": "NR1CST"
+          },
+          {
+            "accession": "GSM5746416",
+            "title": "UMEL_5_2_TCR"
+          },
+          {
+            "accession": "GSM5746379",
+            "title": "UMEL_1_3"
+          },
+          {
+            "accession": "GSM5746376",
+            "title": "ribas_310_on_later"
+          },
+          {
+            "accession": "GSM5746400",
+            "title": "Mel_sc_5_CD45+_TCR"
+          },
+          {
+            "accession": "GSM5746420",
+            "title": "UMEL_6_3_TCR"
+          },
+          {
+            "accession": "GSM5746417",
+            "title": "UMEL_5_3_TCR"
+          },
+          {
+            "accession": "GSM5746373",
+            "title": "UM_sn_5p_inhib"
+          },
+          {
+            "accession": "GSM5746393",
+            "title": "UMEL_6_3"
+          },
+          {
+            "accession": "GSM5746377",
+            "title": "UMEL_1_1"
+          },
+          {
+            "accession": "GSM5746397",
+            "title": "NSCLC_sc_5_TCR"
+          },
+          {
+            "accession": "GSM5746403",
+            "title": "UM_sc_5_CD45+_TCR"
+          },
+          {
+            "accession": "GSM5746360",
+            "title": "NSCLC_sc_5p"
+          },
+          {
+            "accession": "GSM5746423",
+            "title": "UMEL_7_3_TCR"
+          },
+          {
+            "accession": "GSM5746399",
+            "title": "NSCLC_sn_5_inhib_TCR"
+          },
+          {
+            "accession": "GSM5746374",
+            "title": "ribas_310_pre"
+          },
+          {
+            "accession": "GSM5746396",
+            "title": "UMEL_7_3"
+          },
+          {
+            "accession": "GSM5746391",
+            "title": "UMEL_6_1"
+          },
+          {
+            "accession": "GSM5746371",
+            "title": "UM_sc_5p"
+          },
+          {
+            "accession": "GSM5746411",
+            "title": "UMEL_3_2_TCR"
+          },
+          {
+            "accession": "GSM5746368",
+            "title": "Mel_sn_3p"
+          },
+          {
+            "accession": "GSM5746414",
+            "title": "UMEL_4_2_TCR"
+          },
+          {
+            "accession": "GSM5746388",
+            "title": "UMEL_5_1"
+          },
+          {
+            "accession": "GSM5746394",
+            "title": "UMEL_7_1"
+          },
+          {
+            "accession": "GSM5746380",
+            "title": "UMEL_2_1"
+          },
+          {
+            "accession": "GSM6658091",
+            "title": "NR1TST"
+          },
+          {
+            "accession": "GSM5746392",
+            "title": "UMEL_6_2"
+          },
+          {
+            "accession": "GSM5746398",
+            "title": "NSCLC_sn_5_TCR"
+          },
+          {
+            "accession": "GSM5746372",
+            "title": "UM_sc_5p_CD45+"
+          },
+          {
+            "accession": "GSM5746375",
+            "title": "ribas_310_on"
+          },
+          {
+            "accession": "GSM5746395",
+            "title": "UMEL_7_2"
+          },
+          {
+            "accession": "GSM5746389",
+            "title": "UMEL_5_2"
+          },
+          {
+            "accession": "GSM5746363",
+            "title": "NSCLC_sn_3p_inhib"
+          },
+          {
+            "accession": "GSM5746406",
+            "title": "UMEL_1_2_TCR"
+          },
+          {
+            "accession": "GSM5776897",
+            "title": "ribas_310_pre_TCR"
+          },
+          {
+            "accession": "GSM5746369",
+            "title": "Mel_sn_5p"
+          },
+          {
+            "accession": "GSM5746366",
+            "title": "Mel_sc_5p_CD45-"
+          },
+          {
+            "accession": "GSM5776899",
+            "title": "ribas_310_on_later_TCR"
+          },
+          {
+            "accession": "GSM5746418",
+            "title": "UMEL_6_1_TCR"
+          },
+          {
+            "accession": "GSM5746415",
+            "title": "UMEL_5_1_TCR"
+          },
+          {
+            "accession": "GSM5746412",
+            "title": "UMEL_3_3_TCR"
+          },
+          {
+            "accession": "GSM5746383",
+            "title": "UMEL_3_1"
+          },
+          {
+            "accession": "GSM5746409",
+            "title": "UMEL_2_3_TCR"
+          },
+          {
+            "accession": "GSM5746386",
+            "title": "UMEL_4_1"
+          }
+        ],
+        "samplestaxa": "",
+        "seriestitle": "",
+        "ssinfo": "",
+        "subsetinfo": "",
+        "summary": "We provide 5' and/or 3' single cell and single nuclei RNA sequencing data for matched comparisons of profiling from fresh (single cells) and frozen (single nuclei) samples of a non small cell lung cancer sample, a cutaneous melanoma sample , and a primary uveal melanoma sample. We also provide matched samples processed with published dissociation protocols (*TST and *CST) for two samples as comparison. Next, we profiled three sequential biopsies (one pre-treatment and two on-treatment) from the KEYNOTE-001 trial by 5' single-nuclei RNA sequencing from frozen specimens. For these three datapoints we provide matched SlideSeq V2 spatial transcriptomic data. Finally, we provide 5' single nuclei RNA-sequencing data for 7 liver-metastatic uveal melanoma samples profiled at pre, on, and post treatment timepoints with MEK-inhibitor selumetinib. For all samples profiled with 5' capture we also provide TCR receptor information. This study provides a framework for the application of single nuclei RNA-sequencing on clinical grade specimens, and demonstrates the feasibility of this approach to dissect the biology of archival specimens or rare diseases.",
+        "suppfile": "CSV",
+        "taxon": "Homo sapiens",
+        "title": "Multi-modal single-cell and whole-genome sequencing of minute, frozen specimens to propel clinical applications [scRNA and snRNA]",
+        "uid": "200216069",
+        "valtype": ""
+      },
+      "200248271": {
+        "accession": "GSE248271",
+        "bioproject": "PRJNA1043139",
+        "entrytype": "GSE",
+        "extrelations": [],
+        "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248271/",
+        "gds": "",
+        "gdstype": "Expression profiling by high throughput sequencing",
+        "geo2r": "no",
+        "gpl": "24247",
+        "gse": "248271",
+        "n_samples": 4,
+        "pdat": "2023/12/01",
+        "platformtaxa": "",
+        "platformtitle": "",
+        "projects": [],
+        "ptechtype": "",
+        "pubmedids": [
+          "38511232"
+        ],
+        "relations": [],
+        "samples": [
+          {
+            "accession": "GSM7910698",
+            "title": "AOC11-LN"
+          },
+          {
+            "accession": "GSM7910695",
+            "title": "AOC3"
+          },
+          {
+            "accession": "GSM7910696",
+            "title": "AOC3-LN"
+          },
+          {
+            "accession": "GSM7910697",
+            "title": "AOC11"
+          }
+        ],
+        "samplestaxa": "",
+        "seriestitle": "",
+        "ssinfo": "",
+        "subsetinfo": "",
+        "summary": "Immune checkpoint blockers (ICBs) targeting programmed death 1(PD-1) are considered effective first-line therapy against PD-1 ligand (PD-L1)-expressing head and neck squamous cell carcinoma (HNSCC). However, associated changes in tumor microenvironment (TME) and mechanisms remain elusive. Oral tumors in C57/BL6 mice were induced by administering 7,12-dimethylbenzanthracene into the buccal mucosa. Single-cell suspension was isolated from tumor tissue; proliferating cells were injected subcutaneously into the left flank of mice to establish Ajou Oral Cancer (AOC) cell lines. Subsequently, a syngeneic PD-L1-expressing HNSCC xenograft model was developed by injecting AOC cells into the buccal or tongue area. The model recapitulated human HNSCC molecular features and showed reliable in vivo tumorigenicity with significant PD-L1 expression. ICB monotherapy induced global changes in TME, including vascular normalization. Furthermore, the anti-tumor effect of ICB monotherapy was superior to those of other therapeutic agents, including cisplatin and anti-vascular endothelial growth factor receptor 2 inhibitors. The ICB-induced anti-tumorigenicity and TME normalization were alleviated by blocking the Type I interferon pathway.In summary, ICB monotherapy is sufficient to induce TME normalization in the syngeneic model; the Type-I interferon pathway is indispensable in realizing ICB effects. Furthermore, these results explain the underlying mechanism of the efficacy of ICB monotherapy against HNSCC expressing PD-L1 in the KEYNOTE-048 trial. This model can assist future research on HNSCC immunotherapy.",
+        "suppfile": "TXT",
+        "taxon": "Mus musculus",
+        "title": "Immune checkpoint inhibitor monotherapy is sufficient to promote microenvironmental normalization via Type I interferon pathway in PD-L1+ expressing head and neck cancer",
+        "uid": "200248271",
+        "valtype": ""
+      },
+      "200278005": {
+        "accession": "GSE278005",
+        "bioproject": "PRJNA1161153",
+        "entrytype": "GSE",
+        "extrelations": [],
+        "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE278nnn/GSE278005/",
+        "gds": "",
+        "gdstype": "Expression profiling by high throughput sequencing; Genome binding/occupancy profiling by high throughput sequencing",
+        "geo2r": "no",
+        "gpl": "34940",
+        "gse": "278005",
+        "n_samples": 6,
+        "pdat": "2025/09/30",
+        "platformtaxa": "",
+        "platformtitle": "",
+        "projects": [],
+        "ptechtype": "",
+        "pubmedids": [],
+        "relations": [],
+        "samples": [
+          {
+            "accession": "GSM8537155",
+            "title": "MSQ43: ChIP-seq: H3K27ac"
+          },
+          {
+            "accession": "GSM8537152",
+            "title": "MSQ43: ChIP-seq: H3K9me3"
+          },
+          {
+            "accession": "GSM8537156",
+            "title": "MSQ43: ChIP-seq: H3K27me3"
+          },
+          {
+            "accession": "GSM8537153",
+            "title": "MSQ43: ChIP-seq: H2AK119Ubiq"
+          },
+          {
+            "accession": "GSM8537154",
+            "title": "MSQ43: ChIP-seq: H3K4me3"
+          },
+          {
+            "accession": "GSM8537157",
+            "title": "MSQ43: RNA-seq"
+          }
+        ],
+        "samplestaxa": "",
+        "seriestitle": "",
+        "ssinfo": "",
+        "subsetinfo": "",
+        "summary": "Anopheles mosquitoes are known as dominant vectors of malaria parasites and other viral and bacterial pathogens. Fine-tune interactions between host and pathogens modulate the global distribution of mosquito-borne diseases. The way of those interactions may vary between different Anopheles species providing biological advantages for ones and limitations for others. Transmitting ability of mosquitoes can also differ between species, raising the challenging but principal questions. Deciphering the genomes has opened a new era of research and allowed to uncover in depth several molecular mechanisms involved in pathogen transmission. Nowadays there is a lack of appropriate model systems to study specific vector-pathogen interactions at molecular level. Even inbred mosquito colonies represent a heterogeneous population of cells and require special care facilities. Insect cell cultures could serve as a useful alternative due to the ease of handling and maintaining, especially for genomic studies requiring millions of cells per experiment. Here, we provide chromatin contacts heatmap and a comprehensive dataset of epigenetic characteristics, including histone marks profiles as well as RNA-seq data, for MSQ43 - established earlier cell line, initially obtained from Anopheles stephensi larva, known as a keynote malaria vector in Southeast Asia. We assume that our genomic data will be of interest for scientists who can potentially/alternatively use MSQ43 as a model system for mosquito genomic studies.",
+        "suppfile": "BIGWIG, BW",
+        "taxon": "Anopheles stephensi",
+        "title": "Chromatin landscape and ChIP-seq profiling of Anopheles stephensi MSQ43 cell line",
+        "uid": "200278005",
+        "valtype": ""
+      },
+      "uids": [
+        "200278005",
+        "200248271",
+        "200216069",
+        "200216055"
+      ]
+    }
+  }
+}
