@@ -1,0 +1,39 @@
+{
+  "dataset": "GSE207422",
+  "n_cells": 92330,
+  "n_genes_matrix": 24292,
+  "author_copykat_public": false,
+  "thirdparty_drmref_malignant": 2051,
+  "n_epithelial": 10669,
+  "n_cnv_p95": 6080,
+  "cnv": {
+    "n_genes_input": 15320,
+    "n_genes_kept": 11572,
+    "n_ref_cells": 1303,
+    "win": 25,
+    "ok": true,
+    "ref_score_median": 1944.1817626953125,
+    "ref_score_p95": 2626.62451171875,
+    "threshold_p95": 2626.62451171875,
+    "threshold_p90": 2457.9990234375,
+    "threshold_mean2sd": 2826.59619140625,
+    "threshold_gmm": 2214.015859117465
+  },
+  "n_tests": 234,
+  "defs_both_directions": [
+    "cnv_gmm",
+    "cnv_mu2",
+    "cnv_p90",
+    "cnv_p95",
+    "intersect_drmref_allEpi",
+    "intersect_drmref_cnvP95",
+    "intersect_drmref_markerNNL",
+    "intersect_drmref_markerNNL_cnvP95",
+    "intersect_markerNNL_cnvP95",
+    "marker_all_epi",
+    "marker_epi_nnl_p75",
+    "marker_epi_nnl_zero",
+    "thirdparty_drmref"
+  ],
+  "primary_rows": 39
+}
