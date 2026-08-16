@@ -1,0 +1,49 @@
+# Locked barrier mini-set for BayesPrism / EcoTyper vs TACSTD2 / CLDN4.
+# See bayesprism_ecotyper_vs_tacstd2_cldn4.md §B1.2.
+# Do not edit after prereg.md is frozen without labeling the change post hoc.
+set_id: BARRIER5
+locked: true
+seeds:
+  - {symbol: TACSTD2, ensembl: ENSG00000184292, role: seed_A}
+  - {symbol: CLDN4,   ensembl: ENSG00000189143, role: seed_B}
+secondaries:
+  - {symbol: CLDN7, ensembl: ENSG00000113231, role: published_TROP2_partner}
+  - {symbol: CLDN1, ensembl: ENSG00000163347, role: tj}
+  - {symbol: OCLN,  ensembl: ENSG00000197822, role: tj}
+scoring:
+  primary: singscore
+  sensitivity: [zmean, ssgsea]
+  coverage_floor: 0.80
+identifiability:
+  malignant_fraction_floor: 0.20
+  reference_offtarget_ratio: 0.20
+  min_shared_genes: 5000
+ecotyper:
+  model: Carcinoma
+  min_n_for_e7_primary: 25
+  zscore_cutoff: 1.65
+  primary_ce: [CE1, CE9]
+  secondary_ce: [CE2, CE10]
+  supported_histologies:
+    - BLCA
+    - BRCA
+    - CESC
+    - CHOL
+    - COAD
+    - ESCA
+    - HNSC
+    - LUAD
+    - LUSC
+    - OV
+    - PAAD
+    - PRAD
+    - READ
+    - STAD
+    - THCA
+    - UCEC
+do_not:
+  - treat_CLDN4_as_CLDN7
+  - collapse_seeds_before_concordance
+  - add_genes_after_seeing_associations
+  - score_BARRIER5_on_bulk_and_call_it_E6
+  - recover_carcinoma_model_outside_supported_histologies
