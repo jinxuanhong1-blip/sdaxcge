@@ -1,0 +1,146 @@
+{
+  "generated_at_utc": "2026-08-16T19:45:18.515439+00:00",
+  "method": "genome-wide Spearman correlation vs TACSTD2, per dataset",
+  "thresholds": {
+    "rho_cut": 0.3,
+    "fdr_cut": 0.05,
+    "min_detect_frac": 0.2
+  },
+  "datasets": {
+    "gtex_lung": {
+      "label": "GTEx v8 normal lung",
+      "unit": "raw TPM",
+      "n_samples": 578,
+      "n_genes_tested": 20727
+    },
+    "tcga_luad": {
+      "label": "TCGA-LUAD (adenocarcinoma)",
+      "unit": "log2(TPM+1)",
+      "n_samples": 589,
+      "n_genes_tested": 21226
+    },
+    "tcga_lusc": {
+      "label": "TCGA-LUSC (squamous cell)",
+      "unit": "log2(TPM+1)",
+      "n_samples": 552,
+      "n_genes_tested": 21211
+    }
+  },
+  "robust_set_sizes": {
+    "gtex_lung": 1843,
+    "tcga_luad": 748,
+    "tcga_lusc": 700
+  },
+  "triple_intersection_size": 85,
+  "panel_in_triple_intersection": {
+    "CLDN1": false,
+    "CLDN7": false,
+    "F11R": false,
+    "PARD3": false,
+    "CLDN4": true
+  },
+  "panel_summary": [
+    {
+      "gene": "TACSTD2",
+      "ensembl": "ENSG00000184292",
+      "gtex_lung_rho": 1.0,
+      "gtex_lung_fdr": 0.0,
+      "gtex_lung_rank": 0,
+      "gtex_lung_pct": 100.0,
+      "tcga_luad_rho": 1.0,
+      "tcga_luad_fdr": 0.0,
+      "tcga_luad_rank": 0,
+      "tcga_luad_pct": 100.0,
+      "tcga_lusc_rho": 1.0,
+      "tcga_lusc_fdr": 0.0,
+      "tcga_lusc_rank": 0,
+      "tcga_lusc_pct": 100.0,
+      "mean_rho": 1.0
+    },
+    {
+      "gene": "CLDN1",
+      "ensembl": "ENSG00000163347",
+      "gtex_lung_rho": 0.2898,
+      "gtex_lung_fdr": 7.035219019408863e-12,
+      "gtex_lung_rank": 1990,
+      "gtex_lung_pct": 90.4,
+      "tcga_luad_rho": 0.4063,
+      "tcga_luad_fdr": 1.4246569793888017e-22,
+      "tcga_luad_rank": 121,
+      "tcga_luad_pct": 99.43,
+      "tcga_lusc_rho": 0.4735,
+      "tcga_lusc_fdr": 6.564948554141293e-30,
+      "tcga_lusc_rank": 110,
+      "tcga_lusc_pct": 99.49,
+      "mean_rho": 0.3899
+    },
+    {
+      "gene": "CLDN7",
+      "ensembl": "ENSG00000181885",
+      "gtex_lung_rho": 0.6796,
+      "gtex_lung_fdr": 6.612631731855403e-77,
+      "gtex_lung_rank": 48,
+      "gtex_lung_pct": 99.77,
+      "tcga_luad_rho": 0.1947,
+      "tcga_luad_fdr": 1.1665839460840389e-05,
+      "tcga_luad_rank": 3312,
+      "tcga_luad_pct": 84.4,
+      "tcga_lusc_rho": 0.342,
+      "tcga_lusc_fdr": 4.0851893970354975e-15,
+      "tcga_lusc_rank": 474,
+      "tcga_lusc_pct": 97.77,
+      "mean_rho": 0.4054
+    },
+    {
+      "gene": "F11R",
+      "ensembl": "ENSG00000158769",
+      "gtex_lung_rho": 0.3639,
+      "gtex_lung_fdr": 1.9542712665525507e-18,
+      "gtex_lung_rank": 1155,
+      "gtex_lung_pct": 94.43,
+      "tcga_luad_rho": 0.3238,
+      "tcga_luad_fdr": 2.9718175147302235e-14,
+      "tcga_luad_rank": 537,
+      "tcga_luad_pct": 97.47,
+      "tcga_lusc_rho": 0.292,
+      "tcga_lusc_fdr": 3.7378315294066496e-11,
+      "tcga_lusc_rank": 766,
+      "tcga_lusc_pct": 96.39,
+      "mean_rho": 0.3266
+    },
+    {
+      "gene": "PARD3",
+      "ensembl": "ENSG00000148498",
+      "gtex_lung_rho": 0.3954,
+      "gtex_lung_fdr": 8.326562953701249e-22,
+      "gtex_lung_rank": 913,
+      "gtex_lung_pct": 95.6,
+      "tcga_luad_rho": 0.1259,
+      "tcga_luad_fdr": 0.006276566316926094,
+      "tcga_luad_rank": 6609,
+      "tcga_luad_pct": 68.87,
+      "tcga_lusc_rho": 0.2245,
+      "tcga_lusc_fdr": 6.021358687041452e-07,
+      "tcga_lusc_rank": 1463,
+      "tcga_lusc_pct": 93.11,
+      "mean_rho": 0.2486
+    },
+    {
+      "gene": "CLDN4",
+      "ensembl": "ENSG00000189143",
+      "gtex_lung_rho": 0.7472,
+      "gtex_lung_fdr": 5.6283722715315334e-101,
+      "gtex_lung_rank": 10,
+      "gtex_lung_pct": 99.96,
+      "tcga_luad_rho": 0.5519,
+      "tcga_luad_fdr": 3.191786318832994e-44,
+      "tcga_luad_rank": 2,
+      "tcga_luad_pct": 100.0,
+      "tcga_lusc_rho": 0.4049,
+      "tcga_lusc_fdr": 2.5896390221592547e-21,
+      "tcga_lusc_rank": 249,
+      "tcga_lusc_pct": 98.83,
+      "mean_rho": 0.568
+    }
+  ]
+}
