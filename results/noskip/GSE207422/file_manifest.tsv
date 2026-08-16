@@ -1,0 +1,11 @@
+path	role	committed
+GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz	author_UMI_matrix_GEO	no_gitignored
+GSE207422_NSCLC_scRNAseq_metadata.xlsx	author_sample_metadata_GEO	no_gitignored
+scripts/noskip/GSE207422/gene_chr.tsv	gencode_v44_protein_coding_in_matrix	yes
+results/noskip/GSE207422/per_cell_labels.tsv.gz	reconstructed_labels_plus_TACSTD2	yes
+results/noskip/GSE207422/per_patient_tacstd2.tsv	patient_level_stats	yes
+results/noskip/GSE207422/association_statistics.tsv	spearman_tests	yes
+results/noskip/GSE207422/nmpr_vs_mpr.tsv	mannwhitney_tests	yes
+results/noskip/GSE207422/summary.json	machine_readable_results	yes
+results/noskip/GSE207422/tacstd2_summary.png	main_figure	yes
+results/noskip/GSE207422/tacstd2_malignant_vs_tnk.png	paired_figure	yes
