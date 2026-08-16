@@ -1,0 +1,33 @@
+{
+  "E-MTAB-13704": {
+    "analysis": "TACSTD2/CLDN4 abundance by treatment from the deposited processed matrix",
+    "warning": "Despite the filename GEMMS_raw_counts.csv, values are non-integers; results are descriptive and no raw-count test was run."
+  },
+  "E-MTAB-15883": {
+    "analysis": "TACSTD2/CLDN4 abundance by treatment among deposited annotated cells",
+    "diagnostics": {
+      "feature_rows": {
+        "CLDN4": 6653,
+        "TACSTD2": 47611
+      },
+      "matrix_barcode_count": 884736,
+      "annotated_cell_count": 21041,
+      "matched_annotated_cells": 21041
+    },
+    "warning": "This is an immune-cell-focused dataset; absence/low expression is not evidence of tumor-cell absence."
+  },
+  "E-MTAB-9451": {
+    "file_count": 10,
+    "same_panel_in_all_files": true,
+    "panel_gene_count": 397,
+    "targets_assayed": {
+      "TACSTD2": false,
+      "CLDN4": false
+    },
+    "interpretation": "Targeted immune panel; TACSTD2 and CLDN4 cannot be analyzed when absent from the panel."
+  },
+  "metadata_only": [
+    "E-MTAB-10633",
+    "E-MTAB-8867"
+  ]
+}
