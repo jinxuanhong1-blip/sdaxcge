@@ -1,0 +1,6 @@
+contrast	n_KD	n_control	TACSTD2_mean_log2_KD	TACSTD2_mean_log2_control	TACSTD2_log2FC	TACSTD2_pct_of_control	TACSTD2_welch_t	TACSTD2_welch_p	n_genes_q_lt_0.05	n_genes_tested
+KDpooled_vs_negctrl	6	9	8.72187	11.8837	-3.16182	11.1737	-39.1089	2.1472e-12	647	17946
+siRNA1_vs_negctrl	3	9	8.6283	11.8837	-3.25539	10.472	-39.4869	1.02566e-06	1034	17946
+siRNA4_vs_negctrl	3	9	8.81543	11.8837	-3.06826	11.9223	-30.4813	3.67336e-05	761	17946
+KDpooled_vs_matchedreps	6	3	8.72187	11.8612	-3.13937	11.3489	-29.7707	2.40282e-06	27	17946
+KDpooled_vs_mock	6	3	8.72187	11.3351	-2.61327	16.3429	-33.5438	5.60908e-09	2104	17946
