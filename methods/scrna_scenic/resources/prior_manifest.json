@@ -1,0 +1,27 @@
+{
+  "purpose": "Public curated TF-target edges for ELF3/GRHL1/KLF4 (+ TFAP2A/NKX2-1 controls). Not ChIP peaks.",
+  "do_not_invent_chip": true,
+  "sources": {
+    "TRRUST_v2": {
+      "url": "https://www.grnpedia.org/trrust/data/trrust_rawdata.human.tsv",
+      "citation": "Han et al. 2018 Nucleic Acids Res, PMID 29087512"
+    },
+    "DoRothEA": {
+      "url": "https://omnipathdb.org/interactions?datasets=dorothea&genesymbols=1",
+      "citation": "Garcia-Alonso et al. 2019 Genome Res; OmniPath Turei et al. 2021"
+    },
+    "CollecTRI": {
+      "url": "https://omnipathdb.org/interactions?datasets=collectri&genesymbols=1",
+      "citation": "Muller-Dott et al. 2023 Nucleic Acids Res; OmniPath"
+    }
+  },
+  "n_rows": 758,
+  "focus_tfs": [
+    "ELF3",
+    "GRHL1",
+    "KLF4",
+    "TFAP2A",
+    "NKX2-1"
+  ],
+  "tacstd2_cldn4_listed_as_targets": false
+}
