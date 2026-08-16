@@ -1,0 +1,128 @@
+{
+  "inputs": {
+    "GSE126044_counts": {
+      "file": "data/A2_wave2/extra/GSE126044_counts.txt.gz",
+      "bytes": 559926,
+      "md5": "2aee28cf96c42ce5366adac7709b00cb"
+    },
+    "GSE126044_matrix": {
+      "file": "data/A2_wave2/extra/GSE126044_series_matrix.txt.gz",
+      "bytes": 2076,
+      "md5": "984a5801ff63057e4ed846be0c52d819"
+    },
+    "GSE135222_exp": {
+      "file": "data/A2_wave2/extra/GSE135222_exp.tsv.gz",
+      "bytes": 1663896,
+      "md5": "b0bb4c27d084c9e54b96d477c32e1e0b"
+    },
+    "GSE135222_matrix": {
+      "file": "data/A2_wave2/extra/GSE135222_series_matrix.txt.gz",
+      "bytes": 2829,
+      "md5": "58ad082525cac531ebbaf0b04a4fcb02"
+    },
+    "GSE166449_tpm": {
+      "file": "data/A2_wave2/extra/GSE166449_TPM.txt.gz",
+      "bytes": 1721346,
+      "md5": "fc4a5b3aa2b17aec5f769a243940cd9c"
+    },
+    "GSE166449_matrix": {
+      "file": "data/A2_wave2/extra/GSE166449_series_matrix.txt.gz",
+      "bytes": 2325,
+      "md5": "7b27a1e3243ee58f64d891cabc89b375"
+    },
+    "GSE207422_log2tpm": {
+      "file": "data/A2_wave2/extra/GSE207422_log2TPM.txt.gz",
+      "bytes": 5629640,
+      "md5": "9c6880f615b020494ff2ffd26de4d4b5"
+    },
+    "GSE207422_meta": {
+      "file": "data/A2_wave2/extra/GSE207422_metadata.xlsx",
+      "bytes": 12056,
+      "md5": "8aacf92e9228fec9132d04b662e1b19a"
+    },
+    "GSE207422_matrix": {
+      "file": "data/A2_wave2/extra/GSE207422_series_matrix.txt.gz",
+      "bytes": 4588,
+      "md5": "9bedb8926f215d5d20e9443faeb080e4"
+    },
+    "GSE329813_norm": {
+      "file": "data/A2_wave2/extra/GSE329813_norm.csv.gz",
+      "bytes": 1708869,
+      "md5": "ac844e2926526af102ce7c2ebb3be590"
+    },
+    "GSE329813_matrix": {
+      "file": "data/A2_wave2/extra/GSE329813_series_matrix.txt.gz",
+      "bytes": 8402,
+      "md5": "fed5694a9876a4e56a530bd2f50d48c8"
+    },
+    "gmt": {
+      "file": "data/estimate/inst/extdata/SI_geneset.gmt",
+      "bytes": 1738,
+      "md5": "9628130acbd541d8a33f21b4ab1e864f"
+    },
+    "post_fpkm": {
+      "file": "data/GSE248378_Durva_Post_FPKMs.txt.gz",
+      "bytes": 1016822,
+      "md5": "c7656b19bf73cd315d75c2881d6cbc45"
+    },
+    "post_matrix": {
+      "file": "data/A2_wave2/GSE248378_series_matrix.txt.gz",
+      "bytes": 3333,
+      "md5": "e72c8c39408b435b1c3ff58da301a459"
+    },
+    "pre_fpkm": {
+      "file": "data/GSE253564_Pre_FPKMs.txt.gz",
+      "bytes": 2110059,
+      "md5": "389795aadb8a866925da48a877f56c3d"
+    },
+    "pre_matrix": {
+      "file": "data/A2_wave2/GSE253564_series_matrix.txt.gz",
+      "bytes": 3438,
+      "md5": "602c94c1435d0ef0aeeb1c4b54ad86fc"
+    },
+    "natcomm": {
+      "file": "data/A2_wave2/41467_2023_44195_MOESM6_ESM.xlsx",
+      "bytes": 86639,
+      "md5": "921c314d78da62178cc64c24fd209f9f"
+    },
+    "mmc2": {
+      "file": "data/A2_wave2/mmc2.xlsx",
+      "bytes": 15360,
+      "md5": "808f58e490ff5a93a33ee2f3ccfe587a"
+    }
+  },
+  "urls": {
+    "GSE126044_counts": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/suppl/GSE126044_counts.txt.gz",
+    "GSE126044_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/matrix/GSE126044_series_matrix.txt.gz",
+    "GSE135222_exp": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/suppl/GSE135222_GEO_RNA-seq_omicslab_exp.tsv.gz",
+    "GSE135222_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE135nnn/GSE135222/matrix/GSE135222_series_matrix.txt.gz",
+    "GSE166449_tpm": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/suppl/GSE166449_Raw_gene_TPM_matrix.txt.gz",
+    "GSE166449_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE166nnn/GSE166449/matrix/GSE166449_series_matrix.txt.gz",
+    "GSE207422_log2tpm": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_log2TPM.txt.gz",
+    "GSE207422_meta": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_bulk_RNAseq_metadata.xlsx",
+    "GSE207422_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/matrix/GSE207422_series_matrix.txt.gz",
+    "GSE329813_norm": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE329nnn/GSE329813/suppl/GSE329813_processed_data_file_normalized_data.csv.gz",
+    "GSE329813_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE329nnn/GSE329813/matrix/GSE329813_series_matrix.txt.gz"
+  },
+  "gep18": [
+    "CCL5",
+    "CD27",
+    "CD274",
+    "CD276",
+    "CD8A",
+    "CMKLR1",
+    "CXCL9",
+    "CXCR6",
+    "HLA-DQA1",
+    "HLA-DRB1",
+    "HLA-E",
+    "IDO1",
+    "LAG3",
+    "NKG7",
+    "PDCD1LG2",
+    "PSMB10",
+    "STAT1",
+    "TIGIT"
+  ],
+  "note": "GSE253564 is not re-scored. User A2 coefficient is taken as given."
+}

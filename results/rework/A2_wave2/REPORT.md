@@ -156,10 +156,15 @@ python3 scripts/rework_A2_wave2.py
 - `figures/TACSTD2_partial_rho_CYT_CD8.png`
 - `figures/GSE248378_TACSTD2_recurrence.png`
 
+## Public extras (added on top of A2)
+
+The user durvalumab result is taken as given. Additional leftover public lung IO RNA *besides* GSE253564 — TACSTD2/CLDN4 vs MPR/DCB/ORR and vs CD8/GEP after an ESTIMATEScore residual — is in `extra/` (`REPORT.md`, `paper_tables.md`, four figures). GSE253564 is not re-scored there.
+
 ## Data
 
 - GSE253564 / GSE248378 FPKM and series matrices (NCBI GEO FTP)
 - ESTIMATE `SI_geneset.gmt` v1.0.13
 - PMID 38401548 Table S1 (`mmc2.xlsx` via Europe PMC OA)
 - PMID 38114518 source data (`41467_2023_44195_MOESM6_ESM.xlsx`)
+- Extra leftover matrices under `data/A2_wave2/extra/` (GSE207422, GSE126044, GSE166449, GSE135222, GSE329813)
 
