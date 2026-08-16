@@ -1,0 +1,37 @@
+contrast	comparison	human_signature_gene	measured_gene	mapping_note	log2FC_KO_vs_control	PValue	FDR	direction	caveat
+GSE50927_baseline	Cldn4 KO / WT; no VILI	IFI27	Ifi27l2a	one-to-many IFI27-family proxy	0.6236	0.01629	0.2196	UP	direct, least confounded
+GSE50927_baseline	Cldn4 KO / WT; no VILI	OAS2	OAS2	direct symbol	1.489	1.73e-05	0.001526	UP	direct, least confounded
+GSE50927_baseline	Cldn4 KO / WT; no VILI	IFIT1	IFIT1	direct symbol	0.5758	0.0007195	0.02824	UP	direct, least confounded
+GSE50927_baseline	Cldn4 KO / WT; no VILI	MX1	MX1	direct symbol	0.6267	0.1191	0.6482	UP	direct, least confounded
+GSE50927_baseline	Cldn4 KO / WT; no VILI	ISG15	ISG15	direct symbol	1.075	3.927e-05	0.003096	UP	direct, least confounded
+GSE50927_baseline	Cldn4 KO / WT; no VILI	HLA-A	H2-K1	mouse MHC-I proxy	-0.07092	0.724	1	DOWN	direct, least confounded
+GSE50927_VILI_low	Cldn4 KO-low / WT; 2h VILI	IFI27	Ifi27l2a	one-to-many IFI27-family proxy	-0.2087	0.6103	1	DOWN	direct; same nominal injury
+GSE50927_VILI_low	Cldn4 KO-low / WT; 2h VILI	OAS2	OAS2	direct symbol	-0.1687	0.7757	1	DOWN	direct; same nominal injury
+GSE50927_VILI_low	Cldn4 KO-low / WT; 2h VILI	IFIT1	IFIT1	direct symbol	-0.2852	0.3155	1	DOWN	direct; same nominal injury
+GSE50927_VILI_low	Cldn4 KO-low / WT; 2h VILI	MX1	MX1	direct symbol	0.15	0.8857	1	UP	direct; same nominal injury
+GSE50927_VILI_low	Cldn4 KO-low / WT; 2h VILI	ISG15	ISG15	direct symbol	0.6327	0.1871	1	UP	direct; same nominal injury
+GSE50927_VILI_low	Cldn4 KO-low / WT; 2h VILI	HLA-A	H2-K1	mouse MHC-I proxy	-0.1928	0.2912	1	DOWN	direct; same nominal injury
+GSE50927_VILI_high	Cldn4 KO-high / WT; 2h VILI	IFI27	Ifi27l2a	one-to-many IFI27-family proxy	0.9408	0.01376	0.3033	UP	direct; confounded by greater injury
+GSE50927_VILI_high	Cldn4 KO-high / WT; 2h VILI	OAS2	OAS2	direct symbol	0.1687	0.793	1	UP	direct; confounded by greater injury
+GSE50927_VILI_high	Cldn4 KO-high / WT; 2h VILI	IFIT1	IFIT1	direct symbol	-0.1246	0.7269	1	DOWN	direct; confounded by greater injury
+GSE50927_VILI_high	Cldn4 KO-high / WT; 2h VILI	MX1	MX1	direct symbol	0.0813	1	1	UP	direct; confounded by greater injury
+GSE50927_VILI_high	Cldn4 KO-high / WT; 2h VILI	ISG15	ISG15	direct symbol	1.13	0.02019	0.3755	UP	direct; confounded by greater injury
+GSE50927_VILI_high	Cldn4 KO-high / WT; 2h VILI	HLA-A	H2-K1	mouse MHC-I proxy	0.08005	0.7264	1	UP	direct; confounded by greater injury
+GSE207704_MCF7	MCF7 CLDN4 CRISPR KO / WT	IFI27		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_MCF7	MCF7 CLDN4 CRISPR KO / WT	OAS2		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_MCF7	MCF7 CLDN4 CRISPR KO / WT	IFIT1	IFIT1	direct symbol	-1.599			DOWN	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_MCF7	MCF7 CLDN4 CRISPR KO / WT	MX1		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_MCF7	MCF7 CLDN4 CRISPR KO / WT	ISG15	ISG15	direct symbol	0.106			UP	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_MCF7	MCF7 CLDN4 CRISPR KO / WT	HLA-A		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_T47D	T47D CLDN4 CRISPR KO / WT	IFI27		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_T47D	T47D CLDN4 CRISPR KO / WT	OAS2		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_T47D	T47D CLDN4 CRISPR KO / WT	IFIT1	IFIT1	direct symbol	-0.04054			DOWN	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_T47D	T47D CLDN4 CRISPR KO / WT	MX1		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_T47D	T47D CLDN4 CRISPR KO / WT	ISG15	ISG15	direct symbol	-1.937			DOWN	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE207704_T47D	T47D CLDN4 CRISPR KO / WT	HLA-A		not present in deposited table				NA	deposited FPKM are collapsed across n=2; no valid inferential test
+GSE22493_SKOV3	SKOV-3 CLDN4 lentiviral siRNA / CLDN4-high control	IFI27	IFI27	median of all observed probe-replicate log-ratios	-2.322			DOWN	n=3 two-color arrays; inconsistent probes/replicates; no deposited p-values
+GSE22493_SKOV3	SKOV-3 CLDN4 lentiviral siRNA / CLDN4-high control	OAS2	OAS2	median of all observed probe-replicate log-ratios	0.111			UP	n=3 two-color arrays; inconsistent probes/replicates; no deposited p-values
+GSE22493_SKOV3	SKOV-3 CLDN4 lentiviral siRNA / CLDN4-high control	IFIT1	IFIT1	median of all observed probe-replicate log-ratios	-2.12			DOWN	n=3 two-color arrays; inconsistent probes/replicates; no deposited p-values
+GSE22493_SKOV3	SKOV-3 CLDN4 lentiviral siRNA / CLDN4-high control	MX1	MX1	median of all observed probe-replicate log-ratios	0.3584			UP	n=3 two-color arrays; inconsistent probes/replicates; no deposited p-values
+GSE22493_SKOV3	SKOV-3 CLDN4 lentiviral siRNA / CLDN4-high control	ISG15		not present/annotated				NA	n=3 two-color arrays; inconsistent probes/replicates; no deposited p-values
+GSE22493_SKOV3	SKOV-3 CLDN4 lentiviral siRNA / CLDN4-high control	HLA-A	HLA-A	median of all observed probe-replicate log-ratios	-0.7532			DOWN	n=3 two-color arrays; inconsistent probes/replicates; no deposited p-values

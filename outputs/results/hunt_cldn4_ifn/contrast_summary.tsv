@@ -1,0 +1,7 @@
+contrast	priority_measured	priority_up	priority_up_FDR_lt_0.05	APM_measured	APM_up	APM_up_FDR_lt_0.05	verdict
+GSE50927_baseline	6	5	3	15	12	3	TOP: partial IFN/APM match; not broad MHC-I
+GSE50927_VILI_low	6	2	0	15	7	0	does not reproduce priority IFN/MHC-I pattern
+GSE50927_VILI_high	6	5	0	15	11	0	weak/context-confounded directional match
+GSE207704_MCF7	2	1	0	6	2	0	does not reproduce priority IFN/MHC-I pattern
+GSE207704_T47D	2	0	0	6	2	0	does not reproduce priority IFN/MHC-I pattern
+GSE22493_SKOV3	5	2	0	12	3	0	does not reproduce priority IFN/MHC-I pattern

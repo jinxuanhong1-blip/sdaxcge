@@ -1,0 +1,14 @@
+record	status	direct_CLDN4_loss	expression_data_public	analyzed_here	model	perturbation	reason_or_result	url
+GSE50927	INCLUDED	yes	yes	yes	mouse whole lung	germline Cldn4 KO	Top baseline partial IFN/APM match; VILI-high is injury-confounded	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50927
+GSE22493	INCLUDED	yes	yes	yes	SKOV-3 ovarian cancer cells	lentiviral CLDN4 siRNA	Does not match; old two-color array with inconsistent probes/replicates	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22493
+GSE207704	INCLUDED	yes	yes	yes	MCF7 and T47D breast cancer cells	CRISPR CLDN4 KO	Does not match; deposited FPKM collapsed and four priority genes absent	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207704
+GSE99417	EXCLUDED	no	yes	no	human gastric tumor and adjacent tissue	none	CLDN4-related observational tumor/normal SuperSeries; not a perturbation	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE99417
+GSE60885	EXCLUDED	no	no	no	placental villous explants	dNK-conditioned medium / IL-15	Methylation study; CLDN4 functional follow-up is not a public expression perturbation set	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE60885
+GSE26055	EXCLUDED	no	yes	no	OVCA420 and OVCAR-2 ovarian cancer cells	CLDN7 siRNA	Wrong target (CLDN7), despite CLDN4 text in the study summary	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE26055
+GSE22421	EXCLUDED	no	yes	no	SKOV-3 ovarian cancer cells	C-terminal CPE treatment	CLDN3/4-binding ligand treatment, not CLDN4 genetic loss	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22421
+GSE92742_LINCS	NO_SIGNATURE	no	yes	no	multiple human cell lines	shRNA	Zero CLDN4 records in public LINCS signature metadata	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742
+GSE70138_LINCS	NO_SIGNATURE	no	yes	no	multiple human cell lines	shRNA / CRISPR	Zero CLDN4 records in public LINCS signature metadata	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138
+PMID41016339	UNAVAILABLE	yes	no	no	H1688 small-cell lung cancer cells	CRISPR CLDN4 KO	RNA-seq reported; no public accession or downloadable matrix located	https://pubmed.ncbi.nlm.nih.gov/41016339/
+PMID40892111	UNAVAILABLE	yes	no	no	cerulein-stimulated pancreatic acinar cells	CLDN4 shRNA	RNA-seq reported; no public accession or downloadable matrix located	https://pubmed.ncbi.nlm.nih.gov/40892111/
+DOI10.1186/s43556-021-00053-0	UNAVAILABLE	yes	no	no	PC3 and LNCaP prostate cancer cells	CLDN4 siRNA	Functional/protein study; no transcriptome dataset reported	https://doi.org/10.1186/s43556-021-00053-0
+DOI10.3390/ijms23126516	UNAVAILABLE	yes	no	no	human bladder cancer cells	CLDN4 siRNA	Targeted assays only; no transcriptome dataset reported	https://doi.org/10.3390/ijms23126516
