@@ -90,10 +90,15 @@ def main():
             "listed_bytes": size_b,
             "url": url,
         }
+        low = name.lower()
         if size_b >= TWO_GB:
             entry["status"] = "skipped_ge_2gb"
             entry["stored_bytes"] = 0
             print(f"SKIP >=2GB {acc}/{name} ({r['size']})", flush=True)
+        elif low == "filelist.txt" or low.endswith("_raw.tar") or low.endswith(".cel.gz"):
+            entry["status"] = "skipped_not_processed"
+            entry["stored_bytes"] = 0
+            print(f"SKIP not-processed {acc}/{name}", flush=True)
         elif os.path.exists(dest) and os.path.getsize(dest) == size_b:
             entry["status"] = "already_present"
             entry["stored_bytes"] = os.path.getsize(dest)

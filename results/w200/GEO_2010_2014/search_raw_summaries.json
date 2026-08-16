@@ -1,0 +1,1983 @@
+{
+ "queries": {
+  "lung_ici_human_gse_2010_2014": "(lung[Title] OR NSCLC[Title] OR \"non-small cell lung\"[All Fields] OR \"lung cancer\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"lung neoplasms\"[All Fields] OR \"lung\"[All Fields]) AND (\"PD-1\"[All Fields] OR \"PD1\"[All Fields] OR \"PDCD1\"[All Fields] OR \"PD-L1\"[All Fields] OR \"PDL1\"[All Fields] OR \"CD274\"[All Fields] OR \"CTLA-4\"[All Fields] OR \"CTLA4\"[All Fields] OR \"immune checkpoint\"[All Fields] OR \"checkpoint inhibitor\"[All Fields] OR \"checkpoint blockade\"[All Fields] OR \"immunotherapy\"[All Fields] OR \"anti-PD-1\"[All Fields] OR \"anti-PD-L1\"[All Fields] OR \"nivolumab\"[All Fields] OR \"pembrolizumab\"[All Fields] OR \"atezolizumab\"[All Fields] OR \"durvalumab\"[All Fields] OR \"avelumab\"[All Fields] OR \"ipilimumab\"[All Fields] OR \"tremelimumab\"[All Fields]) AND \"Homo sapiens\"[Organism] AND gse[Entry Type] AND (\"2010/01/01\"[PDAT] : \"2014/12/31\"[PDAT])",
+  "lung_ici_gse_2010_2014": "(lung[Title] OR NSCLC[Title] OR \"non-small cell lung\"[All Fields] OR \"lung cancer\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"lung neoplasms\"[All Fields] OR \"lung\"[All Fields]) AND (\"PD-1\"[All Fields] OR \"PD1\"[All Fields] OR \"PDCD1\"[All Fields] OR \"PD-L1\"[All Fields] OR \"PDL1\"[All Fields] OR \"CD274\"[All Fields] OR \"CTLA-4\"[All Fields] OR \"CTLA4\"[All Fields] OR \"immune checkpoint\"[All Fields] OR \"checkpoint inhibitor\"[All Fields] OR \"checkpoint blockade\"[All Fields] OR \"immunotherapy\"[All Fields] OR \"anti-PD-1\"[All Fields] OR \"anti-PD-L1\"[All Fields] OR \"nivolumab\"[All Fields] OR \"pembrolizumab\"[All Fields] OR \"atezolizumab\"[All Fields] OR \"durvalumab\"[All Fields] OR \"avelumab\"[All Fields] OR \"ipilimumab\"[All Fields] OR \"tremelimumab\"[All Fields]) AND gse[Entry Type] AND (\"2010/01/01\"[PDAT] : \"2014/12/31\"[PDAT])",
+  "strict_pdl1_text_2010_2014": "(lung) AND (PD-L1 OR PD-1 OR CD274 OR PDCD1) AND gse[Entry Type] AND 2010:2014[PDAT]"
+ },
+ "uids_by_query": {
+  "lung_ici_human_gse_2010_2014": [
+   "200054514",
+   "200035640",
+   "200046517",
+   "200027556"
+  ],
+  "lung_ici_gse_2010_2014": [
+   "200041088",
+   "200054514",
+   "200054353",
+   "200054352",
+   "200054351",
+   "200035640",
+   "200046517",
+   "200044825",
+   "200027556"
+  ],
+  "strict_pdl1_text_2010_2014": []
+ },
+ "summaries": {
+  "200027556": {
+   "uid": "200027556",
+   "accession": "GSE27556",
+   "gds": "",
+   "title": "Novel HLA ligands and Tcell epitopes for immunotherapy of lung cancer",
+   "summary": "Analysis of gene expression data to evaluate candidate targets for immunotherapy.",
+   "gpl": "96;570",
+   "gse": "27556",
+   "taxon": "Homo sapiens",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2011/07/01",
+   "suppfile": "CEL",
+   "samples": [
+    {
+     "accession": "GSM681102",
+     "title": "normal kidney tissue U133Plus_NTk2"
+    },
+    {
+     "accession": "GSM681096",
+     "title": "lung cancer tissue_LCA008"
+    },
+    {
+     "accession": "GSM681099",
+     "title": "lung cancer tissue_LCA018"
+    },
+    {
+     "accession": "GSM681098",
+     "title": "lung cancer tissue_LCA011"
+    },
+    {
+     "accession": "GSM681095",
+     "title": "lung cancer tissue_LCA003"
+    },
+    {
+     "accession": "GSM681101",
+     "title": "lung cancer tissue_LCA021"
+    },
+    {
+     "accession": "GSM681103",
+     "title": "normal kidney tissue"
+    },
+    {
+     "accession": "GSM681100",
+     "title": "lung cancer tissue_LCA020"
+    },
+    {
+     "accession": "GSM681104",
+     "title": "normal lung tissue"
+    },
+    {
+     "accession": "GSM681097",
+     "title": "lung cancer tissue_LCA010"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 10,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE27nnn/GSE27556/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA138297"
+  },
+  "200035640": {
+   "uid": "200035640",
+   "accession": "GSE35640",
+   "gds": "",
+   "title": "Identification of a predictive gene signature to recMAGE A3 antigen-specific cancer immunotherapy in metastatic melanoma and non-small-cell lung cancer",
+   "summary": "Purpose:  To evaluate the presence of a gene expression signature present before treatment as predictive of response to treatment with MAGE\u2011A3 immunotherapeutic in metastatic melanoma patients and to validate its predictivity in adjuvant therapy of early-stage lung cancer.",
+   "gpl": "570",
+   "gse": "35640",
+   "taxon": "Homo sapiens",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2013/05/30",
+   "suppfile": "CEL",
+   "samples": [
+    {
+     "accession": "GSM872355",
+     "title": "Melanoma tumor sample from patient 28"
+    },
+    {
+     "accession": "GSM872392",
+     "title": "Melanoma tumor sample from patient 65"
+    },
+    {
+     "accession": "GSM872352",
+     "title": "Melanoma tumor sample from patient 25"
+    },
+    {
+     "accession": "GSM872372",
+     "title": "Melanoma tumor sample from patient 45"
+    },
+    {
+     "accession": "GSM872349",
+     "title": "Melanoma tumor sample from patient 22"
+    },
+    {
+     "accession": "GSM872335",
+     "title": "Melanoma tumor sample from patient 8"
+    },
+    {
+     "accession": "GSM872375",
+     "title": "Melanoma tumor sample from patient 48"
+    },
+    {
+     "accession": "GSM872332",
+     "title": "Melanoma tumor sample from patient 5"
+    },
+    {
+     "accession": "GSM872329",
+     "title": "Melanoma tumor sample from patient 2"
+    },
+    {
+     "accession": "GSM872381",
+     "title": "Melanoma tumor sample from patient 54"
+    },
+    {
+     "accession": "GSM872378",
+     "title": "Melanoma tumor sample from patient 51"
+    },
+    {
+     "accession": "GSM872341",
+     "title": "Melanoma tumor sample from patient 14"
+    },
+    {
+     "accession": "GSM872364",
+     "title": "Melanoma tumor sample from patient 37"
+    },
+    {
+     "accession": "GSM872384",
+     "title": "Melanoma tumor sample from patient 57"
+    },
+    {
+     "accession": "GSM872361",
+     "title": "Melanoma tumor sample from patient 34"
+    },
+    {
+     "accession": "GSM872370",
+     "title": "Melanoma tumor sample from patient 43"
+    },
+    {
+     "accession": "GSM872344",
+     "title": "Melanoma tumor sample from patient 17"
+    },
+    {
+     "accession": "GSM872387",
+     "title": "Melanoma tumor sample from patient 60"
+    },
+    {
+     "accession": "GSM872338",
+     "title": "Melanoma tumor sample from patient 11"
+    },
+    {
+     "accession": "GSM872350",
+     "title": "Melanoma tumor sample from patient 23"
+    },
+    {
+     "accession": "GSM872358",
+     "title": "Melanoma tumor sample from patient 31"
+    },
+    {
+     "accession": "GSM872330",
+     "title": "Melanoma tumor sample from patient 3"
+    },
+    {
+     "accession": "GSM872347",
+     "title": "Melanoma tumor sample from patient 20"
+    },
+    {
+     "accession": "GSM872336",
+     "title": "Melanoma tumor sample from patient 9"
+    },
+    {
+     "accession": "GSM872373",
+     "title": "Melanoma tumor sample from patient 46"
+    },
+    {
+     "accession": "GSM872333",
+     "title": "Melanoma tumor sample from patient 6"
+    },
+    {
+     "accession": "GSM872379",
+     "title": "Melanoma tumor sample from patient 52"
+    },
+    {
+     "accession": "GSM872353",
+     "title": "Melanoma tumor sample from patient 26"
+    },
+    {
+     "accession": "GSM872390",
+     "title": "Melanoma tumor sample from patient 63"
+    },
+    {
+     "accession": "GSM872359",
+     "title": "Melanoma tumor sample from patient 32"
+    },
+    {
+     "accession": "GSM872356",
+     "title": "Melanoma tumor sample from patient 29"
+    },
+    {
+     "accession": "GSM872376",
+     "title": "Melanoma tumor sample from patient 49"
+    },
+    {
+     "accession": "GSM872382",
+     "title": "Melanoma tumor sample from patient 55"
+    },
+    {
+     "accession": "GSM872365",
+     "title": "Melanoma tumor sample from patient 38"
+    },
+    {
+     "accession": "GSM872367",
+     "title": "Melanoma tumor sample from patient 40"
+    },
+    {
+     "accession": "GSM872362",
+     "title": "Melanoma tumor sample from patient 35"
+    },
+    {
+     "accession": "GSM872342",
+     "title": "Melanoma tumor sample from patient 15"
+    },
+    {
+     "accession": "GSM872339",
+     "title": "Melanoma tumor sample from patient 12"
+    },
+    {
+     "accession": "GSM872385",
+     "title": "Melanoma tumor sample from patient 58"
+    },
+    {
+     "accession": "GSM872354",
+     "title": "Melanoma tumor sample from patient 27"
+    },
+    {
+     "accession": "GSM872391",
+     "title": "Melanoma tumor sample from patient 64"
+    },
+    {
+     "accession": "GSM872328",
+     "title": "Melanoma tumor sample from patient 1"
+    },
+    {
+     "accession": "GSM872371",
+     "title": "Melanoma tumor sample from patient 44"
+    },
+    {
+     "accession": "GSM872368",
+     "title": "Melanoma tumor sample from patient 41"
+    },
+    {
+     "accession": "GSM872345",
+     "title": "Melanoma tumor sample from patient 18"
+    },
+    {
+     "accession": "GSM872331",
+     "title": "Melanoma tumor sample from patient 4"
+    },
+    {
+     "accession": "GSM872388",
+     "title": "Melanoma tumor sample from patient 61"
+    },
+    {
+     "accession": "GSM872337",
+     "title": "Melanoma tumor sample from patient 10"
+    },
+    {
+     "accession": "GSM872334",
+     "title": "Melanoma tumor sample from patient 7"
+    },
+    {
+     "accession": "GSM872340",
+     "title": "Melanoma tumor sample from patient 13"
+    },
+    {
+     "accession": "GSM872360",
+     "title": "Melanoma tumor sample from patient 33"
+    },
+    {
+     "accession": "GSM872357",
+     "title": "Melanoma tumor sample from patient 30"
+    },
+    {
+     "accession": "GSM872346",
+     "title": "Melanoma tumor sample from patient 19"
+    },
+    {
+     "accession": "GSM872363",
+     "title": "Melanoma tumor sample from patient 36"
+    },
+    {
+     "accession": "GSM872374",
+     "title": "Melanoma tumor sample from patient 47"
+    },
+    {
+     "accession": "GSM872343",
+     "title": "Melanoma tumor sample from patient 16"
+    },
+    {
+     "accession": "GSM872389",
+     "title": "Melanoma tumor sample from patient 62"
+    },
+    {
+     "accession": "GSM872386",
+     "title": "Melanoma tumor sample from patient 59"
+    },
+    {
+     "accession": "GSM872369",
+     "title": "Melanoma tumor sample from patient 42"
+    },
+    {
+     "accession": "GSM872366",
+     "title": "Melanoma tumor sample from patient 39"
+    },
+    {
+     "accession": "GSM872351",
+     "title": "Melanoma tumor sample from patient 24"
+    },
+    {
+     "accession": "GSM872348",
+     "title": "Melanoma tumor sample from patient 21"
+    },
+    {
+     "accession": "GSM872380",
+     "title": "Melanoma tumor sample from patient 53"
+    },
+    {
+     "accession": "GSM872377",
+     "title": "Melanoma tumor sample from patient 50"
+    },
+    {
+     "accession": "GSM872383",
+     "title": "Melanoma tumor sample from patient 56"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 65,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "23715562"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE35nnn/GSE35640/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA152493"
+  },
+  "200041088": {
+   "uid": "200041088",
+   "accession": "GSE41088",
+   "gds": "",
+   "title": "Adjuvant induced attenuation of excessive inflammation in mice infected with pandemic H1N1 (H1N1pdm) virus",
+   "summary": "The reassorted human 2009 pandemic H1N1 (H1N1pdm) virus infected millions of people and caused thousands of deaths with associated immunopathology.  Traditional immunosuppressants have limited capabilities in controlling inflammatory responses associated with severe influenza infections.  A new therapeutic strategy, therefore, must be developed.  We evaluated several adjuvants including toll-like receptor (TLR) agonists, TLR independent adjuvants and Complete Freund\u2019s adjuvant (CFA) for limiting severe H1N1pdm infection outcomes in a mouse model.  In contrast to the TLR agonists and TLR independent adjuvants, CFA which contains multiple pattern recognition receptor (PRR) agonists significantly restrained pro-inflammatory responses and promoted survival in mice from lethal H1N1pdm infection.  CFA reduced expression of the plamacytoid dendritic cell (pDC) markers and interferon alpha (IFN-\u03b1) after infection, whereas it elevated the T regulatory (Treg) cell suppressive molecules galectin-1 and CTLA-4 expression. Consequently, Th1 cell differentiation and CD8+ effector T cell responses were diminished via downregulated myeloid DC (mDC) costimulation.  Furthermore, CTLA-4 expressing Treg cells were dramatically increased when the CFA primed splenocytes were restimulated with its stimuli-killed mycobacterium tuberculosis (M. TB).  The elevated CTLA-4 on Treg cells led to reduced CD86 expressing pDCs/mDCs and less CD4+ effector T cells. Overall, our study highlights that the stimuli of innate immunity potentially controls overactive host immune responses in certain situations, and the uncovered mechanism(s) sheds light on the development of anti-influenza therapies.",
+   "gpl": "6887",
+   "gse": "41088",
+   "taxon": "Mus musculus",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2014/09/10",
+   "suppfile": "TXT",
+   "samples": [
+    {
+     "accession": "GSM1008455",
+     "title": "Mouse lung, CFA treated, pandemic H1N1 (H1N1pdm) infected, on Day 3, biological rep 3"
+    },
+    {
+     "accession": "GSM1008452",
+     "title": "Mouse lung, PBS  treated, pandemic H1N1 (H1N1pdm) infected, on Day 3, biological rep 3"
+    },
+    {
+     "accession": "GSM1008461",
+     "title": "Mouse lung, CFA treated, pandemic H1N1 (H1N1pdm) infected, on Day 5, biological rep 3"
+    },
+    {
+     "accession": "GSM1008458",
+     "title": "Mouse lung, PBS  treated, pandemic H1N1 (H1N1pdm) infected, on Day 5, biological rep 3"
+    },
+    {
+     "accession": "GSM1008450",
+     "title": "Mouse lung, PBS  treated, pandemic H1N1 (H1N1pdm) infected, on Day 3, biological rep 1"
+    },
+    {
+     "accession": "GSM1008456",
+     "title": "Mouse lung, PBS  treated, pandemic H1N1 (H1N1pdm) infected, on Day 5, biological rep 1"
+    },
+    {
+     "accession": "GSM1008453",
+     "title": "Mouse lung, CFA treated, pandemic H1N1 (H1N1pdm) infected, on Day 3, biological rep 1"
+    },
+    {
+     "accession": "GSM1008459",
+     "title": "Mouse lung, CFA treated, pandemic H1N1 (H1N1pdm) infected, on Day 5, biological rep 1"
+    },
+    {
+     "accession": "GSM1008451",
+     "title": "Mouse lung, PBS  treated, pandemic H1N1 (H1N1pdm) infected, on Day 3, biological rep 2"
+    },
+    {
+     "accession": "GSM1008457",
+     "title": "Mouse lung, PBS  treated, pandemic H1N1 (H1N1pdm) infected, on Day 5, biological rep 2"
+    },
+    {
+     "accession": "GSM1008454",
+     "title": "Mouse lung, CFA treated, pandemic H1N1 (H1N1pdm) infected, on Day 3, biological rep 2"
+    },
+    {
+     "accession": "GSM1008460",
+     "title": "Mouse lung, CFA treated, pandemic H1N1 (H1N1pdm) infected, on Day 5, biological rep 2"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 12,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE41nnn/GSE41088/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA175733"
+  },
+  "200044825": {
+   "uid": "200044825",
+   "accession": "GSE44825",
+   "gds": "",
+   "title": "Study of the association of DNAhsp65 immunotherapy and conventional drugs in experimental tuberculosis",
+   "summary": "Despite substantial investments, tuberculosis remains one of the biggest challenges in public health. DNA-immunotherapy is increasingly being suggested as a possibility to assist conventional treatment of tuberculosis. This strategy could allow treatment to be more efficient, faster and with advantages and modulate the host immune response, as demonstrated by our group with DNAhsp65 vaccine (Silva, Bonato et al., Gene Therapy, 2005). Based on this evidences, we performed a microarray assay to stydy the functional effects of DNAhsp65 immunotherapy associated with conventional chemotherapy in murine experimental tuberculosis.",
+   "gpl": "1261",
+   "gse": "44825",
+   "taxon": "Mus musculus",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2013/04/08",
+   "suppfile": "CEL",
+   "samples": [
+    {
+     "accession": "GSM1092119",
+     "title": "lung_not_treated_rep1"
+    },
+    {
+     "accession": "GSM1092130",
+     "title": "lung_immunotherapy_and_chemotherapy_rep3"
+    },
+    {
+     "accession": "GSM1092127",
+     "title": "lung_chemotherapy_rep3"
+    },
+    {
+     "accession": "GSM1092125",
+     "title": "lung_chemotherapy_rep1"
+    },
+    {
+     "accession": "GSM1092122",
+     "title": "lung_immunotherapy_rep1"
+    },
+    {
+     "accession": "GSM1092128",
+     "title": "lung_immunotherapy_and_chemotherapy_rep1"
+    },
+    {
+     "accession": "GSM1092123",
+     "title": "lung_immunotherapy_rep2"
+    },
+    {
+     "accession": "GSM1092120",
+     "title": "lung_not_treated_rep2"
+    },
+    {
+     "accession": "GSM1092126",
+     "title": "lung_chemotherapy_rep2"
+    },
+    {
+     "accession": "GSM1092124",
+     "title": "lung_immunotherapy_rep3"
+    },
+    {
+     "accession": "GSM1092129",
+     "title": "lung_immunotherapy_and_chemotherapy_rep2"
+    },
+    {
+     "accession": "GSM1092121",
+     "title": "lung_not_treated_rep3"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 12,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "25687643"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE44nnn/GSE44825/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA192253"
+  },
+  "200046517": {
+   "uid": "200046517",
+   "accession": "GSE46517",
+   "gds": "",
+   "title": "Human melanoma samples comparing nevi and primary and metastatic melanoma",
+   "summary": "We sought to identify genes and gene signatures which correlate with progression by sampling human melanomas from nevi, primary, and metastatic tumors. The large number of samples also permits analysis within groups.",
+   "gpl": "96",
+   "gse": "46517",
+   "taxon": "Homo sapiens",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2013/05/01",
+   "suppfile": "CEL",
+   "samples": [
+    {
+     "accession": "GSM1131597",
+     "title": "Metastatic Melanoma_Sample 105.6"
+    },
+    {
+     "accession": "GSM1131680",
+     "title": "Normal Skin_Sample 13.4"
+    },
+    {
+     "accession": "GSM1131634",
+     "title": "Metastatic Melanoma_Sample 92.6"
+    },
+    {
+     "accession": "GSM1131674",
+     "title": "Nevus_Sample 101.4"
+    },
+    {
+     "accession": "GSM1131591",
+     "title": "Metastatic Melanoma_Sample 104.4"
+    },
+    {
+     "accession": "GSM1131617",
+     "title": "Metastatic Melanoma_Sample 67.6"
+    },
+    {
+     "accession": "GSM1131654",
+     "title": "Primary Melanoma_Sample 20.1"
+    },
+    {
+     "accession": "GSM1131571",
+     "title": "Metastatic Melanoma_Sample C015"
+    },
+    {
+     "accession": "GSM1131637",
+     "title": "Metastatic Melanoma_Sample 99.4"
+    },
+    {
+     "accession": "GSM1131574",
+     "title": "Metastatic Melanoma_Sample C022"
+    },
+    {
+     "accession": "GSM1131614",
+     "title": "Metastatic Melanoma_Sample 67.3"
+    },
+    {
+     "accession": "GSM1131577",
+     "title": "Metastatic Melanoma_Sample C027"
+    },
+    {
+     "accession": "GSM1131594",
+     "title": "Metastatic Melanoma_Sample 105.3"
+    },
+    {
+     "accession": "GSM1131677",
+     "title": "Nevus_Sample 87.6"
+    },
+    {
+     "accession": "GSM1131671",
+     "title": "Nevus_Sample 100.4"
+    },
+    {
+     "accession": "GSM1131588",
+     "title": "Metastatic Melanoma_Sample 102.2"
+    },
+    {
+     "accession": "GSM1131625",
+     "title": "Metastatic Melanoma_Sample 69.5"
+    },
+    {
+     "accession": "GSM1131657",
+     "title": "Primary Melanoma_Sample 72.4"
+    },
+    {
+     "accession": "GSM1131660",
+     "title": "Primary Melanoma_Sample 79.3"
+    },
+    {
+     "accession": "GSM1131608",
+     "title": "Metastatic Melanoma_Sample 65.4"
+    },
+    {
+     "accession": "GSM1131611",
+     "title": "Metastatic Melanoma_Sample 66.4"
+    },
+    {
+     "accession": "GSM1131648",
+     "title": "Primary Melanoma_Sample 106.1"
+    },
+    {
+     "accession": "GSM1131568",
+     "title": "Metastatic Melanoma_Sample C010"
+    },
+    {
+     "accession": "GSM1131651",
+     "title": "Primary Melanoma_Sample 107.4"
+    },
+    {
+     "accession": "GSM1131585",
+     "title": "Metastatic Melanoma_Sample MM.K"
+    },
+    {
+     "accession": "GSM1131668",
+     "title": "Primary Melanoma_Sample 90.5"
+    },
+    {
+     "accession": "GSM1131628",
+     "title": "Metastatic Melanoma_Sample 89.1"
+    },
+    {
+     "accession": "GSM1131672",
+     "title": "Nevus_Sample 100.5"
+    },
+    {
+     "accession": "GSM1131569",
+     "title": "Metastatic Melanoma_Sample C012"
+    },
+    {
+     "accession": "GSM1131652",
+     "title": "Primary Melanoma_Sample 107.5"
+    },
+    {
+     "accession": "GSM1131572",
+     "title": "Metastatic Melanoma_Sample C018"
+    },
+    {
+     "accession": "GSM1131655",
+     "title": "Primary Melanoma_Sample 71.5"
+    },
+    {
+     "accession": "GSM1131609",
+     "title": "Metastatic Melanoma_Sample 66.1"
+    },
+    {
+     "accession": "GSM1131566",
+     "title": "Metastatic Melanoma_Sample C007"
+    },
+    {
+     "accession": "GSM1131675",
+     "title": "Nevus_Sample 101.5"
+    },
+    {
+     "accession": "GSM1131649",
+     "title": "Primary Melanoma_Sample 106.2"
+    },
+    {
+     "accession": "GSM1131592",
+     "title": "Metastatic Melanoma_Sample 105.1"
+    },
+    {
+     "accession": "GSM1131605",
+     "title": "Metastatic Melanoma_Sample 64.5"
+    },
+    {
+     "accession": "GSM1131629",
+     "title": "Metastatic Melanoma_Sample 89.3"
+    },
+    {
+     "accession": "GSM1131631",
+     "title": "Metastatic Melanoma_Sample 91.2"
+    },
+    {
+     "accession": "GSM1131669",
+     "title": "Primary Melanoma_Sample 90.6"
+    },
+    {
+     "accession": "GSM1131632",
+     "title": "Metastatic Melanoma_Sample 92.3"
+    },
+    {
+     "accession": "GSM1131589",
+     "title": "Metastatic Melanoma_Sample 104.2"
+    },
+    {
+     "accession": "GSM1131643",
+     "title": "Primary Melanoma_Sample 103.3"
+    },
+    {
+     "accession": "GSM1131646",
+     "title": "Primary Melanoma_Sample 104.5"
+    },
+    {
+     "accession": "GSM1131606",
+     "title": "Metastatic Melanoma_Sample 65.2"
+    },
+    {
+     "accession": "GSM1131600",
+     "title": "Metastatic Melanoma_Sample 18.4"
+    },
+    {
+     "accession": "GSM1131683",
+     "title": "Normal Skin_Sample 14.8"
+    },
+    {
+     "accession": "GSM1131626",
+     "title": "Metastatic Melanoma_Sample 69.6"
+    },
+    {
+     "accession": "GSM1131580",
+     "title": "Metastatic Melanoma_Sample MM.B"
+    },
+    {
+     "accession": "GSM1131620",
+     "title": "Metastatic Melanoma_Sample 68.6"
+    },
+    {
+     "accession": "GSM1131612",
+     "title": "Metastatic Melanoma_Sample 66.5"
+    },
+    {
+     "accession": "GSM1131623",
+     "title": "Metastatic Melanoma_Sample 69.3"
+    },
+    {
+     "accession": "GSM1131640",
+     "title": "Primary Melanoma_Sample 102.6"
+    },
+    {
+     "accession": "GSM1131603",
+     "title": "Metastatic Melanoma_Sample 64.3"
+    },
+    {
+     "accession": "GSM1131686",
+     "title": "Normal Skin_Sample 99.1"
+    },
+    {
+     "accession": "GSM1131586",
+     "title": "Metastatic Melanoma_Sample MM.L"
+    },
+    {
+     "accession": "GSM1131607",
+     "title": "Metastatic Melanoma_Sample 65.3"
+    },
+    {
+     "accession": "GSM1131624",
+     "title": "Metastatic Melanoma_Sample 69.4"
+    },
+    {
+     "accession": "GSM1131587",
+     "title": "Metastatic Melanoma_Sample 101.6"
+    },
+    {
+     "accession": "GSM1131670",
+     "title": "Nevus_Sample 100.1"
+    },
+    {
+     "accession": "GSM1131581",
+     "title": "Metastatic Melanoma_Sample MM.E"
+    },
+    {
+     "accession": "GSM1131627",
+     "title": "Metastatic Melanoma_Sample 88.5"
+    },
+    {
+     "accession": "GSM1131664",
+     "title": "Primary Melanoma_Sample 89.4"
+    },
+    {
+     "accession": "GSM1131584",
+     "title": "Metastatic Melanoma_Sample MM.I"
+    },
+    {
+     "accession": "GSM1131601",
+     "title": "Metastatic Melanoma_Sample 64.1"
+    },
+    {
+     "accession": "GSM1131667",
+     "title": "Primary Melanoma_Sample 90.3"
+    },
+    {
+     "accession": "GSM1131663",
+     "title": "Primary Melanoma_Sample 89.2"
+    },
+    {
+     "accession": "GSM1131598",
+     "title": "Metastatic Melanoma_Sample 15.3"
+    },
+    {
+     "accession": "GSM1131604",
+     "title": "Metastatic Melanoma_Sample 64.4"
+    },
+    {
+     "accession": "GSM1131681",
+     "title": "Normal Skin_Sample 14.10"
+    },
+    {
+     "accession": "GSM1131635",
+     "title": "Metastatic Melanoma_Sample 99.2"
+    },
+    {
+     "accession": "GSM1131661",
+     "title": "Primary Melanoma_Sample 8.3"
+    },
+    {
+     "accession": "GSM1131578",
+     "title": "Metastatic Melanoma_Sample C038"
+    },
+    {
+     "accession": "GSM1131666",
+     "title": "Primary Melanoma_Sample 89.6"
+    },
+    {
+     "accession": "GSM1131583",
+     "title": "Metastatic Melanoma_Sample MM.H"
+    },
+    {
+     "accession": "GSM1131575",
+     "title": "Metastatic Melanoma_Sample C024"
+    },
+    {
+     "accession": "GSM1131658",
+     "title": "Primary Melanoma_Sample 74.5"
+    },
+    {
+     "accession": "GSM1131684",
+     "title": "Normal Skin_Sample 14.9"
+    },
+    {
+     "accession": "GSM1131678",
+     "title": "Nevus_Sample 88.3"
+    },
+    {
+     "accession": "GSM1131638",
+     "title": "Metastatic Melanoma_Sample 99.6"
+    },
+    {
+     "accession": "GSM1131595",
+     "title": "Metastatic Melanoma_Sample 105.4"
+    },
+    {
+     "accession": "GSM1131644",
+     "title": "Primary Melanoma_Sample 103.4"
+    },
+    {
+     "accession": "GSM1131662",
+     "title": "Primary Melanoma_Sample 87.3"
+    },
+    {
+     "accession": "GSM1131579",
+     "title": "Metastatic Melanoma_Sample MM.A"
+    },
+    {
+     "accession": "GSM1131582",
+     "title": "Metastatic Melanoma_Sample MM.F"
+    },
+    {
+     "accession": "GSM1131665",
+     "title": "Primary Melanoma_Sample 89.5"
+    },
+    {
+     "accession": "GSM1131619",
+     "title": "Metastatic Melanoma_Sample 68.4"
+    },
+    {
+     "accession": "GSM1131685",
+     "title": "Normal Epithelial Melanocytes_Sample 98.1"
+    },
+    {
+     "accession": "GSM1131645",
+     "title": "Primary Melanoma_Sample 103.5"
+    },
+    {
+     "accession": "GSM1131647",
+     "title": "Primary Melanoma_Sample 104.6"
+    },
+    {
+     "accession": "GSM1131639",
+     "title": "Primary Melanoma_Sample 102.5"
+    },
+    {
+     "accession": "GSM1131659",
+     "title": "Primary Melanoma_Sample 78.2"
+    },
+    {
+     "accession": "GSM1131642",
+     "title": "Primary Melanoma_Sample 103.2"
+    },
+    {
+     "accession": "GSM1131650",
+     "title": "Primary Melanoma_Sample 106.3"
+    },
+    {
+     "accession": "GSM1131567",
+     "title": "Metastatic Melanoma_Sample C009"
+    },
+    {
+     "accession": "GSM1131653",
+     "title": "Primary Melanoma_Sample 15.5"
+    },
+    {
+     "accession": "GSM1131622",
+     "title": "Metastatic Melanoma_Sample 69.2"
+    },
+    {
+     "accession": "GSM1131633",
+     "title": "Metastatic Melanoma_Sample 92.5"
+    },
+    {
+     "accession": "GSM1131616",
+     "title": "Metastatic Melanoma_Sample 67.5"
+    },
+    {
+     "accession": "GSM1131615",
+     "title": "Metastatic Melanoma_Sample 67.4"
+    },
+    {
+     "accession": "GSM1131618",
+     "title": "Metastatic Melanoma_Sample 68.2"
+    },
+    {
+     "accession": "GSM1131630",
+     "title": "Metastatic Melanoma_Sample 91.1"
+    },
+    {
+     "accession": "GSM1131636",
+     "title": "Metastatic Melanoma_Sample 99.3"
+    },
+    {
+     "accession": "GSM1131656",
+     "title": "Primary Melanoma_Sample 72.2"
+    },
+    {
+     "accession": "GSM1131590",
+     "title": "Metastatic Melanoma_Sample 104.3"
+    },
+    {
+     "accession": "GSM1131593",
+     "title": "Metastatic Melanoma_Sample 105.2"
+    },
+    {
+     "accession": "GSM1131610",
+     "title": "Metastatic Melanoma_Sample 66.2"
+    },
+    {
+     "accession": "GSM1131621",
+     "title": "Metastatic Melanoma_Sample 69.1"
+    },
+    {
+     "accession": "GSM1131613",
+     "title": "Metastatic Melanoma_Sample 66.6"
+    },
+    {
+     "accession": "GSM1131641",
+     "title": "Primary Melanoma_Sample 103.1"
+    },
+    {
+     "accession": "GSM1131596",
+     "title": "Metastatic Melanoma_Sample 105.5"
+    },
+    {
+     "accession": "GSM1131599",
+     "title": "Metastatic Melanoma_Sample 18.2"
+    },
+    {
+     "accession": "GSM1131682",
+     "title": "Normal Skin_Sample 14.7"
+    },
+    {
+     "accession": "GSM1131602",
+     "title": "Metastatic Melanoma_Sample 64.2"
+    },
+    {
+     "accession": "GSM1131679",
+     "title": "Normal Skin_Sample 101.1"
+    },
+    {
+     "accession": "GSM1131576",
+     "title": "Metastatic Melanoma_Sample C025"
+    },
+    {
+     "accession": "GSM1131570",
+     "title": "Metastatic Melanoma_Sample C014"
+    },
+    {
+     "accession": "GSM1131673",
+     "title": "Nevus_Sample 101.2"
+    },
+    {
+     "accession": "GSM1131676",
+     "title": "Nevus_Sample 104.1"
+    },
+    {
+     "accession": "GSM1131573",
+     "title": "Metastatic Melanoma_Sample C021"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 121,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "20520718"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE46nnn/GSE46517/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA200715"
+  },
+  "200054351": {
+   "uid": "200054351",
+   "accession": "GSE54351",
+   "gds": "",
+   "title": "Loss of Lkb1 and Pten Leads to Lung Squamous Cell Carcinoma with Elevated Pdl1 Expression: Epithelial Cells",
+   "summary": "Lung squamous cell carcinoma (SCC) is a deadly disease for which current treatments are inadequate. We demonstrate that bi-allelic inactivation of Lkb1 and Pten in the mouse lung led to SCC that recapitulated the histology, gene expression and microenvironment found in human disease. Lkb1/Pten-null (LP) tumors expressed the squamous markers Krt5, p63 and Sox2, and transcriptionally resembled the basal subtype of human SCC. In contrast to mouse adenocarcinomas, the LP tumors contained immune populations enriched for tumor-associated neutrophils. Sca1+/Ngfr+ fractions were enriched for tumor propagating cells (TPCs) that could serially transplant the disease in orthotopic assays. TPCs in the LP model and Ngfr+ cells in human SCCs highly expressed Pdl1, suggesting a novel mechanism of immune escape for TPCs. We used microarrays to detail the gene expression profles among lung SCC tumor epitheial cell, lung ADC tumor epithelia cell and normal epithelial cells.",
+   "gpl": "6246",
+   "gse": "54351",
+   "taxon": "Mus musculus",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2014/01/24",
+   "suppfile": "CEL",
+   "samples": [
+    {
+     "accession": "GSM1313622",
+     "title": "normal epithelial cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313619",
+     "title": "LP mouse Lung squamous cell carcinoma epithelial cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313625",
+     "title": "Kras G12D mouse Lung Adenocarcinoma epithelial cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313623",
+     "title": "normal epithelial cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313620",
+     "title": "LP mouse Lung squamous cell carcinoma epithelial cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313626",
+     "title": "Kras G12D mouse Lung Adenocarcinoma epithelial cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313624",
+     "title": "normal epithelial cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313627",
+     "title": "Kras G12D mouse Lung Adenocarcinoma epithelial cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313621",
+     "title": "LP mouse Lung squamous cell carcinoma epithelial cell, biological rep3"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 9,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "24794706"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE54nnn/GSE54351/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA236308"
+  },
+  "200054352": {
+   "uid": "200054352",
+   "accession": "GSE54352",
+   "gds": "",
+   "title": "Loss of Lkb1 and Pten Leads to Lung Squamous Cell Carcinoma with Elevated Pdl1 Expression: Stroma Cells",
+   "summary": "Lung squamous cell carcinoma (SCC) is a deadly disease for which current treatments are inadequate. We demonstrate that bi-allelic inactivation of Lkb1 and Pten in the mouse lung led to SCC that recapitulated the histology, gene expression and microenvironment found in human disease. Lkb1/Pten-null (LP) tumors expressed the squamous markers Krt5, p63 and Sox2, and transcriptionally resembled the basal subtype of human SCC. In contrast to mouse adenocarcinomas, the LP tumors contained immune populations enriched for tumor-associated neutrophils. Sca1+/Ngfr+ fractions were enriched for tumor propagating cells (TPCs) that could serially transplant the disease in orthotopic assays. TPCs in the LP model and Ngfr+ cells in human SCCs highly expressed Pdl1, suggesting a novel mechanism of immune escape for TPCs. We used microarrays to detail the gene expression profles among lung SCC tumor epitheial cell, lung ADC tumor epithelia cell and normal epithelial cells.",
+   "gpl": "6246",
+   "gse": "54352",
+   "taxon": "Mus musculus",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2014/01/24",
+   "suppfile": "CEL",
+   "samples": [
+    {
+     "accession": "GSM1313629",
+     "title": "LP mouse Lung squamous cell carcinoma stroma cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313632",
+     "title": "Kras G12D mouse Lung Adenocarcinoma stroma cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313633",
+     "title": "Kras G12D mouse Lung Adenocarcinoma stroma cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313628",
+     "title": "LP mouse Lung squamous cell carcinoma stroma cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313631",
+     "title": "Kras G12D mouse Lung Adenocarcinoma stroma cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313630",
+     "title": "LP mouse Lung squamous cell carcinoma stroma cell, biological rep3"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 6,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "24794706"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE54nnn/GSE54352/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA236307"
+  },
+  "200054353": {
+   "uid": "200054353",
+   "accession": "GSE54353",
+   "gds": "",
+   "title": "Loss of Lkb1 and Pten Leads to Lung Squamous Cell Carcinoma with Elevated Pdl1 Expression",
+   "summary": "This SuperSeries is composed of the SubSeries listed below.",
+   "gpl": "6246",
+   "gse": "54353",
+   "taxon": "Mus musculus",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2014/01/24",
+   "suppfile": "CEL",
+   "samples": [
+    {
+     "accession": "GSM1313633",
+     "title": "Kras G12D mouse Lung Adenocarcinoma stroma cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313630",
+     "title": "LP mouse Lung squamous cell carcinoma stroma cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313624",
+     "title": "normal epithelial cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313627",
+     "title": "Kras G12D mouse Lung Adenocarcinoma epithelial cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313621",
+     "title": "LP mouse Lung squamous cell carcinoma epithelial cell, biological rep3"
+    },
+    {
+     "accession": "GSM1313622",
+     "title": "normal epithelial cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313625",
+     "title": "Kras G12D mouse Lung Adenocarcinoma epithelial cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313619",
+     "title": "LP mouse Lung squamous cell carcinoma epithelial cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313628",
+     "title": "LP mouse Lung squamous cell carcinoma stroma cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313623",
+     "title": "normal epithelial cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313620",
+     "title": "LP mouse Lung squamous cell carcinoma epithelial cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313632",
+     "title": "Kras G12D mouse Lung Adenocarcinoma stroma cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313631",
+     "title": "Kras G12D mouse Lung Adenocarcinoma stroma cell, biological rep1"
+    },
+    {
+     "accession": "GSM1313626",
+     "title": "Kras G12D mouse Lung Adenocarcinoma epithelial cell, biological rep2"
+    },
+    {
+     "accession": "GSM1313629",
+     "title": "LP mouse Lung squamous cell carcinoma stroma cell, biological rep2"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 15,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "24794706"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE54nnn/GSE54353/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA236305"
+  },
+  "200054514": {
+   "uid": "200054514",
+   "accession": "GSE54514",
+   "gds": "4971",
+   "title": "Whole blood transcriptome of survivors and nonsurvivors of sepsis",
+   "summary": "There is currently no reliable tool available to measure immune dysfunction in septic patients in the clinical setting. This proof-of-concept study assesses the potential of gene expression profiling of whole blood as a tool to monitor immune dysfunction in critically ill septic patients. Whole blood samples were collected daily for up to 5 days from patients admitted to the intensive care unit with sepsis. RNA isolated from whole blood samples was assayed on Illumina HT-12 gene expression microarrays consisting of 48,804 probes. Microarray analysis identified 3677 genes as differentially expressed across 5 days between septic patients and healthy controls. Of the 3677 genes, biological pathway analysis identified 86 genes significantly down-regulated in the sepsis patients were present in pathways relating to immune response. These 86 genes correspond to known immune pathways implicated in sepsis including lymphocyte depletion, reduced T lymphocyte activation and deficient antigen presentation. Furthermore, expression levels of these genes correlated with clinical severity, with a significantly greater degree of down-regulation found in non-survivors compared to survivors. The results show that whole blood gene-expression analysis can capture systemic immune dysfunctions in septic patients. Our study provides an experimental basis to support further study on the use of a gene expression based assay, to assess immunosuppression and guide immunotherapy in future clinical trials.",
+   "gpl": "6947",
+   "gse": "54514",
+   "taxon": "Homo sapiens",
+   "entrytype": "GSE",
+   "gdstype": "Expression profiling by array",
+   "ptechtype": "",
+   "valtype": "",
+   "ssinfo": "",
+   "subsetinfo": "",
+   "pdat": "2014/02/04",
+   "suppfile": "TXT",
+   "samples": [
+    {
+     "accession": "GSM1318032",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=35"
+    },
+    {
+     "accession": "GSM1317903",
+     "title": "PAXgene whole blood, Control, Day_1, ID=8"
+    },
+    {
+     "accession": "GSM1317986",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=46"
+    },
+    {
+     "accession": "GSM1317949",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=33"
+    },
+    {
+     "accession": "GSM1317909",
+     "title": "PAXgene whole blood, Control, Day_1, ID=14"
+    },
+    {
+     "accession": "GSM1317992",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=52"
+    },
+    {
+     "accession": "GSM1318029",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=54"
+    },
+    {
+     "accession": "GSM1317946",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=30"
+    },
+    {
+     "accession": "GSM1318012",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=51"
+    },
+    {
+     "accession": "GSM1317966",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=50"
+    },
+    {
+     "accession": "GSM1317929",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_2, ID=27"
+    },
+    {
+     "accession": "GSM1318009",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=48"
+    },
+    {
+     "accession": "GSM1317926",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_2, ID=23"
+    },
+    {
+     "accession": "GSM1318049",
+     "title": "PAXgene whole blood, Control, Day_5, ID=9"
+    },
+    {
+     "accession": "GSM1317972",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=31"
+    },
+    {
+     "accession": "GSM1318055",
+     "title": "PAXgene whole blood, Control, Day_5, ID=15"
+    },
+    {
+     "accession": "GSM1317906",
+     "title": "PAXgene whole blood, Control, Day_1, ID=11"
+    },
+    {
+     "accession": "GSM1318035",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=45"
+    },
+    {
+     "accession": "GSM1317989",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=49"
+    },
+    {
+     "accession": "GSM1317969",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=53"
+    },
+    {
+     "accession": "GSM1318052",
+     "title": "PAXgene whole blood, Control, Day_5, ID=12"
+    },
+    {
+     "accession": "GSM1317983",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=42"
+    },
+    {
+     "accession": "GSM1317937",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_4, ID=19"
+    },
+    {
+     "accession": "GSM1317900",
+     "title": "PAXgene whole blood, Control, Day_1, ID=5"
+    },
+    {
+     "accession": "GSM1317920",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=26"
+    },
+    {
+     "accession": "GSM1318003",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=39"
+    },
+    {
+     "accession": "GSM1317963",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=47"
+    },
+    {
+     "accession": "GSM1318000",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=35"
+    },
+    {
+     "accession": "GSM1317940",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_4, ID=23"
+    },
+    {
+     "accession": "GSM1318023",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=45"
+    },
+    {
+     "accession": "GSM1318043",
+     "title": "PAXgene whole blood, Control, Day_5, ID=3"
+    },
+    {
+     "accession": "GSM1317960",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=44"
+    },
+    {
+     "accession": "GSM1317923",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_2, ID=19"
+    },
+    {
+     "accession": "GSM1318006",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=45"
+    },
+    {
+     "accession": "GSM1318020",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=41"
+    },
+    {
+     "accession": "GSM1317980",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=39"
+    },
+    {
+     "accession": "GSM1318026",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=49"
+    },
+    {
+     "accession": "GSM1317897",
+     "title": "PAXgene whole blood, Control, Day_1, ID=2"
+    },
+    {
+     "accession": "GSM1318050",
+     "title": "PAXgene whole blood, Control, Day_5, ID=10"
+    },
+    {
+     "accession": "GSM1317921",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=27"
+    },
+    {
+     "accession": "GSM1317967",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=51"
+    },
+    {
+     "accession": "GSM1317987",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=47"
+    },
+    {
+     "accession": "GSM1317964",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=48"
+    },
+    {
+     "accession": "GSM1318046",
+     "title": "PAXgene whole blood, Control, Day_5, ID=6"
+    },
+    {
+     "accession": "GSM1317917",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=23"
+    },
+    {
+     "accession": "GSM1317984",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=43"
+    },
+    {
+     "accession": "GSM1318027",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=50"
+    },
+    {
+     "accession": "GSM1317944",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_5, ID=24"
+    },
+    {
+     "accession": "GSM1317981",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=40"
+    },
+    {
+     "accession": "GSM1318024",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=46"
+    },
+    {
+     "accession": "GSM1318047",
+     "title": "PAXgene whole blood, Control, Day_5, ID=7"
+    },
+    {
+     "accession": "GSM1317941",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_4, ID=24"
+    },
+    {
+     "accession": "GSM1317943",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_5, ID=23"
+    },
+    {
+     "accession": "GSM1318044",
+     "title": "PAXgene whole blood, Control, Day_5, ID=4"
+    },
+    {
+     "accession": "GSM1317961",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=45"
+    },
+    {
+     "accession": "GSM1318004",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=42"
+    },
+    {
+     "accession": "GSM1317995",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=30"
+    },
+    {
+     "accession": "GSM1318041",
+     "title": "PAXgene whole blood, Control, Day_5, ID=1"
+    },
+    {
+     "accession": "GSM1317958",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=42"
+    },
+    {
+     "accession": "GSM1317912",
+     "title": "PAXgene whole blood, Control, Day_1, ID=17"
+    },
+    {
+     "accession": "GSM1317904",
+     "title": "PAXgene whole blood, Control, Day_1, ID=9"
+    },
+    {
+     "accession": "GSM1317918",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=24"
+    },
+    {
+     "accession": "GSM1318038",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=50"
+    },
+    {
+     "accession": "GSM1317955",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=39"
+    },
+    {
+     "accession": "GSM1318021",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=42"
+    },
+    {
+     "accession": "GSM1317938",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_4, ID=20"
+    },
+    {
+     "accession": "GSM1318058",
+     "title": "PAXgene whole blood, Control, Day_5, ID=18"
+    },
+    {
+     "accession": "GSM1318030",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=30"
+    },
+    {
+     "accession": "GSM1318018",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=35"
+    },
+    {
+     "accession": "GSM1317901",
+     "title": "PAXgene whole blood, Control, Day_1, ID=6"
+    },
+    {
+     "accession": "GSM1317935",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_3, ID=26"
+    },
+    {
+     "accession": "GSM1317898",
+     "title": "PAXgene whole blood, Control, Day_1, ID=3"
+    },
+    {
+     "accession": "GSM1318015",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=54"
+    },
+    {
+     "accession": "GSM1317932",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_3, ID=22"
+    },
+    {
+     "accession": "GSM1317998",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=33"
+    },
+    {
+     "accession": "GSM1317915",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=21"
+    },
+    {
+     "accession": "GSM1317952",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=36"
+    },
+    {
+     "accession": "GSM1317976",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=35"
+    },
+    {
+     "accession": "GSM1318022",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=43"
+    },
+    {
+     "accession": "GSM1317939",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_4, ID=21"
+    },
+    {
+     "accession": "GSM1317924",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_2, ID=21"
+    },
+    {
+     "accession": "GSM1318007",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=46"
+    },
+    {
+     "accession": "GSM1318042",
+     "title": "PAXgene whole blood, Control, Day_5, ID=2"
+    },
+    {
+     "accession": "GSM1317913",
+     "title": "PAXgene whole blood, Control, Day_1, ID=18"
+    },
+    {
+     "accession": "GSM1317919",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=25"
+    },
+    {
+     "accession": "GSM1318002",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=38"
+    },
+    {
+     "accession": "GSM1317999",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=34"
+    },
+    {
+     "accession": "GSM1318045",
+     "title": "PAXgene whole blood, Control, Day_5, ID=5"
+    },
+    {
+     "accession": "GSM1317916",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=22"
+    },
+    {
+     "accession": "GSM1317982",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=41"
+    },
+    {
+     "accession": "GSM1317899",
+     "title": "PAXgene whole blood, Control, Day_1, ID=4"
+    },
+    {
+     "accession": "GSM1318001",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=36"
+    },
+    {
+     "accession": "GSM1317936",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_3, ID=27"
+    },
+    {
+     "accession": "GSM1318019",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=39"
+    },
+    {
+     "accession": "GSM1317979",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=38"
+    },
+    {
+     "accession": "GSM1317896",
+     "title": "PAXgene whole blood, Control, Day_1, ID=1"
+    },
+    {
+     "accession": "GSM1317975",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=34"
+    },
+    {
+     "accession": "GSM1318013",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=52"
+    },
+    {
+     "accession": "GSM1317950",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=34"
+    },
+    {
+     "accession": "GSM1317996",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=31"
+    },
+    {
+     "accession": "GSM1317947",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=31"
+    },
+    {
+     "accession": "GSM1317978",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=37"
+    },
+    {
+     "accession": "GSM1317910",
+     "title": "PAXgene whole blood, Control, Day_1, ID=15"
+    },
+    {
+     "accession": "GSM1317993",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=53"
+    },
+    {
+     "accession": "GSM1317953",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=37"
+    },
+    {
+     "accession": "GSM1317907",
+     "title": "PAXgene whole blood, Control, Day_1, ID=12"
+    },
+    {
+     "accession": "GSM1317990",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=50"
+    },
+    {
+     "accession": "GSM1317973",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=32"
+    },
+    {
+     "accession": "GSM1318056",
+     "title": "PAXgene whole blood, Control, Day_5, ID=16"
+    },
+    {
+     "accession": "GSM1318053",
+     "title": "PAXgene whole blood, Control, Day_5, ID=13"
+    },
+    {
+     "accession": "GSM1318016",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=30"
+    },
+    {
+     "accession": "GSM1317970",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=54"
+    },
+    {
+     "accession": "GSM1317959",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=43"
+    },
+    {
+     "accession": "GSM1318014",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=53"
+    },
+    {
+     "accession": "GSM1317931",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_3, ID=21"
+    },
+    {
+     "accession": "GSM1317956",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=40"
+    },
+    {
+     "accession": "GSM1318039",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=51"
+    },
+    {
+     "accession": "GSM1317977",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=36"
+    },
+    {
+     "accession": "GSM1317962",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=46"
+    },
+    {
+     "accession": "GSM1318057",
+     "title": "PAXgene whole blood, Control, Day_5, ID=17"
+    },
+    {
+     "accession": "GSM1317974",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=33"
+    },
+    {
+     "accession": "GSM1318040",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=54"
+    },
+    {
+     "accession": "GSM1317957",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=41"
+    },
+    {
+     "accession": "GSM1318054",
+     "title": "PAXgene whole blood, Control, Day_5, ID=14"
+    },
+    {
+     "accession": "GSM1317971",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=30"
+    },
+    {
+     "accession": "GSM1318037",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=49"
+    },
+    {
+     "accession": "GSM1317908",
+     "title": "PAXgene whole blood, Control, Day_1, ID=13"
+    },
+    {
+     "accession": "GSM1317954",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=38"
+    },
+    {
+     "accession": "GSM1318034",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=43"
+    },
+    {
+     "accession": "GSM1317997",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=32"
+    },
+    {
+     "accession": "GSM1317951",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=35"
+    },
+    {
+     "accession": "GSM1317934",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_3, ID=24"
+    },
+    {
+     "accession": "GSM1317902",
+     "title": "PAXgene whole blood, Control, Day_1, ID=7"
+    },
+    {
+     "accession": "GSM1318031",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=33"
+    },
+    {
+     "accession": "GSM1317948",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=32"
+    },
+    {
+     "accession": "GSM1318005",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=43"
+    },
+    {
+     "accession": "GSM1317930",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_3, ID=19"
+    },
+    {
+     "accession": "GSM1317928",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_2, ID=26"
+    },
+    {
+     "accession": "GSM1318011",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=50"
+    },
+    {
+     "accession": "GSM1317922",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=28"
+    },
+    {
+     "accession": "GSM1317968",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=52"
+    },
+    {
+     "accession": "GSM1318051",
+     "title": "PAXgene whole blood, Control, Day_5, ID=11"
+    },
+    {
+     "accession": "GSM1318033",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=42"
+    },
+    {
+     "accession": "GSM1318008",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=47"
+    },
+    {
+     "accession": "GSM1318048",
+     "title": "PAXgene whole blood, Control, Day_5, ID=8"
+    },
+    {
+     "accession": "GSM1317925",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_2, ID=22"
+    },
+    {
+     "accession": "GSM1318028",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=51"
+    },
+    {
+     "accession": "GSM1317905",
+     "title": "PAXgene whole blood, Control, Day_1, ID=10"
+    },
+    {
+     "accession": "GSM1317945",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=29"
+    },
+    {
+     "accession": "GSM1318036",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_5, ID=46"
+    },
+    {
+     "accession": "GSM1318025",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=48"
+    },
+    {
+     "accession": "GSM1317942",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_5, ID=19"
+    },
+    {
+     "accession": "GSM1317927",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_2, ID=24"
+    },
+    {
+     "accession": "GSM1318010",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_3, ID=49"
+    },
+    {
+     "accession": "GSM1317933",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_3, ID=23"
+    },
+    {
+     "accession": "GSM1317911",
+     "title": "PAXgene whole blood, Control, Day_1, ID=16"
+    },
+    {
+     "accession": "GSM1317994",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=54"
+    },
+    {
+     "accession": "GSM1317914",
+     "title": "PAXgene whole blood, sepsis_nonsurvivor, Day_1, ID=19"
+    },
+    {
+     "accession": "GSM1318017",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_4, ID=33"
+    },
+    {
+     "accession": "GSM1317985",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=45"
+    },
+    {
+     "accession": "GSM1317965",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_1, ID=49"
+    },
+    {
+     "accession": "GSM1317991",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=51"
+    },
+    {
+     "accession": "GSM1317988",
+     "title": "PAXgene whole blood, sepsis_survivor, Day_2, ID=48"
+    }
+   ],
+   "relations": [],
+   "extrelations": [],
+   "n_samples": 163,
+   "seriestitle": "",
+   "platformtitle": "",
+   "platformtaxa": "",
+   "samplestaxa": "",
+   "pubmedids": [
+    "23807251"
+   ],
+   "projects": [],
+   "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE54nnn/GSE54514/",
+   "geo2r": "yes",
+   "bioproject": "PRJNA237335"
+  }
+ }
+}

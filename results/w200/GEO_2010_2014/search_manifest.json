@@ -1,0 +1,27 @@
+{
+ "generated_at_utc": "2026-08-16T20:08:06Z",
+ "queries": {
+  "lung_ici_human_gse_2010_2014": "(lung[Title] OR NSCLC[Title] OR \"non-small cell lung\"[All Fields] OR \"lung cancer\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"lung neoplasms\"[All Fields] OR \"lung\"[All Fields]) AND (\"PD-1\"[All Fields] OR \"PD1\"[All Fields] OR \"PDCD1\"[All Fields] OR \"PD-L1\"[All Fields] OR \"PDL1\"[All Fields] OR \"CD274\"[All Fields] OR \"CTLA-4\"[All Fields] OR \"CTLA4\"[All Fields] OR \"immune checkpoint\"[All Fields] OR \"checkpoint inhibitor\"[All Fields] OR \"checkpoint blockade\"[All Fields] OR \"immunotherapy\"[All Fields] OR \"anti-PD-1\"[All Fields] OR \"anti-PD-L1\"[All Fields] OR \"nivolumab\"[All Fields] OR \"pembrolizumab\"[All Fields] OR \"atezolizumab\"[All Fields] OR \"durvalumab\"[All Fields] OR \"avelumab\"[All Fields] OR \"ipilimumab\"[All Fields] OR \"tremelimumab\"[All Fields]) AND \"Homo sapiens\"[Organism] AND gse[Entry Type] AND (\"2010/01/01\"[PDAT] : \"2014/12/31\"[PDAT])",
+  "lung_ici_gse_2010_2014": "(lung[Title] OR NSCLC[Title] OR \"non-small cell lung\"[All Fields] OR \"lung cancer\"[All Fields] OR \"lung carcinoma\"[All Fields] OR \"lung adenocarcinoma\"[All Fields] OR \"lung neoplasms\"[All Fields] OR \"lung\"[All Fields]) AND (\"PD-1\"[All Fields] OR \"PD1\"[All Fields] OR \"PDCD1\"[All Fields] OR \"PD-L1\"[All Fields] OR \"PDL1\"[All Fields] OR \"CD274\"[All Fields] OR \"CTLA-4\"[All Fields] OR \"CTLA4\"[All Fields] OR \"immune checkpoint\"[All Fields] OR \"checkpoint inhibitor\"[All Fields] OR \"checkpoint blockade\"[All Fields] OR \"immunotherapy\"[All Fields] OR \"anti-PD-1\"[All Fields] OR \"anti-PD-L1\"[All Fields] OR \"nivolumab\"[All Fields] OR \"pembrolizumab\"[All Fields] OR \"atezolizumab\"[All Fields] OR \"durvalumab\"[All Fields] OR \"avelumab\"[All Fields] OR \"ipilimumab\"[All Fields] OR \"tremelimumab\"[All Fields]) AND gse[Entry Type] AND (\"2010/01/01\"[PDAT] : \"2014/12/31\"[PDAT])",
+  "strict_pdl1_text_2010_2014": "(lung) AND (PD-L1 OR PD-1 OR CD274 OR PDCD1) AND gse[Entry Type] AND 2010:2014[PDAT]"
+ },
+ "n_uids_by_query": {
+  "lung_ici_human_gse_2010_2014": 4,
+  "lung_ici_gse_2010_2014": 9,
+  "strict_pdl1_text_2010_2014": 0
+ },
+ "n_union_ici": 9,
+ "n_gse_candidates": 9,
+ "accessions": [
+  "GSE27556",
+  "GSE35640",
+  "GSE41088",
+  "GSE44825",
+  "GSE46517",
+  "GSE54351",
+  "GSE54352",
+  "GSE54353",
+  "GSE54514"
+ ],
+ "note": "Every accession is a live NCBI gds hit. The strict PD-1/PD-L1 text probe is recorded separately and is not required for the union."
+}

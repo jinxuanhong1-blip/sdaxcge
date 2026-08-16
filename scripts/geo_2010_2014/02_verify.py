@@ -145,7 +145,7 @@ def classify(taxon, title, summary):
     return is_human, is_lung, is_io, is_checkpoint_ici, is_pdl1_gene, treat
 
 
-def fallout_reason(is_human, is_lung, is_io, is_checkpoint_ici):
+def fallout_reason(is_human, is_lung, is_io, is_checkpoint_ici, is_pdl1_gene):
     if is_human and is_lung and is_checkpoint_ici:
         return "in_scope_checkpoint_ici"
     if is_human and is_lung and is_io:
@@ -180,7 +180,7 @@ def main():
         is_human, is_lung, is_io, is_checkpoint_ici, is_pdl1_gene, treat = classify(
             taxon, title, summary
         )
-        reason = fallout_reason(is_human, is_lung, is_io, is_checkpoint_ici)
+        reason = fallout_reason(is_human, is_lung, is_io, is_checkpoint_ici, is_pdl1_gene)
         rec = {
             "accession": acc,
             "uid": uid,

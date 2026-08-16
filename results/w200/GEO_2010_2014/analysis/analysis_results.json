@@ -1,0 +1,806 @@
+{
+ "GSE27556:GSE27556-GPL570_series_matrix.txt.gz": {
+  "accession": "GSE27556",
+  "matrix_file": "GSE27556-GPL570_series_matrix.txt.gz",
+  "status": "ok",
+  "platform": "GPL570",
+  "symbol_col": "Gene Symbol",
+  "n_platform_rows": 54675,
+  "n_samples": 8,
+  "gene_probes": {
+   "TACSTD2": [
+    "202285_s_at",
+    "202286_s_at",
+    "202287_s_at",
+    "227128_s_at"
+   ],
+   "CLDN4": [
+    "1569421_at",
+    "201428_at"
+   ],
+   "CD274": [
+    "223834_at",
+    "227458_at"
+   ],
+   "PDCD1": [
+    "207634_at"
+   ]
+  },
+  "gene_summary": {
+   "TACSTD2": {
+    "n": 8,
+    "mean": 5.5291,
+    "median": 5.4552,
+    "sd": 0.7547,
+    "min": 4.5761,
+    "max": 6.7482
+   },
+   "CLDN4": {
+    "n": 8,
+    "mean": 6.0249,
+    "median": 6.057,
+    "sd": 1.0082,
+    "min": 4.5343,
+    "max": 7.4914
+   },
+   "CD274": {
+    "n": 8,
+    "mean": 6.7726,
+    "median": 6.2832,
+    "sd": 1.7577,
+    "min": 4.8616,
+    "max": 9.4753
+   },
+   "PDCD1": {
+    "n": 8,
+    "mean": 5.8773,
+    "median": 5.7724,
+    "sd": 0.4886,
+    "min": 5.5205,
+    "max": 7.0446
+   }
+  },
+  "coexpression": {
+   "TACSTD2~CD274": {
+    "pearson": 0.2297,
+    "spearman": 0.2381,
+    "n": 8
+   },
+   "TACSTD2~PDCD1": {
+    "pearson": 0.6107,
+    "spearman": 0.3571,
+    "n": 8
+   },
+   "CLDN4~CD274": {
+    "pearson": 0.2733,
+    "spearman": 0.1429,
+    "n": 8
+   },
+   "CLDN4~PDCD1": {
+    "pearson": 0.0671,
+    "spearman": 0.2381,
+    "n": 8
+   },
+   "TACSTD2~CLDN4": {
+    "pearson": 0.3037,
+    "spearman": 0.2381,
+    "n": 8
+   },
+   "CD274~PDCD1": {
+    "pearson": -0.2835,
+    "spearman": -0.119,
+    "n": 8
+   }
+  },
+  "all_four_measured": true,
+  "clinical_contrasts": {
+   "cell_type": {
+    "adenocarcinoma": {
+     "n": 4,
+     "TACSTD2_median": 4.991,
+     "CLDN4_median": 5.6295,
+     "CD274_median": 6.9579
+    },
+    "metastasis of a colon carcinoma": {
+     "n": 1,
+     "TACSTD2_median": 5.0146,
+     "CLDN4_median": 7.4914,
+     "CD274_median": 4.8616
+    },
+    "squamous cell carcinoma": {
+     "n": 2,
+     "TACSTD2_median": 5.9819,
+     "CLDN4_median": 6.057,
+     "CD274_median": 7.686
+    }
+   },
+   "tissue_type": {
+    "normal kidney tissue": {
+     "n": 1,
+     "TACSTD2_median": 6.7482,
+     "CLDN4_median": 5.9358,
+     "CD274_median": 5.2761
+    },
+    "normal lung tissue": {
+     "n": 0,
+     "TACSTD2_median": null,
+     "CLDN4_median": null,
+     "CD274_median": null
+    }
+   }
+  }
+ },
+ "GSE27556:GSE27556-GPL96_series_matrix.txt.gz": {
+  "accession": "GSE27556",
+  "matrix_file": "GSE27556-GPL96_series_matrix.txt.gz",
+  "status": "ok",
+  "platform": "GPL96",
+  "symbol_col": "Gene Symbol",
+  "n_platform_rows": 22283,
+  "n_samples": 2,
+  "gene_probes": {
+   "TACSTD2": [
+    "202285_s_at",
+    "202286_s_at",
+    "202287_s_at"
+   ],
+   "CLDN4": [
+    "201428_at"
+   ],
+   "CD274": [],
+   "PDCD1": [
+    "207634_at"
+   ]
+  },
+  "gene_summary": {
+   "TACSTD2": {
+    "n": 2,
+    "mean": 6.7392,
+    "median": 6.7392,
+    "sd": 0.282,
+    "min": 6.5398,
+    "max": 6.9386
+   },
+   "CLDN4": {
+    "n": 2,
+    "mean": 7.3112,
+    "median": 7.3112,
+    "sd": 0.3751,
+    "min": 7.046,
+    "max": 7.5765
+   },
+   "CD274": {
+    "n": 0,
+    "mean": null,
+    "median": null,
+    "sd": null,
+    "min": null,
+    "max": null
+   },
+   "PDCD1": {
+    "n": 2,
+    "mean": 6.59,
+    "median": 6.59,
+    "sd": 0.2795,
+    "min": 6.3923,
+    "max": 6.7876
+   }
+  },
+  "coexpression": {
+   "TACSTD2~CD274": {
+    "pearson": null,
+    "spearman": null,
+    "n": 0
+   },
+   "TACSTD2~PDCD1": {
+    "pearson": null,
+    "spearman": null,
+    "n": 2
+   },
+   "CLDN4~CD274": {
+    "pearson": null,
+    "spearman": null,
+    "n": 0
+   },
+   "CLDN4~PDCD1": {
+    "pearson": null,
+    "spearman": null,
+    "n": 2
+   },
+   "TACSTD2~CLDN4": {
+    "pearson": null,
+    "spearman": null,
+    "n": 2
+   },
+   "CD274~PDCD1": {
+    "pearson": null,
+    "spearman": null,
+    "n": 0
+   }
+  },
+  "all_four_measured": false,
+  "clinical_contrasts": {
+   "cell_type": {
+    "adenocarcinoma": {
+     "n": 0,
+     "TACSTD2_median": null,
+     "CLDN4_median": null,
+     "CD274_median": null
+    },
+    "metastasis of a colon carcinoma": {
+     "n": 0,
+     "TACSTD2_median": null,
+     "CLDN4_median": null,
+     "CD274_median": null
+    },
+    "squamous cell carcinoma": {
+     "n": 0,
+     "TACSTD2_median": null,
+     "CLDN4_median": null,
+     "CD274_median": null
+    }
+   },
+   "tissue_type": {
+    "normal kidney tissue": {
+     "n": 1,
+     "TACSTD2_median": 6.9386,
+     "CLDN4_median": 7.046,
+     "CD274_median": null
+    },
+    "normal lung tissue": {
+     "n": 1,
+     "TACSTD2_median": 6.5398,
+     "CLDN4_median": 7.5765,
+     "CD274_median": null
+    }
+   }
+  }
+ },
+ "GSE35640:GSE35640_series_matrix.txt.gz": {
+  "accession": "GSE35640",
+  "matrix_file": "GSE35640_series_matrix.txt.gz",
+  "status": "ok",
+  "platform": "GPL570",
+  "symbol_col": "Gene Symbol",
+  "n_platform_rows": 54675,
+  "n_samples": 65,
+  "gene_probes": {
+   "TACSTD2": [
+    "202285_s_at",
+    "202286_s_at",
+    "202287_s_at",
+    "227128_s_at"
+   ],
+   "CLDN4": [
+    "1569421_at",
+    "201428_at"
+   ],
+   "CD274": [
+    "223834_at",
+    "227458_at"
+   ],
+   "PDCD1": [
+    "207634_at"
+   ]
+  },
+  "gene_summary": {
+   "TACSTD2": {
+    "n": 65,
+    "mean": 3.1565,
+    "median": 2.5464,
+    "sd": 0.9788,
+    "min": 2.2098,
+    "max": 4.7372
+   },
+   "CLDN4": {
+    "n": 65,
+    "mean": 2.4256,
+    "median": 2.3587,
+    "sd": 0.1651,
+    "min": 2.2652,
+    "max": 3.1158
+   },
+   "CD274": {
+    "n": 65,
+    "mean": 4.7511,
+    "median": 4.7442,
+    "sd": 1.1991,
+    "min": 2.5843,
+    "max": 7.7743
+   },
+   "PDCD1": {
+    "n": 65,
+    "mean": 2.2178,
+    "median": 2.2139,
+    "sd": 0.0191,
+    "min": 2.2001,
+    "max": 2.3163
+   }
+  },
+  "coexpression": {
+   "TACSTD2~CD274": {
+    "pearson": -0.1479,
+    "spearman": -0.081,
+    "n": 65
+   },
+   "TACSTD2~PDCD1": {
+    "pearson": -0.2253,
+    "spearman": -0.2246,
+    "n": 65
+   },
+   "CLDN4~CD274": {
+    "pearson": -0.1045,
+    "spearman": -0.2351,
+    "n": 65
+   },
+   "CLDN4~PDCD1": {
+    "pearson": -0.1007,
+    "spearman": 0.289,
+    "n": 65
+   },
+   "TACSTD2~CLDN4": {
+    "pearson": 0.6031,
+    "spearman": 0.4731,
+    "n": 65
+   },
+   "CD274~PDCD1": {
+    "pearson": 0.2353,
+    "spearman": -0.0377,
+    "n": 65
+   }
+  },
+  "all_four_measured": true,
+  "clinical_contrasts": {
+   "treatment_response_for_gene_profiling": {
+    "NE": {
+     "n": 9,
+     "TACSTD2_median": 2.2932,
+     "CLDN4_median": 2.3577,
+     "CD274_median": 4.3795
+    },
+    "NR": {
+     "n": 34,
+     "TACSTD2_median": 2.5652,
+     "CLDN4_median": 2.361,
+     "CD274_median": 4.1753
+    },
+    "R": {
+     "n": 22,
+     "TACSTD2_median": 2.9602,
+     "CLDN4_median": 2.3583,
+     "CD274_median": 5.3681
+    }
+   },
+   "response": {
+    "non-responder": {
+     "n": 34,
+     "TACSTD2_median": 2.5652,
+     "CLDN4_median": 2.361,
+     "CD274_median": 4.1753
+    },
+    "not evaluable": {
+     "n": 9,
+     "TACSTD2_median": 2.2932,
+     "CLDN4_median": 2.3577,
+     "CD274_median": 4.3795
+    },
+    "responder": {
+     "n": 22,
+     "TACSTD2_median": 2.9602,
+     "CLDN4_median": 2.3583,
+     "CD274_median": 5.3681
+    }
+   }
+  },
+  "response_tests": {
+   "treatment_response_for_gene_profiling": {
+    "positive_levels": [
+     "R"
+    ],
+    "negative_levels": [
+     "NR"
+    ],
+    "TACSTD2": {
+     "n_a": 22,
+     "n_b": 34,
+     "u": 417.0,
+     "p": 0.4707,
+     "median_a": 2.9602,
+     "median_b": 2.5652
+    },
+    "CLDN4": {
+     "n_a": 22,
+     "n_b": 34,
+     "u": 337.0,
+     "p": 0.5348,
+     "median_a": 2.3583,
+     "median_b": 2.361
+    },
+    "CD274": {
+     "n_a": 22,
+     "n_b": 34,
+     "u": 523.0,
+     "p": 0.0124,
+     "median_a": 5.3681,
+     "median_b": 4.1753
+    }
+   },
+   "response": {
+    "positive_levels": [
+     "responder"
+    ],
+    "negative_levels": [
+     "non-responder"
+    ],
+    "TACSTD2": {
+     "n_a": 22,
+     "n_b": 34,
+     "u": 417.0,
+     "p": 0.4707,
+     "median_a": 2.9602,
+     "median_b": 2.5652
+    },
+    "CLDN4": {
+     "n_a": 22,
+     "n_b": 34,
+     "u": 337.0,
+     "p": 0.5348,
+     "median_a": 2.3583,
+     "median_b": 2.361
+    },
+    "CD274": {
+     "n_a": 22,
+     "n_b": 34,
+     "u": 523.0,
+     "p": 0.0124,
+     "median_a": 5.3681,
+     "median_b": 4.1753
+    }
+   }
+  }
+ },
+ "GSE54351:GSE54351_series_matrix.txt.gz": {
+  "accession": "GSE54351",
+  "matrix_file": "GSE54351_series_matrix.txt.gz",
+  "status": "ok",
+  "platform": "GPL6246",
+  "symbol_col": "gene_assignment",
+  "n_platform_rows": 35557,
+  "n_samples": 9,
+  "gene_probes": {
+   "TACSTD2": [
+    "10545168"
+   ],
+   "CLDN4": [
+    "10534395"
+   ],
+   "CD274": [
+    "10462390"
+   ],
+   "PDCD1": [
+    "10356866"
+   ]
+  },
+  "gene_summary": {
+   "TACSTD2": {
+    "n": 9,
+    "mean": 10.3917,
+    "median": 10.2369,
+    "sd": 1.8719,
+    "min": 7.5333,
+    "max": 12.5978
+   },
+   "CLDN4": {
+    "n": 9,
+    "mean": 10.9327,
+    "median": 10.0239,
+    "sd": 1.6728,
+    "min": 9.0515,
+    "max": 13.0691
+   },
+   "CD274": {
+    "n": 9,
+    "mean": 9.1277,
+    "median": 8.5953,
+    "sd": 1.3579,
+    "min": 7.8082,
+    "max": 11.4747
+   },
+   "PDCD1": {
+    "n": 9,
+    "mean": 6.906,
+    "median": 6.8873,
+    "sd": 0.1771,
+    "min": 6.714,
+    "max": 7.2038
+   }
+  },
+  "coexpression": {
+   "TACSTD2~CD274": {
+    "pearson": 0.7906,
+    "spearman": 0.5833,
+    "n": 9
+   },
+   "TACSTD2~PDCD1": {
+    "pearson": 0.5575,
+    "spearman": 0.5,
+    "n": 9
+   },
+   "CLDN4~CD274": {
+    "pearson": 0.8544,
+    "spearman": 0.6833,
+    "n": 9
+   },
+   "CLDN4~PDCD1": {
+    "pearson": 0.6378,
+    "spearman": 0.55,
+    "n": 9
+   },
+   "TACSTD2~CLDN4": {
+    "pearson": 0.9142,
+    "spearman": 0.85,
+    "n": 9
+   },
+   "CD274~PDCD1": {
+    "pearson": 0.752,
+    "spearman": 0.3333,
+    "n": 9
+   }
+  },
+  "all_four_measured": true,
+  "clinical_contrasts": {
+   "genotype": {
+    "Kras G12D": {
+     "n": 3,
+     "TACSTD2_median": 10.2369,
+     "CLDN4_median": 9.8874,
+     "CD274_median": 8.5953
+    },
+    "Lkb1 -/- Pten-/-": {
+     "n": 3,
+     "TACSTD2_median": 12.5831,
+     "CLDN4_median": 13.0242,
+     "CD274_median": 11.0199
+    },
+    "wild type": {
+     "n": 3,
+     "TACSTD2_median": 8.9827,
+     "CLDN4_median": 9.403,
+     "CD274_median": 8.2097
+    }
+   }
+  }
+ },
+ "GSE54352:GSE54352_series_matrix.txt.gz": {
+  "accession": "GSE54352",
+  "matrix_file": "GSE54352_series_matrix.txt.gz",
+  "status": "ok",
+  "platform": "GPL6246",
+  "symbol_col": "gene_assignment",
+  "n_platform_rows": 35557,
+  "n_samples": 6,
+  "gene_probes": {
+   "TACSTD2": [
+    "10545168"
+   ],
+   "CLDN4": [
+    "10534395"
+   ],
+   "CD274": [
+    "10462390"
+   ],
+   "PDCD1": [
+    "10356866"
+   ]
+  },
+  "gene_summary": {
+   "TACSTD2": {
+    "n": 6,
+    "mean": 9.5128,
+    "median": 10.3623,
+    "sd": 2.2394,
+    "min": 6.6219,
+    "max": 11.7124
+   },
+   "CLDN4": {
+    "n": 6,
+    "mean": 10.8393,
+    "median": 11.4648,
+    "sd": 1.9079,
+    "min": 8.3571,
+    "max": 12.5966
+   },
+   "CD274": {
+    "n": 6,
+    "mean": 11.388,
+    "median": 12.0398,
+    "sd": 1.9829,
+    "min": 7.3925,
+    "max": 12.6881
+   },
+   "PDCD1": {
+    "n": 6,
+    "mean": 8.0973,
+    "median": 8.1863,
+    "sd": 0.7634,
+    "min": 6.8072,
+    "max": 8.9066
+   }
+  },
+  "coexpression": {
+   "TACSTD2~CD274": {
+    "pearson": -0.3306,
+    "spearman": -0.5429,
+    "n": 6
+   },
+   "TACSTD2~PDCD1": {
+    "pearson": 0.0355,
+    "spearman": 0.4286,
+    "n": 6
+   },
+   "CLDN4~CD274": {
+    "pearson": -0.5055,
+    "spearman": -0.7143,
+    "n": 6
+   },
+   "CLDN4~PDCD1": {
+    "pearson": -0.1337,
+    "spearman": -0.0857,
+    "n": 6
+   },
+   "TACSTD2~CLDN4": {
+    "pearson": 0.9805,
+    "spearman": 0.8286,
+    "n": 6
+   },
+   "CD274~PDCD1": {
+    "pearson": 0.7335,
+    "spearman": -0.0857,
+    "n": 6
+   }
+  },
+  "all_four_measured": true,
+  "clinical_contrasts": {
+   "genotype": {
+    "Kras G12D": {
+     "n": 3,
+     "TACSTD2_median": 6.8152,
+     "CLDN4_median": 8.6365,
+     "CD274_median": 12.1573
+    },
+    "Lkb1 -/- Pten-/-": {
+     "n": 3,
+     "TACSTD2_median": 11.2024,
+     "CLDN4_median": 11.9664,
+     "CD274_median": 11.9222
+    }
+   }
+  }
+ },
+ "GSE54353:GSE54353_series_matrix.txt.gz": {
+  "accession": "GSE54353",
+  "matrix_file": "GSE54353_series_matrix.txt.gz",
+  "status": "ok",
+  "platform": "GPL6246",
+  "symbol_col": "gene_assignment",
+  "n_platform_rows": 35557,
+  "n_samples": 15,
+  "gene_probes": {
+   "TACSTD2": [
+    "10545168"
+   ],
+   "CLDN4": [
+    "10534395"
+   ],
+   "CD274": [
+    "10462390"
+   ],
+   "PDCD1": [
+    "10356866"
+   ]
+  },
+  "gene_summary": {
+   "TACSTD2": {
+    "n": 15,
+    "mean": 10.0401,
+    "median": 10.2369,
+    "sd": 1.998,
+    "min": 6.6219,
+    "max": 12.5978
+   },
+   "CLDN4": {
+    "n": 15,
+    "mean": 10.8953,
+    "median": 10.9631,
+    "sd": 1.7033,
+    "min": 8.3571,
+    "max": 13.0691
+   },
+   "CD274": {
+    "n": 15,
+    "mean": 10.0318,
+    "median": 10.0283,
+    "sd": 1.9421,
+    "min": 7.3925,
+    "max": 12.6881
+   },
+   "PDCD1": {
+    "n": 15,
+    "mean": 7.3825,
+    "median": 6.917,
+    "sd": 0.7687,
+    "min": 6.714,
+    "max": 8.9066
+   }
+  },
+  "coexpression": {
+   "TACSTD2~CD274": {
+    "pearson": 0.0292,
+    "spearman": -0.0357,
+    "n": 15
+   },
+   "TACSTD2~PDCD1": {
+    "pearson": -0.0924,
+    "spearman": 0.0714,
+    "n": 15
+   },
+   "CLDN4~CD274": {
+    "pearson": 0.1124,
+    "spearman": -0.0571,
+    "n": 15
+   },
+   "CLDN4~PDCD1": {
+    "pearson": 0.0075,
+    "spearman": 0.0464,
+    "n": 15
+   },
+   "TACSTD2~CLDN4": {
+    "pearson": 0.9265,
+    "spearman": 0.9464,
+    "n": 15
+   },
+   "CD274~PDCD1": {
+    "pearson": 0.7986,
+    "spearman": 0.7536,
+    "n": 15
+   }
+  },
+  "all_four_measured": true,
+  "clinical_contrasts": {
+   "cell_type": {
+    "epithelial": {
+     "n": 9,
+     "TACSTD2_median": 10.2369,
+     "CLDN4_median": 10.0239,
+     "CD274_median": 8.5953
+    },
+    "stroma": {
+     "n": 6,
+     "TACSTD2_median": 10.3623,
+     "CLDN4_median": 11.4648,
+     "CD274_median": 12.0398
+    }
+   },
+   "genotype": {
+    "Kras G12D": {
+     "n": 6,
+     "TACSTD2_median": 8.8851,
+     "CLDN4_median": 9.7961,
+     "CD274_median": 8.5963
+    },
+    "Lkb1 -/- Pten-/-": {
+     "n": 6,
+     "TACSTD2_median": 12.1439,
+     "CLDN4_median": 12.7259,
+     "CD274_median": 11.6384
+    },
+    "wild type": {
+     "n": 3,
+     "TACSTD2_median": 8.9827,
+     "CLDN4_median": 9.403,
+     "CD274_median": 8.2097
+    }
+   }
+  }
+ }
+}

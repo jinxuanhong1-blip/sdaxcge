@@ -85,6 +85,7 @@ def fetch_platform_symbol_map(gpl):
         "SYMBOL",
         "ILMN_Gene",
         "GeneSymbol",
+        "gene_assignment",
         "gene",
     ]
     sym_idx = None
@@ -105,7 +106,10 @@ def fetch_platform_symbol_map(gpl):
         probe = cells[0].strip()
         if not probe or len(cells) <= sym_idx:
             continue
-        for tok in re.split(r"[ /,;|]+", cells[sym_idx]):
+        raw_sym = cells[sym_idx]
+        # Affy gene_assignment is "ENST // Symbol // description // ..."
+        tokens = re.split(r"[ /,;|]+", raw_sym.replace(" // ", " "))
+        for tok in tokens:
             g = ALIAS.get(_norm(tok))
             if g:
                 gene_probes[g].append(probe)
@@ -276,6 +280,10 @@ def main():
             )
             continue
         gpl = parsed["platform"]
+        m = re.search(r"-(GPL\d+)_series_matrix", fname)
+        if m:
+            # Multi-platform series matrices: filename platform is authoritative.
+            gpl = m.group(1)
         if not gpl:
             m = re.search(r"(GPL\d+)", fname)
             gpl = m.group(1) if m else ""
@@ -381,8 +389,16 @@ def main():
             # If a field is clearly responder vs not, run MW.
             for key, uniq in contrast_fields:
                 low = {u.lower() for u in uniq}
-                pos = [u for u in uniq if re.search(r"\b(responder|cr|pr|yes|sensitive)\b", u, re.I)]
-                neg = [u for u in uniq if re.search(r"\b(non-?responder|pd|no|resistant)\b", u, re.I)]
+                pos = [
+                    u
+                    for u in uniq
+                    if re.search(r"^(r|responder|cr|pr|yes|sensitive)$", u.strip(), re.I)
+                ]
+                neg = [
+                    u
+                    for u in uniq
+                    if re.search(r"^(nr|non[- ]?responder|pd|no|resistant)$", u.strip(), re.I)
+                ]
                 if pos and neg:
                     mask_a = np.array(
                         [by_gsm.get(s, {}).get(key, "") in pos for s in parsed["samples"]]
