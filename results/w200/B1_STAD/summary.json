@@ -1,0 +1,98 @@
+{
+  "generated_utc": "2026-08-16T20:07:57+00:00",
+  "cohort": "TCGA-STAD",
+  "expression_dataset": "UCSC Xena TCGA.STAD.sampleMap/HiSeqV2 (log2 norm_count+1)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 415,
+  "surface_gene_universe": 2618,
+  "n_ranked_surface_genes": 2617,
+  "n_unrankable_zero_variance": 1,
+  "unrankable_genes": [
+    "OR2T29"
+  ],
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 33,
+    "spearman_r": 0.3096723142432741,
+    "spearman_q": 8.68492728132416e-09,
+    "spearman_percentile": 98.777,
+    "pearson_rank": 26,
+    "pearson_r": 0.3190435980605786,
+    "pearson_q": 2.861167392419178e-09,
+    "pearson_percentile": 99.045,
+    "n_ranked_surface_genes": 2617,
+    "n_unrankable_zero_variance": 1
+  },
+  "top10_spearman": [
+    {
+      "gene": "PVRL4",
+      "spearman_rank": 1,
+      "spearman_r": 0.5778228540341495,
+      "spearman_q": 6.476409846382564e-35
+    },
+    {
+      "gene": "TM4SF1",
+      "spearman_rank": 2,
+      "spearman_r": 0.437832218324151,
+      "spearman_q": 9.526349249440514e-18
+    },
+    {
+      "gene": "TGFA",
+      "spearman_rank": 3,
+      "spearman_r": 0.4164099226852971,
+      "spearman_q": 6.789086628088605e-16
+    },
+    {
+      "gene": "GPR110",
+      "spearman_rank": 4,
+      "spearman_r": 0.4046262713544692,
+      "spearman_q": 5.7885483819406105e-15
+    },
+    {
+      "gene": "LYPD3",
+      "spearman_rank": 5,
+      "spearman_r": 0.39629220881402777,
+      "spearman_q": 2.4401279046748843e-14
+    },
+    {
+      "gene": "GPR87",
+      "spearman_rank": 6,
+      "spearman_r": 0.39301175817312145,
+      "spearman_q": 3.861775873169874e-14
+    },
+    {
+      "gene": "ITGB6",
+      "spearman_rank": 7,
+      "spearman_r": 0.38783851021464705,
+      "spearman_q": 8.971271797274044e-14
+    },
+    {
+      "gene": "GJB3",
+      "spearman_rank": 8,
+      "spearman_r": 0.38402957717652975,
+      "spearman_q": 1.6174405114443845e-13
+    },
+    {
+      "gene": "TNFRSF21",
+      "spearman_rank": 9,
+      "spearman_r": 0.37582555874944457,
+      "spearman_q": 6.609258897090445e-13
+    },
+    {
+      "gene": "SLC26A9",
+      "spearman_rank": 10,
+      "spearman_r": 0.3729262125992558,
+      "spearman_q": 1.0094290988565421e-12
+    }
+  ]
+}
