@@ -1,0 +1,54 @@
+2026-08-16 20:09:41,082 INFO Opening /workspace/results/hunt_sclc_ici/data/chan_combined.h5ad (backed)
+2026-08-16 20:09:41,617 INFO AnnData 147137 cells x 22021 genes
+2026-08-16 20:09:51,639 INFO Extracted TACSTD2: nonzero 5.1%, max 6.90
+2026-08-16 20:10:01,627 INFO Extracted CLDN4: nonzero 27.7%, max 6.80
+2026-08-16 20:10:11,672 INFO Extracted DLL3: nonzero 22.5%, max 6.04
+2026-08-16 20:10:21,624 INFO Extracted CEACAM5: nonzero 2.2%, max 6.35
+2026-08-16 20:10:31,624 INFO Extracted SSTR2: nonzero 9.2%, max 4.84
+2026-08-16 20:10:41,667 INFO Extracted MICA: nonzero 4.7%, max 5.26
+2026-08-16 20:10:51,670 INFO Extracted EPCAM: nonzero 36.6%, max 6.39
+2026-08-16 20:11:01,644 INFO Extracted ASCL1: nonzero 23.9%, max 6.21
+2026-08-16 20:11:11,633 INFO Extracted NEUROD1: nonzero 10.7%, max 5.88
+2026-08-16 20:11:21,618 INFO Extracted POU2F3: nonzero 2.2%, max 4.93
+2026-08-16 20:11:31,601 INFO Extracted YAP1: nonzero 3.7%, max 5.23
+2026-08-16 20:11:41,559 INFO Extracted CD8A: nonzero 11.6%, max 5.83
+2026-08-16 20:11:51,539 INFO Extracted CD8B: nonzero 9.5%, max 5.63
+2026-08-16 20:12:01,568 INFO Extracted GZMA: nonzero 20.1%, max 8.04
+2026-08-16 20:12:11,546 INFO Extracted PRF1: nonzero 12.7%, max 6.02
+2026-08-16 20:12:21,504 INFO Extracted CD274: nonzero 2.7%, max 5.33
+2026-08-16 20:12:31,477 INFO Extracted PDCD1: nonzero 5.5%, max 4.15
+2026-08-16 20:12:41,442 INFO Extracted CXCL9: nonzero 1.1%, max 5.92
+2026-08-16 20:12:51,420 INFO Extracted CXCL10: nonzero 1.2%, max 7.71
+2026-08-16 20:12:51,493 INFO Compartment table:
+compartment  n_cells  TACSTD2_detect_frac  TACSTD2_mean  TACSTD2_mean_detected  CLDN4_detect_frac  CLDN4_mean  CLDN4_mean_detected  DLL3_detect_frac  DLL3_mean  DLL3_mean_detected  CEACAM5_detect_frac  CEACAM5_mean  CEACAM5_mean_detected  SSTR2_detect_frac  SSTR2_mean  SSTR2_mean_detected  MICA_detect_frac  MICA_mean  MICA_mean_detected  EPCAM_detect_frac  EPCAM_mean  EPCAM_mean_detected
+ Epithelial    55876             0.021745      0.018690               0.859505           0.612624    0.803479             1.311536          0.581699   0.606261            1.042225             0.030926      0.033330               1.077732           0.226162    0.238842             1.056068          0.023302   0.011325            0.486014           0.847018    1.621616             1.914499
+   Lymphoid    16461             0.001276      0.001361               1.066773           0.021566    0.025461             1.180590          0.009295   0.010548            1.134881             0.001640      0.001564               0.953543           0.006622    0.007480             1.129651          0.035235   0.039390            1.117922           0.026791    0.032962             1.230358
+    Myeloid     3412             0.014068      0.017739               1.260939           0.032239    0.035257             1.093608          0.024326   0.016727            0.687640             0.007034      0.013475               1.915651           0.015533    0.013351             0.859502          0.031067   0.022449            0.722595           0.048652    0.069745             1.433559
+Mesenchymal     1394             0.035868      0.037317               1.040409           0.037303    0.033755             0.904883          0.024390   0.021088            0.864599             0.001435      0.003291               2.293948           0.053085    0.063627             1.198597          0.109756   0.097118            0.884856           0.071019    0.074253             1.045536
+2026-08-16 20:12:51,552 INFO Tumor-cell subtype table:
+chan_tumor_label  n_cells  n_donors  TACSTD2_detect_frac  TACSTD2_mean  CLDN4_detect_frac  CLDN4_mean  ASCL1_detect_frac  ASCL1_mean  NEUROD1_detect_frac  NEUROD1_mean  POU2F3_detect_frac  POU2F3_mean  YAP1_detect_frac  YAP1_mean
+          SCLC-A    31865        19             0.009352      0.005688           0.746995    1.006280           0.879115    2.178338             0.118155      0.081461            0.004080     0.002294          0.004488   0.002197
+          SCLC-N    19279        19             0.029358      0.013359           0.504590    0.581605           0.309404    0.433504             0.607345      1.035844            0.003320     0.001629          0.025883   0.013747
+          SCLC-P     3169        19             0.032187      0.010056           0.057116    0.033644           0.005364    0.009980             0.002840      0.004898            0.856106     0.796101          0.005049   0.001608
+            SCLC       20         9             0.050000      0.126781           0.150000    0.508052           0.000000    0.000000             0.000000      0.000000            0.000000     0.000000          0.000000   0.000000
+2026-08-16 20:12:51,685 INFO SCLC donors: 20 total, 20 kept for stats (min tumor cells=30)
+2026-08-16 20:12:51,696 INFO Patient-level correlations:
+tumor_gene        axis  n_donors  spearman_rho  p_value  q_value_BH
+     ASCL1 frac_immune        20     -0.057143 0.810880    0.883803
+     ASCL1  frac_tcell        20     -0.055639 0.815774    0.883803
+      CD8A frac_immune        20      0.151880 0.522682    0.883803
+      CD8A  frac_tcell        20      0.148872 0.531043    0.883803
+     CLDN4  frac_tcell        20     -0.054135 0.820675    0.883803
+     CLDN4 frac_immune        20     -0.028571 0.904822    0.904822
+   NEUROD1  frac_tcell        20      0.092516 0.698063    0.883803
+   NEUROD1 frac_immune        20      0.082738 0.728753    0.883803
+    POU2F3 frac_immune        20     -0.092427 0.698340    0.883803
+    POU2F3  frac_tcell        20     -0.089397 0.707807    0.883803
+   TACSTD2 frac_immune        20      0.515789 0.019920    0.172184
+   TACSTD2  frac_tcell        20      0.479699 0.032326    0.172184
+      YAP1 frac_immune        20      0.469173 0.036897    0.172184
+      YAP1  frac_tcell        20      0.434586 0.055519    0.194316
+2026-08-16 20:12:51,701 INFO Patient-level subtype vs target:
+   gene  n_SCLC-A  median_SCLC-A  n_SCLC-N  median_SCLC-N  n_SCLC-P  median_SCLC-P
+TACSTD2        12       0.010744         5       0.018645         1       0.011456
+  CLDN4        12       0.940952         5       0.517000         1       0.021564

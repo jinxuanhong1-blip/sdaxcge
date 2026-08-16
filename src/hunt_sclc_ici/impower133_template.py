@@ -32,16 +32,23 @@ IMP_DIR = bg.DATA / "impower133"
 REQUIRED = ["expression.tsv", "subtypes.tsv"]
 
 
+class Impower133NotPublic(FileNotFoundError):
+    """Raised when EGA-controlled IMpower133 files are absent. Not a bug."""
+
+
 def _guard():
     missing = [f for f in REQUIRED if not (IMP_DIR / f).exists()]
     if missing:
+        msg = (
+            "IMpower133 controlled-access data not found. NOT running. "
+            f"Missing: {', '.join(missing)}. "
+            "This template refuses to fabricate results. "
+            "See results/hunt_sclc_ici/IMPOWER133_NOTE.md."
+        )
         print("=" * 72)
-        print("IMpower133 controlled-access data not found. NOT running.")
-        print("Missing:", ", ".join(missing))
-        print("This template refuses to fabricate results.")
-        print("See results/hunt_sclc_ici/IMPOWER133_NOTE.md for EGA access steps.")
+        print(msg)
         print("=" * 72)
-        sys.exit(2)
+        raise Impower133NotPublic(msg)
 
 
 def run():
@@ -75,4 +82,7 @@ def run():
 
 
 if __name__ == "__main__":
-    run()
+    try:
+        run()
+    except Impower133NotPublic:
+        sys.exit(2)
