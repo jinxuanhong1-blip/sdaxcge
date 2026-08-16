@@ -1,0 +1,45 @@
+Comment[ArrayExpressAccession]	E-MTAB-12508
+MAGE-TAB Version	1.1
+Comment[Submitted Name]	scRNA-seq of CD45+ cells isolated from lungs of mice carrying KPneo tumors that received FLT3L and αCD40 (DC-therapy) or rat IgG2a isotype control
+Investigation Title	scRNA-seq of CD45+ cells isolated from lungs of mice carrying KPneo tumors that received FLT3L and αCD40 (DC-therapy) or rat IgG2a isotype control
+Experiment Description	Dendritic cells are key player to initiate anti-tumoral response. In this study we aimed to characterize the function of type 1 DCs during priming of CD8 T cell responses against endogenous neoantigens encoded by a KrasG12D/WT; Tp53 (KP) lung cancer model. To enhance the immunostimulatory properties of cDC1, we delivered a combination of Flt3L and aCD40 antibodies. We found that this therapy is sufficient to induce proliferation of neoantigen specific CD8 T cells and restrain growth of lung tumor nodules. scRNA-seq transcriptional profiling of the lung immune infiltrate of tumor-challenged animals with and without DC-therapy was performed to understand the molecular changes induced in DCs subsets and CD8 T cell subsets.
+Experimental Design	compound treatment design
+Experimental Design Term Source REF	EFO
+Experimental Design Term Accession Number	EFO:0001755
+Experimental Factor Name	compound	dose	stimulus
+Experimental Factor Type	compound	dose	stimulus
+Experimental Factor Term Source REF	EFO	EFO
+Experimental Factor Term Accession Number	CHEBI_24431	EFO_0000428
+Person Last Name	Terza	Rodriguez	Benvenuti	Caronni
+Person First Name	Federica La	Lucia-Ines Lopez	Federica	Nicoletta
+Person Mid Initials				
+Person Email	laterza.federica@hsr.it	Lucia.Lopez@icgeb.org	benvenut@icgeb.org	caronni.nicoletta@hsr.it
+Person Phone
+Person Fax
+Person Address	via Olgettina 58, 20132 Milano Italy	Località Padriciano, 99, 34149 Trieste Italy	Località Padriciano, 99, 34149 Trieste Italy	via Olgettina 58, 20132 Milano Italy
+Person Affiliation	San Raffaele Telethon Institute for Gene Therapy (SR-Tiget), IRCCS San Raffaele Scientific Institute, Milan, Italy	Cellular Immunology, International Centre for Genetic Engineering and Biotechnology, ICGEB, Trieste, Italy	Cellular Immunology, International Centre for Genetic Engineering and Biotechnology, ICGEB, Trieste, Italy	San Raffaele Telethon Institute for Gene Therapy (SR-Tiget), IRCCS San Raffaele Scientific Institute, Milan, Italy
+Person Roles	data analyst;submitter	experiment performer	investigator	data analyst
+Date of Experiment	2022-04-20
+Public Release Date	2024-02-21
+PubMed ID
+Publication DOI
+Publication Author List	Lucia Ines Lopez-Rodriguez, Pierre Bourdeley, Federica La Terza, ..., Nicoletta Caronni, Pierre Guermonprez, Federica Benvenuti
+Publication Title	Type 1 DCs promote immunity to neoantigens in mutated lung cancer refractory to checkpoint inhibitors
+Publication Status	in preparation
+Publication Status Term Source REF	EFO
+Publication Status Term Accession Number	EFO_0001795
+Protocol Name	P-MTAB-129093	P-MTAB-129094	P-MTAB-129095	P-MTAB-129096	P-MTAB-129097	P-MTAB-129098
+Protocol Type	sample collection protocol	nucleic acid extraction protocol	nucleic acid library construction protocol	nucleic acid sequencing protocol	growth protocol	treatment protocol
+Protocol Term Source REF	EFO	EFO	EFO	EFO	EFO	EFO
+Protocol Term Accession Number	EFO_0005518	EFO_0002944	EFO_0004184	EFO_0004170	EFO_0003789	EFO_0003969
+Protocol Description	Lungs were harvested at day 9 and digested to obtain single cell suspensions to be processed for scRNA analysis. CD45+ cells were isolated using ARIA Cell Sorter (BD). Single cell suspensions were processed for single cell analysis using Next GEM Single Cell 3ʹ Reagent Kits v3.1 (Dual Index) (10X Genomics) following manufacturer’s instructions.	Nucleic acids (polyA RNA) were extracted during single cell encapsulation and immediately barcoded, according to Next GEM Single Cell 3ʹ Reagent Kits v3.1 (Dual Index) (10X Genomics) protocol.	Libraries were constructed using Next GEM Single Cell 3ʹ Reagent Kits v3.1 (Dual Index) (10X Genomics) protocol and following manufacturer’s instructions.	Following quality controls, dual index libraries were sequenced according to manufacturer’s instruction on Novaseq6000 platform (Illumina). Sequencing protocol was: Read1=28 bp, Read2= 90bp, Index1=10 bp, Index2=10 bp.	8-weeks females C57/BL6 mice (4 mice per group) were injected with 5x10^4 KPneo cells intravenously. Lungs were harvested at day 9 post-inoculation.	Mice were administered 30 ug of recombinant Flt3L on day -2, 2, 4 , 6. On day 5, mice received a single dose of aCD40 (200ug intraperitoneally). Control mice received intraperitoneal injections of PBS on day -2,2,4,6 and isotype rat aIgG on day 6.
+Protocol Hardware				Illumina NovaSeq 6000
+Protocol Software
+Term Source Name	EFO
+Term Source File	http://www.ebi.ac.uk/efo/
+Term Source Version
+Comment[AEExperimentType]	RNA-seq of coding RNA from single cells
+Comment[TemplateType]	Animal - Single-cell sequencing
+Comment[SecondaryAccession]	ERP144045
+Comment[SequenceDataURI]	http://www.ebi.ac.uk/ena/data/view/ERR10782508-ERR10782509
+SDRF File	E-MTAB-12508.sdrf.txt

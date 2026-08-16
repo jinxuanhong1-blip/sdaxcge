@@ -1,0 +1,13 @@
+accession	decision	lung	ici	trop2_or_cldn4_study	processed_under_2gb	n_processed	processed_mb	action	rationale
+E-MTAB-15784	leftover_analyze	Y	N	N	Y	42	1145.0	analyzed	NSCLC TIL–organoid scRNA; only leftover with open processed matrices <2GB that is lung + immune. Not ICI.
+E-MTAB-15782	leftover_duplicate	Y	N	N	Y	3	20.4	metadata_only	Same study; matrix size matches LCP89_CO only.
+E-MTAB-12508	leftover_metadata	Y	adjacent	N	N	0	0.0	metadata_only	KP lung + FLT3L/aCD40; paper title says refractory to checkpoint inhibitors; no processed files.
+E-MTAB-13710	leftover_metadata	Y	N	N	N	0	0.0	metadata_only	Human NSCLC FRC/TLS companion to excluded E-MTAB-13708; no ICI treatment; no processed files.
+E-MTAB-13526	leftover_too_large	Y	N	N	N	243	10620.9	not_downloaded	Companion scRNA to skipped Visium atlas; annotated h5ads 45–58 GB; not ICI.
+E-MTAB-13530	skip_requested	Y	N	N	Y	120	939.8	skipped	User: skip if already hunted. Visium NSCLC, not ICI-labeled.
+E-MTAB-13704	already_covered_include	Y	Y	N	Y		0.0	already_covered	First-wave GEMM aPD-L1 combinations. Did not re-hit leftover synonym queries (aPDL1 wording).
+E-MTAB-15883	already_covered_include	Y	Y	N	Y	6	505.8	already_covered	First-wave anti-PD-1 lung-cancer-model experiment.
+E-MTAB-9451	already_covered_include_context	Y	context	N	Y	10	64.8	already_covered	First-wave NSCLC ICOS/Treg profiling; no ICI-treated samples.
+E-MTAB-10633	already_covered_metadata_only	Y	Y	N	N	0	0.0	already_covered	First-wave aPD-L1/TGF-beta-trap; no processed files. Did not re-hit leftover queries.
+E-MTAB-8867	already_covered_metadata_only	partial	Y	N	N	0	0.0	already_covered	First-wave ICI-myocarditis (3 NSCLC); no processed files.
+E-MTAB-13708	already_covered_exclude	Y	N	N	N	0	0.0	already_covered	Vector immunotherapy, not ICI.
