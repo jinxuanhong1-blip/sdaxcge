@@ -216,7 +216,8 @@ def process_gse131907(source: Path) -> tuple[pd.DataFrame, dict]:
     expr = normalized_selected(selected, totals)
     labels = np.full(len(cell_ids), "unclassified", dtype=object)
     major = metadata["Cell_type"].to_numpy()
-    labels[major == "Epithelial cells"] = "epithelial"
+    # Only the author's malignant-cell subtype is treated as tumor epithelium.
+    labels[metadata["Cell_subtype"].to_numpy() == "Malignant cells"] = "epithelial"
     labels[major == "T lymphocytes"] = "T"
     labels[major == "B lymphocytes"] = "B"
     labels[major == "Myeloid cells"] = "myeloid"
@@ -231,7 +232,10 @@ def process_gse131907(source: Path) -> tuple[pd.DataFrame, dict]:
         "matrix_genes": n_genes,
         "primary_tumor_cells": int(include.sum()),
         "primary_tumor_samples": int(metadata.loc[include, "Sample"].nunique()),
-        "classification": "published major cell types",
+        "classification": (
+            "published major immune cell types; published Malignant cells subtype "
+            "for tumor epithelium"
+        ),
         "genes_found": sorted(selected),
         "genes_missing": sorted(set(SELECTED_GENES) - set(selected)),
     }
@@ -500,8 +504,8 @@ def main() -> None:
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
-    cache131 = args.output / "_cache_gse131907_scores.csv"
-    audit_cache131 = args.output / "_cache_gse131907_audit.json"
+    cache131 = args.output / "_cache_v2_gse131907_scores.csv"
+    audit_cache131 = args.output / "_cache_v2_gse131907_audit.json"
     if cache131.exists() and audit_cache131.exists():
         g131 = pd.read_csv(cache131)
         with audit_cache131.open() as handle:
