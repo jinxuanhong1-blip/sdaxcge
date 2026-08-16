@@ -1,9 +1,10 @@
-dataset	cohort	gene	comparison	n_group1	n_group2	median_group1	median_group2	mwu_p	cliffs_delta
-GSE261345	ES-SCLC (DSP)	TACSTD2	RECIST responder(CR/PR) vs non(SD/PD), patient-level	17	9.0	7.2432	7.3611	0.332	-0.2418
-GSE261345	ES-SCLC (DSP)	TACSTD2	Spearman TACSTD2 vs PFS days (patient-level)	26				0.4774	0.1458
-GSE261345	ES-SCLC (DSP)	TACSTD2	PFS logrank TACSTD2 hi vs lo (median split)	13	13.0			0.5947	
-GSE261348	ES-SCLC (DSP)	TACSTD2	RECIST responder(CR/PR) vs non(SD/PD), patient-level	21	9.0	7.6388	7.7273	0.892	-0.037
-GSE261348	ES-SCLC (DSP)	TACSTD2	Spearman TACSTD2 vs PFS days (patient-level)	32				0.1535	-0.2583
-GSE261348	ES-SCLC (DSP)	TACSTD2	PFS logrank TACSTD2 hi vs lo (median split)	16	16.0			0.6419	
-GSE233203	NSCLC (scRNA pseudobulk)	TACSTD2	Response vs Non-response, patient-level pseudobulk	3	4.0	5.7432	3.7015	0.1143	0.8333
-GSE233203	NSCLC (scRNA pseudobulk)	CLDN4	Response vs Non-response, patient-level pseudobulk	3	4.0	5.543	3.1837	0.4	0.5
+dataset	cohort	gene	comparison	test	n_group1	n_group2	median_group1	median_group2	statistic	p_value	effect_type	effect_value
+GSE261345	ES-SCLC (DSP)	TACSTD2	RECIST responder(CR/PR) vs non(SD/PD), patient-level	Mann-Whitney U (two-sided)	17	9.0	7.2432	7.3611	58.0	0.332	Cliff's delta (R minus NR)	-0.2418
+GSE261345	ES-SCLC (DSP)	TACSTD2	Spearman TACSTD2 vs PFS days (patient-level)	Spearman rank correlation (censoring ignored)	26				0.1458	0.4774	Spearman rho	0.1458
+GSE261345	ES-SCLC (DSP)	TACSTD2	PFS logrank TACSTD2 hi vs lo (median split)	Log-rank (median split)	13	13.0			0.283	0.5947		
+GSE261348	ES-SCLC (DSP)	TACSTD2	RECIST responder(CR/PR) vs non(SD/PD), patient-level	Mann-Whitney U (two-sided)	21	9.0	7.6388	7.7273	91.0	0.892	Cliff's delta (R minus NR)	-0.037
+GSE261348	ES-SCLC (DSP)	TACSTD2	Spearman TACSTD2 vs PFS days (patient-level)	Spearman rank correlation (censoring ignored)	32				-0.2583	0.1535	Spearman rho	-0.2583
+GSE261348	ES-SCLC (DSP)	TACSTD2	PFS logrank TACSTD2 hi vs lo (median split)	Log-rank (median split)	16	16.0			0.2162	0.6419		
+GSE233203	NSCLC (whole-sample scRNA pseudobulk)	TACSTD2	Response vs Non-response, one whole-sample pseudobulk per patient	Mann-Whitney U (two-sided, exact)	3	4.0	5.7432	3.7015	11.0	0.1143	Cliff's delta (R minus NR)	0.8333
+GSE233203	NSCLC (whole-sample scRNA pseudobulk)	CLDN4	Response vs Non-response, one whole-sample pseudobulk per patient	Mann-Whitney U (two-sided, exact)	3	4.0	5.543	3.1837	9.0	0.4	Cliff's delta (R minus NR)	0.5
+GSE233203	NSCLC (whole-sample scRNA pseudobulk)	TACSTD2~CLDN4	Marker concordance across patients	Spearman rank correlation	7				0.8929	0.0068	Spearman rho	0.8929

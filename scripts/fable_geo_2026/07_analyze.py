@@ -129,11 +129,15 @@ def boxplot(groups, labels, title, ylab, path):
 
 
 def marker_scatter(df, path):
-    colors = df["response"].map(
-        {"Response": "#4C9F70", "Non-response": "#C0504D"}
-    )
     fig, ax = plt.subplots(figsize=(4.2, 4))
-    ax.scatter(df["CLDN4"], df["TACSTD2"], c=colors, s=38, alpha=0.85)
+    for label, color in (
+        ("Response", "#4C9F70"), ("Non-response", "#C0504D")
+    ):
+        group = df[df["response"] == label]
+        ax.scatter(
+            group["CLDN4"], group["TACSTD2"],
+            color=color, label=label, s=38, alpha=0.85,
+        )
     for _, row in df.iterrows():
         ax.annotate(
             row["sample_file"].split("_", 1)[1],
@@ -143,6 +147,7 @@ def marker_scatter(df, path):
     ax.set_xlabel("CLDN4 log2(pseudobulk CPM+1)")
     ax.set_ylabel("TACSTD2 log2(pseudobulk CPM+1)")
     ax.set_title("GSE233203: whole-sample marker concordance", fontsize=10)
+    ax.legend(frameon=False, fontsize=7)
     fig.tight_layout()
     fig.savefig(path, dpi=130)
     plt.close(fig)

@@ -127,7 +127,8 @@ python3 scripts/fable_geo_2026/07_analyze.py
 ```
 Dependencies: `pandas scipy numpy matplotlib openpyxl lifelines`.
 Large downloads are reproducible and are not committed (see
-`results/w200/GEO_2026/data/.gitignore`).
+`results/w200/GEO_2026/data/.gitignore`). Exact source URLs, byte sizes, and
+SHA-256 digests are in `results/w200/GEO_2026/input_manifest.tsv`.
 
 ---
 
@@ -239,4 +240,5 @@ python3 scripts/fable_geo_2026/05_download.py
 python3 scripts/fable_geo_2026/07_analyze.py
 ```
 依赖：`pandas scipy numpy matplotlib openpyxl lifelines`。大文件可复现且不纳入
-版本库（见 `results/w200/GEO_2026/data/.gitignore`）。
+版本库（见 `results/w200/GEO_2026/data/.gitignore`）；准确来源 URL、字节数与
+SHA-256 校验值见 `results/w200/GEO_2026/input_manifest.tsv`。
