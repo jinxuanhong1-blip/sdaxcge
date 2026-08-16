@@ -1,0 +1,27 @@
+{
+  "n_cells_total": 11612,
+  "n_genes": 19800,
+  "n_leiden": 27,
+  "lineage_counts": {
+    "T_NK": 7023,
+    "Myeloid": 2344,
+    "Epithelial": 1083,
+    "B_Plasma": 628,
+    "Mast": 231,
+    "Fibroblast": 156,
+    "Endothelial": 147
+  },
+  "malignant_cluster_n": 1083,
+  "malignant_marker_n": 1015,
+  "malignant_definition_agreement": 839,
+  "tacstd2_present": true,
+  "epcam_present": true,
+  "ptprc_present": true,
+  "author_celltype_labels": false,
+  "cnv_available": false,
+  "n_patients": 1,
+  "n_nodules_R": 1,
+  "n_nodules_NR": 2,
+  "response_confounded_with_genotype": true,
+  "pretreatment_samples": false
+}

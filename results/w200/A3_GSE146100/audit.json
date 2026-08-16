@@ -1,0 +1,11 @@
+{
+  "input": "data/GSE146100_NormData.txt.gz",
+  "n_cells": 11612,
+  "n_genes": 19800,
+  "normalization": "author Seurat log-norm; not re-normalized",
+  "clustering": "leiden res=1.0 on 2000 dispersion HVGs, 30 PCs",
+  "skipped": [
+    "SRA/FASTQ raw reads (not needed; processed matrix is public)",
+    "inferCNV / CopyKAT (no matched normal; would be exploratory only)"
+  ]
+}
