@@ -1,0 +1,72 @@
+{
+  "question": "Do public paired pre/post ICB lung or pan-cancer sets show TACSTD2/Tacstd2 rise after ICB?",
+  "user_claims": {
+    "TISMO": "49/64",
+    "Zhejiang_IHC": "94 \u2192 121"
+  },
+  "tismo": {
+    "what_it_is": "Mouse syngeneic treated vs control ARMS, not within-animal pairs. All ICB samples have Baseline=0.",
+    "attempted_contrasts": 64,
+    "with_matched_control": 61,
+    "n_up": 43,
+    "frac_up": 0.705,
+    "sign_test_p": 0.001868101030975251,
+    "median_delta_log2": 0.0707,
+    "n_up_p_lt_0.05": 7,
+    "expressed_models_up": "24/38 (sign p=0.14)",
+    "lung_contrasts": "1 (GSE155972 LLC, \u0394+0.46, MWU p=0.037)",
+    "reproduces_49_of_64": false
+  },
+  "human_paired_tumor_rnaseq_with_tacstd2": [
+    {
+      "gse": "GSE91061",
+      "cancer": "melanoma",
+      "n": 43,
+      "n_up": 24,
+      "wilcoxon_p": 0.079,
+      "direction": "weak up, not significant",
+      "clean_icb_only": true
+    },
+    {
+      "gse": "GSE115821",
+      "cancer": "melanoma",
+      "n": 6,
+      "n_up": 3,
+      "wilcoxon_p": 0.84,
+      "direction": "null",
+      "clean_icb_only": true
+    },
+    {
+      "gse": "GSE319641",
+      "cancer": "TNBC",
+      "n": 150,
+      "n_up": 38,
+      "wilcoxon_p": 2.5e-13,
+      "direction": "DOWN",
+      "clean_icb_only": false,
+      "note": "NACT \u00b1 atezolizumab; arm not deposited"
+    },
+    {
+      "gse": "GSE179351",
+      "cancer": "MSS CRC / PDAC",
+      "n": 11,
+      "n_up": 7,
+      "wilcoxon_p": 0.21,
+      "direction": "weak up, not significant",
+      "clean_icb_only": false,
+      "note": "nivo+ipi+radiation"
+    }
+  ],
+  "key_negatives": [
+    "GSE207422 NSCLC neoadjuvant PD-1+chemo: bulk TPM is pre-only; scRNA pre/post are different patients.",
+    "GSE227666 NeoPembrOV ovarian NACT\u00b1pembro: Pre and Post samples exist but no patient ID to pair them.",
+    "GSE248378 neoadjuvant durvalumab NSCLC: resected (post) tumors only.",
+    "GSE135222 / GSE78220 / GSE145996 / GSE173839 / GSE194040 / GSE176307: TACSTD2 present, baseline-only ICB cohorts.",
+    "GSE318645 GBM window trial: tumor is single-timepoint resection; PBMC pairing is not tumor TROP2."
+  ],
+  "zhejiang_ihc": {
+    "recomputed": false,
+    "reason": "No public patient-level paired IHC table. Closest published numbers (Inomata 2025: 94/110 stage III/IV TROP2-positive; other papers report TROP2 largely stable after mixed therapy) do not match a 94\u2192121 paired H-score."
+  },
+  "verdict": "No public paired ICB lung tumor RNA-seq set confirms a TACSTD2 rise. The only clean large human paired ICB tumor set (GSE91061 melanoma) is 24/43 up, Wilcoxon p=0.079. The largest paired tumor set that includes ICB (NeoTRIP GSE319641, n=150) shows TACSTD2 down. TISMO is 43/61 arm-level mouse contrasts up, not 49/64, and is not within-animal pairing."
+}

@@ -1,50 +1,74 @@
-# Hunt: public paired pre/post ICB sets where TACSTD2/Tacstd2 rises
+# Hunt: public paired pre/post ICB sets where TACSTD2/TROP2 rises
 
-Question: are there public **paired** (same subject, pre vs on/post ICB) lung or pan-cancer
-mouse/human expression or IHC sets in which TROP2 (`TACSTD2` / `Tacstd2`) goes up after
-checkpoint blockade?
+**Verdict:** No public paired ICB lung tumor RNA-seq set confirms a TACSTD2 rise. The only clean large human paired ICB tumor set (GSE91061 melanoma) is 24/43 up, Wilcoxon p=0.079. The largest paired tumor set that includes ICB (NeoTRIP GSE319641, n=150) shows TACSTD2 down. TISMO is 43/61 arm-level mouse contrasts up, not 49/64, and is not within-animal pairing.
 
-User-cited starting points (not treated as ground truth):
+User-cited starting points, treated as claims to recompute:
 
-- TISMO: “49/64”
-- Zhejiang IHC: “94 → 121”
+- TISMO “49/64”
+- Zhejiang IHC “94 → 121”
 
-This folder reports **what we could actually recompute from public files**, with
-denominators and failure reasons. Scripts live in `scripts/`.
-
-## TISMO (mouse syngeneic, not within-animal pairs)
+## TISMO (mouse syngeneic) — not within-animal pairs
 
 TISMO in vivo ICB samples are treated vs control **arms** of the same cell line in the
-same study. Every ICB-treated sample has `Baseline=0`. This is a model-level
-after-vs-without comparison, not a longitudinal biopsy.
+same study. Every ICB-treated sample has `Baseline=0`. This is after-vs-without at the
+model level, not a longitudinal biopsy.
 
-Honest counts from `tismo/tismo_summary.json` (gene present; 1,491/1,518 samples mapped
-to the expression matrix):
+From `tismo/tismo_summary.json` (Tacstd2 present; 1,491/1,518 samples mapped):
 
-| definition | n | up | frac up | sign-test p |
+| definition | n | up | frac | sign p |
 |---|---:|---:|---:|---:|
-| study × cell line × treatment × timepoint, matched control arm | 61 | 43 | 0.705 | 0.0019 |
-| same, but Tacstd2 above floor (max arm mean ≥ 0.5 log2) | 38 | 24 | 0.632 | 0.14 |
-| study × cell line × treatment (timepoints pooled) | 48 | 33 | 0.688 | 0.013 |
-| study × cell line × ICB class | 33 | 24 | 0.727 | 0.014 |
-| study × cell line (all ICB pooled) | 31 | 24 | 0.774 | 0.0033 |
+| study × line × treatment × timepoint, matched control | 61 | 43 | 0.705 | 0.0019 |
+| same, Tacstd2 above floor (max arm mean ≥ 0.5 log2) | 38 | 24 | 0.632 | 0.14 |
+| study × line × treatment (timepoints pooled) | 48 | 33 | 0.688 | 0.013 |
+| study × line × ICB class | 33 | 24 | 0.727 | 0.014 |
+| study × line (all ICB pooled) | 31 | 24 | 0.774 | 0.0033 |
 
-We **do not reproduce 49/64**. Closest raw numbers: 64 contrasts were *attempted*, 3 had
-no matched control, and 43 of the remaining 61 went up. Median Δ is +0.07 log2; only
-7/61 contrasts are nominally p<0.05 up. Lung carcinoma contributes **one** contrast
+**Does not reproduce 49/64.** Closest raw numbers: 64 contrasts attempted, 3 unmatched,
+43/61 up. Median Δ +0.07 log2. Only 7/61 nominally p<0.05 up. Lung: **one** contrast
 (GSE155972 LLC anti-PD1+anti-CTLA4, Δ +0.46, MWU p=0.037).
 
-## GEO paired ICB (in progress)
+## Human GEO — paired tumor RNA-seq with TACSTD2 actually scored
 
-`geo/geo_candidate_series.json` is the E-utilities union (718 GSE: 436 human, 260 mouse).
-`scripts/geo_extract.py` then tries a curated seed of published ICB series plus any
-extra accessions passed on the command line. A series is counted as confirmatory only
-if TACSTD2 is quantified **and** ≥3 subjects have both a pre and an on/post sample.
+| GSE | cancer | treatment | n paired | up | Wilcoxon p | notes |
+|---|---|---|---:|---:|---:|---|
+| GSE91061 | melanoma | nivo | 43 | 24 | 0.079 | only clean large ICB-only pair |
+| GSE115821 | melanoma | PD-1 ± CTLA-4 | 6 | 3 | 0.84 | MGH serial subset |
+| GSE319641 | TNBC | NACT ± atezo | 150 | 38 | 2.5e-13 | **down**; arm not in GEO |
+| GSE179351 | MSS CRC/PDAC | nivo+ipi+RT | 11 | 7 | 0.21 | radiation-confounded |
+
+GSE91061 FPKM pairs: `geo/GSE91061_fpkm_pairs.csv` (rld sensitivity: 22/43 up, p=0.33).
+NeoTRIP pairs: `geo/GSE319641_pairs.csv`.
+
+## Lung-specific public sets that looked paired and were not
+
+- **GSE207422** (Hu 2023 NSCLC neoadjuvant PD-1 + chemo): bulk log2TPM is 24 **pre-only**
+  biopsies. scRNA metadata is 3 pre + 12 post from **different** patients (P01–P15 once each).
+- **GSE248378** (neoadjuvant durvalumab ± RT NSCLC): resected tumors, no pre biopsy in GEO.
+- **GSE135222** (Jung NSCLC anti-PD-1/PD-L1): baseline-only; TACSTD2 present.
+- **GSE260770** (sintilimab GGO): blood exosomal RNA, not tumor pairs.
+
+## Other seed-series outcomes (honest failures)
+
+E-utilities union: 718 GSE (436 human, 260 mouse) in `geo/geo_candidate_series.json`.
+Curated seed of 55 published ICB series walked by `scripts/geo_extract.py`:
+
+- 2 generic “OK” hits: GSE91061 (real) and GSE318645 (PBMC counts; TACSTD2 mostly zero;
+  tumor file is single-timepoint GBM resection, not paired tumor).
+- The rest failed because the series matrix is empty (RNA-seq), TACSTD2 is absent,
+  samples are baseline-only, or pre/post exist without a patient key
+  (GSE227666 NeoPembrOV: Pre and Post titles, no patient ID).
+
+Failure table: `geo/geo_paired_tacstd2_failures.csv`.
 
 ## Zhejiang IHC (“94 → 121”)
 
-No public patient-level IHC table was found that we can recompute. Closest published
-numbers in the literature are different claims (e.g. 94/110 stage III/IV TROP2-positive
-in Inomata et al., *Thorac Cancer* 2025; other papers report TROP2 as largely stable
-after mixed anti-cancer therapy). Until a deposit or supplement with paired H-scores
-is located, this remains a **literature citation, not a recomputed result**.
+**Not recomputed.** No public patient-level paired IHC table was found. Closest published
+numbers are different claims (e.g. Inomata et al. 2025: 94/110 stage III/IV TROP2-positive;
+other papers report TROP2 largely stable after mixed anti-cancer therapy). Until a deposit
+or supplement with paired H-scores appears, this stays a literature citation.
+
+## Scripts
+
+- `scripts/fetch_tismo.py` / `scripts/analyze_tismo.py`
+- `scripts/geo_discover.py` / `scripts/geo_extract.py`
+- `scripts/score_known_paired.py` / `scripts/write_hunt_report.py`
