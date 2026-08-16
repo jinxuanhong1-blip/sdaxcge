@@ -375,7 +375,7 @@ RNA velocity (La Manno et al., 2018; Bergen et al., 2020) infers a high-dimensio
 - **Model assumptions are routinely false.** Steady-state / common-splicing assumptions fail; even dynamical scVelo assumes constant rates and well-shaped phase portraits (Bergen et al., 2021; Barile et al., 2021). Erythroid and other systems already showed inverted or empty portraits when rates change.
 - **Quantification choices move the answer.** Spliced/unspliced pipelines change velocity (Soneson et al., 2021). Most **public processed** LUAD objects ship a single gene-count matrix — no `spliced`/`unspliced` layers. Without the FASTQ (or a velocyto/alevin-fry/STARsolo recount), velocity is **not computable**. That alone fails the velocity gate on most GEO h5ad files.
 - **k-NN smoothing dominates the workflow.** Zheng, Stein-O’Brien, Boukas, Goff & Hansen (2023) show that direction and speed inherit the observed k-NN graph; when that graph is wrong, high- and low-dimensional velocity are wrong. Speed estimates are unreliable except at implausibly low noise. Mapping velocity onto an embedding is “effectively interpolating in the embedding space.”
-- **Using velocity to validate a UMAP is circular** (Zheng et al., 2023). Low-dimensional embeddings themselves distort (Chari & Pachter, 2023). Projecting velocity onto UMAP blends orthogonal processes (e.g. cell cycle vs differentiation) (Aivazidis et al. / VeloCycle, 2024).
+- **Using velocity to validate a UMAP is circular** (Zheng et al., 2023). Low-dimensional embeddings themselves distort (Chari & Pachter, 2023). Projecting velocity onto UMAP blends orthogonal processes (e.g. cell cycle vs differentiation) (Lederer et al., VeloCycle, 2024).
 - **Negative controls produce arrows.** Mature, steady-state populations (e.g. PBMC) should not show coherent flow; many methods invent it (Zheng et al., 2023; Wu, Kong, Liao et al., *Genome Biology* 2026).
 - **No method wins all tasks.** Wu et al. (2026) benchmarked 25 RNA-only methods across directional consistency, temporal precision, **negative-control robustness**, and depth stability. Directional performance is **anti-correlated** with negative-control robustness (Spearman ρ ≈ −0.57 in that study). UniTVelo (uni) / veloVI / Pyro-Velocity (m2) are their more balanced recommendations; LatentVelo (std) can look directionally excellent and fail negative controls. **No single method is consistently good.**
 - **veloVI** (Gayoso, Weiler et al., 2024) is a better *probabilistic* dynamical model than point-estimate scVelo, not a license to skip QC.
@@ -520,7 +520,7 @@ Chari & Pachter, 2023; Wu et al., 2026).
 
 1. Setty M, et al. Characterization of cell fate probabilities in single-cell data with Palantir. *Nat Biotechnol* 37, 451–460 (2019). https://doi.org/10.1038/s41587-019-0068-4
 2. Weiler P, Lange M, Klein M, et al. CellRank 2: unified fate mapping in multiview single-cell data. *Nat Methods* 21, 1196–1205 (2024). https://doi.org/10.1038/s41592-024-02303-9
-3. Lange M, et al. CellRank for directed single-cell fate mapping. *Nat Methods* 19, 159–170 (2022).
+3. Lange M, et al. CellRank for directed single-cell fate mapping. *Nat Methods* 19, 159–170 (2022). https://doi.org/10.1038/s41592-021-01346-6
 4. La Manno G, et al. RNA velocity of single cells. *Nature* 560, 494–498 (2018).
 5. Bergen V, Lange M, Peidli S, Wolf FA, Theis FJ. Generalizing RNA velocity to transient cell states through dynamical modeling. *Nat Biotechnol* 38, 1408–1414 (2020).
 6. Bergen V, Soldatov RA, Kharchenko PV, Theis FJ. RNA velocity—current challenges and future perspectives. *Mol Syst Biol* 17, e10282 (2021).
@@ -545,7 +545,7 @@ Chari & Pachter, 2023; Wu et al., 2026).
 25. Moon KR, et al. Visualizing structure and transitions in high-dimensional biological data (PHATE). *Nat Biotechnol* 37, 1482–1492 (2019).
 26. van Dijk D, et al. Recovering gene interactions from single-cell data using data diffusion (MAGIC). *Cell* 174, 716–729.e27 (2018).
 27. Barile M, et al. Coordinated changes in gene expression kinetics underlie both mouse and human erythroid maturation. *Genome Biol* 22, 197 (2021).
-28. Aivazidis A, et al. Statistical inference with a manifold-constrained RNA velocity model uncovers cell cycle speed modulations. *Nat Methods* (2024). https://doi.org/10.1038/s41592-024-02471-8
+28. Lederer AR, Leonardi M, Talamanca L, et al. Statistical inference with a manifold-constrained RNA velocity model uncovers cell cycle speed modulations (VeloCycle). *Nat Methods* 21, 2271–2286 (2024). https://doi.org/10.1038/s41592-024-02471-8
 
 ---
 
@@ -767,7 +767,7 @@ RNA velocity（La Manno 等, 2018；Bergen 等, 2020）从 spliced/unspliced 推
 - **模型假设经常不成立。** 稳态 / 共用剪接率常被违反；即便动力学 scVelo 仍假定常数速率和形状良好的相位图（Bergen 等, 2021；Barile 等, 2021）。
 - **定量选择会改变答案。** spliced/unspliced 流程影响 velocity（Soneson 等, 2021）。大多数**公开已处理**的 LUAD 对象只有一张基因计数矩阵，没有 `spliced`/`unspliced`。没有 FASTQ（或 velocyto/alevin-fry/STARsolo 重定量），velocity **算不了**。仅此一项，多数 GEO h5ad 的 velocity 门槛就失败。
 - **k-NN 平滑支配整个流程。** Zheng、Stein-O’Brien、Boukas、Goff 与 Hansen（2023）表明方向和速度继承了观测到的 k-NN 图；图错了，高维和低维 velocity 都错。除极低噪声外，速度估计不可靠。把 velocity 映射到嵌入上“实际上是在嵌入空间里插值”。
-- **用 velocity 验证 UMAP 是循环论证**（Zheng 等, 2023）。低维嵌入本身会扭曲（Chari & Pachter, 2023）。投影到 UMAP 会把正交过程（如周期 vs 分化）混在一起（VeloCycle, 2024）。
+- **用 velocity 验证 UMAP 是循环论证**（Zheng 等, 2023）。低维嵌入本身会扭曲（Chari & Pachter, 2023）。投影到 UMAP 会把正交过程（如周期 vs 分化）混在一起（Lederer 等, VeloCycle, 2024）。
 - **负对照也会画出箭头。** 成熟、稳态群体（如 PBMC）不应出现连贯流；许多方法会发明它（Zheng 等, 2023；Wu、Kong、Liao 等, *Genome Biology* 2026）。
 - **没有方法赢得全部任务。** Wu 等（2026）在方向一致性、时间精度、**负对照稳健性**和测序深度稳定性上评了 25 个仅 RNA 方法。方向表现与负对照稳健性**负相关**（该研究中 Spearman ρ ≈ −0.57）。他们较均衡的推荐包括 UniTVelo (uni) / veloVI / Pyro-Velocity (m2)；LatentVelo (std) 可以方向极好而负对照很差。**没有单一方法始终好用。**
 - **veloVI**（Gayoso、Weiler 等, 2024）是比点估计 scVelo 更好的*概率*动力学模型，不是跳过 QC 的许可证。
