@@ -1,0 +1,179 @@
+{
+  "cldn4_primary_same_64": {
+    "matches_tacstd2_49_of_64": false,
+    "stats": {
+      "binom_k": 34,
+      "binom_n": 62,
+      "binom_p": 0.52577336017565,
+      "mean_delta": 0.12519646640198,
+      "median_delta": 0.03995156983503673,
+      "n": 64,
+      "n_down": 28,
+      "n_tie": 2,
+      "n_up": 34,
+      "wilcoxon_p": 0.07785245359948166,
+      "wilcoxon_stat": 725.0
+    },
+    "up_down_tie": {
+      "down": 28,
+      "n": 64,
+      "tie": 2,
+      "up": 34
+    }
+  },
+  "cldn4_sensitivity": {
+    "abs_delta_ge_0.1": {
+      "binom_k": 25,
+      "binom_n": 39,
+      "binom_p": 0.10812902140605732,
+      "mean_delta": 0.2054971619136979,
+      "median_delta": 0.24580246373552317,
+      "n": 39,
+      "n_down": 14,
+      "n_tie": 0,
+      "n_up": 25,
+      "wilcoxon_p": 0.04750477915149531,
+      "wilcoxon_stat": 248.0
+    },
+    "abs_delta_ge_0.25": {
+      "binom_k": 19,
+      "binom_n": 28,
+      "binom_p": 0.08715855330228806,
+      "mean_delta": 0.2735176377816435,
+      "median_delta": 0.3446899369338424,
+      "n": 28,
+      "n_down": 9,
+      "n_tie": 0,
+      "n_up": 19,
+      "wilcoxon_p": 0.07741569727659225,
+      "wilcoxon_stat": 125.0
+    },
+    "all_cldn4_export_groups_including_MOC22": {
+      "binom_k": 34,
+      "binom_n": 63,
+      "binom_p": 0.6146550157654618,
+      "mean_delta": 0.11283222629348494,
+      "median_delta": 0.017317774064741366,
+      "n": 65,
+      "n_down": 29,
+      "n_tie": 2,
+      "n_up": 34,
+      "wilcoxon_p": 0.1234693559268815,
+      "wilcoxon_stat": 783.0
+    },
+    "collapse_17_cell_lines": {
+      "stats": {
+        "binom_k": 11,
+        "binom_n": 17,
+        "binom_p": 0.332305908203125,
+        "mean_delta": 0.19414441187680148,
+        "median_delta": 0.13712191405855323,
+        "n": 17,
+        "n_down": 6,
+        "n_tie": 0,
+        "n_up": 11,
+        "wilcoxon_p": 0.050537109375,
+        "wilcoxon_stat": 35.0
+      },
+      "up_down_tie": {
+        "down": 6,
+        "n": 17,
+        "tie": 0,
+        "up": 11
+      }
+    },
+    "median_delta": {
+      "binom_k": 35,
+      "binom_n": 56,
+      "binom_p": 0.08142681460950618,
+      "mean_delta": 0.1351315264767727,
+      "median_delta": 0.01998268712979448,
+      "n": 64,
+      "n_down": 21,
+      "n_tie": 8,
+      "n_up": 35,
+      "wilcoxon_p": 0.08375507672805667,
+      "wilcoxon_stat": 586.0
+    }
+  },
+  "concordance_with_tacstd2": {
+    "n": 64,
+    "same_direction": 41,
+    "spearman_p": 0.000415835848415039,
+    "spearman_rho": 0.42821002990477064
+  },
+  "honest_limits": [
+    "Not 64 independent models: 17 cell lines, 22 studies; 29/64 groups are mammary.",
+    "Not paired longitudinal mice; TISMO pairs Baseline vs treated groups.",
+    "Direction is the sign of the mean difference, not DESeq2 significance.",
+    "Cldn4 export has one extra group (MOC22_RU31562203_antiPD1, down) excluded to keep the Tacstd2 64.",
+    "R vs NR is not the A4 contrast and has only 2 groups with both classes."
+  ],
+  "lung": {
+    "groups": [
+      "LLC_GSE155972_Setdb1_KO_antiCTLA4&antiPD1",
+      "LLC_GSE155972_antiCTLA4&antiPD1"
+    ],
+    "n_groups": 2,
+    "note": "Only LLC GSE155972. n=2 cannot carry a 49/64 claim.",
+    "up_down_tie": {
+      "down": 0,
+      "n": 2,
+      "tie": 0,
+      "up": 2
+    }
+  },
+  "response_R_vs_NR": {
+    "n_groups_with_both": 2,
+    "note": "Almost untestable. Do not interpret as response association.",
+    "stats": {
+      "binom_k": 0,
+      "binom_n": 2,
+      "binom_p": 0.5,
+      "mean_delta": -0.10704789724646296,
+      "median_delta": -0.10704789724646296,
+      "n": 2,
+      "n_down": 2,
+      "n_tie": 0,
+      "n_up": 0,
+      "wilcoxon_p": 0.5,
+      "wilcoxon_stat": 0.0
+    }
+  },
+  "tacstd2_lock": {
+    "claim_match": true,
+    "stats": {
+      "binom_k": 49,
+      "binom_n": 64,
+      "binom_p": 2.436457216293327e-05,
+      "mean_delta": 0.25596508868510365,
+      "median_delta": 0.11606931339508711,
+      "n": 64,
+      "n_down": 15,
+      "n_tie": 0,
+      "n_up": 49,
+      "wilcoxon_p": 5.8398482923347564e-05,
+      "wilcoxon_stat": 439.0
+    },
+    "up_down_tie": {
+      "down": 15,
+      "n": 64,
+      "tie": 0,
+      "up": 49
+    }
+  },
+  "task": "A4 analog: TISMO Cldn4 after ICB on the same 64 groups as the Tacstd2 claim",
+  "universe": {
+    "definition": "TISMO gene-module ICB export (All treatments \u00d7 All tumors, type=3). One group = cell_line stem with Baseline vs treated (Responders and/or Non-responders pooled). Same 64 stems as Tacstd2.",
+    "extra_cldn4_only_groups": [
+      "MOC22_RU31562203_antiPD1"
+    ],
+    "n_cell_lines": 17,
+    "n_groups_cldn4_export": 65,
+    "n_groups_cldn4_matched": 64,
+    "n_groups_tacstd2": 64,
+    "n_studies": 22
+  },
+  "verdict": "NOT_SUPPORTED",
+  "verdict_sentence": "Cldn4 is not up after ICB in 49/64 TISMO groups. On the official Tacstd2 64-group universe, Cldn4 mean treated\u2212baseline is up in 34, down in 28, and tied in 2 (Wilcoxon p=0.078; sign-test p=0.53)."
+}
