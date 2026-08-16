@@ -1,0 +1,50 @@
+{
+  "claim": "A1 (LUAD-only): TACSTD2 expression is associated with immune features in TCGA-LUAD primary tumors after adjusting for tumor purity",
+  "cohort": "TCGA-LUAD primary tumor samples (-01) with RNA-seq and ABSOLUTE purity",
+  "n_expression_primary": 515,
+  "n_analysis": 502,
+  "tacstd2_vs_purity_spearman": {
+    "rho": 0.007390157000782001,
+    "p": 0.8688112903914171
+  },
+  "purity_vs_leukocyte_fraction_spearman_rho": -0.772071850631388,
+  "methods": {
+    "unadjusted": "Spearman correlation",
+    "adjusted": "partial Spearman (Pearson on rank residuals after regressing out ranked ABSOLUTE purity), t-test with n-3 df",
+    "multiple_testing": "Benjamini-Hochberg FDR across all tested features, computed separately for unadjusted and adjusted p-values",
+    "duplicates": "replicate aliquots averaged per patient-level -01 sample",
+    "randomness": "deterministic (no sampling)"
+  },
+  "inputs": {
+    "expression": {
+      "file": "TCGA.LUAD.HiSeqV2.gz",
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap%2FHiSeqV2.gz",
+      "desc": "UCSC Xena TCGA-LUAD gene expression, log2(RSEM normalized_count + 1)",
+      "md5": "bcff7dfabf3da82ce215bd2649c4dd4a"
+    },
+    "purity": {
+      "file": "TCGA_mastercalls.abs_tables_JSedit.fixed.txt",
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "desc": "PanCanAtlas ABSOLUTE purity/ploidy calls",
+      "md5": "8ea2ca92c8ae58350538999dfa1174da"
+    },
+    "leukocyte_fraction": {
+      "file": "TCGA_all_leuk_estimate.masked.20170107.tsv",
+      "url": "https://api.gdc.cancer.gov/data/6f75c9d7-5134-4ed1-b8f3-72856c98a4e8",
+      "desc": "PanImmune (Thorsson 2018) DNA-methylation leukocyte fraction",
+      "md5": "499fc7f0b0f1512dee486cc996e452f2"
+    },
+    "cibersort": {
+      "file": "TCGA.Kallisto.fullIDs.cibersort.relative.tsv",
+      "url": "https://api.gdc.cancer.gov/data/b3df502e-3594-46ef-9f94-d041a20a0b9a",
+      "desc": "PanImmune CIBERSORT relative immune-cell fractions",
+      "md5": "2484144d9669a6831b1220a045528ce1"
+    },
+    "signatures": {
+      "file": "Scores_160_Signatures.tsv.gz",
+      "url": "https://api.gdc.cancer.gov/data/80a82092-161d-4615-9d96-e858f113618d",
+      "desc": "PanImmune 160 expression signature scores (Wolf et al. subset used)",
+      "md5": "55c0951534e4f7d382f25931e63f4e51"
+    }
+  }
+}
