@@ -1,0 +1,95 @@
+{
+  "datasets": {
+    "GSE206300": {
+      "TACSTD2": {
+        "mean_cp10k_case": 0.0016603631806561582,
+        "mean_cp10k_ctrl": 0.0007612204282790713,
+        "log2FC": 1.1240873072320403,
+        "boot95_lo": -0.6451850226778537,
+        "boot95_hi": 2.516169220061003,
+        "p_mwu": 0.588163960601964,
+        "p_ttest": 0.2243404110476932,
+        "detrate_case": 0.0006186002481707667,
+        "detrate_ctrl": 0.00022246847201515003
+      },
+      "CLDN4": {
+        "mean_cp10k_case": 1.625373953170713,
+        "mean_cp10k_ctrl": 1.5318101558331567,
+        "log2FC": 0.08553411735304507,
+        "boot95_lo": -0.5956100881754128,
+        "boot95_hi": 0.8005887824116227,
+        "p_mwu": 0.8169613217153913,
+        "p_ttest": 0.7458050352869983,
+        "detrate_case": 0.24957906745382277,
+        "detrate_ctrl": 0.2420287420810713
+      },
+      "EPCAM": {
+        "mean_cp10k_case": 3.520373468904335,
+        "mean_cp10k_ctrl": 3.1595029515748574,
+        "log2FC": 0.15603082904982016,
+        "boot95_lo": -0.07979919384040467,
+        "boot95_hi": 0.3985439630904123,
+        "p_mwu": 0.3960658207089378,
+        "p_ttest": 0.21694436278953916,
+        "detrate_case": 0.4982566953624242,
+        "detrate_ctrl": 0.492008928870782
+      },
+      "PTPRC": {
+        "mean_cp10k_case": 0.04751001595754297,
+        "mean_cp10k_ctrl": 0.016300755808514342,
+        "log2FC": 1.5432346963580355,
+        "boot95_lo": 0.5248674324950456,
+        "boot95_hi": 2.3862534486094376,
+        "p_mwu": 0.016770456126381922,
+        "p_ttest": 0.04440093737309097,
+        "detrate_case": 0.013392473411499184,
+        "detrate_ctrl": 0.004063464775822357
+      }
+    },
+    "GSE319496": {
+      "TACSTD2": {
+        "in_matrix": false,
+        "n_samples_detected": 0,
+        "pct_detected": 0.0,
+        "mean_cpm": NaN,
+        "median_cpm": NaN
+      },
+      "CLDN4": {
+        "in_matrix": true,
+        "n_samples_detected": 29,
+        "pct_detected": 0.5686274509803921,
+        "mean_cpm": 0.5138068511958914,
+        "median_cpm": 0.2597864814908626
+      }
+    },
+    "GSE277136": {
+      "epithelial_cells": 102,
+      "total_cells": 74607,
+      "epithelial_fraction": 0.0013671639390405725,
+      "note": "BALF is immune-dominated; epithelial cells ~0.14% and near-zero for markers"
+    }
+  },
+  "controls": {
+    "EPCAM_epithelium_high": true,
+    "PTPRC_epithelium_low": true,
+    "BALF_PTPRC_immune_high": true
+  },
+  "verdict": {
+    "goi": [
+      "TACSTD2",
+      "CLDN4"
+    ],
+    "measurability_gradient": "colon epithelium (CLDN4 robust, TACSTD2 floor) > BALF (both floor) > blood (CLDN4 low, TACSTD2 absent)",
+    "TACSTD2_measurable_anywhere": true,
+    "TACSTD2_biologically_expressed": "only where genuine epithelium captured; at detection floor in colon snRNA, BALF, and absent from blood matrix",
+    "CLDN4_measurable_anywhere": true,
+    "CLDN4_best_compartment": "colon epithelium (GSE206300), ~25% nuclei, CP10K~1.6",
+    "any_significant_irAE_association_p_lt_0p05": false,
+    "conclusion": "Neither TACSTD2 nor CLDN4 shows a significant, reproducible association with irAE status in these public ICI datasets; CLDN4 is the more measurable marker (epithelial tissue), TACSTD2 is largely at the detection floor.",
+    "controls_passed": {
+      "EPCAM_epithelium_high": true,
+      "PTPRC_epithelium_low": true,
+      "BALF_PTPRC_immune_high": true
+    }
+  }
+}

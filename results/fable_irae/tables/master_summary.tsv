@@ -1,0 +1,7 @@
+dataset	compartment	irAE	gene	measurable	abundance_metric	abundance	detection_rate	contrast	log2FC	p_value
+GSE206300	colon epithelium (snRNA)	colitis	TACSTD2	True	pseudobulk CP10K	0.00117620939091465	0.0004052985225485115	irColitis Case vs Control (26 donors)	1.1240873072320403	0.588163960601964
+GSE206300	colon epithelium (snRNA)	colitis	CLDN4	True	pseudobulk CP10K	1.5749934469120288	0.24551350763772584	irColitis Case vs Control (26 donors)	0.08553411735304507	0.8169613217153913
+GSE319496	whole blood (bulk)	irAE Yes/No (mRCC)	TACSTD2	False	mean CPM		0.0	irAE Yes(29) vs No(22)		
+GSE319496	whole blood (bulk)	irAE Yes/No (mRCC)	CLDN4	True	mean CPM	0.5138068511958914	0.5686274509803921	irAE Yes(29) vs No(22)	-0.0779302904521348	0.8428124855295305
+GSE277136	BALF (scRNA, lung)	pneumonitis	TACSTD2	True	mean log1p (all cells)	0.00593558146693876	0.005321216507834337	AE(4) vs HC(3) pseudobulk [batch-confounded]		0.057142857
+GSE277136	BALF (scRNA, lung)	pneumonitis	CLDN4	True	mean log1p (all cells)	0.00046166482353253717	0.00030828206468560307	AE(4) vs HC(3) pseudobulk [batch-confounded]		0.21179837

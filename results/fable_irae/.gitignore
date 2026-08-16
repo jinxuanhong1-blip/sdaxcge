@@ -1,0 +1,11 @@
+# Large working / raw downloads are NOT committed (kept < 2 GB on disk, derived
+# outputs only are versioned). See WRITEUP.md for how to regenerate.
+data/raw/
+*.h5ad
+*.h5ad.gz
+*.tar
+*.RAW.tar
+*.mtx
+*.mtx.gz
+__pycache__/
+*.pyc
