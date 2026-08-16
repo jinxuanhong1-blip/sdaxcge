@@ -1,0 +1,9 @@
+dataset,compartment,gene,outcome,n,n_group1,n_group2,median_responder,median_nonresponder,effect,auc,p_value,direction
+GSE126044,tumor,TACSTD2,response (R vs NR),16,5,11,6.168,6.288,AUC=0.364,0.364,0.4409,higher in non-responders
+GSE126044,tumor,CLDN4,response (R vs NR),16,5,11,2.542,3.771,AUC=0.236,0.236,0.1149,higher in non-responders
+GSE135222,tumor,TACSTD2,PFS (Cox continuous / KM median-split),27,13,14,,,HR=1.035 (per log2TPM); logrank p=0.1686,,0.7762,higher expr -> shorter PFS
+GSE135222,tumor,CLDN4,PFS (Cox continuous / KM median-split),27,13,14,,,HR=1.050 (per log2TPM); logrank p=0.9093,,0.6079,higher expr -> shorter PFS
+GSE182328,tumor,TACSTD2,Akkermansia detectable vs not (ICI-prognostic surrogate),44,22,22,6.898,6.926,AUC=0.430,0.43,0.4317,higher in Akk-
+GSE182328,tumor,CLDN4,Akkermansia detectable vs not (ICI-prognostic surrogate),44,22,22,7.199,7.717,AUC=0.322,0.322,0.0448,higher in Akk-
+GSE111414,PBMC CD8+ T cell,TACSTD2,response (R vs NR) [epithelial-null control],20,10,10,0.0,0.0,mean log2CPM=0.055 (near-zero: epithelial gene not expressed in CD8 T),0.52,0.8712,not interpretable (compartment lacks epithelium)
+GSE111414,PBMC CD8+ T cell,CLDN4,response (R vs NR) [epithelial-null control],20,10,10,0.0,0.0,mean log2CPM=0.015 (near-zero: epithelial gene not expressed in CD8 T),0.495,1.0,not interpretable (compartment lacks epithelium)
