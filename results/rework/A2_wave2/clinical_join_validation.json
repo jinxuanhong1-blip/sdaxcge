@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "series": "GSE253564",
+      "n_samples": 32,
+      "n_matched_to_publication": 32
+    },
+    {
+      "series": "GSE248378",
+      "n_samples": 29,
+      "n_matched_to_publication": 29
+    }
+  ],
+  "mismatches": [
+    {
+      "series": "GSE248378",
+      "sample_title": "45-M-PO",
+      "patient": "durva045",
+      "arm_geo": "Arm2",
+      "arm_publication": "Arm1"
+    }
+  ],
+  "resolution": "Use publication Table S1 arm as canonical. The one GEO mismatch (GSE248378 45-M-PO / durva045) is retained and excluded from arm-stratified tests."
+}

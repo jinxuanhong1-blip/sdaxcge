@@ -1,0 +1,160 @@
+{
+  "question": "TACSTD2/CLDN4 vs MPR/PFS/CYT/CD8 after separate MKI67, ESTIMATE, epithelial residuals; new PACIFIC/ADRIA matrix?",
+  "verdict": "PARTLY \u2014 MPR gap not residual-robust; post CYT/CD8 negative correlation is; no new PACIFIC/ADRIA matrix",
+  "user_claim": {
+    "rho_raw": -0.65,
+    "rho_purity_adj": -0.46,
+    "p": 0.0002
+  },
+  "n_pre": 32,
+  "n_post": 29,
+  "methods": {
+    "expression": "log2(FPKM+1)",
+    "CYT": "mean log2(FPKM+1) GZMA+PRF1",
+    "CD8": "log2(FPKM+1) CD8A",
+    "ESTIMATE": "v1.0.13 Immune+Stromal; covariate = ESTIMATEScore",
+    "EpiScore": "mean log2(FPKM+1) of EPCAM KRT7 KRT8 KRT18 KRT19 CDH1 MUC1 (TACSTD2/CLDN4 excluded)",
+    "residual_MPR_PFS": "OLS residual of gene on covariate, then MWU / Cox",
+    "residual_immune": "OLS-residual Spearman + partial Spearman (ranks, n-3)",
+    "covariates": "MKI67, ESTIMATEScore, EpiScore separately (never joint)"
+  },
+  "key": {
+    "pre_TACSTD2_MPR_unadj": {
+      "n_pos": 11.0,
+      "n_neg": 21.0,
+      "p": 0.015510489089653818,
+      "cliffs_delta": 0.5324675324675324,
+      "note": "",
+      "rho": null,
+      "n_events": null,
+      "hr": null
+    },
+    "pre_TACSTD2_MPR_MKI67": {
+      "n_pos": 11.0,
+      "n_neg": 21.0,
+      "p": 0.24989542486306515,
+      "cliffs_delta": 0.2554112554112554,
+      "note": "",
+      "rho": null,
+      "n_events": null,
+      "hr": null
+    },
+    "pre_TACSTD2_MPR_ESTIMATE": {
+      "n_pos": 11.0,
+      "n_neg": 21.0,
+      "p": 0.04727825143275227,
+      "cliffs_delta": 0.43722943722943725,
+      "note": "",
+      "rho": null,
+      "n_events": null,
+      "hr": null
+    },
+    "pre_TACSTD2_MPR_EpiScore": {
+      "n_pos": 11.0,
+      "n_neg": 21.0,
+      "p": 0.062213501151392014,
+      "cliffs_delta": 0.41125541125541126,
+      "note": "",
+      "rho": null,
+      "n_events": null,
+      "hr": null
+    },
+    "post_TACSTD2_PFS_unadj": {
+      "n_pos": null,
+      "n_neg": null,
+      "p": 0.016007248921903104,
+      "cliffs_delta": null,
+      "note": "HR per +1 residual (or +1 log2(FPKM+1) if unadjusted)",
+      "rho": null,
+      "n_events": 9.0,
+      "hr": 2.2357172003841628
+    },
+    "post_TACSTD2_CYT_partial_ESTIMATE": {
+      "n_pos": null,
+      "n_neg": null,
+      "p": 2.2934674545048468e-05,
+      "cliffs_delta": null,
+      "note": "A2-matched estimator; residualises both ranks",
+      "rho": -0.7102675745610266,
+      "n_events": null,
+      "hr": null
+    },
+    "post_TACSTD2_CD8A_partial_ESTIMATE": {
+      "n_pos": null,
+      "n_neg": null,
+      "p": 0.0012975994197135252,
+      "cliffs_delta": null,
+      "note": "A2-matched estimator; residualises both ranks",
+      "rho": -0.5772996609207868,
+      "n_events": null,
+      "hr": null
+    }
+  },
+  "pre_meta": {
+    "series": "GSE253564",
+    "timepoint": "pre",
+    "n_samples": 32,
+    "n_genes": 20187,
+    "estimate_overlap": {
+      "StromalSignature": 136,
+      "ImmuneSignature": 138
+    },
+    "cyt_genes_present": [
+      "GZMA",
+      "PRF1"
+    ],
+    "epi_genes_present": [
+      "EPCAM",
+      "KRT7",
+      "KRT8",
+      "KRT18",
+      "KRT19",
+      "CDH1",
+      "MUC1"
+    ],
+    "epi_genes_locked": [
+      "EPCAM",
+      "KRT7",
+      "KRT8",
+      "KRT18",
+      "KRT19",
+      "CDH1",
+      "MUC1"
+    ],
+    "n_purity_oob": 23
+  },
+  "post_meta": {
+    "series": "GSE248378",
+    "timepoint": "post",
+    "n_samples": 29,
+    "n_genes": 15165,
+    "estimate_overlap": {
+      "StromalSignature": 133,
+      "ImmuneSignature": 138
+    },
+    "cyt_genes_present": [
+      "GZMA",
+      "PRF1"
+    ],
+    "epi_genes_present": [
+      "EPCAM",
+      "KRT7",
+      "KRT8",
+      "KRT18",
+      "KRT19",
+      "CDH1",
+      "MUC1"
+    ],
+    "epi_genes_locked": [
+      "EPCAM",
+      "KRT7",
+      "KRT8",
+      "KRT18",
+      "KRT19",
+      "CDH1",
+      "MUC1"
+    ],
+    "n_purity_oob": 6
+  },
+  "pacific_adria_open_matrix": false
+}

@@ -1,0 +1,109 @@
+n_pos	n_neg	median_pos	median_neg	U	p	cliffs_delta	note	series	timepoint	gene	covariate	adjustment	endpoint	test	n	rho	n_events	hr	hr_ci_low	hr_ci_high	logrank_p
+					0.007898022011171834			GSE253564	pre	TACSTD2	none	unadjusted	CYT	Spearman unadjusted	32.0	-0.46114369501466274					
+					0.0015565579652786856			GSE253564	pre	TACSTD2	none	unadjusted	CD8A	Spearman unadjusted	32.0	-0.5362903225806451					
+					4.0257287446347355e-06			GSE253564	pre	TACSTD2	none	unadjusted	ImmuneScore	Spearman unadjusted	32.0	-0.7162756598240468					
+					0.0005353506135290711		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.5777126099706744					
+					0.00047330504316108417		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.5902785648791828					
+					5.393230905027556e-05		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.6513929618768328					
+					2.3489517368550475e-05		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.6824269500097763					
+					1.3381744675506559e-06		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.7393695014662756					
+					8.603030366441276e-07		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.7562907160039187					
+					0.1808214841725284		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.24266862170087974					
+					0.3745144181413529		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.16518684151777113					
+					0.09417524956007502		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.30095307917888564					
+					0.18863470023799292		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.24253755120388606					
+					0.013327938879964713		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.4329178885630498					
+					0.0021903059823752524		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.5294960162414778					
+					0.02057281144111158		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.40762463343108496					
+					0.01208415007797361		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.445194815916162					
+					0.008836437012335751		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.4552785923753665					
+					0.004480848285578352		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.4966757599816725					
+					0.00010845104115657993		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.6308651026392961					
+					4.965093634017785e-06		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.7200248543756284					
+					0.05967410614682277		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.33651026392961875					
+					0.021456539296127845		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.4114860436119706					
+					0.07701517054547916		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.3170821114369501					
+					0.009486434500833188		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.4584824586028576					
+					0.0019194677346263114		residualise gene only (leftover-style)	GSE253564	pre	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.5274926686217009					
+					3.6800788443275234e-05		A2-matched estimator; residualises both ranks	GSE253564	pre	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.6704446249499759					
+					0.028614193160533406			GSE253564	pre	CLDN4	none	unadjusted	CYT	Spearman unadjusted	32.0	-0.3870967741935483					
+					0.012237262024570398			GSE253564	pre	CLDN4	none	unadjusted	CD8A	Spearman unadjusted	32.0	-0.43768328445747795					
+					0.007199217494525947			GSE253564	pre	CLDN4	none	unadjusted	ImmuneScore	Spearman unadjusted	32.0	-0.4659090909090909					
+					0.01876995494865317		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.4131231671554252					
+					0.04025217351210807		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.37039937303832315					
+					0.008653623563026984		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.45637829912023453					
+					0.017991996991399844		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.42217515539391504					
+					0.0035969274495796927		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.499633431085044					
+					0.007205040646484874		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.4729891465783519					
+					0.13869246028698645		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.26759530791788855					
+					0.11781898082248624		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.2867495035938437					
+					0.10559965044268481		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.2914222873900293					
+					0.05162671766983313		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.3527211993898722					
+					0.11556451027978869		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.28372434017595305					
+					0.027841677966935506		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.3950516771438231					
+					0.002495742031769407		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.5161290322580645					
+					0.03442911685996172		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.381061131097614					
+					0.006136384749900885		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.47397360703812313					
+					0.031555774571407395		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.3868696807405031					
+					0.0037125028515206087		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.49816715542521983					
+					0.011836702375861426		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.44635078668988015					
+					0.04438479929950285		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	32.0	-0.3577712609970674					
+					0.08016999637448496		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	32.0	-0.3190941882298394					
+					0.11264853113507983		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	32.0	-0.2859237536656891					
+					0.08637447527222118		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	32.0	-0.3130632267314638					
+					0.08371628398335729		residualise gene only (leftover-style)	GSE253564	pre	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	32.0	-0.3104838709677419					
+					0.05488531704391881		A2-matched estimator; residualises both ranks	GSE253564	pre	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	32.0	-0.3482336855361225					
+					1.3231068664533325e-07			GSE248378	post	TACSTD2	none	unadjusted	CYT	Spearman unadjusted	29.0	-0.8059113300492609					
+					1.885111591438741e-05			GSE248378	post	TACSTD2	none	unadjusted	CD8A	Spearman unadjusted	29.0	-0.7059113300492609					
+					8.298085015678566e-05			GSE248378	post	TACSTD2	none	unadjusted	ImmuneScore	Spearman unadjusted	29.0	-0.6650246305418718					
+					1.5204459028251589e-05		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.7113300492610837					
+					9.524504495853245e-07		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.7807292220920161					
+					0.00022515817218428648		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.6334975369458127					
+					4.145321623497626e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.694395351199671					
+					1.5816162079999293e-05		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.7103448275862068					
+					1.1294367413987317e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.7279934253933188					
+					0.002121955242574287		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.5472906403940886					
+					2.2934674545048468e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.7102675745610266					
+					0.007216293767846512		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.48817733990147766					
+					0.0012975994197135252		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.5772996609207868					
+					0.10834226185615385		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.30443349753694576					
+					0.010852252464636945		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.47388201775941824					
+					4.806892883338089e-06		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.7384236453201969					
+					6.350394470735889e-08		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.825670576936984					
+					0.0001430062163294667		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.6482758620689654					
+					1.286555235223284e-05		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.7248320727814777					
+					0.0018967092690696736		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.5522167487684727					
+					0.0004141649834926707		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.6216181238282268					
+					0.00015450010900257616		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.6458128078817732					
+					1.0729804575462065e-06		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.77847354098411					
+					0.004492807118898387		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.5123152709359605					
+					0.00020231490707003347		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.646386309461361					
+					0.029118460333571947		residualise gene only (leftover-style)	GSE248378	post	TACSTD2	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.4054187192118226					
+					0.0035373145279469567		A2-matched estimator; residualises both ranks	GSE248378	post	TACSTD2	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.5324444738377595					
+					0.003201641670700184			GSE248378	post	CLDN4	none	unadjusted	CYT	Spearman unadjusted	29.0	-0.5285714285714285					
+					0.011222659676377032			GSE248378	post	CLDN4	none	unadjusted	CD8A	Spearman unadjusted	29.0	-0.46403940886699496					
+					0.038243465173561794			GSE248378	post	CLDN4	none	unadjusted	ImmuneScore	Spearman unadjusted	29.0	-0.3866995073891625					
+					0.05255491020099633		residualise gene only (leftover-style)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.36354679802955653					
+					0.02151025354552195		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	MKI67	partial Spearman | MKI67	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.4325475528331126					
+					0.06864282672986495		residualise gene only (leftover-style)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.34285714285714275					
+					0.028369848195167132		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	MKI67	partial Spearman | MKI67	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.41434210129364074					
+					0.020684131644173924		residualise gene only (leftover-style)	GSE248378	post	CLDN4	MKI67	OLS residual on MKI67	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.4275862068965517					
+					0.01653054223718856		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	MKI67	partial Spearman | MKI67	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.44903790569349983					
+					0.042713801649729176		residualise gene only (leftover-style)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.3788177339901477					
+					0.03172144840078885		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.40672507287691695					
+					0.08278682478282441		residualise gene only (leftover-style)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.32758620689655166					
+					0.08429536687472867		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.3320474849234444					
+					0.3725188052949502		residualise gene only (leftover-style)	GSE248378	post	CLDN4	ESTIMATEScore	OLS residual on ESTIMATEScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.1719211822660098					
+					0.505896885697417		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	ESTIMATEScore	partial Spearman | ESTIMATEScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.13115335528820637					
+					0.0013090106716126919		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.5679802955665022					
+					0.0012103147748925118		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EpiScore	partial Spearman | EpiScore	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.5801927180544483					
+					0.0017119846447076288		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.5566502463054185					
+					0.003640883071227387		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EpiScore	partial Spearman | EpiScore	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.5310577576034894					
+					0.1738372900192245		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EpiScore	OLS residual on EpiScore	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.2596059113300492					
+					0.2534660970553775		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EpiScore	partial Spearman | EpiScore	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.2232532276863144					
+					0.03905175930801555		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CYT	Spearman of OLS-residual vs raw endpoint	29.0	-0.3852216748768472					
+					0.027636255834243176		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CYT	partial Spearman (ranks, n-3 df)	29.0	-0.4161057825126967					
+					0.11762338310073175		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	CD8A	Spearman of OLS-residual vs raw endpoint	29.0	-0.2970443349753694					
+					0.10523599212419026		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	CD8A	partial Spearman (ranks, n-3 df)	29.0	-0.3126712858197119					
+					0.6769689753216956		residualise gene only (leftover-style)	GSE248378	post	CLDN4	EPCAM_sensitivity	OLS residual on EPCAM_sensitivity	ImmuneScore	Spearman of OLS-residual vs raw endpoint	29.0	-0.08078817733990146					
+					0.7872698772827177		A2-matched estimator; residualises both ranks	GSE248378	post	CLDN4	EPCAM_sensitivity	partial Spearman | EPCAM_sensitivity	ImmuneScore	partial Spearman (ranks, n-3 df)	29.0	-0.053396374692340924					

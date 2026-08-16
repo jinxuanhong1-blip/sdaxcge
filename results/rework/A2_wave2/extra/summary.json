@@ -1,0 +1,424 @@
+{
+  "question": "Add public TACSTD2/CLDN4 content on top of given A2: extra lung IO series vs MPR/DCB/ORR and vs CD8/GEP after ESTIMATE residual",
+  "a2_user_result_taken_as_given": {
+    "rho_raw": -0.65,
+    "rho_purity_adj": -0.46
+  },
+  "gse253564_rescored": false,
+  "series_scored": [
+    "GSE207422",
+    "GSE126044",
+    "GSE166449",
+    "GSE135222",
+    "GSE329813",
+    "GSE248378"
+  ],
+  "methods": {
+    "purity": "ESTIMATEScore residual / partial Spearman (ranks, n-3)",
+    "GEP18": "Ayers 2017 unweighted z-mean",
+    "CD8": "CD8A",
+    "no_pooling": true
+  },
+  "key": {
+    "GSE207422_TACSTD2_MPR": {
+      "p": 0.3400554635028641,
+      "rho": null,
+      "hr": null,
+      "cliffs_delta": -0.24444444444444444,
+      "n": null,
+      "n_pos": 9.0,
+      "n_neg": 15.0,
+      "n_events": null,
+      "note": "",
+      "gene_present": "True"
+    },
+    "GSE207422_TACSTD2_MPR_ESTIMATE": {
+      "p": 0.9524515354386665,
+      "rho": null,
+      "hr": null,
+      "cliffs_delta": 0.022222222222222223,
+      "n": null,
+      "n_pos": 9.0,
+      "n_neg": 15.0,
+      "n_events": null,
+      "note": "",
+      "gene_present": "True"
+    },
+    "GSE126044_TACSTD2_ORR": {
+      "p": 0.440934065934066,
+      "rho": null,
+      "hr": null,
+      "cliffs_delta": -0.2727272727272727,
+      "n": null,
+      "n_pos": 5.0,
+      "n_neg": 11.0,
+      "n_events": null,
+      "note": "",
+      "gene_present": "True"
+    },
+    "GSE166449_TACSTD2_ORR": {
+      "p": 0.4068627450980391,
+      "rho": null,
+      "hr": null,
+      "cliffs_delta": 0.23809523809523808,
+      "n": null,
+      "n_pos": 7.0,
+      "n_neg": 15.0,
+      "n_events": null,
+      "note": "",
+      "gene_present": "True"
+    },
+    "GSE135222_TACSTD2_DCB": {
+      "p": 0.607105615801268,
+      "rho": null,
+      "hr": null,
+      "cliffs_delta": -0.14285714285714285,
+      "n": null,
+      "n_pos": 7.0,
+      "n_neg": 20.0,
+      "n_events": null,
+      "note": "",
+      "gene_present": "True"
+    },
+    "GSE248378_TACSTD2_CD8_partial_ESTIMATE": {
+      "p": 0.0012975994197135252,
+      "rho": -0.5772996609207868,
+      "hr": null,
+      "cliffs_delta": null,
+      "n": 29.0,
+      "n_pos": null,
+      "n_neg": null,
+      "n_events": null,
+      "note": "purity residual = ESTIMATEScore; residualises both ranks",
+      "gene_present": "True"
+    },
+    "GSE248378_TACSTD2_GEP_partial_ESTIMATE": {
+      "p": 0.03300601625107795,
+      "rho": -0.40397751011241917,
+      "hr": null,
+      "cliffs_delta": null,
+      "n": 29.0,
+      "n_pos": null,
+      "n_neg": null,
+      "n_events": null,
+      "note": "purity residual = ESTIMATEScore; residualises both ranks",
+      "gene_present": "True"
+    },
+    "GSE329813_TACSTD2_MPR": {
+      "p": 0.0070968436292014455,
+      "rho": null,
+      "hr": null,
+      "cliffs_delta": -0.6859504132231405,
+      "n": null,
+      "n_pos": 11.0,
+      "n_neg": 11.0,
+      "n_events": null,
+      "note": "",
+      "gene_present": "True"
+    }
+  },
+  "metas": [
+    {
+      "series": "GSE207422",
+      "n_samples": 24,
+      "n_genes": 58387,
+      "estimate_overlap": {
+        "StromalSignature": 139,
+        "ImmuneSignature": 141
+      },
+      "gep18_present": [
+        "CCL5",
+        "CD27",
+        "CD274",
+        "CD276",
+        "CD8A",
+        "CMKLR1",
+        "CXCL9",
+        "CXCR6",
+        "HLA-DQA1",
+        "HLA-DRB1",
+        "HLA-E",
+        "IDO1",
+        "LAG3",
+        "NKG7",
+        "PDCD1LG2",
+        "PSMB10",
+        "STAT1",
+        "TIGIT"
+      ],
+      "n_gep18": 18,
+      "cyt_present": [
+        "GZMA",
+        "PRF1"
+      ],
+      "epi_present": [
+        "EPCAM",
+        "KRT7",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "MUC1"
+      ],
+      "n_purity_oob": 0,
+      "targets_present": {
+        "TACSTD2": true,
+        "CLDN4": true
+      },
+      "pmid": "36869384",
+      "note": "Hu/Zhang 2023. Baseline bulk only (24 patients). MPR = Pathologic Response starts with MPR or contains pCR. RECIST scored separately, not pooled with MPR."
+    },
+    {
+      "series": "GSE126044",
+      "n_samples": 16,
+      "n_genes": 18745,
+      "estimate_overlap": {
+        "StromalSignature": 137,
+        "ImmuneSignature": 141
+      },
+      "gep18_present": [
+        "CCL5",
+        "CD27",
+        "CD274",
+        "CD276",
+        "CD8A",
+        "CMKLR1",
+        "CXCL9",
+        "CXCR6",
+        "HLA-DQA1",
+        "HLA-DRB1",
+        "HLA-E",
+        "IDO1",
+        "LAG3",
+        "NKG7",
+        "PDCD1LG2",
+        "PSMB10",
+        "STAT1",
+        "TIGIT"
+      ],
+      "n_gep18": 18,
+      "cyt_present": [
+        "GZMA",
+        "PRF1"
+      ],
+      "epi_present": [
+        "EPCAM",
+        "KRT7",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "MUC1"
+      ],
+      "n_purity_oob": 6,
+      "targets_present": {
+        "TACSTD2": true,
+        "CLDN4": true
+      },
+      "pmid": "32879421",
+      "note": "Cho 2020. Pretreatment anti-PD-1 NSCLC. Cohort-native label is patient response (ORR), not MPR."
+    },
+    {
+      "series": "GSE166449",
+      "n_samples": 22,
+      "n_genes": 20345,
+      "estimate_overlap": {
+        "StromalSignature": 138,
+        "ImmuneSignature": 141
+      },
+      "gep18_present": [
+        "CCL5",
+        "CD27",
+        "CD274",
+        "CD276",
+        "CD8A",
+        "CMKLR1",
+        "CXCL9",
+        "CXCR6",
+        "HLA-DQA1",
+        "HLA-DRB1",
+        "HLA-E",
+        "IDO1",
+        "LAG3",
+        "NKG7",
+        "PDCD1LG2",
+        "PSMB10",
+        "STAT1",
+        "TIGIT"
+      ],
+      "n_gep18": 18,
+      "cyt_present": [
+        "GZMA",
+        "PRF1"
+      ],
+      "epi_present": [
+        "EPCAM",
+        "KRT7",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "MUC1"
+      ],
+      "n_purity_oob": 12,
+      "targets_present": {
+        "TACSTD2": true,
+        "CLDN4": true
+      },
+      "pmid": "33857424",
+      "note": "Lee 2021 SELECT supplement. Title encodes responder vs nonResponder. Values used as deposited (already log-like; not re-logged)."
+    },
+    {
+      "series": "GSE135222",
+      "n_samples": 27,
+      "n_genes": 299,
+      "estimate_overlap": {
+        "StromalSignature": 135,
+        "ImmuneSignature": 140
+      },
+      "gep18_present": [
+        "CCL5",
+        "CD27",
+        "CD274",
+        "CD276",
+        "CD8A",
+        "CMKLR1",
+        "CXCL9",
+        "CXCR6",
+        "HLA-DQA1",
+        "HLA-DRB1",
+        "HLA-E",
+        "IDO1",
+        "LAG3",
+        "NKG7",
+        "PDCD1LG2",
+        "PSMB10",
+        "STAT1",
+        "TIGIT"
+      ],
+      "n_gep18": 18,
+      "cyt_present": [
+        "GZMA",
+        "PRF1"
+      ],
+      "epi_present": [
+        "EPCAM",
+        "KRT7",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "MUC1"
+      ],
+      "n_purity_oob": 0,
+      "targets_present": {
+        "TACSTD2": true,
+        "CLDN4": true
+      },
+      "pmid": "31537801",
+      "note": "Jung 2019. DCB = PFS time \u2265 180 days (cohort-native convention). Cox PFS also reported. Ensembl IDs stripped of version and mapped to symbols.",
+      "ensembl_mapped": 20
+    },
+    {
+      "series": "GSE329813",
+      "n_samples": 22,
+      "n_genes": 1812,
+      "estimate_overlap": {
+        "StromalSignature": 58,
+        "ImmuneSignature": 76
+      },
+      "gep18_present": [
+        "CCL5",
+        "CD27",
+        "CD274",
+        "CD276",
+        "CD8A",
+        "CMKLR1",
+        "CXCL9",
+        "CXCR6",
+        "HLA-DQA1",
+        "HLA-E",
+        "IDO1",
+        "LAG3",
+        "NKG7",
+        "PDCD1LG2",
+        "PSMB10",
+        "STAT1",
+        "TIGIT"
+      ],
+      "n_gep18": 17,
+      "cyt_present": [
+        "GZMA",
+        "PRF1"
+      ],
+      "epi_present": [
+        "EPCAM",
+        "KRT7",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "MUC1"
+      ],
+      "n_purity_oob": 0,
+      "targets_present": {
+        "TACSTD2": true,
+        "CLDN4": false
+      },
+      "pmid": "",
+      "note": "2026 GeoMx leftover. CLDN4 absent from the panel. Post-treatment residual tumor bed \u2014 not pretreatment bulk. Not pooled with GSE207422.",
+      "n_rois_tumor_bed": 72,
+      "cldn4_present": false,
+      "tacstd2_present": true
+    },
+    {
+      "series": "GSE248378",
+      "n_samples": 29,
+      "n_genes": 15165,
+      "estimate_overlap": {
+        "StromalSignature": 133,
+        "ImmuneSignature": 138
+      },
+      "gep18_present": [
+        "CCL5",
+        "CD27",
+        "CD274",
+        "CD276",
+        "CD8A",
+        "CMKLR1",
+        "CXCL9",
+        "CXCR6",
+        "HLA-DQA1",
+        "HLA-DRB1",
+        "HLA-E",
+        "IDO1",
+        "LAG3",
+        "NKG7",
+        "PDCD1LG2",
+        "PSMB10",
+        "STAT1",
+        "TIGIT"
+      ],
+      "n_gep18": 18,
+      "cyt_present": [
+        "GZMA",
+        "PRF1"
+      ],
+      "epi_present": [
+        "EPCAM",
+        "KRT7",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "MUC1"
+      ],
+      "n_purity_oob": 6,
+      "targets_present": {
+        "TACSTD2": true,
+        "CLDN4": true
+      },
+      "pmid": "38401548",
+      "note": "Same trial as GSE253564, different accession. Post-treatment residual. MPR not estimable in this matrix (0 MPR). Recurrence / PFS kept as the clinical labels. Included because it is the other open durvalumab NSCLC whole-transcriptome accession."
+    }
+  ]
+}
