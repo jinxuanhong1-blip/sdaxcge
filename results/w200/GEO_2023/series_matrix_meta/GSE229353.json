@@ -1,0 +1,25 @@
+{
+  "accession": "GSE229353",
+  "n_gsm": 7,
+  "char_keys": {
+    "tissue": [
+      "cancer tumor tissues"
+    ],
+    "treatment": [
+      "Chemo",
+      "anti-PD1+Chemo"
+    ],
+    "cell type": [
+      "CD45+ immune cells"
+    ],
+    "pathology": [
+      "AD",
+      "SCC"
+    ]
+  },
+  "outcome_keys": [
+    "pathology"
+  ],
+  "has_expression_table": false,
+  "n_table_rows": 1
+}

@@ -1,0 +1,51 @@
+{
+  "accession": "GSE248830",
+  "n_gsm": 44,
+  "char_keys": {
+    "age at diagnosis": [
+      "37",
+      "40",
+      "41",
+      "42",
+      "44",
+      "46",
+      "47",
+      "48"
+    ],
+    "sex": [
+      "female",
+      "male"
+    ],
+    "histology": [
+      "ER+ PR+ HER2-",
+      "ER+ PR- HER2-",
+      "ER+ PR-HER2+",
+      "ER- PR+ HER2-",
+      "ER- PR- HER2+",
+      "TNBC",
+      "Unknown",
+      "adenocaricnoma"
+    ],
+    "smoking status": [
+      "Never smoking",
+      "former-roker",
+      "former-smoker",
+      "n.a",
+      "smoker",
+      "unknown"
+    ],
+    "treatment after surgery of bm": [
+      "Chemoterapy",
+      "No treatment",
+      "Other",
+      "Radiotherapy",
+      "Radiotherapy & Chemoterapy",
+      "SRT",
+      "Surgery & Chemotherapy & Radiotherapy",
+      "WBRT"
+    ]
+  },
+  "outcome_keys": [],
+  "has_expression_table": true,
+  "n_table_rows": 755
+}

@@ -1,0 +1,11 @@
+{
+  "n_geo": 29,
+  "n_fig5d": 29,
+  "n_recurrence": 9,
+  "n_no_recurrence": 20,
+  "itgae_unique": true,
+  "join": "round(ITGAE_FPKM, 2) == Fig.5d source-data value",
+  "source": "41467_2023_44195_MOESM6_ESM.xlsx sheet Figure 5d",
+  "doi": "10.1038/s41467-023-44195-x",
+  "selection": "29/31 non-MPR resected tumours with post-treatment RNA-seq"
+}
