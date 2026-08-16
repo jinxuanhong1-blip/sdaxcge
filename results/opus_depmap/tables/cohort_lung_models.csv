@@ -1,0 +1,255 @@
+ModelID,CellLineName,StrippedCellLineName,OncotreePrimaryDisease,OncotreeSubtype,OncotreeCode,LungGroup,PrimaryOrMetastasis,Sex,Age,HasCRISPR,HasExpression,TACSTD2_geneEffect,TACSTD2_depProb,TACSTD2_log2TPM1,CLDN4_geneEffect,CLDN4_depProb,CLDN4_log2TPM1
+ACH-002089,201T,201T,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,68.0,False,False,,,,,,
+ACH-000757,A427,A427,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,52.0,True,True,-0.071501054,0.035998397,0.20163386,0.064628825,0.012397806,0.82374936
+ACH-000681,A549,A549,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,58.0,True,True,-0.11627108,0.05148417,0.20163386,0.019389462,0.013213203,2.2047668
+ACH-003012,A549_CRAF_KD,A549CRAFKD,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,58.0,True,True,0.1607552,0.0038279041,0.0,-0.035789322,0.025111554,1.8439839
+ACH-000528,ABC-1,ABC1,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,47.0,True,True,-0.054580297,0.031475678,7.3856897,0.1109505,0.0051137833,8.603478
+ACH-000603,BEN,BEN,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Metastatic,Male,71.0,False,True,,,0.5753123,,,8.75335
+ACH-000826,CAL-12T,CAL12T,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Male,,True,True,-0.1142143,0.04574742,9.267583,0.04999321,0.011506933,8.592457
+ACH-000511,Calu-1,CALU1,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,47.0,True,True,-0.120806284,0.07400597,6.244126,0.07863448,0.012787395,6.3466024
+ACH-000392,Calu-3,CALU3,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,25.0,False,True,,,7.2657557,,,7.4848633
+ACH-000264,Calu-6,CALU6,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,61.0,True,True,-0.14996819,0.13450457,0.5260688,-0.04538772,0.05554097,3.536053
+ACH-000867,ChaGo-K-1,CHAGOK1,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Metastatic,Male,45.0,True,True,0.069375224,0.016498579,7.084702,0.13648199,0.010431281,7.58105
+ACH-002996,CI34601,CI34601,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Metastatic,Male,56.0,False,True,,,4.034744,,,0.7570233
+ACH-000161,COR-L105,CORL105,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,,True,True,0.13638364,0.004983876,0.74846125,0.060305856,0.01007884,4.739848
+ACH-000662,COR-L23,CORL23,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,62.0,True,True,-0.40846577,0.35581985,7.4848633,-0.25546038,0.14872828,7.970911
+ACH-001489,COR-L32,CORL32,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Unknown,,False,True,,,0.0,,,5.8767624
+ACH-001490,COR-L321,CORL321,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,58.0,False,False,,,,,,
+ACH-000925,DV-90,DV90,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,50.0,False,True,,,7.0581,,,9.361878
+ACH-000563,EBC-1,EBC1,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,69.0,True,True,0.07204891,0.009482659,7.840652,0.09276745,0.007836836,8.451087
+ACH-000706,EKVX,EKVX,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,,True,True,-0.1533275,0.09000494,1.6135317,0.021584405,0.014115192,1.6780719
+ACH-002101,EMC-BAC-1,EMCBAC1,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Male,,False,False,,,,,,
+ACH-002102,EMC-BAC-2,EMCBAC2,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Unknown,,False,False,,,,,,
+ACH-000585,EPLC-272H,EPLC272H,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,57.0,True,True,-0.076297075,0.05876001,8.92407,-0.08622215,0.06423812,7.2303567
+ACH-002650,ETCC-016,ETCC016,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,53.0,True,True,0.012483416,0.026156913,8.676945,0.18654059,0.007553482,7.7954555
+ACH-002122,GT3TKB,GT3TKB,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Unknown,,False,False,,,,,,
+ACH-002138,H513,H513,Non-Small Cell Lung Cancer,Lung Adenosquamous Carcinoma,LUAS,NSCLC,Metastatic,Male,61.0,False,False,,,,,,
+ACH-000843,HARA,HARA,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,57.0,True,True,-0.13138826,0.080041744,5.270529,-0.03743369,0.028616494,3.207893
+ACH-000578,HCC-1171,HCC1171,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,58.0,False,True,,,8.982566,,,9.614379
+ACH-000868,HCC-1195,HCC1195,Non-Small Cell Lung Cancer,Lung Adenosquamous Carcinoma,LUAS,NSCLC,Primary,Male,47.0,False,True,,,6.91576,,,8.8013525
+ACH-000901,HCC-1359,HCC1359,Non-Small Cell Lung Cancer,Giant Cell Carcinoma of the Lung,GCLC,NSCLC,Primary,Female,55.0,True,True,-0.016590618,0.033619728,0.6507646,0.009328004,0.027311018,2.8678966
+ACH-000891,HCC-1438,HCC1438,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Primary,Male,43.0,False,True,,,6.6688848,,,1.5993178
+ACH-000878,HCC-15,HCC15,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,47.0,True,True,0.026659984,0.02035067,4.8058085,0.07815864,0.015625898,7.3207555
+ACH-000712,HCC-1833,HCC1833,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,69.0,False,True,,,0.5849625,,,8.312747
+ACH-001079,HCC1897,HCC1897,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,47.0,False,False,,,,,,
+ACH-000314,HCC-2108,HCC2108,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,59.0,False,True,,,0.6780719,,,4.928844
+ACH-000731,HCC-2279,HCC2279,Non-Small Cell Lung Cancer,Lung Adenosquamous Carcinoma,LUAS,NSCLC,Primary,Female,52.0,False,True,,,5.037382,,,5.9342804
+ACH-000143,HCC2429,HCC2429,Non-Small Cell Lung Cancer,NUT Carcinoma of the Lung,NUTCL,NSCLC,Primary,Female,34.0,True,True,0.03277818,0.011394968,4.3715587,-0.01430442,0.019050965,0.47508487
+ACH-000975,HCC2450,HCC2450,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,52.0,True,True,0.01271711,0.021717386,4.129283,0.054339036,0.0142540075,1.1826923
+ACH-000690,HCC-2814,HCC2814,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,55.0,False,True,,,6.0950804,,,7.3001237
+ACH-000150,HCC2935,HCC2935,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,39.0,False,True,,,8.589389,,,9.901003
+ACH-000575,HCC-364,HCC364,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,76.0,False,True,,,1.5897635,,,7.3283157
+ACH-000840,HCC-366,HCC366,Non-Small Cell Lung Cancer,Lung Adenosquamous Carcinoma,LUAS,NSCLC,Primary,Female,80.0,True,True,0.12245684,0.013075466,4.6553516,-0.103292234,0.044934817,1.835924
+ACH-000066,HCC4006,HCC4006,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,,False,True,,,7.9412823,,,7.7057014
+ACH-000667,HCC-44,HCC44,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,54.0,True,True,0.12938924,0.0059863706,4.516015,0.018954953,0.019773398,5.75141
+ACH-000339,HCC-461,HCC461,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,69.0,True,True,-0.018687949,0.025513822,4.0071955,0.06643032,0.009957899,3.4329593
+ACH-000872,HCC515,HCC515,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,39.0,True,True,0.0017146628,0.0188107,5.9283705,-0.006507395,0.020253772,4.5134907
+ACH-000562,HCC-78,HCC78,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,65.0,True,True,-0.046757083,0.04487654,9.636479,0.026481897,0.025511969,8.7286005
+ACH-000012,HCC-827,HCC827,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,39.0,True,True,-0.10848648,0.06250674,8.326969,0.15568203,0.0029384696,8.083532
+ACH-002333,HCC-827-GR,HCC827GR,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,,Female,39.0,False,False,,,,,,
+ACH-000029,HCC-827-GR5,HCC827GR5,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,39.0,True,True,-0.0706022,0.045455746,8.195348,0.06911078,0.009022262,8.24954
+ACH-000454,HCC-95,HCC95,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,65.0,True,True,-0.07132058,0.028223371,8.221394,-0.17843814,0.070714,7.2832737
+ACH-001088,HLC-1,HLC1,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Unknown,,False,False,,,,,,
+ACH-000861,HOP-62,HOP62,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,60.0,True,True,-0.13570817,0.07237099,1.6369146,0.15852726,0.003995436,4.627607
+ACH-000825,HOP-92,HOP92,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Male,62.0,False,True,,,8.219701,,,7.3535
+ACH-000672,IA-LM,IALM,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,68.0,True,True,0.048080828,0.015798014,0.4329594,0.231425,0.006356867,6.011227
+ACH-002337,JHU-028,JHU028,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,52.0,False,False,,,,,,
+ACH-000858,KNS-62,KNS62,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,49.0,True,True,-0.12545328,0.06766078,7.164002,0.062365804,0.010348408,7.2646303
+ACH-000705,LC-1F,LC1F,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,69.0,False,True,,,0.5945485,,,8.27277
+ACH-002156,LC-1-sq,LC1SQ,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,69.0,True,False,0.023912532,0.020222541,,-0.19623698,0.14838406,
+ACH-001113,LC-1/sq-SF,LC1SQSF,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,69.0,False,True,,,3.0669503,,,6.349082
+ACH-002157,LC-2-ad,LC2AD,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,51.0,False,False,,,,,,
+ACH-002035,LCAM1,LCAM1,Non-Small Cell Lung Cancer,Poorly Differentiated Non-Small Cell Lung Cancer,NSCLCPD,NSCLC,Primary,Male,53.0,True,True,-0.12989944,0.062391445,4.5310693,0.1437223,0.00339334,1.5410192
+ACH-000627,LCLC-103H,LCLC103H,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,61.0,True,True,-0.24812035,0.23085777,4.305241,0.10228056,0.008723622,7.9082727
+ACH-000596,LCLC-97TM1,LCLC97TM1,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Primary,Male,44.0,True,True,-0.08172379,0.047397155,7.790316,0.39395797,0.00058603886,9.3010845
+ACH-000769,LK-2,LK2,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,74.0,True,True,-0.17158678,0.10500767,5.211791,-0.017542213,0.021273725,2.5410192
+ACH-000176,LOU-NH91,LOUNH91,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Female,64.0,True,True,-0.22852004,0.1583672,0.41142625,-0.017977526,0.037453726,7.5819535
+ACH-000438,Lu-65,LU65,Non-Small Cell Lung Cancer,Giant Cell Carcinoma of the Lung,GCLC,NSCLC,Primary,Male,64.0,True,True,-0.014997749,0.021031994,3.6135316,0.3230535,0.0009889317,7.421644
+ACH-000444,LU99,LU99,Non-Small Cell Lung Cancer,Giant Cell Carcinoma of the Lung,GCLC,NSCLC,Metastatic,Male,63.0,True,True,-0.21592765,0.13372423,3.582556,0.09624371,0.00604173,1.6735564
+ACH-002158,LU-99A,LU99A,Non-Small Cell Lung Cancer,Giant Cell Carcinoma of the Lung,GCLC,NSCLC,,Male,63.0,False,False,,,,,,
+ACH-000390,LUDLU-1,LUDLU1,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,72.0,True,True,-0.0981146,0.065830275,7.7428823,-0.11219186,0.07415429,8.913009
+ACH-000787,LXF-289,LXF289,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,62.0,True,True,-0.12798835,0.08258452,3.711495,0.050967403,0.010339455,5.5307574
+ACH-000851,MOR/CPR,MORCPR,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Unknown,,True,True,-0.19847117,0.12407413,6.6031814,0.18319182,0.002432712,7.6962028
+ACH-000980,NCI-H1155,NCIH1155,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,36.0,True,True,0.07651579,0.0086783515,0.3561438,0.11525555,0.005742745,5.060047
+ACH-000510,NCI-H1299,NCIH1299,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,43.0,True,True,-0.016628915,0.02835435,0.16349873,0.1621358,0.0037694885,1.8196682
+ACH-000666,NCI-H1355,NCIH1355,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,53.0,True,True,-0.024563959,0.024150899,4.4627066,0.20962572,0.0038460062,1.2630345
+ACH-000845,NCI-H1373,NCIH1373,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,56.0,True,True,0.28447446,0.00072863855,7.475247,0.03687347,0.011952854,7.9825945
+ACH-000737,NCI-H1385,NCIH1385,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Female,49.0,False,True,,,0.5160152,,,7.9255843
+ACH-000327,NCI-H1395,NCIH1395,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,55.0,False,True,,,0.3561438,,,3.0161397
+ACH-000852,NCI-H1435,NCIH1435,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,35.0,False,True,,,8.705943,,,9.144556
+ACH-000589,NCI-H1437,NCIH1437,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,60.0,True,True,0.0058272234,0.018702583,6.179909,0.013453223,0.017249482,7.2783566
+ACH-000892,NCI-H1563,NCIH1563,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,,False,True,,,5.0094366,,,0.83995956
+ACH-000869,NCI-H1568,NCIH1568,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,48.0,True,True,-0.16426277,0.115711205,6.552746,-0.044890687,0.042089093,8.339627
+ACH-000916,NCI-H1573,NCIH1573,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,35.0,True,True,-0.05892671,0.03482895,7.8121133,-0.20264421,0.073654115,8.778898
+ACH-000921,NCI-H157-DM,NCIH157DM,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,59.0,True,True,-0.1354331,0.06714998,1.2141248,-0.081465185,0.038988344,0.76553476
+ACH-000015,NCI-H1581,NCIH1581,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Primary,Male,44.0,True,True,-0.06832233,0.029924672,0.15055968,0.020914957,0.010023912,1.1570437
+ACH-000744,NCI-H1623,NCIH1623,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,58.0,False,True,,,6.357728,,,8.588864
+ACH-000766,NCI-H1648,NCIH1648,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,39.0,True,True,-0.10547438,0.066143245,9.097848,0.21047515,0.0061454703,8.380677
+ACH-000035,NCI-H1650,NCIH1650,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Metastatic,Male,27.0,True,True,0.10131469,0.008309993,9.811824,-0.05166061,0.033259235,7.974472
+ACH-000893,NCI-H1651,NCIH1651,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,71.0,False,True,,,0.18903382,,,6.492334
+ACH-000448,NCI-H1666,NCIH1666,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,50.0,True,True,-0.084456824,0.051702023,8.693591,0.10346739,0.011045662,6.976478
+ACH-000021,NCI-H1693,NCIH1693,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,55.0,True,True,0.14163253,0.008367445,5.8646812,0.13757901,0.008594761,6.3971186
+ACH-000747,NCI-H1703,NCIH1703,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,54.0,True,True,-0.11956475,0.06387102,0.37851164,-0.022362355,0.022863481,0.87184364
+ACH-000675,NCI-H1734,NCIH1734,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,56.0,False,True,,,1.469886,,,7.90665
+ACH-000282,NCI-H1755,NCIH1755,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,65.0,False,True,,,4.3059707,,,7.7793255
+ACH-001362,NCI-H1770,NCIH1770,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Metastatic,Male,57.0,False,False,,,,,,
+ACH-000379,NCI-H1781,NCIH1781,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,66.0,False,True,,,8.715447,,,9.610046
+ACH-000496,NCI-H1792,NCIH1792,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,50.0,True,True,0.11264981,0.008963129,4.55888,0.25042233,0.0028277666,7.153299
+ACH-000888,NCI-H1793,NCIH1793,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,52.0,True,True,-0.0651995,0.04830689,8.835546,0.06631286,0.01261732,7.454587
+ACH-000033,NCI-H1819,NCIH1819,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,55.0,False,True,,,7.5808992,,,8.27524
+ACH-000733,NCI-H1838,NCIH1838,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,,False,True,,,7.2103305,,,8.839707
+ACH-000894,NCI-H1869,NCIH1869,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,58.0,True,True,-0.13727815,0.08974908,9.039522,-0.15555115,0.10427313,8.397845
+ACH-000434,NCI-H1915,NCIH1915,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Female,61.0,True,True,-0.28979817,0.16636853,1.7907721,-0.06834152,0.034736883,1.6182387
+ACH-000414,NCI-H1944,NCIH1944,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,62.0,True,True,-0.051290028,0.03473664,0.70487195,0.012827848,0.017319063,5.127633
+ACH-000587,NCI-H1975,NCIH1975,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,,True,True,-0.07974617,0.06585025,5.31252,0.027736409,0.021267608,7.4502215
+ACH-001137,NCI-H1993,NCIH1993,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,47.0,True,False,-0.1053502,0.07313011,,-0.12825623,0.08683474,
+ACH-000886,NCI-H2009,NCIH2009,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,68.0,True,True,-0.031502564,0.029981773,8.038425,0.20273219,0.001792573,7.349613
+ACH-000781,NCI-H2023,NCIH2023,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,26.0,True,True,-0.03143538,0.030092718,1.7782086,-0.09259969,0.058419235,1.5993178
+ACH-000521,NCI-H2030,NCIH2030,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,,True,True,0.09053216,0.012463728,0.4329594,0.08895276,0.012595506,1.0703893
+ACH-000590,NCI-H2073,NCIH2073,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,47.0,False,True,,,6.3307376,,,6.4711876
+ACH-000451,NCI-H2085,NCIH2085,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,45.0,False,True,,,8.038041,,,8.717951
+ACH-000841,NCI-H2087,NCIH2087,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,69.0,True,True,-0.1841474,0.11858197,8.132319,0.055101614,0.012521607,8.338781
+ACH-000904,NCI-H2106,NCIH2106,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,58.0,False,True,,,0.86393845,,,6.4940953
+ACH-000929,NCI-H2110,NCIH2110,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Metastatic,Unknown,,True,True,-0.14947149,0.0589349,8.76686,-0.042031325,0.026112841,8.915401
+ACH-000311,NCI-H2122,NCIH2122,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,46.0,True,True,0.086646385,0.008414759,7.3022275,0.027454996,0.0139026875,8.63165
+ACH-000785,NCI-H2126,NCIH2126,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,65.0,True,True,-0.20396577,0.14492327,8.77449,0.04371187,0.021739844,7.6083655
+ACH-001363,NCI-H2135,NCIH2135,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Unknown,,False,False,,,,,,
+ACH-000481,NCI-H2170,NCIH2170,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,,True,True,-0.022273304,0.033367544,7.4036937,-0.2300105,0.17443201,8.974788
+ACH-000924,NCI-H2172,NCIH2172,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Female,,True,True,-0.030528156,0.029384349,6.455656,0.060110915,0.011195757,2.9579146
+ACH-000447,NCI-H2228,NCIH2228,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,,False,True,,,5.212569,,,6.435462
+ACH-000718,NCI-H2291,NCIH2291,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,,True,True,-0.08932485,0.06389736,8.589426,0.095258564,0.014280534,9.779933
+ACH-000900,NCI-H23,NCIH23,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,51.0,True,True,0.10090877,0.0063773748,0.44360664,-0.08604237,0.04996624,1.2927817
+ACH-000951,NCI-H2342,NCIH2342,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,55.0,False,True,,,7.909533,,,8.997687
+ACH-000875,NCI-H2347,NCIH2347,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,54.0,False,True,,,9.138297,,,8.640028
+ACH-000121,NCI-H2405,NCIH2405,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,47.0,False,True,,,1.3448285,,,7.1887374
+ACH-000186,NCI-H2444,NCIH2444,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Male,,False,True,,,7.2611547,,,9.399705
+ACH-000700,NCI-H2882,NCIH2882,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Female,61.0,True,True,-0.12634568,0.05169155,0.20163386,0.0034265714,0.021415215,3.8176231
+ACH-000251,NCI-H2887,NCIH2887,Non-Small Cell Lung Cancer,Non-Small Cell Lung Cancer,NSCLC,NSCLC,Primary,Male,31.0,True,True,0.007229169,0.018034162,0.36737105,0.19775021,0.0052200505,9.220378
+ACH-001075,NCI-H292,NCIH292,Non-Small Cell Lung Cancer,Mucoepidermoid Carcinoma of the Lung,LUMEC,NSCLC,Metastatic,Female,32.0,True,True,-0.014561419,0.021132503,9.616108,-0.12360073,0.061519094,8.258142
+ACH-000337,NCI-H3122,NCIH3122,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,,True,True,-0.08966253,0.04575488,7.420971,0.07333556,0.009512736,7.3504972
+ACH-000837,NCI-H322,NCIH322,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,52.0,True,True,-0.09076374,0.039194968,7.89839,0.039452754,0.008587436,7.8516865
+ACH-002172,NCI-H322M,NCIH322M,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,,Male,52.0,False,False,,,,,,
+ACH-000109,NCI-H3255,NCIH3255,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,52.0,False,True,,,9.57448,,,10.9151325
+ACH-000860,NCI-H358,NCIH358,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,,True,True,0.008350987,0.01766021,7.492414,0.08782611,0.007172789,7.9341035
+ACH-000638,NCI-H441,NCIH441,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,33.0,True,True,0.060683493,0.009819943,9.175874,0.06446102,0.009468551,8.106484
+ACH-000463,NCI-H460,NCIH460,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,,True,True,0.22419101,0.0022551361,0.22650853,-0.052202962,0.030526774,4.6718593
+ACH-000395,NCI-H520,NCIH520,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,,True,True,-0.03584054,0.031633034,1.3448285,-0.24057281,0.18637718,3.063503
+ACH-000343,NCI-H522,NCIH522,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,58.0,True,True,0.06531296,0.014408794,0.27500704,0.12827349,0.008391998,1.6461626
+ACH-000628,NCI-H596,NCIH596,Non-Small Cell Lung Cancer,Lung Adenosquamous Carcinoma,LUAS,NSCLC,Primary,Male,73.0,False,True,,,9.605554,,,7.7695074
+ACH-000378,NCI-H647,NCIH647,Non-Small Cell Lung Cancer,Lung Adenosquamous Carcinoma,LUAS,NSCLC,Metastatic,Male,56.0,True,True,0.082943715,0.008932532,6.129283,0.20621406,0.0038543057,6.6613507
+ACH-000945,NCI-H650,NCIH650,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,,True,True,0.037273437,0.024588646,4.55888,-0.2781924,0.2198392,1.1570437
+ACH-000853,NCI-H661,NCIH661,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,43.0,True,True,0.056697853,0.00964588,0.82374936,0.09722704,0.0057296683,2.0976107
+ACH-000789,NCI-H810,NCIH810,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Primary,Male,51.0,False,True,,,0.44360664,,,6.78542
+ACH-000416,NCI-H838,NCIH838,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,59.0,True,True,0.0059576537,0.029913496,3.165108,-0.061877735,0.058877543,0.54596835
+ACH-002497,NCI-H920,NCIH920,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,43.0,False,True,,,4.85599,,,5.42055
+ACH-000030,PC-14,PC14,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,45.0,True,True,-0.13313334,0.08542833,8.783784,0.08866192,0.0074445815,9.117279
+ACH-002184,PC-3 [JPC-3],PC3JPC3,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,,Female,48.0,False,False,,,,,,
+ACH-000779,PC-9,PC9,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,45.0,False,True,,,7.915461,,,7.807355
+ACH-000791,RERF-LC-Ad1,RERFLCAD1,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,70.0,True,True,0.036167815,0.019127471,10.143893,0.13814874,0.010220653,9.783653
+ACH-000774,RERF-LC-Ad2,RERFLCAD2,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,,True,True,0.15968674,0.012476131,8.409815,0.11604552,0.014296447,8.132319
+ACH-000261,RERF-LC-AI,RERFLCAI,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,,True,True,0.32115954,0.002866193,4.621173,-0.047168553,0.047003,3.1259816
+ACH-000482,RERF-LC-KJ,RERFLCKJ,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,78.0,False,True,,,9.157448,,,7.835735
+ACH-000062,RERF-LC-MS,RERFLCMS,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,,False,True,,,3.5348086,,,5.811471
+ACH-000442,RERF-LC-Sq1,RERFLCSQ1,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Female,74.0,True,True,-0.15445831,0.09316554,3.491853,-0.13105336,0.07646497,5.2047668
+ACH-000309,SK-LU-1,SKLU1,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,60.0,False,False,,,,,,
+ACH-000665,SK-MES-1,SKMES1,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Metastatic,Male,65.0,True,True,0.009869605,0.024340887,7.5252075,0.043742657,0.018304152,7.1059084
+ACH-002526,SNU-1327,SNU1327,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Male,84.0,True,True,-0.1669097,0.090785764,7.847809,-0.16747333,0.091177195,6.617798
+ACH-002522,SNU-2292,SNU2292,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,39.0,True,True,-0.05481806,0.029667426,3.4289463,-0.18350819,0.08434405,1.5459684
+ACH-002531,SNU-2535,SNU2535,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Metastatic,Female,57.0,True,True,-0.097211964,0.04711806,8.845961,0.044132307,0.015973577,8.178267
+ACH-000553,Sq-1,SQ1,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,,False,True,,,9.110979,,,8.56807
+ACH-000677,SW 1573,SW1573,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Female,44.0,True,True,-0.036481705,0.02581924,1.6322682,-0.0016944554,0.019391524,3.0565836
+ACH-000669,SW 900,SW900,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Male,53.0,False,True,,,6.7092905,,,8.359794
+ACH-000813,T3M-10,T3M10,Non-Small Cell Lung Cancer,Large Cell Lung Carcinoma,LCLC,NSCLC,Metastatic,Male,40.0,False,True,,,4.5496693,,,5.0125685
+ACH-002034,T3M-11,T3M11,Non-Small Cell Lung Cancer,NUT Carcinoma of the Lung,NUTCL,NSCLC,Primary,Male,,False,True,,,0.08406427,,,0.6507646
+ACH-001233,VMRC-LCD,VMRCLCD,Non-Small Cell Lung Cancer,Lung Adenocarcinoma,LUAD,NSCLC,Primary,Male,,True,False,0.01031516,0.047337692,,0.13890286,0.012940924,
+ACH-001234,VMRC-LCP,VMRCLCP,Non-Small Cell Lung Cancer,Lung Squamous Cell Carcinoma,LUSC,NSCLC,Primary,Unknown,,False,False,,,,,,
+ACH-000530,DMS 114,DMS114,SMARCA4-deficient undifferentiated tumor,SMARCA4-deficient undifferentiated tumor,,Other lung,Primary,Male,68.0,False,True,,,0.3448285,,,0.98550045
+ACH-000129,NCI-H1341,NCIH1341,SMARCA4-deficient undifferentiated tumor,SMARCA4-deficient undifferentiated tumor,,Other lung,Metastatic,Female,26.0,False,True,,,0.2986583,,,4.5637684
+ACH-000752,NCI-H196,NCIH196,SMARCA4-deficient undifferentiated tumor,SMARCA4-deficient undifferentiated tumor,,Other lung,Metastatic,Male,68.0,False,True,,,0.4854268,,,1.7824086
+ACH-002174,NCI-H720,NCIH720,Lung Neuroendocrine Tumor,Lung Carcinoid,LUCA,Other lung,Primary,Male,,False,False,,,,,,
+ACH-000775,NCI-H727,NCIH727,Lung Neuroendocrine Tumor,Lung Carcinoid,LUCA,Other lung,Primary,Female,65.0,True,True,-0.1569285,0.09695544,1.8237493,0.13254629,0.0043112016,8.956985
+ACH-002177,NCI-H835,NCIH835,Lung Neuroendocrine Tumor,Lung Carcinoid,LUCA,Other lung,Primary,Female,48.0,False,False,,,,,,
+ACH-000292,NCI-H841,NCIH841,SMARCA4-deficient undifferentiated tumor,SMARCA4-deficient undifferentiated tumor,,Other lung,Metastatic,Male,51.0,True,True,-0.022585314,0.017739404,0.2141248,0.1758611,0.0018059296,1.1890339
+ACH-000890,SW 1271,SW1271,SMARCA4-deficient undifferentiated tumor,SMARCA4-deficient undifferentiated tumor,,Other lung,Primary,Male,69.0,True,True,-0.10350672,0.053100564,0.4854268,0.122557364,0.0106028505,2.130931
+ACH-001417,UMC-11,UMC11,Lung Neuroendocrine Tumor,Lung Carcinoid,LUCA,Other lung,Primary,Male,,False,False,,,,,,
+ACH-000803,COLO 668,COLO668,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,47.0,False,True,,,1.4750849,,,7.3474884
+ACH-000382,COR-L24,CORL24,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,71.0,False,True,,,0.65992457,,,7.7176766
+ACH-001046,COR-L26,CORL26,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,,Female,,False,True,,,0.07038933,,,0.042644337
+ACH-000257,COR-L279,CORL279,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,63.0,True,True,0.23107538,0.0041890843,1.8318772,0.035408597,0.016197542,6.8563633
+ACH-002095,COR-L303,CORL303,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Female,,False,False,,,,,,
+ACH-000187,COR-L311,CORL311,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,63.0,True,True,0.017535554,0.018589284,0.16349873,0.09497897,0.009942099,6.7272396
+ACH-000695,COR-L47,CORL47,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,67.0,True,True,-0.14331573,0.06273977,0.6507646,-0.035553884,0.028583039,4.31034
+ACH-001047,COR-L51,CORL51,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,71.0,False,False,,,,,,
+ACH-000508,COR-L88,CORL88,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,55.0,False,True,,,1.9221978,,,7.228819
+ACH-000743,COR-L95,CORL95,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,64.0,False,True,,,2.9836776,,,8.475855
+ACH-001049,CPC-N,CPCN,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,,False,False,,,,,,
+ACH-000594,DMS 153,DMS153,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,44.0,False,True,,,1.3950628,,,7.9374623
+ACH-000749,DMS 273,DMS273,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,50.0,True,True,0.0710698,0.0071461247,0.5849625,0.13258599,0.003776052,1.4059924
+ACH-000844,DMS 454,DMS454,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,,False,True,,,2.5728896,,,8.439249
+ACH-000698,DMS 53,DMS53,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,54.0,True,True,0.030391302,0.010427842,6.2783566,-0.012954854,0.016178716,8.729213
+ACH-000703,DMS 79,DMS79,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,65.0,False,True,,,1.0703893,,,7.445346
+ACH-000515,HCC-33,HCC33,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,52.0,True,True,0.33127788,0.0010721189,0.5945485,-0.28957987,0.16290516,3.114367
+ACH-002144,IST-SL1,ISTSL1,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,60.0,False,False,,,,,,
+ACH-002145,IST-SL2,ISTSL2,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,,False,False,,,,,,
+ACH-002154,LB647-SCLC,LB647SCLC,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,,False,False,,,,,,
+ACH-002051,Lu-134-A,LU134A,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,80.0,True,True,0.23911947,0.008153823,2.0840642,0.09604917,0.016078394,6.3025017
+ACH-001549,Lu-135,LU135,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,69.0,True,True,-0.040694404,0.038848348,0.15055968,0.014396562,0.023095885,7.0031524
+ACH-002075,Lu-138,LU138,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,78.0,False,True,,,0.22650853,,,5.6179447
+ACH-002052,Lu-139,LU139,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,63.0,True,True,0.13959292,0.0076262113,0.0,0.044620037,0.016661115,2.8052924
+ACH-002074,Lu-143,LU143,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,60.0,False,True,,,0.0,,,6.180108
+ACH-002077,Lu-165,LU165,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,50.0,True,True,-0.11668678,0.040403944,0.15055968,0.3355903,0.0022340335,5.0338635
+ACH-001958,MS1,MS1,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,54.0,False,False,,,,,,
+ACH-000866,NCI-H1048,NCIH1048,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,53.0,True,True,0.08498364,0.0052947216,0.12432814,0.004805004,0.013989606,2.7803102
+ACH-000514,NCI-H1092,NCIH1092,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,67.0,True,True,0.074689,0.01363162,0.33342373,-0.015277848,0.028150342,5.560409
+ACH-000780,NCI-H1105,NCIH1105,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,73.0,False,True,,,0.25096157,,,5.4508815
+ACH-000523,NCI-H1184,NCIH1184,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,42.0,False,True,,,0.23878686,,,0.8953026
+ACH-002286,NCI-H128,NCIH128,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,60.0,False,False,,,,,,
+ACH-002169,NCI-H1304,NCIH1304,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Unknown,,False,False,,,,,,
+ACH-001591,NCI-H1417,NCIH1417,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Female,61.0,False,True,,,0.042644337,,,6.861583
+ACH-000830,NCI-H1436,NCIH1436,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,39.0,False,True,,,0.3895668,,,6.2809563
+ACH-003119,NCI-H1450,NCIH1450,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,64.0,False,True,,,4.2971916,,,5.628482
+ACH-000506,NCI-H146,NCIH146,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,59.0,False,True,,,0.95605665,,,2.1110313
+ACH-003120,NCI-H1607,NCIH1607,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,54.0,False,True,,,4.954662,,,6.0507193
+ACH-000179,NCI-H1618,NCIH1618,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,55.0,False,True,,,0.32192808,,,7.900263
+ACH-002170,NCI-H1688,NCIH1688,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,50.0,False,True,,,1.1505597,,,6.0194798
+ACH-000431,NCI-H1694,NCIH1694,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,61.0,True,True,-0.108564965,0.06035844,0.40053794,0.1261378,0.008607589,1.8797058
+ACH-000559,NCI-H1836,NCIH1836,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,52.0,True,True,0.013125739,0.023973733,1.2326608,0.10283425,0.011240713,6.854993
+ACH-001136,NCI-H187,NCIH187,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,47.0,False,False,,,,,,
+ACH-000586,NCI-H1876,NCIH1876,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,59.0,False,True,,,1.1243281,,,6.0441756
+ACH-002490,NCI-H1882,NCIH1882,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,59.0,True,True,-0.13071917,0.06863264,4.304511,0.18653558,0.0058204164,5.090853
+ACH-000870,NCI-H1930,NCIH1930,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,41.0,False,True,,,0.41142625,,,2.1667154
+ACH-000729,NCI-H1963,NCIH1963,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,56.0,False,True,,,0.5160152,,,3.6322682
+ACH-000298,NCI-H2029,NCIH2029,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,69.0,False,True,,,1.0071955,,,8.810508
+ACH-000727,NCI-H2066,NCIH2066,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Female,70.0,False,False,,,,,,
+ACH-000394,NCI-H2081,NCIH2081,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,59.0,False,True,,,0.3895668,,,6.3386025
+ACH-000290,NCI-H209,NCIH209,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,55.0,True,True,-0.15048864,0.11084717,0.65992457,0.06772069,0.013596418,7.31379
+ACH-000639,NCI-H211,NCIH211,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,50.0,True,True,-0.038814943,0.033840936,0.9634741,0.06564021,0.010889346,1.6690267
+ACH-001138,NCI-H2141,NCIH2141,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,58.0,False,False,,,,,,
+ACH-000525,NCI-H2171,NCIH2171,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,50.0,True,True,-0.018893003,0.03297292,0.15055968,0.05617796,0.015056405,7.0734987
+ACH-000399,NCI-H2196,NCIH2196,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,67.0,False,True,,,5.42055,,,7.5459685
+ACH-000610,NCI-H2227,NCIH2227,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,54.0,False,True,,,0.3448285,,,2.114367
+ACH-000912,NCI-H2286,NCIH2286,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Female,57.0,True,True,-0.02080067,0.020949753,1.1309309,-0.06693801,0.036065355,0.9411063
+ACH-002171,NCI-H250,NCIH250,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,34.0,False,False,,,,,,
+ACH-003121,NCI-H2679,NCIH2679,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,,False,True,,,0.7398481,,,5.4141355
+ACH-001364,NCI-H345,NCIH345,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,64.0,False,False,,,,,,
+ACH-002173,NCI-H378,NCIH378,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,66.0,False,False,,,,,,
+ACH-000800,NCI-H446,NCIH446,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,61.0,True,True,-0.07361716,0.0343193,0.3895668,0.008712522,0.01612445,0.70487195
+ACH-000871,NCI-H510,NCIH510,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,56.0,True,True,0.025947087,0.011540295,2.49057,-0.23607437,0.16091016,8.014579
+ACH-000816,NCI-H524,NCIH524,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,63.0,False,True,,,0.3561438,,,4.6064425
+ACH-000767,NCI-H526,NCIH526,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,55.0,True,True,0.068139054,0.015204222,0.3895668,0.38093576,0.0012175275,6.461561
+ACH-001599,NCI-H64,NCIH64,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,48.0,False,False,,,,,,
+ACH-000358,NCI-H69,NCIH69,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,55.0,False,True,,,0.36737105,,,4.549053
+ACH-002175,NCI-H740,NCIH740,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,63.0,False,False,,,,,,
+ACH-003071,NCI-H748,NCIH748,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,62.0,False,True,,,0.8797058,,,4.9932213
+ACH-003061,NCI-H774,NCIH774,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,43.0,False,True,,,0.6507646,,,5.731455
+ACH-000355,NCI-H82,NCIH82,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,41.0,True,True,0.15808286,0.0048894826,0.3895668,-0.29440776,0.13345166,0.72246605
+ACH-001365,NCI-H847,NCIH847,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,63.0,False,False,,,,,,
+ACH-000297,NCI-H889,NCIH889,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Female,69.0,False,True,,,0.3561438,,,6.157044
+ACH-002193,RERF-LC-FM,RERFLCFM,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,,False,False,,,,,,
+ACH-002196,SBC-1,SBC1,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,46.0,False,False,,,,,,
+ACH-002197,SBC-3,SBC3,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,24.0,False,False,,,,,,
+ACH-000670,SBC-5,SBC5,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,65.0,False,True,,,0.32192808,,,1.8073549
+ACH-000659,SCLC-21H,SCLC21H,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,46.0,False,True,,,0.44360664,,,6.3212066
+ACH-001386,SCLC-22H,SCLC22H,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Metastatic,Male,46.0,True,True,-0.043710236,0.032230362,0.20163386,0.0627138,0.012110457,6.4638515
+ACH-000790,SHP-77,SHP77,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,54.0,True,True,-0.111039914,0.044966944,0.3561438,0.15458938,0.0047377953,6.344651
+ACH-002036,WA-hT,WAHT,Lung Neuroendocrine Tumor,Small Cell Lung Cancer,SCLC,SCLC,Primary,Male,56.0,False,False,,,,,,
