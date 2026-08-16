@@ -1,0 +1,58 @@
+{
+  "freeze": "data_freeze_v1.2_reorganized",
+  "bucket": "cptac-pancancer-data",
+  "region": "us-west-2",
+  "cohort": "LSCC",
+  "downloaded_at_utc": "2026-08-16T19:38:04.108906+00:00",
+  "files": [
+    {
+      "file": "LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "bytes": 20631271,
+      "cached": true,
+      "sha256": "fd9f9cc0aed40942fd33d750d1d207bcdf9ea231fcddeff3cc8ac8fdf3e1384d"
+    },
+    {
+      "file": "LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Normal.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Normal.txt",
+      "bytes": 18920447,
+      "cached": true,
+      "sha256": "ea3f8e5a1e42f708af87f6cdfc86d3fa63a96bfdc4f6f3316ba54380ea579aaf"
+    },
+    {
+      "file": "LSCC_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt",
+      "bytes": 35179517,
+      "cached": true,
+      "sha256": "0da58ae002ccc65cc83f13038f7f8439ad672898822e545e475f99540f5b7377"
+    },
+    {
+      "file": "LSCC_RNAseq_gene_RSEM_coding_UQ_1500_log2_Normal.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_RNAseq_gene_RSEM_coding_UQ_1500_log2_Normal.txt",
+      "bytes": 30624657,
+      "cached": true,
+      "sha256": "61822d27dda6ef9cf67743e8b9511f84620042d1e703fac8c5b25cfdc2a27f07"
+    },
+    {
+      "file": "LSCC_phenotype.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_phenotype.txt",
+      "bytes": 212329,
+      "cached": true,
+      "sha256": "34f17a653dd5ebce0cdf1257c4498fe6579e314d18d435d333e4bcc4db22ef8d"
+    },
+    {
+      "file": "LSCC_survival.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_survival.txt",
+      "bytes": 2471,
+      "cached": true,
+      "sha256": "58561010e511669bb8f5484f51aaad50862454c57de12a8f9ab02c73b31edc75"
+    },
+    {
+      "file": "LSCC_meta.txt",
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_meta.txt",
+      "bytes": 12051,
+      "cached": true,
+      "sha256": "6c334bbd8c9c4acfc94709a7fea5fd0181efa0881cee8ce1793085a5281a9d99"
+    }
+  ]
+}

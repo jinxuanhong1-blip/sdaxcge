@@ -248,7 +248,6 @@ def survival_tests(feature: pd.Series, surv: pd.DataFrame, gene: str, layer: str
 
 def savefig(fig: plt.Figure, name: str) -> None:
     path = FIGS / name
-    fig.tight_layout()
     fig.savefig(path, dpi=180, bbox_inches="tight")
     plt.close(fig)
     print("wrote", path, flush=True)
@@ -307,10 +306,33 @@ def plot_scatter(x: pd.Series, y: pd.Series, xlabel: str, ylabel: str, title: st
     savefig(fig, fname)
 
 
+HEATMAP_SCORES = [
+    "CIBERSORT_T_cell_CD8+",
+    "CIBERSORT_T_cell_regulatory_(Tregs)",
+    "CIBERSORT_Macrophage_M1",
+    "CIBERSORT_Macrophage_M2",
+    "ESTIMATE_ImmuneScore",
+    "ESTIMATE_StromalScore",
+    "xCell_T_cell_CD8+",
+    "xCell_immune_score",
+    "xCell_stroma_score",
+    "xCell_Cancer_associated_fibroblast",
+    "xCell_B_cell",
+    "PROGENy_JAK-STAT",
+    "PROGENy_TGFb",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    "HALLMARK_INFLAMMATORY_RESPONSE",
+    "HALLMARK_TGF_BETA_SIGNALING",
+    "HALLMARK_ALLOGRAFT_REJECTION",
+    "TMB",
+]
+
+
 def plot_heatmap(corr: pd.DataFrame, fname: str, title: str) -> None:
-    sub = corr.copy()
+    sub = corr[corr["score"].isin(HEATMAP_SCORES)].copy()
     mat = sub.pivot(index="score", columns="feature", values="rho")
-    fig, ax = plt.subplots(figsize=(7.2, max(6.5, 0.28 * mat.shape[0] + 2)))
+    mat = mat.reindex(index=[s for s in HEATMAP_SCORES if s in mat.index])
+    fig, ax = plt.subplots(figsize=(6.4, 8.2))
     sns.heatmap(
         mat,
         cmap="RdBu_r",
@@ -318,6 +340,9 @@ def plot_heatmap(corr: pd.DataFrame, fname: str, title: str) -> None:
         vmin=-0.6,
         vmax=0.6,
         ax=ax,
+        annot=True,
+        fmt=".2f",
+        annot_kws={"size": 8},
         cbar_kws={"label": "Spearman ρ"},
     )
     ax.set_title(title)
@@ -342,12 +367,8 @@ def plot_volcano(corr: pd.DataFrame, fname: str, title: str) -> None:
     # label top hits
     top = d.sort_values("p").head(8)
     for _, r in top.iterrows():
-        ax.annotate(
-            f"{r['feature'][:3]}:{r['score']}",
-            (r["rho"], r["mlogp"]),
-            fontsize=7,
-            alpha=0.85,
-        )
+        short = str(r["score"]).replace("HALLMARK_", "H_").replace("CIBERSORT_", "C_").replace("ESTIMATE_", "E_")
+        ax.annotate(f"{r['feature'][:4]} {short}", (r["rho"], r["mlogp"]), fontsize=7, alpha=0.85)
     savefig(fig, fname)
 
 

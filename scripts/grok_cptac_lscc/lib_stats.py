@@ -29,9 +29,11 @@ def spearman_pair(x: pd.Series, y: pd.Series) -> dict:
     n = int(d.shape[0])
     if n < 4:
         return {"n": n, "rho": np.nan, "p": np.nan}
-    rho, p = stats.spearmanr(d.iloc[:, 0], d.iloc[:, 1], nan_policy="omit")
-    if isinstance(rho, np.ndarray):
-        rho, p = float(rho), float(p)
+    a = d.iloc[:, 0].to_numpy()
+    b = d.iloc[:, 1].to_numpy()
+    if np.nanstd(a) == 0 or np.nanstd(b) == 0:
+        return {"n": n, "rho": np.nan, "p": np.nan}
+    rho, p = stats.spearmanr(a, b)
     return {"n": n, "rho": float(rho), "p": float(p)}
 
 
