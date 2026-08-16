@@ -1,0 +1,25 @@
+{
+  "accession": "GSE189804",
+  "n_gsm": 9,
+  "char_keys": {
+    "cell line": [
+      "A549"
+    ],
+    "cell type": [
+      "lung adenocarcinoma"
+    ],
+    "treatment": [
+      "NA, no IFN-gamma",
+      "scramble sgRNA, no IFN-gamma",
+      "sgNRF2, no IFN-gamma"
+    ],
+    "genotype": [
+      "NRF2 KO",
+      "mock",
+      "parental"
+    ]
+  },
+  "outcome_keys": [],
+  "has_expression_table": false,
+  "n_table_rows": 1
+}

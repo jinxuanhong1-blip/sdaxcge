@@ -70,7 +70,9 @@ def main():
     n_already = sum(1 for x in catalog if x["leftover_status"] == "already_analysed")
     n_usable = sum(1 for x in catalog if x["usable_maybe"] is True or x["usable_maybe"] == True)
     n_tests = len(tests)
-    n_sig = sum(1 for t in tests if _is_sig(t.get("p_value")))
+    n_sig = sum(1 for t in tests
+                if _is_sig(t.get("p_value"))
+                and t.get("outcome") != "spearman_within_cohort")
 
     writeup = _writeup(
         n=n, n_left_rel=n_left_rel, n_already=n_already,
@@ -84,9 +86,11 @@ def main():
         f"- search candidates: {n}\n"
         f"- leftover relevant: {n_left_rel}\n"
         f"- already analysed (excluded): {n_already}\n"
-        f"- leftover usable_maybe: {n_usable}\n"
-        f"- association tests run: {n_tests}\n"
-        f"- tests with p < 0.05: {n_sig}\n"
+        f"- leftover usable_maybe heuristic hits: {n_usable} "
+        f"(cell-line / melanoma TIL; rejected)\n"
+        f"- leftover actually tested: GSE248378 only\n"
+        f"- outcome tests with p < 0.05: {n_sig}\n"
+        f"- TACSTD2 vs recurrence (non-MPR, post-ICI): see analysis/\n"
     )
     print(f"catalog {n}; leftover_relevant {n_left_rel}; usable {n_usable}; tests {n_tests}")
 
@@ -103,6 +107,18 @@ def _verdict(r, pr, leftover, usable):
         return r.get("already_analysed_note") or "already analysed"
     if r.get("leftover_status") != "leftover_relevant":
         return "not leftover-relevant (failed human+lung+ICI+expression text filter)"
+    if r.get("accession") == "GSE248378":
+        return ("leftover ANALYSED: post-durvalumab non-MPR bulk FPKM, both genes present; "
+                "GEO has arm/histology only; recurrence recovered from Nat Commun source "
+                "data Fig.5d via unique ITGAE FPKM (9 recur / 20 no recur)")
+    if r.get("accession") == "GSE217451":
+        return "leftover: H1650 si-hMENA cell-line RNA-seq; both genes present; not a patient ICI cohort"
+    if r.get("accession") == "GSE224216":
+        return "leftover: H2030 si-hMENA cell-line RNA-seq; both genes present; not a patient ICI cohort"
+    if r.get("accession") == "GSE224099":
+        return "leftover: melanoma TIL CD4 T-cell subsets (not lung epithelium); not TACSTD2/CLDN4 tumour ICI"
+    if r.get("accession") == "GSE235603":
+        return "leftover: SuperSeries of tumour-infiltrating Treg scRNA; no bulk tumour matrix"
     cat = r.get("study_category", "")
     if "single_cell" in cat:
         return "leftover: single-cell / sorted-immune; not bulk tumour epithelium for TACSTD2/CLDN4 vs ICI"
@@ -154,7 +170,7 @@ def _writeup(n, n_left_rel, n_already, n_usable, n_tests, n_sig,
         left_table.append(
             f"| {c['accession']} | {c['n_samples']} | {c['study_category']} | "
             f"{c['has_TACSTD2']} | {c['has_CLDN4']} | {c['outcome_keys'] or '—'} | "
-            f"{c['verdict'][:140]} |"
+            f"{c['verdict']} |"
         )
 
     skip_txt = "None."
@@ -213,17 +229,25 @@ Skipped after a usable_maybe flag:
 
 ## 5. Honest conclusion
 
-The 2023 leftover set does **not** add a second open lung ICI bulk-tumour
-whole-transcriptome cohort with TACSTD2 + CLDN4 and a per-patient ICI
-outcome, unless a row above shows a completed test. The binding constraint
-is data availability, not statistics: leftover 2023 series are overwhelmingly
-single-cell T-cell studies, blood/platelet RNA, cell lines, chromatin assays,
-or targeted panels that omit these two epithelial ADC targets.
+The only leftover 2023 lung series that can be tested is **GSE248378**
+(Altorki et al., NCT02904954): post-durvalumab ± SBRT *non-MPR* resected
+tumours, n=29, both genes present. GEO itself has no recurrence label.
+Recurrence (9 vs 20) was recovered from the paper's public Source Data
+Fig. 5d by matching unique ITGAE FPKM values — not by guessing that a
+sample title ending in "R" means recurrence (that guess is false: POD23R /
+POD26R / POD27R / POD32R did *not* recur).
 
-GSE207422 remains the only 2023 GEO lung series that can address the
-question, and it was already tested (non-significant, same direction).
-This leftover slice is a **negative availability result**. That is the
-result. Do not treat the leftover catalog as new biomarker evidence.
+TACSTD2 is higher in the 9 tumours that later recurred (median FPKM 80.0 vs
+42.0; Mann–Whitney p=0.056; Cliff δ −0.46). CLDN4 is in the same direction
+and weaker (77.4 vs 39.0; p=0.31). Neither test is p<0.05. The cohort is
+**post-treatment and non-MPR only**, so it cannot address baseline
+prediction or MPR. It is not a second GSE207422-class baseline
+whole-transcriptome ICI-response cohort.
+
+Every other leftover is single-cell T cells, platelets, PBMCs, cell-line
+siRNA, ATAC, or a targeted panel without these two genes. Do not treat the
+leftover catalog as confirmed biomarker evidence. The TACSTD2 p=0.056
+result is hypothesis-generating and selected.
 
 ## 6. Limitations
 
@@ -277,14 +301,20 @@ p > 0.2）。GSE243238（2023 肢端黑色素瘤）是非肺交叉验证。
 
 ## 5. 诚实结论
 
-2023 年剩余集合 **没有** 再提供第二套「开放、肺、ICI、bulk 全转录组、含
-TACSTD2+CLDN4、且有逐患者 ICI 结局」的队列（除非上表出现已完成的检验）。
-瓶颈是数据可得性，不是统计功效：剩余系列主要是单细胞 T 细胞、血液/血小板、
-细胞系、染色质实验，或根本不含这两个上皮 ADC 靶点的靶向 panel。
+唯一能做检验的 2023 年剩余肺系列是 **GSE248378**（Altorki 等，NCT02904954）：
+度伐利尤单抗 ± SBRT **治疗后、非 MPR** 切除肿瘤，n=29，两个基因都在。
+GEO 没有复发标签。复发（9 vs 20）是用论文公开 Source Data 图 5d 的
+ITGAE FPKM 一一对上的，**不是**把样本名末尾的 “R” 当成复发
+（POD23R/26R/27R/32R 实际未复发）。
 
-能回答该问题的 2023 年 GEO 肺系列仍然只有 GSE207422，且已经检验过
-（不显著、方向一致）。本切片是 **阴性的数据可得性结果**，不能当成新的
-生物标志物证据。
+TACSTD2 在随后复发的 9 例更高（中位 FPKM 80.0 vs 42.0；Mann–Whitney
+p=0.056；Cliff δ −0.46）。CLDN4 同向更弱（77.4 vs 39.0；p=0.31）。
+都不是 p<0.05。队列是 **治疗后且仅非 MPR**，不能回答基线预测或 MPR。
+它也不是第二套 GSE207422 级别的基线全转录组 ICI 反应队列。
+
+其余剩余系列是单细胞 T 细胞、血小板、PBMC、细胞系 siRNA、ATAC，
+或没有这两个基因的靶向 panel。不要把剩余目录当成已证实的标志物证据。
+TACSTD2 p=0.056 只是假设生成、且经过选择。
 
 ## 6. 限制
 

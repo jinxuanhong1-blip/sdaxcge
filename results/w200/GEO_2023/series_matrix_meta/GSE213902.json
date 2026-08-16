@@ -1,0 +1,29 @@
+{
+  "accession": "GSE213902",
+  "n_gsm": 6,
+  "char_keys": {
+    "cell type": [
+      "PBMC"
+    ],
+    "cell type (sorted)": [
+      "CD45+CD19-CD3+CD56- cells"
+    ],
+    "disease state": [
+      "NSCLC"
+    ],
+    "treatment": [
+      "pre-treatment and on-treatment at 3, 6, 9 weeks"
+    ],
+    "library type": [
+      "HTO",
+      "VDJ",
+      "mRNA"
+    ],
+    "antibodies/tags": [
+      "Dose_0--/TotalSeq-C0251 ; Dose_1--/TotalSeq-C0252 ; Dose_3--/TotalSeq-C0253 ; Do"
+    ]
+  },
+  "outcome_keys": [],
+  "has_expression_table": false,
+  "n_table_rows": 1
+}

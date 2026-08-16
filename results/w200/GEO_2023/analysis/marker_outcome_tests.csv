@@ -1,0 +1,6 @@
+cohort,gene,outcome,group1,n1,median1,group2,n2,median2,mannwhitney_U,p_value,cliffs_delta,note
+GSE248378,TACSTD2,recurrence_in_nonMPR,no_recurrence,20,41.98,recurrence,9,80.01,49.0,0.0562,-0.456,post-treatment non-MPR tumours only; recurrence recovered from Nat Commun source data Fig.5d via unique ITGAE FPKM
+GSE248378,TACSTD2,GEO_treatment_arm,Arm1,18,44.925,Arm2,11,122.63,73.0,0.2517,-0.263,"treatment assignment, NOT ICI response; Arm1/Arm2 as deposited"
+GSE248378,CLDN4,recurrence_in_nonMPR,no_recurrence,20,38.97,recurrence,9,77.37,68.0,0.3108,-0.244,post-treatment non-MPR tumours only; recurrence recovered from Nat Commun source data Fig.5d via unique ITGAE FPKM
+GSE248378,CLDN4,GEO_treatment_arm,Arm1,18,41.04,Arm2,11,87.21,67.0,0.1568,-0.323,"treatment assignment, NOT ICI response; Arm1/Arm2 as deposited"
+GSE248378,TACSTD2_vs_CLDN4,spearman_within_cohort,TACSTD2,29,45.92,CLDN4,29,52.6,,0.0,,Spearman rho=0.766
