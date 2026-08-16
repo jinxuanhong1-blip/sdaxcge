@@ -371,7 +371,7 @@ def fig_boxplots(per_cohort: dict, gene: str = GENE_OF_INTEREST) -> None:
         x = expr.loc[gene]
         groups = [("NR", x[clin["response"] == "NR"]), ("R", x[clin["response"] == "R"])]
         data = [g[1].to_numpy() for g in groups]
-        bp = ax.boxplot(data, labels=["NR", "R"], widths=0.55, patch_artist=True,
+        bp = ax.boxplot(data, tick_labels=["NR", "R"], widths=0.55, patch_artist=True,
                         medianprops=dict(color="black", lw=1.4))
         bp["boxes"][0].set_facecolor("#cfcfcf")
         bp["boxes"][1].set_facecolor("#6baed6")
