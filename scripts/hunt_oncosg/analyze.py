@@ -73,9 +73,12 @@ def read_clinical() -> dict[str, dict[str, str]]:
         for _ in range(4):
             next(handle)
         rows = csv.DictReader(handle, delimiter="\t")
-        clinical = {row["SAMPLE_ID"]: row for row in rows}
-    if len(clinical) != len(set(clinical)):
-        raise ValueError("Duplicate SAMPLE_ID values in clinical data")
+        clinical: dict[str, dict[str, str]] = {}
+        for row in rows:
+            sample_id = row["SAMPLE_ID"]
+            if sample_id in clinical:
+                raise ValueError(f"Duplicate SAMPLE_ID in clinical data: {sample_id}")
+            clinical[sample_id] = row
     return clinical
 
 
