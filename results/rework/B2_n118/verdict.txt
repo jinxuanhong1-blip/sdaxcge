@@ -1,0 +1,16 @@
+VERDICT: N118_NOT_FOUND
+n=118 is NOT present as a natural NSCLC or lung slice of the Nusinow 2020 / Gygi protein_quant_current_normalized table.
+
+EXACT PUBLIC TABLE: https://gygi.hms.harvard.edu/data/ccle/protein_quant_current_normalized.csv.gz
+  Nusinow et al. Cell 2020;180:387-402.e16  (Gygi lab CCLE MS proteomics)
+  unique cell lines = 375  (sample columns = 378)
+
+S1 Lung lines:            n=77
+S1 Lung pairwise both:    n=45  Spearman ρ=0.6931  -> 0.69
+Oncotree NSCLC lines:     n=63
+Oncotree NSCLC pairwise:  n=35  Spearman ρ=0.7266  -> 0.73
+
+n=118 is a published CCLE *mRNA* NSCLC count (Augustyn PNAS 2014), not a protein-table n.
+User ρ=0.69 matches S1 Lung protein pairwise n=45, not n=118.
+did_we_tune_to_0.69: false
+did_we_tune_to_n118: false
