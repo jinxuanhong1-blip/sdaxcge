@@ -12,6 +12,9 @@ All files are fully open (no dbGaP / controlled access):
   * MCP-counter marker-gene signatures (Becht et al., Genome Biology 2016)
     from the authors' public GitHub repository.
   * ABSOLUTE tumor purity (PanCanAtlas open supplement via the GDC API).
+  * Bausch-Fluck et al. 2018 in-silico human surfaceome (table S3),
+    vendored copy from the steveneschrich/surfaceome GitHub repo
+    (the original wlab.ethz.ch host now serves HTML for that path).
 
 Data land in DATA_DIR (default /tmp/w200_b1_ov_data, override with the
 W200_B1_OV_DATA env var). Raw matrices are intentionally NOT committed to
@@ -48,6 +51,11 @@ FILES = {
     # (TCGA_mastercalls.abs_tables_JSedit.fixed.txt; open-access GDC file UUID)
     "tcga_absolute_purity.txt": (
         "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5"
+    ),
+    # in-silico human surfaceome (Bausch-Fluck et al., PNAS 2018, table S3)
+    "table_S3_surfaceome.xlsx": (
+        "https://raw.githubusercontent.com/steveneschrich/surfaceome/"
+        "main/data-raw/surfy/table_S3_surfaceome.xlsx"
     ),
 }
 

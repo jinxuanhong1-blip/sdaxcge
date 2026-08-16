@@ -104,8 +104,14 @@ def load_expression(symbols_needed):
     expr = pd.read_csv(path, sep="\t", index_col=0)
     expr.index = expr.index.map(lambda i: id2sym.get(i, i))
     expr = expr[expr.index.isin(symbols_needed)]
-    # collapse duplicate symbols: keep the row with the highest mean expression
-    expr = expr.loc[expr.mean(axis=1).groupby(expr.index).idxmax()]
+    # collapse duplicate symbols: keep the highest-mean row (do not loc[symbol],
+    # which would re-select every duplicate)
+    expr = (
+        expr.assign(_mean=expr.mean(axis=1))
+        .sort_values("_mean", ascending=False)
+        .drop(columns="_mean")
+    )
+    expr = expr[~expr.index.duplicated(keep="first")]
     return expr
 
 
