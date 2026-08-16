@@ -163,7 +163,9 @@ def summarize_feature(
         "mean_difference_R_minus_NR": mean_diff,
         "mean_difference_ci95_low": ci[0],
         "mean_difference_ci95_high": ci[1],
-        "geometric_mean_ratio_TPM_plus_1": 2**mean_diff,
+        "geometric_mean_ratio_TPM_plus_1": (
+            2**mean_diff if family == "primary_gene" else np.nan
+        ),
         "hedges_g": hedges_g(responder, non_responder),
         "welch_t_p_two_sided": welch.pvalue,
         "mann_whitney_u": mw.statistic,
@@ -345,6 +347,7 @@ signals would overstate the information available.
 - `sample_level_expression.csv`: response labels and both genes per sample.
 - `association_statistics.csv`: descriptive statistics, effect sizes, tests,
   AUCs, and univariable odds ratios.
+- `summary.json`: machine-readable results and explicit honest verdict.
 - `expression_by_response.*` and `tacstd2_cldn4_scatter.*`: plots.
 - `analysis_manifest.txt`: input checksums and software versions.
 - `analyze.py`: complete reproducible analysis.
@@ -382,6 +385,97 @@ def write_manifest() -> None:
         digest = hashlib.sha256(path.read_bytes()).hexdigest()
         lines.append(f"sha256  {digest}  data/{path.name}")
     (HERE / "analysis_manifest.txt").write_text("\n".join(lines) + "\n")
+
+
+def write_summary(
+    stats_table: pd.DataFrame,
+    spearman_rho: float,
+    spearman_p: float,
+    composite_permutation_p: float,
+) -> None:
+    import json
+
+    indexed = stats_table.set_index("feature")
+    gene_results = {}
+    for gene in GENES:
+        row = indexed.loc[gene]
+        gene_results[gene] = {
+            "mean_responder": row["mean_responder"],
+            "mean_non_responder": row["mean_non_responder"],
+            "mean_difference_R_minus_NR": row["mean_difference_R_minus_NR"],
+            "mean_difference_ci95": [
+                row["mean_difference_ci95_low"],
+                row["mean_difference_ci95_high"],
+            ],
+            "mann_whitney_p_exact_two_sided": row[
+                "mann_whitney_p_exact_two_sided"
+            ],
+            "mann_whitney_bh_q_two_genes": row[
+                "mann_whitney_bh_q_two_genes"
+            ],
+            "auc_higher_expression_predicts_response": row[
+                "auc_higher_value_predicts_response"
+            ],
+            "auc_bootstrap_ci95": [
+                row["auc_bootstrap_ci95_low"],
+                row["auc_bootstrap_ci95_high"],
+            ],
+        }
+
+    composite = indexed.loc["two_gene_z_mean"]
+    summary = {
+        "task": "GSE166449_TACSTD2_CLDN4_vs_pembrolizumab_response",
+        "cohort": {
+            "disease": "advanced lung adenocarcinoma",
+            "treatment": "pembrolizumab",
+            "biopsy_timing": "pretreatment",
+            "response_definition": "RECIST 1.1; CR/PR responder, SD/PD non-responder",
+            "n_total": 22,
+            "n_responder": 7,
+            "n_non_responder": 15,
+        },
+        "expression_scale": "deposited log2(TPM + 1); no additional transform",
+        "primary_gene_results": gene_results,
+        "exploratory_equal_weight_two_gene_score": {
+            "auc_higher_score_predicts_response": composite[
+                "auc_higher_value_predicts_response"
+            ],
+            "auc_bootstrap_ci95": [
+                composite["auc_bootstrap_ci95_low"],
+                composite["auc_bootstrap_ci95_high"],
+            ],
+            "exact_label_permutation_p_two_sided": composite_permutation_p,
+        },
+        "gene_correlation": {
+            "spearman_rho": spearman_rho,
+            "p_two_sided_unadjusted": spearman_p,
+            "status": "descriptive_exploratory",
+        },
+        "honest_verdict": {
+            "supports_TACSTD2_response_association": False,
+            "supports_CLDN4_response_association": False,
+            "supports_two_gene_response_association": False,
+            "supports_treatment_specific_predictive_biomarker": False,
+            "statement": (
+                "No persuasive association was detected for either gene or the "
+                "equal-weight score. TACSTD2 was numerically higher in responders, "
+                "opposite to a simple high-TROP2 resistance hypothesis, but with "
+                "wide uncertainty. A single-arm cohort cannot estimate a "
+                "biomarker-by-treatment interaction."
+            ),
+            "limitations": [
+                "7 responders and 15 non-responders",
+                "single-arm observational treatment-outcome association",
+                "binary labels only in GEO; no patient-level RECIST category",
+                "no public clinical covariates for adjustment",
+                "bulk RNA-seq is sensitive to tumor purity and cell composition",
+                "exploratory two-gene score has no external validation",
+            ],
+        },
+    }
+    (HERE / "summary.json").write_text(
+        json.dumps(summary, indent=2, allow_nan=False) + "\n"
+    )
 
 
 def main() -> None:
@@ -429,6 +523,12 @@ def main() -> None:
 
     make_plots(data)
     write_report(
+        stats_table,
+        spearman.statistic,
+        spearman.pvalue,
+        composite_permutation_p,
+    )
+    write_summary(
         stats_table,
         spearman.statistic,
         spearman.pvalue,
