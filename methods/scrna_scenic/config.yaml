@@ -1,0 +1,63 @@
+# Pre-specified analysis config. Do not tune after seeing results.
+question: >
+  Do ELF3 / GRHL1 / KLF4 regulon activities (AUCell) track TACSTD2 and CLDN4
+  in public lung epithelium? Combinatorial contrast = LUAD-only vs all histologies.
+
+dataset:
+  accession: GSE207422
+  title: NSCLC neoadjuvant PD-1 + chemo scRNA (Hu et al., Genome Med 2023)
+  pmid: 36869384
+  doi: 10.1186/s13073-023-01164-9
+  why_this_dataset: >
+    Public processed UMI matrix (175 MB gzip). Has Adeno and Squamous labels,
+    so LUAD-only vs all is testable. Author CopyKAT malignant labels are NOT
+    on GEO; malignant-like is a marker proxy (see analyze.py).
+  skipped:
+    GSE253013: 9.3 GB RDS; LUAD-only (no LUAD vs all contrast); not used.
+    GSE131907: LUAD atlas, no ICI, 2.9 GB log2TPM txt / 390 MB raw UMI; not
+      required once GSE207422 provides the combinatorial split.
+
+focus_tfs: [ELF3, GRHL1, KLF4]
+control_tfs: [TFAP2A, NKX2-1]
+targets: [TACSTD2, CLDN4]
+
+# A10 ELF3–CLDN4 bulk RNA couple is taken as given. This module does not
+# re-test TCGA/CPTAC co-expression. It asks whether TF *regulons* track
+# TACSTD2/CLDN4 in scRNA. No ChIP peaks are created or claimed.
+a10_taken_as_given: ELF3_CLDN4_bulk_RNA
+
+priors:
+  resources: [TRRUST_v2, DoRothEA, CollecTRI]
+  not_chip: true
+  exclude_from_regulon_when_scoring_targets: [TACSTD2, CLDN4]
+
+lineage_markers:
+  Epithelial: [EPCAM, KRT8, KRT18, KRT19, KRT5, KRT7, KRT17, ELF3, CDH1, MUC1]
+  T_NK: [CD3D, CD3E, CD3G, TRAC, CD2, NKG7, GNLY, KLRD1]
+  B_Plasma: [CD79A, CD79B, MS4A1, JCHAIN, MZB1, IGHM]
+  Myeloid: [LYZ, CD68, CD14, C1QA, C1QB, FCN1, ITGAX]
+  Mast: [TPSAB1, TPSB2, CPA3, MS4A2]
+  Endothelial: [PECAM1, VWF, CLDN5, CDH5, RAMP2]
+  Fibroblast: [COL1A1, COL1A2, COL3A1, DCN, LUM, TAGLN]
+normal_lung: [SFTPA1, SFTPA2, SFTPB, SFTPC, SFTPD, AGER, NAPSA, SCGB1A1, SCGB3A2, TPPP3, FOXJ1, CAPS]
+
+qc:
+  min_umi: 200
+  malignant_normal_lung_quantile: 0.75
+  min_cells_per_sample: 20
+  min_samples_for_rho: 6
+  hvg_n: 4000
+  min_detection: 0.02
+
+regulons:
+  pearson_top_n: 50
+  pearson_min_r: 0.10
+  grnboost_top_n: 50
+  auc_threshold: 0.05
+
+verdict_rules:
+  support: sample-level Spearman |ρ| is not the rule; need ρ≥0.30 and p<0.05 for BOTH TACSTD2 and CLDN4
+  partial: one target, or one split (all vs LUAD-only), meets the support rule
+  not_supported: neither target meets the support rule
+  underpowered: n_samples < 6
+  cell_level: exploratory only (pseudoreplication); always report n

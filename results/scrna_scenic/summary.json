@@ -1,0 +1,44 @@
+{
+  "dataset": "GSE207422",
+  "pmid": "36869384",
+  "question": "Do ELF3/GRHL1/KLF4 regulons track TACSTD2/CLDN4 in public lung epithelium?",
+  "a10_taken_as_given": "ELF3\u2013CLDN4 bulk RNA couple; this test is regulon AUCell, not bulk coexpression and not ChIP.",
+  "pyscenic": {
+    "importable": true,
+    "version": "0.12.1",
+    "cistarget_run": false,
+    "chip_peaks_invented": false
+  },
+  "n_genes_in_matrix": 24292,
+  "n_cells_raw": 92330,
+  "n_epithelial": 13043,
+  "n_malignant_like": 9782,
+  "nl_cut": 0.1184610378085762,
+  "n_genes_scored": 4465,
+  "histology_cells": {
+    "LUSC": 8848,
+    "LUAD": 4195
+  },
+  "verdict": "PARTIAL",
+  "verdict_by_split": {
+    "all": {
+      "call": "SUPPORT",
+      "n_samples": 12
+    },
+    "LUAD": {
+      "call": "PARTIAL",
+      "n_samples": 6
+    }
+  },
+  "primary_unit": "sample (malignant-like, min 20 cells)",
+  "cell_level": "exploratory only",
+  "priors_list_TACSTD2_or_CLDN4": false,
+  "notes": [
+    "Author CopyKAT malignant labels are not on GEO; malignant-like is a marker proxy.",
+    "Public priors do not list TACSTD2 or CLDN4 as ELF3/GRHL1/KLF4 targets.",
+    "Regulons hold out TACSTD2/CLDN4 so AUCell vs those genes is not circular.",
+    "GRHL1 public prior is tiny (2\u20133 genes); Pearson regulon is the informative GRHL1 test.",
+    "GSE253013 (9.3 GB) and GSE131907 (multi-GB) were not required for the LUAD vs all split.",
+    "GRNBoost2/arboreto failed: distributed LocalCluster diagnostics_port incompatibility. Pearson+priors used."
+  ]
+}
