@@ -1,0 +1,207 @@
+{
+  "generated_utc": "2026-08-16T20:07:36+00:00",
+  "cohort": "TCGA-CHOL",
+  "expression_dataset": "UCSC Xena TCGA.CHOL.sampleMap/HiSeqV2 (log2 norm_count+1)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "purity_source": "PanCanAtlas ABSOLUTE (GDC 4f277128-f793-4354-a13d-30cc7fe9f6b5)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 36,
+  "n_normals": 9,
+  "n_paired_normals": 9,
+  "n_intrahepatic": 32,
+  "n_with_ABSOLUTE_purity": 36,
+  "n_surfaceome_table": 2799,
+  "n_surfaceome_in_matrix": 2619,
+  "surface_gene_universe": 2394,
+  "n_surface_zero_variance_dropped": 224,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "n_expressed_genes_ranked": 17676,
+  "CLDN4_rank_among_TACSTD2_partners_transcriptome": 1031,
+  "CLDN4_percentile_transcriptome": 94.17,
+  "spearman_rho_main": 0.4124,
+  "spearman_p_main": 0.012449741967365016,
+  "spearman_rho_ci95": [
+    0.0926,
+    0.6828
+  ],
+  "pearson_r_main": 0.4181,
+  "median_log2_TACSTD2": 10.145,
+  "median_log2_CLDN4": 12.498,
+  "surface_abundance": {
+    "TACSTD2": {
+      "gene": "TACSTD2",
+      "abundance_rank": 299,
+      "n_surface_genes_ranked": 2619,
+      "percentile": 88.622,
+      "median_log2_normcount1": 10.14535,
+      "mean_log2_normcount1": 9.986608333333331
+    },
+    "CLDN4": {
+      "gene": "CLDN4",
+      "abundance_rank": 49,
+      "n_surface_genes_ranked": 2619,
+      "percentile": 98.167,
+      "median_log2_normcount1": 12.49785,
+      "mean_log2_normcount1": 11.81604722222222
+    }
+  },
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 153,
+    "spearman_r": 0.41235521235521233,
+    "spearman_q": 0.16101743426152837,
+    "spearman_percentile": 93.651,
+    "pearson_rank": 146,
+    "pearson_r": 0.41806044062606224,
+    "pearson_q": 0.15671878519985533,
+    "pearson_percentile": 93.943
+  },
+  "top10_spearman": [
+    {
+      "gene": "FZD6",
+      "spearman_rank": 1,
+      "spearman_r": 0.7441441441441441,
+      "spearman_q": 0.00047210651982109407
+    },
+    {
+      "gene": "MYADM",
+      "spearman_rank": 2,
+      "spearman_r": 0.7091377091377091,
+      "spearman_q": 0.001545357827607746
+    },
+    {
+      "gene": "QSOX1",
+      "spearman_rank": 3,
+      "spearman_r": 0.6617760617760617,
+      "spearman_q": 0.008354439310513728
+    },
+    {
+      "gene": "EPHB3",
+      "spearman_rank": 4,
+      "spearman_r": 0.6561132561132561,
+      "spearman_q": 0.008354439310513728
+    },
+    {
+      "gene": "ADAM8",
+      "spearman_rank": 5,
+      "spearman_r": 0.6326898326898327,
+      "spearman_q": 0.01641958898575355
+    },
+    {
+      "gene": "ENTPD3",
+      "spearman_rank": 6,
+      "spearman_r": 0.6261586201357994,
+      "spearman_q": 0.01641958898575355
+    },
+    {
+      "gene": "SORT1",
+      "spearman_rank": 7,
+      "spearman_r": 0.6146718146718146,
+      "spearman_q": 0.01641958898575355
+    },
+    {
+      "gene": "ITGA2",
+      "spearman_rank": 8,
+      "spearman_r": 0.6133848133848134,
+      "spearman_q": 0.01641958898575355
+    },
+    {
+      "gene": "ITGA11",
+      "spearman_rank": 9,
+      "spearman_r": 0.6102960102960103,
+      "spearman_q": 0.01641958898575355
+    },
+    {
+      "gene": "SLC41A1",
+      "spearman_rank": 10,
+      "spearman_r": 0.6084942084942085,
+      "spearman_q": 0.01641958898575355
+    }
+  ],
+  "purity": [
+    {
+      "quantity": "spearman_unadjusted_purity_subset",
+      "n": 36,
+      "rho": 0.4124,
+      "p": 0.012449741967365016
+    },
+    {
+      "quantity": "spearman_partial_given_ABSOLUTE_purity",
+      "n": 36,
+      "rho": 0.4036,
+      "p": 0.014649583991029893
+    },
+    {
+      "quantity": "spearman_TACSTD2_vs_purity",
+      "n": 36,
+      "rho": -0.13,
+      "p": 0.449675586522945
+    },
+    {
+      "quantity": "spearman_CLDN4_vs_purity",
+      "n": 36,
+      "rho": -0.1137,
+      "p": 0.5091049773988846
+    }
+  ],
+  "tumor_vs_normal": [
+    {
+      "gene": "TACSTD2",
+      "n_tumor": 36,
+      "n_normal": 9,
+      "median_tumor": 10.1454,
+      "median_normal": 8.2786,
+      "median_delta_unpaired": 1.8667,
+      "mannwhitney_U": 227.0,
+      "mannwhitney_p": 0.0672198074421221,
+      "n_paired": 9,
+      "median_paired_delta": 3.5793,
+      "wilcoxon_W": 4.0,
+      "wilcoxon_p": 0.02734375
+    },
+    {
+      "gene": "CLDN4",
+      "n_tumor": 36,
+      "n_normal": 9,
+      "median_tumor": 12.4978,
+      "median_normal": 7.5779,
+      "median_delta_unpaired": 4.92,
+      "mannwhitney_U": 302.0,
+      "mannwhitney_p": 7.547156634080646e-05,
+      "n_paired": 9,
+      "median_paired_delta": 4.1176,
+      "wilcoxon_W": 0.0,
+      "wilcoxon_p": 0.00390625
+    }
+  ],
+  "coexpression_subsets": [
+    {
+      "subset": "all_primary_tumors",
+      "n": 36,
+      "pearson_r": 0.4181,
+      "pearson_p": 0.011173222124463107,
+      "spearman_rho": 0.4124,
+      "spearman_p": 0.012449741967365016,
+      "spearman_rho_ci95_lo": 0.0926,
+      "spearman_rho_ci95_hi": 0.6828
+    },
+    {
+      "subset": "intrahepatic_only",
+      "n": 32,
+      "pearson_r": 0.507,
+      "pearson_p": 0.0030635773386032874,
+      "spearman_rho": 0.5253,
+      "spearman_p": 0.00202095289782909,
+      "spearman_rho_ci95_lo": 0.2485,
+      "spearman_rho_ci95_hi": 0.735
+    }
+  ]
+}
