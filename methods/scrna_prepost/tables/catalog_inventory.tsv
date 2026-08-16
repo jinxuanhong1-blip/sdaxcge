@@ -1,0 +1,13 @@
+accession	year	public_pre	public_post	pairing	tumor_cells	testable	n_pre	n_post	note
+GSE207422	2023	yes	yes	unmatched	yes	yes	3	12	Hu et al. Genome Med; only public tumor-cell pre+post matrix
+GSE337519	2026	claimed	claimed	claimed 1 pair	yes (one library)	no		8612 cells	GEO deposits 1 unlabeled 10x library; no timepoint
+GSE205335	2024	not labeled	not labeled	multi-site not serial	yes	no			GEO has RECIST, no timepoint; EGA title says pre-treatment
+GSE241934	2024	no	yes	NA	yes	no		11+34	All resected after neoadjuvant IO+chemo
+GSE146100	2021	no	yes	NA	yes	no		1 patient / 3 nodules	Post-pembrolizumab nodules only
+GSE291670	2025	no	yes	NA	yes	no		6	Pre is HRA001033 / GSE207422, not in this GEO
+GSE243013	2025	no	yes	NA	yes	no		234	Post-neoadjuvant atlas
+GSE233203	2025	yes	no	NA	effusion PDC	no	7		Pre-ABCP only
+GSE229353	2023	no	yes	NA	CD45+ only	no		7	No malignant cells
+GSE179994	2021	yes	yes	mixed	T cells only	no	33	14	No malignant TACSTD2/CLDN4
+HRA006493	2026	yes	yes	paired	yes	no			GSA-Human controlled access
+PRJNA1068179	2025	yes	yes	unmatched	yes	no	6	6	SRA raw only; no processed GEO matrix
