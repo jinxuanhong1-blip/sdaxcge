@@ -1,0 +1,31 @@
+{
+  "n_cells": 92330,
+  "n_samples": 15,
+  "lineage_counts": {
+    "T": 28313,
+    "myeloid": 17419,
+    "epithelial": 11019,
+    "neutrophil": 10878,
+    "B": 8082,
+    "NK": 8010,
+    "plasma": 3096,
+    "other": 2919,
+    "fibroblast": 1077,
+    "mast": 909,
+    "endothelial": 608
+  },
+  "n_malig_like": 6627,
+  "n_epithelial": 11019,
+  "n_T_NK": 36323,
+  "n_normal_epi": 4392,
+  "median_genes_per_cell": 1253.0,
+  "paper_n_cells": 92330,
+  "paper_median_genes": 1256,
+  "malig_EPCAM_mean_log1p": 1.780010358950159,
+  "tnk_EPCAM_mean_log1p": 0.007647915498350255,
+  "malig_PTPRC_mean_log1p": 0.04120548779321443,
+  "tnk_PTPRC_mean_log1p": 1.4844259863702665,
+  "malig_CD3E_mean_log1p": 0.01928369839413847,
+  "tnk_CD3E_mean_log1p": 1.116680062461955,
+  "note": "Marker-based compartments, not author Seurat/CopyKAT labels. Malignant-like = epithelial argmax AND zero UMI for SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3."
+}

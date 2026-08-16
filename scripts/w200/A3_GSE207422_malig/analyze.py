@@ -269,16 +269,19 @@ def main() -> None:
     post = sample_df[sample_df["paper_group"].isin(["MPR", "NMPR"])].copy()
     post_el = post[post["eligible_malig_tnk"] == 1]
     all_el = sample_df[sample_df["eligible_malig_tnk"] == 1]
+    all_epi = sample_df[sample_df["n_epithelial"] >= MIN_MALIG]
+    post_epi = post[post["n_epithelial"] >= MIN_MALIG]
     mpr = post[post["paper_group"] == "MPR"]
     nmpr = post[post["paper_group"] == "NMPR"]
-    mpr_el = post_el[post_el["paper_group"] == "MPR"]
-    nmpr_el = post_el[post_el["paper_group"] == "NMPR"]
 
     contrasts = []
     for frame, label in (
         (all_el, "all eligible samples"),
         (post_el, "post-treatment eligible (paper MPR/NMPR)"),
         (post, "post-treatment all (no cell-count filter)"),
+        (all_epi, "all samples with ≥10 epithelial cells"),
+        (post_epi, "post-treatment with ≥10 epithelial cells"),
+        (sample_df, "all 15 samples (no cell-count filter)"),
     ):
         contrasts.append(
             spearman_block(
@@ -309,6 +312,22 @@ def main() -> None:
             )
         )
 
+    residual = pd.to_numeric(sample_df["Residual Tumor"], errors="coerce")
+    contrasts.append(
+        spearman_block(
+            sample_df["malig_TACSTD2_mean_log1p"],
+            residual,
+            "all samples: malig-like TACSTD2 mean_log1p vs residual tumor fraction",
+        )
+    )
+    contrasts.append(
+        spearman_block(
+            sample_df["epi_TACSTD2_mean_log1p"],
+            residual,
+            "all samples: all-epithelial TACSTD2 mean_log1p vs residual tumor fraction",
+        )
+    )
+
     group_tests = [
         mwu_block(
             nmpr["malig_TACSTD2_mean_log1p"],
@@ -324,6 +343,11 @@ def main() -> None:
             nmpr["malig_TACSTD2_mean_cp10k"],
             mpr["malig_TACSTD2_mean_cp10k"],
             "post: NMPR vs MPR malig-like TACSTD2 mean log1p(CP10k) (sample-level)",
+        ),
+        mwu_block(
+            nmpr["epi_TACSTD2_mean_log1p"],
+            mpr["epi_TACSTD2_mean_log1p"],
+            "post: NMPR vs MPR all-epithelial TACSTD2 mean_log1p (sample-level)",
         ),
         mwu_block(
             nmpr["frac_T_NK"],
@@ -346,6 +370,32 @@ def main() -> None:
             "post: NMPR vs MPR malig-like AKR1C1 mean_log1p (paper: NMPR higher)",
         ),
     ]
+
+    tnk_score = score(expr, ["CD3D", "CD3E", "CD2", "NKG7", "GNLY", "FGFBP2"], n)
+    tac = np.log1p(expr["TACSTD2"].astype(np.float32))
+    cell_level = {
+        "note": (
+            "Rejected as primary: cell-level Spearman is compositional "
+            "(TACSTD2 is epithelial-restricted; T/NK score is not) and "
+            "pseudoreplicates 92k cells. Shown only to test whether the "
+            "user ρ −0.40 to −0.50 could have come from this mistake."
+        ),
+        "all_cells_TACSTD2_vs_TNK_score": dict(
+            zip(["rho", "p"], [float(x) for x in stats.spearmanr(tac, tnk_score)])
+        ),
+        "malig_like_TACSTD2_vs_TNK_score": (
+            dict(zip(["rho", "p"], [float(x) for x in stats.spearmanr(tac[is_malig], tnk_score[is_malig])]))
+            if is_malig.any()
+            else {}
+        ),
+        "epithelial_TACSTD2_vs_TNK_score": (
+            dict(zip(["rho", "p"], [float(x) for x in stats.spearmanr(tac[is_epi], tnk_score[is_epi])]))
+            if is_epi.any()
+            else {}
+        ),
+    }
+    with (args.outdir / "rejected_cell_level.json").open("w") as fh:
+        json.dump(cell_level, fh, indent=2)
 
     paired = all_el.dropna(subset=["malig_TACSTD2_mean_log1p", "tnk_TACSTD2_mean_log1p"])
     if len(paired) >= 6:
@@ -523,6 +573,12 @@ def main() -> None:
         "associations": contrasts,
         "group_tests": group_tests,
         "paired_compartment": paired_result,
+        "rejected_cell_level": cell_level,
+        "samples_without_malig_like": [
+            s
+            for s, nmal in zip(sample_df["Sample"], sample_df["n_malig_like"])
+            if nmal < MIN_MALIG
+        ],
     }
     with (args.outdir / "audit.json").open("w") as fh:
         json.dump(audit, fh, indent=2)
@@ -533,14 +589,15 @@ def main() -> None:
         "n_cells": int(n),
         "author_cell_labels_public": False,
         "honest_verdict": (
-            f"Processed UMI 175.5 MB was in budget; recomputed on {n} cells. "
-            f"Author per-cell labels are not public; used marker-based malignant-like cells "
-            f"(n={int(is_malig.sum())}). "
-            f"NMPR vs MPR malignant TACSTD2 (sample-level mean log1p): "
-            f"median NMPR={mwu_tac['median_a']:.3f} vs MPR={mwu_tac['median_b']:.3f}, "
-            f"MWU p={mwu_tac['mwu_p']:.2g} (n={mwu_tac['n_a']} vs {mwu_tac['n_b']}). "
-            f"Malignant TACSTD2 vs T/NK fraction (post eligible): {_fmt_rho(rho_post)}; "
-            f"all eligible: {_fmt_rho(rho_all)}. {rho_vs_claim}."
+            f"Recomputed on {n} cells (175.5 MB processed UMI). "
+            f"Author per-cell labels are not public; marker-based malignant-like n={int(is_malig.sum())}. "
+            f"NMPR>MPR malignant TACSTD2 is not supported "
+            f"(sample-level mean log1p median {mwu_tac['median_a']:.3f} vs {mwu_tac['median_b']:.3f}, "
+            f"MWU p={mwu_tac['mwu_p']:.2g}; only 2/4 MPR samples have ≥1 malignant-like cell). "
+            f"Sample-level TACSTD2 vs T/NK is a null: post eligible {_fmt_rho(rho_post)}; "
+            f"all eligible {_fmt_rho(rho_all)}; closest |ρ| among planned tests is 0.30 "
+            f"(post, CP10k, n=10, p=0.40). {rho_vs_claim}. "
+            f"A rejected 92,330-cell Spearman of TACSTD2 vs T/NK score is ρ=-0.16, also outside that window."
         ),
         "mpr_contrast_possible": True,
         "nmpr_tacstd2_higher_than_mpr": bool(nmpr_higher),
@@ -601,7 +658,19 @@ def write_results_readme(
         "",
         "## Verdict",
         "",
-        summary["honest_verdict"],
+        "**Neither half of A3 is supported** on this public matrix.",
+        "",
+        "- **NMPR > MPR malignant TACSTD2:** no. Sample-level MWU p=0.89 (n=8 vs 2). "
+        "Two of four MPR samples (P11, P14) have **zero** malignant-like cells — all their epithelium "
+        "expresses normal-lung markers, matching the paper’s MPR normal-epithelium expansion. "
+        "All-epithelial TACSTD2 is also null (p=0.68, n=8 vs 4).",
+        "- **Malignant TACSTD2 vs T/NK anti-correlation (user ρ −0.40 to −0.50):** no. "
+        "Post-eligible ρ=+0.18 (p=0.70, n=7); all-eligible ρ=−0.14 (p=0.70, n=10); "
+        "all 15 samples epithelial ρ=−0.13 (p=0.65). Closest planned |ρ| is 0.30 (p=0.40).",
+        "- **TACSTD2 is epithelial-restricted:** median %pos 74.9% malignant-like vs 1.6% T/NK "
+        "(paired Wilcoxon p=9.8e-4, n=10).",
+        "- A rejected cell-level Spearman on all 92,330 cells (TACSTD2 vs T/NK score) is ρ=−0.16, "
+        "not −0.45. That test is compositional and is not the A3 claim.",
         "",
         "## Data policy",
         "",
@@ -637,10 +706,12 @@ def write_results_readme(
         "",
         "## Honest limits",
         "",
-        "- n=12 post-treatment samples (4 MPR / 8 NMPR) is underpowered for a ρ≈−0.45 claim.",
-        "- Sample-level tests are the correct unit; cell-level p-values would be pseudoreplication and are not reported as primary.",
-        "- Without CopyKAT, “malignant-only” is a marker proxy.",
-        "- Expression is log1p(raw UMI) and log1p(CP10k), not author log-normalized Seurat values after CCA.",
+        "- The correlation unit is **samples (n=7–15)**, not ~90k cells. ~90k is the matrix size.",
+        "- n=12 post-treatment (4 MPR / 8 NMPR) is underpowered for a ρ≈−0.45 claim.",
+        "- MPR malignant compartment is nearly empty after normal-lung exclusion (P06=1, P11=0, P14=0 cells).",
+        "- Sample-level tests are the correct unit. Cell-level p-values are pseudoreplication (`rejected_cell_level.json`).",
+        "- Without public CopyKAT calls, “malignant-only” is a marker proxy.",
+        "- Expression is log1p(raw UMI) and log1p(CP10k), not author Seurat log-normalized values.",
         "",
         "## Files",
         "",
@@ -654,6 +725,7 @@ def write_results_readme(
         "| `association_statistics.tsv` | Spearman vs T/NK |",
         "| `group_statistics.tsv` | NMPR vs MPR MWU |",
         "| `summary.json` / `audit.json` / `sanity_checks.json` | Verdict |",
+        "| `rejected_cell_level.json` | Why a 92k-cell ρ is not the test |",
         "| `fig_malig_tacstd2_vs_tnk_fraction.png` | A3-style correlation |",
         "| `fig_tacstd2_nmpr_mpr_and_compartment.png` | Group + restriction |",
         "",

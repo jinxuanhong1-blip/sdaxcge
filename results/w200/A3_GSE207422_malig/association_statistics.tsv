@@ -1,0 +1,27 @@
+contrast	n	spearman_rho	spearman_p	note
+all eligible samples: malig-like TACSTD2 mean_log1p vs T/NK fraction	10	-0.13939393939393938	0.7009318849100584	
+all eligible samples: malig-like TACSTD2 %pos vs T/NK fraction	10	-0.10303030303030303	0.7769984634438898	
+all eligible samples: malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction	10	-0.04242424242424241	0.9073638178128159	
+all eligible samples: all-epithelial TACSTD2 mean_log1p vs T/NK fraction	10	-0.11515151515151514	0.7514196523258485	
+post-treatment eligible (paper MPR/NMPR): malig-like TACSTD2 mean_log1p vs T/NK fraction	7	0.1785714285714286	0.7016579425162727	
+post-treatment eligible (paper MPR/NMPR): malig-like TACSTD2 %pos vs T/NK fraction	7	0.1785714285714286	0.7016579425162727	
+post-treatment eligible (paper MPR/NMPR): malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction	7	0.1785714285714286	0.7016579425162727	
+post-treatment eligible (paper MPR/NMPR): all-epithelial TACSTD2 mean_log1p vs T/NK fraction	7	0.1785714285714286	0.7016579425162727	
+post-treatment all (no cell-count filter): malig-like TACSTD2 mean_log1p vs T/NK fraction	10	-0.16363636363636364	0.6514773427962428	
+post-treatment all (no cell-count filter): malig-like TACSTD2 %pos vs T/NK fraction	10	0.024316221747202587	0.9468397049085097	
+post-treatment all (no cell-count filter): malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction	10	-0.29696969696969694	0.40470167127015705	
+post-treatment all (no cell-count filter): all-epithelial TACSTD2 mean_log1p vs T/NK fraction	12	-0.04895104895104895	0.8799185788786748	
+all samples with ≥10 epithelial cells: malig-like TACSTD2 mean_log1p vs T/NK fraction	13	-0.23076923076923078	0.4481273823153657	
+all samples with ≥10 epithelial cells: malig-like TACSTD2 %pos vs T/NK fraction	13	-0.06877585598509119	0.8233398751292708	
+all samples with ≥10 epithelial cells: malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction	13	-0.23076923076923078	0.4481273823153657	
+all samples with ≥10 epithelial cells: all-epithelial TACSTD2 mean_log1p vs T/NK fraction	15	-0.12857142857142856	0.6479163294665076	
+post-treatment with ≥10 epithelial cells: malig-like TACSTD2 mean_log1p vs T/NK fraction	10	-0.16363636363636364	0.6514773427962428	
+post-treatment with ≥10 epithelial cells: malig-like TACSTD2 %pos vs T/NK fraction	10	0.024316221747202587	0.9468397049085097	
+post-treatment with ≥10 epithelial cells: malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction	10	-0.29696969696969694	0.40470167127015705	
+post-treatment with ≥10 epithelial cells: all-epithelial TACSTD2 mean_log1p vs T/NK fraction	12	-0.04895104895104895	0.8799185788786748	
+all 15 samples (no cell-count filter): malig-like TACSTD2 mean_log1p vs T/NK fraction	13	-0.23076923076923078	0.4481273823153657	
+all 15 samples (no cell-count filter): malig-like TACSTD2 %pos vs T/NK fraction	13	-0.06877585598509119	0.8233398751292708	
+all 15 samples (no cell-count filter): malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction	13	-0.23076923076923078	0.4481273823153657	
+all 15 samples (no cell-count filter): all-epithelial TACSTD2 mean_log1p vs T/NK fraction	15	-0.12857142857142856	0.6479163294665076	
+all samples: malig-like TACSTD2 mean_log1p vs residual tumor fraction	12	-0.04232968820516252	0.8960777530753088	
+all samples: all-epithelial TACSTD2 mean_log1p vs residual tumor fraction	14	0.046409548089225705	0.8748177262026693	

@@ -1,0 +1,9 @@
+contrast	n_a	n_b	median_a	median_b	mwu_u	mwu_p	note
+post: NMPR vs MPR malig-like TACSTD2 mean_log1p (sample-level)	8	2	1.6239618140615306	1.5614652921422874	9.0	0.888888888888889	
+post: NMPR vs MPR malig-like TACSTD2 %pos (sample-level)	8	2	76.7156862745098	85.656836461126	5.5	0.6004018480969686	
+post: NMPR vs MPR malig-like TACSTD2 mean log1p(CP10k) (sample-level)	8	2	1.86519092489887	1.4662638232835294	8.0	1.0	
+post: NMPR vs MPR all-epithelial TACSTD2 mean_log1p (sample-level)	8	4	1.6365460354834918	1.5749635627620457	19.0	0.6828282828282828	
+post: NMPR vs MPR T/NK fraction (sanity vs paper Fig 1D)	8	4	0.3433845954354122	0.5070339257634807	12.0	0.5696969696969697	
+post: NMPR vs MPR malig-like CX3CL1 mean_log1p (paper: MPR higher)	8	2	0.1625492997446577	0.29908688982362774	8.5	1.0	
+post: NMPR vs MPR malig-like HLA-DRA mean_log1p (paper: MPR higher)	8	2	0.9598867139838364	2.9899542097494387	4.0	0.4	
+post: NMPR vs MPR malig-like AKR1C1 mean_log1p (paper: NMPR higher)	8	2	0.7170722199440936	0.8373361684418592	7.5	1.0	

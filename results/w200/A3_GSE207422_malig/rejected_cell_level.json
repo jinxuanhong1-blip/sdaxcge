@@ -1,0 +1,15 @@
+{
+  "note": "Rejected as primary: cell-level Spearman is compositional (TACSTD2 is epithelial-restricted; T/NK score is not) and pseudoreplicates 92k cells. Shown only to test whether the user \u03c1 \u22120.40 to \u22120.50 could have come from this mistake.",
+  "all_cells_TACSTD2_vs_TNK_score": {
+    "rho": -0.16150930773747407,
+    "p": 0.0
+  },
+  "malig_like_TACSTD2_vs_TNK_score": {
+    "rho": 0.2114620900082198,
+    "p": 7.1335168369896625e-68
+  },
+  "epithelial_TACSTD2_vs_TNK_score": {
+    "rho": 0.24120512483073087,
+    "p": 1.2598650957609116e-145
+  }
+}
