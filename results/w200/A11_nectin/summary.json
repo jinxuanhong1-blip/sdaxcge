@@ -1,0 +1,206 @@
+{
+  "task": "A11_nectin",
+  "question": "Do nectin genes associate with TACSTD2-high public lung tumors?",
+  "primary_statistic": "pooled rank-partial Spearman, covariates = ABSOLUTE purity + histology",
+  "primary_nectins": [
+    "NECTIN1",
+    "NECTIN2",
+    "NECTIN3",
+    "NECTIN4"
+  ],
+  "nectin_like_not_in_class_rule": [
+    "PVR"
+  ],
+  "positive_control_not_in_class_rule": [
+    "CLDN4"
+  ],
+  "counts": {
+    "LUAD_tumor": 516,
+    "LUSC_tumor": 501,
+    "POOLED_tumor": 1017,
+    "LUAD_with_purity": 503,
+    "LUSC_with_purity": 493,
+    "POOLED_with_purity": 996,
+    "LUAD_normal": 59,
+    "LUSC_normal": 51,
+    "TACSTD2_vs_purity_LUAD": {
+      "rho": 0.03829621171378397,
+      "p": 0.3914050776407795,
+      "n": 503
+    },
+    "TACSTD2_vs_purity_LUSC": {
+      "rho": 0.005533614511546653,
+      "p": 0.9024593092422653,
+      "n": 493
+    }
+  },
+  "class_verdict_prespecified_rule": {
+    "rule": ">=3/4 nectins WEAK_POSITIVE or ASSOCIATED_POSITIVE on pooled partial Spearman, and none negative",
+    "labels": {
+      "NECTIN1": "ASSOCIATED_POSITIVE",
+      "NECTIN2": "WEAK_POSITIVE",
+      "NECTIN3": "NULL",
+      "NECTIN4": "ASSOCIATED_POSITIVE"
+    },
+    "positive": [
+      "NECTIN1",
+      "NECTIN2",
+      "NECTIN4"
+    ],
+    "negative": [],
+    "null": [
+      "NECTIN3"
+    ],
+    "claim": "CLASS_EFFECT_SUPPORTED",
+    "statement": "3/4 primary nectins are purity+histology-adjusted positive with TACSTD2 and none are significantly negative. A nectin-family class effect is supported on this public lung slice."
+  },
+  "honest_verdict": {
+    "claim": "NO_CLASS_EFFECT",
+    "statement": "NECTIN4 robustly tracks TACSTD2-high public lung. NECTIN1 is a moderate co-expression partner in both histologies. NECTIN2, NECTIN3, and PVR do not. The pre-specified >=3/4 partial-rho rule fires only because NECTIN2 is weakly positive after histology adjustment; it fails the TACSTD2 Q4 vs Q1 contrast. Do not report a nectin-family class effect.",
+    "supported": [
+      "NECTIN4"
+    ],
+    "moderate": [
+      "NECTIN1"
+    ],
+    "not_supported": [
+      "NECTIN2",
+      "NECTIN3",
+      "PVR"
+    ]
+  },
+  "pooled_rows": [
+    {
+      "cohort": "POOLED",
+      "gene": "NECTIN1",
+      "role": "primary_nectin",
+      "alias": "PVRL1 / nectin-1",
+      "n": 1017,
+      "spearman_rho": 0.3655488344265397,
+      "spearman_p": 1.6536254873212438e-33,
+      "partial_rho": 0.3020286473408249,
+      "partial_p": 2.0630701494283448e-22,
+      "partial_n": 996,
+      "partial_covariates": "ABSOLUTE purity + histology (LUSC vs LUAD)",
+      "spearman_fdr_nectins": 3.3072509746424875e-33,
+      "partial_fdr_nectins": 4.1261402988566895e-22,
+      "spearman_fdr_all_partners": 4.960876461963731e-33,
+      "partial_fdr_all_partners": 4.1261402988566895e-22,
+      "primary_label": "ASSOCIATED_POSITIVE"
+    },
+    {
+      "cohort": "POOLED",
+      "gene": "NECTIN2",
+      "role": "primary_nectin",
+      "alias": "PVRL2 / nectin-2 / CD112",
+      "n": 1017,
+      "spearman_rho": 0.037923045643426564,
+      "spearman_p": 0.2269204013989648,
+      "partial_rho": 0.14735499427284404,
+      "partial_p": 3.0799013321859476e-06,
+      "partial_n": 996,
+      "partial_covariates": "ABSOLUTE purity + histology (LUSC vs LUAD)",
+      "spearman_fdr_nectins": 0.2269204013989648,
+      "partial_fdr_nectins": 4.106535109581263e-06,
+      "spearman_fdr_all_partners": 0.2269204013989648,
+      "partial_fdr_all_partners": 4.619851998278921e-06,
+      "primary_label": "WEAK_POSITIVE"
+    },
+    {
+      "cohort": "POOLED",
+      "gene": "NECTIN3",
+      "role": "primary_nectin",
+      "alias": "PVRL3 / nectin-3",
+      "n": 1017,
+      "spearman_rho": 0.05710377885373875,
+      "spearman_p": 0.06871174664849983,
+      "partial_rho": 0.09161100948593945,
+      "partial_p": 0.0038433988613802133,
+      "partial_n": 996,
+      "partial_covariates": "ABSOLUTE purity + histology (LUSC vs LUAD)",
+      "spearman_fdr_nectins": 0.09161566219799977,
+      "partial_fdr_nectins": 0.0038433988613802133,
+      "spearman_fdr_all_partners": 0.10306761997274974,
+      "partial_fdr_all_partners": 0.004612078633656255,
+      "primary_label": "NULL"
+    },
+    {
+      "cohort": "POOLED",
+      "gene": "NECTIN4",
+      "role": "primary_nectin",
+      "alias": "PVRL4 / nectin-4 (ADC target)",
+      "n": 1017,
+      "spearman_rho": 0.5502298373316719,
+      "spearman_p": 1.499149324990919e-81,
+      "partial_rho": 0.5222203617364547,
+      "partial_p": 1.2311895850028144e-70,
+      "partial_n": 996,
+      "partial_covariates": "ABSOLUTE purity + histology (LUSC vs LUAD)",
+      "spearman_fdr_nectins": 5.996597299963676e-81,
+      "partial_fdr_nectins": 4.9247583400112575e-70,
+      "spearman_fdr_all_partners": 8.994895949945513e-81,
+      "partial_fdr_all_partners": 7.387137510016886e-70,
+      "primary_label": "ASSOCIATED_POSITIVE"
+    },
+    {
+      "cohort": "POOLED",
+      "gene": "PVR",
+      "role": "nectin_like",
+      "alias": "CD155 / NECL5 (nectin-like)",
+      "n": 1017,
+      "spearman_rho": 0.04477764351034958,
+      "spearman_p": 0.1535976933826817,
+      "partial_rho": 0.0624926874461014,
+      "partial_p": 0.048872634385882546,
+      "partial_n": 996,
+      "partial_covariates": "ABSOLUTE purity + histology (LUSC vs LUAD)",
+      "spearman_fdr_nectins": null,
+      "partial_fdr_nectins": null,
+      "spearman_fdr_all_partners": 0.18431723205921804,
+      "partial_fdr_all_partners": 0.048872634385882546,
+      "primary_label": "NULL"
+    },
+    {
+      "cohort": "POOLED",
+      "gene": "CLDN4",
+      "role": "positive_control",
+      "alias": "claudin-4 (junction positive control, not a nectin)",
+      "n": 1017,
+      "spearman_rho": 0.28305940313800637,
+      "spearman_p": 3.4268387597434824e-20,
+      "partial_rho": 0.43612353711969865,
+      "partial_p": 2.0725494652564178e-47,
+      "partial_n": 996,
+      "partial_covariates": "ABSOLUTE purity + histology (LUSC vs LUAD)",
+      "spearman_fdr_nectins": null,
+      "partial_fdr_nectins": null,
+      "spearman_fdr_all_partners": 6.853677519486965e-20,
+      "partial_fdr_all_partners": 6.217648395769253e-47,
+      "primary_label": "ASSOCIATED_POSITIVE"
+    },
+    {
+      "cohort": "POOLED",
+      "gene": "NECTIN_MEAN_Z",
+      "role": "secondary_score",
+      "alias": "",
+      "n": 1017,
+      "spearman_rho": 0.4806573676699578,
+      "spearman_p": 6.515414822845032e-60,
+      "partial_rho": 0.44312432846679845,
+      "partial_p": 4.634764508321157e-49,
+      "partial_n": 996,
+      "partial_covariates": "ABSOLUTE purity + histology",
+      "spearman_fdr_nectins": 6.515414822845032e-60,
+      "partial_fdr_nectins": 4.634764508321157e-49,
+      "spearman_fdr_all_partners": null,
+      "partial_fdr_all_partners": null,
+      "primary_label": "ASSOCIATED_POSITIVE"
+    }
+  ],
+  "honest_caveats": [
+    "TCGA is immunotherapy-naive; do not read as ICI evidence.",
+    "mRNA only; not protein, not spatial, not ADC outcome.",
+    "CLDN4 is a control, not a nectin.",
+    "Class effect is pre-specified as >=3/4 nectins positive and none negative."
+  ]
+}

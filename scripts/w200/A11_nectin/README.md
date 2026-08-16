@@ -13,6 +13,10 @@ The four nectin genes are **NECTIN1, NECTIN2, NECTIN3, NECTIN4**.
 No filter is tuned to produce a positive class effect. Nulls and histology
 splits are reported.
 
+Honest result (do not quote the ≥3/4 rule as the answer): **NECTIN4** tracks
+TACSTD2-high public lung at CLDN4-like strength; **NECTIN1** is moderate;
+**NECTIN2 / NECTIN3 / PVR** do not. Not a nectin-family class effect.
+
 ```bash
 python3 scripts/w200/A11_nectin/download.py
 python3 scripts/w200/A11_nectin/analyze.py

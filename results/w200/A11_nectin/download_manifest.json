@@ -1,0 +1,95 @@
+{
+  "task": "A11_nectin",
+  "genes": {
+    "TACSTD2": "4070",
+    "NECTIN1": "5818",
+    "NECTIN2": "5819",
+    "NECTIN3": "25945",
+    "NECTIN4": "81607",
+    "PVR": "5817",
+    "CLDN4": "1364"
+  },
+  "tcga": {
+    "TCGA-LUAD.star_tpm.tsv.gz": {
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUAD.star_tpm.tsv.gz",
+      "bytes": 168463406,
+      "sha256": "460dab5f84d8fa7da8ef17c913d2816cd66a34e837908e64e0b3c7d65e3d40ee"
+    },
+    "TCGA-LUSC.star_tpm.tsv.gz": {
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUSC.star_tpm.tsv.gz",
+      "bytes": 160216338,
+      "sha256": "ba4cc22264ef56bc6f53644223c815837e7a0a4e008677b9bc72b46ae89ec6bf"
+    },
+    "gencode.v36.probemap": {
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/gencode.v36.annotation.gtf.gene.probemap",
+      "bytes": 3206945,
+      "sha256": "f027752d663b1da74f4113998bf008e6ebecfa3732607513e027bb6eb1f635b5"
+    },
+    "tcga_absolute_purity.txt": {
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "bytes": 901812,
+      "sha256": "f430a975433d82e0098d7405619d4f12a0c765fcd97e7d63cc9b1de7f2d763cd"
+    },
+    "extract_LUAD": {
+      "n_samples": 589,
+      "genes_found": [
+        "CLDN4",
+        "NECTIN1",
+        "NECTIN2",
+        "NECTIN3",
+        "NECTIN4",
+        "PVR",
+        "TACSTD2"
+      ],
+      "genes_missing": [],
+      "winning_row_mean": {
+        "PVR": 4.692764712171021,
+        "NECTIN1": 4.081391156939235,
+        "NECTIN2": 6.847899875167959,
+        "NECTIN4": 5.521236845893372,
+        "NECTIN3": 2.6984250479176954,
+        "TACSTD2": 8.797168911333285,
+        "CLDN4": 7.941809664914223
+      }
+    },
+    "extract_LUSC": {
+      "n_samples": 552,
+      "genes_found": [
+        "CLDN4",
+        "NECTIN1",
+        "NECTIN2",
+        "NECTIN3",
+        "NECTIN4",
+        "PVR",
+        "TACSTD2"
+      ],
+      "genes_missing": [],
+      "winning_row_mean": {
+        "PVR": 4.544959545932966,
+        "NECTIN1": 7.0645212558528465,
+        "NECTIN2": 6.395769392932089,
+        "NECTIN4": 6.094695431269921,
+        "NECTIN3": 2.375742111940633,
+        "TACSTD2": 9.294160281054385,
+        "CLDN4": 7.067072970976841
+      }
+    }
+  },
+  "depmap": {
+    "release": "DepMap Public 24Q4",
+    "citation": "DepMap, Broad (2024). DepMap 24Q4 Public. Figshare+. https://doi.org/10.25452/figshare.plus.27993248.v1",
+    "extract": {
+      "n_models": 1673,
+      "columns": {
+        "TACSTD2": "TACSTD2 (4070)",
+        "NECTIN1": "NECTIN1 (5818)",
+        "NECTIN2": "NECTIN2 (5819)",
+        "NECTIN3": "NECTIN3 (25945)",
+        "NECTIN4": "NECTIN4 (81607)",
+        "PVR": "PVR (5817)",
+        "CLDN4": "CLDN4 (1364)"
+      }
+    },
+    "Model.csv_sha256": "b7a0c1385e6cef30132b56aff61f1261d11e3f490490b355c430d32ee0dbdcfa"
+  }
+}

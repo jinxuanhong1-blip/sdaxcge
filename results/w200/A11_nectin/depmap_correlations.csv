@@ -1,0 +1,13 @@
+cohort,gene,role,alias,n,spearman_rho,spearman_p,partial_rho,partial_p,partial_n,partial_covariates,primary_label,spearman_fdr_nectins
+depmap_lung_cell_lines,NECTIN1,primary_nectin,PVRL1 / nectin-1,214,-0.04533085575636004,0.5095179155850316,,,0,,NULL,0.5095179155850316
+depmap_lung_cell_lines,NECTIN2,primary_nectin,PVRL2 / nectin-2 / CD112,214,0.2704847172918971,6.106577043795517e-05,,,0,,ASSOCIATED_POSITIVE,0.00012213154087591034
+depmap_lung_cell_lines,NECTIN3,primary_nectin,PVRL3 / nectin-3,214,0.08561509958619974,0.21225190459552207,,,0,,NULL,0.2830025394606961
+depmap_lung_cell_lines,NECTIN4,primary_nectin,PVRL4 / nectin-4 (ADC target),214,0.6894318438777309,1.6095404186171873e-31,,,0,,ASSOCIATED_POSITIVE,6.438161674468749e-31
+depmap_lung_cell_lines,PVR,nectin_like,CD155 / NECL5 (nectin-like),214,0.29131569067699736,1.4848200524599632e-05,,,0,,ASSOCIATED_POSITIVE,
+depmap_lung_cell_lines,CLDN4,positive_control,"claudin-4 (junction positive control, not a nectin)",214,0.6074923026927191,5.636455165585778e-23,,,0,,ASSOCIATED_POSITIVE,
+depmap_NSCLC_cell_lines,NECTIN1,primary_nectin,PVRL1 / nectin-1,143,0.22298076489758728,0.007431816498121611,,,0,,ASSOCIATED_POSITIVE,0.014863632996243221
+depmap_NSCLC_cell_lines,NECTIN2,primary_nectin,PVRL2 / nectin-2 / CD112,143,-0.030714790644773882,0.7157401716003347,,,0,,NULL,0.7157401716003347
+depmap_NSCLC_cell_lines,NECTIN3,primary_nectin,PVRL3 / nectin-3,143,-0.09691988373558613,0.2495124407825622,,,0,,NULL,0.3326832543767496
+depmap_NSCLC_cell_lines,NECTIN4,primary_nectin,PVRL4 / nectin-4 (ADC target),143,0.7284054881528322,6.411906060242998e-25,,,0,,ASSOCIATED_POSITIVE,2.5647624240971993e-24
+depmap_NSCLC_cell_lines,PVR,nectin_like,CD155 / NECL5 (nectin-like),143,0.11110962914341557,0.18646430307635375,,,0,,NULL,
+depmap_NSCLC_cell_lines,CLDN4,positive_control,"claudin-4 (junction positive control, not a nectin)",143,0.667437179146622,8.811122112650595e-20,,,0,,ASSOCIATED_POSITIVE,

@@ -546,9 +546,16 @@ def write_writeup(out: Path, corr: pd.DataFrame, hl: pd.DataFrame, tn: pd.DataFr
     lines.append("")
     lines.append("## TL;DR")
     lines.append("")
-    lines.append(f"**Class-effect verdict: `{verdict['claim']}`**")
+    lines.append("**Honest answer: not a nectin-family class effect. NECTIN4 yes; NECTIN1 moderate; NECTIN2/3 and PVR no.**")
     lines.append("")
-    lines.append(verdict["statement"])
+    lines.append(
+        "The pre-specified ≥3/4 partial-correlation rule is "
+        f"`{verdict['claim']}` ({verdict['statement']}) "
+        "That rule is too easy to trip: NECTIN2 is only WEAK_POSITIVE (pooled partial ρ = 0.15) "
+        "and **fails the TACSTD2 Q4 vs Q1 test** (Δmedian ≈ 0, p = 0.51). "
+        "NECTIN3 is LUAD-only and labeled NULL. "
+        "The named A11 question is TACSTD2-**high** public lung, not a weak pooled ρ."
+    )
     lines.append("")
     lines.append(
         f"Primary cohort: TCGA LUAD n={counts['LUAD_tumor']} + LUSC n={counts['LUSC_tumor']} "
@@ -588,6 +595,15 @@ def write_writeup(out: Path, corr: pd.DataFrame, hl: pd.DataFrame, tn: pd.DataFr
         lines.append(
             f"| {g} | {r['median_high']:.3f} | {r['median_low']:.3f} | {r['delta_median']:.3f} | {r['p_mannwhitney']:.2e} |"
         )
+    lines.append("")
+    lines.append("## Honest reading of each gene")
+    lines.append("")
+    lines.append("- **NECTIN4**: the only robust TACSTD2-high partner. Pooled partial ρ = 0.52 (LUAD 0.47, LUSC 0.53). Q4 vs Q1 Δmedian = +1.73 (p = 2e-47). DepMap NSCLC ρ = 0.73. Strength is in the same range as the CLDN4 control (partial ρ = 0.44).")
+    lines.append("- **NECTIN1**: real moderate co-expression in both histologies (LUAD 0.23, LUSC 0.32). The pooled Q4 vs Q1 Δmedian = +3.07 is **inflated by histology mix**: TACSTD2 Q4 is LUSC-heavy and LUSC NECTIN1 baseline is ~3.5 log2 higher than LUAD. Within-histology Q4–Q1 deltas are +0.59 (LUAD) and +0.99 (LUSC). Use the partial ρ (0.30), not the pooled boxplot, for NECTIN1.")
+    lines.append("- **NECTIN2**: LUAD-only (0.22); LUSC null (0.09, FDR 0.07). Pooled Q4 vs Q1 is null. Do not call this a TACSTD2-high nectin.")
+    lines.append("- **NECTIN3**: LUAD 0.24, LUSC −0.03. Pooled |ρ| < 0.10. Tumor < adjacent normal in both histologies. Not a TACSTD2-high partner.")
+    lines.append("- **PVR**: null in tumors (pooled partial ρ = 0.06).")
+    lines.append("- **CLDN4 control**: recovered (partial ρ = 0.44). The pipeline can see a junction association; that does not make NECTIN2/3 positive.")
     lines.append("")
     lines.append("## What this does **not** show")
     lines.append("")
@@ -666,7 +682,20 @@ def main() -> int:
         "nectin_like_not_in_class_rule": NECTIN_LIKE,
         "positive_control_not_in_class_rule": POSITIVE_CONTROL,
         "counts": counts,
-        "class_verdict": verdict,
+        "class_verdict_prespecified_rule": verdict,
+        "honest_verdict": {
+            "claim": "NO_CLASS_EFFECT",
+            "statement": (
+                "NECTIN4 robustly tracks TACSTD2-high public lung. NECTIN1 is a moderate "
+                "co-expression partner in both histologies. NECTIN2, NECTIN3, and PVR do not. "
+                "The pre-specified >=3/4 partial-rho rule fires only because NECTIN2 is weakly "
+                "positive after histology adjustment; it fails the TACSTD2 Q4 vs Q1 contrast. "
+                "Do not report a nectin-family class effect."
+            ),
+            "supported": ["NECTIN4"],
+            "moderate": ["NECTIN1"],
+            "not_supported": ["NECTIN2", "NECTIN3", "PVR"],
+        },
         "pooled_rows": corr[corr["cohort"] == "POOLED"].replace({np.nan: None}).to_dict(orient="records"),
         "honest_caveats": [
             "TCGA is immunotherapy-naive; do not read as ICI evidence.",
