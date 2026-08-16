@@ -1,0 +1,10 @@
+# fable_stk11 slice — Python dependencies
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+statsmodels>=0.14
+lifelines>=0.27
+matplotlib>=3.7
+# No API keys required. Data pulled live from:
+#   cBioPortal REST API  (https://www.cbioportal.org/api)
+#   NCBI GEO FTP         (GSE135222)
