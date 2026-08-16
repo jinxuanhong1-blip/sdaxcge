@@ -1,0 +1,1544 @@
+{
+  "disclaimer": "Public analogs only. None of these series is SKB264 / sac-TMT. IMMU132 is sacituzumab govitecan.",
+  "catalog": [
+    {
+      "accession": "GSE312098",
+      "agent": "IMMU132 (sacituzumab govitecan)",
+      "is_adc_treatment": true,
+      "tissue": "CRC cell line CX-1",
+      "lung": false,
+      "label": "non-lung analog",
+      "note": "SG analog, not SKB264. FPKM, n=3 vs 3.",
+      "usable_adc_vs_ctrl": true
+    },
+    {
+      "accession": "GSE311016",
+      "agent": "IMMU132 (sacituzumab govitecan)",
+      "is_adc_treatment": true,
+      "tissue": "CRC PDX (5 models, day 29)",
+      "lung": false,
+      "label": "non-lung analog",
+      "note": "SG analog, not SKB264. Paired PDX FPKM, n=5 pairs.",
+      "usable_adc_vs_ctrl": true
+    },
+    {
+      "accession": "GSE304294",
+      "agent": "IMMU132 (sacituzumab govitecan)",
+      "is_adc_treatment": true,
+      "tissue": "ESCC cell line KYSE30",
+      "lung": false,
+      "label": "non-lung analog",
+      "note": "SG analog, not SKB264. IMMU arm n=2 vs control n=3. Underpowered.",
+      "usable_adc_vs_ctrl": true
+    },
+    {
+      "accession": "GSE334497",
+      "agent": "none (Trop2 knockout)",
+      "is_adc_treatment": false,
+      "tissue": "4T1 mouse TNBC tumors",
+      "lung": false,
+      "label": "non-lung TROP2-loss analog (NOT ADC)",
+      "note": "TROP2 KO, not sacituzumab / not SKB264. Mouse 4T1, n=5 vs 5.",
+      "usable_adc_vs_ctrl": false
+    },
+    {
+      "accession": "GSE289287",
+      "agent": "none (TACSTD2 knockout)",
+      "is_adc_treatment": false,
+      "tissue": "T-47D luminal breast xenografts",
+      "lung": false,
+      "label": "non-lung TROP2-loss analog (NOT ADC; not TNBC)",
+      "note": "TROP2 KO, not sacituzumab / not SKB264. Author DESeq2 + Welch on normCounts. n=4 KO vs 3 WT.",
+      "usable_adc_vs_ctrl": false
+    },
+    {
+      "accession": "GSE235812",
+      "agent": "none (untreated breast tumor vs PDX)",
+      "is_adc_treatment": false,
+      "tissue": "breast tumor P0 and matching PDX P1",
+      "lung": false,
+      "label": "non-lung untreated analog (NOT ADC)",
+      "note": "Paper used SG in other experiments; deposited RNA is untreated P0/P1. No ADC vs control.",
+      "usable_adc_vs_ctrl": false
+    },
+    {
+      "accession": "GSE245459",
+      "agent": "none (shTACSTD2)",
+      "is_adc_treatment": false,
+      "tissue": "SKOV3 ovarian",
+      "lung": false,
+      "label": "already covered as C4 TACSTD2-KD analog",
+      "note": "Not ADC. See results/w200/C4_GSE245459/. Not re-analysed here.",
+      "usable_adc_vs_ctrl": false
+    },
+    {
+      "accession": "GSE302284",
+      "agent": "none in deposited omics (osimertinib / residual tissue)",
+      "is_adc_treatment": false,
+      "tissue": "EGFR-mutant NSCLC",
+      "lung": true,
+      "label": "not an SG treatment contrast",
+      "note": "Paper mentions TROP2 CAR-T / SG context; GEO samples are LN/tumor and osi vs vehicle. Sibling slice owns this accession. Not scored as ADC vs control.",
+      "usable_adc_vs_ctrl": false
+    },
+    {
+      "accession": "GSE278664",
+      "agent": "none (prexasertib trial baseline)",
+      "is_adc_treatment": false,
+      "tissue": "HGSOC biopsies",
+      "lung": false,
+      "label": "SG paper, deposited RNA is CHK1i trial",
+      "note": "Cannot test SG vs control. Treatment field is Prexasertib.",
+      "usable_adc_vs_ctrl": false
+    },
+    {
+      "accession": "public GEO search",
+      "agent": "sac-TMT / SKB264 / MK-2870",
+      "is_adc_treatment": false,
+      "tissue": null,
+      "lung": null,
+      "label": "no public expression series found",
+      "note": "esearch SKB264 / sac-TMT / tirumotecan / datopotamab returned 0 GSE records (2026-08-16).",
+      "usable_adc_vs_ctrl": false
+    }
+  ],
+  "contrasts": [
+    {
+      "contrast": "GSE312098_CX1_IMMU132_vs_ctrl",
+      "accession": "GSE312098",
+      "agent": "IMMU132 (sacituzumab govitecan)",
+      "is_skb264": false,
+      "is_adc_treatment": true,
+      "tissue": "CRC cell line CX-1",
+      "label": "non-lung analog",
+      "n_treat": 3,
+      "n_ctrl": 3,
+      "note": "SG analog, not SKB264. FPKM, n=3 vs 3.",
+      "sets": {
+        "C4_IFN_MHCI": {
+          "n_in_set": 6,
+          "n_present": 6,
+          "n_tested": 6,
+          "median_log2FC_set": 0.5482776653379577,
+          "median_log2FC_bg": -0.021452254906737522,
+          "n_up": 5,
+          "n_down": 1,
+          "binom_p": 0.21875,
+          "delta_median": 0.5697299202446953,
+          "mw_U": 60322.0,
+          "mw_p": 0.011513286025871993,
+          "direction": "up"
+        },
+        "APM": {
+          "n_in_set": 19,
+          "n_present": 19,
+          "n_tested": 19,
+          "median_log2FC_set": 0.39266123432505395,
+          "median_log2FC_bg": -0.021598961618155665,
+          "n_up": 15,
+          "n_down": 4,
+          "binom_p": 0.0192108154296875,
+          "delta_median": 0.4142601959432096,
+          "mw_U": 165352.0,
+          "mw_p": 0.005649557428068615,
+          "direction": "up"
+        },
+        "IFN": {
+          "n_in_set": 55,
+          "n_present": 55,
+          "n_tested": 55,
+          "median_log2FC_set": 0.20387699095933032,
+          "median_log2FC_bg": -0.022571173264757327,
+          "n_up": 44,
+          "n_down": 10,
+          "binom_p": 8.699371704778969e-06,
+          "delta_median": 0.22644816422408764,
+          "mw_U": 501454.0,
+          "mw_p": 2.6370750877017965e-08,
+          "direction": "up"
+        },
+        "JUNCTION": {
+          "n_in_set": 27,
+          "n_present": 27,
+          "n_tested": 27,
+          "median_log2FC_set": 0.008789580821546572,
+          "median_log2FC_bg": -0.021216064220693553,
+          "n_up": 14,
+          "n_down": 13,
+          "binom_p": 1.0,
+          "delta_median": 0.030005645042240126,
+          "mw_U": 172075.0,
+          "mw_p": 0.9914025820322596,
+          "direction": "null"
+        }
+      },
+      "scores": {
+        "C4_IFN_MHCI": {
+          "n_treat": 3,
+          "n_ctrl": 3,
+          "mean_treat": 0.6295778960324083,
+          "mean_ctrl": -0.6295778960324138,
+          "delta": 1.259155792064822,
+          "t": 6.768823140041157,
+          "p": 0.002493796345425462
+        },
+        "APM": {
+          "n_treat": 3,
+          "n_ctrl": 3,
+          "mean_treat": 0.4248675223279566,
+          "mean_ctrl": -0.4248675223279548,
+          "delta": 0.8497350446559114,
+          "t": 8.127192007059941,
+          "p": 0.006821738889470258
+        },
+        "IFN": {
+          "n_treat": 3,
+          "n_ctrl": 3,
+          "mean_treat": 0.4882171180996808,
+          "mean_ctrl": -0.4882171180996815,
+          "delta": 0.9764342361993623,
+          "t": 4.865541787058564,
+          "p": 0.020124798540561695
+        },
+        "JUNCTION": {
+          "n_treat": 3,
+          "n_ctrl": 3,
+          "mean_treat": -0.007810503142311559,
+          "mean_ctrl": 0.0078105031423121585,
+          "delta": -0.015621006284623717,
+          "t": -0.12786024334321192,
+          "p": 0.9060569878840807
+        }
+      },
+      "key_genes": [
+        {
+          "gene": "TACSTD2",
+          "log2FC": 0.6829585033438619,
+          "p": 0.0005652951589606684,
+          "q": 0.014524669159467353,
+          "mean_treat": 67.19566640186987,
+          "mean_ctrl": 41.5036092042016
+        },
+        {
+          "gene": "CLDN4",
+          "log2FC": -0.8611090921796052,
+          "p": 1.6934639623518238e-05,
+          "q": 0.004304659950523346,
+          "mean_treat": 50.07470669388331,
+          "mean_ctrl": 91.78143931302428
+        },
+        {
+          "gene": "IFI27",
+          "log2FC": 0.604994841099586,
+          "p": 0.011128245778268328,
+          "q": 0.06930614920636224,
+          "mean_treat": 45.631834442944005,
+          "mean_ctrl": 29.754409742452697
+        },
+        {
+          "gene": "OAS2",
+          "log2FC": 0.9423288953169897,
+          "p": 0.025483832155573035,
+          "q": 0.11639866687749824,
+          "mean_treat": 8.98226662667399,
+          "mean_ctrl": 4.275035719017606
+        },
+        {
+          "gene": "IFIT1",
+          "log2FC": 0.4915604895763295,
+          "p": 0.006511028581712412,
+          "q": 0.05061904322837407,
+          "mean_treat": 8.419078015370367,
+          "mean_ctrl": 5.69824219376326
+        },
+        {
+          "gene": "MX1",
+          "log2FC": -0.038452376451864806,
+          "p": 0.4963723440851085,
+          "q": 0.6294022598981851,
+          "mean_treat": 0.16729335397176534,
+          "mean_ctrl": 0.198658004051357
+        },
+        {
+          "gene": "ISG15",
+          "log2FC": 0.6338591511386769,
+          "p": 0.00326900849546802,
+          "q": 0.03409326690583058,
+          "mean_treat": 179.19877382907703,
+          "mean_ctrl": 114.967872541551
+        },
+        {
+          "gene": "HLA-A",
+          "log2FC": 0.07849437616416921,
+          "p": 0.1416042348418311,
+          "q": 0.365044230628119,
+          "mean_treat": 154.22619389810833,
+          "mean_ctrl": 146.08389861307035
+        },
+        {
+          "gene": "CLDN1",
+          "log2FC": 0.6576109552508385,
+          "p": 9.335784340293898e-05,
+          "q": 0.007558341344661811,
+          "mean_treat": 10.088359130093421,
+          "mean_ctrl": 6.02787514687872
+        },
+        {
+          "gene": "CLDN7",
+          "log2FC": -0.14032691892588378,
+          "p": 0.0637274575811955,
+          "q": 0.21281349108177353,
+          "mean_treat": 42.73930439567897,
+          "mean_ctrl": 47.173929717859664
+        },
+        {
+          "gene": "TJP1",
+          "log2FC": -0.4835620118170483,
+          "p": 0.0017940322906365134,
+          "q": 0.025282961842087306,
+          "mean_treat": 13.142305917998833,
+          "mean_ctrl": 18.779067806758167
+        },
+        {
+          "gene": "OCLN",
+          "log2FC": 0.21186553780865136,
+          "p": 0.11550258764969978,
+          "q": 0.31720789494517826,
+          "mean_treat": 2.97697776991656,
+          "mean_ctrl": 2.424698109213647
+        },
+        {
+          "gene": "F11R",
+          "log2FC": 0.008789580821546572,
+          "p": 0.8707006029714472,
+          "q": 0.91957903150216,
+          "mean_treat": 22.0894871828992,
+          "mean_ctrl": 21.96000654839017
+        },
+        {
+          "gene": "B2M",
+          "log2FC": 0.8335087295173924,
+          "p": 4.594059834994496e-05,
+          "q": 0.006052227153763541,
+          "mean_treat": 132.92087108221634,
+          "mean_ctrl": 74.136230029012
+        },
+        {
+          "gene": "TAP1",
+          "log2FC": 0.43411025015424576,
+          "p": 0.06967850829405403,
+          "q": 0.2258905989012468,
+          "mean_treat": 4.695458226288127,
+          "mean_ctrl": 3.24625578827554
+        },
+        {
+          "gene": "TAP2",
+          "log2FC": 0.4374071644023476,
+          "p": 0.015615509337726048,
+          "q": 0.0856054509338096,
+          "mean_treat": 5.689769331340213,
+          "mean_ctrl": 3.950708771544503
+        }
+      ]
+    },
+    {
+      "contrast": "GSE311016_CRC_PDX_IMMU132_vs_ctrl",
+      "accession": "GSE311016",
+      "agent": "IMMU132 (sacituzumab govitecan)",
+      "is_skb264": false,
+      "is_adc_treatment": true,
+      "tissue": "CRC PDX (5 models, day 29)",
+      "label": "non-lung analog",
+      "n_treat": 5,
+      "n_ctrl": 5,
+      "note": "SG analog, not SKB264. Paired PDX FPKM, n=5 pairs.",
+      "sets": {
+        "C4_IFN_MHCI": {
+          "n_in_set": 6,
+          "n_present": 6,
+          "n_tested": 6,
+          "median_log2FC_set": 0.1766269909111269,
+          "median_log2FC_bg": -0.03703041651112106,
+          "n_up": 5,
+          "n_down": 1,
+          "binom_p": 0.21875,
+          "delta_median": 0.21365740742224798,
+          "mw_U": 51231.0,
+          "mw_p": 0.18081681681066505,
+          "direction": "null"
+        },
+        "APM": {
+          "n_in_set": 19,
+          "n_present": 19,
+          "n_tested": 19,
+          "median_log2FC_set": 0.004836362085352519,
+          "median_log2FC_bg": -0.036885954823198584,
+          "n_up": 10,
+          "n_down": 9,
+          "binom_p": 1.0,
+          "delta_median": 0.041722316908551105,
+          "mw_U": 111278.0,
+          "mw_p": 0.47589457643489497,
+          "direction": "null"
+        },
+        "IFN": {
+          "n_in_set": 55,
+          "n_present": 55,
+          "n_tested": 55,
+          "median_log2FC_set": 0.0820367336887102,
+          "median_log2FC_bg": -0.03744702403979294,
+          "n_up": 35,
+          "n_down": 19,
+          "binom_p": 0.05806414679240905,
+          "delta_median": 0.11948375772850314,
+          "mw_U": 425037.0,
+          "mw_p": 0.011483714818352322,
+          "direction": "up"
+        },
+        "JUNCTION": {
+          "n_in_set": 27,
+          "n_present": 27,
+          "n_tested": 27,
+          "median_log2FC_set": -0.15618717340796504,
+          "median_log2FC_bg": -0.036689738783455536,
+          "n_up": 9,
+          "n_down": 17,
+          "binom_p": 0.12207812070846558,
+          "delta_median": -0.1194974346245095,
+          "mw_U": 148667.0,
+          "mw_p": 0.1814614619278273,
+          "direction": "null"
+        }
+      },
+      "scores": {
+        "C4_IFN_MHCI": {
+          "n_pairs": 5,
+          "mean_treat": 0.11276994317476133,
+          "mean_ctrl": -0.11276994317476148,
+          "delta": 0.22553988634952277,
+          "t": 0.4080410988895489,
+          "p": 0.704140324490532,
+          "wilcoxon_p": 0.8125
+        },
+        "APM": {
+          "n_pairs": 5,
+          "mean_treat": -0.10165221667872278,
+          "mean_ctrl": 0.1016522166787227,
+          "delta": -0.20330443335744555,
+          "t": -1.1178155654637434,
+          "p": 0.3262472514633179,
+          "wilcoxon_p": 0.4375
+        },
+        "IFN": {
+          "n_pairs": 5,
+          "mean_treat": 0.05352767139935194,
+          "mean_ctrl": -0.053527671399352016,
+          "delta": 0.10705534279870395,
+          "t": 0.2732518097101766,
+          "p": 0.7981878173974326,
+          "wilcoxon_p": 0.8125
+        },
+        "JUNCTION": {
+          "n_pairs": 5,
+          "mean_treat": -0.12219825350332188,
+          "mean_ctrl": 0.12219825350332245,
+          "delta": -0.24439650700664434,
+          "t": -1.8511436593837467,
+          "p": 0.13780674622135283,
+          "wilcoxon_p": 0.3125
+        }
+      },
+      "key_genes": [
+        {
+          "gene": "TACSTD2",
+          "log2FC": -0.42122880981364486,
+          "p": 0.2709720733091727,
+          "q": 0.6045259609968239,
+          "mean_treat": 15.918987298818866,
+          "mean_ctrl": 29.155194864376377
+        },
+        {
+          "gene": "CLDN4",
+          "log2FC": -0.43712087969324465,
+          "p": 0.05971307588313452,
+          "q": 0.6045259609968239,
+          "mean_treat": 97.78592340733289,
+          "mean_ctrl": 128.9375108294816
+        },
+        {
+          "gene": "IFI27",
+          "log2FC": 0.2522815850742365,
+          "p": 0.6016724731907682,
+          "q": 0.7761602494271349,
+          "mean_treat": 88.32769750342507,
+          "mean_ctrl": 77.68302525304559
+        },
+        {
+          "gene": "OAS2",
+          "log2FC": -0.32416372357731993,
+          "p": 0.6827367091095534,
+          "q": 0.8288798477438992,
+          "mean_treat": 3.7042711962235986,
+          "mean_ctrl": 6.480140002890954
+        },
+        {
+          "gene": "IFIT1",
+          "log2FC": 0.37769548356755567,
+          "p": 0.679555808509721,
+          "q": 0.8266910318076557,
+          "mean_treat": 4.085535784946022,
+          "mean_ctrl": 4.601858467295145
+        },
+        {
+          "gene": "MX1",
+          "log2FC": 0.10097239674801735,
+          "p": 0.8724558551442365,
+          "q": 0.9407612081471172,
+          "mean_treat": 8.857740399397212,
+          "mean_ctrl": 12.373378958546928
+        },
+        {
+          "gene": "ISG15",
+          "log2FC": 1.25929616728985,
+          "p": 0.3169311943043593,
+          "q": 0.6045259609968239,
+          "mean_treat": 108.99082774916829,
+          "mean_ctrl": 70.66084725122471
+        },
+        {
+          "gene": "HLA-A",
+          "log2FC": 0.004836362085352519,
+          "p": 0.9818676263843659,
+          "q": 0.9917300824348642,
+          "mean_treat": 174.96291803308236,
+          "mean_ctrl": 186.1465672686179
+        },
+        {
+          "gene": "CLDN1",
+          "log2FC": 0.3323918531063357,
+          "p": 0.7126484438014407,
+          "q": 0.8468135859432172,
+          "mean_treat": 28.38467045486422,
+          "mean_ctrl": 28.754365306736435
+        },
+        {
+          "gene": "CLDN7",
+          "log2FC": -0.2613020460202284,
+          "p": 0.0328765798727881,
+          "q": 0.6045259609968239,
+          "mean_treat": 52.03602492311539,
+          "mean_ctrl": 61.650514756475346
+        },
+        {
+          "gene": "TJP1",
+          "log2FC": -0.04325662376450836,
+          "p": 0.7727215847693415,
+          "q": 0.8813584505923655,
+          "mean_treat": 5.961059038940028,
+          "mean_ctrl": 6.037930312340128
+        },
+        {
+          "gene": "OCLN",
+          "log2FC": -0.4893833277535011,
+          "p": 0.06982069118585055,
+          "q": 0.6045259609968239,
+          "mean_treat": 5.625974147701155,
+          "mean_ctrl": 7.780364436249094
+        },
+        {
+          "gene": "F11R",
+          "log2FC": -0.18518884729443422,
+          "p": 0.42935504933334084,
+          "q": 0.6502121680694439,
+          "mean_treat": 17.496574919039,
+          "mean_ctrl": 21.08466645611006
+        },
+        {
+          "gene": "B2M",
+          "log2FC": -0.3634158066001669,
+          "p": 0.4263728812279162,
+          "q": 0.6479790143294752,
+          "mean_treat": 96.59734824886485,
+          "mean_ctrl": 131.44200575701706
+        },
+        {
+          "gene": "TAP1",
+          "log2FC": -0.695578970693065,
+          "p": 0.03792124373737055,
+          "q": 0.6045259609968239,
+          "mean_treat": 12.382643907419325,
+          "mean_ctrl": 20.30604655021418
+        },
+        {
+          "gene": "TAP2",
+          "log2FC": 0.16415949026433516,
+          "p": 0.5701125266356755,
+          "q": 0.7541820047734092,
+          "mean_treat": 5.37176918323297,
+          "mean_ctrl": 5.132423606870692
+        }
+      ]
+    },
+    {
+      "contrast": "GSE304294_KYSE30_IMMU132_vs_ctrl",
+      "accession": "GSE304294",
+      "agent": "IMMU132 (sacituzumab govitecan)",
+      "is_skb264": false,
+      "is_adc_treatment": true,
+      "tissue": "ESCC cell line KYSE30",
+      "label": "non-lung analog",
+      "n_treat": 2,
+      "n_ctrl": 3,
+      "note": "SG analog, not SKB264. IMMU arm n=2 vs control n=3. Underpowered.",
+      "sets": {
+        "C4_IFN_MHCI": {
+          "n_in_set": 6,
+          "n_present": 6,
+          "n_tested": 6,
+          "median_log2FC_set": 0.27155902224688744,
+          "median_log2FC_bg": -0.024679011841856502,
+          "n_up": 5,
+          "n_down": 1,
+          "binom_p": 0.21875,
+          "delta_median": 0.29623803408874394,
+          "mw_U": 52175.0,
+          "mw_p": 0.11057185627991037,
+          "direction": "null"
+        },
+        "APM": {
+          "n_in_set": 19,
+          "n_present": 19,
+          "n_tested": 19,
+          "median_log2FC_set": 0.4991144014548472,
+          "median_log2FC_bg": -0.0252790972935929,
+          "n_up": 17,
+          "n_down": 2,
+          "binom_p": 0.000728607177734375,
+          "delta_median": 0.5243934987484401,
+          "mw_U": 193577.0,
+          "mw_p": 3.3803191161457366e-06,
+          "direction": "up"
+        },
+        "IFN": {
+          "n_in_set": 55,
+          "n_present": 55,
+          "n_tested": 55,
+          "median_log2FC_set": 0.011992412767306348,
+          "median_log2FC_bg": -0.02479366537298411,
+          "n_up": 33,
+          "n_down": 20,
+          "binom_p": 0.1770013647703581,
+          "delta_median": 0.03678607814029046,
+          "mw_U": 411361.0,
+          "mw_p": 0.015951860731867395,
+          "direction": "up"
+        },
+        "JUNCTION": {
+          "n_in_set": 27,
+          "n_present": 27,
+          "n_tested": 27,
+          "median_log2FC_set": 0.14692323256548834,
+          "median_log2FC_bg": -0.02501852357994583,
+          "n_up": 20,
+          "n_down": 6,
+          "binom_p": 0.0191572904586792,
+          "delta_median": 0.17194175614543417,
+          "mw_U": 231112.0,
+          "mw_p": 0.0013007014686321977,
+          "direction": "up"
+        }
+      },
+      "scores": {
+        "C4_IFN_MHCI": {
+          "n_treat": 2,
+          "n_ctrl": 3,
+          "mean_treat": 0.6061737066345197,
+          "mean_ctrl": -0.40411580442301376,
+          "delta": 1.0102895110575334,
+          "t": 4.970237546601604,
+          "p": 0.01585364451431737
+        },
+        "APM": {
+          "n_treat": 2,
+          "n_ctrl": 3,
+          "mean_treat": 0.791375082586975,
+          "mean_ctrl": -0.5275833883913156,
+          "delta": 1.3189584709782904,
+          "t": 15.922160783207236,
+          "p": 0.0005458215252314107
+        },
+        "IFN": {
+          "n_treat": 2,
+          "n_ctrl": 3,
+          "mean_treat": 0.20353346667934125,
+          "mean_ctrl": -0.13568897778622765,
+          "delta": 0.33922244446556893,
+          "t": 3.420737363243882,
+          "p": 0.04478753641630111
+        },
+        "JUNCTION": {
+          "n_treat": 2,
+          "n_ctrl": 3,
+          "mean_treat": 0.44028288210360367,
+          "mean_ctrl": -0.2935219214024018,
+          "delta": 0.7338048035060054,
+          "t": 5.436588464388514,
+          "p": 0.026980787189714917
+        }
+      },
+      "key_genes": [
+        {
+          "gene": "TACSTD2",
+          "log2FC": 1.1590184146072362,
+          "p": 0.009871088757429649,
+          "q": 0.14043907499901032,
+          "mean_treat": 446.25466925324304,
+          "mean_ctrl": 199.22484228555467
+        },
+        {
+          "gene": "CLDN4",
+          "log2FC": 0.9105046582431839,
+          "p": 3.9033337566458304e-05,
+          "q": 0.04482812109132169,
+          "mean_treat": 139.400545021963,
+          "mean_ctrl": 73.69833813180423
+        },
+        {
+          "gene": "IFI27",
+          "log2FC": 0.33463582717946966,
+          "p": 0.23230577922885606,
+          "q": 0.5812826304075374,
+          "mean_treat": 0.7047465102911314,
+          "mean_ctrl": 0.347352642009608
+        },
+        {
+          "gene": "OAS2",
+          "log2FC": 0.5005688504539367,
+          "p": 6.471076451009372e-05,
+          "q": 0.051947575525549766,
+          "mean_treat": 2.63606811030308,
+          "mean_ctrl": 1.5701253079729165
+        },
+        {
+          "gene": "IFIT1",
+          "log2FC": -0.6136936448847576,
+          "p": 0.00028886965598899254,
+          "q": 0.05380033725680488,
+          "mean_treat": 18.4243059774629,
+          "mean_ctrl": 28.730271398177834
+        },
+        {
+          "gene": "MX1",
+          "log2FC": 0.026518868146697676,
+          "p": 0.17480326829497794,
+          "q": 0.5138794503001485,
+          "mean_treat": 0.0562481836654784,
+          "mean_ctrl": 0.037077233261935565
+        },
+        {
+          "gene": "ISG15",
+          "log2FC": 0.20848221731430527,
+          "p": 0.035655431221436336,
+          "q": 0.24394199757677443,
+          "mean_treat": 293.1995747878495,
+          "mean_ctrl": 253.871863639577
+        },
+        {
+          "gene": "HLA-A",
+          "log2FC": 0.6216517283329939,
+          "p": 0.011491679274615925,
+          "q": 0.149862904745886,
+          "mean_treat": 26.7522149095384,
+          "mean_ctrl": 17.079109699779497
+        },
+        {
+          "gene": "CLDN1",
+          "log2FC": -0.08821562066930877,
+          "p": 0.3271033393870782,
+          "q": 0.6762470105910491,
+          "mean_treat": 82.0012692090362,
+          "mean_ctrl": 87.1914907095178
+        },
+        {
+          "gene": "CLDN7",
+          "log2FC": 0.519169917026371,
+          "p": 0.0008814750227301025,
+          "q": 0.06641441181237132,
+          "mean_treat": 83.7977124803149,
+          "mean_ctrl": 58.19322928345294
+        },
+        {
+          "gene": "TJP1",
+          "log2FC": -0.20381883617353402,
+          "p": 0.014652487479958636,
+          "q": 0.1670839077224991,
+          "mean_treat": 13.1533194011883,
+          "mean_ctrl": 15.308558398891499
+        },
+        {
+          "gene": "OCLN",
+          "log2FC": 1.1696958382169815,
+          "p": 0.0019314019929690175,
+          "q": 0.08223698754006897,
+          "mean_treat": 12.3512163794154,
+          "mean_ctrl": 4.953113608139191
+        },
+        {
+          "gene": "F11R",
+          "log2FC": -0.12799390264672006,
+          "p": 0.05163987393931733,
+          "q": 0.2870352271206957,
+          "mean_treat": 15.1988978314662,
+          "mean_ctrl": 16.701828284074764
+        },
+        {
+          "gene": "B2M",
+          "log2FC": 0.5071420817294774,
+          "p": 0.00839189448707084,
+          "q": 0.13263056804513346,
+          "mean_treat": 56.3836657885956,
+          "mean_ctrl": 39.42552504062227
+        },
+        {
+          "gene": "TAP1",
+          "log2FC": 0.4991144014548472,
+          "p": 0.006051097338921175,
+          "q": 0.11921247804955443,
+          "mean_treat": 10.07955806359973,
+          "mean_ctrl": 6.848557483615013
+        },
+        {
+          "gene": "TAP2",
+          "log2FC": 0.0702296553862074,
+          "p": 0.19631461506238285,
+          "q": 0.5369911780122356,
+          "mean_treat": 5.55694864831306,
+          "mean_ctrl": 5.248722170343313
+        }
+      ]
+    },
+    {
+      "contrast": "GSE334497_4T1_Trop2KO_vs_WT",
+      "accession": "GSE334497",
+      "agent": "none (Trop2 knockout)",
+      "is_skb264": false,
+      "is_adc_treatment": false,
+      "tissue": "4T1 mouse TNBC tumors",
+      "label": "non-lung TROP2-loss analog (NOT ADC)",
+      "n_treat": 5,
+      "n_ctrl": 5,
+      "note": "TROP2 KO, not sacituzumab / not SKB264. Mouse 4T1, n=5 vs 5.",
+      "sets": {
+        "C4_IFN_MHCI": {
+          "n_in_set": 6,
+          "n_present": 6,
+          "n_tested": 6,
+          "median_log2FC_set": 0.05580629245393354,
+          "median_log2FC_bg": -0.008297390747208588,
+          "n_up": 3,
+          "n_down": 3,
+          "binom_p": 1.0,
+          "delta_median": 0.06410368320114213,
+          "mw_U": 61642.0,
+          "mw_p": 0.5646709714318564,
+          "direction": "null"
+        },
+        "APM": {
+          "n_in_set": 19,
+          "n_present": 14,
+          "n_tested": 14,
+          "median_log2FC_set": 0.14570746630787745,
+          "median_log2FC_bg": -0.008607585629212267,
+          "n_up": 10,
+          "n_down": 4,
+          "binom_p": 0.1795654296875,
+          "delta_median": 0.15431505193708972,
+          "mw_U": 166881.0,
+          "mw_p": 0.0369703671798414,
+          "direction": "up"
+        },
+        "IFN": {
+          "n_in_set": 55,
+          "n_present": 48,
+          "n_tested": 48,
+          "median_log2FC_set": 0.09026313964939625,
+          "median_log2FC_bg": -0.008419576214476088,
+          "n_up": 26,
+          "n_down": 22,
+          "binom_p": 0.6654658120766188,
+          "delta_median": 0.09868271586387234,
+          "mw_U": 514588.0,
+          "mw_p": 0.02191868941795176,
+          "direction": "up"
+        },
+        "JUNCTION": {
+          "n_in_set": 27,
+          "n_present": 23,
+          "n_tested": 23,
+          "median_log2FC_set": -0.6273431750786624,
+          "median_log2FC_bg": -0.008017330951566315,
+          "n_up": 3,
+          "n_down": 20,
+          "binom_p": 0.00048828125,
+          "delta_median": -0.6193258441270961,
+          "mw_U": 100099.0,
+          "mw_p": 1.7686269985394538e-05,
+          "direction": "down"
+        }
+      },
+      "scores": {
+        "C4_IFN_MHCI": {
+          "n_treat": 5,
+          "n_ctrl": 5,
+          "mean_treat": 0.08325050471867307,
+          "mean_ctrl": -0.08325050471867287,
+          "delta": 0.16650100943734594,
+          "t": 0.3958310493691411,
+          "p": 0.7033665786299366
+        },
+        "APM": {
+          "n_treat": 5,
+          "n_ctrl": 5,
+          "mean_treat": 0.16240069175043007,
+          "mean_ctrl": -0.16240069175043045,
+          "delta": 0.3248013835008605,
+          "t": 0.8725344551944519,
+          "p": 0.410569076876146
+        },
+        "IFN": {
+          "n_treat": 5,
+          "n_ctrl": 5,
+          "mean_treat": 0.1164490880785131,
+          "mean_ctrl": -0.11644908807851273,
+          "delta": 0.23289817615702585,
+          "t": 0.692013331862018,
+          "p": 0.5175407935309828
+        },
+        "JUNCTION": {
+          "n_treat": 5,
+          "n_ctrl": 5,
+          "mean_treat": -0.31875332650588006,
+          "mean_ctrl": 0.3187533265058805,
+          "delta": -0.6375066530117606,
+          "t": -2.906310461165308,
+          "p": 0.022657650146315225
+        }
+      },
+      "key_genes": [
+        {
+          "gene": "TACSTD2",
+          "log2FC": -3.8211685643857187,
+          "p": 0.001079236576173238,
+          "q": 0.6478966738953086,
+          "mean_treat": 11.018102648690116,
+          "mean_ctrl": 159.15045512234832
+        },
+        {
+          "gene": "CLDN4",
+          "log2FC": -0.8172280353675259,
+          "p": 0.25291925759343825,
+          "q": 0.9408937088421523,
+          "mean_treat": 1673.7895169202948,
+          "mean_ctrl": 2604.829025055698
+        },
+        {
+          "gene": "IFI27",
+          "log2FC": 0.22237536237315503,
+          "p": 0.41572363781992633,
+          "q": 0.9669695803582258,
+          "mean_treat": 997.8554476748219,
+          "mean_ctrl": 828.9448344558696
+        },
+        {
+          "gene": "OAS2",
+          "log2FC": -0.10428065880728354,
+          "p": 0.8051076565834935,
+          "q": 0.9832141480702737,
+          "mean_treat": 211.16812081401423,
+          "mean_ctrl": 230.8899689743298
+        },
+        {
+          "gene": "IFIT1",
+          "log2FC": -0.021208711597539676,
+          "p": 0.942788028935848,
+          "q": 0.9939059462424371,
+          "mean_treat": 421.781177009984,
+          "mean_ctrl": 425.891939795844
+        },
+        {
+          "gene": "MX1",
+          "log2FC": 0.1595883351210956,
+          "p": 0.6664509346670644,
+          "q": 0.975790681883707,
+          "mean_treat": 129.16587285574536,
+          "mean_ctrl": 125.09312274771469
+        },
+        {
+          "gene": "ISG15",
+          "log2FC": -0.09074158395022547,
+          "p": 0.838755133540179,
+          "q": 0.9840475156402267,
+          "mean_treat": 272.50826274168037,
+          "mean_ctrl": 287.421868951179
+        },
+        {
+          "gene": "HLA-A",
+          "log2FC": 0.13282129650540675,
+          "p": 0.46141511837115956,
+          "q": 0.9692459634923309,
+          "mean_treat": 7255.495950361165,
+          "mean_ctrl": 6673.938313302577
+        },
+        {
+          "gene": "CLDN1",
+          "log2FC": -2.1807070102827377,
+          "p": 0.034988150464178316,
+          "q": 0.8530880614102224,
+          "mean_treat": 17.50530954904041,
+          "mean_ctrl": 97.64550013111764
+        },
+        {
+          "gene": "CLDN7",
+          "log2FC": -0.8228841611013129,
+          "p": 0.09063371097479317,
+          "q": 0.8957327879471728,
+          "mean_treat": 139.42333075021799,
+          "mean_ctrl": 285.616921305738
+        },
+        {
+          "gene": "TJP1",
+          "log2FC": -0.07367406059102066,
+          "p": 0.8746575474759269,
+          "q": 0.9869164797296937,
+          "mean_treat": 2019.7341799623598,
+          "mean_ctrl": 2282.009365481153
+        },
+        {
+          "gene": "OCLN",
+          "log2FC": -0.6612764303503198,
+          "p": 0.07777295420828834,
+          "q": 0.892677470315615,
+          "mean_treat": 112.60272069067275,
+          "mean_ctrl": 190.0845905429492
+        },
+        {
+          "gene": "F11R",
+          "log2FC": -0.09721905759822569,
+          "p": 0.5797194329036832,
+          "q": 0.975790681883707,
+          "mean_treat": 887.3714342589379,
+          "mean_ctrl": 968.2126243023322
+        },
+        {
+          "gene": "B2M",
+          "log2FC": 0.4101869138980021,
+          "p": 0.04016049311520852,
+          "q": 0.8630077980283227,
+          "mean_treat": 35962.84108972382,
+          "mean_ctrl": 26613.895973079296
+        },
+        {
+          "gene": "TAP1",
+          "log2FC": 0.28004766953208815,
+          "p": 0.3667877101672776,
+          "q": 0.9616538687697007,
+          "mean_treat": 1862.652378720796,
+          "mean_ctrl": 1634.632272072156
+        },
+        {
+          "gene": "TAP2",
+          "log2FC": 0.19876825506618268,
+          "p": 0.5752313527996927,
+          "q": 0.975790681883707,
+          "mean_treat": 993.0461623819447,
+          "mean_ctrl": 941.7147389809943
+        }
+      ]
+    },
+    {
+      "contrast": "GSE289287_T47D_Trop2KO_xenograft",
+      "accession": "GSE289287",
+      "agent": "none (TACSTD2 knockout)",
+      "is_skb264": false,
+      "is_adc_treatment": false,
+      "tissue": "T-47D luminal breast xenografts",
+      "label": "non-lung TROP2-loss analog (NOT ADC; not TNBC)",
+      "n_treat": 4,
+      "n_ctrl": 3,
+      "note": "TROP2 KO, not sacituzumab / not SKB264. Author DESeq2 + Welch on normCounts. n=4 KO vs 3 WT.",
+      "sets": {
+        "C4_IFN_MHCI": {
+          "n_in_set": 6,
+          "n_present": 6,
+          "n_tested": 6,
+          "median_log2FC_set": 0.9861458894648227,
+          "median_log2FC_bg": -0.005317936264534806,
+          "n_up": 6,
+          "n_down": 0,
+          "binom_p": 0.03125,
+          "delta_median": 0.9914638257293575,
+          "mw_U": 88086.0,
+          "mw_p": 0.00020953013014375193,
+          "direction": "up"
+        },
+        "APM": {
+          "n_in_set": 19,
+          "n_present": 19,
+          "n_tested": 19,
+          "median_log2FC_set": 0.08317658124391336,
+          "median_log2FC_bg": -0.005352990139683822,
+          "n_up": 13,
+          "n_down": 5,
+          "binom_p": 0.1670684814453125,
+          "delta_median": 0.08852957138359718,
+          "mw_U": 177297.0,
+          "mw_p": 0.1474849722075963,
+          "direction": "null"
+        },
+        "IFN": {
+          "n_in_set": 55,
+          "n_present": 53,
+          "n_tested": 53,
+          "median_log2FC_set": 0.6334615511481347,
+          "median_log2FC_bg": -0.006299927348135226,
+          "n_up": 43,
+          "n_down": 9,
+          "binom_p": 5.550520889130439e-06,
+          "delta_median": 0.63976147849627,
+          "mw_U": 606232.0,
+          "mw_p": 5.266181970001585e-09,
+          "direction": "up"
+        },
+        "JUNCTION": {
+          "n_in_set": 27,
+          "n_present": 25,
+          "n_tested": 25,
+          "median_log2FC_set": 0.14028295940948698,
+          "median_log2FC_bg": -0.005444952857025953,
+          "n_up": 16,
+          "n_down": 9,
+          "binom_p": 0.2295229434967041,
+          "delta_median": 0.14572791226651294,
+          "mw_U": 209242.0,
+          "mw_p": 0.5485508954104662,
+          "direction": "null"
+        }
+      },
+      "scores": {
+        "C4_IFN_MHCI": {
+          "n_treat": 4,
+          "n_ctrl": 3,
+          "mean_treat": 0.433124018000603,
+          "mean_ctrl": -0.5774986906674712,
+          "delta": 1.0106227086680741,
+          "t": 1.8037273240045197,
+          "p": 0.1595700937680789
+        },
+        "APM": {
+          "n_treat": 4,
+          "n_ctrl": 3,
+          "mean_treat": 0.11816575978813174,
+          "mean_ctrl": -0.15755434638417734,
+          "delta": 0.2757201061723091,
+          "t": 0.5541532319401349,
+          "p": 0.6034633914615491
+        },
+        "IFN": {
+          "n_treat": 4,
+          "n_ctrl": 3,
+          "mean_treat": 0.25422886290208396,
+          "mean_ctrl": -0.33897181720277886,
+          "delta": 0.5932006801048628,
+          "t": 1.4370142519465872,
+          "p": 0.23614874354704032
+        },
+        "JUNCTION": {
+          "n_treat": 4,
+          "n_ctrl": 3,
+          "mean_treat": 0.06389696910761394,
+          "mean_ctrl": -0.0851959588101503,
+          "delta": 0.14909292791776424,
+          "t": 0.7414389246965235,
+          "p": 0.4978151155248597
+        }
+      },
+      "key_genes": [
+        {
+          "gene": "TACSTD2",
+          "log2FC": -3.4650115626906306,
+          "p": 0.00011250824351959062,
+          "q": 0.17464337354717693,
+          "mean_treat": 158.56814764594776,
+          "mean_ctrl": 1722.5105253627364
+        },
+        {
+          "gene": "CLDN4",
+          "log2FC": 0.2872251881319965,
+          "p": 0.041351419908000245,
+          "q": 0.5104528625847363,
+          "mean_treat": 1110.85845631544,
+          "mean_ctrl": 908.7782864366224
+        },
+        {
+          "gene": "IFI27",
+          "log2FC": 0.6975541865492811,
+          "p": 0.2796347353748231,
+          "q": 0.6776254061873562,
+          "mean_treat": 12539.013619064288,
+          "mean_ctrl": 6995.405477906313
+        },
+        {
+          "gene": "OAS2",
+          "log2FC": 0.7560689435348884,
+          "p": 0.2706512655941734,
+          "q": 0.6776254061873562,
+          "mean_treat": 291.60613839767655,
+          "mean_ctrl": 145.05583621198835
+        },
+        {
+          "gene": "IFIT1",
+          "log2FC": 1.2003007707026594,
+          "p": 0.15616339643534918,
+          "q": 0.6776254061873562,
+          "mean_treat": 896.9944746159113,
+          "mean_ctrl": 333.183901540358
+        },
+        {
+          "gene": "MX1",
+          "log2FC": 1.0106767570345294,
+          "p": 0.22877468342627727,
+          "q": 0.6776254061873562,
+          "mean_treat": 700.3493353111264,
+          "mean_ctrl": 271.333927260968
+        },
+        {
+          "gene": "ISG15",
+          "log2FC": 1.4962489294685897,
+          "p": 0.09645379867626747,
+          "q": 0.5939619803636358,
+          "mean_treat": 217.60546428479847,
+          "mean_ctrl": 59.5935921965781
+        },
+        {
+          "gene": "HLA-A",
+          "log2FC": 0.961615021895116,
+          "p": 0.12925144816544212,
+          "q": 0.6511979913259618,
+          "mean_treat": 182.09156750391674,
+          "mean_ctrl": 90.35360786368051
+        },
+        {
+          "gene": "CLDN1",
+          "log2FC": 0.1776912395330461,
+          "p": 0.7418929784001976,
+          "q": 0.8907930113925379,
+          "mean_treat": 301.4712196299985,
+          "mean_ctrl": 226.08175258545498
+        },
+        {
+          "gene": "CLDN7",
+          "log2FC": 0.5354887980436818,
+          "p": 0.04299718886495134,
+          "q": 0.5132340572205382,
+          "mean_treat": 538.5418782921384,
+          "mean_ctrl": 371.88034261428
+        },
+        {
+          "gene": "TJP1",
+          "log2FC": 0.014602549914432217,
+          "p": 0.9445939422166179,
+          "q": 0.9770040539060828,
+          "mean_treat": 91.4875909196456,
+          "mean_ctrl": 88.86093659323956
+        },
+        {
+          "gene": "OCLN",
+          "log2FC": 0.8144934442014968,
+          "p": 0.3420175386359516,
+          "q": 0.6776254061873562,
+          "mean_treat": 3.683383817602391,
+          "mean_ctrl": 1.6924788012887468
+        },
+        {
+          "gene": "F11R",
+          "log2FC": -0.30033832314967057,
+          "p": 0.18545771556261034,
+          "q": 0.6776254061873562,
+          "mean_treat": 192.7390654081265,
+          "mean_ctrl": 239.7434759809
+        },
+        {
+          "gene": "B2M",
+          "log2FC": 0.5680753322802943,
+          "p": 0.18707324660485472,
+          "q": 0.6776254061873562,
+          "mean_treat": 9470.464976502513,
+          "mean_ctrl": 6105.815177030393
+        },
+        {
+          "gene": "TAP1",
+          "log2FC": 0.2847272311836573,
+          "p": 0.3059920996935153,
+          "q": 0.6776254061873562,
+          "mean_treat": 160.022336987111,
+          "mean_ctrl": 129.228650876899
+        },
+        {
+          "gene": "TAP2",
+          "log2FC": -0.31706639013489646,
+          "p": 0.2814990512471048,
+          "q": 0.6776254061873562,
+          "mean_treat": 73.73673890918897,
+          "mean_ctrl": 88.64735450821912
+        }
+      ]
+    }
+  ],
+  "gse235812_spearman": [
+    {
+      "gene": "CLDN4",
+      "spearman_vs_TACSTD2": 0.5679144385026738,
+      "p": 0.00045943985792228694,
+      "n": 34,
+      "q": 0.0017867105585866717
+    },
+    {
+      "gene": "CLDN1",
+      "spearman_vs_TACSTD2": 0.6424751718869365,
+      "p": 4.191197267618205e-05,
+      "n": 34,
+      "q": 0.00029338380873327434
+    },
+    {
+      "gene": "CLDN2",
+      "spearman_vs_TACSTD2": 0.2828113063407181,
+      "p": 0.1050910021132652,
+      "n": 34,
+      "q": 0.1532577114151784
+    },
+    {
+      "gene": "CLDN3",
+      "spearman_vs_TACSTD2": 0.46472892971598606,
+      "p": 0.005621652252069407,
+      "n": 34,
+      "q": 0.015135217601725327
+    },
+    {
+      "gene": "CLDN5",
+      "spearman_vs_TACSTD2": -0.19541290114612547,
+      "p": 0.2680592753786382,
+      "n": 34,
+      "q": 0.35044910952473096
+    },
+    {
+      "gene": "CLDN6",
+      "spearman_vs_TACSTD2": 0.1859830506137129,
+      "p": 0.29228707372347656,
+      "n": 34,
+      "q": 0.36535884215434566
+    },
+    {
+      "gene": "CLDN7",
+      "spearman_vs_TACSTD2": 0.6724216959511078,
+      "p": 1.3260198181724019e-05,
+      "n": 34,
+      "q": 0.00015470231212011355
+    },
+    {
+      "gene": "CLDN8",
+      "spearman_vs_TACSTD2": 0.3989304812834224,
+      "p": 0.019433907212966027,
+      "n": 34,
+      "q": 0.03778815291410061
+    },
+    {
+      "gene": "CLDN9",
+      "spearman_vs_TACSTD2": 0.38743915568540355,
+      "p": 0.023581724137041078,
+      "n": 34,
+      "q": 0.04344001814718094
+    },
+    {
+      "gene": "CLDN10",
+      "spearman_vs_TACSTD2": -0.4832696715049656,
+      "p": 0.0037884387250756864,
+      "n": 34,
+      "q": 0.011049612948137418
+    },
+    {
+      "gene": "CLDN12",
+      "spearman_vs_TACSTD2": 0.24736440030557674,
+      "p": 0.15840719150830332,
+      "n": 34,
+      "q": 0.22177006811162464
+    },
+    {
+      "gene": "CLDN18",
+      "spearman_vs_TACSTD2": -0.2870893812070282,
+      "p": 0.09971170903391219,
+      "n": 34,
+      "q": 0.1532577114151784
+    },
+    {
+      "gene": "TJP1",
+      "spearman_vs_TACSTD2": 0.1944996180290298,
+      "p": 0.2703464559190782,
+      "n": 34,
+      "q": 0.35044910952473096
+    },
+    {
+      "gene": "TJP2",
+      "spearman_vs_TACSTD2": 0.43162719633307867,
+      "p": 0.010806781236642176,
+      "n": 34,
+      "q": 0.025215822885498413
+    },
+    {
+      "gene": "TJP3",
+      "spearman_vs_TACSTD2": 0.4190985485103132,
+      "p": 0.01362096764341918,
+      "n": 34,
+      "q": 0.02835551877510589
+    },
+    {
+      "gene": "OCLN",
+      "spearman_vs_TACSTD2": 0.6510313216195569,
+      "p": 3.0553823772202155e-05,
+      "n": 34,
+      "q": 0.00026734595800676885
+    },
+    {
+      "gene": "MARVELD2",
+      "spearman_vs_TACSTD2": 0.7399541634835751,
+      "p": 5.703727207085042e-07,
+      "n": 34,
+      "q": 9.981522612398823e-06
+    },
+    {
+      "gene": "MARVELD3",
+      "spearman_vs_TACSTD2": 0.41848739495798315,
+      "p": 0.013772680547908575,
+      "n": 34,
+      "q": 0.02835551877510589
+    },
+    {
+      "gene": "F11R",
+      "spearman_vs_TACSTD2": 0.6363636363636364,
+      "p": 5.222269323148376e-05,
+      "n": 34,
+      "q": 0.0003046323771836553
+    },
+    {
+      "gene": "JAM2",
+      "spearman_vs_TACSTD2": -0.5046600458365164,
+      "p": 0.002337026367874486,
+      "n": 34,
+      "q": 0.007435992988691546
+    },
+    {
+      "gene": "JAM3",
+      "spearman_vs_TACSTD2": -0.5593582887700533,
+      "p": 0.0005835669090507685,
+      "n": 34,
+      "q": 0.0020424841816776896
+    },
+    {
+      "gene": "CGN",
+      "spearman_vs_TACSTD2": 0.44751718869365925,
+      "p": 0.007958967166756127,
+      "n": 34,
+      "q": 0.019897417916890318
+    },
+    {
+      "gene": "CDH1",
+      "spearman_vs_TACSTD2": 0.7494270435446906,
+      "p": 3.396574723019876e-07,
+      "n": 34,
+      "q": 9.981522612398823e-06
+    },
+    {
+      "gene": "CTNNB1",
+      "spearman_vs_TACSTD2": -0.008403361344537815,
+      "p": 0.9623796880984457,
+      "n": 34,
+      "q": 0.9623796880984457
+    },
+    {
+      "gene": "CTNNA1",
+      "spearman_vs_TACSTD2": 0.2849503437738731,
+      "p": 0.10237459274542232,
+      "n": 34,
+      "q": 0.1532577114151784
+    },
+    {
+      "gene": "EPCAM",
+      "spearman_vs_TACSTD2": 0.5844155844155844,
+      "p": 0.00028426783594262707,
+      "n": 34,
+      "q": 0.0012436717822489935
+    },
+    {
+      "gene": "CRB3",
+      "spearman_vs_TACSTD2": 0.5879566223018204,
+      "p": 0.00025557436767462583,
+      "n": 34,
+      "q": 0.0012436717822489935
+    },
+    {
+      "gene": "IFI27",
+      "spearman_vs_TACSTD2": 0.15049656226126812,
+      "p": 0.3955650265023893,
+      "n": 34,
+      "q": 0.42056871959000197
+    },
+    {
+      "gene": "OAS2",
+      "spearman_vs_TACSTD2": 0.11291061879297173,
+      "p": 0.5249142731603026,
+      "n": 34,
+      "q": 0.5403529282532527
+    },
+    {
+      "gene": "IFIT1",
+      "spearman_vs_TACSTD2": 0.1608861726508785,
+      "p": 0.3633654515162476,
+      "n": 34,
+      "q": 0.42056871959000197
+    },
+    {
+      "gene": "MX1",
+      "spearman_vs_TACSTD2": 0.15446906035141328,
+      "p": 0.38306450803218245,
+      "n": 34,
+      "q": 0.42056871959000197
+    },
+    {
+      "gene": "ISG15",
+      "spearman_vs_TACSTD2": 0.28892284186401834,
+      "p": 0.09747138847324387,
+      "n": 34,
+      "q": 0.1532577114151784
+    },
+    {
+      "gene": "HLA-A",
+      "spearman_vs_TACSTD2": 0.3179526355996944,
+      "p": 0.06687677337342561,
+      "n": 34,
+      "q": 0.11703435340349483
+    },
+    {
+      "gene": "B2M",
+      "spearman_vs_TACSTD2": 0.15019098548510312,
+      "p": 0.39653622132771615,
+      "n": 34,
+      "q": 0.42056871959000197
+    },
+    {
+      "gene": "TAP1",
+      "spearman_vs_TACSTD2": 0.16669213139801375,
+      "p": 0.34607350587682245,
+      "n": 34,
+      "q": 0.4176749208858202
+    }
+  ]
+}
