@@ -1,0 +1,28 @@
+== GSE253564_pretreatment ==
+  matrix: 20187 genes x 32 samples
+  ESTIMATE StromalSignature: 136/141 genes present
+  ESTIMATE ImmuneSignature: 138/141 genes present
+  ESTIMATE purity (uncalibrated for RNA-seq): median -0.206 (range -0.639-0.701)
+  IFNG6_Ayers: 6/6 genes present
+  GEP18: 18/18 genes present
+  CYT: 2/2 genes present
+  TACSTD2 vs ESTIMATE_ImmuneScore: rho=-0.7163 (p=0.0), purity-adj rho=-0.5295 (p=0.0022), stromal-adj rho=-0.7062 (p=0.0)
+  TACSTD2 vs IFNG6_Ayers: rho=-0.2881 (p=0.1098), purity-adj rho=0.1157 (p=0.5354), stromal-adj rho=-0.2425 (p=0.1888)
+  TACSTD2 vs GEP18_TcellInflamed: rho=-0.438 (p=0.0122), purity-adj rho=-0.0248 (p=0.8947), stromal-adj rho=-0.4043 (p=0.0241)
+  TACSTD2 vs CYT_Rooney: rho=-0.4611 (p=0.0079), purity-adj rho=-0.1652 (p=0.3745), stromal-adj rho=-0.4504 (p=0.011)
+  TACSTD2 vs CD8A: rho=-0.5363 (p=0.0016), purity-adj rho=-0.2425 (p=0.1886), stromal-adj rho=-0.5135 (p=0.0031)
+  TACSTD2 vs purity_proxy(-ESTIMATEScore): rho=0.588 (p=0.0004), purity-adj rho=nan (p=nan), stromal-adj rho=nan (p=nan)
+== GSE248378_post_durvalumab ==
+  matrix: 15165 genes x 29 samples
+  ESTIMATE StromalSignature: 133/141 genes present
+  ESTIMATE ImmuneSignature: 138/141 genes present
+  ESTIMATE purity (uncalibrated for RNA-seq): median 0.321 (range -0.155-0.999)
+  IFNG6_Ayers: 5/6 genes present (missing: IFNG)
+  GEP18: 18/18 genes present
+  CYT: 2/2 genes present
+  TACSTD2 vs ESTIMATE_ImmuneScore: rho=-0.665 (p=0.0001), purity-adj rho=-0.4739 (p=0.0109), stromal-adj rho=-0.5928 (p=0.0009)
+  TACSTD2 vs IFNG6_Ayers: rho=-0.4882 (p=0.0072), purity-adj rho=-0.2369 (p=0.2248), stromal-adj rho=-0.3919 (p=0.0392)
+  TACSTD2 vs GEP18_TcellInflamed: rho=-0.6478 (p=0.0001), purity-adj rho=-0.428 (p=0.0231), stromal-adj rho=-0.5652 (p=0.0017)
+  TACSTD2 vs CYT_Rooney: rho=-0.8059 (p=0.0), purity-adj rho=-0.7103 (p=0.0), stromal-adj rho=-0.7685 (p=0.0)
+  TACSTD2 vs CD8A: rho=-0.7059 (p=0.0), purity-adj rho=-0.5773 (p=0.0013), stromal-adj rho=-0.662 (p=0.0001)
+  TACSTD2 vs purity_proxy(-ESTIMATEScore): rho=0.5429 (p=0.0023), purity-adj rho=nan (p=nan), stromal-adj rho=nan (p=nan)
