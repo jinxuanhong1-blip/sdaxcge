@@ -1,0 +1,85 @@
+{
+  "accession": "GSE22493",
+  "platform": "GPL10555",
+  "model": "SKOV-3-IP-Luc ovarian cancer cell line",
+  "contrast": "CLDN4 lentiviral siRNA (Cy5) / CLDN4 overexpression control (Cy3)",
+  "n_arrays": 3,
+  "primary_metric": "deposited series-matrix VALUE = log2(KD/control); gene = median of probes per array, then mean/median across arrays",
+  "cldn4_deposited_per_array": [
+    "",
+    "-1.7370",
+    "-0.7131"
+  ],
+  "cldn4_median_log2": "-1.2250",
+  "cldn4_n_arrays": 2,
+  "cldn4_knockdown_confirmed_on_array": false,
+  "cldn4_note": "Probe 17169 is missing on GSM558700; the two remaining deposited log-ratios are negative (KD < overexpression control) but the ScanArray Cy5 background-subtracted median is non-positive on GSM558700 and opposite-signed on GSM558701 vs GSM558702. Control is CLDN4 overexpression, not scramble WT.",
+  "priority_measured": 6,
+  "priority_up": 3,
+  "priority_down": 3,
+  "priority_genes_up": [
+    "OAS2",
+    "MX1",
+    "ISG15"
+  ],
+  "priority_genes_down": [
+    "IFI27",
+    "IFIT1",
+    "HLA-A"
+  ],
+  "apm_measured": 12,
+  "apm_up": 3,
+  "apm_down": 9,
+  "ifn_set_mannwhitney_p": "0.2946",
+  "ifn_set_median_log2": "-0.2320",
+  "n_background_genes": 15853,
+  "verdict": "does_not_support_CLDN4_loss_opening_IFN_MHCI_APM",
+  "honesty": [
+    "Not lung; SKOV-3 ovarian line.",
+    "Control is CLDN4 overexpression, not WT/scramble.",
+    "CLDN4 knockdown is not cleanly confirmed on the array.",
+    "n=3 two-color arrays; dye-swap is claimed in text but all three GSMs have the same Cy3/Cy5 assignment.",
+    "Old custom Operon 60-mer array; HLA-A has 11 discordant probes.",
+    "ISG15 is present only as historical symbol G1P2.",
+    "NLRC5, ERAP1, ERAP2, PDIA3 are not annotated on GPL10555.",
+    "One-sample t-tests with n=2\u20133 are descriptive, not confirmatory.",
+    "This accession does not reproduce an IFN/MHC-I/APM up-signature after CLDN4 siRNA."
+  ],
+  "priority_scanarray_vs_deposited": {
+    "IFI27": {
+      "deposited": "DOWN",
+      "scanarray": "DOWN",
+      "agree": "yes"
+    },
+    "OAS2": {
+      "deposited": "UP",
+      "scanarray": "DOWN",
+      "agree": "no_or_NA"
+    },
+    "IFIT1": {
+      "deposited": "DOWN",
+      "scanarray": "DOWN",
+      "agree": "yes"
+    },
+    "MX1": {
+      "deposited": "UP",
+      "scanarray": "DOWN",
+      "agree": "no_or_NA"
+    },
+    "ISG15": {
+      "deposited": "UP",
+      "scanarray": "DOWN",
+      "agree": "no_or_NA"
+    },
+    "HLA-A": {
+      "deposited": "DOWN",
+      "scanarray": "DOWN",
+      "agree": "yes"
+    },
+    "CLDN4": {
+      "deposited": "DOWN",
+      "scanarray": "DOWN",
+      "agree": "yes"
+    }
+  }
+}
