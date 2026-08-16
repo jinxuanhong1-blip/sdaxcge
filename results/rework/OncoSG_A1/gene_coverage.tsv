@@ -1,0 +1,19 @@
+feature	role	n_genes_defined	n_genes_present	genes_present	genes_missing	source
+CD8	primary	1	1	CD8A		cBioPortal z-score matrix (mean of present genes)
+CD8_CD8A_CD8B	sensitivity	2	2	CD8A,CD8B		cBioPortal z-score matrix (mean of present genes)
+GEP18	primary	18	17	CD27,CD274,CD276,CD8A,CMKLR1,CXCL9,CXCR6,HLA-DQA1,HLA-DRB1,HLA-E,IDO1,LAG3,NKG7,PDCD1LG2,PSMB10,STAT1,TIGIT	CCL5	cBioPortal z-score matrix (mean of present genes)
+immune_tcell_effector	primary	8	8	CD8A,GZMA,GZMB,IFNG,EOMES,CXCL9,CXCL10,TBX21		cBioPortal z-score matrix (mean of present genes)
+CYT	secondary	2	2	GZMA,PRF1		cBioPortal z-score matrix (mean of present genes)
+cytotoxic_A1	secondary	8	8	GZMA,GZMB,GZMH,GZMK,PRF1,GNLY,NKG7,KLRD1		cBioPortal z-score matrix (mean of present genes)
+exhaustion_A1	secondary	12	12	PDCD1,CTLA4,LAG3,HAVCR2,TIGIT,BTLA,CD160,VSIR,TOX,ENTPD1,CD274,PDCD1LG2		cBioPortal z-score matrix (mean of present genes)
+IMSIG_B_CELLS	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_INTERFERON	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_MACROPHAGES	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_MONOCYTES	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_NEUTROPHILS	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_NK_CELLS	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_PLASMA_CELLS	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_T_CELLS	imsig_published	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_PROLIFERATION	imsig_control	0	0			data_clinical_sample.txt published IMSIG column
+IMSIG_TRANSLATION	imsig_control	0	0			data_clinical_sample.txt published IMSIG column
+ESTIMATE_ImmuneScore	not_computable	141	0		entire SI_geneset; no raw RSEM on cBioPortal	SKIP — public deposit is z-scores only
