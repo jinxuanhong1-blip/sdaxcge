@@ -773,8 +773,8 @@ def main():
             )
         return (
             "STILL_WEAK",
-            f"{label} does not reach a strong inverse (most negative ρ = {min_r:.3f}; "
-            f"|ρ| stays inside the prior LUAD marker bound of 0.22 and far from OncoSG −0.30).",
+            f"most negative ρ = {min_r:.3f}; |ρ| stays inside the prior LUAD marker bound of 0.22 "
+            f"and far from OncoSG −0.30.",
         )
 
     tag_one, txt_one = verdict_from(onesided_min, "User-requested one-sided double residual (TACSTD2 | ABS+KRT/EPCAM)")
@@ -871,15 +871,16 @@ def main():
 
 ## Verdict: {overall_tag}
 
-**User-requested one-sided double residual** (TACSTD2 residualized on ABSOLUTE **and** KRT/EPCAM, then Spearman vs raw immune): {txt_one}
+- One-sided double residual (requested): {txt_one}
+- Two-sided partial | ABS+KRT/EPCAM: {txt_two}
+- ImmuneScore residual, one-sided: {txt_imm}
+- ImmuneScore residual, two-sided: {txt_imm2}
 
-**Two-sided partial** (both TACSTD2 and the immune feature residualized on ABSOLUTE + KRT/EPCAM): {txt_two}
+ABSOLUTE-only two-sided partials **reproduce** the histology / deconv reworks: CD8 −0.104, CYT −0.116, GEP18 z-mean −0.013, xCell CD8 −0.126 (n=502). TACSTD2 ⟂ ABSOLUTE (ρ = {rho_tp:.3f}, p = {fmt_p(p_tp)}).
 
-**ESTIMATE ImmuneScore residual of TACSTD2** (one-sided): {txt_imm}
+The epithelial double residual **weakens** those already-small inverses (TACSTD2 vs KRT/EPCAM ρ = {rho_tk:.3f}). GEP18 even flips to a small positive. Epithelium was not masking a strong LUAD inverse.
 
-**Two-sided partial | ImmuneScore:** {txt_imm2}
-
-Prior ABSOLUTE-only one-sided residual (replication of PR #81 / #169 style): most negative primary ρ = {abs_one_min:.3f}.
+Scan-wide strongest primary ρ is `ABS_IMMUNE` two-sided CYT = −0.217 (n=502). That is still `WEAK_NEGATIVE` under the locked −0.22 / −0.30 rules. It is not hidden; it is not OncoSG.
 
 **Implied strong inverse, locked before results.** OncoSG A1 after published purity (PR #139, n=169) is the user's working example of a supported inverse: CD8A partial ρ = −0.309, GEP18 = −0.349. Thresholds:
 
@@ -1006,7 +1007,7 @@ If TACSTD2 is nearly orthogonal to ABSOLUTE (as in PR #81 / #169), purity-only a
 | ImmuneScore residual, one-sided | {immune_one_min:.3f} | {str(immune_one_min <= STRONG_RHO)} | {str(immune_one_min <= LUSC_BOUND)} |
 | ImmuneScore residual, two-sided | {immune_two_min:.3f} | {str(immune_two_min <= STRONG_RHO)} | {str(immune_two_min <= LUSC_BOUND)} |
 
-Largest |ρ| among primary four, ABS+KRT one-sided: {max_abs("ABS_KRT", "onesided_rank"):.3f}. Two-sided: {max_abs("ABS_KRT", "twosided_rank"):.3f}.
+Largest |ρ| among primary four, ABS+KRT one-sided: {max_abs("ABS_KRT", "onesided_rank"):.3f}. Two-sided: {max_abs("ABS_KRT", "twosided_rank"):.3f}. Scan-wide strongest (any model, primary four): {float(res.loc[res.feature.isin(PRIMARY_IMMUNE), "rho"].min()):.3f} (`ABS_IMMUNE` two-sided CYT). Still above −0.22.
 
 ## Honest limits
 

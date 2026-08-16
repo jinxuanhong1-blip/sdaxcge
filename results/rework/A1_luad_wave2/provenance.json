@@ -1,0 +1,38 @@
+{
+  "claim": "A1 LUAD wave 2: TACSTD2 double residual on ABSOLUTE + KRT/EPCAM, and ImmuneScore residual, vs CD8/GEP18/CYT/xCell CD8",
+  "inputs": {
+    "expression": {
+      "file": "TCGA.LUAD.HiSeqV2.gz",
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap%2FHiSeqV2.gz",
+      "desc": "UCSC Xena TCGA-LUAD HiSeqV2, log2(RSEM normalized_count + 1)",
+      "bytes": 30884695,
+      "md5": "bcff7dfabf3da82ce215bd2649c4dd4a"
+    },
+    "purity": {
+      "file": "TCGA_mastercalls.abs_tables_JSedit.fixed.txt",
+      "url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+      "desc": "PanCanAtlas ABSOLUTE purity (GDC 4f277128-f793-4354-a13d-30cc7fe9f6b5)",
+      "bytes": 901812,
+      "md5": "8ea2ca92c8ae58350538999dfa1174da"
+    },
+    "estimate": {
+      "file": "ESTIMATE_LUAD_RNAseqV2.txt",
+      "url": "https://ibl.mdanderson.org/estimate/tables/lung_adenocarcinoma_RNAseqV2.txt",
+      "desc": "MD Anderson official ESTIMATE RNAseqV2 ImmuneScore / StromalScore / ESTIMATEScore",
+      "bytes": 19985,
+      "md5": "0c68a0e625b798a1a1e1055bdc26a245"
+    },
+    "timer2": {
+      "file": "infiltration_estimation_for_tcga.csv.gz",
+      "url": "https://timer.cistrome.org/infiltration_estimation_for_tcga.csv.gz",
+      "desc": "TIMER2.0 / immunedeconv precomputed TCGA infiltration (xCell CD8)",
+      "bytes": 8743177,
+      "md5": "dddbd60aad77ca221c2c51b12b68758d"
+    }
+  },
+  "signatures": {
+    "gep18": "/workspace/data/signatures/gep18_genes.tsv",
+    "epithelial": "/workspace/data/signatures/epithelial_krt_epcam.tsv"
+  },
+  "randomness": "deterministic (no sampling)"
+}
