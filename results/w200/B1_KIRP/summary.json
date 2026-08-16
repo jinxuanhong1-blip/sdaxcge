@@ -1,0 +1,95 @@
+{
+  "generated_utc": "2026-08-16T20:06:53+00:00",
+  "cohort": "TCGA-KIRP",
+  "expression_dataset": "UCSC Xena TCGA.KIRP.sampleMap/HiSeqV2 (log2 norm_count+1)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 290,
+  "n_matrix_columns": 323,
+  "n_matrix_genes": 20530,
+  "surface_gene_universe_present": 2618,
+  "surface_gene_universe_ranked": 2608,
+  "n_undefined_correlation": 10,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 57,
+    "spearman_r": 0.43508191333169327,
+    "spearman_q": 2.675883490073394e-13,
+    "spearman_percentile": 97.853,
+    "pearson_rank": 80,
+    "pearson_r": 0.38600939233537024,
+    "pearson_q": 2.143589692202081e-10,
+    "pearson_percentile": 96.971
+  },
+  "top10_spearman": [
+    {
+      "gene": "MUC1",
+      "spearman_rank": 1,
+      "spearman_r": 0.6505960339845773,
+      "spearman_q": 7.117510753106341e-33
+    },
+    {
+      "gene": "CLDN7",
+      "spearman_rank": 2,
+      "spearman_r": 0.6208286539140446,
+      "spearman_q": 3.5178167093863997e-29
+    },
+    {
+      "gene": "KCNS1",
+      "spearman_rank": 3,
+      "spearman_r": 0.6100673052964664,
+      "spearman_q": 4.572394239731635e-28
+    },
+    {
+      "gene": "PROM1",
+      "spearman_rank": 4,
+      "spearman_r": 0.6090021981482415,
+      "spearman_q": 4.572394239731635e-28
+    },
+    {
+      "gene": "MST1R",
+      "spearman_rank": 5,
+      "spearman_r": 0.6083936307078563,
+      "spearman_q": 4.572394239731635e-28
+    },
+    {
+      "gene": "GPR110",
+      "spearman_rank": 6,
+      "spearman_r": 0.5967904742592988,
+      "spearman_q": 8.48639289461184e-27
+    },
+    {
+      "gene": "EFNB2",
+      "spearman_rank": 7,
+      "spearman_r": 0.5874099122093789,
+      "spearman_q": 8.856859080160072e-26
+    },
+    {
+      "gene": "EPHA1",
+      "spearman_rank": 8,
+      "spearman_r": 0.5842146632601725,
+      "spearman_q": 1.7984401885781794e-25
+    },
+    {
+      "gene": "ITGB6",
+      "spearman_rank": 9,
+      "spearman_r": 0.5573678014172749,
+      "spearman_q": 1.0762213142234738e-22
+    },
+    {
+      "gene": "TPBG",
+      "spearman_rank": 10,
+      "spearman_r": 0.5412322032363999,
+      "spearman_q": 3.466514033906055e-21
+    }
+  ]
+}
