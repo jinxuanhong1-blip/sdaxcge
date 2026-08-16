@@ -1,0 +1,125 @@
+{
+  "generated_utc": "2026-08-16T20:11:01+00:00",
+  "cohort": "TCGA-PRAD",
+  "expression_dataset": "UCSC Xena TCGA.PRAD.sampleMap/HiSeqV2 (log2 norm_count+1)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 497,
+  "surface_gene_universe_present": 2618,
+  "surface_gene_universe": 2614,
+  "n_undefined_correlation": 4,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": true,
+    "is_top_pearson": false,
+    "spearman_rank": 1,
+    "spearman_r": 0.38305987618673043,
+    "spearman_q": 1.2468682295918321e-15,
+    "spearman_percentile": 100.0,
+    "pearson_rank": 6,
+    "pearson_r": 0.3767474014964529,
+    "pearson_q": 1.1993945730540952e-15,
+    "pearson_percentile": 99.809
+  },
+  "bootstrap": {
+    "n_boot": 1000,
+    "seed": 20260816,
+    "spearman_r_ci95": [
+      0.3070941315296939,
+      0.4564382134451142
+    ],
+    "spearman_r_median": 0.3825057504987267,
+    "focus_rank1_rate": 0.29,
+    "top_usurpers": [
+      {
+        "gene": "SLC44A4",
+        "n_wins": 256
+      },
+      {
+        "gene": "CLDN3",
+        "n_wins": 163
+      },
+      {
+        "gene": "PVRL2",
+        "n_wins": 95
+      },
+      {
+        "gene": "SEMA4B",
+        "n_wins": 45
+      },
+      {
+        "gene": "GPR108",
+        "n_wins": 19
+      }
+    ]
+  },
+  "top10_spearman": [
+    {
+      "gene": "CLDN4",
+      "spearman_rank": 1,
+      "spearman_r": 0.38305987618673043,
+      "spearman_q": 1.2468682295918321e-15
+    },
+    {
+      "gene": "SLC44A4",
+      "spearman_rank": 2,
+      "spearman_r": 0.3823414182496568,
+      "spearman_q": 1.2468682295918321e-15
+    },
+    {
+      "gene": "CLDN3",
+      "spearman_rank": 3,
+      "spearman_r": 0.3728211543320921,
+      "spearman_q": 6.786956315573523e-15
+    },
+    {
+      "gene": "PVRL2",
+      "spearman_rank": 4,
+      "spearman_r": 0.3656147578500959,
+      "spearman_q": 2.3837724364099898e-14
+    },
+    {
+      "gene": "SEMA4B",
+      "spearman_rank": 5,
+      "spearman_r": 0.34332155990993835,
+      "spearman_q": 1.111668949780851e-12
+    },
+    {
+      "gene": "GPR108",
+      "spearman_rank": 6,
+      "spearman_r": 0.3394655439366552,
+      "spearman_q": 2.0888389881431673e-12
+    },
+    {
+      "gene": "EFNA1",
+      "spearman_rank": 7,
+      "spearman_r": 0.33826808903757266,
+      "spearman_q": 2.3669057066821706e-12
+    },
+    {
+      "gene": "RPN1",
+      "spearman_rank": 8,
+      "spearman_r": 0.3333739807884814,
+      "spearman_q": 5.0044414597843395e-12
+    },
+    {
+      "gene": "SLC37A1",
+      "spearman_rank": 9,
+      "spearman_r": 0.3227653228922094,
+      "spearman_q": 3.0509557511912454e-11
+    },
+    {
+      "gene": "SERINC2",
+      "spearman_rank": 10,
+      "spearman_r": 0.3176657692051594,
+      "spearman_q": 7.116989085097343e-11
+    }
+  ]
+}
