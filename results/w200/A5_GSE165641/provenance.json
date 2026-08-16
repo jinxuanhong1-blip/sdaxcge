@@ -1,0 +1,29 @@
+{
+  "task": "w200/A5: TROP2-high immune-resistant subset \u2014 real public KL lung",
+  "rejected_accession": "GSE76628 (mouse flank-skin Ad-VEGF / gastric stroma; not KL lung)",
+  "used_accession": "GSE165641",
+  "why_this_series": "Public 10X scRNA of KrasLSL-G12D/+; Lkb1fl/fl lung tumor sections with both epithelial and immune cells, so Tacstd2-high tumor vs CD8/NK is actually computable",
+  "pmid": "34369094",
+  "generated_utc": "2026-08-16T20:10:16.455006+00:00",
+  "n_cells": 7180,
+  "n_genes": 31053,
+  "mice": {
+    "KL1": 4400,
+    "KL2": 2780
+  },
+  "celltype_rules": {
+    "CD8_T": "(Cd8a>0 | Cd8b1>0) & (Cd3e>0 | Cd3d>0)",
+    "NK": "(Ncr1>0 | Klrb1c>0) & not CD8_T",
+    "Epithelial": "(Epcam>0 | (Krt8>0 & Krt18>0) | Nkx2-1>0) & Ptprc==0"
+  },
+  "processing": "author-processed log-normalized matrix from GEO; no re-alignment; marker-based types (no published cluster labels in the matrix)",
+  "genes_missing": [],
+  "files": [
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE165nnn/GSE165641/suppl/GSE165641_processed_normalized_matrix_data.Rdata.gz",
+      "path": "data/kl_lung/GSE165641_processed_normalized_matrix_data.Rdata.gz",
+      "md5": "af9cb30a554507a6c311a07b4d9ec6d6",
+      "bytes": 41539839
+    }
+  ]
+}

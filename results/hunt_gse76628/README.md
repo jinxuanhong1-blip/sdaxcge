@@ -1,5 +1,10 @@
 # Hunt: Tacstd2 (Trop2) in GSE76628 — public data only
 
+**Update:** GSE76628 is not Kras;Lkb1 lung. The A5 recompute that answers
+Tacstd2-high vs CD8/NK on a real public KL lung series is
+`results/w200/A5_GSE165641/` (GSE165641). GSE76628 rejection:
+`results/w200/A5_GSE76628/`.
+
 **Request:** "GSE76628 public only (no private KL mice): Tacstd2-high tumor subset vs CD8/NK."
 
 **Verdict (honest): the requested contrast is infeasible in this dataset.** GSE76628 is not a

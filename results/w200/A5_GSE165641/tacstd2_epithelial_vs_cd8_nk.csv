@@ -1,0 +1,4 @@
+comparison,n_a,n_b,mean_a,mean_b,detection_a,detection_b,mannwhitney_p,rank_biserial,fisher_oddsratio_detection,fisher_p_detection,note
+Epithelial_vs_CD8_T,468,100,0.9469,0.0408,0.6474,0.05,2.9241483714882464e-24,0.615,34.891,9.415033171749714e-31,"marker-based cell types on author-normalized GSE165641 KL lung scRNA; Tacstd2 is epithelial, not a CD8/NK program"
+Epithelial_vs_NK,468,50,0.9469,0.0341,0.6474,0.02,5.045666264237416e-14,0.624,89.982,1.352532288170455e-19,"marker-based cell types on author-normalized GSE165641 KL lung scRNA; Tacstd2 is epithelial, not a CD8/NK program"
+CD8_T_vs_NK,100,50,0.0408,0.0341,0.05,0.02,0.3913292369729303,0.029,2.579,0.664020397187187,"marker-based cell types on author-normalized GSE165641 KL lung scRNA; Tacstd2 is epithelial, not a CD8/NK program"
