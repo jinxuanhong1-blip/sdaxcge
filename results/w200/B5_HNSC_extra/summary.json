@@ -103,8 +103,8 @@
     "GSE159067_CLDN4_present": false
   },
   "honest_verdict": {
-    "label": "NULL_AND_UNDERPOWERED",
+    "label": "SUGGESTIVE_CLDN4_NOT_MULTIPLICITY_SIGNIFICANT",
     "did_we_tune_filters_or_thresholds": false,
-    "statement": "Prat and Foy cannot test these markers because their targeted panels omit both genes. In the only analyzed full-transcriptome leftover, GSE179730 (n=11), neither marker is associated with the authors' clinical-benefit definition after exact testing; expression is sparse and the cohort is too small for validation."
+    "statement": "Prat and Foy cannot test these markers because their targeted panels omit both genes. In the only analyzed full-transcriptome leftover, GSE179730 (n=11), lower CLDN4 in the clinical-benefit group is nominally suggestive (exact p=0.045) but does not survive correction across the two markers (q=0.091); TACSTD2 is null. Expression is sparse and the cohort is too small for validation."
   }
 }
