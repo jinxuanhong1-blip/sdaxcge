@@ -1,0 +1,38 @@
+{
+  "dataset": "GSE243013",
+  "matrix": "GSE243013_NSCLC_immune_scRNA_counts.mtx.gz",
+  "matrix_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE243nnn/GSE243013/suppl/GSE243013_NSCLC_immune_scRNA_counts.mtx.gz",
+  "matrix_orientation": "cells x genes (1254749 x 31831)",
+  "compartment": "CD45+ immune cells only (T/NK, B, myeloid)",
+  "genes": {
+    "TACSTD2": 1057,
+    "CLDN4": 11797
+  },
+  "response_counts_all_metadata_patients": {
+    "non-MPR": 112,
+    "pCR": 85,
+    "MPR": 45,
+    "unknowm": 1
+  },
+  "paper_n_patients": 234,
+  "geo_metadata_n_sampleIDs": 243,
+  "excluded_from_tests": ["P433"],
+  "mpr_definition_used": "GEO pathological_response MPR or pCR = MPR-any; paper defines MPR as residual viable tumor <=10% and pCR as a subset of MPR",
+  "extract": {
+    "tool": "scripts/extract_mtx_two_genes.c",
+    "mtx_nnz_declared": 2010550708,
+    "mtx_nnz_scanned": 2010550708,
+    "nnz_kept": 22966,
+    "path": "results/noskip/GSE243013/extracted_tacstd2_cldn4_cells.tsv"
+  },
+  "detection": {
+    "TACSTD2_cells_pos": 15084,
+    "CLDN4_cells_pos": 7882,
+    "both_pos_cells": 461,
+    "TACSTD2_patients_any_pos": 239,
+    "CLDN4_patients_any_pos": 228,
+    "n_cells_total": 1254749,
+    "n_patients_total": 243,
+    "n_patients_known_response": 242
+  }
+}
