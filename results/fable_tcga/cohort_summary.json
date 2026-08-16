@@ -1,0 +1,34 @@
+{
+  "LUAD": {
+    "n_tumor": 516,
+    "n_normal": 59,
+    "signature_genes_missing_from_matrix": [
+      "KIR3DS1",
+      "MGC40069"
+    ],
+    "n_with_absolute_purity": 503,
+    "TACSTD2_vs_purity_spearman_rho": 0.038,
+    "TACSTD2_vs_purity_p": 0.3914050776407795,
+    "CLDN4_vs_purity_spearman_rho": 0.082,
+    "CLDN4_vs_purity_p": 0.06618151457099983,
+    "TACSTD2_vs_CLDN4_spearman_rho": 0.531,
+    "TACSTD2_vs_CLDN4_p": 7.189628573043896e-39,
+    "n_with_cdr_clinical": 516
+  },
+  "LUSC": {
+    "n_tumor": 501,
+    "n_normal": 51,
+    "signature_genes_missing_from_matrix": [
+      "KIR3DS1",
+      "MGC40069"
+    ],
+    "n_with_absolute_purity": 493,
+    "TACSTD2_vs_purity_spearman_rho": 0.006,
+    "TACSTD2_vs_purity_p": 0.9024593092422653,
+    "CLDN4_vs_purity_spearman_rho": 0.093,
+    "CLDN4_vs_purity_p": 0.03940011395265007,
+    "TACSTD2_vs_CLDN4_spearman_rho": 0.391,
+    "TACSTD2_vs_CLDN4_p": 8.587182907798453e-20,
+    "n_with_cdr_clinical": 501
+  }
+}
