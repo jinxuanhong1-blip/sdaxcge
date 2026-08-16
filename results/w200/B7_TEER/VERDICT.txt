@@ -1,0 +1,32 @@
+B7 TEER / barrier literature — CLDN4 in lung epithelium and cancer
+==================================================================
+Date: 2026-08-16
+Scope: public papers only. Numbers copied from paper text. No invented p-values.
+
+VERDICT
+-------
+1. Lung epithelium: several public primary papers measure TEER/TER or
+   related barrier endpoints after CLDN4 gain/loss.
+   Core set: Wray 2009, Mitchell 2011, Kage 2014, Rokkam 2011, Lee 2018.
+
+2. Lung cancer cell lines: no public paper was found that reports TEER/TER
+   after CLDN4 knockdown, knockout, or overexpression in A549, H441,
+   Calu-3, H1975, or other NSCLC lines. Arabi 2024 (Front Oncol review)
+   states there have been no studies examining the mechanistic role of
+   claudin-4 in LUAD development.
+
+3. Other epithelial cancers: public TER/Rb numbers exist for ovarian
+   (Litkouhi 2007), gastric (Nishiguchi 2019; 4D3 antibody, not KD),
+   and pancreatic (Kuwada 2019; 4D3 antibody). These are catalogued
+   separately from lung.
+
+4. Foundational non-lung TEER papers (MDCK/LLC-PK1) are included as
+   context only: Van Itallie 2001, Van Itallie/Colegio 2003, Hou 2006.
+
+Files
+-----
+papers.tsv     paper catalog
+numbers.tsv    extracted public numbers (p-values only if printed)
+search_log.md  queries and inclusion rules
+README.md      how to read the tables
+extracted/     text pulled from OA PDFs used for number extraction

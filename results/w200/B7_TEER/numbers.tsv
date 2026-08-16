@@ -1,0 +1,71 @@
+record_id	paper_id	pmid	metric	system	comparison	value_text	unit	n	p_value_as_published	source	notes
+W09-01	Wray2009	19447895	CLDN4 mRNA	mouse whole lung VILI	high TV vs spontaneous	eightfold increase (abstract); microarray >2-fold among GO tight-junction genes	fold	array n=5/group; qPCR n=6/group	P < 0.05 (FDR for array; qPCR vs all other groups)	abstract + Results	Do not treat eightfold and 75% protein as the same endpoint.
+W09-02	Wray2009	19447895	CLDN4 protein densitometry	mouse whole lung	3 h high TV vs no ventilation	75% increase; CLDN3 unchanged; CLDN18 1.0±0.11 vs 1.0±0.31	relative to β-actin	n=3/group for CLDN18	CLDN18 P > 0.05	Fig. 1 legend + Results	
+W09-03	Wray2009	19447895	TEER	human DLEC	CPEBD 10 µg/ml vs control peptide	196 ± 20 vs 249 ± 12	Ω·cm2	n=3 replicates of 6 wells; mean±SE	P < 0.05	Results paragraph on CPEBD	Printed TEER pair.
+W09-04	Wray2009	19447895	TEER	primary rat AT2	CPEBD dose-response	decreased, dose-dependent	figure_only	minimum 3 replicates of 6 wells; mean±SE	P < 0.05 vs control peptide	Fig. 3A legend	No printed Ω in text.
+W09-05	Wray2009	19447895	40-kDa dextran permeability	rat AT2	CPEBD vs control	not increased	figure_only	minimum 3 replicates of 6 wells	P < 0.05 vs control (legend; direction is no increase in leak)	Fig. 3B	Macromolecule flux not lost.
+W09-06	Wray2009	19447895	AFC	mouse in vivo	CPEBD vs control peptide	decreased >33% (abstract); basal and terbutaline-stimulated AFC both down	% instilled volume / 30 min	n=6–9/group	P < 0.05 (basal and stimulated)	abstract + Fig. 4A	
+W09-07	Wray2009	19447895	CLDN4 mRNA after siRNA	human DLEC	CLDN4 siRNA 20 nM vs nonsilencing	80% decrease	mRNA	minimum 3 replicates of 6 wells	P < 0.05	Results + Fig. 5A	CLDN3 mRNA unchanged.
+W09-08	Wray2009	19447895	CLDN4 protein after siRNA	human DLEC	CLDN4 siRNA vs control	decreased by nearly 70% (Discussion)	protein	n=3	P < 0.05	Discussion + Fig. 5C	
+W09-09	Wray2009	19447895	TEER	human DLEC	CLDN4 siRNA vs nonsilencing	decreased; effect size comparable with CPEBD	figure_only	minimum 3 replicates of 6 wells; mean±SE	P < 0.05	Fig. 5D	No printed Ω for siRNA TEER.
+W09-10	Wray2009	19447895	CLDN4 mRNA	human DLEC	PMA 4 h	ninefold increase	fold	n=4 replicates of 6 wells	P < 0.05	abstract + Fig. 6B	Blocked by Gö-6850; JNK required. TEER after PMA not assessed (Discussion).
+W09-11	Wray2009	19447895	LDH	rat AT2	CPEBD vs control vs media	30 ± 4 vs 31 ± 6 vs 27 ± 4	IU/l	n=3 replicates of 6 wells; mean±SE	P > 0.05	Results	Not cytotoxic.
+M11-01	Mitchell2011	21515662	endogenous Cldn-4 / Cldn-3 protein	rat model AT1 AEC day 6	baseline	about fourfold more Cldn-4 than Cldn-3; also written ~5-fold in Fig. 2D note	ratio	n=4–6	not_stated	Results	Two printed approximations in same paper.
+M11-02	Mitchell2011	21515662	total Cldn-3 protein	rat AEC	YFP-Cldn-3 vs baseline	6.8 ± 3.7-fold	fold	n=5; mean±SE	not_stated	Results	
+M11-03	Mitchell2011	21515662	total Cldn-4 protein	rat AEC	YFP-Cldn-4 vs nontransduced	2.7 ± 0.2-fold	fold	n=6; mean±SE	not_stated	Results	Paper says this is ~50% higher than Wray VILI ~1.8-fold protein.
+M11-04	Mitchell2011	21515662	TER	rat AEC day 4 pre-transduction	all groups	~400	Ω·cm2	n=16–32 later for day-6 TER	not_stated for day-4	Results	Printed as ~400 Ω·cm2.
+M11-05	Mitchell2011	21515662	TER	rat AEC day 6	YFP-Cldn-4 vs YFP or untreated	significantly higher	figure_only	n=16–32; mean±SE	P < 0.05	Fig. 3A	No printed day-6 Ω for Cldn-4 OE in primary text.
+M11-06	Mitchell2011	21515662	TER	rat AEC day 6	YFP-Cldn-3 vs YFP or untreated	significantly lower	figure_only	n=16–32; mean±SE	P < 0.05	Fig. 3A	Discussion later prints ~550 to ~400 for Cldn-3.
+M11-07	Mitchell2011	21515662	TER	rat AEC	YFP-Cldn-3	decreased from ~550 to ~400	Ω·cm2	not restated	not_stated in that sentence	Discussion	Same paper; Overgaard 2012 quotes this pair.
+M11-08	Mitchell2011	21515662	Isc	rat AEC day 6	YFP-Cldn-3 vs control	significantly higher; YFP-Cldn-4 comparable to control	figure_only	n=6; mean±SE	P < 0.05 (Cldn-3)	Fig. 3B	
+M11-09	Mitchell2011	21515662	PNa/PCl	rat AEC	YFP-Cldn-3 or YFP-Cldn-4 vs control	~1.1; comparable across groups	ratio	n=6; mean±SE	not_stated	Fig. 3C	No charge-selectivity change.
+M11-10	Mitchell2011	21515662	calcein and 10-kDa dextran flux	rat AEC	YFP-Cldn-4 vs control	comparable (no increase)	figure_only	not printed	not_stated	Results	Cldn-3 increased both dyes.
+M11-11	Overgaard2012	22671603	TER (quoted)	quotes Mitchell	YFP-Cldn-4	increased TER by nearly 50%	percent	see Mitchell	P < 0.05 (review figure legend)	Overgaard Fig. 4 legend	quoted_from_review; primary is Mitchell 2011.
+M11-12	Schlingmann2015	25910421	TER (quoted)	quotes Mitchell as ref 19	Cldn-4 OE in rat AEC	~30% increase in TER; no change in PNa/PCl or paracellular flux	percent	see Mitchell	not_stated in review sentence	Schlingmann text	quoted_from_review. Conflicts with Overgaard “nearly 50%”; both quote Mitchell. Use Mitchell primary + both quotes.
+K14-01	Kage2014	25106430	Rt (voltohmmeter)	mouse AEC monolayers	KO vs WT least-square means over 3 days	1.40 ± 0.09 vs 1.47 ± 0.09	kΩ·cm2	n≥7	not_stated as different (described unchanged)	Results	Ion barrier unchanged.
+K14-02	Kage2014	25106430	Rt (Ussing)	mouse AEC	KO vs WT	1.53 ± 0.24 vs 1.45 ± 0.12	kΩ·cm2	n≥11	unchanged	Results	
+K14-03	Kage2014	25106430	Ieq	mouse AEC	KO vs WT	6.3 ± 0.2 vs 7.2 ± 0.2 (13% lower)	µA/cm2	n≥7	P = 0.006	Results	
+K14-04	Kage2014	25106430	Isc	mouse AEC	KO vs WT	3.9 ± 0.5 vs 5.2 ± 0.4 (26% lower)	µA/cm2	n≥11	P < 0.05	Results	
+K14-05	Kage2014	25106430	PNa/PCl	mouse AEC	KO vs WT	1.12 ± 0.04 vs 1.16 ± 0.03	ratio	n≥10	unchanged	Table 2	
+K14-06	Kage2014	25106430	PNa	mouse AEC	KO vs WT	0.85 ± 0.11 vs 0.82 ± 0.05	10^-6 cm/s	n≥10	unchanged	Table 2	
+K14-07	Kage2014	25106430	PCl	mouse AEC	KO vs WT	0.79 ± 0.10 vs 0.71 ± 0.04	10^-6 cm/s	n≥10	unchanged	Table 2	
+K14-08	Kage2014	25106430	PK	mouse AEC	KO vs WT	1.09 ± 0.14 vs 1.03 ± 0.07	10^-6 cm/s	n=11	unchanged	Table 2	
+K14-09	Kage2014	25106430	5-CF Papp	mouse AEC	KO vs WT	3.1 ± 0.4 vs 1.5 ± 0.1 (2.1-fold)	10^-7 cm/s	n≥9	P = 0.003 (text); P = 0.001 (Fig. 4A legend)	Results + Fig. 4A	Both P strings are printed; do not reconcile.
+K14-10	Kage2014	25106430	155-kDa TRITC-dextran Papp	mouse AEC	KO vs WT	3.2 ± 0.5 vs 1.2 ± 0.2 (2.6-fold)	10^-8 cm/s	n=9	P = 0.003	Results + Fig. 4B	
+K14-11	Kage2014	25106430	AFC	mouse in vivo	KO vs WT	21.1 ± 1.7 vs 27.0 ± 1.4 (22% lower)	%/h	n=6	P = 0.03 (text); P = 0.027 (Fig. 2A)	Results	Both printed.
+K14-12	Kage2014	25106430	5-CF BAL after i.v.	mouse in vivo	KO vs WT	267 ± 22 vs 189 ± 15 (41% higher)	ng/ml	n≥5	P = 0.01 (text); P = 0.013 (Fig. 2B)	Results	155-kDa dextran in vivo unchanged.
+K14-13	Kage2014	25106430	Na,K-ATPase activity	mouse lung membranes	KO vs WT	2.3 ± 0.4 vs 4.7 ± 0.8 (51% lower)	µmol Pi·mg^-1·h^-1	n=6	P = 0.03	Results	
+K14-14	Kage2014	25106430	wet-to-dry ratio	mouse lung baseline	KO vs WT	4.0 ± 0.1 vs 4.1 ± 0.1	ratio	n≥10	unchanged	Fig. 2E	No baseline edema.
+K14-15	Kage2014	25106430	Cldn4 mRNA	WT mouse lung	20 cmH2O VILI vs no VILI	6-fold	fold	n=3	P < 0.001	Fig. 6A	
+K14-16	Kage2014	25106430	Cldn4 mRNA	WT mouse lung	40 cmH2O VILI vs no VILI	36-fold	fold	n=8	P < 0.001	Fig. 6A	RNAseq text also says 16-fold in injured WT lungs.
+K14-17	Kage2014	25106430	BAL protein	mouse	KO vs WT at 40 cmH2O	0.77 ± 0.18 vs 0.41 ± 0.06	mg/ml	n=9	P = 0.013	Fig. 6B	
+K14-18	Kage2014	25106430	Cldn4 mRNA	WT mouse	48 h hyperoxia vs room air	14-fold; Cldn3 and Cldn18 unchanged	fold	n≥3	P < 0.001	Fig. 7A	
+K14-19	Kage2014	25106430	SpO2	mouse	KO vs WT after 65 h hyperoxia	43 ± 6 vs 82 ± 9	%	n=5–6	P = 0.005	Fig. 7B	
+K14-20	Kage2014	25106430	wet-to-dry	mouse	KO vs WT after 65 h hyperoxia	6.6 ± 0.1 vs 5.4 ± 0.2 (21% higher)	ratio	n=3	P = 0.005 (text); P < 0.001 (Fig. 7C)	Results	Both printed.
+K14-21	Kage2014	25106430	plasma Na / K	mouse baseline	KO vs WT	Na 137 ± 1 vs 134 ± 2; K 4.7 ± 0.2 vs 4.8 ± 0.1	mEq/l	not stated	unchanged	Results	
+R11-01	Rokkam2011	21741940	CLDN4 IHC vs AFC	ex vivo human lungs	Spearman	rs = 0.71 (abstract) / 0.713 (Results)	correlation	n=16	P < 0.003 (abstract); P = 0.003 (Results)	abstract + Fig. 1A	Both printed.
+R11-02	Rokkam2011	21741940	ZO-1 IHC vs AFC	same lungs	Spearman	rs = -0.052	correlation	n=16	P = 0.84	Fig. 1C	
+R11-03	Rokkam2011	21741940	CLDN4 IHC vs histology injury	same lungs	Spearman	rs = 0.024	correlation	n=20	P = not significant	Fig. 2A	
+R11-04	Rokkam2011	21741940	CLDN4 IHC score	donor lungs	LIS < 1 vs LIS ≥ 1	median 34 (IQR 23–56) vs median 5 (IQR 3–16)	score	n=11 vs 9	P = 0.006	Fig. 3B	
+R11-05	Rokkam2011	21741940	CLDN4 IHC score	normal lung vs injured donor	normal 4–7; injured 2–190	score	normal n=3	not_stated	Results	
+R11-06	Rokkam2011	21741940	TJ protein blot vs AFC	3 extra lungs	CLDN4 vs AFC 5.2 / 10.4 %/h	only CLDN4 differed; ZO-1, occludin, CLDN3, CLDN15 did not	densitometry	triplicate blots	ANOVA P = 0.001 for CLDN4	Fig. 1E–F	
+L18-01	Lee2018	29178675	plasma CLDN4	human	asthma vs control	0.314 ± 0.044 vs 0.166 ± 0.03	ng/ml	asthma n not restated in that sentence; control n=25 in Fig. 1	P < 0.001	Results	
+L18-02	Lee2018	29178675	plasma CLDN4	human	exacerbated vs stable asthma	0.451 ± 0.061 vs 0.314 ± 0.044	ng/ml	stable n=50 in Fig. 1	P < 0.001	Results	
+L18-03	Lee2018	29178675	plasma CLDN4 vs FEV1% pred	human asthma	Pearson/Spearman as printed	r = -0.245	correlation	not restated	P = 0.006	Results	
+L18-04	Lee2018	29178675	TEER	NHBE	Der p1 ± DEX ± CLDN4 siRNA	figure; axis TEER (Ω·cm2); text says Der p1 increased TEER and siCLDN4 decreased TEER vs scramble	figure_only	not printed	*P < 0.05 (Fig. 5C)	Fig. 5C + Results	A Results heading says “decreases TEER”; figure/text say Der p1 increased TEER. Do not resolve. No printed Ω.
+L18-05	Lee2018	29178675	BAL IL-4 / IL-5	OVA mouse	OVA vs sham	IL-4 36 ± 3; IL-5 20 ± 2	pg/ml	not printed	not_stated in that sentence	Results	Not a TEER number; listed only as printed companion cytokine values.
+LF10-01	LaFemina2010	20833776	claudin mRNA share	freshly isolated rat AT1/AT2	CLDN3+4+18	more than 97% of claudin mRNA transcripts	percent	FACS + qRT-PCR	not_stated	abstract	KGF raised TER without changing CLDN4 protein.
+LF10-02	LaFemina2010	20833776	TER	primary rat AEC	KGF vs control	significantly increased	figure_only	not extracted here	described as significant	abstract	CLDN4 protein unchanged. Not a CLDN4 perturbation.
+LIT-01	Litkouhi2007	17460774	Rb vs CLDN4 qPCR	9 ovarian lines	correlation	R = 0.85	correlation	9 lines	P < .001	Results	ECIS Rb, not Transwell TEER.
+LIT-02	Litkouhi2007	17460774	Rb	SKOV3	CLDN4 siRNA vs WT	lower on days 6 and 7	figure_only	4–6 repeats	*P < .05	Fig. 7B	No printed Ω.
+LIT-03	Litkouhi2007	17460774	Rb	OVCA429	C-CPE dose-response	~50% decrease vs 0 µg/µl	percent	4–6 repeats	P < .05	Results	Dose- and CLDN4-dependent; noncytotoxic.
+N19-01	Nishiguchi2019	31040910	TER	MKN74 and TMK-1	4D3 vs CLDN4 KD	4D3 decreased TER; KD did not	figure_only	3 independent trials (S.D.)	not_stated as a printed P for TER	Fig. 2B text	No printed Ω.
+N19-02	Nishiguchi2019	31040910	intracellular platinum	MKN74 / TMK-1	4D3+CDDP vs CDDP	1.5-times and 1.2-times	fold	3 trials	not_stated	Results	Not TEER.
+KUW-01	Kuwada2019	31498559	TER	MIA PaCa-2	4D3 vs 2C1	4D3 79% decrease; 2C1 19% decrease	percent	not printed in that sentence	not_stated	Results (Fig. 2C)	Antibody, not gene KD.
+VI01-01	VanItallie2001	11375422	TER	MDCK II tet-off	CLDN4 induced vs uninduced	~2- to 3-fold increase; baseline ~40; induced 100–200	Ω·cm2	triplicate Snapwells; 5 clones	P < 0.005	Fig. 4 legend	Not lung.
+VI01-02	VanItallie2001	11375422	PNa	MDCK II	induced vs uninduced	decreased 50%; PCl no significant change; PNa/PCl 2.5 → 1.6	percent / ratio	5 clones	PNa change described as consistent; PCl not statistically significant	Results	Mannitol flux unchanged.
+VI01-03	VanItallie2001	11375422	CLDN4 protein	MDCK II	4-day induction	fourfold to tenfold	fold	5 clones screened	not_stated	Results	
+VI03-01	VanItallie2003	13129853	TER	MDCK	parental vs CLDN4	37.8 ± 2.86 vs 114 ± 6.7	Ω·cm2	3–5 lines; duplicate	P < 0.01 (ANOVA + Dunnett, panel)	Fig. 2A text	3-fold.
+VI03-02	VanItallie2003	13129853	TER	LLC-PK1	parental vs CLDN4	94.5 ± 7.4 vs 154 ± 14	Ω·cm2	3–5 lines	P < 0.01 (same panel)	Fig. 2A text	1.6-fold.
+HOU-01	Hou2006	17028154	TER	MDCK II	control vs CLDN4 RNAi	78.0 vs 53.7	Ω·cm2	n=3	p < 0.001 is printed for CLDN2 loss to 248.3; CLDN4/7 described as significantly decreased	JBC text (PMC-adjacent extract)	CLDN7 RNAi TER 43.0. Not lung.
+HOU-02	Hou2006	17028154	PNa	MDCK II	control vs CLDN4 RNAi	20.23 ± 0.09 vs 31.68 ± 0.16	10^-6 cm/s	n=3	described as up-regulated	same	PCl unaffected.
