@@ -1,0 +1,201 @@
+{
+  "cells_loaded": {
+    "K": 6696,
+    "KL": 7564,
+    "total": 14260
+  },
+  "genes_loaded": 20304,
+  "cells_after_refilter": {
+    "before": 14260,
+    "after": 14260
+  },
+  "n_leiden_clusters": 35,
+  "markers_present": {
+    "Epithelial/Tumor": [
+      "Epcam",
+      "Sftpc",
+      "Sftpb",
+      "Nkx2-1",
+      "Krt8",
+      "Krt18",
+      "Cldn18",
+      "Sfta2",
+      "Scgb1a1",
+      "Krt19",
+      "Cdh1"
+    ],
+    "T/NK": [
+      "Cd3e",
+      "Cd3d",
+      "Cd3g",
+      "Cd8a",
+      "Cd4",
+      "Trbc2",
+      "Nkg7",
+      "Klrb1c",
+      "Ncr1",
+      "Gzmb"
+    ],
+    "B": [
+      "Cd79a",
+      "Cd79b",
+      "Ms4a1",
+      "Cd19",
+      "Ighm",
+      "Igkc"
+    ],
+    "Myeloid": [
+      "Lyz2",
+      "Itgam",
+      "Cd68",
+      "C1qa",
+      "C1qb",
+      "Adgre1",
+      "Csf1r",
+      "S100a8",
+      "S100a9",
+      "Itgax"
+    ],
+    "Endothelial": [
+      "Pecam1",
+      "Cldn5",
+      "Cdh5",
+      "Flt1",
+      "Egfl7"
+    ],
+    "Fibroblast": [
+      "Col1a1",
+      "Col1a2",
+      "Dcn",
+      "Pdgfra",
+      "Lum"
+    ]
+  },
+  "immune_fraction": {
+    "K": 0.8179510155316607,
+    "KL": 0.817028027498678
+  },
+  "contrasts": [
+    {
+      "contrast": "KL: Epithelial/Tumor vs Immune",
+      "group_a": "KL Epithelial/Tumor",
+      "n_a": 231,
+      "group_b": "KL Immune",
+      "n_b": 6180,
+      "mean_a": 0.5773835182189941,
+      "mean_b": 0.038514021784067154,
+      "pct_pos_a": 62.77056277056276,
+      "pct_pos_b": 3.6245954692556634,
+      "log2FC_mean(a/b)": 3.9060742026051045,
+      "mannwhitney_U": 1133372.5,
+      "mannwhitney_p": 0.0,
+      "rank_biserial": -0.5878233909606934
+    },
+    {
+      "contrast": "K: Epithelial/Tumor vs Immune",
+      "group_a": "K Epithelial/Tumor",
+      "n_a": 20,
+      "group_b": "K Immune",
+      "n_b": 5477,
+      "mean_a": 0.26910191774368286,
+      "mean_b": 0.0270554106682539,
+      "pct_pos_a": 40.0,
+      "pct_pos_b": 2.1727222932262187,
+      "log2FC_mean(a/b)": 3.3141635794022823,
+      "mannwhitney_U": 75170.0,
+      "mannwhitney_p": 1.8510110288093293e-28,
+      "rank_biserial": -0.37246668338775635
+    },
+    {
+      "contrast": "Epithelial/Tumor: KL vs K (CONFOUNDED w/ sample)",
+      "group_a": "KL Epithelial/Tumor",
+      "n_a": 231,
+      "group_b": "K Epithelial/Tumor",
+      "n_b": 20,
+      "mean_a": 0.5773835182189941,
+      "mean_b": 0.26910191774368286,
+      "pct_pos_a": 62.77056277056276,
+      "pct_pos_b": 40.0,
+      "log2FC_mean(a/b)": 1.101377250327072,
+      "mannwhitney_U": 3084.0,
+      "mannwhitney_p": 0.010447070933878422,
+      "rank_biserial": -0.3350648880004883
+    }
+  ],
+  "immune_dominance_and_ambient": {
+    "K": {
+      "n_cells": 6696,
+      "pct_Ptprc_pos": 82.81063321385902,
+      "pct_Sftpc_pos_AMBIENT_FLAG": 76.46356033452808,
+      "n_epi_marker_def": 28
+    },
+    "KL": {
+      "n_cells": 7564,
+      "pct_Ptprc_pos": 82.27128503437335,
+      "pct_Sftpc_pos_AMBIENT_FLAG": 77.74986779481756,
+      "n_epi_marker_def": 170
+    }
+  },
+  "contrasts_annotation_independent": [
+    {
+      "contrast": "KL: Ptprc- (non-immune) vs Ptprc+ (immune)",
+      "group_a": "KL Ptprc-neg",
+      "n_a": 1341,
+      "group_b": "KL Ptprc-pos",
+      "n_b": 6223,
+      "mean_a": 0.09138674288988113,
+      "mean_b": 0.04430842399597168,
+      "pct_pos_a": 9.47054436987323,
+      "pct_pos_b": 4.322673951470351,
+      "log2FC_mean(a/b)": 1.0444038650842353,
+      "mannwhitney_U": 4386069.0,
+      "mannwhitney_p": 2.387565819150176e-14,
+      "rank_biserial": -0.05117952823638916
+    },
+    {
+      "contrast": "KL: epithelial(marker-def) vs Ptprc+ immune",
+      "group_a": "KL epi(marker)",
+      "n_a": 170,
+      "group_b": "KL immune",
+      "n_b": 6223,
+      "mean_a": 0.6138961911201477,
+      "mean_b": 0.04430842399597168,
+      "pct_pos_a": 64.70588235294117,
+      "pct_pos_b": 4.322673951470351,
+      "log2FC_mean(a/b)": 3.792341770843997,
+      "mannwhitney_U": 847075.0,
+      "mannwhitney_p": 0.0,
+      "rank_biserial": -0.6014121770858765
+    },
+    {
+      "contrast": "K: Ptprc- (non-immune) vs Ptprc+ (immune)",
+      "group_a": "K Ptprc-neg",
+      "n_a": 1151,
+      "group_b": "K Ptprc-pos",
+      "n_b": 5545,
+      "mean_a": 0.010221161879599094,
+      "mean_b": 0.02748849056661129,
+      "pct_pos_a": 0.7819287576020852,
+      "pct_pos_b": 2.272317403065825,
+      "log2FC_mean(a/b)": -1.42726839745142,
+      "mannwhitney_U": 3143576.0,
+      "mannwhitney_p": 0.0010604137787595391,
+      "rank_biserial": 0.014907360076904297
+    },
+    {
+      "contrast": "K: epithelial(marker-def) vs Ptprc+ immune",
+      "group_a": "K epi(marker)",
+      "n_a": 28,
+      "group_b": "K immune",
+      "n_b": 5545,
+      "mean_a": 0.22014464437961578,
+      "mean_b": 0.02748849056661129,
+      "pct_pos_a": 17.857142857142858,
+      "pct_pos_b": 2.272317403065825,
+      "log2FC_mean(a/b)": 3.001552107635158,
+      "mannwhitney_U": 89671.5,
+      "mannwhitney_p": 6.563788446101171e-08,
+      "rank_biserial": -0.1551140546798706
+    }
+  ]
+}
