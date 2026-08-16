@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+data/**/*.gz
+data/**/*.txt
+data/**/*.tsv
+data/**/*.csv
+!data/genesets/*.json
+/tmp/
+*.tmp

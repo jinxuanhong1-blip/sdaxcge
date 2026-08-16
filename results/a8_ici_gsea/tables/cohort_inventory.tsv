@@ -1,0 +1,7 @@
+cohort	usable	reason	n	n_with_TACSTD2	n_R	n_NR	n_genes	tacstd2_median	label	scale	pubmed	leftover_note
+GSE126044	True	ok	16	16	5	11	18745	6.228149585913375	Cho 2020 anti-PD-1 NSCLC	log2(CPM+1) from deposited counts	PMID 32879421	core open ICI bulk; not in the TCGA A8 slide
+GSE135222	True	ok	27	27	7	20	57820	7.576673292516575	Jung/Kim 2019–2020 anti-PD-(L)1 NSCLC	log2(TPM+1) from deposited TPM; Ensembl mapped via HGNC	PMID 31537801	core open ICI bulk; DCB is GEO PFS>=180 d
+GSE166449	True	ok	22	22	7	15	20182	2.648944189782945	Lee/Hwang 2021 pembrolizumab LUAD	deposited matrix kept if already log2, else log2(TPM+1)	PMID 33857424	core open ICI bulk; response from GEO sample titles
+GSE253564	True	ok	32	32	0	0	20187	6.320684590678216	Altorki leftover neoadjuvant durvalumab ± SBRT, pre-treatment	log2(FPKM+1) from deposited pre-treatment FPKM	PMID 38401548	leftover whole-transcriptome ICI tumor matrix; MPR not deposited on GEO
+GSE190265	True	ok	43	43	14	29	31720	6.104372307362254	CGFL Dijon France3 anti-PD-1 NSCLC	log2(TPM+1) from deposited France3 TPM	PMID 35051357	France4 (GSE190266) omitted: TACSTD2 absent from the deposited TPM cap
+GSE283829	True	ok	27	27	7	10	61552	7.385907045798221	Lindberg 2025 leftover ICI NSCLC	log2(CPM+1) from supplementary raw counts; Ensembl mapped via HGNC	PMID 39743139	2025 leftover; R vs NR is CR vs PD (SD held out)
