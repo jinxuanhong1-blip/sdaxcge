@@ -1,0 +1,9 @@
+accession,citation,n_tumor_rna,tissue,treatment,expression_public,orr_public,survival_public,cldn4_in_matrix,strand_ok,used_as,note
+GSE121810,Cloughesy TF et al. Nat Med 2019. doi:10.1038/s41591-018-0337-7,29,recurrent GBM tumor bulk RNA-seq,pembrolizumab neoadjuvant vs adjuvant,True,False,True,True,True,primary,Only analysis-grade public bulk tumor matrix with public OS/PFS join.
+GSE264695,de Groot J et al. Nat Commun 2024. doi:10.1038/s41467-024-54326-7,20,recurrent GBM tumor bulk RNA-seq,neoadjuvant pembrolizumab expansion,True,False,True,True,False,qc_failed_sensitivity,HTSeq counts look reverse-stranded (high MT-ND6 / antisense fraction).
+GSE318645,GEO GSE318645; NCT04606316 dual ICB window trial,47,recurrent GBM tumor bulk RNA-seq,"nivo+ipi vs nivo vs placebo neoadjuvant, then ICB",True,False,True,True,False,qc_failed_sensitivity,"OS is in GEO metadata, but gene-assigned fraction ~2% and strand QC fails."
+GSE226976,CAPTIVE / DNX-2401 + pembrolizumab NanoString,48,recurrent glioma NanoString PanCancer Immune,oncolytic adenovirus + pembrolizumab,True,False,False,False,,excluded,770-gene immune panel; CLDN4 is absent.
+Zhao2019_PRJNA482620,Zhao J et al. Nat Med 2019. doi:10.1038/s41591-019-0349-y,66,GBM tumor RNA-seq (raw SRA only),nivolumab or pembrolizumab,False,False,False,,,excluded,Raw SRA only; paper says processed data on request. Sample-response map is not a public joinable table.
+GSE154795,Lee AH et al. Nat Med 2021 neoadjuvant PD-1 GBM scRNA,40,GBM scRNA-seq,neoadjuvant PD-1,True,False,False,,,excluded,"Single-cell, not bulk ICI-response matrix; processed object is >1 GB."
+GSE287371,Newly diagnosed GBM: RT + nivolumab + IDO1 inhibitor,0,peripheral blood leukocytes,radiation + nivolumab + BMS-986205,True,False,False,,,excluded,"Blood, not tumor. CLDN4 is an epithelial/tumor gene."
+TCGA-GBM,TCGA glioblastoma,,untreated/standard-care GBM,not ICI,True,False,True,True,True,excluded,Not an ICI-response cohort. Not used to test B5.
