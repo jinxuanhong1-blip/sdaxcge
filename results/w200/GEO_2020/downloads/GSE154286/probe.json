@@ -1,0 +1,44 @@
+{
+  "accession": "GSE154286",
+  "pdat": "2020/07/14",
+  "n_samples": 133,
+  "title": "Chemotherapy negatively impacts the tumor immune microenvironment in NSCLC: An analysis of pre- and post-treatment biopsies in the multi-center SAKK19/09 study",
+  "matrix_files": "GSE154286_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE154286_RAW.tar;filelist.txt;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 201,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": true,
+  "characteristic_snippets": "!Sample_title\t\"NSCLC biopsy_Patient 1_Diagnosis\"\t\"NSCLC biopsy_Patient 1_Progression\"\t\"NSCLC biopsy_Patient 2_Diagnosis\"\t\"NSCLC biopsy_Patient 3_Diagnosis\"\t\"NSCLC biopsy_Patient 3_Progression\"\t\"NSCLC biopsy_Patient 4_Diagnosis\"\t\"NSCLC biopsy_Patient 4_Progression\"\t\"NSCLC biopsy_Patient 5_Diagnosis\"\t\"NSCLC biopsy_Patient 6_Diagnosis\"\t\"NSCLC biopsy_Patient 7_Diagnosis\"\t\"NSCLC biopsy_Patient 7_Progression\"\t\"NSCLC biopsy_Patient 8_Diagnosis\"\t\"NSCLC biopsy_Patient 10_Diagnosis\"\t\"NSCLC biopsy_Patient  | !Sample_characteristics_ch1\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoi",
+  "suppl_gene_hits": "{\"filelist.txt\": []}",
+  "verdict": "OUTCOME_BUT_GENES_UNCONFIRMED",
+  "why": "Outcome-like characteristics; gene presence not confirmed in the first 1.5 MB of processed files",
+  "header_info": {
+    "n_samples_matrix": 133,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 201,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": true,
+    "characteristic_snippets": [
+      "!Sample_title\t\"NSCLC biopsy_Patient 1_Diagnosis\"\t\"NSCLC biopsy_Patient 1_Progression\"\t\"NSCLC biopsy_Patient 2_Diagnosis\"\t\"NSCLC biopsy_Patient 3_Diagnosis\"\t\"NSCLC biopsy_Patient 3_Progression\"\t\"NSCLC biopsy_Patient 4_Diagnosis\"\t\"NSCLC biopsy_Patient 4_Progression\"\t\"NSCLC biopsy_Patient 5_Diagnosis\"\t\"NSCLC biopsy_Patient 6_Diagnosis\"\t\"NSCLC biopsy_Patient 7_Diagnosis\"\t\"NSCLC biopsy_Patient 7_Progression\"\t\"NSCLC biopsy_Patient 8_Diagnosis\"\t\"NSCLC biopsy_Patient 10_Diagnosis\"\t\"NSCLC biopsy_Patient ",
+      "!Sample_characteristics_ch1\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Progression\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"timepoint: Diagnosis\"\t\"t"
+    ],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE154286_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE154286_RAW.tar",
+      "filelist.txt",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE154286"
+}

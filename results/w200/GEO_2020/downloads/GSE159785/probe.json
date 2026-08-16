@@ -1,0 +1,43 @@
+{
+  "accession": "GSE159785",
+  "pdat": "2020/11/01",
+  "n_samples": 363,
+  "title": "Temporal and Spatial Heterogeneity of Host Response to SARS-CoV-2 Pulmonary Infection [GeoMx human protein]",
+  "matrix_files": "GSE159785_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE159785_PKC_files.tar.gz;GSE159785_RCC_files.tar.gz;GSE159785_analyzed_count_matrix.txt.gz;GSE159785_raw_calibrated_count_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 79,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": false,
+  "characteristic_snippets": "",
+  "suppl_gene_hits": "{\"GSE159785_analyzed_count_matrix.txt.gz\": [], \"GSE159785_raw_calibrated_count_matrix.txt.gz\": []}",
+  "verdict": "NOT_LUNG_ICI",
+  "why": "Title/summary is not a lung-cancer ICI treatment cohort",
+  "header_info": {
+    "n_samples_matrix": 363,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 79,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": false,
+    "characteristic_snippets": [],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE159785_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE159785_PKC_files.tar.gz",
+      "GSE159785_RCC_files.tar.gz",
+      "GSE159785_analyzed_count_matrix.txt.gz",
+      "GSE159785_raw_calibrated_count_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159785"
+}

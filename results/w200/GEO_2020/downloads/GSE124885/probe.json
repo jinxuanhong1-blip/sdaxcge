@@ -1,0 +1,45 @@
+{
+  "accession": "GSE124885",
+  "pdat": "2020/08/26",
+  "n_samples": 4,
+  "title": "A CD4 T cell population expand and reshape autoreactive B cells, contributing to autoimmune lung pathology and post-infection autoimmunity in children",
+  "matrix_files": "GSE124885_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE124885_B_5prime_raw_gene_expression.csv.gz;GSE124885_B_5prime_vloupe_BCR.vloupe.tar.gz;GSE124885_B_5rime_normalized_gene_expression.csv.gz;GSE124885_T_5prime_normalized_gene_expression.csv.gz;GSE124885_T_5prime_raw_gene_expression.csv.gz;GSE124885_T_5prime_vloupe_TCR.vloupe.tar.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 0,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": false,
+  "characteristic_snippets": "",
+  "suppl_gene_hits": "{\"GSE124885_B_5prime_raw_gene_expression.csv.gz\": [], \"GSE124885_B_5rime_normalized_gene_expression.csv.gz\": [], \"GSE124885_T_5prime_normalized_gene_expression.csv.gz\": [], \"GSE124885_T_5prime_raw_gene_expression.csv.gz\": []}",
+  "verdict": "NOT_ANALYZABLE",
+  "why": "No confirmed target genes and no per-sample ICI outcome in the open GEO record",
+  "header_info": {
+    "n_samples_matrix": 4,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 0,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": false,
+    "characteristic_snippets": [],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE124885_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE124885_B_5prime_raw_gene_expression.csv.gz",
+      "GSE124885_B_5prime_vloupe_BCR.vloupe.tar.gz",
+      "GSE124885_B_5rime_normalized_gene_expression.csv.gz",
+      "GSE124885_T_5prime_normalized_gene_expression.csv.gz",
+      "GSE124885_T_5prime_raw_gene_expression.csv.gz",
+      "GSE124885_T_5prime_vloupe_TCR.vloupe.tar.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE124885"
+}

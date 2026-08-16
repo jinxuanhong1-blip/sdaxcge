@@ -1,0 +1,5 @@
+# Local-only NCBI dumps. Re-download from FTP if needed.
+# GPL23126 SOFT is ~1 GB; the GSE141479 full series matrix is 56 MB.
+# The committed two-gene extract is enough to reproduce the leftover numbers.
+downloads/platforms/
+downloads/**/*_series_matrix.txt.gz

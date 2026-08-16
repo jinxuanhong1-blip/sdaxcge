@@ -1,0 +1,17 @@
+# Open GEO URLs used in this leftover pass. All are real NCBI FTP / E-utilities endpoints.
+
+# Search / metadata
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi
+
+# Series matrices (HTTPS GEO FTP)
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE141nnn/GSE141479/matrix/GSE141479_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE154286/matrix/GSE154286_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE150nnn/GSE150972/matrix/GSE150972_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE99nnn/GSE99995/matrix/GSE99995_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE124nnn/GSE124885/matrix/GSE124885_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE136nnn/GSE136961/matrix/GSE136961_series_matrix.txt.gz
+https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/matrix/GSE126044_series_matrix.txt.gz
+
+# Platform (used locally, not committed; ~1 GB SOFT)
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL23126&targ=self&form=text&view=full

@@ -1,0 +1,63 @@
+{
+  "accession": "GSE99995",
+  "platform": "GPL21185",
+  "n_probes": 58341,
+  "n_samples": 12,
+  "target_hits": {
+    "TACSTD2": [
+      {
+        "probe": "A_23_P149529",
+        "annotation": "TACSTD2;tumor-associated calcium signal transducer 2"
+      }
+    ],
+    "CLDN4": [
+      {
+        "probe": "A_33_P3285545",
+        "annotation": "CLDN4;claudin 4"
+      },
+      {
+        "probe": "A_33_P3378272",
+        "annotation": "CLDN4;claudin 4"
+      }
+    ]
+  },
+  "characteristic_columns": [
+    "geo_accession",
+    "title",
+    "status",
+    "submission_date",
+    "last_update_date",
+    "type",
+    "channel_count",
+    "source_name_ch1",
+    "organism_ch1",
+    "tissue",
+    "ifn-gamma_level",
+    "pd-l1_level",
+    "tumor_stage",
+    "gender",
+    "age",
+    "treatment_protocol_ch1",
+    "molecule_ch1",
+    "extract_protocol_ch1",
+    "label_ch1",
+    "label_protocol_ch1",
+    "taxid_ch1",
+    "hyb_protocol",
+    "scan_protocol",
+    "description",
+    "data_processing",
+    "platform_id",
+    "contact_name",
+    "contact_email",
+    "contact_department",
+    "contact_institute",
+    "contact_address",
+    "contact_city",
+    "contact_state",
+    "contact_zip/postal_code",
+    "contact_country",
+    "supplementary_file",
+    "data_row_count"
+  ]
+}

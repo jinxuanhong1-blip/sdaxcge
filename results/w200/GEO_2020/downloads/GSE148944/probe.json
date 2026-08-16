@@ -1,0 +1,40 @@
+{
+  "accession": "GSE148944",
+  "pdat": "2020/05/01",
+  "n_samples": 67,
+  "title": "Characterization of the immune profile of oral tongue squamous cell carcinomas with advancing disease",
+  "matrix_files": "GSE148944_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE148944_data_worksheets.xlsx;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 730,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": false,
+  "characteristic_snippets": "",
+  "suppl_gene_hits": "{}",
+  "verdict": "NOT_LUNG_ICI",
+  "why": "Title/summary is not a lung-cancer ICI treatment cohort",
+  "header_info": {
+    "n_samples_matrix": 67,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 730,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": false,
+    "characteristic_snippets": [],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE148944_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE148944_data_worksheets.xlsx",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE148nnn/GSE148944"
+}

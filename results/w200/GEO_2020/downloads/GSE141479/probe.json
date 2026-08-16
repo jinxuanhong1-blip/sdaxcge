@@ -1,0 +1,43 @@
+{
+  "accession": "GSE141479",
+  "pdat": "2020/04/07",
+  "n_samples": 74,
+  "title": "Combination of host immune metabolic biomarkers for the PD-1 blockade cancer immunotherapy",
+  "matrix_files": "GSE141479_series_matrix.txt.gz;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "suppl_files": "GSE141479_RAW.tar;filelist.txt;https://www.hhs.gov/vulnerability-disclosure-policy/index.html",
+  "has_embedded_table": true,
+  "n_table_rows_scanned": 40001,
+  "embedded_gene_hits": "",
+  "outcome_like_characteristics": true,
+  "characteristic_snippets": "!Sample_characteristics_ch1\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Pre-treatment\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (n",
+  "suppl_gene_hits": "{\"filelist.txt\": []}",
+  "verdict": "OUTCOME_BUT_GENES_UNCONFIRMED",
+  "why": "Outcome-like characteristics; gene presence not confirmed in the first 1.5 MB of processed files",
+  "header_info": {
+    "n_samples_matrix": 74,
+    "has_embedded_table": true,
+    "n_table_rows_scanned": 40001,
+    "embedded_gene_hits": [],
+    "outcome_like_characteristics": true,
+    "characteristic_snippets": [
+      "!Sample_characteristics_ch1\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Pre-treatment\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (nivolumab)\"\t\"treatment: Pre-treatment\"\t\"treatment: Post-treatment (n"
+    ],
+    "all_characteristic_keys": [
+      "!Sample_characteristics_ch1",
+      "!Sample_source_name_ch1",
+      "!Sample_title"
+    ]
+  },
+  "listing": {
+    "matrix": [
+      "GSE141479_series_matrix.txt.gz",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ],
+    "suppl": [
+      "GSE141479_RAW.tar",
+      "filelist.txt",
+      "https://www.hhs.gov/vulnerability-disclosure-policy/index.html"
+    ]
+  },
+  "ftp_base": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE141nnn/GSE141479"
+}
