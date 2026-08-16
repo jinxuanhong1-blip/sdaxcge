@@ -1,0 +1,11 @@
+accession	year_public	what_it_is	tumor_bulk	CLDN4	DCB_ORR_labels	extra_OR_row	table
+GSE328294	2026	H23 KRAS-mutant NSCLC cell line, DMSO vs IBI351, n=6 FPKM	no (cell line)	yes	no patient ICI/DCB/ORR	no	cell-line note only
+GSE308745	2026	PBMC scRNA/scTCR/ADT, CD3/CD4 T cells, before neoadjuvant PD-1 (PB cohort2); PMID 41904165	no (PBMC scRNA)	not scored (blood T cells, not tumor epithelium)	none in GEO SOFT (titles RE/I/G are not a published codebook)	no	inventory
+GSE302284	2025	scRNA of residual EGFR-mutant tumor/LN + DFCI282/PC9 osi vs vehicle; TROP2 CAR-T paper	no (scRNA, n=6 libraries)	not scored	no ICI or ADC response labels (treatment = osimertinib vs vehicle)	no	inventory
+GSE244944	2025	SCLC H3K27ac ChIP-seq, COR-L88 / NCI-H82, DMSO vs TAS1440 ± GSI	no (ChIP-seq cell line)	no expression matrix	no patient ICB; IMpower133 RNA not on GEO	no	SCLC separate
+GSE244945	2025	SCLC cell-line bulk RNA-seq (H82/H524/COR-L88/H69), NOTCH1/LSD1/REST	no (cell line)	yes	no patient ICB; IMpower133 RNA not on GEO	no	SCLC separate (mechanistic)
+GSE244946	2025	COR-L88 scRNA, DMSO / TAS1440 / TAS1440+GSI, n=3	no (scRNA cell line)	not scored as patient OR	no patient ICB	no	SCLC separate
+GSE274975	2024	61 FFPE lung tumors, STAR counts; ICI RECIST+PFS in PMID 39723204 Table S1	yes	yes (ENSG00000189143)	yes (RECIST + PFS months)	yes	NSCLC extra
+GSE283829	2025	27 NSCLC tumors, ICI; GEO disease stage = CR/SD/PD	yes	yes	ORR-like CR vs SD+PD; no PFS/DCB	yes	NSCLC extra
+GSE309652	2025	NanoString nCounter, n=72 stage-IV NSCLC anti-PD-(L)1; author R/NR 24/48	yes (FFPE NanoString)	no (not on 768-gene panel; TACSTD2 also absent)	author R/NR present; cannot score CLDN4	no	inventory
+GSE309446	2025	Phase II sitravatinib + tislelizumab + docetaxel; TCR-seq blood/FFPE	no RNA expression matrix (TCR clones only)	no	no per-patient DCB/ORR in GEO	no	inventory
