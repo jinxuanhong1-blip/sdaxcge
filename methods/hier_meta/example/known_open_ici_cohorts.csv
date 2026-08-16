@@ -1,0 +1,14 @@
+accession,access,disease,modality,treatment,n_open,endpoints_open,tacstd2_cldn4_on_matrix,already_analyzed_in_repo,source_url,caveat
+GSE126044,open,NSCLC,bulk RNA-seq,anti-PD-1,16,GEO responder/non-responder,yes,yes,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE126044,Pre-treatment; 5 responders / 11 non-responders
+GSE135222,open,advanced NSCLC,bulk RNA-seq,anti-PD-1/PD-L1,27,PFS event and days,yes,yes,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE135222,No open RECIST; DCB often defined as PFS>=180d
+GSE136961,open,NSCLC,targeted bulk panel,single-agent anti-PD-1,21,DCB/NDB; PFS; OS,no,yes (not estimable),https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE136961,Oncomine 395-gene panel lacks TACSTD2 and CLDN4
+GSE166449,open,advanced lung cancer,bulk RNA-seq,immunotherapy,22,GEO responder/non-responder,yes,yes,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE166449,7 responders / 15 non-responders; exact drug not always in GEO
+GSE207422,open,resectable NSCLC,bulk RNA-seq (+ scRNA),neoadjuvant anti-PD-1 + chemo,24 bulk,MPR/NMPR and RECIST,yes,yes,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207422,Combination therapy; bulk vs scRNA patient sets differ
+GSE93157,open,NSCLC/HNSCC/melanoma,NanoString 730-Immune,anti-PD-1,65 (35 lung),response and PFS,no,catalogued,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE93157,Neither TACSTD2 nor CLDN4 on the deposited panel
+GSE205335,open processed; raw controlled,lung cancer,scRNA-seq,ICI,26 patients,RECIST,yes (processed),partial,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE205335,Raw listed under EGAD00001008703; do not download raw
+GSE271689,open,advanced NSCLC,GeoMx DSP WTA,PD-1 first-line,586 AOIs,RECIST/PFS in paper supplement,yes,catalogued,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE271689,AOI-level; not a patient-level bulk effect without the supplement map
+EGAS00001005013,controlled,NSCLC,bulk RNA-seq,atezolizumab vs docetaxel (OAK/POPLAR),not downloaded,PFS/OS/response,unknown,no,https://ega-archive.org/studies/EGAS00001005013,EGA; list only; no download
+EGAS00001007508,controlled,NSCLC,RNA-seq,CheckMate-153,not downloaded,clinical in paper,unknown,no,https://ega-archive.org/studies/EGAS00001007508,EGA; list only; no download
+phs002822,controlled,NSCLC,multi-omic,ICI (SU2C-MARK),not downloaded,response/PFS/OS,unknown,no,https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs002822,dbGaP; list only; no download
+CheckMate-017/057/227/9LA,controlled,NSCLC,trial transcriptome,nivolumab-containing,not downloaded,response/PFS/OS,unknown,no,,No open processed matrix asserted here; family listed as missing
+IMpower150,controlled,NSCLC,trial transcriptome,atezolizumab-containing,not downloaded,response/PFS/OS,unknown,no,,No accession asserted; list only
