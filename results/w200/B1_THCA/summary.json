@@ -1,0 +1,173 @@
+{
+  "generated_utc": "2026-08-16T20:08:07+00:00",
+  "analysis": "B1-analog TACSTD2\u2013CLDN4 surfaceome co-expression + expression rank",
+  "cohort": "TCGA-THCA",
+  "expression_dataset": "UCSC Xena GDC hub TCGA-THCA.star_tpm (log2(TPM+1), GENCODE v36)",
+  "surfaceome_source": "Bausch-Fluck et al. 2018 in-silico surfaceome (table S3)",
+  "anchor_gene": "TACSTD2",
+  "focus_gene": "CLDN4",
+  "sample_type_codes": [
+    "01"
+  ],
+  "n_samples": 505,
+  "n_surfaceome_protein_rows": 2882,
+  "n_surfaceome_unique_symbols": 2799,
+  "surface_gene_universe": 2674,
+  "correlation_primary": "spearman",
+  "window": 200,
+  "median_log2tpm1_TACSTD2": 9.386,
+  "median_log2tpm1_CLDN4": 8.53,
+  "focus_result": {
+    "gene": "CLDN4",
+    "in_universe": true,
+    "is_top_spearman": false,
+    "is_top_pearson": false,
+    "spearman_rank": 30,
+    "spearman_r": 0.676289337008235,
+    "spearman_q": 7.908412483634326e-67,
+    "spearman_percentile": 98.915,
+    "pearson_rank": 49,
+    "pearson_r": 0.6802105041194113,
+    "pearson_q": 3.961042719863051e-68,
+    "pearson_percentile": 98.205
+  },
+  "pairwise": [
+    {
+      "subset": "all_primary_tumors",
+      "n": 505,
+      "pearson_r": 0.6802,
+      "pearson_p": 7.406586985532932e-70,
+      "spearman_rho": 0.6763,
+      "spearman_p": 8.872564491735888e-69,
+      "spearman_rho_ci95_lo": 0.6238,
+      "spearman_rho_ci95_hi": 0.725
+    },
+    {
+      "subset": "classic_papillary_8260_3",
+      "n": 355,
+      "pearson_r": 0.6126,
+      "pearson_p": 5.965088954273662e-38,
+      "spearman_rho": 0.5938,
+      "spearman_p": 3.3526080225600333e-35,
+      "spearman_rho_ci95_lo": 0.5189,
+      "spearman_rho_ci95_hi": 0.6623
+    },
+    {
+      "subset": "follicular_variant_8340_3",
+      "n": 105,
+      "pearson_r": 0.5712,
+      "pearson_p": 1.9766337957313914e-10,
+      "spearman_rho": 0.5862,
+      "spearman_p": 5.043941637596087e-11,
+      "spearman_rho_ci95_lo": 0.4283,
+      "spearman_rho_ci95_hi": 0.7137
+    }
+  ],
+  "purity": [
+    {
+      "quantity": "spearman_unadjusted_purity_subset",
+      "n": 463,
+      "rho": 0.6766,
+      "p": 2.929079071876606e-63
+    },
+    {
+      "quantity": "spearman_partial_given_ABSOLUTE_purity",
+      "n": 463,
+      "rho": 0.6881,
+      "p": 3.2517766550784106e-66
+    },
+    {
+      "quantity": "spearman_TACSTD2_vs_purity",
+      "n": 463,
+      "rho": -0.0846,
+      "p": 0.06901470420320066
+    },
+    {
+      "quantity": "spearman_CLDN4_vs_purity",
+      "n": 463,
+      "rho": 0.0807,
+      "p": 0.08282289297965181
+    }
+  ],
+  "expression_rank": {
+    "TACSTD2": {
+      "rank": 14,
+      "out_of": 2686,
+      "median_log2tpm1": 9.386189288221514
+    },
+    "CLDN4": {
+      "rank": 23,
+      "out_of": 2686,
+      "median_log2tpm1": 8.530200696943822
+    }
+  },
+  "top10_spearman": [
+    {
+      "gene": "DCSTAMP",
+      "spearman_rank": 1,
+      "spearman_r": 0.8256332560925939,
+      "spearman_q": 1.082750920753075e-123
+    },
+    {
+      "gene": "ERBB3",
+      "spearman_rank": 2,
+      "spearman_r": 0.7789570882554094,
+      "spearman_q": 6.878312266357982e-101
+    },
+    {
+      "gene": "TGFBR1",
+      "spearman_rank": 3,
+      "spearman_r": 0.7627091591146692,
+      "spearman_q": 2.603795062249298e-94
+    },
+    {
+      "gene": "MET",
+      "spearman_rank": 4,
+      "spearman_r": 0.7605932953543801,
+      "spearman_q": 1.3498823346456904e-93
+    },
+    {
+      "gene": "GJB3",
+      "spearman_rank": 5,
+      "spearman_r": 0.7590195531747173,
+      "spearman_q": 4.489985880638071e-93
+    },
+    {
+      "gene": "ITGA3",
+      "spearman_rank": 6,
+      "spearman_r": 0.7587386999569522,
+      "spearman_q": 4.819544251945604e-93
+    },
+    {
+      "gene": "TMPRSS6",
+      "spearman_rank": 7,
+      "spearman_r": 0.7535799893768883,
+      "spearman_q": 4.0645533713170654e-91
+    },
+    {
+      "gene": "QSOX1",
+      "spearman_rank": 8,
+      "spearman_r": 0.7533155178871924,
+      "spearman_q": 4.486021948668543e-91
+    },
+    {
+      "gene": "GABRB2",
+      "spearman_rank": 9,
+      "spearman_r": 0.7417011887524156,
+      "spearman_q": 8.06468990495055e-87
+    },
+    {
+      "gene": "CRLF2",
+      "spearman_rank": 10,
+      "spearman_r": 0.7394375666671814,
+      "spearman_q": 4.711213239025857e-86
+    }
+  ],
+  "input_checksums_md5": {
+    "TCGA-THCA.star_tpm.tsv.gz": "8ab2e8c3264eb3a21559c39ce688a871",
+    "gencode.v36.probemap": "59d24b459af04b543cf1d5d4161a98fc",
+    "table_S3_surfaceome.xlsx": "bf95ed25ffc933fbe0c0383ab19b8652",
+    "TCGA-THCA.clinical.tsv.gz": "aab61cefd2e6850a512f7256f5ee1324",
+    "tcga_absolute_purity.txt": "8ea2ca92c8ae58350538999dfa1174da"
+  }
+}
