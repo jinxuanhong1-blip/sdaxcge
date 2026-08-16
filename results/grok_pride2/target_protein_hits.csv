@@ -1,0 +1,14 @@
+accession,confidence,gene,organism,uniprot_or_ensembl,description,detected_in_protein_table,notes
+PXD065735,A,Tacstd2,Mus musculus,Q8BGV3,Tumor-associated calcium signal transducer 2,yes,SCLC ERBB2 ICI-resistance model; Spectronaut PG_Report
+PXD065735,A,Cldn4,Mus musculus,O35054,Claudin-4,yes,Same SCLC ICI-resistance proteome; quantified in most tumor samples
+PXD020548,C,TACSTD2,Homo sapiens,ENSG00000184292,tumor associated calcium signal transducer 2,yes,Lehtiö DIA NSCLC tissue validation cohort; not ICI-treated
+PXD020548,C,CD274,Homo sapiens,ENSG00000120217,CD274 molecule (PD-L1),yes,Same Lehtiö DIA tissue cohort
+PXD042991,B,Cd274,Mus musculus,Q9EP73,Programmed cell death 1 ligand 1,yes,Mouse lung-cancer immune-restoration PISA proteome
+PXD031474,A,TACSTD2,Homo sapiens,,TROP2,no,Not among 836 identified plasma proteins
+PXD031474,A,CLDN4,Homo sapiens,,claudin-4,no,Not among 836 identified plasma proteins
+PXD031474,A,CD274,Homo sapiens,,PD-L1,no,Not among 836 identified plasma proteins
+PXD058967,A,TACSTD2,Homo sapiens,,TROP2,no,Not in Spectronaut protein pivot (plasma DIA)
+PXD058967,A,CLDN4,Homo sapiens,,claudin-4,no,Not in Spectronaut protein pivot
+PXD062630,A,TACSTD2,Homo sapiens,,TROP2,no,Not named in urine EV mzTab gene/accession fields
+PXD062630,A,CLDN4,Homo sapiens,,claudin-4,no,Not named in urine EV mzTab
+PXD081026,B,CD274,Homo sapiens,,PD-L1,no,Study targets MUC1-MAPK-Elk-1-PD-L1 axis; PD-L1 not in Proteins.tsv IDs
