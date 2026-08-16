@@ -1,0 +1,54 @@
+{
+  "imvigor210_source": "third-party GitHub mirror of the now-404 official IMvigor210CoreBiologies distribution",
+  "n_samples_observed": 348,
+  "n_samples_expected_published": 348,
+  "n_samples_match": true,
+  "recist_observed": {
+    "NON_EVALUABLE": 50,
+    "PR": 43,
+    "PD": 167,
+    "CR": 25,
+    "SD": 63
+  },
+  "recist_expected_published": {
+    "CR": 25,
+    "PR": 43,
+    "SD": 63,
+    "PD": 167,
+    "NON_EVALUABLE": 50
+  },
+  "recist_match": {
+    "CR": true,
+    "PR": true,
+    "SD": true,
+    "PD": true,
+    "NON_EVALUABLE": true
+  },
+  "recist_all_match": true,
+  "immune_phenotype_observed": {
+    "NA": 64,
+    "excluded": 134,
+    "inflamed": 74,
+    "desert": 76
+  },
+  "immune_phenotype_expected_published": {
+    "desert": 76,
+    "excluded": 134,
+    "inflamed": 74,
+    "NA": 64
+  },
+  "immune_phenotype_all_match": true,
+  "independent_cross_check": {
+    "description": "RECIST distribution of the same trial as independently harmonised by bhklab/PredictIO from Zenodo 7058399",
+    "recist_observed": {
+      "NON_EVALUABLE": 50,
+      "PR": 43,
+      "PD": 167,
+      "CR": 25,
+      "SD": 63
+    },
+    "non_evaluable_label_note": "the original object labels the 50 non-evaluable patients 'NE' and the PredictIO harmonisation labels them 'NA'; both are collapsed to NON_EVALUABLE before comparison",
+    "agrees_with_mirror": true
+  },
+  "note": "The mirror is accepted only because sample count, full RECIST distribution and immune-phenotype distribution all reproduce the published IMvigor210 values, and an independently harmonised copy of the same trial gives an identical RECIST distribution."
+}

@@ -1,0 +1,5 @@
+cohort,n_available,n_cldn4_present,n_response_recorded,n_evaluable_analysed,n_responders,n_nonresponders,orr_percent,n_excluded_nonevaluable,expression_scale,pooled_in_meta
+IMvigor210,348,348,348,298,68,230,22.82,50,log2(TPM+1),yes
+BACI,89,89,87,87,16,71,18.39,2,log2(TPM+1),yes
+Snyder,25,25,25,21,7,14,33.33,4,log2(TPM+0.001),yes
+IMvigor210_PredictIO,348,348,298,298,68,230,22.82,50,log2(TPM+0.001),no (duplicate of IMvigor210)
