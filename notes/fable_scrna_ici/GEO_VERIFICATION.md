@@ -22,14 +22,16 @@ from `ftp.ncbi.nlm.nih.gov`). Processed matrices only; nothing >2 GB.
     PD-1 antibody, chemo, Pathologic Response (MPR / NMPR / pCR / NE),
     Residual Tumor, RECIST.
 - **No per-cell annotation is on GEO.** Hu et al. called malignant epithelium
-  with **CopyKAT** (fibroblast + endothelial reference). Malignant clusters:
-  E0_DST, E3_PCNA, E4_TOP2A, E7_SERPINB9, and a subset of E1_KRT17. Normal
-  clusters: alveolar (SFTPA2 / AGER), club (SCGB1A1), ciliated (TPPP3), basal
-  (KRT17 subset). They dropped one NMPR sample with <10 malignant cells from
-  malignant-expression boxplots. **TACSTD2 is not analyzed in the paper**;
-  this slice overlays TACSTD2 on a marker-based approximation of that
-  malignant/normal split (see WRITEUP methods). CopyKAT was not re-run
-  (full dense matrix + no author labels; 15 GB RAM).
+  with **CopyKAT** (fibroblast + endothelial reference). Those IDs are not in
+  the paper supplements or `Junjie-Hu/NSCLC-immunotherapy`.
+- **Third-party labels used as the primary malignant set:** DRMref (Liu et al.
+  *NAR* 2024, https://ccsm.uth.edu/DRMref/) Seurat objects
+  `GSE207422_Tor` (8,690 cells) + `GSE207422_Sin` (22,187 cells) = 30,877
+  post-treatment cells, 2,051 labeled `Malignant cells`. Marker-based 16-type
+  annotation, **not** CopyKAT. All 30,877 barcodes match the GEO UMI matrix.
+  Pre-treatment biopsies P01/P05/P08 are absent from DRMref.
+- A marker-based epithelial-minus-normal-lung filter is kept as sensitivity
+  (see WRITEUP). CopyKAT was not re-run.
 
 ## GSE205335 — lung cancer on ICI (RECIST)
 
