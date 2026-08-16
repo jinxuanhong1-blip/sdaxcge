@@ -176,7 +176,7 @@ def median_logrank(df: pd.DataFrame, feature: str) -> dict:
 
 
 def fmt_p(p: float) -> str:
-    if p < 1e-4:
+    if p < 0.001:
         return f"{p:.2e}"
     return f"{p:.3f}"
 
@@ -494,6 +494,12 @@ Cox PH on **per-1-SD** log2(TPM+1); HR > 1 = higher expression, shorter OS.
 Both-high vs rest log-rank p={fmt_p(ctx['both_high_os_p'])}
 (n_high={ctx['both_high_os_n']}). IC/Sex/platinum-adjusted Cox HRs for
 TACSTD2 and CLDN4 remain ~1 (see `os_cox_adjusted.csv`).
+
+The exploratory **combined-z median** log-rank is p={fmt_p(k['combined_z']['p'])}
+(high combined z has *longer* observed OS). That split is **not** a primary
+result: the pre-specified continuous Cox for the same score is HR
+{s['combined_z_sd']['hr']:.2f} (p={fmt_p(s['combined_z_sd']['p'])}). Do not
+quote the median p-value as an OS hit.
 
 ## Honest caveats
 

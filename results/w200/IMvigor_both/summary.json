@@ -1,0 +1,47 @@
+{
+  "slice": "results/w200/IMvigor_both",
+  "cohort": "IMvigor210 metastatic urothelial carcinoma, atezolizumab",
+  "not_lung": true,
+  "n_libraries": 348,
+  "n_orr_evaluable": 298,
+  "n_CRPR": 68,
+  "n_SDPD": 230,
+  "n_NE": 50,
+  "n_os_patients": 347,
+  "honest_verdict": "NOT SUPPORTED. TACSTD2, CLDN4, combined z, and both-high (TACSTD2-high AND CLDN4-high) are non-significant for confirmed ORR and OS in public IMvigor210 (mUC, atezolizumab). CXCL9/CD8A positive controls associate in the expected direction.",
+  "primary_orr": {
+    "TACSTD2": {
+      "mwu_p": 0.22680232065119643,
+      "bh_q": 0.23935561909399006,
+      "auc_CRPR_higher": 0.5482736572890026,
+      "auc_ci_lo": 0.4679651534526854,
+      "auc_ci_hi": 0.6336460997442455
+    },
+    "CLDN4": {
+      "mwu_p": 0.23935561909399006,
+      "bh_q": 0.23935561909399006,
+      "auc_CRPR_higher": 0.546994884910486,
+      "auc_ci_lo": 0.4658471867007673,
+      "auc_ci_hi": 0.6254108056265982
+    }
+  },
+  "primary_os_hr_per_sd": {
+    "TACSTD2": {
+      "hr": 0.9720597097943399,
+      "hr_lo": 0.8631530372336678,
+      "hr_hi": 1.0947074720767718,
+      "p": 0.6401978279122138,
+      "bh_q": 0.6401978279122138
+    },
+    "CLDN4": {
+      "hr": 0.9601707916775221,
+      "hr_lo": 0.8456476398190297,
+      "hr_hi": 1.090203420171472,
+      "p": 0.5305214086254452,
+      "bh_q": 0.6401978279122138
+    }
+  },
+  "positive_control_CXCL9_orr_p": 0.0002843946216392714,
+  "both_high_orr_fisher_p": 0.38555084885442725,
+  "both_high_os_logrank_p": 0.11588780016566522
+}
