@@ -1,0 +1,36 @@
+{
+  "claim_A4": "Tacstd2 up in 49/64 TISMO ICB groups, p=5.8e-5",
+  "all_cancer_Tacstd2": {
+    "n_up_over_n": "49/64",
+    "wilcoxon_p": 5.8398482923347564e-05,
+    "matches_49_of_64": true,
+    "wilcoxon_matches_5.8e-5": true
+  },
+  "lung_only_Tacstd2": {
+    "n_up_over_n": "2/2",
+    "wilcoxon_p": 0.5,
+    "cannot_test_49_of_64": true,
+    "reason": "TISMO has only 2 lung ICB groups, both LLC GSE155972 genotype arms"
+  },
+  "all_cancer_Cldn4": {
+    "n_up_over_n": "34/65",
+    "wilcoxon_p": 0.1234693559268815
+  },
+  "lung_only_Cldn4": {
+    "n_up_over_n": "2/2",
+    "wilcoxon_p": 0.5
+  },
+  "lung_icb_universe": {
+    "cell_lines_with_ICB": [
+      "LLC"
+    ],
+    "studies_with_ICB": [
+      "GSE155972"
+    ],
+    "other_lung_lines_in_TISMO": [
+      "CMT-167 (vivo, no ICB)",
+      "MLE12 (vitro only, no ICB)"
+    ],
+    "implantation_of_ICB_study": "subcutaneous flank, not orthotopic lung"
+  }
+}
