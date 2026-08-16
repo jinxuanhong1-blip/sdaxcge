@@ -4,7 +4,7 @@
 **PR:** https://github.com/jinxuanhong1-blip/sdaxcge/pull/57  
 **Question:** Does malignant (or bulk-tumor) expression of the ADC targets **TACSTD2 (TROP2)** and **CLDN4 (Claudin-4)** associate with major pathologic response (MPR / pCR) after neoadjuvant PD-1/PD-L1 ± chemotherapy in NSCLC?
 
-**Bottom line / 结论:** No. The only true baseline neoadjuvant-MPR dataset (GSE207422 bulk, n=24) shows a non-significant trend toward *lower* TACSTD2/CLDN4 in MPR. Post-treatment epithelial/malignant leftovers and the advanced-ICI leftover GSE205335 (RECIST, not MPR) do not agree with each other and are all non-significant. Honest mismatch: public GEO does not currently contain a second processed (<2 GB) neoadjuvant NSCLC ICI cohort with malignant-cell TACSTD2 and MPR labels.
+**Bottom line / 结论:** No. The only true baseline neoadjuvant-MPR dataset (GSE207422 bulk, n=24) shows a non-significant unadjusted trend toward *lower* TACSTD2/CLDN4 in MPR; that trend is a **tumor-content artifact** (TACSTD2–EPCAM ρ=0.70) and disappears after residualization. Post-treatment leftovers and GSE205335 (RECIST, not MPR) do not agree and are all non-significant. Honest mismatch: no second processed (<2 GB) neoadjuvant NSCLC ICI cohort with malignant TACSTD2 and MPR labels is on GEO.
 
 ---
 
@@ -57,6 +57,24 @@ Master table: `results/fable_neoadj/tables/MASTER_auc_summary.csv`. Forest: `res
 
 Direction: both markers trend **lower** in eventual MPR (higher residual tumor ↔ higher expression). Neither is significant. n=24 is small; CIs include 0.5.
 
+#### 3.1b Sensitivity — histology and tumor content (GSE207422 bulk)
+
+`results/fable_neoadj/tables/GSE207422_bulk_sensitivity.csv`, figure `GSE207422_bulk_sensitivity.png`.
+
+| Check | Result |
+|---|---|
+| TACSTD2 vs EPCAM (purity proxy) | Spearman ρ = **0.70**, p = 1.4×10⁻⁴ |
+| CLDN4 vs EPCAM | ρ = **0.78**, p = 6×10⁻⁶ |
+| TACSTD2 Squamous vs Adeno | AUC 0.67, p = 0.24 (12 vs 8) |
+| MPR rate Adeno vs Squamous | 37.5% vs 33%, Fisher p = 1.0 |
+| TACSTD2 vs MPR **within Adeno** | AUC 0.20, p = 0.25 (3 vs 5) |
+| TACSTD2 vs MPR **within Squamous** | AUC 0.50, p = 1.0 (4 vs 8) |
+| TACSTD2 vs MPR after **EPCAM residualization** | AUC 0.56, p = 0.68 |
+| CLDN4 vs MPR after EPCAM residualization | AUC 0.72, p = 0.084 (exploratory, not significant) |
+| pCR vs non-pCR TACSTD2 | AUC 0.38, p = 0.45 (5 vs 19) |
+
+The unadjusted “lower TACSTD2 in MPR” is largely a **tumor-content artifact**: several MPR/pCR biopsies have low EPCAM and therefore low TACSTD2/CLDN4. After residualizing on EPCAM, TACSTD2 is null. CLDN4 residualized trends *higher* in MPR (p=0.084) — the opposite of the unadjusted test — and is still not significant. Histology does not explain MPR rates here.
+
 #### 3.2 Leftover — GSE207422 post-tx scRNA, EPCAM+/PTPRC−
 
 15 samples (12 post-tx passing QC: 4 MPR vs 8 non-MPR). TACSTD2 AUC 0.34, p=0.46 (lower in MPR). CLDN4 AUC 0.66, p=0.46 (higher in MPR). Opposite directions, both noise. Pre-treatment scRNA is only P05/P08 (both non-MPR) plus P01 (NE) — not testable.
@@ -94,13 +112,14 @@ EPCAM+ mean TACSTD2: W1 non-resp 1.08, W2 resp 1.09, W3 non-resp 1.48. The non-r
 1. **Endpoint mismatch.** MPR/pCR is a surgical-pathology endpoint. GSE205335 is RECIST in advanced disease. We report it because it is the only <2 GB public lung-ICI scRNA object with published malignant labels and TACSTD2, not because it answers the neoadjuvant question.
 2. **Timing mismatch.** GSE207422 bulk is baseline. GSE207422 scRNA, GSE241934, and GSE146100 are on- or post-treatment. Residual malignant TACSTD2 after a good pathologic response is a different quantity from pre-treatment TACSTD2.
 3. **Compartment mismatch.** Bulk mixes stroma/immune; scRNA uses epithelium or published malignant cells. GSE207422 scRNA malignant calls are a marker gate, not author CNV/malignant labels.
-4. **Direction mismatch.** Baseline bulk: TACSTD2 lower in MPR (n.s.). Post-tx GSE241934 epithelium: TACSTD2 higher in MPR (n.s.). These should not be meta-analyzed as one effect.
-5. **Power.** Largest clean MPR contrast is 9 vs 15. No dataset is powered for a modest effect.
-6. **GSE243013** would have been the large neoadjuvant scRNA resource (n=234) but the immune counts matrix is 7.1 GB and is not an epithelial/malignant atlas we can process under the cap.
+4. **Direction mismatch.** Unadjusted baseline bulk: TACSTD2 lower in MPR (n.s.). That signal collapses after EPCAM residualization (AUC 0.56). Post-tx GSE241934 epithelium: TACSTD2 higher in MPR (n.s.). These should not be meta-analyzed as one effect.
+5. **Purity mismatch.** Bulk TACSTD2/CLDN4 mostly track EPCAM (ρ 0.70 / 0.78). Any bulk “ADC-target vs MPR” claim that ignores tumor content is not interpretable.
+6. **Power.** Largest clean MPR contrast is 9 vs 15. No dataset is powered for a modest effect.
+7. **GSE243013** would have been the large neoadjuvant scRNA resource (n=234) but the immune counts matrix is 7.1 GB and is not an epithelial/malignant atlas we can process under the cap.
 
 ### 5. Conclusion
 
-Public processed GEO data do **not** support TACSTD2 or CLDN4 as predictors of MPR to neoadjuvant PD-1/PD-L1 ± chemo in NSCLC. The single baseline test is a weak, non-significant trend in the *opposite* direction from “high ADC-target → better pathologic response.” Leftover malignant-cell analyses are small, mixed, and (for GSE205335) the wrong endpoint. A real test needs a second baseline bulk or malignant-cell cohort with MPR labels — that object is not on GEO in processed form under 2 GB as of this slice.
+Public processed GEO data do **not** support TACSTD2 or CLDN4 as predictors of MPR to neoadjuvant PD-1/PD-L1 ± chemo in NSCLC. The single baseline test’s unadjusted “lower in MPR” trend is a tumor-content artifact (TACSTD2–EPCAM ρ=0.70); after residualization it is null. Leftover malignant-cell analyses are small, mixed, and (for GSE205335) the wrong endpoint. A real test needs a second baseline bulk or malignant-cell cohort with MPR labels **and** a purity/histology plan — that object is not on GEO in processed form under 2 GB as of this slice.
 
 ---
 
@@ -137,6 +156,9 @@ TACSTD2：AUC 0.38（0.15–0.61），p=0.34；与残存肿瘤 Spearman ρ=+0.25
 CLDN4：AUC 0.36（0.13–0.58），p=0.26；ρ=+0.22，p=0.31。  
 方向：MPR 者基线表达**偏低**（残存越多、表达越高）。均不显著。
 
+**敏感性（组织学 / 肿瘤含量）**  
+TACSTD2 与 EPCAM Spearman ρ=**0.70**（p=1.4×10⁻⁴），CLDN4 ρ=**0.78**。按腺癌/鳞癌分层后 TACSTD2–MPR 分别为 AUC 0.20 / 0.50，均不显著；两组织学 MPR 率相近（37.5% vs 33%，Fisher p=1）。对 EPCAM 回归残差后再比 MPR：TACSTD2 AUC 0.56、p=0.68（消失）；CLDN4 AUC 0.72、p=0.084（探索性、仍不显著，且与未校正方向相反）。未校正的「MPR 更低」主要是**纯度伪影**（若干 MPR/pCR 活检 EPCAM 低）。pCR vs 非 pCR 同样不显著。
+
 **Leftover GSE207422 治疗后 scRNA（EPCAM+/PTPRC−，4 vs 8）**  
 TACSTD2 AUC 0.34，p=0.46（MPR 更低）；CLDN4 AUC 0.66，p=0.46（MPR 更高）。方向相反，都是噪声。治疗前 scRNA 只有 2 例有 MPR 标签且均为非 MPR，无法检验。
 
@@ -155,13 +177,14 @@ TACSTD2 AUC 0.65（0.43–0.84），p=0.17（MPR 更高）；CLDN4 AUC 0.50，p=
 1. **终点错配**：MPR/pCR 是手术病理终点；GSE205335 是晚期 RECIST。收录它是因为它是目前唯一 <2 GB、带官方恶性注释且能读出 TACSTD2 的公开肺 ICI scRNA，**不是**因为它回答了新辅助问题。
 2. **时点错配**：GSE207422 bulk 是基线；其余多为治疗中/后残存。
 3. **区室错配**：bulk 混有间质/免疫；scRNA 用上皮或恶性细胞。GSE207422 scRNA 的「恶性」是标记门控，不是作者 CNV 注释。
-4. **方向错配**：基线 bulk TACSTD2 在 MPR 偏低（不显著）；治疗后 GSE241934 上皮 TACSTD2 在 MPR 偏高（不显著）。不能合成一个效应。
-5. **效能**：最干净的 MPR 对比是 9 vs 15，检测中等效应的能力不足。
-6. **GSE243013** 本应是最大的新辅助 scRNA（n=234），但免疫 counts 7.1 GB，且不是上皮/恶性图谱，本切片无法处理。
+4. **方向错配**：未校正基线 bulk TACSTD2 在 MPR 偏低（不显著），EPCAM 残差化后消失（AUC 0.56）；治疗后 GSE241934 上皮 TACSTD2 在 MPR 偏高（不显著）。不能合成一个效应。
+5. **纯度错配**：bulk TACSTD2/CLDN4 主要跟着 EPCAM 走（ρ 0.70 / 0.78）。不校正肿瘤含量的 bulk「ADC 靶点 vs MPR」不可解释。
+6. **效能**：最干净的 MPR 对比是 9 vs 15，检测中等效应的能力不足。
+7. **GSE243013** 本应是最大的新辅助 scRNA（n=234），但免疫 counts 7.1 GB，且不是上皮/恶性图谱，本切片无法处理。
 
 ### 5. 结论
 
-现有已处理的公开 GEO 数据**不支持** TACSTD2 或 CLDN4 作为新辅助 PD-1/PD-L1 ± 化疗 MPR 的预测标志。唯一的基线检验是弱的、不显著的、且方向与「ADC 靶点高 → 病理缓解更好」相反。恶性细胞 leftover 样本小、方向乱；GSE205335 还是错误终点。要做实这个假设，需要第二个带 MPR 标签的**治疗前** bulk 或恶性细胞队列——该对象目前不以 <2 GB 已处理形式存在于 GEO。
+现有已处理的公开 GEO 数据**不支持** TACSTD2 或 CLDN4 作为新辅助 PD-1/PD-L1 ± 化疗 MPR 的预测标志。唯一基线检验的未校正「MPR 更低」是肿瘤含量伪影（TACSTD2–EPCAM ρ=0.70），残差化后为无关联。恶性细胞 leftover 样本小、方向乱；GSE205335 还是错误终点。要做实这个假设，需要第二个带 MPR 标签的**治疗前**队列，并且必须预先计划纯度/组织学校正——该对象目前不以 <2 GB 已处理形式存在于 GEO。
 
 ---
 
@@ -177,6 +200,7 @@ python3 scripts/fable_neoadj/03_gse146100_scrna.py
 python3 scripts/fable_neoadj/05_gse207422_scrna_malignant.py
 python3 scripts/fable_neoadj/06_gse205335_malignant.py
 python3 scripts/fable_neoadj/04_meta_summary.py
+python3 scripts/fable_neoadj/07_sensitivity.py
 ```
 
 Derived tables and figures live under `results/fable_neoadj/tables/` and `results/fable_neoadj/figures/`. Raw GEO downloads are gitignored.
