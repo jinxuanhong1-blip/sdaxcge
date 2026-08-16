@@ -1,0 +1,7 @@
+gsm	title	library	model	tissue	treatment	h5	note
+GSM9101264	Lymph Node Sample	N357	patient_357	lymph_node	neoadjuvant_EGFR_TKI_residual	GSM9101264_N357_filtered_feature_bc_matrix.h5	
+GSM9101265	Tumor Site Sample	T357	patient_357	tumor	neoadjuvant_EGFR_TKI_residual	GSM9101265_T357_filtered_feature_bc_matrix.h5	
+GSM9128162	DFCI282_Ositreated	DFCI282_Ositreated	DFCI282	cell_line	osimertinib	GSM9128162_DF282Osi_filtered_feature_bc_matrix.h5	
+GSM9128163	DFCI282_Vehicle	DFCI282_Vehicle	DFCI282	cell_line	vehicle	GSM9128163_DF282Veh_filtered_feature_bc_matrix.h5	
+GSM9128164	PC9_Osi	PC9_Osi	PC9	cell_line	osimertinib	GSM9128164_PC9Osi_filtered_feature_bc_matrix.h5	
+GSM9128165	PC9_Veh	PC9_Veh	PC9	cell_line	vehicle	GSM9128165_PC9Veh_filtered_feature_bc_matrix.h5	GEO source_name/cell_line fields say PC10; library name is PC9_Veh. Treated as the paired vehicle for PC9_Osi.

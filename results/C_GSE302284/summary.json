@@ -1,0 +1,281 @@
+{
+  "series": "GSE302284",
+  "generated_at": "2026-08-16T20:34:24.818305+00:00",
+  "sacituzumab_or_skb264_rna_deposited": false,
+  "public_analog_of_skb264": "Not as a treatment RNA contrast. SG is mentioned in the series abstract; deposited libraries are osimertinib vs vehicle plus one residual patient pair.",
+  "n_library_per_arm": 1,
+  "libraries": [
+    {
+      "gsm": "GSM9101264",
+      "library": "N357",
+      "model": "patient_357",
+      "treatment": "neoadjuvant_EGFR_TKI_residual",
+      "n_raw": 6469,
+      "n_fail_umi10": 643,
+      "n_fail_gene10": 634,
+      "n_fail_mito25": 226,
+      "median_mito_frac": 0.06763059701492537,
+      "n_qc": 5317
+    },
+    {
+      "gsm": "GSM9101265",
+      "library": "T357",
+      "model": "patient_357",
+      "treatment": "neoadjuvant_EGFR_TKI_residual",
+      "n_raw": 9274,
+      "n_fail_umi10": 921,
+      "n_fail_gene10": 913,
+      "n_fail_mito25": 2813,
+      "median_mito_frac": 0.19632492443243937,
+      "n_qc": 5455
+    },
+    {
+      "gsm": "GSM9128162",
+      "library": "DFCI282_Ositreated",
+      "model": "DFCI282",
+      "treatment": "osimertinib",
+      "n_raw": 2608,
+      "n_fail_umi10": 261,
+      "n_fail_gene10": 261,
+      "n_fail_mito25": 1215,
+      "median_mito_frac": 0.183541994440656,
+      "n_qc": 1175
+    },
+    {
+      "gsm": "GSM9128163",
+      "library": "DFCI282_Vehicle",
+      "model": "DFCI282",
+      "treatment": "vehicle",
+      "n_raw": 2421,
+      "n_fail_umi10": 242,
+      "n_fail_gene10": 242,
+      "n_fail_mito25": 397,
+      "median_mito_frac": 0.004101722723543888,
+      "n_qc": 1793
+    },
+    {
+      "gsm": "GSM9128164",
+      "library": "PC9_Osi",
+      "model": "PC9",
+      "treatment": "osimertinib",
+      "n_raw": 1688,
+      "n_fail_umi10": 169,
+      "n_fail_gene10": 168,
+      "n_fail_mito25": 385,
+      "median_mito_frac": 0.06546605758934526,
+      "n_qc": 1217
+    },
+    {
+      "gsm": "GSM9128165",
+      "library": "PC9_Veh",
+      "model": "PC9",
+      "treatment": "vehicle",
+      "n_raw": 1631,
+      "n_fail_umi10": 162,
+      "n_fail_gene10": 162,
+      "n_fail_mito25": 67,
+      "median_mito_frac": 0.013287977038375677,
+      "n_qc": 1420
+    }
+  ],
+  "key": [
+    {
+      "contrast": "DFCI282_osi_vs_veh",
+      "feature": "TACSTD2",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1175,
+      "n_cells_ctrl": 1793,
+      "log2FC_pseudobulk": 2.146947603498086,
+      "direction": "up",
+      "mwu_p_cell": 4.617188891730812e-75,
+      "rank_biserial": 0.3230876576758315
+    },
+    {
+      "contrast": "DFCI282_osi_vs_veh",
+      "feature": "CLDN4",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1175,
+      "n_cells_ctrl": 1793,
+      "log2FC_pseudobulk": 1.687853154687329,
+      "direction": "up",
+      "mwu_p_cell": 3.771549555674553e-17,
+      "rank_biserial": 0.16007357216598828
+    },
+    {
+      "contrast": "DFCI282_osi_vs_veh",
+      "feature": "TJ_SIG",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1175,
+      "n_cells_ctrl": 1793,
+      "log2FC_pseudobulk": 1.7041868589165976,
+      "direction": "up",
+      "mwu_p_cell": 5.913009730871443e-82,
+      "rank_biserial": 0.4114739352802268
+    },
+    {
+      "contrast": "DFCI282_osi_vs_veh",
+      "feature": "IFN_ISG",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1175,
+      "n_cells_ctrl": 1793,
+      "log2FC_pseudobulk": 0.10868253042860634,
+      "direction": "up",
+      "mwu_p_cell": 0.0005785346982342348,
+      "rank_biserial": -0.07459030983375059
+    },
+    {
+      "contrast": "DFCI282_osi_vs_veh",
+      "feature": "MHC1_APM",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1175,
+      "n_cells_ctrl": 1793,
+      "log2FC_pseudobulk": 0.0957009340284447,
+      "direction": "up",
+      "mwu_p_cell": 0.007776077861984221,
+      "rank_biserial": -0.05767773018001443
+    },
+    {
+      "contrast": "DFCI282_osi_vs_veh",
+      "feature": "PRIORITY6",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1175,
+      "n_cells_ctrl": 1793,
+      "log2FC_pseudobulk": -0.6749287466519623,
+      "direction": "down",
+      "mwu_p_cell": 6.169328774077508e-24,
+      "rank_biserial": -0.2186175552681231
+    },
+    {
+      "contrast": "PC9_osi_vs_veh",
+      "feature": "TACSTD2",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1217,
+      "n_cells_ctrl": 1420,
+      "log2FC_pseudobulk": 1.3906299571245162,
+      "direction": "up",
+      "mwu_p_cell": 4.3132148762459655e-76,
+      "rank_biserial": 0.4045823833717175
+    },
+    {
+      "contrast": "PC9_osi_vs_veh",
+      "feature": "CLDN4",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1217,
+      "n_cells_ctrl": 1420,
+      "log2FC_pseudobulk": 1.640548996687506,
+      "direction": "up",
+      "mwu_p_cell": 8.474308594924392e-106,
+      "rank_biserial": 0.4441231613179488
+    },
+    {
+      "contrast": "PC9_osi_vs_veh",
+      "feature": "TJ_SIG",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1217,
+      "n_cells_ctrl": 1420,
+      "log2FC_pseudobulk": 0.8046397450188668,
+      "direction": "up",
+      "mwu_p_cell": 1.056513131948643e-60,
+      "rank_biserial": 0.3676444038098765
+    },
+    {
+      "contrast": "PC9_osi_vs_veh",
+      "feature": "IFN_ISG",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1217,
+      "n_cells_ctrl": 1420,
+      "log2FC_pseudobulk": 0.8653578072797548,
+      "direction": "up",
+      "mwu_p_cell": 3.429445076238838e-65,
+      "rank_biserial": 0.3821079310703994
+    },
+    {
+      "contrast": "PC9_osi_vs_veh",
+      "feature": "MHC1_APM",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1217,
+      "n_cells_ctrl": 1420,
+      "log2FC_pseudobulk": 0.5939231393515356,
+      "direction": "up",
+      "mwu_p_cell": 1.6406092527503075e-07,
+      "rank_biserial": 0.1181090652377701
+    },
+    {
+      "contrast": "PC9_osi_vs_veh",
+      "feature": "PRIORITY6",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1217,
+      "n_cells_ctrl": 1420,
+      "log2FC_pseudobulk": 1.5374067005911192,
+      "direction": "up",
+      "mwu_p_cell": 2.0107191565849618e-23,
+      "rank_biserial": 0.22107294547895417
+    },
+    {
+      "contrast": "patient357_tumor_vs_LN",
+      "feature": "TACSTD2",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1401,
+      "n_cells_ctrl": 88,
+      "log2FC_pseudobulk": 3.7438793008866345,
+      "direction": "up",
+      "mwu_p_cell": 0.004485847521292045,
+      "rank_biserial": 0.09960417883330086
+    },
+    {
+      "contrast": "patient357_tumor_vs_LN",
+      "feature": "CLDN4",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1401,
+      "n_cells_ctrl": 88,
+      "log2FC_pseudobulk": 8.631032459260233,
+      "direction": "up",
+      "mwu_p_cell": 3.574382774062784e-05,
+      "rank_biserial": 0.16559600285510356
+    },
+    {
+      "contrast": "patient357_tumor_vs_LN",
+      "feature": "TJ_SIG",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1401,
+      "n_cells_ctrl": 88,
+      "log2FC_pseudobulk": 4.076631706753659,
+      "direction": "up",
+      "mwu_p_cell": 6.904449154484984e-05,
+      "rank_biserial": 0.20370190123937437
+    },
+    {
+      "contrast": "patient357_tumor_vs_LN",
+      "feature": "IFN_ISG",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1401,
+      "n_cells_ctrl": 88,
+      "log2FC_pseudobulk": -0.3021950480443203,
+      "direction": "down",
+      "mwu_p_cell": 0.21055568058941898,
+      "rank_biserial": -0.07917234442930376
+    },
+    {
+      "contrast": "patient357_tumor_vs_LN",
+      "feature": "MHC1_APM",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1401,
+      "n_cells_ctrl": 88,
+      "log2FC_pseudobulk": -0.7906530108653835,
+      "direction": "down",
+      "mwu_p_cell": 0.588971242328282,
+      "rank_biserial": -0.034301797417429114
+    },
+    {
+      "contrast": "patient357_tumor_vs_LN",
+      "feature": "PRIORITY6",
+      "n_library": "1 vs 1",
+      "n_cells_treat": 1401,
+      "n_cells_ctrl": 88,
+      "log2FC_pseudobulk": -0.8786996967794353,
+      "direction": "down",
+      "mwu_p_cell": 0.03698882016276176,
+      "rank_biserial": -0.12564077606904156
+    }
+  ]
+}
