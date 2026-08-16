@@ -246,6 +246,40 @@ for gene in ("TACSTD2", "CLDN4"):
                  "post-treatment samples with >=10 malignant-like cells")
         print(f"    vs {ilabel}: n={n_s} rho={fmt_r(r)} p={fmt_p(p_s)}")
 
+# sensitivity: min 1 malignant-like cell (keeps low-count MPR remnants)
+post_min1 = post.copy()
+# recompute means with min 1 from the already-written n_malignant_like + we need raw means
+# Rebuild from cells for min1 and all-epithelial
+sens_rows = []
+for sample, g in cells.groupby("sample"):
+    if sample not in set(post["sample"]):
+        continue
+    mal = g.loc[g.malignant_like]
+    epi = g.loc[g.lineage == "Epithelial"]
+    rec = {"sample": sample}
+    for gene in ("TACSTD2", "CLDN4"):
+        col = f"{gene}_log1p"
+        rec[f"mal1_{gene}"] = float(mal[col].mean()) if len(mal) >= 1 else np.nan
+        rec[f"epi_{gene}"] = float(epi[col].mean()) if len(epi) >= 1 else np.nan
+    rec["n_mal"] = int(g.malignant_like.sum())
+    rec["n_epi"] = int((g.lineage == "Epithelial").sum())
+    sens_rows.append(rec)
+sens = pd.DataFrame(sens_rows).merge(post[["sample", "mpr_group", "frac_tnk", "frac_cd8", "frac_b_plasma"]], on="sample")
+for gene in ("TACSTD2", "CLDN4"):
+    for prefix, label, minn in (("mal1", "malignant-like min1", 1), ("epi", "all epithelial min1", 1)):
+        metric = f"{prefix}_{gene}"
+        ok = sens.loc[sens[metric].notna() & sens.mpr_group.isin(["MPR", "NMPR"])]
+        a = ok.loc[ok.mpr_group == "MPR", metric]
+        b = ok.loc[ok.mpr_group == "NMPR", metric]
+        u, p, na, nb = mwu(a, b)
+        add_stat("GSE207422", "sensitivity_mpr_post", f"NMPR vs MPR ({label})",
+                 metric, f"{na}+{nb}", "mannwhitney_u", u, p,
+                 f"MPR med={a.median():.4f} (n={na}); NMPR med={b.median():.4f} (n={nb})")
+        r, p_s, n_s = spear(ok[metric], ok["frac_tnk"])
+        add_stat("GSE207422", "sensitivity_spearman_post", f"{label} {gene} vs T/NK fraction",
+                 metric, n_s, "spearman_rho", r, p_s, "post-tx sensitivity")
+        print(f"  SENS {label} {gene}: MPR n={na} vs NMPR n={nb} p={fmt_p(p)}; vs T/NK n={n_s} rho={fmt_r(r)} p={fmt_p(p_s)}")
+
 # residual tumor (continuous pathologic burden) vs malignant TACSTD2
 rt = pd.to_numeric(post_ok["Residual Tumor"], errors="coerce")
 for gene in ("TACSTD2", "CLDN4"):
@@ -293,7 +327,7 @@ for ax, gene in zip(axes, ("TACSTD2", "CLDN4")):
     plot_df = post_ok.dropna(subset=[metric, "mpr_group"])
     groups = ["MPR", "NMPR"]
     data = [plot_df.loc[plot_df.mpr_group == g, metric].to_numpy() for g in groups]
-    bp = ax.boxplot(data, labels=groups, patch_artist=True, widths=0.55)
+    bp = ax.boxplot(data, tick_labels=groups, patch_artist=True, widths=0.55)
     colors = ["#4C9F70", "#C44E52"]
     for patch, c in zip(bp["boxes"], colors):
         patch.set_facecolor(c)
@@ -367,7 +401,7 @@ comp = [
     cells.loc[cells.malignant_like, "TACSTD2_log1p"].dropna(),
     cells.loc[cells.is_tnk, "TACSTD2_log1p"].dropna(),
 ]
-ax.boxplot(comp, labels=["malignant-like", "T/NK"], showfliers=False)
+ax.boxplot(comp, tick_labels=["malignant-like", "T/NK"], showfliers=False)
 ax.set_ylabel("TACSTD2 log1p CP10K (cells)")
 ax.set_title("GSE207422: TACSTD2 is epithelial-restricted\n(cell-level; exploratory)")
 fig.tight_layout()
@@ -549,7 +583,7 @@ for ax, gene in zip(axes, ("TACSTD2", "CLDN4")):
     plot_df = pt_rn.dropna(subset=[metric])
     groups = ["R", "NR"]
     data = [plot_df.loc[plot_df.response == g, metric].to_numpy() for g in groups]
-    bp = ax.boxplot(data, labels=groups, patch_artist=True, widths=0.55)
+    bp = ax.boxplot(data, tick_labels=groups, patch_artist=True, widths=0.55)
     for patch, c in zip(bp["boxes"], ["#4C9F70", "#C44E52"]):
         patch.set_facecolor(c)
         patch.set_alpha(0.55)

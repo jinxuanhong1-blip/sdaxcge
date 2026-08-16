@@ -10,7 +10,7 @@ Only processed matrices. Files >2 GB skipped. T-sorted-only series skipped (GSE1
 |---|---|---|---|---|
 | **GSE207422** | Neoadjuvant PD-1 + chemo NSCLC (Hu et al. *Genome Med* 2023, PMID 36869384) | `GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz` + sample `metadata.xlsx` | 175 MB + 11 KB | **MPR / pCR / NMPR** and RECIST. 15 samples (3 pre-tx biopsy, 12 post-tx surgery). No per-cell CopyKAT labels on GEO. |
 | **GSE205335** | Palliative lung ICI atlas (Park/Ahn/Lee) | `GSE205335_Lung_IO_UMI_matrix.rds.gz` + `CellIdentity.txt.gz` + SOFT | 499 MB + 719 KB | **RECIST** only (PR/SD/PD/NE). Not MPR. Author `lineage.sub` includes `Malignant cells`. |
-| **GSE271689** | GeoMx DSP, ICI, OS (spatial, not single-cell) | `GSE271689_RAW.tar` (35 MB) | 35 MB | OS / ICI. Secondary; not required for the “done” gate. |
+| **GSE271689** | GeoMx DSP, ICI OS (spatial, not scRNA) | `GSE271689_RAW.tar` is **DCC-only** (no processed gene × ROI + OS table) | 35 MB | Surveyed; not analyzed. No fake survival from DCC alone. |
 
 ## Surveyed, not used as primary ICI-response tests
 
