@@ -1,0 +1,28 @@
+{
+  "release": "DepMap Public 24Q4",
+  "release_doi": "10.25452/figshare.plus.27993248.v1",
+  "cohort_definition": "OncotreeLineage == Lung; ModelType == Cell Line; OncotreePrimaryDisease != Non-Cancerous",
+  "metadata_lung_cancer_lines": 254,
+  "expression_models": 208,
+  "crispr_overlap_models": 123,
+  "ifna_declared_genes": 97,
+  "ifng_declared_genes": 200,
+  "ifna_expression_genes": 97,
+  "ifng_expression_genes": 198,
+  "ifna_crispr_genes": 97,
+  "ifng_crispr_genes": 198,
+  "ifn_unique_crispr_genes": 222,
+  "ifna_ifng_overlap": 73,
+  "checksums_md5": {
+    "Model.csv": "675210d17675f3517b0ce39a3c274f16",
+    "OmicsExpressionProteinCodingGenesTPMLogp1.csv": "71794802b750ce77c422dad0720a40af",
+    "CRISPRGeneEffect.csv": "6edf7ade09b9b34199210b559d4745d3"
+  },
+  "source_urls": {
+    "Model.csv": "https://ndownloader.figshare.com/files/51065297",
+    "OmicsExpressionProteinCodingGenesTPMLogp1.csv": "https://ndownloader.figshare.com/files/51065489",
+    "CRISPRGeneEffect.csv": "https://ndownloader.figshare.com/files/51064667"
+  },
+  "bootstrap_seed": 20260816,
+  "bootstrap_iterations": 5000
+}
