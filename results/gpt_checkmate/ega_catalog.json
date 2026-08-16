@@ -1,0 +1,204 @@
+{
+  "generated_at": "2026-08-16T19:40:04+00:00",
+  "api": "https://metadata.ega-archive.org",
+  "scan": {
+    "method": "case-insensitive literal alias matching over title, description, and abstract",
+    "study_records_scanned": 10502,
+    "dataset_records_scanned": 21321,
+    "aliases": {
+      "017": [
+        "checkmate 017",
+        "checkmate-017",
+        "checkmate017",
+        "ca209-017",
+        "ca209017"
+      ],
+      "057": [
+        "checkmate 057",
+        "checkmate-057",
+        "checkmate057",
+        "ca209-057",
+        "ca209057"
+      ],
+      "227": [
+        "checkmate 227",
+        "checkmate-227",
+        "checkmate227",
+        "ca209-227",
+        "ca209227"
+      ],
+      "9LA": [
+        "checkmate 9la",
+        "checkmate-9la",
+        "checkmate9la",
+        "ca209-9la",
+        "ca2099la"
+      ],
+      "816": [
+        "checkmate 816",
+        "checkmate-816",
+        "checkmate816",
+        "ca209-816",
+        "ca209816"
+      ],
+      "153": [
+        "checkmate 153",
+        "checkmate-153",
+        "checkmate153",
+        "ca209-153",
+        "ca209153"
+      ]
+    }
+  },
+  "matches": {
+    "017": {
+      "studies": [],
+      "datasets": []
+    },
+    "057": {
+      "studies": [],
+      "datasets": []
+    },
+    "227": {
+      "studies": [],
+      "datasets": []
+    },
+    "9LA": {
+      "studies": [],
+      "datasets": []
+    },
+    "816": {
+      "studies": [],
+      "datasets": []
+    },
+    "153": {
+      "studies": [
+        {
+          "accession_id": "EGAS00001007508",
+          "title": "ExomeSeq Neoantigen Immunogenicity Landscapes",
+          "description": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "abstract": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2023-08-18T15:03:05+02:00",
+          "is_deprecated": false
+        },
+        {
+          "accession_id": "EGAS00001007509",
+          "title": "RNASeq Neoantigen Immunogenicity Landscape",
+          "description": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "abstract": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2023-08-18T15:03:05+02:00",
+          "is_deprecated": false
+        }
+      ],
+      "datasets": [
+        {
+          "accession_id": "EGAD00001011302",
+          "title": "Neoantigen Immunogenicity Landscapes and Evolution of Tumor Ecosystems During Immunotherapy with Nivolumab",
+          "description": "We performed Whole Exome (WXS) and RNASeq sequencing on samples obtained from the same site before and during therapy from our prospective clinical trial (CA209-153, NCT02066636) of nivolumab in advanced Non-small cell lung cancer (NSCLC)  patients that progressed on chemotherapy. There are 58 pre and 42 on therapy WXS samples and 24 pre  and 12 on therapy RNASeq samples. All WXS tumor samples have matching normal samples.",
+          "dataset_types": [
+            "Exome sequencing",
+            "Transcriptome profiling by high-throughput sequencing"
+          ],
+          "technologies": [
+            "Illumina HiSeq 4000"
+          ],
+          "num_samples": 200,
+          "access_type": "controlled",
+          "is_in_beacon": false,
+          "is_released": true,
+          "released_date": "2001-01-01T00:00:00+01:00",
+          "is_deprecated": false,
+          "policy_accession_id": "EGAP00001003460"
+        }
+      ]
+    }
+  },
+  "dataset_details": {
+    "EGAD00001011302": {
+      "dataset": {
+        "accession_id": "EGAD00001011302",
+        "title": "Neoantigen Immunogenicity Landscapes and Evolution of Tumor Ecosystems During Immunotherapy with Nivolumab",
+        "description": "We performed Whole Exome (WXS) and RNASeq sequencing on samples obtained from the same site before and during therapy from our prospective clinical trial (CA209-153, NCT02066636) of nivolumab in advanced Non-small cell lung cancer (NSCLC)  patients that progressed on chemotherapy. There are 58 pre and 42 on therapy WXS samples and 24 pre  and 12 on therapy RNASeq samples. All WXS tumor samples have matching normal samples.",
+        "dataset_types": [
+          "Exome sequencing",
+          "Transcriptome profiling by high-throughput sequencing"
+        ],
+        "technologies": [
+          "Illumina HiSeq 4000"
+        ],
+        "num_samples": 200,
+        "access_type": "controlled",
+        "is_in_beacon": false,
+        "is_released": true,
+        "released_date": "2001-01-01T00:00:00+01:00",
+        "is_deprecated": false,
+        "policy_accession_id": "EGAP00001003460"
+      },
+      "studies": [
+        {
+          "accession_id": "EGAS00001007508",
+          "title": "ExomeSeq Neoantigen Immunogenicity Landscapes",
+          "description": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "abstract": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2023-08-18T15:03:05+02:00",
+          "is_deprecated": false
+        },
+        {
+          "accession_id": "EGAS00001007509",
+          "title": "RNASeq Neoantigen Immunogenicity Landscape",
+          "description": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "abstract": "Immune checkpoint blockade (ICB) therapy is a cornerstone of oncologic treatment for patients with advanced stage non-small cell lung cancer (NSCLC) and other malignancies.  Neoantigen immunoediting drives ICB efficacy, yet the fundamental physiochemical characteristics of neoantigens and how neoantigen immunogenicity shapes treatment response remains poorly understood.  To help address these questions, a prospective clinical trial of NSCLC patients treated with nivolumab was conducted.  We assessed genomic alterations in tumors from 58 patients and performed large-scale neoepitope immunogenicity analyses, before and during treatment (CheckMate153, CA209-153). Tumors were analyzed by whole-exome and transcriptome sequencing. In responding patients, loss of mutation and neoantigen burden early during therapy associated with clinical benefit.  We evaluated the immunogenicity of 1,453 candidate neoantigens and identified 502 neopeptides that bound to MHC I and 196 neopeptides that were immunogenically recognized by T cells in the setting of nivolumab treatment.  These T cell reactive neoantigens were differentially present in clonal populations that underwent distinctive evolutionary trajectories across responders and nonresponders.  Mapping these neoantigens to tumor clonal dynamics and clinical response revealed strong selection against immunogenic neoantigen harboring clones compared to non-immunogenic clones. Using this large collection of neoantigens, we identified position specific amino acid features related to immunogenicity, which we used to develop and validate an immunogenicity score.  Changes in the genomic and neoantigen immunogenicity landscapes were accompanied by temporal changes in the tumor microenvironment.  Nivolumab-induced microenvironmental evolution in NSCLC shared some similarities with that in melanoma, yet critical differences in immunologic programs were apparent from comparative network analysis between tumor types. This study provides unprecedented molecular portraits of the neoantigen landscapes underlying nivolumab’s mechanism of action.",
+          "study_type": "Other",
+          "pubmed_ids": null,
+          "external_links": null,
+          "is_released": true,
+          "released_date": "2023-08-18T15:03:05+02:00",
+          "is_deprecated": false
+        }
+      ],
+      "dacs": [
+        {
+          "accession_id": "EGAC00001003387",
+          "title": "Senior Director, Grants and Contracts",
+          "description": null,
+          "url": null,
+          "is_released": true,
+          "released_date": "2001-01-01T00:00:00+01:00",
+          "is_deprecated": false,
+          "contacts": [
+            {
+              "email": "gottfra@ccf.org",
+              "is_main": true,
+              "surname": null,
+              "first_name": "Avery Gottfried",
+              "institution_name": null
+            }
+          ]
+        }
+      ],
+      "file_summary": {
+        "count": 400,
+        "total_bytes": 1957541154314,
+        "min_bytes": 363040137,
+        "max_bytes": 11064864120,
+        "extensions": {
+          "fastq.gz": 400
+        },
+        "files_under_2GB_decimal": 47,
+        "note": "File-level records are metadata only; controlled files were not downloaded."
+      }
+    }
+  }
+}
