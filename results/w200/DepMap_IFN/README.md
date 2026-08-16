@@ -28,7 +28,13 @@ The script verifies the official MD5 checksums before reading the files.
 ```bash
 python3 -m pip install -r results/w200/DepMap_IFN/requirements.txt
 python3 results/w200/DepMap_IFN/analyze.py
+python3 results/w200/DepMap_IFN/analyze_ifn_treated.py
 ```
+
+`analyze.py` is the basal DepMap 24Q4 analysis. `analyze_ifn_treated.py`
+adds public GEO IFN-treated lung-line experiments because DepMap itself has
+no IFN-treated transcriptomes. GEO processed matrices are downloaded to
+`results/w200/DepMap_IFN/geo/` and gitignored.
 
 The primary cohort is fixed as malignant DepMap models satisfying:
 

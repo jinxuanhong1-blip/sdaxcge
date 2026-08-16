@@ -348,6 +348,8 @@ def write_report(
         "Histology adjustment is limited and cannot remove all confounding.",
         "- Current DepMap releases are newer than 24Q4, but 24Q4 was used because it has "
         "stable public URLs and file checksums. Release-specific replication is needed.",
+        "- DepMap has no IFN-treated profiles. GEO IFN experiments are mostly A549, which "
+        "is TACSTD2-low in DepMap, and cannot explain the basal cross-line correlation.",
         "",
         "## Reproduction",
         "",
@@ -365,7 +367,9 @@ def write_report(
         "candidate CRISPR screen",
         "- `tables/top_candidate_subgroup_correlations.csv`: exploratory subtype "
         "estimates for adjusted candidate hits",
-        "- `figures/`: scatter and candidate-screen plots",
+        "- `tables/ifn_treated_contrasts.csv`: GEO IFN-versus-control TACSTD2 and ISG tests",
+        "- `tables/ifn_treated_inventory.csv`: included and excluded treatment datasets",
+        "- `figures/`: scatter, candidate-screen, and IFN-treatment plots",
         "- `qc_summary.json`: counts, coverage, checksums, and software-independent inputs",
     ]
     output.write_text("\n".join(lines) + "\n")
