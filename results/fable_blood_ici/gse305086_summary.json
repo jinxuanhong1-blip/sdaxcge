@@ -1,0 +1,34 @@
+{
+  "dataset": "GSE305086",
+  "platform": "GPL570 (HG-U133 Plus 2.0)",
+  "n_samples": 173,
+  "n_probes": 26452,
+  "n_baseline": 76,
+  "n_followup": 76,
+  "n_control": 21,
+  "targets": {
+    "TACSTD2": {
+      "probes": [
+        "202286_s_at",
+        "202285_s_at",
+        "202287_s_at"
+      ],
+      "max_percentile_rank": 41.97,
+      "mean_log2_range": [
+        3.1379,
+        4.2474
+      ]
+    },
+    "CLDN4": {
+      "probes": [
+        "1569421_at",
+        "201428_at"
+      ],
+      "max_percentile_rank": 70.72,
+      "mean_log2_range": [
+        3.4169,
+        6.1593
+      ]
+    }
+  }
+}
