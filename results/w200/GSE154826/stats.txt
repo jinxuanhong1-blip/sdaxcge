@@ -1,0 +1,34 @@
+GSE154826 LCAM vs TACSTD2 (processed/open only)
+
+PRIMARY: author immune-pseudobulk DE LCAM-hi vs LCAM-lo
+  TACSTD2 log2FC=0.3270 p=0.251 padj=0.3594
+  TACSTD2 freq_bg=9.598e-06 freq_fg=1.229e-05 n_cells_above_thresh=342
+  TACSTD2 |log2FC| rank among 20235 genes: 7525
+
+SANITY LCAM genes (should be strongly LCAM-hi):
+  CXCL13: log2FC=2.702 padj=0
+  SPP1: log2FC=1.989 padj=0
+  IGHG1: log2FC=4.741 padj=0
+  PDCD1: log2FC=0.859 padj=0
+
+EPITHELIAL residual in the same DE (tiny frequencies; not tumor TACSTD2):
+  EPCAM: log2FC=0.518 padj=0.0095 freq_fg=3.13e-06
+  CLDN4: log2FC=0.878 padj=0 freq_fg=4.96e-06
+  KRT19: log2FC=0.760 padj=7.14e-05 freq_fg=5.55e-06
+
+IMMUNE vs EPITHELIAL-GATED DE (author immune_vs_ep_de.csv):
+  TACSTD2 l2fc(immune/epi)=-5.532 fg_immune=1.135e-05 bg_epi=0.0005705
+  EPCAM l2fc=-7.831
+  CLDN4 l2fc=-7.416
+  PTPRC l2fc=3.678
+
+COMPOSITION LCAM (no expression; V2 beads tumor samples only):
+  n_samples=30 n_patients=26
+  LCAM_hi calls=15 LCAM_lo calls=15
+  Spearman LCAM-hi vs LCAM-lo scores: rho=-0.471 p=0.00855
+
+SKIPPED (honest, huge raw / unneeded count dumps):
+  - SRA/FASTQ SRP251372 / PRJNA609924
+  - GEO GSE154826_amp_batch_ID_*.tar.gz feature-barcode MTX (~3 GB, no cluster labels)
+  - Dropbox lung_ldm.rd full UMI object (umitab for 361,929 cells)
+
