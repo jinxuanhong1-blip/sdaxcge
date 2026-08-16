@@ -1,0 +1,16 @@
+resource,cancer,treatment,paired_pre_post,n_pre,n_post,n_pairs,n_pairs_MPR,n_pairs_NMPR,note,n_lung_to_lung
+GSE253564 + GSE248378 (Altorki NCT02904954),early NSCLC,neoadjuvant durvalumab ± SBRT,yes_after_joining_two_GEO_series,32.0,29.0,20.0,0.0,20.0,"Leftover timepoints: pre FPKMs in GSE253564, post FPKMs in GSE248378. Numeric IDs join 20 patients. All 20 joinable pairs are NMPR; MPR posts were not deposited in GSE248378.",
+GSE207422 bulk (Hu Genome Med 2023),resectable NSCLC,neoadjuvant PD-1 + chemo,no_deposited_pre_only,24.0,0.0,0.0,,,24 pretreatment biopsies with MPR/NMPR. Not paired.,
+GSE207422 scRNA (Hu Genome Med 2023),resectable NSCLC,neoadjuvant PD-1 + chemo,no_3pre_12post_different_patients,3.0,12.0,0.0,,,0 same-patient pairs. Epithelial = EPCAM>0 cells; score = mean log1p UMI.,
+GSE166449 (Lee Cell 2021 Samsung pembro),advanced LUAD,pembrolizumab,no_pretreatment_only,22.0,0.0,0.0,,,22 pretreatment tumors; 7 RECIST responders vs 15 non-responders. Not paired. Not MPR.,
+GSE248249 (Memon Cancer Cell 2024),advanced NSCLC,PD-(L)1; post = acquired resistance,yes_13_pairs,13.0,29.0,13.0,,,Affymetrix Clariom D RMA. 12/13 pairs are not lung-to-lung. No MPR labels (metastatic acquired resistance).,1.0
+GSE91061 (Riaz Cell 2017),melanoma,nivolumab,yes_pre_on_not_lung,,,,,,Closest public non-lung paired ICI bulk RNA. Not scored here (wrong tissue).,
+GSE291670 (Yang JTM 2025),NSCLC,neoadjuvant anlotinib + camrelizumab,no_6_post_only_scRNA,,,,,,"MPR n=3 vs NMPR n=3 post-resection scRNA. Pretreatment n=3 from HRA001033, not this series.",
+GSE179994 (Liu Nat Cancer 2022),NSCLC,pembro + chemo,partial_Tcell_only,,,,,,Paired biopsies exist but deposited matrix is T-cell/TCR focused; not a tumor TACSTD2 analog.,
+GSE202417,NSCLC,nivo + bezafibrate,yes_but_PBMC_CD8,,,,,,"Paired blood CD8 arrays, not tumor.",
+GSE241934 / HRA007419 (NEOTIDE),EGFR-mutant NSCLC,neoadjuvant sintilimab + chemo,bulk_paired_but_GSA_controlled,,,,,,Paper reports paired bulk RNA; public GEO is post-resection scRNA only. Bulk is HRA007419 (application).,
+EGAD00001011302 (CA209-153),advanced NSCLC,nivolumab,yes_EGA_DAC,,,,,,24 pre and 12 on-therapy RNA-seq. Controlled access. Not used.,
+HRA006493 (GSA),NSCLC,neoadjuvant PD-1 + chemo or anti-VEGFA,yes_GSA_DAC,,,,,,Paired pre/post scRNA claimed. Controlled access. Not used.,
+EGAS00001007753 NEOPREDICT-Lung,NSCLC,neoadjuvant nivo ± relatlimab,NanoString_17_pairs_EGA,,,,,,"17 paired biopsies, PanCancer Immune/Pathway panels. EGA. Not used.",
+Cellular Oncology 2025 CAF/metabolism 13-pair bulk,NSCLC,neoadjuvant PD-1 + chemo,reported_13_pairs_not_in_GEO,,,,,,Authors describe 13 paired bulk RNA-seq; no GEO accession found. Not public.,
+GSE243013 (Cell 2025),NSCLC,neoadjuvant chemo-IO,mostly_post_scRNA,,,,,,243 post-treatment scRNA/TCR. Matched pre FFPE for a subset is not a downloadable bulk TACSTD2 matrix.,
