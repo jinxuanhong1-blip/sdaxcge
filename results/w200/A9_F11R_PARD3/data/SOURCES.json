@@ -1,0 +1,26 @@
+{
+  "downloaded_utc": "2026-08-16T20:06:22.628981+00:00",
+  "files": {
+    "TCGA.LUAD.HiSeqV2.gz": {
+      "url": "https://tcga.xenahubs.net/download/TCGA.LUAD.sampleMap/HiSeqV2.gz",
+      "source": "UCSC Xena TCGA.LUAD.sampleMap/HiSeqV2",
+      "unit": "log2(norm_count+1)",
+      "bytes": 30884695,
+      "sha256": "5432e5a67fc4c4fd6ca22f76f18494756f0e8409a8969df3157935f39947aa00"
+    },
+    "TCGA.LUSC.HiSeqV2.gz": {
+      "url": "https://tcga.xenahubs.net/download/TCGA.LUSC.sampleMap/HiSeqV2.gz",
+      "source": "UCSC Xena TCGA.LUSC.sampleMap/HiSeqV2",
+      "unit": "log2(norm_count+1)",
+      "bytes": 30037912,
+      "sha256": "baa2b486d38cb68be6921b72dd798dd71a08a560ce3d4b5e690aa8c2a77bfa0d"
+    },
+    "Aran_CPE_purity.xlsx": {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fncomms9971/MediaObjects/41467_2015_BFncomms9971_MOESM1236_ESM.xlsx",
+      "source": "Aran et al. Nat Commun 2015 ncomms9971 Supplementary Data 1",
+      "unit": "purity fraction 0-1",
+      "bytes": 553082,
+      "sha256": "fce1ba13ff3a6432b7e4f260eb516e407c967d615ca87bc8dffa7765baf97529"
+    }
+  }
+}
