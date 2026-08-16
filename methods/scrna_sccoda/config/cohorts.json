@@ -1,0 +1,43 @@
+{
+  "access_policy": "open_only",
+  "size_budget_gb": 2.0,
+  "cohorts": {
+    "GSE207422": {
+      "accession": "GSE207422",
+      "paper": "Hu et al. Genome Medicine 2023, PMID 36869384",
+      "design": "NSCLC neoadjuvant PD-1 + chemo; 3 pre-biopsy TN + 12 post-resection",
+      "mpr_public": true,
+      "unit": "sample (= patient)",
+      "processed_matrix": "GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz",
+      "processed_bytes": 183960000,
+      "author_cell_labels_public": false,
+      "public_annotations": ["hu_markers", "drmref"],
+      "skipped": ["HRA001033 raw (GSA-Human)"]
+    },
+    "GSE241934": {
+      "accession": "GSE241934",
+      "paper": "Zhang/Sun/Zhong et al. Cell Reports Medicine 2024, PMID 38897205 (NEOTIDE/CTONG2104)",
+      "design": "11 EGFR-mutant IIT + 34 EGFR-WT real-world LUAD/ASC, all neoadjuvant IO+chemo, FACS 7AAD- CD235a-",
+      "mpr_public": true,
+      "unit": "sampleID (= patient)",
+      "author_cell_labels_public": true,
+      "public_annotations": ["author_major", "author_collapsed", "author_fine_immune", "hu_markers"],
+      "subcohorts": ["IIT", "RWC"],
+      "skipped": ["HRA007419 bulk (GSA)"]
+    },
+    "GSE253013": {
+      "accession": "GSE253013",
+      "paper": "Sze/Xiang et al. Cancer Research 2024, PMID 38335304",
+      "design": "9 treatment-naive LUAD, tumor + adjacent non-tumor; 89 10x lanes",
+      "mpr_public": false,
+      "unit": "patient (tumor lanes only)",
+      "processed_matrix": "GSE253013_all_luad_garnett_temp.rds.gz",
+      "processed_bytes": 9980000000,
+      "within_2gb_budget": false,
+      "author_cell_labels_public": true,
+      "public_annotations": ["marker_coarse", "author_garnett_limited"],
+      "note": "9.3 GB RDS is catalogued, not re-downloaded. Patient-level tables are public-derived from a sibling open extract.",
+      "skipped": ["9.3 GB Garnett RDS (over size budget)"]
+    }
+  }
+}

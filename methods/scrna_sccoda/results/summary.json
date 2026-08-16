@@ -1,0 +1,19 @@
+{
+  "n_models_rows": 1392,
+  "n_primary_grid_tests": 52,
+  "n_recovered_tnk_or_tls_down": 0,
+  "primary_pvalue": "patient-level permutation of the ALR slope (does not scale with n_cells)",
+  "recovered": [],
+  "sccoda": {
+    "status": "not_available",
+    "n_pairs": 23,
+    "reason": "No module named 'anndata'"
+  },
+  "honest_n_note": "n is patients/samples. Cells are the compositional library size, not the replicate unit.",
+  "fdr": {
+    "primary_family": "BH over patient-permutation ALR tests labeled primary_tacstd2 (TNK/TLS)",
+    "q_cut_recovery": 0.1,
+    "bonferroni_column": "bonferroni_primary on the T/NK/B/TLS tacstd2_high ALR-perm grid",
+    "dm_lrt": "diagnostic only; not used for FDR (library-size inflated)"
+  }
+}
