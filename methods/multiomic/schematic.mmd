@@ -1,0 +1,57 @@
+flowchart TB
+    Q["Frozen question / 冻结问题<br/>TACSTD2/CLDN4 junction program<br/>→ immune exclusion + ICI resistance"]
+    C["Analysis contract / 分析契约<br/>event ≠ program ≠ proxy<br/>patient unit • endpoints • covariates • score version"]
+    G{"Governance / 数据治理"}
+    O["Open data / 开放数据<br/>version • license • checksum • provenance"]
+    R["Controlled data / 受控数据<br/>analyze in enclave<br/>export disclosure-reviewed summaries"]
+
+    subgraph M["Modality modules / 模态分析"]
+      B["Bulk RNA<br/>junction reads + frozen program<br/>purity-aware patient models"]
+      S["scRNA<br/>malignant-cell scoring<br/>patient pseudobulk; sparse ≠ absent"]
+      P["Protein<br/>assay-specific abundance<br/>proxy unless junction-specific"]
+      X["Spatial<br/>tumor–immune distance/contact<br/>patient-level resampling"]
+    end
+
+    Z["Within dataset × view × compartment / 数据集内标准化<br/>robust feature z → oriented score → final 1-SD score"]
+    F{"Sufficient connected<br/>multi-view patients?<br/>多模态重叠是否充分？"}
+    MO["MOFA triangulation / MOFA 三角验证<br/>outcome-blind fit • stable loadings<br/>held-out projection"]
+    CO["Consensus score / 共识评分<br/>QC × reliability weights<br/>median + concordance + leave-one-view-out"]
+    U["Modality-specific estimates / 各模态效应量<br/>positive = more exclusion/resistance<br/>estimate + SE + independent patient n"]
+    T["Plug-in result tables / 标准结果表<br/>one row per estimate<br/>access class • evidence tier • meta group"]
+    V["Combiner validation / 合并脚本校验<br/>schema • finite SE • direction • duplicate IDs<br/>pass/warn/fail"]
+    A{"Compatibility gate / 可合并性门控<br/>same estimand, effect type, endpoint,<br/>score, unit, population, treatment,<br/>adjustment, evidence target, no overlap?"}
+    MA["Within-stratum synthesis / 层内综合<br/>inverse-variance fixed effect<br/>CI • Q • I² • leave individual estimates visible"]
+    NM["No pooled effect / 不计算总效应<br/>stratified evidence matrix<br/>directional concordance + reasons"]
+    E["Tiered conclusion / 分层结论<br/>direct event vs program vs proxy<br/>association ≠ prediction ≠ mechanism"]
+
+    Q --> C --> G
+    G --> O
+    G --> R
+    O --> B
+    O --> S
+    O --> P
+    O --> X
+    R --> B
+    R --> S
+    R --> P
+    R --> X
+    B --> Z
+    S --> Z
+    P --> Z
+    X --> Z
+    Z --> F
+    F -- "yes / 是" --> MO --> CO
+    F -- "no / 否" --> U
+    CO --> U
+    U --> T --> V --> A
+    A -- "compatible / 兼容" --> MA --> E
+    A -- "apples ≠ oranges / 不兼容" --> NM --> E
+
+    classDef guard fill:#fff2cc,stroke:#9a6700,color:#332600;
+    classDef data fill:#e7f0ff,stroke:#2457a7,color:#102a43;
+    classDef analysis fill:#e8f5e9,stroke:#2e7d32,color:#17351a;
+    classDef stop fill:#fde8e8,stroke:#b42318,color:#5f1410;
+    class Q,C,G,F,A guard;
+    class O,R,B,S,P,X data;
+    class Z,MO,CO,U,T,V,MA,E analysis;
+    class NM stop;
