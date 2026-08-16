@@ -1,0 +1,22 @@
+contrast	n	spearman_rho	spearman_p	note
+tumor malig-like TACSTD2 mean_log1p vs T/NK fraction (eligible)	9	-0.7166666666666667	0.02981803569584528	
+tumor malig-like TACSTD2 mean_log1p vs T/NK fraction (all tumor patients)	9	-0.7166666666666667	0.02981803569584528	
+tumor malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction (eligible)	9	-0.7833333333333333	0.012519873019449885	
+tumor malig-like TACSTD2 mean log1p(CP10k) vs T/NK fraction (all tumor patients)	9	-0.7833333333333333	0.012519873019449885	
+tumor malig-like TACSTD2 %pos vs T/NK fraction (eligible)	9	-0.8333333333333333	0.005265691029161747	
+tumor malig-like TACSTD2 %pos vs T/NK fraction (all tumor patients)	9	-0.8333333333333333	0.005265691029161747	
+tumor epithelial TACSTD2 mean_log1p vs T/NK fraction (eligible)	9	-0.11666666666666665	0.765007942926146	
+tumor epithelial TACSTD2 mean_log1p vs T/NK fraction (all tumor patients)	9	-0.11666666666666665	0.765007942926146	
+tumor malig-like CLDN4 mean_log1p vs T/NK fraction (eligible)	9	-0.33333333333333337	0.38071318167686347	
+tumor malig-like CLDN4 mean_log1p vs T/NK fraction (all tumor patients)	9	-0.33333333333333337	0.38071318167686347	
+tumor malig-like CLDN4 mean log1p(CP10k) vs T/NK fraction (eligible)	9	-0.5499999999999999	0.12497678418833194	
+tumor malig-like CLDN4 mean log1p(CP10k) vs T/NK fraction (all tumor patients)	9	-0.5499999999999999	0.12497678418833194	
+tumor malig-like CLDN4 %pos vs T/NK fraction (eligible)	9	-0.5333333333333333	0.13922686754397814	
+tumor malig-like CLDN4 %pos vs T/NK fraction (all tumor patients)	9	-0.5333333333333333	0.13922686754397814	
+tumor epithelial CLDN4 mean_log1p vs T/NK fraction (eligible)	9	-0.19999999999999998	0.6059012741795534	
+tumor epithelial CLDN4 mean_log1p vs T/NK fraction (all tumor patients)	9	-0.19999999999999998	0.6059012741795534	
+response / MPR / R vs TACSTD2 or CLDN4	0			no_public_response_labels
+tumor malig-like TACSTD2 mean_log1p vs T/NK (n_malig>=50)	5	-0.6	0.28475697986529386	
+tumor malig-like CLDN4 mean_log1p vs T/NK (n_malig>=50)	5	-0.19999999999999998	0.7470600781046621	
+tumor author-Epithelial TACSTD2 vs author T-cell fraction	9	-0.5833333333333334	0.09918581647988327	
+tumor author-Epithelial CLDN4 vs author T-cell fraction	9	0.26666666666666666	0.48792227483870076	

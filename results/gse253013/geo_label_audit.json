@@ -1,0 +1,24 @@
+{
+  "n_gsm": 89,
+  "n_patients": 9,
+  "patients": {
+    "MRC001": 7,
+    "MRC002": 7,
+    "MRC003": 4,
+    "MRC004": 7,
+    "MRC006": 8,
+    "MRC007": 14,
+    "MRC008": 11,
+    "MRC009": 16,
+    "MRC0010": 15
+  },
+  "tissue": {
+    "ANT": 33,
+    "Tumor": 56
+  },
+  "cd45_sorted_lanes": 4,
+  "response_like_geo_keys": [],
+  "public_mpr_r_labels": false,
+  "blood_only": false,
+  "source": "GSE253013_series_matrix.txt.gz"
+}

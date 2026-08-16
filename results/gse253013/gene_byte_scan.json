@@ -1,0 +1,22 @@
+{
+  "note": "Substring scan of the double-gunzipped GEO RDS. TACSTD2 and CLDN4 are present. MPR/NMPR hits are not phenotype columns (MPR occurs inside gene symbols such as BMPR2).",
+  "TACSTD2": true,
+  "CLDN4": true,
+  "EPCAM": true,
+  "blood_only": false,
+  "hits": {
+    "TACSTD2": "FOUND TACSTD2 at ~1.51 GB decompressed",
+    "CLDN4": "FOUND CLDN4 at ~1.51 GB decompressed",
+    "EPCAM": "FOUND EPCAM at ~1.51 GB decompressed",
+    "KRT8": "FOUND KRT8 at ~1.51 GB decompressed",
+    "CD3D": "FOUND CD3D at ~1.51 GB decompressed",
+    "CD3E": "FOUND CD3E at ~1.51 GB decompressed",
+    "NKG7": "FOUND NKG7 at ~1.51 GB decompressed",
+    "PTPRC": "FOUND PTPRC at ~1.51 GB decompressed",
+    "SFTPA2": "FOUND SFTPA2 at ~1.51 GB decompressed",
+    "MRC001": "FOUND MRC001 at ~22.58 GB decompressed",
+    "Epithelial": "FOUND Epithelial at ~26.40 GB decompressed",
+    "T_cell": "FOUND T cell at ~26.40 GB decompressed",
+    "cell_type": "FOUND cell_type at ~26.41 GB decompressed"
+  }
+}
