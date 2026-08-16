@@ -1,0 +1,106 @@
+{
+  "study": "luad_oncosg_2020",
+  "canonical_OncoSG_id": "GIS031",
+  "publication": "Chen et al., Nature Genetics 2020; PMID 32015526",
+  "raw_controlled_access": [
+    "EGAS00001002941",
+    "EGAD00001004421"
+  ],
+  "profile": "luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores",
+  "sample_list": "luad_oncosg_2020_rna_seq_v2_mrna",
+  "expression_scale": "cBioPortal RNA-seq V2 RSEM z-scores versus all samples",
+  "signatures": {
+    "target": [
+      "TACSTD2"
+    ],
+    "cd8": [
+      "CD8A",
+      "CD8B",
+      "CCL5",
+      "GZMK",
+      "LCK",
+      "TRAC"
+    ],
+    "nk": [
+      "NKG7",
+      "KLRD1",
+      "GNLY",
+      "PRF1",
+      "CTSW",
+      "NCR1"
+    ],
+    "pan_immune": [
+      "PTPRC",
+      "CD3D",
+      "CD3E",
+      "LST1",
+      "CD74",
+      "HLA-DRA"
+    ],
+    "epithelial_proxy": [
+      "EPCAM",
+      "KRT7",
+      "KRT8",
+      "KRT18",
+      "KRT19",
+      "MUC1"
+    ]
+  },
+  "missing_requested_genes": [
+    "CCL5",
+    "TRAC"
+  ],
+  "urls": [
+    "https://www.cbioportal.org/api/genes/TACSTD2",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=4070&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/CD8A",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=925&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/CD8B",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=926&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/CCL5",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=6352&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/GZMK",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3003&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/LCK",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3932&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/TRAC",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=28755&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/NKG7",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=4818&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/KLRD1",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3824&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/GNLY",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=10578&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/PRF1",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=5551&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/CTSW",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=1521&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/NCR1",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=9437&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/PTPRC",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=5788&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/CD3D",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=915&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/CD3E",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=916&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/LST1",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=7940&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/CD74",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=972&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/HLA-DRA",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3122&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/EPCAM",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=4072&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/KRT7",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3855&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/KRT8",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3856&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/KRT18",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3875&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/KRT19",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=3880&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/genes/MUC1",
+    "https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data?entrezGeneId=4582&sampleListId=luad_oncosg_2020_rna_seq_v2_mrna&projection=DETAILED",
+    "https://www.cbioportal.org/api/studies/luad_oncosg_2020/clinical-data?clinicalDataType=SAMPLE&projection=DETAILED"
+  ]
+}

@@ -1,0 +1,17 @@
+resource	url	role
+OncoSG publication	https://doi.org/10.1038/s41588-019-0569-6	Defines GIS031 and controlled EGA raw accessions
+OncoSG public study	https://www.cbioportal.org/study/summary?id=luad_oncosg_2020	Open processed RNA z-scores and sample purity
+OncoSG EGA study	https://ega-archive.org/studies/EGAS00001002941	Controlled raw study metadata
+OncoSG RNA raw	https://ega-archive.org/datasets/EGAD00001004421	Controlled RNA FASTQ accession
+GSE76628	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE76628	Processed mouse array and study metadata
+GSE110390	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE110390	Open 21-gene processed durvalumab NSCLC/UC matrices
+GSE131933	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131933	Open durvalumab NSCLC single-cell count matrices
+GSE248378	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE248378	Open post-treatment bulk RNA FPKM matrix
+GSE253564	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE253564	Open pretreatment bulk RNA FPKM matrix
+NCT02904954 publication	https://doi.org/10.1038/s41467-023-44195-x	Links GSE248378 to the neoadjuvant durvalumab ± SBRT trial
+NCT02904954 companion	https://doi.org/10.1016/j.xcrm.2024.101467	Links GSE253564 pretreatment data to the same trial
+PACIFIC	https://clinicaltrials.gov/study/NCT02125461	Canonical PACIFIC trial identifier
+PACIFIC data statement	https://pmc.ncbi.nlm.nih.gov/articles/PMC8412232/	States underlying data require AstraZeneca data-sharing request
+NeoCOAST	https://clinicaltrials.gov/study/NCT03794544	Canonical NeoCOAST trial identifier
+NeoCOAST RNA supplement	https://doi.org/10.1158/2159-8290.24473992	Open aggregate differential-expression results, not sample-level matrix
+ESTIMATE	https://doi.org/10.1038/ncomms3612	Canonical immune signature and ssGSEA method
