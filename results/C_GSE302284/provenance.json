@@ -1,0 +1,101 @@
+{
+  "series": "GSE302284",
+  "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE302284",
+  "downloaded_at": "2026-08-16T20:21:23.228462+00:00",
+  "note": "No sacituzumab / SKB264 / TROP2-ADC treated libraries are deposited. Analyzable treatment contrast is osimertinib vs vehicle (DFCI282, PC9).",
+  "files": [
+    {
+      "path": "/tmp/gse302284/raw/GSE302284_RAW.tar",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE302nnn/GSE302284/suppl/GSE302284_RAW.tar",
+      "bytes": 37242880,
+      "md5": "cbdd9e8b09680afbca09b31b2d2e27b8"
+    },
+    {
+      "path": "/tmp/gse302284/GSE302284_family.soft.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE302nnn/GSE302284/soft/GSE302284_family.soft.gz",
+      "bytes": 2826,
+      "md5": "ecf68683bfa1a8147a81e8de42895eaa"
+    },
+    {
+      "path": "/tmp/gse302284/GSE302284_series_matrix.txt.gz",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE302nnn/GSE302284/matrix/GSE302284_series_matrix.txt.gz",
+      "bytes": 2645,
+      "md5": "1cb46e609080a0a34d360ed3d2555c7c"
+    }
+  ],
+  "samples": [
+    {
+      "gsm": "GSM9101264",
+      "title": "Lymph Node Sample",
+      "library": "N357",
+      "model": "patient_357",
+      "tissue": "lymph_node",
+      "treatment": "neoadjuvant_EGFR_TKI_residual",
+      "h5": "GSM9101264_N357_filtered_feature_bc_matrix.h5",
+      "path": "/tmp/gse302284/raw/GSM9101264_N357_filtered_feature_bc_matrix.h5",
+      "bytes": 10084052,
+      "md5": "c5e1873422d6e75033abdbf26f246787"
+    },
+    {
+      "gsm": "GSM9101265",
+      "title": "Tumor Site Sample",
+      "library": "T357",
+      "model": "patient_357",
+      "tissue": "tumor",
+      "treatment": "neoadjuvant_EGFR_TKI_residual",
+      "h5": "GSM9101265_T357_filtered_feature_bc_matrix.h5",
+      "path": "/tmp/gse302284/raw/GSM9101265_T357_filtered_feature_bc_matrix.h5",
+      "bytes": 7815753,
+      "md5": "03ffeb519b4b520176f68e9895598538"
+    },
+    {
+      "gsm": "GSM9128162",
+      "title": "DFCI282_Ositreated",
+      "library": "DFCI282_Ositreated",
+      "model": "DFCI282",
+      "tissue": "cell_line",
+      "treatment": "osimertinib",
+      "h5": "GSM9128162_DF282Osi_filtered_feature_bc_matrix.h5",
+      "path": "/tmp/gse302284/raw/GSM9128162_DF282Osi_filtered_feature_bc_matrix.h5",
+      "bytes": 4940964,
+      "md5": "47e6dff28c1dd455a98e44e4171c13ca"
+    },
+    {
+      "gsm": "GSM9128163",
+      "title": "DFCI282_Vehicle",
+      "library": "DFCI282_Vehicle",
+      "model": "DFCI282",
+      "tissue": "cell_line",
+      "treatment": "vehicle",
+      "h5": "GSM9128163_DF282Veh_filtered_feature_bc_matrix.h5",
+      "path": "/tmp/gse302284/raw/GSM9128163_DF282Veh_filtered_feature_bc_matrix.h5",
+      "bytes": 5222515,
+      "md5": "237894eba7433362e49562117c1e31d9"
+    },
+    {
+      "gsm": "GSM9128164",
+      "title": "PC9_Osi",
+      "library": "PC9_Osi",
+      "model": "PC9",
+      "tissue": "cell_line",
+      "treatment": "osimertinib",
+      "h5": "GSM9128164_PC9Osi_filtered_feature_bc_matrix.h5",
+      "path": "/tmp/gse302284/raw/GSM9128164_PC9Osi_filtered_feature_bc_matrix.h5",
+      "bytes": 4655144,
+      "md5": "aefcf9faa66965da6f8f787322aa8fc7"
+    },
+    {
+      "gsm": "GSM9128165",
+      "title": "PC9_Veh",
+      "library": "PC9_Veh",
+      "model": "PC9",
+      "tissue": "cell_line",
+      "treatment": "vehicle",
+      "note": "GEO source_name/cell_line fields say PC10; library name is PC9_Veh. Treated as the paired vehicle for PC9_Osi.",
+      "h5": "GSM9128165_PC9Veh_filtered_feature_bc_matrix.h5",
+      "path": "/tmp/gse302284/raw/GSM9128165_PC9Veh_filtered_feature_bc_matrix.h5",
+      "bytes": 4514007,
+      "md5": "346cb264fe0a9cc03bedf48b99cb1763"
+    }
+  ]
+}

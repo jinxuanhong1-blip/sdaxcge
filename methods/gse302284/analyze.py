@@ -125,22 +125,22 @@ def read_10x_h5(path: Path) -> tuple[sparse.csc_matrix, np.ndarray, np.ndarray]:
         X = X[keep, :]
         names = names[keep]
     # Sum duplicate symbols
-    uniq, inv = np.unique(names, return_inverse=True)
-    if len(uniq) != len(names):
-        X = sparse.csc_matrix(X)
+    # Collapse only symbols that actually collide (10x names are usually unique).
+    uniq, inv, counts = np.unique(names, return_inverse=True, return_counts=True)
+    if counts.max() > 1:
+        X = X.tocsr()
         rows = []
-        for i in range(len(uniq)):
-            idx = np.where(inv == i)[0]
-            if len(idx) == 1:
-                rows.append(X[idx[0], :])
+        for i, c in enumerate(counts):
+            if c == 1:
+                rows.append(X[np.flatnonzero(inv == i)[0], :])
             else:
-                rows.append(X[idx, :].sum(axis=0))
+                rows.append(X[inv == i, :].sum(axis=0))
         X = sparse.vstack(rows, format="csc")
         names = uniq
     return X.tocsc(), names, barcodes
 
 
-def qc_mask(X: sparse.csc_matrix, names: np.ndarray) -> np.ndarray:
+def qc_mask(X: sparse.csc_matrix, names: np.ndarray) -> tuple[np.ndarray, dict]:
     """Author-like QC: drop bottom 10% UMI, bottom 10% genes, mito > 25%."""
     n_umi = np.asarray(X.sum(axis=0)).ravel()
     n_gene = np.asarray((X > 0).sum(axis=0)).ravel()
@@ -149,7 +149,16 @@ def qc_mask(X: sparse.csc_matrix, names: np.ndarray) -> np.ndarray:
     mito_frac = np.divide(mito_umi, n_umi, out=np.zeros_like(n_umi, dtype=float), where=n_umi > 0)
     umi_cut = np.quantile(n_umi, 0.10)
     gene_cut = np.quantile(n_gene, 0.10)
-    return (n_umi >= umi_cut) & (n_gene >= gene_cut) & (mito_frac < 0.25) & (n_umi > 0)
+    keep = (n_umi >= umi_cut) & (n_gene >= gene_cut) & (mito_frac < 0.25) & (n_umi > 0)
+    stats_qc = {
+        "n_raw": int(n_umi.size),
+        "n_fail_umi10": int((n_umi < umi_cut).sum()),
+        "n_fail_gene10": int((n_gene < gene_cut).sum()),
+        "n_fail_mito25": int((mito_frac >= 0.25).sum()),
+        "median_mito_frac": float(np.median(mito_frac)),
+        "n_qc": int(keep.sum()),
+    }
+    return keep, stats_qc
 
 
 def log1p_cp10k(X: sparse.csc_matrix) -> sparse.csc_matrix:
@@ -220,14 +229,17 @@ def spearman_safe(x: np.ndarray, y: np.ndarray) -> tuple[float, float, int]:
     n = int(m.sum())
     if n < 5:
         return float("nan"), float("nan"), n
-    r, p = stats.spearmanr(x[m], y[m])
+    xx, yy = x[m], y[m]
+    if np.nanstd(xx) == 0 or np.nanstd(yy) == 0:
+        return float("nan"), float("nan"), n
+    r, p = stats.spearmanr(xx, yy)
     return float(r), float(p), n
 
 
 def load_library(cache_raw: Path, rec: dict) -> dict:
     path = cache_raw / rec["h5"]
     X, names, barcodes = read_10x_h5(path)
-    keep = qc_mask(X, names)
+    keep, qc = qc_mask(X, names)
     X = X[:, keep]
     barcodes = barcodes[keep]
     logX = log1p_cp10k(X)
@@ -240,9 +252,10 @@ def load_library(cache_raw: Path, rec: dict) -> dict:
         "names": names,
         "idx": idx,
         "barcodes": barcodes,
-        "n_raw": int(keep.size),
-        "n_qc": int(keep.sum()),
+        "n_raw": qc["n_raw"],
+        "n_qc": qc["n_qc"],
         "n_umi": n_umi,
+        "qc": qc,
     }
 
 
@@ -498,7 +511,9 @@ def plot_score_boxes(results: list[dict], out: Path) -> None:
             ax = axes[i, j]
             arms = [res["spec"]["ctrl_label"], res["spec"]["treat_label"]]
             data = [df.loc[df["arm"] == a, col].dropna().to_numpy() for a in arms]
-            bp = ax.boxplot(data, labels=["veh", "osi"], widths=0.55, patch_artist=True, showfliers=False)
+            bp = ax.boxplot(
+                data, tick_labels=["veh", "osi"], widths=0.55, patch_artist=True, showfliers=False
+            )
             colors = ["#9aa4b2", "#2f6fed"]
             for patch, c in zip(bp["boxes"], colors):
                 patch.set_facecolor(c)
@@ -609,12 +624,33 @@ def write_writeup(
         sub = set_df[(set_df["contrast"] == contrast) & (set_df["set"] == name)]
         return sub.iloc[0] if len(sub) else pd.Series(dtype=float)
 
+    def lfc_of(row: pd.Series) -> float:
+        if "log2FC_pseudobulk" in row.index and np.isfinite(row.get("log2FC_pseudobulk", np.nan)):
+            return float(row["log2FC_pseudobulk"])
+        return float(row.get("mean_gene_log2FC", np.nan))
+
     def line(row: pd.Series, label: str) -> str:
+        lfc = lfc_of(row)
         return (
             f"| {label} | {int(row.get('n_treat', 0))} / {int(row.get('n_ctrl', 0))} | "
-            f"{fmt_n(row.get('log2FC_pseudobulk', row.get('mean_gene_log2FC')))} | "
-            f"{direction(row.get('log2FC_pseudobulk', row.get('mean_gene_log2FC')))} | "
+            f"{fmt_n(lfc)} | {direction(lfc)} | "
             f"{fmt_p(row.get('mwu_p'))} | {fmt_n(row.get('rank_biserial'))} |"
+        )
+
+    def set_dir_note(row: pd.Series) -> str:
+        lfc = float(row.get("mean_gene_log2FC", np.nan))
+        dlt = float(row.get("delta_mean_score", np.nan))
+        rb = float(row.get("rank_biserial", np.nan))
+        lfc_dir = direction(lfc)
+        score_dir = direction(dlt)
+        if lfc_dir != score_dir and lfc_dir != "NA" and score_dir != "NA":
+            return (
+                f"discordant: mean gene log2FC {lfc_dir} ({fmt_n(lfc)}), "
+                f"cell-score Δ {score_dir} ({fmt_n(dlt)}; rank-biserial {fmt_n(rb)})"
+            )
+        return (
+            f"{lfc_dir} (mean gene log2FC {fmt_n(lfc)}; cell-score Δ {fmt_n(dlt)}; "
+            f"rank-biserial {fmt_n(rb)})"
         )
 
     d282_t2 = g("DFCI282_osi_vs_veh", "TACSTD2")
@@ -622,15 +658,30 @@ def write_writeup(
     d282_tj = s("DFCI282_osi_vs_veh", "TJ_SIG")
     d282_ifn = s("DFCI282_osi_vs_veh", "IFN_ISG")
     d282_apm = s("DFCI282_osi_vs_veh", "MHC1_APM")
+    d282_p6 = s("DFCI282_osi_vs_veh", "PRIORITY6")
     pc9_t2 = g("PC9_osi_vs_veh", "TACSTD2")
     pc9_c4 = g("PC9_osi_vs_veh", "CLDN4")
     pc9_tj = s("PC9_osi_vs_veh", "TJ_SIG")
     pc9_ifn = s("PC9_osi_vs_veh", "IFN_ISG")
     pc9_apm = s("PC9_osi_vs_veh", "MHC1_APM")
+    pc9_p6 = s("PC9_osi_vs_veh", "PRIORITY6")
 
     qc_rows = "\n".join(
-        f"| {q['gsm']} | {q['library']} | {q['model']} | {q['treatment']} | {q['n_raw']} | {q['n_qc']} |"
+        f"| {q['gsm']} | {q['library']} | {q['model']} | {q['treatment']} | "
+        f"{q['n_raw']} | {q['n_fail_mito25']} | {fmt_n(q['median_mito_frac'], 3)} | {q['n_qc']} |"
         for q in lib_qc
+    )
+    tj_rows = "\n".join(
+        line(g("DFCI282_osi_vs_veh", gene), f"DFCI282 {gene}")
+        + "\n"
+        + line(g("PC9_osi_vs_veh", gene), f"PC9 {gene}")
+        for gene in TJ_SIG
+    )
+    p6_rows = "\n".join(
+        line(g("DFCI282_osi_vs_veh", gene), f"DFCI282 {gene}")
+        + "\n"
+        + line(g("PC9_osi_vs_veh", gene), f"PC9 {gene}")
+        for gene in PRIORITY6
     )
 
     def corr_line(gsm: str, pair: str) -> str:
@@ -638,7 +689,10 @@ def write_writeup(
         if not len(sub):
             return "NA"
         r = sub.iloc[0]
-        return f"ρ={fmt_n(r['spearman_rho'])}, p={fmt_p(r['spearman_p'])}, n={int(r['n_cells'])}"
+        rho = r["spearman_rho"]
+        if pd.isna(rho) or rho == "":
+            return f"undefined (constant gene), n={int(r['n_cells'])}"
+        return f"ρ={fmt_n(float(rho))}, p={fmt_p(r['spearman_p'])}, n={int(r['n_cells'])}"
 
     md = f"""# C — GSE302284 public context (TROP2 ADC / EGFR DTP NSCLC)
 
@@ -667,11 +721,11 @@ This is extra public context around TROP2-high EGFR DTP NSCLC, **not** a SKB264 
 
 ## Coverage
 
-| GSM | Library | Model | Treatment | n_raw (H5) | n_QC |
-|---|---|---|---|---:|---:|
+| GSM | Library | Model | Treatment | n_raw | n_mito>25% | median mito | n_QC |
+|---|---|---|---|---:|---:|---:|---:|
 {qc_rows}
 
-GEO note: `PC9_Veh` (GSM9128165) has `cell line: PC10` / source_name PC10; library name is PC9_Veh. It is used as the paired vehicle for PC9_Osi.
+GEO note: `PC9_Veh` (GSM9128165) has `cell line: PC10` / source_name PC10; library name is PC9_Veh. It is used as the paired vehicle for PC9_Osi. DFCI282 osimertinib loses many cells to mito > 25% (DTP stress); that imbalance is real, not a coding error.
 
 ## Osimertinib vs vehicle — direction (honest)
 
@@ -684,24 +738,38 @@ Positive log2FC = higher in osimertinib. n_cells = QC cells used; n_library = **
 {line(d282_tj, "DFCI282 TJ signature")}
 {line(d282_ifn, "DFCI282 IFN/ISG")}
 {line(d282_apm, "DFCI282 MHC-I/APM")}
+{line(d282_p6, "DFCI282 PRIORITY6")}
 {line(pc9_t2, "PC9 TACSTD2")}
 {line(pc9_c4, "PC9 CLDN4")}
 {line(pc9_tj, "PC9 TJ signature")}
 {line(pc9_ifn, "PC9 IFN/ISG")}
 {line(pc9_apm, "PC9 MHC-I/APM")}
+{line(pc9_p6, "PC9 PRIORITY6")}
 
-Set rows use **mean per-gene pseudobulk log2FC** (not a single composite CPM). Cell MWU is on the per-cell mean log1p score.
+Set-row log2FC is the **mean per-gene pseudobulk log2FC**. Cell MWU / rank-biserial use the per-cell mean log1p score. When those two summaries disagree, the analog table below says **discordant**.
+
+### TJ genes (osi vs veh)
+
+| Model / gene | n_cells osi / veh | log2FC | direction | cell MWU *p* | rank-biserial |
+|---|---:|---:|---|---:|---:|
+{tj_rows}
+
+### PRIORITY6 genes (osi vs veh)
+
+| Model / gene | n_cells osi / veh | log2FC | direction | cell MWU *p* | rank-biserial |
+|---|---:|---:|---|---:|---:|
+{p6_rows}
 
 ### Analog question (TJ down / IFN up) — not testable for SKB264 here
 
-The SKB264 thesis predicts TJ down and IFN/MHC-I up after TROP2-ADC. **GSE302284 has no TROP2-ADC RNA**, so that analog is not scored. On the deposited **osimertinib vs vehicle** contrast (extra context only):
+The SKB264 thesis is taken as given. That analog asks whether TROP2-ADC lowers TJ and raises IFN/MHC-I. **GSE302284 has no TROP2-ADC RNA**, so the analog is not scored. Extra context on **osimertinib vs vehicle** (n_lib = 1 vs 1):
 
-| Model | TJ (osi vs veh) | IFN/ISG (osi vs veh) | MHC-I/APM (osi vs veh) |
-|---|---|---|---|
-| DFCI282 | {direction(d282_tj.get("mean_gene_log2FC"))} (mean gene log2FC {fmt_n(d282_tj.get("mean_gene_log2FC"))}; n_lib=1+1; n_cells {int(d282_tj.get("n_treat", 0))}/{int(d282_tj.get("n_ctrl", 0))}; cell *p*={fmt_p(d282_tj.get("mwu_p"))}) | {direction(d282_ifn.get("mean_gene_log2FC"))} (mean gene log2FC {fmt_n(d282_ifn.get("mean_gene_log2FC"))}; cell *p*={fmt_p(d282_ifn.get("mwu_p"))}) | {direction(d282_apm.get("mean_gene_log2FC"))} (mean gene log2FC {fmt_n(d282_apm.get("mean_gene_log2FC"))}; cell *p*={fmt_p(d282_apm.get("mwu_p"))}) |
-| PC9 | {direction(pc9_tj.get("mean_gene_log2FC"))} (mean gene log2FC {fmt_n(pc9_tj.get("mean_gene_log2FC"))}; n_lib=1+1; n_cells {int(pc9_tj.get("n_treat", 0))}/{int(pc9_tj.get("n_ctrl", 0))}; cell *p*={fmt_p(pc9_tj.get("mwu_p"))}) | {direction(pc9_ifn.get("mean_gene_log2FC"))} (mean gene log2FC {fmt_n(pc9_ifn.get("mean_gene_log2FC"))}; cell *p*={fmt_p(pc9_ifn.get("mwu_p"))}) | {direction(pc9_apm.get("mean_gene_log2FC"))} (mean gene log2FC {fmt_n(pc9_apm.get("mean_gene_log2FC"))}; cell *p*={fmt_p(pc9_apm.get("mwu_p"))}) |
+| Model | TJ | IFN/ISG | MHC-I/APM | PRIORITY6 |
+|---|---|---|---|---|
+| DFCI282 | {set_dir_note(d282_tj)}; n_cells {int(d282_tj.get("n_treat", 0))}/{int(d282_tj.get("n_ctrl", 0))}; cell *p*={fmt_p(d282_tj.get("mwu_p"))} | {set_dir_note(d282_ifn)}; cell *p*={fmt_p(d282_ifn.get("mwu_p"))} | {set_dir_note(d282_apm)}; cell *p*={fmt_p(d282_apm.get("mwu_p"))} | {set_dir_note(d282_p6)}; cell *p*={fmt_p(d282_p6.get("mwu_p"))} |
+| PC9 | {set_dir_note(pc9_tj)}; n_cells {int(pc9_tj.get("n_treat", 0))}/{int(pc9_tj.get("n_ctrl", 0))}; cell *p*={fmt_p(pc9_tj.get("mwu_p"))} | {set_dir_note(pc9_ifn)}; cell *p*={fmt_p(pc9_ifn.get("mwu_p"))} | {set_dir_note(pc9_apm)}; cell *p*={fmt_p(pc9_apm.get("mwu_p"))} | {set_dir_note(pc9_p6)}; cell *p*={fmt_p(pc9_p6.get("mwu_p"))} |
 
-Do not read osi-vs-vehicle as an SKB264 / SG on-treatment result.
+Do not read osi-vs-vehicle as an SKB264 / SG on-treatment result. On this contrast, TJ RNA goes **up** with osimertinib in both models (same direction as TACSTD2 / CLDN4), which is the deposited DTP context, not an ADC knockdown.
 
 ## Within-library Spearman (cell-level)
 
@@ -714,12 +782,14 @@ Do not read osi-vs-vehicle as an SKB264 / SG on-treatment result.
 | pt357 tumor epi | {corr_line("GSM9101265", "TACSTD2_vs_CLDN4")} | {corr_line("GSM9101265", "TACSTD2_vs_TJ_SIG")} | {corr_line("GSM9101265", "CLDN4_vs_IFN_ISG")} |
 | pt357 LN epi | {corr_line("GSM9101264", "TACSTD2_vs_CLDN4")} | {corr_line("GSM9101264", "TACSTD2_vs_TJ_SIG")} | {corr_line("GSM9101264", "CLDN4_vs_IFN_ISG")} |
 
+LN epithelial CLDN4 is undetectable (0/88 cells UMI>0), so TACSTD2–CLDN4 ρ is undefined there.
+
 ## Patient 357 residual tumor vs LN (descriptive only)
 
 Epithelial cells after neoadjuvant EGFR-TKI. Not a treatment contrast.
 
-| Feature | n_cells tumor / LN | log2FC | direction | cell MWU *p* |
-|---|---:|---:|---|---:|
+| Feature | n_cells tumor / LN | log2FC | direction | cell MWU *p* | rank-biserial |
+|---|---:|---:|---|---:|---:|
 {line(g("patient357_tumor_vs_LN", "TACSTD2"), "TACSTD2")}
 {line(g("patient357_tumor_vs_LN", "CLDN4"), "CLDN4")}
 {line(s("patient357_tumor_vs_LN", "TJ_SIG"), "TJ signature")}
@@ -729,8 +799,9 @@ Epithelial cells after neoadjuvant EGFR-TKI. Not a treatment contrast.
 ## Caveats
 
 - **n_library = 1 vs 1.** No sample-level *p* exists. Cell-level *p* will be small whenever thousands of cells shift even slightly; use log2FC / rank-biserial.
+- DFCI282 osimertinib has a large mito>25% drop; remaining cells are a stressed DTP subset.
 - No doublet re-call (authors used scrublet).
-- Patient 357 is one person, two sites, both residual on EGFR-TKI.
+- Patient 357 is one person, two sites, both residual on EGFR-TKI. LN epithelium n=88; CLDN4 is all zero there.
 - mRNA ≠ TROP2 / claudin-4 protein.
 - PC9 vehicle GEO annotation inconsistency (PC10 vs PC9).
 - Public data only. SRA FASTQ were not re-aligned.
@@ -784,8 +855,7 @@ def main() -> None:
                 "library": rec["library"],
                 "model": rec["model"],
                 "treatment": rec["treatment"],
-                "n_raw": lib["n_raw"],
-                "n_qc": lib["n_qc"],
+                **lib["qc"],
             }
         )
         print(f"{rec['gsm']} {rec['library']}: raw={lib['n_raw']} qc={lib['n_qc']}", flush=True)
