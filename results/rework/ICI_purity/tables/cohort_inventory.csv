@@ -1,0 +1,6 @@
+dataset,status,skip_reason,n_expr_samples,n_genes,n_labeled,n_pos,n_neg,endpoint,endpoint_note,unit,bulk_present,index_is_ensembl,estimate_stromal_overlap,estimate_immune_overlap,TACSTD2_present,CLDN4_present,TJ_5_found,TJ_struct_found
+GSE126044,analyzed,,16,18745,16,5,11,ORR_author_response,GEO characteristic 'patient response' (Cho et al.); not a derived DCB,log2CPM,True,False,139,141,True,True,5,15
+GSE135222,analyzed,,27,57820,27,7,20,DCB_PFS_ge_183d,DCB = PFS >= 183 days; early-censored before cutoff: 0 (none expected),log2(TPM+1),True,True,140,140,True,True,5,15
+GSE166449,analyzed,,22,20345,22,7,15,ORR_author_response,responder/nonresponder parsed from GEO sample title,log2(TPM+1),True,False,140,141,True,True,5,15
+GSE190265,analyzed,,43,33976,43,14,29,DCB_PFS_ge_6mo,DCB = time_PFS >= 6.0 months from GEO samples_info; early-censored: 0; n_in_series_matrix=26/43,log2(TPM+1),True,False,141,133,True,True,5,15
+GSE207422,analyzed,,24,58387,24,17,7,ORR_RECIST,RECIST CR/PR vs SD/PD from GEO bulk metadata xlsx; MPR stored as secondary,log2TPM,True,False,141,141,True,True,5,15
