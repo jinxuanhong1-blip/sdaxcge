@@ -1,0 +1,198 @@
+[
+  {
+    "accession": "GSE114601",
+    "model": "KP GEMM nodules",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE157880",
+    "model": "HKP1 orthotopic lung",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE239485",
+    "model": "LLC tumors",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE262305",
+    "model": "LLC",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE274960",
+    "model": "LL/2 (LLC)",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE297630",
+    "model": "LLC aPD-1-tolerant microarray",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true
+    }
+  },
+  {
+    "accession": "GSE169194",
+    "model": "KPM GEMM",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE246922",
+    "model": "LLC1 CD45-",
+    "file": "GSE246922_LLC1_RNA_counts_vst.csv.gz",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE246922",
+    "model": "KP CD45-",
+    "file": "GSE246922_KP_RNA_counts_vst.csv.gz",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE179500",
+    "model": "KL XTR GEMM neoplastic cells",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Stk11": true,
+      "Cd8a": true
+    },
+    "note": "known; LKB1 off vs restore; not ICB"
+  },
+  {
+    "accession": "GSE137396",
+    "model": "KL vs KP GEMM nodules",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Stk11": true,
+      "Cd8a": true
+    }
+  },
+  {
+    "accession": "GSE244452",
+    "model": "KL vs KP tumors",
+    "note": "DEG only; no ICB RNA"
+  },
+  {
+    "accession": "GSE274351",
+    "model": "K/KP/KL LCM adenomas",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Stk11": true,
+      "Cd8a": true
+    }
+  },
+  {
+    "accession": "GSE338923",
+    "model": "Lacun3 STK11 KO vitro",
+    "genes_found": {
+      "Tacstd2": false,
+      "Cldn4": true,
+      "Stk11": true
+    }
+  },
+  {
+    "accession": "GSE330941",
+    "model": "LLC Ago2KO vs WT (no ICI on RNA)",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    }
+  },
+  {
+    "accession": "GSE260596",
+    "model": "344SQ + aPD-1 \u00b1 LAIR1",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    },
+    "note": "all arms have aPD-1; no untreated"
+  },
+  {
+    "accession": "GSE197260",
+    "model": "EGFR-mutant NSCLC",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true,
+      "Cd8a": true,
+      "Cd274": true
+    },
+    "note": "n=1/arm"
+  },
+  {
+    "accession": "GSE256071",
+    "model": "KP \u00b1 SOX2 cells",
+    "genes_found": {
+      "Tacstd2": true,
+      "Cldn4": true
+    }
+  },
+  {
+    "accession": "GSE182228",
+    "model": "LKB1-deficient LUAD + aPD-1 \u00b1 palbociclib",
+    "n_samples": 12,
+    "note": "ICB design exists (vehicle / palbo / aPD-1 / combo, n=3) but no processed gene matrix on GEO (series matrix is metadata-only, 2.8 KB). Not scored."
+  },
+  {
+    "accession": "GSE155972",
+    "model": "TISMO LLC ICB",
+    "note": "EXCLUDED: TISMO source. Taken as given (49/64 Tacstd2 up, p=5.8e-5) and not re-audited."
+  },
+  {
+    "accession": "GSE298051",
+    "model": "KL/KP TNG260 \u00b1 aPD-1",
+    "note": "Mostly H3K9ac ChIP; last 8 samples are subcutaneous tumors including TNG260+aPD1. No processed RNA matrix deposited."
+  },
+  {
+    "accession": "GSE114300",
+    "model": "Kras GEMM TIL CD4/CD8 \u00b1 aPD-1",
+    "note": "Sorted lymphocytes only; Tacstd2/Cldn4 not expected. No tumor epithelial matrix."
+  }
+]
