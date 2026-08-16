@@ -1,0 +1,90 @@
+{
+  "_comment": "Gene sets used for immune-context scoring. 'source' records where the gene list comes from; sets marked 'curated marker panel' are assembled here from canonical lineage markers rather than copied from a single publication, and are labelled as such in the write-up.",
+
+  "CYT": {
+    "source": "Rooney et al., Cell 2015 - cytolytic activity",
+    "genes": ["GZMA", "PRF1"]
+  },
+  "IFNG_6": {
+    "source": "Ayers et al., J Clin Invest 2017 - 6-gene preliminary IFN-gamma signature",
+    "genes": ["IFNG", "STAT1", "IDO1", "CXCL9", "CXCL10", "HLA-DRA"]
+  },
+  "TIS_18": {
+    "source": "Ayers et al., J Clin Invest 2017 - 18-gene T-cell-inflamed gene expression profile",
+    "genes": ["CCL5", "CD27", "CD274", "CD276", "CD8A", "CMKLR1", "CXCL9", "CXCR6",
+              "HLA-DQA1", "HLA-DRB1", "HLA-E", "IDO1", "LAG3", "NKG7", "PDCD1LG2",
+              "PSMB10", "STAT1", "TIGIT"]
+  },
+  "IFNG_EXPANDED": {
+    "source": "Ayers et al., J Clin Invest 2017 - expanded immune signature",
+    "genes": ["CD3D", "IDO1", "CIITA", "CD3E", "CCL5", "GZMK", "CD2", "HLA-DRA",
+              "CXCL13", "IL2RG", "NKG7", "HLA-E", "CXCR6", "LAG3", "TAGAP",
+              "CXCL10", "STAT1", "GZMB"]
+  },
+  "CD8_T_CELL": {
+    "source": "curated marker panel - CD8 T cell lineage",
+    "genes": ["CD8A", "CD8B", "CD3D", "CD3E", "CD3G", "GZMK", "CCL5", "IL7R"]
+  },
+  "NK_CELL": {
+    "source": "curated marker panel - NK lineage",
+    "genes": ["KLRD1", "KLRF1", "NCR1", "NKG7", "GNLY", "KLRB1"]
+  },
+  "B_CELL": {
+    "source": "curated marker panel - B lineage",
+    "genes": ["MS4A1", "CD79A", "CD79B", "CD19", "TNFRSF13C", "BANK1"]
+  },
+  "TLS_CABRITA": {
+    "source": "Cabrita et al., Nature 2020 - tertiary lymphoid structure signature",
+    "genes": ["CD79B", "CD1D", "CCR6", "LAT", "SKAP1", "CETP", "EIF1AY", "RBP5", "PTGDS"]
+  },
+  "TREG": {
+    "source": "curated marker panel - regulatory T cells",
+    "genes": ["FOXP3", "IL2RA", "IKZF2", "CTLA4", "TNFRSF18"]
+  },
+  "M2_MACROPHAGE": {
+    "source": "curated marker panel - M2-like / tumour-associated macrophages",
+    "genes": ["CD163", "MSR1", "MRC1", "CSF1R", "MAF", "STAB1"]
+  },
+  "ANTIGEN_PRESENTATION": {
+    "source": "curated marker panel - MHC class I antigen processing and presentation",
+    "genes": ["B2M", "HLA-A", "HLA-B", "HLA-C", "TAP1", "TAP2", "PSMB8", "PSMB9", "NLRC5"]
+  },
+  "MHC_II": {
+    "source": "curated marker panel - MHC class II",
+    "genes": ["HLA-DRA", "HLA-DRB1", "HLA-DPA1", "HLA-DPB1", "HLA-DQA1", "HLA-DMA", "CD74"]
+  },
+  "CHECKPOINT": {
+    "source": "curated marker panel - inhibitory immune checkpoints",
+    "genes": ["CD274", "PDCD1", "CTLA4", "LAG3", "HAVCR2", "TIGIT", "TNFRSF9", "BTLA"]
+  },
+  "TYPE_I_IFN": {
+    "source": "curated marker panel - type I interferon response",
+    "genes": ["ISG15", "IFI6", "MX1", "MX2", "OAS1", "IFIT1", "IFIT3", "STAT2", "IRF7"]
+  },
+  "TGFB_FTBRS": {
+    "source": "Mariathasan et al., Nature 2018 - pan-fibroblast TGF-beta response signature",
+    "genes": ["ACTA2", "ACTG2", "ADAM12", "ADAM19", "CNN1", "COL4A1", "CCN2", "CTPS1",
+              "RFLNB", "FSTL3", "HSPB1", "IGFBP3", "JUNB", "MYL9", "PALLD", "PDLIM5",
+              "PPP1R12A", "PPP1R12B", "RHOA", "SERPINE1", "TAGLN", "TGFB1", "TGFB1I1",
+              "TGFBR1", "TNC", "TPM1", "TPM2"]
+  },
+  "PROLIFERATION": {
+    "source": "curated marker panel - cell cycle / proliferation",
+    "genes": ["MKI67", "TOP2A", "CCNB1", "BUB1", "AURKA", "PLK1", "RRM2", "TYMS",
+              "CDK1", "UBE2C"]
+  },
+  "EPITHELIAL": {
+    "source": "curated marker panel - epithelial/tumour-cell content proxy (used for purity adjustment)",
+    "genes": ["EPCAM", "KRT8", "KRT18", "KRT19", "CDH1", "KRT7", "CLDN7", "ESRP1"]
+  },
+  "SQUAMOUS_MARKERS": {
+    "source": "curated marker panel - lung squamous / basal programme (histology classifier)",
+    "genes": ["TP63", "KRT5", "KRT6A", "KRT14", "KRT17", "DSG3", "PKP1", "SOX2",
+              "SERPINB3", "CSTA", "DSC3", "S100A2"]
+  },
+  "ADENO_MARKERS": {
+    "source": "curated marker panel - lung adenocarcinoma / alveolar programme (histology classifier)",
+    "genes": ["NKX2-1", "NAPSA", "SFTPB", "SFTPC", "SFTA2", "SLC34A2", "LMO3",
+              "FOLR1", "CEACAM6", "MUC1", "SFTA3", "ROS1"]
+  }
+}

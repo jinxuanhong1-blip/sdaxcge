@@ -1,0 +1,4 @@
+set,n,tp,tn,fp,fn,accuracy,sensitivity,specificity,n_indeterminate
+TCGA self-check (high-confidence),824,321,469,6,28,0.9587378640776699,0.9197707736389685,0.9873684210526316,193
+pathology ICI hold-out (high-confidence),121,40,79,1,1,0.9834710743801653,0.975609756097561,0.9875,38
+"pathology ICI hold-out (midpoint, forced call)",159,51,89,17,2,0.8805031446540881,0.9622641509433962,0.839622641509434,0

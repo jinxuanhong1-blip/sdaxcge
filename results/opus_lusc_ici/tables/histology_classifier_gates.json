@@ -1,0 +1,37 @@
+{
+  "midpoint": -0.08319770833333345,
+  "lusc_gate": 0.2,
+  "nonlusc_gate": -0.2,
+  "tcga_lusc_median": 0.2842090151515151,
+  "tcga_luad_median": -0.450604431818182,
+  "tcga_lusc_p10": -0.010416818181818166,
+  "tcga_luad_p90": -0.21009844696969698,
+  "squamous_markers": [
+    "TP63",
+    "KRT5",
+    "KRT6A",
+    "KRT14",
+    "KRT17",
+    "DSG3",
+    "PKP1",
+    "SOX2",
+    "SERPINB3",
+    "CSTA",
+    "DSC3",
+    "S100A2"
+  ],
+  "adeno_markers": [
+    "NAPSA",
+    "SFTPB",
+    "SFTPC",
+    "SFTA2",
+    "SLC34A2",
+    "LMO3",
+    "FOLR1",
+    "CEACAM6",
+    "MUC1",
+    "SFTA3",
+    "ROS1"
+  ],
+  "universe_n": 17226
+}
