@@ -1,0 +1,52 @@
+{
+  "E-MTAB-13704": {
+    "analysis": "TACSTD2/CLDN4 abundance by treatment from the deposited processed matrix",
+    "warning": "Despite the filename GEMMS_raw_counts.csv, values are non-integers; results are descriptive and no raw-count test was run."
+  },
+  "E-MTAB-15883": {
+    "analysis": "TACSTD2/CLDN4 abundance by treatment among deposited annotated cells",
+    "diagnostics": {
+      "feature_rows": {
+        "CLDN4": 6653,
+        "TACSTD2": 47611
+      },
+      "matrix_barcode_count": 884736,
+      "annotated_cell_count": 21041,
+      "matched_annotated_cells": 21041
+    },
+    "warning": "This is an immune-cell-focused dataset; absence/low expression is not evidence of tumor-cell absence."
+  },
+  "E-MTAB-15235": {
+    "matrix_columns": 80,
+    "sdrf_unique_samples": 80,
+    "columns_mapped_to_sdrf_source_names": 80,
+    "gene_namespace": "human Ensembl gene IDs",
+    "targets_found": [
+      "CLDN4",
+      "TACSTD2"
+    ],
+    "warning": "Deposited factor is ceralasertib versus vehicle, not ICI. SDRF labels every sample as CT26/Mus musculus while the matrix uses human Ensembl IDs; groups were taken from matrix column names."
+  },
+  "E-MTAB-9451": {
+    "file_count": 10,
+    "same_panel_in_all_files": true,
+    "panel_gene_count": 397,
+    "targets_assayed": {
+      "TACSTD2": false,
+      "CLDN4": false
+    },
+    "interpretation": "Targeted immune panel; TACSTD2 and CLDN4 cannot be analyzed when absent from the panel."
+  },
+  "metadata_only": [
+    "E-MTAB-10633",
+    "E-MTAB-8867"
+  ],
+  "target_only_non_lung": [
+    "E-MTAB-11466",
+    "E-MTAB-16433",
+    "E-MTAB-16843",
+    "E-MTAB-16849",
+    "E-MTAB-11377",
+    "E-MTAB-11382"
+  ]
+}
