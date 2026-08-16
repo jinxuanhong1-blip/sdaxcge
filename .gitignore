@@ -1,0 +1,8 @@
+# Raw and intermediate data caches are reproducible from scripts/w200/B5_BLCA/download.py
+# and are far too large to version.
+data/raw/
+data/interim/
+*.RData
+*.rda
+__pycache__/
+*.pyc
