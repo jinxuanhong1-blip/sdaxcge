@@ -1,0 +1,15 @@
+cohort	outcome	adjustment	n	rho	p_value	partial_rho	partial_p_value	adjusted_n
+OncoSG_GIS031	CD8_score	reported sample PURITY	169	-0.37756949	4.1803494e-07	-0.30366055	5.9831092e-05	169
+OncoSG_GIS031	NK_score	reported sample PURITY	169	-0.47706728	5.4723602e-11	-0.42820551	6.3395492e-09	169
+OncoSG_GIS031	pan_immune_score	reported sample PURITY	169	-0.31163791	3.7168711e-05	-0.22927019	0.0027136867	169
+GSE248378_post	CD8_score	epithelial-expression proxy	29	-0.78423645	4.8101288e-07	-0.78325602	5.0816289e-07	29
+GSE248378_post	NK_score	epithelial-expression proxy	29	-0.8226601	4.3504397e-08	-0.80710185	1.2268929e-07	29
+GSE248378_post	pan_immune_score	epithelial-expression proxy	29	-0.56009852	0.0015792901	-0.51728274	0.0040579904	29
+GSE248378_post	ESTIMATE_ImmuneScore	epithelial-expression proxy	29	-0.65763547	0.00010593413	-0.59432744	0.00067476498	29
+GSE253564_pre	CD8_score	epithelial-expression proxy	32	-0.63233138	0.00010334345	-0.62091975	0.00014947472	32
+GSE253564_pre	NK_score	epithelial-expression proxy	32	-0.47104106	0.0065062118	-0.45381009	0.0090856521	32
+GSE253564_pre	pan_immune_score	epithelial-expression proxy	32	-0.67558651	2.2085892e-05	-0.69741466	9.1715535e-06	32
+GSE253564_pre	ESTIMATE_ImmuneScore	epithelial-expression proxy	32	-0.71187683	4.9060988e-06	-0.71022429	5.279601e-06	32
+GSE76628_mouse_flank	CD8_score	epithelial-expression proxy + day + treatment	78	-0.22550867	0.047129555	-0.25403419	0.024813052	78
+GSE76628_mouse_flank	NK_score	epithelial-expression proxy + day + treatment	78	-0.33413422	0.0027917342	-0.17935361	0.11613527	78
+GSE76628_mouse_flank	pan_immune_score	epithelial-expression proxy + day + treatment	78	-0.14108676	0.21791141	-0.15810083	0.1668252	78
