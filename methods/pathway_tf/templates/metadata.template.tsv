@@ -1,0 +1,7 @@
+sample_id	analysis_context	condition	target	perturbation_mode	reagent	timepoint	dose	cell_line	batch	patient_id	cohort	purity	cldn4_expression	tacstd2_expression	feature_group
+PERT_CTRL_01	perturbation	control	CLDN4	control	CHANGE_ME	24h	NA	CHANGE_ME	1	NA	NA	NA	NA	NA	control
+PERT_CLDN4_01	perturbation	perturbed	CLDN4	knockdown	CHANGE_ME	24h	CHANGE_ME	CHANGE_ME	1	NA	NA	NA	NA	NA	CLDN4_low
+PERT_CTRL_02	perturbation	control	TACSTD2	control	CHANGE_ME	24h	NA	CHANGE_ME	2	NA	NA	NA	NA	NA	control
+PERT_TACSTD2_01	perturbation	perturbed	TACSTD2	knockdown	CHANGE_ME	24h	CHANGE_ME	CHANGE_ME	2	NA	NA	NA	NA	NA	TACSTD2_low
+TUMOR_001	tumor	NA	NA	NA	NA	NA	NA	NA	CHANGE_ME	P001	CHANGE_ME	0.70	CHANGE_ME	CHANGE_ME	CLDN4_low
+TUMOR_002	tumor	NA	NA	NA	NA	NA	NA	NA	CHANGE_ME	P002	CHANGE_ME	0.82	CHANGE_ME	CHANGE_ME	CLDN4_high

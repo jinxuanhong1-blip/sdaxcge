@@ -1,0 +1,5 @@
+contrast_id	analysis_context	subset_expression	model_formula	test_term	expected_direction
+CLDN4_perturbed_vs_control	perturbation	target == 'CLDN4'	~ batch + cell_line + condition	conditionperturbed	perturbed_minus_control
+TACSTD2_perturbed_vs_control	perturbation	target == 'TACSTD2'	~ batch + cell_line + condition	conditionperturbed	perturbed_minus_control
+CLDN4_continuous_tumor	tumor	analysis_context == 'tumor'	~ batch + cohort + purity + cldn4_expression	cldn4_expression	per_log_expression_unit
+TACSTD2_continuous_tumor	tumor	analysis_context == 'tumor'	~ batch + cohort + purity + tacstd2_expression	tacstd2_expression	per_log_expression_unit
