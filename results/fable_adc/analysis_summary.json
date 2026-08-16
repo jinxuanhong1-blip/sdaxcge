@@ -1,0 +1,29 @@
+{
+  "genes": {
+    "TACSTD2": "TACSTD2 (TROP2)",
+    "CLDN18": "CLDN18 (Claudin-18)",
+    "TOP1": "TOP1 (SN-38/DXd target)",
+    "CD274": "CD274 (PD-L1)"
+  },
+  "cohorts": {
+    "GSE126044": {
+      "n": 16,
+      "responders": 5,
+      "non_responders": 11
+    },
+    "GSE135222": {
+      "n": 27,
+      "events": 21
+    },
+    "GSE207422": {
+      "n": 24,
+      "MPR": 9,
+      "NMPR": 15
+    }
+  },
+  "summary_tables": {
+    "differential_expression_by_outcome": "tables/differential_expression_by_outcome.csv",
+    "survival_association_GSE135222": "tables/survival_association_GSE135222.csv",
+    "correlations": "tables/correlations.csv"
+  }
+}
