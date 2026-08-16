@@ -1,0 +1,648 @@
+[
+  {
+    "accession": "GSE239485",
+    "fields": {
+      "!Sample_title": [
+        [
+          "C_339_S25, Control vehicle",
+          "C_351_S29, Control vehicle",
+          "C_356_S27, Control vehicle",
+          "C_358_S26,Control vehicle",
+          "C_361_S32, Control vehicle",
+          "C_364_S28, Control vehicle",
+          "C_369_S30, Control vehicle",
+          "C_375_S31, Control vehicle",
+          "D_344_S33, Poly I:C and anti-PD-1",
+          "D_357_S37, Poly I:C and anti-PD-1",
+          "D_359_S39, Poly I:C and anti-PD-1",
+          "D_366_S34, Poly I:C and anti-PD-1",
+          "D_367_S35, Poly I:C and anti-PD-1",
+          "D_368_S36, Poly I:C and anti-PD-1",
+          "D_370_S38, Poly I:C and anti-PD-1",
+          "D_373_S40, Poly I:C and anti-PD-1",
+          "T_331_S44, Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "T_352_S48, Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "T_353_S45, Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "T_354_S47, Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "T_355_S43, Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "T_360_S46, Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "T_362_S42, Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "T_363_S41, Poly I:C,  anti-PD-1 and anti-C5aR1"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM7666074",
+          "GSM7666075",
+          "GSM7666076",
+          "GSM7666077",
+          "GSM7666078",
+          "GSM7666079",
+          "GSM7666080",
+          "GSM7666081",
+          "GSM7666082",
+          "GSM7666083",
+          "GSM7666084",
+          "GSM7666085",
+          "GSM7666086",
+          "GSM7666087",
+          "GSM7666088",
+          "GSM7666089",
+          "GSM7666090",
+          "GSM7666091",
+          "GSM7666092",
+          "GSM7666093",
+          "GSM7666094",
+          "GSM7666095",
+          "GSM7666096",
+          "GSM7666097"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor",
+          "Tumor"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor",
+          "tissue: Tumor"
+        ],
+        [
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer",
+          "cell line: Lewis Lung Cancer"
+        ],
+        [
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma",
+          "cell type: Lung adenocarcinoma"
+        ],
+        [
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT",
+          "genotype: WT"
+        ],
+        [
+          "treatment: Vehicle",
+          "treatment: Vehicle",
+          "treatment: Vehicle",
+          "treatment: Vehicle",
+          "treatment: Vehicle",
+          "treatment: Vehicle",
+          "treatment: Vehicle",
+          "treatment: Vehicle",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C and anti-PD-1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1",
+          "treatment: Poly I:C,  anti-PD-1 and anti-C5aR1"
+        ]
+      ]
+    }
+  },
+  {
+    "accession": "GSE222158",
+    "fields": {
+      "!Sample_title": [
+        [
+          "CD45 cells, Ctl",
+          "CD45 cells, PD1",
+          "CD45 cells, 21DC",
+          "CD45 cells, Combo",
+          "CD3 cells, Ctl_T",
+          "CD3 cells, Combo_T"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM6915764",
+          "GSM6915765",
+          "GSM6915766",
+          "GSM6915767",
+          "GSM6915768",
+          "GSM6915769"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "lung",
+          "lung",
+          "lung",
+          "lung",
+          "lung",
+          "lung"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "disease state: lung cancer",
+          "disease state: lung cancer",
+          "disease state: lung cancer",
+          "disease state: lung cancer",
+          "disease state: lung cancer",
+          "disease state: lung cancer"
+        ],
+        [
+          "tissue: lung",
+          "tissue: lung",
+          "tissue: lung",
+          "tissue: lung",
+          "tissue: lung",
+          "tissue: lung"
+        ],
+        [
+          "cell type: CD45",
+          "cell type: CD45",
+          "cell type: CD45",
+          "cell type: CD45",
+          "cell type: CD3",
+          "cell type: CD3"
+        ],
+        [
+          "strain: FVB",
+          "strain: FVB",
+          "strain: FVB",
+          "strain: FVB",
+          "strain: FVB",
+          "strain: FVB"
+        ],
+        [
+          "treatment: control",
+          "treatment: IP 200 \u03bcg of anti-PD-1 antibody",
+          "treatment: IT CCL21-DC (1x10^6 cells)",
+          "treatment: PD1 and DC combination",
+          "treatment: control",
+          "treatment: PD1 and DC combination"
+        ]
+      ],
+      "!Sample_description": [
+        [
+          "10x Genomics",
+          "10x Genomics",
+          "10x Genomics",
+          "10x Genomics",
+          "10x Genomics",
+          "10x Genomics"
+        ]
+      ]
+    }
+  },
+  {
+    "accession": "GSE297630",
+    "fields": {
+      "!Sample_title": [
+        [
+          "Tumor tissue from the LLC Control model-01",
+          "Tumor tissue from the LLC Control model-02",
+          "Tumor tissue from the LLC Control model-03",
+          "Tumor tissue from the LLC anti-PD-1 antibody model-01",
+          "Tumor tissue from the LLC anti-PD-1 antibody model-02",
+          "Tumor tissue from the LLC anti-PD-1 antibody model-03"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM8995899",
+          "GSM8995900",
+          "GSM8995901",
+          "GSM8995902",
+          "GSM8995903",
+          "GSM8995904"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "Tumor tissue without anti-PD-1 antibody treatment",
+          "Tumor tissue without anti-PD-1 antibody treatment",
+          "Tumor tissue without anti-PD-1 antibody treatment",
+          "Tumor tissue with anti-PD-1 antibody treatment",
+          "Tumor tissue with anti-PD-1 antibody treatment",
+          "Tumor tissue with anti-PD-1 antibody treatment"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "tissue: subcutaneous tumor",
+          "tissue: subcutaneous tumor",
+          "tissue: subcutaneous tumor",
+          "tissue: subcutaneous tumor",
+          "tissue: subcutaneous tumor",
+          "tissue: subcutaneous tumor"
+        ],
+        [
+          "treatment: without anti-PD-1 antibody treatment; control",
+          "treatment: without anti-PD-1 antibody treatment; control",
+          "treatment: without anti-PD-1 antibody treatment; control",
+          "treatment: with anti-PD-1 antibody treatment",
+          "treatment: with anti-PD-1 antibody treatment",
+          "treatment: with anti-PD-1 antibody treatment"
+        ]
+      ],
+      "!Sample_description": [
+        [
+          "Gene expression data from tumor tissue in Control group",
+          "Gene expression data from tumor tissue in Control group",
+          "Gene expression data from tumor tissue in Control group",
+          "Gene expression data from tumor tissue in anti-PD-1 antibody group",
+          "Gene expression data from tumor tissue in anti-PD-1 antibody group",
+          "Gene expression data from tumor tissue in anti-PD-1 antibody group"
+        ]
+      ]
+    }
+  },
+  {
+    "accession": "GSE330658",
+    "fields": {
+      "!Sample_title": [
+        [
+          "Control-no1",
+          "Control-no2",
+          "PTX-no1",
+          "PTX-no2",
+          "anti-VEGF-no1",
+          "anti-VEGF-no2",
+          "PTX-anti-VEGF-no1",
+          "PTX-anti-VEGF-no2"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM9729952",
+          "GSM9729953",
+          "GSM9729954",
+          "GSM9729955",
+          "GSM9729956",
+          "GSM9729957",
+          "GSM9729958",
+          "GSM9729959"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor"
+        ],
+        [
+          "treatment: Control",
+          "treatment: Control",
+          "treatment: PTX",
+          "treatment: PTX",
+          "treatment: anti-VEGF",
+          "treatment: anti-VEGF",
+          "treatment: PTX+anti-VEGF",
+          "treatment: PTX+anti-VEGF"
+        ]
+      ],
+      "!Sample_description": [
+        [
+          "Library name: Sample 1",
+          "Library name: Sample 2",
+          "Library name: Sample 3",
+          "Library name: Sample 4",
+          "Library name: Sample 5",
+          "Library name: Sample 6",
+          "Library name: Sample 7",
+          "Library name: Sample 8"
+        ]
+      ]
+    }
+  },
+  {
+    "accession": "GSE197260",
+    "fields": {
+      "!Sample_title": [
+        [
+          "vehicle_d3",
+          "gef_d3",
+          "gef_d14",
+          "gef_vehicle_d21",
+          "gef_dc101_d21",
+          "gef_4h2_d21",
+          "gef_comb_d21"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM5911724",
+          "GSM5911725",
+          "GSM5911726",
+          "GSM5911727",
+          "GSM5911728",
+          "GSM5911729",
+          "GSM5911730"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor",
+          "Lung tumor"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "strain: C57BL/6",
+          "strain: C57BL/6",
+          "strain: C57BL/6",
+          "strain: C57BL/6",
+          "strain: C57BL/6",
+          "strain: C57BL/6",
+          "strain: C57BL/6"
+        ],
+        [
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor",
+          "tissue: Lung tumor"
+        ],
+        [
+          "treatment: no treatment",
+          "treatment: treatment with gefitinib for 3 days",
+          "treatment: treatment with gefitinib for 14 days",
+          "treatment: no treatment for 7 days after treatment with gefitinib for 14 days",
+          "treatment: treatment with DC101 for 7 days after treatment with gefitinib for 14 days",
+          "treatment: treatment with 4H2 for 7 days after treatment with gefitinib for 14 days",
+          "treatment: treatment with combination of DC101 and 4H2 for 7 days after treatment with gefitinib for 14 days"
+        ]
+      ]
+    }
+  },
+  {
+    "accession": "GSE133604",
+    "fields": {
+      "!Sample_title": [
+        [
+          "Ctrl",
+          "Ctrl_plusPD1",
+          "KO",
+          "KO_plusPD1"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM3912860",
+          "GSM3912861",
+          "GSM3912862",
+          "GSM3912863"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "KP lung tumors",
+          "KP lung tumors",
+          "KP lung tumors",
+          "KP lung tumors"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "genotye/variation: mouse NSCLC",
+          "genotye/variation: mouse NSCLC",
+          "genotye/variation: mouse NSCLC",
+          "genotye/variation: mouse NSCLC"
+        ],
+        [
+          "treatment: KP-WT",
+          "treatment: KP-WT",
+          "treatment: KP-Asf1a KO",
+          "treatment: KP-Asf1a KO"
+        ],
+        [
+          "tag: IgG (control)",
+          "tag: anti-PD-1",
+          "tag: IgG (control)",
+          "tag: anti-PD-1"
+        ]
+      ]
+    }
+  },
+  {
+    "accession": "GSE129297",
+    "fields": {
+      "!Sample_title": [
+        [
+          "control treated tumor experiment 1",
+          "anti-PD-1 treated tumor experiment 1",
+          "CDK7 inhibitor YKL treated tumor experiment 1",
+          "Combination treated tumor experiment 1"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM3704194",
+          "GSM3704195",
+          "GSM3704196",
+          "GSM3704197"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "control treated tumor",
+          "anti-PD-1 treated tumor",
+          "CDK7 inhibitor YKL treated tumor",
+          "Combination treated tumor"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "cell type: mouse SCLC",
+          "cell type: mouse SCLC",
+          "cell type: mouse SCLC",
+          "cell type: mouse SCLC"
+        ]
+      ]
+    }
+  },
+  {
+    "accession": "GSE297632",
+    "fields": {
+      "!Sample_title": [
+        [
+          "Tumor tissue from the Control model",
+          "Tumor tissue from the anti-PD-1 antibody model"
+        ]
+      ],
+      "!Sample_geo_accession": [
+        [
+          "GSM8995911",
+          "GSM8995912"
+        ]
+      ],
+      "!Sample_source_name_ch1": [
+        [
+          "subcutaneous tumor",
+          "subcutaneous tumor"
+        ]
+      ],
+      "!Sample_characteristics_ch1": [
+        [
+          "tissue: subcutaneous tumor",
+          "tissue: subcutaneous tumor"
+        ],
+        [
+          "cell line: Lewis Lung carcinoma",
+          "cell line: Lewis Lung carcinoma"
+        ],
+        [
+          "treatment: IgG2a isotype control antibody",
+          "treatment: anti-PD-1 antibody"
+        ]
+      ],
+      "!Sample_description": [
+        [
+          "Library name: Control",
+          "Library name: PD_1_treatment"
+        ],
+        [
+          "10x Genomics",
+          "10x Genomics"
+        ]
+      ]
+    }
+  }
+]
