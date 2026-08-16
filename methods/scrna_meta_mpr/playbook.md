@@ -61,7 +61,9 @@ Inverse-variance fixed effect and DerSimonian–Laird random effect. Report *Q*,
 
 Sensitivity: collapse IIT+Real into one patient-pooled row (same 53 patients, *k* = 3).
 
-GSE205335 is **not** in the MPR pool.
+Also enumerate every non-empty subset of the four independent MPR cohorts (15 subsets): leave-one-in, pairs, leave-one-out, full. Report Hedges *g*, *p*, *n*, and whether *g* > 0 (NMPR>MPR). *k*=1 uses Mann–Whitney *p*; *k*≥2 uses inverse-variance fixed-effect *p*.
+
+GSE205335 is **not** in the MPR pool. GSE243013 is not in any subset.
 
 ## Leftover 2023–2026
 

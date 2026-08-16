@@ -2,6 +2,7 @@
 """Assemble public per-patient malignant/epithelial TACSTD2 and CLDN4, then IV meta + forest."""
 from __future__ import annotations
 
+import itertools
 import json
 from pathlib import Path
 
@@ -19,6 +20,18 @@ FIG.mkdir(parents=True, exist_ok=True)
 
 MIN_CELLS = 20
 # NMPR minus MPR (or NR minus R): positive = higher in non-responders
+PRIMARY_ORDER = [
+    "GSE207422 (A3, epithelial)",
+    "GSE241934 IIT",
+    "GSE241934 Real",
+    "GSE291670",
+]
+SHORT = {
+    "GSE207422 (A3, epithelial)": "GSE207422",
+    "GSE241934 IIT": "IIT",
+    "GSE241934 Real": "Real",
+    "GSE291670": "GSE291670",
+}
 
 
 def hedges_g(a: np.ndarray, b: np.ndarray) -> dict:
@@ -288,6 +301,126 @@ def load_gse205335() -> tuple[pd.DataFrame, list[dict]]:
     return mal, rows
 
 
+def _combo_kind(k: int, n_cohorts: int) -> str:
+    if k == 1:
+        return "leave-one-in"
+    if k == n_cohorts - 1:
+        return "leave-one-out"
+    if k == n_cohorts:
+        return "full"
+    return f"k={k}"
+
+
+def enumerate_combinations(all_rows: list[dict], names: list[str]) -> list[dict]:
+    by = {}
+    for r in all_rows:
+        if r["endpoint"] != "MPR" or r["cohort"] not in names:
+            continue
+        by[(r["cohort"], r["gene"])] = r
+    out = []
+    n_c = len(names)
+    for gene in ["TACSTD2", "CLDN4"]:
+        for k in range(1, n_c + 1):
+            for subset in itertools.combinations(names, k):
+                effects = [by[(c, gene)] for c in subset if (c, gene) in by]
+                if len(effects) != k:
+                    continue
+                if k == 1:
+                    e = effects[0]
+                    meta = {
+                        "k": 1,
+                        "n_patients": e["n_patients"],
+                        "n_NMPR": e["n_NMPR_or_NR"],
+                        "n_MPR": e["n_MPR_or_R"],
+                        "g_fe": e["hedges_g"],
+                        "se_fe": e["g_se"],
+                        "ci95_fe": [e["hedges_g"] - 1.96 * e["g_se"], e["hedges_g"] + 1.96 * e["g_se"]],
+                        "p_fe": e["mwu_p"],
+                        "g_re": e["hedges_g"],
+                        "se_re": e["g_se"],
+                        "p_re": e["mwu_p"],
+                        "I2": 0.0,
+                    }
+                    p_report = e["mwu_p"]
+                    p_source = "mwu"
+                else:
+                    meta = iv_meta(effects, "hedges_g", "g_var")
+                    p_report = meta.get("p_fe", np.nan)
+                    p_source = "iv_fe"
+                g = meta.get("g_fe", np.nan)
+                ci = meta.get("ci95_fe", [np.nan, np.nan])
+                out.append(
+                    {
+                        "gene": gene,
+                        "kind": _combo_kind(k, n_c),
+                        "k": k,
+                        "cohorts": " + ".join(SHORT[c] for c in subset),
+                        "include_GSE207422": "GSE207422 (A3, epithelial)" in subset,
+                        "include_IIT": "GSE241934 IIT" in subset,
+                        "include_Real": "GSE241934 Real" in subset,
+                        "include_GSE291670": "GSE291670" in subset,
+                        "n_NMPR": meta.get("n_NMPR", 0),
+                        "n_MPR": meta.get("n_MPR", 0),
+                        "n_patients": meta.get("n_patients", 0),
+                        "hedges_g": g,
+                        "g_se": meta.get("se_fe", np.nan),
+                        "ci95_lo": ci[0] if ci else np.nan,
+                        "ci95_hi": ci[1] if ci else np.nan,
+                        "p": p_report,
+                        "p_source": p_source,
+                        "I2": meta.get("I2", 0.0),
+                        "NMPR_gt_MPR_g": bool(np.isfinite(g) and g > 0),
+                        "NMPR_gt_MPR_p05": bool(np.isfinite(g) and g > 0 and np.isfinite(p_report) and p_report < 0.05),
+                    }
+                )
+    return out
+
+
+def combination_summary(df: pd.DataFrame) -> dict:
+    out = {}
+    for gene, sub in df.groupby("gene"):
+        pos = sub[sub["NMPR_gt_MPR_g"]]
+        out[gene] = {
+            "n_subsets": int(len(sub)),
+            "n_NMPR_gt_MPR": int(len(pos)),
+            "n_NMPR_gt_MPR_p05": int(sub["NMPR_gt_MPR_p05"].sum()),
+            "leave_one_in_NMPR_gt_MPR": pos.loc[pos["kind"] == "leave-one-in", "cohorts"].tolist(),
+            "leave_one_out_NMPR_gt_MPR": pos.loc[pos["kind"] == "leave-one-out", "cohorts"].tolist(),
+            "pairs_NMPR_gt_MPR": pos.loc[pos["kind"] == "k=2", "cohorts"].tolist(),
+            "full_NMPR_gt_MPR": bool(((sub["kind"] == "full") & sub["NMPR_gt_MPR_g"]).any()),
+            "subsets_NMPR_gt_MPR": pos[["kind", "cohorts", "n_patients", "hedges_g", "p"]].to_dict("records"),
+        }
+    return out
+
+
+def plot_combinations(df: pd.DataFrame, out_png: Path) -> None:
+    fig, axes = plt.subplots(1, 2, figsize=(11.2, 7.2), sharex=True)
+    for ax, gene in zip(axes, ["TACSTD2", "CLDN4"]):
+        sub = df[df["gene"] == gene].copy()
+        sub = sub.sort_values(["k", "hedges_g"], ascending=[True, False])
+        y = np.arange(len(sub))[::-1]
+        colors = ["#b2182b" if g > 0 else "#2166ac" for g in sub["hedges_g"]]
+        ax.errorbar(
+            sub["hedges_g"],
+            y,
+            xerr=1.96 * sub["g_se"].astype(float),
+            fmt="none",
+            ecolor="#888888",
+            elinewidth=1,
+            capsize=2,
+        )
+        ax.scatter(sub["hedges_g"], y, c=colors, s=28, zorder=3)
+        ax.axvline(0, color="#666666", lw=1)
+        labels = [f"{r.kind}: {r.cohorts}  n={r.n_patients}" for r in sub.itertuples()]
+        ax.set_yticks(y)
+        ax.set_yticklabels(labels, fontsize=6.5)
+        ax.set_title(f"{gene}  (red = NMPR>MPR)", fontsize=10)
+        ax.set_xlabel("Hedges g  (NMPR − MPR)")
+    fig.tight_layout()
+    fig.savefig(out_png, dpi=160)
+    plt.close(fig)
+
+
 def forest(rows: list[dict], title: str, out_png: Path, meta: dict | None, effect_key="hedges_g", se_key="g_se") -> None:
     plot_rows = [r for r in rows if np.isfinite(r.get(effect_key, np.nan))]
     if not plot_rows:
@@ -379,6 +512,16 @@ def main() -> None:
             None,
         )
 
+    # All non-empty combinations of the four independent MPR cohorts
+    # (leave-one-in k=1, pairs k=2, leave-one-out k=3, full k=4).
+    combo_rows = enumerate_combinations(all_rows, list(PRIMARY_ORDER))
+    combo_df = pd.DataFrame(combo_rows)
+    combo_df.to_csv(OUT / "combinations.tsv", sep="\t", index=False)
+    pos = combo_df[combo_df["NMPR_gt_MPR_g"] == True]
+    pos.to_csv(OUT / "combinations_nmpr_gt_mpr.tsv", sep="\t", index=False)
+    summary["combinations"] = combination_summary(combo_df)
+    plot_combinations(combo_df, FIG / "combinations_g.png")
+
     # patient totals (no double-count of GSE241934)
     n_map = {}
     for r in all_rows:
@@ -416,7 +559,7 @@ def main() -> None:
     ]
     show.to_csv(OUT / "cohort_effects_compact.tsv", sep="\t", index=False)
     print(show.to_string(index=False))
-    print(json.dumps({k: summary[k] for k in summary if k.startswith("n_") or k.startswith("MPR_TACSTD2_hedges")}, indent=2, default=float))
+    print(json.dumps({k: summary[k] for k in summary if k.startswith("n_") or k.startswith("MPR_TACSTD2_hedges") or k == "combinations"}, indent=2, default=float))
 
 
 if __name__ == "__main__":

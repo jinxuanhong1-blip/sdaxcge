@@ -23,6 +23,17 @@ Rank-biserial IV: TACSTD2 *r* = −0.05 (*p* = 0.77); CLDN4 *r* = −0.10 (*p* =
 
 No cohort Mann–Whitney *p* is < 0.05. GSE291670 3 vs 3 cannot go below *p* = 0.10.
 
+## Combinations (15 subsets)
+
+Leave-one-in (*k*=1), pairs (*k*=2), leave-one-out (*k*=3), full (*k*=4). NMPR>MPR = Hedges *g* > 0. GSE243013 is not pooled.
+
+| Gene | subsets with *g* > 0 | of 15 | *g* > 0 and *p* < 0.05 |
+|---|---|---|---|
+| TACSTD2 | GSE207422; GSE207422+IIT; GSE207422+Real; drop GSE291670 | 4 | 0 |
+| CLDN4 | Real; GSE207422+Real; IIT+Real; Real+GSE291670; drop IIT | 5 | 0 |
+
+Full four-cohort *g* is negative for both genes. Tables: `results/combinations.tsv`, `results/combinations_nmpr_gt_mpr.tsv`. Figure: `figures/combinations_g.png`.
+
 ## Per-cohort (malignant/epithelial mean, patient unit)
 
 See `results/cohort_effects_compact.tsv` and the forest plots in `figures/`.
@@ -41,4 +52,4 @@ Three responders and one non-responder had zero captured malignant cells and dro
 - `playbook.md` — inclusion, metric, estimators
 - `scripts/run_meta.py` — assemble + Hedges *g* / rank-biserial + forest
 - `results/leftover_inventory.tsv` — every leftover 2023–2026 hit
-- `figures/forest_mpr_tacstd2.png`, `forest_mpr_cldn4.png`, `forest_recist_gse205335.png`
+- `figures/forest_mpr_tacstd2.png`, `forest_mpr_cldn4.png`, `forest_recist_gse205335.png`, `combinations_g.png`
