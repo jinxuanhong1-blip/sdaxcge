@@ -1,0 +1,46 @@
+{
+  "n_cells_public_matrix": 92330,
+  "n_genes_matrix": 24292,
+  "user_claimed_cells": 90652,
+  "author_copykat_ids_public": false,
+  "n_epithelial_hu_mean": 10669,
+  "n_epithelial_hu_pctpos": 10667,
+  "n_stromal": 1303,
+  "n_T": 34719,
+  "n_NK": 3702,
+  "n_CD8": 15999,
+  "n_CXCL13_TNK": 8517,
+  "n_cyto_high_T": 8680,
+  "cyto_cut_log1p_cp10k": 1.7118667364120483,
+  "epcam_krt_mean_cut": 1.663274130806359,
+  "normal_lung_cut_hu_mean": 0.05604339763522148,
+  "ucell_module_genes": [
+    "TACSTD2",
+    "CLDN4",
+    "EPCAM"
+  ],
+  "ucell_maxRank": 1500,
+  "malignant_n": {
+    "hu_markers_mean": 6401,
+    "hu_markers_pctpos": 4928,
+    "epcam_krt_pos": 10607,
+    "epcam_krt_mean": 5147,
+    "copykat_stromal_p95": 6073,
+    "infercnv_stromal_p95": 1520,
+    "drmref_public": 2051,
+    "drmref_like": 7005
+  },
+  "cnv": {
+    "n_genes_input": 15320,
+    "n_genes_kept": 11607,
+    "n_ref_cells": 1303,
+    "win": 25,
+    "ok": true,
+    "copykat_ref_p95": 2629.73779296875,
+    "infercnv_ref_p95": 0.13616973161697388
+  },
+  "n_grid_spearman": 120,
+  "n_grid_nmpr": 24,
+  "n_highlight_rho_le_neg035": 33,
+  "n_highlight_nmpr_gt_mpr": 20
+}

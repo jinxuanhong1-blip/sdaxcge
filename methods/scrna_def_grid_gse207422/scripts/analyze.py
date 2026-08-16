@@ -599,8 +599,13 @@ def main() -> None:
     is_t = lineage_mean == "T"
     is_nk = lineage_mean == "NK"
     epcam_krt_mod = module_score(log_cp, EPCAM_KRT, n)
-    # mean-style EPCAM+KRT: module above the 80th percentile of all cells and not PTPRC-high
-    ek_cut = float(np.quantile(epcam_krt_mod, 0.80))
+    # mean-style EPCAM+KRT: high module among epithelial-range cells.
+    # The 80th percentile of all cells is near zero (zero-inflated), so the
+    # cutoff is the median of Hu-mean epithelial scores, with a floor of 0.40.
+    if is_epi_mean.sum() >= 20:
+        ek_cut = float(max(0.40, np.median(epcam_krt_mod[is_epi_mean])))
+    else:
+        ek_cut = 0.40
     is_ek_mean = (epcam_krt_mod >= ek_cut) & (ptprc < 1)
     is_ek_pos = (epcam >= 1) & ((krt8 >= 1) | (krt18 >= 1) | (krt19 >= 1))
 
