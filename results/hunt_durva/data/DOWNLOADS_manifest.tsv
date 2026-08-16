@@ -1,0 +1,6 @@
+file	bytes	sha256_first16	source_url	accession/notes
+GSE248378_Durva_Post_FPKMs.txt.gz	1016822	dc3eaa5279dd1570	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE248nnn/GSE248378/suppl/GSE248378_Durva_Post_FPKMs.txt.gz	GEO GSE248378 (durvalumab, anti-PD-L1 NSCLC; open)
+oncosg_data_clinical_sample.txt	50145	55739b69bf4f2e8e	https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/luad_oncosg_2020/data_clinical_sample.txt	cBioPortal datahub luad_oncosg_2020 (open); has PURITY + IMSIG
+oncosg_TACSTD2_zscore_all.tsv	2091	a3dd8fa93de5ec17	https://www.cbioportal.org/api/molecular-profiles/luad_oncosg_2020_rna_seq_v2_mrna_median_all_sample_Zscores/molecular-data/fetch	cBioPortal API; TACSTD2 (EntrezID 4070) mRNA z-scores, 169 RNA-seq samples
+ESTIMATE_SI_geneset.gmt	1738	bfd34f3f811656a5	https://r-forge.r-project.org/src/contrib/estimate_1.0.13.tar.gz	ESTIMATE package inst/extdata/SI_geneset.gmt (141 immune + 141 stromal genes)
+ESTIMATE_common_genes.txt	749048	47acd26186e7e162	https://r-forge.r-project.org/src/contrib/estimate_1.0.13.tar.gz	ESTIMATE package inst/extdata/common_genes.txt (10,412 common genes)
