@@ -732,8 +732,9 @@ def main() -> int:
     ax.set_xticks(x)
     ax.set_xticklabels([e["cohort"] for e in effects])
     ax.set_ylabel("Objective response rate (%)")
+    ax.set_ylim(0, max(max(e["orr_high_pct"], e["orr_low_pct"]) for e in effects) * 1.34)
     ax.set_title("Objective response rate by CLDN4 median split", fontsize=11)
-    ax.legend(fontsize=9)
+    ax.legend(fontsize=9, loc="upper left")
     fig.tight_layout()
     fig.savefig(os.path.join(figdir, "fig_orr_by_cldn4.png"), dpi=160)
     plt.close(fig)
@@ -779,7 +780,7 @@ def main() -> int:
     plt.close(fig)
 
     # Fig 5: controls
-    fig, ax = plt.subplots(figsize=(8.0, 4.2))
+    fig, ax = plt.subplots(figsize=(9.6, 4.8))
     rows5 = controls + [dict(e, control="CLDN4 (primary)") for e in effects]
     y = np.arange(len(rows5))[::-1]
     colmap = {"positive_control_cd8_teff": "#27ae60",
@@ -794,8 +795,7 @@ def main() -> int:
     ax.set_yticklabels([f"{r.get('control','')} | {r['cohort']}" for r in rows5], fontsize=8)
     ax.set_xscale("log")
     ax.set_xlabel("OR of objective response, score-high vs score-low")
-    ax.set_title("Pipeline calibration: positive and negative controls vs the CLDN4 primary",
-                 fontsize=11)
+    ax.set_title("Pipeline calibration: controls vs the CLDN4 primary", fontsize=11)
     fig.tight_layout()
     fig.savefig(os.path.join(figdir, "fig_controls.png"), dpi=160)
     plt.close(fig)
