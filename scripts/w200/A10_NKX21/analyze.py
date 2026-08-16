@@ -274,6 +274,8 @@ def main() -> int:
         "genes_absent": [g for g in [PRIMARY_TF] + PRIMARY_TARGETS + CONTEXT_GENES if g not in tumors.columns],
     }
     tumors.to_csv(out / "tcga_luad_primary_tumors.csv")
+    pur_out = purity.reindex(tumors.index).rename("absolute_purity")
+    pur_out.to_csv(out / "tcga_luad_absolute_purity.csv", header=True)
 
     for tgt in PRIMARY_TARGETS:
         add_row(
@@ -471,9 +473,12 @@ def main() -> int:
         )
     elif positives and not inverses:
         overall = "OPPOSITE"
+        tac = pair_verdicts.get("TACSTD2")
         statement = (
             "TCGA-LUAD primary tumors: NKX2-1 is significantly positively correlated "
-            f"with {', '.join(positives)}. The inverse claim is not supported."
+            f"with {', '.join(positives)} "
+            f"(TACSTD2 is {tac}, not inverse). "
+            "The inverse claim is not supported."
         )
     else:
         overall = "NOT_SUPPORTED"
@@ -657,6 +662,49 @@ def write_results_readme(out: Path, summary: dict, table: pd.DataFrame) -> None:
         lines.append(
             f"| {r.cohort} | {r.layer} | {r.gene_x} vs {r.gene_y} | {r.n} | {rho} | {pv} | {fdr} | {ci} | {r.direction} |"
         )
+    expl = table[~table["primary_endpoint"]]
+    if not expl.empty:
+        lines += [
+            "",
+            "## Exploratory (not used for the verdict)",
+            "",
+            "| Cohort | Pair | n | Spearman ρ | p | Direction |",
+            "| --- | --- | ---: | ---: | ---: | --- |",
+        ]
+        for r in expl.itertuples(index=False):
+            rho = "—" if r.spearman_rho is None else f"{r.spearman_rho:.3f}"
+            pv = "—" if r.spearman_p is None else f"{r.spearman_p:.2e}"
+            lines.append(
+                f"| {r.cohort} | {r.gene_x} vs {r.gene_y} | {r.n} | {rho} | {pv} | {r.direction} |"
+            )
+
+    cov = summary.get("coverage", {})
+    tcga = cov.get("tcga_luad", {})
+    prot = cov.get("cptac_protein", {})
+    lines += [
+        "",
+        "## Coverage (honest missingness)",
+        "",
+        f"- TCGA-LUAD primary tumors: n={tcga.get('n_primary_tumors')}; "
+        f"ABSOLUTE purity available for {tcga.get('n_with_absolute_purity')}.",
+        f"- CPTAC LUAD RNA: n={cov.get('cptac_rna', {}).get('n_tumors')}; all three genes complete.",
+        f"- CPTAC LUAD protein: NKX2-1 and TACSTD2 complete (n=110); "
+        f"CLDN4 non-NA = {prot.get('n_non_na', {}).get('CLDN4', '?')} / 110 "
+        "(pairwise n=79 for NKX2-1 vs CLDN4).",
+        f"- DepMap 24Q4 LUAD cell lines: n={cov.get('depmap_luad_cell_lines', {}).get('n')} "
+        "(OncotreeSubtype Lung Adenocarcinoma).",
+        "",
+        "## Secondary: purity-adjusted TCGA (does not change the verdict)",
+        "",
+    ]
+    tcga_rows = table[(table["cohort"] == "TCGA-LUAD") & (table["gene_x"] == "NKX2-1")]
+    for r in tcga_rows.itertuples(index=False):
+        if r.purity_partial_rho is None:
+            continue
+        lines.append(
+            f"- NKX2-1 vs {r.gene_y}: partial ρ = {r.purity_partial_rho:.3f}, "
+            f"p = {r.purity_partial_p:.2e}, n = {int(r.n_purity)}"
+        )
     lines += [
         "",
         "## What this is not",
@@ -665,6 +713,16 @@ def write_results_readme(out: Path, summary: dict, table: pd.DataFrame) -> None:
     for item in summary["cannot_test"]:
         lines.append(f"- {item}")
     lines += [
+        "- A reason to drop CPTAC protein or DepMap because the sign disagrees with a hoped-for inverse.",
+        "- Evidence that NKX2-1 represses TACSTD2. The TACSTD2 RNA association is consistent with zero.",
+        "",
+        "## Caveats",
+        "",
+        "1. Bulk tumor RNA mixes epithelium, stroma, and immune cells. NKX2-1 is lineage-restricted; TACSTD2/CLDN4 are not.",
+        "2. CPTAC protein CLDN4 is missing in 31/110 tumors. The protein ρ = −0.22 (n=79) has FDR = 0.09 and a CI that includes 0. That is not an inverse call.",
+        "3. DepMap cell lines are not tumors. Both pairs are **positive** in vitro (ρ = 0.45 and 0.53).",
+        "4. Exploratory sanity checks behave as expected: NKX2-1 tracks SFTPB/NAPSA (alveolar) and is weakly inverse with KRT5 (basal). The assay is not broken; the TACSTD2/CLDN4 inverse claim is.",
+        "5. TCGA/CPTAC are not ICI cohorts.",
         "",
         "## Rerun",
         "",

@@ -1,0 +1,133 @@
+{
+  "claim": "NKX2-1 is inversely correlated with TACSTD2 and with CLDN4 in public LUAD.",
+  "honest_verdict": {
+    "primary_cohort": "TCGA-LUAD primary tumors (-01, one per patient)",
+    "primary_statistic": "Spearman rho",
+    "pair_direction_tcga": {
+      "TACSTD2": "NULL",
+      "CLDN4": "POSITIVE"
+    },
+    "label": "OPPOSITE",
+    "statement": "TCGA-LUAD primary tumors: NKX2-1 is significantly positively correlated with CLDN4 (TACSTD2 is NULL, not inverse). The inverse claim is not supported.",
+    "did_we_tune_filters_to_force_inverse": false
+  },
+  "replication": [
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "RNA_RSEM_UQ_log2",
+      "gene_y": "TACSTD2",
+      "n": 110,
+      "spearman_rho": -0.008764237942937835,
+      "direction": "NULL",
+      "same_sign_as_tcga": true
+    },
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "RNA_RSEM_UQ_log2",
+      "gene_y": "CLDN4",
+      "n": 110,
+      "spearman_rho": 0.27312626377070404,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga": true
+    },
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "protein_TMT_log2",
+      "gene_y": "TACSTD2",
+      "n": 110,
+      "spearman_rho": 0.04084935644568672,
+      "direction": "NULL",
+      "same_sign_as_tcga": false
+    },
+    {
+      "cohort": "CPTAC-LUAD",
+      "layer": "protein_TMT_log2",
+      "gene_y": "CLDN4",
+      "n": 79,
+      "spearman_rho": -0.2157740993184031,
+      "direction": "NULL",
+      "same_sign_as_tcga": false
+    },
+    {
+      "cohort": "DepMap24Q4-LUAD",
+      "layer": "RNA_log2TPM",
+      "gene_y": "TACSTD2",
+      "n": 80,
+      "spearman_rho": 0.44498419656419286,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga": false
+    },
+    {
+      "cohort": "DepMap24Q4-LUAD",
+      "layer": "RNA_log2TPM",
+      "gene_y": "CLDN4",
+      "n": 80,
+      "spearman_rho": 0.5321237285240656,
+      "direction": "POSITIVE",
+      "same_sign_as_tcga": true
+    }
+  ],
+  "coverage": {
+    "tcga_luad": {
+      "n_primary_tumors": 516,
+      "n_with_absolute_purity": 503,
+      "genes_present": [
+        "NKX2-1",
+        "TACSTD2",
+        "CLDN4",
+        "SFTPB",
+        "NAPSA",
+        "KRT5",
+        "CLDN7"
+      ],
+      "genes_absent": []
+    },
+    "cptac_rna": {
+      "n_tumors": 110,
+      "genes_present": [
+        "NKX2-1",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "genes_absent": []
+    },
+    "cptac_protein": {
+      "n_tumors": 110,
+      "genes_present": [
+        "NKX2-1",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "genes_absent": [],
+      "n_non_na": {
+        "NKX2-1": 110,
+        "TACSTD2": 110,
+        "CLDN4": 79
+      }
+    },
+    "depmap_luad_cell_lines": {
+      "n": 80,
+      "filter": "OncotreeLineage==Lung AND ModelType==Cell Line AND (Adenocarcinoma subtype OR OncotreeCode==LUAD)",
+      "genes_present": [
+        "NKX2-1",
+        "TACSTD2",
+        "CLDN4"
+      ],
+      "primary_disease_counts": {
+        "Non-Small Cell Lung Cancer": 80
+      }
+    }
+  },
+  "cannot_test": [
+    "Direct NKX2-1 binding or repression at TACSTD2/CLDN4 (no ChIP/perturbation in this slice).",
+    "ICI response or TROP2-ADC outcome.",
+    "TTF-1 IHC (this is continuous RNA/protein, not a clinical IHC call)."
+  ],
+  "methods": {
+    "tcga_matrix": "Xena GDC hub TCGA-LUAD.star_tpm.tsv.gz, log2(TPM+1), GENCODE v36",
+    "cptac_freeze": "data_freeze_v1.2_reorganized/LUAD",
+    "depmap_release": "DepMap Public 24Q4",
+    "fdr": "BH within pre-specified primary NKX2-1 vs TACSTD2/CLDN4 rows only",
+    "purity": "ABSOLUTE (PanCanAtlas); partial Spearman is secondary"
+  }
+}

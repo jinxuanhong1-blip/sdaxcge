@@ -44,7 +44,7 @@ GENES = {
     "SFTPB": {"ensembl": "ENSG00000168878", "entrez": "6439"},
     "NAPSA": {"ensembl": "ENSG00000131400", "entrez": "9476"},
     "KRT5": {"ensembl": "ENSG00000186081", "entrez": "3852"},
-    "CLDN7": {"ensembl": "ENSG00000113231", "entrez": "1366"},
+    "CLDN7": {"ensembl": "ENSG00000181885", "entrez": "1366"},
 }
 
 TCGA_FILES = {
@@ -177,11 +177,13 @@ def extract_cptac_gene_matrix(src: Path, out_path: Path, layer: str) -> dict:
     aliases["TTF1"] = "NKX2-1"
     aliases["TTF-1"] = "NKX2-1"
     aliases["TITF1"] = "NKX2-1"
+    ens2sym = {meta["ensembl"]: sym for sym, meta in GENES.items()}
     for row in rows:
         if not row:
             continue
         raw = row[0].strip()
-        key = aliases.get(raw.upper())
+        bare = raw.split(".")[0]
+        key = aliases.get(raw.upper()) or ens2sym.get(bare)
         if key is None:
             continue
         vals = row[1:]
