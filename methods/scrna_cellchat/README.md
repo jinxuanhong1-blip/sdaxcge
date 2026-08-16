@@ -15,7 +15,7 @@ python3 methods/scrna_cellchat/scripts/analyze.py \
 | Path | Role |
 | --- | --- |
 | [METHODS.md](METHODS.md) | Dataset, lineage, Hill probability, permutation, split rule |
-| [RESULTS.md](RESULTS.md) | n, significant LR counts, kept split (written after the run) |
+| [RESULTS.md](RESULTS.md) | Honest n, significant LR counts, kept NMPR tertile |
 | [db/](db/) | CellChatDB v2 protein pairs + complex table |
 | [scripts/analyze.py](scripts/analyze.py) | Stream UMI → lineage → CellChat-like LR |
 | [results/](results/) | Tables, JSON, figures from the public matrix |

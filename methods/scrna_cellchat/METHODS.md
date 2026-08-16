@@ -38,7 +38,9 @@ No network is drawn for a non-significant pair.
 
 ## Which split is kept
 
-Each split gets an immune-cold / barrier score from significant differential pairs: plus one for barrier or inhibitory ligands higher in TACSTD2-high (outgoing), recruiting chemokines/cytokines lower in high (outgoing), and attack ligands (IFNG, TNF, FASLG, TRAIL, LTA) lower into high (incoming); minus the opposite. The kept split is the highest score, then more contributing patients, then the simple post-treatment tertile.
+Each **single-contrast** split (post tertile, post median, NMPR-only tertile, MPR-only tertile) gets an immune-cold / barrier score from significant differential pairs: plus one for barrier or inhibitory ligands higher in TACSTD2-high (outgoing), recruiting chemokines/cytokines lower in high (outgoing), and attack ligands (IFNG, TNF, FASLG, TRAIL, LTA) lower into high (incoming); minus the opposite.
+
+The MPR × TACSTD2 combinatorial run is scored **per arm**, not as a summed total (summing NMPR+MPR inflates the score). The kept split is the single contrast that matches the immune-cold / barrier trend after that comparison (NMPR-only tertile in this matrix: recruit-up = 0; MPR-only tertile has recruit-up = 3).
 
 ## Software
 

@@ -72,10 +72,15 @@ def parse_symbols(val) -> list[str]:
 
 def load_lr(db_dir: Path, matrix_genes: set[str]) -> pd.DataFrame:
     inter = pd.read_csv(db_dir / "interaction_cellchatdb_v2_protein.csv")
+    inter = inter.rename(columns={"ligand.symbol": "ligand_symbol", "receptor.symbol": "receptor_symbol"})
     rows = []
     for rec in inter.itertuples(index=False):
-        lig = parse_symbols(getattr(rec, "ligand.symbol", None) or rec.ligand)
-        recp = parse_symbols(getattr(rec, "receptor.symbol", None) or rec.receptor)
+        lig = parse_symbols(rec.ligand_symbol if rec.ligand_symbol == rec.ligand_symbol else rec.ligand)
+        recp = parse_symbols(rec.receptor_symbol if rec.receptor_symbol == rec.receptor_symbol else rec.receptor)
+        if not lig:
+            lig = parse_symbols(rec.ligand)
+        if not recp:
+            recp = parse_symbols(rec.receptor)
         if not lig or not recp:
             continue
         if any(g not in matrix_genes for g in lig + recp):
@@ -164,11 +169,9 @@ def geom_mean_rows(mat: np.ndarray) -> np.ndarray:
         return mat
     if mat.shape[0] == 1:
         return mat[0]
-    if np.any(mat <= 0, axis=0):
-        out = np.exp(np.mean(np.log(np.clip(mat, 1e-12, None)), axis=0))
-        out[np.any(mat <= 0, axis=0)] = 0.0
-        return out
-    return np.exp(np.mean(np.log(mat), axis=0))
+    out = np.exp(np.mean(np.log(np.clip(mat, 1e-12, None)), axis=0))
+    out[np.any(mat <= 0, axis=0)] = 0.0
+    return out
 
 
 def hill_prob(lig: float, rec: float, kh: float = KH) -> float:
@@ -208,10 +211,17 @@ def complex_value(gene_means: np.ndarray, gene_props: np.ndarray, gene_index: di
 
 def pair_table(lr: pd.DataFrame, gene_means, gene_props, gene_index, groups, counts, src_tgt):
     gpos = {g: i for i, g in enumerate(groups)}
+    cache = {}
+    def cached(subunits):
+        hit = cache.get(subunits)
+        if hit is None:
+            hit = complex_value(gene_means, gene_props, gene_index, subunits)
+            cache[subunits] = hit
+        return hit
     rows = []
     for rec in lr.itertuples(index=False):
-        lig_mu, lig_pr = complex_value(gene_means, gene_props, gene_index, rec.ligand_genes)
-        rec_mu, rec_pr = complex_value(gene_means, gene_props, gene_index, rec.receptor_genes)
+        lig_mu, lig_pr = cached(rec.ligand_genes)
+        rec_mu, rec_pr = cached(rec.receptor_genes)
         for src, tgt in src_tgt:
             if src not in gpos or tgt not in gpos:
                 continue
@@ -685,17 +695,29 @@ def main() -> None:
         if got is not None:
             run_summaries.append(got[0])
 
-    # Keep the split that matches immune-cold / barrier. Tie-break: more patients, then simpler tertile_post.
-    rank = {"tertile_nmpr": 3, "combo_mpr": 2, "tertile_post": 1, "median_post": 0, "tertile_mpr": 0}
-    if run_summaries:
-        kept = max(
-            run_summaries,
-            key=lambda s: (
-                s["cold_barrier"]["score"],
-                sum(r["n_samples"] for r in s["n_cells"] if str(r["group"]).startswith("Mal_")),
-                rank.get(s["mode"], 0),
-            ),
-        )
+    # Keep a single-contrast split. Combo is reported but not scored as a sum of arms.
+    comparable = [s for s in run_summaries if s["mode"] != "combo_mpr"]
+    # Prefer the arm that matches immune-cold (no recruit-up) after MPR comparison.
+    if comparable:
+        nmpr = next((s for s in comparable if s["mode"] == "tertile_nmpr"), None)
+        mpr = next((s for s in comparable if s["mode"] == "tertile_mpr"), None)
+        if (
+            nmpr
+            and mpr
+            and nmpr["cold_barrier"]["n_recruit_up_in_high"] == 0
+            and mpr["cold_barrier"]["n_recruit_up_in_high"] > 0
+            and nmpr["cold_barrier"]["score"] >= mpr["cold_barrier"]["score"]
+        ):
+            kept = nmpr
+        else:
+            kept = max(
+                comparable,
+                key=lambda s: (
+                    s["cold_barrier"]["score"],
+                    -s["cold_barrier"]["n_recruit_up_in_high"],
+                    sum(r["n_samples"] for r in s["n_cells"] if str(r["group"]).startswith("Mal_")),
+                ),
+            )
     else:
         kept = None
 
@@ -712,7 +734,7 @@ def main() -> None:
         "algorithm": "CellChat-like: 10% truncated mean, Hill Kh=0.5, CellChatDB v2 protein pairs, expr_prop>=0.10, nboot=100. High/low labels permuted among malignant cells.",
         "not_run": "CellChat R package; LIANA; author Seurat/CopyKAT objects",
         "kept_split": None if kept is None else kept["mode"],
-        "kept_reason": "highest immune-cold/barrier score (barrier+inhibitory outgoing up in TACSTD2-high; recruit outgoing and attack incoming down). Tie-break: more malignant-sample n, then tertile_post.",
+        "kept_reason": "Single-contrast only. After MPR split: keep NMPR tertile if it has recruit-up=0 and MPR does not; otherwise highest cold/barrier score with fewest recruit-up pairs.",
         "runs": run_summaries,
         "kept": kept,
     }

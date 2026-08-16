@@ -1,0 +1,53 @@
+{
+  "mode": "median_post",
+  "info": {
+    "median": 1.9370061159133911,
+    "split": "median",
+    "samples": "post"
+  },
+  "n_cells": [
+    {
+      "group": "Mal_high",
+      "n_cells": 4203,
+      "n_samples": 12,
+      "n_MPR_samples": 4,
+      "n_NMPR_samples": 8,
+      "mean_TACSTD2_log1p_cp10k": 2.5899312496185303
+    },
+    {
+      "group": "Mal_low",
+      "n_cells": 4204,
+      "n_samples": 12,
+      "n_MPR_samples": 4,
+      "n_NMPR_samples": 8,
+      "mean_TACSTD2_log1p_cp10k": 1.0978487730026245
+    },
+    {
+      "group": "TNK",
+      "n_cells": 33760,
+      "n_samples": 12,
+      "n_MPR_samples": 4,
+      "n_NMPR_samples": 8,
+      "mean_TACSTD2_log1p_cp10k": 0.02294337935745716
+    }
+  ],
+  "n_lr_tested": 6148,
+  "n_detected": 218,
+  "n_significant": 105,
+  "n_sig_outgoing_mal_to_tnk": 69,
+  "n_sig_incoming_tnk_to_mal": 36,
+  "cold_barrier": {
+    "score": 14,
+    "n_sig_diff": 105,
+    "n_barrier_up_in_high": 5,
+    "n_barrier_down_in_high": 0,
+    "n_inhib_up_in_high": 6,
+    "n_recruit_up_in_high": 0,
+    "n_recruit_down_in_high": 1,
+    "n_attack_in_down_in_high": 2
+  },
+  "nboot": 100,
+  "expr_prop": 0.1,
+  "trim": 0.1,
+  "kh": 0.5
+}
