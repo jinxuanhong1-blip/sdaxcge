@@ -1,0 +1,12 @@
+{
+  "pair_id": "GSE207422_GSE241934IIT",
+  "score_key": "marker",
+  "n": 26,
+  "rho": -0.1692307692307692,
+  "p": 0.4085443954184591,
+  "n_by_dataset": {
+    "GSE207422": 15,
+    "GSE241934": 11
+  },
+  "note": "Primary combo score is marker malignant after scVI. Leiden-cluster malignant is negative at n=7 but drops all GSE241934 samples."
+}
