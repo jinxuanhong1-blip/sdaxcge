@@ -1,0 +1,10 @@
+{
+  "can_compute_TACSTD2_vs_SCLC-I_in_IMpower133": false,
+  "reason": "Per-patient RNA-seq is EGA-controlled; no public leftover contains TACSTD2 or CLDN4.",
+  "what_we_did_instead": [
+    "George 2015 bulk (Gay discovery cohort; public; n=81)",
+    "Chan 2021 scRNA-seq atlas (public; SCLC donors)",
+    "Transcribe Gay/Horn published IMpower133 cohort-level numbers only"
+  ],
+  "n_leftover_items": 10
+}

@@ -1,0 +1,11 @@
+item	value	source	usable_for_TACSTD2
+trial_design	ES-SCLC, 1:1 carboplatin/etoposide +/- atezolizumab (anti-PD-L1)	Horn et al. 2018 NEJM (IMpower133 primary)	no
+n_RNAseq_subtyped	276 treatment-naive tumors (Gay text); figure legend also cites 132 atezo + 139 placebo for OS	Gay et al. 2021 Cancer Cell Fig 1F / Fig 3 legend	no
+subtype_distribution	SCLC-A 51%, SCLC-N 23%, SCLC-I 18%, SCLC-P 7%	Gay et al. 2021 Cancer Cell (IMpower133 paragraph)	no — no gene-level values
+Ayers_GEP_in_SCLC-I	18-gene IFN-g T-cell GEP high specifically in SCLC-I (qualitative; heatmap Fig 3G)	Gay et al. 2021 Cancer Cell Fig 3G	no — heatmap pixels are not a data table
+SCLC-I_median_OS_atezo	>18 months (EP+atezo arm)	Gay et al. 2021 Cancer Cell text (not a precise Kaplan-Meier table)	no
+SCLC-I_median_OS_placebo	just over 10 months (EP+placebo arm); comparable to SCLC-A/N on placebo	Gay et al. 2021 Cancer Cell text	no
+SCLC-I_vs_other_OS_HR_atezo_arm	HR=0.566 (95% CI 0.321-0.998)	Gay et al. 2021 Cancer Cell Supplementary Figure 4E-F (quoted in text)	no
+SCLC-I_vs_other_OS_HR_placebo_arm	not significant (SCLC-I not merely prognostic)	Gay et al. 2021 Cancer Cell Supplementary Figure 4E-F	no
+per_patient_RNAseq	EGA EGAS00001004888 / EGAD00001006926-8; DAC-controlled; embargoed full transcriptome	EGA; Gay 2021 data-availability statement	NO — not public; this hunt does not use it
+TACSTD2_or_CLDN4_in_IMpower133	never reported in any public table, figure legend, or supplement we could access	this hunt (negative finding about the public record)	no — the gene was not published for this trial

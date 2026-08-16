@@ -1,0 +1,33 @@
+{
+  "question": "Do TACSTD2 (TROP2) and CLDN4 track the ICI-favorable SCLC-I (inflamed) subtype?",
+  "impower133_patient_level": {
+    "possible_from_public_data": false,
+    "reason": "EGA EGAS00001004888; no public leftover contains TACSTD2 or CLDN4",
+    "fabricated": false
+  },
+  "george_2015_bulk_n81": {
+    "TACSTD2_vs_NE_score_rho": -0.49,
+    "TACSTD2_vs_Ayers_GEP_rho": 0.24,
+    "TACSTD2_vs_Ayers_GEP_q": 0.08,
+    "TACSTD2_SCLC-I_vs_rest_p": 0.40,
+    "CLDN4_vs_epithelial_rho": 0.54,
+    "CLDN4_vs_CD8A_rho": -0.29,
+    "CLDN4_SCLC-I_vs_rest_p": 0.97,
+    "interpretation": "Neither gene is an SCLC-I marker. TACSTD2 is non-NE/epithelial. CLDN4 is epithelial/SCLC-A and anti-CD8."
+  },
+  "chan_2021_atlas": {
+    "n_SCLC_cells": 77143,
+    "n_SCLC_donors": 20,
+    "SCLC-I_tumor_cell_label_exists": false,
+    "TACSTD2_detect_frac_SCLC_epithelial": 0.022,
+    "CLDN4_detect_frac_SCLC_epithelial": 0.61,
+    "TACSTD2_vs_frac_immune_rho_n20": 0.52,
+    "TACSTD2_vs_frac_immune_p_n20": 0.020,
+    "TACSTD2_vs_frac_immune_q": 0.17,
+    "TACSTD2_vs_frac_immune_rho_ANP_only_n18": 0.40,
+    "TACSTD2_vs_frac_immune_p_ANP_only_n18": 0.10,
+    "CLDN4_vs_frac_immune_rho_n20": -0.03,
+    "interpretation": "TROP2 is almost off on SCLC tumor cells. Nominal immune association is FDR-NS and collapses after dropping 2 stroma-dominant donors. CLDN4 is epithelial/SCLC-A, immune-null."
+  },
+  "bottom_line": "IMpower133 cannot answer this publicly. Public leftovers say TROP2/CLDN4 do not mark SCLC-I."
+}
