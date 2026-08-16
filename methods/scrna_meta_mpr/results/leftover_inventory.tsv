@@ -1,0 +1,19 @@
+accession	year	assay	public_MPR_or_RECIST	malignant_or_epithelial	entered	n_patients_used	why
+GSE207422	2023	scRNA UMI	MPR (4 vs 8 post-tx; pCR with MPR)	yes (epithelial; malignant-like sensitivity)	MPR table	12	A3 public series; MPR contrast taken as given
+GSE241934 IIT	2024	scRNA MTX	MPR (author Pathological Response)	yes (author Epi)	MPR table, kept separate	11	NEOTIDE/CTONG2104 EGFR-mutant IIT; min 20 Epi
+GSE241934 Real	2024	scRNA MTX	MPR (author Pathological Response)	yes (author Epi)	MPR table, kept separate	24	wild-type real-world chemo-IO; min 20 Epi
+GSE291670	2025	scRNA 10x MTX	MPR 3 vs 3 in GEO titles	yes (marker malignant)	MPR table	6	anlotinib + PD-1; exact MWU floor p=0.10 at 3v3
+GSE205335	2024	scRNA RDS	RECIST (PR vs SD/PD); no MPR	yes (author Malignant cells)	RECIST table only	16	advanced ICI, not neoadjuvant MPR
+GSE243013	2025	scRNA immune MTX	MPR yes (n=243)	no (CD45-sorted; T/NK, B, Myeloid only)	footnote only	0	immune-only; no malignant TACSTD2/CLDN4
+GSE229353	2023	scRNA CD45+ MTX	no MPR on GEO (Chemo vs PD1+Chemo)	no	not entered	0	CD45+ sorted
+GSE280232	2024	scRNA sorted T	no MPR on GEO	no	not entered	0	T cells only; KRAS neoadjuvant ICB
+GSE299111	2025	scRNA immune	MPR in title; chemo only	no	not entered	0	no ICI; not malignant
+GSE300685	2025	scRNA NK	MPR mentioned	unlikely	not entered	0	NK profiling
+GSE302284	2025	bulk/cell	MPR string hit	n/a	not entered	0	TROP2 CAR-T EGFR+; not neoadjuvant ICI scRNA
+GSE337519	2026	scRNA	no group MPR	n=1	not entered	0	single patient
+GSE218989	2024	pan-cancer scRNA	MPR string in summary	not a lung neoadjuvant ICI series	not entered	0	Pancancer atlas
+GSE146100	2021	scRNA	per-nodule, not MPR	possible	not entered	0	n=1; pre-2023
+PRJNA1068179	2025	scRNA raw SRA	paper has 3 NMPR / 2 MPR / 1 pCR	unknown	not entered	0	Molecular Cancer 2025; raw only, no public processed matrix
+GSE274934	2025	scRNA RAW.tar	unknown	unknown	not entered	0	ALK+ IO; 15 GB archive not pulled
+GSE248378	2023	bulk FPKM	no MPR on GEO	bulk	not entered	0	not scRNA
+GSE329813	2026	GeoMx DSP	MPR yes	ROI mixture, not scRNA	not entered	0	not single-cell malignant isolation
