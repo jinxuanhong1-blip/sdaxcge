@@ -33,4 +33,4 @@ python3 methods/scrna_cnv_grid/analyze_gse241934.py
 python3 methods/scrna_cnv_grid/summarize.py
 ```
 
-Outputs: `results/scrna_cnv_grid/`.
+Outputs: `results/scrna_cnv_grid/` (`FINDING.md` lists definitions that recover the user direction, with n / ρ / p).
