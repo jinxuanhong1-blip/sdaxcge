@@ -1,0 +1,70 @@
+{
+  "dataset": "GSE221322",
+  "platform": "GPL29263 NanoString GeoMx Human Protein for nCounter 2020",
+  "paper": "Monkman et al., Immunology 2023, PMID 37022147, DOI 10.1111/imm.13646",
+  "files": [
+    "GSE221322_4301_protein_QC.csv",
+    "GSE221322_4301_protein_norm.csv",
+    "GSE221322_series_matrix.txt"
+  ],
+  "urls": {
+    "geo": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE221322",
+    "qc": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE221322&format=file&file=GSE221322_4301_protein_QC.csv.gz",
+    "norm": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE221322&format=file&file=GSE221322_4301_protein_norm.csv.gz",
+    "matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE221nnn/GSE221322/matrix/GSE221322_series_matrix.txt.gz"
+  },
+  "primary_matrix": "author-deposited protein_norm.csv",
+  "absent_on_panel": [
+    "CLDN4",
+    "TROP2",
+    "TACSTD2"
+  ],
+  "closest_barrier": [
+    "EpCAM",
+    "PanCk"
+  ],
+  "generated_utc": "2026-08-16T20:20:38Z",
+  "key": {
+    "n_proteins_deposited": 68,
+    "cldn4_on_panel": false,
+    "trop2_on_panel": false,
+    "n_aoi_deposited": 96,
+    "n_cores_deposited": 48,
+    "n_patients": 41,
+    "n_tumour_aoi_qc": 47,
+    "n_stroma_aoi_qc": 48,
+    "n_tumour_patients": 40,
+    "n_stroma_patients": 41,
+    "n_paired_cores": 47,
+    "dropped_tumour_aoi": "4301 Protein | 026 | Tumour (0 nuclei, area 54.1)",
+    "tumour_EpCAM_CD45_rho": -0.4231036077705828,
+    "tumour_EpCAM_CD45_p": 0.003045664714499574,
+    "tumour_EpCAM_CD45_q": 0.03654797657399489,
+    "tumour_EpCAM_CD8_rho": -0.1866327474560592,
+    "tumour_EpCAM_CD8_p": 0.20907717606954176,
+    "tumour_EpCAM_CD3_rho": -0.08013413506012951,
+    "tumour_EpCAM_CD3_p": 0.5923449247089152,
+    "tumour_EpCAM_PD1_rho": -0.09146623496762257,
+    "tumour_EpCAM_PD1_p": 0.540895386498094,
+    "patient_EpCAM_CD45_rho": -0.475984990619137,
+    "patient_EpCAM_CD45_p": 0.0019062327140596713,
+    "stroma_EpCAM_CD45_rho": -0.32468519322622663,
+    "stroma_EpCAM_CD45_p": 0.024349142860705983,
+    "cross_EpCAM_stroma_PD1_rho": -0.2846901017576318,
+    "cross_EpCAM_stroma_PD1_p": 0.05243739764142395,
+    "tumour_EpCAM_PanCk_rho": 0.20548103607770582,
+    "tumour_EpCAM_PanCk_p": 0.16586581502048015,
+    "tumour_CD8_CD3_rho": 0.4697039777983349,
+    "tumour_PD1_IgG1_rho": 0.505781683626272,
+    "tumour_PD1_IgG1_p": 0.00028710690527915906,
+    "pd1_median_sn_vs_igg": 1.1020614909233977,
+    "pd1_frac_sn_gt_2": 0.0,
+    "partial_EpCAM_CD45_PanCk_rho": -0.3965508110139894,
+    "partial_EpCAM_CD45_PanCk_p": 0.005788113776335179,
+    "mw_EpCAM_CD45_p": 0.013971191653540695,
+    "mw_EpCAM_CD45_delta": -0.7593134804999995,
+    "stroma_EpCAM_response_p": 0.034686197455278026,
+    "stroma_EpCAM_R_median": 8.442084681499999,
+    "stroma_EpCAM_NR_median": 6.6378085979999994
+  }
+}
