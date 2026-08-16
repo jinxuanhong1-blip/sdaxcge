@@ -11,7 +11,7 @@ import urllib.request
 from pathlib import Path
 
 LIMIT = 2_000_000_000
-DOWNLOAD_DECISIONS = {"include", "include_context", "include_target"}
+DOWNLOAD_DECISIONS = {"include", "include_context", "include_leftover"}
 METADATA_DECISIONS = DOWNLOAD_DECISIONS | {"metadata_only", "metadata_only_target"}
 
 

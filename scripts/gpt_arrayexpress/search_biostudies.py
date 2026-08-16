@@ -24,7 +24,8 @@ ICI_TERMS = [
     "checkpoint", '"checkpoint inhibitor"', '"immune checkpoint inhibitors"',
     '"checkpoint blockade"', '"immune checkpoint blockade"', "immunotherapy", "nivolumab",
     "pembrolizumab", "atezolizumab", "durvalumab", "cemiplimab",
-    "ipilimumab",
+    "ipilimumab", "HUDSON", "ceralasertib", "bintrafusp",
+    '"aPD-L1"', "aCTLA4", '"CTLA-4"', "CTLA4",
 ]
 TARGET_TERMS = [
     "TACSTD2", "TROP2", '"TROP-2"', '"trophoblast cell surface antigen 2"',
@@ -43,8 +44,13 @@ DECISIONS = {
     "E-MTAB-16433": ("include_target", "TROP2-targeting sacituzumab govitecan versus vehicle in colorectal PDOX; processed single-cell data"),
     "E-MTAB-16843": ("include_target", "TROP2-targeting ADC time course in colorectal organoids; only ancillary processed files are under 2GB"),
     "E-MTAB-16849": ("include_target", "TROP2-targeting ADC time course in colorectal liver-metastasis models; eligible split count matrices"),
+    "E-MTAB-15235": ("include_leftover", "leftover KRAS-mutant NSCLC study; deposited matrix is ATRi vs control, while the record mentions HUDSON ceralasertib plus durvalumab"),
     "E-MTAB-9451": ("include_context", "NSCLC immune profiling motivated by checkpoint response; no ICI-treated samples"),
     "E-MTAB-10633": ("metadata_only", "whole-lung anti-PD-L1/TGF-beta-trap experiment; no processed files"),
+    "E-MTAB-12508": ("exclude", "KP lung tumors treated with FLT3L/aCD40 DC-therapy, not ICI; no processed files"),
+    "E-MTAB-13713": ("exclude", "ceralasertib immune-compartment scRNA-seq; no lung or ICI labels"),
+    "E-MTAB-13703": ("exclude", "CT26 ceralasertib study; no lung or ICI labels"),
+    "E-MTAB-13823": ("exclude", "TREX1 innate-checkpoint CT26 tumors; not lung ICI"),
     "E-MTAB-8867": ("metadata_only", "three NSCLC patients in ICI-myocarditis cohort; no processed files"),
     "E-MTAB-13708": ("exclude", "lung cancer immunotherapy, but vector immunotherapy rather than ICI"),
     "E-MTAB-10027": ("exclude", "breast-cancer model; lung appears only as metastatic site"),
