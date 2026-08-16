@@ -1,0 +1,11 @@
+dataset,gene,unit,group_pos,n_pos,median_pos,group_neg,n_neg,median_neg,mannwhitney_p,auc_pos_high,note
+"GSE207422 (CN, neoadj PD-1+chemo, pre-tx tumor)",TACSTD2,log2TPM,MPR,9,4.999,NMPR,15,6.222,0.3401,0.378,"pathologic response, pre-treatment biopsies only"
+"GSE207422 (CN, neoadj PD-1+chemo, pre-tx tumor)",CLDN4,log2TPM,MPR,9,5.854,NMPR,15,6.272,0.2572,0.356,"pathologic response, pre-treatment biopsies only"
+"GSE126044 (KR, anti-PD-1, tumor)",TACSTD2,log2CPM,R,5,6.168,NR,11,6.288,0.4409,0.364,RECIST responder vs non-responder
+"GSE126044 (KR, anti-PD-1, tumor)",CLDN4,log2CPM,R,5,2.542,NR,11,3.771,0.1149,0.236,RECIST responder vs non-responder
+"GSE135222 (KR, anti-PD-1/PD-L1, tumor)",TACSTD2,log2(norm+1),DCB,7,7.341,NDB,20,7.865,0.6071,0.429,DCB = PFS >= 180 days
+"GSE135222 (KR, anti-PD-1/PD-L1, tumor)",CLDN4,log2(norm+1),DCB,7,7.689,NDB,20,7.126,0.685,0.557,DCB = PFS >= 180 days
+"GSE135222 (KR, anti-PD-1/PD-L1, tumor)",TACSTD2,log2(norm+1),TACSTD2 high (>=median),14,,TACSTD2 low,13,,,,PFS logrank p=0.430; Cox per-unit HR=1.03 (p=0.776)
+"GSE135222 (KR, anti-PD-1/PD-L1, tumor)",CLDN4,log2(norm+1),CLDN4 high (>=median),14,,CLDN4 low,13,,,,PFS logrank p=0.704; Cox per-unit HR=1.05 (p=0.608)
+"GSE260770 (CN, sintilimab GGO, plasma exosome; EXPLORATORY)",TACSTD2,log2(FPKM+1),R,26,0.0,NR,24,0.0,0.041,0.397,"plasma exosomal mRNA, not tumor tissue"
+"GSE260770 (CN, sintilimab GGO, plasma exosome; EXPLORATORY)",CLDN4,log2(FPKM+1),R,26,0.0,NR,24,0.0,0.0741,0.59,"plasma exosomal mRNA, not tumor tissue"
