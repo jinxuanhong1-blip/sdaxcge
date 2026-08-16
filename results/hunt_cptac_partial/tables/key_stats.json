@@ -1,0 +1,618 @@
+{
+  "generated_at_utc": "2026-08-16T19:51:56.004505+00:00",
+  "question": "TACSTD2 protein/RNA vs xCell CD8 / xCell immune after any purity proxy",
+  "user_direction": "negative",
+  "prior_claim": "LUAD TACSTD2 protein vs xCell CD8 Spearman rho \u2248 -0.29",
+  "cohorts": [
+    "LUAD",
+    "LSCC"
+  ],
+  "predictors": [
+    "TACSTD2_protein",
+    "TACSTD2_RNA"
+  ],
+  "primary_targets": [
+    "xCell_T_cell_CD8+",
+    "xCell_immune_score"
+  ],
+  "secondary_targets": [
+    "CIBERSORT_T_cell_CD8+",
+    "ESTIMATE_ImmuneScore"
+  ],
+  "partial_method": "Closed-form partial Spearman (Pearson on ranks); p from t with n-3 df. Rank-residual Spearman stored as sensitivity.",
+  "purity_proxies_used": [
+    "ESTIMATEScore",
+    "WES_purity",
+    "WGS_purity"
+  ],
+  "yoshihara_qc": [
+    {
+      "cohort": "LUAD",
+      "note": "Yoshihara cos(a+b*ESTIMATEScore) on ESTIMATE_ESTIMATEScore: n_wrap(score>17280.7)=24, n_negative_purity=110, usable=False. This freeze's ESTIMATE scores are too large for the 2013 cosine (non-monotonic / unphysical)."
+    },
+    {
+      "cohort": "LSCC",
+      "note": "Yoshihara cos(a+b*ESTIMATEScore) on ESTIMATE_ESTIMATEScore: n_wrap(score>17280.7)=30, n_negative_purity=107, usable=False. This freeze's ESTIMATE scores are too large for the 2013 cosine (non-monotonic / unphysical)."
+    }
+  ],
+  "coverage": [
+    {
+      "cohort": "LUAD",
+      "n_intersect_rna_protein_pheno": 110,
+      "TACSTD2_RNA_id": "ENSG00000184292.7",
+      "TACSTD2_protein_id": "ENSG00000184292.7",
+      "n_TACSTD2_RNA": 110,
+      "n_TACSTD2_protein": 110,
+      "n_rna_genes": 60669,
+      "n_prot_genes": 12433,
+      "n_pheno_cols": 182,
+      "n_xCell_T_cell_CD8+": 110,
+      "n_xCell_immune_score": 110,
+      "n_CIBERSORT_T_cell_CD8+": 110,
+      "n_ESTIMATE_ImmuneScore": 110,
+      "targets_missing": ""
+    },
+    {
+      "cohort": "LSCC",
+      "n_intersect_rna_protein_pheno": 108,
+      "TACSTD2_RNA_id": "ENSG00000184292.7",
+      "TACSTD2_protein_id": "ENSG00000184292.7",
+      "n_TACSTD2_RNA": 108,
+      "n_TACSTD2_protein": 108,
+      "n_rna_genes": 60669,
+      "n_prot_genes": 12760,
+      "n_pheno_cols": 192,
+      "n_xCell_T_cell_CD8+": 108,
+      "n_xCell_immune_score": 108,
+      "n_CIBERSORT_T_cell_CD8+": 108,
+      "n_ESTIMATE_ImmuneScore": 108,
+      "targets_missing": ""
+    }
+  ],
+  "purity_availability": [
+    {
+      "cohort": "LUAD",
+      "proxy": "WES_purity",
+      "n": 108,
+      "n_missing": 2,
+      "min": 0.19,
+      "median": 0.33,
+      "max": 1.0,
+      "independence_note": "DNA-based purity column in freeze phenotype"
+    },
+    {
+      "cohort": "LUAD",
+      "proxy": "WGS_purity",
+      "n": 104,
+      "n_missing": 6,
+      "min": 0.05,
+      "median": 0.28,
+      "max": 0.6675,
+      "independence_note": "DNA-based purity column in freeze phenotype"
+    },
+    {
+      "cohort": "LUAD",
+      "proxy": "ESTIMATEScore",
+      "n": 110,
+      "n_missing": 0,
+      "min": 9305.428,
+      "median": 15737.726,
+      "max": 21341.17,
+      "independence_note": "RNA ESTIMATE combined score (ESTIMATE_ESTIMATEScore). Impurity axis, not a 0\u20131 purity. Not independent of xCell/ESTIMATE immune."
+    },
+    {
+      "cohort": "LSCC",
+      "proxy": "WES_purity",
+      "n": 107,
+      "n_missing": 1,
+      "min": 0.18,
+      "median": 0.37,
+      "max": 0.98,
+      "independence_note": "DNA-based purity column in freeze phenotype"
+    },
+    {
+      "cohort": "LSCC",
+      "proxy": "WGS_purity",
+      "n": 104,
+      "n_missing": 4,
+      "min": 0.05,
+      "median": 0.31875,
+      "max": 0.85,
+      "independence_note": "DNA-based purity column in freeze phenotype"
+    },
+    {
+      "cohort": "LSCC",
+      "proxy": "ESTIMATEScore",
+      "n": 108,
+      "n_missing": 0,
+      "min": 4995.923,
+      "median": 15254.553,
+      "max": 20711.786,
+      "independence_note": "RNA ESTIMATE combined score (ESTIMATE_ESTIMATEScore). Impurity axis, not a 0\u20131 purity. Not independent of xCell/ESTIMATE immune."
+    }
+  ],
+  "primary_unadjusted": [
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "n": 108,
+      "rho": -0.11765686590037516,
+      "p": 0.2252386622713734,
+      "q_primary8": 0.4504773245427468
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "n": 108,
+      "rho": -0.10030349459081386,
+      "p": 0.3016682130363726,
+      "q_primary8": 0.47246997346377
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "n": 108,
+      "rho": -0.1334324120914192,
+      "p": 0.16860521848316948,
+      "q_primary8": 0.4496139159551186
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "n": 108,
+      "rho": -0.07950341046898066,
+      "p": 0.4134112267807988,
+      "q_primary8": 0.47246997346377
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "n": 110,
+      "rho": -0.08628152488174194,
+      "p": 0.370111931259067,
+      "q_primary8": 0.47246997346377
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "n": 110,
+      "rho": -0.006920196831153508,
+      "p": 0.9427997696692078,
+      "q_primary8": 0.9427997696692078
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "n": 110,
+      "rho": -0.3094335369564728,
+      "p": 0.001003961995617287,
+      "q_primary8": 0.008031695964938296
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "n": 110,
+      "rho": -0.28904629073608734,
+      "p": 0.002194504463815969,
+      "q_primary8": 0.008778017855263876
+    }
+  ],
+  "primary_partial": [
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "ESTIMATEScore",
+      "n": 108,
+      "rho": -0.0002931664153457995,
+      "p": 0.9976088089959066,
+      "q_primary_per_adjust": 0.9976088089959066
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WES_purity",
+      "n": 107,
+      "rho": -0.07862772403274254,
+      "p": 0.423036173779954,
+      "q_primary_per_adjust": 0.6102680941940095
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": -0.06311045605910771,
+      "p": 0.5265272152171596,
+      "q_primary_per_adjust": 0.7020362869562128
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "ESTIMATEScore",
+      "n": 108,
+      "rho": 0.08609353219133666,
+      "p": 0.3779190580952847,
+      "q_primary_per_adjust": 0.6337575099281658
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "WES_purity",
+      "n": 107,
+      "rho": -0.0906393331087031,
+      "p": 0.35547167842872895,
+      "q_primary_per_adjust": 0.6102680941940095
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": -0.06630649531244304,
+      "p": 0.5057578295279377,
+      "q_primary_per_adjust": 0.7020362869562128
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "ESTIMATEScore",
+      "n": 108,
+      "rho": 0.02316210812789001,
+      "p": 0.8128054687690568,
+      "q_primary_per_adjust": 0.9289205357360649
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WES_purity",
+      "n": 107,
+      "rho": -0.061075405450289555,
+      "p": 0.5339845824197583,
+      "q_primary_per_adjust": 0.6102680941940095
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": -0.0334561013331279,
+      "p": 0.7372536489883695,
+      "q_primary_per_adjust": 0.8425755988438509
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "ESTIMATEScore",
+      "n": 108,
+      "rho": 0.046699022231802785,
+      "p": 0.6329026115320153,
+      "q_primary_per_adjust": 0.8438701487093537
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "WES_purity",
+      "n": 107,
+      "rho": -0.12872354726068355,
+      "p": 0.18849158658744533,
+      "q_primary_per_adjust": 0.5026442308998542
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": -0.08722635318921604,
+      "p": 0.3809656420769445,
+      "q_primary_per_adjust": 0.7020362869562128
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "ESTIMATEScore",
+      "n": 110,
+      "rho": -0.1165699673862542,
+      "p": 0.22738767866973844,
+      "q_primary_per_adjust": 0.6063671431193025
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WES_purity",
+      "n": 108,
+      "rho": -0.062241577936853074,
+      "p": 0.5241979993032163,
+      "q_primary_per_adjust": 0.6102680941940095
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": -0.10934942674032071,
+      "p": 0.2715358629330435,
+      "q_primary_per_adjust": 0.7020362869562128
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "ESTIMATEScore",
+      "n": 110,
+      "rho": -0.08209118838172827,
+      "p": 0.39609844370510366,
+      "q_primary_per_adjust": 0.6337575099281658
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "WES_purity",
+      "n": 108,
+      "rho": 0.013521745386281684,
+      "p": 0.8900558928843941,
+      "q_primary_per_adjust": 0.8900558928843941
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": 0.0008631700702658292,
+      "p": 0.9930957451493816,
+      "q_primary_per_adjust": 0.9930957451493816
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "ESTIMATEScore",
+      "n": 110,
+      "rho": -0.2538957962452393,
+      "p": 0.007721933511619175,
+      "q_primary_per_adjust": 0.0308877340464767
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WES_purity",
+      "n": 108,
+      "rho": -0.2606308080888176,
+      "p": 0.006701010457478139,
+      "q_primary_per_adjust": 0.026804041829912556
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": -0.29112691944665137,
+      "p": 0.0028500596926035863,
+      "q_primary_per_adjust": 0.020831709232034326
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "ESTIMATEScore",
+      "n": 110,
+      "rho": -0.3171871611591109,
+      "p": 0.0007778215606959793,
+      "q_primary_per_adjust": 0.006222572485567834
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "WES_purity",
+      "n": 108,
+      "rho": -0.27158453845718405,
+      "p": 0.004659385319917604,
+      "q_primary_per_adjust": 0.026804041829912556
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "WGS_purity",
+      "n": 104,
+      "rho": -0.27336168363991986,
+      "p": 0.0052079273080085815,
+      "q_primary_per_adjust": 0.020831709232034326
+    }
+  ],
+  "meta": [
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": -0.1873854008767338,
+      "p": 0.005762524116516416,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "none",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": -0.11897076381778973,
+      "p": 0.08177418654397173,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "ESTIMATEScore",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 215,
+      "rho": -0.16299337873879538,
+      "p": 0.017426941395543644,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WES_purity",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 208,
+      "rho": -0.1651075141679491,
+      "p": 0.017870149533286948,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WGS_purity",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": -0.22408383052560638,
+      "p": 0.0009033159139891692,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "none",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": -0.14170176913555044,
+      "p": 0.03778430123993851,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "ESTIMATEScore",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 215,
+      "rho": -0.20156614169688417,
+      "p": 0.0031321361252103167,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "WES_purity",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 208,
+      "rho": -0.18192319921814962,
+      "p": 0.008930084204289096,
+      "predictor": "TACSTD2_protein",
+      "target": "xCell_immune_score",
+      "adjust": "WGS_purity",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": -0.09323099306888363,
+      "p": 0.17338181342769066,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "none",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": -0.05917949805435232,
+      "p": 0.38831643975988617,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "ESTIMATEScore",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 215,
+      "rho": -0.07040020061965409,
+      "p": 0.30798922650150096,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WES_purity",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 208,
+      "rho": -0.08627640270565537,
+      "p": 0.2189690037129065,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_T_cell_CD8+",
+      "adjust": "WGS_purity",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": -0.06195793170578536,
+      "p": 0.36637830675467287,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "none",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 218,
+      "rho": 0.0012202208529025682,
+      "p": 0.985824976007358,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "ESTIMATEScore",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 215,
+      "rho": -0.038414404601193324,
+      "p": 0.5784679089006345,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "WES_purity",
+      "cohorts": "LSCC,LUAD"
+    },
+    {
+      "n_cohorts": 2,
+      "n_total": 208,
+      "rho": -0.032758652097133745,
+      "p": 0.6413911812074848,
+      "predictor": "TACSTD2_RNA",
+      "target": "xCell_immune_score",
+      "adjust": "WGS_purity",
+      "cohorts": "LSCC,LUAD"
+    }
+  ],
+  "honesty": {
+    "no_ici_labels": true,
+    "estimate_purity_not_independent_of_xcell": true,
+    "tacstd2_rna_vs_xcell_same_rna_layer": true,
+    "wes_wgs_purity_are_preferred_covariates": true
+  }
+}

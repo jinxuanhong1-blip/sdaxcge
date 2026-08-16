@@ -217,16 +217,44 @@ def load_cohort(data: Path, cohort: str) -> dict:
             core[col] = s
             notes[col] = "DNA-based purity column in freeze phenotype"
 
-    if "ESTIMATEScore" in pheno.columns:
-        es = pd.to_numeric(pheno.loc[samples, "ESTIMATEScore"], errors="coerce")
+    estimate_col = next(
+        (
+            c
+            for c in ("ESTIMATE_ESTIMATEScore", "ESTIMATEScore", "ESTIMATE_Score")
+            if c in pheno.columns
+        ),
+        None,
+    )
+    yoshihara_ok = False
+    if estimate_col is not None:
+        es = pd.to_numeric(pheno.loc[samples, estimate_col], errors="coerce")
         core["ESTIMATEScore"] = es
-        ep = estimate_tumor_purity(es)
-        purity["ESTIMATE_TumorPurity"] = ep
-        core["ESTIMATE_TumorPurity"] = ep
-        notes["ESTIMATE_TumorPurity"] = (
-            "Derived: cos(0.6049872018 + 0.0001467884 * ESTIMATEScore); "
-            "Yoshihara 2013. RNA-derived; not independent of xCell/ESTIMATE immune."
+        # RNA impurity axis. Partial Spearman is identical for ESTIMATEScore
+        # and -ESTIMATEScore (both xz and yz flip). Higher score = more
+        # immune+stroma = lower purity. Not independent of xCell immune.
+        purity["ESTIMATEScore"] = es
+        notes["ESTIMATEScore"] = (
+            f"RNA ESTIMATE combined score ({estimate_col}). Impurity axis, "
+            "not a 0–1 purity. Not independent of xCell/ESTIMATE immune."
         )
+        ep = estimate_tumor_purity(es)
+        wrap = (math.pi - ESTIMATE_PURITY_A) / ESTIMATE_PURITY_B
+        n_wrap = int((es > wrap).sum())
+        n_neg = int((ep < 0).sum())
+        core["ESTIMATE_TumorPurity_Yoshihara"] = ep
+        # Only treat cosine as a usable z if it stays in (0,1] and does not wrap.
+        yoshihara_ok = n_wrap == 0 and n_neg == 0 and ep.notna().sum() >= 6
+        notes["_yoshihara_qc"] = (
+            f"Yoshihara cos(a+b*ESTIMATEScore) on {estimate_col}: "
+            f"n_wrap(score>{wrap:.1f})={n_wrap}, n_negative_purity={n_neg}, "
+            f"usable={yoshihara_ok}. This freeze's ESTIMATE scores are too "
+            "large for the 2013 cosine (non-monotonic / unphysical)."
+        )
+        if yoshihara_ok:
+            purity["ESTIMATE_TumorPurity"] = ep
+            notes["ESTIMATE_TumorPurity"] = (
+                "Yoshihara 2013 cosine of ESTIMATEScore; RNA-derived."
+            )
     elif "ESTIMATE_TumorPurity" in pheno.columns:
         s = pd.to_numeric(pheno.loc[samples, "ESTIMATE_TumorPurity"], errors="coerce")
         purity["ESTIMATE_TumorPurity"] = s
@@ -262,6 +290,7 @@ def load_cohort(data: Path, cohort: str) -> dict:
         "n_prot_genes": int(prot.shape[0]),
         "n_pheno_cols": int(pheno.shape[1]),
         "n_intersect": int(len(samples)),
+        "yoshihara_qc": notes.get("_yoshihara_qc"),
     }
 
 
@@ -281,6 +310,7 @@ def main() -> int:
 
     coverage_rows = []
     purity_avail = []
+    yoshihara_rows = []
     sample_frames = []
     unadj_rows = []
     partial_rows = []
@@ -296,6 +326,8 @@ def main() -> int:
         core.insert(1, "sample_id", core.index)
         sample_frames.append(core.reset_index(drop=True))
 
+        if pack.get("yoshihara_qc"):
+            yoshihara_rows.append({"cohort": cohort, "note": pack["yoshihara_qc"]})
         coverage_rows.append(
             {
                 "cohort": cohort,
@@ -373,6 +405,10 @@ def main() -> int:
     cov_df = pd.DataFrame(coverage_rows)
     cov_df.to_csv(tables / "gene_coverage.tsv", sep="\t", index=False)
     pd.DataFrame(purity_avail).to_csv(tables / "purity_availability.tsv", sep="\t", index=False)
+    if yoshihara_rows:
+        pd.DataFrame(yoshihara_rows).to_csv(
+            tables / "yoshihara_purity_qc.tsv", sep="\t", index=False
+        )
     pd.concat(sample_frames, ignore_index=True).to_csv(
         tables / "sample_table.tsv", sep="\t", index=False
     )
@@ -497,6 +533,7 @@ def main() -> int:
             "Rank-residual Spearman stored as sensitivity."
         ),
         "purity_proxies_used": sorted({r["proxy"] for r in purity_avail}),
+        "yoshihara_qc": yoshihara_rows,
         "coverage": coverage_rows,
         "purity_availability": purity_avail,
         "primary_unadjusted": focus_un[
@@ -552,7 +589,7 @@ def _plot_forest(focus: pd.DataFrame, path: Path) -> None:
                 sub = focus[(focus.cohort == cohort) & (focus.predictor == pred) & (focus.target == tgt)]
                 sub = sub.copy()
                 # order: none first, then DNA proxies, then ESTIMATE
-                order = ["none", "WES_purity", "WGS_purity", "ESTIMATE_TumorPurity"]
+                order = ["none", "WES_purity", "WGS_purity", "ESTIMATEScore", "ESTIMATE_TumorPurity"]
                 extra = [a for a in sub["adjust"].unique() if a not in order]
                 order = [a for a in order if a in set(sub["adjust"])] + extra
                 sub["ord"] = sub["adjust"].map({a: k for k, a in enumerate(order)})

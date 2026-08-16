@@ -1,0 +1,7 @@
+cohort	layer	file	url	head_http	bytes
+LUAD	RNA_tumor	LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt	200	35757367
+LUAD	protein_tumor	LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt	200	20132337
+LUAD	phenotype	LUAD_phenotype.txt	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_phenotype.txt	200	210137
+LSCC	RNA_tumor	LSCC_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_RNAseq_gene_RSEM_coding_UQ_1500_log2_Tumor.txt	200	35179517
+LSCC	protein_tumor	LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt	200	20631271
+LSCC	phenotype	LSCC_phenotype.txt	https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_phenotype.txt	200	212329
