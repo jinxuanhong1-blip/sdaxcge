@@ -1,0 +1,5 @@
+# User-supplied tables and local run output — never commit Bessede-like dumps
+# 使用者表与本地输出 — 不要提交类似 Bessede 的数据转储
+out/
+data/*
+!data/README.md
