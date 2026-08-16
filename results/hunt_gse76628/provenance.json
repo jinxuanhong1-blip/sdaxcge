@@ -1,0 +1,46 @@
+{
+  "generated_utc": "2026-08-16T19:40:33.635430+00:00",
+  "accession": "GSE76628",
+  "platform": "GPL1261 (Affymetrix Mouse Genome 430 2.0, bulk array)",
+  "n_samples": 78,
+  "n_probes": 45101,
+  "data_scope": "public GEO files only; no private/KL-mouse data used or available",
+  "processing": "series-matrix linear intensities, log2(x+1); gene level = highest-mean probe per gene",
+  "genes_requested": [
+    "Tacstd2",
+    "Cd8a",
+    "Cd8b1",
+    "Cd3e",
+    "Cd3d",
+    "Cd3g",
+    "Ncr1",
+    "Klrb1c",
+    "Klrk1",
+    "Eomes",
+    "Prf1",
+    "Gzmb",
+    "Nkg7",
+    "Il2rb",
+    "Epcam",
+    "Krt8",
+    "Krt18",
+    "Krt19"
+  ],
+  "genes_not_on_array_annotation": [
+    "Klrb1c"
+  ],
+  "files": [
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE76nnn/GSE76628/matrix/GSE76628_series_matrix.txt.gz",
+      "path": "data/GSE76628_series_matrix.txt.gz",
+      "md5": "b6a2c02e7f96587aa88b134ddf8565f9",
+      "bytes": 10798193
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPL1nnn/GPL1261/annot/GPL1261.annot.gz",
+      "path": "data/GPL1261.annot.gz",
+      "md5": "eda0bc904db87932a455c1b08ce53a28",
+      "bytes": 8389179
+    }
+  ]
+}
