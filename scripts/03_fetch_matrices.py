@@ -18,6 +18,7 @@ import json
 import sys
 import time
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import numpy as np
@@ -70,12 +71,15 @@ def stream_extract(url: str, id_to_symbol: dict[str, str], keep_samples: set[str
                     header = line.rstrip("\n").split("\t")
                     sample_names = header[1:]
                     if keep_samples:
-                        col_idx = [i for i, s in enumerate(sample_names) if s.split(".")[0] in keep_samples or s in keep_samples]
+                        col_idx = [
+                            i
+                            for i, s in enumerate(sample_names)
+                            if s.split(".")[0] in keep_samples or s in keep_samples
+                        ]
                         if not col_idx:
-                            # recount3 SRA columns are usually the SRR / ERR / DRR id
-                            col_idx = [i for i, s in enumerate(sample_names) if any(s.startswith(k) or k.startswith(s) for k in list(keep_samples)[:3])]
-                        if not col_idx:
-                            col_idx = list(range(len(sample_names)))
+                            raise RuntimeError(
+                                f"none of {len(keep_samples)} nominated runs match gene_sums columns"
+                            )
                         names = [sample_names[i] for i in col_idx]
                     else:
                         col_idx = list(range(len(sample_names)))
@@ -124,31 +128,27 @@ def main() -> None:
     cache_dir = Path(args.cache_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     cache_dir.mkdir(parents=True, exist_ok=True)
-    manifest = []
 
-    for rec in rows:
+    def one(rec: dict) -> dict:
         cid = rec["cohort_id"]
         org = rec["organism"]
         dest = cache_dir / f"{cid}.counts.tsv"
         pub = out_dir / f"{cid}.counts.tsv"
         if dest.exists() and dest.stat().st_size > 200:
-            print(f"skip existing {cid}", flush=True)
             if not pub.exists():
                 pub.write_bytes(dest.read_bytes())
-            manifest.append({**rec, "status": "cached", "n_samples_written": "NA"})
-            continue
-
+            print(f"skip existing {cid}", flush=True)
+            return {**rec, "status": "cached", "n_samples_written": "NA"}
         id_to_symbol = {gid: sym for sym, gid in genes[org].items()}
         id_to_symbol.update({gid.split(".")[0]: sym for sym, gid in genes[org].items()})
         keep = set(rec["selected_runs"].split(",")) if rec["selected_runs"] else None
-        print(f"fetch {cid} {rec['url']}", flush=True)
+        print(f"fetch {cid}", flush=True)
         t0 = time.time()
         try:
             names, lib, kept, n_genes = stream_extract(rec["url"], id_to_symbol, keep)
         except Exception as exc:
             print(f"FAIL {cid}: {exc}", file=sys.stderr, flush=True)
-            manifest.append({**rec, "status": f"fail:{exc}", "n_samples_written": 0})
-            continue
+            return {**rec, "status": f"fail:{exc}", "n_samples_written": 0}
         write_matrix(dest, names, lib, kept)
         pub.write_bytes(dest.read_bytes())
         print(
@@ -156,7 +156,13 @@ def main() -> None:
             f"rows_scanned={n_genes} sec={time.time()-t0:.1f}",
             flush=True,
         )
-        manifest.append({**rec, "status": "ok", "n_samples_written": len(names), "n_genes_kept": len(kept)})
+        return {**rec, "status": "ok", "n_samples_written": len(names), "n_genes_kept": len(kept)}
+
+    manifest = []
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        futs = [pool.submit(one, rec) for rec in rows]
+        for fut in as_completed(futs):
+            manifest.append(fut.result())
 
     Path(out_dir.parent, "tables", "fetch_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 

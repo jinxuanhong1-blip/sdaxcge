@@ -12,15 +12,34 @@ import pandas as pd
 TFS = ["ELF3", "GRHL1", "KLF4", "TFAP2A", "NKX2-1"]
 TARGETS = ["TACSTD2", "CLDN4"]
 
+# Readable primary panel: anchors, cell-line catalogues, and any raw-SUPPORTED hit.
+PRIMARY = [
+    "GTEx_LUNG",
+    "TCGA_LUAD_tumor",
+    "TCGA_LUAD_normal",
+    "TCGA_LUSC_tumor",
+    "TCGA_LUSC_normal",
+    "SRP186687",  # CCLE
+    "DRP001919",  # LUAD cell-line catalogue
+    "SRP051083",  # lung cancer cell lines
+    "SRP045118",  # NKX2-1 dependent NSCLC lines
+    "SRP041538",  # COPD lung tissue
+    "SRP074349",  # NSCLC tissue
+    "SRP157975",  # EVLP human lung
+]
 
-def heatmap(pair: pd.DataFrame, scores: pd.DataFrame, out: Path) -> None:
+
+def heatmap(pair: pd.DataFrame, scores: pd.DataFrame, out: Path, cohort_ids: list[str] | None = None, title: str = "Raw Spearman: TFs vs TACSTD2 / CLDN4") -> None:
     raw = pair[(pair["scale"] == "raw") & (pair["tf"].isin(TFS)) & (pair["target"].isin(TARGETS))]
     if raw.empty:
         return
     raw = raw.copy()
     raw["pair"] = raw["tf"] + " vs " + raw["target"]
     # keep cohorts that are not UNINFORMATIVE
-    keep = scores.loc[scores["call_raw"] != "UNINFORMATIVE", "cohort_id"]
+    if cohort_ids is not None:
+        keep = [c for c in cohort_ids if c in set(scores["cohort_id"])]
+    else:
+        keep = scores.loc[scores["call_raw"] != "UNINFORMATIVE", "cohort_id"]
     raw = raw[raw["cohort_id"].isin(keep)]
     if raw.empty:
         return
@@ -42,7 +61,7 @@ def heatmap(pair: pd.DataFrame, scores: pd.DataFrame, out: Path) -> None:
         labels.append(f"{cid}  {r['organism'][:1]}/{r['material'][:3]} n={int(r['n_used'])} {r['call_raw']}")
     ax.set_yticklabels(labels, fontsize=7)
     fig.colorbar(im, ax=ax, fraction=0.03, pad=0.02, label="Spearman ρ")
-    ax.set_title("Raw Spearman: TFs vs TACSTD2 / CLDN4")
+    ax.set_title(title)
     fig.tight_layout()
     fig.savefig(out, dpi=140)
     plt.close(fig)
@@ -132,8 +151,23 @@ def main() -> None:
     fig_dir.mkdir(parents=True, exist_ok=True)
     scores = pd.read_csv(args.scores, sep="\t")
     pairs = pd.read_csv(args.pairs, sep="\t")
-    heatmap(pairs, scores, fig_dir / "heatmap_tf_target_rho.png")
-    score_forest(scores, fig_dir / "score_forest.png")
+    extra = scores.loc[scores["call_raw"] == "SUPPORTED", "cohort_id"].tolist()
+    primary = list(dict.fromkeys(PRIMARY + extra))
+    heatmap(pairs, scores, fig_dir / "heatmap_primary.png", primary, "Primary cohorts (anchors, line panels, raw SUPPORTED)")
+    # full heatmap is unreadable at 240 rows; keep a compact tissue/tumor-only version
+    tissue = scores.loc[
+        scores["material"].isin(["tissue", "tumor", "adjacent_normal"]) & (scores["call_raw"] != "UNINFORMATIVE"),
+        "cohort_id",
+    ].tolist()
+    heatmap(pairs, scores, fig_dir / "heatmap_tissue_tumor.png", tissue, "Tissue / tumor / adjacent-normal slices")
+    forest_ids = set(primary)
+    big = scores[
+        (scores["n_used"] >= 40)
+        & (scores["material"].isin(["tissue", "tumor", "adjacent_normal", "cell_line"]))
+        & (scores["call_raw"] != "UNINFORMATIVE")
+    ]
+    forest_ids.update(big["cohort_id"])
+    score_forest(scores[scores["cohort_id"].isin(forest_ids)], fig_dir / "score_forest.png")
     raw_vs_partial(pairs, fig_dir / "raw_vs_epcam_partial.png")
     composition_bars(scores, fig_dir / "composition_diagnostic.png")
     print("wrote", fig_dir)

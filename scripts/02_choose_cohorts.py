@@ -25,12 +25,25 @@ import re
 from pathlib import Path
 
 DROP_TITLE = re.compile(
-    r"\b(platelet|pbmc|whole blood|peripheral blood|t[- ]cell|b[- ]cell|"
-    r"tumor-educated|lymph node t cell|dendritic cell|"
+    r"\b(platelet|pbmc|whole blood|peripheral blood|\bblood rna|\bblood RNAseq|"
+    r"t[- ]cell|b[- ]cell|tumor-educated|lymph node t cell|dendritic cell|"
     r"bodyMap|promoter level mammalian expression atlas|"
     r"reference epigenomes of human gastrointestinal|"
     r"interferon signature induced by IFN|"
-    r"HPA RNA-seq normal tissues)",
+    r"HPA RNA-seq normal tissues|"
+    r"across tissues|IMPC high throughput|"
+    r"nasopharyngeal carcinoma|"
+    r"retinal organoid|myogenic conversion|fibroblast)",
+    re.I,
+)
+
+# Cell-line studies are only useful as a panel (many lines) or as a named
+# lung-epithelium model with enough samples. Single-line nanoparticle /
+# infection time courses are not downloaded.
+CELL_LINE_KEEP = re.compile(
+    r"(CCLE|cancer cell line encyclopedia|catalogue of lung|"
+    r"lung cancer cell line|NSCLC cell line|adenocarcinoma cell line|"
+    r"panel of|cell lines)",
     re.I,
 )
 
@@ -69,13 +82,14 @@ def main() -> None:
         n_tis = int(r["n_tissue"])
         n_cul = int(r["n_culture_organoid"])
         n_cl = int(r["n_cell_line"])
+        title = r["study_title"] or ""
         if n_tis >= 12:
             material = "tissue"
             n = n_tis
         elif n_cul >= 12:
             material = "culture_or_organoid"
             n = n_cul
-        elif n_cl >= 12:
+        elif n_cl >= 12 and (n_cl >= 24 or CELL_LINE_KEEP.search(title)):
             material = "cell_line"
             n = n_cl
         else:
