@@ -1,0 +1,14 @@
+{
+  "verdict": "NOT_49_of_64",
+  "primary_n_cohorts": 10,
+  "primary_n_up": 8,
+  "primary_n_down": 2,
+  "primary_paired_t_p": 0.047908978920620286,
+  "primary_wilcoxon_p": 0.048828125,
+  "primary_sign_test_p": 0.109375,
+  "primary_mean_delta": 0.15954345027953284,
+  "user_claim_n_up": 49,
+  "user_claim_n": 64,
+  "user_claim_p": 5.8e-05,
+  "note": "Colon-only cannot be 49/64. Report 8/10 and the p-values in paired_summaries.csv. Do not treat p\u22480.05 under independent-cohort pairing as confirmation."
+}

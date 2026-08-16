@@ -32,9 +32,9 @@ CLAIM_N = 64
 CLAIM_P = 5.8e-5
 
 # ICB-class tokens. A regimen is "strict ICB" if every treated-arm token is
-# one of these (allowing TISMO's antiCTL4 typo and Fc-format suffixes).
+# anti-PD-1 / PD-L1 / PD-L2 / CTLA-4 (TISMO's antiCTL4 typo and Fc suffixes ok).
 _ICB_TOKEN = re.compile(
-    r"^(anti-?pd-?[l1]2?|anti-?ctla-?4|antictl4)(_fcs)?$",
+    r"^anti-?(pd-?l?-?[12]|ctla?-?4)(_fcs)?$",
     re.I,
 )
 _SPLIT_TX = re.compile(r"[;,]+")
@@ -148,16 +148,17 @@ def collapse(tab: pd.DataFrame, key: str) -> pd.DataFrame:
     def one_or_mixed(s: pd.Series) -> str:
         return s.iloc[0] if s.nunique() == 1 else "mixed"
 
-    g = tab.groupby(key, sort=True).agg(
-        mean_baseline=("mean_baseline", "mean"),
-        mean_icb=("mean_icb", "mean"),
-        cell_line=("cell_line", one_or_mixed),
-        study=("study", one_or_mixed),
-        cancer_type=("cancer_type", one_or_mixed),
-        n_cohorts=("cohort", "size"),
-        n_baseline=("n_baseline", "sum"),
-        n_icb=("n_icb", "sum"),
-    ).reset_index()
+    aggs = {
+        "mean_baseline": ("mean_baseline", "mean"),
+        "mean_icb": ("mean_icb", "mean"),
+        "n_cohorts": ("cohort", "size"),
+        "n_baseline": ("n_baseline", "sum"),
+        "n_icb": ("n_icb", "sum"),
+    }
+    for col in ("cell_line", "study", "cancer_type"):
+        if col != key and col in tab.columns:
+            aggs[col] = (col, one_or_mixed)
+    g = tab.groupby(key, sort=True).agg(**aggs).reset_index()
     g["cohort"] = g[key]
     g["delta"] = g["mean_icb"] - g["mean_baseline"]
     return g
@@ -167,15 +168,16 @@ def cluster_bootstrap(tab: pd.DataFrame, cluster_col: str, n_boot: int = N_BOOT)
     rng = np.random.default_rng(BOOT_SEED)
     groups = [g["delta"].to_numpy(float) for _, g in tab.groupby(cluster_col, sort=True)]
     k = len(groups)
-    if k < 2:
+    if k < 3:
+        observed = float(np.concatenate(groups).mean()) if k else float("nan")
         return {
             "cluster": cluster_col,
             "n_clusters": k,
-            "observed_mean_delta": float("nan"),
+            "observed_mean_delta": observed,
             "ci_low": float("nan"),
             "ci_high": float("nan"),
             "p_two_sided": float("nan"),
-            "note": "fewer than 2 clusters",
+            "note": f"k={k} clusters: bootstrap p/CI not reported (resamples collapse to the cluster means)",
         }
     observed = float(np.concatenate(groups).mean())
     means = np.empty(n_boot)
@@ -290,12 +292,16 @@ def write_readme(
     colon_absent: list[str],
     path: Path,
 ) -> None:
-    prim = summaries[summaries["subset"] == "colon ICB cohorts (TISMO definition)"].iloc[0]
-    ct26 = summaries[summaries["subset"] == "CT26 only"]
-    mc38 = summaries[summaries["subset"] == "MC38 only"]
-    strict = summaries[summaries["subset"] == "strict ICB regimens only"]
-    by_study = summaries[summaries["subset"] == "collapsed to one pair per study"]
-    by_line = summaries[summaries["subset"] == "collapsed to one pair per cell line"]
+    wanted = [
+        "colon ICB cohorts (TISMO definition)",
+        "CT26 only",
+        "MC38 only",
+        "strict ICB regimens only",
+        "ICB plus other partner",
+        "collapsed to one pair per study",
+        "collapsed to one pair per cell line",
+    ]
+    prim = summaries[summaries["subset"] == wanted[0]].iloc[0]
 
     def row(s: pd.Series) -> str:
         return (
@@ -304,6 +310,12 @@ def write_readme(
             f"{s.get('mean_delta', float('nan')):.3f} | {_fmt_p(s.get('paired_t_p', float('nan')))} | "
             f"{_fmt_p(s.get('wilcoxon_p', float('nan')))} | {_fmt_p(s.get('sign_test_p', float('nan')))} |"
         )
+
+    table_rows = "\n".join(
+        row(summaries[summaries["subset"] == s].iloc[0])
+        for s in wanted
+        if (summaries["subset"] == s).any()
+    )
 
     cohort_rows = []
     for _, r in cohorts.sort_values(["cell_line", "study", "cohort"]).iterrows():
@@ -315,9 +327,15 @@ def write_readme(
 
     boot_rows = []
     for _, r in boot.iterrows():
+        if r.ci_low == r.ci_low:
+            ci = f"[{r.ci_low:.3f}, {r.ci_high:.3f}]"
+        else:
+            ci = "NA"
+        note = str(r.note).strip()
+        extra = f" {note}" if note else ""
         boot_rows.append(
             f"| {r.cluster} | {int(r.n_clusters)} | {r.observed_mean_delta:.3f} | "
-            f"[{r.ci_low:.3f}, {r.ci_high:.3f}] | {_fmt_p(r.p_two_sided)} |"
+            f"{ci} | {_fmt_p(r.p_two_sided)} |{extra}"
         )
 
     verdict = (
@@ -345,12 +363,7 @@ Values are TISMO quantile-normalised, ComBat-corrected log-scale TPM as served.
 
 | Subset | n cohorts | n lines | n studies | up/n | mean Δ | paired t p | Wilcoxon p | sign-test p |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-{row(prim)}
-{row(ct26.iloc[0]) if len(ct26) else ""}
-{row(mc38.iloc[0]) if len(mc38) else ""}
-{row(strict.iloc[0]) if len(strict) else ""}
-{row(by_study.iloc[0]) if len(by_study) else ""}
-{row(by_line.iloc[0]) if len(by_line) else ""}
+{table_rows}
 
 Primary n = **{int(prim['n_cohorts'])}** paired cohorts, **{int(prim['n_baseline_samples'])}** baseline + **{int(prim['n_icb_samples'])}** ICB samples, **{int(prim['n_cell_lines'])}** cell lines, **{int(prim['n_studies'])}** studies.
 
@@ -360,7 +373,7 @@ Primary n = **{int(prim['n_cohorts'])}** paired cohorts, **{int(prim['n_baseline
 - sign test (8 up / 2 down vs 0.5) p = {_fmt_p(prim['sign_test_p'])}
 - Cohen's d_z = {prim.get('cohens_dz', float('nan')):.2f}
 
-User-reported 49/{CLAIM_N} and p={CLAIM_P:.1e} are **all-cancer**. They are not reproduced here and are not claimed for colon.
+User-reported 49/{CLAIM_N} and p={CLAIM_P:.1e} are **all-cancer**. This download recovers that all-cancer count ({provenance.get("all_cancer_n_up")}/{provenance.get("n_all_cancer_paired_cohorts")} up). It is not a colon result.
 
 ## Per-cohort table (every colon pair TISMO serves)
 
@@ -378,6 +391,8 @@ Cohorts cluster inside two cell lines and five studies. Treating n=10 as indepen
 | --- | ---: | ---: | --- | ---: |
 {chr(10).join(boot_rows)}
 
+Cell-line k=2 is too small for a bootstrap p. Study-level k=5 is the usable cluster check.
+
 - Collapsed to one pair per **study** (n=5): 4/5 up; paired t p and Wilcoxon p are null (see table).
 - Collapsed to one pair per **cell line** (n=2): both lines go up (CT26 Δ larger; MC38 near zero). n=2 cannot support a p-value.
 - **MC38** Tacstd2 is essentially off (cohort means 0.00–0.10). A 2/3 “up” count there is noise around zero.
@@ -389,7 +404,7 @@ Cohorts cluster inside two cell lines and five studies. Treating n=10 as indepen
 - Of those, the ICB Gene-module model list contains: {", ".join(colon_in_icb) or "none"}.
 - Colorectal models with **no** ICB Gene-module expression: {", ".join(colon_absent) or "none"}.
 - Samples appearing in more than one colon cohort: {provenance.get("n_samples_in_multiple_colon_cohorts", 0)} (should be 0).
-- All-cancer Tacstd2 ICB cohorts TISMO returned in this download: {provenance.get("n_all_cancer_paired_cohorts")}. Colon is {int(prim['n_cohorts'])} of those, not 64.
+- All-cancer Tacstd2 ICB cohorts TISMO returned in this download: {provenance.get("n_all_cancer_paired_cohorts")} ({provenance.get("all_cancer_n_up")} up / {provenance.get("all_cancer_n_down")} down). Colon is {int(prim['n_cohorts'])} of those 64, not a separate 64.
 
 ## What this is not
 
@@ -401,7 +416,7 @@ Cohorts cluster inside two cell lines and five studies. Treating n=10 as indepen
 ## Caveats
 
 1. TISMO units are site-normalised, not raw TPM. Direction within a study is usable; absolute values are not portable.
-2. Several CT26 arms are ICB + TGF-β / GARP. The strict-ICB subset (n=6) is null.
+2. Several CT26 arms are ICB + TGF-β / GARP. The strict-ICB subset is null (see table).
 3. ERP114266 day-7 and day-14 are the same study at two time points.
 4. n=10 is small. A p-value that sits on 0.05 under the most liberal pairing is not a confirmation.
 5. 1638N-T1 and CMT93 are colorectal in TISMO metadata but are absent from the ICB Gene module, so they cannot enter the denominator.
@@ -455,6 +470,11 @@ def main() -> int:
         paired_summary(collapse(cohorts, "study"), "collapsed to one pair per study"),
         paired_summary(collapse(cohorts, "cell_line"), "collapsed to one pair per cell line"),
     ]
+    # Collapse labels one row per study/line; keep the original cluster counts.
+    summaries[-2]["n_cell_lines"] = int(cohorts["cell_line"].nunique())
+    summaries[-2]["n_studies"] = int(cohorts["study"].nunique())
+    summaries[-1]["n_cell_lines"] = int(cohorts["cell_line"].nunique())
+    summaries[-1]["n_studies"] = int(cohorts["study"].nunique())
     summary_df = pd.DataFrame(summaries)
     summary_df.to_csv(tc.RESULTS_DIR / "paired_summaries.csv", index=False)
 
@@ -486,6 +506,8 @@ def main() -> int:
         "colorectal_models_absent_from_icb_gene_module": colon_absent,
         "colon_cell_lines_with_pairs": sorted(cohorts["cell_line"].unique().tolist()),
         "colon_studies": sorted(cohorts["study"].unique().tolist()),
+        "all_cancer_n_up": int((all_cohorts["delta"] > 0).sum()),
+        "all_cancer_n_down": int((all_cohorts["delta"] < 0).sum()),
     }
     (tc.RESULTS_DIR / "provenance.json").write_text(json.dumps(provenance, indent=2))
 
