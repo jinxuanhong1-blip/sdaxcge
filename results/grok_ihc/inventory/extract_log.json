@@ -1,0 +1,382 @@
+{
+  "generated_at": "2026-08-16T19:37:00Z",
+  "retries": [
+    {
+      "ok": false,
+      "url": "https://europepmc.org/backend/ptpmcrender.fcgi",
+      "path": "results/grok_ihc/raw/dum2022_trop2_tma/dum2022_europepmc.pdf",
+      "bytes": 0,
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "retrieved_at": "2026-08-16T19:36:42Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9393818/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9393818/",
+      "status": 200,
+      "bytes": 20351,
+      "sha256": "5462d5e1a815c9dbb4d7efb5baa26de0aad3f1a2b4fdbad2571f3c4aeddc6b4c",
+      "path": "results/grok_ihc/raw/dum2022_trop2_tma/dum2022_pmc.html",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:42Z"
+    },
+    {
+      "ok": false,
+      "url": "https://europepmc.org/articles/PMC9393818",
+      "path": "results/grok_ihc/raw/dum2022_trop2_tma/dum2022_europepmc_render.pdf",
+      "bytes": 0,
+      "error": "HTTPError: HTTP Error 404: ",
+      "retrieved_at": "2026-08-16T19:36:45Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5410292/pdf/oncotarget-08-28725.pdf",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5410292/pdf/oncotarget-08-28725.pdf",
+      "status": 200,
+      "bytes": 20418,
+      "sha256": "510cdcab39bc2905f80379511deab15f75d23c8cf67451a6fbe858bd274e2062",
+      "path": "results/grok_ihc/raw/inamura2017_oncotarget/inamura2017_pmc.pdf",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:45Z"
+    },
+    {
+      "ok": false,
+      "url": "https://europepmc.org/backend/ptpmcrender.fcgi",
+      "path": "results/grok_ihc/raw/inamura2017_oncotarget/inamura2017_europepmc.pdf",
+      "bytes": 0,
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "retrieved_at": "2026-08-16T19:36:46Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5410292/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5410292/",
+      "status": 200,
+      "bytes": 20349,
+      "sha256": "da9b0bf295d79039ae045beeaf8588f1add1722f84421cf1644742bca5d84c38",
+      "path": "results/grok_ihc/raw/inamura2017_oncotarget/inamura2017_pmc.html",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:46Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4157471/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4157471/",
+      "status": 200,
+      "bytes": 135271,
+      "sha256": "4f232c123e5e18bf1d204ea6d54ec3a015ae847ce487f346e0e799ef6b499f83",
+      "path": "results/grok_ihc/raw/jung2014_cldn4_luad/jung2014_pmc.html",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:47Z"
+    },
+    {
+      "ok": false,
+      "url": "https://europepmc.org/backend/ptpmcrender.fcgi",
+      "path": "results/grok_ihc/raw/jung2014_cldn4_luad/jung2014_europepmc.pdf",
+      "bytes": 0,
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "retrieved_at": "2026-08-16T19:36:48Z"
+    },
+    {
+      "ok": false,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12411510/bin/DataSheet1.xlsx",
+      "path": "results/grok_ihc/raw/frontiers2025_trop2_review/DataSheet1.xlsx",
+      "bytes": 0,
+      "error": "HTTPError: HTTP Error 404: Not Found",
+      "retrieved_at": "2026-08-16T19:36:48Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12411510/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12411510/",
+      "status": 200,
+      "bytes": 217363,
+      "sha256": "3fd394e55b55edccc2e9ae3e6bfb2b9c003086e3dac5c011a4a8ba414fae4441",
+      "path": "results/grok_ihc/raw/frontiers2025_trop2_review/frontiers2025_pmc.html",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:49Z"
+    },
+    {
+      "ok": true,
+      "url": "https://v23.proteinatlas.org/download/pathology.tsv.zip",
+      "final_url": "https://v23.proteinatlas.org/download/pathology.tsv.zip",
+      "status": 200,
+      "bytes": 3612666,
+      "sha256": "9cc04ae3bcc23e4b4eba958fdcd4602a65e94764b67f870e7da4a4a55345ed37",
+      "path": "results/grok_ihc/raw/hpa/HPA_v23_pathology.tsv.zip",
+      "content_type": "application/zip",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:50Z"
+    },
+    {
+      "ok": true,
+      "url": "https://v19.proteinatlas.org/download/pathology.tsv.zip",
+      "final_url": "https://v19.proteinatlas.org/download/pathology.tsv.zip",
+      "status": 200,
+      "bytes": 3565051,
+      "sha256": "d336eacde938b20d2327f0d4a95bd04602ddbafc8640b84866b4550252c8298c",
+      "path": "results/grok_ihc/raw/hpa/HPA_v19_pathology.tsv.zip",
+      "content_type": "application/zip",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:52Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.proteinatlas.org/ENSG00000184292-TACSTD2.xml",
+      "final_url": "https://www.proteinatlas.org/ENSG00000184292-TACSTD2.xml",
+      "status": 200,
+      "bytes": 269226,
+      "sha256": "966e01ee8ce3ff8f6439bddc5666aee427cce60b298ee27bb3e9a6b09a71758a",
+      "path": "results/grok_ihc/raw/hpa/HPA_TACSTD2.xml",
+      "content_type": "text/html; charset=UTF-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:53Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.proteinatlas.org/ENSG00000189143-CLDN4.xml",
+      "final_url": "https://www.proteinatlas.org/ENSG00000189143-CLDN4.xml",
+      "status": 200,
+      "bytes": 268258,
+      "sha256": "bc4f51ff2423f878e6d4ddfd4826db27a08c38c07f2f4c013be812f98c0831b2",
+      "path": "results/grok_ihc/raw/hpa/HPA_CLDN4.xml",
+      "content_type": "text/html; charset=UTF-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:54Z"
+    },
+    {
+      "ok": true,
+      "url": "https://v23.proteinatlas.org/ENSG00000184292-TACSTD2.xml",
+      "final_url": "https://v23.proteinatlas.org/ENSG00000184292-TACSTD2.xml",
+      "status": 200,
+      "bytes": 248183,
+      "sha256": "11fc2116c9053df3d8931e4a14fb51651ffe0e16506e25bd8c8574e7b776a1b6",
+      "path": "results/grok_ihc/raw/hpa/HPA_v23_TACSTD2.xml",
+      "content_type": "text/html; charset=UTF-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:55Z"
+    },
+    {
+      "ok": true,
+      "url": "https://v23.proteinatlas.org/ENSG00000189143-CLDN4.xml",
+      "final_url": "https://v23.proteinatlas.org/ENSG00000189143-CLDN4.xml",
+      "status": 200,
+      "bytes": 236786,
+      "sha256": "9f30f9374ef1cfc34212753255392171031b5582ba906cb00050c63787a6c3ca",
+      "path": "results/grok_ihc/raw/hpa/HPA_v23_CLDN4.xml",
+      "content_type": "text/html; charset=UTF-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:56Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7463615/pdf/cancers-12-03328.pdf",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7463615/pdf/cancers-12-03328.pdf",
+      "status": 200,
+      "bytes": 20404,
+      "sha256": "730539d87f809b8958ed956485cddfc0b5b0173fb016ede3afe5ed5b7c65e306",
+      "path": "results/grok_ihc/raw/mito2020_cancers/mito2020_cancers.pdf",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:56Z"
+    },
+    {
+      "ok": false,
+      "url": "https://www.mdpi.com/2072-6694/12/11/3328/pdf",
+      "path": "results/grok_ihc/raw/mito2020_cancers/mito2020_mdpi.pdf",
+      "bytes": 0,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "retrieved_at": "2026-08-16T19:36:56Z"
+    },
+    {
+      "ok": false,
+      "url": "https://www.mdpi.com/2072-6694/12/11/3328",
+      "path": "results/grok_ihc/raw/mito2020_cancers/mito2020_landing.html",
+      "bytes": 0,
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "retrieved_at": "2026-08-16T19:36:56Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11801068/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11801068/",
+      "status": 200,
+      "bytes": 20348,
+      "sha256": "d8436492e1081b5ab9845e01bf7d32e44112c39f761d661df82032d459c68557",
+      "path": "results/grok_ihc/raw/omori2021_trop2_lung/omori2021_pmc.html",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:56Z"
+    },
+    {
+      "ok": false,
+      "url": "https://europepmc.org/backend/ptpmcrender.fcgi",
+      "path": "results/grok_ihc/raw/omori2021_trop2_lung/omori2021_europepmc.pdf",
+      "bytes": 0,
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "retrieved_at": "2026-08-16T19:36:58Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11999141/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11999141/",
+      "status": 200,
+      "bytes": 176792,
+      "sha256": "5efde5957039224a1e9c37a6bd07c2eb5e29c98dc564e548651086debad78e7c",
+      "path": "results/grok_ihc/raw/kuo2025_plosone/kuo2025_pmc.html",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:58Z"
+    },
+    {
+      "ok": true,
+      "url": "https://pdfs.semanticscholar.org/b6e2/48fd2fb95f89ceaceabc278cf70b8e3753d5.pdf",
+      "final_url": "https://pdfs.semanticscholar.org/b6e2/48fd2fb95f89ceaceabc278cf70b8e3753d5.pdf",
+      "status": 200,
+      "bytes": 3727955,
+      "sha256": "fb572c9bf2ba45494e70dce5baa68d073c46db44c861ee7c35d79efbe7bd6afb",
+      "path": "results/grok_ihc/raw/bessede_ccr2024/bessede_ccr2024_semantic.pdf",
+      "content_type": "application/pdf",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:58Z"
+    },
+    {
+      "ok": true,
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10870750/",
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10870750/",
+      "status": 200,
+      "bytes": 222657,
+      "sha256": "285b14744cb88154f2f6575b0be8045d21f152530514a42c761f190e3191095e",
+      "path": "results/grok_ihc/raw/bessede_ccr2024/bessede_pmc.html",
+      "content_type": "text/html; charset=utf-8",
+      "error": "",
+      "retrieved_at": "2026-08-16T19:36:58Z"
+    },
+    {
+      "ok": false,
+      "url": "https://europepmc.org/backend/ptpmcrender.fcgi",
+      "path": "results/grok_ihc/raw/bessede_ccr2024/bessede_europepmc.pdf",
+      "bytes": 0,
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "retrieved_at": "2026-08-16T19:37:00Z"
+    }
+  ],
+  "extracted": [
+    {
+      "source": "results/grok_ihc/raw/bessede_ccr2024/S1_OAK_POPLAR_characteristics/ccr-23-2566_supplementary_table_s1_suppts1.docx",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/bessede_ccr2024/ccr-23-2566_supplementary_table_s1_suppts1_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/bessede_ccr2024/S4_BIP_plasma_proteomics_characteristics/ccr-23-2566_supplementary_table_s4_suppts4.docx",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/bessede_ccr2024/ccr-23-2566_supplementary_table_s4_suppts4_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/bessede_ccr2024/S2_OAK_POPLAR_multivariate/ccr-23-2566_supplementary_table_s2_suppts2.docx",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/bessede_ccr2024/ccr-23-2566_supplementary_table_s2_suppts2_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/bessede_ccr2024/S3_BIP_mIHF_characteristics/ccr-23-2566_supplementary_table_s3_suppts3.docx",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/bessede_ccr2024/ccr-23-2566_supplementary_table_s3_suppts3_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/hashimoto2025_scirep/hashimoto2025_sci_rep_MOESM1.docx",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/hashimoto2025_scirep/hashimoto2025_sci_rep_MOESM1_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/omori2021_trop2_lung/omori2021_MOESM1.docx",
+      "n_tables": 2,
+      "csvs": [
+        "results/grok_ihc/extracted/omori2021_trop2_lung/omori2021_MOESM1_table01.csv",
+        "results/grok_ihc/extracted/omori2021_trop2_lung/omori2021_MOESM1_table02.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/hashimoto2025_scirep/hashimoto2025_sci_rep_landing.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/pak2012_wjso/pak2012_landing.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/gyulai2023_cldn_rare_lung/gyulai2023_por_landing.html",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/gyulai2023_cldn_rare_lung/html_tables/gyulai2023_por_landing_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/kuo2025_plosone/kuo2025_landing.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/kuo2025_plosone/kuo2025_pmc.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/dum2022_trop2_tma/dum2022_pmc.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/inamura2017_oncotarget/inamura2017_pmc.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/jung2014_cldn4_luad/jung2014_pmc.html",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/jung2014_cldn4_luad/html_tables/jung2014_pmc_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/raw/omori2021_trop2_lung/omori2021_pmc.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/bessede_ccr2024/bessede_pmc.html",
+      "n_tables": 0,
+      "csvs": []
+    },
+    {
+      "source": "results/grok_ihc/raw/frontiers2025_trop2_review/frontiers2025_pmc.html",
+      "n_tables": 1,
+      "csvs": [
+        "results/grok_ihc/extracted/frontiers2025_trop2_review/html_tables/frontiers2025_pmc_table01.csv"
+      ]
+    },
+    {
+      "source": "results/grok_ihc/extracted/hpa/pathology.tsv",
+      "n_rows": 40,
+      "csvs": [
+        "results/grok_ihc/extracted/hpa/pathology_TACSTD2_CLDN4.csv"
+      ]
+    }
+  ]
+}
