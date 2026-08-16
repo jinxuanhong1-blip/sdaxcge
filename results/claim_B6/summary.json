@@ -1,0 +1,960 @@
+{
+  "claim": "B6: CLDN4/TACSTD2-high spots anti-colocalize with T/B cells",
+  "same_spot_visium": {
+    "E-MTAB-13530|adjacent_normal": {
+      "n_sections": 16,
+      "rho_epi_vs_TB": {
+        "n": 16,
+        "median": -0.0157461804227495,
+        "mean": -0.0017482132695019366,
+        "n_neg": 9,
+        "n_pos": 7,
+        "wilcoxon_p": 1.0,
+        "sign_p": 0.803619384765625
+      },
+      "rho_epi_vs_T": {
+        "n": 16,
+        "median": 0.01136673622281135,
+        "mean": 0.007362483797478718,
+        "n_neg": 7,
+        "n_pos": 9,
+        "wilcoxon_p": 0.596588134765625,
+        "sign_p": 0.803619384765625
+      },
+      "rho_epi_vs_B": {
+        "n": 16,
+        "median": 0.024792804536968,
+        "mean": 0.013385643610586832,
+        "n_neg": 7,
+        "n_pos": 9,
+        "wilcoxon_p": 0.596588134765625,
+        "sign_p": 0.803619384765625
+      },
+      "rb_TB_in_epihigh": {
+        "n": 16,
+        "median": -0.06468503402382285,
+        "mean": -0.048673691898860956,
+        "n_neg": 12,
+        "n_pos": 4,
+        "wilcoxon_p": 0.05767822265625,
+        "sign_p": 0.076812744140625
+      }
+    },
+    "E-MTAB-13530|healthy": {
+      "n_sections": 4,
+      "rho_epi_vs_TB": {
+        "n": 4,
+        "median": -0.0047652720133426005,
+        "mean": -0.003676932153407275,
+        "n_neg": 3,
+        "n_pos": 1,
+        "wilcoxon_p": 0.625,
+        "sign_p": 0.625
+      },
+      "rho_epi_vs_T": {
+        "n": 4,
+        "median": 0.02629034408802415,
+        "mean": 0.0282051885541532,
+        "n_neg": 0,
+        "n_pos": 4,
+        "wilcoxon_p": 0.125,
+        "sign_p": 0.125
+      },
+      "rho_epi_vs_B": {
+        "n": 4,
+        "median": -0.060243500537020045,
+        "mean": -0.06111669608430102,
+        "n_neg": 4,
+        "n_pos": 0,
+        "wilcoxon_p": 0.125,
+        "sign_p": 0.125
+      },
+      "rb_TB_in_epihigh": {
+        "n": 4,
+        "median": -0.01554674127814435,
+        "mean": -0.0236026656661865,
+        "n_neg": 3,
+        "n_pos": 1,
+        "wilcoxon_p": 0.25,
+        "sign_p": 0.625
+      }
+    },
+    "E-MTAB-13530|tumor": {
+      "n_sections": 20,
+      "rho_epi_vs_TB": {
+        "n": 20,
+        "median": -0.2547111334307669,
+        "mean": -0.27831135215290553,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_epi_vs_T": {
+        "n": 20,
+        "median": -0.2434821950068129,
+        "mean": -0.22702704608385735,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_epi_vs_B": {
+        "n": 20,
+        "median": -0.15962304886604994,
+        "mean": -0.20221051889141756,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rb_TB_in_epihigh": {
+        "n": 20,
+        "median": -0.2589446050590687,
+        "mean": -0.2847838113785429,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      }
+    },
+    "GSE189487|tumor": {
+      "n_sections": 6,
+      "rho_epi_vs_TB": {
+        "n": 6,
+        "median": -0.21685004441233474,
+        "mean": -0.23972286227456144,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_epi_vs_T": {
+        "n": 6,
+        "median": -0.20068838512093107,
+        "mean": -0.20474030135715293,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_epi_vs_B": {
+        "n": 6,
+        "median": -0.10599900413596855,
+        "mean": -0.1250616932306667,
+        "n_neg": 5,
+        "n_pos": 1,
+        "wilcoxon_p": 0.0625,
+        "sign_p": 0.21875
+      },
+      "rb_TB_in_epihigh": {
+        "n": 6,
+        "median": -0.2344927327391313,
+        "mean": -0.2430893383533674,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      }
+    }
+  },
+  "neighborhood_visium": {
+    "E-MTAB-13530|adjacent_normal|ring1": {
+      "n_sections": 16,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 16,
+        "median": -0.061572319007094894,
+        "mean": -0.07373949623365222,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.005157470703125,
+        "sign_p": 0.021270751953125
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 16,
+        "median": -0.03927548323579635,
+        "mean": -0.05881791290929611,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.01824951171875,
+        "sign_p": 0.021270751953125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 16,
+        "median": -0.06866206983898096,
+        "mean": -0.08402571147500612,
+        "n_neg": 14,
+        "n_pos": 2,
+        "wilcoxon_p": 0.000762939453125,
+        "sign_p": 0.004180908203125
+      },
+      "rho_partialEpi": {
+        "n": 16,
+        "median": -0.0315379890512539,
+        "mean": -0.05388923058951495,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.00762939453125,
+        "sign_p": 0.021270751953125
+      }
+    },
+    "E-MTAB-13530|adjacent_normal|ring2": {
+      "n_sections": 16,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 16,
+        "median": -0.051669273171185554,
+        "mean": -0.07508637849033487,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.010986328125,
+        "sign_p": 0.021270751953125
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 16,
+        "median": -0.02970040277473835,
+        "mean": -0.06164499097135952,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.02899169921875,
+        "sign_p": 0.021270751953125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 16,
+        "median": -0.05718480705399705,
+        "mean": -0.06726713163179768,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.01824951171875,
+        "sign_p": 0.021270751953125
+      },
+      "rho_partialEpi": {
+        "n": 16,
+        "median": -0.02943101309737175,
+        "mean": -0.05442168635594915,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.021392822265625,
+        "sign_p": 0.021270751953125
+      }
+    },
+    "E-MTAB-13530|adjacent_normal|ring3": {
+      "n_sections": 16,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 16,
+        "median": -0.052433793221675906,
+        "mean": -0.07459568620812129,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.00628662109375,
+        "sign_p": 0.021270751953125
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 16,
+        "median": -0.033346978713969355,
+        "mean": -0.06361210256178616,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.005157470703125,
+        "sign_p": 0.021270751953125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 16,
+        "median": -0.0534272899462225,
+        "mean": -0.05719849644676721,
+        "n_neg": 12,
+        "n_pos": 4,
+        "wilcoxon_p": 0.0443115234375,
+        "sign_p": 0.076812744140625
+      },
+      "rho_partialEpi": {
+        "n": 16,
+        "median": -0.025494165258396498,
+        "mean": -0.05023498157927109,
+        "n_neg": 13,
+        "n_pos": 3,
+        "wilcoxon_p": 0.021392822265625,
+        "sign_p": 0.021270751953125
+      }
+    },
+    "E-MTAB-13530|healthy|ring1": {
+      "n_sections": 4,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 4,
+        "median": 0.03375382240736685,
+        "mean": 0.060494295006972884,
+        "n_neg": 0,
+        "n_pos": 4,
+        "wilcoxon_p": 0.125,
+        "sign_p": 0.125
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 4,
+        "median": 0.04481802189482935,
+        "mean": 0.07968228136357212,
+        "n_neg": 0,
+        "n_pos": 4,
+        "wilcoxon_p": 0.125,
+        "sign_p": 0.125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 4,
+        "median": -0.02825019267700395,
+        "mean": -0.013177521562704053,
+        "n_neg": 3,
+        "n_pos": 1,
+        "wilcoxon_p": 0.875,
+        "sign_p": 0.625
+      },
+      "rho_partialEpi": {
+        "n": 4,
+        "median": 0.0570343888737225,
+        "mean": 0.07456126938614438,
+        "n_neg": 1,
+        "n_pos": 3,
+        "wilcoxon_p": 0.25,
+        "sign_p": 0.625
+      }
+    },
+    "E-MTAB-13530|healthy|ring2": {
+      "n_sections": 4,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 4,
+        "median": 0.02055892000140295,
+        "mean": 0.03748824848771563,
+        "n_neg": 1,
+        "n_pos": 3,
+        "wilcoxon_p": 0.625,
+        "sign_p": 0.625
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 4,
+        "median": 0.03608847886024505,
+        "mean": 0.040508199230589625,
+        "n_neg": 0,
+        "n_pos": 4,
+        "wilcoxon_p": 0.125,
+        "sign_p": 0.125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 4,
+        "median": 0.0020862950823068507,
+        "mean": 0.03533080104095443,
+        "n_neg": 2,
+        "n_pos": 2,
+        "wilcoxon_p": 0.875,
+        "sign_p": 1.0
+      },
+      "rho_partialEpi": {
+        "n": 4,
+        "median": 0.008774698430947251,
+        "mean": 0.03461035991450285,
+        "n_neg": 1,
+        "n_pos": 3,
+        "wilcoxon_p": 0.25,
+        "sign_p": 0.625
+      }
+    },
+    "E-MTAB-13530|healthy|ring3": {
+      "n_sections": 4,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 4,
+        "median": 0.0536609892940261,
+        "mean": 0.050765280111429154,
+        "n_neg": 1,
+        "n_pos": 3,
+        "wilcoxon_p": 0.25,
+        "sign_p": 0.625
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 4,
+        "median": 0.03991606635560695,
+        "mean": 0.05298308267648307,
+        "n_neg": 0,
+        "n_pos": 4,
+        "wilcoxon_p": 0.125,
+        "sign_p": 0.125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 4,
+        "median": -0.0047561013108598504,
+        "mean": 0.04013294783614797,
+        "n_neg": 2,
+        "n_pos": 2,
+        "wilcoxon_p": 1.0,
+        "sign_p": 1.0
+      },
+      "rho_partialEpi": {
+        "n": 4,
+        "median": 0.04204134818134245,
+        "mean": 0.0461280697489585,
+        "n_neg": 1,
+        "n_pos": 3,
+        "wilcoxon_p": 0.375,
+        "sign_p": 0.625
+      }
+    },
+    "E-MTAB-13530|tumor|ring1": {
+      "n_sections": 20,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 20,
+        "median": -0.33256152424146546,
+        "mean": -0.28599951552089975,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 20,
+        "median": -0.2860243762851072,
+        "mean": -0.25293430643319853,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 20,
+        "median": -0.1776020941156916,
+        "mean": -0.2147218271354466,
+        "n_neg": 19,
+        "n_pos": 1,
+        "wilcoxon_p": 3.814697265625e-06,
+        "sign_p": 4.00543212890625e-05
+      },
+      "rho_partialEpi": {
+        "n": 20,
+        "median": -0.18490324652197765,
+        "mean": -0.1794587276452139,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      }
+    },
+    "E-MTAB-13530|tumor|ring2": {
+      "n_sections": 20,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 20,
+        "median": -0.26855791637604653,
+        "mean": -0.24256518291590531,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 20,
+        "median": -0.23690065328830515,
+        "mean": -0.21978961126627689,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 20,
+        "median": -0.1582434238775157,
+        "mean": -0.17948269600579964,
+        "n_neg": 18,
+        "n_pos": 2,
+        "wilcoxon_p": 9.5367431640625e-06,
+        "sign_p": 0.0004024505615234375
+      },
+      "rho_partialEpi": {
+        "n": 20,
+        "median": -0.14368939646389506,
+        "mean": -0.14779423570785494,
+        "n_neg": 19,
+        "n_pos": 1,
+        "wilcoxon_p": 5.7220458984375e-06,
+        "sign_p": 4.00543212890625e-05
+      }
+    },
+    "E-MTAB-13530|tumor|ring3": {
+      "n_sections": 20,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 20,
+        "median": -0.2168860791778022,
+        "mean": -0.21632590374054878,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 20,
+        "median": -0.19281193690301945,
+        "mean": -0.19795228310648366,
+        "n_neg": 20,
+        "n_pos": 0,
+        "wilcoxon_p": 1.9073486328125e-06,
+        "sign_p": 1.9073486328125e-06
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 20,
+        "median": -0.15177734239753835,
+        "mean": -0.1570794459366252,
+        "n_neg": 18,
+        "n_pos": 2,
+        "wilcoxon_p": 9.5367431640625e-06,
+        "sign_p": 0.0004024505615234375
+      },
+      "rho_partialEpi": {
+        "n": 20,
+        "median": -0.09736929092745539,
+        "mean": -0.13026559585417946,
+        "n_neg": 17,
+        "n_pos": 3,
+        "wilcoxon_p": 3.62396240234375e-05,
+        "sign_p": 0.0025768280029296875
+      }
+    },
+    "GSE189487|tumor|ring1": {
+      "n_sections": 6,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 6,
+        "median": -0.21276315575244387,
+        "mean": -0.2396326316534884,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 6,
+        "median": -0.19397532614933383,
+        "mean": -0.21549301216714545,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 6,
+        "median": -0.11401924232302545,
+        "mean": -0.1334309404527358,
+        "n_neg": 5,
+        "n_pos": 1,
+        "wilcoxon_p": 0.0625,
+        "sign_p": 0.21875
+      },
+      "rho_partialEpi": {
+        "n": 6,
+        "median": -0.1081555151533336,
+        "mean": -0.11266586422908581,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      }
+    },
+    "GSE189487|tumor|ring2": {
+      "n_sections": 6,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 6,
+        "median": -0.1856142014994249,
+        "mean": -0.22256885441507454,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 6,
+        "median": -0.19190301567723006,
+        "mean": -0.20774404988041498,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 6,
+        "median": -0.1021289767479268,
+        "mean": -0.11952801285037672,
+        "n_neg": 5,
+        "n_pos": 1,
+        "wilcoxon_p": 0.0625,
+        "sign_p": 0.21875
+      },
+      "rho_partialEpi": {
+        "n": 6,
+        "median": -0.0935037299925521,
+        "mean": -0.09857746857824014,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      }
+    },
+    "GSE189487|tumor|ring3": {
+      "n_sections": 6,
+      "rho_CLDN4_vs_TBnb": {
+        "n": 6,
+        "median": -0.19219749338309894,
+        "mean": -0.22371044621506395,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_CLDN4_vs_Tnb": {
+        "n": 6,
+        "median": -0.1863700717563272,
+        "mean": -0.20281055359793512,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_CLDN4_vs_Bnb": {
+        "n": 6,
+        "median": -0.11272973625390434,
+        "mean": -0.13745792215940542,
+        "n_neg": 5,
+        "n_pos": 1,
+        "wilcoxon_p": 0.0625,
+        "sign_p": 0.21875
+      },
+      "rho_partialEpi": {
+        "n": 6,
+        "median": -0.1026703671016782,
+        "mean": -0.10437029133001215,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      }
+    }
+  },
+  "pr110_like": {
+    "E-MTAB-13530|ring1": {
+      "n_sections": 20,
+      "rho_raw": {
+        "n": 20,
+        "median": -0.22278009054947906,
+        "mean": -0.21457155132630024,
+        "n_neg": 19,
+        "n_pos": 1,
+        "wilcoxon_p": 3.814697265625e-06,
+        "sign_p": 4.00543212890625e-05
+      },
+      "rho_partialEpi": {
+        "n": 20,
+        "median": -0.19403437354865474,
+        "mean": -0.18637554928214334,
+        "n_neg": 19,
+        "n_pos": 1,
+        "wilcoxon_p": 3.814697265625e-06,
+        "sign_p": 4.00543212890625e-05
+      }
+    },
+    "E-MTAB-13530|ring2": {
+      "n_sections": 20,
+      "rho_raw": {
+        "n": 20,
+        "median": -0.1414705580165706,
+        "mean": -0.156913429011486,
+        "n_neg": 18,
+        "n_pos": 2,
+        "wilcoxon_p": 9.5367431640625e-06,
+        "sign_p": 0.0004024505615234375
+      },
+      "rho_partialEpi": {
+        "n": 20,
+        "median": -0.11650346660649175,
+        "mean": -0.13869262763890586,
+        "n_neg": 19,
+        "n_pos": 1,
+        "wilcoxon_p": 9.5367431640625e-06,
+        "sign_p": 4.00543212890625e-05
+      }
+    },
+    "E-MTAB-13530|ring3": {
+      "n_sections": 20,
+      "rho_raw": {
+        "n": 20,
+        "median": -0.07957207265500604,
+        "mean": -0.12268395930531524,
+        "n_neg": 18,
+        "n_pos": 2,
+        "wilcoxon_p": 6.29425048828125e-05,
+        "sign_p": 0.0004024505615234375
+      },
+      "rho_partialEpi": {
+        "n": 20,
+        "median": -0.08828641364884285,
+        "mean": -0.10942512317529458,
+        "n_neg": 17,
+        "n_pos": 3,
+        "wilcoxon_p": 0.000209808349609375,
+        "sign_p": 0.0025768280029296875
+      }
+    },
+    "GSE189487|ring1": {
+      "n_sections": 6,
+      "rho_raw": {
+        "n": 6,
+        "median": -0.085381304777115,
+        "mean": -0.09931819060284036,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_partialEpi": {
+        "n": 6,
+        "median": -0.06315995945474895,
+        "mean": -0.0797251899463692,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      }
+    },
+    "GSE189487|ring2": {
+      "n_sections": 6,
+      "rho_raw": {
+        "n": 6,
+        "median": -0.0771651123956017,
+        "mean": -0.10553816522526992,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_partialEpi": {
+        "n": 6,
+        "median": -0.06429264187522721,
+        "mean": -0.08624482796187712,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      }
+    },
+    "GSE189487|ring3": {
+      "n_sections": 6,
+      "rho_raw": {
+        "n": 6,
+        "median": -0.09398640654689926,
+        "mean": -0.10938202314144295,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      },
+      "rho_partialEpi": {
+        "n": 6,
+        "median": -0.08248842544624706,
+        "mean": -0.09238934263091782,
+        "n_neg": 6,
+        "n_pos": 0,
+        "wilcoxon_p": 0.03125,
+        "sign_p": 0.03125
+      }
+    }
+  },
+  "geomx_gse271689": [
+    {
+      "scope": "all_AOIs",
+      "rho_epi_vs_T": -0.4388170052912591,
+      "p_epi_vs_T": 1.481413987255659e-28,
+      "rho_epi_vs_B": -0.2702533212795772,
+      "p_epi_vs_B": 4.088148706419114e-11,
+      "rho_epi_vs_TB": -0.4286590171291271,
+      "p_epi_vs_TB": 3.434893655597227e-27,
+      "n": 577
+    },
+    {
+      "scope": "within_CK",
+      "rho_epi_vs_T": -0.3761909020068727,
+      "p_epi_vs_T": 1.6945819656156306e-08,
+      "rho_epi_vs_B": -0.220695954318417,
+      "p_epi_vs_B": 0.0012525777920391,
+      "rho_epi_vs_TB": -0.3683856874592814,
+      "p_epi_vs_TB": 3.497969233278667e-08,
+      "n": 211
+    },
+    {
+      "scope": "within_CD45",
+      "rho_epi_vs_T": -0.2601520544434636,
+      "p_epi_vs_T": 0.0005267035358285,
+      "rho_epi_vs_B": -0.0622922064979071,
+      "p_epi_vs_B": 0.4141790770451959,
+      "rho_epi_vs_TB": -0.2118499957288077,
+      "p_epi_vs_TB": 0.0050117773790289,
+      "n": 174
+    },
+    {
+      "scope": "within_CD68",
+      "rho_epi_vs_T": 0.0378038276862979,
+      "p_epi_vs_T": 0.6026518800175326,
+      "rho_epi_vs_B": -0.0421391368038412,
+      "p_epi_vs_B": 0.561683992843081,
+      "rho_epi_vs_TB": 0.0312728888044923,
+      "p_epi_vs_TB": 0.6667551942739985,
+      "n": 192
+    }
+  ],
+  "cosmx_gse287472": {
+    "note": "1 patient, 1000-plex CosMx; CLDN4 detected in 3.6% of cells",
+    "same_cell": [
+      {
+        "scope": "all_QC_cells",
+        "n": 38574,
+        "rho_CLDN4_vs_T": 0.041799131781428,
+        "p_CLDN4_vs_T": 2.161194985306912e-16,
+        "rho_CLDN4_vs_B": 0.0293624211707187,
+        "p_CLDN4_vs_B": 8.025878892966437e-09,
+        "rho_CLDN4_vs_TB": 0.0455798050895209,
+        "p_CLDN4_vs_TB": 3.3557646654193177e-19
+      },
+      {
+        "scope": "PanCK_high",
+        "n": 19300,
+        "rho_CLDN4_vs_T": 0.0388776972312865,
+        "p_CLDN4_vs_T": 6.562509089738833e-08,
+        "rho_CLDN4_vs_B": 0.0249981683245348,
+        "p_CLDN4_vs_B": 0.0005143411999004,
+        "rho_CLDN4_vs_TB": 0.0412324058435818,
+        "p_CLDN4_vs_TB": 1.0027999590698351e-08
+      }
+    ],
+    "neighborhood": [
+      {
+        "radius_um": 25,
+        "scope": "all_QC_cells",
+        "n_index": 38574,
+        "median_neighbors": 9.0,
+        "rho_CLDN4_vs_Tnb": 0.0009326803620858,
+        "p_CLDN4_vs_Tnb": 0.8794401807873791,
+        "n_T": 26450,
+        "rho_CLDN4_vs_Bnb": -0.0060845896790456,
+        "p_CLDN4_vs_Bnb": 0.322405388348202,
+        "n_B": 26450,
+        "rho_CLDN4_vs_TBnb": 0.0027452008973213,
+        "p_CLDN4_vs_TBnb": 0.6552763530563432,
+        "n_TB": 26450,
+        "rb_TBnb_in_CLDN4high": NaN,
+        "p_rb": NaN
+      },
+      {
+        "radius_um": 25,
+        "scope": "PanCK_high",
+        "n_index": 19300,
+        "median_neighbors": 11.0,
+        "rho_CLDN4_vs_Tnb": -0.0032973884152171,
+        "p_CLDN4_vs_Tnb": 0.6713875215597982,
+        "n_T": 16556,
+        "rho_CLDN4_vs_Bnb": -0.0050401878232896,
+        "p_CLDN4_vs_Bnb": 0.5166766574695506,
+        "n_B": 16556,
+        "rho_CLDN4_vs_TBnb": -0.00099039295316,
+        "p_CLDN4_vs_TBnb": 0.8986045127981145,
+        "n_TB": 16556,
+        "rb_TBnb_in_CLDN4high": NaN,
+        "p_rb": NaN
+      },
+      {
+        "radius_um": 50,
+        "scope": "all_QC_cells",
+        "n_index": 38574,
+        "median_neighbors": 32.0,
+        "rho_CLDN4_vs_Tnb": 0.0051559696118506,
+        "p_CLDN4_vs_Tnb": 0.3523388743555974,
+        "n_T": 32541,
+        "rho_CLDN4_vs_Bnb": -0.0013952911542595,
+        "p_CLDN4_vs_Bnb": 0.8012816476487192,
+        "n_B": 32541,
+        "rho_CLDN4_vs_TBnb": 0.0068818862264625,
+        "p_CLDN4_vs_TBnb": 0.2144583844943796,
+        "n_TB": 32541,
+        "rb_TBnb_in_CLDN4high": NaN,
+        "p_rb": NaN
+      },
+      {
+        "radius_um": 50,
+        "scope": "PanCK_high",
+        "n_index": 19300,
+        "median_neighbors": 41.0,
+        "rho_CLDN4_vs_Tnb": -0.0034606153483245,
+        "p_CLDN4_vs_Tnb": 0.636710875357868,
+        "n_T": 18629,
+        "rho_CLDN4_vs_Bnb": 0.0023596760041419,
+        "p_CLDN4_vs_Bnb": 0.747417453206763,
+        "n_B": 18629,
+        "rho_CLDN4_vs_TBnb": 0.0015102381206863,
+        "p_CLDN4_vs_TBnb": 0.8367004496857681,
+        "n_TB": 18629,
+        "rb_TBnb_in_CLDN4high": NaN,
+        "p_rb": NaN
+      },
+      {
+        "radius_um": 100,
+        "scope": "all_QC_cells",
+        "n_index": 38574,
+        "median_neighbors": 106.0,
+        "rho_CLDN4_vs_Tnb": 0.0064807643237229,
+        "p_CLDN4_vs_Tnb": 0.210691951286456,
+        "n_T": 37303,
+        "rho_CLDN4_vs_Bnb": -0.0047995196550441,
+        "p_CLDN4_vs_Bnb": 0.3539510615964827,
+        "n_B": 37303,
+        "rho_CLDN4_vs_TBnb": 0.0034243913062354,
+        "p_CLDN4_vs_TBnb": 0.508377506492761,
+        "n_TB": 37303,
+        "rb_TBnb_in_CLDN4high": NaN,
+        "p_rb": NaN
+      },
+      {
+        "radius_um": 100,
+        "scope": "PanCK_high",
+        "n_index": 19300,
+        "median_neighbors": 146.0,
+        "rho_CLDN4_vs_Tnb": -0.0034508036498114,
+        "p_CLDN4_vs_Tnb": 0.6327632555977416,
+        "n_T": 19177,
+        "rho_CLDN4_vs_Bnb": -0.0105504191045175,
+        "p_CLDN4_vs_Bnb": 0.1440213443995111,
+        "n_B": 19177,
+        "rho_CLDN4_vs_TBnb": -0.0044534618192593,
+        "p_CLDN4_vs_TBnb": 0.5374438979133412,
+        "n_TB": 19177,
+        "rb_TBnb_in_CLDN4high": NaN,
+        "p_rb": NaN
+      }
+    ]
+  },
+  "same_spot_visium_tumor_pooled": {
+    "n_sections": 26,
+    "rho_epi_vs_TB": {
+      "n": 26,
+      "median": -0.2501269751966732,
+      "mean": -0.2694063160271338,
+      "n_neg": 26,
+      "n_pos": 0,
+      "wilcoxon_p": 2.9802322387695312e-08,
+      "sign_p": 2.9802322387695312e-08
+    },
+    "rho_epi_vs_T": {
+      "n": 26,
+      "median": -0.2282712513460603,
+      "mean": -0.22188395114692555,
+      "n_neg": 26,
+      "n_pos": 0,
+      "wilcoxon_p": 2.9802322387695312e-08,
+      "sign_p": 2.9802322387695312e-08
+    },
+    "rho_epi_vs_B": {
+      "n": 26,
+      "median": -0.1589011124452408,
+      "mean": -0.18440694373893657,
+      "n_neg": 25,
+      "n_pos": 1,
+      "wilcoxon_p": 5.960464477539063e-08,
+      "sign_p": 8.046627044677734e-07
+    }
+  }
+}
