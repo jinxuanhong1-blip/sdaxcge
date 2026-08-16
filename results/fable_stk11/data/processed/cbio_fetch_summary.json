@@ -1,0 +1,52 @@
+{
+  "TCGA-LUAD": {
+    "study": "luad_tcga_pan_can_atlas_2018",
+    "kind": "tcga",
+    "n_clinical_samples": 566,
+    "n_sequenced_samples": 566,
+    "n_expression_samples": 510,
+    "n_STK11_mut": 75,
+    "n_KEAP1_mut": 102,
+    "n_KRAS_mut": 168
+  },
+  "TCGA-LUSC": {
+    "study": "lusc_tcga_pan_can_atlas_2018",
+    "kind": "tcga",
+    "n_clinical_samples": 487,
+    "n_sequenced_samples": 484,
+    "n_expression_samples": 484,
+    "n_STK11_mut": 5,
+    "n_KEAP1_mut": 49,
+    "n_KRAS_mut": 7
+  },
+  "Rizvi2015": {
+    "study": "luad_mskcc_2015",
+    "kind": "ici",
+    "n_clinical_samples": 35,
+    "n_sequenced_samples": 35,
+    "n_expression_samples": 0,
+    "n_STK11_mut": 5,
+    "n_KEAP1_mut": 5,
+    "n_KRAS_mut": 8
+  },
+  "Hellmann2018": {
+    "study": "nsclc_mskcc_2018",
+    "kind": "ici",
+    "n_clinical_samples": 75,
+    "n_sequenced_samples": 75,
+    "n_expression_samples": 0,
+    "n_STK11_mut": 10,
+    "n_KEAP1_mut": 10,
+    "n_KRAS_mut": 23
+  },
+  "Rizvi2018": {
+    "study": "nsclc_pd1_msk_2018",
+    "kind": "ici",
+    "n_clinical_samples": 240,
+    "n_sequenced_samples": 240,
+    "n_expression_samples": 0,
+    "n_STK11_mut": 53,
+    "n_KEAP1_mut": 53,
+    "n_KRAS_mut": 86
+  }
+}

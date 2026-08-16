@@ -1,0 +1,147 @@
+{
+  "checks": [
+    {
+      "check": "TCGA-LUAD genotype rows\u2248566",
+      "status": "PASS",
+      "detail": "got 566"
+    },
+    {
+      "check": "TCGA-LUAD no duplicate samples",
+      "status": "PASS",
+      "detail": "0 dups"
+    },
+    {
+      "check": "TCGA-LUAD expression rows\u2248510",
+      "status": "PASS",
+      "detail": "got 510"
+    },
+    {
+      "check": "TCGA-LUAD TACSTD2 & CLDN4 present",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "TCGA-LUSC genotype rows\u2248484",
+      "status": "PASS",
+      "detail": "got 484"
+    },
+    {
+      "check": "TCGA-LUSC no duplicate samples",
+      "status": "PASS",
+      "detail": "0 dups"
+    },
+    {
+      "check": "TCGA-LUSC expression rows\u2248481",
+      "status": "PASS",
+      "detail": "got 484"
+    },
+    {
+      "check": "TCGA-LUSC TACSTD2 & CLDN4 present",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Rizvi2015 genotype rows\u224835",
+      "status": "PASS",
+      "detail": "got 35"
+    },
+    {
+      "check": "Rizvi2015 no duplicate samples",
+      "status": "PASS",
+      "detail": "0 dups"
+    },
+    {
+      "check": "Hellmann2018 genotype rows\u224875",
+      "status": "PASS",
+      "detail": "got 75"
+    },
+    {
+      "check": "Hellmann2018 no duplicate samples",
+      "status": "PASS",
+      "detail": "0 dups"
+    },
+    {
+      "check": "Rizvi2018 genotype rows\u2248240",
+      "status": "PASS",
+      "detail": "got 240"
+    },
+    {
+      "check": "Rizvi2018 no duplicate samples",
+      "status": "PASS",
+      "detail": "0 dups"
+    },
+    {
+      "check": "LUAD STK11 freq in [0.08,0.22]",
+      "status": "PASS",
+      "detail": "0.133 (n=566)"
+    },
+    {
+      "check": "LUAD KEAP1 freq in [0.1,0.24]",
+      "status": "PASS",
+      "detail": "0.180 (n=566)"
+    },
+    {
+      "check": "LUAD KRAS freq in [0.25,0.38]",
+      "status": "PASS",
+      "detail": "0.297 (n=566)"
+    },
+    {
+      "check": "LUAD TP53 freq in [0.4,0.6]",
+      "status": "PASS",
+      "detail": "0.521 (n=566)"
+    },
+    {
+      "check": "recompute STK11->TACSTD2 p matches table",
+      "status": "PASS",
+      "detail": "recomputed=3.387e-05 table=3.387e-05"
+    },
+    {
+      "check": "STK11->TACSTD2 direction is lower-in-mutant",
+      "status": "PASS",
+      "detail": "med_mut=12.202 med_wt=12.715"
+    },
+    {
+      "check": "recompute STK11->CLDN4 p matches table",
+      "status": "PASS",
+      "detail": "recomputed=7.725e-06 table=7.725e-06"
+    },
+    {
+      "check": "STK11->CLDN4 direction is lower-in-mutant",
+      "status": "PASS",
+      "detail": "med_mut=12.746 med_wt=13.211"
+    },
+    {
+      "check": "KL co-mutation ->TACSTD2 reproducible",
+      "status": "PASS",
+      "detail": "9.973e-05 vs 9.973e-05"
+    },
+    {
+      "check": "KL co-mutation ->CLDN4 reproducible",
+      "status": "PASS",
+      "detail": "5.732e-05 vs 5.732e-05"
+    },
+    {
+      "check": "CD8A Cox HR<1 (protective direction)",
+      "status": "PASS",
+      "detail": "HR=0.775"
+    },
+    {
+      "check": "CD274 Cox HR<1 (protective direction)",
+      "status": "PASS",
+      "detail": "HR=0.686"
+    },
+    {
+      "check": "KRAS-restricted STK11 pooled OR<1 (worse ICI benefit)",
+      "status": "PASS",
+      "detail": "MH-OR=0.359"
+    },
+    {
+      "check": "processed+raw data < 2 GB",
+      "status": "PASS",
+      "detail": "2.4 MB"
+    }
+  ],
+  "passed": 28,
+  "failed": 0,
+  "summary": "28 passed / 0 failed"
+}
