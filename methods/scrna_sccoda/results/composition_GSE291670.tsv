@@ -1,0 +1,7 @@
+dataset	cohort	sample_id	patient_id	n_cells	n_epi	malignant_TACSTD2_mean_log1p	malignant_TACSTD2_frac_pos	group	pathologic_response	timepoint	histology	pd1	annotation	Epithelial	T_NK	B	Myeloid	Stromal	Other
+GSE291670	GSE291670	MPR-1	MPR-1	5583	1772	0.16478008031845093	0.19074492099322798	MPR	MPR	Post-treatment surgery	NSCLC	Camrelizumab	marker_hierarchy	1772	125	52	109	545	2980
+GSE291670	GSE291670	MPR-2	MPR-2	5172	1467	0.02595158852636814	0.0354464894342195	MPR	MPR	Post-treatment surgery	NSCLC	Camrelizumab	marker_hierarchy	1467	139	6	84	438	3038
+GSE291670	GSE291670	MPR-3	MPR-3	5103	1250	0.16148097813129425	0.1832	MPR	MPR	Post-treatment surgery	NSCLC	Camrelizumab	marker_hierarchy	1250	160	8	61	728	2896
+GSE291670	GSE291670	Non-MPR-1	Non-MPR-1	6280	1592	0.0405663326382637	0.052763819095477386	NMPR	NMPR	Post-treatment surgery	NSCLC	Camrelizumab	marker_hierarchy	1592	615	126	133	371	3443
+GSE291670	GSE291670	Non-MPR-2	Non-MPR-2	5485	610	0.03020867519080639	0.04262295081967213	NMPR	NMPR	Post-treatment surgery	NSCLC	Camrelizumab	marker_hierarchy	610	697	26	380	454	3318
+GSE291670	GSE291670	Non-MPR-3	Non-MPR-3	1444	493	0.09982044994831085	0.10141987829614604	NMPR	NMPR	Post-treatment surgery	NSCLC	Camrelizumab	marker_hierarchy	493	82	4	39	215	611
