@@ -1,0 +1,39 @@
+n	rho	p	dataset	x	y	kind	n_a	n_b	median_a	median_b	U	rank_biserial
+2947	0.12115047101609593	4.158013730107532e-11	htan_visium_Ctrl1_B1	TACSTD2	CLDN4	spot						
+2947	0.04930068305563221	0.007431946716099837	htan_visium_Ctrl1_B1	TACSTD2	CD8_Tcell	spot						
+2947	0.08692133634635639	2.2945968342231684e-06	htan_visium_Ctrl1_B1	TACSTD2	CYT	spot						
+2947	0.07873318442505259	1.8776714140801515e-05	htan_visium_Ctrl1_B1	TACSTD2	Cytotoxic_effector	spot						
+2947	0.17685678113906936	3.920523347662766e-22	htan_visium_Ctrl1_B1	TACSTD2	IFNG_6gene	spot						
+2947	0.11115423597330729	1.4453456454355148e-09	htan_visium_Ctrl1_B1	TACSTD2	TLS_12chemokine	spot						
+2947	0.16035343708096086	1.9869706719223782e-18	htan_visium_Ctrl1_B1	TACSTD2	TGFB_exclusion	spot						
+2947	0.20292205166902502	9.253013888695355e-29	htan_visium_Ctrl1_B1	TACSTD2	Immune_general	spot						
+2947	0.05934805242721465	0.0012674076610474023	htan_visium_Ctrl1_B1	TACSTD2	B_cell	spot						
+2947	0.21607705720982473	1.7887530569795362e-32	htan_visium_Ctrl1_B1	TACSTD2	Myeloid	spot						
+2947	0.05079561895075043	0.00581356066653761	htan_visium_Ctrl1_B1	TACSTD2	NK	spot						
+2947	-0.016066639971494663	0.3832714801144101	htan_visium_Ctrl1_B1	CLDN4	CD8_Tcell	spot						
+2947	-0.06919375114659883	0.00017046870236103495	htan_visium_Ctrl1_B1	CLDN4	CYT	spot						
+2947	-0.053873295703216896	0.003439424024134194	htan_visium_Ctrl1_B1	CLDN4	Cytotoxic_effector	spot						
+2947	0.06632154250314849	0.00031482077077928024	htan_visium_Ctrl1_B1	CLDN4	IFNG_6gene	spot						
+2947	0.020870056101646283	0.25738211323524973	htan_visium_Ctrl1_B1	CLDN4	TLS_12chemokine	spot						
+2947	0.25524606360377594	4.7361904301764174e-45	htan_visium_Ctrl1_B1	CLDN4	TGFB_exclusion	spot						
+2947	0.07029586356067287	0.00013388139997147163	htan_visium_Ctrl1_B1	CLDN4	Immune_general	spot						
+2947	-0.03892223118486597	0.034613843618262474	htan_visium_Ctrl1_B1	CLDN4	B_cell	spot						
+2947	0.22820596503601023	4.0185950011465435e-36	htan_visium_Ctrl1_B1	CLDN4	Myeloid	spot						
+2947	-0.029419451844726215	0.11032354294049342	htan_visium_Ctrl1_B1	CLDN4	NK	spot						
+2947	0.1430523936439581	6.062155336030191e-15	htan_visium_Ctrl1_B1	TACSTD2	neigh8_CD8_Tcell	spatial_neighbor						
+2947	-0.11439006599582904	4.735509715384873e-10	htan_visium_Ctrl1_B1	CLDN4	neigh8_CD8_Tcell	spatial_neighbor						
+2947	0.09268425882520041	4.650437932487857e-07	htan_visium_Ctrl1_B1	TACSTD2	neigh8_CYT	spatial_neighbor						
+2947	-0.1114263158401805	1.3174921069765122e-09	htan_visium_Ctrl1_B1	CLDN4	neigh8_CYT	spatial_neighbor						
+2947	0.26598233599239984	6.5786968867718435e-49	htan_visium_Ctrl1_B1	TACSTD2	neigh8_Immune_general	spatial_neighbor						
+2947	-0.08943174846332914	1.1585206685721867e-06	htan_visium_Ctrl1_B1	CLDN4	neigh8_Immune_general	spatial_neighbor						
+2947	0.22852274097457717	3.2052783302473534e-36	htan_visium_Ctrl1_B1	TACSTD2	neigh8_IFNG_6gene	spatial_neighbor						
+2947	-0.08710020920696238	2.1868651995720143e-06	htan_visium_Ctrl1_B1	CLDN4	neigh8_IFNG_6gene	spatial_neighbor						
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	CD8_Tcell	mwu_spot	2947.0	0.0	-0.09025077227640231			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	neigh8_CD8_Tcell	mwu_neighbor	2947.0	0.0	-0.09025077227640231			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	CYT	mwu_spot	2947.0	0.0	-0.06846230224523825			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	neigh8_CYT	mwu_neighbor	2947.0	0.0	-0.06846230224523825			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	Immune_general	mwu_spot	2947.0	0.0	-0.03134020008499047			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	neigh8_Immune_general	mwu_neighbor	2947.0	0.0	0.03742221450164994			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	IFNG_6gene	mwu_spot	2947.0	0.0	-0.07633324468682919			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	neigh8_IFNG_6gene	mwu_neighbor	2947.0	0.0	0.016936026819937257			
+2947			htan_visium_Ctrl1_B1	TACSTD2_high_vs_low	TLS_12chemokine	mwu_spot	2947.0	0.0	-0.1633911170266247			
