@@ -1,0 +1,30 @@
+[
+  {
+    "id": "locuszoom-74850",
+    "url": "https://my.locuszoom.org/gwas/74850/data/",
+    "landing_page": "https://my.locuszoom.org/gwas/74850",
+    "filename": "locuszoom_74850_summary_stats.gz",
+    "access": "open",
+    "processed": true,
+    "scope": "Pooled GWAS including IMpower110, IMpower130, and IMpower150",
+    "size_bytes": 304844876,
+    "media_type": "application/gzip",
+    "status": "downloaded",
+    "sha256": "8398a476f9af49bc9c038f72805f1a4081bcd024788a65f801c9ed6b24100cb3",
+    "local_path": "results/gpt_impower/open_processed/locuszoom_74850_summary_stats.gz"
+  },
+  {
+    "id": "locuszoom-743668",
+    "url": "https://my.locuszoom.org/gwas/743668/data/",
+    "landing_page": "https://my.locuszoom.org/gwas/743668",
+    "filename": "locuszoom_743668_taxane_summary_stats.gz",
+    "access": "open",
+    "processed": true,
+    "scope": "Pooled taxane-subcohort GWAS including relevant IMpower trials",
+    "size_bytes": 279782143,
+    "media_type": "application/gzip",
+    "status": "downloaded",
+    "sha256": "e2d20e9aed5ad437a63fd59e3c2d5bbf1a4ea8e6d9caaa813d4e8bbfe05f457b",
+    "local_path": "results/gpt_impower/open_processed/locuszoom_743668_taxane_summary_stats.gz"
+  }
+]
