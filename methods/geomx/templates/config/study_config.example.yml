@@ -1,0 +1,162 @@
+# GeoMx WTA study configuration / GeoMx WTA 研究配置
+# Copy to study_config.yml and edit. Every script under templates/R reads this file.
+# 复制为 study_config.yml 后修改；templates/R 下的所有脚本都读取本文件。
+
+study:
+  name: "GSE271689-class NSCLC compartment study"
+  # Discovery cohort must be named; validation cohorts are locked out of model fitting.
+  # 必须指定发现集；验证集在模型拟合阶段被锁定不得使用。
+  discovery_cohort: "Yale"
+  validation_cohorts: ["UQ", "Athens"]
+
+paths:
+  dcc_dir: "methods/geomx/data/public/GSE271689/dcc"
+  pkc_files: ["methods/geomx/data/pkc/Hs_R_NGS_WTA_v1.0.pkc"]
+  annotation: "methods/geomx/data/public/GSE271689/annotation.csv"
+  annotation_sheet: "Template"              # ignored for .csv
+  results_dir: "methods/geomx/results"
+  figures_dir: "methods/geomx/results/figures"
+
+annotation:
+  # Column names in YOUR annotation file, mapped to the roles the scripts expect.
+  # 你的注释文件中的列名 -> 脚本期望的角色。
+  dcc_file: "Sample_ID"
+  slide: "slide_name"
+  roi: "roi_id"
+  patient: "patient_id"
+  segment: "segment"
+  cohort: "cohort"
+  area: "area_um2"
+  nuclei: "nuclei"
+  # Optional
+  core: "core_id"
+  roi_type: "roi_type"
+
+segments:
+  # Fixed factor level order; the first level is the reference in model matrices.
+  # 固定因子水平顺序；第一个水平是模型矩阵的参照水平。
+  levels: ["Tumor", "CD45", "CD68"]
+  tumor: "Tumor"
+  immune: ["CD45", "CD68"]
+  # Per-segment QC thresholds. Immune AOIs are legitimately smaller and dimmer than tumor AOIs;
+  # a single threshold across segments silently deletes the CD68 compartment.
+  # 分区特异的质控阈值。免疫 AOI 本就更小更暗，统一阈值会悄悄删掉 CD68 分区。
+  qc:
+    Tumor: {min_nuclei: 100, min_area: 5000}
+    CD45:  {min_nuclei: 50,  min_area: 2000}
+    CD68:  {min_nuclei: 20,  min_area: 1000}
+
+qc:
+  # GeomxTools recommended defaults. The public vignette relaxes several of these for its demo data.
+  # GeomxTools 推荐默认值；官方 vignette 为演示数据放宽了其中几项，不要照抄 vignette。
+  min_segment_reads: 1000
+  percent_trimmed: 80
+  percent_stitched: 80
+  percent_aligned: 80
+  percent_saturation: 50
+  min_negative_count: 10
+  max_ntc_count: 1000
+  # LOQ_i = max(min_loq, geomean(NegProbe_i) * geoSD(NegProbe_i)^loq_sd_cutoff)
+  loq_sd_cutoff: 2
+  min_loq: 2
+  # Drop AOIs detecting fewer than this fraction of targets above LOQ.
+  min_segment_detection_rate: 0.01
+  # Keep genes detected above LOQ in at least this fraction of AOIs, computed PER SEGMENT TYPE.
+  min_gene_detection_rate: 0.05
+
+normalization:
+  # One of: q3, tmm, quantile, geodiff. Declare the primary BEFORE looking at DE results.
+  # 取值：q3 / tmm / quantile / geodiff。必须在看到 DE 结果之前指定主方法。
+  primary: "tmm"
+  sensitivity: ["q3", "quantile"]
+  # Cross-compartment contrasts require joint normalization (a contrast between separately
+  # normalized matrices is undefined). Within-compartment analyses may normalize per segment.
+  # 跨分区对比必须合并归一化；分区内分析可按分区分别归一化。
+  scope_cross_compartment: "joint"
+  scope_within_compartment: "per_segment"
+  batch_correction:
+    method: "ruv4"        # ruv4 | limma | none
+    k: 3                  # choose by RLE/PCA stability, NOT by maximizing DE counts
+    n_ncg: 300            # number of negative control genes from standR::findNCGs
+
+differential_expression:
+  primary_method: "voom_dupcor"     # voom_dupcor | dream | lmer
+  sensitivity_methods: ["pseudobulk", "lmer"]
+  # Random slope is appropriate when the compared segments CO-EXIST in the same tissue.
+  # 比较同一组织内共存的分区时使用随机斜率。
+  random_slope_for_segment: true
+  block: "patient"
+  extra_random: ["slide"]           # used by dream only
+  fdr: 0.05
+  lfc_threshold: 0                  # >0 switches limma::treat on; declare it a priori
+  contrasts:
+    - name: "Tumor_vs_CD45"
+      type: "within_tissue"
+    - name: "Tumor_vs_CD68"
+      type: "within_tissue"
+    - name: "CD45_vs_CD68"
+      type: "within_tissue"
+    - name: "Tumor_R_vs_NR"
+      type: "between_patient"
+      group: "response"
+    - name: "Interaction_segment_by_group"
+      type: "interaction"
+      group: "response"
+
+targets:
+  # Prespecified genes. Everything else is hypothesis-generating.
+  # 事先指定的基因；其余一律视为假设生成。
+  genes: ["TACSTD2", "CLDN4"]
+  # Epithelial-restricted genes UNRELATED to the targets, used to build a per-AOI spillover index.
+  # 与靶点无关的上皮限定基因，用于构建每个 AOI 的渗漏指数。
+  spillover_genes: ["EPCAM", "KRT8", "KRT18", "KRT19", "CDH1"]
+  # Immune-restricted genes, used as a reverse control (should be high in CD45/CD68, low in Tumor).
+  # 免疫限定基因，作为反向对照（应在 CD45/CD68 高、在 Tumor 低）。
+  immune_control_genes: ["PTPRC", "CD3E", "CD68", "CD163", "ITGAM"]
+
+aggregation:
+  # AOI -> patient summary for survival models. blup = BLUP from lmer(expr ~ 1 + (1|patient)).
+  # AOI -> 患者汇总，用于生存模型。blup 为 lmer(expr ~ 1 + (1|patient)) 的随机截距 BLUP。
+  method: "blup"                    # mean | median | weighted_mean | blup
+  weight_by: "nuclei"               # only used when method = weighted_mean
+  min_aoi_per_patient: 2            # patients below this are flagged, not silently dropped
+  report_reliability: true          # Spearman-Brown R = m*rho / (1 + (m-1)*rho)
+
+survival:
+  time: "os_time"
+  event: "os_event"
+  time_unit: "months"
+  covariates: ["age", "sex", "stage", "histology"]
+  strata: ["cohort"]                # stratified baseline hazard, not adjusted
+  # Prespecified patient-level exposures derived in 05_patient_aggregation.R
+  exposures:
+    - "tumor_score"                 # target expression in tumor segment
+    - "immune_score"                # target expression in immune segment
+    - "specificity_score"           # tumor_score - immune_score
+    - "heterogeneity_score"         # within-patient SD across ROIs
+  scale_exposures: true             # HR per 1 SD
+  spline_check: true                # rcs(x, 3) vs linear, likelihood ratio test
+  ph_check: true                    # cox.zph
+  # AOI-level models are SENSITIVITY analyses only. Patient-level is primary.
+  # AOI 层面模型仅作敏感性分析，主分析为患者层面。
+  sensitivity_models: ["cluster_robust", "coxme_frailty"]
+  cutpoint:
+    use: false                      # keep exposures continuous for the primary analysis
+    method: "prespecified_median"   # prespecified_median | tertile | maxstat
+    lock_in_cohort: "Yale"          # if a cut point is derived, it is derived HERE and only here
+    bootstrap_optimism: 1000
+  landmark_months: null             # set if tissue was collected on-treatment (immortal time)
+
+power:
+  n_patients: [40, 60, 80, 120]
+  n_roi_per_patient: [2, 3, 4, 6]
+  icc_patient: [0.3, 0.5, 0.7]
+  effect_log2fc: [0.5, 1.0]
+  hazard_ratio: [1.4, 1.6, 2.0]
+  event_rate: 0.6
+  n_sim: 50                    # raise to 500 for a real design run / 正式设计请提到 500
+  seed: 20260816
+
+reproducibility:
+  seed: 20260816
+  save_session_info: true
