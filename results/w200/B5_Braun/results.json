@@ -1,0 +1,95 @@
+{
+  "source": {
+    "citation": "Braun DA et al. Nature Medicine 2020;26:909-918. doi:10.1038/s41591-020-0839-y",
+    "supplement_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-020-0839-y/MediaObjects/41591_2020_839_MOESM2_ESM.xlsx",
+    "supplement_sha256": "a1f8683676d416b255291dcaa007aa0fa48c736c23e6a7a566664ba528bf205b",
+    "clinical_sheet": "S1_Clinical_and_Immune_Data",
+    "expression_sheet": "S4A_RNA_Expression"
+  },
+  "analysis_set": {
+    "included_n": 172,
+    "definition": "Nivolumab-treated, RNA-profiled subjects with evaluable ORR; responder=CR/PR (including pooled source label CRPR), nonresponder=SD/PD",
+    "excluded": {
+      "non_nivolumab_arm": 130,
+      "objective_response_not_evaluable": 9
+    }
+  },
+  "pooled_result": {
+    "responder": {
+      "n": 39,
+      "median": 28.4258761364654,
+      "q1": 27.49270215834065,
+      "q3": 29.030079095478747
+    },
+    "nonresponder": {
+      "n": 133,
+      "median": 28.8140261343839,
+      "q1": 27.4706501451544,
+      "q3": 29.8109916066547
+    },
+    "median_difference_responder_minus_nonresponder": -0.38814999791850013,
+    "median_difference_bootstrap_95_ci": [
+      -1.007251064624601,
+      0.21018076654859996
+    ],
+    "mann_whitney_u": 2141.0,
+    "p_value_two_sided": 0.09834624064600586,
+    "common_language_effect_probability": 0.41276267592057064
+  },
+  "cohort_descriptive_results": [
+    {
+      "cohort": "CM-009",
+      "responder": {
+        "n": 3,
+        "median": 28.353049132602,
+        "q1": 28.03846262278715,
+        "q3": 28.8117293342242
+      },
+      "nonresponder": {
+        "n": 13,
+        "median": 29.4132310703939,
+        "q1": 26.8324327017406,
+        "q3": 29.8501680411395
+      },
+      "mann_whitney_u": 15.0,
+      "p_value_two_sided": 0.5904816173489396,
+      "common_language_effect_probability": 0.38461538461538464
+    },
+    {
+      "cohort": "CM-010",
+      "responder": {
+        "n": 11,
+        "median": 28.0314221841833,
+        "q1": 26.847770975950247,
+        "q3": 28.62002129211175
+      },
+      "nonresponder": {
+        "n": 34,
+        "median": 28.8613765832004,
+        "q1": 28.147835507148425,
+        "q3": 29.800039136925
+      },
+      "mann_whitney_u": 117.0,
+      "p_value_two_sided": 0.06624871711488609,
+      "common_language_effect_probability": 0.31283422459893045
+    },
+    {
+      "cohort": "CM-025",
+      "responder": {
+        "n": 25,
+        "median": 28.7877033197919,
+        "q1": 27.4937803379715,
+        "q3": 29.2043744425321
+      },
+      "nonresponder": {
+        "n": 86,
+        "median": 28.72594300962535,
+        "q1": 27.404761191634375,
+        "q3": 29.66159618464355
+      },
+      "mann_whitney_u": 977.0,
+      "p_value_two_sided": 0.49127463044768127,
+      "common_language_effect_probability": 0.4544186046511628
+    }
+  ]
+}
