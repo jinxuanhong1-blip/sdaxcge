@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Large raw expression matrix (re-download via scripts/download_data.sh)
+data/TCGA_LUAD_HiSeqV2
+data/TCGA_LUAD_HiSeqV2.gz
