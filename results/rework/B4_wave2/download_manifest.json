@@ -1,0 +1,47 @@
+{
+  "files": {
+    "GSE126044_counts.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/suppl/GSE126044_counts.txt.gz",
+      "sha256": "97abe0c051a5a80d5fc61e6d47c6611795484797e65843391b312672f0929607",
+      "bytes": 559926
+    },
+    "GSE126044_series_matrix.txt.gz": {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/matrix/GSE126044_series_matrix.txt.gz",
+      "sha256": "bb965af83e095836ae5a02b553706338983242c17475e92b2b28e21d0bfaeaa9",
+      "bytes": 2076
+    },
+    "kegg_hsa04530.txt": {
+      "url": "https://rest.kegg.jp/get/hsa04530",
+      "sha256": "878ac421996497a3af974b791a251f920d18081349f487e77c101ce62d5176bf",
+      "bytes": 21786
+    },
+    "REACTOME_TIGHT_JUNCTION_INTERACTIONS.json": {
+      "url": "https://www.gsea-msigdb.org/gsea/msigdb/human/download_geneset.jsp?geneSetName=REACTOME_TIGHT_JUNCTION_INTERACTIONS&fileType=json",
+      "sha256": "553ae2544f9f6206024355aa980f9a8f9e6c678c27fab03076a99d8ce97342f0",
+      "bytes": 654
+    },
+    "GOCC_TIGHT_JUNCTION.json": {
+      "url": "https://www.gsea-msigdb.org/gsea/msigdb/human/download_geneset.jsp?geneSetName=GOCC_TIGHT_JUNCTION&fileType=json",
+      "sha256": "c4f64bdef8c4354a294d4acaf8744803fc650b1d4c48753f211bdea0c89c937a",
+      "bytes": 1526
+    },
+    "REACTOME_KERATINIZATION.json": {
+      "url": "https://www.gsea-msigdb.org/gsea/msigdb/human/download_geneset.jsp?geneSetName=REACTOME_KERATINIZATION&fileType=json",
+      "sha256": "b7a3b64f5eab028c33a797d0b7f8ca31b53c159729a2f416344dd9acb984a424",
+      "bytes": 2400
+    }
+  },
+  "urls": {
+    "GSE126044_counts.txt.gz": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/suppl/GSE126044_counts.txt.gz",
+    "GSE126044_series_matrix.txt.gz": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE126nnn/GSE126044/matrix/GSE126044_series_matrix.txt.gz",
+    "kegg_hsa04530.txt": "https://rest.kegg.jp/get/hsa04530",
+    "REACTOME_TIGHT_JUNCTION_INTERACTIONS.json": "https://www.gsea-msigdb.org/gsea/msigdb/human/download_geneset.jsp?geneSetName=REACTOME_TIGHT_JUNCTION_INTERACTIONS&fileType=json",
+    "GOCC_TIGHT_JUNCTION.json": "https://www.gsea-msigdb.org/gsea/msigdb/human/download_geneset.jsp?geneSetName=GOCC_TIGHT_JUNCTION&fileType=json",
+    "REACTOME_KERATINIZATION.json": "https://www.gsea-msigdb.org/gsea/msigdb/human/download_geneset.jsp?geneSetName=REACTOME_KERATINIZATION&fileType=json"
+  },
+  "estimate": {
+    "source": "Yoshihara et al. 2013 Nat Commun 4:2612; gene lists from tidyestimate 1.1.1",
+    "n_stromal": 141,
+    "n_immune": 141
+  }
+}
