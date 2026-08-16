@@ -1,0 +1,6 @@
+dataset,platform,n_samples,groups,control
+E-MTAB-13704,"bulk RNA-seq (GEMM lung, log2 CPM)",27,vehicle(5);ATRi/aPD-L1(5);aPD-L1(5);ATRi(4);VEGFRi/aPD-L1(4);Cisplatin/aPD-L1 /aCTLA4(4),vehicle
+GSE239485,"bulk RNA-seq (LLC tumor, normalized log2)",24,Control_vehicle(8);PolyIC_antiPD1(8);PolyIC_antiPD1_antiC5aR1(8),Control_vehicle
+GSE297630,"microarray Clariom S (anti-PD-1 tolerant LLC, log2 RMA)",6,Control(3);antiPD1_tolerant(3),Control
+GSE330658,"bulk RNA-seq (Egfr-mut lung, log2 TPM)",8,Control(2);PTX(2);antiVEGF(2);PTX_antiVEGF(2),Control
+GSE197260,"bulk RNA-seq TPM (EGFR-TKI +/- aPD1/aVEGFR2, n=1/arm)",7,vehicle_d3(1);gef_d3(1);gef_d14(1);gef_vehicle_d21(1);gef_dc101_d21(1);gef_4h2_d21(1);gef_comb_d21(1),gef_vehicle_d21

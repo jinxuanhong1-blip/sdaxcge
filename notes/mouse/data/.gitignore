@@ -1,0 +1,6 @@
+# Raw/processed download blobs are large (~1GB total) and reproducible via
+# scripts/mouse/download_processed.py. Keep provenance (MANIFEST.tsv) in git,
+# ignore the actual data files and extracted matrices.
+*
+!.gitignore
+!MANIFEST.tsv

@@ -1,0 +1,48 @@
+{
+  "targets": [
+    "Tacstd2",
+    "Cldn4"
+  ],
+  "immune_module": [
+    "Cd8a",
+    "Cd8b1",
+    "Gzmb",
+    "Gzmk",
+    "Prf1",
+    "Ifng",
+    "Nkg7",
+    "Pdcd1",
+    "Cd274",
+    "Cxcl9",
+    "Cxcl10",
+    "Cd3e",
+    "Cd4",
+    "Foxp3",
+    "Ctla4",
+    "Havcr2",
+    "Lag3",
+    "Ptprc"
+  ],
+  "symbol_to_ensembl": {
+    "Tacstd2": "ENSMUSG00000051397",
+    "Cldn4": "ENSMUSG00000047501",
+    "Cd8a": "ENSMUSG00000053977",
+    "Cd8b1": "ENSMUSG00000053044",
+    "Gzmb": "ENSMUSG00000015437",
+    "Gzmk": "ENSMUSG00000042385",
+    "Prf1": "ENSMUSG00000037202",
+    "Ifng": "ENSMUSG00000055170",
+    "Nkg7": "ENSMUSG00000004612",
+    "Pdcd1": "ENSMUSG00000026285",
+    "Cd274": "ENSMUSG00000016496",
+    "Cxcl9": "ENSMUSG00000029417",
+    "Cxcl10": "ENSMUSG00000034855",
+    "Cd3e": "ENSMUSG00000032093",
+    "Cd4": "ENSMUSG00000023274",
+    "Foxp3": "ENSMUSG00000039521",
+    "Ctla4": "ENSMUSG00000026011",
+    "Havcr2": "ENSMUSG00000020399",
+    "Lag3": "ENSMUSG00000030124",
+    "Ptprc": "ENSMUSG00000026395"
+  }
+}

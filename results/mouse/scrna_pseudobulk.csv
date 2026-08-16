@@ -1,0 +1,33 @@
+dataset,model,condition,gene,n_cells,pseudobulk_log2CPM,pct_cells_expressing
+GSE129297,SCLC lung (RPM); anti-PD-1,Ctrl,Tacstd2,3102,1.6224,0.68
+GSE129297,SCLC lung (RPM); anti-PD-1,Ctrl,Cldn4,3102,3.7705,5.29
+GSE129297,SCLC lung (RPM); anti-PD-1,antiPD1,Tacstd2,2338,1.9658,1.28
+GSE129297,SCLC lung (RPM); anti-PD-1,antiPD1,Cldn4,2338,3.7126,4.58
+GSE129297,SCLC lung (RPM); anti-PD-1,CDK7i_YKL,Tacstd2,3806,4.1486,5.7
+GSE129297,SCLC lung (RPM); anti-PD-1,CDK7i_YKL,Cldn4,3806,3.7803,3.68
+GSE129297,SCLC lung (RPM); anti-PD-1,antiPD1_CDK7i,Tacstd2,3675,2.5973,2.07
+GSE129297,SCLC lung (RPM); anti-PD-1,antiPD1_CDK7i,Cldn4,3675,3.5093,3.37
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,Ctrl,Tacstd2,6074,3.6447,3.42
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,Ctrl,Cldn4,6074,0.4853,0.08
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,antiPD1,Tacstd2,6683,3.627,3.16
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,antiPD1,Cldn4,6683,0.1235,0.03
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,Asf1a_KO,Tacstd2,6362,4.1102,3.93
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,Asf1a_KO,Cldn4,6362,0.2958,0.03
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,Asf1aKO_antiPD1,Tacstd2,6094,4.0702,3.72
+GSE133604,KP lung (KrasG12D;p53-/-); anti-PD-1,Asf1aKO_antiPD1,Cldn4,6094,0.8043,0.07
+GSE297632,LLC subcutaneous; anti-PD-1 tolerant (scRNA companion of GSE297630),Control,Tacstd2,8426,0.6133,0.71
+GSE297632,LLC subcutaneous; anti-PD-1 tolerant (scRNA companion of GSE297630),Control,Cldn4,8426,0.4643,0.37
+GSE297632,LLC subcutaneous; anti-PD-1 tolerant (scRNA companion of GSE297630),antiPD1,Tacstd2,9413,0.3628,0.32
+GSE297632,LLC subcutaneous; anti-PD-1 tolerant (scRNA companion of GSE297630),antiPD1,Cldn4,9413,0.9004,0.27
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_Ctrl,Tacstd2,6068,4.3928,12.39
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_Ctrl,Cldn4,6068,0.5424,0.08
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_antiPD1,Tacstd2,4667,3.8416,9.64
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_antiPD1,Cldn4,4667,0.1265,0.04
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_DCvax,Tacstd2,3914,3.6481,8.46
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_DCvax,Cldn4,3914,0.1137,0.05
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_DCvax_antiPD1,Tacstd2,6191,4.0842,8.03
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD45_DCvax_antiPD1,Cldn4,6191,0.1287,0.03
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD3_Ctrl,Tacstd2,4841,2.5747,4.61
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD3_Ctrl,Cldn4,4841,0.4959,0.12
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD3_DCvax_antiPD1,Tacstd2,4448,3.4635,6.07
+GSE222158,Oncogene-driven NSCLC; sorted CD45+/CD3+ immune cells; DC-CCL21 + anti-PD-1,CD3_DCvax_antiPD1,Cldn4,4448,2.1036,0.18

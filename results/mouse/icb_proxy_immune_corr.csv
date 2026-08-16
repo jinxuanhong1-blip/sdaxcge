@@ -1,0 +1,5 @@
+dataset,gene,n,spearman_rho,spearman_p,pearson_r,pearson_p,immune_genes_used,note
+GSE309199,Tacstd2,12,0.2382,0.4559885528370966,0.0496,0.8782573381421871,Cd8a;Cd8b1;Gzmb;Gzmk;Prf1;Ifng;Nkg7;Cxcl9;Cxcl10;Cd3e;Pdcd1;Ptprc,RPM SCLC lung tumor; treatment (not per-mouse ICB response)
+GSE309199,Cldn4,12,0.0979,0.7621216559962992,-0.0761,0.8142705649699289,Cd8a;Cd8b1;Gzmb;Gzmk;Prf1;Ifng;Nkg7;Cxcl9;Cxcl10;Cd3e;Pdcd1;Ptprc,RPM SCLC lung tumor; treatment (not per-mouse ICB response)
+GSE330941,Tacstd2,8,0.4286,0.2894032248467901,0.4757,0.23350434790951258,Cd8a;Cd8b1;Gzmb;Gzmk;Prf1;Ifng;Nkg7;Cxcl9;Cxcl10;Cd3e;Pdcd1;Ptprc,"LLC tumor d12, no ICI on these RNA samples; model-level ICI sensitivity (WT refractory vs Ago2KO sensitized), NOT per-mouse R vs NR"
+GSE330941,Cldn4,8,0.6667,0.07098765432098755,0.4511,0.2619190677442101,Cd8a;Cd8b1;Gzmb;Gzmk;Prf1;Ifng;Nkg7;Cxcl9;Cxcl10;Cd3e;Pdcd1;Ptprc,"LLC tumor d12, no ICI on these RNA samples; model-level ICI sensitivity (WT refractory vs Ago2KO sensitized), NOT per-mouse R vs NR"

@@ -1,0 +1,905 @@
+{
+  "accno" : "E-MTAB-13704",
+  "attributes" : [ {
+    "name" : "Title",
+    "value" : "RNAseq analysis of tumours from GEMMS animals to determine the effect of different aPDL1 combinations on lung tumours in situ"
+  }, {
+    "name" : "ReleaseDate",
+    "value" : "2024-01-29"
+  }, {
+    "name" : "RootPath",
+    "value" : "E-MTAB-13704"
+  }, {
+    "name" : "AttachTo",
+    "value" : "ArrayExpress"
+  } ],
+  "section" : {
+    "accno" : "s-E-MTAB-13704",
+    "type" : "Study",
+    "attributes" : [ {
+      "name" : "Title",
+      "value" : "RNAseq analysis of tumours from GEMMS animals to determine the effect of different aPDL1 combinations on lung tumours in situ"
+    }, {
+      "name" : "Study type",
+      "value" : "RNA-seq of coding RNA",
+      "valqual" : [ {
+        "name" : "Ontology",
+        "value" : "EFO"
+      }, {
+        "name" : "TermId",
+        "value" : "EFO_0003738"
+      } ]
+    }, {
+      "name" : "Organism",
+      "value" : "Mus musculus"
+    }, {
+      "name" : "Description",
+      "value" : "This study aims to identify combination treatments capable of inducing improved IO responses in lung tumours and thus, help guide decisions on the next combination arms for the HUDSON trial (post-IO). For that purpose, a lung tumour GEMM model was treated with either vehicle, PD-L1, ATR, ATR/PD-L1; Cisplatin/PD-L1/Ctla4 or VEGFR/PD-L1 and tumours collected for transcriptional profiling."
+    } ],
+    "links" : [ [ {
+      "url" : "ERP156600",
+      "attributes" : [ {
+        "name" : "Type",
+        "value" : "ENA"
+      } ]
+    } ] ],
+    "subsections" : [ [ {
+      "accno" : "P-MTAB-139641",
+      "type" : "Protocols",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "P-MTAB-139641"
+      }, {
+        "name" : "Type",
+        "value" : "sample collection protocol",
+        "valqual" : [ {
+          "name" : "Ontology",
+          "value" : "EFO"
+        }, {
+          "name" : "TermId",
+          "value" : "EFO_0005518"
+        } ]
+      }, {
+        "name" : "Description",
+        "value" : "Samples were collected from GEMMs lung lesions and assessed by MRI quantification of combined lung tumour lesions per animal before & after treatment"
+      }, {
+        "name" : "Hardware"
+      } ]
+    }, {
+      "accno" : "P-MTAB-139642",
+      "type" : "Protocols",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "P-MTAB-139642"
+      }, {
+        "name" : "Type",
+        "value" : "nucleic acid extraction protocol",
+        "valqual" : [ {
+          "name" : "Ontology",
+          "value" : "EFO"
+        }, {
+          "name" : "TermId",
+          "value" : "EFO_0002944"
+        } ]
+      }, {
+        "name" : "Description",
+        "value" : "RNA was extracted using the RNeasy Mini Kit (Qiagen; #74104). RNA concentration was determined by Qubit Flex Fluorometer (Invitrogen), RNA purity was determined using a NanoDrop Eight (Thermo Scientific) and RNA integrity was measured using a 4200 Tapestation (Agilent)"
+      }, {
+        "name" : "Hardware"
+      } ]
+    }, {
+      "accno" : "P-MTAB-139643",
+      "type" : "Protocols",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "P-MTAB-139643"
+      }, {
+        "name" : "Type",
+        "value" : "nucleic acid library construction protocol",
+        "valqual" : [ {
+          "name" : "Ontology",
+          "value" : "EFO"
+        }, {
+          "name" : "TermId",
+          "value" : "EFO_0004184"
+        } ]
+      }, {
+        "name" : "Description",
+        "value" : "Libraries were prepared using NEBNext Ultra II Directional RNA Library Prep Kit for Illumina (New England BioLabs; E7760L) or NEBNext® Ultra™ II RNA Library Prep Kit (New England BioLabs; E7770L) as per manufactuer’s guidelines. Ribosomal RNA was removed using the NEBNext® Poly(A) mRNA Magnetic Isolation Module (New England BioLabs; E7490L) ."
+      }, {
+        "name" : "Hardware"
+      } ]
+    }, {
+      "accno" : "P-MTAB-139644",
+      "type" : "Protocols",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "P-MTAB-139644"
+      }, {
+        "name" : "Type",
+        "value" : "nucleic acid sequencing protocol",
+        "valqual" : [ {
+          "name" : "Ontology",
+          "value" : "EFO"
+        }, {
+          "name" : "TermId",
+          "value" : "EFO_0004170"
+        } ]
+      }, {
+        "name" : "Description",
+        "value" : "Paired-end RNA sequencing with a read length of 150bp was performed using Illumina NovaSeq 6000. Library sizes and quantification were determined by 4200 Tapestation (Agilent) and pooled libraries were subdequently pooled equimolar. The final pooled library was loaded onto one lane of an S4 v1.5 flow cell (300 cycles) (Illumina; 20028312)."
+      }, {
+        "name" : "Hardware",
+        "value" : "Illumina NovaSeq 6000"
+      } ]
+    }, {
+      "accno" : "P-MTAB-139645",
+      "type" : "Protocols",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "P-MTAB-139645"
+      }, {
+        "name" : "Type",
+        "value" : "normalization data transformation protocol",
+        "valqual" : [ {
+          "name" : "Ontology",
+          "value" : "EFO"
+        }, {
+          "name" : "TermId",
+          "value" : "EFO_0003816"
+        } ]
+      }, {
+        "name" : "Description",
+        "value" : "Transcripts counts were analysed with EdgeR34 to normalize the data and quantify differential expression. Data normalisation was performed using the relative log expression (RLE) implemented in EdgeR. After normalization, transcripts abundance was filtered for low and no reads. We retained transcripts for which counts per million (cpm) were greater or equal than 2 in at least two samples. Transcripts sequenced in each group were compared to one another to evaluate transcriptome coverage across our experimental conditions. For each comparison, we evaluated the biological variation using the maximisation of the negative binomial dispersion using the empirical Bayes likelihood function, as implemented in EdgeR. We also fitted a generalized linear model to de-confound the data for the effects of covariates. like sample type and different treatments. Differentially expressed transcript genes were computed for fold change FC > 2 FDR <0.01 and p-value p < 0.01, which were evaluated using the quasi-likelihood (QL) methods with empirical-Bayes Test in EdgeR. Differentially-expressed transcripts were annotated using BioMart35 based on their Ensembl transcript Id to recover gene symbol, gene description and biotype. Heatmaps were evaluated on FPKM counts in log scale after transcripts were normalized for gene lengths."
+      }, {
+        "name" : "Hardware"
+      } ]
+    } ], {
+      "type" : "Author",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "Marta Milo"
+      }, {
+        "name" : "Email",
+        "value" : "marta.milo@astrazeneca.com"
+      }, {
+        "name" : "Role",
+        "value" : "submitter"
+      }, {
+        "name" : "affiliation",
+        "value" : "o1",
+        "reference" : true
+      } ]
+    }, {
+      "type" : "Author",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "Ricardo Miragaia"
+      }, {
+        "name" : "Email",
+        "value" : "ricardo.miragaia@astrazeneca.com"
+      }, {
+        "name" : "affiliation",
+        "value" : "o2",
+        "reference" : true
+      } ]
+    }, {
+      "accno" : "o1",
+      "type" : "Organization",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "Oncology Data Science Oncology R&D"
+      }, {
+        "name" : "Address",
+        "value" : "The Discovery centre 1 Francis Crick Ave,  Trumpington, Cambridge CB2 0AA"
+      } ]
+    }, {
+      "accno" : "o2",
+      "type" : "Organization",
+      "attributes" : [ {
+        "name" : "Name",
+        "value" : "Oncology Data Science Oncology R&D"
+      }, {
+        "name" : "Address",
+        "value" : "The Discovery centre 1 Francis Crick Ave,  Trumpington, Cambridge CB2 0AA"
+      } ]
+    }, {
+      "accno" : "s-samples-factors-E-MTAB-13704",
+      "type" : "Samples",
+      "attributes" : [ {
+        "name" : "Sample count",
+        "value" : "27"
+      }, {
+        "name" : "Experimental Designs",
+        "value" : "compound treatment design",
+        "valqual" : [ {
+          "name" : "Ontology",
+          "value" : "EFO"
+        }, {
+          "name" : "TermId",
+          "value" : "EFO:0001755"
+        } ]
+      }, {
+        "name" : "Experimental Designs",
+        "value" : "case control design",
+        "valqual" : [ {
+          "name" : "Ontology",
+          "value" : "EFO"
+        }, {
+          "name" : "TermId",
+          "value" : "EFO:0001427"
+        } ]
+      }, {
+        "name" : "Experimental Factors",
+        "value" : "stimulus",
+        "valqual" : [ {
+          "name" : "TermName",
+          "value" : "stimulus"
+        } ]
+      } ],
+      "subsections" : [ {
+        "accno" : "exp_factor-E-MTAB-13704",
+        "type" : "Experimental Factors",
+        "attributes" : [ {
+          "name" : "Stimulus",
+          "value" : "ATRi/aPD-L1"
+        }, {
+          "name" : "Stimulus",
+          "value" : "ATRi"
+        }, {
+          "name" : "Stimulus",
+          "value" : "Cisplatin/aPD-L1 /aCTLA4"
+        }, {
+          "name" : "Stimulus",
+          "value" : "aPD-L1"
+        }, {
+          "name" : "Stimulus",
+          "value" : "VEGFRi/aPD-L1"
+        }, {
+          "name" : "Stimulus",
+          "value" : "vehicle"
+        } ],
+        "subsections" : [ [ {
+          "accno" : "factors_0",
+          "type" : "Factors Table",
+          "attributes" : [ {
+            "name" : "stimulus",
+            "value" : "vehicle"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "5",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733204-ERS17733208"
+            } ]
+          } ]
+        }, {
+          "accno" : "factors_1",
+          "type" : "Factors Table",
+          "attributes" : [ {
+            "name" : "stimulus",
+            "value" : "Cisplatin/aPD-L1 /aCTLA4"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "4",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733209-ERS17733212"
+            } ]
+          } ]
+        }, {
+          "accno" : "factors_2",
+          "type" : "Factors Table",
+          "attributes" : [ {
+            "name" : "stimulus",
+            "value" : "aPD-L1"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "5",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733213-ERS17733217"
+            } ]
+          } ]
+        }, {
+          "accno" : "factors_3",
+          "type" : "Factors Table",
+          "attributes" : [ {
+            "name" : "stimulus",
+            "value" : "ATRi"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "4",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733218-ERS17733221"
+            } ]
+          } ]
+        }, {
+          "accno" : "factors_4",
+          "type" : "Factors Table",
+          "attributes" : [ {
+            "name" : "stimulus",
+            "value" : "ATRi/aPD-L1"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "5",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733222-ERS17733226"
+            } ]
+          } ]
+        }, {
+          "accno" : "factors_5",
+          "type" : "Factors Table",
+          "attributes" : [ {
+            "name" : "stimulus",
+            "value" : "VEGFRi/aPD-L1"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "4",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733227-ERS17733230"
+            } ]
+          } ]
+        } ] ]
+      }, {
+        "accno" : "source_chars-E-MTAB-13704",
+        "type" : "Source Characteristics",
+        "attributes" : [ {
+          "name" : "Organism",
+          "value" : "Mus musculus"
+        }, {
+          "name" : "Genotype",
+          "value" : "wild type genotype"
+        }, {
+          "name" : "Organism part",
+          "value" : "lung"
+        }, {
+          "name" : "Sampling site",
+          "value" : "tumour"
+        }, {
+          "name" : "Age",
+          "value" : "D22 day"
+        }, {
+          "name" : "Age",
+          "value" : "D19 day"
+        }, {
+          "name" : "Age",
+          "value" : "D20 day"
+        }, {
+          "name" : "Age",
+          "value" : "D16 day"
+        }, {
+          "name" : "Age",
+          "value" : "D21 day"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "14"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "24"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "15"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "12"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "27"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "4"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "31"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "17"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "13"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "11"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "16"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "18"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "19"
+        }, {
+          "name" : "Tumours_numbers",
+          "value" : "25"
+        }, {
+          "name" : "Individual",
+          "value" : "A1"
+        }, {
+          "name" : "Individual",
+          "value" : "A4"
+        }, {
+          "name" : "Individual",
+          "value" : "A5"
+        }, {
+          "name" : "Individual",
+          "value" : "... 23 other values"
+        } ],
+        "subsections" : [ [ {
+          "accno" : "source_0",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D16 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "13"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733204"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_1",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D21 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "12"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733205"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_2",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D16 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "25"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733206"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_3",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D16 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "31"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733207"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_4",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D21 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "18"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733208"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_5",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D20 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "12"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "2",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733209,ERS17733230"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_6",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D20 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "17"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "2",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733210,ERS17733212"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_7",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D19 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "13"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733211"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_8",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D21 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "15"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "2",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733213,ERS17733223"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_9",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D16 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "18"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733214"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_10",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D21 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "24"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733215"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_11",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D22 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "15"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733216"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_12",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D22 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "16"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733217"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_13",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D21 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "13"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733218"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_14",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D21 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "17"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733219"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_15",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D22 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "11"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733220"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_16",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D22 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "18"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "2",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733221,ERS17733224"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_17",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D21 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "4"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733222"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_18",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D16 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "27"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733225"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_19",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D22 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "13"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733226"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_20",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D20 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "19"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733227"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_21",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D20 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "14"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733228"
+            } ]
+          } ]
+        }, {
+          "accno" : "source_22",
+          "type" : "Characteristics Table",
+          "attributes" : [ {
+            "name" : "age",
+            "value" : "D20 day"
+          }, {
+            "name" : "tumours_numbers",
+            "value" : "18"
+          }, {
+            "name" : "No. of Samples",
+            "value" : "1",
+            "valqual" : [ {
+              "name" : "url",
+              "value" : "https://www.ebi.ac.uk/ena/browser/view/ERS17733229"
+            } ]
+          } ]
+        } ] ]
+      } ]
+    }, {
+      "accno" : "s-assays-data-E-MTAB-13704",
+      "type" : "Assays and Data",
+      "attributes" : [ {
+        "name" : "Assay count",
+        "value" : "27"
+      }, {
+        "name" : "Technology",
+        "value" : "Sequencing assay"
+      }, {
+        "name" : "Assay by Molecule",
+        "value" : "RNA assay"
+      } ],
+      "subsections" : [ {
+        "accno" : "processed-data",
+        "type" : "Processed Data",
+        "files" : [ [ {
+          "path" : "GEMMS_raw_counts.csv",
+          "size" : 13938914,
+          "attributes" : [ {
+            "name" : "Description",
+            "value" : "Processed Data"
+          } ],
+          "type" : "file"
+        } ] ]
+      }, {
+        "accno" : "mt-E-MTAB-13704",
+        "type" : "MAGE-TAB Files",
+        "files" : [ [ {
+          "path" : "E-MTAB-13704.idf.txt",
+          "size" : 6459,
+          "attributes" : [ {
+            "name" : "Type",
+            "value" : "IDF File"
+          }, {
+            "name" : "Format",
+            "value" : "tab-delimited text"
+          }, {
+            "name" : "Description",
+            "value" : "Investigation Design Format (IDF)"
+          } ],
+          "type" : "file"
+        }, {
+          "path" : "E-MTAB-13704.sdrf.txt",
+          "size" : 27003,
+          "attributes" : [ {
+            "name" : "Type",
+            "value" : "SDRF File"
+          }, {
+            "name" : "Format",
+            "value" : "tab-delimited text"
+          }, {
+            "name" : "Description",
+            "value" : "Sample and Data Relationship Format (SDRF)"
+          } ],
+          "type" : "file"
+        } ] ]
+      } ]
+    }, {
+      "accno" : "score-E-MTAB-13704",
+      "type" : "MINSEQE Score",
+      "attributes" : [ {
+        "name" : "Exp. Design",
+        "value" : "*"
+      }, {
+        "name" : "Protocols",
+        "value" : "*"
+      }, {
+        "name" : "Variables",
+        "value" : "*"
+      }, {
+        "name" : "Processed",
+        "value" : "*"
+      }, {
+        "name" : "Raw",
+        "value" : "*"
+      } ]
+    } ]
+  },
+  "type" : "submission"
+}
