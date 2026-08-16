@@ -54,5 +54,18 @@ dl "$ROOT/geo/GPL15048.txt"                  "https://www.ncbi.nlm.nih.gov/geo/q
 dl "$ROOT/geo/GSE190265_tpm.csv.gz"          "$GEO/series/GSE190nnn/GSE190265/suppl/GSE190265_TPM_France3.csv.gz"
 dl "$ROOT/geo/GSE190265_matrix.txt.gz"       "$GEO/series/GSE190nnn/GSE190265/matrix/GSE190265_series_matrix.txt.gz"
 
+echo "== Independent LUSC / histology-split arrays (follow-up) =="
+mkdir -p "$ROOT/geo2"
+dl "$ROOT/geo2/GSE4573_matrix.txt.gz"   "$GEO/series/GSE4nnn/GSE4573/matrix/GSE4573_series_matrix.txt.gz"
+dl "$ROOT/geo2/GSE17710_matrix.txt.gz"  "$GEO/series/GSE17nnn/GSE17710/matrix/GSE17710_series_matrix.txt.gz"
+dl "$ROOT/geo2/GSE19188_matrix.txt.gz"  "$GEO/series/GSE19nnn/GSE19188/matrix/GSE19188_series_matrix.txt.gz"
+dl "$ROOT/geo2/GSE50081_matrix.txt.gz"  "$GEO/series/GSE50nnn/GSE50081/matrix/GSE50081_series_matrix.txt.gz"
+dl "$ROOT/geo2/GSE103584_matrix.txt.gz" "$GEO/series/GSE103nnn/GSE103584/matrix/GSE103584_series_matrix.txt.gz"
+dl "$ROOT/geo2/GSE103584_rnaseq.txt.gz" "$GEO/series/GSE103nnn/GSE103584/suppl/GSE103584_R01_NSCLC_RNAseq.txt.gz"
+# platform tables (GEO text download)
+for gpl in GPL96 GPL570 GPL9053; do
+  dl "$ROOT/geo2/${gpl}.txt" "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=${gpl}&targ=self&form=text&view=data"
+done
+
 echo "[done] public downloads in $ROOT"
 echo "[note] Patil/OAK (EGA) were NOT downloaded. See notes/opus_tls/DATA_ACCESS.md"

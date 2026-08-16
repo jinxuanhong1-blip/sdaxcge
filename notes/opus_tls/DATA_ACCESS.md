@@ -21,6 +21,11 @@ downloaded then ignored).
 | GSE126044 | GEO counts | NSCLC anti-PD-1, RECIST | 16 | 0.6 MB |
 | GSE207422 | GEO log2 TPM + xlsx | neoadjuvant PD-1 + chemo, MPR | 24 bulk (pre+post) | 5.6 MB |
 | GSE190265 | GEO TPM (France3) | NSCLC biopsies | 26 | 4.1 MB |
+| GSE4573 | GEO series matrix + GPL96 | independent LUSC Affy (Raponi) | 130 | 6.6 MB |
+| GSE17710 | GEO series matrix + GPL9053 | independent LUSC Agilent; pathologist `tumor_percent` | 56 | 10 MB |
+| GSE19188 | GEO series matrix + GPL570 | Hou NSCLC, ADC/SCC split | 91 tumours (45 ADC / 27 SCC) | 46 MB |
+| GSE50081 | GEO series matrix + GPL570 | Der early NSCLC, ADC/SCC split | 181 (127 ADC / 42 SCC) | 54 MB |
+| GSE103584 | GEO RNA-seq + series matrix | Zhou NSCLC RNA-seq, ADC/SCC split | 130 (96 ADC / 31 SCC) | 7 MB |
 
 ## Listed only — not downloaded (EGA / controlled)
 

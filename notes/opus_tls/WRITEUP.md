@@ -188,6 +188,60 @@ outcome, wait for EGA (OAK / Patil) or a new open cohort with n ≫ 50.
 Figures: `results/opus_tls/figures/fig1_heatmap_tacstd2_adj.png` through
 `fig6_verdict_grid.png`.
 
+### Follow-up: independent LUSC + formal histology interaction
+
+The first pass left a hole: TCGA-LUSC was the only large set where the
+full TLS+B+CD8 package survived DNA purity. Five extra open matrices
+were scored the same way (`replication_lusc_histology.csv`).
+
+**Formal interaction in pooled TCGA (n = 1008, ABSOLUTE + HC3).**
+Signature ~ TACSTD2 + LUSC + TACSTD2×LUSC + purity. A negative
+interaction means a steeper anti-immune TACSTD2 slope in LUSC.
+
+| Signature | β_TACSTD2 in LUAD | β_interaction | p_interaction |
+|---|---:|---:|---:|
+| TLS_Cabrita | +0.068 (p=0.080) | **−0.215** | **3.2 × 10⁻⁴** |
+| TLS_12chemokine | +0.010 (p=0.79) | **−0.285** | **6.6 × 10⁻⁷** |
+| T_cell_CD8 | −0.063 (p=0.097) | **−0.191** | **8.0 × 10⁻⁴** |
+| Tfh | −0.092 (p=0.014) | **−0.212** | **1.2 × 10⁻⁴** |
+| IFNg_Ayers | +0.020 (p=0.61) | **−0.244** | **3.3 × 10⁻⁵** |
+| B_cell | −0.100 (p=0.009) | −0.074 | 0.19 |
+| Plasma_cell | −0.228 (p=1.5 × 10⁻⁷) | **+0.125** | 0.042 |
+
+So the LUAD/LUSC split for TLS and CD8 is a real interaction, not two
+unrelated p-values. B-cell is negative in both histologies (no
+interaction). Plasma is *more* negative in LUAD.
+
+**Independent LUSC / SCC after epithelial correction**
+
+| Cohort | n | Cabrita TLS | B-cell | CD8 | call |
+|---|---:|---|---|---|---|
+| GSE4573 Raponi LUSC Affy | 130 | −0.124 p=0.16 | −0.165 p=0.061 | **−0.250 p=0.004** | CD8 + 12-chemokine (−0.263 p=0.0026) + IFN-γ hold; Cabrita/B do not |
+| GSE17710 Wilkerson LUSC | 56 | −0.212 p=0.12 | −0.205 p=0.13 | −0.240 p=0.077 | all negative; only Tfh holds (p=0.045). Pathologist `tumor_percent` residual: all ns |
+| GSE103584 SCC RNA-seq | 31 | −0.501 p=0.0048 | −0.428 p=0.018 | −0.382 p=0.037 | same direction as TCGA-LUSC; **UNDERPOWERED** (n<40), not a HOLDS call |
+| GSE50081 SCC Affy | 42 | +0.113 p=0.48 | **+0.444 p=0.0037** | +0.227 p=0.15 | B / plasma / Tfh **OPPOSITE** |
+| GSE19188 SCC Affy | 27 | +0.21 p=0.30 | +0.44 p=0.026 | +0.04 p=0.85 | underpowered; B opposite |
+
+**Independent ADC arrays often go the other way.** GSE19188 ADC (n=45):
+Cabrita TLS +0.34, B +0.44, CD8 +0.40 (all OPPOSITE). GSE50081 ADC
+plasma +0.26 p=0.0037 (OPPOSITE).
+
+**OS in TCGA is null for TACSTD2.** LUAD and LUSC Cox HR for TACSTD2
+≈ 1.06 / 0.97, p > 0.4, with or without purity, TLS, or the
+TACSTD2×TLS product. B-cell signature is protective in LUAD
+(HR 0.78, p=0.007) — a positive control that the immune scores move OS
+when they should. This slice is about *composition*, not prognosis.
+
+**Revised takeaway.** The public set where TACSTD2-high = TLS+B+T-low
+*after DNA purity* remains **TCGA-LUSC**. That histology interaction is
+now a single-model p = 3×10⁻⁴ (Cabrita) / 8×10⁻⁴ (CD8). Independent
+LUSC arrays do **not** reproduce the full package: GSE4573 supports
+CD8 / 12-chemokine / IFN-γ only; GSE17710 is directional and ns;
+GSE50081 SCC is opposite for B-lineage. Do not generalise “squamous =
+Bessede pattern” beyond TCGA-LUSC without EGA ICI RNA.
+
+Figures: `fig7_tcga_interaction.png`, `fig8_replication_grid.png`.
+
 ---
 
 ## 中文
@@ -265,3 +319,21 @@ Cabrita TLS 就是这样死的）。
 **TCGA-LUSC**。要写 LUAD，请写 GSE72094 的 B/浆/CD8，并写明 Cabrita
 TLS 不成立。不要引用 TCGA-LUAD 为 TLS-low。ICI 结局等 EGA（OAK/Patil）
 或 n ≫ 50 的新公开队列。
+
+### 续做：独立鳞癌队列 + 组织学交互
+
+合并 TCGA LUAD+LUSC（n=1008，ABSOLUTE，HC3）做
+签名 ~ TACSTD2 + LUSC + TACSTD2×LUSC + 纯度。负交互 = 鳞癌里
+TACSTD2 的抗免疫斜率更陡：Cabrita TLS β_int = −0.215，p = 3.2×10⁻⁴；
+CD8 −0.191，p = 8.0×10⁻⁴；12-chemokine p = 6.6×10⁻⁷。B 细胞两组织学
+都负、交互不显著（p=0.19）。浆细胞在腺癌更负（交互 +0.125，p=0.042）。
+
+独立公开鳞癌：GSE4573（n=130）只对 CD8 / 12-chemokine / IFN-γ 成立，
+Cabrita TLS 与 B 细胞不成立。GSE17710（n=56）方向一致但除 Tfh 外不显著，
+病理 `tumor_percent` 校正后全空。GSE103584 鳞癌 n=31 方向同 TCGA-LUSC
+但按规则算 UNDERPOWERED。GSE50081 鳞癌 B/浆细胞反向。若干腺癌芯片
+（GSE19188 ADC）是 TACSTD2 高 = 免疫高。TCGA 里 TACSTD2 与 OS 无关
+（HR≈1，p>0.4）；B 细胞签名在 LUAD 保护（HR 0.78，p=0.007）。
+
+结论不变且更硬：能写进“纯度校正后整包成立”的公开集仍是
+**TCGA-LUSC**；鳞癌不是普遍规律；ICI 结局仍要等 EGA。

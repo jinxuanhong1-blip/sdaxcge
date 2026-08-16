@@ -8,6 +8,8 @@ python3 02_prep_cohorts.py
 python3 03_core_association.py   # ~few minutes; writes the main tables
 python3 04_finish_and_outcomes.py
 python3 05_figures.py
+python3 06_replication_interaction.py
+python3 07_followup_figures.py
 ```
 
 Raw matrices stay in `$OPUS_TLS_DATA` and are not committed.

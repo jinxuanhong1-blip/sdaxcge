@@ -67,6 +67,11 @@ Small ICI cohorts (n = 16–27) are reported but labelled UNDERPOWERED.
   bug.
 - ICI endpoints: Cox PH for GSE135222 PFS; Mann–Whitney for DCB / RECIST /
   MPR. These are descriptive.
+- Follow-up (script 06): five extra public matrices (GSE4573, GSE17710,
+  GSE19188, GSE50081, GSE103584) scored the same way. GSE17710 is also
+  residualised on pathologist `tumor_percent`. Formal TACSTD2 × LUSC
+  interaction in pooled TCGA (inverse-normal signature ~ TACSTD2 + LUSC +
+  TACSTD2×LUSC + ABSOLUTE, HC3). OS Cox in each TCGA histology.
 
 No p-hacking of the gene sets after seeing the data: lists were locked in
 `opus_tls_lib.py` before the first correlation table was written.
