@@ -1,0 +1,128 @@
+{
+  "accession" : "PXD042091",
+  "title" : "Circulating proteins detected by SWATH-MS in metastatic NSCLC patients treated with immunotherapy.",
+  "additionalAttributes" : [ ],
+  "projectDescription" : "Immunotherapy has improved survival rates in NSCLC patients, but identifying those who will respond to treatment remains a challenge. We performed a differential proteomic quantitative analysis based on SWATH–MS technology to analyse the proteome in blood samples collected from patients with advanced NSCLC prior to the start therapy and during the therapy",
+  "sampleProcessingProtocol" : "Ten mL of peripheral blood were obtained by direct venipuncture in CellSave tubes (Menarini, Silicon Biosystems, Bologna, Italy) and EDTA tubes. In both cases, plasma and cellular components were separated by centrifugation at 1,600 g for 10 minutes at room temperature. A second centrifugation was performed at 5,500 g for 10 minutes at room temperature to remove any remaining cellular debris. Plasma samples were aliquoted for storage at -80 ºC until use. Plasma abundant proteins depletion: Plasma samples were fractionated prior proteolytic digestion to enrich the spectral library employed in SWATH-MS quantification. For this purpose, aliquots of each sample (30 μl) were depleted with dithiothreitol (DTT). Fresh DTT (500 mM) was mixed with the 30 μl of human plasma samples and vortex briefly [16,17]. Then, samples were incubated until observe a viscous white precipitate that persisted for 60 minutes, and they were centrifugated at 18,840 g for 20 minutes. Supernatants were transferred to a clean tube. Isolation and proteins digestion: To make global protein identification, an equal amount of protein from all samples were loaded on a 10% SDS-PAGE gel. The run was stopped as soon as the front had penetrated 3 mm into the resolving gel [18,19]. The protein band was detected by Sypro-Ruby fluorescent staining (Lonza, Switzerland), excised, and processed for in-gel manual tryptic digestion, as described elsewhere ().The resulting peptide extracts were pooled, concentrated in a SpeedVac, and stored at −20 °C.  Creation of the spectral library - Data-dependent acquisition (DDA):To construct the MS/MS spectral libraries, the peptide solutions from the discovery cohort were analysed by a shotgun data-dependent acquisition (DDA) approach by micro-liquid chromatography-MS/MS. To get a good representation of the peptides and proteins present in all samples, pooled vials of samples from each group (basal n=48, 6 weeks n=35, 12 weeks n=30 and progression disease, n=21) were prepared using equal mixtures of the original samples for the spectral library building. Four μL (1 µg/μL) of the pool was separated using Reverse Phase Chromatography. Gradient was created using a micro liquid chromatography system (micro-LC) Ekspert nLC425 (Eksigent Technologies nanoLC 400, Sciex, CA, USA) coupled to high-speed Triple TOF 6600 mass spectrometer (Sciex, CA, USA) with a micro flow source as described previously by our group  (46).  The peptide and protein identifications were performed using Protein Pilot software (version 5.0.2, Sciex, CA, USA) searched against a Human specific Uniprot database (https://www.uniprot.org/), specifying iodoacetamide as Cys alkylation and Trypsin as enzyme used in digestion. The software uses the algorithm ParagonTM for database search and ProgroupTM for data grouping. The false discovery rate (FDR) was set to 1% for both peptides and proteins, using a non-lineal fitting method [20]. The MS/MS spectra of the identified peptides were then used to generate the spectral library for SWATH peak extraction using the plug-in MS/MSALL with SWATH Acquisition MicroApp (version 2.0, Sciex) for PeakView Software (version 2.2, Sciex, CA, USA). Peptides with a confidence score above 99% (as obtained from Protein Pilot database search) were included in the spectral library.  In addition, a spectral online library called, Human Pan-Human library, which contained 12,046 proteins (https://db.systemsbiology.net/sbeams/cgi/PeptideAtlas/GetDIALibs), was also employed in order to improve and expand the coverage of the identified NSCLC cancer plasma proteome in our library. The sum of the two libraries constitutes our final library, denominated NSClibrary. Relative quantification by SWATH acquisition – DIA: SWATH-MS acquisition was performed on a TripleTOF® 6600 LC-MS/MS system (AB Sciex, CA, USA). Samples were analysed using a DIA method (n=171 samples). Each sample (4 μL) was analysed using the LC-MS equipment and LC gradient described above for building the spectral library but instead using the SWATH-MS acquisition method as described previously by our group  (46). SWATH quantification was attempted for all proteins in the ion library that were identified by ProteinPilot with an FDR below 1%.  16.  DOI: 10.1016/j.talanta.2017.03.091 17.  DOI: 10.1002/elps.201100183 18.  DOI: 10.1074/mcp.M110.003335 19.  DOI: 10.1074/jbc.M112.445304 20.  DOI: 10.1074/mcp.T600050-MCP200 46.  DOI: 10.1016/j.mcpro.2022.100435",
+  "dataProcessingProtocol" : "SWATH-MS processing data: The DIA raw data were firstly converted into mzML format filtered by SWATH Acquisition MicroApp (version 2.0) then analyzed by PeakView (version 2.2), against our spectral NSCLibrary. PeakView computed an FDR and a score for each assigned peptide according to the chromatographic and spectra components; only peptides with an FDR below 1% were used for protein quantitation. The retention time (RT) adjustment were performed using the own peptides of the proteins presents in the library from the peptides that were selected for each protein. Protein quantitation was calculated by adding the peak areas of the corresponding peptides Up to ten peptides per protein and seven fragments per peptide were selected, based on signal intensity; any shared and modified peptides were excluded from the processing. Five-minute windows and 30 ppm widths were used to extract the ion chromatograms. Them this integrated peak areas (processed. mrkvw files from PeakView) were directly exported to the MarkerView 1.3.1 software (AB Sciex, CA, USA) for relative quantitative analysis [21–24]. The export data will generate three files containing quantitative information about individual ions, the summed intensity of different ions for a particular peptide and the summed intensity of different peptides for a particular protein.   Quality control and statistical analysis  Next, a quality control was performed. Proteins or samples with over 70% missing values in the sample set were filtered out. Next, missing values of the remaining proteins were imputed using the RandomForest R package [25,26] and protein values were normalized by quantile normalization. Finally, statistical analysis was performed. Continues data were compared using t test for independent samples and categorical variables were compared using the Fisher's exact test. Swimmer plot was provided to visualize every patient's therapy response and the time of survival from the diagnoses. Kaplan-Meier method was used to plot the survival curves applying the log rank test. Student’s t test was applied to identify differentially expressed proteins (DEPs), with a p-value <0.05 and p-value <0.01. To identify the functions and relevant pathways of the DEPs, we performed gene ontology (GO) using Metascape [27]. The Kyoto Encyclopedia of Genes and Genomes (KEGG) pathway of each group was generated and visualize with proteomaps, using a web tool based on the t-test difference values without log2 transformation [28]. A final predictive model to separate responder group to non-responder group was developed. Comparisons of Cox proportional hazard regression models were made using the AIC technique (28), with a smaller AIC value indicating the better model. A stepwise backward elimination procedure was performed to minimize the AIC. ROC curves were computed based on protein levels, representing the AUC values, and computing the CI at 95% confidence levels. ROC curves were also constructed to evaluate the thresholds of baseline proteins levels for survival analyses. All statistical analyses were performed using GraphPad Prism version 8.0, IBM® SPSS® statistics version 25.0 and R version 4.1.1. The following R packages were used: survival [29], survminer, ggplot2 [30], pROC [31], gtsummary [32], swimplot, RandomForest, MASS and stats.  21.  DOI: 10.1038/srep41191 22.  DOI: 10.1080/14789450.2017.1322904 23.  DOI: 10.1016/j.jprot.2018.01.003 24.  DOI: 10.1002/pmic.201700242 25.  DOI: 10.1093/bioinformatics/btz898 26.  DOI: 10.1038/s41598-021-81279-4 27.  DOI: 10.1038/s41467-019-09234-6 28.  DOI: 10.1073/pnas.1314810111 29.  Therneau TM, Grambsch PM. Modeling Survival Data: Extending the Cox Model. New York: Springer; 2000.  30.  Hadley W. Ggplot2: Elegrant graphics for data analysis. Springer; 2016.  31.  DOI: 10.1186/1471-2105-12-77 32.  Sjoberg, Daniel D, Whiting K, Curry M, Lavery, Jessica A, Larmarange J. Reproducible Summary Tables with the gtsummary Package. R J [Internet]. 2021; 13: 570. Available at: https://journal.r-project.org/archive/2021/RJ-2021-053/index.html",
+  "projectTags" : [ ],
+  "keywords" : [ "Liquid biopsy.", "Lung cancer", "Immunotherapy", "Nsclc", "Swath-ms" ],
+  "doi" : "",
+  "submissionType" : "PARTIAL",
+  "license" : "Creative Commons Public Domain (CC0)",
+  "submissionDate" : "2023-05-09",
+  "publicationDate" : "2025-02-18",
+  "submitters" : [ {
+    "title" : "Dr",
+    "firstName" : "Susana",
+    "lastName" : "Bravo",
+    "identifier" : "149520186",
+    "affiliation" : "FIDIS",
+    "email" : "sbbravo@gmail.com",
+    "country" : "Spain",
+    "orcid" : "0000-0001-7615-3079",
+    "name" : "Susana Bravo",
+    "id" : "149520186"
+  } ],
+  "labPIs" : [ {
+    "title" : "Dr",
+    "firstName" : "Susana",
+    "lastName" : "Bravo",
+    "identifier" : "2571169",
+    "affiliation" : "Instituto de Investiaciones Sanitarias de Santiago de Compostela",
+    "email" : "Sbbravo@gmail.com",
+    "country" : "",
+    "orcid" : "",
+    "name" : "Susana Bravo",
+    "id" : "2571169"
+  } ],
+  "instruments" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "MS",
+    "accession" : "MS:1002533",
+    "name" : "TripleTOF 6600"
+  } ],
+  "softwares" : [ ],
+  "experimentTypes" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "PRIDE",
+    "accession" : "PRIDE:0000447",
+    "name" : "SWATH MS"
+  } ],
+  "quantificationMethods" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "PRIDE",
+    "accession" : "PRIDE:0000447",
+    "name" : "SWATH MS"
+  } ],
+  "countries" : [ "Spain" ],
+  "sampleAttributes" : [ {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "EFO:0000635",
+      "name" : "organism part"
+    },
+    "value" : [ {
+      "cvLabel" : "BTO",
+      "accession" : "BTO:0000131",
+      "name" : "blood plasma"
+    } ]
+  }, {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "OBI:0100026",
+      "name" : "organism"
+    },
+    "value" : [ {
+      "cvLabel" : "NEWT",
+      "accession" : "NEWT:9606",
+      "name" : "Homo sapiens (Human)"
+    } ]
+  }, {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "EFO:0000408",
+      "name" : "disease"
+    },
+    "value" : [ {
+      "cvLabel" : "DOID",
+      "accession" : "DOID:3908",
+      "name" : "non-small cell lung carcinoma"
+    } ]
+  } ],
+  "organisms" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "NEWT",
+    "accession" : "NEWT:9606",
+    "name" : "Homo sapiens (human)"
+  } ],
+  "organismParts" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "BTO",
+    "accession" : "BTO:0000131",
+    "name" : "Blood plasma"
+  } ],
+  "diseases" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "DOID",
+    "accession" : "DOID:3908",
+    "name" : "Non-small cell lung carcinoma"
+  } ],
+  "references" : [ {
+    "pubmedID" : 0,
+    "doi" : "10.1016/J.MCPRO.2024.100834"
+  } ],
+  "identifiedPTMStrings" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "PRIDE",
+    "accession" : "PRIDE:0000398",
+    "name" : "No PTMs are included in the dataset"
+  } ],
+  "totalFileDownloads" : 17160,
+  "botCount" : 10549,
+  "hubCount" : 6204,
+  "organicCount" : 407
+}

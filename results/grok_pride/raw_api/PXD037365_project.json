@@ -1,0 +1,139 @@
+{
+  "accession" : "PXD037365",
+  "title" : "Lung Adenocarcinoma (A549) Immunopeptidomics",
+  "additionalAttributes" : [ ],
+  "projectDescription" : "Alterations in cellular antigen processing and presenting machinery has gained increased interest as a hallmark of cancer-related inflammation. Growing evidence suggest that proteasome composition and immunoproteasome expression can influence antigen processing. By performing immunopeptidomics on A549 lung adenocarcinoma cell line following depletion of proteasome regulator PSME4 we identified alterations in the antigenic landscape resulting from changes in proteasome processing.",
+  "sampleProcessingProtocol" : "Immmunopeptidomics was performed as described [PMID: 32060274]",
+  "dataProcessingProtocol" : "The acquired raw spectra were analyzed using MaxQuant software (version 1.6.0.16) with the default parameters for the analysis of proteins and peptides (LFQ) minimum ratio count of 1, minimum peptide length for unspecific search of 6, maximum peptide length for unspecific search of 40, peptide FDR was set to 0.01 and match between runs enabled. Masses were searched against the human proteome database from UniprotKB",
+  "projectTags" : [ ],
+  "keywords" : [ "Immunopeptidomics", "Proteasome", "Nsclc" ],
+  "doi" : "",
+  "submissionType" : "PARTIAL",
+  "license" : "Creative Commons Public Domain (CC0)",
+  "submissionDate" : "2022-10-13",
+  "publicationDate" : "2023-03-30",
+  "submitters" : [ {
+    "title" : "Mr",
+    "firstName" : "Aaron",
+    "lastName" : "Javitt",
+    "identifier" : "2593926",
+    "affiliation" : "Weizmann Institue of Science",
+    "email" : "aaronjavitt@gmail.com",
+    "country" : "Israel",
+    "orcid" : "0000-0002-5076-9542",
+    "name" : "Aaron Javitt",
+    "id" : "2593926"
+  } ],
+  "labPIs" : [ {
+    "title" : "Dr",
+    "firstName" : "Yifat",
+    "lastName" : "Merbl",
+    "identifier" : "2465155",
+    "affiliation" : "Dept. of Systems Immunology Weizmann Institute of Science",
+    "email" : "yifat.merbl@weizmann.ac.il",
+    "country" : "",
+    "orcid" : "",
+    "name" : "Yifat Merbl",
+    "id" : "2465155"
+  } ],
+  "instruments" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "MS",
+    "accession" : "MS:1002523",
+    "name" : "Q Exactive HF"
+  } ],
+  "softwares" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "MS",
+    "accession" : "MS:1001583",
+    "name" : "MaxQuant"
+  } ],
+  "experimentTypes" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "PRIDE",
+    "accession" : "PRIDE:0000429",
+    "name" : "Shotgun proteomics"
+  } ],
+  "quantificationMethods" : [ ],
+  "countries" : [ "Israel" ],
+  "sampleAttributes" : [ {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "EFO:0000635",
+      "name" : "organism part"
+    },
+    "value" : [ {
+      "cvLabel" : "BTO",
+      "accession" : "BTO:0000214",
+      "name" : "cell culture"
+    }, {
+      "cvLabel" : "CL",
+      "accession" : "CL:0000066",
+      "name" : "epithelial cell"
+    } ]
+  }, {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "OBI:0100026",
+      "name" : "organism"
+    },
+    "value" : [ {
+      "cvLabel" : "NEWT",
+      "accession" : "NEWT:9606",
+      "name" : "Homo sapiens (Human)"
+    } ]
+  }, {
+    "@type" : "Tuple",
+    "key" : {
+      "cvLabel" : "EFO",
+      "accession" : "EFO:0000408",
+      "name" : "disease"
+    },
+    "value" : [ {
+      "cvLabel" : "DOID",
+      "accession" : "DOID:1324",
+      "name" : "lung cancer"
+    } ]
+  } ],
+  "organisms" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "NEWT",
+    "accession" : "NEWT:9606",
+    "name" : "Homo sapiens (human)"
+  } ],
+  "organismParts" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "CL",
+    "accession" : "CL:0000066",
+    "name" : "Epithelial cell"
+  }, {
+    "@type" : "CvParam",
+    "cvLabel" : "BTO",
+    "accession" : "BTO:0000214",
+    "name" : "Cell culture"
+  } ],
+  "diseases" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "DOID",
+    "accession" : "DOID:1324",
+    "name" : "Lung cancer"
+  } ],
+  "references" : [ ],
+  "identifiedPTMStrings" : [ {
+    "@type" : "CvParam",
+    "cvLabel" : "MOD",
+    "accession" : "MOD:00425",
+    "name" : "monohydroxylated residue"
+  }, {
+    "@type" : "CvParam",
+    "cvLabel" : "MOD",
+    "accession" : "MOD:00408",
+    "name" : "mono N-acetylated residue"
+  } ],
+  "totalFileDownloads" : 1027,
+  "botCount" : 307,
+  "hubCount" : 714,
+  "organicCount" : 6
+}

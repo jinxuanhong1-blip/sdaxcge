@@ -1,0 +1,221 @@
+[
+  {
+    "accession": "PXD044740",
+    "title": "Phosphoproteomic analysis of IL-2 MSA and IL-12 MSA combination on T cell signaling",
+    "projectDescription": "Engineered cytokine-based approaches for immunotherapy of cancer are poised to enter the clinic, with IL-12 being at the forefront. However, little is known about potential mechanisms of resistance to cytokine therapies. We found that orthotopic murine lung tumors were resistant to systemically delivered IL-12 fused to murine serum albumin (MSA, IL12-MSA) due to low IL-12R expression on tumor-reactive CD8+ T cells. IL2-MSA increased binding of IL12-MSA by tumor-reactive CD8+ T cells, and combined administration of IL12-MSA and IL2-MSA led to enhanced tumor-reactive CD8+ T cell effector differentiation, decreased numbers of tumor-infiltrating CD4+ regulatory T (Treg) cells, and increased survival of lung tumor-bearing mice. Predictably, the combination of IL-2 and IL-12 at therapeutic doses led to significant dose-limiting toxicity. Administering IL-12 and IL-2 analogs with preferential binding to cells expressing IL12rb1 and CD25, respectively, led to a significant extension of survival in mice with lung tumors while abrogating dose-limiting toxicity. These findings suggest that IL-12 and IL-2 represent a rational approach to combination cytokine therapy whose dose-limiting toxicity can be overcome with engineered cytokine variants.",
+    "dataProcessingProtocol": "Mass spectra were processed with Proteome Discoverer version 3.0 (Thermo Fisher Scientific, RRID:SCR_014477) and searched against the human SwissProt database using Mascot version 2.4 (Matrix Science, RRID:SCR_014322). MS-MS spectra were searched with mass tolerance of 10 ppm for precursor ions and 20 mmu for fragment ions. Cysteine carbamidomethylation, TMT-labeled lysine, and TMT-labeled peptide N-termini were set as fixed modifications. Oxidation of methionine and phosphorylation of serine, threonine and tyrosine were searched as dynamic modifications. TMT reporter quantification was extracted and isotope corrected in Proteome Discoverer. Peptide spectrum matches (PSM) were filtered according to following parameters: rank = 1, search engine rank = 1, mascot ion score > 20. Peptides with missing values across any channel were filtered out. Phosphorylation sites were localized with ptmRS module (21) with 216.04 added as a diagnostic mass for pTyr immonium ion (22). PSMs with >95% localization probability for all phosphorylation sites were included for further analysis.",
+    "sampleProcessingProtocol": "Sample Processing for Mass Spectrometry Analysis Live CD8+ T cells were isolated from expanded splenocytes using a dead cell removal kit (Miltenyi 130-090-101) and a CD8+ T cell isolation kit (Miltenyi 130-104-075), following the manufacturer\u2019s instructions. Approximately 12x106 CD8+ T cells were resuspended in 500 uL of serum free RPMI-1640 per condition. CD8+ T cells were rested for precisely 20 minutes in serum free medium at 37 degrees C before being stimulated with either 3x10-4 ug IL2-MSA, 3x10-4 ug IL12-MSA, or the combination. After precisely 5 minutes of stimulation, cells were lysed with a 1:1 ratio of 8M urea. Lysates were sonicated at 30% amplitude for 10 seconds, cleared by centrifugation at 5,000  g for 5 minutes at 4C, and protein concentration was measured by bicinchoninic acid assay (BCA; Pierce). Proteins were reduced with 10 mmol/L dithiothreitol for 1 hour at 56C, alkylated with 55 mmol/L iodoacetamide for 1 hour at room temperature, protected from light, and diluted 4-fold with 100 mmol/L ammonium acetate, pH 8.9. Proteins were digested with sequencing grade modified trypsin (Promega) at an enzyme tosubstrate ratio of 1:50 overnight at room temperature. Enzymatic activity was quenched by acidifying with glacial acetic acid to 10% of the final solution volume, and peptides were desalted using C18 solid-phase extraction cartridges (Sep-Pak Plus Short, Waters). Peptides were eluted with aqueous 40% acetonitrile in 0.1% acetic acid and dried using vacuum centrifugation. Protein concentration was again measured by BCA to account for variation in sample processing.Samples for TMT-labeled analyses were lyophilized in 150 mg aliquots and resuspended in 50 mmol/L HEPES (pH 8.5). TMT 6-plex (0.4 mg;Thermo Scientific) was resuspended in 15 uL of anhydrous acetonitrile and subsequently added to each sample, followed by a 1-hour incubation at room temperature. Reactions were quenched with the addition of hydroxylamine to a final concentration of 0.3%, pooled, dried by vacuum centrifugation, and stored at - 80 C prior to analysis.  Tyrosine Phosphorylated Peptide Enrichment Lyophilized tryptic peptide aliquots were resuspended in 400 mL of immunoprecipitation (IP) buffer (100 mmol/L Tris-HCl, 0.3% NP-40, pH 7.4) The peptide mixture was incubated with 60 uL protein G agarose bead slurry (Calbiochem) conjugated to an antibody cocktail containing 24 ug 4G10 (Millipore), 12 ug PT66 (Sigma) overnight at 4C .Beads were washed once with IP buffer, 3 times with 100 mmol/L Tri-HCl,pH 7.4, and eluted in 2 rounds of 25 uL 0.2% TFA. Phosphopeptides were further enriched using High-Select Fe-NTA Phosphopeptide Enrichment Kit (Thermo Scientific) following manufacturer\u2019s instructions with minor adjustments. Modifications include reducing the peptide volume initially added to the Fe-NTA column (50 uL) and reducing the elution volume to 2 rounds of 20-uL elutions. Peptide elutions were dried down using vacuum centrifugation to <2 uL total volume and resuspended in 5% acetonitrile in 0.1% formic acid for a total volume of 10 uL. Samples were loaded directly onto an in-house packed analytic capillary column [50 \u03bcm inner diameter (ID) \u00d7 10 cm] packed with 5 \u03bcm C18 beads (YMC gel, ODS-AQ, AQ12S05).  LC/MS-MS Analysis LC/MS-MS of pTyr peptides were carried out on an Agilent 1260 LC coupled to a Orbitrap Exploris 480 mass spectrometer (Thermo Scientific). Peptides were separated using a 140-minute gradient with 70% acetonitrile in 0.2 mol/L acetic acid at flow rate of 0.2 mL/minute with approximate split flow at 20 nL/minute. The mass spectrometer was operated in data-dependent acquisition with following settings for MS1 scans: m/z range: 380 to 2,000; resolution: 60,000; AGC target: 3 \u00d7 10^6; maximum injection time (maxIT): 50 ms. The top 15 abundant ions were isolated and fragmented by higher energy collision dissociation with following settings: resolution: 60,000; AGC target: 1 \u00d7 10^5; maxIT: 250 ms; isolation width: 0.4 m/z, collisional energy (CE): 33%, dynamic exclusion: 50 seconds. Crude peptide analysis was performed on a Q Exactive Plus mass spectrometer to correct for small variation in peptide loadings for each of the TMT channels. Approximately 30 ng of the supernatant from pTyr IP was loaded onto an in-house packed precolumn (100 \u03bcm ID \u00d7 10 cm) packed with 10 \u03bcm C18 beads (YMC gel, ODS-A, AA12S11) and analyzed with a 70-minute LC gradient. MS1 scans were performed at following settings: m/z range: 350 to 1,800; resolution: 70,000; AGC target: 1 \u00d7 10^6; maxIT: 100 ms. The top 10 abundant ions were isolated and fragmented with CE of 33% at a resolution of 35,000.",
+    "projectTags": [],
+    "keywords": [
+      "Signaling",
+      "T cell",
+      "Cytokine"
+    ],
+    "doi": "10.6019/PXD044740",
+    "submissionType": "COMPLETE",
+    "publicationDate": "2024-01-26",
+    "updatedDate": "2023-08-22",
+    "submissionDate": "2023-08-22",
+    "downloadCount": 644,
+    "avgDownloadsPerFile": 107.333336,
+    "botCount": 193,
+    "hubCount": 414,
+    "organicCount": 37,
+    "percentile": 24,
+    "yearlyDownloads": [
+      {
+        "year": "2024",
+        "count": 48
+      },
+      {
+        "year": "2025",
+        "count": 571
+      },
+      {
+        "year": "2026",
+        "count": 25
+      }
+    ],
+    "submitters": [
+      "Alicia Dsouza"
+    ],
+    "labPIs": [
+      "Forest White"
+    ],
+    "affiliations": [
+      "Professor, Bioengineering, Massachusetts Institute of Technology"
+    ],
+    "instruments": [
+      "Orbitrap Exploris 480"
+    ],
+    "softwares": [
+      "Mascot",
+      "Proteome Discoverer"
+    ],
+    "quantificationMethods": [
+      "TMT"
+    ],
+    "sampleAttributes": [
+      "spleen",
+      "T cell",
+      "Mus musculus (Mouse)"
+    ],
+    "organisms": [
+      "Mus musculus (mouse)"
+    ],
+    "organismsPart": [
+      "Spleen",
+      "T cell"
+    ],
+    "diseases": [],
+    "references": [
+      "Horton BL, D'Souza AD, Zagorulya M, McCreery CV, Abhiraman GC, Picton L, Sheen A, Agarwal Y, Momin N, Wittrup KD, White FM, Garcia KC, Spranger S. Overcoming lung cancer immunotherapy resistance by combining nontoxic variants of IL-12 and IL-2. JCI Insight. 2023 8(19):e172728--pubMed:37669107--doi: 10.1172/jci.insight.172728"
+    ],
+    "experimentTypes": [
+      "Shotgun proteomics"
+    ],
+    "projectFileNames": [
+      "checksum.txt",
+      "BH_AD_IL2IL12MSA.raw",
+      "BH_AD_IL2IL12MSA_TMTChannelInfo.xlsx",
+      "BH_AD_IL2IL12MSA.mzML",
+      "BH_AD_IL2IL12MSA.msf",
+      "BH_AD_IL2IL12MSA.mzid.gz"
+    ],
+    "highlights": {
+      "references": [
+        "Overcoming <em>lung</em> <em>cancer</em> <em>immunotherapy</em> resistance by combining nontoxic variants of IL-12 and IL-2. JCI Insight. 2023 8(19):e172728--pubMed:37669107--doi: 10.1172/jci.insight.172728"
+      ]
+    }
+  },
+  {
+    "accession": "PXD019774",
+    "title": "Proteogenomic analysis unveils the expression of cancer associated and specific antigen-derived HLA Class \u01c0 immunopeptides in melanoma and EGFR mutant lung adenocarcinoma",
+    "projectDescription": "Immunotherapy has shown great therapeutic potential for cancers with high tumor mutational burden (TMB), but much less promise for cancers with low TMB. One primary approach for adoptive lymphocyte transfer-based immunotherapy is to target the somatic mutated peptide neoantigens and cancer testis (CT) antigens recognized by cytotoxic T cells. Here, we employed mass spectrometry (MS)-based proteogenomic large-scale profiling to identify potential immunogenic human leukocyte antigen (HLA) Class \u01c0- associated peptides in both melanoma, a \u201chot tumor\u201d, and EGFR mutant lung adenocarcinoma, a \u201ccold tumor\u201d. We uncovered 19 common driver oncogene-derived peptides and more than 1000 post-translationally modified peptides (PTM) representing 58 different PTMs. We constructed a CT antigen database with 286 antigens by compiling reputed CT antigen resources and \u201cin-house\u201d genomic data and used this to identify 45 CT antigen-derived peptides from the identified HLA peptidome. Using integrated next generation sequencing data, we discovered 12 neopeptides in EGFR mutant lung cancer cell lines. Finally, we report a novel approach for non-canonical peptide discovery, whereby we leveraged a deep learning-based de novo search and a high confidence annotated long noncoding RNA (LncRNA) database to identify 44 lncRNA-derived peptides. Findings of this study, for the first time, provide evidence for a large pool of actionable cancer antigen-derived peptides for use in mutant EGFR lung cancer immunotherapy.",
+    "dataProcessingProtocol": "Patient and cell line specific protein sequence databases were first generated. The aligned whole exome sequencing BAM files from patient blood (germline) or tumor tissue/cell lines were used to retrieve the variants call format (VCF) using HaplotypeCaller [63], and the intermediate VCF files were further annotated by SnpEff [64]which filtered out only nonsynonymous on exome regions including SNVs and Indels. Similarly, the RNA-sequencing BAM files were used for the fusion variant calling by Star-Fusion [65]. The final VCF files were in silico translated to sample specific protein sequence libraries (FASTA files) using QUILTS [66], which were merged with refseq hg38 converted human proteome database.  The database search of MS raw files was carried out by PEKAS studio [39] (Bioinformatics Solutions) using the patient/cell line specific databases described above. In the PEAKS searching engine, no enzyme digestion was selected because HLA peptides are natural peptides without artificial digestion. Importantly, the unique PEAKS built-in functions, pan-PTMs including 650 different variable modifications and de novo searching were used. The precursor mass tolerance was set to 15ppm and fragment ion tolerance was set to 0.5Da. For the mutant neoepitope screening, the false discovery rate (FDR), estimated by decoy-fusion database, was chosen at 0.05. For the wt peptides screening (e.g., CT antigen, LncRNA and PTMs), FDR was set to 0.01. For the de novo search, we applied very stringent criteria, a) the average local confidence (ALC) score (substituted for FDR estimation) of each peptides must be >50%; b) the lowest %rank, predicted by NetMHCpan4.0, of each peptides against their corresponding HLA molecules in the same sample must be <2.0. The detected raw peptide intensity was log2 transformed for further statistical analysis.",
+    "sampleProcessingProtocol": "For melanoma and lung adenocarcinoma cell line HLA peptide enrichment, 2.0 \u00d7 108 cells were harvested in 4ml ice-cold lysis buffer (20mM Tris-HCl pH=8.5, 100mM NaCl, 1 mM EDTA. 1% triton X-100 supplemented with Halt 1:100 protease Inhibitor cocktail Cat. No 78430, Thermo Scientific), after washing three times with ice cold PBS. After 30min on ice, lysates were subjected to needle sonication for 30s. Approximately 30mg snap-frozen lung tumor tissue was homogenized in 4ml ico-cold lysis buffer for 30s at 4\u00b0C using the Qiagen TissueLyser II. Cell/tissue lysates were centrifuged for 2 hours at 4\u00b0C at 20,000g, and the supernatant used in subsequent experiments. HLA-peptides complexes were isolated by interacting with 0.5mg HLA Class \u01c0 pan antibody clone W6/32 (BioXcell, West Lebanon, NH) pre-coupled to 200\u03bcl slurry of protein A/G PLUS agarose resin (Santa Cruz Biotechnology) overnight at 4\u00b0C with constant rotation. Agarose beads were then washed three times with ice-cold lysis buffer (without triton and protease inhibitors), followed by two washes in ice-cold 20mM Tris-HCl (pH=8.5), then one wash in ice-cold HPLC grade water. Complexes were eluted four times with 0.15% trifluoroacetic acid (TFA) in water at room temperature and combined. To purify immunopeptides, HLA-peptide complexes were loaded on preconditioned 50mg C18 desalting columns (Sigma Millipore), then followed three 0.1% TFA in water washes. HLA peptides were then eluted with 40% acetonitrile (ACN) in 0.1% TFA. Purified peptides were lyophilized at -80\u00b0C for 2hours, then, reconstituted in 0.1%TFA, 2%ACN loading buffer for MS analysis.",
+    "projectTags": [],
+    "keywords": [
+      "Immunotherapy",
+      "Lung cancer",
+      "Melanoma",
+      "Hla immunopeptidome",
+      "Neoantigen"
+    ],
+    "doi": "",
+    "otherOmicsLinks": [
+      "px:PXD022949",
+      "pride.project:PXD022949"
+    ],
+    "submissionType": "PARTIAL",
+    "publicationDate": "2021-12-07",
+    "updatedDate": "2020-06-15",
+    "submissionDate": "2020-06-15",
+    "downloadCount": 5286,
+    "avgDownloadsPerFile": 195.77777,
+    "percentile": 80,
+    "yearlyDownloads": [
+      {
+        "year": "2021",
+        "count": 144
+      },
+      {
+        "year": "2022",
+        "count": 1898
+      },
+      {
+        "year": "2023",
+        "count": 476
+      },
+      {
+        "year": "2024",
+        "count": 1000
+      },
+      {
+        "year": "2025",
+        "count": 1632
+      },
+      {
+        "year": "2026",
+        "count": 136
+      }
+    ],
+    "submitters": [
+      "Yue Andy Qi"
+    ],
+    "labPIs": [
+      "Udayan Guha"
+    ],
+    "affiliations": [
+      "Thoracic and GI Malignancies Branch, Center for Cancer Research, NCI, NIH, Bethesda, MD 20892"
+    ],
+    "instruments": [
+      "Q Exactive HF"
+    ],
+    "softwares": [
+      "MaxQuant"
+    ],
+    "quantificationMethods": [],
+    "sampleAttributes": [
+      "lung",
+      "Homo sapiens (Human)",
+      "primary cell",
+      "lung adenocarcinoma",
+      "melanoma",
+      "epithelial cell"
+    ],
+    "organisms": [
+      "Homo sapiens (human)"
+    ],
+    "organismsPart": [
+      "Primary cell",
+      "Lung",
+      "Epithelial cell"
+    ],
+    "diseases": [
+      "Melanoma",
+      "Lung adenocarcinoma"
+    ],
+    "references": [
+      "Qi YA, Maity TK, Cultraro CM, Misra V, Zhang X, Ade C, Gao S, Milewski D, Nguyen KD, Ebrahimabadi MH, Hanada KI, Khan J, Sahinalp C, Yang JC, Guha U. Proteogenomic Analysis Unveils the HLA Class I-Presented Immunopeptidome in Melanoma and EGFR-Mutant Lung Adenocarcinoma. Mol Cell Proteomics. 2021 20:100136--pubMed:34391887--doi: 10.1016/j.mcpro.2021.100136"
+    ],
+    "experimentTypes": [
+      "Shotgun proteomics"
+    ],
+    "sdrf": "",
+    "projectFileNames": [
+      "NCI_RA007_Epitope_Rep3.raw",
+      "H1975_Epitope_Rep3.raw",
+      "PC9_epitope_Rep5.raw",
+      "protein-peptides.csv",
+      "NCI_3795Mel_Epitope_Rep4.raw",
+      "NCI_RA007_Epitope_Rep4.raw",
+      "NCI_3784Mel_Epitope_Rep4.raw",
+      "denovoonlypeptides.csv",
+      "checksum.txt",
+      "NCI_3784Mel_Epitope_Rep3.raw",
+      "NCI_3795Mel_Epitope_Rep3.raw",
+      "PC9_epitope_Rep4.raw",
+      "H1975_Epitope_Rep2.raw",
+      "NCI_RA007_Epitope_Rep5.raw",
+      "NCI_3784Mel_Epitope_Rep2.raw",
+      "NCI_3795Mel_Epitope_Rep2.raw",
+      "PC9_epitope_Rep3.raw",
+      "NCI_RA007_Epitope_Rep1.raw",
+      "PC9_epitope_Rep2.raw",
+      "H1975_Epitope_Rep1.raw",
+      "NCI_RA007_Epitope_Rep2.raw",
+      "NCI_3795Mel_Epitope_Rep1.raw",
+      "PC9_epitope_Rep6.raw",
+      "NCI_3784Mel_Epitope_Rep5.raw",
+      "NCI_3795Mel_Epitope_Rep5.raw",
+      "PC9_epitope_Rep1.raw",
+      "NCI_3784Mel_Epitope_Rep1.raw"
+    ],
+    "highlights": {
+      "projectDescription": [
+        "Findings of this study, for the first time, provide evidence for a large pool of actionable cancer antigen-derived peptides for use in mutant EGFR <em>lung</em> <em>cancer</em> <em>immunotherapy</em>."
+      ]
+    }
+  }
+]

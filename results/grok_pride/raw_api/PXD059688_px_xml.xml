@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProteomeXchangeDataset id="PXD059688" formatVersion="1.4.0" xsi:noNamespaceSchemaLocation="proteomeXchange-1.4.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <CvList>
+        <Cv fullName="PSI-MS" uri="https://raw.githubusercontent.com/HUPO-PSI/psi-ms-CV/master/psi-ms.obo" id="MS"/>
+        <Cv fullName="PSI-MOD" uri="https://raw.githubusercontent.com/MICommunity/psidev/master/psi/mod/data/PSI-MOD.obo" id="MOD"/>
+        <Cv fullName="UNIMOD" uri="http://www.unimod.org/obo/unimod.obo" id="UNIMOD"/>
+    </CvList>
+    <DatasetSummary announceDate="2025-01-15" hostingRepository="PRIDE" title="High-dose ascorbic acid synergizes with anti-PD1 therapy in non-small cell lung cancer in vitro and in vivo models">
+        <Description>Introduction: Immune checkpoint inhibitors(ICIs) targeting programmed cell death protein 1 (PD1) confer significant survival benefits to  patients with non-small cell lung cancer (NSCLC). However, there remains a substantial unmet need to identify therapeutic approaches to overcome resistance and provide benefits to these patients. High-dose ascorbic acid (AA) acts synergistically with many standard anticancer treatments. However, little is known about the effect of high-dose AA on improving the efficacy of anti-PD1 inhibitors in NSCLC. This study aimed to elucidate the effects of high-dose AA on anti-PD1 immunotherapy in NSCLC. Methods: The combined effects of high-dose AA and anti-PD1 were investigated using a coculture model of H460 cells and CD8+ T cells and an LLC1 lung cancer syngeneic mouse model. To investigate the molecular mechanism,  tumor tissues from mice were analyzed by comprehensive proteomic profiling using nano-LC-ESI-MS/MS.  Results: Pretreatment with a high dose of AA led to enhanced the sensitivity to the cytotoxicity of CD8+ T cells derived from healthy donor for H460 cells. Additionally, the combination of anti-PD1 and high-dose AA significantly increased CD8+ T cell cytotoxicity in H460 cells. The combination of anti-PD1 and high-dose AA showed dramatic antitumor effects in a syngeneic mouse model of lung cancer by significantly reducing tumor growth and increasing CD8+ T cell-dependent cytotoxicity and macrophage activity. Comprehensive protein analysis confirmed that high-dose AA in anti-PD1-treated tumor tissues enhanced the antitumor effects by regulating various immune-related mechanisms, including the B cell and T cell receptor signaling pathways, Fc gamma R-mediated phagocytosis, and natural killer (NK) cell-mediated cytotoxicity.  Discussion: Our results suggest that high-dose AA may be a promising adjuvant to potentiate the efficacy of anti-PD1 immunotherapy.</Description>
+        <ReviewLevel>
+            <cvParam cvRef="MS" accession="MS:1002854" name="Peer-reviewed dataset"/>
+        </ReviewLevel>
+        <RepositorySupport>
+            <cvParam cvRef="MS" accession="MS:1002856" name="Supported dataset by repository"/>
+        </RepositorySupport>
+    </DatasetSummary>
+    <DatasetIdentifierList>
+        <DatasetIdentifier>
+            <cvParam cvRef="MS" accession="MS:1001919" name="ProteomeXchange accession number" value="PXD059688"/>
+        </DatasetIdentifier>
+        <DatasetIdentifier>
+            <cvParam cvRef="MS" accession="MS:1001922" name="Digital Object Identifier (DOI)" value="10.6019/PXD059688"/>
+        </DatasetIdentifier>
+    </DatasetIdentifierList>
+    <DatasetOriginList>
+        <DatasetOrigin>
+            <cvParam cvRef="MS" accession="MS:1002868" name="Original data"/>
+        </DatasetOrigin>
+    </DatasetOriginList>
+    <SpeciesList>
+        <Species>
+            <cvParam cvRef="MS" accession="MS:1001469" name="taxonomy: scientific name" value="Mus musculus (Mouse)"/>
+            <cvParam cvRef="MS" accession="MS:1001467" name="taxonomy: NCBI TaxID" value="10090"/>
+        </Species>
+    </SpeciesList>
+    <InstrumentList>
+        <Instrument id="Instrument_1">
+            <cvParam cvRef="MS" accession="MS:1001911" name="Q Exactive"/>
+        </Instrument>
+    </InstrumentList>
+    <ModificationList>
+        <cvParam cvRef="MOD" accession="MOD:00696" name="phosphorylated residue"/>
+        <cvParam cvRef="MOD" accession="MOD:00394" name="acetylated residue"/>
+    </ModificationList>
+    <ContactList>
+        <Contact id="project_submitter">
+            <cvParam cvRef="MS" accession="MS:1000586" name="contact name" value="Hak Su Kim"/>
+            <cvParam cvRef="MS" accession="MS:1000589" name="contact email" value="khs401@bohun.or.kr"/>
+            <cvParam cvRef="MS" accession="MS:1000590" name="contact affiliation" value="Veterans Medical Research Institute, Veterans Health Service Medical Center"/>
+            <cvParam cvRef="MS" accession="MS:1002037" name="dataset submitter"/>
+        </Contact>
+        <Contact id="project_lab_head">
+            <cvParam cvRef="MS" accession="MS:1002332" name="lab head"/>
+            <cvParam cvRef="MS" accession="MS:1000586" name="contact name" value="Taekyu Lim"/>
+            <cvParam cvRef="MS" accession="MS:1000589" name="contact email" value="imegene@naver.com"/>
+            <cvParam cvRef="MS" accession="MS:1000590" name="contact affiliation" value="Division of Hematology-Oncology, Department of Internal Medicine, Veterans Health Service Medical Center, Seoul 05368, Republic of Korea"/>
+        </Contact>
+    </ContactList>
+    <PublicationList>
+        <Publication id="DOI-10_3389_FIMMU_2024_1512605">
+            <cvParam cvRef="MS" accession="MS:1001922" name="Digital Object Identifier (DOI)" value="10.3389/FIMMU.2024.1512605"/>
+        </Publication>
+        <Publication id="DOI-10_6019_PXD059688">
+            <cvParam cvRef="MS" accession="MS:1001922" name="Digital Object Identifier (DOI)" value="10.6019/PXD059688"/>
+        </Publication>
+    </PublicationList>
+    <KeywordList>
+        <cvParam cvRef="MS" accession="MS:1001925" name="submitter keyword" value="LC-MSMS,Mouse, lung cancer"/>
+    </KeywordList>
+    <FullDatasetLinkList>
+        <FullDatasetLink>
+            <cvParam cvRef="MS" accession="MS:1002852" name="Dataset FTP location" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688"/>
+        </FullDatasetLink>
+        <FullDatasetLink>
+            <cvParam cvRef="MS" accession="MS:1001930" name="PRIDE project URI" value="http://www.ebi.ac.uk/pride/archive/projects/PXD059688"/>
+        </FullDatasetLink>
+    </FullDatasetLinkList>
+    <DatasetFileList>
+        <DatasetFile id="FILE_1" name="20230828_Tumor_P2_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_P2_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_2" name="20230828_Tumor_Con1_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_Con1_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_3" name="20230828_Tumor_P1_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_P1_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_4" name="20230828_Tumor_AA1_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AA1_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_5" name="20230828_Tumor_AP2_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AP2_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_6" name="20230904_Tumor_AA.mgf">
+            <cvParam cvRef="MS" accession="MS:1002850" name="Peak list file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230904_Tumor_AA.mgf"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_7" name="20230828_Tumor_P2_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_P2_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_8" name="20230904_Tumor_AA.msf">
+            <cvParam cvRef="MS" accession="MS:1002849" name="Search engine output file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230904_Tumor_AA.msf"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_9" name="20230828_Tumor_AA3_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AA3_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_10" name="20230828_Tumor_AP2_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AP2_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_11" name="20230828_Tumor_P1_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_P1_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_12" name="20230828_Tumor_AP3_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AP3_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_13" name="20230828_Tumor_AA2_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AA2_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_14" name="20230828_Tumor_Con3_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_Con3_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_15" name="20230828_Tumor_P3_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_P3_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_16" name="20230828_Tumor_AP1_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AP1_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_17" name="20230828_Tumor_AP3_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AP3_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_18" name="20230828_Tumor_AA2_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AA2_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_19" name="20230828_Tumor_Con3_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_Con3_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_20" name="20230904_Tumor_AA.mzTab.gz">
+            <cvParam cvRef="MS" accession="MS:1002848" name="Result file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230904_Tumor_AA.mzTab.gz"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_21" name="20230828_Tumor_AA3_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AA3_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_22" name="20230828_Tumor_Con2_1.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_Con2_1.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_23" name="20230828_Tumor_Con2_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_Con2_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_24" name="20230828_Tumor_Con1_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_Con1_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_25" name="20230828_Tumor_AA1_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AA1_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_26" name="20230828_Tumor_AP1_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_AP1_2.raw"/>
+        </DatasetFile>
+        <DatasetFile id="FILE_27" name="20230828_Tumor_P3_2.raw">
+            <cvParam cvRef="MS" accession="MS:1002846" name="Associated raw file URI" value="ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2025/01/PXD059688/20230828_Tumor_P3_2.raw"/>
+        </DatasetFile>
+    </DatasetFileList>
+    <RepositoryRecordList>
+        <RepositoryRecord name="High-dose ascorbic acid synergizes with anti-PD1 therapy in non-small cell lung cancer in vitro and in vivo models" label="PRIDE project" recordID="PXD059688" repositoryID="PRIDE" uri="http://www.ebi.ac.uk/pride/archive/projects/PXD059688"/>
+    </RepositoryRecordList>
+</ProteomeXchangeDataset>
