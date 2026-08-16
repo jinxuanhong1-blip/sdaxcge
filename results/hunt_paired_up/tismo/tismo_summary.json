@@ -1,0 +1,87 @@
+{
+  "gene": "Tacstd2",
+  "meta_samples": 1518,
+  "expression_matrix_shape": [
+    21729,
+    1518
+  ],
+  "gene_present_in_matrix": true,
+  "samples_with_expression": 1491,
+  "samples_missing_expression": 27,
+  "icb_samples": 445,
+  "control_samples": 888,
+  "non_icb_non_control_samples_excluded": 158,
+  "contrasts_attempted": 64,
+  "contrasts_without_control": 3,
+  "arm_size_min_icb": 2,
+  "arm_size_min_control": 2,
+  "tallies": [
+    {
+      "label": "all contrasts with a matched control arm",
+      "n_contrasts": 61,
+      "n_up": 43,
+      "n_down": 18,
+      "frac_up": 0.705,
+      "n_up_p<0.05": 7,
+      "n_down_p<0.05": 1,
+      "median_delta_log2": 0.0707,
+      "sign_test_p": 0.001868101030975251
+    },
+    {
+      "label": "contrasts with n>=2 per arm",
+      "n_contrasts": 61,
+      "n_up": 43,
+      "n_down": 18,
+      "frac_up": 0.705,
+      "n_up_p<0.05": 7,
+      "n_down_p<0.05": 1,
+      "median_delta_log2": 0.0707,
+      "sign_test_p": 0.001868101030975251
+    },
+    {
+      "label": "n>=2 per arm AND Tacstd2 above floor (max arm mean >= 0.5 log2)",
+      "n_contrasts": 38,
+      "n_up": 24,
+      "n_down": 14,
+      "frac_up": 0.632,
+      "n_up_p<0.05": 6,
+      "n_down_p<0.05": 1,
+      "median_delta_log2": 0.1233,
+      "sign_test_p": 0.14330665429588407
+    },
+    {
+      "label": "lung carcinoma subset (expressed, n>=2 per arm)",
+      "n_contrasts": 1,
+      "n_up": 1,
+      "n_down": 0,
+      "frac_up": 1.0,
+      "n_up_p<0.05": 1,
+      "n_down_p<0.05": 0,
+      "median_delta_log2": 0.4561,
+      "sign_test_p": 1.0
+    }
+  ],
+  "sensitivity_to_contrast_definition": [
+    {
+      "definition": "arm = study + cell line + treatment (timepoints pooled)",
+      "n_contrasts": 48,
+      "n_up": 33,
+      "frac_up": 0.688,
+      "sign_test_p": 0.01328328156224501
+    },
+    {
+      "definition": "arm = study + cell line + ICB drug class (treatments pooled)",
+      "n_contrasts": 33,
+      "n_up": 24,
+      "frac_up": 0.727,
+      "sign_test_p": 0.013530986849218607
+    },
+    {
+      "definition": "arm = study + cell line (all ICB pooled)",
+      "n_contrasts": 31,
+      "n_up": 24,
+      "frac_up": 0.774,
+      "sign_test_p": 0.003326892852783203
+    }
+  ]
+}
