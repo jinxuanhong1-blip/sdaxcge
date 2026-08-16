@@ -1,3 +1,6 @@
 # Raw / bulky caches must not be committed. Extracts and tables are fine.
 Model.csv
 *.part
+
+__pycache__/
+*.pyc

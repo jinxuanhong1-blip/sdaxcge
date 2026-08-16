@@ -14,6 +14,11 @@ Receptors and SMADs are reported separately.
 No filter is tuned to produce a positive class effect. Nulls, negatives, and
 histology splits are reported.
 
+Honest result (do not quote the ≥2/3 ligand rule or the HALLMARK-score rule
+as the answer): **SMAD3** tracks TACSTD2-high public lung; **TGFB1** is modest
+and LUAD-stronger; **TGFB2/3, receptors, other SMADs, and HALLMARK / F-TBRS**
+do not. Not a TGF-β signaling class effect.
+
 ```bash
 python3 scripts/w200/A11_TGFB/download.py
 python3 scripts/w200/A11_TGFB/analyze.py

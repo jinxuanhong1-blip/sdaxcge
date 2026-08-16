@@ -351,6 +351,9 @@ def main() -> int:
             download(MODEL_URL, model_path)
             download(EXPR_URL, expr_path, timeout=1800)
             extract_meta = extract_depmap(expr_path, out / "depmap24q4_tgfb_all_models.csv")
+            model_copy = out / "Model.csv"
+            if not model_copy.exists() or model_copy.stat().st_size != model_path.stat().st_size:
+                model_copy.write_bytes(model_path.read_bytes())
             manifest["depmap"] = {
                 "release": "DepMap Public 24Q4",
                 "citation": "DepMap, Broad (2024). DepMap 24Q4 Public. Figshare+. https://doi.org/10.25452/figshare.plus.27993248.v1",

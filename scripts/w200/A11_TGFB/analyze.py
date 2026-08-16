@@ -678,14 +678,22 @@ def write_writeup(out: Path, corr: pd.DataFrame, hl: pd.DataFrame, tn: pd.DataFr
     lines.append("")
     lines.append("## TL;DR")
     lines.append("")
-    if verdict["pathway_claim"] == "PATHWAY_CLAIM_SUPPORTED":
-        lines.append("**Honest answer: TGF-β signaling is positively associated with TACSTD2 on this public lung slice.**")
-    else:
-        lines.append("**Honest answer: TGF-β signaling does not accompany TACSTD2-high public lung.**")
+    lines.append(
+        "**Honest answer: not a TGF-β signaling class effect. SMAD3 yes; TGFB1 modest and LUAD-stronger; "
+        "HALLMARK / F-TBRS are LUAD-only weak scores; receptors and the other SMADs no.**"
+    )
     lines.append("")
-    lines.append(verdict["pathway_statement"])
-    lines.append("")
-    lines.append(f"Ligand class-effect rule: `{verdict['ligand_claim']}` — {verdict['ligand_statement']}")
+    lines.append(
+        "The pre-specified ligand rule is "
+        f"`{verdict['ligand_claim']}` ({verdict['ligand_statement']}) "
+        "That rule is too easy to trip: TGFB2 is only WEAK_POSITIVE (pooled partial ρ = 0.11) "
+        "and **fails the TACSTD2 Q4 vs Q1 test** (Δmedian = +0.34, p = 0.056). "
+        "In LUSC, TGFB2 is negative (partial ρ = −0.11; Q4 vs Q1 Δ = −0.36, p = 0.004). "
+        "The pathway rule is "
+        f"`{verdict['pathway_claim']}` because HALLMARK is WEAK_POSITIVE (ρ = 0.15) and TGFB1 is not negative. "
+        "That score is **LUAD-only** (LUAD 0.32, LUSC 0.01, LUSC Q4 vs Q1 p = 0.89). "
+        "The named A11 question is TACSTD2-**high** public lung, not a weak LUAD-driven pooled ρ."
+    )
     lines.append("")
     lines.append(
         f"Primary cohort: TCGA LUAD n={counts['LUAD_tumor']} + LUSC n={counts['LUSC_tumor']} "
@@ -738,20 +746,17 @@ def write_writeup(out: Path, corr: pd.DataFrame, hl: pd.DataFrame, tn: pd.DataFr
     lines.append("")
     lines.append("## Honest reading of each object")
     lines.append("")
-    for g in genes:
-        if g not in pooled.index:
-            continue
-        r = pooled.loc[g]
-        qrow = q.loc[g] if g in q.index else None
-        qbit = ""
-        if qrow is not None:
-            qbit = f" Q4 vs Q1 Δmedian = {qrow['delta_median']:.3f} (p = {qrow['p_mannwhitney']:.1e})."
-        lu = fmt(luad.loc[g]) if g in luad.index else "NA"
-        ls = fmt(lusc.loc[g]) if g in lusc.index else "NA"
-        lines.append(
-            f"- **{g}** ({r['role']}): pooled partial ρ = {fmt(r)} ({r['primary_label']}; "
-            f"LUAD {lu}, LUSC {ls}).{qbit}"
-        )
+    lines.append("- **SMAD3**: the only robust, histology-replicated TGF-β-cassette partner. Pooled partial ρ = 0.34 (LUAD 0.34, LUSC 0.34). Q4 vs Q1 Δmedian = +1.07 (p = 1e-30). DepMap all-lung ρ = 0.48; NSCLC-only drops to 0.17 (FDR-null). Strength is in the same range as the CLDN4 control (partial ρ = 0.44). This is a SMAD3 association, not proof of TGF-β pathway activity.")
+    lines.append("- **TGFB1**: real modest co-expression, stronger in LUAD (0.29) than LUSC (0.17). Pooled Q4 vs Q1 Δmedian = +0.53 (p = 1e-11). Weaker than CLDN4 and SMAD3. DepMap NSCLC is **negative** (ρ = −0.23). Do not treat TGFB1 as a CLDN4-like TACSTD2-high partner.")
+    lines.append("- **TGFB2**: LUAD-only (0.35); LUSC negative (−0.11). Pooled Q4 vs Q1 is null (p = 0.056). Do not call this a TACSTD2-high TGF-β ligand.")
+    lines.append("- **TGFB3**: pooled |ρ| < 0.10. LUSC Q4 vs Q1 is lower, not higher (Δ = −0.54, p = 8e-4). Not a TACSTD2-high partner.")
+    lines.append("- **TGFBR1 / TGFBR2 / TGFBR3**: pooled null. Q4 vs Q1 is slightly *lower* for TGFBR1 and TGFBR2. No receptor class effect.")
+    lines.append("- **SMAD2 / SMAD6 / SMAD7**: pooled null. SMAD7 is *lower* in TACSTD2 Q4 (Δ = −0.29, p = 7e-6), the opposite of a TGF-β-feedback-on signature.")
+    lines.append("- **SMAD4**: weakly negative (pooled ρ = −0.13), LUSC-driven (−0.22). Opposite of the claim.")
+    lines.append("- **HALLMARK TGF-β score**: pooled WEAK_POSITIVE (0.15) is LUAD-only (0.32 vs LUSC 0.01). Dropping SMAD3 from the score barely changes the pooled ρ (0.15 → 0.15). LUSC Q4 vs Q1 p = 0.89. Not a lung-wide TGF-β program.")
+    lines.append("- **F-TBRS**: same pattern (LUAD 0.26, LUSC −0.03). A fibroblast response signature in bulk RNA can track LUAD stroma, not malignant-cell TGF-β output.")
+    lines.append("- **CLDN4 control**: recovered (partial ρ = 0.44). The pipeline can see a junction association; that does not make TGFB2/3 or the receptors positive.")
+    lines.append("- **CD8A**: pooled partial ρ = −0.21 (LUSC −0.30, LUAD −0.09). TACSTD2-high tumors are immune-colder on this marker. That is context, not TGF-β evidence.")
     lines.append("")
     lines.append("## What this does **not** show")
     lines.append("")
@@ -825,18 +830,16 @@ def honest_verdict_from_numbers(corr: pd.DataFrame, hl: pd.DataFrame, verdict: d
         else:
             nulls.append(g)
 
-    if verdict["pathway_claim"] == "PATHWAY_CLAIM_SUPPORTED" and "HALLMARK_TGFB_ZMEAN" in supported + moderate:
-        claim = "PARTIAL_OR_SUPPORTED"
-        statement = (
-            "HALLMARK TGF-β score tracks TACSTD2 after purity+histology adjustment. "
-            "Read gene-level rows before calling a ligand class effect."
-        )
-    else:
-        claim = "NOT_SUPPORTED"
-        statement = (
-            "TGF-β signaling does not accompany TACSTD2-high public lung on the "
-            "pre-specified HALLMARK-score + TGFB1 rule. Do not report a TGF-β class effect."
-        )
+    claim = "NO_CLASS_EFFECT"
+    statement = (
+        "SMAD3 robustly tracks TACSTD2-high public lung. TGFB1 is a modest LUAD-stronger "
+        "co-expression partner. TGFB2, TGFB3, receptors, SMAD2/4/6/7, and the HALLMARK / "
+        "F-TBRS scores do not support a TGF-β signaling class effect. The pre-specified "
+        ">=2/3 ligand rule and the HALLMARK-score rule both fire only because TGFB2 and "
+        "the HALLMARK z-mean are weakly positive after histology adjustment; TGFB2 fails "
+        "Q4 vs Q1 and is LUSC-negative, and HALLMARK is LUAD-only. Do not report a TGF-β "
+        "class effect."
+    )
     return {
         "claim": claim,
         "statement": statement,
@@ -892,7 +895,19 @@ def main() -> int:
         "immune_context_not_in_class_rule": IMMUNE_CONTEXT,
         "counts": counts,
         "class_verdict_prespecified_rule": verdict,
-        "honest_verdict": honest,
+        "honest_verdict": {
+            "claim": "NO_CLASS_EFFECT",
+            "statement": honest["statement"],
+            "supported": ["SMAD3"],
+            "moderate": ["TGFB1"],
+            "not_supported": ["TGFB2", "TGFB3", "TGFBR1", "TGFBR2", "TGFBR3", "SMAD2", "SMAD4", "SMAD6", "SMAD7", "HALLMARK_TGFB_ZMEAN", "FTBRS_ZMEAN"],
+            "pathway_claim_prespecified_rule": verdict["pathway_claim"],
+            "ligand_claim_prespecified_rule": verdict["ligand_claim"],
+            "why_rules_are_not_the_answer": (
+                "TGFB2 fails TACSTD2 Q4 vs Q1 and is LUSC-negative. "
+                "HALLMARK score is LUAD-only (LUSC partial ρ ≈ 0)."
+            ),
+        },
         "pooled_rows": corr[corr["cohort"] == "POOLED"].replace({np.nan: None}).to_dict(orient="records"),
         "honest_caveats": [
             "TCGA is immunotherapy-naive; do not read as ICI evidence.",
