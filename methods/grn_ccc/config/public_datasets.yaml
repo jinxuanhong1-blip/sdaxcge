@@ -1,0 +1,122 @@
+# =============================================================================
+# public_datasets.yaml
+# Public lung ICI / NSCLC scRNA objects relevant to the TACSTD2/CLDN4 →
+# T-cell-recruitment question. Sizes are the AUTHORS' processed supplementary
+# files on GEO (checked 2026-08-16). "demo_ok" = processed object <2 GB AND
+# contains epithelium + T/NK + a TACSTD2/CLDN4 readout. Do not download raw
+# FASTQ / Cell Ranger outs here; those routinely exceed the 2 GB demo cap.
+# =============================================================================
+
+policy:
+  max_demo_gb: 2
+  prefer_processed: true
+  skip_raw_fastq: true
+  note: >
+    The playbook rule is "demo only if a small scRNA <2GB is available".
+    Two ICI lung objects meet that: GSE207422 (175 MB txt.gz) and
+    GSE205335 (500 MB rds.gz). GSE207422 is the default real demo because
+    it is smaller, ships a gene x cell UMI matrix + xlsx metadata, and
+    carries MPR/NMPR labels. It is BD Rhapsody, not 10x — note that when
+    citing "10x lung ICI" practicality.
+
+# --- Use these ---------------------------------------------------------------
+datasets:
+
+  GSE207422:
+    title: NSCLC neoadjuvant PD-1 + chemo scRNA (Hu et al., Genome Med 2023)
+    pubmed: 36869384
+    doi: 10.1186/s13073-023-01164-9
+    platform: BD Rhapsody WTA          # NOT 10x; still a droplet UMI matrix
+    species: human
+    tissue: NSCLC tumor (biopsy / resection)
+    ici: true
+    ici_setting: neoadjuvant PD-1 antibody + chemotherapy
+    n_patients_scrna: 15               # 3 treatment-naive + 12 post (4 MPR / 8 NMPR)
+    n_cells_approx: 92000
+    response_labels: [MPR, NMPR, TN]
+    has_epithelium: true
+    has_t_nk: true
+    demo_ok: true
+    processed:
+      - name: GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz
+        size: 175.5 MB
+        url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz
+      - name: GSE207422_NSCLC_scRNAseq_metadata.xlsx
+        size: 11.1 KB
+        url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207422/suppl/GSE207422_NSCLC_scRNAseq_metadata.xlsx
+    caveats:
+      - Authors already ran QC + Scrublet; ambient correction is NOT re-doable from this matrix.
+      - n=15 patients; MPR n=4 — underpowered for between-response claims. Use within-patient high vs low first.
+      - BD Rhapsody gene space / UMIs differ from 10x; do not mix embeddings with 10x atlases without integration.
+    role: default_real_demo
+
+  GSE205335:
+    title: Lung cancer ICI scRNA (Lee lab; GEO 2024)
+    pubmed: null
+    platform: 10x Genomics 3' (Cell Ranger 5.0, GRCh38)
+    species: human
+    tissue: lung cancer (EBUS / effusion / tumor)
+    ici: true
+    ici_setting: immune checkpoint inhibitors (RECIST on some samples)
+    has_epithelium: true               # confirm from CellIdentity table
+    has_t_nk: true
+    demo_ok: true                      # 500 MB < 2 GB, but needs R to read .rds
+    processed:
+      - name: GSE205335_Lung_IO_UMI_matrix.rds.gz
+        size: 499.5 MB
+        url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE205nnn/GSE205335/suppl/GSE205335_Lung_IO_UMI_matrix.rds.gz
+      - name: GSE205335_Lung_IO_CellIdentity.txt.gz
+        size: 718.7 KB
+        url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE205nnn/GSE205335/suppl/GSE205335_Lung_IO_CellIdentity.txt.gz
+    caveats:
+      - RDS is an R object; convert with zellkonverter / sceasy before the Python stack.
+      - Preferred 10x-native replication of the GSE207422 demo.
+    role: 10x_replication
+
+  GSE179994:
+    title: Advanced NSCLC pembrolizumab + chemo, paired pre/post (Liu et al.)
+    pubmed: 35121991
+    platform: 10x Genomics
+    species: human
+    tissue: tumor + PBMC
+    ici: true
+    ici_setting: pembrolizumab + carboplatin + pemetrexed
+    has_epithelium: false              # deposited object is T-cell only
+    has_t_nk: true
+    demo_ok: false                     # cannot score TACSTD2/CLDN4 in epithelium
+    processed:
+      - name: GSE179994_all.Tcell.rawCounts.rds.gz
+        size: 421.0 MB
+        url: https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/suppl/GSE179994_all.Tcell.rawCounts.rds.gz
+    caveats:
+      - T-cell-only counts. Useful for NicheNet RECEIVER gene sets / T-cell state, not for epithelial senders.
+    role: tcell_receiver_only
+
+# --- Do not use as the demo (too big, no ICI, or no epithelium) --------------
+skip:
+  GSE131907:
+    title: Kim et al. LUAD atlas (Nat Commun 2020)
+    ici: false
+    why_skip: >
+      Not an ICI cohort. Raw Cell Ranger outs are multi-GB; sibling analysis
+      (PR #96) already reported a null epithelial TACSTD2 vs T/NK anti-correlation
+      on processed summaries and explicitly skipped the huge raw.
+    role: atlas_not_ici
+
+  GSE154826:
+    title: Leader / Merad LUAD CITE-seq (Cancer Cell 2021)
+    ici: false
+    why_skip: CITE-seq atlas, not ICI; raw is huge. See methods/cite playbook.
+    role: atlas_not_ici
+
+  GSE148071:
+    title: Wu et al. advanced NSCLC scRNA
+    ici: false
+    why_skip: Treatment-naive / mixed; no consistent ICI response labels in the series record.
+    role: atlas_not_ici
+
+  Caushi_et_al_2021:
+    title: Neoadjuvant anti-PD-1 NSCLC (Nature / EGA)
+    ici: true
+    why_skip: Controlled-access (EGA). Do not fetch without a DAC approval.
+    role: controlled_access

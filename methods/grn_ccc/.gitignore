@@ -1,0 +1,17 @@
+# Data & heavy resources are never committed
+data/
+resources/
+networks/
+*.h5ad
+*.rds
+*.loom
+*.feather
+
+# Run outputs (except curated examples under demo/example_output/)
+results/
+demo/output/
+
+# Env
+.venv/
+__pycache__/
+*.pyc
