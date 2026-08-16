@@ -1,7 +1,7 @@
 {
   "limit_bytes_strictly_less_than": 2000000000,
-  "file_count": 27,
-  "total_bytes": 584712106,
+  "file_count": 34,
+  "total_bytes": 614639597,
   "files": [
     {
       "path": "E-MTAB-10633.idf.txt",
@@ -26,6 +26,54 @@
       "status": "downloaded",
       "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-10633/E-MTAB-10633.sdrf.txt",
       "sha256": "b9777395a185716326ef18979efae632b17ac849911b4cba639a71ae89c40b3d"
+    },
+    {
+      "path": "E-MTAB-11377.idf.txt",
+      "size": 5510,
+      "description": "Investigation Design Format (IDF)",
+      "processed": false,
+      "download_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-11377/E-MTAB-11377.idf.txt",
+      "role": "metadata",
+      "accession": "E-MTAB-11377",
+      "status": "downloaded",
+      "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-11377/E-MTAB-11377.idf.txt",
+      "sha256": "02f531315ab408bf8fdd3caec5b5f30f8b3629985530bec87f7392954f461d35"
+    },
+    {
+      "path": "E-MTAB-11377.sdrf.txt",
+      "size": 7579,
+      "description": "Sample and Data Relationship Format (SDRF)",
+      "processed": false,
+      "download_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-11377/E-MTAB-11377.sdrf.txt",
+      "role": "metadata",
+      "accession": "E-MTAB-11377",
+      "status": "downloaded",
+      "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-11377/E-MTAB-11377.sdrf.txt",
+      "sha256": "151db8b8fca266d670e3ecba41931558e4eaed4292039a3b71565f1615a67ddb"
+    },
+    {
+      "path": "E-MTAB-11382.idf.txt",
+      "size": 5103,
+      "description": "Investigation Design Format (IDF)",
+      "processed": false,
+      "download_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-11382/E-MTAB-11382.idf.txt",
+      "role": "metadata",
+      "accession": "E-MTAB-11382",
+      "status": "downloaded",
+      "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-11382/E-MTAB-11382.idf.txt",
+      "sha256": "c69f000cbde7023d1ecf016a37bb6703c5b956ede19788e2ad3d22f4936a01bc"
+    },
+    {
+      "path": "E-MTAB-11382.sdrf.txt",
+      "size": 6479,
+      "description": "Sample and Data Relationship Format (SDRF)",
+      "processed": false,
+      "download_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-11382/E-MTAB-11382.sdrf.txt",
+      "role": "metadata",
+      "accession": "E-MTAB-11382",
+      "status": "downloaded",
+      "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-11382/E-MTAB-11382.sdrf.txt",
+      "sha256": "14d8da929ec45b66f131d81f5c788c970dd0b69bf19c7bfc5c9e0152246a3284"
     },
     {
       "path": "GEMMS_raw_counts.csv",
@@ -62,6 +110,42 @@
       "status": "downloaded",
       "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-13704/E-MTAB-13704.sdrf.txt",
       "sha256": "982b1250b6571973cc522aa85400cd57326de4d87e49d7b7170993668ae561c0"
+    },
+    {
+      "path": "cpm_counts_for_paper.csv",
+      "size": 29797813,
+      "description": "Processed Data",
+      "processed": true,
+      "download_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-15235/cpm_counts_for_paper.csv",
+      "role": "processed",
+      "accession": "E-MTAB-15235",
+      "status": "downloaded",
+      "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-15235/cpm_counts_for_paper.csv",
+      "sha256": "2e1979ed969476b202f9d5f591c6278af56cc4c4e4fa8f8c625cf477194c9710"
+    },
+    {
+      "path": "E-MTAB-15235.idf.txt",
+      "size": 10591,
+      "description": "Investigation Design Format (IDF)",
+      "processed": false,
+      "download_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-15235/E-MTAB-15235.idf.txt",
+      "role": "metadata",
+      "accession": "E-MTAB-15235",
+      "status": "downloaded",
+      "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-15235/E-MTAB-15235.idf.txt",
+      "sha256": "bdec36caabbdb42d2bcf6799d6efe53128c15c2b22d488ed591149dcd86c1ae4"
+    },
+    {
+      "path": "E-MTAB-15235.sdrf.txt",
+      "size": 94416,
+      "description": "Sample and Data Relationship Format (SDRF)",
+      "processed": false,
+      "download_url": "https://www.ebi.ac.uk/biostudies/files/E-MTAB-15235/E-MTAB-15235.sdrf.txt",
+      "role": "metadata",
+      "accession": "E-MTAB-15235",
+      "status": "downloaded",
+      "local_path": "results/gpt_arrayexpress/downloads/E-MTAB-15235/E-MTAB-15235.sdrf.txt",
+      "sha256": "4e0631e15dfb995676e8038a008a057e971d4b01007f4ce220461dbfb9cba3a2"
     },
     {
       "path": "features.tsv.gz",
