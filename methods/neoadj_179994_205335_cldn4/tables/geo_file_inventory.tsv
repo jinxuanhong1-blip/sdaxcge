@@ -1,0 +1,9 @@
+series	file	bytes	mib	usable_for_malignant_cldn4	note
+GSE179994	GSE179994_all.Tcell.rawCounts.rds.gz	441470188	421.0	no	T-cell-only raw counts RDS
+GSE179994	GSE179994_Tcell.metadata.tsv.gz	935750	0.89	no	T-cell metadata only; CD4/CD8/NA
+GSE179994	GSE179994_all.scTCR.tsv.gz	6815744	6.5	no	TCR, not expression
+GSE179994	GSE179994_PBMC.bulkTCR.tsv.gz	2726298	2.6	no	bulk TCR, not expression
+GSE179994	GSE179994_RAW.tar	46213120	44.1	no	one blood T-cell Seurat (P019) + TCR
+GSE205335	GSE205335_Lung_IO_UMI_matrix.rds.gz	523720227	499.5	yes_if_paired	author TME UMI; not used because 179994 gate failed
+GSE205335	GSE205335_Lung_IO_CellIdentity.txt.gz	735956	0.70	yes_if_paired	author identity including Malignant cells
+GSE207422	(not downloaded)			excluded	user: do not add; prior flat CLDN4–T/NK
