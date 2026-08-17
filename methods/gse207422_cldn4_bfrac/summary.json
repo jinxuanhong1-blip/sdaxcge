@@ -1,0 +1,33 @@
+{
+  "dataset": "GSE207422",
+  "task": "malignant CLDN4 vs B-cell / TLS fraction (honest n=12 post)",
+  "n_post": 12,
+  "n_cells": 92330,
+  "n_malig_a3": 6627,
+  "n_B": 8082,
+  "empty_a3_malignant_post": [
+    "P11",
+    "P14"
+  ],
+  "primary_spearman_mal_cldn4_mean_vs_B": {
+    "contrast": "post n=12: A3-malignant CLDN4 mean log1p(CP10k) vs B",
+    "n": 10,
+    "spearman_rho": -0.10303030303030303,
+    "spearman_p": 0.7769984634438898,
+    "note": ""
+  },
+  "primary_spearman_mal_cldn4_mean_vs_tls_like": {
+    "contrast": "post n=12: A3-malignant CLDN4 mean log1p(CP10k) vs TLS-like",
+    "n": 10,
+    "spearman_rho": -0.07878787878787878,
+    "spearman_p": 0.8287173946974606,
+    "note": ""
+  },
+  "primary_spearman_mal_cldn4_mean_vs_tls12": {
+    "contrast": "post n=12: A3-malignant CLDN4 mean log1p(CP10k) vs TLS12 z",
+    "n": 10,
+    "spearman_rho": 0.22424242424242422,
+    "spearman_p": 0.5334005612725947,
+    "note": ""
+  }
+}
