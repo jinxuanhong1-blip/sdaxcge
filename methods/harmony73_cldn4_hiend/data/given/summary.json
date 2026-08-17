@@ -1,0 +1,167 @@
+{
+  "scope": "extra_atlas_n_not_ici",
+  "unit": "tumor_donor",
+  "harmony": {
+    "batch": "dataset",
+    "n_cells_subsampled": 187168,
+    "n_genes": 63,
+    "n_pcs": 20,
+    "max_per_donor": 2500
+  },
+  "n_joint_tumor_cells": 435519,
+  "n_donors_all": 95,
+  "n_eligible_epi_tnk": 76,
+  "n_eligible_epi_b": 71,
+  "n_by_dataset": {
+    "GSE127465": 7,
+    "GSE131907": 37,
+    "GSE148071": 42,
+    "GSE253013": 9
+  },
+  "n_eligible_by_dataset": {
+    "GSE127465": 7,
+    "GSE131907": 34,
+    "GSE148071": 26,
+    "GSE253013": 9
+  },
+  "primary": [
+    {
+      "contrast": "epithelial TACSTD2 mean log1p vs T/NK fraction (joint, all eligible donors)",
+      "n": 76,
+      "spearman_rho": 0.15409432672590567,
+      "spearman_p": 0.18383052050933707,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.6127684016977902
+    },
+    {
+      "contrast": "epithelial CLDN4 mean log1p vs T/NK fraction (joint, all eligible donors)",
+      "n": 76,
+      "spearman_rho": 0.11964456596035544,
+      "spearman_p": 0.30326631405121,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.758165785128025
+    },
+    {
+      "contrast": "malignant-like TACSTD2 mean log1p vs T/NK fraction (joint, all eligible donors)",
+      "n": 73,
+      "spearman_rho": -0.33483507048329975,
+      "spearman_p": 0.0037851093106964512,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.03785109310696451
+    },
+    {
+      "contrast": "malignant-like CLDN4 mean log1p vs T/NK fraction (joint, all eligible donors)",
+      "n": 73,
+      "spearman_rho": -0.2724411425027236,
+      "spearman_p": 0.019708096315571168,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.09854048157785583
+    },
+    {
+      "contrast": "epithelial TACSTD2 mean log1p vs B/TLS-like fraction (joint, all eligible donors)",
+      "n": 71,
+      "spearman_rho": -0.0004024144869215291,
+      "spearman_p": 0.997342557032077,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.9973425570320769
+    },
+    {
+      "contrast": "epithelial CLDN4 mean log1p vs B/TLS-like fraction (joint, all eligible donors)",
+      "n": 71,
+      "spearman_rho": 0.05751173708920187,
+      "spearman_p": 0.6337926743497231,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.9465851175843605
+    },
+    {
+      "contrast": "malignant-like TACSTD2 mean log1p vs B/TLS-like fraction (joint, all eligible donors)",
+      "n": 68,
+      "spearman_rho": -0.0395540630298174,
+      "spearman_p": 0.7487793081571462,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.9465851175843605
+    },
+    {
+      "contrast": "malignant-like CLDN4 mean log1p vs B/TLS-like fraction (joint, all eligible donors)",
+      "n": 68,
+      "spearman_rho": 0.023060476901553772,
+      "spearman_p": 0.8519266058259244,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.9465851175843605
+    },
+    {
+      "contrast": "epithelial TACSTD2 %pos vs T/NK fraction (joint, all eligible donors)",
+      "n": 76,
+      "spearman_rho": 0.03696514012303486,
+      "spearman_p": 0.7512267656102593,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.9465851175843605
+    },
+    {
+      "contrast": "epithelial CLDN4 %pos vs T/NK fraction (joint, all eligible donors)",
+      "n": 76,
+      "spearman_rho": 0.0338755980861244,
+      "spearman_p": 0.771426421960872,
+      "note": "",
+      "dataset": null,
+      "bh_fdr": 0.9465851175843605
+    }
+  ],
+  "excluded": {
+    "GSE154826": "Leader et al. Cancer Cell 2021. CD45-bead CITE-seq. Epithelium is restricted to the epi_endo_fibro_doublet gate; Trop-2 ADT is not on the panel. Omitted because a joint epithelial score would be leak, not a tumor-epithelial compartment."
+  },
+  "catalog": [
+    {
+      "dataset": "GSE131907",
+      "included": true,
+      "n_cells": 128065,
+      "TACSTD2": true,
+      "CLDN4": true,
+      "n_cells_extracted": 128065
+    },
+    {
+      "dataset": "GSE253013",
+      "included": true,
+      "n_genes_in_vector": 32805,
+      "n_cells_extracted": 256379,
+      "TACSTD2": true,
+      "CLDN4": true
+    },
+    {
+      "dataset": "GSE148071",
+      "included": true,
+      "n_cells": 89887,
+      "TACSTD2": true,
+      "CLDN4": true,
+      "n_cells_extracted": 89887
+    },
+    {
+      "dataset": "GSE127465",
+      "included": true,
+      "n_cells": 40362,
+      "TACSTD2": true,
+      "CLDN4": true,
+      "n_cells_extracted": 40362
+    },
+    {
+      "dataset": "GSE154826",
+      "included": false,
+      "reason": "Leader et al. Cancer Cell 2021. CD45-bead CITE-seq. Epithelium is restricted to the epi_endo_fibro_doublet gate; Trop-2 ADT is not on the panel. Omitted because a joint epithelial score would be leak, not a tumor-epithelial compartment."
+    }
+  ],
+  "eligibility": {
+    "min_epithelial": 20,
+    "min_tnk": 20,
+    "min_b": 10
+  },
+  "note": "Scores are joint-object marker lineages (argmax of mean log1p lineage genes). Malignant-like = epithelial with near-zero normal lung markers. B/TLS-like = B/plasma or non-epithelial cells with high CXCL13/CCL19/CCL21. Not histology. Not ICI."
+}
