@@ -1,0 +1,15 @@
+item	n	note
+GEO patients	26	26 patients / 33 GSM
+GEO samples	33	not the DA unit
+cells in processed matrix	96505	do not cite as n
+normal-tissue samples excluded from graph	5	Normal LN / Normal Brain / Normal Lung
+patients in graph	22	non-normal tissues; biopsies pooled
+patients with malignant CLDN4 score (>=10 mal. cells)	22	primary Spearman DA n
+RECIST R (PR)	6	secondary; not MPR
+RECIST NR (SD+PD)	10	secondary; not NMPR
+RECIST NE	6	kept in continuous CLDN4 DA; dropped from R vs NR
+NSCLC ADC+SQ with CLDN4 score	17	sensitivity; drops SCLC/NUT
+neighbourhoods	5713	overlapping; not independent
+testable nhoods vs malignant CLDN4	360	>=5 patients present
+disjoint nhood subset	553	greedy zero-overlap
+MPR/NMPR labelled patients	0	not a GEO or identity-table field

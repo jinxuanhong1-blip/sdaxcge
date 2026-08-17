@@ -1,0 +1,5 @@
+dataset	graph	unit	n_scored	n_in_graph	note
+GSE207422	post_treatment	sample	7	12	imported PR #323; 5/12 post samples dropped (<10 malignant-like); not re-run
+GSE131907	tLung	sample	10	11	Milo nhood table pending; sample scores from hunt PR 230 (log2TPM, author labels)
+GSE148071	all_biopsies	patient	39	42	39/42 with ≥10 malignant-like; marker-reconstructed lineage (no public CNA IDs)
+GSE205335	non_normal	patient	22	22	imported PR #385; 22 patients; 4 normal-only patients dropped; MPR n=0

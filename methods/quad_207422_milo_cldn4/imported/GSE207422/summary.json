@@ -1,0 +1,126 @@
+{
+  "dataset": "GSE207422",
+  "citation": "Hu et al. Genome Medicine 2023 PMID 36869384",
+  "public_only": true,
+  "author_barcode_labels": false,
+  "lineage_source": "marker_argmax_Hu_canonical",
+  "malignant_definition": "epithelial AND NOT (alveolar/club/ciliated log1p-CP10k >= 1); not CopyKAT",
+  "gene": "CLDN4",
+  "additive_to": "methods/scrna_milo TACSTD2 Milo (taken as given)",
+  "miloR": false,
+  "da_model": "sample-level Welch t-test (MPR vs NMPR) or Spearman (malignant CLDN4); not edgeR QLF",
+  "spatial_fdr": "miloR graphSpatialFDR k-distance reimplementation (Dann 2022 / cydar)",
+  "graph": {
+    "cells_all": 92330,
+    "cells_post": 78651,
+    "k": 30,
+    "d": 30,
+    "prop": 0.1,
+    "n_hvg": 2000,
+    "n_nhoods": 5347,
+    "nhood_size": 31,
+    "batch": "PCA per-sample mean centering (not Harmony)"
+  },
+  "samples_post": {
+    "n": 12,
+    "MPR": 4,
+    "NMPR": 8,
+    "n_with_malignant_ge10": 7
+  },
+  "lineage_counts_post": {
+    "T": 30192,
+    "Myeloid": 16498,
+    "Epithelial": 8407,
+    "Neutrophil": 7781,
+    "B": 7182,
+    "NK": 3568,
+    "Plasma": 3406,
+    "Mast": 661,
+    "Fibroblast": 488,
+    "Endothelial": 251,
+    "Unassigned": 217
+  },
+  "n_malignant_post": 5997,
+  "n_tnk_post": 33760,
+  "da_mpr_vs_nmpr": {
+    "n_nhoods_total": 5347,
+    "n_testable": 148,
+    "n_p_lt_0.05": 1,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0,
+    "min_p": 0.006543177747565796,
+    "min_SpatialFDR": 0.7065323832293037,
+    "min_BH_FDR": 0.7020178332251881
+  },
+  "da_malignant_cldn4": {
+    "n_nhoods_total": 5347,
+    "n_testable": 20,
+    "n_p_lt_0.05": 2,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0,
+    "min_p": 0.03738607346849874,
+    "min_SpatialFDR": 0.36765044567223853,
+    "min_BH_FDR": 0.3738607346849874
+  },
+  "composition": {
+    "note": "transcriptional kNN != spatial niche; unrestricted CLDN4 vs T/NK is partly lineage geometry",
+    "all_nhoods_maligCLDN4_vs_fracTNK": {
+      "n": 586,
+      "rho": -0.47045384498004367,
+      "p": 1.3157832134881531e-33
+    },
+    "interface_nhoods": {
+      "definition": ">=3 malignant AND >=3 T/NK cells",
+      "n": 15,
+      "spearman": {
+        "n": 15,
+        "rho": -0.2054011989577776,
+        "p": 0.4627124740854511
+      }
+    },
+    "disjoint_interface": {
+      "n_disjoint_nhoods": 467,
+      "n_disjoint_interface": 1,
+      "spearman": {
+        "n": 1,
+        "rho": null,
+        "p": null
+      }
+    },
+    "sample_paired_TNK_in_CLDN4high_vs_low_nhoods": {
+      "high_low_cut": "median malignant CLDN4 among nhoods with >=5 malignant cells",
+      "median_cut": 1.4725894927978516,
+      "n_high_nhoods": 268,
+      "n_low_nhoods": 267,
+      "wilcoxon_high_vs_low": {
+        "n": 10,
+        "median_a": 0.0,
+        "median_b": 0.0,
+        "p": 0.75
+      }
+    },
+    "nhood_cldn4_DA_rho_vs_fracTNK": {
+      "n": 20,
+      "rho": 0.09306095703875933,
+      "p": 0.6963648050692
+    }
+  },
+  "honest_n": {
+    "independent_unit_DA": "post-treatment samples (n=12; MPR=4 including pCR, NMPR=8)",
+    "n_samples_with_malignant_CLDN4_score": 7,
+    "nhoods_are_overlapping": true,
+    "SpatialFDR_is_overlap_aware": true,
+    "disjoint_nhood_subset_n": 467,
+    "do_not_cite_n_cells_as_n": 78651
+  },
+  "sample_level_malignant_CLDN4_vs_fracTNK": {
+    "n": 7,
+    "rho": -0.07142857142857144,
+    "p": 0.879048193148154,
+    "note": "Spearman across the 7 post samples with >=10 malignant-like cells; unit=sample"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "title": "QUAD merge Milo / nhood vs malignant CLDN4",
+  "datasets": [
+    "GSE207422",
+    "GSE131907",
+    "GSE148071",
+    "GSE205335"
+  ],
+  "include_207422": true,
+  "redo_207422_only_milo": false,
+  "pr_323": "imported; null SpatialFDR; honest n=7",
+  "dual_high": false,
+  "tacstd2_gate": false,
+  "unit": "patient/sample",
+  "graph": "per dataset (GSE131907 also split tLung / mBrain); not Harmony",
+  "harmony": false,
+  "harmony_reason": "four chemistries/label schemes; ~400k cells; 15 GB RAM; treatment and site confounded with dataset",
+  "miloR": false,
+  "da_model": "sample-level Spearman on nhood proportions vs malignant CLDN4; SpatialFDR k-distance",
+  "honest_n_primary_sum": 78,
+  "honest_rows": [
+    {
+      "dataset": "GSE207422",
+      "graph": "post_treatment",
+      "unit": "sample",
+      "n_scored": 7,
+      "n_in_graph": 12,
+      "note": "imported PR #323; 5/12 post samples dropped (<10 malignant-like); not re-run"
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "unit": "sample",
+      "n_scored": 10,
+      "n_in_graph": 11,
+      "note": "Milo nhood table pending; sample scores from hunt PR 230 (log2TPM, author labels)"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "unit": "patient",
+      "n_scored": 39,
+      "n_in_graph": 42,
+      "note": "39/42 with \u226510 malignant-like; marker-reconstructed lineage (no public CNA IDs)"
+    },
+    {
+      "dataset": "GSE205335",
+      "graph": "non_normal",
+      "unit": "patient",
+      "n_scored": 22,
+      "n_in_graph": 22,
+      "note": "imported PR #385; 22 patients; 4 normal-only patients dropped; MPR n=0"
+    }
+  ],
+  "forest": [
+    {
+      "label": "GSE207422 post (imported #323)",
+      "dataset": "GSE207422",
+      "graph": "post_treatment",
+      "n": 7,
+      "rho": -0.07142857142857144,
+      "p": 0.879048193148154,
+      "source": "imported_PR323"
+    },
+    {
+      "label": "GSE131907 tLung (hunt fallback)",
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "n": 10,
+      "rho": -0.18787878787878787,
+      "p": 0.6032176100292089,
+      "source": "imported_hunt_PR230"
+    },
+    {
+      "label": "GSE131907 other origins (hunt, not primary n)",
+      "dataset": "GSE131907",
+      "graph": "other_origins",
+      "n": 21,
+      "rho": -0.6168831168831169,
+      "p": 0.0028947180479421885,
+      "source": "imported_hunt_PR230"
+    },
+    {
+      "label": "GSE148071 biopsies",
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "n": 39,
+      "rho": 0.004253165102152267,
+      "p": 0.9794990836165818,
+      "source": "imported_PR383_scores_only"
+    },
+    {
+      "label": "GSE205335 patients",
+      "dataset": "GSE205335",
+      "graph": "non_normal",
+      "n": 22,
+      "rho": -0.2625635234330887,
+      "p": 0.23780202752583146,
+      "source": "imported_PR385"
+    }
+  ],
+  "stouffer_signed_primary": {
+    "n_studies": 4,
+    "z": -0.8404729945916075,
+    "p": 0.40064323699564186
+  },
+  "pooled_within_dataset_ranks": {
+    "n": 78,
+    "rho": -0.09696065182613421,
+    "p": 0.39839005989602794
+  },
+  "n_nhoods_in_table": 11060,
+  "n_testable_in_table": 380,
+  "n_SpatialFDR_lt_0.1_in_table": 0,
+  "missing_nhood_tables": [
+    "GSE131907 nhoods",
+    "GSE148071 nhoods"
+  ],
+  "figures": [
+    "figures/fig_sample_cldn4_vs_tnk_by_dataset.png",
+    "figures/fig_sample_ranks_cldn4_vs_tnk.png",
+    "figures/fig_forest_sample_cldn4_vs_tnk.png",
+    "figures/fig_nhood_volcano_faceted.png",
+    "figures/fig_spatialfdr_counts.png",
+    "figures/fig_interface_cldn4_vs_tnk.png",
+    "figures/fig_honest_n.png"
+  ],
+  "da_by_graph": [
+    {
+      "dataset": "GSE207422",
+      "graph": "post_treatment",
+      "table": "yes_imported",
+      "n_nhoods_total": 5347,
+      "n_testable": 20,
+      "n_p_lt_0.05": 2,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "n_BH_FDR_lt_0.1": 0,
+      "min_p": 0.0373860734684987,
+      "min_SpatialFDR": 0.3676504456722385,
+      "min_BH_FDR": 0.3738607346849874
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "table": "no",
+      "n_nhoods_total": null,
+      "n_testable": null,
+      "n_p_lt_0.05": null,
+      "min_SpatialFDR": null,
+      "n_SpatialFDR_lt_0.1": null,
+      "n_BH_FDR_lt_0.1": null
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "table": "summary_only",
+      "n_nhoods_total": 6401,
+      "n_testable": 881,
+      "n_p_lt_0.05": 81,
+      "n_SpatialFDR_lt_0.1": 8,
+      "n_SpatialFDR_lt_0.05": 8,
+      "n_BH_FDR_lt_0.1": 8,
+      "min_p": 0.0,
+      "min_SpatialFDR": 0.0,
+      "min_BH_FDR": 0.0,
+      "table_present": false,
+      "note": "nhood table absent from PR 383 (results/ gitignored); counts from published summary until this run writes the table"
+    },
+    {
+      "dataset": "GSE205335",
+      "graph": "non_normal",
+      "table": "yes",
+      "n_nhoods_total": 5713,
+      "n_testable": 360,
+      "n_p_lt_0.05": 17,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "n_BH_FDR_lt_0.1": 0,
+      "min_p": 0.004804664723032,
+      "min_SpatialFDR": 0.8986669249960799,
+      "min_BH_FDR": 0.8411866530412216
+    }
+  ]
+}
