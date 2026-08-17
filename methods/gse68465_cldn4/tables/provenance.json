@@ -1,0 +1,23 @@
+{
+  "inputs": {
+    "GSE68465_series_matrix.txt.gz": {
+      "bytes": 36648454,
+      "md5": "be87aa01b1c60c7e1d474f27a0555dd8"
+    },
+    "GPL96.annot.gz": {
+      "bytes": 4522748,
+      "md5": "a3c03c05e7b77d2305b84ba5e46181ec"
+    },
+    "estimate_yoshihara_2013.tsv": {
+      "bytes": 16224,
+      "md5": "6be0de0e90a3b51bc05ef7dcf823402e"
+    }
+  },
+  "signatures": "/workspace/data/signatures/estimate_yoshihara_2013.tsv",
+  "methods": {
+    "collapse": "max-mean probe to HUGO",
+    "ssgsea": "Barbie/GSVA tau=0.25, ranks 1..10000",
+    "purity": "TumorPurity = cos(0.6049872018 + 0.0001467884 \u00d7 ESTIMATEScore)",
+    "partial": "Pearson of rank residuals; df = n \u2212 3"
+  }
+}
