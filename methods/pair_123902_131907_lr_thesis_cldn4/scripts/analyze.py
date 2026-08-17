@@ -204,6 +204,15 @@ def load_gse123902(raw: Path, wanted: set[str], locked: pd.DataFrame):
 
 
 def stream_131907(matrix_path: Path, wanted: set[str]):
+    cache = Path("/tmp/pair_123902_131907_raw/GSE131907/wanted_stream_cache.npz")
+    if cache.exists():
+        print(f"  load stream cache {cache}", flush=True)
+        z = np.load(cache, allow_pickle=True)
+        cached_wanted = set(z["wanted_names"].tolist())
+        if wanted <= cached_wanted:
+            found = {g: z[g] for g in wanted if g in z.files}
+            return z["cell_ids"].tolist(), found, z["n_umi"], int(z["n_streamed"])
+        print("  cache miss (wanted genes changed); re-stream", flush=True)
     found: dict[str, np.ndarray] = {}
     with gzip.open(matrix_path, "rt") as handle:
         header = handle.readline().rstrip("\n").split("\t")
@@ -226,6 +235,14 @@ def stream_131907(matrix_path: Path, wanted: set[str]):
             if n_streamed % 4000 == 0:
                 print(f"  stream genes={n_streamed} stored={len(found)}", flush=True)
     print(f"stream done genes={n_streamed} cells={n} stored={len(found)}", flush=True)
+    payload = {g: found[g] for g in found}
+    payload["n_umi"] = n_umi
+    payload["cell_ids"] = np.array(cell_ids, dtype=object)
+    payload["wanted_names"] = np.array(sorted(wanted), dtype=object)
+    payload["n_streamed"] = np.array(n_streamed)
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(cache, **payload)
+    print(f"  wrote stream cache {cache}", flush=True)
     return cell_ids, found, n_umi, n_streamed
 
 
@@ -237,30 +254,34 @@ def load_gse131907(raw: Path, wanted: set[str], locked: pd.DataFrame):
     ann = pd.read_csv(ann_path, sep="\t")
     cell_ids, found, n_umi, n_genes = stream_131907(mat_path, wanted)
     cell_index = {c: i for i, c in enumerate(cell_ids)}
-    # annotation Index usually matches matrix column
     key = "Index" if "Index" in ann.columns else ann.columns[0]
     ann = ann.copy()
-    ann["_i"] = ann[key].map(cell_index)
-    ann = ann[ann["_i"].notna()].copy()
-    ann["_i"] = ann["_i"].astype(int)
+    ann["cell_i"] = ann[key].map(cell_index)
+    ann = ann[ann["cell_i"].notna()].copy()
+    ann["cell_i"] = ann["cell_i"].astype(int)
     sample_col = "Sample" if "Sample" in ann.columns else "sample"
     origin_col = "Sample_Origin" if "Sample_Origin" in ann.columns else None
     type_col = "Cell_type" if "Cell_type" in ann.columns else None
     sub_col = "Cell_subtype" if "Cell_subtype" in ann.columns else None
 
-    mal_mask = np.zeros(len(cell_ids), dtype=bool)
-    tnk_mask = np.zeros(len(cell_ids), dtype=bool)
-    sample_of = np.array([""] * len(cell_ids), dtype=object)
-    for rec in ann.itertuples(index=False):
-        i = int(getattr(rec, "_i"))
-        sample_of[i] = str(getattr(rec, sample_col))
-        subtype = str(getattr(rec, sub_col)) if sub_col else ""
-        ctype = str(getattr(rec, type_col)) if type_col else ""
-        origin = str(getattr(rec, origin_col)) if origin_col else ""
-        if subtype in MALIG_SUBTYPES and (origin in TUMOR_ORIGINS or origin_col is None):
-            mal_mask[i] = True
-        if ctype in {"T lymphocytes", "NK cells"}:
-            tnk_mask[i] = True
+    n_cells = len(cell_ids)
+    mal_mask = np.zeros(n_cells, dtype=bool)
+    tnk_mask = np.zeros(n_cells, dtype=bool)
+    sample_of = np.empty(n_cells, dtype=object)
+    sample_of[:] = ""
+    idx = ann["cell_i"].to_numpy()
+    sample_of[idx] = ann[sample_col].astype(str).to_numpy()
+    if sub_col and origin_col:
+        subtype = ann[sub_col].astype(str).to_numpy()
+        origin = ann[origin_col].astype(str).to_numpy()
+        mal_ok = np.isin(subtype, list(MALIG_SUBTYPES)) & np.isin(origin, list(TUMOR_ORIGINS))
+        mal_mask[idx[mal_ok]] = True
+    elif sub_col:
+        subtype = ann[sub_col].astype(str).to_numpy()
+        mal_mask[idx[np.isin(subtype, list(MALIG_SUBTYPES))]] = True
+    if type_col:
+        ctype = ann[type_col].astype(str).to_numpy()
+        tnk_mask[idx[np.isin(ctype, ["T lymphocytes", "NK cells"])]] = True
 
     log_cp, pos = to_log_pos(found, n_umi)
     cldn4 = log_cp.get("CLDN4", np.zeros(len(cell_ids), dtype=np.float32))
