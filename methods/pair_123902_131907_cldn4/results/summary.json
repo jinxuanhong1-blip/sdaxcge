@@ -1,0 +1,93 @@
+{
+  "pair": [
+    "GSE123902",
+    "GSE131907"
+  ],
+  "gene": "CLDN4",
+  "dual_high": false,
+  "pile": false,
+  "effects": [
+    {
+      "cohort": "GSE123902",
+      "assay": "scRNA GEO dense UMI CSVs; marker epithelial in tumor vs T/NK",
+      "malignant_def": "marker epithelial (EPCAM/KRT*) in PRIMARY/METASTASIS; not CNV; author H5 36.5GB skipped",
+      "n_catalog_tumor_patients": 13,
+      "n_eligible": 13,
+      "rho": -0.13186813186813187,
+      "p": 0.6676075762175145,
+      "ci95": [
+        -0.6366065231917233,
+        0.45196411281655274
+      ],
+      "min_mal": 20,
+      "min_tnk": 20
+    },
+    {
+      "cohort": "GSE131907",
+      "assay": "scRNA GEO raw UMI + author annotation",
+      "malignant_def": "author Cell_subtype in {Malignant cells, tS1, tS2, tS3} at tLung/tL-B/mLN/mBrain",
+      "n_catalog_tumor_patients": 32,
+      "n_eligible": 31,
+      "rho": -0.3266129032258065,
+      "p": 0.07292192572278504,
+      "ci95": [
+        -0.6103237647144526,
+        0.031362925098087364
+      ],
+      "min_mal": 20,
+      "min_tnk": 20,
+      "reused": true
+    }
+  ],
+  "pooled": {
+    "re": {
+      "k": 2,
+      "n_patients_total": 44,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.28471844251825545,
+      "pooled_rho": -0.27726645831858393,
+      "se_z": 0.16222142113076254,
+      "ci95_rho": [
+        -0.5389484774017027,
+        0.03322331096114909
+      ],
+      "p": 0.07923838145351357,
+      "Q": 0.3138756565198114,
+      "df": 1,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "H2": 0.3138756565198114,
+      "fixed_z": -0.28471844251825545,
+      "fixed_rho": -0.27726645831858393
+    },
+    "stouffer": {
+      "k": 2,
+      "method": "Stouffer weighted by sqrt(n-3), signed by \u03c1",
+      "z": -1.759671106704439,
+      "p": 0.07846358747056181
+    },
+    "fisher": {
+      "k": 2,
+      "method": "Fisher combined p (direction-agnostic)",
+      "X2": 6.0448413192710895,
+      "df": 4,
+      "p": 0.19582443047130116
+    }
+  },
+  "differ": false,
+  "differ_reason": "cohort rhos do not differ by the pre-specified rule",
+  "cellchat_ran": false,
+  "ligand_note": "not run; cohort rhos do not differ",
+  "gates": {
+    "gse123902_raw_tar_mb": 90.4,
+    "gse123902_author_h5_gb": 36.5,
+    "gse123902_author_h5_skipped": true,
+    "gse131907_umi_mb": 389.8,
+    "gse131907_log2tpm_gb": 2.9,
+    "gse131907_log2tpm_skipped": true,
+    "tisch_gse123902": "404"
+  },
+  "min_mal": 20,
+  "min_tnk": 20,
+  "min_n_spearman": 5
+}
