@@ -1,0 +1,38 @@
+accession	source	tissue	agent_in_paper	deposited_contrast	n	processed_matrix	new_this_hunt	scored	reason
+GSE312098	GEO / CRC IMMU132+PERK paper	CRC CX-1 cell line	IMMU132 (sacituzumab govitecan)	CX-1 ± IMMU132 ± GSK2606414, 2 day	12 samples (IMMU vs vehicle 3 vs 3 among 4 arms)	GSE312098_gene_fpkm.txt.gz	no	no	Skipped by request. Hunt1 given CX-1 2d CLDN4-down / IFN-APM-up. Not re-audited.
+GSE311016	GEO / same CRC paper	CRC PDX, 5 models, day 29	IMMU132	PDX control vs IMMU132	5 pairs / 10 samples	GSE311016_gene_fpkm.txt.gz	no	no	Skipped by request. Already scored in hunt1 (CLDN4 −0.44, p=0.060).
+E-MTAB-16433	ArrayExpress / ORCA-HD TROP2_in_CRC	CRC PDOX HD42466	Trodelvy (SG) vs vehicle	scRNA 28 d	4 vs 4 mice (2 hashed 10x libraries; 7330 cells)	counts 714 Mb; log1p 885 Mb	no	no	Skipped by request. Already scored in hunt1 (mouse pseudobulk; library aliased with treatment).
+GSE302284	GEO	EGFR-mutant NSCLC residual tissue	paper discusses TROP2 CAR-T / ADC context	scRNA residual tumor + lymph node after TKI	6 samples	GSE302284_RAW.tar	no	no	Skipped by request. Deposited RNA is osimertinib-residual scRNA, not TROP2-ADC vs vehicle.
+phs002555 / phs2555	dbGaP	metastatic TNBC clinical SG	sacituzumab govitecan	WES + RNA of clinical specimens	restricted	restricted	no	no	Skipped by request (dbGaP). Not opened.
+ICARUS-LUNG01 / other EGA	EGA	lung Dato-DXd spatial / clinical	datopotamab deruxtecan	controlled-access	restricted	restricted	no	no	Skipped by request (EGA). Not opened.
+GSE304294	GEO / ESCC IMMU+IACS paper	ESCC KYSE30	IMMU132	Control / IMMU132 / IACS010759 / combo, 1 day	11 samples; IMMU vs control 2 vs 3	GSE304294_gene_fpkm.txt.gz (4.4 Mb)	no	no	Already scored in hunt1. Not a new accession. Honest IMMU arm n=2. Not re-scored.
+E-MTAB-16843	ArrayExpress / same ORCA-HD paper	CRC organoid HD42466	SG vs IgG1-SN-38 time course	hashed scRNA 0–12 h + washout	4 ENA samples (GEX+HTO multiplex)	counts 4.35 GB; log1p 5.49 GB	no	no	Already in hunt1 catalog. Full processed matrices still >2 GB. Not a new accession.
+E-MTAB-16849	ArrayExpress / same ORCA-HD paper	CRC liver-met PDOX	SG vs IgG1-SN-38 time course	hashed scRNA 0–120 h	6 ENA samples (GEX+HTO multiplex)	full counts 4.62 GB; MAGIC 21.8 GB; time-split counts 1.17 and 1.44 GB	no	no	Already in hunt1 catalog. Time-split <2 GB files are trajectory subsets, not a new SG-vs-control matrix. Not a new accession.
+E-MTAB-16583	ArrayExpress / same ORCA-HD paper	CRC cohort tissue	none	untreated tissue-seq	—	—	no	no	Not TROP2-ADC treatment. Already known leftover of the same paper.
+E-MTAB-16585	ArrayExpress / same ORCA-HD paper	CRC PDOX untreated	none	untreated PDOX-seq	—	—	no	no	Not TROP2-ADC treatment.
+E-MTAB-16836	ArrayExpress / same ORCA-HD paper	CRC PDO	FOLFIRI	scRNA time course	—	—	no	no	Chemotherapy, not TROP2 ADC.
+E-MTAB-16835	ArrayExpress / same ORCA-HD paper	mouse MDO tumors	none	VAKPS/VKPN	—	—	no	no	Not TROP2 ADC.
+GSE278664	GEO / Nair et al. ovarian SG+ATR paper	HGSOC biopsies	paper studies SG + berzosertib	BRCAmut vs BRCAwt tumor biopsies (NCT02203513)	35 (15 BRCAmut + 20 BRCAwt)	two xlsx 4.9 Mb + 10.4 Mb	no	no	Opened. Sample titles are Tumor biopsy P*mut / S*wt. No SG vs vehicle arm in the deposited matrix.
+GSE309617	GEO / TNBC carboplatin paper	TNBC PDX	paper mentions TROP2 ADC context	matched carboplatin-resistant vs sensitive PDX	22	BulkRNASeq_Human_Gene_counts.tsv.gz	no	no	Opened. Design is carboplatin resistance, not ADC vs vehicle.
+GSE309616	GEO / same carboplatin paper	TNBC PDX BCM-3887	same	scRNA CR vs CS	2	RAW.tar	no	no	Opened. Not ADC treatment RNA.
+GSE303323	GEO / PDAC KRAS/ERK paper	PDAC Capan-1	paper combines KRAS/ERK i with SG in PDX	TRIM22 OE vs vector	6	RAW.tar	no	no	Opened. TRIM22 overexpression, not SG vs vehicle.
+GSE303051	GEO / same PDAC paper	PDAC lines Pa01C/02C/03C/14C	same	ulixertinib vs DMSO	30	RAW.tar	no	no	Opened. KRAS/ERK inhibitor RNA, not ADC.
+GSE302981	GEO / same PDAC paper	PDAC lines	same	ulixertinib vs DMSO	8	RAW.tar	no	no	Opened. No SG treatment arm.
+GSE303106	GEO / same PDAC paper	PDAC	same	CUT&RUN / ChIP	9	—	no	no	Opened. Not RNA ADC contrast.
+GSE303105	GEO / same PDAC paper	mouse PDAC	same	scRNA RMC-6236	2	—	no	no	Opened. Not ADC.
+GSE303104	GEO / same PDAC paper	mouse PDAC	same	scRNA ulixertinib	2	—	no	no	Opened. Not ADC.
+GSE235812	GEO / breast TROP2 / later Dato-DXd BCX paper cites it	breast tumor P0 + matching PDX P1	papers used SG or Dato-DXd in other experiments	untreated P0 vs P1	36	RAW.tar	no	no	Opened. Design is PDX vs tumor, not ADC vs vehicle. Hunt1 already logged this.
+GSE213103	GEO (SN-38 AND TROP2 leftover)	colon PDX FACS CSC vs non-CSC	irinotecan (CPT-11)	irinotecan vs saline, 4 weeks	8 arrays (2 tumors × 2 phenotypes × 2 arms)	microarray GPL15207	no	no	Opened. Free SN-38 prodrug chemotherapy, not a TROP2 ADC.
+GSE173065	GEO (Dato-DXd alias false hit)	S. cerevisiae	none	DNA ligase I depletion	25	—	no	no	Pol-delta / Okazaki. Not datopotamab.
+GSE141884	GEO (Dato-DXd alias false hit)	S. cerevisiae	none	Pol-delta levels	54	—	no	no	Not datopotamab.
+GSE158506	GEO (ADC AND TROP2 false hit)	mouse/human	none	FAT1 deletion SuperSeries	62	—	no	no	Not TROP2 ADC.
+GSE54352	GEO (ADC AND TROP2 false hit)	mouse lung SCC stroma	none	Lkb1/Pten	6	array	no	no	Not TROP2 ADC.
+GSE54351	GEO (ADC AND TROP2 false hit)	mouse lung SCC epithelium	none	Lkb1/Pten	9	array	no	no	Not TROP2 ADC.
+GSE329257	GEO (sac-TMT false hit)	mouse liver γδ T	none	lineage tracing	4	—	no	no	TMT = tandem mass tag / hashtag, not sac-TMT.
+GSE8614	GEO (sac-TMT false hit)	male germ-cell tumors	none	array CGH	74	—	no	no	Not RNA, not ADC.
+GSE289287	GEO (Trop2 KO analog; not ADC)	T-47D xenografts	none	Trop2 KO vs WT	23	present	no	no	TROP2 loss, not TROP2-ADC treatment. Out of hunt2 scope.
+GSE334497	GEO (Trop2 KO analog; not ADC)	4T1 mouse TNBC	none	Trop2 KO vs WT	10	present	no	no	TROP2 loss, not TROP2-ADC treatment. Out of hunt2 scope.
+GSE245459	GEO (shTACSTD2 analog; not ADC)	SKOV3	none	shTACSTD2	12	present	no	no	Knockdown, not ADC.
+datopotamab / Dato-DXd / DS-1062 / Datroway	GEO + ArrayExpress 2026-08-17	—	—	—	0 GSE; 0 E-MTAB	none	no	no	0 public GEO/ArrayExpress RNA series.
+SKB264 / sac-TMT / MK-2870 / tirumotecan	GEO + ArrayExpress 2026-08-17	—	—	—	0 exact GSE; 0 E-MTAB	none	no	no	0 public GEO/ArrayExpress RNA series. False TMT hits listed above.
+PF-06664178 / RN927C / BAT8003 / ESG401 / hRS7	GEO exact / ArrayExpress	—	—	—	0	none	no	no	0 public GEO/ArrayExpress RNA series under these exact names.

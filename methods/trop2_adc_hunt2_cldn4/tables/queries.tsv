@@ -1,0 +1,34 @@
+date	registry	query	n_hits	accessions_or_note
+2026-08-17	GEO gds	(sacituzumab OR IMMU132 OR IMMU-132 OR Trodelvy OR govitecan) AND gse[ETYP]	13	GSE304294,GSE309617,GSE309616,GSE303323,GSE303106,GSE303105,GSE303104,GSE303051,GSE302981,GSE312098,GSE311016,GSE302284,GSE278664
+2026-08-17	GEO gds	"sacituzumab govitecan" AND gse[ETYP]	10	same 13 minus GSE312098,GSE311016,GSE304294
+2026-08-17	GEO gds	(IMMU132 OR IMMU-132) AND gse[ETYP]	13	same 13 as sacituzumab/IMMU132 union
+2026-08-17	GEO gds	datopotamab[All Fields] AND gse[ETYP]	0	none
+2026-08-17	GEO gds	datopotamab	0	none (any GEO entry type)
+2026-08-17	GEO gds	(Dato-DXd OR "DS-1062" OR DS1062 OR Datroway) AND gse[ETYP]	2	GSE173065,GSE141884 (yeast Pol-delta / Okazaki; not Dato-DXd)
+2026-08-17	GEO gds	"DS-1062" AND gse[ETYP]	0	none
+2026-08-17	GEO gds	DS-1062a AND gse[ETYP]	0	none
+2026-08-17	GEO gds	Datroway AND gse[ETYP]	0	none
+2026-08-17	GEO gds	SKB264 AND gse[ETYP]	0	none (exact)
+2026-08-17	GEO gds	"MK-2870" AND gse[ETYP]	0	none
+2026-08-17	GEO gds	tirumotecan AND gse[ETYP]	0	none
+2026-08-17	GEO gds	"sac-TMT" AND gse[ETYP]	2	GSE329257,GSE8614 (TMT = tandem mass tag / hashtag; not sac-TMT)
+2026-08-17	GEO gds	PF06664178 AND gse[ETYP]	0	none
+2026-08-17	GEO gds	RN927C AND gse[ETYP]	0	none
+2026-08-17	GEO gds	BAT8003 AND gse[ETYP]	0	none
+2026-08-17	GEO gds	ESG401 AND gse[ETYP]	0	none
+2026-08-17	GEO gds	hRS7 AND gse[ETYP]	0	none
+2026-08-17	GEO gds	"TROP2 ADC" AND gse[ETYP]	1	GSE302284 (skip; osi DTP / TROP2 CAR-T, not ADC RNA)
+2026-08-17	GEO gds	"TROP2-ADC" AND gse[ETYP]	1	GSE302284
+2026-08-17	GEO gds	"anti-TROP2" AND (ADC OR "antibody-drug" OR "antibody drug") AND gse[ETYP]	2	GSE312098,GSE311016 (skip / already scored)
+2026-08-17	GEO gds	(ADC OR "antibody-drug conjugate") AND (TROP2 OR TACSTD2 OR "TROP-2") AND gse[ETYP]	14	13-set plus GSE158506,GSE54352,GSE54351 (FAT1 / Lkb1-Pten; not TROP2 ADC)
+2026-08-17	GEO gds	(SN-38 OR SN38) AND (TROP2 OR TACSTD2 OR "TROP-2") AND gse[ETYP]	4	GSE312098,GSE311016,GSE278664,GSE213103 (GSE213103 = irinotecan CPT-11, not ADC)
+2026-08-17	ArrayExpress collection	sacituzumab	3	E-MTAB-16433,E-MTAB-16849,E-MTAB-16843
+2026-08-17	ArrayExpress collection	govitecan	3	same three
+2026-08-17	ArrayExpress collection	Trodelvy	1	E-MTAB-16433
+2026-08-17	ArrayExpress collection	IMMU-132 OR IMMU132	0	none
+2026-08-17	ArrayExpress collection	datopotamab	0	none
+2026-08-17	ArrayExpress collection	Dato-DXd	0	none
+2026-08-17	ArrayExpress collection	DS-1062	0	none
+2026-08-17	ArrayExpress collection	SKB264	0	none
+2026-08-17	ArrayExpress collection	tirumotecan	0	none
+2026-08-17	ArrayExpress collection	TROP2	16	ORCA-HD SG trio plus Trop2+ cell-sorting / GEO mirrors; no extra ADC-vs-control series
