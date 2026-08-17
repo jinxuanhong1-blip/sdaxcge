@@ -1011,8 +1011,8 @@ def write_finding(combo: pd.DataFrame, patients: pd.DataFrame, ligand: pd.DataFr
             "Full LR table: [`results/ligand_table.tsv`](results/ligand_table.tsv) "
             "and [`results/lr_q4q1_all.tsv`](results/lr_q4q1_all.tsv).",
             "",
-            "CD274–PDCD1 / NECTIN2–TIGIT / CXCL9–CXCR3 are **not invented** if they "
-            "fail `expr_prop ≥ 0.10` on either side.",
+            "CD274–PDCD1 is not detect-gated unless both Q4 and Q1 arms have n≥3. "
+            "CXCL16–CXCR6 / NECTIN2–TIGIT are not claimed unless p<0.05.",
             "",
         ]
 
