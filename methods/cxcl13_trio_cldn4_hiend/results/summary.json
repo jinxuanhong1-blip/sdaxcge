@@ -1,0 +1,33 @@
+{
+  "given_trio": {
+    "cohorts": [
+      "GSE148071",
+      "GSE207422",
+      "GSE253013"
+    ],
+    "n": 60,
+    "rho": -0.425,
+    "p": 0.00121,
+    "source": "methods/scrna_cldn4_combo (PR #290); not re-audited"
+  },
+  "gate": "CLDN4-only within-patient median of log1p(CP10k) among epithelial cells",
+  "no_dual_high": true,
+  "not_gse207422_only": true,
+  "min_mal_arm": 10,
+  "min_tnk": 15,
+  "min_cxcl13t": 8,
+  "kh": 0.5,
+  "trim": 0.1,
+  "expr_prop": 0.1,
+  "n_deposited": {
+    "GSE148071": 42,
+    "GSE207422": 15,
+    "GSE253013": 9
+  },
+  "n_eligible_TNK": 50,
+  "n_eligible_CXCL13T": 34,
+  "n_lr_rows_patient": 179676,
+  "n_lr_rows_pooled": 4278,
+  "missing": [],
+  "not_run": "CellChat R; LIANA; TACSTD2 split; dual-high; GSE207422-only re-run; given n=60 Spearman re-audit"
+}
