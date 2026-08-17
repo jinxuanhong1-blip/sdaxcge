@@ -1,0 +1,2 @@
+contrast	accession	species	tissue	n_ko	n_wt	ko_gsm	wt_gsm	ko_animals	wt_animals	rank_metric_primary	n_genes_ranked	deseq_file	series_title	not
+GSE289287_T47D_Trop2KO_xenograft	GSE289287	human	T-47D luminal breast xenograft, NRG mammary fat pad (not lung)	4	3	GSM8788425,GSM8788422,GSM8788423,GSM8788424	GSM8788420,GSM8788421,GSM8788419	2815,2817,2818,2807	2812,2808,2810	author DESeq2 Wald stat (KO minus WT)	26253	GSE289287_DESeq2-Trop2KO_tumors_vs_WT.tsv.gz	Trop-2 governs anti-metastatic desmosomal integrity	lung; SKB264; FASTQ; DSG2 KO arms
