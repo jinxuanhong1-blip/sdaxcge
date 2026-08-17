@@ -1,0 +1,235 @@
+{
+  "GSE22421": {
+    "accession": "GSE22421",
+    "pmid": "21123456",
+    "platform": "GPL10555",
+    "model": "SKOV-3 ovarian cancer cell line",
+    "contrast": "C-CPE 5ug/ml 72h (Cy5) / untreated (Cy3)",
+    "n_arrays": 3,
+    "primary_metric": "deposited series-matrix VALUE = log2(C-CPE/untreated); gene = median of probes per array",
+    "cldn4_per_array": [
+      0.111,
+      -0.415,
+      0.0
+    ],
+    "cldn4_median_log2": 0.0,
+    "cldn4_n_arrays": 3,
+    "tacstd2_on_platform": false,
+    "priority": {
+      "n_list": 6,
+      "n_measured": 6,
+      "n_up": 4,
+      "n_down": 2,
+      "up": [
+        "IFI27",
+        "OAS2",
+        "MX1",
+        "HLA-A"
+      ],
+      "down": [
+        "IFIT1",
+        "ISG15"
+      ]
+    },
+    "apm": {
+      "n_list": 16,
+      "n_measured": 12,
+      "n_up": 9,
+      "n_down": 3,
+      "up": [
+        "HLA-A",
+        "HLA-B",
+        "TAP1",
+        "TAPBP",
+        "PSMB8",
+        "PSMB9",
+        "PSMB10",
+        "CALR",
+        "CANX"
+      ],
+      "down": [
+        "HLA-C",
+        "B2M",
+        "TAP2"
+      ]
+    },
+    "ifn": {
+      "n_list": 73,
+      "n_measured": 60,
+      "n_up": 40,
+      "n_down": 20,
+      "up": [
+        "MX1",
+        "OAS1",
+        "OAS2",
+        "OAS3",
+        "OASL",
+        "IFIT5",
+        "IFITM2",
+        "IFI6",
+        "IFI27",
+        "IFI35",
+        "IFI16",
+        "HERC5",
+        "USP18",
+        "GBP1",
+        "GBP4",
+        "GBP5",
+        "ZBP1",
+        "IRF1",
+        "IRF7",
+        "JAK2",
+        "SOCS1",
+        "TAP1",
+        "PSMB8",
+        "PSMB9",
+        "HLA-A",
+        "HLA-B",
+        "HLA-F",
+        "TAPBP",
+        "CXCL10",
+        "CXCL11",
+        "CXCL9",
+        "CCL5",
+        "IL6",
+        "TNF",
+        "IL15",
+        "IFNB1",
+        "IFNAR1",
+        "IFNAR2",
+        "IFNGR1",
+        "IFNGR2"
+      ],
+      "down": [
+        "ISG15",
+        "IFIT1",
+        "IFIT2",
+        "IFIT3",
+        "IFI44",
+        "DDX58",
+        "IFIH1",
+        "BST2",
+        "GBP2",
+        "STAT1",
+        "STAT2",
+        "SOCS3",
+        "B2M",
+        "TAP2",
+        "HLA-C",
+        "HLA-E",
+        "CCL2",
+        "NFKB1",
+        "RELA",
+        "IFNG"
+      ]
+    },
+    "tj": {
+      "n_list": 27,
+      "n_measured": 25,
+      "n_up": 20,
+      "n_down": 4,
+      "up": [
+        "CLDN1",
+        "CLDN2",
+        "CLDN6",
+        "CLDN7",
+        "CLDN8",
+        "CLDN9",
+        "CLDN10",
+        "CLDN18",
+        "TJP1",
+        "TJP2",
+        "TJP3",
+        "OCLN",
+        "MARVELD2",
+        "MARVELD3",
+        "F11R",
+        "JAM2",
+        "JAM3",
+        "CTNNB1",
+        "CTNNA1",
+        "CRB3"
+      ],
+      "down": [
+        "CLDN3",
+        "CLDN12",
+        "CGN",
+        "CDH1"
+      ]
+    },
+    "ifn_set_mannwhitney_p": "0.7349",
+    "ifn_set_median_log2": "0.3857",
+    "apm_set_mannwhitney_p": "0.2235",
+    "apm_set_median_log2": "0.1919",
+    "n_background_genes": 16832
+  },
+  "GSE22493": {
+    "accession": "GSE22493",
+    "platform": "GPL10555",
+    "model": "SKOV-3-IP-Luc ovarian cancer cell line",
+    "contrast": "CLDN4 lentiviral siRNA (Cy5) / CLDN4 overexpression (Cy3)",
+    "n_arrays": 3,
+    "symbols_mapped": true,
+    "mapping_rule": "ORF or DESCRIPTION prefix; G1P2->ISG15",
+    "cldn4_per_array": [
+      null,
+      -1.737,
+      -0.7131
+    ],
+    "cldn4_median_log2": -1.22505,
+    "priority": {
+      "n_list": 6,
+      "n_measured": 6,
+      "n_up": 3,
+      "n_down": 3,
+      "up": [
+        "OAS2",
+        "MX1",
+        "ISG15"
+      ],
+      "down": [
+        "IFI27",
+        "IFIT1",
+        "HLA-A"
+      ]
+    },
+    "apm": {
+      "n_list": 16,
+      "n_measured": 12,
+      "n_up": 3,
+      "n_down": 9,
+      "up": [
+        "PSMB8",
+        "PSMB9",
+        "CALR"
+      ],
+      "down": [
+        "HLA-A",
+        "HLA-B",
+        "HLA-C",
+        "B2M",
+        "TAP1",
+        "TAP2",
+        "TAPBP",
+        "PSMB10",
+        "CANX"
+      ]
+    },
+    "ifn_set_mannwhitney_p": "0.2964",
+    "ifn_set_median_log2": "-0.2320"
+  },
+  "pairing": {
+    "paired": true,
+    "reason": "Both series use GPL10555; gene symbols map by the same ORF/DESCRIPTION rule."
+  },
+  "verdict": "does_not_support_CCPE_or_CLDN4_siRNA_opening_IFN_MHCI_APM",
+  "honesty": [
+    "Not lung; SKOV-3 / SKOV-3-IP-Luc ovarian lines.",
+    "Not SKB264; C-CPE is a CLDN3/4-binding C-terminal CPE fragment.",
+    "GSE22421 n=3 two-color arrays; GSE22493 n=3 two-color arrays.",
+    "TACSTD2 is not annotated on GPL10555.",
+    "GSE22493 control is CLDN4 overexpression, not scramble/WT.",
+    "One-sample t and MW/GSEA with n=3 are descriptive.",
+    "Dye-swap is claimed in text; deposited GSMs all have Cy3=control, Cy5=treated."
+  ]
+}
