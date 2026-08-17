@@ -1,0 +1,120 @@
+{
+  "dataset": "GSE11969",
+  "pmid": "16549822",
+  "pmid_followup": "21465578",
+  "platform": "GPL7015 Agilent Homo sapiens 21.6K custom array",
+  "processing": "LOWESS normalized, background subtracted VALUE = log10(processed Red/processed Green)",
+  "n_series": 163,
+  "n_nsclc": 149,
+  "n_luad": 90,
+  "n_sq": 35,
+  "n_la": 18,
+  "n_as": 4,
+  "n_lcnec": 2,
+  "n_sclc": 9,
+  "n_normal": 5,
+  "n_probes": 21619,
+  "n_missing_value_cells": 0,
+  "epithelial_used": [
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "epithelial_missing": [
+    "EPCAM"
+  ],
+  "cldn4_vs_epi_rho": 0.402774005021196,
+  "cldn4_vs_epi_p": 8.295361004483571e-05,
+  "cd274_gpl_symbol": "PDCD1LG1",
+  "gefitinib_luad_yes": 8,
+  "primary": [
+    {
+      "gene_x": "CLDN4",
+      "gene_y": "CD8A",
+      "gpl_symbol": "CD8A",
+      "kind": "primary",
+      "n": 90,
+      "n_luad": 90,
+      "rho": -0.40260937564308347,
+      "p": 8.356366549925122e-05,
+      "ci_low": -0.5681410704797204,
+      "ci_high": -0.2114714557816771,
+      "rho_adj": -0.39216756798185487,
+      "p_adj": 0.00014420576499969603,
+      "verdict_unadj": "HOLDS",
+      "verdict_adj": "HOLDS"
+    },
+    {
+      "gene_x": "CLDN4",
+      "gene_y": "CD274",
+      "gpl_symbol": "PDCD1LG1",
+      "kind": "primary",
+      "n": 90,
+      "n_luad": 90,
+      "rho": 0.025344692760423098,
+      "p": 0.8125652879700818,
+      "ci_low": -0.18051003785473152,
+      "ci_high": 0.22773515036546568,
+      "rho_adj": -0.04804801900536665,
+      "p_adj": 0.6547778576534261,
+      "verdict_unadj": "NO_EVIDENCE",
+      "verdict_adj": "NO_EVIDENCE"
+    },
+    {
+      "gene_x": "CLDN4",
+      "gene_y": "TACSTD2",
+      "gpl_symbol": "TACSTD2",
+      "kind": "companion",
+      "n": 90,
+      "n_luad": 90,
+      "rho": 0.23162530353541588,
+      "p": 0.028046181367283388,
+      "ci_low": 0.013654121974957054,
+      "ci_high": 0.4227886806772905,
+      "rho_adj": 0.15874107029839263,
+      "p_adj": 0.13732443985390172,
+      "verdict_unadj": "OPPOSITE",
+      "verdict_adj": "NO_EVIDENCE"
+    }
+  ],
+  "q4q1": [
+    {
+      "predictor": "CLDN4_quartile",
+      "endpoint": "CD8A",
+      "n_Q4": 23,
+      "n_Q1": 23,
+      "median_Q4": 0.068949639,
+      "median_Q1": 0.332570125,
+      "delta": -0.263620486,
+      "U": 86.0,
+      "p": 9.209986896932963e-05,
+      "rank_biserial": -0.6748582230623819
+    },
+    {
+      "predictor": "CLDN4_quartile",
+      "endpoint": "CD274",
+      "n_Q4": 23,
+      "n_Q1": 23,
+      "median_Q4": 0.038778498,
+      "median_Q1": 0.040313994,
+      "delta": -0.0015354959999999973,
+      "U": 291.0,
+      "p": 0.5678649632170945,
+      "rank_biserial": 0.10018903591682427
+    },
+    {
+      "predictor": "CLDN4_quartile",
+      "endpoint": "TACSTD2",
+      "n_Q4": 23,
+      "n_Q1": 23,
+      "median_Q4": 0.720886665,
+      "median_Q1": 0.568839755,
+      "delta": 0.15204691000000004,
+      "U": 363.0,
+      "p": 0.031320274455990685,
+      "rank_biserial": 0.3724007561436673
+    }
+  ]
+}
