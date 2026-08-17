@@ -1,0 +1,51 @@
+{
+  "dataset": "GSE33532",
+  "primary_cohort": "LUAD tumor, patient-mean of 4 sites",
+  "n_luad_arrays": 40,
+  "n_luad_patients": 10,
+  "n_named_complete": 40,
+  "CLDN4_CD8A_patient": {
+    "n": 10,
+    "rho": -0.16363636363636364,
+    "p": 0.6514773427962428,
+    "partial_rho": -0.17180518849852233,
+    "partial_p": 0.6584964938637784,
+    "verdict": "UNDERPOWERED"
+  },
+  "CLDN4_CD274_patient": {
+    "n": 10,
+    "rho": 0.04242424242424241,
+    "p": 0.9073638178128159,
+    "partial_rho": 0.041990143805212696,
+    "partial_p": 0.9145839689343477,
+    "verdict": "UNDERPOWERED"
+  },
+  "CLDN4_ImmuneScore_patient": {
+    "n": 10,
+    "rho": -0.10303030303030303,
+    "p": 0.7769984634438898,
+    "partial_rho": -0.10639393271977848,
+    "partial_p": 0.785290217475784,
+    "verdict": "UNDERPOWERED"
+  },
+  "probes": {
+    "CLDN4": "201428_at",
+    "CD8A": "205758_at",
+    "CD274": "223834_at"
+  },
+  "histo_counts": {
+    "LUAD": 40,
+    "NORMAL": 20,
+    "MIXED": 24,
+    "LUSC": 16
+  },
+  "epithelial_genes": [
+    "EPCAM",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "estimate_immune_present": 138
+}
