@@ -1,0 +1,11 @@
+source	reason	detail	n_rows
+GSE241934_IIT	all-epithelial	author residual Epi only; no author-malignant / marker-malignant / DRMref column	11
+GSE241934_Real	all-epithelial	author residual Epi only	24
+GSE131907 author_epi	all-epithelial	author epithelium columns dropped; author_malig n_mal>=20 is kept	36
+GSE253013 author_epi / marker_epi	all-epithelial	author Epithelial and tumor epithelium columns dropped; marker_malig kept	9
+GSE207422 marker_epi	all-epithelial	post all-epithelial extra dropped; marker_malig and DRMref kept	12
+GSE291670 marker_epi	all-epithelial	epi_* columns dropped; marker_malig kept	6
+E-MTAB-13526	all-epithelial	author Cell types epithelium only; no malignant split	13
+GSE267108 malignant	malignant n<4	leftover stats: mal_TACSTD2 n=1; epithelial-only would be dropped anyway	1
+GSE274595 malignant	malignant n<4	leftover stats: mal_TACSTD2 n=0	0
+GSE207422 inferCNV-like	not author/marker/DRMref	wave2 inferCNV defs dropped; CLDN4 absent in that table	12

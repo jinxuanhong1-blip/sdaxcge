@@ -1,0 +1,7 @@
+gene_TAC	n_TAC	rho_TAC	p_TAC	note_TAC	gene_CLDN	n_CLDN	rho_CLDN	p_CLDN	note_CLDN	n	both_negative	tac_le_cut	cldn_le_cut	both_le_cut	weaker_rho	cohort	malig_def	tnk_def	score
+TACSTD2	12	-0.4895104895104896	0.10625237175934595	A3 given DRMref; TACSTD2 not re-audited	CLDN4	12	-0.09090909090909093	0.7787253962454419	CLDN4 from given A3 DRMref table; not on the A3 slide	12	True	True	False	False	-0.09090909090909093	GSE207422	author_DRMref	tnk	mean
+TACSTD2	22	0.2840203274985884	0.20019815279526967	author malignant	CLDN4	22	-0.20045172219085267	0.3710825718233011	author malignant	22	False	False	False	False	0.2840203274985884	GSE205335	author_malig	tnk	mean
+TACSTD2	6	-0.5428571428571429	0.26570262390670546	marker malignant	CLDN4	6	-0.8285714285714287	0.04156268221574335	marker malignant	6	True	True	True	True	-0.5428571428571429	GSE291670	marker_malig	tnk	mean
+TACSTD2	9	-0.7166666666666667	0.02981803569584528	tumor malig-like	CLDN4	9	-0.33333333333333337	0.38071318167686347	tumor malig-like	9	True	True	False	False	-0.33333333333333337	GSE253013	marker_malig	tnk	mean
+TACSTD2	21	0.08181818181818182	0.7244098408074375	author Malignant cells subtype, n_mal>=20	CLDN4	21	-0.39610389610389607	0.07547637795047248	author Malignant cells subtype, n_mal>=20	21	False	False	True	False	0.08181818181818182	GSE131907	author_malig	tnk	mean
+TACSTD2	25	-0.07307692307692308	0.7284839479101775	author malignant, donor	CLDN4	25	-0.11923076923076922	0.5702629145851892	author malignant, donor	25	True	False	False	False	-0.07307692307692308	GSE325414	author_malig	tnk	mean
