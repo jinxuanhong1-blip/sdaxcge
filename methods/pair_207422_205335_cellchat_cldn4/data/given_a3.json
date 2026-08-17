@@ -1,0 +1,17 @@
+{
+  "cohort_id": "GSE207422",
+  "slide": "User A3 (GSE207422 malignant TACSTD2 vs T/NK)",
+  "policy": "TAKEN AS GIVEN. This meta does not re-download, re-annotate, or re-audit GSE207422.",
+  "source": "DRMref public labels joined to GEO UMIs; 12 post-treatment surgical samples; pCR counted as MPR.",
+  "paper": "Hu et al. Genome Medicine 2023 PMID 36869384",
+  "malignant_definition": "DRMref 'Malignant cells' (Liu et al. NAR 2024); not Hu CopyKAT.",
+  "tnk_definition": "(CD8+ T + CD4+ T + NK) / DRMref-annotated cells",
+  "metric_primary": "mean log1p(CP10K) TACSTD2 in malignant cells vs T/NK fraction",
+  "n_patients": 12,
+  "spearman_rho_TACSTD2_mean": -0.4895104895104896,
+  "spearman_p_TACSTD2_mean": 0.10625237175934595,
+  "spearman_rho_TACSTD2_pct": -0.6433566433566434,
+  "spearman_p_TACSTD2_pct": 0.024003191200713647,
+  "note_pct": "Secondary %pos vs T/NK is on the same given 12-patient table; not a new A3 audit.",
+  "CLDN4": "Not on the A3 slide. CLDN4 vs T/NK is computed from the same given 12-patient DRMref table (malig_CLDN4_mean vs frac_tnk) without touching the TACSTD2 slide."
+}
