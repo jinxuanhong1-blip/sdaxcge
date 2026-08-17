@@ -1,0 +1,5 @@
+cohort	tissue	assay	scale	n_patients	n_merged	CLDN4	CD274	HLA-A	HLA-B	HLA-C	CD8A	MHCI_genes	ici_note
+GSE218989	NSCLC tumor (SMC-KAIST PD-1/PD-L1)	RNA-seq TPM, protein-coding	log2(TPM+1)	355	355	CLDN4	CD274	HLA-A	HLA-B	HLA-C	CD8A	HLA-A,HLA-B,HLA-C	GEO treatment outcome on 355 patients; this page is CLDN4 vs CD274/HLA, not response
+GSE126044	NSCLC tumor biopsy, anti-PD-1	RNA-seq counts	log2(CPM+1)	16	16	CLDN4	CD274	HLA-A	HLA-B	HLA-C	CD8A	HLA-A,HLA-B,HLA-C	GEO responder / non-responder (5 / 11); correlations use all 16 patients
+GSE166449	advanced LUAD tumor, pembrolizumab	RNA-seq TPM	log2(TPM+1)	22	22	CLDN4	CD274	HLA-A	HLA-B	HLA-C	CD8A	HLA-A,HLA-B,HLA-C	GEO titles Responder 7 / nonResponder 15; correlations use all 22 patients
+GSE182328	NSCLC tumor, ICI-treated	RNA-seq counts	log2(CPM+1)	44	44	CLDN4	CD274	HLA-A	HLA-B	HLA-C	CD8A	HLA-A,HLA-B,HLA-C	GEO has Akkermansia only (not RECIST/PFS/MPR); correlations use all 44 patients
