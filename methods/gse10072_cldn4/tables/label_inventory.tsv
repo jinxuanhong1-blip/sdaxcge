@@ -1,0 +1,10 @@
+item	public	n	note
+arrays in series matrix	yes	107	GSE10072_series_matrix.txt.gz
+unique GSM / titles	yes	107	all unique
+unique GT subjects	yes	74	from titles
+LUAD tumor arrays	yes	58	source Adenocarcinoma of the Lung
+non-tumor lung arrays	yes	49	dropped; tumor-only rule
+paired tumor+normal subjects	yes	33	same GT; pairing unused
+tumor-only subjects	yes	25	tumor, no deposited normal
+ICI / response	no	0	not an ICI series
+OS / event in matrix	no	0	not deposited

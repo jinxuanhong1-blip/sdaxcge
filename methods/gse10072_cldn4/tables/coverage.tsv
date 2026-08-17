@@ -1,0 +1,23 @@
+	value
+n_matrix	107
+n_tumor	58
+n_normal	49
+n_subjects	74
+n_paired_subjects	33
+n_named_complete	58
+n_immunescore	58
+n_probes	22283
+n_missing_rma	0
+estimate_immune_present	138
+estimate_stromal_present	136
+n_epithelial_genes	6
+epithelial_used	EPCAM/KRT8/KRT18/KRT19/CDH1/KRT7
+probe_CLDN4	201428_at
+probe_CD8A	205758_at
+probe_CD274	
+cd274_on_platform	False
+tumor_smoking	"{""Never Smoked"": 16, ""Former Smoker"": 18, ""Current Smoker"": 24}"
+tumor_stage	"{""IIB"": 18, ""IB"": 17, ""IIA"": 3, ""IIIA"": 9, ""IIIB"": 3, ""IV"": 3, ""IA"": 5}"
+tumor_gender	"{""Male"": 35, ""Female"": 23}"
+normalization	RMA (Bioconductor affy; GEO Sample_data_processing)
+platform	GPL96 HG-U133A
