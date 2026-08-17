@@ -29,7 +29,9 @@ def parse_name(fname: str) -> dict:
         raise ValueError(fname)
     site = m.group(3)
     tissue = {"PRIMARY_TUMOUR": "PRIMARY", "METASTASIS": "METASTASIS", "NORMAL": "NORMAL"}[site]
-    return {"gsm": m.group(1), "donor": m.group(2), "site": site, "tissue": tissue, "file": fname}
+    raw_id = m.group(2)
+    donor = raw_id[4:] if raw_id.startswith("MSK_") else raw_id
+    return {"gsm": m.group(1), "donor": donor, "site": site, "tissue": tissue, "file": fname}
 
 
 def ensure_extracted(tar_path: Path, dest: Path) -> list[Path]:
@@ -98,41 +100,40 @@ def main() -> None:
     csv_dir = args.data / "csv"
     files = ensure_extracted(tar, csv_dir)
 
-    all_genes = None
-    X_blocks = []
-    obs_rows = []
+    pieces = []
     audit = []
     for path in files:
         genes, barcodes, rows, info = stream_epithelial(path)
         audit.append(info)
         if not rows:
             continue
-        if all_genes is None:
-            all_genes = genes
-        elif genes != all_genes:
-            raise SystemExit(f"gene order mismatch in {path.name}")
-        X_blocks.append(sparse.csr_matrix(np.vstack(rows)))
-        for bc in barcodes:
-            obs_rows.append(
-                {
-                    "barcode": bc,
-                    "gsm": info["gsm"],
-                    "donor": info["donor"],
-                    "tissue": info["tissue"],
-                    "site": info["site"],
-                    "file": info["file"],
-                    "dataset": "GSE123902",
-                    "is_tumor": info["tissue"] != "NORMAL",
-                }
-            )
+        X = sparse.csr_matrix(np.vstack(rows))
+        obs = pd.DataFrame(
+            {
+                "barcode": barcodes,
+                "gsm": info["gsm"],
+                "donor": info["donor"],
+                "tissue": info["tissue"],
+                "site": info["site"],
+                "file": info["file"],
+                "dataset": "GSE123902",
+                "is_tumor": info["tissue"] != "NORMAL",
+            },
+            index=pd.Index(barcodes, name="cell"),
+        )
+        var = pd.DataFrame(index=pd.Index(genes, name="gene"))
+        # Collapse duplicate symbols inside one sample.
+        if var.index.has_duplicates:
+            keep = ~pd.Index(genes).duplicated()
+            X = X[:, np.where(keep)[0]]
+            var = var.iloc[np.where(keep)[0]]
+        pieces.append(ad.AnnData(X=X, obs=obs, var=var))
 
-    if not X_blocks:
+    if not pieces:
         raise SystemExit("no marker-epithelial cells")
-    X = sparse.vstack(X_blocks, format="csr")
-    obs = pd.DataFrame(obs_rows)
-    obs.index = obs["barcode"].astype(str)
-    var = pd.DataFrame(index=pd.Index(all_genes, name="gene"))
-    adata = ad.AnnData(X=X, obs=obs, var=var)
+    adata = ad.concat(pieces, join="outer", fill_value=0)
+    if adata.var_names.duplicated().any():
+        adata.var_names_make_unique()
     adata.obs["n_umi"] = np.asarray(adata.X.sum(axis=1)).ravel()
     adata.obs["n_genes"] = np.asarray((adata.X > 0).sum(axis=1)).ravel()
     args.out.parent.mkdir(parents=True, exist_ok=True)

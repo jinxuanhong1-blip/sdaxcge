@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -51,12 +52,15 @@ def slingshot_r_status() -> dict:
     if rscript is None:
         return {"available": False, "reason": "Rscript not on PATH"}
     try:
+        env = dict(**os.environ)
+        env.setdefault("R_LIBS_USER", str(Path.home() / "R" / "library"))
         proc = subprocess.run(
-            [rscript, "-e", 'cat(as.character(packageVersion("slingshot")))'],
+            [rscript, "-e", '.libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths())); suppressPackageStartupMessages(library(slingshot)); cat(as.character(packageVersion("slingshot")))'],
             check=False,
             capture_output=True,
             text=True,
             timeout=30,
+            env=env,
         )
     except (OSError, subprocess.TimeoutExpired) as exc:
         return {"available": False, "reason": f"Rscript probe failed: {exc}"}
@@ -327,12 +331,15 @@ def run_r_slingshot(rd: np.ndarray, clusters: np.ndarray, start: str, cells: lis
         pd.DataFrame({"cell": cells, "leiden": clusters}).to_csv(tmp / "clusters.csv", index=False)
         (tmp / "start_cluster.txt").write_text(str(start) + "\n")
         out = tmp / "out"
+        env = dict(**os.environ)
+        env.setdefault("R_LIBS_USER", str(Path.home() / "R" / "library"))
         proc = subprocess.run(
             ["Rscript", str(script), str(tmp), str(out)],
             check=False,
             capture_output=True,
             text=True,
             timeout=600,
+            env=env,
         )
         if proc.returncode != 0:
             print("R slingshot failed:\n", proc.stderr[-2000:] if proc.stderr else proc.stdout, flush=True)
@@ -761,24 +768,22 @@ def main() -> None:
         in_lin = adata.obs["leiden"].astype(str).isin(path)
         sub = adata.obs[in_lin]
         tumor_sub = sub[sub["is_tumor"].astype(bool)]
+        pt_col = lid if lid in tumor_sub.columns else "sling_pt"
         donor_lin = (
             tumor_sub.groupby("donor", observed=True)
-            .agg(mean_CLDN4=("expr_CLDN4", "mean"), mean_pt=(lid if lid in tumor_sub.columns else "sling_pt", "mean"), n=("expr_CLDN4", "size"))
+            .agg(
+                mean_CLDN4=("expr_CLDN4", "mean"),
+                mean_barrier=("score_barrier_keratin", "mean"),
+                mean_IFN=("score_IFN", "mean"),
+                mean_pt=(pt_col, "mean"),
+                n=("expr_CLDN4", "size"),
+            )
             .reset_index()
         )
         donor_lin = donor_lin[donor_lin["n"] >= MIN_CELLS_DONOR]
         spr = _spearman(donor_lin["mean_CLDN4"].to_numpy(), donor_lin["mean_pt"].to_numpy())
-        bar_spr = _spearman(
-            tumor_sub.groupby("donor")["score_barrier_keratin"].mean().to_numpy() if len(donor_lin) else np.array([]),
-            donor_lin["mean_pt"].to_numpy() if len(donor_lin) else np.array([]),
-        ) if len(donor_lin) else {"n": 0, "rho": None, "p": None}
-        ifn_donor = (
-            tumor_sub.groupby("donor", observed=True)
-            .agg(mean_IFN=("score_IFN", "mean"), mean_pt=(lid if lid in tumor_sub.columns else "sling_pt", "mean"), n=("expr_CLDN4", "size"))
-            .reset_index()
-        )
-        ifn_donor = ifn_donor[ifn_donor["n"] >= MIN_CELLS_DONOR]
-        ifn_spr = _spearman(ifn_donor["mean_IFN"].to_numpy(), ifn_donor["mean_pt"].to_numpy())
+        bar_spr = _spearman(donor_lin["mean_barrier"].to_numpy(), donor_lin["mean_pt"].to_numpy())
+        ifn_spr = _spearman(donor_lin["mean_IFN"].to_numpy(), donor_lin["mean_pt"].to_numpy())
         lin_table.append(
             {
                 "lineage_id": lid,

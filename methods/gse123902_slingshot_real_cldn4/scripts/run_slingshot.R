@@ -9,6 +9,10 @@ indir <- args[[1]]
 outdir <- args[[2]]
 dir.create(outdir, recursive = TRUE, showWarnings = FALSE)
 
+user_lib <- Sys.getenv("R_LIBS_USER")
+if (nzchar(user_lib)) {
+  .libPaths(c(user_lib, .libPaths()))
+}
 suppressPackageStartupMessages({
   library(slingshot)
 })
