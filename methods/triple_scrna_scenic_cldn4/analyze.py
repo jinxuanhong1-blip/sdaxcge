@@ -671,7 +671,7 @@ def plot_boxes(patients: pd.DataFrame, out: Path) -> None:
                 vals = sub.loc[sub["q_mean"] == q, f"auc_{name}"].dropna()
                 data.append(vals.to_numpy())
                 labels.append(f"{ds.replace('GSE','')}\n{q}")
-        ax.boxplot(data, labels=labels, showfliers=False)
+        ax.boxplot(data, tick_labels=labels, showfliers=False)
         ax.set_title(title, fontsize=9)
         ax.set_ylabel("AUCell (patient mean)" if ax is axes[0] else "")
         ax.tick_params(axis="x", labelsize=7)
@@ -827,7 +827,10 @@ def write_finding(patients: pd.DataFrame, contrasts: pd.DataFrame, ntab: pd.Data
         "|---|---:|---|",
     ]
     for rec in ntab.itertuples(index=False):
-        lines.append(f"| {rec.item} | {int(rec.n)} | {rec.note} |")
+        note = "" if rec.note is None or (isinstance(rec.note, float) and not np.isfinite(rec.note)) else str(rec.note)
+        if note == "nan":
+            note = ""
+        lines.append(f"| {rec.item} | {int(rec.n)} | {note} |")
 
     lines += [
         "",
