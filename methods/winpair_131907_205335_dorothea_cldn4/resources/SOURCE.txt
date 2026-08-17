@@ -1,0 +1,25 @@
+DoRothEA human TF–target weights (confidence A, B, C).
+
+Downloaded 2026-08-17 from OmniPath:
+
+  https://omnipathdb.org/interactions?datasets=dorothea&organisms=9606&genesymbols=1&fields=dorothea_level&dorothea_levels=A,B,C
+
+Primary references
+- Garcia-Alonso et al., Genome Res. 2019 (DoRothEA)
+- Badia-i-Mompel et al., Bioinform. Adv. 2022 (decoupleR)
+- Türei / OmniPath (https://omnipathdb.org)
+
+Columns in dorothea_hs_ABC.tsv
+- source: TF gene symbol
+- target: target gene symbol
+- mor: mode of regulation (+1 activation, −1 repression)
+- confidence: A (highest) / B / C
+
+mor rule (same convention as decoupleR::get_dorothea when a sign is
+missing): consensus_inhibition without consensus_stimulation → −1;
+otherwise +1. Unsigned edges are treated as activation, not dropped.
+
+decoupleR / dorothea R packages were not installed in this environment.
+The scorer in scripts/analyze.py is the documented weighted-mean
+(wmean) estimator from Badia-i-Mompel et al. 2022, not a VIPER NES
+and not a permutation NES.
