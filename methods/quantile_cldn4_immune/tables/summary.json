@@ -1,0 +1,97 @@
+{
+  "n_tests": 70,
+  "n_cldn4": 33,
+  "n_tacstd2": 37,
+  "cohorts": [
+    {
+      "cohort": "GSE218989",
+      "n_matrix": 355,
+      "n_table": 355,
+      "layer": "RNA",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,IFN,MHC-I,OS",
+      "endpoints_absent": "GEP18",
+      "notes": "GEP18 not on table (Ayers6 is IFN, not GEP18). ImmuneScore = ESTIMATE Immune ssGSEA."
+    },
+    {
+      "cohort": "GSE285029",
+      "n_matrix": 234,
+      "n_table": 234,
+      "layer": "RNA",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18,IFN,MHC-I",
+      "endpoints_absent": "OS",
+      "notes": "ImmuneScore column is A1 8-gene (immune8); ESTIMATE ImmuneScore not on table. No OS."
+    },
+    {
+      "cohort": "TCGA-LUAD",
+      "n_matrix": 502,
+      "n_table": 502,
+      "layer": "RNA",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18,IFN",
+      "endpoints_absent": "MHC-I,OS",
+      "notes": "Wolf_IFNgamma n=444 (58 NA). MHC-I cassette and OS not on this Xena table."
+    },
+    {
+      "cohort": "TCGA-LUSC",
+      "n_matrix": 502,
+      "n_table": 502,
+      "layer": "RNA",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18",
+      "endpoints_absent": "IFN,MHC-I,OS",
+      "notes": "IFN, MHC-I, OS not on this Xena table. CD8 = published CD8 score column."
+    },
+    {
+      "cohort": "CPTAC-LUAD-protein",
+      "n_matrix": 110,
+      "n_table": 110,
+      "layer": "protein",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18,IFN,OS",
+      "endpoints_absent": "MHC-I",
+      "notes": "Protein anchors. CLDN4 protein n=79. CD8A = CD8_Tcell_RNA (no CD8A gene column). MHC-I absent."
+    },
+    {
+      "cohort": "CPTAC-LSCC-protein",
+      "n_matrix": 108,
+      "n_table": 108,
+      "layer": "protein",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18,IFN,OS",
+      "endpoints_absent": "MHC-I",
+      "notes": "Protein anchors. CLDN4 protein n=78. MHC-I absent."
+    },
+    {
+      "cohort": "GSE68465",
+      "n_matrix": 443,
+      "n_table": 443,
+      "layer": "RNA",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18",
+      "endpoints_absent": "IFN,MHC-I,OS",
+      "notes": "Director's Challenge U133A. IFN, MHC-I, OS not on this table. GEP18 is 15/18."
+    },
+    {
+      "cohort": "GSE31210",
+      "n_matrix": 226,
+      "n_table": 226,
+      "layer": "RNA",
+      "anchors": "CLDN4,TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18",
+      "endpoints_absent": "IFN,MHC-I,OS",
+      "notes": "Okayama/Kohno LUAD. IFN, MHC-I, OS not on this table."
+    },
+    {
+      "cohort": "OncoSG",
+      "n_matrix": 169,
+      "n_table": 169,
+      "layer": "RNA",
+      "anchors": "TACSTD2",
+      "endpoints_present": "CD8A,ImmuneScore,GEP18,IFN",
+      "endpoints_absent": "MHC-I,OS",
+      "notes": "Public cBioPortal z-scores only; CLDN4 absent. ImmuneScore = A1 8-gene (ESTIMATE not computable). GEP18 17/18."
+    }
+  ]
+}
