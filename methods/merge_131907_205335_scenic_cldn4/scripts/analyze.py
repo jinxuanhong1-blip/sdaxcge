@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import gzip
 import json
+import pickle
 import shutil
 import sys
 import tempfile
@@ -38,6 +39,8 @@ for d in (RES, FIG, TAB, RES / "figures"):
     d.mkdir(parents=True, exist_ok=True)
 
 GEO = Path("/tmp/merge_131907_205335_scenic/geo")
+CACHE = Path("/tmp/merge_131907_205335_scenic/cache")
+CACHE.mkdir(parents=True, exist_ok=True)
 PRIORS = ROOT / "resources" / "tf_targets_public.tsv"
 GENESETS = ROOT / "resources" / "gene_sets.json"
 FINDING = ROOT / "FINDING.md"
@@ -345,7 +348,7 @@ def load_gse205335_genes(path: Path, wanted: set[str]):
 
 
 def build_log_matrix(extracted: dict[str, np.ndarray], total: np.ndarray, genes: list[str]) -> np.ndarray:
-    tot = np.asarray(total, float)
+    tot = np.asarray(total, float).copy()
     tot[tot <= 0] = np.nan
     cols = []
     for g in genes:
@@ -671,66 +674,86 @@ def main() -> None:
     wanted.update(priors.tf.astype(str))
     print(f"[wanted] {len(wanted)} symbols", flush=True)
 
-    # ----- GSE131907 -----
+    cache_p = CACHE / "extracts.pkl"
+    # ----- GSE131907 + GSE205335 extracts (cached after first GEO pass) -----
     geo1 = GEO / "GSE131907"
-    matrix1 = geo1 / "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz"
-    ann1 = pd.read_csv(geo1 / "GSE131907_Lung_Cancer_cell_annotation.txt.gz", sep="\t")
-    meta1 = parse_series_matrix(geo1 / "GSE131907_series_matrix.txt.gz")
-    meta1 = meta1.rename(columns={"title": "Sample"})
-    keep_meta = [c for c in ["Sample", "geo_accession", "patient_id", "tumor_stage",
-                             "lung_cancer_subtype", "tissue_origin_abbrevation"] if c in meta1.columns]
-    meta1 = meta1[keep_meta].drop_duplicates("Sample")
-    ann1 = ann1.merge(meta1, on="Sample", how="left")
-    ann1["author_malignant"] = ann1["Cell_subtype"].isin(MALIGNANT_131907)
-    ann1["pr320_malignant"] = ann1["Cell_subtype"].isin(PR320_MALIG_ONLY)
-    print(f"[GSE131907] cells={len(ann1)} author_mal={int(ann1.author_malignant.sum())}", flush=True)
-
-    with gzip.open(matrix1, "rt") as fh:
-        header = fh.readline().rstrip("\n").split("\t")[1:]
-    header = np.asarray(header)
-    idx_map = {b: i for i, b in enumerate(header)}
-    ann1 = ann1.loc[ann1.Index.isin(idx_map)].copy()
-    mal1 = ann1.loc[ann1.author_malignant].copy()
-    keep_idx = np.array([idx_map[b] for b in mal1.Index], dtype=int)
-    barcodes, total1, extracted1, n_genes1 = stream_gse131907(matrix1, keep_idx, wanted)
-    mal1 = mal1.reset_index(drop=True)
-    mal1["total_umi"] = total1
-    qc_mask = mal1["total_umi"].to_numpy() >= MIN_UMI
-    mal1 = mal1.loc[qc_mask].reset_index(drop=True)
-    extracted1 = {g: v[qc_mask] for g, v in extracted1.items()}
-    total1 = total1[qc_mask]
-    print(f"[GSE131907] after UMI QC malignant cells={len(mal1)}", flush=True)
-    if "CLDN4" not in extracted1:
-        raise SystemExit("CLDN4 missing from GSE131907")
-
-    # ----- GSE205335 -----
     geo2 = GEO / "GSE205335"
-    ident = pd.read_csv(geo2 / "GSE205335_Lung_IO_CellIdentity.txt.gz", sep="\t")
-    soft = parse_geo_soft(geo2 / "GSE205335_family.soft.gz")
-    extracted2, lib2, bc2, genes2 = load_gse205335_genes(
-        geo2 / "GSE205335_Lung_IO_UMI_matrix.rds.gz", wanted
-    )
-    indexed = ident.set_index("barcode")
-    missing = pd.Index(bc2).difference(indexed.index)
-    extra = indexed.index.difference(pd.Index(bc2))
-    if len(missing) or len(extra):
-        raise SystemExit(f"GSE205335 matrix/identity mismatch: {len(missing)} missing, {len(extra)} extra")
-    cells2 = indexed.loc[list(bc2)].reset_index()
-    cells2["total_umi"] = lib2
-    cells2 = cells2.merge(
-        soft[["orig.ident", "gsm", "patient", "tissue", "recist", "cancer_subtype", "tumor_stage"]],
-        on="orig.ident", how="left", validate="many_to_one",
-    )
-    if cells2["patient"].isna().any():
-        raise SystemExit("GSE205335 identity did not match SOFT patient")
-    mal2 = cells2.loc[cells2["lineage.sub"].eq("Malignant cells")].copy()
-    qc2 = mal2["total_umi"].to_numpy() >= MIN_UMI
-    mal2 = mal2.loc[qc2].reset_index(drop=True)
-    pos2 = np.flatnonzero(cells2["lineage.sub"].eq("Malignant cells").to_numpy() & (lib2 >= MIN_UMI))
-    extracted2 = {g: v[pos2] for g, v in extracted2.items()}
-    print(f"[GSE205335] after UMI QC malignant cells={len(mal2)}", flush=True)
-    if "CLDN4" not in extracted2:
-        raise SystemExit("CLDN4 missing from GSE205335")
+    if cache_p.exists():
+        print(f"[cache] {cache_p}", flush=True)
+        blob = pickle.loads(cache_p.read_bytes())
+        mal1 = blob["mal1"]
+        extracted1 = blob["extracted1"]
+        total1 = blob["total1"]
+        n_genes1 = blob["n_genes1"]
+        n_author_mal_131907 = blob["n_author_mal_131907"]
+        mal2 = blob["mal2"]
+        extracted2 = blob["extracted2"]
+        n_author_mal_205335 = blob["n_author_mal_205335"]
+    else:
+        matrix1 = geo1 / "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz"
+        ann1 = pd.read_csv(geo1 / "GSE131907_Lung_Cancer_cell_annotation.txt.gz", sep="\t")
+        meta1 = parse_series_matrix(geo1 / "GSE131907_series_matrix.txt.gz")
+        meta1 = meta1.rename(columns={"title": "Sample"})
+        keep_meta = [c for c in ["Sample", "geo_accession", "patient_id", "tumor_stage",
+                                 "lung_cancer_subtype", "tissue_origin_abbrevation"] if c in meta1.columns]
+        meta1 = meta1[keep_meta].drop_duplicates("Sample")
+        ann1 = ann1.merge(meta1, on="Sample", how="left")
+        ann1["author_malignant"] = ann1["Cell_subtype"].isin(MALIGNANT_131907)
+        ann1["pr320_malignant"] = ann1["Cell_subtype"].isin(PR320_MALIG_ONLY)
+        n_author_mal_131907 = int(ann1.author_malignant.sum())
+        print(f"[GSE131907] cells={len(ann1)} author_mal={n_author_mal_131907}", flush=True)
+
+        with gzip.open(matrix1, "rt") as fh:
+            header = fh.readline().rstrip("\n").split("\t")[1:]
+        header = np.asarray(header)
+        idx_map = {b: i for i, b in enumerate(header)}
+        ann1 = ann1.loc[ann1.Index.isin(idx_map)].copy()
+        mal1 = ann1.loc[ann1.author_malignant].copy()
+        keep_idx = np.array([idx_map[b] for b in mal1.Index], dtype=int)
+        _barcodes, total1, extracted1, n_genes1 = stream_gse131907(matrix1, keep_idx, wanted)
+        mal1 = mal1.reset_index(drop=True)
+        mal1["total_umi"] = total1
+        qc_mask = mal1["total_umi"].to_numpy() >= MIN_UMI
+        mal1 = mal1.loc[qc_mask].reset_index(drop=True)
+        extracted1 = {g: v[qc_mask] for g, v in extracted1.items()}
+        total1 = total1[qc_mask]
+        print(f"[GSE131907] after UMI QC malignant cells={len(mal1)}", flush=True)
+        if "CLDN4" not in extracted1:
+            raise SystemExit("CLDN4 missing from GSE131907")
+
+        ident = pd.read_csv(geo2 / "GSE205335_Lung_IO_CellIdentity.txt.gz", sep="\t")
+        soft = parse_geo_soft(geo2 / "GSE205335_family.soft.gz")
+        extracted2, lib2, bc2, _genes2 = load_gse205335_genes(
+            geo2 / "GSE205335_Lung_IO_UMI_matrix.rds.gz", wanted
+        )
+        indexed = ident.set_index("barcode")
+        missing = pd.Index(bc2).difference(indexed.index)
+        extra = indexed.index.difference(pd.Index(bc2))
+        if len(missing) or len(extra):
+            raise SystemExit(f"GSE205335 matrix/identity mismatch: {len(missing)} missing, {len(extra)} extra")
+        cells2 = indexed.loc[list(bc2)].reset_index()
+        cells2["total_umi"] = lib2
+        cells2 = cells2.merge(
+            soft[["orig.ident", "gsm", "patient", "tissue", "recist", "cancer_subtype", "tumor_stage"]],
+            on="orig.ident", how="left", validate="many_to_one",
+        )
+        if cells2["patient"].isna().any():
+            raise SystemExit("GSE205335 identity did not match SOFT patient")
+        n_author_mal_205335 = int((cells2["lineage.sub"] == "Malignant cells").sum())
+        mal2 = cells2.loc[cells2["lineage.sub"].eq("Malignant cells")].copy()
+        qc2 = mal2["total_umi"].to_numpy() >= MIN_UMI
+        mal2 = mal2.loc[qc2].reset_index(drop=True)
+        pos2 = np.flatnonzero(cells2["lineage.sub"].eq("Malignant cells").to_numpy() & (lib2 >= MIN_UMI))
+        extracted2 = {g: v[pos2] for g, v in extracted2.items()}
+        print(f"[GSE205335] after UMI QC malignant cells={len(mal2)}", flush=True)
+        if "CLDN4" not in extracted2:
+            raise SystemExit("CLDN4 missing from GSE205335")
+        cache_p.write_bytes(pickle.dumps({
+            "mal1": mal1, "extracted1": extracted1, "total1": total1, "n_genes1": n_genes1,
+            "n_author_mal_131907": n_author_mal_131907,
+            "mal2": mal2, "extracted2": extracted2, "n_author_mal_205335": n_author_mal_205335,
+        }, protocol=4))
+        print(f"[cache] wrote {cache_p}", flush=True)
 
     universe = sorted((set(extracted1) | set(extracted2)) & wanted)
     print(f"[universe] {len(universe)} genes present in at least one cohort", flush=True)
@@ -990,7 +1013,7 @@ def main() -> None:
     between.to_csv(TAB / "between_patient_spearman.tsv", sep="\t", index=False)
 
     n_tab = pd.DataFrame([
-        dict(item="GSE131907_author_malignant_cells", n=int(ann1.author_malignant.sum()),
+        dict(item="GSE131907_author_malignant_cells", n=int(n_author_mal_131907),
              note="Cell_subtype in {Malignant cells, tS1, tS2, tS3}"),
         dict(item="GSE131907_malignant_UMI>=200", n=int(len(df1)), note="cells"),
         dict(item="GSE131907_patients_ge20_malignant", n=int((pat.cohort.eq("GSE131907")).sum()),
@@ -998,7 +1021,7 @@ def main() -> None:
         dict(item="GSE131907_patients_paired_ge20_high_and_low",
              n=int((paired.cohort.eq("GSE131907")).sum()),
              note=f"primary paired AUCell unit"),
-        dict(item="GSE205335_author_malignant_cells", n=int((cells2["lineage.sub"]=="Malignant cells").sum()),
+        dict(item="GSE205335_author_malignant_cells", n=int(n_author_mal_205335),
              note="lineage.sub == Malignant cells"),
         dict(item="GSE205335_malignant_UMI>=200", n=int(len(df2)), note="cells"),
         dict(item="GSE205335_patients_ge20_malignant", n=int((pat.cohort.eq("GSE205335")).sum()),
