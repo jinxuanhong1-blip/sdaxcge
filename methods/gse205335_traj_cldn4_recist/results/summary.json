@@ -1,0 +1,339 @@
+{
+  "accession": "GSE205335",
+  "gse148071_used": false,
+  "gse131907_used": false,
+  "dual_high": false,
+  "reaudit_pr320_tnk": false,
+  "primary_gene": "CLDN4",
+  "clock": "scanpy_dpt",
+  "slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "fallback": "scanpy diffusion pseudotime (Haghverdi et al. 2016)"
+  },
+  "cap_per_patient": 500,
+  "n_cells_catalog": 30448,
+  "n_patients_catalog": 22,
+  "n_cells": 9500,
+  "n_patients": 22,
+  "n_patients_eligible": 22,
+  "n_patients_malignant_eligible": 22,
+  "n_patients_paired": 22,
+  "n_recist": 16,
+  "n_pr": 6,
+  "n_pd_sd": 10,
+  "n_ne": 6,
+  "n_author_malignant": 8640,
+  "n_author_nonmalignant": 860,
+  "subtype_counts": {
+    "Malignant cells": 8640,
+    "Non-malignant cells": 860
+  },
+  "cldn4_tertile_counts": {
+    "low": 3605,
+    "high": 3167,
+    "mid": 2728
+  },
+  "cldn4_tertile_cuts": {
+    "q1": 0.0,
+    "q2": 1.853468486339006
+  },
+  "histology_patients": {
+    "ADC": 14,
+    "SCLC": 4,
+    "SQ": 3,
+    "NUT": 1
+  },
+  "recist_patients": {
+    "PD": 7,
+    "NE": 6,
+    "PR": 6,
+    "SD": 3
+  },
+  "genes_absent": {
+    "AT2": [],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": []
+  },
+  "root": {
+    "n_author_nonmalignant": 860,
+    "n_author_malignant": 8640,
+    "object_median_CLDN4": 1.2070712839791073,
+    "rule": "author Non-malignant cells, CLDN4 \u2264 object median, median AT2 among AT2>0 (n_low=684, n_AT2>0=170)",
+    "rejected": [],
+    "root_pool_mean_CLDN4": 0.5430048214184553,
+    "root_pool_mean_AT2": 0.268557977532158,
+    "root_cell_CLDN4": 0.5864741309026406,
+    "index": 2991,
+    "patient": "P1076",
+    "author_subtype": "Non-malignant cells",
+    "leiden": "13",
+    "expr_CLDN4": 0.5864741309026406,
+    "score_AT2": 0.2925687507287826,
+    "recist": "PD",
+    "histology": "ADC"
+  },
+  "n_paga_components": 1,
+  "n_leiden": 25,
+  "leiden_resolution": 0.6,
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs DPT",
+      "n": 22,
+      "rho": 0.09768492377188029,
+      "p": 0.6653964075322029,
+      "q": 0.7485709584737282
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 22,
+      "rho": 0.1326933935629588,
+      "p": 0.5560825858858706,
+      "q": 0.714963324710405
+    },
+    {
+      "contrast": "CLDN4 vs club score",
+      "n": 22,
+      "rho": 0.2523997741389046,
+      "p": 0.25712024747259327,
+      "q": 0.4700375561560908
+    },
+    {
+      "contrast": "CLDN4 vs basal score",
+      "n": 22,
+      "rho": 0.0220214568040655,
+      "p": 0.9225104517760873,
+      "q": 0.9225104517760871
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 22,
+      "rho": 0.233201581027668,
+      "p": 0.2962759077686691,
+      "q": 0.4700375561560908
+    },
+    {
+      "contrast": "CLDN4 vs malignant-like score",
+      "n": 22,
+      "rho": 0.48164878599661215,
+      "p": 0.023225680643664367,
+      "q": 0.10451556289648965
+    },
+    {
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "n": 22,
+      "rho": 0.2885375494071147,
+      "p": 0.19282461005168622,
+      "q": 0.4700375561560908
+    },
+    {
+      "contrast": "SFTPC vs DPT (control)",
+      "n": 22,
+      "rho": -0.2253209354249709,
+      "p": 0.3133583707707272,
+      "q": 0.4700375561560908
+    },
+    {
+      "contrast": "AT2 score vs DPT (control)",
+      "n": 22,
+      "rho": -0.52343308865048,
+      "p": 0.012420502546177659,
+      "q": 0.10451556289648965
+    }
+  ],
+  "primary_recist": [
+    {
+      "contrast": "DPT vs RECIST (PR vs PD/SD)",
+      "n1": 6,
+      "n2": 10,
+      "n": 16,
+      "U": 44.0,
+      "p": 0.14710289710289712,
+      "r_rb": 0.46666666666666656,
+      "delta_median": 0.17173507557452675,
+      "median_1": 0.2550638185702264,
+      "median_2": 0.08332874299569967
+    },
+    {
+      "contrast": "CLDN4 vs RECIST (PR vs PD/SD)",
+      "n1": 6,
+      "n2": 10,
+      "n": 16,
+      "U": 37.0,
+      "p": 0.49225774225774227,
+      "r_rb": 0.2333333333333334,
+      "delta_median": 0.44700374848375257,
+      "median_1": 1.3191724153679347,
+      "median_2": 0.8721686668841822
+    },
+    {
+      "contrast": "AT2 vs RECIST (PR vs PD/SD)",
+      "n1": 6,
+      "n2": 10,
+      "n": 16,
+      "U": 26.0,
+      "p": 0.7127872127872128,
+      "r_rb": -0.1333333333333333,
+      "delta_median": -0.08044155220118633,
+      "median_1": 0.05097321023263908,
+      "median_2": 0.1314147624338254
+    },
+    {
+      "contrast": "barrier/keratin vs RECIST (PR vs PD/SD)",
+      "n1": 6,
+      "n2": 10,
+      "n": 16,
+      "U": 28.0,
+      "p": 0.8748751248751249,
+      "r_rb": -0.06666666666666665,
+      "delta_median": 0.018558026001624706,
+      "median_1": 1.0815422679723492,
+      "median_2": 1.0629842419707245
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "RECIST-evaluable only CLDN4 vs DPT",
+      "n": 16,
+      "rho": 0.15294117647058825,
+      "p": 0.5717446192454617
+    },
+    {
+      "contrast": "malignant-only CLDN4 vs DPT",
+      "n": 22,
+      "rho": 0.07622811970638058,
+      "p": 0.7359946162262682
+    },
+    {
+      "contrast": "ADC+SQ CLDN4 vs DPT",
+      "n": 17,
+      "rho": -0.09313725490196079,
+      "p": 0.7221860910253712
+    },
+    {
+      "contrast": "drop-SCLC CLDN4 vs DPT",
+      "n": 18,
+      "rho": -0.06914344685242517,
+      "p": 0.785147870866694
+    }
+  ],
+  "sensitivity_recist": [
+    {
+      "contrast": "malignant-only DPT vs RECIST",
+      "n1": 6,
+      "n2": 10,
+      "n": 16,
+      "U": 44.0,
+      "p": 0.14710289710289712,
+      "r_rb": 0.46666666666666656,
+      "delta_median": 0.17603827063327313,
+      "median_1": 0.25790465249768546,
+      "median_2": 0.08186638186441234
+    },
+    {
+      "contrast": "ADC+SQ DPT vs RECIST",
+      "n1": 4,
+      "n2": 8,
+      "n": 12,
+      "U": 21.0,
+      "p": 0.46060606060606063,
+      "r_rb": 0.3125,
+      "delta_median": 0.03724731540323255,
+      "median_1": 0.12057605839893222,
+      "median_2": 0.08332874299569967
+    },
+    {
+      "contrast": "drop-SCLC DPT vs RECIST",
+      "n1": 4,
+      "n2": 9,
+      "n": 13,
+      "U": 23.0,
+      "p": 0.5034965034965035,
+      "r_rb": 0.2777777777777777,
+      "delta_median": 0.03762963415309788,
+      "median_1": 0.12057605839893222,
+      "median_2": 0.08294642424583434
+    },
+    {
+      "contrast": "malignant-only CLDN4 vs RECIST",
+      "n1": 6,
+      "n2": 10,
+      "n": 16,
+      "U": 36.0,
+      "p": 0.5621878121878122,
+      "r_rb": 0.19999999999999996,
+      "delta_median": 0.4125997762517817,
+      "median_1": 1.3538673163364985,
+      "median_2": 0.9412675400847168
+    },
+    {
+      "contrast": "ADC+SQ CLDN4 vs RECIST",
+      "n1": 4,
+      "n2": 8,
+      "n": 12,
+      "U": 19.0,
+      "p": 0.6828282828282828,
+      "r_rb": 0.1875,
+      "delta_median": 0.24790893493806654,
+      "median_1": 1.1060043635032195,
+      "median_2": 0.858095428565153
+    }
+  ],
+  "paired_tertile": [
+    {
+      "contrast": "barrier/keratin (no CLDN4) high vs low",
+      "n": 22,
+      "W": 0.0,
+      "p": 4.76837158203125e-07,
+      "delta_median": 0.5588309934217166,
+      "median_high": 1.6629871208374993,
+      "median_low": 0.7105352526395405
+    },
+    {
+      "contrast": "AT2 high vs low",
+      "n": 22,
+      "W": 13.0,
+      "p": 4.1961669921875e-05,
+      "delta_median": 0.03611951684892156,
+      "median_high": 0.07830714071800181,
+      "median_low": 0.04762437897972571
+    },
+    {
+      "contrast": "malignant-like high vs low",
+      "n": 22,
+      "W": 17.0,
+      "p": 9.870529174804688e-05,
+      "delta_median": 0.24180453284422193,
+      "median_high": 0.3877390552732175,
+      "median_low": 0.14638717991291517
+    },
+    {
+      "contrast": "DPT high vs low",
+      "n": 22,
+      "W": 123.0,
+      "p": 0.9239659309387207,
+      "delta_median": -0.001820049728821986,
+      "median_high": 0.08925055309276407,
+      "median_low": 0.0983540331514609
+    }
+  ],
+  "qc": {
+    "min_genes": 200,
+    "min_umi": 500,
+    "lineage_EPCAM_mean": 1.0423955827782314,
+    "lineage_PTPRC_mean": 0.19893210308552234
+  },
+  "verdict": "Patient-level CLDN4 vs AT2-like/low-CLDN4 DPT: n=22, \u03c1=0.098, p=0.665. CLDN4 vs DPT is null at the patient \u2014 this is not lineage proof; RECIST is still reported. CLDN4 vs AT2 score: n=22, \u03c1=0.133, p=0.556. CLDN4 vs barrier/keratin (CLDN4 excluded): n=22, \u03c1=0.233, p=0.296. CLDN4 vs malignant-like: n=22, \u03c1=0.482, p=0.0232. DPT vs RECIST (PR vs PD/SD): n=16 (PR 6 vs PD/SD 10), \u0394med=+0.172, r=+0.467, p=0.147. CLDN4 vs RECIST (PR vs PD/SD): n=16 (PR 6 vs PD/SD 10), \u0394med=+0.447, r=+0.233, p=0.492. Paired CLDN4-high vs low barrier/keratin: n=22, W=0.0, \u0394med=+0.559, p=4.77e-07. Paired CLDN4-high vs low DPT: n=22, W=123.0, \u0394med=-0.002, p=0.924. PAGA has 1 component(s) at connectivity>0 among 25 Leiden vertices. Slingshot R was not run unless available; DPT is the documented clock. Not a TACSTD2 redo. No both-high gate. GSE148071 not used. PR #320 T/NK not re-tested.",
+  "what_holds": "**What holds (patient n=22; RECIST n=16, PR 6 vs PD/SD 10).** CLDN4 vs DPT: n=22, \u03c1=0.098, p=0.665. DPT vs RECIST (PR vs PD/SD): n=16 (PR 6 vs PD/SD 10), \u0394med=+0.172, r=+0.467, p=0.147. CLDN4 vs barrier/keratin (CLDN4 excluded): n=22, \u03c1=0.233, p=0.296. **What does not hold.** Patient-level CLDN4 vs DPT is null, so this is **not** a lineage / differentiation claim. The RECIST split is still the deliverable. DPT does not significantly separate PR vs PD/SD at this n; that is reported, not hidden. Root used: author Non-malignant cells, CLDN4 \u2264 object median, median AT2 among AT2>0 (n_low=684, n_AT2>0=170). Do not re-read this as a T/NK result (PR #320 is not re-audited).",
+  "skipped": {
+    "GSE148071": "explicitly not used",
+    "GSE131907": "explicitly not used",
+    "dual_high": "no TACSTD2\u2229CLDN4 gate",
+    "PR320_TNK": "not re-audited",
+    "slingshot": "Rscript not on PATH"
+  }
+}

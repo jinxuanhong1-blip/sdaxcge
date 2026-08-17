@@ -1,0 +1,22 @@
+{
+  "accession": "GSE205335",
+  "paper": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)",
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "recist_contrast": "PR vs PD/SD",
+  "unit": "patient",
+  "slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "fallback": "scanpy diffusion pseudotime (Haghverdi et al. 2016)"
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "author Non-malignant cells, CLDN4 \u2264 object median, median AT2 among AT2>0 (n_low=684, n_AT2>0=170)",
+    "cap_per_patient": 500,
+    "harmony": false
+  }
+}
