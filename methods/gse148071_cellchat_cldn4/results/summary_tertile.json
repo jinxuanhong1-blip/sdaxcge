@@ -1,0 +1,51 @@
+{
+  "mode": "tertile",
+  "marker": "CLDN4",
+  "info": {
+    "mode": "tertile",
+    "n_epi": 19832,
+    "cuts": {
+      "lo": 0.7314863006273905,
+      "hi": 1.8893131017684937
+    }
+  },
+  "n_cells": [
+    {
+      "group": "Mal_high",
+      "n_cells": 6614,
+      "n_samples": 25,
+      "mean_CLDN4_log1p_cp10k": 2.5675485134124756
+    },
+    {
+      "group": "Mal_low",
+      "n_cells": 6611,
+      "n_samples": 25,
+      "mean_CLDN4_log1p_cp10k": 0.06559973210096359
+    },
+    {
+      "group": "TNK",
+      "n_cells": 4025,
+      "n_samples": 25,
+      "mean_CLDN4_log1p_cp10k": 0.08760210126638412
+    }
+  ],
+  "n_lr_tested": 7620,
+  "n_detected": 109,
+  "n_significant": 53,
+  "n_sig_outgoing_mal_to_tnk": 40,
+  "n_sig_incoming_tnk_to_mal": 13,
+  "cold_barrier": {
+    "score": 10,
+    "n_sig_diff": 53,
+    "n_barrier_up_in_high": 2,
+    "n_barrier_down_in_high": 0,
+    "n_inhib_up_in_high": 8,
+    "n_recruit_up_in_high": 1,
+    "n_recruit_down_in_high": 0,
+    "n_attack_in_down_in_high": 1
+  },
+  "nboot": 100,
+  "expr_prop": 0.1,
+  "trim": 0.1,
+  "kh": 0.5
+}

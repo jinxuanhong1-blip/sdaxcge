@@ -1,0 +1,1 @@
+`download.py` fetches the GEO `GSE148071_RAW.tar` (42 per-patient count matrices) and the series matrix. `analyze.py` streams those matrices, assigns lineage by marker-argmax, and runs CellChat-style **CLDN4-high vs low** epithelial/malignant cells vs T/NK. TACSTD2 is not used to define groups. See `../METHODS.md` and `../FINDING.md`.
