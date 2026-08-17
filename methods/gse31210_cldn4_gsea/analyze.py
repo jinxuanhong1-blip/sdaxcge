@@ -345,17 +345,41 @@ def write_finding(
         ].iloc[0]
         lead[term] = r["lead_genes"]
 
-    tj_drop = gsea[
-        (gsea["rank_metric"] == "welch_t_Q4_minus_Q1_drop_CLDN4")
-        & (gsea["term"] == "KEGG_TIGHT_JUNCTION")
-    ]
+    def pick(rank_metric: str, term: str):
+        hit = gsea[(gsea["rank_metric"] == rank_metric) & (gsea["term"] == term)]
+        return hit.iloc[0] if len(hit) else None
+
+    welch_ifn = pick("welch_t_Q4_minus_Q1", "HALLMARK_INTERFERON_GAMMA_RESPONSE")
+    welch_mhc = pick("welch_t_Q4_minus_Q1", "CUSTOM_MHC_I_ANTIGEN_PRESENTATION")
+    welch_tj = pick("welch_t_Q4_minus_Q1", "KEGG_TIGHT_JUNCTION")
+    rho_mhc = pick("spearman_vs_CLDN4", "CUSTOM_MHC_I_ANTIGEN_PRESENTATION")
+    tj_drop = pick("welch_t_Q4_minus_Q1_drop_CLDN4", "KEGG_TIGHT_JUNCTION")
     tj_drop_txt = "not ranked"
-    if not tj_drop.empty:
-        r = tj_drop.iloc[0]
+    if tj_drop is not None:
         tj_drop_txt = (
-            f"NES {fmt_nes(r['nes'])} FDR {fmt_p(r['fdr'])} nom p {fmt_p(r['nom_p'])} "
-            f"(n={int(r['n_set_in_rank'])})"
+            f"NES {fmt_nes(tj_drop['nes'])} FDR {fmt_p(tj_drop['fdr'])} "
+            f"nom p {fmt_p(tj_drop['nom_p'])} (n={int(tj_drop['n_set_in_rank'])})"
         )
+    ifn_txt = (
+        f"NES {fmt_nes(welch_ifn['nes'])} FDR {fmt_p(welch_ifn['fdr'])}"
+        if welch_ifn is not None
+        else "not ranked"
+    )
+    mhc_txt = (
+        f"FDR {fmt_p(welch_mhc['fdr'])}"
+        if welch_mhc is not None
+        else "not ranked"
+    )
+    mhc_rho_txt = (
+        f"FDR {fmt_p(rho_mhc['fdr'])}"
+        if rho_mhc is not None
+        else "NA"
+    )
+    tj_txt = (
+        f"NES {fmt_nes(welch_tj['nes'])} FDR {fmt_p(welch_tj['fdr'])}"
+        if welch_tj is not None
+        else "not ranked"
+    )
 
     md = f"""# FINDING — GSE31210 CLDN4 Q4 vs Q1 prerank GSEA (IFN / MHC / TJ)
 
@@ -375,7 +399,9 @@ No ICI labels. Bulk MAS5 microarray, not a cell-intrinsic call.
 |---|---|---|---|
 | GSE31210 CLDN4 Q4 vs Q1 | {n_total} (Q4={n_q4}, Q1={n_q1}) | CLDN4 quartiles on log2(MAS5+1) | {call_headline(gsea, "welch_t_Q4_minus_Q1")} |
 
-Primary rank is Welch *t* (Q4 − Q1) on unique-mapped max-mean collapse. CLDN4 is a member of KEGG tight junction, so the primary TJ NES includes the stratification gene. After dropping CLDN4 from the rank: {tj_drop_txt}.
+Primary rank is Welch *t* (Q4 − Q1) on unique-mapped max-mean collapse.
+
+**Honest read:** Hallmark IFN-γ is **down** in CLDN4 Q4 ({ifn_txt}). That is the same direction as the already-known CLDN4–CD8A anti-correlation, but it is a program NES, not a CD8 re-test. MHC-I / APM is the same sign and **NS** ({mhc_txt}; Spearman sensitivity {mhc_rho_txt}) — reported as computed, not rounded into a call. KEGG TJ is up ({tj_txt}). CLDN4 is a member of that set, so the primary TJ NES includes the stratification gene. After dropping CLDN4 from the rank: {tj_drop_txt}.
 
 ---
 
