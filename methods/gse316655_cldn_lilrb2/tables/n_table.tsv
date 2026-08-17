@@ -1,0 +1,14 @@
+item	n	note
+public_10x_libraries	4	GEO MTX/TSV; series also lists these 4 GSM
+humanized_donors_labeled	1	GEO title prefix ND; not independent mice
+tumor_anti-LILRB2_libraries	1	GSM9457798 SK-MEL-5 TIL CD45+
+tumor_isotype_libraries	1	GSM9457799 SK-MEL-5 TIL CD45+
+PB_anti-LILRB2_libraries	1	GSM9457800
+PB_isotype_libraries	1	GSM9457801; missing from some GEO HTML views
+barcodes_pre_QC	30296	Cell Ranger filtered matrices as deposited
+cells_post_QC	15566	human UMI≥200, genes≥100, human_frac≥0.80, mito≤0.20
+tumor_QC_cells	11201	anti + isotype
+PB_QC_cells	4365	anti + isotype
+myeloid_QC_cells	150	marker score; not author annot
+TNK_QC_cells	9371	marker score
+biological_replicates_per_arm	1	cannot support sample-level p-values
