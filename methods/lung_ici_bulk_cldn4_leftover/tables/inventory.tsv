@@ -1,0 +1,12 @@
+cohort	tissue	assay	n_geo	n_patients	CLDN4	TACSTD2	ICI_label	estimate_immune_genes
+GSE126044	NSCLC tumor biopsy	RNA-seq counts	16	16	yes	yes	responder / non-responder (GEO)	140
+GSE136961	NSCLC tumor (Oncomine Immune Response 395)	targeted panel TPM	21	21	no	no	DCB vs NDB in titles (D/N) + PFS days	59
+GSE166449	advanced LUAD tumor	RNA-seq TPM	22	22	yes	yes	Responder 7 / nonResponder 15 (titles)	140
+GSE182328	lung tumor	RNA-seq counts	44	44	yes	yes	none in GEO (Akkermansia detectable/not only)	141
+GSE161537	advanced NSCLC tumor (HTG OBP ~2560)	HTG EdgeSeq log2CPM	82	82	no	no	RECIST + PFS/OS (2L PD-1/PD-L1)	43
+GSE162520	early NSCLC tumor (surgical, HTG OBP)	HTG EdgeSeq log2CPM	92	92	no	no	none — surgery cohort; PFS/OS are not ICI endpoints	43
+GSE93157_NSCLC	NSCLC tumor (nCounter PanCancer Immune 730)	NanoString	65	35	no	no	best.resp + PFS (nivo/pembro)	58
+GSE280232	lung tumor / adjacent (10x GEX+TCR)	10x MTX in RAW.tar only	42		not scored (no processed bulk)	not scored (no processed bulk)	none — genotype (KRAS/STK11) + regimen only	
+GSE283829	NSCLC tumor	RNA-seq counts (Ensembl)	27	27	yes	yes	disease stage CR/SD/PD	141
+GSE260770	peripheral blood (not tumor)	RNA-seq FPKM	50	50	yes (floor)	yes (floor)	Responsed / Non-responsed to sintilimab	141
+GSE293591	FFPE/FF solid tumor (pan-cancer)	RNA-seq TPM	365	34	yes	yes	none	140

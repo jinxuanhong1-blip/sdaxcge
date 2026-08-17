@@ -1,0 +1,12 @@
+cohort	tissue	n	n_R	n_NR	endpoint	gene	metric	effect	p	note
+GSE126044	NSCLC tumor	16	5	11	ORR (GEO responder vs non-responder)	CLDN4	Cliff δ (R−NR)	-0.5272727272727273	0.11492673992673993	log2CPM; med R 2.54 vs NR 3.77; TACSTD2 companion in all_tests
+GSE136961	NSCLC tumor (Oncomine 395)	21	9	12	DCB (title D vs N); PFS in GEO	CLDN4	not on panel			Oncomine Immune Response panel has CD8A/IFNG/HLA-A/B/C; CLDN4 and TACSTD2 absent. No CLDN4–DCB test.
+GSE166449	LUAD tumor (pembro)	22	7	15	ORR (GEO title Responder vs nonResponder)	CLDN4	Cliff δ (R−NR)	0.02857142857142847	0.9452106201332205	log2(TPM+1); med R 1.21 vs NR 1.33
+GSE182328	NSCLC tumor (ICI-treated; GEO has no RECIST/PFS)	44	22	22	Akkermansia detectable vs not (GEO surrogate; not DCB/ORR/PFS/MPR)	CLDN4	Cliff δ (Akk+ − Akk−)	-0.3553719008264463	0.044759294575572275	log2CPM; med Akk+ 7.20 vs Akk− 7.72. No DCB/MPR/PFS/ORR field on GEO.
+GSE161537	advanced NSCLC (HTG OBP)	76	20	56	ORR (GEO RECIST CR/PR vs SD/PD); PFS present	CLDN4	not on panel			HTG Oncology Biomarker Panel has CLDN3/EPCAM/CD8A/IFNG, not CLDN4 or TACSTD2. RECIST n=76 evaluable (6 NA).
+GSE162520	early NSCLC (surgery, not ICI)	92			no ICI DCB/MPR/PFS/ORR (surgical PFS/OS only)	CLDN4	not on panel; no ICI label			GEO overall design: 92 surgically treated NSCLC. HTG OBP lacks CLDN4/TACSTD2. Not an ICI-response cohort.
+GSE93157_NSCLC	NSCLC tumor (NanoString 730)	35	9	26	ORR CR/PR vs SD/PD; DCB and PFS also in GEO	CLDN4	not on panel			NSCLC subset 35 (22 non-squamous + 13 squamous). Panel has CD8A/IFNG/HLA; no CLDN4/TACSTD2.
+GSE280232	resectable KRAS-mutant lung (neoadjuvant ICI)				no MPR/ORR/PFS/DCB in GEO	CLDN4	no processed bulk matrix			GEO FTP has RAW.tar 10x MTX/TCR only (no counts/TPM table). Characteristics: treatment + KRAS/STK11, no response field. Public processed bulk not available.
+GSE283829	NSCLC tumor	17	7	10	ORR-extreme CR vs PD (GEO disease stage); DCR also tested	CLDN4	Cliff δ (CR−PD)	-0.02857142857142858	0.9622583299053886	log2CPM; CR n=7 PD n=10 SD n=10; DCR δ=-0.059 p=0.821
+GSE260770	peripheral blood (sintilimab, GGO/MPLC)	50	26	24	GEO group Responsed vs Non-responsed	CLDN4	Cliff δ (R−NR)	0.17948717948717952	0.0740632897607388	blood FPKM; CLDN4 nonzero 7/50 after log2(FPKM+1) still near floor. Not tumor epithelium.
+GSE293591_lung	LUAD+LUSC tumor (no ICI)	34			no ICI DCB/MPR/PFS/ORR; CLDN4 vs IFN (immune axis)	CLDN4	Spearman ρ vs IFN	-0.22230710466004583	0.20635218404344752	Lung ADC n=20, LUSC n=14. vs MHC ρ=0.21191749427043544 p=0.22890482659561662. No ICI field on GEO.
