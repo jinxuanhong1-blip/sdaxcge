@@ -1,0 +1,116 @@
+{
+  "accession": "GSE218989",
+  "matrix": "GSE218989_SMC_KAIST_TPM_matrix_pc_rmdupli.txt.gz",
+  "n_patients": 355,
+  "n_genes": 19916,
+  "CLDN4_present": true,
+  "TACSTD2_present": true,
+  "histology": "not_deposited",
+  "geo_R_NR": [
+    168,
+    187
+  ],
+  "disagree_ids": [
+    "SMC__Pat118",
+    "SMC__Pat239",
+    "SMC__Pat50"
+  ],
+  "signature_coverage": [
+    {
+      "set": "Ayers6_IFNG",
+      "n_listed": 6,
+      "n_present": 6,
+      "genes": "IDO1,CXCL10,CXCL9,HLA-DRA,STAT1,IFNG"
+    },
+    {
+      "set": "MHCI",
+      "n_listed": 3,
+      "n_present": 3,
+      "genes": "HLA-A,HLA-B,HLA-C"
+    },
+    {
+      "set": "TJ_noCLDN4",
+      "n_listed": 9,
+      "n_present": 9,
+      "genes": "CLDN3,CLDN7,OCLN,TJP1,F11R,MARVELD2,CRB3,PARD3,CGN"
+    },
+    {
+      "set": "ESTIMATE_Immune",
+      "n_listed": 141,
+      "n_present": 140,
+      "genes": ""
+    },
+    {
+      "set": "ESTIMATE_Stromal",
+      "n_listed": 141,
+      "n_present": 136,
+      "genes": ""
+    }
+  ],
+  "one_row": {
+    "dataset": "GSE218989_SMC_KAIST",
+    "unit": "patient",
+    "n": 355,
+    "n_genes": 19916,
+    "CLDN4_on_matrix": true,
+    "TACSTD2_on_matrix": true,
+    "n_GEO_R": 168,
+    "n_GEO_NR": 187,
+    "n_Supp8_R": 171,
+    "n_Supp8_NR": 184,
+    "n_response_label_disagree": 3,
+    "histology_public": "not_deposited",
+    "PFS_event_public": "not_deposited",
+    "OS_event_public": "SuppData8_Death",
+    "CLDN4_vs_GEO_R_median": 1.8687400047001002,
+    "CLDN4_vs_GEO_NR_median": 1.9367025212537252,
+    "CLDN4_vs_GEO_MWU_p": 0.403492127146615,
+    "CLDN4_vs_GEO_AUC": 0.4743124522536287,
+    "TACSTD2_vs_GEO_MWU_p": 0.6714384766503334,
+    "TACSTD2_vs_GEO_AUC": 0.5130506748153807,
+    "CLDN4_vs_CD8A_rho": -0.17218151898836034,
+    "CLDN4_vs_CD8A_p": 0.0011257074336079042,
+    "TACSTD2_vs_CD8A_rho": -0.2624896313974952,
+    "TACSTD2_vs_CD8A_p": 5.262807410245466e-07,
+    "CLDN4_vs_Ayers6_rho": 0.02940354044135812,
+    "CLDN4_vs_Ayers6_p": 0.5808314302094613,
+    "TACSTD2_vs_Ayers6_rho": -0.003242310978074133,
+    "TACSTD2_vs_Ayers6_p": 0.9514591376825453,
+    "CLDN4_vs_MHCI_rho": 0.020826630492003857,
+    "CLDN4_vs_MHCI_p": 0.6957512169505891,
+    "TACSTD2_vs_MHCI_rho": -0.001196822599616709,
+    "TACSTD2_vs_MHCI_p": 0.9820727682935094,
+    "CLDN4_vs_Immune_rho": 0.04397475194179425,
+    "CLDN4_vs_Immune_p": 0.4087897353236387,
+    "TACSTD2_vs_Immune_rho": -0.1328902246524656,
+    "TACSTD2_vs_Immune_p": 0.012205809041585644,
+    "CLDN4_vs_TJ_rho": 0.7403493501905729,
+    "CLDN4_vs_TJ_p": 7.402322497432755e-63,
+    "CLDN4_vs_TACSTD2_rho": 0.6098024450121771,
+    "CLDN4_vs_TACSTD2_p": 1.5761449624244348e-37,
+    "CLDN4_OS_HR_perSD": 1.1942475901745215,
+    "CLDN4_OS_HR_lo": 1.0471248221215714,
+    "CLDN4_OS_HR_hi": 1.362041350283325,
+    "CLDN4_OS_Cox_p": 0.008133857641025926,
+    "CLDN4_OS_n_event": 265.0,
+    "TACSTD2_OS_HR_perSD": 1.0744973858533617,
+    "TACSTD2_OS_HR_lo": 0.9430746163033971,
+    "TACSTD2_OS_HR_hi": 1.2242346599585274,
+    "TACSTD2_OS_Cox_p": 0.2803832521719666,
+    "TACSTD2_OS_n_event": 265.0,
+    "CLDN4_PFS_recon_HR_perSD": 1.1261971890375944,
+    "CLDN4_PFS_recon_p": 0.037202907945761234,
+    "TACSTD2_PFS_recon_HR_perSD": 1.0645733266639295,
+    "TACSTD2_PFS_recon_p": 0.23870319460785738,
+    "CD8A_vs_GEO_MWU_p": 0.0027063670938425894,
+    "Ayers6_vs_GEO_MWU_p": 0.0006968824045331699
+  },
+  "gene_presence": {
+    "n_genes_matrix": 19916,
+    "n_patients": 355,
+    "CLDN4": true,
+    "TACSTD2": true,
+    "CD8A": true,
+    "IFNG": true
+  }
+}

@@ -1,0 +1,10 @@
+field	present	n	notes
+GEO_treatment_outcome	True	355	Responder 168 / Non-responder 187; series matrix
+GEO_treatment	True	355	PD-1/PD-L1 inhibitor for all 355
+GEO_histology	False	0	not a series-matrix characteristic; LUAD vs LUSC not split
+GEO_PFS	False	0	not on GEO
+GEO_OS	False	0	not on GEO
+SuppData8_Responder	True	355	497-row published table; 355 overlap TPM; 3 GEO disagreements (author correction)
+SuppData8_OS_days_Death	True	355	Overall survival (days) + Death
+SuppData8_PFS_days	True	355	PFS time only; no PFS event column deposited
+SuppData8_histology	False	0	Clinical_table_v230613 has no histology column
