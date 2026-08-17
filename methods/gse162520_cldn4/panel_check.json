@@ -1,0 +1,47 @@
+{
+  "accession": "GSE162520",
+  "cohort": "TUMADOR",
+  "platform": "HTG EdgeSeq Oncology Biomarker Panel (OBP)",
+  "geo_platform_id": "GPL18573",
+  "matrix_file": "GSE162520_GEO_data_TUMADOR_log2cpm.csv.gz",
+  "n_genes_matrix": 2560,
+  "n_unique_genes": 2560,
+  "n_samples_matrix": 92,
+  "n_samples_soft": 92,
+  "honest_n": {
+    "geo_arrays": 92,
+    "series_summary_patients": 92,
+    "histology": {
+      "ADK": 47,
+      "SCC": 45
+    },
+    "hot_phenotype": {
+      "HOT": 44,
+      "COLD": 48
+    },
+    "sex": {
+      "Female": 34,
+      "Male": 58
+    }
+  },
+  "query_presence": {
+    "CLDN4": false,
+    "CD8A": true,
+    "CD274": true,
+    "IFNG": true,
+    "STAT1": true,
+    "CXCL9": true,
+    "CXCL10": true,
+    "GZMB": true,
+    "PRF1": true,
+    "PDCD1": true,
+    "CLDN3": true
+  },
+  "claudin_or_trop_aliases_on_panel": [
+    "CLDN3"
+  ],
+  "cldn4_present": false,
+  "verdict": "panel-missing",
+  "stop": true,
+  "note": "CLDN4 is not among the 2560 OBP targets in the public TUMADOR matrix. CLDN3 is the only claudin on this panel and is not used as a stand-in. No CLDN4 vs CD8A / Immune / CD274 / IFN scores. No dual-high."
+}
