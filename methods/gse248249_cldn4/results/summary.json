@@ -1,0 +1,40 @@
+{
+  "gse": "GSE248249",
+  "pmid": "38215748",
+  "platform": "GPL23126 Affymetrix Clariom D Human (transcript/gene version)",
+  "assay": "array (not NanoString)",
+  "values": "RMA from Affymetrix Expression Console (as deposited in series matrix)",
+  "n_features_in_matrix": 138745,
+  "n_samples": 42,
+  "n_patients": 29,
+  "n_pre": 13,
+  "n_post": 29,
+  "n_paired_patients": 13,
+  "n_same_site_pairs": 4,
+  "sensitive_vs_resistant_in_GEO": false,
+  "response_fields_in_GEO": [
+    "Series_summary"
+  ],
+  "cldn4_on_panel": true,
+  "tacstd2_on_panel": true,
+  "probes": {
+    "TACSTD2": "TC0100014340.hg.1",
+    "CLDN4": "TC0700007993.hg.1"
+  },
+  "cldn4_tacstd2_spearman_all": {
+    "n": 42,
+    "rho": 0.5541690300623937,
+    "p": 0.0001402864094194334
+  },
+  "cldn4_tacstd2_spearman_pre": {
+    "n": 13,
+    "rho": 0.6648351648351648,
+    "p": 0.013165575845550257
+  },
+  "cldn4_tacstd2_spearman_post": {
+    "n": 29,
+    "rho": 0.5522167487684727,
+    "p": 0.0018967092690696736
+  },
+  "series_overall_design": "Tumor tissue samples from pre- and post-immunotherapy treatment timepoints were obtained from patients with NSCLC patients treated with PD-1 blockade (n = 29). All samples were processed as FFPE. 13 samples were obtained prior to initiation of therapy (pre-treatment) and 29 samples were obtained at time of acquired resistance (post-treatment). The RNA samples quantification was performed using the Affymetrix Clariom D Pico assay."
+}
