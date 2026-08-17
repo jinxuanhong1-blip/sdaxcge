@@ -1,0 +1,845 @@
+{
+  "dataset": "GSE207422",
+  "citation": "Hu et al. Genome Medicine 2023 PMID 36869384",
+  "gene": "CLDN4",
+  "n_cells_matrix": 92330,
+  "n_genes_matrix": 24292,
+  "n_post_samples_labeled": 12,
+  "lineage_counts": {
+    "Epithelial": 10669,
+    "Fibroblast": 1004,
+    "Endothelial": 299,
+    "T": 34719,
+    "NK": 3702
+  },
+  "malignant_n": {
+    "infercnv_stromal_p95": 1517,
+    "copykat_stromal_p95": 6080,
+    "marker_all_epi": 10669
+  },
+  "cnv": {
+    "n_genes_input": 15320,
+    "n_genes_kept": 11572,
+    "n_ref_cells": 1303,
+    "win": 25,
+    "ok": true,
+    "copykat_ref_p95": 2626.62451171875,
+    "infercnv_ref_p95": 0.13645310699939728
+  },
+  "note": "CNV proxy, not R infercnv/copykat. Malignant = marker epithelium AND score > 95th percentile of stromal (fibroblast+endothelial) reference. Paired tests use the same patient for malignant CLDN4 vs T/NK CLDN4. Samples below the cell floor drop out (honest n).",
+  "tests": [
+    {
+      "key": "post|infercnv_stromal_p95|min1",
+      "cohort": "post",
+      "malignant_def": "infercnv_stromal_p95",
+      "min_cells": 1,
+      "n_samples": 12,
+      "n_cohort": 12,
+      "dropped_samples": "",
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 12,
+        "median_a": 1.4285991456376812,
+        "median_b": 0.012149976619766148,
+        "mean_a": 1.44812520682557,
+        "mean_b": 0.03251836166777586,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "paired_pctpos": {
+        "n": 12,
+        "median_a": 0.8653532608695652,
+        "median_b": 0.006590852326377012,
+        "mean_a": 0.7571595909875034,
+        "mean_b": 0.016784628793345767,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 12,
+        "rho": -0.1398601398601399,
+        "p": 0.6646331617926677
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 12,
+        "rho": -0.18563951410966179,
+        "p": 0.5635041357745857
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 8,
+        "n_b": 4,
+        "mean_a": 1.2879996972665824,
+        "mean_b": 1.7683762259435454,
+        "delta": -0.480376528676963,
+        "U": 8.0,
+        "p": 0.21414141414141416
+      },
+      "samples": [
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "post|infercnv_stromal_p95|min5",
+      "cohort": "post",
+      "malignant_def": "infercnv_stromal_p95",
+      "min_cells": 5,
+      "n_samples": 11,
+      "n_cohort": 12,
+      "dropped_samples": "BD_immune13",
+      "n_nmpr": 7,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 11,
+        "median_a": 1.4279337666666667,
+        "median_b": 0.013937814867195584,
+        "mean_a": 1.40423947108244,
+        "mean_b": 0.035278645643377814,
+        "n_a_gt_b": 11,
+        "stat": 66.0,
+        "p": 0.00048828125
+      },
+      "paired_pctpos": {
+        "n": 11,
+        "median_a": 0.84375,
+        "median_b": 0.0072438771990341495,
+        "mean_a": 0.7350831901681855,
+        "mean_b": 0.018175524047758723,
+        "n_a_gt_b": 11,
+        "stat": 66.0,
+        "p": 0.00048828125
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 11,
+        "rho": -0.05454545454545456,
+        "p": 0.8734465775233149
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 11,
+        "rho": -0.06363636363636364,
+        "p": 0.8525390725425217
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 7,
+        "n_b": 4,
+        "mean_a": 1.1961613254475227,
+        "mean_b": 1.7683762259435454,
+        "delta": -0.5722149004960226,
+        "U": 6.0,
+        "p": 0.16363636363636364
+      },
+      "samples": [
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "post|copykat_stromal_p95|min1",
+      "cohort": "post",
+      "malignant_def": "copykat_stromal_p95",
+      "min_cells": 1,
+      "n_samples": 12,
+      "n_cohort": 12,
+      "dropped_samples": "",
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 12,
+        "median_a": 1.705562976761501,
+        "median_b": 0.012149976619766148,
+        "mean_a": 1.7071495401349661,
+        "mean_b": 0.03251836166777586,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "paired_pctpos": {
+        "n": 12,
+        "median_a": 0.9771461477636056,
+        "median_b": 0.006590852326377012,
+        "mean_a": 0.977245409811332,
+        "mean_b": 0.016784628793345767,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 12,
+        "rho": 0.20979020979020982,
+        "p": 0.512840943181826
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 12,
+        "rho": 0.24559048294810878,
+        "p": 0.4416578806503745
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 8,
+        "n_b": 4,
+        "mean_a": 1.7111192356031064,
+        "mean_b": 1.699210149198685,
+        "delta": 0.011909086404421343,
+        "U": 16.0,
+        "p": 1.0
+      },
+      "samples": [
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "post|copykat_stromal_p95|min5",
+      "cohort": "post",
+      "malignant_def": "copykat_stromal_p95",
+      "min_cells": 5,
+      "n_samples": 12,
+      "n_cohort": 12,
+      "dropped_samples": "",
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 12,
+        "median_a": 1.705562976761501,
+        "median_b": 0.012149976619766148,
+        "mean_a": 1.7071495401349661,
+        "mean_b": 0.03251836166777586,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "paired_pctpos": {
+        "n": 12,
+        "median_a": 0.9771461477636056,
+        "median_b": 0.006590852326377012,
+        "mean_a": 0.977245409811332,
+        "mean_b": 0.016784628793345767,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 12,
+        "rho": 0.20979020979020982,
+        "p": 0.512840943181826
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 12,
+        "rho": 0.24559048294810878,
+        "p": 0.4416578806503745
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 8,
+        "n_b": 4,
+        "mean_a": 1.7111192356031064,
+        "mean_b": 1.699210149198685,
+        "delta": 0.011909086404421343,
+        "U": 16.0,
+        "p": 1.0
+      },
+      "samples": [
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "post|marker_all_epi|min1",
+      "cohort": "post",
+      "malignant_def": "marker_all_epi",
+      "min_cells": 1,
+      "n_samples": 12,
+      "n_cohort": 12,
+      "dropped_samples": "",
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 12,
+        "median_a": 1.5293949112219827,
+        "median_b": 0.012149976619766148,
+        "mean_a": 1.48741974544898,
+        "mean_b": 0.03251836166777586,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "paired_pctpos": {
+        "n": 12,
+        "median_a": 0.8551229437528021,
+        "median_b": 0.006590852326377012,
+        "mean_a": 0.8368420320914259,
+        "mean_b": 0.016784628793345767,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 12,
+        "rho": 0.034965034965034975,
+        "p": 0.9140933424107599
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 12,
+        "rho": -0.39860139860139865,
+        "p": 0.19933549461780897
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 8,
+        "n_b": 4,
+        "mean_a": 1.4798956982030835,
+        "mean_b": 1.5024678399407734,
+        "delta": -0.022572141737689844,
+        "U": 16.0,
+        "p": 1.0
+      },
+      "samples": [
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "post|marker_all_epi|min5",
+      "cohort": "post",
+      "malignant_def": "marker_all_epi",
+      "min_cells": 5,
+      "n_samples": 12,
+      "n_cohort": 12,
+      "dropped_samples": "",
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 12,
+        "median_a": 1.5293949112219827,
+        "median_b": 0.012149976619766148,
+        "mean_a": 1.48741974544898,
+        "mean_b": 0.03251836166777586,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "paired_pctpos": {
+        "n": 12,
+        "median_a": 0.8551229437528021,
+        "median_b": 0.006590852326377012,
+        "mean_a": 0.8368420320914259,
+        "mean_b": 0.016784628793345767,
+        "n_a_gt_b": 12,
+        "stat": 78.0,
+        "p": 0.000244140625
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 12,
+        "rho": 0.034965034965034975,
+        "p": 0.9140933424107599
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 12,
+        "rho": -0.39860139860139865,
+        "p": 0.19933549461780897
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 8,
+        "n_b": 4,
+        "mean_a": 1.4798956982030835,
+        "mean_b": 1.5024678399407734,
+        "delta": -0.022572141737689844,
+        "U": 16.0,
+        "p": 1.0
+      },
+      "samples": [
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "all_labeled|infercnv_stromal_p95|min1",
+      "cohort": "all_labeled",
+      "malignant_def": "infercnv_stromal_p95",
+      "min_cells": 1,
+      "n_samples": 15,
+      "n_cohort": 15,
+      "dropped_samples": "",
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 15,
+        "median_a": 1.4279337666666667,
+        "median_b": 0.013937814867195584,
+        "mean_a": 1.443819966151951,
+        "mean_b": 0.033307664386453655,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "paired_pctpos": {
+        "n": 15,
+        "median_a": 0.84375,
+        "median_b": 0.0072438771990341495,
+        "mean_a": 0.7564054874398345,
+        "mean_b": 0.01770238002779905,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 15,
+        "rho": -0.20357142857142854,
+        "p": 0.4667950724891123
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 15,
+        "rho": -0.25558544611495526,
+        "p": 0.3578844093533202
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 10,
+        "n_b": 4,
+        "mean_a": 1.2515997092145634,
+        "mean_b": 1.7683762259435454,
+        "delta": -0.516776516728982,
+        "U": 9.0,
+        "p": 0.14185814185814188
+      },
+      "samples": [
+        "BD_immune01",
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune05",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune08",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "all_labeled|infercnv_stromal_p95|min5",
+      "cohort": "all_labeled",
+      "malignant_def": "infercnv_stromal_p95",
+      "min_cells": 5,
+      "n_samples": 14,
+      "n_cohort": 15,
+      "dropped_samples": "BD_immune13",
+      "n_nmpr": 9,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 14,
+        "median_a": 1.3778427884246112,
+        "median_b": 0.014051565713009556,
+        "mean_a": 1.409030799448519,
+        "mean_b": 0.03553283770433218,
+        "n_a_gt_b": 14,
+        "stat": 105.0,
+        "p": 6.103515625e-05
+      },
+      "paired_pctpos": {
+        "n": 14,
+        "median_a": 0.7893448795180723,
+        "median_b": 0.007911154285791585,
+        "mean_a": 0.7390058793998227,
+        "mean_b": 0.018860779958727317,
+        "n_a_gt_b": 14,
+        "stat": 105.0,
+        "p": 6.103515625e-05
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 14,
+        "rho": -0.1252747252747253,
+        "p": 0.6695823965448445
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 14,
+        "rho": -0.17362637362637365,
+        "p": 0.5527669411422413
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 9,
+        "n_b": 4,
+        "mean_a": 1.176125421349515,
+        "mean_b": 1.7683762259435454,
+        "delta": -0.5922508045940305,
+        "U": 7.0,
+        "p": 0.1062937062937063
+      },
+      "samples": [
+        "BD_immune01",
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune05",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune08",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "all_labeled|copykat_stromal_p95|min1",
+      "cohort": "all_labeled",
+      "malignant_def": "copykat_stromal_p95",
+      "min_cells": 1,
+      "n_samples": 15,
+      "n_cohort": 15,
+      "dropped_samples": "",
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 15,
+        "median_a": 1.7165431324731182,
+        "median_b": 0.013937814867195584,
+        "mean_a": 1.6994789176028933,
+        "mean_b": 0.033307664386453655,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "paired_pctpos": {
+        "n": 15,
+        "median_a": 0.9745762711864406,
+        "median_b": 0.0072438771990341495,
+        "mean_a": 0.9712927865583098,
+        "mean_b": 0.01770238002779905,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 15,
+        "rho": 0.06428571428571428,
+        "p": 0.8199479653196377
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 15,
+        "rho": 0.39641248358604597,
+        "p": 0.14351226086840974
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 10,
+        "n_b": 4,
+        "mean_a": 1.655553314441629,
+        "mean_b": 1.699210149198685,
+        "delta": -0.04365683475705606,
+        "U": 18.0,
+        "p": 0.8391608391608392
+      },
+      "samples": [
+        "BD_immune01",
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune05",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune08",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "all_labeled|copykat_stromal_p95|min5",
+      "cohort": "all_labeled",
+      "malignant_def": "copykat_stromal_p95",
+      "min_cells": 5,
+      "n_samples": 15,
+      "n_cohort": 15,
+      "dropped_samples": "",
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 15,
+        "median_a": 1.7165431324731182,
+        "median_b": 0.013937814867195584,
+        "mean_a": 1.6994789176028933,
+        "mean_b": 0.033307664386453655,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "paired_pctpos": {
+        "n": 15,
+        "median_a": 0.9745762711864406,
+        "median_b": 0.0072438771990341495,
+        "mean_a": 0.9712927865583098,
+        "mean_b": 0.01770238002779905,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 15,
+        "rho": 0.06428571428571428,
+        "p": 0.8199479653196377
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 15,
+        "rho": 0.39641248358604597,
+        "p": 0.14351226086840974
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 10,
+        "n_b": 4,
+        "mean_a": 1.655553314441629,
+        "mean_b": 1.699210149198685,
+        "delta": -0.04365683475705606,
+        "U": 18.0,
+        "p": 0.8391608391608392
+      },
+      "samples": [
+        "BD_immune01",
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune05",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune08",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "all_labeled|marker_all_epi|min1",
+      "cohort": "all_labeled",
+      "malignant_def": "marker_all_epi",
+      "min_cells": 1,
+      "n_samples": 15,
+      "n_cohort": 15,
+      "dropped_samples": "",
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 15,
+        "median_a": 1.5623774843749998,
+        "median_b": 0.013937814867195584,
+        "mean_a": 1.4927233394523411,
+        "mean_b": 0.033307664386453655,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "paired_pctpos": {
+        "n": 15,
+        "median_a": 0.8504672897196262,
+        "median_b": 0.0072438771990341495,
+        "mean_a": 0.8196664482506988,
+        "mean_b": 0.01770238002779905,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 15,
+        "rho": -0.10714285714285714,
+        "p": 0.7039010016261618
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 15,
+        "rho": -0.2678571428571428,
+        "p": 0.3344436005123539
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 10,
+        "n_b": 4,
+        "mean_a": 1.4324866313518625,
+        "mean_b": 1.5024678399407734,
+        "delta": -0.06998120858891088,
+        "U": 19.0,
+        "p": 0.945054945054945
+      },
+      "samples": [
+        "BD_immune01",
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune05",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune08",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    },
+    {
+      "key": "all_labeled|marker_all_epi|min5",
+      "cohort": "all_labeled",
+      "malignant_def": "marker_all_epi",
+      "min_cells": 5,
+      "n_samples": 15,
+      "n_cohort": 15,
+      "dropped_samples": "",
+      "n_nmpr": 10,
+      "n_mpr": 4,
+      "paired_mean": {
+        "n": 15,
+        "median_a": 1.5623774843749998,
+        "median_b": 0.013937814867195584,
+        "mean_a": 1.4927233394523411,
+        "mean_b": 0.033307664386453655,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "paired_pctpos": {
+        "n": 15,
+        "median_a": 0.8504672897196262,
+        "median_b": 0.0072438771990341495,
+        "mean_a": 0.8196664482506988,
+        "mean_b": 0.01770238002779905,
+        "n_a_gt_b": 15,
+        "stat": 120.0,
+        "p": 3.0517578125e-05
+      },
+      "spearman_mean_vs_tnkfrac": {
+        "n": 15,
+        "rho": -0.10714285714285714,
+        "p": 0.7039010016261618
+      },
+      "spearman_pctpos_vs_tnkfrac": {
+        "n": 15,
+        "rho": -0.2678571428571428,
+        "p": 0.3344436005123539
+      },
+      "nmpr_vs_mpr_mean": {
+        "n_a": 10,
+        "n_b": 4,
+        "mean_a": 1.4324866313518625,
+        "mean_b": 1.5024678399407734,
+        "delta": -0.06998120858891088,
+        "U": 19.0,
+        "p": 0.945054945054945
+      },
+      "samples": [
+        "BD_immune01",
+        "BD_immune02",
+        "BD_immune03",
+        "BD_immune04",
+        "BD_immune05",
+        "BD_immune06",
+        "BD_immune07",
+        "BD_immune08",
+        "BD_immune09",
+        "BD_immune10",
+        "BD_immune11",
+        "BD_immune12",
+        "BD_immune13",
+        "BD_immune14",
+        "BD_immune15"
+      ]
+    }
+  ],
+  "cell_level_post": {
+    "infercnv_stromal_p95": {
+      "n_mal": 1178,
+      "n_tnk": 33760,
+      "median_mal": 1.3413501977920532,
+      "median_tnk": 0.0,
+      "pctpos_mal": 0.8183361629881154,
+      "pctpos_tnk": 0.012203791469194312,
+      "mwu_p": 0.0
+    },
+    "copykat_stromal_p95": {
+      "n_mal": 5117,
+      "n_tnk": 33760,
+      "median_mal": 1.5904654264450073,
+      "median_tnk": 0.0,
+      "pctpos_mal": 0.961110025405511,
+      "pctpos_tnk": 0.012203791469194312,
+      "mwu_p": 0.0
+    },
+    "marker_all_epi": {
+      "n_mal": 8407,
+      "n_tnk": 33760,
+      "median_mal": 1.5987718105316162,
+      "median_tnk": 0.0,
+      "pctpos_mal": 0.8897347448554775,
+      "pctpos_tnk": 0.012203791469194312,
+      "mwu_p": 0.0
+    }
+  }
+}
