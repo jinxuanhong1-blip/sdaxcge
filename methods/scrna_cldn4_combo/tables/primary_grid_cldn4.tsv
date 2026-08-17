@@ -1,0 +1,9 @@
+gene	n	rho	p	note	source	cohort	malig_def	immune_def	score
+CLDN4	12	-0.09090909090909093	0.7787253962454419	CLDN4 from the given A3 12-patient table; not an A3 re-cut	a3_given_table	GSE207422	author_DRMref	tnk	mean
+CLDN4	22	-0.20045172219085267	0.3710825718233011	author malignant	tnk_extract	GSE205335	author_malig	tnk	mean
+CLDN4	11	-0.06363636363636364	0.8525390725425217	author residual Epi	tnk_extract	GSE241934_IIT	author_epi	tnk	mean
+CLDN4	24	0.1782608695652174	0.404629262071875	author residual Epi	tnk_extract	GSE241934_Real	author_epi	tnk	mean
+CLDN4	6	-0.8285714285714287	0.04156268221574335	marker malignant	tnk_extract	GSE291670	marker_malig	tnk	mean
+CLDN4	9	-0.33333333333333337	0.38071318167686347	tumor malig-like; existing extract, no RDS	tnk_extract	GSE253013	marker_malig	tnk	mean
+CLDN4	36	-0.2102960102960103	0.21829713378991505	author epithelium, >=20 epi	tnk_extract	GSE131907	author_epi	tnk	mean
+CLDN4	25	-0.11923076923076922	0.5702629145851892	author malignant, donor	tnk_extract	GSE325414	author_malig	tnk	mean
