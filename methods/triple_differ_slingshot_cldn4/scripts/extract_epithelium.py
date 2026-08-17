@@ -147,13 +147,21 @@ def cap_barcodes(
     protect: pd.Series | None = None,
 ) -> pd.DataFrame:
     rng = np.random.default_rng(seed)
-    keep_idx: list[int] = []
+    keep_idx: list = []
+    prot_s = None
+    if protect is not None:
+        prot_s = protect.reindex(frame.index)
+        if prot_s.isna().any() or len(prot_s) != len(frame):
+            prot_s = pd.Series(np.asarray(protect).astype(bool), index=frame.index)
     for _, sub in frame.groupby(unit_col, observed=True):
-        if protect is not None:
-            prot = sub.index[protect.loc[sub.index].to_numpy()]
+        if prot_s is not None:
+            mask = prot_s.loc[sub.index].fillna(False).to_numpy().astype(bool)
+            if mask.size != len(sub):
+                mask = np.zeros(len(sub), dtype=bool)
+            prot = sub.index[mask]
         else:
             prot = sub.index[:0]
-        prot = pd.Index(prot)
+        prot = pd.Index(prot).unique()
         rest = sub.index.difference(prot)
         n_rest = max(0, cap - len(prot))
         if len(rest) > n_rest:
@@ -396,18 +404,20 @@ def extract_gse123902(data: Path, cap: int) -> "ad.AnnData":
             epi = df.loc[epi_any].copy()
             sftpc = epi["SFTPC"] if "SFTPC" in epi.columns else pd.Series(0, index=epi.index)
             protect = (tissue == "NORMAL") & (sftpc.to_numpy() > 0)
+            uniq = pd.Index([f"{gsm}:{b}" for b in epi.index.astype(str)])
+            epi.index = uniq
             obs = pd.DataFrame(
                 {
-                    "barcode": epi.index.astype(str),
+                    "barcode": uniq.astype(str),
                     "gsm": gsm,
                     "patient": donor,
                     "tissue": tissue,
                     "file": name,
                     "Sample": f"{donor}_{tissue}",
                     "Sample_Origin": tissue,
-                    "protect_at2like": protect,
+                    "protect_at2like": np.asarray(protect, dtype=bool),
                 },
-                index=epi.index.astype(str),
+                index=uniq,
             )
             catalog_rows.append(
                 {
@@ -434,12 +444,22 @@ def extract_gse123902(data: Path, cap: int) -> "ad.AnnData":
 
     gene_sets = [set(e.columns) for e, _ in blocks]
     shared = set.intersection(*gene_sets)
+    union = set.union(*gene_sets)
+    # Union, not intersection: some Laughney CSVs omit AT2/club symbols
+    # present in others. Missing genes are filled with 0 so SFTPC etc. survive
+    # the later triple-dataset intersect.
+    genes = sorted(union)
     if len(shared) < 2000:
         raise SystemExit(f"GSE123902 too few shared genes across samples: {len(shared)}")
-    genes = sorted(shared)
+    print(
+        f"GSE123902 genes shared={len(shared)} union={len(union)} "
+        f"(fill missing with 0)",
+        flush=True,
+    )
     mats = []
     obs_parts = []
     for epi, obs in blocks:
+        epi = epi.reindex(columns=genes, fill_value=0.0)
         sub = epi.loc[:, genes].to_numpy(dtype=np.float32)
         mats.append(sparse.csr_matrix(sub))
         obs_parts.append(obs)
@@ -451,7 +471,7 @@ def extract_gse123902(data: Path, cap: int) -> "ad.AnnData":
     keep = set(obs.index.astype(str))
     # rebuild from blocks after cap — simpler: slice by reindex
     all_barcodes = []
-    for _, o in obs_parts:
+    for o in obs_parts:
         all_barcodes.extend(o.index.astype(str).tolist())
     barcode_to_row = {b: i for i, b in enumerate(all_barcodes)}
     row_idx = [barcode_to_row[b] for b in obs.index.astype(str)]

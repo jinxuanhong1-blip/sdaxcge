@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -67,6 +68,14 @@ NORMAL_ORIGINS = {"nLung", "NORMAL"}
 SLINGSHOT_R = HERE / "run_slingshot.R"
 
 
+def _r_env() -> dict:
+    env = dict(os.environ)
+    rlib = Path.home() / "R" / "library"
+    rlib.mkdir(parents=True, exist_ok=True)
+    env["R_LIBS_USER"] = str(rlib)
+    return env
+
+
 def slingshot_status() -> dict:
     rscript = shutil.which("Rscript")
     if rscript is None:
@@ -82,6 +91,7 @@ def slingshot_status() -> dict:
             capture_output=True,
             text=True,
             timeout=30,
+            env=_r_env(),
         )
     except (OSError, subprocess.TimeoutExpired) as exc:
         return {
@@ -368,7 +378,8 @@ def run_slingshot_on(adata, root_i: int, sling: dict) -> dict:
                 check=False,
                 capture_output=True,
                 text=True,
-                timeout=600,
+                timeout=1800,
+                env=_r_env(),
             )
         except (OSError, subprocess.TimeoutExpired) as exc:
             out["reason"] = f"slingshot run failed: {exc}"
@@ -380,7 +391,27 @@ def run_slingshot_on(adata, root_i: int, sling: dict) -> dict:
             return out
         pt = pd.read_csv(out_path)
         mapped = pt.set_index("cell")["slingshot_pseudotime"].reindex(adata.obs_names.astype(str))
-        adata.obs["slingshot_pseudotime"] = mapped.to_numpy(dtype=float)
+        vals = mapped.to_numpy(dtype=float)
+        # kNN-project subsample PT onto all cells (Street slingshot on stratified subsample)
+        sub_emb_path = out_path.parent / "subsample_embedding.csv"
+        if sub_emb_path.is_file() and int(np.isfinite(vals).sum()) < adata.n_obs:
+            try:
+                from sklearn.neighbors import NearestNeighbors
+
+                sub_emb = pd.read_csv(sub_emb_path, index_col=0)
+                sub_pt = pt.set_index("cell")["slingshot_pseudotime"].reindex(sub_emb.index).to_numpy(dtype=float)
+                nn = NearestNeighbors(n_neighbors=min(5, len(sub_emb)), algorithm="auto")
+                nn.fit(sub_emb.to_numpy(dtype=float))
+                dist, idx = nn.kneighbors(emb)
+                proj = np.nanmean(sub_pt[idx], axis=1)
+                # keep exact values for subsampled cells
+                have = np.isfinite(vals)
+                proj[have] = vals[have]
+                vals = proj
+                out["knn_projected"] = True
+            except Exception as exc:
+                out["knn_error"] = str(exc)[:200]
+        adata.obs["slingshot_pseudotime"] = vals
         out["ran"] = True
         out["start_cluster"] = start
         out["n_finite"] = int(np.isfinite(adata.obs["slingshot_pseudotime"]).sum())
@@ -511,6 +542,7 @@ def write_finding(path: Path, ctx: dict) -> None:
         f"- Batch: {s['harmony']['reason']}.",
         f"- Root: {s['root']['rule']} (root cell index {s['root']['index']}, unit {s['root'].get('root_unit')}, "
         f"CLDN4 tertile {s['root'].get('root_cldn4_tertile')}).",
+        f"- Slingshot fit: {s.get('slingshot_run', {}).get('stdout', 'n/a')}.",
         f"- PAGA components at connectivity>0: **{s['n_paga_components']}** among {s['n_leiden']} Leiden vertices.",
         "- Barrier/keratin genes: KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR (**CLDN4 out**).",
         "",

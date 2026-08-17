@@ -20,7 +20,10 @@ program? Inferential unit = sample / patient / donor-sample.
 ## Trajectory clock
 
 Slingshot (Street et al. 2018) is the requested method. Tools are installed
-in this run. If `Rscript` / `slingshot` is still missing after install, the
+in this run (R 4.3 + slingshot 2.10.0). On this ~24k-cell object, lineages
+are fit on a stratified subsample (≤80 cells / Leiden cluster,
+`approx_points=150`) and projected to all cells by 5-NN in Harmony-PCA.
+If `Rscript` / `slingshot` is still missing after install, the
 **documented fallback** is scanpy diffusion pseudotime (Haghverdi et al. 2016).
 Root is **never CLDN4-high**. Preferred root: GSE131907 nLung author AT2
 (median AT2 score among not-CLDN4-high). Palantir is optional.
