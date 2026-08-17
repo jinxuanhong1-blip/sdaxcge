@@ -1,0 +1,5 @@
+symbol	contrast	log2FC	value_loss	value_wt	value_unit	n_loss	n_wt	note
+TACSTD2	GSE207704_T47D	-0.6233228019447712	38.5188	59.6053	group-mean FPKM	2	2	same collapse and pseudocount 0.5 as CLDN4
+TACSTD2	GSE207704_MCF7	-1.0081273142679066	29.539	59.9174	group-mean FPKM	2	2	same collapse and pseudocount 0.5 as CLDN4
+Tacstd2	GSE50927_naive_lung	-0.144934		author edgeR logFC	1	1	submitter FDR=1; not a tumour series
+TACSTD2	GSE22493_SKOV3			not on GPL10555	3	3	ORF and DESCRIPTION have no TACSTD2

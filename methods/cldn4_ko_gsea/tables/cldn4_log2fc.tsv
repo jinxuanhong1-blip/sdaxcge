@@ -1,0 +1,6 @@
+symbol	log2FC	value_loss	value_wt	value_unit	contrast	accession	n_loss	n_wt	n_note	tissue	author_FDR	author_logCPM	per_array
+CLDN4	-1.0385143134411772	20.4365	42.5059	group-mean FPKM	GSE207704_T47D	GSE207704	2	2	2 vs 2 biological replicates deposited; GEO file collapses them to one FPKM per group	T47D breast cancer cell line (in vitro)			
+CLDN4	-0.749921130859537	50.8495	85.8545	group-mean FPKM	GSE207704_MCF7	GSE207704	2	2	2 vs 2 biological replicates deposited; GEO file collapses them to one FPKM per group	MCF7 breast cancer cell line (in vitro)			
+CLDN4	-0.8942177221503571	35.643	64.1802	mean FPKM across lines	GSE207704_mean_both_lines	GSE207704	4	4	mean of two group-mean log2FC ranks; not an independent sample	T47D + MCF7 breast lines (descriptive mean rank)			
+Cldn4	-6.061296179			author edgeR logFC (no FPKM deposited)	GSE50927_naive_lung	GSE50927	1	1	n=1 vs 1; author edgeR table; no count matrix on GEO	mouse whole lung (not lung cancer; mixed-cell bulk)	4.0673e-26	2.250629984	
+CLDN4	-1.22505			mean log2(KD/OE) across arrays	GSE22493_SKOV3	GSE22493	3	3	3 two-colour arrays; VALUE = author log2(KD / CLDN4-OE control), not parental WT	SKOV-3 ovarian line (in vitro two-colour array)			"{""GSM558700"": NaN, ""GSM558701"": -1.737, ""GSM558702"": -0.7131}"
