@@ -1,0 +1,15 @@
+item	public	n	note
+series_public	yes	20	Public on Feb 17 2023; PMID 36890229
+processed_counts	yes	20	GSE183745_RNAseq_rawCounts.csv.gz; 24421 genes
+kidneys / mice	yes	20	unit used for every test
+Fh1-/- day 5	yes	5	K_HOM_5_*
+Fh1-/- day 10	yes	5	K_HOM_10_*
+Fh1+/+ day 5	yes	5	K_WT_5_*
+Fh1+/+ day 10	yes	5	K_WT_10_*
+tissue	yes	20	whole kidney; not lung; not tumour
+ICI / R vs NR / MPR / PFS	no	0	Fh1 tamoxifen induction only
+human / LUAD / LUSC	no	0	Mus musculus mixed C57BL/6 129/SvJ
+Cldn4 finite	yes	20	symbol Cldn4; mean CPM 67.4
+Cd274 finite	yes	20	symbol Cd274; mean CPM 8.1
+Ifng detected	yes	3	3 kidneys with 1 count; 17 zeros; IFN mean-z is not Ifng
+primary pairwise n (Cldn4 + Cd274)	yes	20	this is the n used below
