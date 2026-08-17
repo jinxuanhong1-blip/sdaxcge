@@ -1,0 +1,178 @@
+{
+  "dataset": "GSE205335",
+  "citation": "Ahn / Lee et al. eLife 2024 (GEO GSE205335; processed UMI + identity)",
+  "public_only": true,
+  "raw_data": "not accessed; controlled EGA EGAD00001008703 skipped",
+  "author_barcode_labels": true,
+  "malignant_definition": "author lineage.sub == 'Malignant cells'; CNV not re-inferred",
+  "tnk_definition": "author lineage.total == 'T/NK cells'",
+  "predictor": "malignant CLDN4 only; TACSTD2 is companion, not a gate",
+  "miloR": false,
+  "da_model": "patient-level Spearman of nhood proportion vs malignant CLDN4; Welch t-test for RECIST R vs NR; not edgeR QLF",
+  "spatial_fdr": "miloR graphSpatialFDR k-distance reimplementation (Dann 2022 / cydar)",
+  "independent_unit": "patient (biopsies from the same patient pooled)",
+  "graph": {
+    "cells_all": 96505,
+    "cells_non_normal": 80790,
+    "normal_cells_excluded": 15715,
+    "k": 30,
+    "d": 30,
+    "prop": 0.1,
+    "n_hvg": 2000,
+    "n_nhoods": 5713,
+    "nhood_size": 31,
+    "median_nhood_n_cells": 31.0,
+    "batch": "PCA per-patient mean centering (not Harmony)"
+  },
+  "patients": {
+    "n_geo": 26,
+    "n_in_graph": 22,
+    "n_with_malignant_ge10": 22,
+    "R": 6,
+    "NR": 10,
+    "NE": 6,
+    "n_nsclc_with_score": 17,
+    "n_normal_only_patients_excluded": 5
+  },
+  "lineage_counts_non_normal": {
+    "T/NK cells": 31642,
+    "Epithelial cells": 30448,
+    "Myeloid cells": 8352,
+    "B/Plasma cells": 7102,
+    "Fibroblasts": 1760,
+    "AMB cells": 541,
+    "Endothelial cells": 501,
+    "Mast cells": 441,
+    "Oligodendrocytes": 3
+  },
+  "n_malignant_non_normal": 28512,
+  "n_tnk_non_normal": 31642,
+  "marker_sanity": {
+    "epcam_pos_malignant": 0.6931116722783389,
+    "epcam_pos_tnk": 0.03090828645471209,
+    "ptprc_pos_malignant": 0.04219276094276094,
+    "ptprc_pos_tnk": 0.8091460716768851,
+    "cldn4_pos_malignant": 0.7295173961840629,
+    "cldn4_pos_tnk": 0.036344099614436506
+  },
+  "da_malignant_cldn4": {
+    "n_nhoods_total": 5713,
+    "n_testable": 360,
+    "n_p_lt_0.05": 17,
+    "min_p": 0.004804664723032055,
+    "min_SpatialFDR": 0.8986669249960799,
+    "min_BH_FDR": 0.8411866530412216,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.2": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0
+  },
+  "da_malignant_cldn4_nsclc_only": {
+    "n_nhoods_total": 5713,
+    "n_testable": 310,
+    "n_p_lt_0.05": 15,
+    "min_p": 0.013697326615325618,
+    "min_SpatialFDR": 0.7816267696061967,
+    "min_BH_FDR": 0.7726455183489739,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.2": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0
+  },
+  "da_recist_r_vs_nr": {
+    "n_nhoods_total": 5713,
+    "n_testable": 76,
+    "n_p_lt_0.05": 0,
+    "min_p": 0.09640706476437434,
+    "min_SpatialFDR": 0.8627249725341338,
+    "min_BH_FDR": 0.8765590005563071,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.2": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0
+  },
+  "patient_malignant_cldn4_vs_tnk_fraction": {
+    "n": 22,
+    "rho": -0.2625635234330887,
+    "p": 0.23780202752583146
+  },
+  "patient_malignant_cldn4_recist": {
+    "n_R": 6,
+    "n_NR": 10,
+    "median_R": 1.396574079990387,
+    "median_NR": 0.954827755689621,
+    "p": 0.5621878121878122
+  },
+  "composition": {
+    "note": "transcriptional kNN != spatial niche; unrestricted CLDN4 vs T/NK is partly lineage geometry",
+    "all_nhoods_maligCLDN4_vs_fracTNK": {
+      "n": 2500,
+      "rho": -0.4705457059942931,
+      "p": 5.920189747290312e-138
+    },
+    "interface_nhoods": {
+      "definition": ">=3 malignant AND >=3 T/NK cells",
+      "n": 362,
+      "spearman": {
+        "n": 362,
+        "rho": -0.12047100236524153,
+        "p": 0.021874198680566604
+      }
+    },
+    "disjoint_interface": {
+      "n_disjoint_nhoods": 553,
+      "n_disjoint_interface": 32,
+      "spearman": {
+        "n": 32,
+        "rho": -0.1203815173232461,
+        "p": 0.511643696545082
+      }
+    },
+    "sample_paired_TNK_in_CLDN4high_vs_low_nhoods": {
+      "high_low_cut": "median malignant CLDN4 among nhoods with >=5 malignant cells",
+      "median_cut": 1.3527403473854065,
+      "n_high_nhoods": 1134,
+      "n_low_nhoods": 1134,
+      "wilcoxon_high_vs_low": {
+        "n": 22,
+        "median_a": 0.0018116888204110413,
+        "median_b": 0.05713688485427616,
+        "p": 0.00021907963048002185
+      },
+      "direction_expected": "frac_tnk_high < frac_tnk_low (immune-poor CLDN4-high nhoods)"
+    },
+    "nhood_cldn4_DA_rho_vs_fracTNK": {
+      "n": 360,
+      "rho": -0.11249599521145837,
+      "p": 0.03285784945003557
+    }
+  },
+  "honest_n": {
+    "independent_unit_DA": "patient, not cell, not neighbourhood",
+    "n_patients_in_graph": 22,
+    "n_patients_with_malignant_CLDN4_score": 22,
+    "n_RECIST_R_vs_NR": "6 vs 10",
+    "n_NE": 6,
+    "n_NSCLC_ADC_SQ_with_score": 17,
+    "MPR_labeled": false,
+    "nhoods_are_overlapping": true,
+    "SpatialFDR_is_overlap_aware": true,
+    "disjoint_nhood_subset_n": 553,
+    "do_not_cite_n_cells_as_n": 80790
+  },
+  "mpr_gate": {
+    "mpr_labeled": false,
+    "endpoint_available": "RECIST 1.1 only (PR/SD/PD/NE)",
+    "do_not_substitute_recist_for_mpr": true
+  },
+  "provenance": {
+    "ident_sha256": "8b1f7d21e0031f18561e6d43a3f4e2c31f6e62d7d2bfb91caf364e1fa4a60d0b",
+    "soft_sha256": "de49fcdc62a5a3d3b853dbdc8202256748049cff137d287414d049530293ec3e",
+    "matrix_gz_sha256": "ebbee2f8857fdf0151fa81f04bfb635c6c87a5a5bad33f782a6d349599ad5c30",
+    "matrix_gz_bytes": 523720227,
+    "rds_bytes": 2581533095
+  }
+}

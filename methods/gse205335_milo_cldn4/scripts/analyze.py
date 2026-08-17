@@ -130,6 +130,12 @@ def parse_geo_soft(path: Path) -> pd.DataFrame:
 def gunzip_until_rds(src: Path, dest: Path) -> Path:
     """GEO ships a double-gzipped RDS. Peel gzip until the R XDR magic."""
     dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists() and dest.stat().st_size > 0:
+        with dest.open("rb") as handle:
+            magic = handle.read(2)
+        if magic == b"X\n":
+            print(f"RDS ready {dest} ({dest.stat().st_size} bytes)", flush=True)
+            return dest
     current = src
     tmp_dir = dest.parent
     for i in range(4):
@@ -287,7 +293,8 @@ def main() -> None:
     if len(barcodes) != len(ident):
         raise ValueError(f"barcode/identity length mismatch {len(barcodes)} vs {len(ident)}")
     if not np.array_equal(barcodes, ident["barcode"].to_numpy(dtype=str)):
-        order = pd.Index(barcodes).get_indexer(ident["barcode"])
+        # Identity table is a permutation of the matrix barcodes.
+        order = pd.Index(ident["barcode"]).get_indexer(barcodes)
         if (order < 0).any():
             raise ValueError("identity barcodes do not match matrix barcodes")
         ident = ident.iloc[order].reset_index(drop=True)
