@@ -1,0 +1,30 @@
+{
+  "freeze": "data_freeze_v1.2_reorganized",
+  "freeze_base": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized",
+  "linkedomics_luad": "https://www.linkedomics.org/data_download/CPTAC-pancan-LUAD/",
+  "linkedomics_lscc": "https://www.linkedomics.org/data_download/CPTAC-pancan-LSCC/",
+  "scope": "CLDN4 protein vs CD274 and IFN proteins; LUAD + LSCC public TMT only",
+  "downloaded_at_utc": "2026-08-17T16:49:42.849461+00:00",
+  "files": [
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "name": "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "content_length": 20132337,
+      "status": "downloaded",
+      "local_bytes": 20132337,
+      "sha256": "746900f54072198481207ea13f8a7ba14dcabd52345bace0bef7438120c03845",
+      "cohort": "LUAD",
+      "path": "data/cptac_cldn4_cd274/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "name": "LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "content_length": 20631271,
+      "status": "downloaded",
+      "local_bytes": 20631271,
+      "sha256": "fd9f9cc0aed40942fd33d750d1d207bcdf9ea231fcddeff3cc8ac8fdf3e1384d",
+      "cohort": "LSCC",
+      "path": "data/cptac_cldn4_cd274/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt"
+    }
+  ]
+}
