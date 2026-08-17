@@ -1,0 +1,96 @@
+{
+  "coverage": {
+    "dataset": "GSE131907",
+    "pmid": "32385277",
+    "n_cells_matrix": 208506,
+    "n_cells_umi_ge_200": 208506,
+    "n_epithelial_umi_ge_200": 36467,
+    "n_samples_total": 58,
+    "cytotrace2_run": false,
+    "potency_definition": "residual n_genes ~ log1p(total_UMI), rank-scaled within the epithelial universe of each contrast",
+    "test_gene": "CLDN4",
+    "unit": "sample",
+    "min_epithelial_per_sample": 20,
+    "min_umi": 200,
+    "ici_or_mpr_labels": false
+  },
+  "primary": {
+    "universe": "tLung author epithelial cells",
+    "n_samples": 11,
+    "spearman_rho": 0.15454545454545454,
+    "spearman_p": 0.6500339654975799,
+    "paired_n": 11,
+    "paired_p": 0.013671875,
+    "paired_median_delta": 0.12187747488641565
+  },
+  "sensitivity_tumor_sites": {
+    "universe": "tLung + tL/B + mLN + mBrain + PE epithelial",
+    "n_samples": 36,
+    "spearman_rho": -0.11274131274131274,
+    "spearman_p": 0.5126821098698218,
+    "paired_n": 35,
+    "paired_p": 0.0005360888823317366,
+    "paired_median_delta": 0.04145697804210202
+  },
+  "nLung_contrast": {
+    "n_samples": 11,
+    "spearman_rho": 0.46363636363636374,
+    "spearman_p": 0.15090149929248592
+  },
+  "cell_exploratory": {
+    "tLung_epithelial": {
+      "n_cells": 7270,
+      "n_eligible_samples": 11,
+      "n_paired_quartile_samples": 11,
+      "sample_spearman_rho": 0.15454545454545454,
+      "sample_spearman_p": 0.6500339654975799,
+      "paired_wilcoxon_W": 6.0,
+      "paired_wilcoxon_p": 0.013671875,
+      "paired_median_delta_high_minus_low": 0.12187747488641565,
+      "cell_spearman_rho": 0.1386058274579205,
+      "cell_spearman_p": 1.6262721520459835e-32
+    },
+    "tumor_epithelial": {
+      "n_cells": 32764,
+      "n_eligible_samples": 36,
+      "n_paired_quartile_samples": 35,
+      "sample_spearman_rho": -0.11274131274131274,
+      "sample_spearman_p": 0.5126821098698218,
+      "paired_wilcoxon_W": 95.0,
+      "paired_wilcoxon_p": 0.0005360888823317366,
+      "paired_median_delta_high_minus_low": 0.04145697804210202,
+      "cell_spearman_rho": -0.010326413710210081,
+      "cell_spearman_p": 0.06160264721452064
+    },
+    "nLung_epithelial": {
+      "n_cells": 3703,
+      "n_eligible_samples": 11,
+      "n_paired_quartile_samples": 11,
+      "sample_spearman_rho": 0.46363636363636374,
+      "sample_spearman_p": 0.15090149929248592,
+      "paired_wilcoxon_W": 5.0,
+      "paired_wilcoxon_p": 0.009765625,
+      "paired_median_delta_high_minus_low": 0.08704968944099378,
+      "cell_spearman_rho": 0.19561719906563765,
+      "cell_spearman_p": 2.928145175863879e-33
+    },
+    "all_epithelial": {
+      "n_cells": 36467,
+      "n_eligible_samples": 47,
+      "n_paired_quartile_samples": 46,
+      "sample_spearman_rho": 0.14014801110083255,
+      "sample_spearman_p": 0.34743179408850716,
+      "paired_wilcoxon_W": 170.0,
+      "paired_wilcoxon_p": 8.766247265284366e-05,
+      "paired_median_delta_high_minus_low": 0.039432178287603536,
+      "cell_spearman_rho": 0.04621676626621764,
+      "cell_spearman_p": 1.045596737138328e-18
+    }
+  },
+  "verdict_notes": [
+    "CytoTRACE2 was not run.",
+    "Primary n is tLung samples with \u226520 epithelial cells, not cells.",
+    "GSE131907 is treatment-naive; no ICI/MPR test.",
+    "CLDN4 only."
+  ]
+}
