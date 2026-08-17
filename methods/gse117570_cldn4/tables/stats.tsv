@@ -1,0 +1,5 @@
+contrast	n	rho	p	ok	note	n_mal_gt_tnk	median_mal	median_tnk
+CLDN4_mal_mean_vs_fracTNK_eligible	1			False	n=1<5; Spearman not computed			
+CLDN4_mal_mean_vs_fracTNK_detectable	3			False	n=3<5; Spearman not computed (P3/P4 T/NK-thin)			
+paired_mal_vs_tnk_CLDN4_tnk>=5	2			False	Wilcoxon signed-rank malignant > T/NK; n<6 is descriptive	2.0	1.7148504257202148	0.09212417900562286
+paired_mal_vs_tnk_CLDN4_tnk>=1	3		0.125	False	Wilcoxon signed-rank malignant > T/NK; n<6 is descriptive	3.0	1.989223599433899	0.04065476357936859
