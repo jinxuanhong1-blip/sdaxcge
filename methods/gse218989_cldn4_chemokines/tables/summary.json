@@ -1,0 +1,82 @@
+{
+  "accession": "GSE218989",
+  "matrix": "GSE218989_SMC_KAIST_TPM_matrix_pc_rmdupli.txt.gz",
+  "n_patients": 355,
+  "n_genes": 19916,
+  "missing_requested_genes": [],
+  "GEP18_coverage": "18/18",
+  "chemokine_coverage": "3/3",
+  "histology": "not_deposited",
+  "geo_R_NR": [
+    168,
+    187
+  ],
+  "one_row": {
+    "dataset": "GSE218989 SMC-KAIST",
+    "n_matrix_patients": 355,
+    "n_genes": 19916,
+    "n_spearman": 355,
+    "CXCL9_present": true,
+    "CXCL10_present": true,
+    "CXCL13_present": true,
+    "GEP18_n_present": 18,
+    "GEP18_n_listed": 18,
+    "GEP18_missing": "none",
+    "CLDN4_vs_CXCL9_n": 355,
+    "CLDN4_vs_CXCL9_rho": 0.026990401365714636,
+    "CLDN4_vs_CXCL9_p": 0.6122692362217079,
+    "CLDN4_vs_CXCL10_n": 355,
+    "CLDN4_vs_CXCL10_rho": 0.090575613298222,
+    "CLDN4_vs_CXCL10_p": 0.0883697441948554,
+    "CLDN4_vs_CXCL13_n": 355,
+    "CLDN4_vs_CXCL13_rho": -0.009991931864745273,
+    "CLDN4_vs_CXCL13_p": 0.8511877704149955,
+    "CLDN4_vs_GEP18_n": 355,
+    "CLDN4_vs_GEP18_rho": 0.0512392349406633,
+    "CLDN4_vs_GEP18_p": 0.3357238241452815,
+    "CLDN4_vs_CXCL9_10_13_rho": 0.029535460094066716,
+    "CLDN4_vs_CXCL9_10_13_p": 0.5791347176304993,
+    "geo_R": 168,
+    "geo_NR": 187,
+    "histology": "not_deposited"
+  },
+  "primary_spearman": [
+    {
+      "family": "primary",
+      "feature": "CLDN4",
+      "axis": "CXCL9",
+      "n": 355,
+      "rho": 0.026990401365714636,
+      "p": 0.6122692362217079,
+      "q_bh_primary": 0.8163589816289439
+    },
+    {
+      "family": "primary",
+      "feature": "CLDN4",
+      "axis": "CXCL10",
+      "n": 355,
+      "rho": 0.090575613298222,
+      "p": 0.0883697441948554,
+      "q_bh_primary": 0.3534789767794216
+    },
+    {
+      "family": "primary",
+      "feature": "CLDN4",
+      "axis": "CXCL13",
+      "n": 355,
+      "rho": -0.009991931864745273,
+      "p": 0.8511877704149955,
+      "q_bh_primary": 0.8511877704149955
+    },
+    {
+      "family": "primary",
+      "feature": "CLDN4",
+      "axis": "GEP18_meanz",
+      "n": 355,
+      "rho": 0.0512392349406633,
+      "p": 0.3357238241452815,
+      "q_bh_primary": 0.671447648290563
+    }
+  ],
+  "note": "Additive chemokine/GEP page. CD274/HLA isolated tests are out of scope."
+}
