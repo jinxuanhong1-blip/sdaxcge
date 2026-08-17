@@ -1,0 +1,51 @@
+{
+  "dataset": "GSE4573",
+  "pmid": "16885343",
+  "platform": "GPL96 Affymetrix HG-U133A",
+  "histology": "LUSC (series-level; every sample described as lung squamous carcinoma)",
+  "n_arrays": 130,
+  "n_probes": 22283,
+  "n_genes_collapsed": 13299,
+  "n_patients_geo_text": 129,
+  "n_primary_cldn4_cd8a": 130,
+  "processing": "MAS5 as deposited (linear signal). Spearman is rank-based.",
+  "cldn4_probe": "201428_at",
+  "cd8a_probe": "205758_at",
+  "cd8b": "not a clean U133A symbol (LOC100996919///CD8B); excluded by first-symbol collapse",
+  "cldn4_vs_cd8a": {
+    "n": 130,
+    "rho": -0.05423268682178352,
+    "p": 0.5399908033255645,
+    "ci": [
+      -0.22709021937026447,
+      0.11666488402971442
+    ],
+    "rho_adj_epithelial": -0.05204402622894481,
+    "p_adj_epithelial": 0.5580433874245078,
+    "verdict": "NO_EVIDENCE"
+  },
+  "cldn4_vs_epithelial": {
+    "n": 130,
+    "rho": 0.424681478649169,
+    "p": 4.7581633759707255e-07,
+    "ci": [
+      0.26402638986134386,
+      0.558286880297784
+    ]
+  },
+  "pr229_tacstd2_given": {
+    "note": "TLS/CD8 TACSTD2 extras from PR 229; not re-claimed here",
+    "n": 130,
+    "T_cell_CD8_rho": -0.24674033572502613,
+    "T_cell_CD8_p": 0.004654889763503568,
+    "TLS_Cabrita_verdict": "NO_EVIDENCE",
+    "T_cell_CD8_verdict": "HOLDS"
+  },
+  "missing_public_labels": [
+    "OS",
+    "stage",
+    "ICI",
+    "tumor_percent",
+    "patient-duplicate ID"
+  ]
+}

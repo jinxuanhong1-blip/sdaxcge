@@ -1,0 +1,13 @@
+field	public	n	note
+arrays_in_matrix	yes	130	22283 probes x 130 GSM
+unique_GSM	yes	130	all unique
+unique_title	yes	130	LS-* titles; all unique
+GEO_overall_design_patients	yes (text only)	129	Series says '130 samples from 129 patients'; duplicate pair is not identified in sample metadata
+histology	series-level only	130	all described as lung squamous carcinoma; no LUAD rows
+stage	no	0	not a GEO sample characteristic
+OS / DSS time or event	no	0	prognosis paper; labels not deposited on GEO. No suppl folder.
+ICI / treatment	no	0	resected LUSC atlas, not an ICI series
+tumor_percent / purity	no	0	epithelial RNA score used as the only public purity proxy
+CLDN4 finite	yes	130	named probe 201428_at
+CD8A finite	yes	130	named probe 205758_at
+pairwise CLDN4+CD8A	yes	130	primary n
