@@ -1,0 +1,140 @@
+{
+  "question": "LUAD extra: CLDN4 protein Q4 vs Q1 versus ImmuneScore and CD274 in CPTAC LUAD public TMT. LSCC Q4 already reported. No TACSTD2 gate.",
+  "predictor": "CLDN4 protein (ENSG00000189143)",
+  "tacstd2_gate": "none",
+  "lscc": "not re-run; see methods/cptac_cldn4_q4",
+  "quartile_rule": "pd.qcut(rank(method='first'), 4) among CLDN4-protein-quantified tumors",
+  "endpoints": {
+    "ImmuneScore": "ESTIMATE_ImmuneScore from freeze phenotype (RNA-derived); primary",
+    "CD274_RNA": "tumor RNA ENSG00000120217 (log2 RSEM coding UQ 1500); primary",
+    "CD274_protein": "same TMT matrix ENSG00000120217; supporting; honest n"
+  },
+  "cohort": {
+    "cohort": "LUAD",
+    "n_protein_columns": 110,
+    "n_rna_columns": 110,
+    "n_pheno_rows": 110,
+    "n_intersect_tumors": 110,
+    "cldn4_protein_row": "ENSG00000189143.9",
+    "cd274_rna_row": "ENSG00000120217.14",
+    "cd274_protein_row": "ENSG00000120217.14",
+    "n_cldn4_protein_quantified": 79,
+    "n_cldn4_protein_na": 31,
+    "quartile_counts": {
+      "Q4": 20,
+      "Q1": 20,
+      "Q2": 20,
+      "Q3": 19
+    },
+    "cldn4_protein_q25": 22.76055482632755,
+    "cldn4_protein_q50": 23.0710721901358,
+    "cldn4_protein_q75": 23.292022612304102,
+    "tacstd2_gate": "none",
+    "endpoint_non_na_among_cldn4": {
+      "ImmuneScore": 79,
+      "CD274_RNA": 79,
+      "CD274_protein": 79
+    },
+    "q4_vs_q1_pairwise_n": {
+      "ImmuneScore": {
+        "n_q4": 20,
+        "n_q1": 20
+      },
+      "CD274_RNA": {
+        "n_q4": 20,
+        "n_q1": 20
+      },
+      "CD274_protein": {
+        "n_q4": 20,
+        "n_q1": 20
+      }
+    },
+    "n_cd274_protein_quantified_all_tumors": 110,
+    "n_cd274_protein_and_cldn4": 79
+  },
+  "q4_vs_q1": [
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": 8179.4215,
+      "median_q1": 8785.913,
+      "delta_median_q4_minus_q1": -606.4915000000001,
+      "U": 168.0,
+      "p": 0.39417090995164517,
+      "rank_biserial_q4_gt_q1": -0.16000000000000003,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "ImmuneScore",
+      "role": "primary",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": 8.57245,
+      "median_q1": 9.2357,
+      "delta_median_q4_minus_q1": -0.6632499999999997,
+      "U": 133.0,
+      "p": 0.0720454304673439,
+      "rank_biserial_q4_gt_q1": -0.33499999999999996,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD274_RNA",
+      "role": "primary",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": 22.102598664973,
+      "median_q1": 22.05087281932675,
+      "delta_median_q4_minus_q1": 0.05172584564625282,
+      "U": 226.0,
+      "p": 0.49033426450951045,
+      "rank_biserial_q4_gt_q1": 0.1299999999999999,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD274_protein",
+      "role": "supporting",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    }
+  ],
+  "spearman": [
+    {
+      "n": 79,
+      "rho": -0.16772151898734178,
+      "p": 0.13955015774719456,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "ImmuneScore",
+      "role": "primary",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 79,
+      "rho": -0.205955561540439,
+      "p": 0.06861129749206224,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD274_RNA",
+      "role": "primary",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 79,
+      "rho": 0.0555014605647517,
+      "p": 0.6270950910711911,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD274_protein",
+      "role": "supporting",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    }
+  ]
+}
