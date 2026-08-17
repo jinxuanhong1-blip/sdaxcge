@@ -1,0 +1,6 @@
+# Raw matrices stay in /tmp; do not commit.
+data/*.h5
+data/*.rds
+data/*.rds.gz
+data/*UMI*
+__pycache__/
