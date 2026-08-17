@@ -1,0 +1,7 @@
+contrast	compartment	cohort	split	n_low	n_high	n	n_genes	patients_q1	patients_q4
+malignant_q4q1_GSE189357	malignant	GSE189357	q4q1	3.0	2.0	5	0	TD2,TD4,TD7	TD6,TD9
+malignant_continuous_GSE189357	malignant	GSE189357	continuous			9	15607		
+malignant_q4q1_GSE205335	malignant	GSE205335	q4q1	6.0	6.0	12	18048	P1015,P1062,P1063,P1090,P1119,P4001	P1016,P1025,P1037,P1084,P1089,P1115
+malignant_continuous_GSE205335	malignant	GSE205335	continuous			22	20394		
+malignant_q4q1_combined	malignant	GSE189357+GSE205335	q4q1	9.0	8.0	17	17885	P1015,P1062,P1063,P1090,P1119,P4001,TD2,TD4,TD7	P1016,P1025,P1037,P1084,P1089,P1115,TD6,TD9
+malignant_continuous_combined	malignant	GSE189357+GSE205335	continuous			31	19544		

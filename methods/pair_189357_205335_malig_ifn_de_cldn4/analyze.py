@@ -786,13 +786,22 @@ higher in CLDN4-high (Q4) than CLDN4-low (Q1). Machine table:
 
 {score_md("q4q1")}
 
+On this pair the claim families **split**: IFN and MHC-I/APM are down in
+CLDN4-high malignant cells (combined Q4 vs Q1 and continuous). **TJ is
+flat** (logFC ≈ 0). GSE205335 Q4 is 3/6 SCLC, which is a plausible reason
+the TJ arm does not rise. Chemokine (extra) is also down.
+
 Continuous family-score DE (same 31 patients, CLDN4 %pos z):
 
 {score_md("continuous")}
 
-Per-cohort family scores (GSE189357 Q4 vs Q1 is thin):
+Per-cohort family scores (GSE189357 Q4 vs Q1 is thin, n_Q4=2, skipped):
 
 {score_md_cohorts("q4q1")}
+
+GSE189357 continuous (n=9; the only single-cohort test that meets n):
+
+{score_md("continuous", "GSE189357")}
 
 {cldn4_txt}
 
@@ -953,7 +962,7 @@ def main() -> None:
     if not de.empty:
         de = de.copy()
         de["compartment"] = "malignant"
-        de["cohort"] = "GSE189357+GSE205335",
+        de["cohort"] = "GSE189357+GSE205335"
         de["contrast"] = "q4q1_combined"
         de["n_q1"] = info["n_q1"]
         de["n_q4"] = info["n_q4"]
@@ -985,7 +994,7 @@ def main() -> None:
     if not de_c.empty:
         de_c = de_c.copy()
         de_c["compartment"] = "malignant"
-        de_c["cohort"] = "GSE189357+GSE205335",
+        de_c["cohort"] = "GSE189357+GSE205335"
         de_c["contrast"] = "continuous_combined"
         de_c["n_q1"] = np.nan
         de_c["n_q4"] = np.nan
