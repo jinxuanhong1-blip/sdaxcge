@@ -1,0 +1,48 @@
+[
+  {
+    "cohort": "LUAD",
+    "n_tumor_rna_columns": 110,
+    "n_tumor_protein_columns": 110,
+    "n_survival_rows": 110,
+    "n_meta_rows": 110,
+    "cldn4_rna_row": "ENSG00000189143.9",
+    "cldn4_protein_row": "ENSG00000189143.9",
+    "cldn4_rna_n": 110,
+    "cldn4_rna_na": 0,
+    "cldn4_protein_n": 79,
+    "cldn4_protein_na": 31,
+    "survival_columns": [
+      "OS_days",
+      "OS_event",
+      "PFS_days",
+      "PFS_event"
+    ],
+    "os_events_in_table": 24,
+    "pfs_events_in_table": 23,
+    "paper": "Gillette et al. Cell 2020, PMID 32649874",
+    "histology": "lung adenocarcinoma"
+  },
+  {
+    "cohort": "LSCC",
+    "n_tumor_rna_columns": 108,
+    "n_tumor_protein_columns": 108,
+    "n_survival_rows": 108,
+    "n_meta_rows": 108,
+    "cldn4_rna_row": "ENSG00000189143.9",
+    "cldn4_protein_row": "ENSG00000189143.9",
+    "cldn4_rna_n": 108,
+    "cldn4_rna_na": 0,
+    "cldn4_protein_n": 78,
+    "cldn4_protein_na": 30,
+    "survival_columns": [
+      "OS_days",
+      "OS_event",
+      "PFS_days",
+      "PFS_event"
+    ],
+    "os_events_in_table": 25,
+    "pfs_events_in_table": 20,
+    "paper": "Satpathy et al. Cell 2021, PMID 34358469",
+    "histology": "lung squamous cell carcinoma (LUSC synonym)"
+  }
+]
