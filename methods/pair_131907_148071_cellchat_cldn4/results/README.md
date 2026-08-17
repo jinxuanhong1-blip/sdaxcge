@@ -1,0 +1,7 @@
+- `combo_rho.tsv` — DL Fisher-z combo ρ and Q4 vs Q1 r (GSE131907+GSE148071 only)
+- `q4q1_tnk.tsv` — per-cohort Spearman + Q4 vs Q1
+- `patients_with_quartiles.tsv` — 46-patient table
+- `ligand_table.tsv` — CellChat-style outgoing Mal → T/NK (top by p)
+- `lr_q4q1_all.tsv` — all detect-gated direction×pair rows
+- `per_patient_cells.tsv` — Q4/Q1 cell counts used for LR
+- `per_patient_lr.tsv.gz` — full per-patient probabilities (not in git)

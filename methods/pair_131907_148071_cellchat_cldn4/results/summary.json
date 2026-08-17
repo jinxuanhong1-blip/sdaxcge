@@ -1,0 +1,211 @@
+{
+  "pair": [
+    "GSE131907",
+    "GSE148071"
+  ],
+  "excluded": [
+    "GSE205335"
+  ],
+  "additive": true,
+  "marker": "CLDN4",
+  "dual_high": false,
+  "unit": "patient",
+  "n_gse131907": 21,
+  "n_gse148071": 25,
+  "combo_rho_pct": {
+    "k": 2,
+    "n_patients_total": 46,
+    "method": "DerSimonian-Laird random-effects on Fisher-z",
+    "pooled_z": -0.24713758588371817,
+    "pooled_rho": -0.24222607031987303,
+    "se_z": 0.32417332839541724,
+    "ci95_rho": [
+      -0.7076781800873053,
+      0.36984380128682376
+    ],
+    "p": 0.4458436869514144,
+    "Q": 4.1639001295654605,
+    "df": 1,
+    "tau2": 0.15979293583663942,
+    "I2": 75.9840541587543,
+    "H2": 4.1639001295654605,
+    "fixed_z": -0.22249847562096967,
+    "fixed_rho": -0.21889811592083705,
+    "members": [
+      {
+        "cohort": "GSE131907",
+        "n": 21,
+        "effect": -0.5220779220779221,
+        "p": 0.015195754492505785
+      },
+      {
+        "cohort": "GSE148071",
+        "n": 25,
+        "effect": 0.06923076923076923,
+        "p": 0.7422865391098581
+      }
+    ]
+  },
+  "combo_rho_mean": {
+    "k": 2,
+    "n_patients_total": 46,
+    "method": "DerSimonian-Laird random-effects on Fisher-z",
+    "pooled_z": -0.10546806606703278,
+    "pooled_rho": -0.10507873977914013,
+    "se_z": 0.30516716859881815,
+    "ci95_rho": [
+      -0.6066451618673545,
+      0.4563247594984561
+    ],
+    "p": 0.7296376992792488,
+    "Q": 3.690538862712508,
+    "df": 1,
+    "tau2": 0.13588580114709636,
+    "I2": 72.90368596023914,
+    "H2": 3.690538862712508,
+    "fixed_z": -0.08321208285657511,
+    "fixed_rho": -0.08302055287781367,
+    "members": [
+      {
+        "cohort": "GSE131907",
+        "n": 21,
+        "effect": -0.39610389610389607,
+        "p": 0.07547637795047248
+      },
+      {
+        "cohort": "GSE148071",
+        "n": 25,
+        "effect": 0.18923076923076923,
+        "p": 0.364968831611586
+      }
+    ]
+  },
+  "combo_q4q1_pct": {
+    "k": 2,
+    "n_patients_total": 24,
+    "method": "DerSimonian-Laird random-effects on Fisher-z",
+    "pooled_z": -0.3285399022688606,
+    "pooled_rho": -0.31720820458838067,
+    "se_z": 0.3461040877774607,
+    "ci95_rho": [
+      -0.7644784116378728,
+      0.3362195465995993
+    ],
+    "p": 0.3424925999560614,
+    "Q": 2.13534672852534,
+    "df": 1,
+    "tau2": 0.12772650695910073,
+    "I2": 53.16919792737382,
+    "H2": 2.13534672852534,
+    "fixed_z": -0.3080654135821979,
+    "fixed_rho": -0.29867610991160043,
+    "members": [
+      {
+        "cohort": "GSE131907",
+        "n": 11,
+        "effect": -0.6,
+        "p": 0.12554112554112554
+      },
+      {
+        "cohort": "GSE148071",
+        "n": 13,
+        "effect": 0.0,
+        "p": 1.0
+      }
+    ]
+  },
+  "per_cohort": [
+    {
+      "cohort": "GSE131907",
+      "malig_def": "author_malig_tS",
+      "immune_def": "same_patient_tnk_fraction",
+      "score": "pct_pos",
+      "n_patients": 21,
+      "n_q1": 6,
+      "n_q4": 5,
+      "n_compared": 11,
+      "spearman_rho": -0.5220779220779221,
+      "spearman_p": 0.015195754492505785,
+      "q4q1_r_rb": -0.6,
+      "q4q1_p": 0.12554112554112554,
+      "median_tnk_q1": 0.3901695415186815,
+      "median_tnk_q4": 0.0484949832775919,
+      "delta_median_tnk": -0.3416745582410896,
+      "thin": false,
+      "poolable_q4q1": true,
+      "unit": "patient"
+    },
+    {
+      "cohort": "GSE131907",
+      "malig_def": "author_malig_tS",
+      "immune_def": "same_patient_tnk_fraction",
+      "score": "mean",
+      "n_patients": 21,
+      "n_q1": 6,
+      "n_q4": 5,
+      "n_compared": 11,
+      "spearman_rho": -0.39610389610389607,
+      "spearman_p": 0.07547637795047248,
+      "q4q1_r_rb": -0.5333333333333333,
+      "q4q1_p": 0.17748917748917747,
+      "median_tnk_q1": 0.34566636142967194,
+      "median_tnk_q4": 0.1052969502407704,
+      "delta_median_tnk": -0.24036941118890154,
+      "thin": false,
+      "poolable_q4q1": true,
+      "unit": "patient"
+    },
+    {
+      "cohort": "GSE148071",
+      "malig_def": "marker_epi_putative",
+      "immune_def": "same_patient_tnk_fraction",
+      "score": "pct_pos",
+      "n_patients": 25,
+      "n_q1": 7,
+      "n_q4": 6,
+      "n_compared": 13,
+      "spearman_rho": 0.06923076923076923,
+      "spearman_p": 0.7422865391098581,
+      "q4q1_r_rb": 0.0,
+      "q4q1_p": 1.0,
+      "median_tnk_q1": 0.08013937282229965,
+      "median_tnk_q4": 0.0737881061264146,
+      "delta_median_tnk": -0.006351266695885052,
+      "thin": false,
+      "poolable_q4q1": true,
+      "unit": "patient"
+    },
+    {
+      "cohort": "GSE148071",
+      "malig_def": "marker_epi_putative",
+      "immune_def": "same_patient_tnk_fraction",
+      "score": "mean",
+      "n_patients": 25,
+      "n_q1": 7,
+      "n_q4": 6,
+      "n_compared": 13,
+      "spearman_rho": 0.18923076923076923,
+      "spearman_p": 0.364968831611586,
+      "q4q1_r_rb": -0.04761904761904767,
+      "q4q1_p": 0.9452214452214451,
+      "median_tnk_q1": 0.08013937282229965,
+      "median_tnk_q4": 0.0922002471022079,
+      "delta_median_tnk": 0.012060874279908249,
+      "thin": false,
+      "poolable_q4q1": true,
+      "unit": "patient"
+    }
+  ],
+  "cellchat": {
+    "n_lr_in_db": 2239,
+    "n_patients_scored": 24,
+    "n_q1": 13,
+    "n_q4": 11,
+    "n_pairs_tested_after_detect_gate": 78,
+    "n_pairs_p_lt_05": 6,
+    "n_outgoing_p_lt_05": 6,
+    "ligand_table_rows": 20
+  },
+  "algorithm": "within-cohort pd.qcut on average ranks; MWU rank-biserial; DL Fisher-z combo \u03c1; CellChat-like 10% trim mean, Hill Kh=0.5, expr_prop>=0.10, same-patient Mal\u2194T/NK on Q4 vs Q1 tails",
+  "not_run": "CellChat R; LIANA; EGA raw; TACSTD2 split; GSE205335"
+}
