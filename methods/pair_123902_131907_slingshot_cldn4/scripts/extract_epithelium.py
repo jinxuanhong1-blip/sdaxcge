@@ -166,6 +166,7 @@ def extract_gse131907(data: Path, gene_cap: int | None, cap: int) -> "ad.AnnData
     adata.obs["tissue"] = adata.obs["Sample_Origin"].astype(str)
     adata.obs["is_normal_tissue"] = adata.obs["Sample_Origin"].eq("nLung")
     adata.obs["donor"] = adata.obs["patient_id"].astype(str)
+    adata = collapse_duplicate_genes(adata)
     adata.layers["counts"] = adata.X.copy()
     print(f"GSE131907 written cells={adata.n_obs} genes={adata.n_vars}", flush=True)
     return adata
@@ -267,6 +268,7 @@ def extract_gse123902(data: Path, cap: int) -> "ad.AnnData":
             obs=obs,
             var=pd.DataFrame(index=pd.Index(genes, name="gene")),
         )
+        adata = collapse_duplicate_genes(adata)
         adatas.append(adata)
     if not adatas:
         raise SystemExit("no GSE123902 epithelial cells after marker gate")
@@ -306,12 +308,36 @@ def extract_gse123902(data: Path, cap: int) -> "ad.AnnData":
     return out
 
 
+def collapse_duplicate_genes(adata):
+    """Sum UMI across duplicate gene symbols (Laughney dense CSVs are not unique)."""
+    names = pd.Index(adata.var_names.astype(str))
+    if names.is_unique:
+        return adata
+    uniq = names.unique()
+    inv = pd.Series(np.arange(len(uniq)), index=uniq)
+    j = inv.loc[names].to_numpy()
+    gather = sparse.csr_matrix(
+        (np.ones(len(names), dtype=np.float32), (np.arange(len(names)), j)),
+        shape=(len(names), len(uniq)),
+    )
+    X = adata.X.tocsr() if sparse.issparse(adata.X) else sparse.csr_matrix(adata.X)
+    collapsed = (X @ gather).tocsr()
+    import anndata as ad
+
+    out = ad.AnnData(
+        X=collapsed,
+        obs=adata.obs.copy(),
+        var=pd.DataFrame(index=pd.Index(uniq, name="gene")),
+    )
+    return out
+
+
 def _sanitize_obs(obs: pd.DataFrame) -> pd.DataFrame:
     out = obs.copy()
     for col in out.columns:
         if pd.api.types.is_bool_dtype(out[col]) or str(out[col].dtype) == "boolean":
             out[col] = out[col].map({True: "True", False: "False"}).astype(str)
-        elif pd.api.types.is_categorical_dtype(out[col]) or out[col].dtype == object:
+        elif isinstance(out[col].dtype, pd.CategoricalDtype) or out[col].dtype == object:
             out[col] = out[col].astype(str).replace({"nan": "NA", "None": "NA", "<NA>": "NA"})
     return out
 
