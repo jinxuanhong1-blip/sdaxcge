@@ -210,16 +210,16 @@ def run_liana(expr: pd.DataFrame, labels: pd.Series, out_csv: Path, n_perms: int
     try:
         rng = np.random.default_rng(seed)
         keep_idx = []
-        for lab, idx in labels.groupby(labels).groups.items():
-            idx = np.array(list(idx))
+        for _lab, idx in labels.groupby(labels, sort=False).groups.items():
+            idx = np.asarray(list(idx))
             if len(idx) > max_per_group:
                 idx = rng.choice(idx, size=max_per_group, replace=False)
             keep_idx.append(idx)
         keep_idx = np.concatenate(keep_idx)
-        X = expr.loc[keep_idx].to_numpy(dtype=np.float32)
-        adata = ad.AnnData(X)
-        adata.obs_names = expr.index[keep_idx].astype(str)
-        adata.var_names = expr.columns.astype(str)
+        sub = expr.loc[keep_idx]
+        adata = ad.AnnData(sub.to_numpy(dtype=np.float32))
+        adata.obs_names = sub.index.astype(str)
+        adata.var_names = sub.columns.astype(str)
         adata.obs["group"] = labels.loc[keep_idx].astype(str).values
         counts = adata.obs["group"].value_counts().to_dict()
         li.mt.cellphonedb(
@@ -306,6 +306,9 @@ def write_finding(
         "",
         "Per-patient counts: `results/n_cells_patients.tsv`. Do not treat cell counts as the sample size.",
         "",
+        f"Usable outgoing patients (n={summary['n_patients_usable']}): {', '.join(summary['usable_patients'])}.",
+        f"Paired high vs low (n={summary['n_patients_paired']}): {', '.join(summary['paired_patients'])}.",
+        "",
         "## What was run",
         "",
         "Primary score is the documented CellPhoneDB mean (Efremova 2020; Garcia-Alonso 2022) on the public TISCH2/MAESTRO matrix **log2(TPM/10+1)**: partner expression = min(subunit means); pair score = mean of the two partner means. A pair passes `expr_prop` when both partners are detected (>0) in ≥10% of cells in their group. This is **not** a CellChat probability and **not** a raw-UMI reprocess.",
@@ -365,6 +368,42 @@ def write_finding(
                 "",
             ]
 
+    liana_csv = outdir / "liana_cellphonedb.csv"
+    if liana_csv.exists() and summary.get("liana_status_short") == "LIANA_OK":
+        li = pd.read_csv(liana_csv)
+        src_col = next((c for c in li.columns if c.lower() in {"source", "ligand_complex"}), None)
+        # LIANA 1.x columns: source, target, ligand_complex, receptor_complex, lr_means, cellphone_pvals
+        if {"source", "target"}.issubset(li.columns):
+            sub = li[(li["source"] == "Malig_CLDN4high") & (li["target"] == "TNK")].copy()
+            score_col = "lr_means" if "lr_means" in sub.columns else None
+            if score_col:
+                sub = sub.sort_values(score_col, ascending=False).head(15)
+            lines += [
+                "## LIANA CellPhoneDB (secondary, pooled / downsampled)",
+                "",
+                "Edges with `source=Malig_CLDN4high` and `target=TNK` after ≤2,000 cells/group and 50 permutations.",
+                "These p-values are within-object specificity, not patient-level tests.",
+                "",
+            ]
+            if sub.empty:
+                lines += ["No LIANA edges from CLDN4-high malignant to TNK passed `expr_prop=0.10`.", ""]
+            else:
+                lig_c = "ligand_complex" if "ligand_complex" in sub.columns else "ligand"
+                rec_c = "receptor_complex" if "receptor_complex" in sub.columns else "receptor"
+                p_c = "cellphone_pvals" if "cellphone_pvals" in sub.columns else None
+                hdr = ["ligand", "receptor", "lr_means"] + (["cellphone_pvals"] if p_c else [])
+                lines += [
+                    "| " + " | ".join(hdr) + " |",
+                    "|" + "|".join(["---"] * 2 + ["---:"] * (len(hdr) - 2)) + "|",
+                ]
+                for r in sub.itertuples(index=False):
+                    row = [str(getattr(r, lig_c)), str(getattr(r, rec_c)), md_cell(float(getattr(r, score_col)))]
+                    if p_c:
+                        pv = getattr(r, p_c)
+                        row.append(f"{float(pv):.3g}" if np.isfinite(pv) else "NA")
+                    lines.append("| " + " | ".join(row) + " |")
+                lines += [""]
+
     lines += [
         "## Readout",
         "",
@@ -410,16 +449,8 @@ def main() -> None:
     cfg = yaml.safe_load((HERE / "config" / "gene_sets.yaml").read_text())
     P = cfg["params"]
     pairs = pd.read_csv(HERE / "resources" / "cellphonedb_v5_lr_pairs.tsv", sep="\t")
-    if "pathway" not in pairs.columns or pairs["pathway"].isna().any():
-        pairs["pathway"] = [pathway_of(a, b, cfg) for a, b in zip(pairs["ligand"], pairs["receptor"])]
-    else:
-        # keep existing labels; fill blanks
-        blank = pairs["pathway"].isna() | (pairs["pathway"].astype(str) == "")
-        if blank.any():
-            pairs.loc[blank, "pathway"] = [
-                pathway_of(a, b, cfg)
-                for a, b in zip(pairs.loc[blank, "ligand"], pairs.loc[blank, "receptor"])
-            ]
+    # Re-label with this package's pathway overlay (adds checkpoint).
+    pairs["pathway"] = [pathway_of(a, b, cfg) for a, b in zip(pairs["ligand"], pairs["receptor"])]
 
     wanted = sorted(
         set(Path(HERE / "resources" / "lr_genes.txt").read_text().split())
@@ -595,7 +626,7 @@ def main() -> None:
         seed=int(P["random_seed"]),
     )
     log(liana_note)
-    liana_short = liana_note.split(":")[0] if ":" in liana_note else liana_note.split()[0]
+    liana_short = liana_note.split()[0]
 
     # figures
     figdir = args.outdir / "figures"
