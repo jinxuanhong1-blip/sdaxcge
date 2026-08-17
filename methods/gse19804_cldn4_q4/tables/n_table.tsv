@@ -1,0 +1,11 @@
+item	n	rule
+arrays_on_GEO_series_GSE19804	120	GDS3837 sample count
+paired_adjacent_normals	60	dropped; not in harvest
+tumors_on_harvested_table	60	PR #235 extra LUAD tumor mask
+CLDN4_non_NA	60	complete-case predictor
+CD8A_non_NA	60	complete-case endpoint
+Q1	15	rank-first qcut of CLDN4
+Q2	15	rank-first qcut of CLDN4
+Q3	15	rank-first qcut of CLDN4
+Q4	15	rank-first qcut of CLDN4
+Q4_vs_Q1_used	30	do not write n=120 or n=60 for the MWU
