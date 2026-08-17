@@ -401,11 +401,11 @@ def score_pairs(pairs: pd.DataFrame, logx: dict[str, np.ndarray], sender: np.nda
         if any(g not in s_mean for g in lig) or any(g not in r_mean for g in recp):
             continue
         l_mean = min(s_mean[g] for g in lig)
-        r_mn = min(r_mean[g] for g in recp)
-        l_trim = geom_mean([s_trim[g] for g in lig])
-        r_trim = geom_mean([r_trim[g] for g in recp])
+        rec_mean = min(r_mean[g] for g in recp)
+        lig_trim = geom_mean([s_trim[g] for g in lig])
+        rec_trim = geom_mean([r_trim[g] for g in recp])
         l_frac = min(s_frac[g] for g in lig)
-        r_frac = min(r_frac[g] for g in recp)
+        rec_frac = min(r_frac[g] for g in recp)
         rows.append(
             {
                 "source": rec.source,
@@ -416,12 +416,12 @@ def score_pairs(pairs: pd.DataFrame, logx: dict[str, np.ndarray], sender: np.nda
                 "n_sender": n_s,
                 "n_receiver": n_r,
                 "ligand_mean": l_mean,
-                "receptor_mean": r_mn,
+                "receptor_mean": rec_mean,
                 "ligand_frac": l_frac,
-                "receptor_frac": r_frac,
-                "liana_score": 0.5 * (l_mean + r_mn),
-                "cellchat_P": hill_prob(l_trim, r_trim),
-                "pass_expr_prop": (l_frac >= EXPR_PROP) and (r_frac >= EXPR_PROP),
+                "receptor_frac": rec_frac,
+                "liana_score": 0.5 * (l_mean + rec_mean),
+                "cellchat_P": hill_prob(lig_trim, rec_trim),
+                "pass_expr_prop": (l_frac >= EXPR_PROP) and (rec_frac >= EXPR_PROP),
             }
         )
     return pd.DataFrame(rows)
