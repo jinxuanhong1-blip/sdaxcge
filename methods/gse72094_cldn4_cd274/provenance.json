@@ -1,0 +1,49 @@
+{
+  "coverage": {
+    "cohort": "GSE72094",
+    "pmid": "26477306",
+    "platform": "GPL15048 HuRSTA_2a520709",
+    "n_matrix": 442,
+    "n_luad": 442,
+    "n_dropped_non_luad": 0,
+    "n_probes": 60607,
+    "n_genes": 21739,
+    "genes_present": [
+      "CLDN4",
+      "CD274",
+      "TACSTD2",
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "B2M",
+      "HLA-E",
+      "HLA-DRA",
+      "HLA-DRB1"
+    ],
+    "genes_missing": [],
+    "mhc1_genes_used": [
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "B2M"
+    ],
+    "hla_a_annotation": "GPL15048 GeneSymbol is 'HLA-A LOC100507703' (Entrez 3105); first-token map to HLA-A",
+    "estimate_stromal_present": 141,
+    "estimate_immune_present": 141,
+    "cd274_q4_n": 111,
+    "cd274_q1_n": 111
+  },
+  "inputs": {
+    "GSE72094_series_matrix.txt.gz": {
+      "bytes": 105955906,
+      "md5": "097e138c5e75559652363c79517e532d",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE72nnn/GSE72094/matrix/GSE72094_series_matrix.txt.gz"
+    },
+    "GPL15048_datatable.txt": {
+      "bytes": 2990825,
+      "md5": "3e572feb1327d47c70ecf52a4dbb8aa1",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL15048&targ=self&form=text&view=data"
+    }
+  },
+  "generated_at": "2026-08-17T16:53:59.461030+00:00"
+}
