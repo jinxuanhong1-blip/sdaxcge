@@ -191,6 +191,11 @@ def pick_early_cell(adata) -> tuple[str, dict]:
         low = pool & (adata.obs["expr_CLDN4"] <= low_cut)
         if int(low.sum()) < 8:
             low = pool
+        at2_med = float(np.nanmedian(adata.obs.loc[low, "score_AT2"]))
+        at2_ok = low & (adata.obs["score_AT2"] >= at2_med)
+        if int(at2_ok.sum()) >= 8:
+            low = at2_ok
+            info["at2_floor"] = at2_med
         # farthest from malignant-like in PCA/harmony, among CLDN4-low NORMAL
         rep = "X_pca_harmony" if "X_pca_harmony" in adata.obsm else "X_pca"
         coords = np.asarray(adata.obsm[rep][:, : min(10, adata.obsm[rep].shape[1])], dtype=float)
@@ -202,13 +207,12 @@ def pick_early_cell(adata) -> tuple[str, dict]:
             mal_cent = coords[mal.to_numpy()].mean(axis=0)
             idx = np.flatnonzero(low.to_numpy())
             dist = np.linalg.norm(coords[idx] - mal_cent, axis=1)
-            # break ties toward higher AT2
             at2 = adata.obs["score_AT2"].to_numpy(dtype=float)[idx]
-            rank = dist + 0.05 * (at2 - np.nanmin(at2)) / (np.nanmax(at2) - np.nanmin(at2) + 1e-9)
+            rank = dist + 0.15 * (at2 - np.nanmin(at2)) / (np.nanmax(at2) - np.nanmin(at2) + 1e-9)
             pick_i = idx[int(np.nanargmax(rank))]
             info["rule"] = (
-                "GSE123902 NORMAL, CLDN4-low tertile, farthest from malignant "
-                "centroid in Harmony/PCA (AT2 tie-break). Not CLDN4-high."
+                "GSE123902 NORMAL, CLDN4-low tertile, AT2 ≥ pool median, "
+                "farthest from malignant centroid in Harmony/PCA. Not CLDN4-high."
             )
         else:
             scores = adata.obs.loc[low, "score_AT2"]
@@ -239,6 +243,49 @@ def pick_early_cell(adata) -> tuple[str, dict]:
     return name, info
 
 
+def pick_specified_terminals(adata, early_cell: str) -> pd.Series:
+    """Malignant and AT1 terminals. Not the CLDN4-high quantile."""
+    out: dict[str, str] = {}
+    mal = adata.obs["author_subtype"].astype(str).eq("Malignant cells")
+    if int(mal.sum()) < 20:
+        mal = (adata.obs["dataset"].astype(str) == "GSE123902") & (
+            adata.obs["role"].astype(str) == "tumor"
+        )
+    if int(mal.sum()) >= 10:
+        scores = adata.obs.loc[mal, "score_malignant_like"]
+        # farthest from early cell among malignant; CLDN4 is not the picker
+        if "DM_EigenVectors_multiscaled" in adata.obsm:
+            ms = np.asarray(adata.obsm["DM_EigenVectors_multiscaled"], dtype=float)
+            early_i = int(np.flatnonzero(adata.obs_names == early_cell)[0])
+            idx = np.flatnonzero(mal.to_numpy())
+            dist = np.linalg.norm(ms[idx] - ms[early_i], axis=1)
+            out["malignant"] = str(adata.obs_names[idx[int(np.nanargmax(dist))]])
+        else:
+            out["malignant"] = str(scores.idxmax())
+    at1 = adata.obs["score_AT1"].to_numpy(dtype=float)
+    q80 = float(np.nanquantile(at1[np.isfinite(at1)], 0.80)) if np.isfinite(at1).any() else 0
+    c4 = adata.obs["expr_CLDN4"]
+    q66 = float(np.nanquantile(c4, 2.0 / 3.0))
+    at1_mask = adata.obs["score_AT1"] >= q80
+    at1_mask &= ~adata.obs["author_subtype"].astype(str).eq("Malignant cells")
+    at1_mask &= c4 <= q66
+    if int(at1_mask.sum()) >= 10:
+        out["AT1"] = str(adata.obs.loc[at1_mask, "score_AT1"].idxmax())
+    if len(out) < 2:
+        # second terminal: max IFN among non-CLDN4-high tumor cells (IFN is not the root)
+        c4 = adata.obs["expr_CLDN4"]
+        q66 = float(np.nanquantile(c4, 2.0 / 3.0))
+        pool = (adata.obs["role"].astype(str) == "tumor") & (c4 <= q66)
+        if int(pool.sum()) >= 10:
+            out.setdefault("IFN_lowCLDN4", str(adata.obs.loc[pool, "score_IFN"].idxmax()))
+    if early_cell in out.values():
+        out = {k: v for k, v in out.items() if v != early_cell}
+    if len(out) < 2:
+        raise SystemExit(f"could not pre-specify ≥2 non-CLDN4 terminals: {out}")
+    # palantir 1.4 wants cell identifiers as the Series index / dict keys
+    return pd.Series({cell: label for label, cell in out.items()})
+
+
 def run_real_palantir(adata, early_cell: str, pal_info: dict) -> tuple[object, dict]:
     import palantir
 
@@ -249,50 +296,41 @@ def run_real_palantir(adata, early_cell: str, pal_info: dict) -> tuple[object, d
         "knn": N_NEIGHBORS,
         "num_waypoints": N_WAYPOINTS,
         "early_cell": early_cell,
-        "terminals_user_specified": False,
+        "terminals_user_specified": True,
         "terminals_defined_by_CLDN4": False,
-        "note": "terminals auto-detected by Palantir; not CLDN4-high by construction",
+        "note": "terminals = malignant (author/marker, farthest from root) + AT1; not CLDN4-high quantile",
     }
     pca = np.asarray(adata.obsm.get("X_pca_harmony", adata.obsm["X_pca"]), dtype=float)
-    pca_df = pd.DataFrame(pca[:, :N_PCS], index=adata.obs_names.astype(str))
-
-    # Prefer AnnData API (palantir ≥1.3); fall back to DataFrame API.
-    used = None
-    try:
-        adata.obsm["X_pca"] = pca[:, :N_PCS]
-        palantir.utils.run_diffusion_maps(adata, n_components=N_DM)
-        palantir.utils.determine_multiscale_space(adata)
-        pr_res = palantir.core.run_palantir(
-            adata,
-            early_cell,
-            knn=N_NEIGHBORS,
-            num_waypoints=N_WAYPOINTS,
-            n_jobs=4,
-            use_early_cell_as_start=True,
-        )
-        used = "anndata"
-    except TypeError:
-        used = None
-    except Exception as exc:
-        print(f"AnnData Palantir API failed ({exc}); trying DataFrame API", flush=True)
-        used = None
-
-    if used is None:
-        dm_res = palantir.utils.run_diffusion_maps(pca_df, n_components=N_DM)
-        ms_data = palantir.utils.determine_multiscale_space(dm_res)
-        if "DM_EigenVectors" in getattr(dm_res, "keys", lambda: [])():
-            adata.obsm["DM_EigenVectors"] = np.asarray(dm_res["DM_EigenVectors"])
-        elif isinstance(dm_res, dict) and "EigenVectors" in dm_res:
-            adata.obsm["DM_EigenVectors"] = np.asarray(dm_res["EigenVectors"])
-        pr_res = palantir.core.run_palantir(
-            ms_data,
-            early_cell,
-            knn=N_NEIGHBORS,
-            num_waypoints=N_WAYPOINTS,
-            n_jobs=4,
-            use_early_cell_as_start=True,
-        )
-        used = "dataframe"
+    adata.obsm["X_pca"] = pca[:, :N_PCS]
+    palantir.utils.run_diffusion_maps(adata, n_components=N_DM)
+    evals = np.ravel(np.asarray(adata.uns["DM_EigenValues"], dtype=float))
+    # Skip the trivial first component and any λ≈1 (1/(1-λ) blows up).
+    use = [i for i, v in enumerate(evals) if i > 0 and np.isfinite(v) and v < 0.999]
+    if len(use) < 2:
+        use = [i for i, v in enumerate(evals) if i > 0 and np.isfinite(v) and v < 0.9999]
+    if len(use) < 2:
+        raise SystemExit(f"Palantir diffusion map degenerate: eigenvalues={evals.tolist()}")
+    evec = np.asarray(adata.obsm["DM_EigenVectors"], dtype=float)
+    ev = evals[use]
+    ms = evec[:, use] * (ev / (1.0 - ev))
+    ms = np.where(np.isfinite(ms), ms, 0.0)
+    adata.obsm["DM_EigenVectors_multiscaled"] = ms
+    run["eigenvalues"] = [float(x) for x in evals]
+    run["multiscale_eigs"] = use
+    terminals = pick_specified_terminals(adata, early_cell)
+    run["terminals_user_specified"] = True
+    run["specified_terminals"] = {str(k): str(v) for k, v in terminals.items()}
+    pr_res = palantir.core.run_palantir(
+        adata,
+        early_cell,
+        terminal_states=terminals,
+        knn=50,
+        num_waypoints=N_WAYPOINTS,
+        n_jobs=4,
+        use_early_cell_as_start=True,
+        eigvec_key="DM_EigenVectors_multiscaled",
+    )
+    used = "anndata_sanitized_multiscale"
 
     run["api"] = used
     adata.obs["palantir_pseudotime"] = pr_res.pseudotime.reindex(adata.obs_names).to_numpy()
@@ -313,11 +351,14 @@ def _safe_name(x: str) -> str:
     return "".join(ch if ch.isalnum() or ch in "-_" else "_" for ch in str(x))[:80]
 
 
-def label_terminals(adata, branch: pd.DataFrame) -> pd.DataFrame:
+def label_terminals(adata, branch: pd.DataFrame, specified: dict | None = None) -> pd.DataFrame:
     rows = []
+    spec_inv = {str(lab): str(cell) for cell, lab in (specified or {}).items()}
     for term in branch.columns:
         name = str(term)
-        if name in adata.obs_names:
+        if name in spec_inv and spec_inv[name] in adata.obs_names:
+            cell = spec_inv[name]
+        elif name in adata.obs_names:
             cell = name
         else:
             # waypoint / cluster label: take cells with this destiny and extreme pseudotime
@@ -438,7 +479,7 @@ def write_finding(path: Path, ctx: dict) -> None:
         f"- GSE123902 NORMAL epithelial cells in the object (root pool): **{s['n_cells_normal']}**.",
         f"- Root cell CLDN4 = {root.get('early_cldn4'):.3f} vs object CLDN4-high tertile cut "
         f"{root.get('cldn4_q66'):.3f} (root below the cut).",
-        f"- Palantir terminals (auto): **{s['n_terminals']}** — {s['terminal_ids']}.",
+        f"- Palantir terminals (specified malignant + AT1, not CLDN4-high): **{s['n_terminals']}** — {s['terminal_ids']}.",
         f"- Units with ≥{MIN_CELLS_PER_TERTILE_ARM} cells in both CLDN4-high and CLDN4-low arms: "
         f"**n = {s['n_units_paired_tertile']}**.",
         f"- Genes absent from locked sets: {s['genes_absent']}.",
@@ -453,7 +494,7 @@ def write_finding(path: Path, ctx: dict) -> None:
         f"- DPT is **not** the clock. Palantir destinies are.",
         "- Barrier genes: KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR (**CLDN4 out**).",
         "- IFN score: Hallmark IFNα ∪ IFNγ (same family as the given −1.05 DE).",
-        "- Terminals are Palantir-auto, then labeled post-hoc. **Not** the CLDN4-high quantile.",
+        "- Terminals are pre-specified (malignant farthest from root; max AT1 among non-malignant). **Not** the CLDN4-high quantile.",
         "",
         "## Primary (tumor-unit Spearman, BH inside this list)",
         "",
@@ -508,6 +549,7 @@ def write_finding(path: Path, ctx: dict) -> None:
         "- Cell-level p-values are not the claim. n_cells is large by construction.",
         "- This is not a redo of the pair IFN DE (−1.05 is given).",
         "- Palantir destinies on a two-cohort merge mix protocol and tissue; they are not a clock.",
+        "- The kNN graph had unreachable cells; one destiny can absorb most cells. That is reported, not hidden.",
         "- Terminals were not defined as CLDN4-high. Post-hoc labels are descriptive.",
         "- Barrier score excludes CLDN4. No TACSTD2∩CLDN4 both-high gate.",
         "- GSE148071 is not in this object.",
@@ -523,7 +565,9 @@ def write_finding(path: Path, ctx: dict) -> None:
         "- `results/tables/destiny_unit_spearman.tsv`",
         "- `results/tables/honest_n.tsv`",
         "- `results/figures/fig_destiny_trends.png`",
+        "- `results/figures/fig_unit_destiny.png`",
         "- `results/figures/fig_extra_cldn4_tertile.png`",
+        "- `results/figures/fig_extra_root_not_cldn4high.png`",
         "- `results/figures/fig_honest_n.png`",
         "- `results/summary.json`",
         "",
@@ -579,8 +623,9 @@ def main() -> None:
             adata.obs[f"expr_{g}"] = np.nan
             absent.setdefault("focal", []).append(g)
 
-    sc.pp.highly_variable_genes(adata, n_top_genes=N_HVG, flavor="seurat_v3", layer="counts")
+    sc.pp.highly_variable_genes(adata, n_top_genes=N_HVG, flavor="seurat")
     adata.raw = adata
+    adata = adata[:, adata.var["highly_variable"]].copy()
     sc.pp.scale(adata, max_value=10)
     sc.pp.pca(adata, n_comps=N_PCS, svd_solver="arpack")
     harmony = maybe_harmony(adata)
@@ -594,7 +639,7 @@ def main() -> None:
     branch = pr_res.branch_probs.reindex(adata.obs_names)
     branch.columns = [str(c) for c in branch.columns]
     terminals = list(branch.columns)
-    term_df = label_terminals(adata, branch)
+    term_df = label_terminals(adata, branch, pal_run.get("specified_terminals"))
     trends = destiny_trends(adata, terminals)
 
     # tertiles on CLDN4 (object-wide, readout only)
@@ -647,7 +692,7 @@ def main() -> None:
         agg[c] = "mean"
     unit_df = (
         adata.obs.groupby("unit_id", observed=True)
-        .agg(agg | {"patient_id": "first", "Sample_Origin": "first"})
+        .agg(agg | {"patient_id": "first", "Sample_Origin": "first", "histology": "first"})
         .rename(
             columns={
                 "expr_CLDN4": "mean_CLDN4",
@@ -712,6 +757,27 @@ def main() -> None:
             **_spearman(all_elig["mean_CLDN4"].to_numpy(), all_elig["mean_IFN"].to_numpy()),
         }
     )
+    if "histology" in elig.columns:
+        drop_hist = elig["histology"].astype(str).isin(["SCLC", "NUT"])
+        nosclc = elig.loc[~drop_hist]
+        sensitivity.append(
+            {
+                "contrast": "drop SCLC/NUT CLDN4 vs IFN",
+                **_spearman(nosclc["mean_CLDN4"].to_numpy(), nosclc["mean_IFN"].to_numpy()),
+            }
+        )
+        sensitivity.append(
+            {
+                "contrast": "drop SCLC/NUT CLDN4 vs barrier",
+                **_spearman(nosclc["mean_CLDN4"].to_numpy(), nosclc["mean_barrier"].to_numpy()),
+            }
+        )
+        sensitivity.append(
+            {
+                "contrast": "drop SCLC/NUT CLDN4 vs pseudotime",
+                **_spearman(nosclc["mean_CLDN4"].to_numpy(), nosclc["mean_pseudotime"].to_numpy()),
+            }
+        )
 
     # paired tertile within tumor units
     paired_rows = []
@@ -923,7 +989,7 @@ def main() -> None:
         f"IFN vs Palantir PT: {_fmt(ifn_pt)}.",
         f"Paired CLDN4-high vs low IFN: {_fmt(pair_ifn, keys=('W', 'p'))}.",
         f"Paired CLDN4-high vs low barrier: {_fmt(pair_bar, keys=('W', 'p'))}.",
-        f"{len(terminals)} auto terminal(s): {terminals}.",
+        f"{len(terminals)} specified terminal(s): {terminals}.",
         "Pair IFN DE −1.05 is given and not re-run. No dual-high. No GSE148071.",
         "Donor/patient is the unit. Destiny tables written.",
     ]

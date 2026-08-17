@@ -243,11 +243,9 @@ def extract_gse123902(data: Path, cap: int) -> "ad.AnnData":
         raise SystemExit("GSE123902: no epithelial cells extracted")
     import anndata as ad
 
-    shared = blocks[0].var_names
-    for b in blocks[1:]:
-        shared = shared.intersection(b.var_names)
-    blocks = [b[:, shared].copy() for b in blocks]
-    out = ad.concat(blocks, axis=0, join="inner", merge="same")
+    # Union genes across libraries (Laughney CSVs omit undetected genes).
+    # Intersection dropped SFTPC/SFTPA1 and broke the AT2 root score.
+    out = ad.concat(blocks, axis=0, join="outer", merge="same", fill_value=0)
     out.obs_names = "GSE123902:" + out.obs_names.astype(str)
     out.layers["counts"] = out.X.copy()
     print(f"GSE123902 written cells={out.n_obs} genes={out.n_vars}", flush=True)

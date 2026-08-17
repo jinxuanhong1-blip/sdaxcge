@@ -23,9 +23,11 @@
 3. Diffusion maps (10 components) + multiscale space on Harmony/PCA.
 4. **Early cell is not CLDN4-high.** Prefer GSE123902 NORMAL cells in the
    bottom CLDN4 tertile of that pool, farthest from the malignant centroid.
-5. Terminals are Palantir-auto. They are **not** the CLDN4-high quantile.
-   Post-hoc labels (AT2 / malignant-like / IFN / barrier) are descriptive.
-6. Waypoints = 500; knn = 30.
+5. Terminals are pre-specified: malignant (author malignant, farthest from
+   the root in multiscale space) and AT1 (max AT1 among non-malignant,
+   non-CLDN4-high cells). They are **not** the CLDN4-high quantile.
+6. Waypoints = 500; Palantir knn = 50. Eigenvalues with λ≥0.999 are dropped
+   before the multiscale transform (1/(1−λ) is undefined at λ=1).
 
 ## Destinies
 

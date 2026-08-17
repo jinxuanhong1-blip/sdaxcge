@@ -1,0 +1,396 @@
+{
+  "accessions": [
+    "GSE123902",
+    "GSE205335"
+  ],
+  "pair_that_differs": true,
+  "given_ifn_de_logfc": -1.05,
+  "gse148071_added": false,
+  "primary_gene": "CLDN4",
+  "dual_high": false,
+  "clock": "palantir",
+  "palantir": {
+    "engine": "palantir",
+    "version": "1.4.5",
+    "n_components": 10,
+    "knn": 30,
+    "num_waypoints": 500,
+    "early_cell": "GSE123902:LX684:NORMAL:195622403159966",
+    "terminals_user_specified": true,
+    "terminals_defined_by_CLDN4": false,
+    "note": "terminals = malignant (author/marker, farthest from root) + AT1; not CLDN4-high quantile",
+    "eigenvalues": [
+      1.0000000009298737,
+      1.0,
+      0.9978532168687577,
+      0.9967975283726884,
+      0.9964975018897955,
+      0.9962283035705988,
+      0.9958557865922426,
+      0.9957611020286838,
+      0.9952693093392192,
+      0.9950650112890325
+    ],
+    "multiscale_eigs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "specified_terminals": {
+      "GSE205335:LM-115-3P_GCTCAAATCGAACCTA-1": "malignant",
+      "GSE123902:LX685:NORMAL:131310529665268": "AT1"
+    },
+    "api": "anndata_sanitized_multiscale",
+    "n_terminals": 2,
+    "terminal_ids": [
+      "AT1",
+      "malignant"
+    ],
+    "available": true,
+    "module": "palantir"
+  },
+  "harmony": {
+    "used": true,
+    "reason": "harmonypy on PCA, batch=dataset"
+  },
+  "cap_per_unit": 250,
+  "n_cells": 8113,
+  "n_cells_gse123902": 2942,
+  "n_cells_gse205335": 5171,
+  "n_cells_normal": 739,
+  "n_units": 39,
+  "n_units_gse123902": 17,
+  "n_units_gse205335": 22,
+  "n_units_tumor": 35,
+  "n_units_normal": 4,
+  "n_units_eligible": 35,
+  "n_units_paired_tertile": 32,
+  "n_terminals": 2,
+  "terminal_ids": [
+    "AT1",
+    "malignant"
+  ],
+  "genes_absent": {
+    "IFN": [
+      "MARCHF1",
+      "TENT5A",
+      "WARS1"
+    ]
+  },
+  "root": {
+    "cldn4_q66": 1.6599635838414466,
+    "n_not_cldn4_high": 5409,
+    "n_gse123902_normal": 739,
+    "rule": "GSE123902 NORMAL, CLDN4-low tertile, AT2 \u2265 pool median, farthest from malignant centroid in Harmony/PCA. Not CLDN4-high.",
+    "forbidden": "CLDN4-high (top tertile) never used as root",
+    "at2_floor": 0.2831718622841958,
+    "early_cell": "GSE123902:LX684:NORMAL:195622403159966",
+    "early_cldn4": 0.0,
+    "early_AT2": 0.3000917721840596,
+    "early_unit": "GSE123902:LX684:NORMAL"
+  },
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs Palantir pseudotime",
+      "n": 35,
+      "rho": -0.18795518207282913,
+      "p": 0.27958721140386006,
+      "q": 0.3914220959654041
+    },
+    {
+      "contrast": "CLDN4 vs barrier (no CLDN4)",
+      "n": 35,
+      "rho": 0.39551820728291315,
+      "p": 0.01868572822090374,
+      "q": 0.11988788210260543
+    },
+    {
+      "contrast": "CLDN4 vs IFN",
+      "n": 35,
+      "rho": -0.13557422969187674,
+      "p": 0.4374334664009585,
+      "q": 0.5103390441344516
+    },
+    {
+      "contrast": "barrier vs IFN",
+      "n": 35,
+      "rho": 0.35630252100840343,
+      "p": 0.035653016865932,
+      "q": 0.12478555903076201
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 35,
+      "rho": 0.07787114845938375,
+      "p": 0.6565820397955805,
+      "q": 0.7070883505490867
+    },
+    {
+      "contrast": "IFN vs Palantir pseudotime",
+      "n": 35,
+      "rho": -0.37675070028011204,
+      "p": 0.025690260450558305,
+      "q": 0.11988788210260543
+    },
+    {
+      "contrast": "barrier vs Palantir pseudotime",
+      "n": 35,
+      "rho": -0.29831932773109243,
+      "p": 0.08174187449244073,
+      "q": 0.22887724857883404
+    },
+    {
+      "contrast": "CLDN4 vs entropy",
+      "n": 35,
+      "rho": 0.1545449958375228,
+      "p": 0.37538150247982693,
+      "q": 0.4777582758834161
+    },
+    {
+      "contrast": "CLDN4 vs fate_AT1",
+      "n": 35,
+      "rho": 0.4606218369184866,
+      "p": 0.005360094230778953,
+      "q": 0.07504131923090535
+    },
+    {
+      "contrast": "IFN vs fate_AT1",
+      "n": 35,
+      "rho": -0.04281915887233722,
+      "p": 0.8070499865707825,
+      "q": 0.8070499865707825
+    },
+    {
+      "contrast": "barrier vs fate_AT1",
+      "n": 35,
+      "rho": 0.2824660578725983,
+      "p": 0.1001603187457015,
+      "q": 0.2337074104066368
+    },
+    {
+      "contrast": "CLDN4 vs fate_malignant",
+      "n": 35,
+      "rho": 0.20377068324339737,
+      "p": 0.24035061935082572,
+      "q": 0.37387874121239556
+    },
+    {
+      "contrast": "IFN vs fate_malignant",
+      "n": 35,
+      "rho": -0.25471335405424667,
+      "p": 0.13976720740696377,
+      "q": 0.27953441481392755
+    },
+    {
+      "contrast": "barrier vs fate_malignant",
+      "n": 35,
+      "rho": -0.23773246378396357,
+      "p": 0.16907729753546313,
+      "q": 0.2958852706870605
+    }
+  ],
+  "destiny_unit_spearman": [
+    {
+      "contrast": "CLDN4 vs barrier (no CLDN4)",
+      "n": 35,
+      "rho": 0.39551820728291315,
+      "p": 0.01868572822090374,
+      "q": 0.11988788210260543
+    },
+    {
+      "contrast": "CLDN4 vs IFN",
+      "n": 35,
+      "rho": -0.13557422969187674,
+      "p": 0.4374334664009585,
+      "q": 0.5103390441344516
+    },
+    {
+      "contrast": "barrier vs IFN",
+      "n": 35,
+      "rho": 0.35630252100840343,
+      "p": 0.035653016865932,
+      "q": 0.12478555903076201
+    },
+    {
+      "contrast": "IFN vs Palantir pseudotime",
+      "n": 35,
+      "rho": -0.37675070028011204,
+      "p": 0.025690260450558305,
+      "q": 0.11988788210260543
+    },
+    {
+      "contrast": "barrier vs Palantir pseudotime",
+      "n": 35,
+      "rho": -0.29831932773109243,
+      "p": 0.08174187449244073,
+      "q": 0.22887724857883404
+    },
+    {
+      "contrast": "CLDN4 vs fate_AT1",
+      "n": 35,
+      "rho": 0.4606218369184866,
+      "p": 0.005360094230778953,
+      "q": 0.07504131923090535
+    },
+    {
+      "contrast": "IFN vs fate_AT1",
+      "n": 35,
+      "rho": -0.04281915887233722,
+      "p": 0.8070499865707825,
+      "q": 0.8070499865707825
+    },
+    {
+      "contrast": "barrier vs fate_AT1",
+      "n": 35,
+      "rho": 0.2824660578725983,
+      "p": 0.1001603187457015,
+      "q": 0.2337074104066368
+    },
+    {
+      "contrast": "CLDN4 vs fate_malignant",
+      "n": 35,
+      "rho": 0.20377068324339737,
+      "p": 0.24035061935082572,
+      "q": 0.37387874121239556
+    },
+    {
+      "contrast": "IFN vs fate_malignant",
+      "n": 35,
+      "rho": -0.25471335405424667,
+      "p": 0.13976720740696377,
+      "q": 0.27953441481392755
+    },
+    {
+      "contrast": "barrier vs fate_malignant",
+      "n": 35,
+      "rho": -0.23773246378396357,
+      "p": 0.16907729753546313,
+      "q": 0.2958852706870605
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "GSE123902-only CLDN4 vs pseudotime",
+      "n": 13,
+      "rho": -0.12637362637362637,
+      "p": 0.6807854750709491
+    },
+    {
+      "contrast": "GSE123902-only CLDN4 vs IFN",
+      "n": 13,
+      "rho": -0.21978021978021978,
+      "p": 0.4706148514721425
+    },
+    {
+      "contrast": "GSE123902-only CLDN4 vs barrier",
+      "n": 13,
+      "rho": 0.6593406593406593,
+      "p": 0.0142255785114567
+    },
+    {
+      "contrast": "GSE123902-only IFN vs pseudotime",
+      "n": 13,
+      "rho": 0.21428571428571427,
+      "p": 0.4820544547023681
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs pseudotime",
+      "n": 22,
+      "rho": -0.22303783173348396,
+      "p": 0.31841675008781406
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs IFN",
+      "n": 22,
+      "rho": 0.011857707509881424,
+      "p": 0.9582317578505689
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs barrier",
+      "n": 22,
+      "rho": 0.29870129870129875,
+      "p": 0.17691319425141333
+    },
+    {
+      "contrast": "GSE205335-only IFN vs pseudotime",
+      "n": 22,
+      "rho": -0.6058723884810843,
+      "p": 0.0028034474393201663
+    },
+    {
+      "contrast": "all-units incl NORMAL-root CLDN4 vs IFN",
+      "n": 39,
+      "rho": -0.13238866396761134,
+      "p": 0.4217359449945696
+    },
+    {
+      "contrast": "drop SCLC/NUT CLDN4 vs IFN",
+      "n": 30,
+      "rho": -0.05005561735261402,
+      "p": 0.7927966871761777
+    },
+    {
+      "contrast": "drop SCLC/NUT CLDN4 vs barrier",
+      "n": 30,
+      "rho": 0.5604004449388209,
+      "p": 0.0012782287404482185
+    },
+    {
+      "contrast": "drop SCLC/NUT CLDN4 vs pseudotime",
+      "n": 30,
+      "rho": -0.4545050055617353,
+      "p": 0.011628367601971825
+    }
+  ],
+  "paired_tertile": [
+    {
+      "contrast": "barrier (no CLDN4) high vs low",
+      "n": 32,
+      "W": 0.0,
+      "p": 4.656612873077393e-10,
+      "delta_median": 0.5846536837216761,
+      "median_high": 1.5405849011364712,
+      "median_low": 0.7004329134070907
+    },
+    {
+      "contrast": "IFN high vs low",
+      "n": 32,
+      "W": 74.0,
+      "p": 0.0001777801662683487,
+      "delta_median": 0.04888160172760195,
+      "median_high": 0.2925120512581662,
+      "median_low": 0.25204899984792256
+    },
+    {
+      "contrast": "Palantir PT high vs low",
+      "n": 32,
+      "W": 136.0,
+      "p": 0.015647762920707464,
+      "delta_median": -0.016130301352903678,
+      "median_high": 0.23385573067635673,
+      "median_low": 0.2633834434627531
+    },
+    {
+      "contrast": "AT2 high vs low",
+      "n": 32,
+      "W": 29.0,
+      "p": 8.097849786281586e-07,
+      "delta_median": 0.13261243201265382,
+      "median_high": 0.21881332438188075,
+      "median_low": 0.07294733062365272
+    }
+  ],
+  "extra_figure": {
+    "emitted": true,
+    "spearman_rho": -0.13557422969187674,
+    "spearman_p": 0.4374334664009585,
+    "spearman_n": 35
+  },
+  "verdict": "REAL Palantir v1.4.5 on GSE123902+GSE205335 epithelium. Root not CLDN4-high (GSE123902 NORMAL, CLDN4-low tertile, AT2 \u2265 pool median, farthest from malignant centroid in Harmony/PCA. Not CLDN4-high.; CLDN4=0.000). Tumor-unit CLDN4 vs Palantir PT: n=35, \u03c1=-0.188, p=0.28. CLDN4 vs barrier (CLDN4 excluded): n=35, \u03c1=0.396, p=0.0187. CLDN4 vs IFN: n=35, \u03c1=-0.136, p=0.437. barrier vs IFN: n=35, \u03c1=0.356, p=0.0357. IFN vs Palantir PT: n=35, \u03c1=-0.377, p=0.0257. Paired CLDN4-high vs low IFN: n=32, W=74.0, \u0394med=0.049, p=0.000178. Paired CLDN4-high vs low barrier: n=32, W=0.0, \u0394med=0.585, p=4.66e-10. 2 specified terminal(s): ['AT1', 'malignant']. Pair IFN DE \u22121.05 is given and not re-run. No dual-high. No GSE148071. Donor/patient is the unit. Destiny tables written.",
+  "what_holds": "**What this folder tests (tumor units n=35).** CLDN4 vs IFN n=35, \u03c1=-0.136, p=0.437; CLDN4 vs barrier n=35, \u03c1=0.396, p=0.0187; IFN vs Palantir PT n=35, \u03c1=-0.377, p=0.0257. Within-unit CLDN4-high vs low IFN n=32, W=74.0, \u0394med=0.049, p=0.000178. The given pair IFN DE (\u22121.05, 9 vs 9) is a different contrast (malignant pseudobulk Q4 vs Q1) and is not re-audited here."
+}
