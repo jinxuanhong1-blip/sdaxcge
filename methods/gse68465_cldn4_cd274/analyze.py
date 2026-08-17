@@ -495,7 +495,7 @@ Public Director's Challenge LUAD microarray (Shedden et al., *Nat Med* 2008; GEO
 | **CD274 finite (Entrez 29126)** | **0** | no GPL96 probe; Plus-2 `223834_at` / `227458_at` are not on U133A |
 | HLA-A / HLA-B / HLA-C finite | {n_tumor} | first-symbol max-mean; 3/3 present |
 | ESTIMATEScore | {n_tumor} | Yoshihara Stromal141+Immune141 ssGSEA ({strom_n}/141 + {imm_n}/141) |
-| ESTIMATE TumorPurity in [0, 1] | {n_pur_ok} | cosine map; {n_pur_out} tumors wrap outside [0, 1] |
+| ESTIMATE TumorPurity in [0, 1] | {n_pur_ok} | cosine map; {n_pur_out} tumor{"s" if int(n_pur_out) != 1 else ""} wrap{"s" if int(n_pur_out) == 1 else ""} outside [0, 1] |
 | ICI labels | 0 | surgical / multi-site prognostic series |
 | **Primary pairwise n (CLDN4 + CD274)** | **0** | ABSENT — do not invent a PD-L1 ρ |
 | **Primary pairwise n (CLDN4 + HLA-A/B/C)** | **{n_tumor}** | this is the n used for HLA / MHC-I |
@@ -520,7 +520,7 @@ MAS5 as deposited. Tests use native ranks (Spearman / ssGSEA), so log vs linear 
 
 | pair | n | ρ | 95% CI | p | ρ \\| ESTIMATE (p) | 95% CI partial | verdict |
 |---|---:|---:|---|---:|---|---|---|
-{pair_row("**CD274**", c4_pd)}
+{pair_row("CD274", c4_pd)}
 {pair_row("HLA-A", c4_a)}
 {pair_row("HLA-B †", c4_b)}
 {pair_row("HLA-C", c4_c)}
