@@ -1,0 +1,13 @@
+test	n	rho	p	note	n_a	n_b	median_a	median_b	U	cliffs_delta
+CLDN4 vs expanded_cell_frac (clone≥2)	33.0	-0.06283422459893048	0.7283052128479874	author Epi ≥20; TCR cells ≥50; GSE241934 IIT+Real						
+CLDN4 vs expanded_clones_per_1k (clone≥2)	33.0	0.1891711229946524	0.29171768803971815	same primary floor						
+CLDN4 vs Shannon clonality	33.0	-0.15407754010695188	0.3919376373936642	same primary floor						
+CLDN4 vs top_clone_frac	33.0	-0.01771390374331551	0.9220573619772838	same primary floor						
+CLDN4 vs expanded_cell_frac (clone≥3)	33.0	-0.10060160427807488	0.5774964897113982	same primary floor; expansion cutoff ≥3						
+TACSTD2 vs expanded_cell_frac (clone≥2)	33.0	-0.3285427807486631	0.06193519087669361	secondary gene; same primary floor						
+CLDN4 vs expanded_cell_frac (clone≥2), epi≥10	38.0	0.08020571178465914	0.6321681062503263	sensitivity floor						
+CLDN4 vs expanded_cell_frac (clone≥2), epi≥5	39.0	0.038259109311740896	0.8171291518729759	sensitivity floor						
+CLDN4 vs expanded_cell_frac (clone≥2), IIT EGFR-mut	11.0	0.17272727272727276	0.6115423848512369	primary floor, one cohort						
+CLDN4 vs expanded_cell_frac (clone≥2), Real-world EGFR-WT	22.0	-0.20383963862224735	0.36288120211175284	primary floor, one cohort						
+expanded_cell_frac NMPR vs MPR			0.5180494011092558	primary floor; n_a=NMPR, n_b=MPR; secondary (not the CLDN4 test)	23.0	10.0	0.49949789114279974	0.3941444851023942	132.0	0.14782608695652175
+author-Epi CLDN4 NMPR vs MPR			0.3996646514525739	primary floor; n_a=NMPR, n_b=MPR; secondary	23.0	10.0	1.578906668687162	1.511027013824054	137.0	0.19130434782608696
