@@ -1,0 +1,332 @@
+{
+  "datasets": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "additive": true,
+  "marker": "CLDN4",
+  "no_dual_high": true,
+  "no_gse207422": true,
+  "given_pr320_q4q1": {
+    "n_compared": 23,
+    "n_q1": 12,
+    "n_q4": 11,
+    "r": -0.705
+  },
+  "n_cells_GSE131907": 208506,
+  "n_cells_GSE205335": 96505,
+  "n_locked_samples_GSE131907": 21,
+  "n_locked_patients_GSE131907": 21,
+  "n_locked_patients_GSE205335": 22,
+  "n_malig": 53296,
+  "n_malig_GSE131907": 24784,
+  "n_malig_GSE205335": 28512,
+  "n_cldn4_high": 26648,
+  "n_cldn4_low": 26648,
+  "n_tnk": 48150,
+  "n_tnk_GSE131907": 15150,
+  "n_tnk_GSE205335": 33000,
+  "cldn4_threshold_GSE131907": 1.8194606304168701,
+  "cldn4_threshold_GSE205335": 1.3714609146118164,
+  "n_patients_paired": 40,
+  "n_patients_paired_GSE131907": 19,
+  "n_patients_paired_GSE205335": 21,
+  "min_malig_per_state": 10,
+  "min_tnk": 20,
+  "n_pairs_scored": 2873,
+  "n_pairs_ranked": 109,
+  "n_focus_tested": 22,
+  "n_focus_delta_neg": 5,
+  "n_focus_fdr05": 0,
+  "n_focus_fdr05_any": 14,
+  "liana_status": "ran_cellphonedb_method",
+  "liana_notes": [
+    "GSE131907: LIANA_OK n_edges=518 file=liana_cellphonedb_GSE131907.csv",
+    "GSE205335: LIANA_OK n_edges=426 file=liana_cellphonedb_GSE205335.csv"
+  ],
+  "cellchat_status": "not_run_R_unavailable",
+  "method": "cellphonedb_mean_of_means_on_log1p_cp10k",
+  "unit_of_inference": "patient; GSE131907 cells pooled by patient_id from locked samples",
+  "paired_patients": [
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3013",
+      "n_cldn4_high": 434,
+      "n_cldn4_low": 918,
+      "n_T_NK": 1780
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3004",
+      "n_cldn4_high": 267,
+      "n_cldn4_low": 962,
+      "n_T_NK": 131
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1006",
+      "n_cldn4_high": 409,
+      "n_cldn4_low": 777,
+      "n_T_NK": 611
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3019",
+      "n_cldn4_high": 133,
+      "n_cldn4_low": 622,
+      "n_T_NK": 370
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1011",
+      "n_cldn4_high": 70,
+      "n_cldn4_low": 133,
+      "n_T_NK": 809
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1058",
+      "n_cldn4_high": 50,
+      "n_cldn4_low": 410,
+      "n_T_NK": 1546
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1012",
+      "n_cldn4_high": 62,
+      "n_cldn4_low": 195,
+      "n_T_NK": 328
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3017",
+      "n_cldn4_high": 826,
+      "n_cldn4_low": 286,
+      "n_T_NK": 410
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3002",
+      "n_cldn4_high": 18,
+      "n_cldn4_low": 163,
+      "n_T_NK": 977
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1028",
+      "n_cldn4_high": 3552,
+      "n_cldn4_low": 1088,
+      "n_T_NK": 232
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1010",
+      "n_cldn4_high": 91,
+      "n_cldn4_low": 276,
+      "n_T_NK": 1530
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1049",
+      "n_cldn4_high": 16,
+      "n_cldn4_low": 98,
+      "n_T_NK": 1126
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3007",
+      "n_cldn4_high": 2716,
+      "n_cldn4_low": 2392,
+      "n_T_NK": 166
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1019",
+      "n_cldn4_high": 111,
+      "n_cldn4_low": 106,
+      "n_T_NK": 1427
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1051",
+      "n_cldn4_high": 234,
+      "n_cldn4_low": 1051,
+      "n_T_NK": 1143
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P1015",
+      "n_cldn4_high": 54,
+      "n_cldn4_low": 202,
+      "n_T_NK": 479
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3012",
+      "n_cldn4_high": 1435,
+      "n_cldn4_low": 1376,
+      "n_T_NK": 22
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3006",
+      "n_cldn4_high": 31,
+      "n_cldn4_low": 52,
+      "n_T_NK": 383
+    },
+    {
+      "cohort": "GSE131907",
+      "patient_id": "P3003",
+      "n_cldn4_high": 1883,
+      "n_cldn4_low": 830,
+      "n_T_NK": 145
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1006",
+      "n_cldn4_high": 735,
+      "n_cldn4_low": 547,
+      "n_T_NK": 2998
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1017",
+      "n_cldn4_high": 1141,
+      "n_cldn4_low": 1045,
+      "n_T_NK": 2370
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1018",
+      "n_cldn4_high": 704,
+      "n_cldn4_low": 476,
+      "n_T_NK": 2546
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1027",
+      "n_cldn4_high": 999,
+      "n_cldn4_low": 319,
+      "n_T_NK": 2619
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1037",
+      "n_cldn4_high": 885,
+      "n_cldn4_low": 2786,
+      "n_T_NK": 611
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1062",
+      "n_cldn4_high": 75,
+      "n_cldn4_low": 113,
+      "n_T_NK": 1934
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1063",
+      "n_cldn4_high": 41,
+      "n_cldn4_low": 90,
+      "n_T_NK": 3144
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1076",
+      "n_cldn4_high": 310,
+      "n_cldn4_low": 539,
+      "n_T_NK": 2089
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1079",
+      "n_cldn4_high": 202,
+      "n_cldn4_low": 341,
+      "n_T_NK": 501
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1084",
+      "n_cldn4_high": 157,
+      "n_cldn4_low": 39,
+      "n_T_NK": 2350
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1089",
+      "n_cldn4_high": 899,
+      "n_cldn4_low": 164,
+      "n_T_NK": 272
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1119",
+      "n_cldn4_high": 261,
+      "n_cldn4_low": 961,
+      "n_T_NK": 621
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1016",
+      "n_cldn4_high": 2965,
+      "n_cldn4_low": 2371,
+      "n_T_NK": 763
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1115",
+      "n_cldn4_high": 2597,
+      "n_cldn4_low": 1172,
+      "n_T_NK": 271
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1015",
+      "n_cldn4_high": 88,
+      "n_cldn4_low": 203,
+      "n_T_NK": 473
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1025",
+      "n_cldn4_high": 717,
+      "n_cldn4_low": 263,
+      "n_T_NK": 128
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1056",
+      "n_cldn4_high": 733,
+      "n_cldn4_low": 1653,
+      "n_T_NK": 1354
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1072",
+      "n_cldn4_high": 135,
+      "n_cldn4_low": 271,
+      "n_T_NK": 586
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P0031",
+      "n_cldn4_high": 117,
+      "n_cldn4_low": 202,
+      "n_T_NK": 5182
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1030",
+      "n_cldn4_high": 357,
+      "n_cldn4_low": 246,
+      "n_T_NK": 140
+    },
+    {
+      "cohort": "GSE205335",
+      "patient_id": "P1090",
+      "n_cldn4_high": 132,
+      "n_cldn4_low": 434,
+      "n_T_NK": 247
+    }
+  ]
+}
