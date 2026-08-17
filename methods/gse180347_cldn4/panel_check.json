@@ -1,0 +1,56 @@
+{
+  "accession": "GSE180347",
+  "platform": "GPL29738",
+  "panel": "NanoString nCounter PanCancer Immune Profiling Panel",
+  "verdict": "panel_missing_stop",
+  "targets_present": [],
+  "targets": {
+    "CLDN4": {
+      "on_platform": false,
+      "in_series_matrix": false,
+      "platform_ids": [],
+      "matrix_ids": []
+    },
+    "TACSTD2": {
+      "on_platform": false,
+      "in_series_matrix": false,
+      "platform_ids": [],
+      "matrix_ids": []
+    }
+  },
+  "n_geo_arrays": 144,
+  "n_expr_genes": 730,
+  "platform_codeclass": {
+    "Endogenous": 730,
+    "Housekeeping": 40,
+    "Negative": 8,
+    "Positive": 6
+  },
+  "group_n_from_geo_labels": {
+    "NC": 53,
+    "PH": 26,
+    "NH": 58,
+    "PC": 7
+  },
+  "group_n_from_sample_titles": {
+    "NC": 53,
+    "PH": 26,
+    "NH": 58,
+    "PC": 7
+  },
+  "design_text_n": {
+    "PH": 23,
+    "PC": 7,
+    "NH": 53,
+    "NC": 55,
+    "sum": 138,
+    "source": "GEO !Series_overall_design"
+  },
+  "paper_abstract_n": 138,
+  "nearby_on_panel": {
+    "EPCAM": true,
+    "CDH1": true,
+    "CD274": true
+  },
+  "note": "NM_002354 on this platform is EPCAM (TACSTD1), not TACSTD2 (NM_002353). Do not treat EPCAM as a TACSTD2 surrogate."
+}
