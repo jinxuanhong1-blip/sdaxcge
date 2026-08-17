@@ -1,0 +1,6 @@
+cut	n	metric	effect	p	holds
+CLDN4 vs CD8A after ESTIMATEScore (known residual)	442	partial Spearman ρ	-0.051325397585842876	0.28215843259664064	no (already NS)
+CLDN4 vs CD8A unadjusted (known, not extra)	442	Spearman ρ	-0.21902110384004267	3.3489187131883584e-06	already known
+CLDN4 vs CD274 (continuous extra)	442	Spearman ρ	-0.03391757814429818	0.4769221029541272	no
+CLDN4 Q4 vs Q1, endpoint CD8A	111 vs 111	rank-biserial (Q4>Q1)	-0.3276519763006249	2.4722494756924992e-05	yes
+CLDN4 Q4 vs Q1, endpoint CD274	111 vs 111	rank-biserial (Q4>Q1)	-0.014690366041717362	0.850808810679768	no

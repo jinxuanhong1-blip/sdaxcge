@@ -1,0 +1,127 @@
+{
+  "cohort": "GSE72094",
+  "pmid": "26477306",
+  "n_luad": 442,
+  "n_patient": 442,
+  "n_q4": 111,
+  "n_q1": 111,
+  "known_residual_cd8": {
+    "test": "CLDN4 vs CD8A after ESTIMATEScore",
+    "n": 442,
+    "partial_rho": -0.051325397585842876,
+    "partial_p": 0.281610353415495,
+    "unadj_rho": -0.21902110384004267,
+    "unadj_p": 3.3489187131883584e-06,
+    "source": "methods/gse72094_cldn4 (PR 302)"
+  },
+  "this_run_residual_cd8": {
+    "rho": -0.051325397585842876,
+    "p": 0.28215843259664064,
+    "n": 442
+  },
+  "continuous": [
+    {
+      "n": 442,
+      "rho": -0.21902110384004267,
+      "p": 3.3489187131883584e-06,
+      "predictor": "CLDN4",
+      "endpoint": "CD8A",
+      "kind": "continuous Spearman",
+      "n_partial": 442,
+      "partial_rho": -0.051325397585842876,
+      "partial_p": 0.28215843259664064,
+      "covariate": "ESTIMATEScore (harvested ssGSEA, PR 302)"
+    },
+    {
+      "n": 442,
+      "rho": -0.03391757814429818,
+      "p": 0.4769221029541272,
+      "predictor": "CLDN4",
+      "endpoint": "CD274",
+      "kind": "continuous Spearman",
+      "n_partial": 442,
+      "partial_rho": 0.15634646267442096,
+      "partial_p": 0.0009868898010473835,
+      "covariate": "ESTIMATEScore (harvested ssGSEA, PR 302)"
+    },
+    {
+      "n": 442,
+      "rho": 0.5493012658650044,
+      "p": 3.3327171882765845e-36,
+      "predictor": "CLDN4",
+      "endpoint": "TACSTD2",
+      "kind": "continuous Spearman",
+      "n_partial": 442,
+      "partial_rho": 0.5212495492865847,
+      "partial_p": 4.3429398102782987e-32,
+      "covariate": "ESTIMATEScore (harvested ssGSEA, PR 302)"
+    }
+  ],
+  "q4_vs_q1": [
+    {
+      "n_q4": 111,
+      "n_q1": 111,
+      "median_q4": 9.475764,
+      "median_q1": 10.159059,
+      "delta_median": -0.6832949999999993,
+      "U": 4142.0,
+      "rank_biserial_q4_gt_q1": -0.3276519763006249,
+      "p": 2.4722494756924992e-05,
+      "predictor": "CLDN4 quartile",
+      "endpoint": "CD8A",
+      "kind": "MWU Q4 vs Q1"
+    },
+    {
+      "n_q4": 111,
+      "n_q1": 111,
+      "median_q4": 8.146529,
+      "median_q1": 8.269831,
+      "delta_median": -0.12330200000000069,
+      "U": 6070.0,
+      "rank_biserial_q4_gt_q1": -0.014690366041717362,
+      "p": 0.850808810679768,
+      "predictor": "CLDN4 quartile",
+      "endpoint": "CD274",
+      "kind": "MWU Q4 vs Q1"
+    },
+    {
+      "n_q4": 111,
+      "n_q1": 111,
+      "median_q4": 12.66324,
+      "median_q1": 12.035711,
+      "delta_median": 0.6275290000000009,
+      "U": 11232.5,
+      "rank_biserial_q4_gt_q1": 0.8233097962827693,
+      "p": 3.022076539665391e-26,
+      "predictor": "CLDN4 quartile",
+      "endpoint": "TACSTD2",
+      "kind": "MWU Q4 vs Q1"
+    },
+    {
+      "n_q4": 111,
+      "n_q1": 111,
+      "median_q4": 10.188581,
+      "median_q1": 10.751556,
+      "delta_median": -0.5629750000000016,
+      "U": 4004.0,
+      "rank_biserial_q4_gt_q1": -0.35005275545816084,
+      "p": 6.61490101290444e-06,
+      "predictor": "CD8A quartile",
+      "endpoint": "CLDN4",
+      "kind": "MWU Q4 vs Q1 (reverse)"
+    }
+  ],
+  "generated_at": "2026-08-17T16:53:27.585110+00:00",
+  "inputs": {
+    "GSE72094_series_matrix.txt.gz": {
+      "bytes": 105955906,
+      "md5": "097e138c5e75559652363c79517e532d",
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE72nnn/GSE72094/matrix/GSE72094_series_matrix.txt.gz"
+    },
+    "GPL15048_datatable.txt": {
+      "bytes": 2990825,
+      "md5": "3e572feb1327d47c70ecf52a4dbb8aa1",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL15048&targ=self&form=text&view=data"
+    }
+  }
+}
