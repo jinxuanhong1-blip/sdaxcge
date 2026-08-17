@@ -1,0 +1,10 @@
+item	n	note
+datasets	3	GSE131907 tLung + GSE148071 + GSE205335; no GSE207422
+samples in graphs	75	DA unit
+samples with malignant CLDN4 (>=10 mal. cells)	71	primary Spearman n
+cells in graphs	213453	do not cite as n
+neighbourhoods stacked	15112	overlapping; FDR is per-graph
+testable nhoods stacked	1451	>=5 samples present inside that dataset
+GSE131907 scored samples	10	11 in graph; SpatialFDR<0.1 = 3
+GSE148071 scored samples	39	42 in graph; SpatialFDR<0.1 = 8
+GSE205335 scored samples	22	22 in graph; SpatialFDR<0.1 = 0

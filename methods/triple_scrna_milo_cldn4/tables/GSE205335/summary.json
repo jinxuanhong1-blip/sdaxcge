@@ -1,0 +1,198 @@
+{
+  "dataset": "GSE205335",
+  "notes": {
+    "citation": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)",
+    "author_barcode_labels": true,
+    "malignant_definition": "author lineage.sub == 'Malignant cells'; CNV not re-inferred",
+    "tnk_definition": "author lineage.total == 'T/NK cells'",
+    "independent_unit": "patient (biopsies from the same patient pooled)",
+    "normal_cells_excluded": 15715,
+    "n_cells_matrix": 96505,
+    "mpr_labeled": false
+  },
+  "n_cells_in_graph": 80790,
+  "n_malignant": 28512,
+  "n_tnk": 31642,
+  "lineage_counts": {
+    "T/NK cells": 31642,
+    "Epithelial cells": 30448,
+    "Myeloid cells": 8352,
+    "B/Plasma cells": 7102,
+    "Fibroblasts": 1760,
+    "AMB cells": 541,
+    "Endothelial cells": 501,
+    "Mast cells": 441,
+    "Oligodendrocytes": 3
+  },
+  "graph": {
+    "k": 30,
+    "d": 30,
+    "prop": 0.1,
+    "n_hvg": 2000,
+    "n_nhoods": 5713,
+    "nhood_size": 31,
+    "median_nhood_size": 31.0,
+    "batch": "PCA per-sample mean centering (not Harmony); graph per dataset"
+  },
+  "samples": {
+    "n": 22,
+    "n_with_malignant_ge10": 22,
+    "n_cldn4_high": 11,
+    "n_cldn4_low": 11,
+    "dropped_lt10_malignant": [],
+    "median_split_cut": 0.9763003289699554
+  },
+  "sample_level_malignant_CLDN4_vs_TNK_fraction": {
+    "n": 22,
+    "rho": -0.2625635234330887,
+    "p": 0.23780202752583146
+  },
+  "da_malignant_cldn4": {
+    "n_nhoods_total": 5713,
+    "n_testable": 360,
+    "n_p_lt_0.05": 17,
+    "min_p": 0.004804664723032055,
+    "min_SpatialFDR": 0.8986669249960799,
+    "min_BH_FDR": 0.8411866530412216,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.2": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0,
+    "median_n_samples_present": 6.0,
+    "n_abs_rho_eq_1": 0
+  },
+  "da_cldn4_median_split": {
+    "n_nhoods_total": 5713,
+    "n_testable": 438,
+    "n_p_lt_0.05": 0,
+    "min_p": 0.06790729888306686,
+    "min_SpatialFDR": 0.7620543610940881,
+    "min_BH_FDR": 0.7567195022095587,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.2": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0,
+    "median_n_samples_present": 5.0,
+    "n_abs_rho_eq_1": 0
+  },
+  "da_malignant_cldn4_by_n_present": [
+    {
+      "n_nhoods_total": 360,
+      "n_testable": 360,
+      "n_p_lt_0.05": 17,
+      "min_p": 0.004804664723032055,
+      "min_SpatialFDR": 0.8986669249960799,
+      "min_BH_FDR": 0.8411866530412216,
+      "n_BH_FDR_lt_0.1": 0,
+      "n_BH_FDR_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.2": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "median_n_samples_present": 6.0,
+      "n_abs_rho_eq_1": 0,
+      "min_samples_present": 5
+    },
+    {
+      "n_nhoods_total": 65,
+      "n_testable": 65,
+      "n_p_lt_0.05": 3,
+      "min_p": 0.020815127253525273,
+      "min_SpatialFDR": 0.8986669249960799,
+      "min_BH_FDR": 0.8411866530412216,
+      "n_BH_FDR_lt_0.1": 0,
+      "n_BH_FDR_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.2": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "median_n_samples_present": 8.0,
+      "n_abs_rho_eq_1": 0,
+      "min_samples_present": 8
+    },
+    {
+      "n_nhoods_total": 16,
+      "n_testable": 16,
+      "n_p_lt_0.05": 0,
+      "min_p": 0.09556521835315425,
+      "min_SpatialFDR": 0.9367491602290554,
+      "min_BH_FDR": 0.9648089924796812,
+      "n_BH_FDR_lt_0.1": 0,
+      "n_BH_FDR_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.2": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "median_n_samples_present": 10.0,
+      "n_abs_rho_eq_1": 0,
+      "min_samples_present": 10
+    },
+    {
+      "n_nhoods_total": 0,
+      "n_testable": 0,
+      "n_p_lt_0.05": 0,
+      "min_p": null,
+      "min_SpatialFDR": null,
+      "min_BH_FDR": null,
+      "n_BH_FDR_lt_0.1": 0,
+      "n_BH_FDR_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.2": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "median_n_samples_present": null,
+      "n_abs_rho_eq_1": 0,
+      "min_samples_present": 15
+    }
+  ],
+  "spatialfdr_floor_hits": {
+    "n": 0,
+    "all_abs_rho_eq_1": false,
+    "n_samples_present_min": null,
+    "n_samples_present_max": null,
+    "n_tnk_max": null
+  },
+  "composition": {
+    "note": "transcriptional kNN != spatial niche",
+    "all_nhoods_maligCLDN4_vs_fracTNK": {
+      "n": 2500,
+      "rho": -0.4705457059942931,
+      "p": 5.920189747290312e-138
+    },
+    "interface_nhoods": {
+      "definition": ">=3 malignant AND >=3 T/NK cells",
+      "n": 362,
+      "spearman": {
+        "n": 362,
+        "rho": -0.12047100236524153,
+        "p": 0.021874198680566604
+      }
+    },
+    "disjoint_interface": {
+      "n_disjoint_nhoods": 553,
+      "n_disjoint_interface": 32,
+      "spearman": {
+        "n": 32,
+        "rho": -0.1203815173232461,
+        "p": 0.511643696545082
+      }
+    },
+    "sample_paired_TNK_in_CLDN4high_vs_low_nhoods": {
+      "high_low_cut": "median malignant CLDN4 among nhoods with >=5 malignant cells",
+      "median_cut": 1.3527403473854065,
+      "n_high_nhoods": 1134,
+      "n_low_nhoods": 1134,
+      "wilcoxon_high_vs_low": {
+        "n": 22,
+        "median_a": 0.0018116888204110413,
+        "median_b": 0.05713688485427616,
+        "p": 0.00021907963048002185
+      }
+    }
+  },
+  "honest_n": {
+    "independent_unit_DA": "GSE205335 samples (n=22; scored=22)",
+    "nhoods_are_overlapping": true,
+    "SpatialFDR_is_overlap_aware": true,
+    "disjoint_nhood_subset_n": 553,
+    "do_not_cite_n_cells_as_n": 80790
+  }
+}
