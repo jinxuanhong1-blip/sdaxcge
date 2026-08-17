@@ -1,0 +1,17 @@
+item	n	note
+GEO series samples / TPM columns	365	deposited TPM
+Genes on TPM matrix	20062	20062 protein-coding (author)
+Unique GSM	365	all unique
+Unique sample_id	365	Sample_001..Sample_377 with gaps
+FFPE / total RNA / target enrichment	313	Procrustes batch-corrected
+FF / polyA	52	Cureline fresh-frozen
+Breast cancer	201	GEO diagnosis
+Lung Adenocarcinoma	20	GEO diagnosis
+Squamous Cell Carcinoma of Lung	14	GEO diagnosis
+Lung (LUAD+LUSC)	34	does not include non-lung SCC
+GI (CRC+gastric+eso+panc+liver/CCA)	71	locked GI bag
+CLDN4 finite	365	all samples
+CD274 finite	365	all samples
+PD-L1 IHC on GEO	0	paper has IHC; not deposited
+ICI / response labels on GEO	0	biomarker series, not an ICI trial
+FASTQ / SRA on GEO	0	author withheld identifiable sequence
