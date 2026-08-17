@@ -1,0 +1,77 @@
+{
+  "series": "GSE293914",
+  "sample": "GSM8893263",
+  "label": "XENOGRAFT",
+  "model": "H1975 EGFR L858R/T790M humanized NSG + human PBMC",
+  "treatments_on_geo_title": [
+    "isotype",
+    "anti-PD-1",
+    "anti-CCL20",
+    "combination"
+  ],
+  "geo_characteristics_treatment": "isotype",
+  "n_geo_samples": 1,
+  "n_libraries": 1,
+  "honest_n": 1,
+  "probe_to_treatment_map_on_geo": false,
+  "raw_barcodes": 2032489,
+  "qc_cells": 42911,
+  "qc": {
+    "min_genes": 200,
+    "max_genes": 8000,
+    "max_pct_mt": 10
+  },
+  "missing_genes": [],
+  "lineage_counts": {
+    "Epithelial": 38110,
+    "Fibroblast": 915,
+    "Plasma": 1918,
+    "Unassigned": 1650,
+    "Myeloid": 273,
+    "Endothelial": 32,
+    "B": 4,
+    "Mast": 4,
+    "T": 3,
+    "NK": 2
+  },
+  "n_tumor": 38110,
+  "n_tnk": 5,
+  "n_T": 3,
+  "n_NK": 2,
+  "n_umi_tnk_proxy": 79,
+  "focal_probe_qc": {
+    "BC001": 4154,
+    "BC002": 8503,
+    "BC003": 13037,
+    "BC004": 17217
+  },
+  "TACSTD2_tumor": {
+    "n": 38110,
+    "mean": 1.227423522055415,
+    "median": 0.7608016133308411,
+    "pct_pos": 50.72421936499606,
+    "pct_umi_ge1": 50.72421936499606
+  },
+  "TACSTD2_tnk": {
+    "n": 5,
+    "mean": 0.6482841491699218,
+    "median": 0.0,
+    "pct_pos": 20.0,
+    "pct_umi_ge1": 20.0
+  },
+  "CLDN4_tumor": {
+    "n": 38110,
+    "mean": 1.1850917459965316,
+    "median": 0.0,
+    "pct_pos": 49.91340855418525,
+    "pct_umi_ge1": 49.91340855418525
+  },
+  "CLDN4_tnk": {
+    "n": 5,
+    "mean": 0.0,
+    "median": 0.0,
+    "pct_pos": 0.0,
+    "pct_umi_ge1": 0.0
+  },
+  "note": "One multiplexed Flex library. Four dominant probe barcodes match a 4-plex (isotype / aPD-1 / aCCL20 / combo) but GEO MTX/series matrix do not label which barcode is which arm. Do not treat probe groups as independent biological n. Cell-level p-values are not reported."
+}
