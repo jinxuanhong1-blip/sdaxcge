@@ -1,0 +1,39 @@
+{
+  "accession": "PXD031094",
+  "source_file": "proteinGroups_Cldn4.txt",
+  "source_url": "https://ftp.pride.ebi.ac.uk/pride/data/archive/2023/10/PXD031094/proteinGroups_Cldn4.txt",
+  "n_protein_groups_raw": 2788,
+  "n_after_reverse_contaminant_site_unique2": 2188,
+  "n_detected_in_ge2_cldn4": 1778,
+  "impute_lfq": 1832100.0,
+  "n_stringent_fdr_mod_0.05_log2fc_gt1": 64,
+  "n_exclusive_ge2_cldn4_0_gfp": 28,
+  "n_primary_stringent_or_exclusive": 82,
+  "n_primary_nonbait": 81,
+  "n_primary_with_category": 13,
+  "bait_recovered": true,
+  "bait_log2fc": 10.376125220103507,
+  "primary_category_counts_nonbait": {
+    "IFN": 4,
+    "MHC": 0,
+    "TJ": 6,
+    "trafficking": 3,
+    "immune": 4
+  },
+  "filters": {
+    "remove": [
+      "Reverse",
+      "Potential contaminant",
+      "Only identified by site"
+    ],
+    "min_unique_peptides": 2,
+    "min_cldn4_lfq_replicates": 2,
+    "stringent": "moderated two-sample t FDR<0.05 and log2FC>1",
+    "exclusive": "LFQ>0 in >=2 Cldn4 and 0 GFP"
+  },
+  "not_done": [
+    "RAW re-search",
+    "abundance vs ICI",
+    "author Table S1 (Cell Reports supplement blocked)"
+  ]
+}
