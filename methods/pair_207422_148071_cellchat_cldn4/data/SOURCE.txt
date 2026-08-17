@@ -1,0 +1,15 @@
+Given extracts only. Matrices were not re-downloaded.
+
+GSE148071 CellChat-style CLDN4 (PR #348, branch cursor/gse148071-cellchat-cldn4-45a7):
+  methods/gse148071_cellchat_cldn4/results/{per_sample,ligand_table,n_table}.tsv
+  Wu et al., Nat Commun 2021, PMID 33953163. Marker-argmax epithelium = putative malignant.
+
+GSE207422 CellChat-style CLDN4 (PR #324, branch cursor/scrna-cellchat-cldn4-cefc):
+  methods/scrna_cellchat_cldn4/results/{per_sample_post,ligand_table}.tsv
+  Hu et al., Genome Medicine 2023, PMID 36869384. Post-treatment only (12 patients).
+
+Sensitivity patient-level tables (taken as given, not re-audited):
+  GSE207422 author DRMref: methods/scrna_cldn4_combo/data/tnk/GSE207422_drmref_patients.tsv (PR combo)
+  GSE148071 TISCH units: methods/gse148071_cldn4_q4/data/tisch_GSE148071_units.tsv (PR # / Q4 folder)
+
+CLDN4 only. TACSTD2 is not a gate. No dual-high.

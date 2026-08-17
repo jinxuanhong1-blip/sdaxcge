@@ -1,0 +1,14 @@
+item	n	note
+GSE148071_deposited	42	Wu 2021; one biopsy each; not the test n
+GSE148071_cellchat_eligible_25_25	25	≥25 epi and ≥25 T/NK; marker-argmax
+GSE148071_cellchat_excluded	17	mostly epithelium with almost no T/NK
+GSE148071_TISCH_locked_eligible	25	given ≥20/20; 3 epithelial-like inside
+GSE207422_deposited_samples	15	Hu 2023; 3 pre + 12 post
+GSE207422_post_used	12	pre-treatment excluded in given CellChat
+GSE207422_cellchat_eligible_25_25	12	all 12 post pass ≥25/25
+GSE207422_drmref_patients	12	author malignant; given combo table
+combo_primary_n_patients	37	25 + 12; do not write 42+15
+GSE148071_sig_LR_pairs	52	kept median; 39 out / 13 in
+GSE207422_sig_LR_pairs	100	kept median_post; 68 out / 32 in
+consensus_both_sig_same_dir	28	intersection of kept ligand tables
+consensus_outgoing_both_sig_same_dir	23	Mal CLDN4-high → T/NK
