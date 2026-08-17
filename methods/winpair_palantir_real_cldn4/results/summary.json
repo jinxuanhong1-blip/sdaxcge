@@ -1,0 +1,468 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "winning_pair": true,
+  "gse148071_added": false,
+  "gse207422_added": false,
+  "not_a_pr325_redo": true,
+  "not_a_pr449_redo": true,
+  "primary_gene": "CLDN4",
+  "dual_high": false,
+  "inferential_unit": "patient",
+  "clock": "palantir",
+  "palantir_pkg": {
+    "available": true,
+    "module": "palantir",
+    "version": "1.4.5"
+  },
+  "palantir": {
+    "ok": true,
+    "pca": "X_pca_harmony",
+    "magic": true,
+    "terminal_fallback": {
+      "GSE205335:LM-115-3P_TGATTTCCAGGACGAT-1": "boundary_1",
+      "GSE131907:AACTCAGAGCAGATCG_NS_17": "boundary_2",
+      "GSE205335:EBUS-72-5P_GATGCTAGTGCAGGTA-1": "boundary_3"
+    },
+    "auto_terminal_error": "ArpackNoConvergence: ARPACK error -1: No convergence (23051 iterations, 0/1 eigenvectors converged) [ARPACK error -14: DNAUPD  did not find any eigenvalues to sufficient accuracy.]",
+    "n_waypoints": 500,
+    "n_destinies": 3,
+    "destiny_names": [
+      "destiny_1",
+      "destiny_2",
+      "destiny_3"
+    ],
+    "terminal_cells": {
+      "destiny_1": "boundary_2",
+      "destiny_2": "boundary_3",
+      "destiny_3": "boundary_1"
+    },
+    "n_pseudotime_finite": 18972,
+    "early_cell": "GSE131907:CTCGTCAAGCGATAGC_LUNG_N28"
+  },
+  "dpt": {
+    "ran": true,
+    "empty": false,
+    "reason": null,
+    "n_finite": 18972
+  },
+  "harmony": {
+    "used": true,
+    "reason": "harmonypy on PCA, batch=dataset"
+  },
+  "cap_per_unit": 350,
+  "n_cells": 18972,
+  "n_cells_gse131907": 11986,
+  "n_cells_gse205335": 6986,
+  "n_cells_nLung": 3141,
+  "n_author_AT2": 2020,
+  "n_patients": 48,
+  "n_patients_gse131907": 26,
+  "n_patients_gse205335": 22,
+  "n_patients_eligible": 48,
+  "n_patients_malignant": 46,
+  "n_patients_paired_tertile": 47,
+  "subtype_counts": {
+    "Malignant cells": 12125,
+    "AT2": 2020,
+    "tS2": 1171,
+    "tS1": 1103,
+    "Non-malignant cells": 711,
+    "NA": 665,
+    "Ciliated": 463,
+    "AT1": 310,
+    "Club": 304,
+    "tS3": 56,
+    "Undetermined": 44
+  },
+  "cldn4_tertile_counts": {
+    "low": 6324,
+    "mid": 6324,
+    "high": 6324
+  },
+  "cldn4_tertile_cuts": {
+    "q1": 0.7486304658684624,
+    "q2": 1.8447545801420089
+  },
+  "genes_absent": {
+    "AT2": [],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": [],
+    "IFN": []
+  },
+  "root": {
+    "n_nLung": 3141,
+    "n_nLung_author_AT2": 2020,
+    "n_nLung_AT2_not_CLDN4_high": 1822,
+    "rule": "GSE131907 nLung author AT2, not CLDN4-high, median AT2 score",
+    "rejected_CLDN4_high_root": true,
+    "early_cell": "GSE131907:CTCGTCAAGCGATAGC_LUNG_N28",
+    "root_patient": "GSE131907:28",
+    "root_unit": "GSE131907:LUNG_N28",
+    "root_origin": "nLung",
+    "root_subtype": "AT2",
+    "root_dataset": "GSE131907",
+    "root_tertile": "mid",
+    "root_CLDN4": 1.2934942559540161
+  },
+  "destinies": [
+    {
+      "destiny": "destiny_1",
+      "terminal_cell": "boundary_2",
+      "terminal_subtype": "",
+      "terminal_CLDN4": null,
+      "terminal_barrier": null,
+      "terminal_IFN": null,
+      "n_cells": 18283,
+      "n_patients": 48,
+      "n_GSE131907": 11986,
+      "n_GSE205335": 6297,
+      "pct_malignant": 0.7918284745391894,
+      "pct_nLung": 0.1717989389049937,
+      "pct_airway": 0.0419515396816715,
+      "mean_CLDN4": 1.294212938755412,
+      "mean_barrier_keratin": 1.2384769372416387,
+      "mean_IFN": 0.22174182303327802,
+      "mean_AT2": 1.0055562246260956,
+      "mean_pseudotime": 0.08738768522540104,
+      "top_subtype": "Malignant cells"
+    },
+    {
+      "destiny": "destiny_2",
+      "terminal_cell": "boundary_3",
+      "terminal_subtype": "",
+      "terminal_CLDN4": null,
+      "terminal_barrier": null,
+      "terminal_IFN": null,
+      "n_cells": 342,
+      "n_patients": 2,
+      "n_GSE131907": 0,
+      "n_GSE205335": 342,
+      "pct_malignant": 1.0,
+      "pct_nLung": 0.0,
+      "pct_airway": 0.0,
+      "mean_CLDN4": 0.9655943359804046,
+      "mean_barrier_keratin": 0.7725578727340783,
+      "mean_IFN": 0.05021412208830655,
+      "mean_AT2": 0.014328761098175137,
+      "mean_pseudotime": 0.8111241526641286,
+      "top_subtype": "Malignant cells"
+    },
+    {
+      "destiny": "destiny_3",
+      "terminal_cell": "boundary_1",
+      "terminal_subtype": "",
+      "terminal_CLDN4": null,
+      "terminal_barrier": null,
+      "terminal_IFN": null,
+      "n_cells": 347,
+      "n_patients": 1,
+      "n_GSE131907": 0,
+      "n_GSE205335": 347,
+      "pct_malignant": 1.0,
+      "pct_nLung": 0.0,
+      "pct_airway": 0.0,
+      "mean_CLDN4": 1.6805488031046285,
+      "mean_barrier_keratin": 0.6124555119575374,
+      "mean_IFN": 0.0797303394846652,
+      "mean_AT2": 0.005695122498021199,
+      "mean_pseudotime": 0.912895273206949,
+      "top_subtype": "Malignant cells"
+    }
+  ],
+  "barrier_high_destiny": "destiny_1",
+  "ifn_high_destiny": "destiny_1",
+  "thesis_verdict": "Palantir auto-terminals put the highest-barrier and highest-IFN means on the **same** destiny (destiny_1); branching into two destinies is not required for a two-end continuum. Thesis is **partial**: barrier end holds; IFN-higher CLDN4-low end is not supported at the pre-specified tests.",
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs Palantir PT",
+      "n": 48,
+      "rho": 0.26411202778983933,
+      "p": 0.0696857935423768,
+      "q": 0.29616462255510145
+    },
+    {
+      "contrast": "barrier (no CLDN4) vs Palantir PT",
+      "n": 48,
+      "rho": -0.19583152409900131,
+      "p": 0.18221869790610926,
+      "q": 0.3441908738226508
+    },
+    {
+      "contrast": "IFN vs Palantir PT",
+      "n": 48,
+      "rho": -0.1482848458532349,
+      "p": 0.31449185338721714,
+      "q": 0.41125857750636086
+    },
+    {
+      "contrast": "CLDN4 vs IFN",
+      "n": 48,
+      "rho": -0.08315240990013026,
+      "p": 0.5741939583646121,
+      "q": 0.6100810807624003
+    },
+    {
+      "contrast": "CLDN4 vs barrier (no CLDN4)",
+      "n": 48,
+      "rho": 0.3065566652192792,
+      "p": 0.03407179003199868,
+      "q": 0.1930734768479925
+    },
+    {
+      "contrast": "IFN vs barrier (no CLDN4)",
+      "n": 48,
+      "rho": 0.5575336517585757,
+      "p": 3.846113456987649e-05,
+      "q": 0.0006538392876879003
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 48,
+      "rho": 0.0856491532783326,
+      "p": 0.5627117755930777,
+      "q": 0.6100810807624003
+    },
+    {
+      "contrast": "SFTPC vs Palantir PT (control)",
+      "n": 48,
+      "rho": -0.21493703864524533,
+      "p": 0.14235349885002752,
+      "q": 0.3432400481734899
+    },
+    {
+      "contrast": "CLDN4 vs fate destiny_1",
+      "n": 48,
+      "rho": 0.2351264239191778,
+      "p": 0.10768037058907834,
+      "q": 0.3432400481734899
+    },
+    {
+      "contrast": "barrier vs fate destiny_1",
+      "n": 48,
+      "rho": 0.18136084831632582,
+      "p": 0.21733532491892338,
+      "q": 0.36947005236216973
+    },
+    {
+      "contrast": "IFN vs fate destiny_1",
+      "n": 48,
+      "rho": 0.0169291025221808,
+      "p": 0.9090755386063343,
+      "q": 0.9090755386063343
+    },
+    {
+      "contrast": "CLDN4 vs fate destiny_2",
+      "n": 48,
+      "rho": -0.09749909045181906,
+      "p": 0.5097280803288087,
+      "q": 0.6100810807624003
+    },
+    {
+      "contrast": "barrier vs fate destiny_2",
+      "n": 48,
+      "rho": -0.21083002678086277,
+      "p": 0.1503220058973673,
+      "q": 0.3432400481734899
+    },
+    {
+      "contrast": "IFN vs fate destiny_2",
+      "n": 48,
+      "rho": -0.33058775203036406,
+      "p": 0.021736030256559687,
+      "q": 0.18475625718075733
+    },
+    {
+      "contrast": "CLDN4 vs fate destiny_3",
+      "n": 48,
+      "rho": 0.15267317148783419,
+      "p": 0.30022201050608327,
+      "q": 0.41125857750636086
+    },
+    {
+      "contrast": "barrier vs fate destiny_3",
+      "n": 48,
+      "rho": -0.20531909269053564,
+      "p": 0.16152472855223055,
+      "q": 0.3432400481734899
+    },
+    {
+      "contrast": "IFN vs fate destiny_3",
+      "n": 48,
+      "rho": -0.16320235572837444,
+      "p": 0.267712733031973,
+      "q": 0.41125857750636086
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "GSE131907-only CLDN4 vs Palantir PT",
+      "n": 26,
+      "rho": 0.0864957264957265,
+      "p": 0.674382213218179
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs Palantir PT",
+      "n": 22,
+      "rho": 0.4477696216826652,
+      "p": 0.03664259102857075
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs IFN",
+      "n": 26,
+      "rho": -0.02017094017094017,
+      "p": 0.9220884873072568
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs IFN",
+      "n": 22,
+      "rho": -0.10897797854319595,
+      "p": 0.6292681723906854
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs barrier",
+      "n": 26,
+      "rho": 0.3278632478632478,
+      "p": 0.10202381378095023
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs barrier",
+      "n": 22,
+      "rho": 0.27272727272727276,
+      "p": 0.2194550778840766
+    },
+    {
+      "contrast": "malignant-cells CLDN4 vs Palantir PT",
+      "n": 46,
+      "rho": 0.1386987357385137,
+      "p": 0.35795654856634396
+    },
+    {
+      "contrast": "malignant-cells CLDN4 vs IFN",
+      "n": 46,
+      "rho": -0.10798643231575701,
+      "p": 0.47501908843231266
+    },
+    {
+      "contrast": "malignant-cells CLDN4 vs barrier",
+      "n": 46,
+      "rho": 0.3147086031452359,
+      "p": 0.03315742143592706
+    },
+    {
+      "contrast": "malignant-cells IFN vs barrier",
+      "n": 46,
+      "rho": 0.47752081406105457,
+      "p": 0.0007912995787999465
+    },
+    {
+      "contrast": "malignant-cells IFN vs Palantir PT",
+      "n": 46,
+      "rho": -0.12143077397471477,
+      "p": 0.4214550714260633
+    },
+    {
+      "contrast": "malignant-cells barrier vs Palantir PT",
+      "n": 46,
+      "rho": -0.3059512796793093,
+      "p": 0.03865591300069381
+    },
+    {
+      "contrast": "malignant-cells CLDN4 vs fate destiny_1 (barrier-high destiny)",
+      "n": 46,
+      "rho": 0.2031337051182522,
+      "p": 0.17574617358261074
+    },
+    {
+      "contrast": "malignant-cells IFN vs fate destiny_1 (IFN-high destiny)",
+      "n": 46,
+      "rho": 0.009947269065069049,
+      "p": 0.947687899216716
+    }
+  ],
+  "paired_tertile": [
+    {
+      "contrast": "barrier/keratin (no CLDN4) high vs low",
+      "n": 47,
+      "W": 1.0,
+      "p": 2.842170943040401e-14,
+      "delta_median": 0.4212293018685611,
+      "median_high": 1.5050928854399905,
+      "median_low": 0.9000428817733258
+    },
+    {
+      "contrast": "IFN high vs low",
+      "n": 47,
+      "W": 96.0,
+      "p": 4.976261891442846e-08,
+      "delta_median": 0.05391708057068116,
+      "median_high": 0.20288123317819695,
+      "median_low": 0.14974778291861282
+    },
+    {
+      "contrast": "AT2 high vs low",
+      "n": 47,
+      "W": 513.0,
+      "p": 0.5962626683115957,
+      "delta_median": 0.029888931269759285,
+      "median_high": 0.3633858939828978,
+      "median_low": 0.24060185194235623
+    },
+    {
+      "contrast": "Palantir PT high vs low",
+      "n": 47,
+      "W": 144.0,
+      "p": 1.9818267986693172e-06,
+      "delta_median": 0.008692057073402565,
+      "median_high": 0.07022618567887931,
+      "median_low": 0.05010745271973037
+    },
+    {
+      "contrast": "fate destiny_1 high vs low",
+      "n": 47,
+      "W": 0.0,
+      "p": 0.17971249487899976,
+      "delta_median": 0.0,
+      "median_high": 0.0,
+      "median_low": 0.0
+    },
+    {
+      "contrast": "fate destiny_2 high vs low",
+      "n": 47,
+      "W": 0.0,
+      "p": 0.17971249487899976,
+      "delta_median": 0.0,
+      "median_high": 0.0,
+      "median_low": 0.0
+    },
+    {
+      "contrast": "fate destiny_3 high vs low",
+      "n": 47,
+      "W": 0.0,
+      "p": 0.31731050786291415,
+      "delta_median": 0.0,
+      "median_high": 0.0,
+      "median_low": 0.0
+    }
+  ],
+  "extra_figure": {
+    "emitted": true,
+    "spearman_rho": 0.3065566652192792,
+    "spearman_p": 0.03407179003199868,
+    "spearman_n": 48
+  },
+  "qc": {
+    "min_genes": 200,
+    "min_umi": 500,
+    "lineage_EPCAM_mean": 1.2387355515646306,
+    "lineage_PTPRC_mean": 0.11119520918068374
+  },
+  "verdict": "Patient-level CLDN4 vs Palantir PT: n=48, \u03c1=0.264, p=0.0697. Barrier (no CLDN4) vs Palantir PT: n=48, \u03c1=-0.196, p=0.182. IFN vs Palantir PT: n=48, \u03c1=-0.148, p=0.314. CLDN4 vs barrier (no CLDN4): n=48, \u03c1=0.307, p=0.0341. CLDN4 vs IFN: n=48, \u03c1=-0.083, p=0.574. IFN vs barrier: n=48, \u03c1=0.558, p=3.85e-05. Malignant-restricted CLDN4 vs IFN: n=46, \u03c1=-0.108, p=0.475. Malignant-restricted CLDN4 vs barrier: n=46, \u03c1=0.315, p=0.0332. Malignant-restricted IFN vs barrier: n=46, \u03c1=0.478, p=0.000791. Paired CLDN4-high vs low barrier: n=47, W=1.0, \u0394med=0.421, p=2.84e-14. Paired CLDN4-high vs low IFN: n=47, W=96.0, \u0394med=0.054, p=4.98e-08. Palantir destinies=3; early cell not CLDN4-high (mid). DPT companion empty=False. Not a TACSTD2 redo. No both-high gate. GSE148071 not added. GSE207422 not added.",
+  "what_holds": "**What holds (n=48 patients).** CLDN4 vs barrier (CLDN4 excluded): n=48, \u03c1=0.307, p=0.0341. CLDN4 vs IFN: n=48, \u03c1=-0.083, p=0.574. Within-patient CLDN4-high vs low barrier n=47, W=1.0, \u0394med=0.421, p=2.84e-14; IFN n=47, W=96.0, \u0394med=0.054, p=4.98e-08. **Palantir product.** 3 destinies, 18972 cells with finite pseudotime. **What is mixed / null.** CLDN4 vs Palantir PT n=48, \u03c1=0.264, p=0.0697; IFN vs Palantir PT n=48, \u03c1=-0.148, p=0.314."
+}

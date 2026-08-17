@@ -421,8 +421,11 @@ def _run_palantir(adata, early_name: str) -> dict:
     adata.obs["palantir_destiny_prob"] = branch.max(axis=1)
     adata.obsm["palantir_fate_probabilities"] = branch.to_numpy(dtype=float)
     adata.uns["palantir_fate_names"] = list(branch.columns)
+    label_to_cell = {}
+    if info.get("terminal_fallback"):
+        label_to_cell = {lab: cell for cell, lab in info["terminal_fallback"].items()}
     adata.uns["palantir_terminal_cells"] = {
-        rename[c]: c for c in orig_names
+        rename[c]: label_to_cell.get(c, c) for c in orig_names
     }
 
     n_pt = int(np.isfinite(adata.obs["palantir_pseudotime"].to_numpy()).sum())
@@ -543,7 +546,8 @@ def write_finding(path: Path, ctx: dict) -> None:
         f"- Palantir early cell: {s['root']['rule']} (cell `{s['root'].get('early_cell')}`, "
         f"patient {s['root'].get('root_patient')}, CLDN4 tertile {s['root'].get('root_tertile')}).",
         f"- Palantir waypoints: {s['palantir'].get('n_waypoints')}; diffusion components {N_DM_COMPS}.",
-        "- Terminals: Palantir auto (not defined by CLDN4 / barrier / IFN).",
+        f"- Terminals: {('DM-boundary fallback after auto ARPACK failure' if s['palantir'].get('terminal_fallback') else 'Palantir auto')} "
+        "(not defined by CLDN4 / barrier / IFN).",
         "- Barrier/keratin genes: KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR (**CLDN4 out**).",
         "- IFN core: STAT1, IRF1/7/9, ISG15, IFIT1/2/3, OAS1/2, MX1/2, CXCL9/10/11, "
         "IDO1, TAP1, GBP1, IFI44L, IFI27, IFI44, RSAD2, USP18, EPSTI1, SAMD9 "

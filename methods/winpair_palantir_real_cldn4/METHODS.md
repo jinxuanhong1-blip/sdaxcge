@@ -29,7 +29,7 @@ Empty or failed DPT is recorded and **is not a stop**.
 | Graph | Seurat-v3 HVG 3000 → PCA → Harmony (`batch = dataset`) → k-NN 30 |
 | Clusters | Leiden 0.6 (display / early-cell fallback only) |
 | Early cell | GSE131907 nLung author AT2, **never CLDN4-high** |
-| Terminals | Palantir auto. Not defined by CLDN4, barrier, or IFN |
+| Terminals | Palantir auto if ARPACK converges; otherwise farthest diffusion-map extrema. Not defined by CLDN4, barrier, or IFN |
 | Scores | CLDN4 continuous + tertiles; barrier/keratin **without CLDN4**; IFN core **without CLDN4** |
 | Inferential n | **Patient** (GSE131907 patient number + GSE205335 patient). Cell-level ρ is descriptive |
 | Cap | ≤350 cells / sample after protecting nLung AT2 |

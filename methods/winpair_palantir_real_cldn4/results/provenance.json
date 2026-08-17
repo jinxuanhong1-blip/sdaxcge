@@ -1,0 +1,24 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "papers": {
+    "GSE131907": "Kim et al. Nat Commun 2020 PMID 32385277",
+    "GSE205335": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)",
+    "Palantir": "Setty et al. Nat Biotechnol 2019"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "ifn_excludes_CLDN4": true,
+  "root_not_CLDN4_high": true,
+  "gse148071_added": false,
+  "dual_high": false,
+  "inferential_unit": "patient",
+  "palantir": {
+    "available": true,
+    "module": "palantir",
+    "version": "1.4.5"
+  },
+  "dpt_is_companion_only": true
+}
