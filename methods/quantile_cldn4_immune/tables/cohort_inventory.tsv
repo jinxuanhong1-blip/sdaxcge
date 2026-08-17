@@ -1,0 +1,10 @@
+cohort	n_matrix	n_table	layer	anchors	endpoints_present	endpoints_absent	notes
+GSE218989	355	355	RNA	CLDN4,TACSTD2	CD8A,ImmuneScore,IFN,MHC-I,OS	GEP18	GEP18 not on table (Ayers6 is IFN, not GEP18). ImmuneScore = ESTIMATE Immune ssGSEA.
+GSE285029	234	234	RNA	CLDN4,TACSTD2	CD8A,ImmuneScore,GEP18,IFN,MHC-I	OS	ImmuneScore column is A1 8-gene (immune8); ESTIMATE ImmuneScore not on table. No OS.
+TCGA-LUAD	502	502	RNA	CLDN4,TACSTD2	CD8A,ImmuneScore,GEP18,IFN	MHC-I,OS	Wolf_IFNgamma n=444 (58 NA). MHC-I cassette and OS not on this Xena table.
+TCGA-LUSC	502	502	RNA	CLDN4,TACSTD2	CD8A,ImmuneScore,GEP18	IFN,MHC-I,OS	IFN, MHC-I, OS not on this Xena table. CD8 = published CD8 score column.
+CPTAC-LUAD-protein	110	110	protein	CLDN4,TACSTD2	CD8A,ImmuneScore,GEP18,IFN,OS	MHC-I	Protein anchors. CLDN4 protein n=79. CD8A = CD8_Tcell_RNA (no CD8A gene column). MHC-I absent.
+CPTAC-LSCC-protein	108	108	protein	CLDN4,TACSTD2	CD8A,ImmuneScore,GEP18,IFN,OS	MHC-I	Protein anchors. CLDN4 protein n=78. MHC-I absent.
+GSE68465	443	443	RNA	CLDN4,TACSTD2	CD8A,ImmuneScore,GEP18	IFN,MHC-I,OS	Director's Challenge U133A. IFN, MHC-I, OS not on this table. GEP18 is 15/18.
+GSE31210	226	226	RNA	CLDN4,TACSTD2	CD8A,ImmuneScore,GEP18	IFN,MHC-I,OS	Okayama/Kohno LUAD. IFN, MHC-I, OS not on this table.
+OncoSG	169	169	RNA	TACSTD2	CD8A,ImmuneScore,GEP18,IFN	MHC-I,OS	Public cBioPortal z-scores only; CLDN4 absent. ImmuneScore = A1 8-gene (ESTIMATE not computable). GEP18 17/18.
