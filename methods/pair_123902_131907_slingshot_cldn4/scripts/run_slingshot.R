@@ -52,18 +52,40 @@ if (!(start_clus %in% clusters)) {
   stop(paste("start cluster", start_clus, "not present"))
 }
 
+# Use the first 10 Harmony PCs for the curve fit (Street 2018 used low-D
+# embeddings). Neighbors / Leiden stay on 30 PCs in Python.
+if (ncol(embed) > 10) {
+  embed <- embed[, seq_len(10), drop = FALSE]
+}
+
 cat(sprintf(
   "slingshot n_cells=%d n_dim=%d n_clusters=%d start=%s version=%s\n",
   nrow(embed), ncol(embed), length(unique(clusters)), start_clus,
   as.character(packageVersion("slingshot"))
 ))
+flush.console()
 
-sds <- slingshot(
+cat("getLineages...\n")
+flush.console()
+sds <- getLineages(
   embed,
   clusterLabels = clusters,
-  start.clus = start_clus,
-  stretch = 2
+  start.clus = start_clus
 )
+cat(sprintf("lineages=%s\n", paste(names(slingLineages(sds)), collapse = ",")))
+flush.console()
+
+cat("getCurves (approx_points=150)...\n")
+flush.console()
+# approx_points is the official large-n option in slingshot >=2.0
+# (Street 2018 algorithm; not a DPT fallback).
+sds <- getCurves(
+  sds,
+  stretch = 2,
+  approx_points = 150
+)
+cat("curves done\n")
+flush.console()
 
 pt <- as.data.frame(slingPseudotime(sds))
 pt$cell <- rownames(embed)

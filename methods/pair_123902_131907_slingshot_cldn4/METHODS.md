@@ -30,6 +30,7 @@ PAGA (Wolf et al. 2019) is geometry on Leiden vertices.
 | --- | --- |
 | Graph | Seurat-v3 HVG 3000 → PCA → Harmony (`batch = dataset`) → k-NN 30 |
 | Clusters | Leiden 0.6; PAGA on Leiden |
+| Slingshot space | First 10 Harmony PCs; `approx_points=150` (official large-n option in slingshot ≥2.0). Neighbors stay on 30 PCs. |
 | Root | GSE131907 nLung author AT2. **Never CLDN4-high** (start cluster refused if it ranks in the top 15% of cluster-mean CLDN4). |
 | Score | CLDN4 continuous + tertiles; barrier/keratin **without CLDN4**; compact IFN/ISG core **without CLDN4** |
 | Inferential n | GSE123902 `donor` + GSE131907 `Sample`. Cell-level ρ is descriptive. |

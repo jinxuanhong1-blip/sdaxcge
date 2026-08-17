@@ -24,7 +24,8 @@ if (!requireNamespace('BiocManager', quietly=TRUE)) {
   install.packages('BiocManager', lib='$LIB')
 }
 if (!requireNamespace('slingshot', quietly=TRUE)) {
-  BiocManager::install(c('slingshot', 'SingleCellExperiment', 'TrajectoryUtils'),
+  BiocManager::install(c('slingshot', 'SingleCellExperiment', 'TrajectoryUtils',
+                         'DelayedMatrixStats', 'sparseMatrixStats'),
                        ask=FALSE, update=FALSE, Ncpus=4, lib='$LIB')
 }
 cat('slingshot ', as.character(packageVersion('slingshot')), '\n')

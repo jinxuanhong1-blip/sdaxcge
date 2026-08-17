@@ -416,8 +416,10 @@ def write_finding(path: Path, ctx: dict) -> None:
         "",
         "## Locked choices",
         "",
-        f"- Leiden resolution {LEIDEN_RES}; HVG {N_HVG}; neighbors {N_NEIGHBORS}; PCs {N_PCS}.",
+        f"- Leiden resolution {LEIDEN_RES}; HVG {N_HVG}; neighbors {N_NEIGHBORS}; PCs {N_PCS}. "
+        "Slingshot curves use the first 10 Harmony PCs and `approx_points=150`.",
         f"- Batch: {s['harmony']['reason']}.",
+        "- Shared-gene intersection may drop cohort-private symbols (SFTPC was absent here; AT2 score still uses SFTPB/NAPSA/LAMP3/ABCA3).",
         f"- Slingshot / DPT root: {s['root']['rule']} "
         f"(root cell index {s['root']['index']}, unit {s['root'].get('root_unit')}).",
         f"- PAGA components at connectivity>0: **{s['n_paga_components']}** among {s['n_leiden']} Leiden vertices.",
