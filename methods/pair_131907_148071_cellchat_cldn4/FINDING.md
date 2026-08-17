@@ -8,10 +8,11 @@ pairs GSE131907 with GSE205335 (PR #320) are given and are not re-ranked.
 
 ## Honest n
 
-- GSE131907 (Kim et al. 2020): tumor-origin author malignant/tS* with
-  ≥20 malignant **and** ≥20 T/NK. After the
-  floor this is **21 patients** (one tumor-origin sample each;
-  PE / nLung / nLN out). No ICI / MPR labels.
+- GSE131907 (Kim et al. 2020): locked author-`Malignant cells` extract
+  (PR #320) with ≥20 malignant **and** ≥20 T/NK. After the floor this
+  is **21 patients** (tL/B + mLN + mBrain; one sample each). tLung is
+  out of this extract because primary tumor epithelium is labeled tS*
+  not `Malignant cells`. PE / nLung / nLN out. No ICI / MPR labels.
 - GSE148071 (Wu et al. 2021): **25 / 42** biopsies with
   ≥25 marker-argmax epithelial (putative malignant) **and**
   ≥25 T/NK. No histology / ICI labels. Epithelium is
