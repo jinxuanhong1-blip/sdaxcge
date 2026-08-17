@@ -1,0 +1,2 @@
+accession	platform	n_matrix	n_tumor	tumor_rule	n_genes_unique	n_genes_firstsymbol	targets_present	estimate_stromal_present	estimate_immune_present	mhc1_genes_used	n_purity_in_0_1	n_purity_outside_0_1	unit_plot	unit_estimate	partial_covariate	cd8_cut
+GSE31210	GPL570 U133 Plus 2.0	246	226	tissue == primary lung tumor	20848	21755	CLDN4,CD274,HLA-A,HLA-B,HLA-C	136	138	HLA-A,HLA-B,HLA-C	18	208	log2(MAS5+1)	ssGSEA on MAS5 linear ranks (rank-invariant)	ESTIMATEScore (Stromal+Immune)	taken_as_given_sibling_gse31210_cldn4_immune
