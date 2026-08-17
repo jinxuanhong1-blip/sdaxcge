@@ -12,7 +12,7 @@ pip install -r methods/gse205335_slingshot_real_cldn4/requirements.txt
 Rscript -e 'dir.create(Sys.getenv("R_LIBS_USER", "~/R/library"), recursive=TRUE);
   .libPaths(Sys.getenv("R_LIBS_USER", "~/R/library"));
   install.packages("BiocManager", repos="https://cloud.r-project.org");
-  BiocManager::install(c("slingshot","SingleCellExperiment"), ask=FALSE, update=FALSE)'
+  BiocManager::install(c("slingshot","SingleCellExperiment","DelayedMatrixStats"), ask=FALSE, update=FALSE)'
 python3 methods/gse205335_slingshot_real_cldn4/scripts/download.py --out /tmp/gse205335_slingshot_real
 python3 methods/gse205335_slingshot_real_cldn4/scripts/extract_malignant.py \
   --data /tmp/gse205335_slingshot_real \

@@ -1,0 +1,28 @@
+{
+  "accession": "GSE205335",
+  "paper": "Ahn / Lee et al. eLife 2024",
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "dual_high": false,
+  "root_not_cldn4_high": true,
+  "unit": "patient",
+  "slingshot": {
+    "ran": true,
+    "available": true,
+    "version": "[1] \u20182.10.0\u2019",
+    "n_lineages": 9,
+    "n_curve_points": 1350,
+    "info": "start_cluster=8\nn_cells=7552\nn_lineages=9\nlineages=Lineage1:8>2>11>5>4>9; Lineage2:8>2>11>5>13; Lineage3:8>2>1>15>16; Lineage4:8>2>6>7; Lineage5:8>2>1>3; Lineage6:8>2>0; Lineage7:8>2>10; Lineage8:8>2>14; Lineage9:8>12\nslingshot_version=2.10.0\n\n",
+    "stdout_tail": "SLINGSHOT_DONE\nLineage1:8>2>11>5>4>9; Lineage2:8>2>11>5>13; Lineage3:8>2>1>15>16; Lineage4:8>2>6>7; Lineage5:8>2>1>3; Lineage6:8>2>0; Lineage7:8>2>10; Lineage8:8>2>14; Lineage9:8>12 \n",
+    "curves_path": "methods/gse205335_slingshot_real_cldn4/results/slingshot_work/slingshot_out/slingshot_umap_curves.csv",
+    "lineages_path": "methods/gse205335_slingshot_real_cldn4/results/slingshot_work/slingshot_out/slingshot_lineages.csv"
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "lowest-CLDN4 Leiden cluster; never CLDN4-high",
+    "cap_per_patient": 400
+  }
+}

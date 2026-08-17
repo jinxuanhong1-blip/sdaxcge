@@ -33,8 +33,9 @@ RECIST R = PR; NR = SD+PD; NE dropped from R vs NR.
 
 ## Trajectory clock
 
-Slingshot (Street et al. 2018) is installed and run on Harmony-PCA
-(Leiden clusters, `start.clus` = lowest-CLDN4 eligible cluster).
+Slingshot (Street et al. 2018) is installed (Bioconductor, including
+`DelayedMatrixStats`) and run on Harmony-PCA (Leiden clusters,
+`start.clus` = lowest-CLDN4 eligible cluster).
 PAGA (Wolf et al. 2019) is the cluster graph. Scanpy DPT (Haghverdi
 et al. 2016) is the companion clock, same root. Direction is an
 external arrow (lowest-CLDN4 Leiden, never the CLDN4-high cluster),
