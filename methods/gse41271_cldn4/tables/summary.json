@@ -1,0 +1,118 @@
+{
+  "dataset": "GSE41271",
+  "platform": "GPL6884 Illumina HumanWG-6 v3.0",
+  "n_arrays": 275,
+  "n_luad_adenocarcinoma": 183,
+  "histology_counts": {
+    "Adenocarcinoma": 183,
+    "Squamous": 80,
+    "Sarcomatoid-Adenocarcinoma": 1,
+    "Adenosquamous": 2,
+    "NSCLC": 1,
+    "Sarcomatoid": 2,
+    "LCC-NE": 3,
+    "Pleomorphic carcinoma": 1,
+    "SCLC & NSCLC": 1,
+    "Sarcomatoid-squamous": 1
+  },
+  "primary_n": 183,
+  "seed": 20260817,
+  "n_boot": 2000,
+  "epithelial_genes": [
+    "EPCAM",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "holds_rule": "n>=40, partial Spearman rho<0, p<0.05 (epithelial mean-z residual)",
+  "cldn4_vs_cd8a": {
+    "pair": "CLDN4 vs CD8A",
+    "predictor": "CLDN4",
+    "endpoint": "CD8A",
+    "subset": "LUAD Adenocarcinoma",
+    "n": 183,
+    "rho": -0.1424463432943955,
+    "p": 0.054405341435990066,
+    "ci_low": -0.2758213586140197,
+    "ci_high": -0.0009560556550162705,
+    "rho_adj_epithelial": -0.08292443531953145,
+    "p_adj_epithelial": 0.2657419719341573,
+    "verdict": "NO_EVIDENCE"
+  },
+  "cldn4_vs_cd274": {
+    "pair": "CLDN4 vs CD274",
+    "predictor": "CLDN4",
+    "endpoint": "CD274",
+    "subset": "LUAD Adenocarcinoma",
+    "n": 183,
+    "rho": -0.0965928398144906,
+    "p": 0.1933358606018835,
+    "ci_low": -0.2389758077233672,
+    "ci_high": 0.05590970116023842,
+    "rho_adj_epithelial": -0.07545363583406636,
+    "p_adj_epithelial": 0.3113680070263677,
+    "verdict": "NO_EVIDENCE"
+  },
+  "q4q1": [
+    {
+      "endpoint": "CD8A",
+      "n_q4": 46,
+      "n_q1": 47,
+      "median_q4": 7.976,
+      "median_q1": 8.345,
+      "mwu_U": 834.0,
+      "mwu_p": 0.05820428850189945,
+      "rank_biserial_q4_minus_q1": -0.22849213691026826
+    },
+    {
+      "endpoint": "CD274",
+      "n_q4": 46,
+      "n_q1": 47,
+      "median_q4": 3.2705,
+      "median_q1": 3.433,
+      "mwu_U": 943.0,
+      "mwu_p": 0.2906088499953998,
+      "rank_biserial_q4_minus_q1": -0.12765957446808507
+    }
+  ],
+  "cd8a_probe_sensitivity": [
+    {
+      "cd8a_probe": "ILMN_1768482",
+      "mean_luad": 7.853071038251366,
+      "chosen_maxmean": false,
+      "n": 183,
+      "rho": -0.11953120989171091,
+      "p": 0.10702897437385037,
+      "rho_adj_epithelial": -0.05533975037002207,
+      "p_adj_epithelial": 0.4580879106845136,
+      "verdict": "NO_EVIDENCE"
+    },
+    {
+      "cd8a_probe": "ILMN_1760374",
+      "mean_luad": 4.598049180327869,
+      "chosen_maxmean": false,
+      "n": 183,
+      "rho": -0.07421760452114869,
+      "p": 0.3180391878049588,
+      "rho_adj_epithelial": -0.010645523704831296,
+      "p_adj_epithelial": 0.8865820066206395,
+      "verdict": "NO_EVIDENCE"
+    },
+    {
+      "cd8a_probe": "ILMN_2353732",
+      "mean_luad": 8.110622950819671,
+      "chosen_maxmean": true,
+      "n": 183,
+      "rho": -0.1424463432943955,
+      "p": 0.054405341435990066,
+      "rho_adj_epithelial": -0.08292443531953145,
+      "p_adj_epithelial": 0.2657419719341573,
+      "verdict": "NO_EVIDENCE"
+    }
+  ],
+  "series_title": "Expression profiling of 275 lung cancer specimens",
+  "pubmed": "23449933 | 24850841 | 27354471 | 27252415",
+  "no_ici": true
+}
