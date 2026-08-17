@@ -702,7 +702,7 @@ def write_finding(
         f"{b_sig} pairs p<0.05 and Δ>0). "
         f"The IFN/T-recruit/MHC-I family is **{r_hit}/{len(recruit)} pairs in the thesis direction** "
         f"(low > high; composite Δ={fmt_delta(r_comp['delta'])}, p={fmt_p(r_comp['p'])}; "
-        f"{r_sig} pairs p<0.05 and Δ<0). "
+        f"{r_sig} pair{'s' if r_sig != 1 else ''} p<0.05 and Δ<0). "
         "Barrier-up-in-high is a primary arm, not a recruit leftover. "
         "Scores are CellPhoneDB-style co-expression, not secretion or contact."
     )
@@ -794,7 +794,11 @@ def write_finding(
         "Family FDR is Benjamini–Hochberg **within family**. "
         "Family composite = mean of that family's pair scores per patient, then the same Wilcoxon. "
         "This is **not** a CellChat communication probability and does **not** observe secretion or spatial contact. "
-        "GSE131907 `PVRL2` is aliased to `NECTIN2`.",
+        "GSE131907 `PVRL2` is aliased to `NECTIN2`. "
+        "Because the T/NK receiver is the same patient pool for high and low senders, "
+        "Δ = ½(ligand_high − ligand_low). Pairs that share a ligand "
+        "(F11R–ITGAL vs F11R–ITGB2; HLA-A–CD8A vs HLA-A–CD8B) therefore share Δ. "
+        "That is the tumor-cell program, not a copy error.",
         "",
         "## Primary table 1 — barrier / inhibitory (thesis: Δ > 0)",
         "",
