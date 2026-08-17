@@ -112,7 +112,7 @@ This is extra weight that **neighbourhood DA does not rescue a malignant-CLDN4 T
 
 ## Files
 
-- `tables/honest_n.tsv`, `tables/summary.json`, `tables/patient_scores.tsv`
+- `tables/one_row.tsv`, `tables/honest_n.tsv`, `tables/summary.json`, `tables/patient_scores.tsv`
 - `tables/da_malignant_cldn4.tsv`, `tables/da_malignant_cldn4_nsclc.tsv`, `tables/da_recist_r_vs_nr.tsv`
 - `tables/nhoods.tsv`, `tables/patient_paired_tnk_by_nhood_cldn4.tsv`
 - `tables/excluded_normal_samples.tsv`, `tables/gsm_sample_metadata.csv`
