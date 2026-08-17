@@ -1,0 +1,9 @@
+contrast	compartment	cohort	split	n_low	n_high	n	n_genes	patients_q1	patients_q4	note
+malignant_q4q1_GSE131907	malignant	GSE131907	q4q1	6.0	5.0	11	15738	EBUS_13,EBUS_15,EBUS_49,NS_02,NS_06,NS_16	EBUS_19,EBUS_28,NS_03,NS_04,NS_07	thin tails
+malignant_continuous_GSE131907	malignant	GSE131907	continuous			21	17372			
+malignant_q4q1_GSE205335	malignant	GSE205335	q4q1	5.0	6.0	11	18035	P1015,P1062,P1063,P1090,P1119	P1016,P1025,P1037,P1084,P1089,P1115	thin tails
+malignant_continuous_GSE205335	malignant	GSE205335	continuous			21	20393			
+malignant_q4q1_GSE189357	malignant	GSE189357	q4q1	3.0	2.0	5	0	TD2,TD4,TD7	TD6,TD9	thin tail n_Q1=3 n_Q4=2 (need ≥3 each)
+malignant_continuous_GSE189357	malignant	GSE189357	continuous			9	15607			
+malignant_q4q1_combined	malignant	GSE131907+GSE205335+GSE189357	q4q1	14.0	13.0	27	16174	EBUS_13,EBUS_15,EBUS_49,NS_02,NS_06,NS_16,P1015,P1062,P1063,P1090,P1119,TD2,TD4,TD7	EBUS_19,EBUS_28,NS_03,NS_04,NS_07,P1016,P1025,P1037,P1084,P1089,P1115,TD6,TD9	cohort covariates; P4001 out of malignant matrix
+malignant_continuous_combined	malignant	GSE131907+GSE205335+GSE189357	continuous			51	16980			CLDN4 %pos z; n=51 in matrix (locked T/NK n=52)
