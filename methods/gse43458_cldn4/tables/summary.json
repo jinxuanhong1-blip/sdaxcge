@@ -1,0 +1,144 @@
+{
+  "dataset": "GSE43458",
+  "pmid": "23659968",
+  "citation": "Kabbout et al., Clin Cancer Res 2013",
+  "platform": "GPL6244 Affymetrix Human Gene 1.0 ST [transcript (gene) version]",
+  "processing": "RMA log2 as deposited (BRB-Array Tools; Kadara / Kabbout).",
+  "histology_primary": "never-smoker lung adenocarcinoma tumor (GEO characteristics)",
+  "n_arrays_series": 110,
+  "n_probes": 33252,
+  "n_genes_collapsed": 20358,
+  "n_never_smoker_tumor_primary": 40,
+  "n_smoker_tumor_extra": 40,
+  "n_normal_excluded": 30,
+  "dual_high": false,
+  "immunescore": {
+    "definition": "mean of gene-wise z-scores of ESTIMATE ImmuneSignature, z-scored within the analysis set",
+    "source": "estimate 1.0.13 SI_geneset.gmt ImmuneSignature (Yoshihara 2013)",
+    "n_genes_listed": 141,
+    "n_genes_present": 132,
+    "not": "official R estimate::estimateScore ssGSEA"
+  },
+  "cldn4_probe": "8133360",
+  "cd8a_probe": "8053584",
+  "cd274_probe": "8154233",
+  "tacstd2_probe": "7916584",
+  "primary": {
+    "n": 40,
+    "CLDN4_vs_CD8A": {
+      "cohort": "never_smoker_LUAD_tumor",
+      "pair": "CLDN4 vs CD8A",
+      "n": 40,
+      "rho": 0.03414634146341464,
+      "p": 0.8343130319836045,
+      "ci_low": -0.31218465818164814,
+      "ci_high": 0.39315054992738396,
+      "rho_adj_epithelial": 0.05487702063052019,
+      "p_adj_epithelial": 0.7400350536046469,
+      "verdict_crude": "NO_EVIDENCE",
+      "verdict_adj": "NO_EVIDENCE",
+      "n_genes_in_score": 1,
+      "genes_used": "CD8A",
+      "present": true,
+      "note": null
+    },
+    "CLDN4_vs_CD274": {
+      "cohort": "never_smoker_LUAD_tumor",
+      "pair": "CLDN4 vs CD274",
+      "n": 40,
+      "rho": 0.16247654784240154,
+      "p": 0.3164967321853217,
+      "ci_low": -0.1897327613223701,
+      "ci_high": 0.5079499795306166,
+      "rho_adj_epithelial": 0.2080963897495724,
+      "p_adj_epithelial": 0.20363958281863084,
+      "verdict_crude": "NO_EVIDENCE",
+      "verdict_adj": "NO_EVIDENCE",
+      "n_genes_in_score": 1,
+      "genes_used": "CD274",
+      "present": true,
+      "note": null
+    },
+    "CLDN4_vs_ImmuneScore": {
+      "cohort": "never_smoker_LUAD_tumor",
+      "pair": "CLDN4 vs ImmuneScore",
+      "n": 40,
+      "rho": -0.03170731707317074,
+      "p": 0.8460001510219892,
+      "ci_low": -0.38224952323574796,
+      "ci_high": 0.3094908416826635,
+      "rho_adj_epithelial": -0.004130731456404359,
+      "p_adj_epithelial": 0.9800891135926921,
+      "verdict_crude": "NO_EVIDENCE",
+      "verdict_adj": "NO_EVIDENCE",
+      "n_genes_in_score": 132,
+      "genes_used": "LCP2,LSP1,FYB,PLEK,HCK,IL10RA,LILRB1,NCKAP1L,LAIR1,NCF2,CYBB,PTPRC,IL7R,LAPTM5,CD53,EVI2B,SLA,ITGB2,GIMAP4,MYO1F,HCLS1,MNDA,IL2RG,CD48,AOAH,CCL5,LTB,GMFG,GIMAP6,GZMK,LST1,GPR65,LILRB2,WIPF1,CD37,BIN2,FCER1G,IKZF1,TYROBP,FGL2,FLI1,IRF8,ARHGAP15,SH2B3,TNFRSF1B,DOCK2,CD2,ARHGEF6,CORO1A,LY96,LYZ,ITGAL,TNFAIP3,RNASE6,TGFB1,PSTPIP1,CST7,RGS1,FGR,SELL,MICAL1,TRAF3IP3,ITGA4,MAFB,ARHGDIB,IL4R,RHOH,HLA-DPA1,NKG7,NCF4,LPXN,ITK,SELPLG,HLA-DPB1,CD3D,CD300A,IL2RB,ADCY7,PTGER4,SRGN,CD247,CCR7,MSN,ALOX5AP,PTGER2,RAC2,GBP2,VAV1,CLEC2B,P2RY14,NFKBIA,S100A9,IFI30,MFSD1,RASSF2,TPP1,RHOG,CLEC4A,GZMB,PVRIG,S100A8,CASP1,BCL2A1,KLRB1,GNLY,RAB27A,IL18RAP,TPST2,EMP3,GMIP,LCK,IL32,PTPRCAP,LGALS9,CCDC69,SAMHD1,TAP1,CTSS,GZMH,ADAM8,GLRX,PRF1,CD69,HLA-DMA,PTPRE,VNN2,TCIRG1,RABGAP1L,CSTA,ZAP70,CD52,CD27",
+      "present": true,
+      "note": null
+    }
+  },
+  "missing_public_labels": [
+    "ICI",
+    "tumor_percent",
+    "ABSOLUTE purity",
+    "OS",
+    "stage"
+  ],
+  "cohort_info": [
+    {
+      "cohort": "never_smoker_LUAD_tumor",
+      "n": 40,
+      "immune_genes_used": 132,
+      "immune_genes_listed": 141,
+      "epithelial_genes_used": 6,
+      "epithelial_genes": [
+        "EPCAM",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "KRT7"
+      ],
+      "cldn4_finite": 40,
+      "cd8a_finite": 40,
+      "cd274_finite": 40
+    },
+    {
+      "cohort": "smoker_LUAD_tumor_extra",
+      "n": 40,
+      "immune_genes_used": 132,
+      "immune_genes_listed": 141,
+      "epithelial_genes_used": 6,
+      "epithelial_genes": [
+        "EPCAM",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "KRT7"
+      ],
+      "cldn4_finite": 40,
+      "cd8a_finite": 40,
+      "cd274_finite": 40
+    },
+    {
+      "cohort": "all_LUAD_tumor_mixed",
+      "n": 80,
+      "immune_genes_used": 132,
+      "immune_genes_listed": 141,
+      "epithelial_genes_used": 6,
+      "epithelial_genes": [
+        "EPCAM",
+        "KRT8",
+        "KRT18",
+        "KRT19",
+        "CDH1",
+        "KRT7"
+      ],
+      "cldn4_finite": 80,
+      "cd8a_finite": 80,
+      "cd274_finite": 80
+    }
+  ],
+  "series_title": "Gene expression profiling of lung adenocarcinomas and normal lung tissue"
+}

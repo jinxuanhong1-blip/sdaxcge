@@ -637,6 +637,27 @@ def main() -> None:
     c8 = prim[prim.pair == "CLDN4 vs CD8A"].iloc[0]
     pdl1 = prim[prim.pair == "CLDN4 vs CD274"].iloc[0]
     imm = prim[prim.pair == "CLDN4 vs ImmuneScore"].iloc[0]
+    n_table = pd.DataFrame([{
+        "dataset": "GSE43458 Kadara/Kabbout",
+        "histology": "never-smoker LUAD tumor",
+        "platform": "GPL6244 HuGene 1.0 ST RMA log2",
+        "n_arrays": len(never),
+        "CLDN4": cldn4_probe,
+        "CD8A": cd8a_probe,
+        "CD274": cd274_probe,
+        "ImmuneScore": f"ESTIMATE ImmuneSignature mean-z {int(cov['present_after_collapse'].sum())}/141",
+        "CLDN4_CD8A_rho": float(c8["rho"]),
+        "CLDN4_CD8A_p": float(c8["p"]),
+        "CLDN4_CD274_rho": float(pdl1["rho"]),
+        "CLDN4_CD274_p": float(pdl1["p"]),
+        "CLDN4_ImmuneScore_rho": float(imm["rho"]),
+        "CLDN4_ImmuneScore_p": float(imm["p"]),
+        "adj_ImmuneScore_rho": float(imm["rho_adj_epithelial"]),
+        "adj_ImmuneScore_p": float(imm["p_adj_epithelial"]),
+        "verdict": "NO_EVIDENCE",
+        "ICI": "none",
+    }])
+    n_table.to_csv(TABLES / "n_table.tsv", sep="\t", index=False)
     summary = {
         "dataset": "GSE43458",
         "pmid": "23659968",

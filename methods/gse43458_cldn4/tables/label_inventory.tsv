@@ -1,0 +1,16 @@
+field	public	n	note
+arrays in series matrix	yes	110	HuGene 1.0 ST RMA log2 as deposited (BRB-Array Tools)
+unique GSM	yes	110	all unique
+never-smoker LUAD tumor (PRIMARY)	yes	40	GEO smoking status Never-smoker + tumor; this is the n used below
+smoker LUAD tumor (extra, not the claim)	yes	40	NOT folded into never-smoker n
+all LUAD tumors mixed	yes	80	40 never + 40 smoker; composition, not the claim
+paired normal lung (excluded)	yes	30	paired to 30 never-smoker cases; tumor-only slice
+ICI / treatment	no	0	resected atlas, not an ICI series
+Tumor % / ABSOLUTE purity	no	0	only public proxy is an RNA epithelial score
+OS / stage on GEO characteristics	no	0	not deposited as sample characteristics
+CLDN4 finite (never-smoker tumor)	yes	40	max-mean probe 8133360
+CD8A finite (never-smoker tumor)	yes	40	max-mean probe 8053584
+CD274 finite (never-smoker tumor)	yes	40	max-mean probe 8154233
+primary pairwise n (never-smoker LUAD tumor)	yes	40	this is the n used below
+ESTIMATE ImmuneSignature genes present (collapse)	yes	132	of 141 Yoshihara 2013 genes
+dual-high TACSTD2×CLDN4 class	no	0	not scored; CLDN4-only
