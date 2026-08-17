@@ -104,18 +104,23 @@ def spear(x, y):
     return dict(rho=float(r), p=float(p), n=n)
 
 
-def aucell(expr: np.ndarray, member: np.ndarray, auc_threshold: float = AUC_THR) -> np.ndarray:
+def gene_ranks(expr: np.ndarray) -> np.ndarray:
+    """Per-cell ranks, 0 = most expressed. Computed once for AUCell."""
+    order = np.argsort(-expr, axis=1, kind="mergesort")
+    ranks = np.empty_like(order)
+    row = np.arange(expr.shape[0])[:, None]
+    ranks[row, order] = np.arange(expr.shape[1])[None, :]
+    return ranks
+
+
+def aucell_from_ranks(ranks: np.ndarray, member: np.ndarray, auc_threshold: float = AUC_THR) -> np.ndarray:
     """Aibar-style AUCell linear recovery. Not R AUCell binary; not binding."""
-    n_cells, n_genes = expr.shape
+    n_cells, n_genes = ranks.shape
     max_rank = max(int(np.ceil(auc_threshold * n_genes)), 1)
     idx = np.where(member)[0]
     n_set = int(idx.size)
     if n_set == 0:
         return np.full(n_cells, np.nan)
-    order = np.argsort(-expr, axis=1, kind="mergesort")
-    ranks = np.empty_like(order)
-    row = np.arange(n_cells)[:, None]
-    ranks[row, order] = np.arange(n_genes)[None, :]
     r = ranks[:, idx].astype(np.float64)
     contrib = np.clip(max_rank - r, 0, None)
     return contrib.sum(axis=1) / (n_set * max_rank)
@@ -204,50 +209,54 @@ def prior_targets(priors: pd.DataFrame, tf: str, genes: set[str]) -> list[str]:
     return sorted(g for g in hits if g in genes and g != tf and g not in HOLD_OUT)
 
 
-def pearson_block(logX: np.ndarray, genes: list[str], tfs: list[str]) -> pd.DataFrame:
-    """Vectorized Pearson of each TF column vs all genes. Returns long table."""
-    gi = {g: i for i, g in enumerate(genes)}
-    present = [t for t in tfs if t in gi]
-    if not present:
-        return pd.DataFrame(columns=["tf", "target", "pearson_r"])
-    X = np.asarray(logX, float)
-    # drop cells with non-finite library
+def _zscore_cols(X: np.ndarray) -> np.ndarray:
+    X = np.asarray(X, float)
     ok = np.isfinite(X).all(axis=1)
     X = X[ok]
     if X.shape[0] < 20:
-        return pd.DataFrame(columns=["tf", "target", "pearson_r"])
+        return np.empty((0, X.shape[1]))
     X = X - X.mean(axis=0, keepdims=True)
     sd = X.std(axis=0, ddof=1)
     sd[sd == 0] = np.nan
-    Z = X / sd
+    return X / sd
+
+
+def pearson_matrix(logX: np.ndarray, genes: list[str], tfs: list[str]) -> tuple[np.ndarray, list[str]]:
+    """Return (n_tf x n_genes) Pearson matrix and the TF order used."""
+    gi = {g: i for i, g in enumerate(genes)}
+    present = [t for t in tfs if t in gi]
+    Z = _zscore_cols(logX)
+    if not present or Z.shape[0] < 20:
+        return np.empty((0, len(genes))), []
     tf_idx = np.array([gi[t] for t in present], dtype=int)
-    # (n_tf x n_cells) @ (n_cells x n_genes) / (n-1)
     corr = (Z[:, tf_idx].T @ Z) / (Z.shape[0] - 1)
-    rows = []
-    gene_arr = np.array(genes)
-    for i, tf in enumerate(present):
-        r = corr[i]
-        for j, g in enumerate(gene_arr):
-            if g == tf:
-                continue
-            val = float(r[j])
-            if not np.isfinite(val):
-                continue
-            rows.append((tf, g, val))
-    return pd.DataFrame(rows, columns=["tf", "target", "pearson_r"])
+    return corr, present
 
 
-def top_regulon(pr: pd.DataFrame, tf: str) -> pd.DataFrame:
-    sub = pr.loc[(pr.tf == tf) & (~pr.target.isin(HOLD_OUT))].copy()
-    if sub.empty:
-        return sub
-    sub = sub.sort_values("pearson_r", ascending=False)
-    top = sub.loc[sub.pearson_r >= PEARSON_MIN_R].head(PEARSON_TOP)
-    if len(top) < 10:
-        top = sub.loc[sub.pearson_r > 0].head(PEARSON_TOP)
-    top = top.reset_index(drop=True)
-    top["rank"] = np.arange(1, len(top) + 1)
-    return top
+def top_from_corr(corr_row: np.ndarray, genes: list[str], tf: str) -> pd.DataFrame:
+    r = np.asarray(corr_row, float)
+    names = np.asarray(genes)
+    mask = (names != tf) & ~np.isin(names, list(HOLD_OUT)) & np.isfinite(r)
+    r = r[mask]
+    names = names[mask]
+    if r.size == 0:
+        return pd.DataFrame(columns=["tf", "target", "pearson_r", "rank"])
+    order = np.argsort(-r)
+    r = r[order]
+    names = names[order]
+    keep = r >= PEARSON_MIN_R
+    if int(keep.sum()) < 10:
+        keep = r > 0
+    k = min(PEARSON_TOP, int(keep.sum()) if keep.any() else 0)
+    if k == 0:
+        return pd.DataFrame(columns=["tf", "target", "pearson_r", "rank"])
+    out = pd.DataFrame({
+        "tf": tf,
+        "target": names[:k],
+        "pearson_r": r[:k].astype(float),
+        "rank": np.arange(1, k + 1),
+    })
+    return out
 
 
 def wilcoxon_paired(a, b):
@@ -382,10 +391,26 @@ def main() -> None:
     if mal_idx.size < 50:
         raise SystemExit(f"too few malignant-like cells: {mal_idx.size}")
 
-    X_counts, gene_info = stream_pass2(matrix, mal_idx, always, human_tfs)
+    cache_dir = Path("/tmp/scrna_scenic_cldn4/cache")
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_x = cache_dir / "mal_counts.npy"
+    cache_genes = cache_dir / "mal_genes.tsv"
+    cache_obs = cache_dir / "mal_obs.pkl"
+    if cache_x.exists() and cache_genes.exists() and cache_obs.exists():
+        print(f"[cache] loading {cache_x}", flush=True)
+        X_counts = np.load(cache_x)
+        gene_info = pd.read_csv(cache_genes, sep="\t")
+        mal_full = pd.read_pickle(cache_obs)
+        if len(mal_full) != X_counts.shape[0]:
+            raise SystemExit("cache size mismatch; delete /tmp/scrna_scenic_cldn4/cache")
+    else:
+        X_counts, gene_info = stream_pass2(matrix, mal_idx, always, human_tfs)
+        mal_full = obs.iloc[mal_idx].reset_index(drop=True)
+        np.save(cache_x, X_counts)
+        gene_info.to_csv(cache_genes, sep="\t", index=False)
+        mal_full.to_pickle(cache_obs)
     genes = gene_info.gene.tolist()
     gene_set = set(genes)
-    mal_full = obs.iloc[mal_idx].reset_index(drop=True)
     logX = log1p_cp10k(X_counts, mal_full.total_umi.to_numpy())
     print(f"[expr] malignant-like matrix {logX.shape}", flush=True)
 
@@ -403,24 +428,53 @@ def main() -> None:
     ]
     print(f"[tfs] detected>={TF_MIN_DET} in CLDN4-high: {len(tf_present)}", flush=True)
 
-    print("[pearson] CLDN4-high ...", flush=True)
-    pr_high = pearson_block(logX[high], genes, tf_present)
-    print("[pearson] CLDN4-low (contrast only, not reported as regulons) ...", flush=True)
-    pr_low = pearson_block(logX[low], genes, tf_present)
-    pr_high.to_csv(RES / "pearson_cldn4_high.tsv.gz", sep="\t", index=False)
-    # keep a compact low table for the high-specific join only
-    pr_low_s = pr_low.rename(columns={"pearson_r": "pearson_r_low"})
-    joined = pr_high.merge(pr_low_s, on=["tf", "target"], how="left")
-    joined["high_specific"] = (
-        (joined.pearson_r >= HIGH_SPEC_R)
-        & (joined.pearson_r_low.fillna(0) < LOW_SPEC_R)
-        & (~joined.target.isin(HOLD_OUT))
+    print("[pearson] CLDN4-high / low matrices (numpy; top-N only written) ...", flush=True)
+    corr_high, tfs_h = pearson_matrix(logX[high], genes, tf_present)
+    corr_low, tfs_l = pearson_matrix(logX[low], genes, tf_present)
+    if tfs_h != tfs_l:
+        raise SystemExit("TF order mismatch between high and low Pearson matrices")
+    gene_arr = np.asarray(genes)
+    gi = {g: i for i, g in enumerate(genes)}
+    hold_mask = np.isin(gene_arr, list(HOLD_OUT))
+
+    tops: dict[str, pd.DataFrame] = {}
+    hs_targets: dict[str, list[str]] = {}
+    tf_stats_rows = []
+    compact_edges = []
+    for i, tf in enumerate(tfs_h):
+        r_h = corr_high[i]
+        r_l = corr_low[i]
+        top = top_from_corr(r_h, genes, tf)
+        tops[tf] = top
+        self_or_hold = (gene_arr == tf) | hold_mask | ~np.isfinite(r_h)
+        n_r10 = int((~self_or_hold & (r_h >= PEARSON_MIN_R)).sum())
+        hs_mask = (~self_or_hold) & (r_h >= HIGH_SPEC_R) & np.isfinite(r_l) & (r_l < LOW_SPEC_R)
+        hs = gene_arr[hs_mask].tolist()
+        hs_targets[tf] = hs
+        tf_stats_rows.append(dict(
+            tf=tf,
+            n_r10=n_r10,
+            n_top=int(len(top)),
+            mean_r_top=float(top.pearson_r.mean()) if len(top) else np.nan,
+            n_high_specific=int(hs_mask.sum()),
+            det_high=float(det_high[genes.index(tf)]) if tf in genes else np.nan,
+        ))
+        if len(top):
+            for rec in top.itertuples(index=False):
+                compact_edges.append(dict(
+                    tf=tf, target=rec.target, pearson_r_high=float(rec.pearson_r),
+                    pearson_r_low=float(r_l[gi[rec.target]]) if rec.target in gi else np.nan,
+                    in_top=True,
+                    high_specific=rec.target in set(hs),
+                ))
+    tf_stats = pd.DataFrame(tf_stats_rows).sort_values(
+        ["n_high_specific", "mean_r_top"], ascending=False
     )
-    joined.to_csv(RES / "pearson_high_vs_low.tsv.gz", sep="\t", index=False)
+    tf_stats.to_csv(RES / "tf_screen_cldn4_high.tsv", sep="\t", index=False)
+    pd.DataFrame(compact_edges).to_csv(RES / "pearson_top_edges_cldn4_high.tsv", sep="\t", index=False)
 
     # Build CLDN4-high regulon table (high only)
     rows = []
-    # public priors for focus TFs
     for tf in focus_all:
         prior = prior_targets(priors, tf, gene_set)
         rows.append(dict(
@@ -432,39 +486,18 @@ def main() -> None:
             note="TRRUST+DoRothEA+CollecTRI union; CLDN4 held out; not ChIP",
         ))
 
-    # Pearson regulons for focus + top data-driven TFs
-    tf_stats = []
-    for tf, sub in pr_high.groupby("tf"):
-        sub = sub.loc[~sub.target.isin(HOLD_OUT)]
-        top = sub.loc[sub.pearson_r >= PEARSON_MIN_R].nlargest(PEARSON_TOP, "pearson_r")
-        if len(top) < 10:
-            top = sub.loc[sub.pearson_r > 0].nlargest(PEARSON_TOP, "pearson_r")
-        hs = joined.loc[(joined.tf == tf) & joined.high_specific]
-        tf_stats.append(dict(
-            tf=tf,
-            n_r10=int((sub.pearson_r >= PEARSON_MIN_R).sum()),
-            n_top=int(len(top)),
-            mean_r_top=float(top.pearson_r.mean()) if len(top) else np.nan,
-            n_high_specific=int(len(hs)),
-            det_high=float(det_high[genes.index(tf)]) if tf in genes else np.nan,
-        ))
-    tf_stats = pd.DataFrame(tf_stats).sort_values(
-        ["n_high_specific", "mean_r_top"], ascending=False
-    )
-    tf_stats.to_csv(RES / "tf_screen_cldn4_high.tsv", sep="\t", index=False)
-
     screen_tfs = tf_stats.head(TOP_SCREEN).tf.tolist()
     report_tfs = list(dict.fromkeys(focus_all + screen_tfs))
 
     for tf in report_tfs:
-        top = top_regulon(pr_high, tf)
-        hs = joined.loc[(joined.tf == tf) & joined.high_specific, "target"].tolist()
-        hs_in_top = [g for g in top.target.tolist() if g in set(hs)]
+        top = tops.get(tf, pd.DataFrame(columns=["target", "pearson_r"]))
+        hs = hs_targets.get(tf, [])
+        hs_in_top = [g for g in top.target.tolist() if g in set(hs)] if len(top) else []
         rows.append(dict(
             regulon=f"{tf}_pearson_cldn4_high", tf=tf, kind="pearson_cldn4_high",
             n_targets=int(len(top)), n_high_specific=int(len(hs)),
             mean_r=f"{top.pearson_r.mean():.3f}" if len(top) else "",
-            targets=";".join(top.target.tolist()),
+            targets=";".join(top.target.tolist()) if len(top) else "",
             elf3_given=tf in GIVEN_TFS,
             note=(
                 f"CLDN4-high only; top {len(top)} Pearson r>={PEARSON_MIN_R} "
@@ -484,7 +517,7 @@ def main() -> None:
         ))
         prior = prior_targets(priors, tf, gene_set)
         if prior:
-            inter = [g for g in prior if g in set(top.target)]
+            inter = [g for g in prior if len(top) and g in set(top.target)]
             rows.append(dict(
                 regulon=f"{tf}_intersect", tf=tf, kind="prior_AND_pearson_high",
                 n_targets=len(inter), n_high_specific="",
@@ -505,11 +538,13 @@ def main() -> None:
 
     # AUCell of public priors on all malignant-like (not circular: priors are external)
     prior_regs = regulons.loc[regulons.kind == "public_prior"]
+    print("[aucell] ranking malignant-like genes once ...", flush=True)
+    ranks = gene_ranks(logX)
     auc = {}
     for rec in prior_regs.itertuples(index=False):
         members = [g for g in (rec.targets.split(";") if rec.targets else []) if g in gene_set]
         mask = np.array([g in set(members) for g in genes])
-        auc[rec.regulon] = aucell(logX, mask) if mask.any() else np.full(logX.shape[0], np.nan)
+        auc[rec.regulon] = aucell_from_ranks(ranks, mask) if mask.any() else np.full(logX.shape[0], np.nan)
         print(f"[aucell] {rec.regulon} n={int(mask.sum())} mean={np.nanmean(auc[rec.regulon]):.4f}",
               flush=True)
         mal_full[f"AUC_{rec.regulon}"] = auc[rec.regulon]
@@ -581,11 +616,10 @@ def main() -> None:
     print(f"[luad] malignant-like primary={int(luad.sum())} CLDN4-high={int(luad_high.sum())}",
           flush=True)
     if int(luad_high.sum()) >= 50:
-        pr_luad = pearson_block(logX[luad_high], genes, focus_all)
-        pr_luad.to_csv(RES / "pearson_cldn4_high_LUAD.tsv.gz", sep="\t", index=False)
+        corr_luad, tfs_luad = pearson_matrix(logX[luad_high], genes, focus_all)
         luad_rows = []
-        for tf in focus_all:
-            top = top_regulon(pr_luad, tf)
+        for i, tf in enumerate(tfs_luad):
+            top = top_from_corr(corr_luad[i], genes, tf)
             luad_rows.append(dict(
                 regulon=f"{tf}_pearson_cldn4_high_LUAD", tf=tf,
                 kind="pearson_cldn4_high_LUAD",
