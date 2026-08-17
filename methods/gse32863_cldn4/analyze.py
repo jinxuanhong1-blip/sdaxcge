@@ -305,10 +305,8 @@ def tissue_class(row) -> str:
 
 
 def patient_id(title: str) -> str:
-    m = re.search(r"(\d{2}L\d+[A-Z]?)_([NT])", str(title))
-    if m:
-        return m.group(1)
-    m = re.search(r"(\d{2}L\d+)", str(title))
+    """Title tokens are 05L12_T, 3003_T, L15_T (and matching _N)."""
+    m = re.search(r"([A-Za-z0-9]+)_([NT])\b", str(title))
     return m.group(1) if m else ""
 
 
@@ -387,8 +385,8 @@ Do **not** write n=60. The GEO series *summary* says “60 lung adenocarcinoma t
 | Unique GSM / unique titles | yes | **116** | all unique |
 | Adjacent non-tumor lung | yes | **58** | `source_name_ch1` / `tissue: Normal lung`; **dropped** |
 | **Tumor LUAD arrays (primary n)** | yes | **{n}** | `source_name_ch1` = Lung adenocarcinoma; `tissue: Lung tumor` |
-| Unique patients (title `xxL*_T`) | yes | **{int(cov['n_patients'])}** | one tumor array per patient |
-| Matched pairs (tumor + adjacent) | yes | **{int(cov['n_pairs'])}** | pairing is inventory only; tests are tumor-only |
+| Unique tumor patients (title id) | yes | **{int(cov['n_patients'])}** | one tumor array per id (`05L*` / `30xx` / `L*`) |
+| Matched pairs (shared title id) | yes | **{int(cov['n_pairs'])}** | unpaired tumor `{cov.get('unpaired_tumor_ids') or 'none'}`; unpaired normal `{cov.get('unpaired_normal_ids') or 'none'}`. Pairing is inventory only |
 | Stage | yes | {n} | deposited; **not** the claim |
 | Smoking / pack-years | yes | {n} | deposited; **not** the claim |
 | KRAS / EGFR / LKB1 | yes (tumor slot) | {n} | deposited; **not** the claim |
@@ -403,7 +401,7 @@ Do **not** write n=60. The GEO series *summary* says “60 lung adenocarcinoma t
 | ESTIMATE ImmuneScore | computed | **{n}** | Yoshihara Immune141 ssGSEA ({immune_n}/141 genes) |
 | **Primary pairwise n** | yes | **{n}** | complete-case tumor CLDN4 + CD8A + CD274 + ImmuneScore |
 
-The computable public tumor n is **{n} LUAD arrays**. That is the n in the one-row table.
+The computable public tumor n is **{n} LUAD arrays**. That is the n in the one-row table. Title ids pair **{int(cov['n_pairs'])}** of the 58 tumors to an adjacent array; tumor `{cov.get('unpaired_tumor_ids') or 'none'}` has no same-id normal and normal `{cov.get('unpaired_normal_ids') or 'none'}` has no same-id tumor. Tests do not use pairing.
 
 Tumor-only clinical inventory (not tested): smoking {cnt(smoking)}; stage {cnt(stage)}; gender {cnt(gender)}; ethnicity {cnt(eth)}; KRAS {cnt(kras)}; EGFR {cnt(egfr)}; tissue source {cnt(source)}; expression batch {cnt(batch)}.
 
@@ -427,7 +425,7 @@ Deposited log2 + Robust Spline Normalization (lumi). Spearman is rank-based. Boo
 | CLDN4 vs epithelial mean-z | tumor LUAD | {n} | {fmt_rho(repi.get('rho'))} | {fmt_ci(repi.get('ci_low'), repi.get('ci_high'))} | {fmt_p(repi.get('p'))} | — | context |
 | CD8A vs ImmuneScore | tumor LUAD | {n} | {fmt_rho(rctrl.get('rho'))} | {fmt_ci(rctrl.get('ci_low'), rctrl.get('ci_high'))} | {fmt_p(rctrl.get('p'))} | — | positive control |
 
-ImmuneScore is Yoshihara 2013 Immune141 ssGSEA (Barbie/GSVA, τ=0.25; {immune_n}/141 genes present after first-symbol max-mean collapse). Stromal141 coverage is {stromal_n}/141 (not used in the residual). There is no deposited numeric purity; the residual is the **epithelial mean-z**, not ESTIMATE TumorPurity.
+ImmuneScore is Yoshihara 2013 Immune141 ssGSEA (Barbie/GSVA, τ=0.25; {immune_n}/141 genes present after first-symbol max-mean collapse). Stromal141 coverage is {stromal_n}/141 (not used in the residual). There is no deposited numeric purity; the residual is the **epithelial mean-z**, not ESTIMATE TumorPurity. On this LUAD matrix CLDN4 does **not** track the epithelial mean-z (see context row), so the residual barely moves ρ. CD8A vs ImmuneScore is the positive control.
 
 Named-probe sensitivity (CLDN4 `{NAMED_PROBES['CLDN4']}` vs CD8A `{NAMED_PROBES['CD8A']}` / CD274 `{NAMED_PROBES['CD274']}`) is in `tables/spearman.tsv`.
 
@@ -529,12 +527,16 @@ def main() -> None:
     tumor_idx = meta.index[meta["tissue_class"] == "tumor"]
     meta_t = meta.loc[tumor_idx].copy()
     n_patients = int(meta_t["patient"].nunique())
-    pair_patients = set(meta.loc[meta["tissue_class"] == "tumor", "patient"]) & set(
-        meta.loc[meta["tissue_class"] == "normal", "patient"]
-    )
+    tumor_pids = set(meta.loc[meta["tissue_class"] == "tumor", "patient"])
+    normal_pids = set(meta.loc[meta["tissue_class"] == "normal", "patient"])
+    pair_patients = tumor_pids & normal_pids
     n_pairs = len(pair_patients)
+    unpaired_tumor = sorted(tumor_pids - normal_pids)
+    unpaired_normal = sorted(normal_pids - tumor_pids)
     if n_patients != n_tumor:
         print(f"WARN unique tumor patients={n_patients} vs tumor arrays={n_tumor}", flush=True)
+    if "" in tumor_pids or "" in normal_pids:
+        raise SystemExit("empty patient id after title parse; check patient_id()")
 
     id2gene = load_gpl_annot(annot_path)
     # Collapse on tumor arrays only (primary universe).
@@ -610,6 +612,8 @@ def main() -> None:
         "n_normal": n_normal,
         "n_patients": n_patients,
         "n_pairs": n_pairs,
+        "unpaired_tumor_ids": ",".join(unpaired_tumor),
+        "unpaired_normal_ids": ",".join(unpaired_normal),
         "n_named_complete": n_named,
         "n_probes": int(probe_expr.shape[0]),
         "n_genes_collapsed": int(gene_expr.shape[0]),
@@ -633,9 +637,9 @@ def main() -> None:
             {"item": "tumor LUAD arrays (primary n)", "public": "yes", "n": n_tumor,
              "note": "honest tumor n; not the series-summary '60'"},
             {"item": "unique tumor patients", "public": "yes", "n": n_patients,
-             "note": "one tumor array per title patient id"},
-            {"item": "matched pairs", "public": "yes", "n": n_pairs,
-             "note": "inventory only; Spearman is tumor-only"},
+             "note": "one tumor array per title id (05L*, 30xx, L*)"},
+            {"item": "matched pairs (shared title id)", "public": "yes", "n": n_pairs,
+             "note": f"inventory only; unpaired tumor={','.join(unpaired_tumor) or 'none'}; unpaired normal={','.join(unpaired_normal) or 'none'}"},
             {"item": "series-summary '60 tumors'", "public": "text only", "n": 60,
              "note": "DO NOT USE; contradicts overall design and matrix"},
             {"item": "methylation companion GSE32867 / paper 59 pairs", "public": "other series", "n": 59,

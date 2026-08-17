@@ -1,0 +1,78 @@
+{
+  "dataset": "GSE32863",
+  "pmid": "22613842",
+  "platform": "GPL6884 Illumina HumanWG-6 v3.0",
+  "processing": "log2 + lumi Robust Spline Normalization as deposited. Spearman is rank-based.",
+  "claim": "CLDN4-only vs CD8A / CD274 / ImmuneScore; epithelial residual; tumor arrays only",
+  "dual_high": false,
+  "n_matrix": 116,
+  "n_tumor": 58,
+  "n_normal_dropped": 58,
+  "n_patients": 58,
+  "do_not_use_n": {
+    "series_summary_60": 60,
+    "methylation_GSE32867_59": 59,
+    "matrix_including_normal_116": 116
+  },
+  "epithelial_genes_used": [
+    "EPCAM",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "Immune141_present": 141,
+  "Stromal141_present": 137,
+  "probes": {
+    "CLDN4": "ILMN_2132458",
+    "CD8A": "ILMN_2353732",
+    "CD274": "ILMN_1701914"
+  },
+  "holds_rule": "n>=40, residual \u03c1<0, residual p<0.05 (same as PR 229 / GSE4573 / GSE10245)",
+  "primary": {
+    "CLDN4_CD8A": {
+      "subset": "tumor_LUAD",
+      "partner": "CD8A",
+      "source": "collapsed_maxmean",
+      "n": 58,
+      "rho": 0.08400750561383002,
+      "p": 0.530682420475241,
+      "ci_low": -0.16916564039408868,
+      "ci_high": 0.33542916967096,
+      "rho_adj_epithelial": 0.09620198270703816,
+      "p_adj_epithelial": 0.4765442772638425,
+      "verdict_epithelial": "NO_EVIDENCE"
+    },
+    "CLDN4_CD274": {
+      "subset": "tumor_LUAD",
+      "partner": "CD274",
+      "source": "collapsed_maxmean",
+      "n": 58,
+      "rho": 0.12977944569196226,
+      "p": 0.33156342787449156,
+      "ci_low": -0.13885999956476106,
+      "ci_high": 0.38299096213890566,
+      "rho_adj_epithelial": 0.16403228103274042,
+      "p_adj_epithelial": 0.22274600606790534,
+      "verdict_epithelial": "NO_EVIDENCE"
+    },
+    "CLDN4_ImmuneScore": {
+      "subset": "tumor_LUAD",
+      "partner": "ImmuneScore",
+      "source": "collapsed_maxmean",
+      "n": 58,
+      "rho": 0.0466640007382571,
+      "p": 0.7279635104316695,
+      "ci_low": -0.19977451218038442,
+      "ci_high": 0.29413050098379084,
+      "rho_adj_epithelial": 0.04732465804540086,
+      "p_adj_epithelial": 0.7266587213211914,
+      "verdict_epithelial": "NO_EVIDENCE"
+    }
+  },
+  "missing_public_labels": [
+    "OS_time",
+    "ICI"
+  ]
+}

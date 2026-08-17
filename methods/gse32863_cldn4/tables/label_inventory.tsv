@@ -1,0 +1,11 @@
+item	public	n	note
+arrays in series matrix	yes	116	do not use as the immune n; includes matched normal
+adjacent non-tumor lung	yes	58	dropped; source_name_ch1 / tissue: Normal lung
+tumor LUAD arrays (primary n)	yes	58	honest tumor n; not the series-summary '60'
+unique tumor patients	yes	58	one tumor array per title id (05L*, 30xx, L*)
+matched pairs (shared title id)	yes	57	inventory only; unpaired tumor=3023; unpaired normal=3035
+series-summary '60 tumors'	text only	60	DO NOT USE; contradicts overall design and matrix
+methylation companion GSE32867 / paper 59 pairs	other series	59	DO NOT USE; different assay
+ICI / OS time	no	0	recurrence yes/no is deposited but unused
+numeric tumor percent	no	0	macrodissection mentioned; values not deposited
+primary pairwise n	yes	58	complete-case CLDN4 + CD8A + CD274 + ImmuneScore
