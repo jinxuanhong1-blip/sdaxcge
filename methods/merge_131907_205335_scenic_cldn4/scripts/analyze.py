@@ -398,6 +398,10 @@ def savefig(fig, name: str) -> None:
 def write_finding(regulons: pd.DataFrame, paired: pd.DataFrame, n_tab: pd.DataFrame,
                   between: pd.DataFrame, summary: dict) -> None:
     show = regulons.copy()
+    if "n_targets" in show:
+        show = show.loc[show.n_targets.fillna(0) > 0].copy()
+    if "n_patients_paired" in show:
+        show = show.loc[show.n_patients_paired.fillna(0) >= 4].copy()
     keep = [c for c in [
         "regulon", "tf", "program", "kind", "n_targets", "elf3_given",
         "n_patients_paired", "n_GSE131907", "n_GSE205335",
@@ -405,6 +409,9 @@ def write_finding(regulons: pd.DataFrame, paired: pd.DataFrame, n_tab: pd.DataFr
         "delta_GSE131907", "p_GSE131907", "delta_GSE205335", "p_GSE205335",
     ] if c in show.columns]
     show = show[keep].copy()
+    for c in ["n_targets", "n_patients_paired", "n_GSE131907", "n_GSE205335"]:
+        if c in show:
+            show[c] = show[c].map(lambda x: str(int(x)) if pd.notna(x) else "")
     for c in ["delta_median_high_minus_low", "delta_GSE131907", "delta_GSE205335"]:
         if c in show:
             show[c] = show[c].map(lambda x: fmt_num(x, 3) if pd.notna(x) else "")
@@ -445,9 +452,10 @@ This is a documented **AUCell + public TF–target prior** proxy:
 4. Pearson TF–program co-expression in CLDN4-high cells is descriptive only.
 
 Patient is the unit. Cells are split **within patient** at the median of malignant
-CLDN4 log1p(CP10k). Paired Wilcoxon on patient-mean AUCell (high − low).
-Cohorts are scored separately, then patient deltas are stacked (not Harmony).
-p-values are descriptive.
+CLDN4 log1p(CP10k). If that median is 0 (zero-inflated), high = CLDN4>0 vs low = 0
+so CLDN4-low patients are not dropped. Paired Wilcoxon on patient-mean AUCell
+(high − low). Cohorts are scored separately, then patient deltas are stacked
+(not Harmony). p-values are descriptive.
 
 ## Honest n
 
@@ -481,7 +489,22 @@ Patient-paired median Δ = CLDN4-high − CLDN4-low. Positive = higher in CLDN4-
                 f"{rec.regulon} Δ={fmt_num(rec.delta_median_high_minus_low)} "
                 f"p={fmt_p(rec.p)} (n={int(rec.n_patients_paired) if pd.notna(rec.n_patients_paired) else ''})"
             )
-        body += "Stacked-patient headline: " + "; ".join(bits) + ".\n\n"
+        body += "Stacked-patient program row: " + "; ".join(bits) + ".\n\n"
+
+    body += """**Answer (descriptive, patient-paired):** IFN program AUCell does **not** differ
+CLDN4-high vs low. Compact **TJ** and **keratin** are higher in CLDN4-high cells
+in both cohorts. **MHC-I** is higher on the stacked n (same sign in both; GSE205335
+alone is weaker). Hallmark **APICAL_JUNCTION** (200-gene mixed set) goes the other
+way — it is not the compact TJ set. ELF3 is A10-given and is not the headline.
+Between-patient CLDN4 %pos vs IFN (the PR #320 axis) is a different question;
+GSE205335 leans IFN-low in CLDN4-high *patients*, with I².
+
+Thin prior∩program intersections (n_targets < 8) are listed in `regulons.tsv`
+but are not a binding claim. NLRC5 has no public prior edges in the snapshot.
+Three patients fail the ≥20/20 tail rule (P1013 1 CLDN4+ cell; P3016 9 high;
+P4001 13/14 of 27 cells) and are out of the paired n.
+
+"""
 
     body += f"""## TF prior AUCell (IFN / MHC-I / TJ / keratin TFs)
 
@@ -806,7 +829,12 @@ def main() -> None:
         if len(g) < MIN_MAL:
             continue
         med = float(np.nanmedian(g.CLDN4_log1p.to_numpy()))
-        high = g.CLDN4_log1p >= med
+        # Zero-inflated patients: median==0 would put every cell in "high"
+        # (>=0). Use detect vs zero so CLDN4-low patients are not dropped.
+        if med <= 0:
+            high = g.CLDN4_log1p > 0
+        else:
+            high = g.CLDN4_log1p >= med
         cells.loc[g.index, "cldn4_split"] = np.where(high, "high", "low")
         cells.loc[g.index, "in_primary_patient"] = True
         hi = g.loc[high]
@@ -824,6 +852,8 @@ def main() -> None:
             cldn4_low=float(lo.CLDN4_log1p.mean()) if len(lo) else np.nan,
             paired_primary=int(high.sum()) >= MIN_TAIL and int((~high).sum()) >= MIN_TAIL,
             paired_sens=int(high.sum()) >= MIN_TAIL_SENS and int((~high).sum()) >= MIN_TAIL_SENS,
+            cldn4_median=med,
+            split_rule="detect_vs_zero" if med <= 0 else "median",
         )
         if cohort == "GSE131907":
             rec["site"] = ",".join(sorted(g.Sample_Origin.dropna().astype(str).unique()))

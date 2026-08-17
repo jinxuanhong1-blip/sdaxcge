@@ -21,6 +21,7 @@ datasets:
 
 cldn4_high:
   primary: within-patient median of CLDN4 log1p(CP10k) among author-malignant cells
+  zero_inflated: if median==0, high = CLDN4>0 vs low = 0 (do not drop CLDN4-low patients)
   hold_out_from_regulons: [CLDN4]
   not_used_for_groups: [TACSTD2]
 

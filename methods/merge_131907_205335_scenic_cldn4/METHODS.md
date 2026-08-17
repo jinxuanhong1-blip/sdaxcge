@@ -20,8 +20,10 @@ GSE207422.
 ## CLDN4 split
 
 Within each patient, among author-malignant cells with UMI ≥ 200, split at the
-median of CLDN4 log1p(CP10k). High = ≥ median. CLDN4 is held out of every
-regulon and program set. TACSTD2 is recorded and does not define groups.
+median of CLDN4 log1p(CP10k). High = ≥ median. If the median is 0 (zero-inflated
+CLDN4), high = CLDN4 > 0 vs low = 0 — otherwise every cell would be called high
+and CLDN4-low patients would be dropped. CLDN4 is held out of every regulon and
+program set. TACSTD2 is recorded and does not define groups.
 
 Eligibility: ≥20 malignant cells. Primary paired test: ≥20 high **and** ≥20 low.
 Sensitivity (≥10/10) is computed in the patient table but is not the claim.
