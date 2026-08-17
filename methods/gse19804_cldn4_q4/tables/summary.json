@@ -1,0 +1,128 @@
+{
+  "task": "ADDITIVE GSE19804 CLDN4 Q4 vs Q1 vs CD8",
+  "note": "Continuous purity-partial already known (PR #235). Q4 is extra.",
+  "cohort": "GSE19804 paired never-smoker female lung tumors (Taiwan)",
+  "n_series_arrays": 120,
+  "n_paired_normals_dropped": 60,
+  "n_tumors": 60,
+  "quartile_rule": "pd.qcut(rank(method='first'), 4) on tumor CLDN4",
+  "cldn4_q25": 8.415054999999999,
+  "cldn4_q50": 9.15769,
+  "cldn4_q75": 9.6051325,
+  "quartile_counts": {
+    "Q1": 15,
+    "Q2": 15,
+    "Q3": 15,
+    "Q4": 15
+  },
+  "q4_vs_q1": [
+    {
+      "n_q4": 15,
+      "n_q1": 15,
+      "median_q4": 7.55519,
+      "median_q1": 8.93487,
+      "delta_median_q4_minus_q1": -1.3796800000000005,
+      "U": 31.0,
+      "p": 0.0007802051762911044,
+      "rank_biserial_q4_gt_q1": -0.7244444444444444,
+      "rb_ci95_lo": -0.9466666666666667,
+      "rb_ci95_hi": -0.4311111111111111,
+      "cohort": "GSE19804",
+      "predictor": "CLDN4",
+      "endpoint": "CD8A",
+      "endpoint_desc": "CD8A (max-mean GPL570, harvested scale)",
+      "test": "MWU_Q4_vs_Q1",
+      "quartile_on": "CLDN4_raw"
+    },
+    {
+      "n_q4": 15,
+      "n_q1": 15,
+      "median_q4": -3.9939427618783014,
+      "median_q1": 2.2761322589608213,
+      "delta_median_q4_minus_q1": -6.270075020839123,
+      "U": 77.0,
+      "p": 0.14657603430900068,
+      "rank_biserial_q4_gt_q1": -0.3155555555555556,
+      "rb_ci95_lo": -0.6977777777777778,
+      "rb_ci95_hi": 0.08466666666666554,
+      "cohort": "GSE19804",
+      "predictor": "CLDN4",
+      "endpoint": "CD8A_resid_purity",
+      "endpoint_desc": "CD8A rank residual | ESTIMATE TumorPurity",
+      "test": "MWU_Q4_vs_Q1",
+      "quartile_on": "CLDN4_raw"
+    },
+    {
+      "n_q4": 15,
+      "n_q1": 15,
+      "median_q4": 5062.473435941776,
+      "median_q1": 6647.77199953887,
+      "delta_median_q4_minus_q1": -1585.2985635970936,
+      "U": 56.0,
+      "p": 0.020191414969204246,
+      "rank_biserial_q4_gt_q1": -0.5022222222222222,
+      "rb_ci95_lo": -0.8488888888888889,
+      "rb_ci95_hi": -0.11111111111111116,
+      "cohort": "GSE19804",
+      "predictor": "CLDN4",
+      "endpoint": "ESTIMATE_ImmuneScore",
+      "endpoint_desc": "ESTIMATE ImmuneScore (same harvest)",
+      "test": "MWU_Q4_vs_Q1",
+      "quartile_on": "CLDN4_raw"
+    },
+    {
+      "n_q4": 15,
+      "n_q1": 15,
+      "median_q4": -0.398454460646242,
+      "median_q1": 0.0613135328304308,
+      "delta_median_q4_minus_q1": -0.4597679934766728,
+      "U": 55.0,
+      "p": 0.01806662299891238,
+      "rank_biserial_q4_gt_q1": -0.5111111111111111,
+      "rb_ci95_lo": -0.84,
+      "rb_ci95_hi": -0.13755555555555676,
+      "cohort": "GSE19804",
+      "predictor": "CLDN4",
+      "endpoint": "GEP18",
+      "endpoint_desc": "Ayers GEP18 z-mean (18/18, same harvest)",
+      "test": "MWU_Q4_vs_Q1",
+      "quartile_on": "CLDN4_raw"
+    }
+  ],
+  "continuous_already_known": {
+    "CLDN4_CD8A": {
+      "n": 60,
+      "rho": -0.46451792164490147,
+      "p": 0.0001848602416398745
+    },
+    "CLDN4_CD8A_partial_purity": {
+      "n": 60,
+      "rho": -0.2741228121686881,
+      "p": 0.03405138259822874,
+      "df": 57
+    },
+    "CLDN4_ImmuneScore": {
+      "n": 60,
+      "rho": -0.2886357321478189,
+      "p": 0.025314659305004466
+    },
+    "CLDN4_GEP18": {
+      "n": 60,
+      "rho": -0.2869130313976105,
+      "p": 0.026241086215543875
+    },
+    "CLDN4_TumorPurity": {
+      "n": 60,
+      "rho": 0.3967768824673521,
+      "p": 0.0016970354758615498
+    },
+    "CD8A_TumorPurity": {
+      "n": 60,
+      "rho": -0.7545984995832177,
+      "p": 3.333617893088875e-12
+    }
+  },
+  "harvest": "/workspace/methods/gse19804_cldn4_q4/harvested/samples_GSE19804.tsv",
+  "seed": 20260817,
+  "n_bootstrap": 2000
+}
