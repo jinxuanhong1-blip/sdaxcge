@@ -1,0 +1,27 @@
+accession	source	tissue	agent_in_paper	deposited_contrast	processed_matrix	size	scored	reason
+GSE312098	GEO / Cell Reports Medicine CRC IMMU132+PERK paper	CRC cell line CX-1	IMMU132 (sacituzumab govitecan)	CX-1 ± IMMU132 ± GSK2606414, 2 day	GSE312098_gene_fpkm.txt.gz	5.7 Mb	no	Given: CX-1 2d CLDN4 log2FC −0.86 / IFN-APM up. Not re-audited.
+GSE311016	GEO / same CRC paper (PDX RNA)	CRC PDX (5 models, day 29)	IMMU132	PDX Control vs IMMU132, 10 samples	GSE311016_gene_fpkm.txt.gz	5.1 Mb	yes	Regular Series, not SuperSeries. Only companion RNA from that paper besides GSE312098. No organoid RNA deposited.
+GSE304294	GEO / Cell Death & Disease ESCC IMMU+IACS paper	ESCC KYSE30	IMMU132	KYSE30 Control/IMMU132/IACS/combo, 1 day	GSE304294_gene_fpkm.txt.gz	4.4 Mb	yes	Real GEO Series with processed FPKM. ESCC, not lung, not SKB264. IMMU arm n=2.
+GSE302284	GEO	EGFR-mutant NSCLC	paper mentions TROP2 ADC/CAR-T	osimertinib DTP vs vehicle	present	—	no	Skipped by request (osimertinib DTP, not ADC).
+phs002555 / phs2555	dbGaP	metastatic TNBC (clinical SG resistance)	sacituzumab govitecan	WES + RNA of clinical specimens	restricted	—	no	Skipped by request (dbGaP).
+GSE278664	GEO	HGSOC biopsies	paper studies SG + berzosertib	BRCAmut vs BRCAwt tumor biopsies	xlsx 4.9+10.4 Mb	—	no	Deposited RNA is biopsy mut/wt, not SG vs vehicle.
+GSE309617	GEO	TNBC PDX	paper mentions TROP2 ADC context	parental vs carboplatin-resistant PDX	counts 1.1 Mb	—	no	Carboplatin resistance, not ADC vs vehicle.
+GSE309616	GEO	TNBC PDX	same carboplatin paper	scRNA of carboplatin models	—	—	no	Not ADC treatment RNA.
+GSE303323	GEO	PDAC Capan-1	paper combines KRAS/ERK i with SG in PDX	TRIM22 OE vs vector	30.2 Mb RAW	—	no	TRIM22 overexpression, not SG vs vehicle.
+GSE303051	GEO	PDAC cell lines	same KRAS/ERK paper	KRAS/ERK inhibitor vs vehicle	present	—	no	KRAS/ERK inhibitor RNA, not ADC.
+GSE303106	GEO	PDAC	same paper	CUT&RUN/ChIP	—	—	no	Not RNA ADC contrast.
+GSE303105	GEO	mouse PDAC	same paper	scRNA RMC-6236	—	—	no	Not ADC.
+GSE303104	GEO	mouse PDAC	same paper	scRNA ulixertinib	—	—	no	Not ADC.
+GSE302981	GEO	PDAC lines	same paper	baseline lines	present	—	no	No SG treatment arm.
+GSE235812	GEO / npj Breast Cancer SG+epigenetic paper	breast tumor P0 and matching PDX P1	paper used SG in other experiments	untreated P0 vs P1	present	—	no	No ADC vs vehicle in the deposited matrix.
+E-MTAB-16433	ArrayExpress / ORCA-HD TROP2_in_CRC	CRC PDOX HD42466	Trodelvy (SG) vs vehicle	scRNA, 4 vs 4 hashed mice, 28 days	counts 714 Mb; log1p 885 Mb	714 Mb	yes	Processed and <2 GB. Different paper from GSE311016. Library aliased with treatment.
+E-MTAB-16843	ArrayExpress / same ORCA-HD paper	CRC organoid HD42466	SG vs IgG1-SN-38 time course	scRNA	counts 4.67 GB; log1p 5.90 GB	>2 GB	no	Processed organoid RNA exists but matrices exceed 2 GB.
+E-MTAB-16849	ArrayExpress / same ORCA-HD paper	CRC liver-met PDOX	SG vs untargeted IgG1-SN-38 time course	scRNA	counts 4.96 GB; MAGIC 23.4 GB	>2 GB	no	Full processed matrices >2 GB. Time-split count files <2 GB are SG-only trajectory subsets, not SG vs vehicle.
+E-MTAB-16583	ArrayExpress / same ORCA-HD paper	CRC cohort tissue	none (untreated cohort)	tissue-seq	—	—	no	Not ADC treatment.
+E-MTAB-16585	ArrayExpress / same ORCA-HD paper	CRC PDOX untreated	none	PDOX-seq	—	—	no	Not ADC treatment.
+E-MTAB-16836	ArrayExpress / same ORCA-HD paper	CRC PDO	FOLFIRI	scRNA time course	—	—	no	Chemotherapy, not TROP2 ADC.
+E-MTAB-16835	ArrayExpress / same ORCA-HD paper	mouse MDO tumors	none	VAKPS/VKPN	—	—	no	Not TROP2 ADC.
+datopotamab / Dato-DXd	GEO esearch 2026-08-17	—	—	—	none	—	no	0 GSE records for datopotamab[All Fields].
+SKB264 / sac-TMT / MK-2870	GEO esearch 2026-08-17	—	—	—	none	—	no	Not requested; 0 public GSE. Not scored.
+GSE329257	GEO false hit (TMT_positive)	mouse liver γδ T	none	lineage tracing	—	—	no	TMT = tandem mass tag / hashtag, not sac-TMT.
+GSE8614	GEO false hit (sac AND TMT)	male germ-cell tumors	none	array CGH	—	—	no	Not RNA, not ADC.
