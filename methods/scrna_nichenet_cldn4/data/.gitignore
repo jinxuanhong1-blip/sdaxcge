@@ -1,0 +1,10 @@
+# Runtime downloads (GEO matrix, NicheNet RDS). Keep labels, sample sheet, LR TSV.
+GSE207422_NSCLC_scRNAseq_UMI_matrix.txt.gz
+GSE207422_NSCLC_scRNAseq_metadata.xlsx
+lr_network_human_21122021.rds
+ligand_target_matrix_nsga2r_final.rds
+extracted_panel.parquet
+prior_ligand_target.parquet
+*.rds
+*.txt.gz
+*.xlsx
