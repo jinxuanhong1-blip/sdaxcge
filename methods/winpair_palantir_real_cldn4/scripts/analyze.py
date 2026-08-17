@@ -323,7 +323,13 @@ def _run_palantir(adata, early_name: str) -> dict:
         early_vec = ms.loc[early_name].to_numpy()
         dist = {c: float(np.linalg.norm(ms.loc[c].to_numpy() - early_vec)) for c in extrema}
         picked = sorted(dist, key=dist.get, reverse=True)[:3]
-        return {f"boundary_{i+1}": c for i, c in enumerate(picked)}
+        # Palantir 1.4 Series/dict keys must be cell ids (docstring is inverted).
+        term = {c: f"boundary_{i+1}" for i, c in enumerate(picked)}
+        missing = [c for c in term if c not in adata.obs_names]
+        if missing:
+            raise RuntimeError(f"fallback terminals not in obs_names: {missing[:5]}")
+        print(f"DM-boundary terminals: {term}", flush=True)
+        return term
 
     pr = None
     try:
@@ -378,31 +384,10 @@ def _run_palantir(adata, early_name: str) -> dict:
             branch = pd.DataFrame(raw, index=adata.obs_names, columns=cols)
     if branch is None or (isinstance(branch, pd.DataFrame) and branch.shape[1] == 0):
         print("Palantir auto-terminals empty; retry with DM-boundary terminals (not CLDN4).", flush=True)
-        ms_key = "DM_EigenVectors_multiscaled"
-        if ms_key not in adata.obsm:
-            raise RuntimeError("Palantir destiny table is empty and multiscale space is missing")
-        ms = pd.DataFrame(adata.obsm[ms_key], index=adata.obs_names)
-        # farthest diffusion-map extrema from the early cell — never CLDN4-defined
-        extrema = pd.Index(set(ms.idxmax()).union(ms.idxmin()))
-        extrema = extrema.difference([early_name])
-        high = adata.obs["cldn4_tertile"].astype(str) == "high"
-        extrema_ok = [c for c in extrema if c in adata.obs_names and not bool(high.get(c, False))]
-        if len(extrema_ok) < 2:
-            extrema_ok = [c for c in extrema if c in adata.obs_names]
-        if len(extrema_ok) < 1:
-            raise RuntimeError("Palantir destiny table is empty and no DM-boundary terminals")
-        # keep up to 3 farthest from early cell
-        early_vec = ms.loc[early_name].to_numpy()
-        dist = {c: float(np.linalg.norm(ms.loc[c].to_numpy() - early_vec)) for c in extrema_ok}
-        picked = sorted(dist, key=dist.get, reverse=True)[:3]
-        term = {f"boundary_{i+1}": c for i, c in enumerate(picked)}
+        term = _boundary_terminals()
         info["terminal_fallback"] = term
         kwargs["terminal_states"] = term
-        try:
-            pr = palantir.core.run_palantir(adata, n_jobs=2, **kwargs)
-        except TypeError:
-            kwargs.pop("save_as_df", None)
-            pr = palantir.core.run_palantir(adata, **kwargs)
+        pr = _call_palantir(kwargs)
         pt = getattr(pr, "pseudotime", None) if pr is not None else None
         entropy = getattr(pr, "entropy", None) if pr is not None else None
         branch = getattr(pr, "branch_probs", None) if pr is not None else None
