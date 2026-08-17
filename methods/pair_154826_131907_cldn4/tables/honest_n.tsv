@@ -1,0 +1,32 @@
+item	n	note
+public_GSE154826_series	1	GEO 2020; Leader/Grout Cancer Cell 2021 PMID 34767762
+GSE154826_GEO_labeled_processed_TME_matrix	0	series matrices are metadata-only; MTX pile unlabeled
+GSE154826_GEO_series_matrix_expression_rows	0	GPL18573 8.6K + GPL24676 6.3K metadata
+GSE154826_GEO_amp_batch_MTX_tarballs	77	unlabeled 10x feature-barcode MTX; pile ~3567029508 B
+GSE154826_author_annotated_barcodes	361929	effiken/Leader_et_al cell_metadata.csv
+GSE154826_author_samples_in_cell_metadata	91	sample_ID in cell_metadata
+GSE154826_Mount_Sinai_patients_TableS1	35	excludes Lambrechts/Zilionis public re-use rows
+GSE154826_Mount_Sinai_tumor_patients	35	tissue=Tumor
+GSE154826_digest_patients_real_epithelium	2	prep=digest/dead cell; 695 LUAD, 706 LUSC
+GSE154826_beads_tumor_sample_rows	33	CD45+ beads; epithelium gated out
+GSE154826_cells_lineage_T	157641	author cluster lineage
+GSE154826_cells_lineage_NK	11456	author cluster lineage
+GSE154826_cells_lineage_T_plus_NK	169097	T/NK present; not the failure
+GSE154826_cells_epi_endo_fibro_doublet_gate	33759	not labeled malignant; leftover after CD45 enrichment
+GSE154826_cells_labeled_malignant	0	no Malignant field in annots_list.csv
+GSE154826_usable_malignant_CLDN4_matrix	0	stop
+GSE131907_size_eligible_processed_matrices_lt_2GB	3	raw UMI txt/rds and log2TPM rds; log2TPM txt is 2.9G
+GSE131907_annotation_cells	208506	opened annotation only; UMI not downloaded
+GSE131907_annotation_samples	58	58 libraries; paper 44 patients
+GSE131907_epithelial_cells	36467	Cell_type
+GSE131907_malignant_subtype_cells	24784	Cell_subtype; not scored for CLDN4 here
+GSE131907_T_lymphocytes	79676	Cell_type
+GSE131907_NK_cells	11551	Cell_type
+GSE131907_tLung_malignant	0	author Malignant cells are mBrain/tL/B/mLN, not tLung
+GSE131907_tLung_epithelial	7270	primary tumor epithelial barcodes
+GSE131907_tLung_T_plus_NK	19591	primary tumor T+NK barcodes
+GSE131907_samples_malignant_and_TNK	21	annotation only; would have been pair-eligible if 154826 passed
+pair_patients_154826_plus_131907	0	154826 gate failed; 131907 matrix not opened
+patient_level_malignant_CLDN4_vs_TNK	0	empty
+CellChat_style_CLDN4high_to_TNK	0	not run; rho/Q4 not computed
+dual_high_TACSTD2_CLDN4	0	not defined
