@@ -1,0 +1,29 @@
+{
+  "verdict": "STOP",
+  "reason": "GSE179994 has no usable processed matrix for malignant CLDN4 vs T/NK. Deposited expression is T-cell-only.",
+  "gse179994": {
+    "accession": "GSE179994",
+    "pmid": 35121991,
+    "tcell_matrix_bytes": 441470188,
+    "tcell_matrix_mib": 421.0,
+    "tcell_cells": 150849,
+    "tcell_patients": 36,
+    "tcell_samples": 47,
+    "malignant_cells_in_labels": 0,
+    "usable_for_malignant_cldn4": false,
+    "raw_data_provided": false
+  },
+  "gse205335": {
+    "accession": "GSE205335",
+    "umi_matrix_bytes": 523720227,
+    "umi_matrix_mib": 499.5,
+    "under_2gb": true,
+    "merged": false,
+    "reason_not_merged": "GSE179994 gate failed"
+  },
+  "gse207422_added": false,
+  "dual_high": false,
+  "n_merge_patients": 0,
+  "cellchat_run": false,
+  "liana_run": false
+}
