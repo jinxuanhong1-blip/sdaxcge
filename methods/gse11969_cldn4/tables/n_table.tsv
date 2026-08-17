@@ -1,0 +1,17 @@
+item	public	n	note
+arrays_in_series_matrix	yes	163	21619 probes × 163 GSM; 0 missing VALUE
+NSCLC_AD_SQ_LA_AS_LCNEC	yes	149	series text 149 NSCLC
+LUAD_Histology_AD	yes	90	primary filter; unique AD001–AD090
+SQ	yes	35	excluded
+LA	yes	18	excluded
+AS	yes	4	excluded
+LCNEC	yes	2	excluded
+SCLC	yes	9	excluded
+normal_lung_mixture	yes	5	excluded
+unique_LUAD_patients	yes	90	1 array per AD annotation
+ICI_PD1_PDL1_treatment	no	0	8/90 LUAD Gefitinib=Y; not ICI
+CLDN4_finite	yes	90	A_23_P19944
+CD8A_finite	yes	90	A_23_P68110
+CD274_PDCD1LG1_finite	yes	90	A_23_P256487
+primary_pairwise_CLDN4_CD8A_CD274	yes	90	n used for Spearman
+CLDN4_Q4_vs_Q1	yes	46	23 vs 23; not 90
