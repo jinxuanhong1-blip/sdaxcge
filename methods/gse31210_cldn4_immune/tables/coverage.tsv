@@ -1,0 +1,2 @@
+accession	platform	n_matrix	n_tumor	tumor_rule	n_genes_unique	n_genes_firstsymbol	targets_present	estimate_stromal_present	estimate_immune_present	tj_no_cldn4_present	n_purity_in_0_1	n_purity_outside_0_1	unit_plot	unit_estimate
+GSE31210	GPL570 U133 Plus 2.0	246	226	tissue == primary lung tumor	20848	21755	CLDN4,CD8A,TACSTD2	136	138	CLDN3,CLDN7,OCLN,TJP1,F11R,MARVELD2,CRB3,PARD3,CGN	18	208	log2(MAS5+1)	ssGSEA on MAS5 linear ranks (rank-invariant)

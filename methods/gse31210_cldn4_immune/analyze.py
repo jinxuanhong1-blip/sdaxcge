@@ -287,6 +287,7 @@ def write_finding(stats_df: pd.DataFrame, cov: dict, probe_used: dict, n_tumor: 
     c4_pur = pick("CLDN4", "TumorPurity")
     t2_pur = pick("TACSTD2", "TumorPurity")
     cd8_imm = pick("CD8A", "ImmuneScore")
+    c4_tj = pick("CLDN4", "TJ_noCLDN4")
 
     n_pur_ok = cov.get("n_purity_in_0_1", "NA")
     n_pur_out = cov.get("n_purity_outside_0_1", "NA")
@@ -348,9 +349,9 @@ R `estimate` is not required. Scores follow the A1 extra public implementation:
 - `ESTIMATEScore = StromalScore + ImmuneScore`
 - `TumorPurity = cos(0.6049872018 + 0.0001467884 × ESTIMATEScore)`
 
-The cosine map is **not** monotone for extreme ESTIMATEScore. **{n_pur_out} / {n_tumor}** tumors have TumorPurity outside [0, 1]. Partial Spearman still uses the raw cosine value (rank residual; wrapping does not invent a new n). A sensitivity restricted to TumorPurity ∈ [0, 1] is in `tables/stats.tsv` (`purity` = `ESTIMATE TumorPurity in [0,1]`).
+On this matrix ESTIMATEScore ranges ~5.1k–13.6k. The cosine then falls below 0 for **{n_pur_out} / {n_tumor}** tumors. Those values are **not** usable as a 0–1 purity fraction. They remain monotone with ESTIMATEScore here (angles still in (0, π)), so the rank residual on TumorPurity equals the rank residual on ESTIMATEScore. The [0, 1] subset (n={n_pur_ok}) is only the least-impure tail and is **not** the analysis n.
 
-**ImmuneScore after TumorPurity is collinear.** ImmuneScore is one addend of ESTIMATEScore. The CLDN4–ImmuneScore partial is reported because it was requested; it is not an independent purity control. The independent residual is **CLDN4 vs CD8A | TumorPurity**.
+**ImmuneScore after ESTIMATEScore / TumorPurity is collinear.** ImmuneScore is one addend of ESTIMATEScore. The CLDN4–ImmuneScore partial is reported because it was requested; it is not an independent purity control. The independent residual is **CLDN4 vs CD8A | ESTIMATEScore**.
 
 CD8A vs ImmuneScore (positive-control): ρ={fmt_rho(cd8_imm.unadj_rho)} (p={fmt_p(cd8_imm.unadj_p)}, n={int(cd8_imm.n_unadjusted)}).
 
@@ -369,8 +370,9 @@ Partial = Pearson of rank residuals on ESTIMATE TumorPurity; df = n − 3.
 | TACSTD2 | StromalScore | {int(t2_str.n_unadjusted)} | {fmt_rho(t2_str.unadj_rho)} | {fmt_p(t2_str.unadj_p)} | — | — |
 | CLDN4 | TumorPurity | {int(c4_pur.n_unadjusted)} | {fmt_rho(c4_pur.unadj_rho)} | {fmt_p(c4_pur.unadj_p)} | — | — |
 | TACSTD2 | TumorPurity | {int(t2_pur.n_unadjusted)} | {fmt_rho(t2_pur.unadj_rho)} | {fmt_p(t2_pur.unadj_p)} | — | — |
+| CLDN4 | TJ (no CLDN4) | {int(c4_tj.n_unadjusted)} | {fmt_rho(c4_tj.unadj_rho)} | {fmt_p(c4_tj.unadj_p)} | {fmt_rho(c4_tj.partial_rho)} | {fmt_p(c4_tj.partial_p)} |
 
-CLDN4 tracks TACSTD2 and is anti-correlated with CD8A and ImmuneScore on the unadjusted tumor matrix. After ESTIMATE TumorPurity the CD8A residual is attenuated. That is extra East-Asian LUAD microarray weight for **CLDN4-high with TACSTD2-high / immune-low**, not an ICI-response test.
+CLDN4 tracks TACSTD2 and a nine-gene TJ companion, and is anti-correlated with CD8A and ImmuneScore on the unadjusted tumor matrix. After the ESTIMATE impurity axis the CD8A residual is attenuated (p=0.057). That is extra East-Asian LUAD microarray weight for **CLDN4-high with TACSTD2-high / immune-low**, not an ICI-response test.
 
 ## What is not done
 
@@ -472,6 +474,14 @@ def main() -> None:
                         note="positive control"))
     rows.append(rec_row("CLDN4", "TJ_noCLDN4", cldn4, tj, pur, pur_name))
     rows.append(rec_row("TACSTD2", "TJ_noCLDN4", tacstd2, tj, pur, pur_name))
+    score_name = "ESTIMATEScore (Stromal+Immune; no cosine)"
+    estscore = est["ESTIMATE_Score"].to_numpy(float)
+    rows.append(rec_row("CLDN4", "CD8A", cldn4, cd8a, estscore, score_name,
+                        note="rank-equivalent to TumorPurity residual on this cohort"))
+    rows.append(rec_row("CLDN4", "ImmuneScore", cldn4, imm, estscore, score_name,
+                        note="collinear; ImmuneScore is an addend of ESTIMATEScore"))
+    rows.append(rec_row("CLDN4", "TACSTD2", cldn4, tacstd2, estscore, score_name,
+                        note="rank-equivalent to TumorPurity residual on this cohort"))
 
     # sensitivity: TumorPurity in [0, 1]
     if in01.sum() >= 8:
