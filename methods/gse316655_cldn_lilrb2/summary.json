@@ -1,0 +1,151 @@
+{
+  "dataset": "GSE316655",
+  "pmid": "41931598",
+  "doi": "10.1126/sciimmunol.adt7832",
+  "paper": "Liu et al. Sci Immunol 2026",
+  "species": "Homo sapiens (FACS CD45+) in Mus musculus NSG-SGM3 host",
+  "model": "Humanized NSG-SGM3 + human cord-blood CD34+; SK-MEL-5 subcutaneous tumors",
+  "alignment": "Cell Ranger 5.0.0 GRCh38_and_mm10-2020-A",
+  "input": "public MTX/TSV only (no SRA re-align)",
+  "n_libraries": 4,
+  "n_donors_labeled": 1,
+  "qc_gates": {
+    "min_human_umi": 200,
+    "min_human_genes": 100,
+    "min_human_frac": 0.8,
+    "max_mito_frac": 0.2
+  },
+  "n_barcodes": 30296,
+  "n_qc": 15566,
+  "lineage_counts": {
+    "T": 8873,
+    "B": 5074,
+    "other": 583,
+    "NK": 498,
+    "melanoma": 315,
+    "myeloid": 150,
+    "pDC": 59,
+    "epithelial": 14
+  },
+  "library_n_qc": {
+    "Tumor anti-LILRB2": 6940,
+    "Tumor isotype": 4261,
+    "PB anti-LILRB2": 1449,
+    "PB isotype": 2916
+  },
+  "library_myeloid_n": {
+    "Tumor anti-LILRB2": 50,
+    "Tumor isotype": 22,
+    "PB anti-LILRB2": 69,
+    "PB isotype": 9
+  },
+  "library_tnk_n": {
+    "Tumor anti-LILRB2": 4164,
+    "Tumor isotype": 1228,
+    "PB anti-LILRB2": 1202,
+    "PB isotype": 2777
+  },
+  "present_panel_n": 174,
+  "missing_panel": [
+    "CD45"
+  ],
+  "exploratory_tests": [
+    {
+      "n_a": 50,
+      "n_b": 22,
+      "mean_a": 0.313489905744791,
+      "mean_b": 0.24300043217160486,
+      "median_a": 0.23985806852579117,
+      "median_b": 0.22901730239391327,
+      "U": 610.0,
+      "p": 0.464553331072026,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_myeloid_nfkb_anti_vs_iso"
+    },
+    {
+      "n_a": 50,
+      "n_b": 22,
+      "mean_a": 0.26385006606578826,
+      "mean_b": 0.2771823507818309,
+      "median_a": 0.26253607869148254,
+      "median_b": 0.3009953200817108,
+      "U": 486.5,
+      "p": 0.439534701181974,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_myeloid_stat_anti_vs_iso"
+    },
+    {
+      "n_a": 50,
+      "n_b": 22,
+      "mean_a": 0.19591898441314698,
+      "mean_b": 0.4287837120619687,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "U": 478.5,
+      "p": 0.14887107191919038,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_myeloid_lilrb2_anti_vs_iso"
+    },
+    {
+      "n_a": 50,
+      "n_b": 22,
+      "mean_a": 1.6701148164272308,
+      "mean_b": 1.8479519906369122,
+      "median_a": 1.6913986802101135,
+      "median_b": 1.8906117677688599,
+      "U": 450.0,
+      "p": 0.22385442519528542,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_myeloid_mhci_anti_vs_iso"
+    },
+    {
+      "n_a": 50,
+      "n_b": 22,
+      "mean_a": 0.22855739295482635,
+      "mean_b": 0.24291446805000305,
+      "median_a": 0.25232240557670593,
+      "median_b": 0.294235959649086,
+      "U": 510.0,
+      "p": 0.6174651707669804,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_myeloid_suppress_anti_vs_iso"
+    },
+    {
+      "n_a": 4164,
+      "n_b": 1228,
+      "mean_a": 0.29291584530145676,
+      "mean_b": 0.2515702873031557,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "U": 2789133.0,
+      "p": 5.5964917657346684e-08,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_tnk_cytotox_anti_vs_iso"
+    },
+    {
+      "n_a": 4164,
+      "n_b": 1228,
+      "mean_a": 0.1613846725992694,
+      "mean_b": 0.22268389014326984,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "U": 2297520.5,
+      "p": 1.4662349833243624e-09,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_tnk_exhaust_anti_vs_iso"
+    },
+    {
+      "n_a": 6940,
+      "n_b": 4261,
+      "mean_a": 0.0003347096680220678,
+      "mean_b": 0.0002539378184999163,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "U": 14785123.5,
+      "p": 0.9284291641179016,
+      "note": "cell_level_pseudoreplication_n_library=1_vs_1",
+      "contrast": "tumor_all_cldn4_anti_vs_iso"
+    }
+  ],
+  "note": "Unit of biological replication is the library (n=1 per tissue\u00d7treatment). Cell-level p-values are exploratory and overstate certainty."
+}
