@@ -1,0 +1,16 @@
+contrast	matrix	n	n_R	n_NR	metric	effect	p	ci_lo	ci_hi	note
+CLDN4 vs CD8A	log2(FPKM+1)	50			Spearman_rho	-0.10150097777716195	0.4830648341876081	-0.16512807575836488	-0.04549619527742709	library-level; both genes at floor
+CLDN4 vs T/NK mean-z	log2(FPKM+1)	50			Spearman_rho	0.15542960562054733	0.2811132633227686	-0.13964176562792174	0.40727888393166095	T/NK = mean-z of CD3D,CD3E,CD8A,NKG7,GNLY,PRF1,GZMA,GZMB
+CLDN4 vs IFN mean-z	log2(FPKM+1)	50			Spearman_rho	0.1828297876293794	0.20378325174494044	-0.12200532309641578	0.44719106921131896	IFN = Ayers-like mean-z of IFNG,STAT1,CXCL9,CXCL10,IDO1,HLA-DRA
+CLDN4 vs CD274	log2(FPKM+1)	50			Spearman_rho	0.04540170471428852	0.7542198527155705	-0.18274957497838545	0.40062292176697356	library-level; both genes at floor
+CLDN4 vs GEO sintilimab group	log2(FPKM+1)	50	26	24	Cliff_delta_R_minus_NR	0.17948717948717952	0.0740632897607388			26 R / 24 NR libraries; not 50 patients; med R=0 NR=0
+CLDN4 vs CD8A	log2(CPM+1)	50			Spearman_rho	-0.10150097777716195	0.4830648341876081	-0.16512807575836488	-0.04549619527742709	counts sensitivity
+CLDN4 vs T/NK mean-z	log2(CPM+1)	50			Spearman_rho	0.150804199193666	0.295852544159785	-0.1341307870040433	0.4010543782394929	counts sensitivity
+CLDN4 vs IFN mean-z	log2(CPM+1)	50			Spearman_rho	0.0973447236703226	0.5012519376883671	-0.20089447258728563	0.3821140951713658	counts sensitivity
+CLDN4 vs CD274	log2(CPM+1)	50			Spearman_rho	0.04540170471428852	0.7542198527155705	-0.18274957497838545	0.40062292176697356	counts sensitivity
+CLDN4 vs GEO sintilimab group	log2(CPM+1)	50	26	24	Cliff_delta_R_minus_NR	0.17948717948717952	0.0740632897607388			counts sensitivity; 26/24 libraries; med R=0 NR=0
+CLDN4 vs CD8A | epithelial	log2(FPKM+1) resid EPI	50			Spearman_rho	0.08775586770705682	0.5445122741207434	0.0	0.19152181609197982	partial via residualized CLDN4
+CLDN4 vs T/NK mean-z | epithelial	log2(FPKM+1) partial EPI	50			partial_Spearman_rho	0.1246850077443408	0.3933257165777828			covariate = epithelial mean-z; 19/50 libs any EPI>0
+CLDN4 vs IFN mean-z | epithelial	log2(FPKM+1) partial EPI	50			partial_Spearman_rho	0.1179275443417834	0.419664109873752			covariate = epithelial mean-z; 19/50 libs any EPI>0
+CLDN4 vs CD274 | epithelial	log2(FPKM+1) partial EPI	50			partial_Spearman_rho	0.08457217327793956	0.5634267623899317			covariate = epithelial mean-z; 19/50 libs any EPI>0
+CLDN4 FPKM vs CLDN4 counts	concordance	50			Spearman_rho	0.9989447302466694	6.90940222701463e-66	0.993659997553761	1.0	same 50 libraries; log2(FPKM+1) vs log2(CPM+1)

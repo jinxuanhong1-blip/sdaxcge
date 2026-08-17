@@ -1,0 +1,13 @@
+field	public	n	note
+GEO libraries (GSM)	yes	50	GSM8124173–GSM8124222
+unique titles	yes	50	E-lncA411-##h; no repeated title
+patient ID on GEO / BioSample	no	0	no patient / donor / timepoint characteristic
+trial ITT patients (paper)	text	36	NCT04026841; not a GEO field
+paper exosome-RNA patients	text	10	5 R + 5 NR matched; T1–T4 blood
+GEO response label (library)	yes	50	26 Responsed / 24 Non-responsed
+computable patient n	no	0	cannot collapse 50 libraries to patients without inventing IDs
+tissue	yes	50	peripheral blood plasma exosome; not tumor
+CLDN4 on FPKM+counts	yes	50	ENSG00000189143 present; floor (see detection)
+CD8A on FPKM+counts	yes	50	ENSG00000153563 present; floor
+CD274 on FPKM+counts	yes	50	ENSG00000120217 present; floor
+epithelial residual possible	yes	19	19/50 libraries have any of ['EPCAM', 'KRT8', 'KRT18', 'KRT19', 'CDH1', 'KRT7'] >0 FPKM
