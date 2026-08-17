@@ -1,0 +1,16 @@
+item	n	note
+GSE127465 patients deposited (human)	7	p1–p7; Zilionis 2019
+GSE127465 tumor cells	40362	not the test n
+GSE127465 blood cells	14411	excluded from T/NK and malignant
+GSE127465 author PatientN-specific (tumor, own patient)	3574	primary malignant
+GSE127465 tumor T/NK	13892	tT cells + tNK cells
+GSE127465 eligible patients (≥20 mal + ≥20 T/NK)	7	patient-level unit
+GSE148071 patients deposited	42	Wu 2021; one biopsy each
+GSE148071 cells in tar	89887	not the test n
+GSE148071 putative epithelial cells	51213	marker-argmax; no GEO malignant label
+GSE148071 T/NK cells	4161	marker-argmax
+GSE148071 eligible patients (≥20 epi + ≥20 T/NK)	25	patient-level unit
+Pairwise combo patients (sum of eligible)	32	independent patients; not a merged object
+Dual-high TACSTD2×CLDN4 patients	0	not defined
+Triple/quad series added	0	pairwise only
+CellChat-style outgoing run	0	similar
