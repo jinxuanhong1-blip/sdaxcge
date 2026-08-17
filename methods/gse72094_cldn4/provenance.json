@@ -1,0 +1,49 @@
+{
+  "coverage": {
+    "cohort": "GSE72094",
+    "pmid": "26477306",
+    "title": "Schabath et al. Oncogene 2016; KRAS/STK11/TP53 LUAD microarray",
+    "platform": "GPL15048 HuRSTA_2a520709",
+    "n_matrix": 442,
+    "n_luad": 442,
+    "n_probes": 60607,
+    "n_genes": 22115,
+    "targets_present": [
+      "CLDN4",
+      "TACSTD2",
+      "CD8A"
+    ],
+    "targets_missing": [],
+    "gep18_n": 18,
+    "gep18_missing": [],
+    "estimate_stromal_present": 140,
+    "estimate_immune_present": 139,
+    "estimate_score_min": 1456.8470896382962,
+    "estimate_score_max": 14959.507800493404,
+    "tumorpurity_min": -0.942513228791899,
+    "tumorpurity_max": 0.6830721966163225,
+    "n_purity_wrap": 0,
+    "purity_wrap_threshold": 17280.6941951121
+  },
+  "purity_vs_score_spearman": {
+    "rho": -1.0,
+    "p": 0.0,
+    "n": 442
+  },
+  "provenance": {
+    "inputs": {
+      "GSE72094_series_matrix.txt.gz": {
+        "bytes": 105955906,
+        "md5": "097e138c5e75559652363c79517e532d",
+        "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE72nnn/GSE72094/matrix/GSE72094_series_matrix.txt.gz"
+      },
+      "GPL15048_datatable.txt": {
+        "bytes": 2990825,
+        "md5": "3e572feb1327d47c70ecf52a4dbb8aa1",
+        "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL15048&targ=self&form=text&view=data"
+      }
+    },
+    "signatures": "/workspace/data/signatures/estimate_yoshihara_2013.tsv",
+    "generated_at": "2026-08-17T13:28:24.597982+00:00"
+  }
+}
