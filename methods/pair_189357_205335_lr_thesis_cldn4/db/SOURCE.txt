@@ -1,0 +1,7 @@
+CellChatDB human v2
+Source: https://github.com/jinworks/CellChat/raw/master/data/CellChatDB.human.rda
+Paper: Jin et al., Nature Communications 2021 (CellChat v1); Jin et al., bioRxiv 2023 (CellChat v2)
+Parsed with the Python `rdata` package (no R runtime).
+Non-protein / metabolite pairs were dropped for gene-expression scoring.
+File: interaction_cellchatdb_v2_protein.csv (2,239 pairs: Secreted 1,280; Contact 535; ECM 424)
+File: complex_cellchatdb_v2.csv (subunit table)
