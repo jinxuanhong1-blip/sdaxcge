@@ -1,0 +1,21 @@
+{
+  "dataset": "GSE207422",
+  "task": "malignant CLDN4 only vs T/NK, CXCL13+, cyto-high T, NMPR vs MPR; Q4 vs Q1",
+  "dual_high": false,
+  "tacstd2_gate": false,
+  "n_post": 12,
+  "n_cells": 92330,
+  "n_malig_a3": 6627,
+  "empty_a3_malignant_post": [
+    "P11",
+    "P14"
+  ],
+  "primary_nmpr_mpr_mal_cldn4_mean_exact_p": 0.17777777777777778,
+  "primary_spearman_mal_cldn4_mean_vs_tnk": {
+    "contrast": "post n=12: A3-malignant CLDN4 mean log1p(CP10k) vs T/NK",
+    "n": 10,
+    "spearman_rho": -0.12727272727272726,
+    "spearman_p": 0.7260570147627894,
+    "note": ""
+  }
+}

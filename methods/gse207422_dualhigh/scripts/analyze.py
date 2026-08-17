@@ -490,7 +490,7 @@ def main() -> None:
         "genes_present": genes,
         "genes_missing": [g for g in ["CLDN4", "TACSTD2", "CXCL13", *CYTO_GENES] if g not in expr],
         "post_malig_a3_empty": post.loc[post["n_malig_a3"] == 0, "patient"].tolist(),
-        "post_malig_a3_lt10": post.loc[post["n_malig_a3"] < 10, "patient"].tolist(),
+        "post_malig_a3_lt10": post.loc[(post["n_malig_a3"] > 0) & (post["n_malig_a3"] < 10), "patient"].tolist(),
         "malignant_definition_a3": (
             "epithelial argmax AND zero UMI for SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3 "
             "(same as given A3 TACSTD2 analysis; not CopyKAT)"
@@ -874,6 +874,15 @@ def write_finding(outdir: Path, post, spearman_rows, group_rows, q_rows, q_assig
         "TACSTD2 is a companion gene and is **never a gate**. "
         "The given A3 TACSTD2 analysis (NMPR vs MPR and vs T/NK on this same public UMI) is not re-argued.",
         "",
+        "**Verdict (n=12 honest):** malignant CLDN4 does not significantly separate NMPR vs MPR "
+        "and does not significantly anti-correlate with T/NK, CXCL13+, or cyto-high T. "
+        "Immune correlations are weakly negative (A3-malignant |ρ|≤0.33, n=10, all p≥0.35; "
+        "epithelial |ρ|≤0.44, n=12, all p≥0.15). "
+        "NMPR>MPR on A3-malignant mean is Δ=+0.97, exact p=0.18, **n=8 vs 2** "
+        "(P11/P14 empty; P06 is one cell with CLDN4 UMI=0). "
+        "Complete-case epithelial CLDN4 is null (Δ=+0.005, p=0.93, n=8 vs 4). "
+        "Q4 vs Q1 epithelial CXCL13+ hits the 3-vs-3 floor (exact p=0.10, Q4 lower); that is not a claim.",
+        "",
         "## Data and n",
         "",
         f"- Public GEO UMI only: **{sanity['n_cells']:,}** cells × **{sanity['n_genes_in_matrix']:,}** genes. "
@@ -885,10 +894,9 @@ def write_finding(outdir: Path, post, spearman_rows, group_rows, q_rows, q_assig
         f"CXCL13+ T/NK {sanity['n_CXCL13_pos']:,}; cyto-high T {sanity['n_cyto_high_T']:,}.",
         f"- A3-malignant-like = epithelial AND zero UMI for SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3 "
         f"(same rule as the given A3 TACSTD2 slice; **not** CopyKAT). "
-        f"Post patients with 0 A3-malignant cells: **{empty}**. "
-        f"Post patients with <10 A3-malignant cells: **{lt10}**. "
-        f"Those patients are NaN on A3-malignant CLDN4 and drop from that test "
-        f"(A3-malignant CLDN4 n={n_mal_mean}/12). "
+        f"Post patients with 0 A3-malignant cells (NaN, dropped from A3-malignant tests): **{empty}**. "
+        f"Post patients with 1–9 A3-malignant cells (kept, noisy): **{lt10}**. "
+        f"A3-malignant CLDN4 n={n_mal_mean}/12. "
         f"Epithelial CLDN4 is the complete-case n={n_epi}/12 score.",
         "",
         "## Definitions",
