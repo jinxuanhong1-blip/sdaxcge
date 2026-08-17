@@ -1,0 +1,24 @@
+{
+  "gse207422_public_tcr_bcr": false,
+  "additive_series": "GSE241934",
+  "n_tcr_patients": 43,
+  "n_cldn4_table_patients": 45,
+  "n_join_both": 43,
+  "n_tcr_with_cldn4_value": 42,
+  "n_primary": 33,
+  "n_primary_mpr": 10,
+  "n_primary_nmpr": 23,
+  "n_primary_iit": 11,
+  "n_primary_real": 22,
+  "bcr_contigs_total": 0,
+  "min_tcr_cells": 50,
+  "min_epi_primary": 20,
+  "cldn4_source": "author epithelial cells on public GSE241934 IIT+Real MTX; mean log1p from methods/scrna_meta_mpr/results/per_patient_GSE241934.tsv",
+  "primary_test": {
+    "test": "CLDN4 vs expanded_cell_frac (clone\u22652)",
+    "n": 33,
+    "rho": -0.06283422459893048,
+    "p": 0.7283052128479874,
+    "note": "author Epi \u226520; TCR cells \u226550; GSE241934 IIT+Real"
+  }
+}

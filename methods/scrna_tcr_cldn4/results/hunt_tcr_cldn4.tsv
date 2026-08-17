@@ -1,0 +1,13 @@
+accession	public_tcr_bcr	malignant_or_epi_CLDN4	same_patient_tcr_and_cldn4	why
+GSE207422	no	yes (UMI; 15 patients)	no	BD Rhapsody WTA + bulk RNA only. GEO suppl: UMI matrix + sample xlsx + bulk TPM. No contig/clonotype/VDJ. Paper methods: Rhapsody WTA, no TCR/BCR library. Raw not deposited.
+GSE241934	yes TCR (43 patients; TRA/TRB). No BCR (0 IGH/IGK/IGL contigs).	yes (author Epi on IIT+Real MTX)	yes	Leftover neoadjuvant IO+chemo scRNA. RAW.tar = Cell Ranger clonotypes + contig CSVs. Same sampleIDs as author-Epi CLDN4 table.
+GSE243013	yes TCR	no (CD45+ immune MTX only)	no	Immune-only. Residual TACSTD2/CLDN4 in CD45+ is not malignant epithelium.
+GSE179994	yes TCR	no (T cells only)	no	Public tables are T-cell scTCR. Cannot score malignant CLDN4.
+GSE176021 / GSE176022	yes (VDJ tars / bulk culture TCR)	no	no	GEO processed = lymphocytes. GSE176022 is bulk MANAFEST TCR, not scRNA.
+GSE185204 / GSE185206 / GSE186446	yes TCR (n=3)	no (sorted T cells)	no	CD3+ TIL atlas. n=3. No malignant compartment.
+GSE280232	yes (paired GEX+TCR GSMs)	no	no	GEO characteristic cell type = Sorted T cells. TIL-only.
+GSE229353	no public contig/clonotype	no (CD45+ MTX)	no	Post-neoadjuvant CD45+ GEX only.
+GSE291670	no	yes (snRNA MTX)	no	RAW.tar is barcodes/features/matrix only. No VDJ.
+GSE205335	no	yes (UMI RDS + CellIdentity)	no	GEO suppl: UMI RDS + identity table. No TCR.
+GSE267108 / GSE274595 / GSE337519 / E-MTAB-13526	no	epithelial scores exist on some	no	2024–26 leftover epithelial matrices without public VDJ.
+GSE308745	yes TCR+ADT	no (PBMC)	no	Blood only.
