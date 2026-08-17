@@ -1,0 +1,50 @@
+{
+  "mode": "tumor_tertile",
+  "info": {
+    "q_low": 1.448822021484375,
+    "q_high": 2.1059484481811523,
+    "split": "tertile",
+    "samples": "tLung+tL/B+mLN+mBrain",
+    "n_malignant_scored": 31136,
+    "n_tnk_scored": 34741,
+    "n_mal_high": 10379,
+    "n_mal_low": 10379
+  },
+  "n_cells": [
+    {
+      "group": "Mal_high",
+      "n_cells": 10379,
+      "n_samples": 30,
+      "n_patients": 30,
+      "origins": "mBrain,mLN,tL/B,tLung",
+      "mean_CLDN4_log1p_cp10k": 2.566923141479492
+    },
+    {
+      "group": "Mal_low",
+      "n_cells": 10379,
+      "n_samples": 32,
+      "n_patients": 32,
+      "origins": "mBrain,mLN,tL/B,tLung",
+      "mean_CLDN4_log1p_cp10k": 0.6353899836540222
+    },
+    {
+      "group": "TNK",
+      "n_cells": 34741,
+      "n_samples": 32,
+      "n_patients": 32,
+      "origins": "mBrain,mLN,tL/B,tLung",
+      "mean_CLDN4_log1p_cp10k": 0.05923038721084595
+    }
+  ],
+  "n_lr_tested": 8464,
+  "n_detected": 164,
+  "n_significant": 81,
+  "n_sig_outgoing_mal_to_tnk": 60,
+  "n_sig_incoming_tnk_to_mal": 21,
+  "n_sig_diff_outgoing": 60,
+  "n_ligand_table_rows": 2116,
+  "nboot": 100,
+  "expr_prop": 0.1,
+  "trim": 0.1,
+  "kh": 0.5
+}

@@ -1,0 +1,1 @@
+`download.py` pulls the GEO UMI, author annotation, and series matrix into `/tmp/gse131907`. `analyze.py` streams the UMI, applies author malignant / T/NK labels, and writes `results/ligand_table.tsv`.
