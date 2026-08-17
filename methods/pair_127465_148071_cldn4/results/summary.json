@@ -1,0 +1,67 @@
+{
+  "additive": true,
+  "gene": "CLDN4",
+  "dual_high": false,
+  "triple_quad": false,
+  "cell_level_merge": false,
+  "gse127465": {
+    "n_deposited": 7,
+    "n_eligible": 7,
+    "rho": 0.21428571428571433,
+    "p": 0.6445115810207203,
+    "ci95": [
+      -0.6424537680494896,
+      0.8329391711625234
+    ],
+    "malignant": "author PatientN-specific in that patient's tumor",
+    "tnk": "tT cells + tNK cells",
+    "CLDN4_present": true,
+    "processed_bytes": 528303938
+  },
+  "gse148071": {
+    "n_deposited": 42,
+    "n_eligible": 25,
+    "rho": 0.18923076923076923,
+    "p": 0.364968831611586,
+    "ci95": [
+      -0.22254692097559106,
+      0.5437135188367125
+    ],
+    "malignant": "marker-argmax epithelium (putative; no GEO label)",
+    "tnk": "marker-argmax T+NK",
+    "CLDN4_present": true,
+    "processed_bytes": 180193280
+  },
+  "differ": false,
+  "differ_reason": "similar",
+  "fisher_z": {
+    "z": 0.04805341643525769,
+    "p": 0.9616736715842298,
+    "delta_z": 0.02611978560589298,
+    "se": 0.543557306504609
+  },
+  "cellchat_outgoing": false,
+  "cellchat_files": [],
+  "median_split": [
+    {
+      "cohort": "GSE127465",
+      "n_high": 4,
+      "n_low": 3,
+      "median_TNK_high": 0.2958346741302282,
+      "median_TNK_low": 0.2860072376357057,
+      "rank_biserial": 0.0,
+      "p_mw": 1.0,
+      "cldn4_median": 0.32125240564346313
+    },
+    {
+      "cohort": "GSE148071",
+      "n_high": 13,
+      "n_low": 12,
+      "median_TNK_high": 0.10596026490066225,
+      "median_TNK_low": 0.047171544359647495,
+      "rank_biserial": 0.2564102564102564,
+      "p_mw": 0.2888443663464849,
+      "cldn4_median": 1.4660454988479614
+    }
+  ]
+}
