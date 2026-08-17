@@ -1,0 +1,310 @@
+{
+  "accession": "GSE127465",
+  "paper": "Zilionis et al. Immunity 2019 PMID 30979687",
+  "platform": "inDrops",
+  "primary_gene": "CLDN4",
+  "not_a_tacstd2_redo": true,
+  "dual_high": false,
+  "clock": "slingshot",
+  "slingshot": {
+    "available": true,
+    "version": "2.10.0",
+    "real": true
+  },
+  "n_tumor": 40362,
+  "n_blood": 14411,
+  "n_cells": 4281,
+  "n_malignant": 3694,
+  "n_malignant_cldn4_pos": 1529,
+  "n_malignant_cldn4_pos_by_patient": {
+    "p1": 290,
+    "p2": 25,
+    "p3": 309,
+    "p4": 130,
+    "p5": 422,
+    "p6": 97,
+    "p7": 256
+  },
+  "n_type2": 403,
+  "n_type1": 46,
+  "n_club": 68,
+  "n_ciliated": 70,
+  "n_patients": 7,
+  "n_patients_eligible": 7,
+  "n_patients_paired": 7,
+  "n_thin_note": "n=7 is thin",
+  "lineage_counts": {
+    "Malignant": 3694,
+    "Type II cells": 403,
+    "Ciliated cells": 70,
+    "Club cells": 68,
+    "Type I cells": 46
+  },
+  "cldn4_tertile_counts": {
+    "low": 2502,
+    "high": 1427,
+    "mid": 352
+  },
+  "genes_absent": {
+    "AT2": [],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": []
+  },
+  "start": {
+    "start_cluster": "8",
+    "cldn4_high_cluster": "7",
+    "rule": "Leiden 8 max Type II fraction / AT2 (CLDN4-high cluster 7 excluded)",
+    "dpt_root_index": 1753,
+    "dpt_root_rule": "Type II cell in start Leiden 8 (median AT2)",
+    "dpt_root_cell": "p3t1_bcGJHQ",
+    "dpt_root_patient": "p3"
+  },
+  "n_paga_components": 1,
+  "n_leiden": 11,
+  "leiden_resolution": 0.6,
+  "lineages": [
+    {
+      "lineage_id": "Lineage1",
+      "start_cluster": 8,
+      "end_cluster": 3,
+      "n_clusters": 5,
+      "cluster_path": "8->5->4->0->3",
+      "n_cells": 2343,
+      "mean_CLDN4": 0.21659561953850398,
+      "mean_AT2": 0.5019732107031921,
+      "mean_barrier": 0.44058762527795564,
+      "frac_malignant": 0.8130601792573624,
+      "frac_type2": 0.16901408450704225,
+      "start_is_cldn4_high": false,
+      "clock": "slingshot",
+      "slingshot_version": "2.10.0"
+    },
+    {
+      "lineage_id": "Lineage2",
+      "start_cluster": 8,
+      "end_cluster": 9,
+      "n_clusters": 4,
+      "cluster_path": "8->5->4->9",
+      "n_cells": 1109,
+      "mean_CLDN4": 0.34845567262178073,
+      "mean_AT2": 1.0950105194352862,
+      "mean_barrier": 0.3862432332181487,
+      "frac_malignant": 0.5266005410279531,
+      "frac_type2": 0.35888187556357076,
+      "start_is_cldn4_high": false,
+      "clock": "slingshot",
+      "slingshot_version": "2.10.0"
+    },
+    {
+      "lineage_id": "Lineage3",
+      "start_cluster": 8,
+      "end_cluster": 2,
+      "n_clusters": 4,
+      "cluster_path": "8->5->4->2",
+      "n_cells": 1484,
+      "mean_CLDN4": 0.34540506007496236,
+      "mean_AT2": 1.0094783503737097,
+      "mean_barrier": 0.3996217020219134,
+      "frac_malignant": 0.706199460916442,
+      "frac_type2": 0.2661725067385445,
+      "start_is_cldn4_high": false,
+      "clock": "slingshot",
+      "slingshot_version": "2.10.0"
+    },
+    {
+      "lineage_id": "Lineage4",
+      "start_cluster": 8,
+      "end_cluster": 6,
+      "n_clusters": 4,
+      "cluster_path": "8->5->4->6",
+      "n_cells": 1318,
+      "mean_CLDN4": 0.3652929856480072,
+      "mean_AT2": 1.2219163548044925,
+      "mean_barrier": 0.42136043205209067,
+      "frac_malignant": 0.6745068285280729,
+      "frac_type2": 0.29893778452200304,
+      "start_is_cldn4_high": false,
+      "clock": "slingshot",
+      "slingshot_version": "2.10.0"
+    },
+    {
+      "lineage_id": "Lineage5",
+      "start_cluster": 8,
+      "end_cluster": 1,
+      "n_clusters": 4,
+      "cluster_path": "8->5->4->1",
+      "n_cells": 1491,
+      "mean_CLDN4": 0.4834053225410536,
+      "mean_AT2": 0.7949703034748906,
+      "mean_barrier": 0.5263809285176805,
+      "frac_malignant": 0.7129443326626426,
+      "frac_type2": 0.2642521797451375,
+      "start_is_cldn4_high": false,
+      "clock": "slingshot",
+      "slingshot_version": "2.10.0"
+    },
+    {
+      "lineage_id": "Lineage6",
+      "start_cluster": 8,
+      "end_cluster": 7,
+      "n_clusters": 4,
+      "cluster_path": "8->5->4->7",
+      "n_cells": 1292,
+      "mean_CLDN4": 0.45095889030987446,
+      "mean_AT2": 1.050301518849644,
+      "mean_barrier": 0.43158015749110645,
+      "frac_malignant": 0.6687306501547987,
+      "frac_type2": 0.30495356037151705,
+      "start_is_cldn4_high": false,
+      "clock": "slingshot",
+      "slingshot_version": "2.10.0"
+    },
+    {
+      "lineage_id": "Lineage7",
+      "start_cluster": 8,
+      "end_cluster": 10,
+      "n_clusters": 3,
+      "cluster_path": "8->5->10",
+      "n_cells": 687,
+      "mean_CLDN4": 0.2858908283354761,
+      "mean_AT2": 1.580959346696684,
+      "mean_barrier": 0.35374907086242297,
+      "frac_malignant": 0.35662299854439594,
+      "frac_type2": 0.5502183406113537,
+      "start_is_cldn4_high": false,
+      "clock": "slingshot",
+      "slingshot_version": "2.10.0"
+    }
+  ],
+  "primary_spearman": [
+    {
+      "n": 7,
+      "rho": -0.3571428571428572,
+      "p": 0.431611352038328,
+      "contrast": "CLDN4 vs Slingshot",
+      "q": 0.4795681689314756
+    },
+    {
+      "n": 7,
+      "rho": -0.6785714285714287,
+      "p": 0.09375025395983135,
+      "contrast": "CLDN4 vs DPT (companion)",
+      "q": 0.24705193580193607
+    },
+    {
+      "n": 7,
+      "rho": 0.5,
+      "p": 0.2531699951003227,
+      "contrast": "CLDN4 vs AT2 score",
+      "q": 0.3164624938754034
+    },
+    {
+      "n": 7,
+      "rho": 0.6071428571428572,
+      "p": 0.14823116148116164,
+      "contrast": "CLDN4 vs club score",
+      "q": 0.24705193580193607
+    },
+    {
+      "n": 7,
+      "rho": -0.8571428571428573,
+      "p": 0.013697326615325618,
+      "contrast": "CLDN4 vs basal score",
+      "q": 0.06848663307662808
+    },
+    {
+      "n": 7,
+      "rho": 0.642857142857143,
+      "p": 0.11939237342741109,
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "q": 0.24705193580193607
+    },
+    {
+      "n": 7,
+      "rho": 0.6071428571428572,
+      "p": 0.14823116148116164,
+      "contrast": "CLDN4 vs malignant-like score",
+      "q": 0.24705193580193607
+    },
+    {
+      "n": 7,
+      "rho": 0.9285714285714288,
+      "p": 0.0025194724037946887,
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "q": 0.025194724037946887
+    },
+    {
+      "n": 7,
+      "rho": -0.1785714285714286,
+      "p": 0.7016579425162727,
+      "contrast": "SFTPC vs Slingshot (control)",
+      "q": 0.7016579425162727
+    },
+    {
+      "n": 7,
+      "rho": -0.5,
+      "p": 0.2531699951003227,
+      "contrast": "AT2 score vs Slingshot (control)",
+      "q": 0.3164624938754034
+    }
+  ],
+  "paired_tertile": [
+    {
+      "n": 7,
+      "W": 0.0,
+      "p": 0.015625,
+      "delta_median": 0.12032466536528202,
+      "median_high": 0.5118887326919518,
+      "median_low": 0.3951314405819017,
+      "contrast": "barrier/keratin (no CLDN4) high vs low"
+    },
+    {
+      "n": 7,
+      "W": 14.0,
+      "p": 1.0,
+      "delta_median": 0.020183308082011665,
+      "median_high": 0.7766471012496229,
+      "median_low": 0.7194961657204844,
+      "contrast": "AT2 high vs low"
+    },
+    {
+      "n": 7,
+      "W": 0.0,
+      "p": 0.015625,
+      "delta_median": 0.09477633196792973,
+      "median_high": 0.3912373710332847,
+      "median_low": 0.33780252513667897,
+      "contrast": "malignant-like high vs low"
+    },
+    {
+      "n": 7,
+      "W": 7.0,
+      "p": 0.296875,
+      "delta_median": 0.4282574809264368,
+      "median_high": 15.629844251533942,
+      "median_low": 14.996970853310156,
+      "contrast": "Slingshot high vs low"
+    },
+    {
+      "n": 7,
+      "W": 11.0,
+      "p": 0.6875,
+      "delta_median": 0.0209043025970459,
+      "median_high": 0.4808201193809509,
+      "median_low": 0.4730881154537201,
+      "contrast": "DPT high vs low"
+    }
+  ],
+  "extra_figure": {
+    "emitted": true,
+    "spearman_rho": 0.642857142857143,
+    "spearman_p": 0.11939237342741109,
+    "spearman_n": 7
+  },
+  "verdict": "REAL Slingshot produced 7 lineage(s) from start Leiden 8 (not CLDN4-high 7). Patient-level CLDN4 vs Slingshot: n=7, \u03c1=-0.357, p=0.432 \u2014 n=7 is thin. CLDN4 vs AT2 score: n=7, \u03c1=0.500, p=0.253. CLDN4 vs barrier/keratin (CLDN4 excluded): n=7, \u03c1=0.643, p=0.119. CLDN4 vs malignant-like: n=7, \u03c1=0.607, p=0.148. PAGA has 1 component(s) at connectivity>0 among 11 Leiden vertices. Author malignant is PatientN-specific; Slingshot MST may stitch discrete tumors. Not a TACSTD2 redo. No both-high gate.",
+  "what_holds": "**What can be said (n=7 thin).** Malignant+CLDN4 exists (n_malignant=3694, n_CLDN4+=1529). Slingshot start is Leiden 8, not the CLDN4-high cluster 7. CLDN4 vs barrier/keratin (no CLDN4): n=7, \u03c1=0.643, p=0.119. **What cannot be said.** n=7 patient Spearman is not a precise effect. Do not read Slingshot paths as Type II \u2192 each patient's tumor."
+}
