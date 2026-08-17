@@ -1,0 +1,18 @@
+item	n	note
+accession	GSE161537	NIVOBIO HTG EdgeSeq OBP; public 2022-07-07
+gsm	82	GSM4909684–GSM4909765
+unique_patient_id	82	patient is the unit; 1 GSM : 1 patient
+matrix_patients	82	GSE161537_nivobio_log2cpm.csv.gz columns
+matrix_genes	2559	HTG OBP deposited symbols
+CLDN4_measured	0	absent from matrix; aliases also absent
+CLDN3_on_panel	1	not used as proxy
+CD8A_on_panel	1	not a CLDN4 substitute
+CD274_on_panel	1	not a CLDN4 substitute
+IFNG_on_panel	1	not a CLDN4 substitute
+RECIST_labeled	76	{'PD': 34, 'SD': 22, 'PR': 19, 'NA': 6, 'CR': 1}
+ORR_CR_PR	20	CR+PR among labeled RECIST
+ORR_SD_PD	56	SD+PD among labeled RECIST
+RECIST_NA	6	best response NA
+PFS_month_labeled	82	pfs (month); no pfs event field
+OS_month_labeled	82	os (month)
+DCB_field	0	not deposited; not recoded from PFS
