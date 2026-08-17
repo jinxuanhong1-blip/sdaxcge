@@ -1,0 +1,12 @@
+analysis	combo	k	N	effect	p	I2	n_q1	n_q4	note
+Spearman	QUAD pooled patients (207422 IN)	4	90	rho=-0.113	0.290		24	23	honest pooled-patient combo rho
+Spearman	Fisher-z of 4 within-cohort Spearmans	4	90	rho=-0.239	0.0317	0.088			I2=9%
+Spearman	LOO drop GSE207422	3	78	rho=-0.188	0.0999				
+Spearman	LOO drop GSE131907	3	59	rho=-0.050	0.704				
+Spearman	LOO drop GSE148071	3	65	rho=-0.297	0.0164				
+Spearman	LOO drop GSE205335	3	68	rho=+0.055	0.658				
+Q4 vs Q1	QUAD within-cohort tails	4	47	r=-0.366	0.0325		24	23	not the mid quartiles
+Q4 vs Q1	LOO drop GSE148071 tails	3	34	r=-0.536	0.0080		17	17	
+outgoing LR	MDK-NCL	4	47	deltaP=+0.200	0.00117		24	23	detected in all 4 cohorts
+outgoing LR	APP-CD74	4	46	deltaP=+0.175	0.0147		23	23	
+outgoing LR	F11R-ITGAL_ITGB2	4	27	deltaP=+0.272	0.0473		17	10	barrier

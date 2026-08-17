@@ -1,0 +1,91 @@
+cohort	patient	malig_def	n_cells	n_malignant	n_tnk	frac_tnk	mal_CLDN4_pct_pos	mal_CLDN4_mean	eligible	response	sample	note	n_samples	origins	histology	tissue	q_within	q_global
+GSE207422	P02	marker_epithelial_post	5345	107	2899	0.5423760523854069	85.04672897196261	1.9163539409637451	True	NMPR	BD_immune02	post-treatment; marker epithelial as malignant proxy					Q2	Q3
+GSE207422	P03	marker_epithelial_post	9259	804	5060	0.5464953018684523	79.60199004975125	1.0828747749328613	True	MPR	BD_immune03	post-treatment; marker epithelial as malignant proxy					Q2	Q3
+GSE207422	P04	marker_epithelial_post	8398	145	5616	0.6687306501547987	79.3103448275862	1.4964123964309692	True	NMPR	BD_immune04	post-treatment; marker epithelial as malignant proxy					Q1	Q3
+GSE207422	P06	marker_epithelial_post	4649	64	2924	0.6289524628952463	93.75	1.5623774528503418	True	MPR	BD_immune06	post-treatment; marker epithelial as malignant proxy					Q3	Q4
+GSE207422	P07	marker_epithelial_post	9131	5121	1087	0.11904501149928814	94.2979886740871	1.6801241636276245	True	NMPR	BD_immune07	post-treatment; marker epithelial as malignant proxy					Q4	Q4
+GSE207422	P09	marker_epithelial_post	4849	271	3283	0.6770468137760363	85.97785977859779	1.7184779644012451	True	NMPR	BD_immune09	post-treatment; marker epithelial as malignant proxy					Q3	Q3
+GSE207422	P10	marker_epithelial_post	6643	208	4080	0.6141803402077375	62.5	1.049410343170166	True	NMPR	BD_immune10	post-treatment; marker epithelial as malignant proxy					Q1	Q2
+GSE207422	P11	marker_epithelial_post	3759	439	1690	0.4495876562915669	97.72209567198178	1.8974274396896362	True	MPR	BD_immune11	post-treatment; marker epithelial as malignant proxy					Q4	Q4
+GSE207422	P12	marker_epithelial_post	6233	482	1386	0.2223648323439756	60.16597510373444	0.8651391863822937	True	NMPR	BD_immune12	post-treatment; marker epithelial as malignant proxy					Q1	Q2
+GSE207422	P13	marker_epithelial_post	6753	35	1347	0.19946690359840072	94.28571428571428	1.657923698425293	True	NMPR	BD_immune13	post-treatment; marker epithelial as malignant proxy					Q4	Q4
+GSE207422	P14	marker_epithelial_post	5546	186	2863	0.5162279120086549	84.94623655913979	1.4671915769577026	True	MPR	BD_immune14	post-treatment; marker epithelial as malignant proxy					Q2	Q3
+GSE207422	P15	marker_epithelial_post	8086	545	1525	0.18859757605738314	86.60550458715596	1.4553238153457642	True	NMPR	BD_immune15	post-treatment; marker epithelial as malignant proxy					Q3	Q4
+GSE131907	P3013	author_malig_tS_tumor_origin	4845	1352	1780	0.3673890608875129	72.41124260355029	1.2590223550796509	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q2	Q2
+GSE131907	P0034	author_malig_tS_tumor_origin	3280	2374	366	0.11158536585365854	92.75484414490312	1.6022334098815918	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q4	Q4
+GSE131907	P0018	author_malig_tS_tumor_origin	3705	1002	1090	0.2941970310391363	92.81437125748504	1.8248164653778076	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q4	Q4
+GSE131907	P3004	author_malig_tS_tumor_origin	1904	1229	131	0.06880252100840337	89.34092758340114	1.3547914028167725	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q3	Q4
+GSE131907	P3019	author_malig_tS_tumor_origin	3300	755	370	0.11212121212121212	67.1523178807947	1.018040657043457	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q1	Q2
+GSE131907	P1011	author_malig_tS_tumor_origin	3178	203	809	0.25456261799874136	80.78817733990148	1.392881155014038	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mLN			Q2	Q3
+GSE131907	P1058	author_malig_tS_tumor_origin	2813	460	1546	0.5495911837895485	72.17391304347827	0.9481318593025208	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tL/B			Q2	Q2
+GSE131907	P0025	author_malig_tS_tumor_origin	4374	223	1599	0.3655692729766804	79.82062780269058	1.3818156719207764	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q2	Q3
+GSE131907	P0031	author_malig_tS_tumor_origin	5578	182	3713	0.6656507708856221	75.82417582417582	1.1920487880706787	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q2	Q2
+GSE131907	P3017	author_malig_tS_tumor_origin	2409	1112	410	0.170195101701951	88.21942446043165	2.1043753623962402	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q3	Q4
+GSE131907	P3002	author_malig_tS_tumor_origin	2313	181	977	0.4223951578037181	58.5635359116022	0.8218572735786438	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q1	Q1
+GSE131907	P1028	author_malig_tS_tumor_origin	5182	4640	232	0.04477035893477422	96.33620689655173	2.2467188835144043	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tL/B			Q4	Q4
+GSE131907	P0028	author_malig_tS_tumor_origin	4705	984	1631	0.3466524973432519	95.83333333333334	2.02643084526062	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q4	Q4
+GSE131907	P3016	author_malig_tS_tumor_origin	1317	79	385	0.29233105542900534	11.39240506329114	0.07498374581336975	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q1	Q1
+GSE131907	P0006	author_malig_tS_tumor_origin	3426	100	1539	0.44921190893169877	91.0	1.6496440172195435	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q4	Q4
+GSE131907	P0019	author_malig_tS_tumor_origin	4361	222	1712	0.39257051135060766	83.78378378378379	1.390738844871521	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q2	Q3
+GSE131907	P0030	author_malig_tS_tumor_origin	4094	784	1414	0.3453834880312653	62.62755102040817	1.0103753805160522	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q1	Q2
+GSE131907	P1010	author_malig_tS_tumor_origin	5144	367	1530	0.2974339035769829	84.46866485013625	1.2945740222930908	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mLN			Q2	Q3
+GSE131907	P1049	author_malig_tS_tumor_origin	1775	114	1126	0.6343661971830986	49.122807017543856	0.7394811511039734	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tL/B			Q1	Q1
+GSE131907	P3007	author_malig_tS_tumor_origin	5730	5108	166	0.028970331588132635	90.40720438527799	1.7547770738601685	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q4	Q4
+GSE131907	P1019	author_malig_tS_tumor_origin	2112	217	1427	0.6756628787878788	94.00921658986175	1.74746572971344	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mLN			Q4	Q4
+GSE131907	P0008	author_malig_tS_tumor_origin	3765	42	2128	0.5652058432934927	85.71428571428571	1.5306764841079712	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q3	Q3
+GSE131907	P0020	author_malig_tS_tumor_origin	4021	434	2418	0.601342949515046	89.86175115207374	1.8149075508117676	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tLung			Q3	Q4
+GSE131907	P1051	author_malig_tS_tumor_origin	3275	1285	1143	0.34900763358778625	85.36964980544747	1.1968406438827515	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mLN			Q3	Q3
+GSE131907	P1012	author_malig_tS_tumor_origin	3115	257	328	0.10529695024077046	88.32684824902724	1.3514907360076904	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mLN			Q3	Q4
+GSE131907	P1015	author_malig_tS_tumor_origin	1105	256	479	0.4334841628959276	47.265625	0.8119832873344421	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mLN			Q1	Q1
+GSE131907	P1013	author_malig_tS_tumor_origin	3550	376	1150	0.323943661971831	0.26595744680851063	0.0006799165275879204	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mLN			Q1	Q1
+GSE131907	P3012	author_malig_tS_tumor_origin	3182	2811	22	0.0069138906348208675	86.33938100320171	1.687066912651062	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q3	Q3
+GSE131907	P3006	author_malig_tS_tumor_origin	1070	83	383	0.3579439252336449	60.24096385542169	1.161139965057373	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q1	Q2
+GSE131907	P3003	author_malig_tS_tumor_origin	2990	2713	145	0.048494983277591976	93.14412089937338	1.9987878799438477	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	mBrain			Q4	Q4
+GSE131907	P1006	author_malig_tS_tumor_origin	2303	1186	611	0.2653061224489796	71.16357504215851	1.2913167476654053	True			author malignant/tS*; tumor-origin cells pooled per patient	1.0	tL/B			Q2	Q2
+GSE148071	P1	marker_epithelial	5317	3347	147	0.02764716945646041	75.20167314012548	1.2112348079681396	True			marker epithelial as malignant proxy; one biopsy / patient					Q2	Q2
+GSE148071	P4	marker_epithelial	4558	112	304	0.06669591926283458	25.892857142857146	0.48664361238479614	True			marker epithelial as malignant proxy; one biopsy / patient					Q1	Q1
+GSE148071	P5	marker_epithelial	2454	1456	36	0.014669926650366748	71.77197802197803	1.0497490167617798	True			marker epithelial as malignant proxy; one biopsy / patient					Q2	Q2
+GSE148071	P6	marker_epithelial	3119	2273	88	0.028214171208720745	79.36647602287725	2.016552448272705	True			marker epithelial as malignant proxy; one biopsy / patient					Q3	Q3
+GSE148071	P7	marker_epithelial	3059	240	1060	0.34651847008826414	58.75	0.9905403256416321	True			marker epithelial as malignant proxy; one biopsy / patient					Q2	Q1
+GSE148071	P8	marker_epithelial	1342	422	66	0.04918032786885246	90.28436018957346	1.9458234310150146	True			marker epithelial as malignant proxy; one biopsy / patient					Q4	Q4
+GSE148071	P9	marker_epithelial	3520	2126	62	0.017613636363636363	78.36312323612418	1.4679841995239258	True			marker epithelial as malignant proxy; one biopsy / patient					Q3	Q2
+GSE148071	P10	marker_epithelial	3740	2533	70	0.01871657754010695	71.41729174891434	1.1124194860458374	True			marker epithelial as malignant proxy; one biopsy / patient					Q2	Q2
+GSE148071	P11	marker_epithelial	574	106	46	0.08013937282229965	2.8301886792452833	0.034721460193395615	True			marker epithelial as malignant proxy; one biopsy / patient					Q1	Q1
+GSE148071	P12	marker_epithelial	891	288	46	0.051627384960718295	81.94444444444444	1.7519652843475342	True			marker epithelial as malignant proxy; one biopsy / patient					Q4	Q3
+GSE148071	P13	marker_epithelial	938	165	90	0.09594882729211088	83.63636363636363	1.691848635673523	True			marker epithelial as malignant proxy; one biopsy / patient					Q4	Q3
+GSE148071	P14	marker_epithelial	1808	690	31	0.017146017699115043	34.92753623188406	0.5735201835632324	True			marker epithelial as malignant proxy; one biopsy / patient					Q1	Q1
+GSE148071	P18	marker_epithelial	3314	1892	88	0.026554013277006638	67.23044397463002	1.310255765914917	True			marker epithelial as malignant proxy; one biopsy / patient					Q2	Q2
+GSE148071	P19	marker_epithelial	453	173	48	0.10596026490066225	77.45664739884393	1.6047793626785278	True			marker epithelial as malignant proxy; one biopsy / patient					Q3	Q2
+GSE148071	P22	marker_epithelial	644	153	231	0.358695652173913	86.27450980392157	2.254498243331909	True			marker epithelial as malignant proxy; one biopsy / patient					Q4	Q3
+GSE148071	P23	marker_epithelial	2387	1466	32	0.013405948889819858	40.791268758526606	0.7032957077026367	True			marker epithelial as malignant proxy; one biopsy / patient					Q1	Q1
+GSE148071	P24	marker_epithelial	386	88	64	0.16580310880829016	47.72727272727273	1.0395163297653198	True			marker epithelial as malignant proxy; one biopsy / patient					Q1	Q1
+GSE148071	P26	marker_epithelial	570	69	82	0.14385964912280702	63.76811594202898	1.7525181770324707	True			marker epithelial as malignant proxy; one biopsy / patient					Q2	Q2
+GSE148071	P27	marker_epithelial	707	34	87	0.12305516265912306	50.0	1.5466817617416382	True			marker epithelial as malignant proxy; one biopsy / patient					Q1	Q1
+GSE148071	P28	marker_epithelial	2373	693	64	0.0269700800674252	81.81818181818183	1.7190701961517334	True			marker epithelial as malignant proxy; one biopsy / patient					Q4	Q3
+GSE148071	P32	marker_epithelial	595	381	79	0.13277310924369748	90.02624671916011	2.588397741317749	True			marker epithelial as malignant proxy; one biopsy / patient					Q4	Q4
+GSE148071	P38	marker_epithelial	1358	179	150	0.11045655375552282	80.44692737430168	1.4660454988479614	True			marker epithelial as malignant proxy; one biopsy / patient					Q3	Q3
+GSE148071	P39	marker_epithelial	1896	511	227	0.11972573839662447	79.84344422700586	1.3962640762329102	True			marker epithelial as malignant proxy; one biopsy / patient					Q3	Q3
+GSE148071	P40	marker_epithelial	1155	284	373	0.3229437229437229	80.28169014084507	1.7053195238113403	True			marker epithelial as malignant proxy; one biopsy / patient					Q3	Q3
+GSE148071	P42	marker_epithelial	1001	151	454	0.45354645354645357	9.271523178807946	0.09973248839378357	True			marker epithelial as malignant proxy; one biopsy / patient					Q1	Q1
+GSE205335	P1006	author_malig	6090	1282	2998	0.4922824302134647	74.18096723868955	1.338077425956726	True	PR		author malignant; author T/NK			ADC	Lung	Q3	Q2
+GSE205335	P1017	author_malig	6266	2186	2370	0.3782317267794446	64.31838975297347	1.446833848953247	True	SD		author malignant; author T/NK			SQ	LN	Q3	Q2
+GSE205335	P1018	author_malig	5029	1180	2546	0.5062636707098827	67.03389830508475	1.4567127227783203	True	NE		author malignant; author T/NK			ADC	Bronchus	Q3	Q2
+GSE205335	P1027	author_malig	4600	1318	2619	0.5693478260869566	78.07283763277694	2.1198792457580566	True	PR		author malignant; author T/NK			ADC	LN	Q3	Q2
+GSE205335	P1037	author_malig	4983	3671	611	0.12261689745133454	86.05284663579407	0.9543756246566772	True	PR		author malignant; author T/NK			SQ	LN	Q4	Q3
+GSE205335	P1062	author_malig	3057	188	1934	0.6326463853451095	45.21276595744681	0.9858523607254028	True	PD		author malignant; author T/NK			ADC	LN	Q1	Q1
+GSE205335	P1063	author_malig	4297	131	3144	0.7316732604142425	35.11450381679389	0.7369170188903809	True	NE		author malignant; author T/NK			ADC	LN	Q1	Q1
+GSE205335	P1076	author_malig	6975	849	2089	0.2994982078853047	59.36395759717315	0.9238031506538391	True	PD		author malignant; author T/NK			ADC	LN	Q2	Q2
+GSE205335	P1079	author_malig	1277	543	501	0.3923257635082224	51.38121546961326	0.9667482972145081	True	NE		author malignant; author T/NK			ADC	LN	Q2	Q1
+GSE205335	P1084	author_malig	3534	196	2350	0.6649688737973967	86.73469387755102	2.256213903427124	True	NE		author malignant; author T/NK			ADC	LN	Q4	Q4
+GSE205335	P1089	author_malig	1609	1063	272	0.16904909881914232	87.77046095954844	2.1514415740966797	True	PD		author malignant; author T/NK			ADC	LN	Q4	Q4
+GSE205335	P1119	author_malig	2386	1222	621	0.26026823134953897	36.08837970540098	0.5610693097114563	True	PD		author malignant; author T/NK			ADC	LN	Q1	Q1
+GSE205335	P1016	author_malig	6924	5336	763	0.11019641825534374	82.64617691154422	1.4550707340240479	True	PR		author malignant; author T/NK			SCLC	Liver	Q4	Q3
+GSE205335	P1115	author_malig	4397	3769	271	0.06163293154423471	88.8829928362961	1.622982144355774	True	PR		author malignant; author T/NK			SCLC	Liver	Q4	Q4
+GSE205335	P1015	author_malig	1195	291	473	0.39581589958158997	41.580756013745706	0.7684376239776611	True	PD		author malignant; author T/NK			ADC	LN	Q1	Q1
+GSE205335	P1025	author_malig	1222	980	128	0.10474631751227496	92.85714285714286	1.694045066833496	True	PD		author malignant; author T/NK			SCLC	LN	Q4	Q4
+GSE205335	P1056	author_malig	5103	2386	1354	0.26533411718596905	49.70662196144174	0.8104878067970276	True	SD		author malignant; author T/NK			NUT	LN	Q2	Q1
+GSE205335	P1072	author_malig	1273	406	586	0.4603299293008641	58.86699507389162	0.9359386563301086	True	NE		author malignant; author T/NK			SCLC	LN	Q2	Q1
+GSE205335	P0031	author_malig	10930	319	5182	0.47410795974382436	59.24764890282132	0.9488405585289001	True	NE		author malignant; author T/NK			ADC	Lung	Q2	Q1
+GSE205335	P4001	author_malig	2308	27	1801	0.7803292894280762	48.148148148148145	0.7331695556640625	True	SD		author malignant; author T/NK			ADC	Lung	Q1	Q1
+GSE205335	P1030	author_malig	861	603	140	0.16260162601626016	61.69154228855721	1.6170852184295654	True	PD		author malignant; author T/NK			ADC	LN	Q3	Q2
+GSE205335	P1090	author_malig	976	566	247	0.2530737704918033	38.16254416961131	0.6880064606666565	True	PR		author malignant; author T/NK			SQ	LN	Q1	Q1
