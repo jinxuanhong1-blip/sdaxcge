@@ -1,0 +1,32 @@
+{
+  "purpose": "Public curated TF-target edges for IFN/MHC/TJ TFs. Not ChIP.",
+  "do_not_invent_chip": true,
+  "a10_elf3_cldn4_given": true,
+  "urls": {
+    "trrust": "https://www.grnpedia.org/trrust/data/trrust_rawdata.human.tsv",
+    "dorothea": "https://omnipathdb.org/interactions?datasets=dorothea&genesymbols=1&fields=sources,references,dorothea_level",
+    "collectri": "https://omnipathdb.org/interactions?datasets=collectri&genesymbols=1&fields=sources,references"
+  },
+  "n_rows": 1947,
+  "n_tfs": 13,
+  "tfs": [
+    "IRF1",
+    "IRF7",
+    "IRF9",
+    "STAT1",
+    "STAT2",
+    "NLRC5",
+    "CIITA",
+    "RFX5",
+    "ELF3",
+    "GRHL1",
+    "GRHL2",
+    "KLF4",
+    "OVOL1",
+    "OVOL2"
+  ],
+  "tacstd2_cldn4_listed_as_targets_of": [
+    "GRHL2",
+    "STAT2"
+  ]
+}
