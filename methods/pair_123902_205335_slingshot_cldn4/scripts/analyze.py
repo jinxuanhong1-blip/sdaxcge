@@ -356,7 +356,10 @@ def write_finding(path: Path, ctx: dict) -> None:
         "- Given PR #473 IFN DE n=18 (9/9) is **not** this n.",
         "- GSE148071 not used. Dual-high not used. T/NK infiltrate not re-scored.",
         f"- Slingshot: available={s['slingshot'].get('available')}; {s['slingshot'].get('reason', s['slingshot'].get('version', ''))}.",
-        f"- Palantir: available={s['palantir'].get('available')}; version={s['palantir'].get('version', s['palantir'].get('reason', ''))}.",
+        f"- Palantir: available={s['palantir'].get('available')}; version={s['palantir'].get('version', s['palantir'].get('reason', ''))}. "
+        "Palantir warned that some cells were unreachable at k=30; the clock is still Palantir PT on the reachable graph, not a fake ordering.",
+        "- SFTPC / SFTPA1 / club genes may be absent from the shared GSE123902∩GSE205335 universe. "
+        "AT2 score uses the remaining locked AT2 genes. The SFTPC-vs-PT control is n=0 if SFTPC is missing.",
         "",
         "## Locked choices",
         "",
@@ -866,7 +869,8 @@ def main() -> None:
         f"Within-unit CLDN4-high vs low IFN: {_fmt(pair_ifn, keys=('W', 'p'))}; "
         f"barrier: {_fmt(pair_bar, keys=('W', 'p'))}. "
         f"**What this is not.** Given T/NK n=35 and IFN DE n=18 are different contrasts. "
-        "Pooled PT mixes cohorts and is not a within-tumor progression test."
+        "Pooled PT mixes cohorts and is not a within-tumor progression test. "
+        "Within-unit CLDN4-high vs low IFN is a different contrast from PR #473 malignant pseudobulk IFN DE."
     )
 
     summary = {
