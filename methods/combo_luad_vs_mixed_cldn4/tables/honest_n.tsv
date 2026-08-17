@@ -1,0 +1,15 @@
+item	n	note
+GSE131907 samples in extract	58	full T/NK extract; not the test n
+GSE131907 author_malig tumor-site	21	origins tLung/tL/B/mLN/PE/mBrain, n_malignant≥20; sample-level; LUAD series
+GSE148071 GEO patients	42	Wu 2021; one sample each; not the test n
+GSE148071 TISCH eligible	25	≥20 scored epi/mal + ≥20 T/NK; locked given-ρ set
+GSE148071 TISCH eligible malignant	22	drops P5/P35/P39 epithelial-like; used in mixed-all and drop-SCLC
+GSE148071 LUAD-labeled in extract	0	no processed LUAD/LUSC field; out of LUAD-only
+GSE205335 patients in extract	22	locked author-malignant table
+GSE205335 ADC (LUAD)	14	LUAD-only member
+GSE205335 SQ	3	in mixed-all and drop-SCLC; not LUAD
+GSE205335 SCLC	4	in mixed-all only; dropped in drop-SCLC
+GSE205335 NUT	1	not SCLC; kept in drop-SCLC; not LUAD
+LUAD-only N	35	GSE131907 + GSE205335 ADC
+mixed-all N	65	three series, all eligible
+drop-SCLC N	61	mixed-all minus GSE205335 SCLC
