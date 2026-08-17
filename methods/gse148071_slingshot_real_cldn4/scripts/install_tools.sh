@@ -20,8 +20,10 @@ Rscript -e '
 .libPaths(Sys.getenv("R_LIBS_USER"))
 if (!requireNamespace("BiocManager", quietly=TRUE))
   install.packages("BiocManager", repos="https://cloud.r-project.org", lib=Sys.getenv("R_LIBS_USER"))
-if (!requireNamespace("slingshot", quietly=TRUE))
-  BiocManager::install(c("slingshot","SingleCellExperiment"), ask=FALSE, update=FALSE, Ncpus=4, lib=Sys.getenv("R_LIBS_USER"))
+need <- c("slingshot", "SingleCellExperiment", "DelayedMatrixStats")
+miss <- need[!vapply(need, requireNamespace, quietly=TRUE, FUN.VALUE=logical(1))]
+if (length(miss))
+  BiocManager::install(miss, ask=FALSE, update=FALSE, Ncpus=4, lib=Sys.getenv("R_LIBS_USER"))
 library(slingshot)
 cat("SLINGSHOT_OK", as.character(packageVersion("slingshot")), "\n")
 '
