@@ -1,0 +1,19 @@
+family	pair	ligand	receptor	thesis_direction	axis	note
+barrier_inhibitory	F11R–ITGAL+ITGB2	F11R	ITGAL+ITGB2	high>low	barrier	JAM-A to LFA-1 complex
+barrier_inhibitory	F11R–ITGAL	F11R	ITGAL	high>low	barrier	JAM-A to ITGAL subunit
+barrier_inhibitory	F11R–ITGB2	F11R	ITGB2	high>low	barrier	JAM-A to ITGB2 subunit
+barrier_inhibitory	NECTIN2–TIGIT	NECTIN2	TIGIT	high>low	inhibitory	PVRL2 aliased to NECTIN2 if needed
+barrier_inhibitory	CDH1–ITGAE	CDH1	ITGAE	high>low	barrier	E-cadherin to CD103
+barrier_inhibitory	CDH1–ITGAE+ITGB7	CDH1	ITGAE+ITGB7	high>low	barrier	E-cadherin to αEβ7
+barrier_inhibitory	LGALS9–PTPRC	LGALS9	PTPRC	high>low	inhibitory	galectin-9 to CD45
+barrier_inhibitory	LGALS9–CD44	LGALS9	CD44	high>low	inhibitory	galectin-9 to CD44
+ifn_recruit	CXCL9–CXCR3	CXCL9	CXCR3	low>high	T_recruit	IFN-inducible CXCR3 ligand
+ifn_recruit	CXCL10–CXCR3	CXCL10	CXCR3	low>high	T_recruit	IFN-inducible CXCR3 ligand
+ifn_recruit	CXCL11–CXCR3	CXCL11	CXCR3	low>high	T_recruit	IFN-inducible CXCR3 ligand
+ifn_recruit	CCL5–CCR5	CCL5	CCR5	low>high	T_recruit	T-recruit chemokine
+ifn_recruit	HLA-A–CD8A	HLA-A	CD8A	low>high	MHC_I	classical MHC-I to CD8
+ifn_recruit	HLA-A–CD8B	HLA-A	CD8B	low>high	MHC_I	classical MHC-I to CD8
+ifn_recruit	HLA-B–CD8A	HLA-B	CD8A	low>high	MHC_I	classical MHC-I to CD8
+ifn_recruit	HLA-B–CD8B	HLA-B	CD8B	low>high	MHC_I	classical MHC-I to CD8
+ifn_recruit	HLA-C–CD8A	HLA-C	CD8A	low>high	MHC_I	classical MHC-I to CD8
+ifn_recruit	HLA-C–CD8B	HLA-C	CD8B	low>high	MHC_I	classical MHC-I to CD8
