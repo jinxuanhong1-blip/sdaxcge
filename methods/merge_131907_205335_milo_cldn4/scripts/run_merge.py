@@ -87,6 +87,8 @@ def fmt(x, nd=3, sci=False):
 
 def fdr_counts(df: pd.DataFrame) -> dict:
     t = df[df["testable"]] if len(df) and "testable" in df.columns else df.iloc[0:0]
+    rho_col = "spearman_rho" if "spearman_rho" in t.columns else None
+    perfect = (t[rho_col].abs() >= 0.999) if rho_col and len(t) else pd.Series(False, index=t.index)
     rec = {
         "n_nhoods_total": int(len(df)),
         "n_testable": int(len(t)),
@@ -96,11 +98,33 @@ def fdr_counts(df: pd.DataFrame) -> dict:
         "n_SpatialFDR_lt_0.2": int((t["SpatialFDR"] < 0.2).sum()) if len(t) else 0,
         "n_SpatialFDR_lt_0.1": int((t["SpatialFDR"] < 0.1).sum()) if len(t) else 0,
         "n_SpatialFDR_lt_0.05": int((t["SpatialFDR"] < 0.05).sum()) if len(t) else 0,
+        "n_SpatialFDR_lt_0.1_excluding_perfect_rank": int(((t["SpatialFDR"] < 0.1) & ~perfect).sum()) if len(t) else 0,
+        "n_perfect_rank_testable": int(perfect.sum()) if len(t) else 0,
         "min_p": float(t["p"].min()) if len(t) else None,
         "min_SpatialFDR": float(t["SpatialFDR"].min()) if len(t) else None,
         "min_BH_FDR": float(t["BH_FDR"].min()) if len(t) else None,
     }
     return rec
+
+
+def min_present_sensitivity(da: pd.DataFrame) -> list[dict]:
+    t = da[da["testable"]].copy() if len(da) and "testable" in da.columns else da.iloc[0:0]
+    rows = []
+    for m in (5, 6, 8, 10, 12, 15):
+        sub = t[t["n_samples_present"] >= m] if len(t) else t
+        n_abs1 = int((sub["spearman_rho"].abs() >= 0.999).sum()) if len(sub) and "spearman_rho" in sub.columns else 0
+        rows.append(
+            {
+                "min_n_present": m,
+                "n_testable": int(len(sub)),
+                "n_p_lt_0.05": int((sub["p"] < 0.05).sum()) if len(sub) else 0,
+                "n_SpatialFDR_lt_0.1": int((sub["SpatialFDR"] < 0.1).sum()) if len(sub) else 0,
+                "n_perfect_rank": n_abs1,
+                "min_p": float(sub["p"].min()) if len(sub) else None,
+                "min_SpatialFDR": float(sub["SpatialFDR"].min()) if len(sub) else None,
+            }
+        )
+    return rows
 
 
 def plot_volcano(df: pd.DataFrame, x: str, title: str, path: Path, xlabel: str) -> None:
@@ -523,6 +547,7 @@ def run_graph(
         "note_tnk": "descriptive only; PR #320 T/NK ρ is given and is not re-audited",
         "da_malignant_cldn4": fdr_counts(da_cldn),
         "da_cldn4_median_split": fdr_counts(da_split),
+        "sensitivity_min_present": min_present_sensitivity(da_cldn),
         "composition": {
             "note": "transcriptional kNN != spatial niche; not the PR #320 T/NK audit",
             "all_nhoods_maligCLDN4_vs_fracTNK": all_sp,
@@ -776,7 +801,15 @@ def try_harmony(
         pcs = PCA(n_components=n_pcs, svd_solver="randomized", random_state=args.seed).fit_transform(z)
         meta = pd.DataFrame({"dataset": dataset, "unit": sample})
         ho = hm.run_harmony(pcs, meta, "dataset", max_iter_harmony=20)
-        Z = np.asarray(ho.Z_corr).T.astype(np.float32)
+        Z = np.asarray(ho.Z_corr)
+        # harmonypy Z_corr is (n_pcs, n_cells)
+        if Z.ndim != 2:
+            raise ValueError(f"Harmony Z_corr shape {Z.shape}")
+        if Z.shape[0] == n_pcs and Z.shape[1] == X.shape[0]:
+            Z = Z.T
+        elif Z.shape[0] != X.shape[0]:
+            raise ValueError(f"Harmony Z_corr shape {Z.shape} vs n_cells={X.shape[0]}")
+        Z = Z.astype(np.float32)
         fig, ax = plt.subplots(figsize=(5.6, 4.6))
         for ds, col in (("GSE131907", "#4c72b0"), ("GSE205335", "#c44e52")):
             m = dataset == ds
@@ -849,8 +882,12 @@ Graph: {s['n_cells_in_graph']:,} epithelium+immune cells; {s['n_malignant']:,} a
 
 | Contrast | testable | P<0.05 | min P | min SpatialFDR | SpatialFDR<0.1 | SpatialFDR<0.05 | BH<0.1 |
 |---|---|---|---|---|---|---|---|
-| Malignant CLDN4 Spearman | {da['n_testable']} | {da['n_p_lt_0.05']} | {fmt(da.get('min_p'), sci=True)} | {fmt(da.get('min_SpatialFDR'))} | **{da['n_SpatialFDR_lt_0.1']}** | {da['n_SpatialFDR_lt_0.05']} | {da['n_BH_FDR_lt_0.1']} |
+| Malignant CLDN4 Spearman | {da['n_testable']} | {da['n_p_lt_0.05']} | {fmt(da.get('min_p'), sci=True)} | {fmt(da.get('min_SpatialFDR'))} | **{da['n_SpatialFDR_lt_0.1']}** ({da.get('n_perfect_rank_testable', 0)} are abs(rho)=1) | {da['n_SpatialFDR_lt_0.05']} | {da['n_BH_FDR_lt_0.1']} |
 | Median split high vs low | {sp['n_testable']} | {sp['n_p_lt_0.05']} | {fmt(sp.get('min_p'), sci=True)} | {fmt(sp.get('min_SpatialFDR'))} | **{sp['n_SpatialFDR_lt_0.1']}** | {sp['n_SpatialFDR_lt_0.05']} | {sp['n_BH_FDR_lt_0.1']} |
+
+Sensitivity to the sample-count floor (continuous CLDN4). At ≥6, SpatialFDR<0.1 is the number that can be cited as DA:
+
+{sens_block(s)}
 
 Unit-level malignant CLDN4 vs T/NK fraction (descriptive; **not** the PR #320 audit): ρ={fmt(sl.get('rho'))}, p={fmt(sl.get('p'), sci=True)}, n={sl.get('n')}.
 
@@ -866,9 +903,23 @@ Sample/patient-paired T/NK in CLDN4-high vs CLDN4-low neighbourhoods (unit = sam
         da = s["da_malignant_cldn4"]
         rows.append(
             f"| {key} | {s['honest_n']['independent_unit_DA']} | **{s['units']['n_with_malignant_ge10']}** | "
-            f"{da['n_testable']} | **{da['n_SpatialFDR_lt_0.1']}** | {fmt(da.get('min_SpatialFDR'))} |"
+            f"{da['n_testable']} | **{da['n_SpatialFDR_lt_0.1']}** "
+            f"({da.get('n_perfect_rank_testable', 0)} are |ρ|=1 at n=5) | "
+            f"**{da.get('n_SpatialFDR_lt_0.1_excluding_perfect_rank', 0)}** | {fmt(da.get('min_SpatialFDR'))} |"
         )
     table = "\n".join(rows)
+
+    def sens_block(s: dict) -> str:
+        lines = [
+            "| min n present | testable | P<0.05 | SpatialFDR<0.1 | |ρ|=1 | min SpatialFDR |",
+            "|---|---:|---:|---:|---:|---:|",
+        ]
+        for r in s.get("sensitivity_min_present") or []:
+            lines.append(
+                f"| ≥{r['min_n_present']} | {r['n_testable']} | {r['n_p_lt_0.05']} | "
+                f"**{r['n_SpatialFDR_lt_0.1']}** | {r['n_perfect_rank']} | {fmt(r.get('min_SpatialFDR'))} |"
+            )
+        return "\n".join(lines)
     harmony = overall.get("harmony") or {}
     if isinstance(harmony, dict) and harmony.get("ran"):
         h_note = (
@@ -878,7 +929,11 @@ Sample/patient-paired T/NK in CLDN4-high vs CLDN4-low neighbourhoods (unit = sam
         )
     else:
         reason = harmony.get("reason") if isinstance(harmony, dict) else "not attempted"
-        h_note = f"Harmony joint graph was **not** used as the primary result ({reason}). Per-dataset graphs are the DA."
+        h_note = (
+            f"Harmony joint graph was **not** used as the primary result ({reason}). "
+            "Per-dataset graphs are the DA. A 1,200-cell/unit Harmony attempt "
+            "(shared HVG, batch=dataset) is extra and is skipped when it fails."
+        )
 
     blocks = []
     order = [
@@ -911,9 +966,10 @@ The independent unit is the **sample** (GSE131907) or the **patient**
 (GSE205335). Do not cite cell count as *n*. Per-dataset SpatialFDR tables
 are not pooled into one *n*.
 
-**Not miloR.** DA = sample/patient Spearman (primary) or Welch t-test
-(median split) on neighbourhood proportions. SpatialFDR = miloR
-`graphSpatialFDR` k-distance weights (Dann et al. 2022 / cydar).
+**Not miloR.** miloR / edgeR were not available. Neighbourhoods are
+documented kNN (k=30, Milo refined index sampling) with sample/patient
+Spearman DA and k-distance SpatialFDR (Dann et al. 2022 / cydar). This
+is not edgeR QLF.
 
 {h_note}
 
@@ -923,10 +979,22 @@ GSE205335 {overall['gse205335']['n_cells_matrix']:,} cells,
 {overall['gse205335']['n_genes_matrix']:,} genes ({overall['gse205335']['matrix_bytes']:,} bytes gzip).
 The 3 GB GSE131907 log2TPM text and EGA FASTQ were not used.
 
+## Verdict
+
+Every SpatialFDR<0.1 neighbourhood on the continuous Spearman has
+**|ρ| = 1** and is present in exactly **5** units (the `min_samples=5`
+floor). scipy reports p≈1.4×10⁻²⁴ for a perfect rank correlation at that
+n. Those neighbourhoods are mostly T/NK- or myeloid-dominated and
+malignant-empty. This is the same floor artifact recorded on GSE148071.
+**It is not a cohort-level neighbourhood DA claim.**
+
+At n_present ≥ 6, SpatialFDR<0.1 is **0** on every per-dataset graph.
+Median-split Welch is **0** at SpatialFDR<0.1 on every graph.
+
 ## One-row SpatialFDR
 
-| Graph | Unit | Honest n (scored) | testable nhoods | SpatialFDR<0.1 | min SpatialFDR |
-|---|---|---:|---:|---:|---:|
+| Graph | Unit | Honest n (scored) | testable nhoods | SpatialFDR<0.1 (raw) | SpatialFDR<0.1 excluding |ρ|=1 | min SpatialFDR |
+|---|---|---:|---:|---:|---:|---:|
 {table}
 
 ## n and SpatialFDR by graph
@@ -976,10 +1044,10 @@ def extra_summary_figures(graphs: dict, figdir: Path, tables: Path) -> None:
     fig.savefig(figdir / "fig_honest_n.png", dpi=160)
     plt.close(fig)
 
-    rows = []
+    out_rows = []
     for n, s in graphs.items():
         da = s["da_malignant_cldn4"]
-        rows.append(
+        out_rows.append(
             {
                 "graph": n,
                 "n_units": s["units"]["n"],
@@ -989,14 +1057,42 @@ def extra_summary_figures(graphs: dict, figdir: Path, tables: Path) -> None:
                 "n_testable": da["n_testable"],
                 "n_p_lt_0.05": da["n_p_lt_0.05"],
                 "n_SpatialFDR_lt_0.1": da["n_SpatialFDR_lt_0.1"],
+                "n_SpatialFDR_lt_0.1_excluding_perfect_rank": da.get(
+                    "n_SpatialFDR_lt_0.1_excluding_perfect_rank", 0
+                ),
+                "n_perfect_rank_testable": da.get("n_perfect_rank_testable", 0),
                 "n_SpatialFDR_lt_0.05": da["n_SpatialFDR_lt_0.05"],
                 "min_SpatialFDR": da["min_SpatialFDR"],
                 "min_p": da["min_p"],
                 "n_BH_FDR_lt_0.1": da["n_BH_FDR_lt_0.1"],
             }
         )
-    pd.DataFrame(rows).to_csv(tables / "honest_n.tsv", sep="\t", index=False)
-    pd.DataFrame(rows).to_csv(tables / "one_row.tsv", sep="\t", index=False)
+    pd.DataFrame(out_rows).to_csv(tables / "honest_n.tsv", sep="\t", index=False)
+    pd.DataFrame(out_rows).to_csv(tables / "one_row.tsv", sep="\t", index=False)
+    sens_rows = []
+    for n, s in graphs.items():
+        for r in s.get("sensitivity_min_present") or []:
+            sens_rows.append({"graph": n, **r})
+    if sens_rows:
+        pd.DataFrame(sens_rows).to_csv(tables / "sensitivity_min_present.tsv", sep="\t", index=False)
+        fig, ax = plt.subplots(figsize=(6.8, 4.2))
+        for n in graphs:
+            sub = [r for r in (graphs[n].get("sensitivity_min_present") or [])]
+            if sub:
+                ax.plot(
+                    [r["min_n_present"] for r in sub],
+                    [r["n_SpatialFDR_lt_0.1"] for r in sub],
+                    "-o",
+                    label=n,
+                )
+        ax.axhline(0, c="0.5", lw=0.6)
+        ax.set_xlabel("min n units present in the neighbourhood")
+        ax.set_ylabel("nhoods with SpatialFDR < 0.1")
+        ax.set_title("CLDN4 DA vanishes above the n=5 floor")
+        ax.legend(frameon=False, fontsize=8)
+        fig.tight_layout()
+        fig.savefig(figdir / "fig_sensitivity_min_present.png", dpi=160)
+        plt.close(fig)
 
 
 def main() -> None:
