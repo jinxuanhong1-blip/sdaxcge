@@ -1,0 +1,44 @@
+{
+  "n_patients": 1,
+  "n_nodules": 3,
+  "patient_ids": [
+    "Patient 1"
+  ],
+  "sample_ids": [
+    "W1",
+    "W2",
+    "W3"
+  ],
+  "tisch_n_cells": 10996,
+  "geo_n_cells": 11612,
+  "tisch_n_genes": 17503,
+  "tisch_malignant_n": 0,
+  "tisch_epithelial_n": 975,
+  "tisch_tnk_n": 6854,
+  "malignancy_labels": {
+    "Immune cells": 9755,
+    "Stromal cells": 1241
+  },
+  "major_lineage_counts": {
+    "CD4Tconv": 3539,
+    "CD8T": 2670,
+    "Mono/Macro": 1588,
+    "Epithelial": 975,
+    "DC": 594,
+    "NK": 512,
+    "B": 492,
+    "Mast": 227,
+    "Endothelial": 134,
+    "Treg": 133,
+    "Fibroblasts": 132
+  },
+  "cldn4_present": true,
+  "tacstd2_present": true,
+  "tacstd2_used_as_gate": false,
+  "dual_high_run": false,
+  "spearman_computed": false,
+  "response_confounded_with_genotype": true,
+  "pretreatment_samples": false,
+  "author_celltype_labels": "TISCH2 CellMetainfo (not author GEO labels)",
+  "cnv_available": false
+}
