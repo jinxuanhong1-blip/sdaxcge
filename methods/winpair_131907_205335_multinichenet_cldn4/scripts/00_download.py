@@ -36,7 +36,7 @@ FILES = [
             "matrix/GSE131907_series_matrix.txt.gz"
         ),
         "dest": CACHE / "GSE131907_series_matrix.txt.gz",
-        "min_bytes": 10_000,
+        "min_bytes": 3_000,
     },
     {
         "name": "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz",
@@ -63,7 +63,7 @@ FILES = [
             "soft/GSE205335_family.soft.gz"
         ),
         "dest": CACHE / "GSE205335_family.soft.gz",
-        "min_bytes": 10_000,
+        "min_bytes": 2_000,
     },
     {
         "name": "GSE205335_Lung_IO_UMI_matrix.rds.gz",

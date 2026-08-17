@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import gzip
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -315,61 +316,43 @@ def extract_gse131907(keep: set[str]) -> tuple[pd.DataFrame, pd.DataFrame, dict]
     return pat, gene, info
 
 
+def patient_from_orig_ident(ident: str) -> str:
+    """EBUS-06-3P / LUNG-T31-3P / LM-115-3P → P0006 / P0031 / P0115."""
+    m = re.search(r"-(\d+)-[35]P$", str(ident))
+    if m:
+        return f"P{int(m.group(1)):04d}"
+    return str(ident)
+
+
 def extract_gse205335(keep: set[str]) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     ident = pd.read_csv(CACHE / "GSE205335_Lung_IO_CellIdentity.txt.gz", sep="\t")
     log(f"[GSE205335] identity columns={list(ident.columns)}")
-    soft = parse_geo_soft(CACHE / "GSE205335_family.soft.gz")
     extracted, library_umi, barcodes, all_genes = load_rds_selected(
         CACHE / "GSE205335_Lung_IO_UMI_matrix.rds.gz", keep
     )
     if "barcode" not in ident.columns:
-        # first column is often the barcode
         ident = ident.rename(columns={ident.columns[0]: "barcode"})
     indexed = ident.drop_duplicates("barcode").set_index("barcode")
     cells = indexed.reindex(barcodes).reset_index()
     cells = cells.rename(columns={"index": "barcode"})
-    n_miss = int(cells.iloc[:, 1].isna().sum()) if cells.shape[1] > 1 else 0
+    n_miss = int(cells["orig.ident"].isna().sum()) if "orig.ident" in cells.columns else int(cells.shape[0])
     log(f"[GSE205335] identity reindex missing={n_miss} / {len(barcodes)}")
+    if n_miss:
+        raise SystemExit("GSE205335 barcodes do not match CellIdentity")
 
-    # patient
-    if "patient" in cells.columns:
-        patient = cells["patient"].astype(str).to_numpy()
-    elif "Patient" in cells.columns:
-        patient = cells["Patient"].astype(str).to_numpy()
-    else:
-        # join SOFT
-        key = "orig.ident" if "orig.ident" in cells.columns else None
-        if key and "orig.ident_soft" in soft.columns:
-            cells = cells.merge(
-                soft.rename(columns={"orig.ident_soft": "orig.ident", "patient": "patient_soft"}),
-                on="orig.ident",
-                how="left",
-            )
-        if "patient" in cells.columns:
-            patient = cells["patient"].astype(str).to_numpy()
-        elif "patient_soft" in cells.columns:
-            patient = cells["patient_soft"].astype(str).to_numpy()
-        else:
-            raise SystemExit(f"cannot find patient in GSE205335; cols={list(cells.columns)}")
-
-    tissue = None
-    for cand in ("tissue", "Tissue", "sample_type"):
-        if cand in cells.columns:
-            tissue = cells[cand].astype(str).to_numpy()
-            break
-    if tissue is None and "tissue" in soft.columns and "orig.ident" in cells.columns:
-        tmap = soft.set_index("orig.ident_soft")["tissue"].to_dict() if "orig.ident_soft" in soft.columns else {}
-        if "orig.ident" in cells.columns:
-            tissue = np.array([str(tmap.get(x, "")) for x in cells["orig.ident"]], dtype=object)
+    if "orig.ident" not in cells.columns:
+        raise SystemExit(f"missing orig.ident: {list(cells.columns)}")
+    orig = cells["orig.ident"].astype(str)
+    patient = orig.map(patient_from_orig_ident).to_numpy()
+    # Normal lung / NS (normal) libraries are not tumor TME
+    is_normal = orig.str.startswith("LUNG-N") | orig.str.startswith("NS-")
+    is_tumor = (~is_normal).to_numpy()
 
     lineage_sub = cells["lineage.sub"].astype(str).to_numpy() if "lineage.sub" in cells.columns else None
     lineage_total = cells["lineage.total"].astype(str).to_numpy() if "lineage.total" in cells.columns else None
     if lineage_sub is None or lineage_total is None:
         raise SystemExit(f"missing lineage columns: {list(cells.columns)}")
 
-    is_tumor = np.ones(len(barcodes), dtype=bool)
-    if tissue is not None:
-        is_tumor = ~pd.Series(tissue).str.startswith("Normal", na=False).to_numpy()
     is_malig = is_tumor & (lineage_sub == HU_MALIGNANT_SUB)
     is_tnk = is_tumor & (lineage_total == HU_TNK_TOTAL)
     if "CLDN4" not in extracted:
@@ -382,15 +365,7 @@ def extract_gse205335(keep: set[str]) -> tuple[pd.DataFrame, pd.DataFrame, dict]
         f"[GSE205335] cells={len(barcodes)} mal={int(is_malig.sum())} "
         f"high={int(cld_hi.sum())} low={int(cld_lo.sum())} tnk={int(is_tnk.sum())} thr={thr:.4f}"
     )
-    extra = {}
-    if tissue is not None:
-        extra["tissue"] = tissue.astype(str)
-    if "cancer_subtype" in cells.columns:
-        extra["cancer_subtype"] = cells["cancer_subtype"].astype(str).to_numpy()
-    elif "cancer subtype" in cells.columns:
-        extra["cancer_subtype"] = cells["cancer subtype"].astype(str).to_numpy()
-    if "recist" in cells.columns:
-        extra["recist"] = cells["recist"].astype(str).to_numpy()
+    extra = {"orig.ident": orig.to_numpy()}
     pat, gene = summarize_patients(
         "GSE205335", patient, is_malig, is_tnk, cld_hi, cld_lo, library_umi, extracted, extra
     )

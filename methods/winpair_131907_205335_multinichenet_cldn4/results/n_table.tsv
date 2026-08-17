@@ -1,0 +1,21 @@
+item	n	note
+datasets	2	GSE131907 + GSE205335 only; GSE207422 excluded
+GSE131907_cells	208506	Kim et al. author barcodes
+GSE131907_malignant	31136	tumor-origin ∩ {Malignant cells, tS1, tS2, tS3}
+GSE131907_cldn4_high_low	15569	high; low=15567; median=1.798
+GSE131907_TNK	48012	tumor-origin T lymphocytes + NK
+GSE205335_cells	96505	Hu/Ahn/Lee processed UMI
+GSE205335_malignant	28512	tumor sample ∩ lineage.sub == Malignant cells
+GSE205335_cldn4_high_low	14256	high; low=14256; median=1.371
+GSE205335_TNK	38265	tumor sample ∩ lineage.total == T/NK cells
+eligible_patients_GSE131907	29	≥10 high, ≥10 low, ≥20 T/NK; patient pooled
+eligible_patients_GSE205335	22	same gate; RECIST not used as MPR
+eligible_patients_combined	51	unit of inference
+potential_ligands_combined	136	CLDN4-high ligand + T/NK receptor + v2 prior
+potential_ligands_GSE131907	114	dataset-specific 10% rule
+potential_ligands_GSE205335	161	dataset-specific 10% rule
+background_genes	255	T/NK-expressed ∩ prior targets (panel-restricted)
+a_priori_ifn_in_prior	16	
+a_priori_cyto_in_prior	14	
+empirical_TNK_up_with_CLDN4	170	patient Spearman p<0.15, ρ>0
+empirical_TNK_down_with_CLDN4	203	patient Spearman p<0.15, ρ<0

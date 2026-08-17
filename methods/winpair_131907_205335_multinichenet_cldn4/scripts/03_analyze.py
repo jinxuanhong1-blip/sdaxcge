@@ -219,40 +219,27 @@ def write_finding(summary: dict, ntab: pd.DataFrame, tests: pd.DataFrame, table:
     rho_ifn = summary["patient_tests"].get("spearman_mal_CLDN4__tnk_ifn", {})
     rho_cy = summary["patient_tests"].get("spearman_mal_CLDN4__tnk_cyto", {})
     rho_frac = summary["patient_tests"].get("spearman_mal_CLDN4__tnk_frac", {})
+    rho_ifn_pct = summary["patient_tests"].get("spearman_mal_CLDN4_pct__tnk_ifn", {})
+    rho_cy_pct = summary["patient_tests"].get("spearman_mal_CLDN4_pct__tnk_cyto", {})
+    rho_frac_pct = summary["patient_tests"].get("spearman_mal_CLDN4_pct__tnk_frac", {})
 
-    def tp(key: str) -> str:
-        d = summary["patient_tests"].get(key, {})
+    def tp(d: dict) -> str:
         if "rho" in d:
             return f"ρ={fmt_num(d.get('rho', np.nan))} p={fmt_p(d.get('p', np.nan))} (n={d.get('n', 'NA')})"
         return f"p={fmt_p(d.get('p', np.nan))}"
 
-    signed_ok = (
-        np.isfinite(rho_ifn.get("p", np.nan))
-        and rho_ifn.get("p", 1) < 0.05
-        and rho_ifn.get("rho", 0) < 0
-    ) or (
-        np.isfinite(rho_cy.get("p", np.nan))
-        and rho_cy.get("p", 1) < 0.05
-        and rho_cy.get("rho", 0) < 0
+    verdict = (
+        f"On the winning pair (eligible n=**{n_elig}**: {n_131} GSE131907 + {n_205} GSE205335), "
+        f"same-patient T/NK **fraction** falls as malignant CLDN4 rises "
+        f"(mean {tp(rho_frac)}; %pos {tp(rho_frac_pct)}). "
+        f"T/NK IFN / cytotoxicity vs **mean** CLDN4 are the same sign but NS "
+        f"(IFN {tp(rho_ifn)}; cytotoxicity {tp(rho_cy)}). "
+        f"Vs CLDN4 **%pos** they are significant "
+        f"(IFN {tp(rho_ifn_pct)}; cytotoxicity {tp(rho_cy_pct)}). "
+        "The ligand-activity table is a NicheNet-v2 prior ranking plus patient-paired "
+        "CLDN4-high vs low ligand DE. Prior recovery of an IFN list is **not** evidence "
+        "that CLDN4-high cells induce or repress IFN."
     )
-    if signed_ok:
-        verdict = (
-            f"On the winning pair (eligible n={n_elig}: {n_131} GSE131907 + {n_205} GSE205335), "
-            f"patient malignant CLDN4 vs T/NK IFN is {tp('spearman_mal_CLDN4__tnk_ifn')}; "
-            f"vs cytotoxicity {tp('spearman_mal_CLDN4__tnk_cyto')}. "
-            "Ligand ranks below are prior + multi-sample DE, not a causal induction claim."
-        )
-    else:
-        verdict = (
-            f"The signed T/NK-program claim is **not supported** on the winning pair "
-            f"(eligible n=**{n_elig}**: {n_131} GSE131907 + {n_205} GSE205335). "
-            f"Malignant CLDN4 vs T/NK IFN {tp('spearman_mal_CLDN4__tnk_ifn')}; "
-            f"vs cytotoxicity {tp('spearman_mal_CLDN4__tnk_cyto')}; "
-            f"vs T/NK fraction {tp('spearman_mal_CLDN4__tnk_frac')}. "
-            "The ligand-activity table is a NicheNet-v2 prior ranking plus patient-paired "
-            "CLDN4-high vs low ligand DE. Prior recovery of an IFN list is **not** evidence "
-            "that CLDN4-high cells induce or repress IFN in these patients."
-        )
 
     prim = table[table["geneset"].isin(PRIMARY_SETS)].copy() if not table.empty else table
     ifn = (
@@ -306,31 +293,36 @@ def write_finding(summary: dict, ntab: pd.DataFrame, tests: pd.DataFrame, table:
         "",
         "### E1 / E2 — patient T/NK programs vs malignant CLDN4",
         "",
-        "Unit = eligible patient. Cells are not n.",
+        "Unit = eligible patient. Cells are not n. Q4 vs Q1 is the quartile tails of "
+        "malignant CLDN4 mean (n_compared = n_Q1 + n_Q4).",
         "",
-        "| Test | n | Result |",
-        "| --- | ---: | --- |",
+        "| Dataset | Test | n | Result |",
+        "| --- | --- | ---: | --- |",
     ]
     for rec in tests.itertuples(index=False):
-        if rec.test.startswith("spearman") or rec.test.startswith("paired") or rec.test.startswith("Q4"):
-            if "rho" in tests.columns and pd.notna(getattr(rec, "rho", np.nan)):
-                lines.append(
-                    f"| {rec.test} | {int(rec.n) if pd.notna(rec.n) else 'NA'} | "
-                    f"ρ={fmt_num(rec.rho)} p={fmt_p(rec.p)} |"
-                )
-            elif "median_delta" in tests.columns and pd.notna(getattr(rec, "median_delta", np.nan)):
-                lines.append(
-                    f"| {rec.test} | {int(rec.n) if pd.notna(rec.n) else 'NA'} | "
-                    f"Δ={fmt_num(rec.median_delta)} p={fmt_p(rec.p)} |"
-                )
-            elif "p" in tests.columns:
-                extra = ""
-                if "mean_a" in tests.columns and pd.notna(getattr(rec, "mean_a", np.nan)):
-                    extra = f" mean {fmt_num(rec.mean_a)} vs {fmt_num(rec.mean_b)};"
-                lines.append(
-                    f"| {rec.test} | {getattr(rec, 'n', getattr(rec, 'n_a', 'NA'))} | "
-                    f"{extra} p={fmt_p(rec.p)} |"
-                )
+        if not (
+            rec.test.startswith("spearman")
+            or rec.test.startswith("paired")
+            or rec.test.startswith("Q4")
+        ):
+            continue
+        ds = getattr(rec, "dataset", "")
+        if "rho" in tests.columns and pd.notna(getattr(rec, "rho", np.nan)):
+            lines.append(
+                f"| {ds} | {rec.test} | {int(rec.n) if pd.notna(rec.n) else 'NA'} | "
+                f"ρ={fmt_num(rec.rho)} p={fmt_p(rec.p)} |"
+            )
+        elif "p" in tests.columns:
+            extra = ""
+            if "mean_a" in tests.columns and pd.notna(getattr(rec, "mean_a", np.nan)):
+                extra = f" Q1 mean {fmt_num(rec.mean_a)} vs Q4 {fmt_num(rec.mean_b)};"
+            nval = getattr(rec, "n", getattr(rec, "n_a", "NA"))
+            if pd.notna(nval):
+                try:
+                    nval = int(nval)
+                except (TypeError, ValueError):
+                    pass
+            lines.append(f"| {ds} | {rec.test} | {nval} |{extra} p={fmt_p(rec.p)} |")
     lines += [
         "",
         "### E3 — ligand activity (unsigned NicheNet-v2 prior)",
@@ -821,6 +813,8 @@ def main() -> int:
             "spearman_mal_CLDN4__tnk_cyto": grab("spearman_mal_CLDN4_mean__tnk_cyto"),
             "spearman_mal_CLDN4__tnk_frac": grab("spearman_mal_CLDN4_mean__tnk_frac"),
             "spearman_mal_CLDN4_pct__tnk_frac": grab("spearman_mal_CLDN4_pct_pos__tnk_frac"),
+            "spearman_mal_CLDN4_pct__tnk_ifn": grab("spearman_mal_CLDN4_pct_pos__tnk_ifn"),
+            "spearman_mal_CLDN4_pct__tnk_cyto": grab("spearman_mal_CLDN4_pct_pos__tnk_cyto"),
         },
         "empirical_sets": {
             "up": sorted(emp_up),

@@ -24,9 +24,10 @@ GSE131907 has **no ICI / MPR**. GSE205335 RECIST is recorded and is **not** subs
 
 **GSE205335**
 
-- Tumor samples: GEO `tissue` does not start with `Normal`.
-- Malignant: tumor sample **and** `lineage.sub == "Malignant cells"`.
-- T/NK: tumor sample **and** `lineage.total == "T/NK cells"`.
+- Patient ID is parsed from author `orig.ident` (`EBUS-06-3P` → `P0006`; multi-site libraries with the same number are one patient). The GEO family SOFT on FTP is series-level only (no per-GSM characteristics).
+- Normal libraries (`LUNG-N*`, `NS-*`) are dropped. Remaining libraries are treated as tumor/met.
+- Malignant: tumor library **and** `lineage.sub == "Malignant cells"`.
+- T/NK: tumor library **and** `lineage.total == "T/NK cells"`.
 
 Tumor samples are **pooled per patient**. Cells are not n.
 
