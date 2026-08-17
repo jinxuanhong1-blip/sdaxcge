@@ -10,6 +10,7 @@ scored in Python. R / nichenetr is not required.
 """
 from __future__ import annotations
 
+import gc
 import gzip
 import json
 import sys
@@ -54,6 +55,77 @@ MIN_CELLS = 20
 EMPIRICAL_P = 0.15
 TOP_N = 15
 PRIMARY_SETS = ("a_priori_ifn", "a_priori_cytotoxicity")
+KEEP_META = {
+    "barcode",
+    "Index",
+    "Sample",
+    "sample",
+    "orig.ident",
+    "patient",
+    "patient_id",
+    "cohort",
+    "origin",
+    "histology",
+    "recist",
+    "compartment",
+    "cell_type",
+    "cell_subtype",
+    "Cell_type",
+    "Cell_subtype",
+    "Sample_Origin",
+    "Sample_Origin_geo",
+    "tissue_origin_abbrevation",
+    "nCount_RNA",
+    "CLDN4",
+    "geo_accession",
+    "tumor_stage",
+    "is_tumor",
+    "lineage.sub",
+    "lineage.total",
+    "tissue",
+    "gsm",
+    "cancer_subtype",
+    "cldn4_high",
+    "dual_high_companion",
+}
+CONCAT_META = [
+    "cohort",
+    "patient",
+    "Sample",
+    "origin",
+    "histology",
+    "recist",
+    "compartment",
+    "nCount_RNA",
+    "CLDN4",
+    "cldn4_high",
+    "dual_high_companion",
+]
+
+
+def mem_report(tag: str) -> None:
+    rss = "?"
+    try:
+        with open("/proc/self/status") as handle:
+            for line in handle:
+                if line.startswith("VmRSS:"):
+                    rss = line.split()[1]
+                    break
+    except OSError:
+        pass
+    print(f"[mem] {tag} VmRSS={rss} kB", flush=True)
+
+
+def used_log_genes(panel_genes: list[str], lr: pd.DataFrame) -> list[str]:
+    """Genes that need log1p(CP10k): CLDN4/TACSTD2, programs, and LR pairs in the panel."""
+    want = {"CLDN4", "TACSTD2"}
+    want.update(IFN)
+    want.update(CYTOTOXICITY)
+    want.update(EXHAUSTION)
+    want.update(EXTRA_TNK)
+    want.update(lr["from"].astype(str))
+    want.update(lr["to"].astype(str))
+    return [g for g in panel_genes if g in want]
 
 
 def fmt_p(value: float) -> str:
@@ -81,13 +153,15 @@ def ligand_activity(lt: pd.DataFrame, geneset: set[str], background: list[str], 
     if y.sum() < 2 or y.sum() > len(y) - 2:
         return pd.DataFrame()
     use = [L for L in ligands if L in lt.columns]
-    X = lt.loc[genes, use].to_numpy(dtype=float)
+    if not use:
+        return pd.DataFrame()
+    X = lt.loc[genes, use].to_numpy(dtype=np.float32)
     rows = []
     for j, L in enumerate(use):
         s = X[:, j]
         if not np.isfinite(s).all() or np.allclose(s, s[0]):
             continue
-        pear = stats.pearsonr(s, y)
+        pear = stats.pearsonr(s.astype(np.float64), y)
         try:
             auroc = float(roc_auc_score(y, s))
         except ValueError:
@@ -114,13 +188,26 @@ def ligand_activity(lt: pd.DataFrame, geneset: set[str], background: list[str], 
 
 
 def expressed_genes(sub: pd.DataFrame, genes: list[str], frac: float = DETECT_FRAC) -> list[str]:
+    """Detection on raw UMI or log1p(CP10k); both are 0 iff UMI is 0. Skip NaN cells."""
     keep = []
     if len(sub) == 0:
         return keep
     for g in genes:
-        if g not in sub.columns:
+        if g in sub.columns:
+            col = g
+        elif f"log_{g}" in sub.columns:
+            col = f"log_{g}"
+        else:
             continue
-        if float((sub[g] > 0).mean()) >= frac:
+        vals = sub[col]
+        if getattr(vals, "notna", None) is not None:
+            mask = vals.notna()
+            if not bool(mask.any()):
+                continue
+            vals = vals[mask]
+        if len(vals) == 0:
+            continue
+        if float((vals > 0).mean()) >= frac:
             keep.append(g)
     return keep
 
@@ -192,6 +279,7 @@ def parse_gse205335_soft(path: Path) -> pd.DataFrame:
 
 
 def add_log_cols(cells: pd.DataFrame, genes: list[str]) -> pd.DataFrame:
+    """log1p(CP10k) as float32 for the requested genes only."""
     ncount = cells["nCount_RNA"].to_numpy()
     logs = {}
     for g in genes:
@@ -200,6 +288,40 @@ def add_log_cols(cells: pd.DataFrame, genes: list[str]) -> pd.DataFrame:
     if logs:
         cells = pd.concat([cells, pd.DataFrame(logs, index=cells.index)], axis=1)
     return cells
+
+
+def slim_cells(cells: pd.DataFrame, used_genes: list[str], panel_genes: list[str]) -> pd.DataFrame:
+    """Log only used genes, then drop raw UMIs except CLDN4 (needed for %pos)."""
+    present = [g for g in used_genes if g in cells.columns]
+    ncount = cells["nCount_RNA"].to_numpy()
+    logs = {f"log_{g}": log1p_cp10k(cells[g].to_numpy(), ncount) for g in present}
+    meta = [c for c in cells.columns if c in KEEP_META]
+    out = cells.loc[:, meta].copy()
+    if logs:
+        out = pd.concat([out, pd.DataFrame(logs, index=out.index)], axis=1)
+    dropped_raw = [g for g in panel_genes if g != "CLDN4" and g in cells.columns]
+    print(
+        f"slim cells={len(out)} cols={out.shape[1]} logs={len(logs)} dropped_raw={len(dropped_raw)}",
+        flush=True,
+    )
+    return out
+
+
+def concat_cohorts(c131: pd.DataFrame, c205: pd.DataFrame) -> pd.DataFrame:
+    """Align metadata + log columns; missing logs stay float32 NaN (no unused raw UMIs)."""
+    logs = sorted({c for df in (c131, c205) for c in df.columns if c.startswith("log_")})
+    frames = []
+    for df in (c131, c205):
+        cols = [c for c in CONCAT_META if c in df.columns]
+        meta = df.loc[:, cols].copy()
+        block = np.empty((len(df), len(logs)), dtype=np.float32)
+        for j, col in enumerate(logs):
+            if col in df.columns:
+                block[:, j] = np.asarray(df[col].to_numpy(), dtype=np.float32)
+            else:
+                block[:, j] = np.nan
+        frames.append(pd.concat([meta, pd.DataFrame(block, index=meta.index, columns=logs)], axis=1))
+    return pd.concat(frames, ignore_index=True)
 
 
 def load_gse131907(panel: pd.DataFrame) -> pd.DataFrame:
@@ -594,37 +716,53 @@ def write_finding(summary: dict, patients: pd.DataFrame, primary: pd.DataFrame, 
     print("wrote FINDING.md", flush=True)
 
 
+def _mark_cldn4(cells: pd.DataFrame, name: str) -> pd.DataFrame:
+    mal = cells["compartment"] == "Malignant"
+    if "log_CLDN4" not in cells.columns:
+        raise RuntimeError(f"CLDN4 missing in {name}")
+    med = float(cells.loc[mal, "log_CLDN4"].median()) if mal.any() else np.nan
+    cells["cldn4_high"] = mal & (cells["log_CLDN4"] >= med)
+    if "log_TACSTD2" in cells.columns:
+        med_t = float(cells.loc[mal, "log_TACSTD2"].median())
+        cells["dual_high_companion"] = mal & (cells["log_CLDN4"] >= med) & (cells["log_TACSTD2"] >= med_t)
+    else:
+        cells["dual_high_companion"] = False
+    print(f"{name} malig={int(mal.sum())} CLDN4-high={int(cells['cldn4_high'].sum())} med={med:.3f}", flush=True)
+    return cells
+
+
+def load_and_slim(cohort: str, panel_path: Path, lr: pd.DataFrame) -> pd.DataFrame:
+    mem_report(f"before {cohort} panel")
+    panel = pd.read_parquet(panel_path)
+    panel_genes = [c for c in panel.columns if c != "nCount_RNA"]
+    print(f"panel {cohort}={panel.shape} genes={len(panel_genes)}", flush=True)
+    if cohort == "GSE131907":
+        cells = load_gse131907(panel)
+    elif cohort == "GSE205335":
+        cells = load_gse205335(panel)
+    else:
+        raise ValueError(cohort)
+    del panel
+    gc.collect()
+    mem_report(f"after {cohort} join")
+    used = used_log_genes(panel_genes, lr)
+    print(f"{cohort} used_log_genes={len(used)} / panel={len(panel_genes)}", flush=True)
+    cells = slim_cells(cells, used, panel_genes)
+    gc.collect()
+    mem_report(f"after {cohort} slim")
+    return cells
+
+
 def main() -> int:
     lr = pd.read_csv(DATA / "lr_network.tsv", sep="\t")
-    lt = pd.read_parquet(CACHE / "prior_ligand_target.parquet")
-    if lt.shape[0] < lt.shape[1]:
-        print(f"warning: lt shape {lt.shape} (expected genes x ligands)", flush=True)
+    mem_report("start")
 
-    p131 = pd.read_parquet(CACHE / "gse131907_panel.parquet")
-    p205 = pd.read_parquet(CACHE / "gse205335_panel.parquet")
-    print(f"panels 131907={p131.shape} 205335={p205.shape}", flush=True)
-
-    c131 = load_gse131907(p131)
-    c205 = load_gse205335(p205)
-    genes_131 = [c for c in p131.columns if c != "nCount_RNA"]
-    genes_205 = [c for c in p205.columns if c != "nCount_RNA"]
-    c131 = add_log_cols(c131, genes_131)
-    c205 = add_log_cols(c205, genes_205)
-
-    # Cohort-wise CLDN4-high among all author-malignant cells (pre-gate), then restrict patients.
-    for cells, name in ((c131, "GSE131907"), (c205, "GSE205335")):
-        mal = cells["compartment"] == "Malignant"
-        if "log_CLDN4" not in cells.columns:
-            raise RuntimeError(f"CLDN4 missing in {name}")
-        med = float(cells.loc[mal, "log_CLDN4"].median()) if mal.any() else np.nan
-        cells["cldn4_high"] = mal & (cells["log_CLDN4"] >= med)
-        if "log_TACSTD2" in cells.columns:
-            med_t = float(cells.loc[mal, "log_TACSTD2"].median())
-            cells["dual_high_companion"] = mal & (cells["log_CLDN4"] >= med) & (cells["log_TACSTD2"] >= med_t)
-        else:
-            cells["dual_high_companion"] = False
-        cells.attrs["med_cldn4"] = med
-        print(f"{name} malig={int(mal.sum())} CLDN4-high={int(cells['cldn4_high'].sum())} med={med:.3f}", flush=True)
+    c131 = load_and_slim("GSE131907", CACHE / "gse131907_panel.parquet", lr)
+    c131 = _mark_cldn4(c131, "GSE131907")
+    gc.collect()
+    c205 = load_and_slim("GSE205335", CACHE / "gse205335_panel.parquet", lr)
+    c205 = _mark_cldn4(c205, "GSE205335")
+    gc.collect()
 
     # Eligible patients: ≥20 malignant and ≥20 T/NK after pooling samples
     def eligible_ids(cells: pd.DataFrame) -> set[str]:
@@ -660,8 +798,32 @@ def main() -> int:
 
     c131 = c131[c131["patient"].isin(e131)].copy()
     c205 = c205[c205["patient"].isin(e205)].copy()
-    cells = pd.concat([c131, c205], ignore_index=True, sort=False)
-    print(f"eligible cells {len(cells)}", flush=True)
+    gc.collect()
+
+    def patient_n(df: pd.DataFrame) -> pd.DataFrame:
+        rows = []
+        for (cohort, pid), g in df.groupby(["cohort", "patient"], observed=True):
+            rows.append(
+                {
+                    "cohort": cohort,
+                    "patient": pid,
+                    "n_samples": int(g["Sample"].nunique()) if "Sample" in g.columns else 1,
+                    "n_cells": int(len(g)),
+                    "tnk_frac": float((g["compartment"] == "T/NK").mean()),
+                }
+            )
+        return pd.DataFrame(rows)
+
+    # T/NK fraction uses all cells (including Other). Do not concat unused UMIs.
+    keep_n = pd.concat([patient_n(c131), patient_n(c205)], ignore_index=True)
+    c131 = c131[c131["compartment"].isin(["Malignant", "T/NK"])].copy()
+    c205 = c205[c205["compartment"].isin(["Malignant", "T/NK"])].copy()
+    gc.collect()
+    cells = concat_cohorts(c131, c205)
+    del c131, c205
+    gc.collect()
+    mem_report("after eligible concat")
+    print(f"eligible Malignant+T/NK cells {len(cells)}", flush=True)
 
     # Recompute CLDN4-high on eligible malignant only (same rule, eligible slice)
     meds = {}
@@ -682,7 +844,11 @@ def main() -> int:
         dual_n += int(cells.loc[idx, "dual_high_companion"].sum())
         print(f"eligible {cohort} med_CLDN4={med:.3f} high={int(cells.loc[idx, 'cldn4_high'].sum())}", flush=True)
 
-    patients = patient_table(cells)
+    # Refresh patient malignant/TNK program scores on the eligible Malignant+T/NK slice
+    # (n_cells / tnk_frac already include Other from the pre-drop table).
+    prog = patient_table(cells)
+    drop_prog = [c for c in ("n_cells", "n_samples", "tnk_frac") if c in prog.columns]
+    patients = prog.drop(columns=drop_prog).merge(keep_n, on=["cohort", "patient"], how="left")
     for cohort, sub_idx in patients.groupby("cohort").groups.items():
         patients.loc[sub_idx, "q_pct"] = assign_quartiles(patients.loc[sub_idx, "mal_CLDN4_pct_pos"])
         patients.loc[sub_idx, "q_mean"] = assign_quartiles(patients.loc[sub_idx, "mal_CLDN4_mean"])
@@ -727,11 +893,20 @@ def main() -> int:
     tests_df = pd.DataFrame(tests)
     tests_df.to_csv(OUT / "patient_level_tests.tsv", sep="\t", index=False)
 
-    ligands_all = sorted(set(lr["from"].astype(str)) & set(lt.columns.astype(str)))
+    mem_report("before prior")
+    lt = pd.read_parquet(CACHE / "prior_ligand_target.parquet")
+    if lt.shape[0] < lt.shape[1]:
+        print(f"warning: lt shape {lt.shape} (expected genes x ligands)", flush=True)
+    lt.index = lt.index.astype(str)
+    lt.columns = lt.columns.astype(str)
+    print(f"prior full {lt.shape}", flush=True)
+    mem_report("after prior load")
+
+    ligands_all = sorted(set(lr["from"].astype(str)) & set(lt.columns))
     receptors_all = sorted(set(lr["to"].astype(str)))
-    high = cells[cells["cldn4_high"]].copy()
-    low = cells[(cells["compartment"] == "Malignant") & (~cells["cldn4_high"])].copy()
-    tnk = cells[cells["compartment"] == "T/NK"].copy()
+    high = cells.loc[cells["cldn4_high"]]
+    low = cells.loc[(cells["compartment"] == "Malignant") & (~cells["cldn4_high"])]
+    tnk = cells.loc[cells["compartment"] == "T/NK"]
 
     expr_lig_high = expressed_genes(high, ligands_all)
     expr_rec_tnk = expressed_genes(tnk, receptors_all)
@@ -756,10 +931,22 @@ def main() -> int:
         )
         print(f"potential {cohort}={len(pot_by_cohort[cohort])}", flush=True)
 
-    tnk_expr = expressed_genes(tnk, [c for c in tnk.columns if not c.startswith("log_") and c in lt.index])
+    log_genes = [c[4:] for c in tnk.columns if c.startswith("log_")]
+    tnk_expr = expressed_genes(tnk, [g for g in log_genes if g in lt.index])
     background = sorted(set(tnk_expr) | set(CYTOTOXICITY) | set(IFN) | set(EXHAUSTION) | set(EXTRA_TNK))
     background = [g for g in background if g in lt.index]
     print(f"background genes {len(background)}", flush=True)
+
+    # Subset the 33354 × 1226 prior to background × candidate ligands before scoring.
+    cand_ligs = sorted(
+        set(potential) | set(pot_by_cohort["GSE131907"]) | set(pot_by_cohort["GSE205335"])
+    )
+    use_ligs = [L for L in cand_ligs if L in lt.columns]
+    use_genes = [g for g in background if g in lt.index]
+    lt = lt.loc[use_genes, use_ligs].astype(np.float32)
+    gc.collect()
+    mem_report("after prior subset")
+    print(f"prior subset {lt.shape} (background x candidate ligands)", flush=True)
 
     # Empirical T/NK gene association with CLDN4 %pos (patient means, DL merge)
     tnk_genes = sorted(
