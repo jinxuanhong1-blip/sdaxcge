@@ -97,29 +97,7 @@ Focus pairs with median Δ < 0: **5/22**. FDR < 0.05 and Δ < 0: **0/22**. FDR <
 | other | IGFBP3 | TMEM219 | 27 | 14 | 13 | +0.097 | 4.57e-06 | 3.56e-05 |
 | other | PLAUR | ITGA4+ITGB1 | 26 | 9 | 17 | +0.089 | 5.04e-06 | 3.66e-05 |
 
-Full ranked table: `results/lr_table.tsv`. Per-patient scores: `results/patient_outgoing.tsv.gz`.
-
-## LIANA CellPhoneDB method (secondary, pooled / downsampled)
-
-LIANA `mt.cellphonedb` ran separately per cohort (`expr_prop=0.10`, 50 permutations, ≤2,000 cells/group). These p-values are within-object specificity, not the patient Wilcoxon.
-
-| Cohort | groups | outgoing CLDN4-high → T/NK edges |
-|---|---|---:|
-| GSE131907 | high/low/T/NK = 2000 each | 50 |
-| GSE205335 | high/low/T = 2000 each (author T/NK is one label) | 34 |
-
-Focus-ish edges that cleared LIANA `expr_prop` from CLDN4-high malignant to T or NK:
-
-| Cohort | Pair | target | `lr_means` | cellphone_p |
-|---|---|---|---:|---:|
-| GSE131907 | CXCL16–CXCR6 | T | 0.270 | 0 |
-| GSE131907 | CX3CL1–CX3CR1 | NK | 0.356 | 0 |
-| GSE131907 | CCL20–CXCR3 | T | 0.400 | 0 |
-| GSE205335 | CXCL16–CXCR6 | T | 0.205 | 0 |
-| GSE205335 | CCL20–CXCR3 | T | 0.293 | 0 |
-| GSE205335 | HLA-E–KLRK1 | T | 0.623 | 1 |
-
-CXCL9/10–CXCR3 typically fail the 10% filter. LIANA does not replace the paired n=40 table.
+Full ranked table: `results/lr_table.tsv`. Per-patient scores: `results/patient_outgoing.tsv`.
 
 ## What this is not
 

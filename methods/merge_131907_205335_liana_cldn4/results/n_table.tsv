@@ -1,0 +1,14 @@
+item	n	note
+cells_GSE131907	208506	author barcodes
+cells_GSE205335	96505	author barcodes
+locked_samples_GSE131907	21	PR #320 tumor-origin n_mal>=20
+locked_patients_GSE131907	21	unique patient_id in 21 samples
+locked_patients_GSE205335	22	PR #320 extract
+malignant_cells	53296	locked slice
+cldn4_high	26648	cohort medians
+cldn4_low	26648	below cohort median
+T_NK	48150	locked slice
+paired_patients	40	unit of Wilcoxon
+paired_GSE131907	19	patient_id pooled
+paired_GSE205335	21	patient
+pairs_ranked	109	outgoing high vs low

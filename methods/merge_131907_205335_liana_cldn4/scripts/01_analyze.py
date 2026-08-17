@@ -797,7 +797,7 @@ def write_finding(
         {"median_delta": "{:+.3f}", "pval": "{:.3g}", "padj": "{:.3g}"},
     )
     lines += [
-        "Full ranked table: `results/lr_table.tsv`. Per-patient scores: `results/patient_outgoing.tsv`.",
+        "Full ranked table: `results/lr_table.tsv`. Per-patient scores: `results/patient_outgoing.tsv.gz`.",
         "",
         "## What this is not",
         "",
@@ -889,6 +889,10 @@ def main() -> None:
         ignore_index=True,
     )
     raw.to_csv(args.outdir / "patient_outgoing.tsv", sep="\t", index=False)
+    src = args.outdir / "patient_outgoing.tsv"
+    with src.open("rb") as fh_in, gzip.open(src.with_suffix(".tsv.gz"), "wb") as fh_out:
+        fh_out.writelines(fh_in)
+    src.unlink()
 
     ranks = rank_pairs(raw)
     ranks.to_csv(args.outdir / "lr_table.tsv", sep="\t", index=False)
@@ -915,6 +919,10 @@ def main() -> None:
     pooled = pd.concat(pooled_rows, ignore_index=True) if pooled_rows else pd.DataFrame()
     if len(pooled):
         pooled.to_csv(args.outdir / "lr_table_pooled_descriptive.tsv", sep="\t", index=False)
+        src = args.outdir / "lr_table_pooled_descriptive.tsv"
+        with src.open("rb") as fh_in, gzip.open(src.with_suffix(".tsv.gz"), "wb") as fh_out:
+            fh_out.writelines(fh_in)
+        src.unlink()
 
     liana_notes = []
     try:
