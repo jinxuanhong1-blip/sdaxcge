@@ -1,0 +1,17 @@
+item	n	note
+GSM in series matrix	164	87 tumor + 77 adjacent normal
+series matrix expression rows	0	empty; do not use
+RPKM gene rows	36742	RefSeq; before collapse
+RPKM libraries	164	87 tumor + 77 normal
+HUGO after max-mean (tumor)	22427	analysis matrix
+tumors (primary n)	87	Lung cancer cells; unique titles
+adjacent normal (dropped)	77	tumor-only slice
+tumors with paired normal	77	pairing unused
+paper clinical n=200	200	NOT the RNA-seq n; do not write
+CLDN4 finite	87	NM_001305
+CD8A finite	87	NM_001768
+CD274 finite	87	NM_014143
+Immune141 present	141	of 141
+Ayers IFNG-6 present	6	of 6
+epithelial 6 present	6	of 6
+OS / ICI labels	0	not deposited
