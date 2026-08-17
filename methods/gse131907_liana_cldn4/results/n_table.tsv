@@ -1,0 +1,17 @@
+item	n	note
+cells_in_matrix	208506	author barcodes
+geo_samples	58	58 GEO samples
+geo_patients	44	44 patients
+tumor_origin_samples	37	tLung/tL-B/mLN/mBrain/PE
+malignant_cells	31136	Malignant cells + tS1/tS2/tS3 in tumor origin
+malignant_tlung_tS	6352	tLung tS1/tS2/tS3
+malignant_author_label	24784	Cell_subtype == Malignant cells
+cldn4_high_malignant	15569	median log1p(CP10k)=1.798
+cldn4_low_malignant	15567	below median
+T_cells	79676	author T lymphocytes
+NK_cells	11551	author NK cells
+T_NK_cells	91227	T + NK
+paired_samples	29	unit of Wilcoxon
+paired_patients	29	unique patient_id in paired set
+pairs_pass_expr_prop	53	pooled CLDN4-high → T/NK
+tumor_origin_T_NK	48012	receivers for pooled LR table
