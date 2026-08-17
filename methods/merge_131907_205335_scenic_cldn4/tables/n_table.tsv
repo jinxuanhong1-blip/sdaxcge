@@ -1,0 +1,15 @@
+item	n	note
+GSE131907_author_malignant_cells	31136	Cell_subtype in {Malignant cells, tS1, tS2, tS3}
+GSE131907_malignant_UMI>=200	31136	cells
+GSE131907_patients_ge20_malignant	31	patient_id; unit
+GSE131907_patients_paired_ge20_high_and_low	29	primary paired AUCell unit
+GSE205335_author_malignant_cells	28512	lineage.sub == Malignant cells
+GSE205335_malignant_UMI>=200	28512	cells
+GSE205335_patients_ge20_malignant	22	SOFT patient; unit
+GSE205335_patients_paired_ge20_high_and_low	21	primary paired AUCell unit
+merged_patients_ge20_malignant	53	k=2 cohorts stacked; not cell-integrated
+merged_patients_paired	50	honest n for high vs low regulon test
+CLDN4_high_cells_in_paired_patients	29286	cells; not the claim
+CLDN4_low_cells_in_paired_patients	29875	cells; not the claim
+GSE131907_tLung_patients_paired	10	tS1/tS2/tS3 primary-tumor sensitivity
+universe_genes_AUCell	2020	extracted programs + TFs + public prior targets

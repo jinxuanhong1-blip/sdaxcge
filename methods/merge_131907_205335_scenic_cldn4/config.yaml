@@ -1,0 +1,72 @@
+# Pre-specified. Do not retune after seeing results.
+question: >
+  Do CLDN4-high malignant cells show different IFN / MHC-I / TJ / keratin
+  regulons vs CLDN4-low, at the patient level, on the merged
+  GSE131907 + GSE205335 author-malignant combo that already differs
+  (PR #320)? Additive CLDN4-only SCENIC/GRN proxy.
+
+a10_taken_as_given: ELF3_CLDN4_bulk_RNA
+no_dual_high: true
+no_gse207422: true
+
+datasets:
+  - accession: GSE131907
+    pmid: 32385277
+    malignant: author Cell_subtype in {Malignant cells, tS1, tS2, tS3}
+    unit: patient_id from GEO series matrix
+  - accession: GSE205335
+    pmid: null
+    malignant: author lineage.sub == Malignant cells
+    unit: patient from GEO SOFT
+
+cldn4_high:
+  primary: within-patient median of CLDN4 log1p(CP10k) among author-malignant cells
+  zero_inflated: if median==0, high = CLDN4>0 vs low = 0 (do not drop CLDN4-low patients)
+  hold_out_from_regulons: [CLDN4]
+  not_used_for_groups: [TACSTD2]
+
+focus_programs: [IFN, MHC_I, TJ, keratin]
+# ELF3 is given (A10). Do not headline ELF3–CLDN4.
+tf_program:
+  STAT1: IFN
+  STAT2: IFN
+  IRF1: IFN_MHC
+  IRF7: IFN
+  IRF9: IFN
+  NLRC5: MHC_I
+  RFX5: MHC_I
+  GRHL2: TJ
+  OVOL1: TJ
+  OVOL2: TJ
+  KLF5: TJ
+  ELF3: TJ_GIVEN
+  TP63: keratin
+  GRHL1: keratin
+  KLF4: keratin
+  NKX2-1: control
+  SOX2: control
+
+grn:
+  method: lightweight proxy
+  layers:
+    - public priors (TRRUST v2 + DoRothEA + CollecTRI); not ChIP
+    - program gene-set AUCell (MSigDB Hallmark/GO/KEGG + custom MHC-I / KRT)
+    - prior ∩ program AUCell when n_targets >= 8
+    - Pearson TF–program co-expression in CLDN4-high cells (descriptive)
+  not_run: [pySCENIC_cisTarget, GRNBoost2_default, invented_ChIP]
+  auc_threshold: 0.05
+  aucell_universe: extracted genes (programs + TFs + public prior targets)
+  pearson_min_r: 0.10
+  high_spec_r: 0.15
+  low_spec_r: 0.10
+
+qc:
+  min_umi: 200
+  min_malignant_per_patient: 20
+  min_high_and_low_for_paired: 20
+  min_high_and_low_sensitivity: 10
+
+primary_output: regulon table with patient n
+primary_unit: patient (paired high vs low AUCell)
+cell_level: exploratory only (pseudoreplication)
+merge: patient-level stack / Fisher-z; not Harmony cell integration

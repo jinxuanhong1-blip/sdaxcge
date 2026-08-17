@@ -1,0 +1,30 @@
+{
+  "question": "Do CLDN4-high malignant cells show different IFN/MHC-I/TJ/keratin regulons vs CLDN4-low at the patient level?",
+  "combo": "GSE131907 + GSE205335 (PR #320 combo that already differs)",
+  "a10_taken_as_given": "ELF3\u2013CLDN4 bulk RNA; ELF3 is labeled given, not a discovery.",
+  "method": "AUCell + public TF-target priors (TRRUST/DoRothEA/CollecTRI); not pySCENIC cisTarget; not ChIP",
+  "pyscenic": {
+    "importable": false,
+    "version": "No module named 'pyscenic'",
+    "cistarget_run": false,
+    "chip_peaks_invented": false
+  },
+  "no_dual_high": true,
+  "no_gse207422": true,
+  "n_patients_paired": 50,
+  "n_patients_paired_GSE131907": 29,
+  "n_patients_paired_GSE205335": 21,
+  "n_patients_eligible": 53,
+  "n_genes_universe": 2020,
+  "n_genes_GSE131907_matrix": 29634,
+  "cldn4_split": "within-patient median among author-malignant",
+  "primary_unit": "patient",
+  "aucell_universe": "extracted programs + TFs + public prior targets",
+  "notes": [
+    "Author malignant labels: GSE131907 Cell_subtype in {Malignant cells,tS1,tS2,tS3}; GSE205335 lineage.sub==Malignant cells.",
+    "CLDN4 held out of every regulon (split gene).",
+    "Patient deltas stacked across cohorts; cells were not Harmony-integrated.",
+    "GSE205335 histology mix (including SCLC) is part of the honest n.",
+    "log2TPM text, EGA FASTQ, and GSE207422 were not used."
+  ]
+}
