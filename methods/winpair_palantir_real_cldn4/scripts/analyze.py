@@ -299,14 +299,42 @@ def _run_palantir(adata, early_name: str) -> dict:
         knn=N_NEIGHBORS,
         save_as_df=True,
     )
-    try:
-        pr = palantir.core.run_palantir(adata, n_jobs=2, **kwargs)
-    except TypeError:
-        kwargs.pop("save_as_df", None)
+
+    def _call_palantir(kw):
         try:
-            pr = palantir.core.run_palantir(adata, n_jobs=2, **kwargs)
+            return palantir.core.run_palantir(adata, n_jobs=2, **kw)
         except TypeError:
-            pr = palantir.core.run_palantir(adata, **kwargs)
+            kw = dict(kw)
+            kw.pop("save_as_df", None)
+            try:
+                return palantir.core.run_palantir(adata, n_jobs=2, **kw)
+            except TypeError:
+                return palantir.core.run_palantir(adata, **kw)
+
+    def _boundary_terminals() -> dict[str, str]:
+        ms_key = "DM_EigenVectors_multiscaled"
+        if ms_key not in adata.obsm:
+            raise RuntimeError("multiscale space missing; cannot pick fallback terminals")
+        ms = pd.DataFrame(adata.obsm[ms_key], index=adata.obs_names)
+        extrema = pd.Index(set(ms.idxmax()).union(ms.idxmin())).difference([early_name])
+        extrema = [c for c in extrema if c in adata.obs_names]
+        if not extrema:
+            raise RuntimeError("no DM-boundary cells for fallback terminals")
+        early_vec = ms.loc[early_name].to_numpy()
+        dist = {c: float(np.linalg.norm(ms.loc[c].to_numpy() - early_vec)) for c in extrema}
+        picked = sorted(dist, key=dist.get, reverse=True)[:3]
+        return {f"boundary_{i+1}": c for i, c in enumerate(picked)}
+
+    pr = None
+    try:
+        pr = _call_palantir(kwargs)
+    except Exception as exc:
+        print(f"Palantir auto-terminals failed ({type(exc).__name__}: {exc}). Retrying with DM-boundary terminals.", flush=True)
+        term = _boundary_terminals()
+        info["terminal_fallback"] = term
+        info["auto_terminal_error"] = f"{type(exc).__name__}: {str(exc)[:300]}"
+        kwargs["terminal_states"] = term
+        pr = _call_palantir(kwargs)
 
     # Normalize outputs onto AnnData
     pt = None
@@ -323,12 +351,12 @@ def _run_palantir(adata, early_name: str) -> dict:
     if entropy is None and "palantir_entropy" in adata.obs:
         entropy = adata.obs["palantir_entropy"]
     if branch is None and "palantir_fate_probabilities" in adata.obsm:
-        cols = adata.uns.get("palantir_fate_names")
-        branch = pd.DataFrame(
-            adata.obsm["palantir_fate_probabilities"],
-            index=adata.obs_names,
-            columns=cols,
-        )
+        raw = adata.obsm["palantir_fate_probabilities"]
+        if isinstance(raw, pd.DataFrame):
+            branch = raw
+        else:
+            cols = adata.uns.get("palantir_fate_probabilities_columns")
+            branch = pd.DataFrame(raw, index=adata.obs_names, columns=cols)
     if isinstance(pt, pd.Series):
         pt = pt.reindex(adata.obs_names)
         adata.obs["palantir_pseudotime"] = pd.to_numeric(pt, errors="coerce")
