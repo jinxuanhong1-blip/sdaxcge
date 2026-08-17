@@ -1,0 +1,25 @@
+contrast	subset	x	y	n	rho	p	patients	note
+CLDN4 vs T/NK cytotoxicity	post, malignant-like	malig_module_CLDN4	tnk_cyto	7	0.0	1.0	P03,P04,P07,P09,P10,P12,P15	
+CLDN4 vs T/NK exhaustion	post, malignant-like	malig_module_CLDN4	tnk_exh	7	0.0	1.0	P03,P04,P07,P09,P10,P12,P15	
+CLDN4 vs T/NK cytotoxicity	post, zero-normal-UMI	malig_zero_CLDN4	tnk_cyto	9	-0.09999999999999999	0.797971695234851	P02,P03,P04,P07,P09,P10,P12,P13,P15	
+CLDN4 vs T/NK exhaustion	post, zero-normal-UMI	malig_zero_CLDN4	tnk_exh	9	0.26666666666666666	0.48792227483870076	P02,P03,P04,P07,P09,P10,P12,P13,P15	
+CLDN4 vs T/NK cytotoxicity	post, all-epithelial	epithelial_CLDN4	tnk_cyto	12	-0.31468531468531474	0.3191387855033045	P02,P03,P04,P06,P07,P09,P10,P11,P12,P13,P14,P15	
+CLDN4 vs T/NK exhaustion	post, all-epithelial	epithelial_CLDN4	tnk_exh	12	-0.37762237762237766	0.22620604493502647	P02,P03,P04,P06,P07,P09,P10,P11,P12,P13,P14,P15	
+CLDN4 vs CD8 cytotoxicity	post, malignant-like, CD8	malig_module_CLDN4	cd8_cyto	7	-0.07142857142857144	0.879048193148154	P03,P04,P07,P09,P10,P12,P15	
+CLDN4 vs CD8 exhaustion	post, malignant-like, CD8	malig_module_CLDN4	cd8_exh	7	-0.03571428571428572	0.9394082054712856	P03,P04,P07,P09,P10,P12,P15	
+CLDN4 vs CD8 cytotoxicity	post, all-epithelial, CD8	epithelial_CLDN4	cd8_cyto	12	-0.4825174825174825	0.11210929146889187	P02,P03,P04,P06,P07,P09,P10,P11,P12,P13,P14,P15	
+CLDN4 vs CD8 exhaustion	post, all-epithelial, CD8	epithelial_CLDN4	cd8_exh	12	-0.41958041958041964	0.1745190081300594	P02,P03,P04,P06,P07,P09,P10,P11,P12,P13,P14,P15	
+CLDN4 %pos vs T/NK cytotoxicity	post, malignant-like	malig_module_CLDN4_pct	tnk_cyto	7	-0.03571428571428572	0.9394082054712856	P03,P04,P07,P09,P10,P12,P15	
+CLDN4 %pos vs T/NK exhaustion	post, malignant-like	malig_module_CLDN4_pct	tnk_exh	7	0.1785714285714286	0.7016579425162727	P03,P04,P07,P09,P10,P12,P15	
+CLDN4 vs T/NK cytotoxicity	pre+post, malignant-like	malig_module_CLDN4	tnk_cyto	9	0.39999999999999997	0.286105101908313	P01,P03,P04,P05,P07,P09,P10,P12,P15	
+CLDN4 vs T/NK exhaustion	pre+post, malignant-like	malig_module_CLDN4	tnk_exh	9	-0.26666666666666666	0.48792227483870076	P01,P03,P04,P05,P07,P09,P10,P12,P15	
+CLDN4 vs T/NK cytotoxicity	pre+post, all-epithelial	epithelial_CLDN4	tnk_cyto	15	-0.08928571428571427	0.751672517350277	P01,P02,P03,P04,P05,P06,P07,P08,P09,P10,P11,P12,P13,P14,P15	
+CLDN4 vs T/NK exhaustion	pre+post, all-epithelial	epithelial_CLDN4	tnk_exh	15	-0.37857142857142856	0.16409082655922078	P01,P02,P03,P04,P05,P06,P07,P08,P09,P10,P11,P12,P13,P14,P15	
+CLDN4 vs T/NK cytotoxicity	post NMPR-only, malignant-like	malig_module_CLDN4	tnk_cyto	6	-0.028571428571428574	0.9571545189504373	P04,P07,P09,P10,P12,P15	
+CLDN4 vs T/NK exhaustion	post NMPR-only, malignant-like	malig_module_CLDN4	tnk_exh	6	0.08571428571428573	0.8717434402332361	P04,P07,P09,P10,P12,P15	
+CLDN4 vs T/NK cytotoxicity	post adeno, all-epithelial	epithelial_CLDN4	tnk_cyto	6	-0.2	0.7040000000000001	P02,P04,P06,P11,P12,P15	
+CLDN4 vs T/NK cytotoxicity	post squamous, all-epithelial	epithelial_CLDN4	tnk_cyto	6	-0.3714285714285715	0.4684781341107872	P03,P07,P09,P10,P13,P14	
+NMPR vs MPR malignant-like CLDN4	post	malig_module_CLDN4	mpr_group	7			NMPR n=6 median=1.3091465552861528; MPR n=1 median=1.0106704394516681	n<2 in a group
+NMPR vs MPR all-epithelial CLDN4	post	epithelial_CLDN4	mpr_group	12		0.8080808080808081	NMPR n=8 median=1.4214457935910285; MPR n=4 median=1.4591525260985287	Mann-Whitney two-sided
+NMPR vs MPR T/NK cytotoxicity	post	tnk_cyto	mpr_group	12		0.9333333333333333	NMPR n=8 median=0.9693487244603861; MPR n=4 median=1.0913869885164027	Mann-Whitney two-sided
+NMPR vs MPR T/NK exhaustion	post	tnk_exh	mpr_group	12		1.0	NMPR n=8 median=0.4431554943572302; MPR n=4 median=0.40964542682558963	Mann-Whitney two-sided

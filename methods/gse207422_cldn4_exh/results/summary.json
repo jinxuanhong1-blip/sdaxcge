@@ -1,0 +1,44 @@
+{
+  "dataset": "GSE207422",
+  "task": "additive: T/NK cytotoxicity and exhaustion vs malignant CLDN4",
+  "not_a_tacstd2_redo": true,
+  "n_cells_raw": 92330,
+  "n_cells_qc": 92330,
+  "n_malignant_module": 9475,
+  "n_malignant_zero": 7387,
+  "n_epithelial": 12297,
+  "n_tnk": 38537,
+  "n_cd8": 17453,
+  "n_post_primary": 7,
+  "cyto_genes": [
+    "GZMB",
+    "PRF1",
+    "GNLY",
+    "NKG7"
+  ],
+  "exh_genes": [
+    "PDCD1",
+    "HAVCR2",
+    "LAG3",
+    "TIGIT",
+    "TOX"
+  ],
+  "missing_from_matrix": [],
+  "author_cell_labels_public": false,
+  "unit": "patient / one GEO sample",
+  "primary_malignant": "epithelial AND tumor-epi > normal-lung AND normal-lung < 0.4",
+  "primary_cyto": {
+    "n": 7,
+    "rho": 0.0,
+    "p": 1.0,
+    "patients": "P03,P04,P07,P09,P10,P12,P15"
+  },
+  "primary_exh": {
+    "n": 7,
+    "rho": 0.0,
+    "p": 1.0,
+    "patients": "P03,P04,P07,P09,P10,P12,P15"
+  },
+  "primary_mpr_n": 1,
+  "primary_nmpr_n": 6
+}
