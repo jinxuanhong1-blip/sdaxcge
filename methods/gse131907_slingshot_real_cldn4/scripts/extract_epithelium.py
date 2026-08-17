@@ -188,6 +188,11 @@ def main() -> None:
     except ImportError as e:
         raise SystemExit("anndata is required to write h5ad") from e
 
+    def _sanitize(obj):
+        if isinstance(obj, dict):
+            return {str(k).replace("/", "_"): _sanitize(v) for k, v in obj.items()}
+        return obj
+
     adata = ad.AnnData(X=X, obs=obs, var=var)
     adata.obs["dataset"] = "GSE131907"
     adata.obs["histology"] = "LUAD"
@@ -195,12 +200,11 @@ def main() -> None:
         "Cell_subtype", pd.Series("NA", index=adata.obs.index)
     ).astype(str)
     adata.layers["counts"] = adata.X.copy()
-    adata.uns["extract_inventory"] = inventory
+    # h5ad uns keys cannot contain '/'; keep a sanitized copy for analyze.py
+    adata.uns["extract_inventory"] = _sanitize(inventory)
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    adata.write_h5ad(out)
-    inv_path = out.with_suffix(".inventory.json")
     inventory.update(
         {
             "n_cells_written": int(adata.n_obs),
@@ -209,7 +213,9 @@ def main() -> None:
             "out": str(out),
         }
     )
+    inv_path = out.with_suffix(".inventory.json")
     inv_path.write_text(json.dumps(inventory, indent=2))
+    adata.write_h5ad(out)
     print(f"wrote {out}  cells={adata.n_obs} genes={adata.n_vars}", flush=True)
 
 

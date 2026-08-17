@@ -452,6 +452,13 @@ def main() -> None:
 
     adata = sc.read_h5ad(args.input)
     extract_inv = dict(adata.uns.get("extract_inventory", {}))
+    inv_json = Path(args.input).with_suffix(".inventory.json")
+    if inv_json.is_file():
+        try:
+            disk_inv = json.loads(inv_json.read_text())
+            extract_inv = {**extract_inv, **disk_inv}
+        except json.JSONDecodeError:
+            pass
     if "counts" not in adata.layers:
         adata.layers["counts"] = adata.X.copy()
     adata.X = adata.layers["counts"].copy()

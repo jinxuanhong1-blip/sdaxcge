@@ -1,0 +1,438 @@
+{
+  "accession": "GSE131907",
+  "histology": "LUAD",
+  "public_only": true,
+  "primary_gene": "CLDN4",
+  "not_a_tacstd2_redo": true,
+  "not_a_pr325_dpt_redo": true,
+  "n_cells": 13031,
+  "n_cells_nLung": 3305,
+  "n_cells_tLung": 3120,
+  "n_cells_other": 6606,
+  "n_cells_catalog": 36071,
+  "n_samples_catalog": 43,
+  "catalog_by_origin": {
+    "mBrain": 15463,
+    "mLN": 3053,
+    "nLung": 3703,
+    "tL_B": 6582,
+    "tLung": 7270
+  },
+  "cap_per_sample": 400,
+  "n_samples": 43,
+  "n_samples_nLung": 11,
+  "n_samples_tLung": 11,
+  "n_samples_other": 21,
+  "n_samples_eligible": 43,
+  "n_patients": 26,
+  "n_samples_paired_tertile": 40,
+  "n_author_AT2": 2020,
+  "subtype_counts": {
+    "Malignant cells": 6466,
+    "AT2": 2020,
+    "tS2": 1309,
+    "tS1": 1188,
+    "NA": 704,
+    "Ciliated": 531,
+    "AT1": 365,
+    "Club": 338,
+    "tS3": 59,
+    "Undetermined": 51
+  },
+  "cldn4_tertile_counts": {
+    "high": 4344,
+    "low": 4344,
+    "mid": 4343
+  },
+  "cldn4_tertile_cuts": {
+    "q1": 0.9579996864000955,
+    "q2": 1.799439469973246
+  },
+  "genes_absent": {
+    "AT2": [],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": [],
+    "IFN": []
+  },
+  "root": {
+    "n_nLung": 3305,
+    "n_nLung_author_AT2": 2020,
+    "n_nLung_AT2_not_cldn4_high": 1813,
+    "rule": "nLung author AT2 (median AT2 score); never CLDN4-high",
+    "rejected_cldn4_high_root": false,
+    "index": 2871,
+    "root_sample": "LUNG_N20",
+    "root_origin": "nLung",
+    "root_subtype": "AT2",
+    "root_cldn4_tertile": "mid",
+    "start_cluster": "2",
+    "root_CLDN4": 1.1801280975341797,
+    "root_AT2": 4.003953576087952
+  },
+  "n_paga_components": 1,
+  "n_leiden": 31,
+  "n_lineages": 9,
+  "lineages": [
+    [
+      "2",
+      "20",
+      "8"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "3",
+      "0"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "3",
+      "5"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "1",
+      "24",
+      "28",
+      "25",
+      "7"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "1",
+      "24",
+      "19",
+      "9",
+      "23",
+      "17"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "1",
+      "24",
+      "19",
+      "11",
+      "4",
+      "13",
+      "18"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "1",
+      "24",
+      "19",
+      "11",
+      "4",
+      "13",
+      "27",
+      "10",
+      "30"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "1",
+      "24",
+      "19",
+      "11",
+      "4",
+      "13",
+      "27",
+      "16",
+      "26",
+      "12"
+    ],
+    [
+      "2",
+      "20",
+      "21",
+      "14",
+      "1",
+      "24",
+      "19",
+      "11",
+      "4",
+      "13",
+      "27",
+      "6",
+      "15",
+      "22",
+      "29"
+    ]
+  ],
+  "leiden_resolution": 0.6,
+  "clock": {
+    "name": "Slingshot (Street 2018 Python equivalent: MST + principal curves)",
+    "engine": "python:slingshot_py",
+    "r": {
+      "available": false,
+      "reason": "Rscript not on PATH"
+    }
+  },
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs Slingshot",
+      "n": 43,
+      "rho": 0.4187556629417094,
+      "p": 0.005193780452822231,
+      "q": 0.006925040603762975
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 43,
+      "rho": -0.18514044095439447,
+      "p": 0.23460437232069967,
+      "q": 0.273709209160571
+    },
+    {
+      "contrast": "CLDN4 vs club score",
+      "n": 43,
+      "rho": 0.11107335682020433,
+      "p": 0.4782668005791681,
+      "q": 0.4782668005791681
+    },
+    {
+      "contrast": "CLDN4 vs basal score",
+      "n": 43,
+      "rho": 0.4835397160978557,
+      "p": 0.0010205127925767858,
+      "q": 0.0017494505015602042
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 43,
+      "rho": 0.43506493506493504,
+      "p": 0.003549956572102954,
+      "q": 0.005324934858154431
+    },
+    {
+      "contrast": "CLDN4 vs IFN (no CLDN4)",
+      "n": 43,
+      "rho": 0.17894895801872546,
+      "p": 0.25090010839719007,
+      "q": 0.273709209160571
+    },
+    {
+      "contrast": "CLDN4 vs malignant-like score",
+      "n": 43,
+      "rho": 0.636665659921474,
+      "p": 4.44301961906203e-06,
+      "q": 1.777207847624812e-05
+    },
+    {
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "n": 43,
+      "rho": 0.5070975536091815,
+      "p": 0.0005197170695495508,
+      "q": 0.0010394341390991017
+    },
+    {
+      "contrast": "SFTPC vs Slingshot (control)",
+      "n": 43,
+      "rho": -0.6529846805134003,
+      "p": 2.0747030944305128e-06,
+      "q": 1.2448218566583076e-05
+    },
+    {
+      "contrast": "AT2 score vs Slingshot (control)",
+      "n": 43,
+      "rho": -0.6800060404711568,
+      "p": 5.291727748054435e-07,
+      "q": 6.350073297665322e-06
+    },
+    {
+      "contrast": "IFN vs Slingshot",
+      "n": 43,
+      "rho": 0.5422832980972516,
+      "p": 0.0001724362909138973,
+      "q": 0.0004732459289056402
+    },
+    {
+      "contrast": "barrier/keratin vs Slingshot",
+      "n": 43,
+      "rho": 0.5382059800664452,
+      "p": 0.0001971858037106834,
+      "q": 0.0004732459289056402
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "tLung-only CLDN4 vs Slingshot",
+      "n": 11,
+      "rho": 0.790909090909091,
+      "p": 0.003746082953397407
+    },
+    {
+      "contrast": "nLung-only CLDN4 vs Slingshot",
+      "n": 11,
+      "rho": 0.5727272727272729,
+      "p": 0.06554305260101852
+    },
+    {
+      "contrast": "tumor/met (drop nLung) CLDN4 vs Slingshot",
+      "n": 32,
+      "rho": 0.31524926686217003,
+      "p": 0.07883349667716559
+    },
+    {
+      "contrast": "nLung+tLung only CLDN4 vs Slingshot",
+      "n": 22,
+      "rho": 0.6600790513833994,
+      "p": 0.0008292123968462258
+    },
+    {
+      "contrast": "tLung-only CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 11,
+      "rho": 0.6454545454545455,
+      "p": 0.03196279932801746
+    },
+    {
+      "contrast": "tLung-only CLDN4 vs IFN",
+      "n": 11,
+      "rho": 0.8181818181818182,
+      "p": 0.0020831448404786917
+    },
+    {
+      "contrast": "tLung-only CLDN4 vs AT2",
+      "n": 11,
+      "rho": -0.881818181818182,
+      "p": 0.0003301688021839006
+    },
+    {
+      "contrast": "CLDN4 vs DPT (sensitivity clock)",
+      "n": 43,
+      "rho": 0.25792811839323465,
+      "p": 0.094939666828648
+    },
+    {
+      "contrast": "nLung+tLung CLDN4 vs DPT (PR #325-like slice)",
+      "n": 22,
+      "rho": 0.2874082439299831,
+      "p": 0.19465047863325047
+    }
+  ],
+  "paired_tertile": [
+    {
+      "contrast": "barrier/keratin (no CLDN4) high vs low",
+      "n": 40,
+      "W": 0.0,
+      "p": 1.8189894035458565e-12,
+      "delta_median": 0.25744835092968565,
+      "median_high": 1.3928539082398133,
+      "median_low": 1.0055155722338318
+    },
+    {
+      "contrast": "IFN (no CLDN4) high vs low",
+      "n": 40,
+      "W": 3.0,
+      "p": 9.094947017729282e-12,
+      "delta_median": 0.06457322536077399,
+      "median_high": 0.22651719013734095,
+      "median_low": 0.15405668502038847
+    },
+    {
+      "contrast": "AT2 high vs low",
+      "n": 40,
+      "W": 218.0,
+      "p": 0.00899504264089046,
+      "delta_median": -0.0420896474629715,
+      "median_high": 0.9052564257498641,
+      "median_low": 1.3606340177977994
+    },
+    {
+      "contrast": "malignant-like high vs low",
+      "n": 40,
+      "W": 25.0,
+      "p": 1.6443664208054543e-09,
+      "delta_median": 0.12876778082907137,
+      "median_high": 0.3792613901122077,
+      "median_low": 0.23778164473132812
+    },
+    {
+      "contrast": "Slingshot high vs low",
+      "n": 40,
+      "W": 0.0,
+      "p": 1.8189894035458565e-12,
+      "delta_median": 0.1595598454903821,
+      "median_high": 0.5151337008355599,
+      "median_low": 0.27742522466896646
+    },
+    {
+      "contrast": "DPT high vs low",
+      "n": 40,
+      "W": 32.0,
+      "p": 5.029505700804293e-09,
+      "delta_median": 0.012872140854597092,
+      "median_high": 0.05419478192925453,
+      "median_low": 0.04093175753951073
+    }
+  ],
+  "cell_level_descriptive": {
+    "CLDN4_vs_sling": {
+      "n": 13031,
+      "rho": 0.2687372300345555,
+      "p": 2.1683683658733217e-214
+    },
+    "CLDN4_vs_barrier": {
+      "n": 13031,
+      "rho": 0.3522521556406798,
+      "p": 0.0
+    },
+    "CLDN4_vs_IFN": {
+      "n": 13031,
+      "rho": 0.14543106054185495,
+      "p": 1.585107692902645e-62
+    },
+    "CLDN4_vs_AT2": {
+      "n": 13031,
+      "rho": -0.11640370793501544,
+      "p": 1.5090829672449756e-40
+    },
+    "note": "descriptive only; n_cells is not the experimental unit"
+  },
+  "what_holds": "**What holds (sample n=43).** CLDN4 vs Slingshot n=43, \u03c1=0.419, p=0.00519. CLDN4 vs barrier/keratin (CLDN4 excluded) n=43, \u03c1=0.435, p=0.00355. CLDN4 vs IFN n=43, \u03c1=0.179, p=0.251. Within-sample CLDN4-high vs low barrier n=40, W=0.0, \u0394med=0.257, p=1.82e-12; IFN n=40, W=3.0, \u0394med=0.065, p=9.09e-12.",
+  "extra_figure": {
+    "emitted": true,
+    "spearman_rho": 0.43506493506493504,
+    "spearman_p": 0.003549956572102954,
+    "spearman_n": 43,
+    "rule": "rho>0.0 and p<0.05 or paired Wilcoxon p<0.05 or n_paired>=4"
+  },
+  "qc": {
+    "min_genes": 200,
+    "min_umi": 500,
+    "min_cells_per_gene": 10,
+    "lineage_EPCAM_mean": 1.3250078908208875,
+    "lineage_PTPRC_mean": 0.039503198484372365
+  },
+  "verdict": "Sample-level CLDN4 vs AT2-rooted Slingshot: n=43, \u03c1=0.419, p=0.00519. CLDN4 vs AT2 score: n=43, \u03c1=-0.185, p=0.235. CLDN4 vs barrier/keratin (CLDN4 excluded from the score): n=43, \u03c1=0.435, p=0.00355. CLDN4 vs IFN (CLDN4 excluded): n=43, \u03c1=0.179, p=0.251. CLDN4 vs malignant-like: n=43, \u03c1=0.637, p=4.44e-06. tLung-only CLDN4 vs Slingshot: n=11, \u03c1=0.791, p=0.00375. Paired CLDN4-high vs low barrier/keratin: n=40, W=0.0, \u0394med=0.257, p=1.82e-12. Paired CLDN4-high vs low IFN: n=40, W=3.0, \u0394med=0.065, p=9.09e-12. Paired CLDN4-high vs low AT2: n=40, W=218.0, \u0394med=-0.042, p=0.009. Slingshot has 9 lineage(s) from Leiden 2. PAGA has 1 component(s) at connectivity>0 among 31 Leiden vertices. The mixed nLung+tLung+met Slingshot correlation is not a within-tumor progression test. Not ICI. Not a TACSTD2 redo. No both-high gate. Not a redo of PR #325 DPT.",
+  "skipped": {
+    "PR325": "DPT/PAGA nLung+tLung; this folder is REAL Slingshot + IFN + mets",
+    "GSE205335": "winning-pair PR #449; not added",
+    "GSE207422": "NSCLC mixed histology; not pooled",
+    "PE": "unlabeled epithelium dropped"
+  }
+}
