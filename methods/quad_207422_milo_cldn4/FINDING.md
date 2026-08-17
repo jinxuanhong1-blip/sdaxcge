@@ -33,8 +33,8 @@ fallback if a Milo graph is missing). The pooled test uses **within-dataset rank
 | GSE148071 | all_biopsies | patient | **39** | 42 | 39/42 with ≥10 malignant-like; marker-reconstructed lineage (no public CNA IDs) |
 | GSE205335 | non_normal | patient | **22** | 22 | imported PR #385; 22 patients; 4 normal-only patients dropped; MPR n=0 |
 
-Combined scored n across the four studies (sum of the rows above, not a
-single mixed graph): **78**. GSE131907 sites are not collapsed.
+Primary combined n (GSE207422 post + GSE131907 tLung + GSE148071 +
+GSE205335; mBrain kept separate): **78**. Not one mixed graph.
 
 ## Sample-level malignant CLDN4 vs T/NK
 
