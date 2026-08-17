@@ -1,0 +1,62 @@
+{
+  "dataset": "GSE19188",
+  "pmid": "20421987",
+  "platform": "GPL570 Affymetrix HG-U133 Plus 2.0",
+  "processing": "RMA; probe-set intensities <30 reset to 30; log2(ratio to geometric mean). Spearman is rank-based.",
+  "histology": "NSCLC tumors: ADC 45, SCC 27, LCC 19; plus 65 adjacent-normal arrays not used in the primary pairs",
+  "n_arrays": 156,
+  "n_tumor": 91,
+  "n_healthy": 65,
+  "n_patients_geo_text": 91,
+  "n_probes": 54675,
+  "n_genes_collapsed": 22880,
+  "n_primary_cldn4_cd8a": 91,
+  "n_primary_cldn4_cd274": 91,
+  "cldn4_probe": "201428_at",
+  "cd8a_probe": "205758_at",
+  "cd274_probe": "223834_at",
+  "cd274_alt_probe": "227458_at",
+  "cldn4_vs_cd8a": {
+    "n": 91,
+    "rho": 0.12111801242236025,
+    "p": 0.25277453866276794,
+    "ci": [
+      -0.07937484985330907,
+      0.3207648565524986
+    ],
+    "rho_adj_epithelial": 0.0821200716984663,
+    "p_adj_epithelial": 0.4416141863715087,
+    "verdict": "NO_EVIDENCE"
+  },
+  "cldn4_vs_cd274": {
+    "n": 91,
+    "rho": 0.03578595317725753,
+    "p": 0.736294065547171,
+    "ci": [
+      -0.16306421286117623,
+      0.23498966196091822
+    ],
+    "rho_adj_epithelial": -0.07020950354752489,
+    "p_adj_epithelial": 0.5108161356502685,
+    "verdict": "NO_EVIDENCE"
+  },
+  "cldn4_vs_epithelial": {
+    "n": 91,
+    "rho": 0.6138875617136487,
+    "p": 9.760946944779797e-11,
+    "ci": [
+      0.4517148448917579,
+      0.7347223037500962
+    ]
+  },
+  "missing_public_labels": [
+    "stage",
+    "ICI",
+    "tumor_percent"
+  ],
+  "os_on_geo_tumors": {
+    "n_time": 82,
+    "n_event": 82,
+    "used_in_this_claim": false
+  }
+}
