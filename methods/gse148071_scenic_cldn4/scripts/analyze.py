@@ -461,13 +461,16 @@ def main() -> None:
             low = sub[sub.cldn4 <= q[0.25]]
             high = sub[sub.cldn4 >= q[0.75]]
             ok = n >= MIN_MAL and len(low) >= MIN_TAIL and len(high) >= MIN_TAIL
+            real_split = float(q[0.75]) > float(q[0.25])
             rec = dict(
                 split=label,
                 patient=pat,
                 n_cells=n,
                 n_q1=len(low),
                 n_q4=len(high),
-                eligible=bool(ok),
+                eligible=bool(ok and real_split),
+                occupancy_ok=bool(ok),
+                real_split=bool(real_split),
                 cldn4_q1=float(q[0.25]),
                 cldn4_q2=float(q[0.50]),
                 cldn4_q3=float(q[0.75]),
@@ -482,8 +485,9 @@ def main() -> None:
                     rec[f"{col}_delta"] = rec[f"{col}_q4"] - rec[f"{col}_q1"]
             rows.append(rec)
             elig.append(dict(split=label, patient=pat, n_cells=n, n_q1=len(low),
-                             n_q4=len(high), eligible=bool(ok)))
-            if ok:
+                             n_q4=len(high), occupancy_ok=bool(ok),
+                             real_split=bool(real_split), eligible=bool(ok and real_split)))
+            if ok and real_split:
                 prow = dict(split=label, patient=pat, n_cells=n, n_q1=len(low), n_q4=len(high))
                 for col in score_cols:
                     prow[f"{col}_q4"] = rec.get(f"{col}_q4", np.nan)

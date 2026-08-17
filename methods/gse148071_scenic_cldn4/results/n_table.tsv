@@ -1,0 +1,11 @@
+item	n	note
+patients_deposited	42	Wu et al. Nat Commun 2021 PMID 33953163
+exp_matrices	42	GEO GSE148071_RAW.tar GSM*_P*_exp.txt.gz
+epithelial_cells	51215	marker-argmax; putative malignant
+mal_like_cells	42519	epithelial AND normal-lung score ≤ sample Q0.75
+epithelial_eligible_patients	41	≥20 epi and ≥8 cells per CLDN4 Q1/Q4
+mal_like_eligible_patients	41	≥20 mal-like and ≥8 cells per CLDN4 Q1/Q4
+primary_n	38	mal_like; occupancy + real CLDN4 Q4>Q1 split
+dropped_patients_primary	4	P37 occupancy; P4/P11/P42 CLDN4 all-zero quartiles
+collapsed_CLDN4_quartiles	3	P4,P11,P42: Q1=Q2=Q3=0; occupancy OK but no CLDN4 split
+primary_n_real_split	38	occupancy floor AND cldn4_q3>cldn4_q1; unit of inference

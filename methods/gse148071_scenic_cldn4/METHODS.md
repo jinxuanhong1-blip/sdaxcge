@@ -41,7 +41,7 @@ QC: cells with total UMI < 200 are dropped.
 
 Within each patient, epithelial (or mal-like) cells are split on CLDN4 `log1p(CP10k)` **Q4 vs Q1**. Primary test = paired Wilcoxon of mean AUCell (high vs low) across patients. **Unit of inference is the patient.**
 
-Eligibility floor (locked): ≥20 cells in the compartment and ≥8 cells in each tail. Patients below the floor are reported in `results/eligibility.tsv` and are not tested. Cell-level Spearman is exploratory (pseudoreplication).
+Eligibility floor (locked): ≥20 cells in the compartment and ≥8 cells in each tail **and** a real CLDN4 split (`Q3 > Q1`). Patients with all-zero CLDN4 quartiles meet the cell-count floor but have no high/low contrast; they are reported and excluded. Cell-level Spearman is exploratory (pseudoreplication).
 
 ## Honest n
 
