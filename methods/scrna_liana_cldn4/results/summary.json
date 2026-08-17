@@ -1,0 +1,30 @@
+{
+  "dataset": "GSE207422",
+  "state_gene": "CLDN4",
+  "tacstd2_used_as_gate": false,
+  "n_cells": 92330,
+  "n_patients_matrix": 15,
+  "n_epithelial": 11019,
+  "n_malig": 6627,
+  "n_T": 28313,
+  "n_NK": 8010,
+  "n_tnk": 36323,
+  "n_cldn4_high": 3314,
+  "n_cldn4_low": 3313,
+  "cldn4_threshold": 1.45650053024292,
+  "min_malig_per_state": 10,
+  "min_tnk": 20,
+  "n_patients_paired": 8,
+  "n_pairs_scored": 2920,
+  "liana_status": "ran_cellphonedb_method",
+  "liana_n_perms": 50,
+  "liana_max_cells": 2000,
+  "cellchat_status": "not_run_R_unavailable",
+  "liana_notes": [
+    "import: ok",
+    "CLDN4: LIANA_OK n_edges=904 file=liana_cellphonedb_cldn4.csv; downsampled groups={'Malig_CLDN4high': 2000, 'Malig_CLDN4low': 2000, 'NK': 2000, 'T': 2000}"
+  ],
+  "trend_sentence": "On the patient-level CellPhoneDB-style score (paired n=8), CLDN4-high vs CLDN4-low outgoing T-recruit/IFN/MHC-I pairs: 2/12 have median \u0394 < 0; 0/12 reach FDR < 0.05. By axis: {'MHC_I': '0/7 \u0394<0, median \u0394=+0.109', 'T_recruit': '2/5 \u0394<0, median \u0394=+0.001'}. This is the observed rank in this public 15-sample BD Rhapsody object, not a general rule.",
+  "a3_taken_as_given": true,
+  "method": "cellphonedb_mean_of_means_on_log1p_cp10k"
+}
