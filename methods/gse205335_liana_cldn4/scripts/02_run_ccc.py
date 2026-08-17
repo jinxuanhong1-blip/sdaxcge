@@ -728,7 +728,7 @@ def write_finding(
         "| `results/lr_table_cldn4_incoming_tnk.tsv` | Incoming ranks |",
         "| `results/lr_table_focus_outgoing.tsv` | T-recruit / IFN / MHC-I outgoing subset |",
         "| `results/n_cells_patients.tsv` | Per-patient cell counts and high/low bins |",
-        "| `results/patient_cldn4_outgoing.tsv` | Per-patient pair scores (full list) |",
+        "| `results/patient_cldn4_outgoing.tsv.gz` | Per-patient pair scores (full list) |",
         "| `results/pooled_outgoing_cldn4.tsv` | All-cell descriptive scores |",
         "| `results/liana_cellphonedb_cldn4.csv` | Full LIANA CellPhoneDB output (if run) |",
         "| `results/summary.json` | Machine-readable n and method flags |",
@@ -872,10 +872,18 @@ def main() -> None:
     ntab_rows = []
     for pat, sub in cells.groupby("patient", observed=True):
         tumor = sub[sub["is_tumor_sample"]]
-        n_hi = int((tumor["is_malig"] & (cld[tumor.index] >= thr)).sum()) if len(tumor) else 0
-        n_lo = int((tumor["is_malig"] & (cld[tumor.index] < thr)).sum()) if len(tumor) else 0
-        n_t = int(tumor["is_tnk"].sum()) if len(tumor) else 0
-        n_mal = int(tumor["is_malig"].sum()) if len(tumor) else 0
+        if len(tumor):
+            t_idx = tumor.index.to_numpy()
+            mal = tumor["is_malig"].to_numpy()
+            vals = cld[t_idx]
+            n_hi = int((mal & (vals >= thr)).sum())
+            n_lo = int((mal & (vals < thr)).sum())
+            n_t = int(tumor["is_tnk"].to_numpy().sum())
+            n_mal = int(mal.sum())
+            mean_cld = float(np.mean(vals[mal])) if n_mal else np.nan
+        else:
+            n_hi = n_lo = n_t = n_mal = 0
+            mean_cld = np.nan
         paired = (
             n_hi >= P["min_malig_per_state"]
             and n_lo >= P["min_malig_per_state"]
@@ -892,14 +900,12 @@ def main() -> None:
                 "n_samples_tumor": int(tumor["orig.ident"].nunique()) if len(tumor) else 0,
                 "n_cells_tumor": int(len(tumor)),
                 "n_malignant": n_mal,
-                "n_T": int(tumor["is_t"].sum()) if len(tumor) else 0,
-                "n_NK": int(tumor["is_nk"].sum()) if len(tumor) else 0,
+                "n_T": int(tumor["is_t"].to_numpy().sum()) if len(tumor) else 0,
+                "n_NK": int(tumor["is_nk"].to_numpy().sum()) if len(tumor) else 0,
                 "n_T_NK": n_t,
                 "n_cldn4_high": n_hi,
                 "n_cldn4_low": n_lo,
-                "mean_cldn4_malig": float(np.mean(cld[tumor.index][tumor["is_malig"].to_numpy()]))
-                if n_mal
-                else np.nan,
+                "mean_cldn4_malig": mean_cld,
                 "paired": paired,
                 "normal_only": bool(len(tumor) == 0),
             }
@@ -950,7 +956,7 @@ def main() -> None:
     n_paired = {}
     for direction in ("outgoing", "incoming"):
         raw = patient_table(direction)
-        raw.to_csv(args.outdir / f"patient_cldn4_{direction}.tsv", sep="\t", index=False)
+        raw.to_csv(args.outdir / f"patient_cldn4_{direction}.tsv.gz", sep="\t", index=False)
         raw_store[direction] = raw
         n_paired[direction] = int(raw["patient"].nunique()) if len(raw) else 0
         tab = rank_direction(raw)
@@ -1050,19 +1056,17 @@ def main() -> None:
     if len(foc):
         n_neg = int((foc["median_delta"] < 0).sum())
         n_sig = int((foc["padj"] < 0.05).sum()) if foc["padj"].notna().any() else 0
-        by = (
-            foc.groupby("pathway")
-            .apply(
-                lambda s: f"{int((s.median_delta < 0).sum())}/{len(s)} Δ<0, median Δ={s.median_delta.median():+.3f}",
-                include_groups=False,
+        by_bits = []
+        for path, sub in foc.groupby("pathway"):
+            by_bits.append(
+                f"{path}: {int((sub.median_delta < 0).sum())}/{len(sub)} Δ<0, "
+                f"median Δ={sub.median_delta.median():+.3f}"
             )
-            .to_dict()
-        )
         trend = (
             f"On the patient-level CellPhoneDB-style score (paired n={n_pair}), "
             f"CLDN4-high vs CLDN4-low outgoing T-recruit / MHC-I / IFN pairs: "
             f"{n_neg}/{len(foc)} have median Δ < 0; {n_sig}/{len(foc)} reach FDR < 0.05. "
-            f"By axis: {by}. "
+            f"{'; '.join(by_bits)}. "
             "This is the observed rank in this public GSE205335 tumor extract, not a general rule."
         )
     else:
