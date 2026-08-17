@@ -1,0 +1,55 @@
+{
+  "tisch_h5": {
+    "path": "/workspace/methods/gse146100_cldn4/data/NSCLC_GSE146100_expression.h5",
+    "bytes": 200745710,
+    "declared_shape": [
+      17503,
+      10996
+    ],
+    "n_cells": 10996,
+    "n_genes": 17503,
+    "genes_present": [
+      "CLDN4",
+      "TACSTD2",
+      "EPCAM",
+      "PTPRC",
+      "CD3D",
+      "CD3E",
+      "CD8A",
+      "NKG7",
+      "KRT8",
+      "KRT18",
+      "KRT19"
+    ],
+    "genes_absent": [],
+    "normalization": "TISCH2 / MAESTRO log2(TPM/10+1); not re-normalized"
+  },
+  "geo_normdata": {
+    "path": "/workspace/methods/gse146100_cldn4/data/GSE146100_NormData.txt.gz",
+    "bytes": 229465901,
+    "n_cells": 11612,
+    "n_genes_extracted": 11,
+    "genes_present": [
+      "CLDN4",
+      "TACSTD2",
+      "EPCAM",
+      "PTPRC",
+      "CD3D",
+      "CD3E",
+      "CD8A",
+      "NKG7",
+      "KRT8",
+      "KRT18",
+      "KRT19"
+    ],
+    "genes_absent": [],
+    "normalization": "author Seurat log-norm (GSE146100_NormData.txt.gz)"
+  },
+  "skipped": [
+    "SRA/FASTQ",
+    "inferCNV / CopyKAT",
+    "Spearman / MWU as inferential tests",
+    "dual-high TACSTD2+CLDN4 gate",
+    "TACSTD2 as a CLDN4 gate"
+  ]
+}
