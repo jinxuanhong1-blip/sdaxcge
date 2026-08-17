@@ -1,0 +1,24 @@
+{
+  "accessions": [
+    "GSE123902"
+  ],
+  "paper": "Laughney et al. Nat Med 2020 PMID 32042191",
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "slingshot": {
+    "available": true,
+    "version": "2.10.0",
+    "engine": "R_slingshot",
+    "reason": "Bioconductor slingshot 2.10.0"
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "matched-normal AT2-like, never CLDN4-high",
+    "cap_per_sample": 350,
+    "unit": "donor",
+    "epi_gate": "(EPCAM|KRT8|KRT18|KRT19)>0 and PTPRC==0"
+  }
+}
