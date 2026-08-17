@@ -1,0 +1,18 @@
+field	public	n	note
+arrays in series matrix	yes	156	54,675 probes; RMA then log2(ratio to geometric mean)
+unique GSM	yes	156	all unique
+patients (GEO design text)	text only	91	overall_design: 91 tumor + 65 adjacent normal from a cohort of 91 patients
+tumor arrays (tissue type: tumor)	yes	91	PRIMARY n; ADC 45 / SCC 27 / LCC 19
+adjacent-normal arrays (tissue type: healthy)	yes	65	not mixed into the NSCLC pairwise tests
+title suffix T/N vs tissue type	yes	156	title is not reliable (e.g. GSM475659 title 2344T is healthy); use tissue type
+histology (cell type) on tumors	yes	91	ADC/SCC/LCC; no mixed/other tumor rows
+OS months on tumors	partial	82	numeric overall survival; 9 tumors Not available
+OS event on tumors	partial	82	alive/deceased; not this claim
+stage	no	0	paper is early-stage NSCLC; stage is not a GEO characteristic
+ICI / treatment	no	0	resected atlas, not an ICI series
+tumor % / ABSOLUTE purity	no	0	only public proxy is an RNA epithelial score
+CLDN4 finite on tumors (201428_at)	yes	91	named Plus2 probe; GPL570 = CLDN4 / Entrez 1364
+CD8A finite on tumors (205758_at)	yes	91	named Plus2 probe; GPL570 = CD8A / Entrez 925
+CD274 finite on tumors (223834_at)	yes	91	named Plus2 probe; GPL570 = CD274 / Entrez 29126
+pairwise CLDN4+CD8A tumors	yes	91	primary n for CLDN4 vs CD8A
+pairwise CLDN4+CD274 tumors	yes	91	primary n for CLDN4 vs CD274
