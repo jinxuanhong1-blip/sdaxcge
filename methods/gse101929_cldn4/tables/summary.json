@@ -1,0 +1,113 @@
+{
+  "dataset": "GSE101929",
+  "pmid": "29196495",
+  "platform": "GPL570 Affymetrix HG-U133 Plus 2.0",
+  "processing": "GCOS default as deposited in the series matrix. Paper used Partek RMA; that matrix is not the GEO table. Spearman is rank-based.",
+  "n_arrays": 66,
+  "n_tumors": 32,
+  "n_normals": 34,
+  "n_patients": 41,
+  "n_AA_tumors": 16,
+  "n_EA_tumors": 16,
+  "n_probes": 54675,
+  "n_genes_collapsed": 22189,
+  "n_missing_values": 0,
+  "epithelial_genes_used": [
+    "EPCAM",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "immune_genes_used": 137,
+  "immune_genes_listed": 141,
+  "cldn4_collapse_probe": "201428_at",
+  "cd8a_collapse_probe": "205758_at",
+  "cd274_collapse_probe": "227458_at",
+  "holds_rule": "n>=40, residual \u03c1<0, residual p<0.05 (same as PR 229 / GSE4573)",
+  "no_dual_high": true,
+  "histology_per_array": false,
+  "paper_table1_histology_aggregate": {
+    "ADC": 27,
+    "SCC": 1,
+    "other": 4,
+    "n": 32
+  },
+  "primary": {
+    "tumors_CD8A": {
+      "subset": "tumors",
+      "partner": "CD8A",
+      "source": "collapsed_maxmean",
+      "n": 32,
+      "rho": -0.4358504398826979,
+      "p": 0.012647524393724088,
+      "ci_low": -0.6697968833139128,
+      "ci_high": -0.11881167657224433,
+      "rho_adj_epithelial": -0.27674683488997986,
+      "p_adj_epithelial": 0.13177127614572162,
+      "rho_adj_ancestry": -0.44515388457424393,
+      "p_adj_ancestry": 0.012092990812268433,
+      "verdict_epithelial": "UNDERPOWERED",
+      "verdict_ancestry": "UNDERPOWERED"
+    },
+    "tumors_CD274": {
+      "subset": "tumors",
+      "partner": "CD274",
+      "source": "collapsed_maxmean",
+      "n": 32,
+      "rho": -0.2071114369501466,
+      "p": 0.25538292657485717,
+      "ci_low": -0.5234676520390805,
+      "ci_high": 0.1403854282785048,
+      "rho_adj_epithelial": -0.1902446745448108,
+      "p_adj_epithelial": 0.305311573166208,
+      "rho_adj_ancestry": -0.20338063603759365,
+      "p_adj_ancestry": 0.2724839610713675,
+      "verdict_epithelial": "UNDERPOWERED",
+      "verdict_ancestry": "UNDERPOWERED"
+    },
+    "tumors_ImmuneScore": {
+      "subset": "tumors",
+      "partner": "ImmuneScore",
+      "source": "estimate_immunesignature_meanz",
+      "n": 32,
+      "rho": -0.5469208211143693,
+      "p": 0.0011991163051800235,
+      "ci_low": -0.7463349295828012,
+      "ci_high": -0.2518179138476812,
+      "rho_adj_epithelial": -0.29574270271342584,
+      "p_adj_epithelial": 0.10623980941332228,
+      "rho_adj_ancestry": -0.550027944057917,
+      "p_adj_ancestry": 0.001348130686789723,
+      "verdict_epithelial": "UNDERPOWERED",
+      "verdict_ancestry": "UNDERPOWERED"
+    },
+    "tumors_epithelial_z": {
+      "subset": "tumors",
+      "partner": "epithelial_z",
+      "source": "context",
+      "n": 32,
+      "rho": 0.6099706744868034,
+      "p": 0.0002101786197838557,
+      "ci_low": 0.23509662410205748,
+      "ci_high": 0.8317941513041193,
+      "rho_adj_epithelial": NaN,
+      "p_adj_epithelial": NaN,
+      "rho_adj_ancestry": NaN,
+      "p_adj_ancestry": NaN,
+      "verdict_epithelial": "COMPANION",
+      "verdict_ancestry": "NA"
+    }
+  },
+  "missing_public_labels": [
+    "per_array_histology",
+    "ICI",
+    "numeric_tumor_percent"
+  ],
+  "do_not_use_n": {
+    "series_arrays_including_normal": 66,
+    "paper_mRNA_patients": 41,
+    "reason": "pairwise immune tests use tumor arrays only (n=32)"
+  }
+}

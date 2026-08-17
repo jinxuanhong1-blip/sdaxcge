@@ -1,0 +1,10 @@
+subset	endpoint	n_Q4	n_Q1	median_Q4	median_Q1	U	p	rank_biserial_Q4_minus_Q1	note
+tumors	CD8A	8	8	7.6769750000000005	9.347805000000001	10.0	0.020668220668220667	-0.6875	
+tumors	CD274	8	8	8.24152	9.290980000000001	21.0	0.2786324786324786	-0.34375	
+tumors	ImmuneScore	8	8	-0.21390119012283956	0.6587734469047892	6.0	0.004662004662004662	-0.8125	
+AA_tumors	CD8A	4	4						quartile split collapsed
+AA_tumors	CD274	4	4						quartile split collapsed
+AA_tumors	ImmuneScore	4	4						quartile split collapsed
+EA_tumors	CD8A	4	4						quartile split collapsed
+EA_tumors	CD274	4	4						quartile split collapsed
+EA_tumors	ImmuneScore	4	4						quartile split collapsed

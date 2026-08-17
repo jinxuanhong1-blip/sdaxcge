@@ -1,0 +1,22 @@
+item	public	n	note
+arrays in series matrix	yes	66	54,675 probes × 66 GSM; do not use as the pairwise n
+unique GSM / unique titles	yes	66	patient ID + T/N suffix; all unique
+unique patients (GEO individual)	yes	41	paper mRNA cohort 22 AA + 19 EA = 41; observed 22 AA + 19 EA
+tumor arrays (tumor_normal status: T)	yes	32	headline pairwise n; 16 AA + 16 EA
+adjacent-normal arrays (N)	yes	34	inventoried; not mixed into the NSCLC pairwise tests
+matched T+N patients	yes	25	paper text is 11 AA + 14 EA matched pairs; unmatched T or N remain
+AA tumor arrays	yes	16	ancestry extra only; UNDERPOWERED for HOLDS (n<40)
+EA tumor arrays	yes	16	ancestry extra only; UNDERPOWERED for HOLDS (n<40)
+AA normal arrays	yes	17	inventory
+EA normal arrays	yes	17	inventory
+histology per array	no	0	not a GEO characteristic; paper Table 1 is aggregate only (ADC 27 / SCC 1 / other 4 of 32)
+Stage	yes	32	I/II/III on every array; not a covariate for this claim
+OS days / months / years + lung-cancer death	yes	66	deposited; not this claim
+ICI / treatment	no	0	resected NCI-Maryland atlas, not an ICI series
+numeric tumor % / ABSOLUTE purity	no	0	macro-dissected; only public proxy is RNA epithelial mean-z
+CLDN4 finite on tumors (max-mean)	yes	32	collapse 201428_at
+CD8A finite on tumors	yes	32	named 205758_at
+CD274 finite on tumors	yes	32	collapse 227458_at
+ESTIMATE ImmuneSignature genes present	yes	137	137/141 after collapse
+primary pairwise n (tumors, CLDN4 + partners)	yes	32	this is the n used below; UNDERPOWERED for HOLDS (n<40)
+missing values in series matrix	yes	0	probe × sample
