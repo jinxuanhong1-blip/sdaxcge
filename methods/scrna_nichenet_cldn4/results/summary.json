@@ -1,0 +1,562 @@
+{
+  "dataset": "GSE207422",
+  "sender_definition": "CLDN4-only malignant high (log1p CP10k >= malignant median)",
+  "skipped": {
+    "GSE253013": "9.3 GB RDS; no MPR/NMPR labels; not used",
+    "full_nichenetr": "R/nichenetr not installed; v2 ligand-target prior used in Python",
+    "TACSTD2_in_sender_call": "CLDN4 only; TACSTD2 is a companion column"
+  },
+  "n": {
+    "MPR_patients": 4,
+    "NMPR_patients": 8,
+    "malignant_cells": 2051,
+    "cldn4_high_malignant": 1026,
+    "dual_high_companion_not_used": 674,
+    "tnk_cells": 11083,
+    "potential_ligands": 147,
+    "background_genes": 276
+  },
+  "cutoffs": {
+    "median_log1p_cp10k_CLDN4": 1.3925410157887006,
+    "median_log1p_cp10k_TACSTD2_companion": 1.5027022173783695
+  },
+  "hypothesis_patient_tests": {
+    "NMPR_vs_MPR_tnk_cyto": {
+      "contrast": "NMPR vs MPR",
+      "n_a": 4.0,
+      "n_b": 8.0,
+      "mean_a": 0.7450658496794411,
+      "mean_b": 0.7864988989736199,
+      "median_a": 0.8044112698253687,
+      "median_b": 0.706964170347993,
+      "U": 16.0,
+      "p": 1.0,
+      "n": NaN,
+      "rho": NaN
+    },
+    "NMPR_vs_MPR_tnk_ifn": {
+      "contrast": "NMPR vs MPR",
+      "n_a": 4.0,
+      "n_b": 8.0,
+      "mean_a": 0.24522514554974884,
+      "mean_b": 0.3806977673930201,
+      "median_a": 0.22734421383647319,
+      "median_b": 0.3254325490981552,
+      "U": 23.0,
+      "p": 0.2828282828282829,
+      "n": NaN,
+      "rho": NaN
+    },
+    "NMPR_vs_MPR_tnk_ifn_minus_cyto": {
+      "contrast": "NMPR vs MPR",
+      "n_a": 4.0,
+      "n_b": 8.0,
+      "mean_a": -0.4998407041296923,
+      "mean_b": -0.40580113158059977,
+      "median_a": -0.5179621140024109,
+      "median_b": -0.3738356817319657,
+      "U": 22.0,
+      "p": 0.3676767676767677,
+      "n": NaN,
+      "rho": NaN
+    },
+    "spearman_mal_CLDN4__tnk_cyto": {
+      "contrast": "mal_CLDN4 vs tnk_cyto",
+      "n_a": NaN,
+      "n_b": NaN,
+      "mean_a": NaN,
+      "mean_b": NaN,
+      "median_a": NaN,
+      "median_b": NaN,
+      "U": NaN,
+      "p": 0.729194990751066,
+      "n": 12.0,
+      "rho": -0.11188811188811189
+    },
+    "spearman_mal_CLDN4__tnk_ifn": {
+      "contrast": "mal_CLDN4 vs tnk_ifn",
+      "n_a": NaN,
+      "n_b": NaN,
+      "mean_a": NaN,
+      "mean_b": NaN,
+      "median_a": NaN,
+      "median_b": NaN,
+      "U": NaN,
+      "p": 0.5273023541661079,
+      "n": 12.0,
+      "rho": 0.2027972027972028
+    }
+  },
+  "empirical_sets": {
+    "up": [
+      "AIMP1",
+      "IFI44L",
+      "IFI6",
+      "IFIT1",
+      "ISG15",
+      "ISG20",
+      "JMJD6",
+      "MX1",
+      "MX2",
+      "NAMPT",
+      "OAS1",
+      "OAS3"
+    ],
+    "down": [
+      "BTLA",
+      "CD160",
+      "FGFBP2",
+      "HSP90B1",
+      "ITGA4",
+      "KLRB1",
+      "LY9",
+      "NUCB2",
+      "PTPRC",
+      "TNFSF14",
+      "TOX2"
+    ],
+    "p_cutoff": 0.15
+  },
+  "top_ligands": {
+    "cldn4_high_to_all_TNK__ifn": [
+      {
+        "rank": 1,
+        "ligand": "IFITM1",
+        "pearson": 0.5330852003514813,
+        "pearson_p": 1.148504770527383e-21,
+        "auroc": 0.9406249999999999
+      },
+      {
+        "rank": 2,
+        "ligand": "HLA-F",
+        "pearson": 0.44358936987676156,
+        "pearson_p": 9.827434115956662e-15,
+        "auroc": 0.89375
+      },
+      {
+        "rank": 3,
+        "ligand": "VSIG10",
+        "pearson": 0.443490369096101,
+        "pearson_p": 9.977889380962015e-15,
+        "auroc": 0.8947115384615384
+      },
+      {
+        "rank": 4,
+        "ligand": "CD40",
+        "pearson": 0.43004440239969355,
+        "pearson_p": 7.508969778067011e-14,
+        "auroc": 0.9098557692307693
+      },
+      {
+        "rank": 5,
+        "ligand": "HLA-DRB5",
+        "pearson": 0.4038147415117976,
+        "pearson_p": 3.002091994428716e-12,
+        "auroc": 0.8838942307692308
+      },
+      {
+        "rank": 6,
+        "ligand": "HLA-B",
+        "pearson": 0.4004086448293753,
+        "pearson_p": 4.7355452207718615e-12,
+        "auroc": 0.8795673076923076
+      },
+      {
+        "rank": 7,
+        "ligand": "MDK",
+        "pearson": 0.34983976774151365,
+        "pearson_p": 2.2941589094651973e-09,
+        "auroc": 0.851201923076923
+      },
+      {
+        "rank": 8,
+        "ligand": "SDC2",
+        "pearson": 0.32216531993681635,
+        "pearson_p": 4.385625801242093e-08,
+        "auroc": 0.8435096153846153
+      },
+      {
+        "rank": 9,
+        "ligand": "CEACAM1",
+        "pearson": 0.3097488040308253,
+        "pearson_p": 1.5019532578140665e-07,
+        "auroc": 0.8401442307692307
+      },
+      {
+        "rank": 10,
+        "ligand": "ADAM9",
+        "pearson": 0.3076685714396194,
+        "pearson_p": 1.8359423512483066e-07,
+        "auroc": 0.7882211538461539
+      }
+    ],
+    "cldn4_high_to_all_TNK__cytotoxicity": [
+      {
+        "rank": 1,
+        "ligand": "HLA-DRA",
+        "pearson": 0.2945747417304026,
+        "pearson_p": 6.272649498537852e-07,
+        "auroc": 0.3852235550708833
+      },
+      {
+        "rank": 2,
+        "ligand": "TYROBP",
+        "pearson": 0.2938150362782465,
+        "pearson_p": 6.723704981110794e-07,
+        "auroc": 0.48773173391494
+      },
+      {
+        "rank": 3,
+        "ligand": "HLA-DQB1",
+        "pearson": 0.2563668933348268,
+        "pearson_p": 1.6175645549415352e-05,
+        "auroc": 0.3961286804798255
+      },
+      {
+        "rank": 4,
+        "ligand": "CCL4",
+        "pearson": 0.23664385552468004,
+        "pearson_p": 7.183775858760889e-05,
+        "auroc": 0.41357688113413305
+      },
+      {
+        "rank": 5,
+        "ligand": "CD47",
+        "pearson": 0.2148587957794025,
+        "pearson_p": 0.0003239150508382381,
+        "auroc": 0.3429661941112323
+      },
+      {
+        "rank": 6,
+        "ligand": "CD58",
+        "pearson": 0.21052949853921862,
+        "pearson_p": 0.00042951473678750203,
+        "auroc": 0.3366957470010905
+      },
+      {
+        "rank": 7,
+        "ligand": "CD274",
+        "pearson": 0.20061192068350978,
+        "pearson_p": 0.0008027976169157693,
+        "auroc": 0.6428571428571429
+      },
+      {
+        "rank": 8,
+        "ligand": "HLA-A",
+        "pearson": 0.18872747623711106,
+        "pearson_p": 0.0016355181549520565,
+        "auroc": 0.4618320610687023
+      },
+      {
+        "rank": 9,
+        "ligand": "TNC",
+        "pearson": 0.18631811625182043,
+        "pearson_p": 0.0018799791318605354,
+        "auroc": 0.3328789531079607
+      },
+      {
+        "rank": 10,
+        "ligand": "ULBP2",
+        "pearson": 0.16976375785887537,
+        "pearson_p": 0.004682754492464564,
+        "auroc": 0.423391494002181
+      }
+    ],
+    "NMPR_to_NMPR__ifn": [
+      {
+        "rank": 1,
+        "ligand": "IFITM1",
+        "pearson": 0.5330852003514813,
+        "pearson_p": 1.148504770527383e-21,
+        "auroc": 0.9406249999999999
+      },
+      {
+        "rank": 2,
+        "ligand": "HLA-F",
+        "pearson": 0.44358936987676156,
+        "pearson_p": 9.827434115956662e-15,
+        "auroc": 0.89375
+      },
+      {
+        "rank": 3,
+        "ligand": "VSIG10",
+        "pearson": 0.443490369096101,
+        "pearson_p": 9.977889380962015e-15,
+        "auroc": 0.8947115384615384
+      },
+      {
+        "rank": 4,
+        "ligand": "CLCF1",
+        "pearson": 0.4338179435454236,
+        "pearson_p": 4.300152033188326e-14,
+        "auroc": 0.9021634615384616
+      },
+      {
+        "rank": 5,
+        "ligand": "HLA-DRB5",
+        "pearson": 0.4038147415117976,
+        "pearson_p": 3.002091994428716e-12,
+        "auroc": 0.8838942307692308
+      },
+      {
+        "rank": 6,
+        "ligand": "HLA-B",
+        "pearson": 0.4004086448293753,
+        "pearson_p": 4.7355452207718615e-12,
+        "auroc": 0.8795673076923076
+      },
+      {
+        "rank": 7,
+        "ligand": "MDK",
+        "pearson": 0.34983976774151365,
+        "pearson_p": 2.2941589094651973e-09,
+        "auroc": 0.851201923076923
+      },
+      {
+        "rank": 8,
+        "ligand": "SDC2",
+        "pearson": 0.32216531993681635,
+        "pearson_p": 4.385625801242093e-08,
+        "auroc": 0.8435096153846153
+      },
+      {
+        "rank": 9,
+        "ligand": "CEACAM1",
+        "pearson": 0.3097488040308253,
+        "pearson_p": 1.5019532578140665e-07,
+        "auroc": 0.8401442307692307
+      },
+      {
+        "rank": 10,
+        "ligand": "ADAM9",
+        "pearson": 0.3076685714396194,
+        "pearson_p": 1.8359423512483066e-07,
+        "auroc": 0.7882211538461539
+      }
+    ],
+    "MPR_to_MPR__ifn": [
+      {
+        "rank": 1,
+        "ligand": "IFITM1",
+        "pearson": 0.5330852003514813,
+        "pearson_p": 1.148504770527383e-21,
+        "auroc": 0.9406249999999999
+      },
+      {
+        "rank": 2,
+        "ligand": "HLA-F",
+        "pearson": 0.44358936987676156,
+        "pearson_p": 9.827434115956662e-15,
+        "auroc": 0.89375
+      },
+      {
+        "rank": 3,
+        "ligand": "VSIG10",
+        "pearson": 0.443490369096101,
+        "pearson_p": 9.977889380962015e-15,
+        "auroc": 0.8947115384615384
+      },
+      {
+        "rank": 4,
+        "ligand": "CD40",
+        "pearson": 0.43004440239969355,
+        "pearson_p": 7.508969778067011e-14,
+        "auroc": 0.9098557692307693
+      },
+      {
+        "rank": 5,
+        "ligand": "HLA-DRB5",
+        "pearson": 0.4038147415117976,
+        "pearson_p": 3.002091994428716e-12,
+        "auroc": 0.8838942307692308
+      },
+      {
+        "rank": 6,
+        "ligand": "HLA-B",
+        "pearson": 0.4004086448293753,
+        "pearson_p": 4.7355452207718615e-12,
+        "auroc": 0.8795673076923076
+      },
+      {
+        "rank": 7,
+        "ligand": "SIRPA",
+        "pearson": 0.3610093289828951,
+        "pearson_p": 6.411144211695869e-10,
+        "auroc": 0.8492788461538462
+      },
+      {
+        "rank": 8,
+        "ligand": "MDK",
+        "pearson": 0.34983976774151365,
+        "pearson_p": 2.2941589094651973e-09,
+        "auroc": 0.851201923076923
+      },
+      {
+        "rank": 9,
+        "ligand": "SDC2",
+        "pearson": 0.32216531993681635,
+        "pearson_p": 4.385625801242093e-08,
+        "auroc": 0.8435096153846153
+      },
+      {
+        "rank": 10,
+        "ligand": "CEACAM1",
+        "pearson": 0.3097488040308253,
+        "pearson_p": 1.5019532578140665e-07,
+        "auroc": 0.8401442307692307
+      }
+    ],
+    "NMPR_to_NMPR__cytotoxicity": [
+      {
+        "rank": 1,
+        "ligand": "HLA-DRA",
+        "pearson": 0.2945747417304026,
+        "pearson_p": 6.272649498537852e-07,
+        "auroc": 0.3852235550708833
+      },
+      {
+        "rank": 2,
+        "ligand": "TYROBP",
+        "pearson": 0.2938150362782465,
+        "pearson_p": 6.723704981110794e-07,
+        "auroc": 0.48773173391494
+      },
+      {
+        "rank": 3,
+        "ligand": "HLA-DQB1",
+        "pearson": 0.2563668933348268,
+        "pearson_p": 1.6175645549415352e-05,
+        "auroc": 0.3961286804798255
+      },
+      {
+        "rank": 4,
+        "ligand": "CCL4",
+        "pearson": 0.23664385552468004,
+        "pearson_p": 7.183775858760889e-05,
+        "auroc": 0.41357688113413305
+      },
+      {
+        "rank": 5,
+        "ligand": "CD47",
+        "pearson": 0.2148587957794025,
+        "pearson_p": 0.0003239150508382381,
+        "auroc": 0.3429661941112323
+      },
+      {
+        "rank": 6,
+        "ligand": "CD58",
+        "pearson": 0.21052949853921862,
+        "pearson_p": 0.00042951473678750203,
+        "auroc": 0.3366957470010905
+      },
+      {
+        "rank": 7,
+        "ligand": "HLA-A",
+        "pearson": 0.18872747623711106,
+        "pearson_p": 0.0016355181549520565,
+        "auroc": 0.4618320610687023
+      },
+      {
+        "rank": 8,
+        "ligand": "TNC",
+        "pearson": 0.18631811625182043,
+        "pearson_p": 0.0018799791318605354,
+        "auroc": 0.3328789531079607
+      },
+      {
+        "rank": 9,
+        "ligand": "ULBP2",
+        "pearson": 0.16976375785887537,
+        "pearson_p": 0.004682754492464564,
+        "auroc": 0.423391494002181
+      },
+      {
+        "rank": 10,
+        "ligand": "HLA-DRB1",
+        "pearson": 0.16894674366539503,
+        "pearson_p": 0.004888758793744522,
+        "auroc": 0.39149400218102504
+      }
+    ],
+    "MPR_to_MPR__cytotoxicity": [
+      {
+        "rank": 1,
+        "ligand": "HLA-DRA",
+        "pearson": 0.2945747417304026,
+        "pearson_p": 6.272649498537852e-07,
+        "auroc": 0.3852235550708833
+      },
+      {
+        "rank": 2,
+        "ligand": "TYROBP",
+        "pearson": 0.2938150362782465,
+        "pearson_p": 6.723704981110794e-07,
+        "auroc": 0.48773173391494
+      },
+      {
+        "rank": 3,
+        "ligand": "PDCD1LG2",
+        "pearson": 0.2832680408693247,
+        "pearson_p": 1.7272501790399602e-06,
+        "auroc": 0.43047982551799346
+      },
+      {
+        "rank": 4,
+        "ligand": "IL15",
+        "pearson": 0.27317882369697316,
+        "pearson_p": 4.110950972398308e-06,
+        "auroc": 0.7704471101417666
+      },
+      {
+        "rank": 5,
+        "ligand": "HLA-DQB1",
+        "pearson": 0.2563668933348268,
+        "pearson_p": 1.6175645549415352e-05,
+        "auroc": 0.3961286804798255
+      },
+      {
+        "rank": 6,
+        "ligand": "CCL4",
+        "pearson": 0.23664385552468004,
+        "pearson_p": 7.183775858760889e-05,
+        "auroc": 0.41357688113413305
+      },
+      {
+        "rank": 7,
+        "ligand": "CD47",
+        "pearson": 0.2148587957794025,
+        "pearson_p": 0.0003239150508382381,
+        "auroc": 0.3429661941112323
+      },
+      {
+        "rank": 8,
+        "ligand": "SIRPA",
+        "pearson": 0.2130092638487982,
+        "pearson_p": 0.0003656641234647485,
+        "auroc": 0.38849509269356597
+      },
+      {
+        "rank": 9,
+        "ligand": "CD58",
+        "pearson": 0.21052949853921862,
+        "pearson_p": 0.00042951473678750203,
+        "auroc": 0.3366957470010905
+      },
+      {
+        "rank": 10,
+        "ligand": "CD274",
+        "pearson": 0.20061192068350978,
+        "pearson_p": 0.0008027976169157693,
+        "auroc": 0.6428571428571429
+      }
+    ]
+  },
+  "caveats": [
+    "n=4 MPR vs n=8 NMPR; all patient-level p-values are underpowered",
+    "NicheNet prior is unsigned regulatory potential, not signed up/down",
+    "Background genes are panel-restricted (not the full receiver transcriptome)",
+    "DRMref labels are marker-based, not Hu CopyKAT malignant IDs",
+    "Cell counts are descriptive; inference is patient-level",
+    "Sender is CLDN4-only; this does not replace the dual-high TACSTD2\u2229CLDN4 folder"
+  ]
+}
