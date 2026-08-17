@@ -39,6 +39,8 @@ def fmt_p(p: float) -> str:
         return f"{p:.1e}"
     if p < 0.01:
         return f"{p:.3g}"
+    if p < 0.05:
+        return f"{p:.3f}".rstrip("0").rstrip(".")
     return f"{p:.2f}"
 
 
@@ -106,7 +108,7 @@ def fig01_forest(df: pd.DataFrame) -> None:
 
     fig, ax = plt.subplots(figsize=(W, H))
     apply_slide(fig)
-    fig.subplots_adjust(left=0.42, right=0.78, top=0.78, bottom=0.12)
+    fig.subplots_adjust(left=0.34, right=0.74, top=0.78, bottom=0.12)
     panel_ax(ax)
     header(
         fig,
@@ -115,6 +117,7 @@ def fig01_forest(df: pd.DataFrame) -> None:
     )
 
     y = np.arange(len(rows))
+    ytick = [f"{r.accession}  ·  {r.contrast}" for r in rows.itertuples()]
     for i, r in rows.iterrows():
         color = MINT if r["effect"] > 0 else CORAL
         ax.plot(
@@ -134,15 +137,14 @@ def fig01_forest(df: pd.DataFrame) -> None:
             linewidth=0.8,
             zorder=3,
         )
-        left = f"{r['accession']}\n{r['contrast']}"
-        ax.text(-1.18, i, left, color=INK, fontsize=10.2, va="center", ha="left", linespacing=1.25)
         right = f"n={int(r['n'])}   ρ={fmt_rho(r['effect'])}   p={fmt_p(r['p'])}"
-        ax.text(1.12, i, right, color=INK, fontsize=10.5, va="center", ha="left", fontweight="medium")
+        ax.text(1.05, i, right, color=INK, fontsize=10.5, va="center", ha="left", fontweight="medium")
 
     ax.axvline(0, color=GOLD, lw=1.2, ls="--", zorder=1)
-    ax.set_xlim(-1.20, 1.10)
+    ax.set_xlim(-1.05, 1.02)
     ax.set_ylim(-0.7, len(rows) - 0.3)
-    ax.set_yticks([])
+    ax.set_yticks(y)
+    ax.set_yticklabels(ytick, color=INK, fontsize=9.6)
     ax.set_xlabel("Spearman ρ  (whiskers = published CI, or Fisher-z display from n, ρ)", color=MUTED, fontsize=10)
     ax.set_xticks([-1.0, -0.5, 0, 0.5, 1.0])
     footer(
@@ -427,15 +429,19 @@ def fig08_gse312098(df: pd.DataFrame) -> None:
 
     ax = fig.add_axes([0.50, 0.28, 0.44, 0.50])
     panel_ax(ax, "Gene-set direction after IMMU132 (published MW)")
-    labels = ["IFN set\n55 genes", "APM\n19 genes", "C4 IFN/MHC-I\n6 genes"]
+    labels = [
+        "IFN set\n55 genes",
+        "APM\n19 genes",
+        "C4 IFN/MHC-I\n6 genes",
+    ]
     ps = sets["p"].to_numpy()
     y = np.arange(3)
     ax.barh(y, -np.log10(ps), color=[MINT, CYAN, GOLD], height=0.55, edgecolor=INK, linewidth=0.5)
     ax.set_yticks(y)
     ax.set_yticklabels(labels, color=INK, fontsize=11)
     ax.set_xlabel("−log10 p  (published MW on log2FC)", color=MUTED)
-    for i, (p, lab) in enumerate(zip(ps, sets["display_effect"])):
-        ax.text(-np.log10(p) + 0.08, i, f"{lab}   p={fmt_p(p)}", color=INK, va="center", fontsize=11)
+    for i, (p, lab) in enumerate(zip(ps, sets["display_p"])):
+        ax.text(-np.log10(p) + 0.08, i, f"{sets['display_effect'].iloc[i]}   p={lab}", color=INK, va="center", fontsize=11)
     ax.set_xlim(0, 9.2)
     fig.text(
         0.03,
