@@ -1,0 +1,8 @@
+feature	n_genes_defined	n_genes_present	genes_present	genes_missing	source
+CLDN4	1	1	CLDN4		public z-score matrix
+CD8A	1	1	CD8A		public z-score matrix
+CD274	1	1	CD274		public z-score matrix
+ImmuneScore_A1_8gene	8	8	CD8A,GZMA,GZMB,IFNG,EOMES,CXCL9,CXCL10,TBX21		mean of present gene z-scores; not ESTIMATE
+TJ_noCLDN4	9	9	CLDN3,CLDN7,OCLN,TJP1,F11R,MARVELD2,CRB3,PARD3,CGN		mean of present gene z-scores
+ESTIMATE_ImmuneScore	141	0		entire SI_geneset; no raw RSEM on cBioPortal	SKIP — public deposit is z-scores only
+IMSIG_T_CELLS	0	0			data_clinical_sample.txt published IMSIG column
