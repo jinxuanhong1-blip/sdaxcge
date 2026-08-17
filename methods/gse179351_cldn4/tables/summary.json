@@ -1,0 +1,87 @@
+{
+  "accession": "GSE179351",
+  "pmid": "35122060",
+  "public": true,
+  "n_geo_gsm": 54,
+  "n_count_columns": 54,
+  "n_joined_samples": 53,
+  "n_patients_joined": 25,
+  "n_baseline": 25,
+  "n_pre_tx": 23,
+  "n_response_geo": 0,
+  "geo_only_titles": [
+    "20-Pre-xRT"
+  ],
+  "count_only_titles": [
+    "22-Pre-xRT"
+  ],
+  "cancer_label_conflicts": [
+    "52"
+  ],
+  "baseline_cancer": {
+    "MSS CRC": 14,
+    "PDAC": 11
+  },
+  "timepoints_joined": {
+    "Pre-Tx": 23,
+    "Pre-xRT": 19,
+    "Post-xRT": 11
+  },
+  "tnk_used": [
+    "CD8A",
+    "CD8B",
+    "CD2",
+    "CD3D",
+    "CD3E",
+    "CD3G",
+    "NKG7",
+    "GNLY",
+    "PRF1",
+    "GZMA",
+    "GZMB",
+    "GZMK",
+    "KLRD1",
+    "KLRK1",
+    "KLRB1",
+    "NCR1"
+  ],
+  "ifn_used": [
+    "IFNG",
+    "STAT1",
+    "CXCL9",
+    "CXCL10",
+    "IDO1",
+    "HLA-DRA"
+  ],
+  "mhc_used": [
+    "HLA-A",
+    "HLA-B",
+    "HLA-C"
+  ],
+  "one_row": {
+    "dataset": "GSE179351",
+    "n_primary": 25,
+    "n_joined_samples": 53,
+    "n_geo_gsm": 54,
+    "n_pre_tx": 23,
+    "n_response_geo": 0,
+    "matrix": "suppl. DESeq2 normalized counts (series matrix empty)",
+    "title_mismatch": "GEO-only=['20-Pre-xRT']; count-only=['22-Pre-xRT']",
+    "CLDN4_vs_CD274_rho": -0.060396231161463164,
+    "CLDN4_vs_CD274_p": 0.7742788038350163,
+    "CLDN4_vs_TNK_rho": -0.42538461538461536,
+    "CLDN4_vs_TNK_p": 0.03401300109671606,
+    "CLDN4_vs_IFN_rho": -0.46153846153846156,
+    "CLDN4_vs_IFN_p": 0.020210948364049016,
+    "CLDN4_vs_CD8A_rho": -0.21004017561573624,
+    "CLDN4_vs_CD8A_p": 0.31358243006073905,
+    "TNK_genes": "16/16",
+    "IFN_genes": "6/6",
+    "IFNG": "present",
+    "baseline_CRC": 14,
+    "baseline_PDAC": 11,
+    "cancer_label_conflicts": "52"
+  },
+  "series_title": "Radiation Therapy Inhances Immunotherapy Response in\u00a0\u00a0Microsatellite-stable Colorectal and Pancreatic Adenocarcinoma\u00a0in a Phase II Trial",
+  "series_status": "Public on Jul 06 2021"
+}

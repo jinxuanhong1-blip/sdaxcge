@@ -1,0 +1,72 @@
+test	cohort	pair	note	n	rho	p	mwu_n_high	mwu_n_low	mwu_median_high	mwu_median_low	mwu_U	mwu_p	mwu_delta
+spearman	baseline_patient	CLDN4 vs CD274	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	-0.060396231161463164	0.7742788038350163							
+spearman	baseline_patient	CLDN4 vs TNK	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	-0.42538461538461536	0.03401300109671606							
+spearman	baseline_patient	CLDN4 vs IFN	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	-0.46153846153846156	0.020210948364049016							
+spearman	baseline_patient	CLDN4 vs CD8A	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	-0.21004017561573624	0.31358243006073905							
+spearman	baseline_patient	CLDN4 vs NKG7	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	-0.6447924508791902	0.0005022386302525272							
+spearman	baseline_patient	CLDN4 vs MHC	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	-0.3576923076923077	0.07917184179677549							
+spearman	baseline_patient	CLDN4 vs TACSTD2	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	0.5592307692307692	0.0036577642067670882							
+spearman	baseline_patient	CLDN4 vs EPCAM	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	0.7792307692307692	4.436262495819452e-06							
+spearman	baseline_patient	CLDN4 vs PDCD1	one biopsy/patient; n=25; Pre-Tx else Pre-xRT	25	0.004892297907721662	0.9814833940013782							
+partial_spearman_|EPCAM	baseline_patient	CLDN4 vs CD274	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; rank residual on EPCAM	25	-0.12030286382154354	0.5667760617198992							
+partial_spearman_|EPCAM	baseline_patient	CLDN4 vs TNK	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; rank residual on EPCAM	25	-0.574667735210665	0.0026590358717756136							
+partial_spearman_|EPCAM	baseline_patient	CLDN4 vs IFN	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; rank residual on EPCAM	25	-0.5301110438793015	0.00641623830801785							
+partial_spearman_|EPCAM	baseline_patient	CLDN4 vs CD8A	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; rank residual on EPCAM	25	-0.4433349541449107	0.02644020998636931							
+partial_spearman_|EPCAM	baseline_patient	CLDN4 vs NKG7	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; rank residual on EPCAM	25	-0.6306180372282596	0.0007265036700907346							
+partial_spearman_|EPCAM	baseline_patient	CLDN4 vs MHC	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; rank residual on EPCAM	25	-0.6160747762304511	0.0010419389322401896							
+median_split_MWU	baseline_patient	CLDN4-high vs low, CD274	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; high n=13 (>= median 7.783); low n=12	25	-0.22435897435897437	0.3550408309041967	13.0	12.0	3.67577277573779	3.996235044197463	60.5	0.3550408309041967	-0.22435897435897437
+median_split_MWU	baseline_patient	CLDN4-high vs low, TNK	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; high n=13 (>= median 7.783); low n=12	25	-0.4230769230769231	0.0770998717435417	13.0	12.0	-0.5797483480354014	0.18723159843253626	45.0	0.0770998717435417	-0.4230769230769231
+median_split_MWU	baseline_patient	CLDN4-high vs low, IFN	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; high n=13 (>= median 7.783); low n=12	25	-0.5256410256410257	0.0276011217404837	13.0	12.0	-0.3422870609545657	-0.026969824279635842	37.0	0.0276011217404837	-0.5256410256410257
+median_split_MWU	baseline_patient	CLDN4-high vs low, CD8A	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; high n=13 (>= median 7.783); low n=12	25	-0.16666666666666666	0.4948971855155434	13.0	12.0	0.9890850214196057	2.21846737053576	65.0	0.4948971855155434	-0.16666666666666666
+median_split_MWU	baseline_patient	CLDN4-high vs low, NKG7	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; high n=13 (>= median 7.783); low n=12	25	-0.6923076923076923	0.0034860339679871387	13.0	12.0	1.3088201759711933	3.6415023753620614	24.0	0.0034860339679871387	-0.6923076923076923
+median_split_MWU	baseline_patient	CLDN4-high vs low, MHC	one biopsy/patient; n=25; Pre-Tx else Pre-xRT; high n=13 (>= median 7.783); low n=12	25	-0.358974358974359	0.13470504984007844	13.0	12.0	-0.49078446561424377	0.13285105910598818	50.0	0.13470504984007844	-0.358974358974359
+spearman	pre_tx	CLDN4 vs CD274	Pre-Tx only; n=23; still one/patient	23	0.0009883864892793377	0.9964288594608488							
+spearman	pre_tx	CLDN4 vs TNK	Pre-Tx only; n=23; still one/patient	23	-0.48023715415019763	0.020378798193912306							
+spearman	pre_tx	CLDN4 vs IFN	Pre-Tx only; n=23; still one/patient	23	-0.5217391304347826	0.010667373110931088							
+spearman	pre_tx	CLDN4 vs CD8A	Pre-Tx only; n=23; still one/patient	23	-0.3267170363445216	0.12810655124218986							
+spearman	pre_tx	CLDN4 vs NKG7	Pre-Tx only; n=23; still one/patient	23	-0.6852120215128263	0.0003087125322245742							
+spearman	pre_tx	CLDN4 vs MHC	Pre-Tx only; n=23; still one/patient	23	-0.4061264822134388	0.0544915339707887							
+spearman	pre_tx	CLDN4 vs TACSTD2	Pre-Tx only; n=23; still one/patient	23	0.6482213438735179	0.0008227075253363855							
+spearman	pre_tx	CLDN4 vs EPCAM	Pre-Tx only; n=23; still one/patient	23	0.7737154150197629	1.487054647030861e-05							
+spearman	pre_tx	CLDN4 vs PDCD1	Pre-Tx only; n=23; still one/patient	23	-0.10876772059671816	0.6212976678284007							
+partial_spearman_|EPCAM	pre_tx	CLDN4 vs CD274	Pre-Tx only; n=23; still one/patient; rank residual on EPCAM	23	-0.13938111331199546	0.5258985569488913							
+partial_spearman_|EPCAM	pre_tx	CLDN4 vs TNK	Pre-Tx only; n=23; still one/patient; rank residual on EPCAM	23	-0.5982066408845967	0.0025686874847715923							
+partial_spearman_|EPCAM	pre_tx	CLDN4 vs IFN	Pre-Tx only; n=23; still one/patient; rank residual on EPCAM	23	-0.5451652493652588	0.00713977209423446							
+partial_spearman_|EPCAM	pre_tx	CLDN4 vs CD8A	Pre-Tx only; n=23; still one/patient; rank residual on EPCAM	23	-0.4723474645344156	0.022853564622865922							
+partial_spearman_|EPCAM	pre_tx	CLDN4 vs NKG7	Pre-Tx only; n=23; still one/patient; rank residual on EPCAM	23	-0.6651820440806037	0.000533579123471817							
+partial_spearman_|EPCAM	pre_tx	CLDN4 vs MHC	Pre-Tx only; n=23; still one/patient; rank residual on EPCAM	23	-0.6446731249288489	0.0008977824205060319							
+median_split_MWU	pre_tx	CLDN4-high vs low, CD274	Pre-Tx only; n=23; still one/patient; high n=12 (>= median 7.753); low n=11	23	-0.05303030303030303	0.8534777864583856	12.0	11.0	3.7522836973570453	3.9766037068640334	62.5	0.8534777864583856	-0.05303030303030303
+median_split_MWU	pre_tx	CLDN4-high vs low, TNK	Pre-Tx only; n=23; still one/patient; high n=12 (>= median 7.753); low n=11	23	-0.5303030303030303	0.03372635757681134	12.0	11.0	-0.614991513998998	0.2555118997814865	31.0	0.03372635757681134	-0.5303030303030303
+median_split_MWU	pre_tx	CLDN4-high vs low, IFN	Pre-Tx only; n=23; still one/patient; high n=12 (>= median 7.753); low n=11	23	-0.6515151515151515	0.00890462720971815	12.0	11.0	-0.3870552623126864	0.004329685723262315	23.0	0.00890462720971815	-0.6515151515151515
+median_split_MWU	pre_tx	CLDN4-high vs low, CD8A	Pre-Tx only; n=23; still one/patient; high n=12 (>= median 7.753); low n=11	23	-0.42424242424242425	0.08895562875137698	12.0	11.0	0.760284387599309	2.2697082990344484	38.0	0.08895562875137698	-0.42424242424242425
+median_split_MWU	pre_tx	CLDN4-high vs low, NKG7	Pre-Tx only; n=23; still one/patient; high n=12 (>= median 7.753); low n=11	23	-0.7272727272727273	0.003303640537009284	12.0	11.0	1.1751770587863908	3.656837879985537	18.0	0.003303640537009284	-0.7272727272727273
+median_split_MWU	pre_tx	CLDN4-high vs low, MHC	Pre-Tx only; n=23; still one/patient; high n=12 (>= median 7.753); low n=11	23	-0.36363636363636365	0.14808606158507112	12.0	11.0	-0.5152782555747846	0.08360670125050047	42.0	0.14808606158507112	-0.36363636363636365
+spearman	all_joined_samples	CLDN4 vs CD274	all joined biopsies n=53; pseudoreplication (not primary)	53	-0.08113230537098062	0.5635873796330578							
+spearman	all_joined_samples	CLDN4 vs TNK	all joined biopsies n=53; pseudoreplication (not primary)	53	-0.44508950169327527	0.0008394911736573503							
+spearman	all_joined_samples	CLDN4 vs IFN	all joined biopsies n=53; pseudoreplication (not primary)	53	-0.33518787292372193	0.014149335733155117							
+spearman	all_joined_samples	CLDN4 vs CD8A	all joined biopsies n=53; pseudoreplication (not primary)	53	-0.26685170755701976	0.05341242597813073							
+spearman	all_joined_samples	CLDN4 vs NKG7	all joined biopsies n=53; pseudoreplication (not primary)	53	-0.3959981468597281	0.0033334456145289997							
+spearman	all_joined_samples	CLDN4 vs MHC	all joined biopsies n=53; pseudoreplication (not primary)	53	-0.1824705692630221	0.19096150553148225							
+spearman	all_joined_samples	CLDN4 vs TACSTD2	all joined biopsies n=53; pseudoreplication (not primary)	53	0.5058861473955814	0.0001114231730072879							
+spearman	all_joined_samples	CLDN4 vs EPCAM	all joined biopsies n=53; pseudoreplication (not primary)	53	0.7758985628604925	8.860507804781191e-12							
+spearman	all_joined_samples	CLDN4 vs PDCD1	all joined biopsies n=53; pseudoreplication (not primary)	53	-0.2627630284750216	0.057317646162737886							
+partial_spearman_|EPCAM	all_joined_samples	CLDN4 vs CD274	all joined biopsies n=53; pseudoreplication (not primary); rank residual on EPCAM	53	-0.0866241987840013	0.5373949332737593							
+partial_spearman_|EPCAM	all_joined_samples	CLDN4 vs TNK	all joined biopsies n=53; pseudoreplication (not primary); rank residual on EPCAM	53	-0.581033107677539	5.076355676557924e-06							
+partial_spearman_|EPCAM	all_joined_samples	CLDN4 vs IFN	all joined biopsies n=53; pseudoreplication (not primary); rank residual on EPCAM	53	-0.47514867840711034	0.00032415808332325423							
+partial_spearman_|EPCAM	all_joined_samples	CLDN4 vs CD8A	all joined biopsies n=53; pseudoreplication (not primary); rank residual on EPCAM	53	-0.443529053061773	0.0008799451560089773							
+partial_spearman_|EPCAM	all_joined_samples	CLDN4 vs NKG7	all joined biopsies n=53; pseudoreplication (not primary); rank residual on EPCAM	53	-0.43308680080116135	0.0011988685273882683							
+partial_spearman_|EPCAM	all_joined_samples	CLDN4 vs MHC	all joined biopsies n=53; pseudoreplication (not primary); rank residual on EPCAM	53	-0.5408771106117716	2.898638102693942e-05							
+median_split_MWU	all_joined_samples	CLDN4-high vs low, CD274	all joined biopsies n=53; pseudoreplication (not primary); high n=27 (>= median 8.060); low n=26	53	-0.14245014245014245	0.3783814568571918	27.0	26.0	3.794136437733248	3.996235044197463	301.0	0.3783814568571918	-0.14245014245014245
+median_split_MWU	all_joined_samples	CLDN4-high vs low, TNK	all joined biopsies n=53; pseudoreplication (not primary); high n=27 (>= median 8.060); low n=26	53	-0.5954415954415955	0.00020755779910052079	27.0	26.0	-0.4551668509355905	0.2742989798702394	142.0	0.00020755779910052079	-0.5954415954415955
+median_split_MWU	all_joined_samples	CLDN4-high vs low, IFN	all joined biopsies n=53; pseudoreplication (not primary); high n=27 (>= median 8.060); low n=26	53	-0.46438746438746437	0.0038377041196682262	27.0	26.0	-0.43182346367080715	-0.003339080515883217	188.0	0.0038377041196682262	-0.46438746438746437
+median_split_MWU	all_joined_samples	CLDN4-high vs low, CD8A	all joined biopsies n=53; pseudoreplication (not primary); high n=27 (>= median 8.060); low n=26	53	-0.3433048433048433	0.031169812463920508	27.0	26.0	0.9890850214196057	2.278186305261932	230.5	0.031169812463920508	-0.3433048433048433
+median_split_MWU	all_joined_samples	CLDN4-high vs low, NKG7	all joined biopsies n=53; pseudoreplication (not primary); high n=27 (>= median 8.060); low n=26	53	-0.5356125356125356	0.000777300328368442	27.0	26.0	1.274412279548138	3.219166024470639	163.0	0.000777300328368442	-0.5356125356125356
+median_split_MWU	all_joined_samples	CLDN4-high vs low, MHC	all joined biopsies n=53; pseudoreplication (not primary); high n=27 (>= median 8.060); low n=26	53	-0.2934472934472934	0.06820019921640189	27.0	26.0	-0.32835555036356884	0.18457774930790677	248.0	0.06820019921640189	-0.2934472934472934
+spearman_cancer	baseline_MSS_CRC	CLDN4 vs CD274	GEO cancer type on baseline row; n=14	14	-0.20022014315965378	0.4925179378441311							
+spearman_cancer	baseline_MSS_CRC	CLDN4 vs TNK	GEO cancer type on baseline row; n=14	14	-0.4461538461538462	0.10980712780122506							
+spearman_cancer	baseline_MSS_CRC	CLDN4 vs IFN	GEO cancer type on baseline row; n=14	14	-0.4021978021978022	0.1539744295414035							
+spearman_cancer	baseline_MSS_CRC	CLDN4 vs CD8A	GEO cancer type on baseline row; n=14	14	-0.020001234682224835	0.945892115786296							
+spearman_cancer	baseline_PDAC	CLDN4 vs CD274	GEO cancer type on baseline row; n=11	11	0.27272727272727276	0.4171414371425311							
+spearman_cancer	baseline_PDAC	CLDN4 vs TNK	GEO cancer type on baseline row; n=11	11	-0.4909090909090909	0.12520440713849548							
+spearman_cancer	baseline_PDAC	CLDN4 vs IFN	GEO cancer type on baseline row; n=11	11	-0.6090909090909091	0.046695709354098905							
+spearman_cancer	baseline_PDAC	CLDN4 vs CD8A	GEO cancer type on baseline row; n=11	11	-0.5727272727272729	0.06554305260101852							
