@@ -1,0 +1,13 @@
+item	n	note
+GEO patients (Wu 2021)	42	one sample each; not the test n
+TISCH units in extract	42	all 42 samples present
+TISCH eligible (≥20 scored epi + ≥20 T/NK)	25	locked given-ρ set
+TISCH eligible but epithelial-like fallback	3	P35,P39,P5
+TISCH eligible and Malignant	22	honest malignant T/NK recut
+TISCH ineligible	17	usually <20 T/NK
+TLS eligible (author extract)	41	41/42
+TLS malignant compartment	35	epithelial / insufficient dropped
+TLS malignant + finite CXCL13+ among T	31	locked given-ρ set; 4 malignant lack a T-cell CXCL13 call
+TLS malignant + CXCL13 mean	35	whole-sample CXCL13; n=35
+Same-patient TLS CXCL13+ ∩ TISCH eligible	21	shared CLDN4 Q4/Q1
+Same-patient ∩ TISCH Malignant only	21	epi-like TISCH units are not in the TLS malignant+CXCL13+ set
