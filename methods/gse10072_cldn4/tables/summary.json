@@ -1,0 +1,40 @@
+{
+  "dataset": "GSE10072",
+  "primary_cohort": "LUAD tumor only",
+  "n_tumor": 58,
+  "n_normal_dropped": 49,
+  "n_named_complete": 58,
+  "missing_targets": [
+    "CD274"
+  ],
+  "CLDN4_CD8A": {
+    "n": 58,
+    "rho": -0.48106678150665977,
+    "p": 0.00013206770411352097,
+    "partial_rho_epi": -0.4234254151903376,
+    "partial_p_epi": 0.0010313481193671191,
+    "verdict": "HOLDS"
+  },
+  "CLDN4_ImmuneScore": {
+    "n": 58,
+    "rho": -0.17745854994001664,
+    "p": 0.18264041915753088,
+    "partial_rho_epi": -0.12419311028126559,
+    "partial_p_epi": 0.3573456611910328,
+    "verdict": "NO_EVIDENCE"
+  },
+  "CLDN4_CD274": "absent_on_GPL96",
+  "probes": {
+    "CLDN4": "201428_at",
+    "CD8A": "205758_at"
+  },
+  "epithelial_genes": [
+    "EPCAM",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "estimate_immune_present": 138
+}
