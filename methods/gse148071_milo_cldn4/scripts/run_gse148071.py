@@ -243,6 +243,16 @@ def _fmt(x, nd=3, sci=False):
     return f"{x:.2e}" if sci else f"{x:.{nd}f}"
 
 
+def _sens_line(rec: dict) -> str:
+    min_p = rec.get("min_p")
+    min_sf = rec.get("min_SpatialFDR")
+    return (
+        f"| ≥{rec['min_samples_present']} | {rec['n_testable']} | {rec['n_p_lt_0.05']} | "
+        f"{_fmt(min_p, sci=True)} | {_fmt(min_sf)} | **{rec['n_SpatialFDR_lt_0.1']}** | "
+        f"{rec['n_abs_rho_eq_1']} |"
+    )
+
+
 def write_finding(summary: dict, sample_tab: pd.DataFrame, out_path: Path) -> None:
     da = summary["da_malignant_cldn4"]
     da_hl = summary["da_cldn4_high_vs_low"]
@@ -256,6 +266,10 @@ def write_finding(summary: dict, sample_tab: pd.DataFrame, out_path: Path) -> No
     iface = c["interface_nhoods"]["spearman"]
     paired = c["sample_paired_TNK_in_CLDN4high_vs_low_nhoods"]
     w = paired["wilcoxon_high_vs_low"]
+    sl = summary.get("sample_level_malignant_CLDN4_vs_fracTNK", {})
+    sens = summary.get("da_malignant_cldn4_by_n_present", [])
+    sens_rows = "\n".join(_sens_line(r) for r in sens)
+    floor = summary.get("spatialfdr_floor_hits", {})
     text = f"""# FINDING — Milo neighbourhoods vs malignant CLDN4 (GSE148071)
 
 Additive neighbourhood DA on the public Wu et al. 2021 advanced-NSCLC
@@ -287,7 +301,21 @@ GEO SOFT has age/sex only. Histology (LUAD/LUSC) lives in the paper supplement a
 | Malignant CLDN4 | {da['n_testable']} | {da['n_p_lt_0.05']} | {_fmt(da.get('min_p'), sci=True)} | {_fmt(da.get('min_SpatialFDR'))} | **{da['n_SpatialFDR_lt_0.1']}** | {da['n_SpatialFDR_lt_0.05']} | {da['n_BH_FDR_lt_0.1']} |
 | CLDN4 high vs low | {da_hl['n_testable']} | {da_hl['n_p_lt_0.05']} | {_fmt(da_hl.get('min_p'), sci=True)} | {_fmt(da_hl.get('min_SpatialFDR'))} | **{da_hl['n_SpatialFDR_lt_0.1']}** | {da_hl['n_SpatialFDR_lt_0.05']} | {da_hl['n_BH_FDR_lt_0.1']} |
 
+The {da['n_SpatialFDR_lt_0.1']} SpatialFDR<0.1 neighbourhoods on the continuous test are **not a cohort-level DA claim**. All of them have |Spearman ρ| = 1 and are present in only {floor.get('n_samples_present_min', 5)}–{floor.get('n_samples_present_max', 6)} samples (the testability floor). scipy reports p≈0 for a perfect rank correlation at that n. They are T/NK-empty. Do not quote them as malignant-CLDN4 neighbourhood DA.
+
+Most neighbourhoods are patient-private (Wu 2021: cancer cells cluster by patient). Only {da['n_testable']} / {g['n_nhoods']} neighbourhoods meet the ≥5-sample rule. Median n_samples_present among testable neighbourhoods is {da.get('median_n_samples_present', 'NA')}.
+
+### Sensitivity to the sample-count floor (continuous CLDN4)
+
+| min n samples present | testable | P<0.05 | min P | min SpatialFDR | SpatialFDR<0.1 | abs(rho)=1 |
+|---|---|---|---|---|---|---|
+{sens_rows}
+
+At n_present ≥ 8, SpatialFDR<0.1 is **0**. High vs low (n={s['n_cldn4_high']} vs {s['n_cldn4_low']}) is also **0** at SpatialFDR<0.1.
+
 DA model = sample-level Spearman (CLDN4) or Welch t-test (high vs low) on neighbourhood proportions. Not edgeR QLF. SpatialFDR = miloR `graphSpatialFDR` k-distance weights.
+
+Sample-level malignant CLDN4 vs T/NK fraction (unit = patient): n={sl.get('n')}, ρ={_fmt(sl.get('rho'))}, p={_fmt(sl.get('p'), sci=True)}.
 
 ## Composition (transcriptional kNN, not histology)
 
@@ -306,7 +334,7 @@ Unrestricted neighbourhood CLDN4 vs T/NK is partly lineage geometry (epithelium 
 - miloR was not available; p-values are the documented sample-level fallback.
 - Cell count is not *n*. *n* is the number of patient biopsies that enter each test.
 
-See `results/GSE148071/summary.json`, `da_malignant_cldn4.tsv`, `nhoods.tsv`, and `sample_scores.tsv`.
+See `summary.json`, `sample_scores.tsv`, and `results/GSE148071/` for the full neighbourhood tables.
 """
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(text)
@@ -497,6 +525,21 @@ def main() -> None:
     )
     paired.to_csv(args.outdir / "sample_paired_tnk_by_nhood_cldn4.tsv", sep="\t", index=False)
     paired_test = wilcoxon_paired(paired["frac_tnk_high_nhood"], paired["frac_tnk_low_nhood"])
+    sample_sp = spearman_safe(mal_score, tnk_frac_sample)
+
+    def _sens(df: pd.DataFrame, min_n: int) -> dict:
+        t = df.loc[df["testable"] & (df["n_samples_present"] >= min_n)].copy()
+        t["testable"] = True
+        rec = fdr_counts(t)
+        rec["min_samples_present"] = min_n
+        rec["n_abs_rho_eq_1"] = int((t["spearman_rho"].abs() >= 0.999).sum()) if len(t) else 0
+        return rec
+
+    floor_hits = da_cldn[(da_cldn["testable"]) & (da_cldn["SpatialFDR"] < 0.1)]
+    da_cldn_counts = fdr_counts(da_cldn)
+    da_cldn_counts["median_n_samples_present"] = (
+        float(da_cldn.loc[da_cldn["testable"], "n_samples_present"].median()) if da_cldn["testable"].any() else None
+    )
 
     sample_tab = pd.DataFrame(
         {
@@ -548,8 +591,17 @@ def main() -> None:
         "lineage_counts": {k: int(v) for k, v in pd.Series(lineage).value_counts().items()},
         "n_malignant": int(is_malig.sum()),
         "n_tnk": int(is_tnk.sum()),
-        "da_malignant_cldn4": fdr_counts(da_cldn),
+        "da_malignant_cldn4": da_cldn_counts,
         "da_cldn4_high_vs_low": fdr_counts(da_hl),
+        "da_malignant_cldn4_by_n_present": [_sens(da_cldn, t) for t in (5, 8, 10, 15)],
+        "spatialfdr_floor_hits": {
+            "n": int(len(floor_hits)),
+            "all_abs_rho_eq_1": bool(len(floor_hits) and (floor_hits["spearman_rho"].abs() >= 0.999).all()),
+            "n_samples_present_min": int(floor_hits["n_samples_present"].min()) if len(floor_hits) else None,
+            "n_samples_present_max": int(floor_hits["n_samples_present"].max()) if len(floor_hits) else None,
+            "n_tnk_max": int(comp.set_index("nhood").loc[floor_hits["nhood"], "n_tnk"].max()) if len(floor_hits) else None,
+        },
+        "sample_level_malignant_CLDN4_vs_fracTNK": sample_sp,
         "composition": {
             "note": "transcriptional kNN != spatial niche; unrestricted CLDN4 vs T/NK is partly lineage geometry",
             "all_nhoods_maligCLDN4_vs_fracTNK": all_sp,

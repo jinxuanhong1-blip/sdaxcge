@@ -33,7 +33,10 @@ prop[s, i] = n_cells(s in i) / n_cells(s)
   split of the samples that have a malignant CLDN4 score.
 
 A neighbourhood is testable only if enough samples contribute cells. Overlapping
-neighbourhoods are **not** independent observations.
+neighbourhoods are **not** independent observations. On this atlas, cancer cells
+cluster by patient (Wu 2021), so most neighbourhoods are patient-private and
+fail the ≥5-sample rule. |ρ|=1 at the 5–6 sample floor is a scipy perfect-rank
+artifact, not a cohort DA claim. Report the n_present ≥ 8 sensitivity.
 
 ## SpatialFDR (honest)
 
