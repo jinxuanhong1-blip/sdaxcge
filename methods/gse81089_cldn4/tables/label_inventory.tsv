@@ -1,0 +1,19 @@
+field	public	n	note
+GSM in series / FPKM columns	yes	218	199 tumor + 19 paired normal; do not use 218 as a histology n
+unique patients (tumor GSM)	yes	199	one tumor array per patient; this is the NSCLC tumor n
+paired normal arrays	yes	19	inventoried; not mixed into tumor Spearman
+histology=2 AC unspecified (LUAD)	yes	108	GEO overall_design code 2; this is the LUAD n
+histology=1 squamous cell cancer (LUSC)	yes	67	GEO overall_design code 1; this is the LUSC n
+histology=3 large cell / NOS	yes	24	not folded into LUAD or LUSC
+stage tnm (tumors)	yes	199	1=1a … 7=IV; not a covariate
+OS / vital date / dead	yes	199	deposited; not this claim
+ICI / treatment	no	0	resected Uppsala 2006–2010 atlas, not an ICI series
+Tumor % / ABSOLUTE purity	no	0	only public proxy is an RNA epithelial score
+CLDN4 ENSG00000189143 finite (tumors)	yes	199	Cufflinks FPKM
+CD8A finite (tumors)	yes	199	ENSG00000153563
+CD274 finite (tumors)	yes	199	ENSG00000120217
+TACSTD2 finite (tumors, companion)	yes	199	companion column only; no dual-high
+primary pairwise n (NSCLC tumors)	yes	199	honest tumor n; not series 218
+ESTIMATE ImmuneSignature genes present	yes	141	of 141 Yoshihara 2013 genes
+Ayers IFN-γ 6-gene present	yes	6	IFNG,STAT1,CXCL9,CXCL10,IDO1,HLA-DRA
+MHC-I genes present	yes	6	HLA-A,HLA-B,HLA-C,B2M,TAP1,TAP2
