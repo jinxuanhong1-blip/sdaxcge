@@ -415,8 +415,8 @@ def contrast_high_low(df: pd.DataFrame, high: str, low: str, partner: str, direc
     out["prob_low"] = b.loc[common, "prob"].to_numpy()
     out["pval_high"] = a.loc[common, "pval"].to_numpy()
     out["pval_low"] = b.loc[common, "pval"].to_numpy()
-    out["sig_high"] = a.loc[common, "significant"].to_numpy()
-    out["sig_low"] = a.loc[common, "significant"].to_numpy()
+    out["sig_high"] = (out["pval_high"] < 0.05) & (out["prob_high"] > 0)
+    out["sig_low"] = (out["pval_low"] < 0.05) & (out["prob_low"] > 0)
     out["delta_prob"] = out["prob_high"] - out["prob_low"]
     out["ligand_class"] = [ligand_class(x) for x in out["ligand_genes"]]
     out["sig_either"] = out["sig_high"] | out["sig_low"]
