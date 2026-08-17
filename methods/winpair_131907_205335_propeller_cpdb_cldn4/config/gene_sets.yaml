@@ -1,0 +1,43 @@
+# CLDN4-only. TACSTD2 is never a gate. No dual-high.
+# Focus pathways for the CellPhoneDB-style table.
+
+pathways:
+  T_recruit:
+    ligands: [CXCL9, CXCL10, CXCL11, CCL5, CCL3, CCL4, CXCL16, CCL19, CCL21, CXCL13, CX3CL1, CXCL12]
+    receptors: [CXCR3, CCR5, CCR1, CXCR6, CCR7, CXCR5, CX3CR1, CXCR4]
+  MHC_I:
+    ligands: [HLA-A, HLA-B, HLA-C, HLA-E, HLA-F, HLA-G, B2M]
+    receptors: [CD8A, CD8B, KIR3DL1, KIR3DL2, KIR2DL1, KIR2DL3, KIR2DL4, KLRC1, KLRC2, KLRC3, KLRD1, LILRB1, LILRB2, KLRK1]
+
+curated_overlay:
+  - {ligand: CXCL9, receptor: CXCR3, pathway: T_recruit}
+  - {ligand: CXCL10, receptor: CXCR3, pathway: T_recruit}
+  - {ligand: CXCL11, receptor: CXCR3, pathway: T_recruit}
+  - {ligand: CCL5, receptor: CCR5, pathway: T_recruit}
+  - {ligand: CCL3, receptor: CCR5, pathway: T_recruit}
+  - {ligand: CCL4, receptor: CCR5, pathway: T_recruit}
+  - {ligand: CCL5, receptor: CCR1, pathway: T_recruit}
+  - {ligand: CXCL16, receptor: CXCR6, pathway: T_recruit}
+  - {ligand: CCL19, receptor: CCR7, pathway: T_recruit}
+  - {ligand: CCL21, receptor: CCR7, pathway: T_recruit}
+  - {ligand: CXCL13, receptor: CXCR5, pathway: T_recruit}
+  - {ligand: CX3CL1, receptor: CX3CR1, pathway: T_recruit}
+  - {ligand: CXCL12, receptor: CXCR4, pathway: T_recruit}
+  - {ligand: HLA-A, receptor: CD8A, pathway: MHC_I}
+  - {ligand: HLA-B, receptor: CD8A, pathway: MHC_I}
+  - {ligand: HLA-C, receptor: CD8A, pathway: MHC_I}
+  - {ligand: HLA-A, receptor: CD8B, pathway: MHC_I}
+  - {ligand: HLA-B, receptor: CD8B, pathway: MHC_I}
+  - {ligand: HLA-C, receptor: CD8B, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRD1, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRC1, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRC1+KLRD1, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRC2, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRK1, pathway: MHC_I}
+  - {ligand: HLA-G, receptor: LILRB2, pathway: MHC_I}
+
+params:
+  expr_prop: 0.10
+  min_malig: 20
+  min_tnk: 20
+  min_detected_per_tail: 3
