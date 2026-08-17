@@ -1,0 +1,27 @@
+regulon	kind	n_samples	delta_median_high_minus_low	wilcoxon_stat	p	note	fdr
+ELF3_prior	public_prior_AUCell	27	0.00374992654138288	4.0	1.043081283569336e-07	paired sample means; public prior AUCell; not inferred on these cells	3.8743019104003906e-07
+GRHL1_prior	public_prior_AUCell	27	0.0	29.0	0.24886387493792206	paired sample means; public prior AUCell; not inferred on these cells	0.2696025311827489
+GRHL2_prior	public_prior_AUCell	27	0.004830811852963591	14.0	1.6391277313232422e-06	paired sample means; public prior AUCell; not inferred on these cells	4.26173210144043e-06
+KLF4_prior	public_prior_AUCell	27	0.002964052055620569	0.0	1.4901161193847656e-08	paired sample means; public prior AUCell; not inferred on these cells	1.2914339701334635e-07
+KLF5_prior	public_prior_AUCell	27	0.002222205081575824	1.0	2.9802322387695312e-08	paired sample means; public prior AUCell; not inferred on these cells	1.549720764160156e-07
+OVOL1_prior	public_prior_AUCell	27	0.001915721313439631	31.0	3.522634506225586e-05	paired sample means; public prior AUCell; not inferred on these cells	6.542035511561803e-05
+OVOL2_prior	public_prior_AUCell	27	0.0	0.0	0.027707849358079864	paired sample means; public prior AUCell; not inferred on these cells	0.03430495634809888
+TFAP2A_prior	public_prior_AUCell	27	0.0008086966653179685	22.0	7.987022399902344e-06	paired sample means; public prior AUCell; not inferred on these cells	1.730521519978841e-05
+SP1_prior	public_prior_AUCell	27	0.0012075836251660421	0.0	1.4901161193847656e-08	paired sample means; public prior AUCell; not inferred on these cells	1.2914339701334635e-07
+TP63_prior	public_prior_AUCell	27	0.0006632661589785118	71.0	0.003550395369529724	paired sample means; public prior AUCell; not inferred on these cells	0.005430016447516049
+NKX2-1_prior	public_prior_AUCell	27	0.0009014619114148352	185.0	0.9340859353542328	paired sample means; public prior AUCell; not inferred on these cells	0.9340859353542328
+SOX2_prior	public_prior_AUCell	27	0.00014336599537238988	115.0	0.07722577452659607	paired sample means; public prior AUCell; not inferred on these cells	0.08729870163876077
+FOXA1_prior	public_prior_AUCell	27	0.00041972955090516153	18.0	3.769993782043457e-06	paired sample means; public prior AUCell; not inferred on these cells	8.910894393920898e-06
+ELF3_RNA	tf_rna	27	0.4833962731889936	0.0	1.4901161193847656e-08	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	1.2914339701334635e-07
+GRHL1_RNA	tf_rna	27	0.043963348955633634	3.0	7.450580596923828e-08	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	3.2285849253336585e-07
+GRHL2_RNA	tf_rna	27	0.016445367859567968	29.0	2.586841583251953e-05	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	5.173683166503906e-05
+KLF4_RNA	tf_rna	27	0.12646902675635185	1.0	2.9802322387695312e-08	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	1.549720764160156e-07
+KLF5_RNA	tf_rna	27	0.13442403534312886	7.0	2.8312206268310547e-07	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	9.201467037200928e-07
+OVOL1_RNA	tf_rna	27	0.02731818901756236	14.0	1.6391277313232422e-06	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	4.26173210144043e-06
+OVOL2_RNA	tf_rna	27	0.011419765067188656	89.0	0.01506437361240387	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	0.01958368569612503
+TFAP2A_RNA	tf_rna	27	0.023331270501598333	59.0	0.0011315494775772095	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	0.0018387679010629654
+SP1_RNA	tf_rna	27	0.017484129139260597	39.0	0.00010977685451507568	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	0.00019027988115946453
+TP63_RNA	tf_rna	27	0.0	131.0	0.8314013177040228	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	0.8646573704121837
+NKX2-1_RNA	tf_rna	27	0.04593783525596934	75.0	0.005023345351219177	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	0.006874051533247295
+SOX2_RNA	tf_rna	27	0.005553034247426064	99.0	0.0520227725687883	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	0.06148145849038618
+FOXA1_RNA	tf_rna	27	0.025397753885310168	72.0	0.003877997398376465	paired sample means of TF log1p; ELF3 RNA vs CLDN4 is A10-given, not a discovery	0.005601551797654894

@@ -1,0 +1,11 @@
+item	n	note
+cells_in_matrix	208506	GSE131907 public UMI header
+author_malignant	31136	Cell_subtype in {Malignant cells, tS1, tS2, tS3}
+malignant_UMI>=200	31136	
+samples_ge20_malignant	31	min 20 author-malignant after UMI QC; primary GRN samples
+CLDN4_high_within_sample	15984	>= sample median CLDN4 log1p among author-malignant
+CLDN4_low_within_sample	15147	complement in the same samples
+samples_paired_ge20_high_and_low	27	unit of prior-AUCell high vs low
+tLung_samples_ge20	10	primary-tumor sensitivity
+tLung_CLDN4_high	3174	cells
+TFs_screened_in_high	823	human TF list ∩ det>=0.05 in CLDN4-high

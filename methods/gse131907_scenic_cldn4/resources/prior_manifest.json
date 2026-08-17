@@ -1,0 +1,27 @@
+{
+  "purpose": "Public curated TF-target edges for GSE131907 CLDN4-high GRN proxy. Not ChIP.",
+  "do_not_invent_chip": true,
+  "urls": {
+    "trrust": "https://www.grnpedia.org/trrust/data/trrust_rawdata.human.tsv",
+    "dorothea": "https://omnipathdb.org/interactions?datasets=dorothea&genesymbols=1&fields=sources,references,dorothea_level",
+    "collectri": "https://omnipathdb.org/interactions?datasets=collectri&genesymbols=1&fields=sources,references"
+  },
+  "n_rows": 4236,
+  "focus_tfs": [
+    "ELF3",
+    "GRHL1",
+    "GRHL2",
+    "KLF4",
+    "KLF5",
+    "OVOL1",
+    "OVOL2",
+    "TFAP2A",
+    "SP1",
+    "TP63",
+    "NKX2-1",
+    "SOX2",
+    "FOXA1"
+  ],
+  "cldn4_listed_as_target": true,
+  "elf3_cldn4_in_prior": false
+}
