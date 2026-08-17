@@ -1,0 +1,23 @@
+field	public	n	note
+arrays in series matrix	yes	66	22,283 GPL96 probes × 66 GSM; 0 missing MAS5; do not use 66 for the LUAD tests
+unique GSM / unique titles	yes	66	all unique
+patients (GEO overall_design text)	text only	27	pairwise samples from 27 patients at Taipei VGH; one pair is LCC not LUAD
+patient tumor arrays	yes	27	26 LUAD + 1 LCC (pair 19, title typo 'lage cell')
+LUAD patient tumors (primary n)	yes	26	source *T and adenocarcinoma; excludes pair 19, mixtures, cell lines
+LUAD matched adjacent-normal (companion)	yes	26	not mixed into the tumor pairwise tests
+LCC pair 19 tumor+normal	yes	2	inventoried; not LUAD; not in primary n
+tissue mixtures (Taichung VGH)	yes	2	Adj. N. mixture + T. mixture; not an individual tumor
+commercial normal lung	yes	2	Stratagene 735020 + Clontech 636524
+cell lines	yes	8	A549 H661 H1299 NL-20 CL1-0 CL1-1 CL1-5 CL1-5-F4; not primary
+stage	no	0	overall_design says early and late stages; not a per-array characteristic
+ICI / treatment	no	0	2007 surgical atlas, not an ICI series
+tumor % / ABSOLUTE purity	no	0	only public proxy used here is an RNA epithelial mean-z
+ESTIMATE ImmuneScore	no	0	skipped — A1 8-gene mean-z used instead; not Yoshihara ESTIMATE
+CLDN4 finite (201428_at)	yes	26	named GPL96 / Entrez 1364
+CD8A finite (205758_at)	yes	26	named GPL96 / Entrez 925
+CD274 finite (Entrez 29126)	no	0	no GPL96 probe; Plus-2 223834_at / 227458_at are not on U133A
+ImmuneScore A1 genes present	yes	7	7/8; missing EOMES
+epithelial genes present	yes	6	6/6; missing none
+primary pairwise n (CLDN4 + CD8A)	yes	26	this is the n used below
+primary pairwise n (CLDN4 + ImmuneScore)	yes	26	A1 mean-z on genes present; EOMES absent
+primary pairwise n (CLDN4 + CD274)	no	0	ABSENT — do not invent a PD-L1 ρ
