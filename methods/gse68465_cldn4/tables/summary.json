@@ -1,0 +1,39 @@
+{
+  "task": "gse68465_cldn4",
+  "note": "TACSTD2 from PR #235 taken as given; not recomputed",
+  "tacstd2_given_pr235": {
+    "n": 443,
+    "partial_rho": -0.17,
+    "partial_p": 0.0003,
+    "source": "https://github.com/jinxuanhong1-blip/sdaxcge/pull/235"
+  },
+  "n_tumor": 443,
+  "cldn4_vs_cd8a": {
+    "predictor": "CLDN4",
+    "endpoint": "CD8A",
+    "n": 443,
+    "rho": -0.17746591979761547,
+    "rho_ci_lo": -0.2681459642477667,
+    "rho_ci_hi": -0.07768247598797613,
+    "p": 0.00017367716261653277,
+    "n_partial": 443,
+    "partial_rho": -0.09170580386572204,
+    "partial_ci_lo": -0.18123372003213803,
+    "partial_ci_hi": 0.005362601813252279,
+    "partial_p": 0.05402875985460347,
+    "purity": "ESTIMATE TumorPurity (ssGSEA Yoshihara 141+141)"
+  },
+  "generated_at": "2026-08-17T13:26:30.823814+00:00",
+  "bootstrap": {
+    "n": 2000,
+    "seed": 20260817
+  },
+  "estimate_coverage": {
+    "stromal": 136,
+    "immune": 138
+  },
+  "used_probes": {
+    "CLDN4": "201428_at",
+    "CD8A": "205758_at"
+  }
+}
