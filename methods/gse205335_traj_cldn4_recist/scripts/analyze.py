@@ -251,21 +251,43 @@ def _pick_root(adata) -> tuple[int, dict]:
         "rejected": [],
     }
 
-    if int(nonmal.sum()) >= MIN_ROOT_CELLS:
-        pool_cldn4 = float(np.nanmean(cldn4[nonmal.to_numpy()]))
-        if pool_cldn4 <= cldn4_med:
-            idx = np.flatnonzero(nonmal.to_numpy())
-            scores = at2[idx]
-            pick = idx[int(np.nanargmin(np.abs(scores - np.nanmedian(scores))))]
-            info["rule"] = (
-                "author Non-malignant cells (median AT2 score); "
-                "pool mean CLDN4 at or below object median"
+    def _pick_low_cldn4(mask: np.ndarray, label: str) -> tuple[int, str] | None:
+        low = mask & np.isfinite(cldn4) & (cldn4 <= cldn4_med)
+        n_low = int(low.sum())
+        if n_low < MIN_ROOT_CELLS:
+            return None
+        idx = np.flatnonzero(low)
+        scores = at2[idx]
+        at2_pos = scores > 0
+        if int(at2_pos.sum()) >= 10:
+            idx2 = idx[at2_pos]
+            sc2 = at2[idx2]
+            pick = idx2[int(np.nanargmin(np.abs(sc2 - np.nanmedian(sc2))))]
+            rule = (
+                f"{label}, CLDN4 ≤ object median, median AT2 among AT2>0 "
+                f"(n_low={n_low}, n_AT2>0={int(at2_pos.sum())})"
             )
-            info["root_pool_mean_CLDN4"] = pool_cldn4
-            info["root_pool_mean_AT2"] = float(np.nanmean(at2[idx]))
+        elif np.isfinite(scores).any() and float(np.nanmax(scores)) > 0:
+            pick = idx[int(np.nanargmax(scores))]
+            rule = f"{label}, CLDN4 ≤ object median, max AT2 (few AT2>0)"
+        else:
+            pick = idx[int(np.nanargmin(cldn4[idx]))]
+            rule = f"{label}, lowest CLDN4 (no AT2 signal in the low-CLDN4 pool)"
+        return int(pick), rule
+
+    nonmal_mask = nonmal.to_numpy()
+    if int(nonmal_mask.sum()) >= MIN_ROOT_CELLS:
+        picked = _pick_low_cldn4(nonmal_mask, "author Non-malignant cells")
+        if picked is not None:
+            pick, rule = picked
+            info["rule"] = rule
+            info["root_pool_mean_CLDN4"] = float(np.nanmean(cldn4[nonmal_mask]))
+            info["root_pool_mean_AT2"] = float(np.nanmean(at2[nonmal_mask]))
+            info["root_cell_CLDN4"] = float(cldn4[pick])
             return int(pick), info
         info["rejected"].append(
-            f"author Non-malignant pool mean CLDN4={pool_cldn4:.3f} > object median {cldn4_med:.3f}"
+            "author Non-malignant low-CLDN4 pool < "
+            f"{MIN_ROOT_CELLS} cells (or pool was CLDN4-high)"
         )
 
     if "leiden" not in adata.obs:
@@ -300,13 +322,23 @@ def _pick_root(adata) -> tuple[int, dict]:
             "(all clusters were CLDN4-high vs object median)"
         )
     cand = leiden.eq(str(top["leiden"])).to_numpy()
-    idx = np.flatnonzero(cand)
-    scores = at2[idx]
-    pick = idx[int(np.nanargmin(np.abs(scores - np.nanmedian(scores))))]
+    picked = _pick_low_cldn4(cand, f"Leiden {top['leiden']}")
+    if picked is None:
+        idx = np.flatnonzero(cand)
+        pick = int(idx[int(np.nanargmin(cldn4[idx]))])
+        rule = f"{rule}; fallback to lowest-CLDN4 cell in that cluster"
+    else:
+        pick, cell_rule = picked
+        rule = f"{rule}; {cell_rule}"
+    if float(cldn4[pick]) > cldn4_med:
+        raise SystemExit(
+            f"root cell CLDN4={cldn4[pick]:.3f} exceeds object median {cldn4_med:.3f}"
+        )
     info["rule"] = rule
     info["root_leiden"] = str(top["leiden"])
     info["root_cluster_mean_CLDN4"] = float(top["mean_CLDN4"])
     info["root_cluster_mean_AT2"] = float(top["mean_AT2"])
+    info["root_cell_CLDN4"] = float(cldn4[pick])
     return int(pick), info
 
 
@@ -552,7 +584,7 @@ def main() -> None:
     sc.pp.highly_variable_genes(
         adata, n_top_genes=N_HVG, flavor="seurat_v3", layer="counts"
     )
-    sc.pp.pca(adata, n_comps=N_PCS, use_highly_variable=True)
+    sc.pp.pca(adata, n_comps=N_PCS, mask_var="highly_variable")
     sc.pp.neighbors(adata, n_neighbors=N_NEIGHBORS, n_pcs=N_PCS)
     try:
         sc.tl.leiden(adata, resolution=LEIDEN_RES, flavor="igraph")
@@ -933,8 +965,10 @@ def main() -> None:
         if cmap:
             kw["cmap"] = cmap
         if color == "patient_id":
-            kw["legend"] = False
+            kw["show"] = False
         sc.pl.umap(adata, **kw)
+        if color == "patient_id" and ax.get_legend() is not None:
+            ax.get_legend().remove()
         _save(fig, figdir / fname)
 
     subtype_counts = adata.obs["author_subtype"].astype(str).value_counts().to_dict()
