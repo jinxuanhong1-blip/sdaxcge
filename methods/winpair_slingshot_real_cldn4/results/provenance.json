@@ -1,0 +1,29 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "papers": {
+    "GSE131907": "Kim et al. Nat Commun 2020 PMID 32385277",
+    "GSE205335": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)",
+    "slingshot": "Street et al. BMC Genomics 2018",
+    "pyslingshot-bio": "https://github.com/omicverse/py-Slingshot"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "ifn_excludes_CLDN4": true,
+  "r_slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "used": "pyslingshot-bio or local Street-2018 MST+principal-curve port"
+  },
+  "slingshot_engine": "pyslingshot-bio (Street et al. 2018 Python port)",
+  "locked": {
+    "leiden_resolution": 0.4,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "AT2-like or lowest-CLDN4; never max-CLDN4 cluster",
+    "cap_per_unit": 280
+  }
+}
