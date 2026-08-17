@@ -1,0 +1,22 @@
+{
+  "accession": "GSE297630",
+  "contrast": "anti-PD-1 tolerant (P, n=3) vs control (C, n=3)",
+  "matrix": "GSE297630_processed_data.xlsx Expression Signal columns",
+  "honest_n": "3 vs 3; two-sided MWU cannot go below 0.1",
+  "tacstd2_given_log2FC": 2.05,
+  "tacstd2_reproduced_log2FC": 2.05,
+  "tacstd2_welch_p": 4.155736072981077e-05,
+  "tacstd2_mwu_p": 0.1,
+  "cldn4_log2FC": -0.19,
+  "cldn4_welch_p": 0.01581061221421688,
+  "cldn4_mwu_p": 0.1,
+  "ifn_isg_delta_z": 0.1334,
+  "ifn_isg_welch_p": 0.20910306494708514,
+  "ifn_isg_up_down": "28 up / 26 down",
+  "mhc_i_delta_z": 1.7168,
+  "mhc_i_welch_p": 0.0014013641500058116,
+  "mhc_i_all_up": true,
+  "ifn_mhc_delta_z": 0.2378,
+  "ifn_mhc_welch_p": 0.01814196776784971,
+  "n_genes_matrix": 19642
+}
