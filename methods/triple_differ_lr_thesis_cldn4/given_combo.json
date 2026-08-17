@@ -1,0 +1,17 @@
+{
+  "combo": "GSE123902+GSE131907+GSE205335",
+  "score": "pct",
+  "n": 56,
+  "rho": -0.5218136869094381,
+  "p": 7.240217090118928e-05,
+  "I2": 0.0,
+  "q4_r": -0.7346938775510203,
+  "q4_p": 0.0010188861995453222,
+  "n_q1": 14,
+  "n_q4": 14,
+  "source": "PR459",
+  "re_audited": false,
+  "member_rhos": {"GSE123902": -0.659, "GSE131907": -0.522, "GSE205335": -0.435},
+  "member_ns": {"GSE123902": 13, "GSE131907": 21, "GSE205335": 22},
+  "note": "The triple that differs (PR #459). Do not re-audit the T/NK Spearman. Do not add GSE148071. This is not the 7-pool."
+}
