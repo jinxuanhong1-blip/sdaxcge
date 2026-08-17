@@ -1,0 +1,17 @@
+{
+  "cohort": "GSE179994",
+  "usable": false,
+  "reason": "Public processed expression is T-cell-only (GSE179994_all.Tcell.rawCounts.rds.gz, 421 MB). No all-cell UMI/h5/TISCH extract <2 GB. Malignant CLDN4 and a same-patient T/NK denominator are not estimable.",
+  "analysis_n_patients": 0,
+  "tcell_rds_mb": 421.0,
+  "tcell_rds_under_2gb": true,
+  "tcell_only": true,
+  "n_tcell_barcodes": 150849,
+  "n_tcell_patients": 36,
+  "author_celltypes": {
+    "CD8": 59656,
+    "CD4": 58706
+  },
+  "n_unique_patient": 36,
+  "n_unique_sample": 47
+}

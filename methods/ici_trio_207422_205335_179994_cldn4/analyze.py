@@ -315,8 +315,11 @@ def process_205335(datadir: Path, pairs: pd.DataFrame) -> tuple[pd.DataFrame, di
         n_miss = int(cells["patient"].isna().sum())
         raise ValueError(f"{n_miss} cells did not match GSE205335 sample metadata")
     n = len(cells)
-    malig = cells["lineage.sub"].eq("Malignant cells").to_numpy()
-    tnk = cells["lineage.total"].eq("T/NK cells").to_numpy()
+    tissue = cells["tissue"].astype(str) if "tissue" in cells.columns else pd.Series(["NA"] * n)
+    is_normal = tissue.str.contains("Normal", case=False, na=False).to_numpy()
+    tumor = ~is_normal
+    malig = cells["lineage.sub"].eq("Malignant cells").to_numpy() & tumor
+    tnk = cells["lineage.total"].eq("T/NK cells").to_numpy() & tumor
     cldn4 = log1p_cp10k(expr.get("CLDN4", np.zeros(n)), totals)
     cd8 = np.zeros(n, dtype=bool)
     if "lineage.sub" in cells.columns:
@@ -333,7 +336,9 @@ def process_205335(datadir: Path, pairs: pd.DataFrame) -> tuple[pd.DataFrame, di
 
     rows = []
     for p in pd.unique(patient):
-        m = patient == p
+        m = (patient == p) & tumor
+        if not m.any():
+            continue
         n_mal = int(malig[m].sum())
         n_tnk = int(tnk[m].sum())
         n_all = int(m.sum())
@@ -925,7 +930,7 @@ def main() -> None:
     if not lr_sum.empty:
         plot_lr(lr_sum, out / "figures" / "lr_outgoing_combo")
 
-    write_finding(out / "FINDING.md", audit, patients, combo, lr_sum, lr_patients)
+    write_finding(out / "tables" / "FINDING_auto.md", audit, patients, combo, lr_sum, lr_patients)
     summary = {
         "gse179994_usable": False,
         "primary_combo_n": int(combo.loc[combo["subset"] == "combo_207422post_205335all", "n_patients"].iloc[0])
