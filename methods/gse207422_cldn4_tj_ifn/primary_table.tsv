@@ -1,0 +1,14 @@
+test	unit	n	n_high_gt_low	mean_high	mean_low	median_delta	stat	p	patients
+paired CLDN4-high vs low, TJ/keratin (CLDN4 excluded)	patient (within-tumor Q4 vs Q1 malignant cells)	6	6	0.7926674996803523	0.5973874917054434	0.1325503795108801	0.0	0.03125	BD_immune03,BD_immune04,BD_immune07,BD_immune09,BD_immune10,BD_immune12
+paired CLDN4-high vs low, TJ only (CLDN4 excluded)	patient (within-tumor Q4 vs Q1 malignant cells)	6	6	0.49500164004433334	0.28021598786565793	0.17932233838306627	0.0	0.03125	BD_immune03,BD_immune04,BD_immune07,BD_immune09,BD_immune10,BD_immune12
+paired CLDN4-high vs low, keratin (simple+basal)	patient (within-tumor Q4 vs Q1 malignant cells)	6	4	1.3879992189523904	1.231730499385014	0.13199476168398905	3.0	0.15625	BD_immune03,BD_immune04,BD_immune07,BD_immune09,BD_immune10,BD_immune12
+paired CLDN4-high vs low, IFN ISG core	patient (within-tumor Q4 vs Q1 malignant cells)	6	6	0.4418728881847796	0.36839012757866624	0.05385351770090528	0.0	0.03125	BD_immune03,BD_immune04,BD_immune07,BD_immune09,BD_immune10,BD_immune12
+paired CLDN4-high vs low, IFN user core-6	patient (within-tumor Q4 vs Q1 malignant cells)	6	6	1.2668653032735706	1.1410294773376106	0.1326475648929158	0.0	0.03125	BD_immune03,BD_immune04,BD_immune07,BD_immune09,BD_immune10,BD_immune12
+paired CLDN4-high vs low, MHC-I APM	patient (within-tumor Q4 vs Q1 malignant cells)	6	5	1.4128481120479677	1.2509171086718107	0.21091790170859448	1.0	0.0625	BD_immune03,BD_immune04,BD_immune07,BD_immune09,BD_immune10,BD_immune12
+paired CLDN4-high vs low, control OXPHOS	patient (within-tumor Q4 vs Q1 malignant cells)	6	4	0.9466643163429994	0.8690154057931512	0.08081737686798612	4.0	0.21875	BD_immune03,BD_immune04,BD_immune07,BD_immune09,BD_immune10,BD_immune12
+paired CLDN4-high vs low, companion TACSTD2	patient (within-tumor Q4 vs Q1 malignant cells)	6	6	2.0741442915693438	0.9991765917635879	1.0438255367931455	0.0	0.03125	
+paired CLDN4-high vs low, library size (total UMI)	patient (within-tumor Q4 vs Q1 malignant cells)	6	5	14581.579850052427	6335.48138986695	8143.953760162602	1.0	0.0625	
+post_a3_CLDN4_vs_tj_keratin_min20	patient mean (A3-malignant)	6				0.6	0.6	0.208	
+post_a3_CLDN4_vs_ifn_isg_min20	patient mean (A3-malignant)	6				0.942857142857143	0.942857142857143	0.004804664723032055	
+post_a3_CLDN4_vs_TACSTD2	patient mean (A3-malignant)	6				0.7714285714285715	0.7714285714285715	0.07239650145772594	
+paired-delta Spearman TJ/keratin vs IFN ISG	patient (same-cell deltas)	6				0.8285714285714287	0.8285714285714287	0.04156268221574335	
