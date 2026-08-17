@@ -1,0 +1,19 @@
+field	public	n	note
+arrays in series matrix	yes	166	48,803 beads × 166 GSM; MBCB + quantile + log2 as deposited
+unique GSM / unique titles	yes	166	all unique; titles like 05L4_N / 05L4_T
+GEO design text (matched pairs)	text only	83	series title/design: 83 LUAD + 83 matched adjacent non-malignant
+histology Adenocarcinoma AND source Lung cancer (tumor primary)	yes	83	strict GEO strings; this is the n used below
+histology Non-malignant AND source Non-malignant lung	yes	83	matched adjacent; NOT mixed into the LUAD tests
+complete patient pairs (title prefix)	yes	83	83 unique prefixes; title T/N matches histology/source (mismatch=0)
+title suffix used as the tumor gate	no	0	suffix is consistent here but is not the gate (GSE19188 title T/N is unreliable)
+Stage (tumors)	yes	83	keyed parse; not a covariate
+EGFR / KRAS / LKB1 (tumors)	yes	83	egfr 83, kras 83, lkb1 78; not this claim
+race / smoker / pack-years	yes	164	race 164/166 (2 arrays lack race token and shift later SOFT rows); smoker 166; pack-years 102
+ICI / treatment	no	0	resected matched-pair LUAD atlas, not an ICI series
+Tumor % / ABSOLUTE purity	no	0	only public proxy is an RNA epithelial score
+CLDN4 finite (tumor)	yes	83	ILMN_2132458
+CD8A finite (tumor)	yes	83	max-mean of 3 CD8A beads
+CD274 finite (tumor)	yes	83	ILMN_1701914
+primary pairwise n (tumor CLDN4+CD8A+CD274)	yes	83	this is the n used below
+ESTIMATE ImmuneSignature genes present (collapse)	yes	141	of 141 Yoshihara 2013 genes
+dual-high TACSTD2+CLDN4 gate	no	0	CLDN4-only slice; no dual-high quadrant
