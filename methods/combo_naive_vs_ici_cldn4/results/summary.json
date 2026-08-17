@@ -1,0 +1,310 @@
+{
+  "additive": true,
+  "marker": "CLDN4",
+  "dual_high": false,
+  "unit": "patient",
+  "not_a_bigger_merge": true,
+  "headline_is_cut_table": true,
+  "do_not_headline": "GSE131907+GSE205335 naive+ICI pile",
+  "honest_n": {
+    "GSE131907_author_malig": 21,
+    "GSE148071_eligible": 25,
+    "GSE148071_deposited": 42,
+    "GSE205335_author_malig": 22,
+    "GSE205335_NSCLC_ADC_SQ": 17,
+    "GSE207422_author_DRMref": 12,
+    "GSE179994": 0,
+    "naive_inclusive": 46,
+    "ici_core": 22,
+    "ici_inclusive_mean": 34,
+    "mixed_pile_not_headline": 43
+  },
+  "floors": {
+    "GSE131907": ">=20 author malignant and >=20 T/NK",
+    "GSE148071": ">=25 marker-argmax epithelium and >=25 T/NK",
+    "GSE205335": "locked author-malignant extract (PR #279)",
+    "GSE207422": "locked A3 DRMref n=12 (given)"
+  },
+  "cuts": {
+    "naive_GSE131907_only": {
+      "row": "naive_GSE131907_only",
+      "cut": "treatment_naive",
+      "cohorts": "GSE131907",
+      "score": "pct_pos",
+      "k": 1,
+      "n": 21,
+      "rho": -0.5220779220779221,
+      "ci95_lo": -0.7783490553302035,
+      "ci95_hi": -0.11668169199551608,
+      "p": 0.015195754492505785,
+      "I2": 0.0,
+      "headline": "yes_as_naive_core",
+      "note": "treatment-naive only; GSE148071 not added"
+    },
+    "naive_GSE131907_plus_GSE148071": {
+      "row": "naive_GSE131907_plus_GSE148071",
+      "cut": "treatment_naive",
+      "cohorts": "GSE131907+GSE148071",
+      "score": "pct_pos",
+      "k": 2,
+      "n": 46,
+      "rho": -0.24222607031987303,
+      "ci95_lo": -0.7076781800873053,
+      "ci95_hi": 0.36984380128682376,
+      "p": 0.4458436869514144,
+      "I2": 75.9840541587543,
+      "headline": "yes_as_naive_inclusive",
+      "note": "treatment-naive \u00b1 GSE148071; heterogeneous; not a merge with ICI"
+    },
+    "ici_GSE205335_only": {
+      "row": "ici_GSE205335_only",
+      "cut": "ici_adjacent",
+      "cohorts": "GSE205335",
+      "score": "pct_pos",
+      "k": 1,
+      "n": 22,
+      "rho": -0.43534726143421804,
+      "ci95_lo": -0.7240616762358275,
+      "ci95_hi": -0.0168191617697015,
+      "p": 0.042861326301676765,
+      "I2": 0.0,
+      "headline": "yes_as_ici_core",
+      "note": "ICI-adjacent only; GSE207422 has no locked CLDN4 %pos; GSE179994 n=0"
+    },
+    "ici_GSE205335_plus_GSE207422_mean": {
+      "row": "ici_GSE205335_plus_GSE207422_mean",
+      "cut": "ici_adjacent",
+      "cohorts": "GSE205335+GSE207422",
+      "score": "mean",
+      "k": 2,
+      "n": 34,
+      "rho": -0.1656489685826519,
+      "ci95_lo": -0.4911650926197593,
+      "ci95_hi": 0.20046373513897822,
+      "p": 0.376327189077578,
+      "I2": 0.0,
+      "headline": "yes_as_ici_inclusive_mean",
+      "note": "mean-matched \u00b1 GSE207422; %pos not available on A3 table; GSE179994 unused"
+    },
+    "ici_GSE179994": {
+      "row": "ici_GSE179994",
+      "cut": "ici_adjacent",
+      "cohorts": "GSE179994",
+      "score": "none",
+      "k": 0,
+      "n": 0,
+      "rho": NaN,
+      "ci95_lo": NaN,
+      "ci95_hi": NaN,
+      "p": NaN,
+      "I2": NaN,
+      "headline": "no_unusable",
+      "note": "T-cell-only processed matrix; malignant CLDN4 cannot be scored; n=0"
+    },
+    "naive_plus_ici_GSE131907_GSE205335": {
+      "row": "naive_plus_ici_GSE131907_GSE205335",
+      "cut": "naive_plus_ici_pile",
+      "cohorts": "GSE131907+GSE205335",
+      "score": "pct_pos",
+      "k": 2,
+      "n": 43,
+      "rho": -0.4787109080847739,
+      "ci95_lo": -0.6876756414469811,
+      "ci95_hi": -0.19649925971718038,
+      "p": 0.0015191063422345722,
+      "I2": 0.0,
+      "headline": "NO_do_not_headline",
+      "note": "naive+ICI pile from PR #290/#320; shown only so it is not the answer"
+    }
+  },
+  "re": {
+    "naive_pair_pct": {
+      "k": 2,
+      "n_patients_total": 46,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.24713758588371817,
+      "pooled_rho": -0.24222607031987303,
+      "se_z": 0.32417332839541724,
+      "ci95_rho": [
+        -0.7076781800873053,
+        0.36984380128682376
+      ],
+      "p": 0.4458436869514144,
+      "Q": 4.1639001295654605,
+      "df": 1,
+      "tau2": 0.15979293583663942,
+      "I2": 75.9840541587543,
+      "H2": 4.1639001295654605,
+      "fixed_z": -0.22249847562096967,
+      "fixed_rho": -0.21889811592083705,
+      "stouffer": {
+        "k": 2,
+        "method": "Stouffer weighted by sqrt(n-3), signed by \u03c1",
+        "z": -1.3846725416381502,
+        "p": 0.1661526188419955
+      }
+    },
+    "naive_pair_mean": {
+      "k": 2,
+      "n_patients_total": 46,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.10546806606703278,
+      "pooled_rho": -0.10507873977914013,
+      "se_z": 0.30516716859881815,
+      "ci95_rho": [
+        -0.6066451618673545,
+        0.4563247594984561
+      ],
+      "p": 0.7296376992792488,
+      "Q": 3.690538862712508,
+      "df": 1,
+      "tau2": 0.13588580114709636,
+      "I2": 72.90368596023914,
+      "H2": 3.690538862712508,
+      "fixed_z": -0.08321208285657511,
+      "fixed_rho": -0.08302055287781367,
+      "stouffer": {
+        "k": 2,
+        "method": "Stouffer weighted by sqrt(n-3), signed by \u03c1",
+        "z": -0.5205611852466653,
+        "p": 0.6026724944656254
+      }
+    },
+    "ici_pair_mean": {
+      "k": 2,
+      "n_patients_total": 34,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.16718952534753442,
+      "pooled_rho": -0.1656489685826519,
+      "se_z": 0.1889822365046136,
+      "ci95_rho": [
+        -0.4911650926197593,
+        0.20046373513897822
+      ],
+      "p": 0.376327189077578,
+      "Q": 0.07666596481282661,
+      "df": 1,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "H2": 0.07666596481282661,
+      "fixed_z": -0.16718952534753442,
+      "fixed_rho": -0.1656489685826519,
+      "stouffer": {
+        "k": 2,
+        "method": "Stouffer weighted by sqrt(n-3), signed by \u03c1",
+        "z": -0.8961059687207521,
+        "p": 0.3701961695609385
+      }
+    },
+    "mixed_pile_pct": {
+      "k": 2,
+      "n_patients_total": 43,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.5213106061892226,
+      "pooled_rho": -0.4787109080847739,
+      "se_z": 0.1643989873053573,
+      "ci95_rho": [
+        -0.6876756414469811,
+        -0.19649925971718038
+      ],
+      "p": 0.0015191063422345722,
+      "Q": 0.11743534534149784,
+      "df": 1,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "H2": 0.11743534534149784,
+      "fixed_z": -0.5213106061892226,
+      "fixed_rho": -0.4787109080847739,
+      "stouffer": {
+        "k": 2,
+        "method": "Stouffer weighted by sqrt(n-3), signed by \u03c1",
+        "z": -3.144426482866681,
+        "p": 0.001664127187209751
+      }
+    }
+  },
+  "diffs": {
+    "naive_inclusive_vs_ici_core_pct": {
+      "z": 0.5522943470410951,
+      "p": 0.5807467029968553,
+      "delta_rho": 0.193121191114345,
+      "a_rho": -0.24222607031987303,
+      "b_rho": -0.43534726143421804,
+      "a_n": 46,
+      "b_n": 22
+    },
+    "naive_core_vs_ici_core_pct": {
+      "z": -0.3426884085309829,
+      "p": 0.7318328839357515,
+      "delta_rho": -0.0867306606437041,
+      "a_rho": -0.5220779220779221,
+      "b_rho": -0.43534726143421804,
+      "a_n": 21,
+      "b_n": 22
+    },
+    "naive_inclusive_vs_mixed_pile": {
+      "z": 0.7543068249751294,
+      "p": 0.4506650051089818,
+      "delta_rho": 0.23648483776490087,
+      "a_rho": -0.24222607031987303,
+      "b_rho": -0.4787109080847739,
+      "a_n": 46,
+      "b_n": 43
+    },
+    "ici_core_vs_mixed_pile": {
+      "z": 0.19428606560517556,
+      "p": 0.8459518957891949,
+      "delta_rho": 0.043363646650555865,
+      "a_rho": -0.43534726143421804,
+      "b_rho": -0.4787109080847739,
+      "a_n": 22,
+      "b_n": 43
+    },
+    "ici_inclusive_mean_vs_naive_inclusive_pct": {
+      "note": "score mismatch (mean vs %pos); not a formal test",
+      "z": 0.2130603054196297,
+      "p": 0.8312799254390464,
+      "delta_rho": 0.07657710173722113,
+      "a_rho": -0.1656489685826519,
+      "b_rho": -0.24222607031987303,
+      "a_n": 34,
+      "b_n": 46
+    }
+  },
+  "differing_cut": "treatment_naive_inclusive",
+  "cellchat": {
+    "run_on": "treatment_naive_inclusive",
+    "reason": "GSE131907+GSE148071 is null and heterogeneous; GSE205335 ICI-adjacent is CLDN4-negative vs T/NK. Cores alone are the same sign. The naive inclusive cut is the one that differs.",
+    "style": "reuse existing Jin 2021 Hill / CellChatDB v2 outgoing Mal\u2192T/NK tables",
+    "not_run": [
+      "CellChat R",
+      "new matrix merge",
+      "naive+ICI pile CellChat",
+      "GSE179994"
+    ],
+    "sources": [
+      "PR #347 methods/gse131907_cellchat_cldn4 (naive core)",
+      "PR #348 methods/gse148071_cellchat_cldn4 (naive \u00b1 member that nulls the combo)"
+    ],
+    "shared_outgoing_higher_in_CLDN4_high": [
+      "HLA-E\u2013CD8A (MHC-I / inhibitory)",
+      "LGALS9\u2013CD44 (GALECTIN / inhibitory)",
+      "F11R / JAM1\u2013ITGAL/ITGB2 (JAM / barrier)"
+    ],
+    "gse148071_only_highlights": [
+      "LGALS9\u2013PTPRC (CD45)",
+      "NECTIN2\u2013TIGIT",
+      "MDK\u2013NCL",
+      "CXCL16\u2013CXCR6 slightly higher in high (not lower)",
+      "CD274\u2013PDCD1 not detected"
+    ],
+    "gse131907_only_highlights": [
+      "HLA-E\u2013CD8B",
+      "LGALS9\u2013CD45",
+      "CDH1\u2013ITGAE/ITGB7",
+      "HLA-G\u2013CD8A"
+    ],
+    "interpretation": "On the differing naive cut, CellChat-style outgoing from CLDN4-high epithelium toward T/NK is still barrier / inhibitory in both members. GSE148071's null patient-level T/NK \u03c1 is not explained by loss of those pairs. This is cell-pooled Hill probability, not a patient mixed model."
+  },
+  "algorithm": "Spearman on locked patient tables; DerSimonian-Laird RE on Fisher-z; Wald z-difference between cuts; Q4 vs Q1 rank-biserial extra; CellChat-style reused only on the differing cut"
+}

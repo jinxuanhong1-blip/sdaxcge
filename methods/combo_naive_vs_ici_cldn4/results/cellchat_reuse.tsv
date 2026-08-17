@@ -1,0 +1,16 @@
+cut	cohort	pair	pathway	class	direction	delta_prob	source	note
+treatment_naive_inclusive	GSE131907	HLA-E–CD8A	MHC-I	inhibitory	outgoing_Mal_to_TNK	+0.057	PR #347	higher from CLDN4-high; cell-pooled
+treatment_naive_inclusive	GSE131907	LGALS9–CD45	GALECTIN	inhibitory	outgoing_Mal_to_TNK	+0.043	PR #347	higher from CLDN4-high; cell-pooled
+treatment_naive_inclusive	GSE131907	CDH1–ITGAE/ITGB7	CDH1	barrier|inhibitory	outgoing_Mal_to_TNK	+0.039	PR #347	higher from CLDN4-high; cell-pooled
+treatment_naive_inclusive	GSE131907	LGALS9–CD44	GALECTIN	inhibitory	outgoing_Mal_to_TNK	+0.038	PR #347	higher from CLDN4-high; cell-pooled
+treatment_naive_inclusive	GSE131907	JAM1–ITGAL/ITGB2	JAM	barrier	outgoing_Mal_to_TNK	+0.031	PR #347	higher from CLDN4-high; cell-pooled
+treatment_naive_inclusive	GSE148071	LGALS9–PTPRC	GALECTIN	inhibitory	outgoing_Mal_to_TNK	+0.095	PR #348	higher from CLDN4-high; cell-pooled; n=25 eligible
+treatment_naive_inclusive	GSE148071	MDK–NCL	MK	other	outgoing_Mal_to_TNK	+0.064	PR #348	higher from CLDN4-high
+treatment_naive_inclusive	GSE148071	HLA-E–CD8A	MHC-I	inhibitory	outgoing_Mal_to_TNK	+0.031	PR #348	shared with GSE131907
+treatment_naive_inclusive	GSE148071	NECTIN2–TIGIT	NECTIN	barrier|inhibitory	outgoing_Mal_to_TNK	+0.020	PR #348	higher from CLDN4-high
+treatment_naive_inclusive	GSE148071	F11R–ITGAL/ITGB2	JAM	barrier	outgoing_Mal_to_TNK	+0.012	PR #348	shared JAM class with GSE131907
+treatment_naive_inclusive	GSE148071	CXCL16–CXCR6	CXCL	recruit	outgoing_Mal_to_TNK	+0.002	PR #348	slightly higher in high, not lower
+treatment_naive_inclusive	GSE148071	CD274–PDCD1	PD-L1	checkpoint	outgoing_Mal_to_TNK		PR #348	not detected
+treatment_naive_inclusive	both	HLA-E–CD8A	MHC-I	inhibitory	outgoing_Mal_to_TNK		PR #347+#348	shared
+treatment_naive_inclusive	both	LGALS9–CD44	GALECTIN	inhibitory	outgoing_Mal_to_TNK		PR #347+#348	shared
+treatment_naive_inclusive	both	F11R/JAM1–ITGAL/ITGB2	JAM	barrier	outgoing_Mal_to_TNK		PR #347+#348	shared class

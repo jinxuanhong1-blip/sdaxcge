@@ -1,0 +1,10 @@
+cohort	cut	malig_def	score	n	rho	p	ci95_lo	ci95_hi	n_q1	n_q4	n_compared	q4q1_r	q4q1_p	note
+GSE131907	treatment_naive	author_malig (>=20 mal and >=20 T/NK)	pct_pos	21	-0.522078	0.0151958	-0.778349	-0.116682	6	5	11	-0.6	0.125541	Kim 2020 treatment-naive atlas; tLung tS* out of this extract
+GSE131907	treatment_naive	author_malig (>=20 mal and >=20 T/NK)	mean	21	-0.396104	0.0754764	-0.706918	0.0429308	6	5	11	-0.533333	0.177489	secondary mean; same 21 patients
+GSE148071	treatment_naive	marker_epi_putative (>=25 epi and >=25 T/NK)	pct_pos	25	0.0692308	0.742287	-0.335073	0.452003	7	6	13	0	1	Wu 2021 advanced NSCLC diagnostic biopsies; no ICI labels; 25/42
+GSE148071	treatment_naive	marker_epi_putative (>=25 epi and >=25 T/NK)	mean	25	0.189231	0.364969	-0.222547	0.543714	7	6	13	-0.047619	0.945221	secondary mean; same 25 patients
+GSE205335	ici_adjacent	author_malig (locked extract)	pct_pos	22	-0.435347	0.0428613	-0.724062	-0.0168192	6	6	12	-0.777778	0.025974	Hu 2022 neoadjuvant ICI scRNA; mixed histology (ADC/SQ/SCLC/NUT)
+GSE205335	ici_adjacent	author_malig (locked extract)	mean	22	-0.200452	0.371083	-0.573591	0.24158	6	6	12	-0.555556	0.132035	secondary mean; same 22 patients
+GSE205335_NSCLC	ici_adjacent_sensitivity	author_malig ADC+SQ only	pct_pos	17	-0.205882	0.427915	-0.624714	0.304947	5	4	9	-0.3	0.555556	sensitivity; drops SCLC/NUT; not the ICI cut
+GSE207422	ici_adjacent	author_DRMref (A3 given)	mean	12	-0.0909091	0.778725	-0.631853	0.509588	3	3	6	-0.333333	0.7	Park/Hu neoadjuvant PD-1; CLDN4 %pos absent from locked A3 table
+GSE179994	ici_adjacent	none — T-cell-only processed matrix	none	0					0	0	0			Liu/Zhang 2022 pembro+chemo; GEO processed is T-cell-only; n=0 (PR #416/#420)
