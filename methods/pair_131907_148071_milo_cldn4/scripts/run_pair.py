@@ -868,7 +868,7 @@ def extra_figures(sample_all: pd.DataFrame, pair: pd.DataFrame, graphs: dict, fi
     fig, ax = plt.subplots(figsize=(6.4, 4.6))
     scored = sample_all[np.isfinite(sample_all["malignant_cldn4"])]
     groups = list(scored.groupby("graph"))
-    ax.boxplot([g["malignant_cldn4"].to_numpy() for _, g in groups], labels=[n for n, _ in groups])
+    ax.boxplot([g["malignant_cldn4"].to_numpy() for _, g in groups], tick_labels=[n for n, _ in groups])
     ax.set_ylabel("Malignant CLDN4 (log1p CP10k)")
     ax.set_title("CLDN4 score by graph (scored samples only)")
     fig.tight_layout()
@@ -1047,6 +1047,12 @@ Do not cite {g148['n_cells_in_graph'] + tlung['n_cells_in_graph']:,} pair-arm ce
 
 Neighbourhood DA stays per graph. A joint kNN was not built.
 
+Every SpatialFDR<0.1 neighbourhood on the default ≥5-sample floor is a
+perfect or near-perfect rank correlation on 5–6 samples (scipy p≈0).
+That is **not** a cohort DA claim. At n_present ≥ 8, SpatialFDR<0.1 is
+**0** on GSE148071, tLung, and mBrain. Median-split Welch tests are also
+**0** at SpatialFDR<0.1 on every graph.
+
 ## SpatialFDR by graph
 
 {block("GSE148071 (Wu 2021 biopsies; marker malignant-like)", g148)}
@@ -1085,6 +1091,7 @@ def main() -> None:
     ap.add_argument("--min-malignant", type=int, default=10)
     ap.add_argument("--min-umi", type=float, default=1.0)
     ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--from-results", action="store_true", help="rebuild pair tables/FINDING from existing graph outputs")
     args = ap.parse_args()
     self_test()
 
@@ -1094,10 +1101,28 @@ def main() -> None:
     for p in (results_dir, figdir, tables):
         p.mkdir(parents=True, exist_ok=True)
 
-    s148, n148, samp148, pair148 = run_gse148071(args.data_root / "GSE148071" / "files", results_dir, figdir, args)
-    res131, inventory = run_gse131907(args.data_root / "GSE131907", results_dir, figdir, args)
-    s_t, n_t, samp_t, pair_t = res131["tLung"]
-    s_b, n_b, samp_b, pair_b = res131["mBrain"]
+    if args.from_results:
+        s148 = json.loads((results_dir / "GSE148071" / "summary.json").read_text())
+        s_t = json.loads((results_dir / "GSE131907_tLung" / "summary.json").read_text())
+        s_b = json.loads((results_dir / "GSE131907_mBrain" / "summary.json").read_text())
+        n148 = pd.read_csv(results_dir / "GSE148071" / "nhoods.tsv", sep="\t")
+        n_t = pd.read_csv(results_dir / "GSE131907_tLung" / "nhoods.tsv", sep="\t")
+        n_b = pd.read_csv(results_dir / "GSE131907_mBrain" / "nhoods.tsv", sep="\t")
+        samp148 = pd.read_csv(results_dir / "GSE148071" / "sample_scores.tsv", sep="\t")
+        samp_t = pd.read_csv(results_dir / "GSE131907_tLung" / "sample_scores.tsv", sep="\t")
+        samp_b = pd.read_csv(results_dir / "GSE131907_mBrain" / "sample_scores.tsv", sep="\t")
+        pair148 = pd.read_csv(results_dir / "GSE148071" / "sample_paired_tnk_by_nhood_cldn4.tsv", sep="\t")
+        pair_t = pd.read_csv(results_dir / "GSE131907_tLung" / "sample_paired_tnk_by_nhood_cldn4.tsv", sep="\t")
+        pair_b = pd.read_csv(results_dir / "GSE131907_mBrain" / "sample_paired_tnk_by_nhood_cldn4.tsv", sep="\t")
+        inventory = {
+            "from_results": True,
+            "skipped": ["GSE205335", "triple 131907+148071+205335", "dual-high TACSTD2+CLDN4"],
+        }
+    else:
+        s148, n148, samp148, pair148 = run_gse148071(args.data_root / "GSE148071" / "files", results_dir, figdir, args)
+        res131, inventory = run_gse131907(args.data_root / "GSE131907", results_dir, figdir, args)
+        s_t, n_t, samp_t, pair_t = res131["tLung"]
+        s_b, n_b, samp_b, pair_b = res131["mBrain"]
 
     graphs = {"GSE148071": s148, "GSE131907_tLung": s_t, "GSE131907_mBrain": s_b}
     nhoods = pd.concat([n148, n_t, n_b], ignore_index=True)

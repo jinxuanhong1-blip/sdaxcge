@@ -1,0 +1,4 @@
+graph	dataset	n_samples_in_graph	n_scored_malignant_cldn4	n_cells_do_not_cite	n_nhoods	n_testable_cldn4	n_SpatialFDR_lt_0.1	min_SpatialFDR	sample_cldn4_tnk_rho	sample_cldn4_tnk_p	in_pair_n
+GSE148071	GSE148071	42	39	89887	6401	881	8	0.0	0.004253165102152267	0.9794990836165818	True
+GSE131907_tLung	GSE131907	11	10	42776	2998	210	3	7.73365045839415e-23	-0.29696969696969694	0.40470167127015705	True
+GSE131907_mBrain	GSE131907	10	10	27708	1956	26	2	0.0	-0.6969696969696969	0.02509667588225185	False
