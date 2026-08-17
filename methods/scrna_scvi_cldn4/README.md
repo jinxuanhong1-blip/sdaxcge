@@ -30,4 +30,10 @@ python3 methods/scrna_scvi_cldn4/integrate_score.py
 
 scVI is preferred. If training fails, the script falls back to Harmony and records the error.
 
-Primary write-up: `FINDING.md`.
+## Result (public run)
+
+scVI trained (no Harmony fallback). scvi-tools 1.5.0.post1, 40 epochs, `n_latent=10`, 2,000 HVGs, batch = 10x sample.
+
+Primary (post, Leiden-cluster malignant CLDN4 vs T/NK): **n=10/12, ρ=−0.03, p=0.93**. Dropped P06 (5 cells) and P13 (3 cells). Not significant.
+
+Write-up: `FINDING.md`.

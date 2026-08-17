@@ -1,0 +1,19 @@
+contrast	n	n_samples_total	n_eligible	dropped	rho	p	negative	x	y
+post cluster CLDN4 vs T/NK	10	12	10	['BD_immune06', 'BD_immune13']	-0.0303030303030303	0.9337729580941466	True	mal_CLDN4_mean	frac_tnk
+post cluster CLDN4 vs CXCL13+	10	12	10	['BD_immune06', 'BD_immune13']	-0.2727272727272727	0.4458383415427516	True	mal_CLDN4_mean	frac_cxcl13
+post cluster CLDN4 vs cyto-high	10	12	10	['BD_immune06', 'BD_immune13']	-0.12727272727272726	0.7260570147627894	True	mal_CLDN4_mean	frac_cyto_high
+post marker CLDN4 vs T/NK	11	12	11	['BD_immune11']	0.07339758434175737	0.8301847435189387	False	mal_CLDN4_mean	frac_tnk
+post marker CLDN4 vs CXCL13+	11	12	11	['BD_immune11']	0.31193973345246884	0.35037717857997286	False	mal_CLDN4_mean	frac_cxcl13
+post marker CLDN4 vs cyto-high	11	12	11	['BD_immune11']	0.3394638275806278	0.3071024935197742	False	mal_CLDN4_mean	frac_cyto_high
+post A3 CLDN4 vs T/NK	11	12	11	['BD_immune11']	0.27272727272727276	0.4171414371425311	False	mal_CLDN4_mean	frac_tnk
+post A3 CLDN4 vs CXCL13+	11	12	11	['BD_immune11']	0.4090909090909091	0.21154501034209602	False	mal_CLDN4_mean	frac_cxcl13
+post A3 CLDN4 vs cyto-high	11	12	11	['BD_immune11']	0.21818181818181823	0.5192482475549817	False	mal_CLDN4_mean	frac_cyto_high
+all15 cluster CLDN4 vs T/NK	12	15	12	['BD_immune06', 'BD_immune08', 'BD_immune13']	-0.1328671328671329	0.6805975082860817	True	mal_CLDN4_mean	frac_tnk
+all15 cluster CLDN4 vs CXCL13+	12	15	12	['BD_immune06', 'BD_immune08', 'BD_immune13']	-0.4055944055944056	0.19083587400450036	True	mal_CLDN4_mean	frac_cxcl13
+all15 cluster CLDN4 vs cyto-high	12	15	12	['BD_immune06', 'BD_immune08', 'BD_immune13']	-0.2027972027972028	0.5273023541661079	True	mal_CLDN4_mean	frac_cyto_high
+all15 marker CLDN4 vs T/NK	14	15	14	['BD_immune11']	-0.1081688246553687	0.7128142653138133	True	mal_CLDN4_mean	frac_tnk
+all15 marker CLDN4 vs CXCL13+	14	15	14	['BD_immune11']	0.10375377058780262	0.7241098130956382	False	mal_CLDN4_mean	frac_cxcl13
+all15 marker CLDN4 vs cyto-high	14	15	14	['BD_immune11']	0.125829040925633	0.6681964445441553	False	mal_CLDN4_mean	frac_cyto_high
+post cluster CLDN4 vs TACSTD2	10	12	10	['BD_immune06', 'BD_immune13']	0.5030303030303029	0.13833369839449194	False	mal_CLDN4_mean	mal_TACSTD2_mean
+post cluster TACSTD2 vs T/NK (companion)	10	12	10	['BD_immune06', 'BD_immune13']	-0.1515151515151515	0.6760651759978539	True	mal_TACSTD2_mean	frac_tnk
+post marker TACSTD2 vs T/NK (companion)	11	12	11	['BD_immune11']	0.19590028045862823	0.5637442329087622	False	mal_TACSTD2_mean	frac_tnk
