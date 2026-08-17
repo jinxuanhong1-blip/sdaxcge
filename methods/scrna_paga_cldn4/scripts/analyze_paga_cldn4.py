@@ -185,6 +185,8 @@ def _save(fig, path: Path) -> None:
 def write_finding(path: Path, ctx: dict) -> None:
     s = ctx["summary"]
     extra = s["extra_figure"]
+    extra_rho = "NA" if extra.get("spearman_rho") is None else f"{round(extra['spearman_rho'], 3)}"
+    extra_p = "NA" if extra.get("spearman_p") is None else f"{extra['spearman_p']:.3g}"
 
     def row_md(r: dict) -> str:
         rho = "NA" if r.get("rho") is None else f"{r['rho']:.3f}"
@@ -248,8 +250,7 @@ def write_finding(path: Path, ctx: dict) -> None:
             f"Emitted: **{extra['emitted']}**. "
             f"Rule: sample-level Spearman(CLDN4, barrier_keratin_no_CLDN4) ρ>0 and p<{EXTRA_BARRIER_P_LT}, "
             f"or any paired tertile Wilcoxon p<{EXTRA_BARRIER_P_LT}. "
-            f"Observed Spearman n={extra['spearman_n']}, ρ={extra['spearman_rho'] if extra['spearman_rho'] is None else round(extra['spearman_rho'], 3)}, "
-            f"p={extra['spearman_p'] if extra['spearman_p'] is None else f'{extra['spearman_p']:.3g'}."
+            f"Observed Spearman n={extra['spearman_n']}, ρ={extra_rho}, p={extra_p}."
         ),
         "",
         "| Paired contrast (high − low) | n_samples | Δ median | p |",
