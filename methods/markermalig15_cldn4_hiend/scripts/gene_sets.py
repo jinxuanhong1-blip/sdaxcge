@@ -1,0 +1,156 @@
+"""CLDN4-only gene sets for the n=15 marker-malignant combo.
+
+TACSTD2 is a companion column and is never used to call CLDN4-high.
+"""
+
+LINEAGE_MARKERS = {
+    "T": ["CD3D", "CD3E", "CD3G", "CD2", "TRAC"],
+    "NK": ["NKG7", "GNLY", "KLRD1", "KLRF1", "NCR1"],
+    "B": ["CD79A", "CD79B", "MS4A1", "CD19"],
+    "Plasma": ["JCHAIN", "MZB1", "SDC1"],
+    "Myeloid": ["LYZ", "CD68", "CD14", "CSF1R", "C1QA"],
+    "Neutrophil": ["FCGR3B", "CSF3R", "CXCR2"],
+    "Mast": ["TPSAB1", "CPA3"],
+    "Epithelial": ["EPCAM", "KRT8", "KRT18", "KRT19", "KRT7", "CDH1"],
+    "Fibroblast": ["COL1A1", "COL1A2", "DCN", "LUM"],
+    "Endothelial": ["PECAM1", "VWF", "CLDN5", "CDH5"],
+}
+
+NORMAL_LUNG = [
+    "SFTPA1",
+    "SFTPA2",
+    "SFTPB",
+    "SFTPC",
+    "AGER",
+    "SCGB1A1",
+    "SCGB3A1",
+    "TPPP3",
+    "FOXJ1",
+]
+
+EXTRA = [
+    "TACSTD2",
+    "CLDN4",
+    "PTPRC",
+    "CD8A",
+    "CD4",
+    "NCAM1",
+    "IFNG",
+    "TNF",
+    "MKI67",
+    "STMN1",
+]
+
+CYTOTOXICITY = [
+    "GZMB",
+    "GZMA",
+    "GZMH",
+    "GZMK",
+    "PRF1",
+    "GNLY",
+    "NKG7",
+    "IFNG",
+    "FASLG",
+    "TNF",
+    "CST7",
+    "FGFBP2",
+    "KLRK1",
+    "GZMM",
+]
+
+IFN = [
+    "IFNG",
+    "STAT1",
+    "IRF1",
+    "IRF7",
+    "ISG15",
+    "MX1",
+    "IFIT1",
+    "IFIT2",
+    "IFIT3",
+    "OAS1",
+    "IFI6",
+    "RSAD2",
+    "CXCL9",
+    "CXCL10",
+    "CXCL11",
+    "GBP1",
+]
+
+EXHAUSTION = [
+    "PDCD1",
+    "HAVCR2",
+    "LAG3",
+    "TIGIT",
+    "TOX",
+    "CTLA4",
+    "ENTPD1",
+    "LAYN",
+    "CXCL13",
+    "CD38",
+    "CD244",
+    "TOX2",
+    "CD160",
+    "BTLA",
+]
+
+BARRIER_LIGANDS = {
+    "CDH1",
+    "CLDN1",
+    "CLDN3",
+    "CLDN4",
+    "CLDN7",
+    "OCLN",
+    "F11R",
+    "JAM2",
+    "JAM3",
+    "CEACAM1",
+    "CEACAM5",
+    "CEACAM6",
+    "NECTIN1",
+    "NECTIN2",
+    "NECTIN3",
+    "NECTIN4",
+    "PVR",
+    "EPCAM",
+    "DSG2",
+    "DSC2",
+    "CADM1",
+}
+INHIB_LIGANDS = {
+    "CD274",
+    "PDCD1LG2",
+    "LGALS9",
+    "HLA-E",
+    "HLA-G",
+    "HLA-F",
+    "TGFB1",
+    "TGFB2",
+    "TGFB3",
+    "CD80",
+    "CD86",
+    "CD276",
+    "VSIR",
+    "PVR",
+    "NECTIN2",
+    "CD47",
+    "CDH1",
+}
+RECRUIT_LIGANDS = {
+    "CXCL9",
+    "CXCL10",
+    "CXCL11",
+    "CXCL16",
+    "CCL5",
+    "CCL3",
+    "CCL4",
+    "IL15",
+    "IL2",
+    "IL18",
+    "MICA",
+    "MICB",
+    "ULBP1",
+    "ULBP2",
+    "ULBP3",
+}
+ATTACK_LIGANDS = {"IFNG", "TNF", "FASLG", "TNFSF10", "LTA"}
