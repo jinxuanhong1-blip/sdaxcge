@@ -42,3 +42,6 @@ Primary: given-unit Spearman of mean CLDN4 / barrier / IFN vs mean Slingshot PT.
 Sensitivity (not BH): per-cohort.
 
 Tails may be thin. Q4 vs Q1 7/5 is **not** the Slingshot n.
+
+SFTPC/SFTPA1 and the club panel were absent from the GSE123902∩GSE189357 gene intersection
+on this extract. The AT2 score is therefore incomplete. Report that, do not hide it.

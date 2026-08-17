@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -217,16 +218,25 @@ def pick_root(adata) -> tuple[int, dict]:
     return int(pick), info
 
 
+def _r_env() -> dict[str, str]:
+    env = dict(**os.environ)
+    lib = Path.home() / "R" / "library"
+    lib.mkdir(parents=True, exist_ok=True)
+    env["R_LIBS_USER"] = str(lib)
+    return env
+
+
 def require_slingshot() -> dict:
     rscript = shutil.which("Rscript")
     if rscript is None:
         raise SystemExit("Rscript not on PATH. Run scripts/install_r_slingshot.sh")
     proc = subprocess.run(
-        [rscript, "-e", 'cat(as.character(packageVersion("slingshot")))'],
+        [rscript, "-e", '.libPaths(Sys.getenv("R_LIBS_USER")); cat(as.character(packageVersion("slingshot")))'],
         check=False,
         capture_output=True,
         text=True,
         timeout=30,
+        env=_r_env(),
     )
     if proc.returncode != 0:
         raise SystemExit(
@@ -264,7 +274,7 @@ def run_slingshot(adata, start_cluster: str, tabdir: Path, rscript: str) -> pd.D
         str(tabdir),
     ]
     print("RUN", " ".join(cmd), flush=True)
-    proc = subprocess.run(cmd, check=False, capture_output=True, text=True)
+    proc = subprocess.run(cmd, check=False, capture_output=True, text=True, env=_r_env())
     sys.stdout.write(proc.stdout or "")
     sys.stderr.write(proc.stderr or "")
     if proc.returncode != 0:
@@ -754,9 +764,11 @@ def main() -> None:
         )
     fails = []
     if c4_pt.get("p") is None or c4_pt["p"] >= 0.05:
+        rho_txt = "NA" if c4_pt.get("rho") is None else f"{c4_pt['rho']:.3f}"
+        p_txt = "NA" if c4_pt.get("p") is None else f"{c4_pt['p']:.3g}"
         fails.append(
-            f"Pooled given-unit CLDN4 vs Slingshot PT is null or undefined "
-            f"(n={c4_pt['n']}, ρ={c4_pt.get('rho')}, p={c4_pt.get('p')})."
+            f"Pooled given-unit CLDN4 vs Slingshot PT is null "
+            f"(n={c4_pt['n']}, ρ={rho_txt}, p={p_txt})."
         )
     what_holds = (
         f"**What holds (given units, Spearman n={elig.shape[0]}).** " + " ".join(holds)

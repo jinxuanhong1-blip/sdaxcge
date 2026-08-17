@@ -19,6 +19,11 @@ for (need in c("pca", "cluster", "start", "outdir")) {
   if (is.null(kv[[need]])) stop("missing --", need)
 }
 
+user_lib <- Sys.getenv("R_LIBS_USER")
+if (nzchar(user_lib)) {
+  .libPaths(c(user_lib, .libPaths()))
+}
+
 suppressPackageStartupMessages({
   if (!requireNamespace("slingshot", quietly = TRUE)) {
     stop("slingshot is not installed. Run scripts/install_r_slingshot.sh")
