@@ -1,0 +1,20 @@
+field	public	n	note
+arrays_in_matrix	yes	196	54675 probes x 196 GSM; missing values=0
+unique_GSM	yes	196	all unique
+unique_title	yes	196	Patient N, sex, histology; all unique
+unique_patient_id	yes	196	parsed from title; 1 array / patient; no duplicate pair
+GEO_overall_design_patients	yes (text)	196	Series: '196 consecutive NSCLC patients, operated between 1995 and 2005'
+histology_adeno	yes	106	GEO characteristic histology: adeno
+histology_squamous	yes	66	GEO characteristic histology: squamous
+histology_large	yes	24	GEO characteristic histology: large; kept in NSCLC pool, reported separately
+tumor_stage	yes	196	counts=1a:40,1b:90,2a:6,2b:29,3a:21,3b:6,4:4
+OS_dead_and_days	yes	196	dead={'yes': 145, 'no': 51}; days finite for all 196. Not the claim of this slice.
+recurrence_known	partial	96	100 of 196 are 'not known'; not used
+adjuvant_known	partial	100	96 of 196 are 'not known'; surgical 1995–2005 cohort
+ICI / PD-1 treatment	no	0	resected 1995–2005 Uppsala atlas; no ICI arm
+tumor_percent / purity	no	0	epithelial RNA mean-z is the only public purity proxy
+CLDN4 finite	yes	196	named probe 201428_at; RMA as deposited
+CD8A finite	yes	196	named probe 205758_at
+CD274 finite	yes	196	named probe 223834_at (Plus 2.0; 227458_at also present)
+pairwise CLDN4+CD8A	yes	196	primary n, all NSCLC
+pairwise CLDN4+CD274	yes	196	primary n, all NSCLC
