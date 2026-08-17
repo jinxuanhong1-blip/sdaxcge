@@ -1,0 +1,16 @@
+field	public	n	note
+arrays in series matrix	yes	100	20 patients × 5 arrays; do not use as the test n
+deposited probe sets	yes	25906	filtered GPL570 RMA-PLM; full Plus2 is 54,675
+patients	yes	20	GEO overall_design
+matched normal arrays	yes	20	dropped; not mixed into tumor tests
+all tumor arrays	yes	80	4 sites × 20 patients; not the LUAD n
+LUAD tumor arrays	yes	40	GEO histology: adeno; 4 sites × 10 patients
+LUAD patients (independent n)	yes	10	PRIMARY n; patient-mean of 4 tumor sites
+mixed tumor arrays	yes	24	not LUAD
+squamous tumor arrays	yes	16	not LUAD
+ICI / treatment	no	0	resected atlas, not an ICI series
+OS / DFS	no	0	not deposited
+tumor % / ABSOLUTE purity	no	0	RNA epithelial mean-z is the public proxy
+CLDN4 finite on LUAD tumors	yes	40	201428_at
+CD8A finite on LUAD tumors	yes	40	205758_at
+CD274 finite on LUAD tumors	yes	40	223834_at; 227458_at absent
