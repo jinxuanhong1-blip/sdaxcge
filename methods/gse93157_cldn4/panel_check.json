@@ -1,0 +1,131 @@
+{
+  "accession": "GSE93157",
+  "platform": "GPL19965",
+  "panel": "NanoString nCounter PanCancer Immune Profiling Panel",
+  "public_lung_ici": true,
+  "verdict": "panel_missing_empty",
+  "targets_present": [],
+  "targets": {
+    "CLDN4": {
+      "on_platform": false,
+      "in_series_matrix": false,
+      "in_raw_suppl": false,
+      "platform_ids": [],
+      "matrix_ids": [],
+      "raw_ids": []
+    },
+    "TACSTD2": {
+      "on_platform": false,
+      "in_series_matrix": false,
+      "in_raw_suppl": false,
+      "platform_ids": [],
+      "matrix_ids": [],
+      "raw_ids": []
+    }
+  },
+  "controls_on_panel": {
+    "CD8A": {
+      "on_platform": true,
+      "in_series_matrix": true,
+      "in_raw_suppl": true
+    },
+    "CD8B": {
+      "on_platform": true,
+      "in_series_matrix": true,
+      "in_raw_suppl": true
+    },
+    "CD274": {
+      "on_platform": true,
+      "in_series_matrix": true,
+      "in_raw_suppl": true
+    },
+    "PDCD1": {
+      "on_platform": true,
+      "in_series_matrix": true,
+      "in_raw_suppl": true
+    },
+    "IFNG": {
+      "on_platform": true,
+      "in_series_matrix": true,
+      "in_raw_suppl": true
+    },
+    "EPCAM": {
+      "on_platform": true,
+      "in_series_matrix": true,
+      "in_raw_suppl": true
+    },
+    "CDH1": {
+      "on_platform": true,
+      "in_series_matrix": true,
+      "in_raw_suppl": true
+    }
+  },
+  "claudin_family_hits": [],
+  "n_geo_arrays": 65,
+  "n_expr_genes_matrix": 765,
+  "n_raw_feature_ids": 774,
+  "platform_n_rows": 784,
+  "platform_codeclass": {
+    "Endogenous": 730,
+    "Housekeeping": 40,
+    "Negative": 8,
+    "Positive": 6
+  },
+  "source_n": {
+    "HEADNECK": 5,
+    "LUNG NON-SQUAMOUS CANCER": 22,
+    "SQUAMOUS LUNG CANCER": 13,
+    "MELANOMA": 25
+  },
+  "n_lung": 35,
+  "lung_source_n": {
+    "LUNG NON-SQUAMOUS CANCER": 22,
+    "SQUAMOUS LUNG CANCER": 13
+  },
+  "lung_best_resp": {
+    "CR": 1,
+    "PD": 14,
+    "SD": 12,
+    "PR": 8
+  },
+  "lung_geo_response_field": {
+    "RC_RP_SD": 35
+  },
+  "lung_drug": {
+    "NIVOLUMAB": 18,
+    "PEMBROLIZUMAB": 17
+  },
+  "lung_pfs_n": 35,
+  "lung_orr": {
+    "CR_PR": 9,
+    "SD_PD": 26
+  },
+  "lung_dcb": {
+    "CR_PR_SD": 21,
+    "PD": 14
+  },
+  "tests": {
+    "CLDN4_vs_response": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on GPL19965 / series matrix / raw suppl"
+    },
+    "CLDN4_vs_CD8": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not measured; CD8A is on the panel but is not a CLDN4 substitute"
+    },
+    "CLDN4_vs_CD274": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not measured; CD274 is on the panel but is not a CLDN4 substitute"
+    }
+  },
+  "note": "GEO characteristic 'response' is RC_RP_SD on every lung sample, including PD. Use best.resp (and pfs/pfse), not 'response'. Do not treat CD8A or CD274 as CLDN4 stand-ins.",
+  "citation": {
+    "paper": "Prat et al. Cancer Res 2017",
+    "pmid": "28487385",
+    "geo": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE93157",
+    "platform": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL19965"
+  }
+}
