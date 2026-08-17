@@ -341,18 +341,21 @@ def _group_index(labels: np.ndarray) -> list[tuple[object, np.ndarray]]:
 
 
 def qcut_tails(values: np.ndarray) -> tuple[np.ndarray, np.ndarray] | None:
-    if values.size < (MIN_TAIL * 2):
+    """Equal-count top/bottom quartile.
+
+    pd.qcut on ranks collapses when CLDN4 is zero-inflated (many ties),
+    which would drop patients with hundreds of malignant cells. A stable
+    sort keeps tail size = n//4. The high tail must be strictly higher
+    on average so a flat gene is not scored.
+    """
+    n = int(values.size)
+    k = n // 4
+    if n < MIN_MAL or k < MIN_TAIL:
         return None
-    ranks = pd.Series(values).rank(method="average")
-    try:
-        qs = pd.qcut(ranks, 4, labels=["Q1", "Q2", "Q3", "Q4"], duplicates="drop")
-    except ValueError:
-        return None
-    if qs.nunique() < 4:
-        return None
-    low = np.flatnonzero(qs.eq("Q1").to_numpy())
-    high = np.flatnonzero(qs.eq("Q4").to_numpy())
-    if low.size < MIN_TAIL or high.size < MIN_TAIL:
+    order = np.argsort(values, kind="mergesort")
+    low = order[:k]
+    high = order[-k:]
+    if float(values[high].mean()) <= float(values[low].mean()):
         return None
     return high, low
 
@@ -765,7 +768,11 @@ w = +1 / -1 from OmniPath A+B+C. No VIPER NES.
 | GSE205335 eligible | {n205} / {att205} | dropped if a tail <8 |
 | Cells as n | 0 | not used |
 
-Do **not** cite the attempted header n as the test n. Thin tails stay out.
+Do **not** cite the attempted header n as the test n. A patient is out
+if malignant n < 32 (so `n//4` < 8) or the high tail is not strictly
+higher in CLDN4. Equal-count tails are used because zero-inflated CLDN4
+collapses `pd.qcut` bins. Dropped patients are listed in `per_patient.tsv`
+(`eligible_q4q1=False`).
 
 GSE131907 matrix: {inventory.get("gse131907_cells", "NA")} barcodes streamed,
 {inventory.get("gse131907_malignant", "NA")} malignant tumor cells kept.
@@ -814,11 +821,7 @@ Mean `log1p(CP10k)` of the listed genes. CLDN4 is excluded from TJ.
 
 ## Median-split companion
 
-Same patients are not required. Eligible median-split n =
-{int(patients.eligible_median.sum())}
-({int(patients[patients.cohort.eq("GSE131907")].eligible_median.sum())} +
-{int(patients[patients.cohort.eq("GSE205335")].eligible_median.sum())}).
-See `results/tf_tests.tsv` (`split=median`).
+Same patients are not required. Eligible median-split n = {int(patients.eligible_median.sum())} ({int(patients[patients.cohort.eq("GSE131907")].eligible_median.sum())} GSE131907 + {int(patients[patients.cohort.eq("GSE205335")].eligible_median.sum())} GSE205335). See `results/tf_tests.tsv` (`split=median`).
 
 ## Honest limits
 

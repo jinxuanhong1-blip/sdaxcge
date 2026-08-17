@@ -39,8 +39,13 @@ Score = `log1p(CP10k)` CLDN4 on that patient's malignant cells.
 
 | Split | High | Low |
 | --- | --- | --- |
-| **Primary: Q4 vs Q1** | `pd.qcut` on average ranks, Q4 tail | Q1 tail |
+| **Primary: Q4 vs Q1** | equal-count top quartile after a stable sort on CLDN4 (`n//4` cells) | bottom quartile (`n//4`) |
 | Companion: median | ≥ median (if median is 0: CLDN4>0 vs =0) | < median (or =0) |
+
+`pd.qcut` on ranks is **not** used. Zero-inflated CLDN4 (many exact zeros)
+collapses rank bins and would drop patients with hundreds of malignant
+cells. Equal-count tails keep those patients. The high tail must have a
+strictly higher mean CLDN4 than the low tail.
 
 **Honest paired n.** A patient is scored only if:
 
