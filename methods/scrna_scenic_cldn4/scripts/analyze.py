@@ -355,13 +355,13 @@ def main() -> None:
     mal_obs = obs.loc[obs.malignant_like].copy()
     samp_n = mal_obs.groupby("sample").size()
     keep_samples = set(samp_n[samp_n >= MIN_CELLS].index)
-    mal_obs = mal_obs.loc[mal_obs.sample.isin(keep_samples)].copy()
+    mal_obs = mal_obs.loc[mal_obs["sample"].isin(keep_samples)].copy()
     med_within = mal_obs.groupby("sample")["CLDN4_log1p"].transform("median")
     mal_obs["cldn4_high_within"] = mal_obs["CLDN4_log1p"] >= med_within
     global_med = float(obs.loc[obs.malignant_like, "CLDN4_log1p"].median())
     mal_obs["cldn4_high_global"] = mal_obs["CLDN4_log1p"] >= global_med
     # primary flag on full obs
-    obs["in_primary_samples"] = obs.sample.isin(keep_samples) & obs.malignant_like
+    obs["in_primary_samples"] = obs["sample"].isin(keep_samples) & obs.malignant_like
     obs = obs.merge(
         mal_obs[["barcode", "cldn4_high_within", "cldn4_high_global"]],
         on="barcode", how="left",
