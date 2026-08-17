@@ -1,0 +1,37 @@
+{
+  "accessions": [
+    "GSE123902",
+    "GSE205335"
+  ],
+  "papers": {
+    "GSE123902": "Laughney et al. Nat Med 2020 PMID 32066974 (GEO GSE123902)",
+    "GSE205335": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "ifn_set": "Hallmark IFN\u03b1 \u222a IFN\u03b3",
+  "slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "note": "Palantir is the installed real clock"
+  },
+  "palantir": {
+    "available": true,
+    "module": "palantir",
+    "version": "1.4.5",
+    "root_cell": "GSE123902:LX675:NORMAL:227846603267293",
+    "n_finite": 10334,
+    "min": 0.0,
+    "max": 1.0,
+    "pca_key": "X_pca_harmony"
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "GSE123902 NORMAL AT2-like, not CLDN4-high",
+    "cap_per_unit": 350,
+    "unit": "GSE123902 donor + GSE205335 patient"
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "accessions": [
+    "GSE123902",
+    "GSE205335"
+  ],
+  "gse148071_added": false,
+  "dual_high": false,
+  "tnk_re_audited": false,
+  "given_pr459": {
+    "combo": "GSE123902+GSE205335",
+    "score": "%pos",
+    "n": 35,
+    "rho": -0.522,
+    "rho_p": 0.002,
+    "q4_r": -0.802,
+    "q4_p": 0.005,
+    "n_q1": 9,
+    "n_q4": 9,
+    "source": "PR459_given_not_re_audited"
+  },
+  "given_pr473_ifn_de": {
+    "source": "PR473_given",
+    "family": "IFN",
+    "n": 18,
+    "n_q1": 9,
+    "n_q4": 9,
+    "logFC": -1.046,
+    "p": 0.0003161
+  },
+  "primary_gene": "CLDN4",
+  "clock": "palantir",
+  "clock_label": "Palantir (Setty et al. 2019); PAGA geometry; DPT companion",
+  "slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "note": "Palantir is the installed real clock"
+  },
+  "palantir": {
+    "available": true,
+    "module": "palantir",
+    "version": "1.4.5",
+    "root_cell": "GSE123902:LX675:NORMAL:227846603267293",
+    "n_finite": 10334,
+    "min": 0.0,
+    "max": 1.0,
+    "pca_key": "X_pca_harmony"
+  },
+  "harmony": {
+    "used": true,
+    "reason": "harmonypy on PCA, batch=dataset"
+  },
+  "cap_per_unit": 350,
+  "n_cells": 10334,
+  "n_cells_gse123902": 3403,
+  "n_cells_gse205335": 6931,
+  "n_cells_normal": 755,
+  "n_normal_units": 4,
+  "n_tumor_units": 35,
+  "n_tumor_gse123902": 13,
+  "n_tumor_gse205335": 22,
+  "n_units_eligible": 35,
+  "n_units_paired_tertile": 32,
+  "subtype_counts": {
+    "Malignant cells": 6228,
+    "marker_malignant": 2648,
+    "NORMAL_AT2like": 755,
+    "Non-malignant cells": 703
+  },
+  "cldn4_tertile_counts": {
+    "low": 4121,
+    "high": 3445,
+    "mid": 2768
+  },
+  "cldn4_tertile_cuts": {
+    "q1": 0.0,
+    "q2": 1.7633079550167503
+  },
+  "genes_absent": {
+    "AT2": [
+      "SFTPC",
+      "SFTPA1"
+    ],
+    "AT1": [],
+    "club": [
+      "SCGB1A1",
+      "SCGB3A2",
+      "SCGB3A1"
+    ],
+    "basal": [
+      "KRT5",
+      "TP63",
+      "NGFR"
+    ],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": [
+      "CEACAM5",
+      "CEACAM6"
+    ],
+    "IFN": [
+      "BATF2",
+      "CCL7",
+      "CXCL11",
+      "CXCL9",
+      "GBP6",
+      "IDO1",
+      "KLRK1",
+      "MARCHF1",
+      "RNF31",
+      "SELP",
+      "SLAMF7",
+      "TENT5A",
+      "WARS1"
+    ],
+    "single_genes": [
+      "SFTPC",
+      "SCGB1A1",
+      "KRT5"
+    ]
+  },
+  "n_ifn_locked": 224,
+  "n_ifn_present": 211,
+  "root": {
+    "n_normal": 755,
+    "n_normal_not_cldn4_high": 484,
+    "rule": "GSE123902 NORMAL AT2-like (median AT2; CLDN4-high excluded)",
+    "n_candidate": 162,
+    "index": 1178,
+    "root_unit": "GSE123902:LX675:NORMAL",
+    "root_origin": "NORMAL",
+    "root_subtype": "NORMAL_AT2like",
+    "root_dataset": "GSE123902",
+    "root_cldn4_tertile": "low",
+    "root_CLDN4": 0.0,
+    "root_AT2": 3.0750027556273967
+  },
+  "n_paga_components": 1,
+  "n_leiden": 28,
+  "leiden_resolution": 0.6,
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs Palantir PT",
+      "n": 35,
+      "rho": -0.33333333333333337,
+      "p": 0.05037360788422925,
+      "q": 0.11334061773951581
+    },
+    {
+      "contrast": "IFN vs Palantir PT",
+      "n": 35,
+      "rho": 0.2554621848739496,
+      "p": 0.13856668819338885,
+      "q": 0.24942003874809995
+    },
+    {
+      "contrast": "barrier/keratin (no CLDN4) vs Palantir PT",
+      "n": 35,
+      "rho": -0.37591036414565826,
+      "p": 0.026048653219177573,
+      "q": 0.07923346958317305
+    },
+    {
+      "contrast": "CLDN4 vs IFN",
+      "n": 35,
+      "rho": -0.13893557422969188,
+      "p": 0.426046906937654,
+      "q": 0.639070360406481
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 35,
+      "rho": 0.37507002801120454,
+      "p": 0.02641115652772435,
+      "q": 0.07923346958317305
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 35,
+      "rho": 0.05434173669467787,
+      "p": 0.7565278308663413,
+      "q": 0.851093809724634
+    },
+    {
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "n": 35,
+      "rho": 0.4257703081232493,
+      "p": 0.010770020897001369,
+      "q": 0.07923346958317305
+    },
+    {
+      "contrast": "SFTPC vs Palantir PT (control)",
+      "n": 0,
+      "rho": null,
+      "p": null,
+      "note": "n<4",
+      "q": null
+    },
+    {
+      "contrast": "AT2 score vs Palantir PT (control)",
+      "n": 35,
+      "rho": -0.09187675070028012,
+      "p": 0.5996371451651697,
+      "q": 0.7709620437837897
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "GSE123902-only CLDN4 vs Palantir PT",
+      "n": 13,
+      "rho": -0.4835164835164835,
+      "p": 0.09413469259693935
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs Palantir PT",
+      "n": 22,
+      "rho": -0.12817617165443254,
+      "p": 0.569722895073283
+    },
+    {
+      "contrast": "GSE123902-only IFN vs Palantir PT",
+      "n": 13,
+      "rho": 0.48901098901098894,
+      "p": 0.08991308230865641
+    },
+    {
+      "contrast": "GSE205335-only IFN vs Palantir PT",
+      "n": 22,
+      "rho": 0.13721061547148505,
+      "p": 0.5425912609634095
+    },
+    {
+      "contrast": "GSE123902-only barrier vs Palantir PT",
+      "n": 13,
+      "rho": 0.054945054945054944,
+      "p": 0.8585042942308734
+    },
+    {
+      "contrast": "GSE205335-only barrier vs Palantir PT",
+      "n": 22,
+      "rho": -0.5245623941276115,
+      "p": 0.012199099804568871
+    },
+    {
+      "contrast": "GSE123902-only CLDN4 vs IFN",
+      "n": 13,
+      "rho": -0.14285714285714285,
+      "p": 0.641516421586088
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs IFN",
+      "n": 22,
+      "rho": -0.0220214568040655,
+      "p": 0.9225104517760873
+    },
+    {
+      "contrast": "include-NORMAL-units CLDN4 vs Palantir PT",
+      "n": 39,
+      "rho": -0.34028340080971664,
+      "p": 0.034036245972366014
+    },
+    {
+      "contrast": "GSE205335 ADC+SQ CLDN4 vs Palantir PT",
+      "n": 17,
+      "rho": -0.27696078431372556,
+      "p": 0.2818431625140768
+    },
+    {
+      "contrast": "tumor CLDN4 vs DPT (companion)",
+      "n": 35,
+      "rho": -0.11456582633053221,
+      "p": 0.5122562795408113
+    },
+    {
+      "contrast": "tumor IFN vs DPT (companion)",
+      "n": 35,
+      "rho": 0.08235294117647059,
+      "p": 0.6381315471118256
+    }
+  ],
+  "paired_tertile": [
+    {
+      "contrast": "barrier/keratin (no CLDN4) high vs low",
+      "n": 32,
+      "W": 0.0,
+      "p": 4.656612873077393e-10,
+      "delta_median": 0.5636891820842655,
+      "median_high": 1.6426100678669047,
+      "median_low": 0.7167602793975871
+    },
+    {
+      "contrast": "IFN high vs low",
+      "n": 32,
+      "W": 64.0,
+      "p": 6.685266271233559e-05,
+      "delta_median": 0.062463996616372974,
+      "median_high": 0.3073250030670863,
+      "median_low": 0.2630212522112697
+    },
+    {
+      "contrast": "AT2 high vs low",
+      "n": 32,
+      "W": 17.0,
+      "p": 5.988302581896325e-06,
+      "delta_median": 0.16515756207013954,
+      "median_high": 0.3219230150681216,
+      "median_low": 0.08345770642537256
+    },
+    {
+      "contrast": "Palantir PT high vs low",
+      "n": 32,
+      "W": 92.0,
+      "p": 0.000837184488773346,
+      "delta_median": -0.025160971288255903,
+      "median_high": 0.09398704494995248,
+      "median_low": 0.12969257184010108
+    }
+  ],
+  "extra_figure": {
+    "emitted": true,
+    "spearman_rho": 0.37507002801120454,
+    "spearman_p": 0.02641115652772435,
+    "spearman_n": 35
+  },
+  "verdict": "Sample-level CLDN4 vs Palantir PT: n=35, \u03c1=-0.333, p=0.0504. IFN vs Palantir PT: n=35, \u03c1=0.255, p=0.139. barrier/keratin (CLDN4 excluded) vs Palantir PT: n=35, \u03c1=-0.376, p=0.026. CLDN4 vs IFN: n=35, \u03c1=-0.139, p=0.426. CLDN4 vs barrier/keratin (CLDN4 excluded): n=35, \u03c1=0.375, p=0.0264. GSE123902-only CLDN4 vs PT: n=13, \u03c1=-0.484, p=0.0941. GSE205335-only CLDN4 vs PT: n=22, \u03c1=-0.128, p=0.57. Paired CLDN4-high vs low barrier/keratin: n=32, W=0.0, \u0394med=0.564, p=4.66e-10. Paired CLDN4-high vs low IFN: n=32, W=64.0, \u0394med=0.062, p=6.69e-05. PAGA has 1 component(s) at connectivity>0 among 28 Leiden vertices. Root is GSE123902 NORMAL AT2-like and is not CLDN4-high. Given PR #459 T/NK and PR #473 IFN DE were not re-audited. No both-high gate. GSE148071 not added.",
+  "what_holds": "**What holds (n=35 tumor units).** CLDN4 vs Palantir PT is n=35, \u03c1=-0.333, p=0.0504. IFN vs Palantir PT is n=35, \u03c1=0.255, p=0.139. barrier/keratin (no CLDN4) vs Palantir PT is n=35, \u03c1=-0.376, p=0.026. CLDN4 vs IFN is n=35, \u03c1=-0.139, p=0.426. CLDN4 vs barrier is n=35, \u03c1=0.375, p=0.0264. Within-unit CLDN4-high vs low IFN: n=32, W=64.0, \u0394med=0.062, p=6.69e-05; barrier: n=32, W=0.0, \u0394med=0.564, p=4.66e-10. **What this is not.** Given T/NK n=35 and IFN DE n=18 are different contrasts. Pooled PT mixes cohorts and is not a within-tumor progression test.",
+  "skipped": {
+    "GSE148071": "explicitly not added",
+    "dual_high": "TACSTD2\u2229CLDN4 not used",
+    "T/NK": "PR #459 given; not re-audited",
+    "IFN_DE": "PR #473 given; not re-run",
+    "slingshot": "Rscript not on PATH"
+  }
+}
