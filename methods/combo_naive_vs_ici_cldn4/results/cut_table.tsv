@@ -1,0 +1,7 @@
+row	cut	cohorts	score	k	n	rho	ci95_lo	ci95_hi	p	I2	headline	note
+naive_GSE131907_only	treatment_naive	GSE131907	pct_pos	1	21	-0.522078	-0.778349	-0.116682	0.0151958	0	yes_as_naive_core	treatment-naive only; GSE148071 not added
+naive_GSE131907_plus_GSE148071	treatment_naive	GSE131907+GSE148071	pct_pos	2	46	-0.242226	-0.707678	0.369844	0.445844	75.9841	yes_as_naive_inclusive	treatment-naive ± GSE148071; heterogeneous; not a merge with ICI
+ici_GSE205335_only	ici_adjacent	GSE205335	pct_pos	1	22	-0.435347	-0.724062	-0.0168192	0.0428613	0	yes_as_ici_core	ICI-adjacent only; GSE207422 has no locked CLDN4 %pos; GSE179994 n=0
+ici_GSE205335_plus_GSE207422_mean	ici_adjacent	GSE205335+GSE207422	mean	2	34	-0.165649	-0.491165	0.200464	0.376327	0	yes_as_ici_inclusive_mean	mean-matched ± GSE207422; %pos not available on A3 table; GSE179994 unused
+ici_GSE179994	ici_adjacent	GSE179994	none	0	0						no_unusable	T-cell-only processed matrix; malignant CLDN4 cannot be scored; n=0
+naive_plus_ici_GSE131907_GSE205335	naive_plus_ici_pile	GSE131907+GSE205335	pct_pos	2	43	-0.478711	-0.687676	-0.196499	0.00151911	0	NO_do_not_headline	naive+ICI pile from PR #290/#320; shown only so it is not the answer
