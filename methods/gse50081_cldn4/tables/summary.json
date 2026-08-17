@@ -1,0 +1,115 @@
+{
+  "dataset": "GSE50081",
+  "pmid": "24305008",
+  "platform": "GPL570 Affymetrix HG-U133 Plus 2.0",
+  "processing": "RMA log2 as deposited (Der et al., J Thorac Oncol 2014).",
+  "histology_primary": "adenocarcinoma (strict GEO characteristic)",
+  "n_arrays_series": 181,
+  "n_probes": 54675,
+  "n_genes_collapsed": 22189,
+  "n_luad_primary": 127,
+  "n_lusc_extra": 42,
+  "n_favor_adenocarcinoma_excluded": 1,
+  "n_adenosquamous_excluded": 2,
+  "immunescore": {
+    "definition": "mean of gene-wise z-scores of ESTIMATE ImmuneSignature, z-scored within the analysis set",
+    "source": "estimate 1.0.13 SI_geneset.gmt ImmuneSignature (Yoshihara 2013)",
+    "n_genes_listed": 141,
+    "n_genes_present": 137,
+    "not": "official R estimate::estimateScore ssGSEA"
+  },
+  "cldn4_probe_named": "201428_at",
+  "cd8a_probe_named": "205758_at",
+  "cd274_probe_named": "223834_at",
+  "luad": {
+    "n": 127,
+    "CLDN4_vs_CD8A": {
+      "cohort": "LUAD_adenocarcinoma",
+      "pair": "CLDN4 vs CD8A",
+      "n": 127,
+      "rho": -0.14952427821522307,
+      "p": 0.09337864167692961,
+      "ci_low": -0.3266705329627985,
+      "ci_high": 0.03164709878436908,
+      "rho_adj_epithelial": -0.03905147287889117,
+      "p_adj_epithelial": 0.6641804877304635,
+      "verdict_crude": "NO_EVIDENCE",
+      "verdict_adj": "NO_EVIDENCE",
+      "n_genes_in_score": 1,
+      "genes_used": "CD8A",
+      "present": true,
+      "note": null
+    },
+    "CLDN4_vs_CD274": {
+      "cohort": "LUAD_adenocarcinoma",
+      "pair": "CLDN4 vs CD274",
+      "n": 127,
+      "rho": -0.0764904386951631,
+      "p": 0.39269861924050303,
+      "ci_low": -0.24692080548651935,
+      "ci_high": 0.10477808138373244,
+      "rho_adj_epithelial": -0.029500226284758867,
+      "p_adj_epithelial": 0.7429794098374342,
+      "verdict_crude": "NO_EVIDENCE",
+      "verdict_adj": "NO_EVIDENCE",
+      "n_genes_in_score": 1,
+      "genes_used": "CD274",
+      "present": true,
+      "note": null
+    },
+    "CLDN4_vs_ImmuneScore": {
+      "cohort": "LUAD_adenocarcinoma",
+      "pair": "CLDN4 vs ImmuneScore",
+      "n": 127,
+      "rho": -0.19310672103487062,
+      "p": 0.029614956336610664,
+      "ci_low": -0.36483455660538056,
+      "ci_high": -0.006991095725943417,
+      "rho_adj_epithelial": -0.045962489222727616,
+      "p_adj_epithelial": 0.6093118180657551,
+      "verdict_crude": "HOLDS",
+      "verdict_adj": "NO_EVIDENCE",
+      "n_genes_in_score": 137,
+      "genes_used": "LCP2,LSP1,FYB,PLEK,HCK,IL10RA,LILRB1,NCKAP1L,LAIR1,NCF2,CYBB,PTPRC,IL7R,LAPTM5,CD53,EVI2B,SLA,ITGB2,GIMAP4,MYO1F,HCLS1,MNDA,IL2RG,CD48,AOAH,CCL5,LTB,GMFG,GIMAP6,GZMK,LST1,GPR65,LILRB2,WIPF1,CD37,BIN2,FCER1G,IKZF1,TYROBP,FGL2,FLI1,IRF8,SH2B3,TNFRSF1B,DOCK2,CD2,ARHGEF6,CORO1A,LY96,LYZ,ITGAL,TNFAIP3,RNASE6,TGFB1,PSTPIP1,CST7,RGS1,FGR,SELL,MICAL1,TRAF3IP3,ITGA4,MAFB,ARHGDIB,IL4R,RHOH,HLA-DPA1,NKG7,NCF4,LPXN,ITK,SELPLG,HLA-DPB1,CD3D,CD300A,IL2RB,ADCY7,PTGER4,SRGN,CD247,CCR7,MSN,ALOX5AP,PTGER2,RAC2,GBP2,VAV1,CLEC2B,P2RY14,NFKBIA,S100A9,MFSD1,RASSF2,TPP1,RHOG,CLEC4A,GZMB,PVRIG,S100A8,CASP1,BCL2A1,HLA-E,KLRB1,GNLY,RAB27A,IL18RAP,TPST2,EMP3,GMIP,LCK,IL32,PTPRCAP,LGALS9,CCDC69,SAMHD1,TAP1,GBP1,CTSS,GZMH,ADAM8,GLRX,PRF1,CD69,HLA-B,HLA-DMA,CD74,PTPRE,HLA-DRA,VNN2,TCIRG1,RABGAP1L,CSTA,ZAP70,HLA-F,HLA-G,CD52,CD27",
+      "present": true,
+      "note": null
+    }
+  },
+  "missing_public_labels": [
+    "ICI",
+    "tumor_percent",
+    "ABSOLUTE purity"
+  ],
+  "cohort_info": [
+    {
+      "cohort": "LUAD_adenocarcinoma",
+      "n": 127,
+      "immune_genes_used": 137,
+      "immune_genes_listed": 141,
+      "epithelial_genes_used": 6,
+      "cldn4_finite": 127,
+      "cd8a_finite": 127,
+      "cd274_finite": 127
+    },
+    {
+      "cohort": "LUSC_squamous_extra",
+      "n": 42,
+      "immune_genes_used": 137,
+      "immune_genes_listed": 141,
+      "epithelial_genes_used": 6,
+      "cldn4_finite": 42,
+      "cd8a_finite": 42,
+      "cd274_finite": 42
+    },
+    {
+      "cohort": "all_NSCLC_mixed",
+      "n": 181,
+      "immune_genes_used": 137,
+      "immune_genes_listed": 141,
+      "epithelial_genes_used": 6,
+      "cldn4_finite": 181,
+      "cd8a_finite": 181,
+      "cd274_finite": 181
+    }
+  ]
+}

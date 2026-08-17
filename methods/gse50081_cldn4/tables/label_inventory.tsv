@@ -1,0 +1,19 @@
+field	public	n	note
+arrays in series matrix	yes	181	54,675 probes × 181 GSM; RMA log2 as deposited
+unique GSM / unique titles	yes	181	all unique; 181 titles
+histology: adenocarcinoma (LUAD primary)	yes	127	strict GEO string; this is the n used below
+histology: NSCLC-favor adenocarcinoma	yes	1	NOT folded into LUAD
+histology: adenosquamous carcinoma	yes	2	NOT folded into LUAD
+histology: squamous cell carcinoma (LUSC extra)	yes	42	strict GEO string; extra row only
+histology: squamous cell carcinoma X2	yes	1	NOT folded into LUSC extra
+histology: large cell carcinoma	yes	7	not LUAD
+histology: NSClarge cell carcinoma-mixed	yes	1	not LUAD
+Stage (GEO)	yes	181	stage I–II resected; not used as a covariate
+OS time / status	yes	181	deposited; not the claim of this slice
+ICI / treatment	no	0	resected early-stage atlas, not an ICI series
+Tumor % / ABSOLUTE purity	no	0	only public proxy is an RNA epithelial score
+CLDN4 finite (LUAD)	yes	127	max-mean of mapped probes; named 201428_at
+CD8A finite (LUAD)	yes	127	named 205758_at
+CD274 finite (LUAD)	yes	127	U133 Plus 2.0; named 223834_at
+primary pairwise n (LUAD CLDN4+CD8A+CD274)	yes	127	this is the n used below
+ESTIMATE ImmuneSignature genes present (collapse)	yes	137	of 141 Yoshihara 2013 genes
