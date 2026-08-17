@@ -1,0 +1,97 @@
+{
+  "n_rows": 109,
+  "slices": [
+    {
+      "slice": "GSE207422_post_A3mal",
+      "n_extracted": 15,
+      "n_cldn4_eligible": 10,
+      "n_high": 5,
+      "n_low": 5,
+      "B_available": true,
+      "B_is_B_plasma_only": false,
+      "primary": true,
+      "cldn4_definition": "A3-malignant mean log1p(CP10k); empty if 0 A3-malignant cells",
+      "annotation": "hu_markers",
+      "median_cut": 1.1834199922345925
+    },
+    {
+      "slice": "GSE207422_drmref",
+      "n_extracted": 12,
+      "n_cldn4_eligible": 12,
+      "n_high": 6,
+      "n_low": 6,
+      "B_available": true,
+      "B_is_B_plasma_only": true,
+      "primary": false,
+      "cldn4_definition": "DRMref malignant mean (PR290); not A3",
+      "annotation": "drmref_collapsed",
+      "median_cut": 1.5155815186502826
+    },
+    {
+      "slice": "GSE241934_IIT",
+      "n_extracted": 11,
+      "n_cldn4_eligible": 11,
+      "n_high": 6,
+      "n_low": 5,
+      "B_available": true,
+      "B_is_B_plasma_only": false,
+      "primary": true,
+      "cldn4_definition": "author epithelial mean log1p(CP10k); CopyKAT IDs not public",
+      "annotation": "author_major",
+      "median_cut": 1.6912647895425934
+    },
+    {
+      "slice": "GSE241934_RWC",
+      "n_extracted": 34,
+      "n_cldn4_eligible": 29,
+      "n_high": 15,
+      "n_low": 14,
+      "B_available": true,
+      "B_is_B_plasma_only": false,
+      "primary": true,
+      "cldn4_definition": "author epithelial mean log1p(CP10k); CopyKAT IDs not public",
+      "annotation": "author_major",
+      "median_cut": 1.6036653317969538
+    },
+    {
+      "slice": "GSE291670",
+      "n_extracted": 6,
+      "n_cldn4_eligible": 6,
+      "n_high": 3,
+      "n_low": 3,
+      "B_available": true,
+      "B_is_B_plasma_only": false,
+      "primary": true,
+      "cldn4_definition": "marker-malignant mean log1p(CP10k)",
+      "annotation": "marker_hierarchy",
+      "median_cut": 0.16327335685491562
+    },
+    {
+      "slice": "GSE205335",
+      "n_extracted": 22,
+      "n_cldn4_eligible": 22,
+      "n_high": 11,
+      "n_low": 11,
+      "B_available": true,
+      "B_is_B_plasma_only": true,
+      "primary": true,
+      "cldn4_definition": "author-malignant mean (PR290 extract)",
+      "annotation": "author_malig_plus_counts",
+      "median_cut": 0.9763003169501868
+    },
+    {
+      "slice": "GSE253013_tumor",
+      "n_extracted": 9,
+      "n_cldn4_eligible": 9,
+      "n_high": 5,
+      "n_low": 4,
+      "B_available": true,
+      "B_is_B_plasma_only": false,
+      "primary": true,
+      "cldn4_definition": "marker-malignant-like mean log1p(CP10k); B counts from TLS extract",
+      "annotation": "marker_malig_plus_TLS_B",
+      "median_cut": 1.240437170172096
+    }
+  ],
+  "note": "n is patients. CLDN4-high is a within-slice median split. TACSTD2 is not used."
+}
