@@ -8,6 +8,7 @@ extract used by 03_run_ccc.py. TACSTD2 is not used as a gate.
 from __future__ import annotations
 
 import argparse
+import gc
 import gzip
 import json
 import re
@@ -182,7 +183,9 @@ def load_rds_genes(path: Path, wanted: set[str]):
         row = name_to_row.get(gene)
         if row is None:
             continue
-        extracted[gene] = np.asarray(matrix.getrow(row).toarray()).ravel().astype(np.float32)
+            extracted[gene] = np.asarray(matrix.getrow(row).toarray()).ravel().astype(np.float32)
+    del matrix, obj
+    gc.collect()
     log(f"extracted {len(extracted)} / {len(wanted)} GSE205335 genes")
     return barcodes, extracted, library_umi, genes.tolist()
 
@@ -443,18 +446,21 @@ def main() -> None:
     mats.append(m)
     inventory["GSE131907"] = inv
     log(f"GSE131907 kept {len(c)}")
+    gc.collect()
 
     c, m, inv = extract_gse148071(args.datadir, keep, gene_order, cfg)
     frames.append(c)
     mats.append(m)
     inventory["GSE148071"] = inv
     log(f"GSE148071 kept {len(c)}")
+    gc.collect()
 
     c, m, inv = extract_gse205335(args.datadir, keep, gene_order)
     frames.append(c)
     mats.append(m)
     inventory["GSE205335"] = inv
     log(f"GSE205335 kept {len(c)}")
+    gc.collect()
 
     cells = pd.concat(frames, ignore_index=True)
     mat = np.vstack(mats)

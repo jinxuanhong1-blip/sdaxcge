@@ -1,0 +1,34 @@
+{
+  "datasets": [
+    "GSE131907",
+    "GSE148071",
+    "GSE205335"
+  ],
+  "excluded": [
+    "GSE207422"
+  ],
+  "state_gene": "CLDN4",
+  "tacstd2_used_as_gate": false,
+  "dual_high": false,
+  "n_cells_kept": 193294,
+  "n_malig": 101801,
+  "n_T": 81947,
+  "n_NK": 9546,
+  "n_tnk": 91493,
+  "n_cldn4_high": 50904,
+  "n_cldn4_low": 50897,
+  "cldn4_threshold": 1.4635229110717773,
+  "min_malig_per_state": 10,
+  "min_tnk": 20,
+  "n_patients_extract": 101,
+  "n_patients_paired": 72,
+  "n_pairs_scored": 2920,
+  "liana_status": "ran_cellphonedb_method",
+  "cellchat_status": "not_run_R_unavailable",
+  "liana_notes": [
+    "CLDN4: LIANA_OK n_edges=525 file=liana_cellphonedb_cldn4.csv; downsampled groups={'Malig_CLDN4high': 2000, 'Malig_CLDN4low': 2000, 'NK': 2000, 'T': 2000}"
+  ],
+  "trend_sentence": "On the patient-level CellPhoneDB-style score (paired n=72), MHC-I outgoing is higher from CLDN4-high (0/15 \u0394<0; median \u0394=+0.128; 12/15 FDR<0.05). T-recruit: 5/8 \u0394<0, median \u0394=-0.006. This is the observed rank in this public triple merge, not a general rule.",
+  "method": "cellphonedb_mean_of_means_on_log1p_cp10k",
+  "not_the_131907_205335_only_pair": true
+}
