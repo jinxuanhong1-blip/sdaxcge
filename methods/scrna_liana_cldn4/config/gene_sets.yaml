@@ -1,0 +1,74 @@
+# CLDN4-only ligand–receptor scoring on GSE207422.
+# Lineage / malignant-like rules are taken as given from User A3
+# (Hu canonical markers; malignant-like = epithelial AND zero UMI of
+# SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3).
+# TACSTD2 is not a gate.
+
+lineage_markers:
+  epithelial: [EPCAM, KRT8, KRT18, KRT19]
+  T: [CD3D, CD3E, CD2]
+  NK: [NKG7, GNLY, FGFBP2]
+  B: [CD79A, MS4A1]
+  plasma: [IGHG1, MZB1]
+  myeloid: [LYZ, CD68, CD14]
+  neutrophil: [CSF3R]
+  fibroblast: [COL1A1, DCN]
+  endothelial: [VWF, PECAM1]
+  mast: [KIT]
+
+normal_lung: [SFTPA2, AGER, SCGB1A1, SCGB3A1, TPPP3]
+
+state_genes: [CLDN4]
+
+pathways:
+  T_recruit:
+    ligands: [CXCL9, CXCL10, CXCL11, CCL5, CCL3, CCL4, CXCL16, CCL19, CCL21, CXCL13, CX3CL1, CXCL12]
+    receptors: [CXCR3, CCR5, CCR1, CXCR6, CCR7, CXCR5, CX3CR1, CXCR4]
+  IFN:
+    ligands: [IFNG, IFNA1, IFNA2, IFNB1, IFNL1, IFNL2, IFNL3]
+    receptors: [IFNGR1, IFNGR2, IFNAR1, IFNAR2, IFNLR1, IL10RB]
+  MHC_I:
+    ligands: [HLA-A, HLA-B, HLA-C, HLA-E, HLA-F, HLA-G, B2M]
+    receptors: [CD8A, CD8B, KIR3DL1, KIR3DL2, KIR2DL1, KIR2DL3, KIR2DL4, KLRC1, KLRC2, KLRC3, KLRD1, LILRB1, LILRB2, KLRK1]
+
+curated_overlay:
+  - {ligand: CXCL9, receptor: CXCR3, pathway: T_recruit}
+  - {ligand: CXCL10, receptor: CXCR3, pathway: T_recruit}
+  - {ligand: CXCL11, receptor: CXCR3, pathway: T_recruit}
+  - {ligand: CCL5, receptor: CCR5, pathway: T_recruit}
+  - {ligand: CCL3, receptor: CCR5, pathway: T_recruit}
+  - {ligand: CCL4, receptor: CCR5, pathway: T_recruit}
+  - {ligand: CCL5, receptor: CCR1, pathway: T_recruit}
+  - {ligand: CXCL16, receptor: CXCR6, pathway: T_recruit}
+  - {ligand: CCL19, receptor: CCR7, pathway: T_recruit}
+  - {ligand: CCL21, receptor: CCR7, pathway: T_recruit}
+  - {ligand: CXCL13, receptor: CXCR5, pathway: T_recruit}
+  - {ligand: CX3CL1, receptor: CX3CR1, pathway: T_recruit}
+  - {ligand: CXCL12, receptor: CXCR4, pathway: T_recruit}
+  - {ligand: IFNG, receptor: IFNGR1, pathway: IFN}
+  - {ligand: IFNG, receptor: IFNGR2, pathway: IFN}
+  - {ligand: IFNG, receptor: IFNGR1+IFNGR2, pathway: IFN}
+  - {ligand: IFNB1, receptor: IFNAR1, pathway: IFN}
+  - {ligand: IFNB1, receptor: IFNAR2, pathway: IFN}
+  - {ligand: HLA-A, receptor: CD8A, pathway: MHC_I}
+  - {ligand: HLA-B, receptor: CD8A, pathway: MHC_I}
+  - {ligand: HLA-C, receptor: CD8A, pathway: MHC_I}
+  - {ligand: HLA-A, receptor: CD8B, pathway: MHC_I}
+  - {ligand: HLA-B, receptor: CD8B, pathway: MHC_I}
+  - {ligand: HLA-C, receptor: CD8B, pathway: MHC_I}
+  - {ligand: HLA-A, receptor: KIR3DL1, pathway: MHC_I}
+  - {ligand: HLA-C, receptor: KIR2DL1, pathway: MHC_I}
+  - {ligand: HLA-C, receptor: KIR2DL3, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRC1, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRD1, pathway: MHC_I}
+  - {ligand: HLA-E, receptor: KLRC1+KLRD1, pathway: MHC_I}
+  - {ligand: HLA-G, receptor: LILRB2, pathway: MHC_I}
+
+params:
+  expr_prop: 0.10
+  min_malig_per_state: 10
+  min_tnk: 20
+  high_rule: median
+  liana_max_cells_per_group: 2000
+  liana_n_perms: 50
+  random_seed: 0
