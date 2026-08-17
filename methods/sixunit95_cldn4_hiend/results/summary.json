@@ -1,0 +1,50 @@
+{
+  "given_spearman": {
+    "n": 95,
+    "rho": -0.26,
+    "p": 0.0195,
+    "re_audited": false
+  },
+  "eligible_q4q1": 83,
+  "eligible_median": 85,
+  "n_meta_q4_all": 325,
+  "n_meta_q4_reportable": 80,
+  "n_meta_between_reportable": 52,
+  "top_q4": [
+    {
+      "interaction_name": "LGALS9_CD45",
+      "n_patients": 66,
+      "mean_delta": 0.1252054065218032,
+      "p_meta": 4.7508165769444924e-14,
+      "k_units": 4
+    },
+    {
+      "interaction_name": "LGALS9_CD44",
+      "n_patients": 67,
+      "mean_delta": 0.1053029898689736,
+      "p_meta": 1.0634331890936776e-13,
+      "k_units": 4
+    },
+    {
+      "interaction_name": "LGALS9_P4HB",
+      "n_patients": 65,
+      "mean_delta": 0.0466358250524427,
+      "p_meta": 4.1116494478208636e-10,
+      "k_units": 4
+    },
+    {
+      "interaction_name": "HLA-F_CD8A",
+      "n_patients": 66,
+      "mean_delta": 0.0659664001642011,
+      "p_meta": 2.587359922239761e-08,
+      "k_units": 4
+    },
+    {
+      "interaction_name": "COL6A2_CD44",
+      "n_patients": 34,
+      "mean_delta": 0.1202546737459804,
+      "p_meta": 1.222264405380184e-07,
+      "k_units": 4
+    }
+  ]
+}
