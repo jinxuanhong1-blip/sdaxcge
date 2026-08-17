@@ -1,0 +1,8 @@
+contrast	target	n	min_cells	median_rho	q25_rho	q75_rho	n_negative	n_positive	wilcoxon_stat	wilcoxon_p	note	unit
+within-patient A3-malignant: CLDN4 vs CD274	CD274	6	20	0.13098730858854638	0.024879032683206577	0.17278333951356312	2	4	3.0	0.15625		within_patient_median
+within-patient A3-malignant: CLDN4 vs HLA-A	HLA-A	6	20	0.09739489198384682	0.0879187432194439	0.1443604662655038	1	5	1.0	0.0625		within_patient_median
+within-patient A3-malignant: CLDN4 vs HLA-B	HLA-B	6	20	0.08102729789842694	0.06813666893245138	0.09452625052207325	1	5	1.0	0.0625		within_patient_median
+within-patient A3-malignant: CLDN4 vs HLA-C	HLA-C	6	20	0.17128856316850846	0.0825005974860369	0.2548724165811294	1	5	1.0	0.0625		within_patient_median
+within-patient A3-malignant: CLDN4 vs B2M	B2M	6	20	0.022165074704434448	-0.03846097720246017	0.07395503048126592	3	3	9.0	0.84375		within_patient_median
+within-patient A3-malignant: CLDN4 vs HLA-DRA	HLA-DRA	6	20	0.11949454889035405	0.06983158872913686	0.18349089476069727	1	5	1.0	0.0625		within_patient_median
+within-patient A3-malignant: CLDN4 vs MHC-I mean (HLA-A/B/C + B2M)	MHC-I mean (HLA-A/B/C + B2M)	6	20	0.12379490950542504	0.0744201148684849	0.12941187275723237	1	5	1.0	0.0625		within_patient_median
