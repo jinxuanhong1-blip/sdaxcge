@@ -1,0 +1,6 @@
+term	label	nes	fdr	nom_p	n_set_in_rank	n_lead	ifn_mhc_up	source
+HALLMARK_INTERFERON_GAMMA_RESPONSE	Hallmark IFN-γ	1.5081012020314417	0.004995004995004995	0.000999000999000999	181	66	UP	methods/cldn4_ko_gsea/tables/gsea_headline.tsv contrast GSE50927_naive_lung; not recomputed
+HALLMARK_INTERFERON_ALPHA_RESPONSE	Hallmark IFN-α	1.5873141030188271	0.00999000999000999	0.003996003996003996	89	47	UP	methods/cldn4_ko_gsea/tables/gsea_headline.tsv contrast GSE50927_naive_lung; not recomputed
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	MHC-I / APM	1.4232382571581819	0.04995004995004995	0.029970029970029972	21	13	UP	methods/cldn4_ko_gsea/tables/gsea_headline.tsv contrast GSE50927_naive_lung; not recomputed
+KEGG_TIGHT_JUNCTION	KEGG tight junction	-0.9634539244982819	0.2827172827172827	0.2827172827172827	154	25		methods/cldn4_ko_gsea/tables/gsea_headline.tsv contrast GSE50927_naive_lung; not recomputed
+GOBP_KERATINIZATION	GO keratinization	-1.0604026272925164	0.20229770229770228	0.16183816183816183	69	10		methods/cldn4_ko_gsea/tables/gsea_headline.tsv contrast GSE50927_naive_lung; not recomputed

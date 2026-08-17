@@ -1,0 +1,31 @@
+{
+  "accession": "GSE50927",
+  "tissue": "mouse naive whole lung (mixed-cell bulk); NOT lung cancer",
+  "n_ko": 1,
+  "n_wt": 1,
+  "n_note": "n=1 vs 1; author edgeR table; no count matrix on GEO",
+  "cldn4_logFC": -6.061296179,
+  "cldn4_logCPM": 2.250629984,
+  "cldn4_author_FDR": 4.0673e-26,
+  "cldn4_author_PValue": 1.7663e-29,
+  "ifn_gamma_nes": 1.5081012020314417,
+  "ifn_gamma_fdr": 0.004995004995004995,
+  "ifn_alpha_nes": 1.5873141030188271,
+  "ifn_alpha_fdr": 0.00999000999000999,
+  "mhc_nes": 1.4232382571581819,
+  "mhc_fdr": 0.04995004995004995,
+  "extended_n_detected": 39,
+  "extended_n_up": 34,
+  "extended_n_down": 5,
+  "extended_median_logFC": 0.432,
+  "core_n_up": 6,
+  "core_n_detected": 8,
+  "prior_directional_p_NOT_recomputed": {
+    "note": "Already reported in results/fable_cldn4_kdko/WRITEUP.md. Shown only as citation. Not recomputed here.",
+    "mwu_p_panel_gt_bg": 7.234820194418248e-11,
+    "wilcoxon_p_up": 3.1456186121943093e-07,
+    "sign_test_p_up": 1.2149539543315768e-06
+  },
+  "gsea_source": "methods/cldn4_ko_gsea/tables/gsea_headline.tsv",
+  "panel_source": "results/fable_cldn4_kdko/panel_ifn_apm_results.json"
+}
