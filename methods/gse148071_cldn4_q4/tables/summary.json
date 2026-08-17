@@ -1,0 +1,21 @@
+{
+  "cohort": "GSE148071",
+  "paper": "Wu et al. Nat Commun 2021",
+  "given_tisch_tnk": {
+    "source": "TISCH NSCLC pool per_dataset_spearman.tsv",
+    "contrast": "CLDN4_mean_vs_fracTNK",
+    "n": 25,
+    "rho": 0.13538461538461538,
+    "p": 0.5187661950161317
+  },
+  "given_cxcl13": {
+    "source": "PR #274/#320 tls_malignant \u00d7 cxcl13pos / mean",
+    "contrast": "CLDN4_mal_mean vs frac_CXCL13pos_T",
+    "n": 31,
+    "rho": -0.4086020621109129,
+    "p": 0.02248010028418731
+  },
+  "recomputed_match": true,
+  "n_same_patient": 21,
+  "q4q1_is_extra": true
+}
