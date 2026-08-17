@@ -22,7 +22,8 @@ Matrices stay under `/tmp/quad_scenic/` and are not committed.
 
 ## Outputs
 
-- [`FINDING.md`](FINDING.md) — verdict, honest n, primary table
+- [`FINDING.md`](FINDING.md) — verdict `PARTIAL`, honest n=92, primary table
 - [`tables/regulons.tsv`](tables/regulons.tsv) — regulon gene lists
 - [`tables/patient_scores.tsv`](tables/patient_scores.tsv)
 - [`tables/tests.tsv`](tables/tests.tsv)
+- [`figures/`](figures/) — pooled Δ bar and CLDN4 vs ISG scatter

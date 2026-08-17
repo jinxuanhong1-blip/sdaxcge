@@ -13,6 +13,7 @@ import json
 import re
 import shutil
 import tempfile
+import traceback
 import warnings
 from pathlib import Path
 
@@ -364,22 +365,33 @@ def load_gse148071(wanted: set[str]) -> pd.DataFrame:
                     grp = g
                     break
 
+        def _as_str(arr):
+            return np.array(
+                [x.decode() if isinstance(x, bytes) else str(x) for x in arr],
+                dtype=object,
+            )
+
         def _names(cands):
             for c in cands:
-                node = grp.get(c) if hasattr(grp, "get") else None
-                if node is None:
-                    node = f.get(c)
+                node = grp[c] if c in grp else (f[c] if c in f else None)
                 if node is None:
                     continue
-                if hasattr(node, "shape") and not hasattr(node, "keys"):
-                    return np.array(
-                        [x.decode() if isinstance(x, bytes) else str(x) for x in node[:]],
-                        dtype=object,
-                    )
+                if hasattr(node, "keys"):
+                    for sub in ("name", "id", "gene_names"):
+                        if sub in node:
+                            return _as_str(node[sub][:])
+                    continue
+                if hasattr(node, "shape"):
+                    return _as_str(node[:])
             return None
 
         genes_all = _names(["features", "gene_names", "genes", "rownames"])
         barcodes = _names(["barcodes", "cell_names", "colnames"])
+        if genes_all is None or barcodes is None:
+            raise ValueError(
+                f"GSE148071 h5 missing names genes={genes_all is None} "
+                f"barcodes={barcodes is None} keys={list(f.keys())}"
+            )
         shape = tuple(int(x) for x in grp["shape"][:]) if "shape" in grp else None
         data = grp["data"][:]
         indices = grp["indices"][:]
@@ -463,6 +475,7 @@ def load_gse205335(wanted: set[str]) -> pd.DataFrame:
     import rdata
     from scipy import sparse
 
+    print("[GSE205335] reading identities + RDS (slow)", flush=True)
     ident = pd.read_csv(DATA / "GSE205335/GSE205335_Lung_IO_CellIdentity.txt.gz", sep="\t")
     soft = parse_205335_soft(DATA / "GSE205335/GSE205335_family.soft.gz")
     path = DATA / "GSE205335/GSE205335_Lung_IO_UMI_matrix.rds.gz"
@@ -796,6 +809,8 @@ def main() -> None:
 
     frames = []
     dropped = []
+    cache_dir = DATA / "cache"
+    cache_dir.mkdir(parents=True, exist_ok=True)
     loaders = [
         ("GSE207422", load_gse207422),
         ("GSE131907", load_gse131907),
@@ -804,8 +819,16 @@ def main() -> None:
     ]
     for name, fn in loaders:
         try:
-            frames.append(fn(wanted))
+            ck = cache_dir / f"{name}.pkl"
+            if ck.exists() and ck.stat().st_size > 0:
+                print(f"[cache] {name} {ck}", flush=True)
+                frames.append(pd.read_pickle(ck))
+                continue
+            df = fn(wanted)
+            df.to_pickle(ck)
+            frames.append(df)
         except Exception as exc:
+            traceback.print_exc()
             dropped.append(f"{name} failed: {exc}")
             print(f"[FAIL] {name}: {exc}", flush=True)
 
@@ -822,15 +845,18 @@ def main() -> None:
     regulons.to_csv(RES / "regulons.tsv", sep="\t", index=False)
 
     scored = []
+    gene_list = sorted(present)
+    print(f"[score] {len(gene_list)} common genes; {len(regulons)} regulons", flush=True)
     for fr in frames:
-        genes = sorted(present)
-        logX = fr[genes].to_numpy(dtype=np.float32)
-        sc = score_cells(logX, genes, regulons)
-        sc.insert(0, "dataset", fr.dataset.to_numpy())
-        sc.insert(1, "patient", fr.patient.to_numpy())
-        sc.insert(2, "sample", fr.sample.to_numpy())
+        ds = str(fr.dataset.iloc[0])
+        print(f"[score] {ds} cells={len(fr)} ...", flush=True)
+        logX = fr.loc[:, gene_list].to_numpy(dtype=np.float32)
+        sc = score_cells(logX, gene_list, regulons)
+        sc.insert(0, "dataset", fr["dataset"].to_numpy())
+        sc.insert(1, "patient", fr["patient"].to_numpy())
+        sc.insert(2, "sample", fr["sample"].to_numpy())
         scored.append(sc)
-        print(f"[score] {fr.dataset.iloc[0]} cells={len(fr)}", flush=True)
+        print(f"[score] {ds} done", flush=True)
     cells = pd.concat(scored, ignore_index=True)
     pat = patient_table(cells, regulons)
     pat = split_within_cohort(pat)

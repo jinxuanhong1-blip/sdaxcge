@@ -1,0 +1,105 @@
+{
+  "question": "Do patient-level CLDN4-high malignant cells differ in IFN/MHC/TJ AUCell on the QUAD merge?",
+  "a10_taken_as_given": true,
+  "dual_high": false,
+  "include_GSE207422": true,
+  "unit": "patient (malignant cells, min 20)",
+  "aucell": "Aibar recovery curve; priors + program sets; not cisTarget",
+  "verdict": {
+    "overall": "PARTIAL",
+    "ifn_support": false,
+    "mhc_support": false,
+    "tj_support": true,
+    "n_patients_pooled": 92,
+    "primary_calls": [
+      {
+        "regulon": "IFN_prior_union",
+        "axis": "IFN",
+        "expected": "down",
+        "n_high": 48,
+        "n_low": 44,
+        "delta": 0.0023900284180292013,
+        "p": 0.9345899886101543,
+        "spearman_rho": -0.0705731855801982,
+        "spearman_p": 0.5038187987868348,
+        "call": "NS"
+      },
+      {
+        "regulon": "MHC_prior_union",
+        "axis": "MHC",
+        "expected": "down",
+        "n_high": 48,
+        "n_low": 44,
+        "delta": -0.12361361811993996,
+        "p": 0.3422735660929195,
+        "spearman_rho": -0.1900343695575112,
+        "spearman_p": 0.06961682328027431,
+        "call": "NS"
+      },
+      {
+        "regulon": "TJ_prior_union",
+        "axis": "TJ",
+        "expected": "up",
+        "n_high": 48,
+        "n_low": 44,
+        "delta": 0.43078587924168676,
+        "p": 0.033176029126525015,
+        "spearman_rho": 0.31581462016244627,
+        "spearman_p": 0.002164642752638724,
+        "call": "SUPPORT"
+      },
+      {
+        "regulon": "ISG_CORE",
+        "axis": "IFN",
+        "expected": "down",
+        "n_high": 48,
+        "n_low": 44,
+        "delta": -0.19746543030933195,
+        "p": 0.36250564976095645,
+        "spearman_rho": -0.10286207481158392,
+        "spearman_p": 0.3292033209278833,
+        "call": "NS"
+      },
+      {
+        "regulon": "MHC1_APM",
+        "axis": "MHC",
+        "expected": "down",
+        "n_high": 48,
+        "n_low": 44,
+        "delta": -0.18218603026672606,
+        "p": 0.35027813257689067,
+        "spearman_rho": -0.1918222030423994,
+        "spearman_p": 0.06698298207038701,
+        "call": "NS"
+      },
+      {
+        "regulon": "TJ_STRUCT",
+        "axis": "TJ",
+        "expected": "up",
+        "n_high": 48,
+        "n_low": 44,
+        "delta": 0.46808337929615906,
+        "p": 0.012513829218847547,
+        "spearman_rho": 0.29855277961869825,
+        "spearman_p": 0.0038438540884168674,
+        "call": "SUPPORT"
+      }
+    ]
+  },
+  "counts": {
+    "n_patients": 92,
+    "n_by_dataset": {
+      "GSE131907": 25,
+      "GSE148071": 37,
+      "GSE205335": 17,
+      "GSE207422": 13
+    },
+    "n_cells_by_dataset": {
+      "GSE131907": 32749,
+      "GSE148071": 48082,
+      "GSE205335": 15635,
+      "GSE207422": 10846
+    },
+    "dropped": []
+  }
+}
