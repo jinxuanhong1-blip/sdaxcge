@@ -1,0 +1,8 @@
+slice	n_extracted	n_cldn4_eligible	n_high	n_low	B_available	B_is_B_plasma_only	primary	cldn4_definition	annotation	median_cut
+GSE207422_post_A3mal	15	10	5	5	True	False	True	A3-malignant mean log1p(CP10k); empty if 0 A3-malignant cells	hu_markers	1.1834199922345925
+GSE207422_drmref	12	12	6	6	True	True	False	DRMref malignant mean (PR290); not A3	drmref_collapsed	1.5155815186502826
+GSE241934_IIT	11	11	6	5	True	False	True	author epithelial mean log1p(CP10k); CopyKAT IDs not public	author_major	1.6912647895425934
+GSE241934_RWC	34	29	15	14	True	False	True	author epithelial mean log1p(CP10k); CopyKAT IDs not public	author_major	1.6036653317969538
+GSE291670	6	6	3	3	True	False	True	marker-malignant mean log1p(CP10k)	marker_hierarchy	0.16327335685491562
+GSE205335	22	22	11	11	True	True	True	author-malignant mean (PR290 extract)	author_malig_plus_counts	0.9763003169501868
+GSE253013_tumor	9	9	5	4	True	False	True	marker-malignant-like mean log1p(CP10k); B counts from TLS extract	marker_malig_plus_TLS_B	1.240437170172096

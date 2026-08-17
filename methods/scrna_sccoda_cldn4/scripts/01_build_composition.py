@@ -40,7 +40,7 @@ def gse207422() -> tuple[pd.DataFrame, pd.DataFrame]:
     wide["TLS"] = wide["B"] + wide["plasma"]
     wide["Stromal"] = wide["fibroblast"] + wide["endothelial"]
     wide["Myeloid"] = wide["myeloid"] + wide["neutrophil"] + wide["mast"]
-    wide["Other"] = wide["other"]
+    wide["Other"] = wide["other"] + wide["plasma"]
     wide = wide.reset_index().rename(columns={"Sample": "sample_id"})
     meta = pp.rename(columns={"Sample": "sample_id"})
     df = wide.merge(meta, on="sample_id", how="left")
@@ -101,7 +101,7 @@ def gse207422_drmref() -> tuple[pd.DataFrame, pd.DataFrame]:
     drm = drm.rename(columns={"sample": "sample_id"})
     df = wide.merge(drm, on="sample_id", how="left")
     pp = pd.read_csv(EXT / "GSE207422_per_patient.tsv", sep="\t").rename(columns={"Sample": "sample_id"})
-    df = df.merge(pp[["sample_id", "timing", "path_response", "patient"]], on="sample_id", how="left")
+    df = df.merge(pp[["sample_id", "timing", "path_response"]], on="sample_id", how="left")
     df["cohort"] = "GSE207422"
     df["subcohort"] = "DRMref"
     df["annotation"] = "drmref_collapsed"

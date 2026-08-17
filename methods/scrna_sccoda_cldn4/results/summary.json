@@ -1,0 +1,17 @@
+{
+  "sccoda": {
+    "status": "not_available",
+    "reason": "No module named 'anndata'"
+  },
+  "n_primary_tests": 12,
+  "n_recovered_tnk_or_b_down": 0,
+  "recovered": [],
+  "primary_pvalue": "patient-level permutation of the ALR slope (does not scale with n_cells)",
+  "honest_n_note": "n is patients. Cells are compositional library size, not the replicate unit.",
+  "exposure": "within-slice median split of malignant / author-epithelial CLDN4. TACSTD2 is never a gate.",
+  "q_cut": 0.1,
+  "excluded_non_ici": [
+    "GSE131907 (treatment-naive atlas)",
+    "GSE267108 / GSE274595 leftover (not ICI; malignant CLDN4 empty)"
+  ]
+}
