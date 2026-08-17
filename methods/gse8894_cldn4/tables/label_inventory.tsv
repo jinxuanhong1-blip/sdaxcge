@@ -1,0 +1,20 @@
+field	public	n	note
+arrays_in_matrix	yes	138	54675 probes x 138 GSM; missing values=0
+unique_GSM	yes	138	all unique
+unique_title	yes	138	LUNG CANCER SML* titles; all unique
+tissue	yes	138	every array is frozen primary lung tumor; 0 adjacent/normal
+histology_ADC_GEO	yes	63	GEO `cell type: Adenocarcinoma`. Paper often cited as 69/69; GEO is 63 ADC
+histology_SCC_GEO	yes	75	GEO `cell type: squamous cell carcinoma`. GEO is 75 SCC, not 69
+recurrence_event	yes	69	status 1=recurrence; 69/69 split. Not the primary claim
+non_recurrence	yes	69	status 0=non-recurrence
+RFS_months	yes	138	recurrence free survival time (month) on every array
+age	yes (incomplete)	136	missing on GSM225774 and GSM225864
+gender	yes	138	Male 104; Female 34
+stage	no	0	not a GEO sample characteristic
+ICI / treatment	no	0	resected 2008 atlas, not an ICI series
+tumor_percent / purity	no	0	epithelial RNA mean-z is the only public purity proxy used here
+CLDN4 finite	yes	138	named probe 201428_at; max-mean collapse
+CD8A finite	yes	138	named probe 205758_at
+CD274 finite	yes	138	named probe 223834_at; second probe 227458_at also on GPL570
+pairwise_CLDN4_CD8A	yes	138	primary n for CLDN4 vs CD8A
+pairwise_CLDN4_CD274	yes	138	primary n for CLDN4 vs CD274
