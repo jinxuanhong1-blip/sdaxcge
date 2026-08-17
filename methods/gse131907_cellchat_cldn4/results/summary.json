@@ -1,0 +1,240 @@
+{
+  "dataset": "GSE131907",
+  "citation": "Kim et al. Nat Commun 2020, PMID 32385277",
+  "matrix_cells": 208506,
+  "matrix_genes": 29634,
+  "lr_pairs_in_matrix": 2116,
+  "malignant_rule": "Author Epithelial cells with Cell_subtype in {Malignant cells, tS1, tS2, tS3}. tS1\u2013tS3 are the primary tLung tumor-epithelial labels; author 'Malignant cells' are in tL/B, mLN, and mBrain. PE epithelial cells are unlabeled and excluded.",
+  "tnk_rule": "Author Cell_type in {T lymphocytes, NK cells}, merged as TNK",
+  "primary_samples": "Tumor origins tLung + tL/B + mLN + mBrain. Normal lung/LN and PE excluded from the kept split.",
+  "algorithm": "CellChat-like: 10% truncated mean of log1p(CP10k), Hill Kh=0.5, CellChatDB v2 protein pairs, expr_prop>=0.10, nboot=100. CLDN4-high/low labels permuted among malignant cells; T/NK fixed.",
+  "not_run": "CellChat R; LIANA; CopyKAT; EGA FASTQ; 2.86 GB log2TPM text",
+  "kept_split": "tumor_tertile",
+  "kept_reason": "Primary = tumor-origin author malignant/tS* CLDN4 tertile vs T/NK. tLung-only and mets-only are sensitivities.",
+  "inventory": {
+    "n_barcodes": 208506,
+    "n_samples_matrix": 58,
+    "n_patients_matrix": 44,
+    "n_author_malignant_or_tS": 31136,
+    "n_author_tnk": 91227,
+    "n_mal_by_origin": {
+      "mBrain": 15423,
+      "mLN": 2961,
+      "tL/B": 6400,
+      "tLung": 6352
+    },
+    "n_tnk_by_origin": {
+      "PE": 13271,
+      "mBrain": 4769,
+      "mLN": 6866,
+      "nLN": 25319,
+      "nLung": 17896,
+      "tL/B": 3515,
+      "tLung": 19591
+    },
+    "n_pe_epithelial_unlabeled": 396,
+    "ici_or_mpr_labels": false
+  },
+  "runs": [
+    {
+      "mode": "tumor_tertile",
+      "info": {
+        "q_low": 1.448822021484375,
+        "q_high": 2.1059484481811523,
+        "split": "tertile",
+        "samples": "tLung+tL/B+mLN+mBrain",
+        "n_malignant_scored": 31136,
+        "n_tnk_scored": 34741,
+        "n_mal_high": 10379,
+        "n_mal_low": 10379
+      },
+      "n_cells": [
+        {
+          "group": "Mal_high",
+          "n_cells": 10379,
+          "n_samples": 30,
+          "n_patients": 30,
+          "origins": "mBrain,mLN,tL/B,tLung",
+          "mean_CLDN4_log1p_cp10k": 2.566923141479492
+        },
+        {
+          "group": "Mal_low",
+          "n_cells": 10379,
+          "n_samples": 32,
+          "n_patients": 32,
+          "origins": "mBrain,mLN,tL/B,tLung",
+          "mean_CLDN4_log1p_cp10k": 0.6353899836540222
+        },
+        {
+          "group": "TNK",
+          "n_cells": 34741,
+          "n_samples": 32,
+          "n_patients": 32,
+          "origins": "mBrain,mLN,tL/B,tLung",
+          "mean_CLDN4_log1p_cp10k": 0.05923038721084595
+        }
+      ],
+      "n_lr_tested": 8464,
+      "n_detected": 164,
+      "n_significant": 81,
+      "n_sig_outgoing_mal_to_tnk": 60,
+      "n_sig_incoming_tnk_to_mal": 21,
+      "n_sig_diff_outgoing": 60,
+      "n_ligand_table_rows": 2116,
+      "nboot": 100,
+      "expr_prop": 0.1,
+      "trim": 0.1,
+      "kh": 0.5
+    },
+    {
+      "mode": "tlung_tertile",
+      "info": {
+        "q_low": 1.4174212217330933,
+        "q_high": 2.0171380043029785,
+        "split": "tertile",
+        "samples": "tLung",
+        "n_malignant_scored": 6352,
+        "n_tnk_scored": 19591,
+        "n_mal_high": 2118,
+        "n_mal_low": 2118
+      },
+      "n_cells": [
+        {
+          "group": "Mal_high",
+          "n_cells": 2118,
+          "n_samples": 11,
+          "n_patients": 11,
+          "origins": "tLung",
+          "mean_CLDN4_log1p_cp10k": 2.4314653873443604
+        },
+        {
+          "group": "Mal_low",
+          "n_cells": 2118,
+          "n_samples": 11,
+          "n_patients": 11,
+          "origins": "tLung",
+          "mean_CLDN4_log1p_cp10k": 0.6949806809425354
+        },
+        {
+          "group": "TNK",
+          "n_cells": 19591,
+          "n_samples": 11,
+          "n_patients": 11,
+          "origins": "tLung",
+          "mean_CLDN4_log1p_cp10k": 0.049102213233709335
+        }
+      ],
+      "n_lr_tested": 8464,
+      "n_detected": 159,
+      "n_significant": 78,
+      "n_sig_outgoing_mal_to_tnk": 62,
+      "n_sig_incoming_tnk_to_mal": 16,
+      "n_sig_diff_outgoing": 62,
+      "n_ligand_table_rows": 2116,
+      "nboot": 100,
+      "expr_prop": 0.1,
+      "trim": 0.1,
+      "kh": 0.5
+    },
+    {
+      "mode": "mets_tertile",
+      "info": {
+        "q_low": 1.458793044090271,
+        "q_high": 2.1297659873962402,
+        "split": "tertile",
+        "samples": "tL/B+mLN+mBrain (author Malignant cells / tS*)",
+        "n_malignant_scored": 24784,
+        "n_tnk_scored": 15150,
+        "n_mal_high": 8262,
+        "n_mal_low": 8262
+      },
+      "n_cells": [
+        {
+          "group": "Mal_high",
+          "n_cells": 8262,
+          "n_samples": 19,
+          "n_patients": 19,
+          "origins": "mBrain,mLN,tL/B",
+          "mean_CLDN4_log1p_cp10k": 2.5993540287017822
+        },
+        {
+          "group": "Mal_low",
+          "n_cells": 8262,
+          "n_samples": 21,
+          "n_patients": 21,
+          "origins": "mBrain,mLN,tL/B",
+          "mean_CLDN4_log1p_cp10k": 0.6204332113265991
+        },
+        {
+          "group": "TNK",
+          "n_cells": 15150,
+          "n_samples": 21,
+          "n_patients": 21,
+          "origins": "mBrain,mLN,tL/B",
+          "mean_CLDN4_log1p_cp10k": 0.07232748717069626
+        }
+      ],
+      "n_lr_tested": 8464,
+      "n_detected": 151,
+      "n_significant": 72,
+      "n_sig_outgoing_mal_to_tnk": 50,
+      "n_sig_incoming_tnk_to_mal": 22,
+      "n_sig_diff_outgoing": 50,
+      "n_ligand_table_rows": 2116,
+      "nboot": 100,
+      "expr_prop": 0.1,
+      "trim": 0.1,
+      "kh": 0.5
+    }
+  ],
+  "kept": {
+    "mode": "tumor_tertile",
+    "info": {
+      "q_low": 1.448822021484375,
+      "q_high": 2.1059484481811523,
+      "split": "tertile",
+      "samples": "tLung+tL/B+mLN+mBrain",
+      "n_malignant_scored": 31136,
+      "n_tnk_scored": 34741,
+      "n_mal_high": 10379,
+      "n_mal_low": 10379
+    },
+    "n_cells": [
+      {
+        "group": "Mal_high",
+        "n_cells": 10379,
+        "n_samples": 30,
+        "n_patients": 30,
+        "origins": "mBrain,mLN,tL/B,tLung",
+        "mean_CLDN4_log1p_cp10k": 2.566923141479492
+      },
+      {
+        "group": "Mal_low",
+        "n_cells": 10379,
+        "n_samples": 32,
+        "n_patients": 32,
+        "origins": "mBrain,mLN,tL/B,tLung",
+        "mean_CLDN4_log1p_cp10k": 0.6353899836540222
+      },
+      {
+        "group": "TNK",
+        "n_cells": 34741,
+        "n_samples": 32,
+        "n_patients": 32,
+        "origins": "mBrain,mLN,tL/B,tLung",
+        "mean_CLDN4_log1p_cp10k": 0.05923038721084595
+      }
+    ],
+    "n_lr_tested": 8464,
+    "n_detected": 164,
+    "n_significant": 81,
+    "n_sig_outgoing_mal_to_tnk": 60,
+    "n_sig_incoming_tnk_to_mal": 21,
+    "n_sig_diff_outgoing": 60,
+    "n_ligand_table_rows": 2116,
+    "nboot": 100,
+    "expr_prop": 0.1,
+    "trim": 0.1,
+    "kh": 0.5
+  }
+}

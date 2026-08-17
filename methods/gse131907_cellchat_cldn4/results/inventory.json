@@ -1,0 +1,24 @@
+{
+  "n_barcodes": 208506,
+  "n_samples_matrix": 58,
+  "n_patients_matrix": 44,
+  "n_author_malignant_or_tS": 31136,
+  "n_author_tnk": 91227,
+  "n_mal_by_origin": {
+    "mBrain": 15423,
+    "mLN": 2961,
+    "tL/B": 6400,
+    "tLung": 6352
+  },
+  "n_tnk_by_origin": {
+    "PE": 13271,
+    "mBrain": 4769,
+    "mLN": 6866,
+    "nLN": 25319,
+    "nLung": 17896,
+    "tL/B": 3515,
+    "tLung": 19591
+  },
+  "n_pe_epithelial_unlabeled": 396,
+  "ici_or_mpr_labels": false
+}
