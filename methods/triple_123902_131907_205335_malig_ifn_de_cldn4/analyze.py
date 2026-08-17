@@ -833,6 +833,13 @@ Per-cohort family scores (within-cohort Q4 vs Q1; GSE123902 tails are thin):
 
 {cldn4_txt}
 
+Stacked Q4 vs Q1 **directions match the thesis on IFN / MHC-I/APM / chemokine
+(down) and TJ (up)**. Family-score p is not thin for IFN, MHC-I/APM, and
+chemokine. TJ is the right sign but p=0.43 on the stacked split; continuous
+TJ is +0.047 (p=0.082). GSE205335 carries the IFN/MHC down; GSE131907 carries
+the TJ up; GSE123902 is the same signs on thin tails (4 vs 3). Keratin is
+null / mixed. Do not quote the stacked TJ p as a hit.
+
 ## Gene-level family members (stacked Q4 vs Q1)
 
 Positive logFC = higher in CLDN4-high.
