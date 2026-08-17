@@ -1,0 +1,27 @@
+{
+  "accession": "GSE329813",
+  "platform": "GeoMx WTA-ish processed",
+  "n_genes": 1812,
+  "CLDN4": false,
+  "TACSTD2": true,
+  "T_genes": [
+    "CD3D",
+    "CD3E",
+    "CD3G",
+    "CD2",
+    "CD8A",
+    "CD8B",
+    "TRAC",
+    "CD247",
+    "IL7R"
+  ],
+  "B_genes": [
+    "MS4A1",
+    "CD79A",
+    "CD79B",
+    "CD19",
+    "CD22"
+  ],
+  "decision": "skip_no_CLDN4",
+  "note": "Neoadjuvant NSCLC GeoMx (22 patients, MPR/NMPR). Public normalized matrix has TACSTD2 and T/B genes but not CLDN4."
+}

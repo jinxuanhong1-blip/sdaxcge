@@ -1,0 +1,38 @@
+accession	year	platform	tissue	CLDN4	TACSTD2	decision	reason
+GSE265899	2024	GeoMx WTA	lung cancer PD-L1 tumor/immune AOIs	yes	yes	skip_already_reported	User: already reported
+GSE289483	2025	GeoMx WTA	pulmonary pleomorphic carcinoma	yes	yes	skip_already_reported	User: already reported
+GSE273378	2026	Visium	stage I LUAD 16 sections	yes	yes	skip_already_reported	User: already reported
+GSE221322	2023	GeoMx WTA	NSCLC ICI	yes	yes	skip_already_used	B6 given; not leftover
+GSE221733	2023	GeoMx CTA	NSCLC ICI sister	no	unknown	skip_already_used	CTA / B6 family
+E-MTAB-13530	2024	Visium	NSCLC	yes	yes	skip_already_used	Prior B6 / fable_spatial
+GSE189487	2022	Visium	early LUAD	yes	yes	skip_already_used	Prior B6 / fable_spatial
+GSE271689	2024	GeoMx WTA	NSCLC ICI	yes	yes	skip_already_used	Prior B6 / fable_spatial
+GSE292098	2025	GeoMx WTA	NSCLC ICI Greek	yes	yes	skip_same_study	Same paper family as GSE271689
+GSE287472	2026	CosMx	1 LUAD	yes	yes	skip_already_used	Prior B6 CosMx
+GSE263196	2026	Visium	SCLC 5 sections	yes	yes	skip_prior_leftover	Already in leftover_spatial WRITEUP
+GSE334014	2026	GeoMx WTA	asthma / control airway	yes	yes	skip_prior_leftover	Already in leftover_spatial WRITEUP
+GSE326968	2026	GeoMx WTA	CLAD allograft	yes	yes	skip_prior_leftover	Already in leftover_spatial WRITEUP
+GSE276083	2025	CosMx	mycobacterial lung	yes	yes	skip_prior_leftover	Already in leftover_spatial WRITEUP
+GSE261345	2024	GeoMx CTA	ES-SCLC	no	yes	skip_no_CLDN4	CTA: TACSTD2 yes, CLDN4 no
+GSE186213	2023	GeoMx CTA	COVID lung	no	yes	skip_no_CLDN4	CTA: TACSTD2 yes, CLDN4 no
+GSE246011	2024	Visium	LUAD-14C	yes	yes	skip_no_coords	Count matrix public; metadata has no array_row/col
+GSE277206	2024	Visium	never-smoker LUAD n=2	not_checked	not_checked	skip_no_coords	H5 only; no spatial folder
+GSE329813	2026	GeoMx	NSCLC neoadjuvant chemo-IO 22 pts	no	yes	skip_no_CLDN4	Processed normalized matrix 1812 genes; CLDN4 absent
+GSE319755	2026	Xenium	lung cancer 568-plex	no	yes	skip_no_CLDN4	Panel has TACSTD2/T/B, not CLDN4
+GSE311609	2026	Xenium 5k	archival NSCLC + breast	no	no	skip_no_CLDN4	5k names include CLDN1/5/7/18, not CLDN4 or TACSTD2
+GSE320142	2026	Xenium	NSCLC + HGSOC	not_pulled	not_pulled	skip_likely_no_CLDN4	Same 5k-class Xenium deposit as GSE311609
+GSE334763	2026	scRNA/ATAC	lung cancer NK study	—	—	skip_not_spatial_matrix	Companion of GSE319755; GEX H5 is droplet, not spatial
+GSE305762	2026	GeoMx	LUSC + IPF	unknown	unknown	skip_dcc_only	DCC + PKC only; no processed gene matrix
+GSE309894	2026	GeoMx	ALK+ NSCLC alectinib	unknown	unknown	skip_dcc_only	DCC only
+GSE316672	2026	GeoMx	bronchiolitis obliterans	unknown	unknown	skip_dcc_only	DCC only in current deposit
+GSE301876	2026	GeoMx	TB granuloma	unknown	unknown	skip_dcc_only	DCC only
+GSE255174	2024	GeoMx	fibrosing ILD	unknown	unknown	skip_dcc_only	DCC only
+GSE307534	2025	Visium	AAH/AIS/MIA/LUAD	not_extracted	not_extracted	skip_size	Per-slide tars 50–350 MB; no compact matrix
+GSE288758	2025	Visium	EGFR NSCLC n=2	not_extracted	not_extracted	skip_size	Slide tars ~1.2 GB each
+GSE301973	2025	Visium	EGFR NSCLC pre-osi n=2	not_extracted	not_extracted	skip_size	Slide tars 1.2–2.1 GB
+GSE318663	2026	mixed	SCLC STING	—	—	skip_not_this_slice	Spatial member is GSE318867
+GSE292299	2026	Visium	NSCLC immunotherapy spatial biology	yes	yes	analyze	16 NSCLC sections; H5 + tissue_positions; leftover vs reported trio
+GSE318867	2026	Visium	SCLC (STING paper spatial)	yes	yes	analyze	3 sections VA/VB/VISA with positions
+GSE299786	2025	CosMx	LUAD TMA + mesothelioma	yes	yes	analyze	LUAD TMA1/TMA2 exprMat + CenterX/Y; leftover CosMx NSCLC
+GSE262998	2026	Visium	pulmonary sarcoidosis	not_run	not_run	skip_not_tumor	Non-cancer leftover; tumor CLDN4 vs T/B is the question
+GSE271370	2026	Visium	fatal COVID lung	not_run	not_run	skip_not_tumor	Infection, not lung cancer

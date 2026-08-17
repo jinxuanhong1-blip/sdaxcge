@@ -1,0 +1,90 @@
+{
+  "accession": "GSE318867",
+  "n_sections": 3,
+  "same_CLDN4_TB": {
+    "n": 3,
+    "median": -0.048652374951942155,
+    "n_neg": 3,
+    "n_pos": 0,
+    "p": 0.25
+  },
+  "same_CLDN4_T": {
+    "n": 3,
+    "median": -0.04394575669597612,
+    "n_neg": 3,
+    "n_pos": 0,
+    "p": 0.25
+  },
+  "same_CLDN4_B": {
+    "n": 3,
+    "median": -0.0027251420969977153,
+    "n_neg": 2,
+    "n_pos": 1,
+    "p": 1.0
+  },
+  "same_TACSTD2_TB": {
+    "n": 3,
+    "median": 0.05436718757645766,
+    "n_neg": 0,
+    "n_pos": 3,
+    "p": 0.25
+  },
+  "partial_same_CLDN4_TB_ctrl_broad": {
+    "n": 3,
+    "median": -0.08806836793520031,
+    "n_neg": 3,
+    "n_pos": 0,
+    "p": 0.25
+  },
+  "rings": {
+    "1": {
+      "CLDN4_vs_neiTB": {
+        "n": 3,
+        "median": -0.06376938332396419,
+        "n_neg": 3,
+        "n_pos": 0,
+        "p": 0.25
+      },
+      "partial_CLDN4_vs_neiTB_ctrl_broad": {
+        "n": 3,
+        "median": -0.025452060527194058,
+        "n_neg": 3,
+        "n_pos": 0,
+        "p": 0.25
+      }
+    },
+    "2": {
+      "CLDN4_vs_neiTB": {
+        "n": 3,
+        "median": -0.03504158227093815,
+        "n_neg": 3,
+        "n_pos": 0,
+        "p": 0.25
+      },
+      "partial_CLDN4_vs_neiTB_ctrl_broad": {
+        "n": 3,
+        "median": -0.027969582695272034,
+        "n_neg": 2,
+        "n_pos": 1,
+        "p": 0.5
+      }
+    },
+    "3": {
+      "CLDN4_vs_neiTB": {
+        "n": 3,
+        "median": -0.032786685661498616,
+        "n_neg": 2,
+        "n_pos": 1,
+        "p": 0.5
+      },
+      "partial_CLDN4_vs_neiTB_ctrl_broad": {
+        "n": 3,
+        "median": -0.026555985816244677,
+        "n_neg": 2,
+        "n_pos": 1,
+        "p": 1.0
+      }
+    }
+  },
+  "skips": []
+}
