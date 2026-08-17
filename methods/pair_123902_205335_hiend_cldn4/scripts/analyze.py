@@ -141,27 +141,14 @@ def _marker_mal_tnk(extracted: dict[str, np.ndarray], n: int) -> tuple[np.ndarra
 
 
 def _score_one_123902_csv(handle, wanted: set[str]) -> tuple[dict[str, np.ndarray], np.ndarray, set[str]]:
-    header = handle.readline().decode().strip().split(",")
-    genes = [g.upper() for g in header[1:]]
-    gene_set = set(genes)
-    keep = [(i, g) for i, g in enumerate(genes) if g in wanted]
-    keep_idx = [i for i, _ in keep]
-    keep_names = [g for _, g in keep]
-    libs = []
-    cols = {g: [] for g in keep_names}
-    for line in handle:
-        bits = line.decode().strip().split(",")
-        if len(bits) < 2:
-            continue
-        vals = np.fromiter((float(x) if x else 0.0 for x in bits[1:]), dtype=np.float64)
-        if vals.size != len(genes):
-            continue
-        libs.append(float(vals.sum()))
-        for i, g in zip(keep_idx, keep_names):
-            cols[g].append(float(vals[i]))
-    n = len(libs)
-    extracted = {g: np.asarray(cols[g], dtype=np.float32) for g in keep_names}
-    return extracted, np.asarray(libs, dtype=np.float64), gene_set
+    df = pd.read_csv(handle, index_col=0)
+    df.columns = [str(c).upper() for c in df.columns]
+    gene_set = set(df.columns)
+    libs = df.sum(axis=1).to_numpy(dtype=np.float64)
+    extracted = {
+        g: df[g].to_numpy(dtype=np.float32) for g in wanted if g in df.columns
+    }
+    return extracted, libs, gene_set
 
 
 def load_gse123902(raw: Path, wanted: set[str], locked: pd.DataFrame):
@@ -193,10 +180,9 @@ def load_gse123902(raw: Path, wanted: set[str], locked: pd.DataFrame):
                 continue
             members.append((donor, tissue, m, name))
         members.sort(key=lambda x: (x[0], 0 if x[1] == "PRIMARY" else 1))
-        extracted_all: dict[str, list[np.ndarray]] = {}
-        libs_all = []
-        patients = []
+        chunks: list[tuple[str, dict[str, np.ndarray], np.ndarray]] = []
         gene_union: set[str] = set()
+        seen_wanted: set[str] = set()
         for donor, tissue, m, name in members:
             if donor in chosen:
                 continue
@@ -204,14 +190,21 @@ def load_gse123902(raw: Path, wanted: set[str], locked: pd.DataFrame):
             raw_f = gzip.GzipFile(fileobj=tf.extractfile(m))
             extracted, libs, genes = _score_one_123902_csv(raw_f, wanted)
             gene_union |= genes
+            seen_wanted |= set(extracted)
             n = int(libs.size)
-            for g, vec in extracted.items():
-                extracted_all.setdefault(g, []).append(vec)
-            libs_all.append(libs)
-            patients.append(np.full(n, donor, dtype=object))
+            chunks.append((donor, extracted, libs))
             print(f"  {name}: cells={n} stored={len(extracted)} donor={donor} {tissue}", flush=True)
-    if not libs_all:
+    if not chunks:
         raise SystemExit("GSE123902: no locked tumor matrices read")
+    libs_all = []
+    patients = []
+    extracted_all: dict[str, list[np.ndarray]] = {g: [] for g in seen_wanted}
+    for donor, extracted, libs in chunks:
+        n = int(libs.size)
+        libs_all.append(libs)
+        patients.append(np.full(n, donor, dtype=object))
+        for g in seen_wanted:
+            extracted_all[g].append(extracted.get(g, np.zeros(n, dtype=np.float32)))
     library = np.concatenate(libs_all)
     extracted = {g: np.concatenate(vs) for g, vs in extracted_all.items()}
     patient = np.concatenate(patients)
@@ -712,9 +705,18 @@ def plot_given_rho(path: Path) -> None:
     plt.close(fig)
 
 
-def _top_md(df: pd.DataFrame, n=12) -> str:
+def _honest_pairs(df: pd.DataFrame, min_n: int = 8) -> pd.DataFrame:
+    """Drop tiny-n SE artifacts from the primary table. Full meta is kept separately."""
     if df is None or df.empty:
-        return "_No pairs passed the detect gate with honest n._\n"
+        return pd.DataFrame()
+    out = df[df["n_patients"] >= min_n].copy()
+    return out.sort_values(["p_meta", "n_patients"], ascending=[True, False], na_position="last")
+
+
+def _top_md(df: pd.DataFrame, n=12) -> str:
+    df = _honest_pairs(df)
+    if df is None or df.empty:
+        return "_No pairs passed the detect gate with honest n≥8._\n"
     lines = [
         "| pair | class | k | n_patients | mean ΔP | p_meta | p_Wilcoxon | I² | units |",
         "|---|---|---:|---:|---:|---|---|---:|---|",
@@ -731,6 +733,9 @@ def _top_md(df: pd.DataFrame, n=12) -> str:
 def _top_between(df: pd.DataFrame, n=10) -> str:
     if df is None or df.empty:
         return "_No between-patient Q4 vs Q1 pairs._\n"
+    df = df[df["n_compared"] >= 8].copy() if "n_compared" in df.columns else df
+    if df.empty:
+        return "_No between-patient Q4 vs Q1 pairs with n_compared≥8._\n"
     lines = [
         "| pair | class | k | n_Q1/n_Q4 | mean ΔP | p_meta | I² | units |",
         "|---|---|---:|---|---:|---|---:|---|",
@@ -782,7 +787,7 @@ Singles (given, same PR): GSE123902 n=13 ρ=−0.659; GSE205335 n=22 ρ=−0.435
 
 This folder adds CellChat-style **outgoing CLDN4-high malignant → same-patient
 T/NK**. Jin et al. 2021 Hill probability on CellChatDB v2 protein pairs
-(10% truncated mean, \(K_h=0.5\), `expr_prop ≥ 0.10`). CellChat R was not run.
+(10% truncated mean, Kh=0.5, expr_prop ≥ 0.10). CellChat R was not run.
 
 Primary high-end: **within-patient** malignant CLDN4 Q4 vs Q1. Sensitivity:
 median split. Extra: between-patient Q4 vs Q1 using the **given** %pos
@@ -814,7 +819,8 @@ Each patient is one delta. Unit means are random-effects pooled
 
 {_top_md(meta_q4)}
 
-Full table: `results/lr_table.tsv` (same as `results/lr_meta_q4q1.tsv`).
+Primary table (`results/lr_table.tsv`) keeps pairs with **n_patients ≥ 8**.
+Tiny-n rows (n=2–4) stay in `results/lr_meta_q4q1.tsv` and are not the claim.
 
 ## Sensitivity: within-patient median split
 
@@ -919,7 +925,8 @@ def main() -> None:
 
     if not meta_q4.empty:
         meta_q4.to_csv(out / "results" / "lr_meta_q4q1.tsv", sep="\t", index=False)
-        meta_q4.to_csv(out / "results" / "lr_table.tsv", sep="\t", index=False)
+        primary = _honest_pairs(meta_q4)
+        primary.to_csv(out / "results" / "lr_table.tsv", sep="\t", index=False)
     if not meta_med.empty:
         meta_med.to_csv(out / "results" / "lr_meta_median.tsv", sep="\t", index=False)
     if not meta_ter.empty:
@@ -948,13 +955,19 @@ def main() -> None:
     plot_n(coverage, out / "figures" / "fig_honest_n.png")
     if not coverage.empty:
         plot_n_per_patient(coverage, out / "figures" / "fig_n_per_patient.png")
-    plot_forest(meta_q4, out / "figures" / "fig_forest_q4q1.png", "Within-patient Q4 vs Q1 outgoing ΔP (RE meta)")
-    plot_ligand_table(meta_q4, out / "figures" / "fig_extra_ligand_table.png", "Extra: top outgoing patient-ΔP pairs (Q4 vs Q1)")
-    plot_forest(meta_between, out / "figures" / "fig_forest_between_q4q1.png", "Between-patient given-%pos Q4 vs Q1 (extra)")
-    if not meta_q4.empty:
-        plot_patient_deltas(pairs, meta_q4.iloc[0]["interaction_name"], "q4q1", out / "figures" / "fig_patient_delta_top.png")
+    primary = _honest_pairs(meta_q4)
+    plot_forest(primary, out / "figures" / "fig_forest_q4q1.png", "Within-patient Q4 vs Q1 outgoing ΔP (RE meta, n≥8)")
+    plot_ligand_table(primary, out / "figures" / "fig_extra_ligand_table.png", "Extra: top outgoing patient-ΔP pairs (Q4 vs Q1, n≥8)")
+    between_show = (
+        meta_between[meta_between["n_compared"] >= 8]
+        if not meta_between.empty and "n_compared" in meta_between.columns
+        else meta_between
+    )
+    plot_forest(between_show, out / "figures" / "fig_forest_between_q4q1.png", "Between-patient given-%pos Q4 vs Q1 (extra, n≥8)")
+    if not primary.empty:
+        plot_patient_deltas(pairs, primary.iloc[0]["interaction_name"], "q4q1", out / "figures" / "fig_patient_delta_top.png")
     if not meta_med.empty:
-        plot_forest(meta_med, out / "figures" / "fig_forest_median.png", "Within-patient median-split outgoing ΔP (sensitivity)")
+        plot_forest(_honest_pairs(meta_med), out / "figures" / "fig_forest_median.png", "Within-patient median-split outgoing ΔP (sensitivity, n≥8)")
 
     summary = {
         "given_spearman": GIVEN,
