@@ -1,0 +1,51 @@
+{
+  "given_combo": {
+    "cohorts": "GSE253013+GSE291670",
+    "n": 15,
+    "rho_CLDN4_pct_vs_tnk": -0.714,
+    "p": 0.0217,
+    "I2": 23,
+    "re_audited": false,
+    "source": "PR #290 / #279 highlighted_combos marker/tnk/pct"
+  },
+  "cldn4_only": true,
+  "dual_high_used_as_sender": false,
+  "n_samples_in_cells": 15,
+  "n_marker_malignant": 8472,
+  "n_cldn4_high": 1979,
+  "n_cldn4_low": 6493,
+  "n_tnk": 77239,
+  "n_dual_high_companion": 1203,
+  "n_lr_in_panel": 2226,
+  "n_sig_diff": 129,
+  "cellchat_ninfo": [
+    {
+      "tag": "GSE253013",
+      "n_mal_high": 1479,
+      "n_mal_low": 1478,
+      "n_tnk": 75697,
+      "n_pairs_scored": 4972,
+      "n_detected": 123,
+      "n_sig_diff": 63,
+      "cldn4_median": {
+        "GSE253013": 2.24031662940979
+      },
+      "cohort": "GSE253013"
+    },
+    {
+      "tag": "GSE291670",
+      "n_mal_high": 500,
+      "n_mal_low": 5015,
+      "n_tnk": 1542,
+      "n_pairs_scored": 4972,
+      "n_detected": 145,
+      "n_sig_diff": 66,
+      "cldn4_median": {
+        "GSE291670": 0.0
+      },
+      "cohort": "GSE291670"
+    }
+  ],
+  "nichenet_n_ligands_scored": 254,
+  "honest_n_note": "n=15 is small; do not inflate"
+}

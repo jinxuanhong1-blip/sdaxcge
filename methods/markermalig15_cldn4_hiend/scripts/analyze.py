@@ -414,10 +414,29 @@ def process_gse253013(extracted: Path, samples: pd.DataFrame) -> pd.DataFrame:
         if g == "total":
             continue
         log_cp[g] = np.log1p(np.asarray(umi, dtype=float) * scale).astype(np.float32)
-    scores = {name: module(log_cp, gs, n) for name, gs in LINEAGE_MARKERS.items()}
-    lineage = assign_lineage(scores, log_cp.get("CD3E", log_cp.get("CD3D", np.zeros(n))))
-    # combo notes used epithelial + normal_score <= 0.05
-    normal = module(log_cp, [g for g in NORMAL_LUNG if g in log_cp], n)
+    # Combo-note lineage (PR #256 / #290): log1p(UMI) modules, not CP10k.
+    # epithelial = EPCAM/KRT8/KRT18/KRT19; malignant-like = epi & normal<=0.05
+    umi = {g: np.asarray(expr[g], dtype=np.float32) for g in expr if g != "total"}
+    note_lin = {
+        "epithelial": ["EPCAM", "KRT8", "KRT18", "KRT19"],
+        "T": ["CD3D", "CD3E", "CD2"],
+        "NK": ["NKG7", "GNLY", "FGFBP2"],
+        "B": ["CD79A", "MS4A1"],
+        "myeloid": ["LYZ", "CD68", "CD14"],
+        "fibroblast": ["COL1A1", "DCN"],
+        "endothelial": ["VWF", "PECAM1"],
+    }
+    names = list(note_lin)
+    sc = np.vstack([module({g: np.log1p(umi[g]) for g in umi}, note_lin[k], n) for k in names])
+    best = sc.argmax(axis=0)
+    best_val = sc.max(axis=0)
+    second = np.partition(sc, -2, axis=0)[-2]
+    lineage = np.array(names, dtype=object)[best]
+    lineage[(best_val < 0.15) | ((best_val - second) < 0.05)] = "other"
+    lineage = np.where(lineage == "epithelial", "Epithelial", lineage)
+    lineage = np.where(lineage == "T", "T", lineage)
+    lineage = np.where(lineage == "NK", "NK", lineage)
+    normal = module({g: np.log1p(umi[g]) for g in umi}, [g for g in ("SFTPA2", "AGER", "SCGB1A1", "SCGB3A1", "TPPP3") if g in umi], n)
     malig = (lineage == "Epithelial") & (normal <= 0.05)
     tnk = np.isin(lineage, ["T", "NK"])
     if "patient" not in meta.columns:
@@ -450,22 +469,39 @@ def gene_cols(df: pd.DataFrame) -> list[str]:
 
 
 def split_cldn4_only(cells: pd.DataFrame) -> pd.DataFrame:
-    """Median CLDN4 among marker-malignant cells. No TACSTD2 gate."""
+    """CLDN4-only high/low among marker-malignant cells, within cohort.
+
+    Median log1p(CP10k) when the median is > 0. If CLDN4 is zero-inflated
+    (median 0, as in GSE291670 %pos scoring), high = detected (CLDN4 > 0).
+    TACSTD2 is never used to call the split.
+    """
     out = cells.copy()
     out["cldn4_high"] = False
     out["cldn4_low"] = False
     out["dual_high_companion"] = False
-    mal = out["marker_malignant"]
-    if mal.sum() == 0:
-        return out
-    med_c = float(out.loc[mal, "CLDN4"].median())
-    med_t = float(out.loc[mal, "TACSTD2"].median()) if "TACSTD2" in out else np.nan
-    out.loc[mal, "cldn4_high"] = out.loc[mal, "CLDN4"] >= med_c
-    out.loc[mal, "cldn4_low"] = out.loc[mal, "CLDN4"] < med_c
-    if "TACSTD2" in out:
-        out.loc[mal, "dual_high_companion"] = (out.loc[mal, "TACSTD2"] >= med_t) & out.loc[mal, "cldn4_high"]
-    out.attrs["cldn4_median"] = med_c
-    out.attrs["tacstd2_median_companion"] = med_t
+    medians: dict[str, float] = {}
+    for cohort, gidx in out.groupby("cohort").groups.items():
+        mal = out.loc[gidx, "marker_malignant"].to_numpy()
+        if mal.sum() == 0:
+            continue
+        cld = out.loc[gidx, "CLDN4"].to_numpy()
+        tac = out.loc[gidx, "TACSTD2"].to_numpy() if "TACSTD2" in out.columns else np.zeros(len(gidx))
+        med_c = float(np.median(cld[mal]))
+        med_t = float(np.median(tac[mal]))
+        if med_c <= 0:
+            high = mal & (cld > 0)
+            low = mal & (cld <= 0)
+        else:
+            high = mal & (cld >= med_c)
+            low = mal & (cld < med_c)
+        dual = high & (tac >= med_t) & (med_t > 0)
+        if med_t <= 0:
+            dual = high & (tac > 0)
+        out.loc[gidx, "cldn4_high"] = high
+        out.loc[gidx, "cldn4_low"] = low
+        out.loc[gidx, "dual_high_companion"] = dual
+        medians[str(cohort)] = med_c
+    out.attrs["cldn4_median"] = medians
     return out
 
 
@@ -501,7 +537,7 @@ def cellchat_on(cells: pd.DataFrame, lr: pd.DataFrame, tag: str, rng: np.random.
         "n_pairs_scored": int(len(scored)) if not scored.empty else 0,
         "n_detected": int(scored["detected"].sum()) if not scored.empty else 0,
         "n_sig_diff": int(contrast["sig_diff"].sum()) if not contrast.empty else 0,
-        "cldn4_median": float(cells.attrs.get("cldn4_median", np.nan)),
+        "cldn4_median": cells.attrs.get("cldn4_median", {}),
     }
     return scored, contrast, ninfo
 
@@ -751,7 +787,7 @@ Hill / mass-action probability on 10% truncated means (CellChatDB v2). The CellC
 
 """
     if outg.empty:
-        text += "_No outgoing pair passed permutation p<0.05 with ΔP ≠ 0 on this n=15 pool._\n\n"
+        text += "_No outgoing pair passed permutation p<0.05 with ΔP ≠ 0 on these n=15 samples._\n\n"
     else:
         text += md_table(
             outg,
@@ -860,29 +896,18 @@ def main() -> int:
         if not contrast.empty:
             contrast.insert(0, "cohort", cohort)
             contrasts.append(contrast)
-    # pooled n=15 cell pool (honest: not a mixed model)
-    cells_p = split_cldn4_only(cells)
-    scored_p, contrast_p, ninfo_p = cellchat_on(cells_p, lr, "pooled_n15", rng)
-    ninfo_p["cohort"] = "pooled_n15"
-    ninfos.append(ninfo_p)
-    if not scored_p.empty:
-        scored_p.insert(0, "cohort", "pooled_n15")
-        scored_all.append(scored_p)
-    if not contrast_p.empty:
-        contrast_p.insert(0, "cohort", "pooled_n15")
-        contrasts.append(contrast_p)
+    # No cross-cohort cell pool: GSE253013 and GSE291670 CLDN4 scales differ
+    # (%pos tens of percent vs <20%). Pooling cells would inflate n and mix platforms.
 
     contrast = pd.concat(contrasts, ignore_index=True) if contrasts else pd.DataFrame()
     scored = pd.concat(scored_all, ignore_index=True) if scored_all else pd.DataFrame()
     if not scored.empty:
         scored.to_csv(out / "lr_pairs_scored.tsv", sep="\t", index=False)
 
-    # Primary LR table = pooled outgoing+incoming differential pairs (fallback: union of cohorts)
+    # Primary LR table = per-cohort outgoing+incoming differential pairs
     if not contrast.empty:
-        primary = contrast[contrast["split"] == "pooled_n15"].copy()
-        if primary.empty:
-            primary = contrast.copy()
-        primary = primary.sort_values(["sig_diff", "delta_prob"], ascending=[False, False])
+        primary = contrast.copy()
+        primary = primary.sort_values(["cohort", "sig_diff", "delta_prob"], ascending=[True, False, False])
         primary.to_csv(out / "lr_table.tsv", sep="\t", index=False)
         contrast.to_csv(out / "lr_contrasts_all.tsv", sep="\t", index=False)
     else:
@@ -900,7 +925,10 @@ def main() -> int:
         high = cells[cells["cldn4_high"]]
         tnk = cells[cells["tnk"]]
         ligands = expressed_in(high, list(lt.columns) if hasattr(lt, "columns") else [])
-        tnk_genes = expressed_in(tnk, list(lt.index) if hasattr(lt, "index") else gene_cols(cells))
+        panel_in_lt = [g for g in gene_cols(cells) if g in lt.index]
+        tnk_genes = expressed_in(tnk, panel_in_lt)
+        if len(tnk_genes) < 30:
+            tnk_genes = panel_in_lt
         target = set(IFN) | set(CYTOTOXICITY)
         activity = ligand_activity(lt, target, tnk_genes, ligands)
         if not activity.empty:
@@ -930,8 +958,8 @@ def main() -> int:
     plot_given_combo(combo, figdir / "fig_given_combo_n15.png")
     plot_n_honesty(pat, out / "fig_n_honesty.png")
     plot_n_honesty(pat, figdir / "fig_n_honesty.png")
-    plot_lr_table(primary, out / "fig_lr_delta.png", "CellChat-style ΔP  CLDN4-high vs low → T/NK  (n=15 pool)")
-    plot_lr_table(primary, figdir / "fig_lr_delta.png", "CellChat-style ΔP  CLDN4-high vs low → T/NK  (n=15 pool)")
+    plot_lr_table(primary, out / "fig_lr_delta.png", "CellChat-style ΔP  CLDN4-high vs low → T/NK  (n=15 samples, per cohort)")
+    plot_lr_table(primary, figdir / "fig_lr_delta.png", "CellChat-style ΔP  CLDN4-high vs low → T/NK  (n=15 samples, per cohort)")
     plot_nichenet(activity, out / "fig_nichenet_activity.png", "NicheNet-style ligand activity (IFN+cyto targets)")
     plot_nichenet(activity, figdir / "fig_nichenet_activity.png", "NicheNet-style ligand activity (IFN+cyto targets)")
 

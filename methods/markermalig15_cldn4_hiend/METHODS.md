@@ -17,7 +17,7 @@ Sample list: `data/combo/samples_n15.tsv`. Adjacent-normal GSE253013 rows are no
 - **Marker-malignant** matches the combo notes:
   - GSE253013: marker epithelium with normal-lung score ≤ 0.05
   - GSE291670: marker epithelium below the 75th percentile of the normal-lung program
-- **CLDN4-high / low**: median split of malignant `log1p(CP10k)` CLDN4. **TACSTD2 is not used.** Dual-high is scored only as a companion count.
+- **CLDN4-high / low**: within-cohort split of malignant `log1p(CP10k)` CLDN4. Median when the median is > 0 (GSE253013). If the median is 0 (GSE291670, zero-inflated %pos), high = detected (CLDN4 > 0). **TACSTD2 is not used.** Dual-high is scored only as a companion count. Cohorts are not cell-pooled.
 - **T/NK**: marker-argmax T + NK.
 
 ## CellChat-style
