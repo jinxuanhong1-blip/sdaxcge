@@ -1,0 +1,2 @@
+gene	ensembl	unit	lung_nTPM	lung_rank_desc	n_tissues	other_tissues_n	other_median_nTPM	other_mean_nTPM	other_max_tissue	other_max_nTPM	lung_over_other_median	source	source_url	note
+CLDN4	ENSG00000189143	nTPM	66.7	16	51	50	14	55.58	esophagus	317.9	4.76	rna_tissue_consensus.tsv	https://www.proteinatlas.org/download/tsv/rna_tissue_consensus.tsv.zip	Consensus nTPM is RNA, not IHC. HPA consensus = max(HPA, GTEx) per tissue.
