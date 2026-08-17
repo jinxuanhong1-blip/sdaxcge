@@ -1,0 +1,10 @@
+histo	n	in_primary_nsclc	note
+ADC	85	True	adenocarcinoma; NSCLC
+SQC	61	True	squamous; NSCLC (not SCC)
+LCNE	56	False	LCNEC; sensitivity only
+BAS	39	True	basaloid; NSCLC
+CARCI	24	False	carcinoid; NOT NSCLC
+SCC	21	False	small-cell; NOT NSCLC
+NTL	14	False	non-tumoral lung (GEO NTL / titles 'Non tumoral lung'); dropped
+OTHER	4	False	GEO histology Other; unspecified tumor; held out
+LCC	3	True	large-cell; NSCLC
