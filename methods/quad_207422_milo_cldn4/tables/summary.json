@@ -87,7 +87,7 @@
       "n": 39,
       "rho": 0.004253165102152267,
       "p": 0.9794990836165818,
-      "source": "imported_PR383_scores_only"
+      "source": "this_run"
     },
     {
       "label": "GSE205335 patients",
@@ -109,12 +109,11 @@
     "rho": -0.09696065182613421,
     "p": 0.39839005989602794
   },
-  "n_nhoods_in_table": 11060,
-  "n_testable_in_table": 380,
-  "n_SpatialFDR_lt_0.1_in_table": 0,
+  "n_nhoods_in_table": 17461,
+  "n_testable_in_table": 1261,
+  "n_SpatialFDR_lt_0.1_in_table": 8,
   "missing_nhood_tables": [
-    "GSE131907 nhoods",
-    "GSE148071 nhoods"
+    "GSE131907 nhoods"
   ],
   "figures": [
     "figures/fig_sample_cldn4_vs_tnk_by_dataset.png",
@@ -154,7 +153,7 @@
     {
       "dataset": "GSE148071",
       "graph": "all_biopsies",
-      "table": "summary_only",
+      "table": "yes",
       "n_nhoods_total": 6401,
       "n_testable": 881,
       "n_p_lt_0.05": 81,
@@ -163,9 +162,7 @@
       "n_BH_FDR_lt_0.1": 8,
       "min_p": 0.0,
       "min_SpatialFDR": 0.0,
-      "min_BH_FDR": 0.0,
-      "table_present": false,
-      "note": "nhood table absent from PR 383 (results/ gitignored); counts from published summary until this run writes the table"
+      "min_BH_FDR": 0.0
     },
     {
       "dataset": "GSE205335",

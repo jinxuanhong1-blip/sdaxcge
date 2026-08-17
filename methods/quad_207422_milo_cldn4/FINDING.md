@@ -17,7 +17,7 @@ are confounded with dataset). miloR / edgeR were not used.
 |---|---|---|
 | Sample malignant CLDN4 vs T/NK, per-graph | see forest | Stouffer signed z=-0.840, p=4.01e-01, k=4 graphs |
 | Same, within-dataset ranks pooled | **78** samples | ρ=-0.097, p=3.98e-01 |
-| Nhood abundance vs malignant CLDN4 (SpatialFDR<0.1) | samples below, not cells | stacked table has **11,060** nhoods |
+| Nhood abundance vs malignant CLDN4 (SpatialFDR<0.1) | samples below, not cells | stacked table has **17,461** nhoods |
 
 Do not cite cell count as *n*. Neighbourhoods are not independent across
 or within a graph. Dataset-native CLDN4 scales differ (log1p-CP10k vs
@@ -42,7 +42,7 @@ single mixed graph): **78**. GSE131907 sites are not collapsed.
 | GSE207422 post (imported #323) | 7 | -0.071 | 8.79e-01 | imported_PR323 |
 | GSE131907 tLung (hunt fallback) | 10 | -0.188 | 6.03e-01 | imported_hunt_PR230 |
 | GSE131907 other origins (hunt, not primary n) | 21 | -0.617 | 2.89e-03 | imported_hunt_PR230 |
-| GSE148071 biopsies | 39 | 0.004 | 9.79e-01 | imported_PR383_scores_only |
+| GSE148071 biopsies | 39 | 0.004 | 9.79e-01 | this_run |
 | GSE205335 patients | 22 | -0.263 | 2.38e-01 | imported_PR385 |
 
 Signed Stouffer (weights √n): z=-0.840, p=4.01e-01,
@@ -55,14 +55,14 @@ k=4 graphs. Within-dataset rank pool: n=78,
 |---|---|---:|---:|---:|---:|---:|---:|---|
 | GSE207422 | post_treatment | 5347 | 20 | 2 | 0.368 | **0** | 0 | yes_imported |
 | GSE131907 | tLung | None | None | None | NA | **None** | None | no |
-| GSE148071 | all_biopsies | 6401 | 881 | 81 | 0.000 | **8** | 8 | summary_only |
+| GSE148071 | all_biopsies | 6401 | 881 | 81 | 0.000 | **8** | 8 | yes |
 | GSE205335 | non_normal | 5713 | 360 | 17 | 0.899 | **0** | 0 | yes |
 
 DA model = sample-level Spearman of `prop[sample, nhood] = n_cells(sample in nhood) / n_cells(sample)`
 versus that sample’s mean malignant CLDN4. SpatialFDR = miloR `graphSpatialFDR`
 k-distance weights. This is **not** edgeR QLF and **not** a joint Harmony graph.
 
-Nhood tables still missing from this merge (counts may come from a published summary): GSE131907 nhoods, GSE148071 nhoods.
+Nhood tables still missing from this merge (counts may come from a published summary): GSE131907 nhoods.
 
 ## What this does not say
 
