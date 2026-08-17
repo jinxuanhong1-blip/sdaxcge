@@ -1,0 +1,73 @@
+{
+  "dataset": "GSE40419",
+  "citation": "Seo et al. Genome Res 2012 PMID 22975805",
+  "n_tumor": 87,
+  "n_normal_dropped": 77,
+  "n_matrix_expr_rows": 0,
+  "primary": [
+    {
+      "endpoint": "CD8A",
+      "n": 87,
+      "rho": -0.30856575256222907,
+      "p": 0.003639897947130107,
+      "rho_adj_epi": -0.18584114986811984,
+      "p_adj_epi": 0.08668325077966108,
+      "verdict": "NO_EVIDENCE"
+    },
+    {
+      "endpoint": "CD274",
+      "n": 87,
+      "rho": -0.19635664428143304,
+      "p": 0.06833498943560408,
+      "rho_adj_epi": -0.07729023047049681,
+      "p_adj_epi": 0.47936090147884,
+      "verdict": "NO_EVIDENCE"
+    },
+    {
+      "endpoint": "ImmuneScore",
+      "n": 87,
+      "rho": -0.38062258511336294,
+      "p": 0.00027609198522634865,
+      "rho_adj_epi": -0.14267132405551997,
+      "p_adj_epi": 0.19004915846116363,
+      "verdict": "NO_EVIDENCE"
+    },
+    {
+      "endpoint": "IFN_Ayers6",
+      "n": 87,
+      "rho": -0.1116497776481738,
+      "p": 0.3032163488510196,
+      "rho_adj_epi": -0.03461721863968146,
+      "p_adj_epi": 0.7516805978933774,
+      "verdict": "NO_EVIDENCE"
+    }
+  ],
+  "coverage": {
+    "n_gsm": 164,
+    "n_matrix_expr_rows": 0,
+    "n_rpkm_rows": 36742,
+    "n_rpkm_libs": 164,
+    "n_hugo": 22427,
+    "n_tumor": 87,
+    "n_normal": 77,
+    "n_paired": 77,
+    "n_tumor_stage": 85,
+    "n_tumor_stage_na": 2,
+    "n_tumor_smoke": 83,
+    "n_cldn4": 87,
+    "n_cd8a": 87,
+    "n_cd274": 87,
+    "n_cd8a_iso": 4,
+    "n_krt18_iso": 2,
+    "cldn4_acc": "NM_001305",
+    "cd8a_acc": "NM_001768",
+    "cd274_acc": "NM_014143",
+    "immune_present": 141,
+    "stromal_present": 141,
+    "ayers_present": 6,
+    "isg_present": 10,
+    "epi_present": 6,
+    "series_title": "GSE40419",
+    "series_design": ""
+  }
+}
