@@ -1,0 +1,30 @@
+{
+  "accessions": [
+    "GSE123902",
+    "GSE131907",
+    "GSE205335"
+  ],
+  "papers": {
+    "GSE123902": "Laughney et al. Nat Med 2020 PMID 31959988",
+    "GSE131907": "Kim et al. Nat Commun 2020 PMID 32385277",
+    "GSE205335": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "dual_high": false,
+  "gse148071_added": false,
+  "seven_pool": false,
+  "slingshot": {
+    "available": true,
+    "version": "[1] \u20182.10.0\u2019"
+  },
+  "graph_mode": "harmony_joint",
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "never CLDN4-high; prefer GSE131907 nLung author AT2",
+    "cap_per_unit": 350
+  }
+}
