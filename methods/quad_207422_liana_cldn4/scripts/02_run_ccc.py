@@ -1264,7 +1264,9 @@ def main() -> None:
     pd.DataFrame(path_rows).to_csv(args.outdir / "pathway_summary.tsv", sep="\t", index=False)
 
     liana_status = "; ".join(liana_notes)
-    if all("LIANA_IMPORT_FAILED" in n for n in liana_notes):
+    if all("LIANA_SKIPPED" in n for n in liana_notes):
+        liana_short = "not_run_skipped"
+    elif all("LIANA_IMPORT_FAILED" in n for n in liana_notes):
         liana_short = "not_run_import_failed"
     elif any(n.split(": ", 1)[-1].startswith("LIANA_OK") for n in liana_notes):
         liana_short = "ran_cellphonedb_method_per_cohort"
