@@ -1,0 +1,275 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "winning_pair": true,
+  "gse207422_added": false,
+  "not_a_pr325_redo": true,
+  "primary_gene": "CLDN4",
+  "not_a_tacstd2_redo": true,
+  "dual_high": false,
+  "clock": "scanpy_dpt",
+  "slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "fallback": "scanpy diffusion pseudotime (Haghverdi et al. 2016)"
+  },
+  "palantir": {
+    "available": false,
+    "reason": "python package palantir not installed",
+    "note": "optional companion; DPT remains the primary clock"
+  },
+  "harmony": {
+    "used": true,
+    "reason": "harmonypy on PCA, batch=dataset"
+  },
+  "cap_per_unit": 350,
+  "n_cells": 18972,
+  "n_cells_gse131907": 11986,
+  "n_cells_gse205335": 6986,
+  "n_cells_nLung": 3141,
+  "n_author_AT2": 2020,
+  "n_units": 65,
+  "n_units_gse131907": 43,
+  "n_units_gse205335": 22,
+  "n_units_eligible": 65,
+  "n_units_paired_tertile": 62,
+  "subtype_counts": {
+    "Malignant cells": 12125,
+    "AT2": 2020,
+    "tS2": 1171,
+    "tS1": 1103,
+    "Non-malignant cells": 711,
+    "NA": 665,
+    "Ciliated": 463,
+    "AT1": 310,
+    "Club": 304,
+    "tS3": 56,
+    "Undetermined": 44
+  },
+  "cldn4_tertile_counts": {
+    "low": 6324,
+    "mid": 6324,
+    "high": 6324
+  },
+  "cldn4_tertile_cuts": {
+    "q1": 0.7486304658684624,
+    "q2": 1.8447545801420089
+  },
+  "genes_absent": {
+    "AT2": [],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": []
+  },
+  "root": {
+    "n_nLung": 3141,
+    "n_nLung_author_AT2": 2020,
+    "rule": "GSE131907 nLung author AT2 (median AT2 score)",
+    "index": 3038,
+    "root_unit": "GSE131907:LUNG_N34",
+    "root_origin": "nLung",
+    "root_subtype": "AT2",
+    "root_dataset": "GSE131907"
+  },
+  "n_paga_components": 1,
+  "n_leiden": 39,
+  "leiden_resolution": 0.6,
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs DPT",
+      "n": 65,
+      "rho": 0.0777097902097902,
+      "p": 0.5383622623938942,
+      "q": 0.5383622623938942
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 65,
+      "rho": 0.08557692307692308,
+      "p": 0.4978978290457857,
+      "q": 0.5383622623938942
+    },
+    {
+      "contrast": "CLDN4 vs club score",
+      "n": 65,
+      "rho": 0.25977119506790086,
+      "p": 0.03664236061884009,
+      "q": 0.04711160650993725
+    },
+    {
+      "contrast": "CLDN4 vs basal score",
+      "n": 65,
+      "rho": 0.26560314685314684,
+      "p": 0.032485767898810664,
+      "q": 0.04711160650993725
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 65,
+      "rho": 0.3756993006993007,
+      "p": 0.00204207313791622,
+      "q": 0.0036757316482491954
+    },
+    {
+      "contrast": "CLDN4 vs malignant-like score",
+      "n": 65,
+      "rho": 0.5838723776223776,
+      "p": 3.303328950015371e-07,
+      "q": 9.909986850046112e-07
+    },
+    {
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "n": 65,
+      "rho": 0.5071678321678321,
+      "p": 1.621603997119752e-05,
+      "q": 3.648608993519442e-05
+    },
+    {
+      "contrast": "SFTPC vs DPT (control)",
+      "n": 65,
+      "rho": -0.673480937148553,
+      "p": 7.882743000374195e-10,
+      "q": 3.547234350168388e-09
+    },
+    {
+      "contrast": "AT2 score vs DPT (control)",
+      "n": 65,
+      "rho": -0.7860576923076923,
+      "p": 8.711720887548712e-15,
+      "q": 7.84054879879384e-14
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "GSE131907-only CLDN4 vs DPT",
+      "n": 43,
+      "rho": 0.16535789791603744,
+      "p": 0.2892862153294822
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs DPT",
+      "n": 22,
+      "rho": 0.23433088650479958,
+      "p": 0.29387603877735996
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs AT2",
+      "n": 43,
+      "rho": -0.17864693446088795,
+      "p": 0.25171400305471403
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs AT2",
+      "n": 22,
+      "rho": 0.10220214568040656,
+      "p": 0.6508533489140009
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 43,
+      "rho": 0.44019933554817275,
+      "p": 0.003137019632779142
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 22,
+      "rho": 0.27272727272727276,
+      "p": 0.2194550778840765
+    },
+    {
+      "contrast": "tLung-only CLDN4 vs DPT",
+      "n": 11,
+      "rho": 0.7000000000000001,
+      "p": 0.016470978836514428
+    },
+    {
+      "contrast": "nLung-only CLDN4 vs DPT",
+      "n": 11,
+      "rho": 0.5090909090909091,
+      "p": 0.10973723224165634
+    },
+    {
+      "contrast": "tumor-only (drop nLung) CLDN4 vs DPT",
+      "n": 54,
+      "rho": -0.032285115303983224,
+      "p": 0.8167281124979444
+    },
+    {
+      "contrast": "GSE205335 ADC+SQ CLDN4 vs DPT",
+      "n": 17,
+      "rho": 0.24754901960784317,
+      "p": 0.33808764785888096
+    }
+  ],
+  "paired_tertile": [
+    {
+      "contrast": "barrier/keratin (no CLDN4) high vs low",
+      "n": 62,
+      "W": 1.0,
+      "p": 7.95800739471282e-12,
+      "delta_median": 0.3403799271308816,
+      "median_high": 1.4444622851826607,
+      "median_low": 0.8965094454807627
+    },
+    {
+      "contrast": "AT2 high vs low",
+      "n": 62,
+      "W": 946.0,
+      "p": 0.8306736016164986,
+      "delta_median": 0.017230964068573888,
+      "median_high": 0.6072638645794708,
+      "median_low": 0.34941033707165414
+    },
+    {
+      "contrast": "malignant-like high vs low",
+      "n": 62,
+      "W": 121.0,
+      "p": 1.997956903602445e-09,
+      "delta_median": 0.1562764160519144,
+      "median_high": 0.3670684608523937,
+      "median_low": 0.21643028272074313
+    },
+    {
+      "contrast": "DPT high vs low",
+      "n": 62,
+      "W": 203.0,
+      "p": 5.858566388536701e-08,
+      "delta_median": 0.009480930864810944,
+      "median_high": 0.07952091842889786,
+      "median_low": 0.07398540899157524
+    },
+    {
+      "contrast": "club high vs low",
+      "n": 62,
+      "W": 366.0,
+      "p": 8.950933142608948e-05,
+      "delta_median": 0.04027143736158473,
+      "median_high": 0.411292127850158,
+      "median_low": 0.1283903663804835
+    }
+  ],
+  "extra_figure": {
+    "emitted": true,
+    "spearman_rho": 0.3756993006993007,
+    "spearman_p": 0.00204207313791622,
+    "spearman_n": 65
+  },
+  "qc": {
+    "min_genes": 200,
+    "min_umi": 500,
+    "lineage_EPCAM_mean": 1.2387355515646306,
+    "lineage_PTPRC_mean": 0.11119520918068374
+  },
+  "verdict": "Sample-level CLDN4 vs AT2-rooted DPT: n=65, \u03c1=0.078, p=0.538. CLDN4 vs AT2 score: n=65, \u03c1=0.086, p=0.498. CLDN4 vs barrier/keratin (CLDN4 excluded from the score): n=65, \u03c1=0.376, p=0.00204. CLDN4 vs malignant-like: n=65, \u03c1=0.584, p=3.3e-07. CLDN4 vs TACSTD2 (comparator only): n=65, \u03c1=0.507, p=1.62e-05. GSE131907-only CLDN4 vs DPT: n=43, \u03c1=0.165, p=0.289. GSE205335-only CLDN4 vs DPT: n=22, \u03c1=0.234, p=0.294. Paired CLDN4-high vs low barrier/keratin: n=62, W=1.0, \u0394med=0.340, p=7.96e-12. Paired CLDN4-high vs low AT2: n=62, W=946.0, \u0394med=0.017, p=0.831. PAGA has 1 component(s) at connectivity>0 among 39 Leiden vertices. The pooled DPT correlation mixes cohorts and nLung vs tumor and is not a within-tumor progression test. Slingshot R was not run; DPT is the documented clock. Not a TACSTD2 redo. No both-high gate. GSE207422 not added.",
+  "skipped": {
+    "GSE207422": "explicitly not added",
+    "GSE131907 PE": "unlabeled epithelium",
+    "GSE205335 normal tissues": "Normal Lung / LN / Brain dropped",
+    "slingshot": "Rscript not on PATH"
+  }
+}
