@@ -338,10 +338,9 @@ def integrate(adata_full: ad.AnnData, batch_key: str, force_harmony: bool) -> tu
         )
         if err:
             hvg.uns["integrator"]["scvi_error"] = err.splitlines()[0]
-    adata_full.obsm["X_int"] = np.zeros((adata_full.n_obs, hvg.obsm["X_int"].shape[1]), dtype=np.float32)
-    adata_full.obsm["X_int"] = hvg.obsm["X_int"]
+    adata_full.obsm["X_int"] = np.asarray(hvg.obsm["X_int"])
     adata_full.uns["integrator"] = hvg.uns["integrator"]
-    adata_full.var["highly_variable"] = adata_full.var["highly_variable"]
+    del hvg
     return adata_full, method
 
 
