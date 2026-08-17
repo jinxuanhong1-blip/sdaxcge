@@ -1,0 +1,18 @@
+field	public	n	note
+arrays_in_matrix	yes	111	54675 probes x 111 GSM; missing MAS5 values=0
+unique_GSM	yes	111	all unique
+unique_title	yes	111	Duke case IDs; all unique
+source_name	yes	111	every row is 'frozen tissue of primary lung tumor'; no adjacent-normal rows
+histology_LUAD_A	yes	58	Cell type: A
+histology_LUSC_S	yes	53	Cell type: S
+histology_other	yes	0	none
+OS_months_numeric	yes	110	110 numeric; GSM70230 Surv(months)='>72' (alive LUSC) is not a number
+OS_event	yes	111	STATUS 0=alive / 1=dead on all 111 arrays
+stage	no	0	not a GEO sample characteristic
+ICI / treatment	no	0	Bild 2006 oncogenic-pathway NSCLC atlas; not an ICI series
+tumor_percent / purity	no	0	epithelial RNA mean-z is the only public purity proxy used here
+CLDN4 finite (collapse)	yes	111	max-mean of 201428_at / 1569421_at
+CD8A finite	yes	111	named probe 205758_at
+CD274 finite (collapse)	yes	111	max-mean of 223834_at / 227458_at
+pairwise CLDN4+CD8A	yes	111	primary n for CD8A
+pairwise CLDN4+CD274	yes	111	primary n for CD274

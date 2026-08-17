@@ -1,0 +1,149 @@
+{
+  "dataset": "GSE3141",
+  "pmid": "16273092",
+  "title": "Lung Cancer Dataset",
+  "platform": "GPL570 Affymetrix HG-U133 Plus 2.0",
+  "processing": "MAS5 as deposited (linear signal). Spearman is rank-based.",
+  "n_arrays": 111,
+  "n_probes": 54675,
+  "n_missing_mas5": 0,
+  "n_genes_collapsed": 22189,
+  "n_LUAD": 58,
+  "n_LUSC": 53,
+  "n_OS_numeric": 110,
+  "n_OS_event_labeled": 111,
+  "surv_non_numeric_gsm": [
+    "GSM70230"
+  ],
+  "cldn4_probe_collapse": "201428_at",
+  "cd8a_probe_collapse": "205758_at",
+  "cd274_probe_collapse": "227458_at",
+  "epithelial_genes_used": [
+    "EPCAM",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "primary": {
+    "CLDN4_vs_CD8A_all": {
+      "gene_x": "CLDN4",
+      "gene_y": "CD8A",
+      "subset": "all_tumors",
+      "n": 111,
+      "n_arrays": 111,
+      "rho": -0.18057252670394164,
+      "p": 0.0578893300500355,
+      "ci_low": -0.37017917482102614,
+      "ci_high": 0.017157577039016384,
+      "rho_adj_epithelial": -0.009787424722130556,
+      "p_adj_epithelial": 0.9191685121368388,
+      "verdict": "NO_EVIDENCE",
+      "role": "primary"
+    },
+    "CLDN4_vs_CD274_all": {
+      "gene_x": "CLDN4",
+      "gene_y": "CD274",
+      "subset": "all_tumors",
+      "n": 111,
+      "n_arrays": 111,
+      "rho": -0.07842225342225341,
+      "p": 0.4132785085821955,
+      "ci_low": -0.26209734082349206,
+      "ci_high": 0.12205673173264639,
+      "rho_adj_epithelial": 0.04778067024534408,
+      "p_adj_epithelial": 0.6201155903089671,
+      "verdict": "NO_EVIDENCE",
+      "role": "primary"
+    },
+    "CLDN4_vs_CD8A_LUAD": {
+      "gene_x": "CLDN4",
+      "gene_y": "CD8A",
+      "subset": "LUAD",
+      "n": 58,
+      "n_arrays": 58,
+      "rho": -0.15100665981452985,
+      "p": 0.2578444181293455,
+      "ci_low": -0.39014274274015903,
+      "ci_high": 0.09579171028290864,
+      "rho_adj_epithelial": -0.08956607309265387,
+      "p_adj_epithelial": 0.5076114604450688,
+      "verdict": "NO_EVIDENCE",
+      "role": "primary"
+    },
+    "CLDN4_vs_CD274_LUAD": {
+      "gene_x": "CLDN4",
+      "gene_y": "CD274",
+      "subset": "LUAD",
+      "n": 58,
+      "n_arrays": 58,
+      "rho": -0.19936017718170354,
+      "p": 0.13352720253506928,
+      "ci_low": -0.450301644513767,
+      "ci_high": 0.08416576036557055,
+      "rho_adj_epithelial": -0.057379579904347514,
+      "p_adj_epithelial": 0.6715961409369084,
+      "verdict": "NO_EVIDENCE",
+      "role": "primary"
+    },
+    "CLDN4_vs_CD8A_LUSC": {
+      "gene_x": "CLDN4",
+      "gene_y": "CD8A",
+      "subset": "LUSC",
+      "n": 53,
+      "n_arrays": 53,
+      "rho": -0.24705692630220932,
+      "p": 0.0745092636882982,
+      "ci_low": -0.5280715473503722,
+      "ci_high": 0.04420735659866267,
+      "rho_adj_epithelial": 0.00712023987081996,
+      "p_adj_epithelial": 0.9600448979509615,
+      "verdict": "NO_EVIDENCE",
+      "role": "primary"
+    },
+    "CLDN4_vs_CD274_LUSC": {
+      "gene_x": "CLDN4",
+      "gene_y": "CD274",
+      "subset": "LUSC",
+      "n": 53,
+      "n_arrays": 53,
+      "rho": 0.001854539590388647,
+      "p": 0.9894847330599515,
+      "ci_low": -0.27943603030849606,
+      "ci_high": 0.28067688362861165,
+      "rho_adj_epithelial": 0.10315812586709841,
+      "p_adj_epithelial": 0.4667692923230967,
+      "verdict": "NO_EVIDENCE",
+      "role": "primary"
+    }
+  },
+  "highlow": [
+    {
+      "endpoint": "CD8A",
+      "n_Q4": 28,
+      "n_Q1": 28,
+      "median_Q4": 553.1,
+      "median_Q1": 914.4,
+      "U": 285.0,
+      "p": 0.080950363810852,
+      "rank_biserial_Q4_minus_Q1": -0.2729591836734694
+    },
+    {
+      "endpoint": "CD274",
+      "n_Q4": 28,
+      "n_Q1": 28,
+      "median_Q4": 627.5,
+      "median_Q1": 771.3,
+      "U": 368.0,
+      "p": 0.7001702208904506,
+      "rank_biserial_Q4_minus_Q1": -0.061224489795918324
+    }
+  ],
+  "missing_public_labels": [
+    "stage",
+    "ICI",
+    "tumor_percent",
+    "one OS time encoded as >72"
+  ]
+}
