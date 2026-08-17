@@ -637,13 +637,21 @@ def write_finding(
     def _merge_line(rec, name):
         if rec is None:
             return f"- **{name}:** n=0"
+        if rec["n"] < MIN_N_SPEARMAN:
+            rho_txt = "ρ not computed (n<5)"
+        else:
+            rho_txt = f"ρ={fmt_rho(rec['rho_mean'])} p={fmt_p(rec['p_mean'])}"
+        q_txt = "Q4 vs Q1 not computed"
+        if rec["q4q1_ok"]:
+            q_txt = (
+                f"Q4 vs Q1 r={fmt_rho(rec['r_rb'])} p={fmt_p(rec['p_q4q1'])} "
+                f"(n_Q1={rec['n_q1']}, n_Q4={rec['n_q4']}"
+                + ("; thin" if rec["thin_q4q1"] else "")
+                + ")"
+            )
         return (
             f"- **{name}:** n={rec['n']} (malignant {rec['n_malignant']}, epi-like {rec['n_epithelial_like']}) · "
-            f"ρ={fmt_rho(rec['rho_mean'])} p={fmt_p(rec['p_mean'])} · "
-            f"Q4 vs Q1 r={fmt_rho(rec['r_rb'])} p={fmt_p(rec['p_q4q1'])} "
-            f"(n_Q1={rec['n_q1']}, n_Q4={rec['n_q4']}"
-            + ("; thin" if rec['thin_q4q1'] else "")
-            + f") · n≥8 merge={'yes' if rec['merge_ok'] else 'no'} · {rec['note']}"
+            f"{rho_txt} · {q_txt} · n≥8 merge={'yes' if rec['merge_ok'] else 'no'} · {rec['note']}"
         )
 
     md = f"""# FINDING — leftover TISCH NSCLC merge, CLDN4-only combo + high-end
@@ -688,6 +696,10 @@ Malignant call** — they enter the mixed merge as epithelial-like only.
 ## Eligible leftover patients
 
 {_md_patient_rows()}
+
+GSE117570 **P1** malignant CLDN4 mean and %pos are 0 in the TISCH h5
+(128 scored malignant cells). That is a data fact, not a filter.
+P3/P4 have malignant CLDN4 but fewer than 20 T/NK and are not eligible.
 
 ## Per-series Spearman (patient-level, CLDN4 mean vs T/NK)
 
