@@ -1,0 +1,102 @@
+{
+  "accession": "GSE121810",
+  "pmid": "30742122",
+  "n_samples": 29,
+  "n_genes": 37036,
+  "series_matrix_expression_rows": 0,
+  "arm": {
+    "B_adjuvant": 15,
+    "A_neoadjuvant": 14
+  },
+  "tnk_used": [
+    "CD8A",
+    "CD8B",
+    "CD2",
+    "CD3D",
+    "CD3E",
+    "CD3G",
+    "NKG7",
+    "GNLY",
+    "PRF1",
+    "GZMA",
+    "GZMB",
+    "GZMK",
+    "KLRD1",
+    "KLRK1",
+    "KLRB1",
+    "NCR1"
+  ],
+  "ifn_used": [
+    "IFNG",
+    "STAT1",
+    "CXCL9",
+    "CXCL10",
+    "IDO1",
+    "HLA-DRA"
+  ],
+  "mhc_used": [
+    "HLA-A",
+    "HLA-B",
+    "HLA-C"
+  ],
+  "cldn4_detectability": {
+    "gene": "CLDN4",
+    "present_in_matrix": true,
+    "n": 29,
+    "nonzero_n": 28,
+    "raw_median": 15.0,
+    "cpm_median": 0.48097936493583476,
+    "cpm_q1": 0.3030103142380118,
+    "cpm_q3": 0.64028423253733,
+    "cpm_max": 8.025666080124237,
+    "n_cpm_ge_1": 3,
+    "n_cpm_ge_5": 1
+  },
+  "cd274_detectability": {
+    "gene": "CD274",
+    "present_in_matrix": true,
+    "n": 29,
+    "nonzero_n": 29,
+    "raw_median": 83.0,
+    "cpm_median": 2.4917453430255225,
+    "cpm_q1": 1.849843199701293,
+    "cpm_q3": 4.4490910176957,
+    "cpm_max": 14.187552031631991,
+    "n_cpm_ge_1": 27,
+    "n_cpm_ge_5": 7
+  },
+  "ifng_detectability": {
+    "gene": "IFNG",
+    "present_in_matrix": true,
+    "n": 29,
+    "nonzero_n": 6,
+    "raw_median": 0.0,
+    "cpm_median": 0.0,
+    "cpm_q1": 0.0,
+    "cpm_q3": 0.0,
+    "cpm_max": 0.20830011139427068,
+    "n_cpm_ge_1": 0,
+    "n_cpm_ge_5": 0
+  },
+  "one_row": {
+    "dataset": "GSE121810",
+    "n": 29,
+    "n_CLDN4_CPM_ge_1": 3,
+    "CLDN4_CPM_median": 0.48097936493583476,
+    "matrix": "supplementary HUGO counts (series matrix has 0 expression rows)",
+    "CLDN4_vs_CD274_rho": 0.29408866995073885,
+    "CLDN4_vs_CD274_p": 0.12149603452915804,
+    "CLDN4_vs_TNK_rho": -0.11527093596059108,
+    "CLDN4_vs_TNK_p": 0.5515506379858525,
+    "CLDN4_vs_IFN_rho": 0.18571428571428567,
+    "CLDN4_vs_IFN_p": 0.3347772297340769,
+    "CLDN4_vs_CD8A_rho": -0.06009852216748767,
+    "CLDN4_vs_CD8A_p": 0.7568009700963965,
+    "TNK_genes": "16/16",
+    "IFN_genes": "6/6",
+    "IFNG": "row present; 0/29 CPM\u22651",
+    "RECIST_n": 0,
+    "OS_n_this_slice": 0
+  },
+  "series_title": "Neoadjuvant anti-PD-1 immunotherapy promotes a survival benefit with intratumoral and systemic immune responses in recurrent glioblastoma"
+}
