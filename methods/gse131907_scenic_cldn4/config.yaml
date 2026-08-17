@@ -1,0 +1,57 @@
+# Pre-specified. Do not retune after seeing results.
+question: >
+  Which TF regulons are recovered from author-labeled malignant
+  CLDN4-high vs low cells on public GSE131907 (Kim et al. 2020)?
+  Additive SCENIC/GRN proxy. ELF3–CLDN4 bulk RNA (A10) is taken as
+  given and is not re-tested as a discovery.
+
+dataset:
+  accession: GSE131907
+  pmid: 32385277
+  doi: 10.1038/s41467-020-16164-1
+  why: public processed UMI (0.38 GB gzip) + author cell annotation with malignant labels
+  not_used:
+    normalized_log2TPM_matrix.txt.gz: 2.86 GB; UMI is sufficient
+    EGAD00001005054: controlled-access FASTQ; not a processed GEO supplement
+  malignant: author Cell_subtype in {Malignant cells, tS1, tS2, tS3}; not a marker proxy
+
+a10_taken_as_given: ELF3_CLDN4_bulk_RNA
+
+cldn4_high:
+  primary: within-sample median of CLDN4 log1p(CP10k) among author-malignant cells
+  min_malignant_per_sample: 20
+  sensitivity: global median among all author-malignant cells
+  hold_out_from_regulons: [CLDN4]
+
+focus_tfs: [ELF3, GRHL1, GRHL2, KLF4, KLF5, OVOL1, OVOL2, TFAP2A, SP1, TP63]
+# ELF3 is given (A10). Others are barrier / TJ-adjacent TFs, not a binding claim.
+control_tfs: [NKX2-1, SOX2, FOXA1]
+
+grn:
+  method: lightweight proxy
+  layers:
+    - public priors (TRRUST v2 + DoRothEA + CollecTRI); not ChIP
+    - Pearson co-expression in CLDN4-high malignant cells only
+    - high-specific = r_high >= 0.15 and r_low < 0.10
+  not_run: [pySCENIC_cisTarget, GRNBoost2_default, invented_ChIP]
+  pearson_top_n: 50
+  pearson_min_r: 0.10
+  auc_threshold: 0.05
+
+qc:
+  min_umi: 200
+  min_cells_per_sample: 20
+  min_samples_for_paired: 6
+  hvg_n: 4000
+  min_detection: 0.02
+  tf_min_detection_high: 0.05
+
+primary_output: CLDN4-high regulon table (not CLDN4-low regulons)
+primary_unit: sample (paired high vs low AUCell of public priors)
+cell_level: exploratory only (pseudoreplication)
+
+verdict_rules:
+  this_folder_is: descriptive regulon table + prior-AUCell high vs low
+  elf3_cldn4: given; do not call SUPPORT from rediscovering ELF3 RNA
+  underpowered: n_samples < 6
+  honest_n: report sample n as the claim; cell n is labeled as cells
