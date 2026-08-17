@@ -1,0 +1,12 @@
+field	public	n	note
+series_matrix_expression_rows	yes (empty table)	0	RNA-seq series matrix; 0 features
+supplementary_HUGO_samples	yes	29	GSE121810_Prins.PD1NeoAdjv.Jul2018.HUGO.PtID.xlsx
+supplementary_HUGO_genes	yes	37036	HUGO symbols; htseq-count GRCh38
+GEO_GSM	yes	29	GSM3447008–GSM3447036
+therapy_arm	yes	29	neoadjuvant(A)=14; adjuvant(B)=15
+CLDN4_row	yes	29	present on HUGO matrix
+CLDN4_CPM_ge_1	yes	3	median CPM 0.481; IQR 0.303–0.640
+CD274_row	yes	29	present; 27/29 CPM ≥ 1
+IFNG_usable	row present, floor	0	nonzero 6/29; max CPM 0.208
+RECIST_ORR	no	0	not a GEO characteristic; not recovered here
+OS_PFS	not used	0	prior B5 analog scored survival; this leftover does not

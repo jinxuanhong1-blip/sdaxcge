@@ -1,0 +1,48 @@
+test	subset	pair	note	n	rho	p	mwu_n_high	mwu_n_low	mwu_median_high	mwu_median_low	mwu_U	mwu_p	mwu_delta
+spearman	all	CLDN4 vs CD274	primary leftover	29	0.29408866995073885	0.12149603452915804							
+spearman	all	CLDN4 vs TNK	mean-z 16/16	29	-0.11527093596059108	0.5515506379858525							
+spearman	all	CLDN4 vs IFN	Ayers mean-z 6/6; IFNG floor	29	0.18571428571428567	0.3347772297340769							
+spearman	all	CLDN4 vs CD8A		29	-0.06009852216748767	0.7568009700963965							
+spearman	all	CLDN4 vs NKG7		29	-0.276142384161342	0.14705043459673192							
+spearman	all	CLDN4 vs PTPRC	CD45 / immune content	29	0.018719211822660092	0.9232187120998647							
+spearman	all	CLDN4 vs MHC	HLA-A/B/C 3/3	29	0.3812807881773398	0.04127423437283845							
+spearman	all	CLDN4 vs PDCD1	supporting	29	0.08719211822660097	0.6528920072716874							
+spearman	all	CLDN4 vs TACSTD2	companion; also floor	29	0.22671269387288787	0.23694461871000436							
+spearman	all	CLDN4 vs EPCAM	epithelial; floor in GBM	29	0.08646385088370298	0.6556135166277179							
+spearman	all	CLDN4 vs GFAP	glial content	29	0.028078817733990142	0.8850377440270284							
+spearman	all	CD274 vs TNK	immune-axis sanity	29	0.49901477832512303	0.005857648174153954							
+spearman	all	CD8A vs TNK	positive-control; CD8A is in TNK	29	0.9019704433497534	2.3781803866264707e-11							
+spearman	all	TNK vs IFN	immune-axis sanity	29	0.7118226600985219	1.490664177970978e-05							
+spearman	all	TNK vs PTPRC	immune-axis sanity	29	0.6729064039408865	6.347660319104095e-05							
+partial_spearman_|PTPRC	all	CLDN4 vs CD274	rank residual on PTPRC	29	0.34252751309588003	0.0689269084286088							
+partial_spearman_|PTPRC	all	CLDN4 vs TNK	rank residual on PTPRC	29	-0.17288744735402883	0.3697967740937455							
+partial_spearman_|PTPRC	all	CLDN4 vs IFN	rank residual on PTPRC	29	0.23645569347168216	0.21685077509893244							
+partial_spearman_|PTPRC	all	CLDN4 vs CD8A	rank residual on PTPRC	29	-0.10805401561871822	0.5768916245979555							
+partial_spearman_|PTPRC	all	CLDN4 vs NKG7	rank residual on PTPRC	29	-0.35600066592814106	0.05803640888341847							
+partial_spearman_|PTPRC	all	CLDN4 vs MHC	rank residual on PTPRC	29	0.47111184500565173	0.009892026763456374							
+partial_spearman_|GFAP	all	CLDN4 vs CD274	rank residual on GFAP	29	0.30238258475757995	0.11086160462377576							
+partial_spearman_|GFAP	all	CLDN4 vs TNK	rank residual on GFAP	29	-0.1394869858790682	0.4705044424405076							
+partial_spearman_|GFAP	all	CLDN4 vs IFN	rank residual on GFAP	29	0.185607972154269	0.33505891369699753							
+partial_spearman_|GFAP	all	CLDN4 vs CD8A	rank residual on GFAP	29	-0.07571419839783435	0.6962707333526643							
+partial_spearman_|GFAP	all	CLDN4 vs NKG7	rank residual on GFAP	29	-0.3062363390918289	0.10616315163184013							
+partial_spearman_|GFAP	all	CLDN4 vs MHC	rank residual on GFAP	29	0.389423223183164	0.03678890292801945							
+median_split_MWU	all	CLDN4-high vs low, CD274	high n=15 (>= median log2(CPM+1) 0.567); low n=14	29	0.38095238095238093	0.08472204560508317	15.0	14.0	1.9823873684807016	1.6252182858013782	145.0	0.08472204560508317	0.38095238095238093
+median_split_MWU	all	CLDN4-high vs low, TNK	high n=15 (>= median log2(CPM+1) 0.567); low n=14	29	-0.0380952380952381	0.8785934392551416	15.0	14.0	0.06115859084178827	-0.2707152585323808	101.0	0.8785934392551416	-0.0380952380952381
+median_split_MWU	all	CLDN4-high vs low, IFN	high n=15 (>= median log2(CPM+1) 0.567); low n=14	29	0.3238095238095238	0.1437248058279078	15.0	14.0	0.2814227248060362	-0.20348856707785085	139.0	0.1437248058279078	0.3238095238095238
+median_split_MWU	all	CLDN4-high vs low, CD8A	high n=15 (>= median log2(CPM+1) 0.567); low n=14	29	0.11428571428571428	0.615737058040257	15.0	14.0	2.13527362731847	2.008535274256521	117.0	0.615737058040257	0.11428571428571428
+median_split_MWU	all	CLDN4-high vs low, NKG7	high n=15 (>= median log2(CPM+1) 0.567); low n=14	29	-0.10952380952380952	0.631128919116478	15.0	14.0	1.042312554322355	1.1003390072710573	93.5	0.631128919116478	-0.10952380952380952
+median_split_MWU	all	CLDN4-high vs low, MHC	high n=15 (>= median log2(CPM+1) 0.567); low n=14	29	0.4095238095238095	0.0636173544421638	15.0	14.0	0.36424855859820077	-0.041858584607937836	148.0	0.0636173544421638	0.4095238095238095
+median_split_MWU	all	CLDN4-high vs low, PTPRC	high n=15 (>= median log2(CPM+1) 0.567); low n=14	29	0.01904761904761905	0.9478034802354203	15.0	14.0	4.924033103286105	4.423286865421325	107.0	0.9478034802354203	0.01904761904761905
+spearman	CLDN4_CPM_lt_1	CLDN4 vs CD274	CLDN4 CPM < 1 (floor-only)	26	0.3504273504273504	0.07924255927339348							
+spearman	CLDN4_CPM_lt_1	CLDN4 vs TNK	CLDN4 CPM < 1 (floor-only)	26	0.015384615384615384	0.9405389008858271							
+spearman	CLDN4_CPM_lt_1	CLDN4 vs IFN	CLDN4 CPM < 1 (floor-only)	26	0.28478632478632476	0.1585069342666499							
+spearman	CLDN4_CPM_lt_1	CLDN4 vs CD8A	CLDN4 CPM < 1 (floor-only)	26	0.04478632478632478	0.8280184325778592							
+spearman	CLDN4_CPM_ge_1	CLDN4 vs CD274	only 3 tumors have CLDN4 CPM ≥ 1; Spearman not run	3									
+spearman_arm	A_neoadjuvant	CLDN4 vs CD274	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	14	0.3406593406593406	0.23331605103682382							
+spearman_arm	A_neoadjuvant	CLDN4 vs TNK	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	14	-0.12967032967032965	0.6586192763211781							
+spearman_arm	A_neoadjuvant	CLDN4 vs IFN	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	14	0.06373626373626373	0.8286264229286121							
+spearman_arm	A_neoadjuvant	CLDN4 vs CD8A	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	14	-0.06373626373626373	0.8286264229286121							
+spearman_arm	B_adjuvant	CLDN4 vs CD274	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	15	0.2821428571428571	0.30828445682005545							
+spearman_arm	B_adjuvant	CLDN4 vs TNK	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	15	-0.15357142857142855	0.5847640949410159							
+spearman_arm	B_adjuvant	CLDN4 vs IFN	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	15	0.43214285714285705	0.1076930375463979							
+spearman_arm	B_adjuvant	CLDN4 vs CD8A	GEO therapy; A=on-treatment after 1 dose, B=pretreatment	15	0.039285714285714285	0.8894459296739486							
