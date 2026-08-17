@@ -32,6 +32,9 @@ pairs GSE131907 with GSE205335 (PR #320) are given and are not re-ranked.
 Stacked companion (not the combo): ρ=-0.172 p=0.253 n=46.
 
 Primary cut is **%pos**. Mean is the same patients, secondary.
+GSE131907 alone is CLDN4-negative vs T/NK (ρ=−0.522, p=0.015).
+GSE148071 is null (ρ=+0.069, p=0.74). The pair is heterogeneous
+(I²=76%); that is the combo, not a hidden single-cohort claim.
 
 ## Per-cohort malignant CLDN4 vs same-patient T/NK
 
