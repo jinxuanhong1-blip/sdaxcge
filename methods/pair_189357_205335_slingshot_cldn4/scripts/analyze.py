@@ -219,7 +219,11 @@ def run_r_slingshot(emb: pd.DataFrame, clusters: pd.Series, start: str, work: Pa
     if rscript is None:
         return None
     probe = subprocess.run(
-        [rscript, "-e", 'if (nzchar(Sys.getenv("R_LIBS_USER"))) .libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths())); cat(as.character(packageVersion("slingshot")))'],
+        [
+            rscript,
+            "-e",
+            'if (nzchar(Sys.getenv("R_LIBS_USER"))) .libPaths(c(Sys.getenv("R_LIBS_USER"), .libPaths())); suppressPackageStartupMessages(library(slingshot)); cat(as.character(packageVersion("slingshot")))',
+        ],
         capture_output=True,
         text=True,
     )
@@ -498,7 +502,7 @@ def main() -> None:
         missing[name] = [g for g in genes if g not in present]
         score_genes(adata, genes, f"score_{name}")
 
-    sc.pp.highly_variable_genes(adata, n_top_genes=N_HVG, flavor="seurat_v3", layer="counts", span=0.3)
+    sc.pp.highly_variable_genes(adata, n_top_genes=N_HVG, flavor="seurat")
     adata.raw = adata
     sc.pp.scale(adata, max_value=10)
     sc.tl.pca(adata, n_comps=N_PCS, svd_solver="arpack", use_highly_variable=True)
@@ -506,7 +510,13 @@ def main() -> None:
         import harmonypy as hm
 
         ho = hm.run_harmony(adata.obsm["X_pca"], adata.obs, "dataset", max_iter_harmony=20)
-        adata.obsm["X_pca_harmony"] = np.array(ho.Z_corr).T
+        z = np.asarray(ho.Z_corr)
+        if z.shape[0] == adata.n_obs:
+            adata.obsm["X_pca_harmony"] = z
+        elif z.shape[1] == adata.n_obs:
+            adata.obsm["X_pca_harmony"] = z.T
+        else:
+            raise ValueError(f"Harmony Z_corr shape {z.shape} vs n_obs={adata.n_obs}")
         use_rep = "X_pca_harmony"
         batch_engine = "harmonypy"
     except Exception as exc:  # noqa: BLE001
@@ -813,9 +823,9 @@ def main() -> None:
 
     fig, axes = plt.subplots(2, 3, figsize=(12.5, 7.5))
     sc.pl.umap(adata, color="dataset", ax=axes[0, 0], show=False, frameon=False, title="dataset")
-    sc.pl.umap(adata, color="score_AT2", ax=axes[0, 1], show=False, frameon=False, cmap="Cividis", title="AT2 score")
+    sc.pl.umap(adata, color="score_AT2", ax=axes[0, 1], show=False, frameon=False, cmap="cividis", title="AT2 score")
     sc.pl.umap(adata, color="score_barrier_keratin", ax=axes[0, 2], show=False, frameon=False, cmap="plasma", title="barrier (no CLDN4)")
-    sc.pl.umap(adata, color="score_IFN", ax=axes[1, 0], show=False, frameon=False, cmap="mako" if False else "cividis", title="IFN")
+    sc.pl.umap(adata, color="score_IFN", ax=axes[1, 0], show=False, frameon=False, cmap="cividis", title="IFN")
     sc.pl.umap(adata, color="leiden", ax=axes[1, 1], show=False, frameon=False, title="Leiden", legend_loc="on data")
     sc.pl.umap(adata, color="author_subtype", ax=axes[1, 2], show=False, frameon=False, title="author/marker subtype")
     savefig(figs / "fig_extra_umaps")

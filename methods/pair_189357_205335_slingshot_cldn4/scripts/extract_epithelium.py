@@ -231,9 +231,14 @@ def extract_gse189357(tar_path: Path, scratch: Path, cap: int) -> "ad.AnnData":
     pieces = [p[:, shared].copy() for p in pieces]
     out = ad.concat(pieces, axis=0, join="inner", merge="same")
     out.obs = _sanitize_obs(out.obs)
+    if out.X is None:
+        if "counts" in out.layers:
+            out.X = out.layers["counts"].copy()
+        else:
+            raise SystemExit("GSE189357 concat produced empty X")
     out.layers["counts"] = out.X.copy()
-    out.uns["gse189357_catalog"] = catalog_rows
     print(f"GSE189357 written cells={out.n_obs} genes={out.n_vars} units={out.obs['unit_id'].nunique()}", flush=True)
+    print(json.dumps({"GSE189357_catalog": catalog_rows}, indent=2), flush=True)
     return out
 
 
@@ -334,7 +339,6 @@ def extract_gse205335(data: Path, cap: int) -> "ad.AnnData":
     adata.obs["malig_def"] = "author_lineage_total_epithelial"
     adata.obs_names = "GSE205335:" + adata.obs_names.astype(str)
     adata.layers["counts"] = adata.X.copy()
-    adata.uns["gse205335_catalog"] = catalog
     print(f"GSE205335 written cells={adata.n_obs} genes={adata.n_vars}", flush=True)
     return adata
 
@@ -377,6 +381,11 @@ def concat_shared(a, b):
         frame.obs = _sanitize_obs(frame.obs[cols])
     out = ad.concat([a2, b2], axis=0, join="inner", merge="same")
     out.obs = _sanitize_obs(out.obs)
+    if out.X is None:
+        if "counts" in out.layers:
+            out.X = out.layers["counts"].copy()
+        else:
+            raise SystemExit("joint concat produced empty X")
     out.layers["counts"] = out.X.copy()
     return out, int(len(shared))
 
@@ -396,7 +405,14 @@ def main() -> None:
     if cache_a.is_file():
         print(f"reuse {cache_a}", flush=True)
         a = ad.read_h5ad(cache_a)
+        if a.X is None and "counts" in a.layers:
+            a.X = a.layers["counts"].copy()
+        if a.X is None:
+            cache_a.unlink()
+            a = None
     else:
+        a = None
+    if a is None:
         tar189 = args.data / "gse189357" / "GSE189357_RAW.tar"
         if not tar189.exists():
             raise SystemExit(f"missing {tar189}; run download.py")

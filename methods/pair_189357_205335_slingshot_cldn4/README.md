@@ -7,6 +7,8 @@ ADDITIVE. **CLDN4 only.** The PR #459 pair that already differs (malignant CLDN4
 - Programs along pseudotime: CLDN4, barrier/keratin (CLDN4 held out), IFN (Hallmark IFNα∩IFNγ).
 - Inferential unit = patient (9 + 22). Done when `results/tables/lineage_table.tsv` exists.
 
+R 4.3 + Bioconductor `slingshot` 2.10.0 is the clock (`scripts/run_slingshot.R`). If R slingshot is missing, analyze.py falls back to a Street MST+polyline engine and says so.
+
 ```bash
 pip install -r methods/pair_189357_205335_slingshot_cldn4/requirements.txt
 python3 methods/pair_189357_205335_slingshot_cldn4/scripts/download.py
