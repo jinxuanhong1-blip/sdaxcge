@@ -1,0 +1,188 @@
+{
+  "accession": "GSE136961",
+  "public": true,
+  "public_on": "2020-02-03",
+  "pmid": "31959763",
+  "platform": "GPL24014 Oncomine Immune Response Research Assay",
+  "n_samples": 21,
+  "n_genes_tpm": 393,
+  "n_unique_genes_raw": 395,
+  "n_targets_raw": 398,
+  "sample_ids": [
+    "D06",
+    "D01",
+    "N10",
+    "N09",
+    "D08",
+    "N04",
+    "D07",
+    "N03",
+    "N06",
+    "D03",
+    "N05",
+    "N08",
+    "D05",
+    "D09",
+    "N07",
+    "D04",
+    "D02",
+    "N11",
+    "N12",
+    "N01",
+    "N02"
+  ],
+  "n_title_D": 9,
+  "n_title_N": 12,
+  "title_D": [
+    "D01",
+    "D02",
+    "D03",
+    "D04",
+    "D05",
+    "D06",
+    "D07",
+    "D08",
+    "D09"
+  ],
+  "title_N": [
+    "N01",
+    "N02",
+    "N03",
+    "N04",
+    "N05",
+    "N06",
+    "N07",
+    "N08",
+    "N09",
+    "N10",
+    "N11",
+    "N12"
+  ],
+  "author_dcb_ndb": {
+    "DCB": 9,
+    "NDB": 12
+  },
+  "cldn_family_on_panel": [],
+  "tacstd_trop_on_panel": [],
+  "presence": [
+    {
+      "query": "CLDN4",
+      "in_tpm": false,
+      "in_raw": false,
+      "tpm_ids": [],
+      "raw_ids": []
+    },
+    {
+      "query": "TACSTD2",
+      "in_tpm": false,
+      "in_raw": false,
+      "tpm_ids": [],
+      "raw_ids": []
+    },
+    {
+      "query": "TROP2",
+      "in_tpm": false,
+      "in_raw": false,
+      "tpm_ids": [],
+      "raw_ids": []
+    },
+    {
+      "query": "CD274",
+      "in_tpm": true,
+      "in_raw": true,
+      "tpm_ids": [
+        "CD274_461569"
+      ],
+      "raw_ids": [
+        "CD274_461569"
+      ]
+    },
+    {
+      "query": "CD8A",
+      "in_tpm": true,
+      "in_raw": true,
+      "tpm_ids": [
+        "CD8A_14271531"
+      ],
+      "raw_ids": [
+        "CD8A_14271531"
+      ]
+    },
+    {
+      "query": "CD8B",
+      "in_tpm": true,
+      "in_raw": true,
+      "tpm_ids": [
+        "CD8B_403510"
+      ],
+      "raw_ids": [
+        "CD8B_403510"
+      ]
+    },
+    {
+      "query": "PDCD1",
+      "in_tpm": true,
+      "in_raw": true,
+      "tpm_ids": [
+        "PDCD1_143244"
+      ],
+      "raw_ids": [
+        "PDCD1_143244"
+      ]
+    },
+    {
+      "query": "PDCD1LG2",
+      "in_tpm": true,
+      "in_raw": true,
+      "tpm_ids": [
+        "PDCD1LG2_315423"
+      ],
+      "raw_ids": [
+        "PDCD1LG2_315423"
+      ]
+    },
+    {
+      "query": "CLDN3",
+      "in_tpm": false,
+      "in_raw": false,
+      "tpm_ids": [],
+      "raw_ids": []
+    },
+    {
+      "query": "CLDN7",
+      "in_tpm": false,
+      "in_raw": false,
+      "tpm_ids": [],
+      "raw_ids": []
+    },
+    {
+      "query": "CLDN18",
+      "in_tpm": false,
+      "in_raw": false,
+      "tpm_ids": [],
+      "raw_ids": []
+    }
+  ],
+  "cldn4_n": 0,
+  "tests": {
+    "CLDN4_vs_response": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited Oncomine Immune Response panel"
+    },
+    "CLDN4_vs_CD8": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited Oncomine Immune Response panel"
+    },
+    "CLDN4_vs_CD274": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited Oncomine Immune Response panel"
+    }
+  },
+  "ftp": {
+    "tpm": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE136nnn/GSE136961/suppl/GSE136961_TPM.tsv.gz",
+    "raw": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE136nnn/GSE136961/suppl/GSE136961_raw_count.tsv.gz"
+  }
+}
