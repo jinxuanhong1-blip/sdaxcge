@@ -1,0 +1,7 @@
+contrast	compartment	cohort	split	n_low	n_high	n	n_genes	patients_q1	patients_q4
+malignant_q4q1_GSE131907	malignant	GSE131907	q4q1	6.0	5.0	11	15738	EBUS_13,EBUS_15,EBUS_49,NS_02,NS_06,NS_16	EBUS_19,EBUS_28,NS_03,NS_04,NS_07
+malignant_continuous_GSE131907	malignant	GSE131907	continuous			21	17372		
+malignant_q4q1_GSE189357	malignant	GSE189357	q4q1	3.0	2.0	5	0	TD2,TD4,TD7	TD6,TD9
+malignant_continuous_GSE189357	malignant	GSE189357	continuous			9	15607		
+malignant_q4q1_combined	malignant	GSE131907+GSE189357	q4q1	9.0	7.0	16	15004	EBUS_13,EBUS_15,EBUS_49,NS_02,NS_06,NS_16,TD2,TD4,TD7	EBUS_19,EBUS_28,NS_03,NS_04,NS_07,TD6,TD9
+malignant_continuous_combined	malignant	GSE131907+GSE189357	continuous			30	15846		

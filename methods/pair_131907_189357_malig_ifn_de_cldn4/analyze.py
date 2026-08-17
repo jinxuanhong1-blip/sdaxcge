@@ -764,7 +764,19 @@ Per-cohort family scores (GSE189357 Q4 vs Q1 skipped when n_Q4 < 3):
 
 {score_md_cohorts("q4q1")}
 
+Per-cohort continuous family scores (GSE189357 n=9 is thin):
+
+{score_md_cohorts("continuous")}
+
 {cldn4_txt}
+
+Directions on the combined Q4 vs Q1 split match the thesis (IFN / MHC-I/APM /
+chemokine down, TJ / keratin up). Family-score p is thin except chemokine.
+TJ is a trend on the binary split and is the family that is up on the
+continuous n=30 score (GSE131907 carries that TJ up). GSE189357 continuous
+TJ is slightly down — an honest thin-n (n=9) limitation, not a second
+independent TJ-up call. IFN is null on GSE131907 alone and flips slightly
+positive on the continuous combined score. Keratin is up but not a claim.
 
 ## Gene-level family members (combined Q4 vs Q1)
 
