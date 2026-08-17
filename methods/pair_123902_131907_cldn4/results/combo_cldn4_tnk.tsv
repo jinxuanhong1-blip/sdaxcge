@@ -1,0 +1,4 @@
+cohort	assay	n	rho	ci95_lo	ci95_hi	p	malignant_def
+GSE123902	scRNA GEO dense UMI CSVs; marker epithelial in tumor vs T/NK	13	-0.13186813186813187	-0.6366065231917233	0.45196411281655274	0.6676075762175145	marker epithelial (EPCAM/KRT*) in PRIMARY/METASTASIS; not CNV; author H5 36.5GB skipped
+GSE131907	scRNA GEO raw UMI + author annotation	31	-0.3266129032258065	-0.6103237647144526	0.031362925098087364	0.07292192572278504	author Cell_subtype in {Malignant cells, tS1, tS2, tS3} at tLung/tL-B/mLN/mBrain
+RE_combo	Fisher-z DerSimonian-Laird	44	-0.27726645831858393	-0.5389484774017027	0.03322331096114909	0.07923838145351357	I2=0.0%
