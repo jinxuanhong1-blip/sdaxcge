@@ -1,0 +1,49 @@
+{
+  "cohort": "CPTAC-LSCC",
+  "synonym": "LUSC",
+  "n_tumor": 108,
+  "cldn4_protein_n": 78,
+  "tacstd2_protein_n": 108,
+  "tj15_protein_genes_used": [
+    "CLDN1",
+    "CLDN3",
+    "CLDN4",
+    "CLDN7",
+    "OCLN",
+    "TJP1",
+    "TJP2",
+    "TJP3",
+    "F11R",
+    "JAM2",
+    "JAM3",
+    "MARVELD2",
+    "MARVELD3",
+    "CGN",
+    "CGNL1"
+  ],
+  "tj15_protein_n": 108,
+  "wes_purity_n": 107,
+  "wes_purity_column": "WES_purity",
+  "phenotype_columns": {
+    "ImmuneScore": "ESTIMATE_ImmuneScore",
+    "StromalScore": "ESTIMATE_StromalScore",
+    "ESTIMATEScore": "ESTIMATE_ESTIMATEScore",
+    "CD8_CIBERSORT": "CIBERSORT_T_cell_CD8+",
+    "CD8_xCell": "xCell_T_cell_CD8+",
+    "Immune_xCell": "xCell_immune_score",
+    "WES_purity": "WES_purity",
+    "WGS_purity": "WGS_purity"
+  },
+  "luad_given": {
+    "predictor": "TJ-15 protein",
+    "endpoint": "ESTIMATE ImmuneScore",
+    "cohort": "CPTAC LUAD",
+    "n": 110,
+    "rho": -0.296,
+    "p": 0.00167,
+    "source": "PR #245"
+  },
+  "seed": 20260817,
+  "n_boot": 2000,
+  "written_at_utc": "2026-08-17T13:05:15.202544+00:00"
+}
