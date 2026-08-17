@@ -1,0 +1,9 @@
+n_pairwise	rho	p	tested	note	cohort	source	predictor	endpoint	predictor_row_present	endpoint_row_present	n_predictor_observed	n_endpoint_observed	n_tumors
+37	-0.20341394025604548	0.2272301235369922	True	Spearman on pairwise-complete protein values	LUAD	freeze_v1.2	CLDN4_protein	CXCL9_protein	True	True	79	45	110
+71	0.013648558014755197	0.9100553782882513	True	Spearman on pairwise-complete protein values	LUAD	freeze_v1.2	CLDN4_protein	CXCL10_protein	True	True	79	80	110
+63	-0.2783698156682028	0.027166883382315984	True	Spearman on pairwise-complete protein values	LSCC	freeze_v1.2	CLDN4_protein	CXCL9_protein	True	True	78	88	108
+73	-0.10776872763174135	0.3641261363667969	True	Spearman on pairwise-complete protein values	LSCC	freeze_v1.2	CLDN4_protein	CXCL10_protein	True	True	78	98	108
+0			False	no pairwise-complete tumors (protein missing)	LUAD	linkedomics_NArm	CLDN4_protein	CXCL9_protein	False	False	0	0	110
+0			False	no pairwise-complete tumors (protein missing)	LUAD	linkedomics_NArm	CLDN4_protein	CXCL10_protein	False	True	0	55	110
+0			False	no pairwise-complete tumors (protein missing)	LSCC	linkedomics_NArm	CLDN4_protein	CXCL9_protein	False	True	0	59	108
+0			False	no pairwise-complete tumors (protein missing)	LSCC	linkedomics_NArm	CLDN4_protein	CXCL10_protein	False	True	0	88	108
