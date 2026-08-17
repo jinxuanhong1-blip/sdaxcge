@@ -83,10 +83,14 @@ def cap_barcodes(
     keep_idx: list[int] = []
     for _, sub in frame.groupby(unit_col, observed=True):
         if protect is not None:
-            prot = sub.index[protect.loc[sub.index].to_numpy()]
+            prot = pd.Index(sub.index[protect.loc[sub.index].to_numpy()])
         else:
-            prot = sub.index[:0]
-        prot = pd.Index(prot)
+            prot = pd.Index(sub.index[:0])
+        # Leftover is protected for the DPT root, but one leftover-heavy
+        # patient must not exceed the cap (P07 leftover would otherwise dominate).
+        max_prot = min(len(prot), max(50, cap // 4))
+        if len(prot) > max_prot:
+            prot = pd.Index(rng.choice(prot.to_numpy(), size=max_prot, replace=False))
         rest = sub.index.difference(prot)
         n_rest = max(0, cap - len(prot))
         if len(rest) > n_rest:

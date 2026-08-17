@@ -192,42 +192,70 @@ def _paga_components(connect: np.ndarray, thresh: float = 0.0) -> list[set[int]]
     return comps
 
 
-def _pick_root(adata, dataset: str) -> tuple[int, dict]:
-    """Leftover AT2-like epithelium. Never CLDN4-high."""
-    leftover = adata.obs["is_leftover"].astype(str).eq("True")
+def _pick_root(adata, dataset: str, connect: np.ndarray, leiden_ids: list[str]) -> tuple[int, dict]:
+    """Leftover AT2-like epithelium in the giant PAGA component. Never CLDN4-high."""
+    leftover = adata.obs["is_leftover"].astype(str).eq("True").to_numpy()
+    cldn = adata.obs["expr_CLDN4"].to_numpy()
+    at2 = adata.obs["score_AT2"].to_numpy()
+    leiden = adata.obs["leiden"].astype(str).to_numpy()
+    comps = _paga_components(connect, thresh=0.0)
+    leiden_to_comp: dict[str, int] = {}
+    for ci, members in enumerate(comps):
+        for v in members:
+            leiden_to_comp[leiden_ids[v]] = ci
+    comp = np.array([leiden_to_comp.get(x, -1) for x in leiden], dtype=int)
+    sizes = pd.Series(comp).value_counts()
+    giant = int(sizes.index[0])
+    in_giant = comp == giant
     info = {
         "n_leftover": int(leftover.sum()),
+        "n_leftover_giant": int((leftover & in_giant).sum()),
+        "n_paga_components": int(len(comps)),
+        "giant_component_cells": int(in_giant.sum()),
         "rule": None,
         "dataset": dataset,
         "never_cldn4_high": True,
+        "giant_component": giant,
     }
-    if int(leftover.sum()) >= 20:
-        idx = np.flatnonzero(leftover.to_numpy())
-        scores = adata.obs.loc[leftover, "score_AT2"].to_numpy()
-        med = np.nanmedian(scores)
-        pick = idx[int(np.nanargmin(np.abs(scores - med)))]
-        info["rule"] = f"{dataset} leftover epithelium (median AT2 score)"
+    pool = leftover & in_giant
+    if pool.sum() < 8:
+        # largest leftover-containing component
+        left_comp = pd.Series(comp[leftover]).value_counts()
+        if len(left_comp):
+            use = int(left_comp.index[0])
+            pool = leftover & (comp == use)
+            info["fallback_component"] = use
+    idx = np.flatnonzero(pool)
+    if idx.size >= 3:
+        cut = float(np.nanquantile(cldn[idx], 2.0 / 3.0))
+        low = pool & (cldn <= cut) & np.isfinite(cldn)
+        cand = np.flatnonzero(low)
+        if cand.size < 5:
+            cand = idx
+        target = float(np.nanquantile(at2[cand], 0.8))
+        if not np.isfinite(target) or target <= 0:
+            pick = cand[int(np.nanargmax(at2[cand]))]
+            at2_rule = "max AT2 (80th percentile was 0)"
+        else:
+            pick = cand[int(np.nanargmin(np.abs(at2[cand] - target)))]
+            at2_rule = f"AT2 ~80th percentile ({target:.3f})"
+        info["rule"] = (
+            f"{dataset} leftover in giant PAGA component, "
+            f"CLDN4≤leftover tertile-2 (cut={cut:.3f}), {at2_rule}"
+        )
+        info["leftover_cldn4_cut"] = cut
         return int(pick), info
-    if int(leftover.sum()) >= 5:
-        idx = np.flatnonzero(leftover.to_numpy())
-        scores = adata.obs.loc[leftover, "score_AT2"].to_numpy()
-        pick = idx[int(np.nanargmax(scores))]
-        info["rule"] = f"{dataset} leftover epithelium (max AT2; leftover n<20)"
-        return int(pick), info
-    if "leiden" not in adata.obs:
-        raise SystemExit("leiden missing before root pick")
     means = (
         adata.obs.groupby("leiden", observed=True)["score_AT2"]
         .mean()
         .sort_values(ascending=False)
     )
     top = str(means.index[0])
-    cand = adata.obs["leiden"].astype(str) == top
-    # among that cluster, pick high AT2 AND low CLDN4
-    scores = adata.obs.loc[cand, "score_AT2"].to_numpy() - 0.25 * adata.obs.loc[cand, "expr_CLDN4"].to_numpy()
-    idx = np.flatnonzero(cand.to_numpy())
-    pick = idx[int(np.nanargmax(scores))]
-    info["rule"] = f"{dataset} Leiden {top} max AT2-minus-CLDN4 (leftover n<5)"
+    cand = leiden == top
+    scores = at2 - 0.5 * cldn
+    ix = np.flatnonzero(cand)
+    pick = ix[int(np.nanargmax(scores[ix]))]
+    info["rule"] = f"{dataset} Leiden {top} max AT2-minus-CLDN4 (leftover in giant n<3)"
     info["fallback_cluster"] = top
     return int(pick), info
 
@@ -261,7 +289,11 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
     adata.var["n_cells"] = np.array((adata.X > 0).sum(axis=0)).ravel()
     adata.obs["n_genes"] = np.array((adata.X > 0).sum(axis=1)).ravel()
     adata.obs["n_umi"] = np.array(adata.X.sum(axis=1)).ravel()
-    sc.pp.filter_genes(adata, min_cells=MIN_CELLS_PER_GENE)
+    must_keep = set(FOCAL + COMPARATOR + CONTROLS + QC_NEG)
+    for genes in STATES.values():
+        must_keep.update(genes)
+    keep_genes = (adata.var["n_cells"] >= MIN_CELLS_PER_GENE) | adata.var_names.isin(must_keep)
+    adata = adata[:, keep_genes].copy()
     keep = (adata.obs["n_genes"] >= MIN_GENES) & (adata.obs["n_umi"] >= MIN_UMI)
     adata = adata[keep].copy()
 
@@ -298,7 +330,9 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
     sc.tl.diffmap(adata, n_comps=15)
     sc.tl.umap(adata)
 
-    root_i, root_info = _pick_root(adata, dataset)
+    connect_for_root = np.asarray(adata.uns["paga"]["connectivities"].todense())
+    leiden_ids_for_root = [str(x) for x in adata.obs["leiden"].cat.categories]
+    root_i, root_info = _pick_root(adata, dataset, connect_for_root, leiden_ids_for_root)
     adata.uns["iroot"] = root_i
     sc.tl.dpt(adata, n_dcs=10)
     root_info["index"] = root_i
@@ -368,6 +402,7 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
         )
     patient_df = pd.DataFrame(rows)
     patient_df["eligible_spearman"] = patient_df["n_epi_cells"] >= MIN_CELLS_PER_SAMPLE
+    patient_df["eligible_dpt"] = patient_df["eligible_spearman"] & np.isfinite(patient_df["mean_dpt"])
     patient_df["eligible_malignant"] = patient_df["n_malignant"] >= MIN_CELLS_MALIGNANT
 
     if dataset == "GSE205335":
@@ -390,20 +425,21 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
         patient_df["outcome_scheme"] = "MPR_vs_NMPR"
 
     # within-dataset rank / z so stacked DPT is not raw-scale
-    elig_mask = patient_df["eligible_spearman"]
+    elig_mask = patient_df["eligible_dpt"]
     ranks = patient_df.loc[elig_mask, "mean_dpt"].rank(method="average")
     patient_df["dpt_rank"] = np.nan
     patient_df.loc[elig_mask, "dpt_rank"] = ranks
     mu = patient_df.loc[elig_mask, "mean_dpt"].mean()
     sd = patient_df.loc[elig_mask, "mean_dpt"].std(ddof=1)
-    patient_df["dpt_z"] = np.where(elig_mask, (patient_df["mean_dpt"] - mu) / (sd if sd else 1.0), np.nan)
-    cldn_ranks = patient_df.loc[elig_mask, "mean_CLDN4"].rank(method="average")
+    patient_df["dpt_z"] = np.where(elig_mask, (patient_df["mean_dpt"] - mu) / (sd if sd and sd == sd else 1.0), np.nan)
+    cldn_ranks = patient_df.loc[patient_df["eligible_spearman"], "mean_CLDN4"].rank(method="average")
     patient_df["cldn4_rank"] = np.nan
-    patient_df.loc[elig_mask, "cldn4_rank"] = cldn_ranks
+    patient_df.loc[patient_df["eligible_spearman"], "cldn4_rank"] = cldn_ranks
 
     patient_df.to_csv(tabdir / f"{dataset.lower()}_patient_means.tsv", sep="\t", index=False)
 
     elig = patient_df[patient_df["eligible_spearman"]].copy()
+    elig_dpt = patient_df[patient_df["eligible_dpt"]].copy()
     malig = patient_df[patient_df["eligible_malignant"]].copy()
     contrasts = [
         ("CLDN4 vs DPT", "mean_CLDN4", "mean_dpt"),
@@ -418,7 +454,8 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
     ]
     primary = []
     for name, a, b in contrasts:
-        primary.append({"dataset": dataset, "contrast": name, **_spearman(elig[a], elig[b])})
+        frame = elig_dpt if "DPT" in name else elig
+        primary.append({"dataset": dataset, "contrast": name, **_spearman(frame[a], frame[b])})
     qs = _bh([r["p"] if r["p"] is not None else 1.0 for r in primary])
     for r, q in zip(primary, qs):
         r["q"] = None if r["p"] is None else q
@@ -447,18 +484,22 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
 
     # outcome tests
     if dataset == "GSE205335":
-        ben = elig[elig["benefit_label"] == "PR"]
-        nben = elig[elig["benefit_label"] == "PD"]
+        ben = elig_dpt[elig_dpt["benefit_label"] == "PR"]
+        nben = elig_dpt[elig_dpt["benefit_label"] == "PD"]
+        ben_c = elig[elig["benefit_label"] == "PR"]
+        nben_c = elig[elig["benefit_label"] == "PD"]
         a_lab, b_lab = "PR", "PD"
-        extra_sd = elig[elig["benefit_label"].isin(["PR", "PD", "SD"])]
+        extra_sd = elig_dpt[elig_dpt["benefit_label"].isin(["PR", "PD", "SD"])]
         extra_rnr = (
             extra_sd.assign(
                 rnr=np.where(extra_sd["benefit_label"].eq("PR"), "R", "NR")
             )
         )
     else:
-        ben = elig[elig["benefit_label"] == "MPR"]
-        nben = elig[elig["benefit_label"] == "NMPR"]
+        ben = elig_dpt[elig_dpt["benefit_label"] == "MPR"]
+        nben = elig_dpt[elig_dpt["benefit_label"] == "NMPR"]
+        ben_c = elig[elig["benefit_label"] == "MPR"]
+        nben_c = elig[elig["benefit_label"] == "NMPR"]
         a_lab, b_lab = "MPR", "NMPR"
         extra_rnr = None
 
@@ -475,7 +516,7 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
             "dataset": dataset,
             "contrast": f"CLDN4 {a_lab} vs {b_lab}",
             "scheme": patient_df["outcome_scheme"].iloc[0],
-            **_mwu(ben["mean_CLDN4"], nben["mean_CLDN4"]),
+            **_mwu(ben_c["mean_CLDN4"], nben_c["mean_CLDN4"]),
             "label_a": a_lab,
             "label_b": b_lab,
         },
@@ -543,10 +584,13 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
     axes[0].tick_params(axis="x", rotation=60, labelsize=7)
     axes[0].set_ylabel("epithelial cells in object")
     axes[0].set_title(f"{dataset} cells/patient (not n)")
-    lab_order = sorted(elig["benefit_label"].unique())
-    for lab in lab_order:
-        sub = elig[elig["benefit_label"] == lab]
-        axes[1].scatter(np.repeat(lab, len(sub)), sub["mean_dpt"], s=48)
+    preferred = ["PR", "PD", "SD", "NE", "MPR", "NMPR", "TN"]
+    present = set(elig["benefit_label"].astype(str))
+    lab_order = [x for x in preferred if x in present] + sorted(present - set(preferred))
+    for i, lab in enumerate(lab_order):
+        sub = elig[elig["benefit_label"].astype(str) == lab]
+        axes[1].scatter(np.full(len(sub), i, dtype=float), sub["mean_dpt"].to_numpy(), s=48, label=lab)
+    axes[1].set_xticks(range(len(lab_order)), lab_order)
     axes[1].set_ylabel("patient-mean DPT")
     axes[1].set_title("DPT by outcome label")
     _save(fig, figdir / f"fig_{dataset.lower()}_honest_n")
@@ -569,6 +613,7 @@ def run_paga_dpt(adata, dataset: str, figdir: Path, tabdir: Path) -> dict:
         "n_cells": int(adata.n_obs),
         "n_patients": int(len(patient_df)),
         "n_eligible": int(len(elig)),
+        "n_eligible_dpt": int(len(elig_dpt)),
         "n_malignant_eligible": int(len(malig)),
         "lineage_counts": {
             "malignant": int(adata.obs["is_malignant"].astype(str).eq("True").sum()),
@@ -630,8 +675,8 @@ def write_finding(path: Path, ctx: dict) -> None:
         "Harmony was **not** forced. Raw DPT is not commensurate across datasets; "
         "the stacked DPT tests use within-dataset rank / z.",
         "",
-        "Root is leftover (non-malignant / A3-normal-lung) epithelium at median AT2 score. "
-        "**Root is not CLDN4-high.** Barrier/keratin excludes CLDN4.",
+        "Root is leftover (non-malignant / A3-normal-lung) epithelium in the giant PAGA "
+        "component, high AT2, **not CLDN4-high.** Barrier/keratin excludes CLDN4.",
         "",
         "## Verdict",
         "",
@@ -644,7 +689,8 @@ def write_finding(path: Path, ctx: dict) -> None:
         f"- GEO patients / samples: **26 / 33**. Catalog, not the test n.",
         f"- Tumor-tissue epithelium in the object: **n_cells = {a['n_cells']}** in **{a['n_patients']}** patients "
         f"(normal LN/lung/brain dropped; 4 normal-only patients never enter).",
-        f"- Patients with ≥{MIN_CELLS_PER_SAMPLE} epithelial cells (Spearman / DPT): **n = {a['n_eligible']}**.",
+        f"- Patients with ≥{MIN_CELLS_PER_SAMPLE} epithelial cells (program Spearman): **n = {a['n_eligible']}**.",
+        f"- Patients with finite leftover-rooted DPT: **n = {a['n_eligible_dpt']}**.",
         f"- Patients with ≥{MIN_CELLS_MALIGNANT} author malignant cells: **n = {a['n_malignant_eligible']}**.",
         f"- RECIST on eligible patients: {a['benefit_counts']}.",
         f"- Primary outcome contrast is **PR vs PD** (SD and NE excluded). "
@@ -661,7 +707,14 @@ def write_finding(path: Path, ctx: dict) -> None:
         f"- GEO samples: **15** (3 pre-treatment TN + 12 post-surgery). Catalog, not the test n.",
         f"- Post-treatment epithelium in the object: **n_cells = {b['n_cells']}** in **{b['n_patients']}** patients. "
         "The 3 pre-biopsies are out of the graph.",
-        f"- Patients with ≥{MIN_CELLS_PER_SAMPLE} epithelial cells: **n = {b['n_eligible']}**.",
+        f"- Patients with ≥{MIN_CELLS_PER_SAMPLE} epithelial cells (program Spearman): **n = {b['n_eligible']}**.",
+        f"- Patients with finite leftover-rooted DPT: **n = {b['n_eligible_dpt']}**. "
+        + (
+            "Root was placed in the giant PAGA component so DPT is defined for every eligible patient; "
+            f"PAGA still has {b['n_paga_components']} component(s)."
+            if b["n_eligible_dpt"] == b["n_eligible"]
+            else "Disconnected PAGA components leave DPT undefined off the root component; that n is reported, not patched by Harmony."
+        ),
         f"- Patients with ≥{MIN_CELLS_MALIGNANT} A3-malignant-like cells: **n = {b['n_malignant_eligible']}**. "
         "A3 empties some MPR residuals (normal-lung program); that is reported, not patched.",
         f"- Pathologic response on eligible patients: {b['benefit_counts']} (pCR P06 = MPR).",
@@ -685,7 +738,7 @@ def write_finding(path: Path, ctx: dict) -> None:
         "",
         f"- Leiden resolution {LEIDEN_RES}; HVG {N_HVG}; neighbors {N_NEIGHBORS}; PCs {N_PCS}.",
         "- Batch: none (per-dataset PCA/neighbors). Harmony not forced.",
-        "- DPT root: leftover epithelium, median AT2 score. Never CLDN4-high.",
+        "- DPT root: leftover epithelium in the giant PAGA component, not CLDN4-high, high AT2.",
         "- Barrier/keratin genes: KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR (**CLDN4 out**).",
         "- GSE205335 malignant = author `Malignant cells`. GSE207422 malignant-like = epithelial AND zero UMI of SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3.",
         "",
@@ -834,7 +887,8 @@ def main() -> None:
     per_out = pd.DataFrame(runs["GSE205335"]["outcome"] + runs["GSE207422"]["outcome"])
     per_out.to_csv(tabdir / "per_dataset_dpt_vs_benefit.tsv", sep="\t", index=False)
 
-    elig = stacked_df[stacked_df["eligible_spearman"]].copy()
+    elig_all = stacked_df[stacked_df["eligible_spearman"]].copy()
+    elig = stacked_df[stacked_df["eligible_dpt"]].copy()
     c4_205 = next(r for r in runs["GSE205335"]["primary_spearman"] if r["contrast"] == "CLDN4 vs DPT")
     c4_207 = next(r for r in runs["GSE207422"]["primary_spearman"] if r["contrast"] == "CLDN4 vs DPT")
     stacked_rank = {"contrast": "stacked CLDN4 vs DPT rank (within dataset)", **_spearman(elig["mean_CLDN4"], elig["dpt_rank"])}
@@ -910,7 +964,7 @@ def main() -> None:
             {
                 "item": "GSE205335 PR vs PD",
                 "n": int((elig.dataset.eq("GSE205335") & elig.benefit_label.isin(["PR", "PD"])).sum()),
-                "note": "SD/NE excluded",
+                "note": "SD/NE excluded; finite DPT",
             },
             {
                 "item": "GSE207422 GEO samples",
@@ -923,19 +977,24 @@ def main() -> None:
                 "note": "post-treatment only",
             },
             {
-                "item": "GSE207422 Spearman n",
+                "item": "GSE207422 program Spearman n",
                 "n": runs["GSE207422"]["n_eligible"],
                 "note": f">={MIN_CELLS_PER_SAMPLE} epi cells",
             },
             {
-                "item": "GSE207422 MPR vs NMPR",
+                "item": "GSE207422 finite-DPT n",
+                "n": runs["GSE207422"]["n_eligible_dpt"],
+                "note": "DPT defined on root PAGA component",
+            },
+            {
+                "item": "GSE207422 MPR vs NMPR (finite DPT)",
                 "n": int((elig.dataset.eq("GSE207422") & elig.benefit_label.isin(["MPR", "NMPR"])).sum()),
                 "note": "pCR counted as MPR",
             },
             {
-                "item": "stacked patient rows",
+                "item": "stacked finite-DPT patient rows",
                 "n": int(len(elig)),
-                "note": "eligible Spearman patients",
+                "note": "eligible DPT patients",
             },
             {
                 "item": "stacked benefit vs no-benefit",
@@ -1002,6 +1061,7 @@ def main() -> None:
         "GSE207422": {k: v for k, v in runs["GSE207422"].items() if k != "patient_df"},
         "stacked": {
             "n_rows": int(len(elig)),
+            "n_rows_program": int(len(elig_all)),
             "n_205335": int((elig["dataset"] == "GSE205335").sum()),
             "n_207422": int((elig["dataset"] == "GSE207422").sum()),
             "cldn4_vs_dpt_rank": stacked_rank,

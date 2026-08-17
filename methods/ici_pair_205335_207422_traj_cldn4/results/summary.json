@@ -1,0 +1,628 @@
+{
+  "accessions": [
+    "GSE205335",
+    "GSE207422"
+  ],
+  "not_a_7pool": true,
+  "gse148071": false,
+  "dual_high": false,
+  "primary_gene": "CLDN4",
+  "unit": "patient",
+  "harmony_forced": false,
+  "GSE205335": {
+    "dataset": "GSE205335",
+    "n_cells": 7882,
+    "n_patients": 22,
+    "n_eligible": 22,
+    "n_eligible_dpt": 22,
+    "n_malignant_eligible": 22,
+    "lineage_counts": {
+      "malignant": 6524,
+      "leftover": 1358
+    },
+    "subtype_counts": {
+      "Malignant cells": 6524,
+      "Non-malignant cells": 1358
+    },
+    "histology_patients": {
+      "ADC": 14,
+      "NUT": 1,
+      "SCLC": 4,
+      "SQ": 3
+    },
+    "benefit_counts": {
+      "PD": 7,
+      "NE": 6,
+      "PR": 6,
+      "SD": 3
+    },
+    "genes_absent": {
+      "AT2": [],
+      "AT1": [],
+      "club": [],
+      "basal": [],
+      "ciliated": [],
+      "barrier_keratin": [],
+      "malignant_like": []
+    },
+    "root": {
+      "n_leftover": 1358,
+      "n_leftover_giant": 1358,
+      "n_paga_components": 1,
+      "giant_component_cells": 7882,
+      "rule": "GSE205335 leftover in giant PAGA component, CLDN4\u2264leftover tertile-2 (cut=0.000), max AT2 (80th percentile was 0)",
+      "dataset": "GSE205335",
+      "never_cldn4_high": true,
+      "giant_component": 0,
+      "leftover_cldn4_cut": 0.0,
+      "index": 6576,
+      "root_patient": "P0031",
+      "root_subtype": "Non-malignant cells",
+      "root_CLDN4": 0.0,
+      "root_AT2": 4.4627362089922995
+    },
+    "n_paga_components": 1,
+    "n_leiden": 26,
+    "harmony": {
+      "used": false,
+      "reason": "per-dataset graph; Harmony not forced"
+    },
+    "primary_spearman": [
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 vs DPT",
+        "n": 22,
+        "rho": 0.0694522868435912,
+        "p": 0.7587552446888981,
+        "note": "",
+        "q": 0.7587552446888981
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 vs AT2 score",
+        "n": 22,
+        "rho": 0.1609260304912479,
+        "p": 0.474340887168815,
+        "note": "",
+        "q": 0.6098668549313336
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 vs club score",
+        "n": 22,
+        "rho": 0.3630717108977979,
+        "p": 0.09675668043236259,
+        "note": "",
+        "q": 0.1451350206485439
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 vs basal score",
+        "n": 22,
+        "rho": 0.07848673066064371,
+        "p": 0.7284539754065,
+        "note": "",
+        "q": 0.7587552446888981
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+        "n": 22,
+        "rho": 0.3901750423489555,
+        "p": 0.07262429782338549,
+        "note": "",
+        "q": 0.1307237360820939
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 vs malignant-like score",
+        "n": 22,
+        "rho": 0.4760022586109543,
+        "p": 0.02513536425492372,
+        "note": "",
+        "q": 0.11310913914715674
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 vs TACSTD2 (comparator)",
+        "n": 22,
+        "rho": 0.3946922642574817,
+        "p": 0.06909060271028511,
+        "note": "",
+        "q": 0.1307237360820939
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "SFTPC vs DPT (control)",
+        "n": 22,
+        "rho": -0.390381385572293,
+        "p": 0.07245996672861744,
+        "note": "",
+        "q": 0.1307237360820939
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "AT2 score vs DPT (control)",
+        "n": 22,
+        "rho": -0.7267080745341615,
+        "p": 0.00012789331494726785,
+        "note": "",
+        "q": 0.0011510398345254108
+      }
+    ],
+    "sensitivity_spearman": [
+      {
+        "dataset": "GSE205335",
+        "contrast": "malignant-only CLDN4 vs DPT",
+        "n": 22,
+        "rho": -0.03670242800677584,
+        "p": 0.8711837997313935,
+        "note": ""
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "malignant-only CLDN4 vs AT2",
+        "n": 22,
+        "rho": 0.22642574816487862,
+        "p": 0.310928205188468,
+        "note": ""
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "ADC+SQ CLDN4 vs DPT",
+        "n": 17,
+        "rho": -0.019607843137254905,
+        "p": 0.9404583435037518,
+        "note": ""
+      }
+    ],
+    "outcome": [
+      {
+        "dataset": "GSE205335",
+        "contrast": "DPT PR vs PD",
+        "scheme": "RECIST_PR_vs_PD",
+        "n_a": 6,
+        "n_b": 7,
+        "median_a": 0.315878301858902,
+        "median_b": 0.08369213342666626,
+        "mean_a": 0.2726610576113065,
+        "mean_b": 0.1133622292961393,
+        "delta_median_a_minus_b": 0.23218616843223572,
+        "U": 33.0,
+        "p": 0.10139860139860139,
+        "method": "exact",
+        "note": "",
+        "label_a": "PR",
+        "label_b": "PD"
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "CLDN4 PR vs PD",
+        "scheme": "RECIST_PR_vs_PD",
+        "n_a": 6,
+        "n_b": 7,
+        "median_a": 1.2813194108748203,
+        "median_b": 0.9859833499881631,
+        "mean_a": 1.303046101077116,
+        "mean_b": 1.1859157173058017,
+        "delta_median_a_minus_b": 0.2953360608866572,
+        "U": 25.0,
+        "p": 0.6282051282051282,
+        "method": "exact",
+        "note": "",
+        "label_a": "PR",
+        "label_b": "PD"
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "DPT RECIST R(PR) vs NR(SD+PD) [sensitivity]",
+        "scheme": "RECIST_R_vs_NR",
+        "n_a": 6,
+        "n_b": 10,
+        "median_a": 0.315878301858902,
+        "median_b": 0.10714787989854813,
+        "mean_a": 0.2726610576113065,
+        "mean_b": 0.11311165466904641,
+        "delta_median_a_minus_b": 0.20873042196035385,
+        "U": 45.0,
+        "p": 0.11788211788211789,
+        "method": "exact",
+        "note": "",
+        "label_a": "R",
+        "label_b": "NR"
+      },
+      {
+        "dataset": "GSE205335",
+        "contrast": "DPT PR vs PD ADC+SQ [sensitivity]",
+        "scheme": "RECIST_PR_vs_PD_NSCLC",
+        "n_a": 4,
+        "n_b": 6,
+        "median_a": 0.14314264059066772,
+        "median_b": 0.06484559178352356,
+        "mean_a": 0.20470615103840828,
+        "mean_b": 0.08624334384997685,
+        "delta_median_a_minus_b": 0.07829704880714417,
+        "U": 18.0,
+        "p": 0.2571428571428571,
+        "method": "exact",
+        "note": "",
+        "label_a": "PR",
+        "label_b": "PD"
+      }
+    ],
+    "qc": {
+      "min_genes": 200,
+      "min_umi": 500,
+      "EPCAM_mean": 1.0027609328356828,
+      "PTPRC_mean": 0.2616788499850906
+    }
+  },
+  "GSE207422": {
+    "dataset": "GSE207422",
+    "n_cells": 2994,
+    "n_patients": 12,
+    "n_eligible": 12,
+    "n_eligible_dpt": 12,
+    "n_malignant_eligible": 7,
+    "lineage_counts": {
+      "malignant": 1116,
+      "leftover": 1878
+    },
+    "subtype_counts": {
+      "leftover_epi": 1878,
+      "A3_malignant_like": 1116
+    },
+    "histology_patients": {
+      "Adeno": 6,
+      "Squamous": 6
+    },
+    "benefit_counts": {
+      "NMPR": 8,
+      "MPR": 4
+    },
+    "genes_absent": {
+      "AT2": [
+        "SFTPC"
+      ],
+      "AT1": [],
+      "club": [],
+      "basal": [],
+      "ciliated": [],
+      "barrier_keratin": [],
+      "malignant_like": [],
+      "single_genes": [
+        "SFTPC"
+      ]
+    },
+    "root": {
+      "n_leftover": 1878,
+      "n_leftover_giant": 1840,
+      "n_paga_components": 2,
+      "giant_component_cells": 2956,
+      "rule": "GSE207422 leftover in giant PAGA component, CLDN4\u2264leftover tertile-2 (cut=1.982), AT2 ~80th percentile (1.618)",
+      "dataset": "GSE207422",
+      "never_cldn4_high": true,
+      "giant_component": 0,
+      "leftover_cldn4_cut": 1.9818346500396729,
+      "index": 2563,
+      "root_patient": "P14",
+      "root_subtype": "leftover_epi",
+      "root_CLDN4": 0.0,
+      "root_AT2": 1.618424081802368
+    },
+    "n_paga_components": 2,
+    "n_leiden": 15,
+    "harmony": {
+      "used": false,
+      "reason": "per-dataset graph; Harmony not forced"
+    },
+    "primary_spearman": [
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 vs DPT",
+        "n": 12,
+        "rho": -0.5174825174825175,
+        "p": 0.08486877113393476,
+        "note": "",
+        "q": 0.2546063134018043
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 vs AT2 score",
+        "n": 12,
+        "rho": 0.5594405594405596,
+        "p": 0.05858947538856764,
+        "note": "",
+        "q": 0.2546063134018043
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 vs club score",
+        "n": 12,
+        "rho": 0.27272727272727276,
+        "p": 0.39109677094189615,
+        "note": "",
+        "q": 0.6779601696421388
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 vs basal score",
+        "n": 12,
+        "rho": -0.22377622377622378,
+        "p": 0.4844516614553987,
+        "note": "",
+        "q": 0.6779601696421388
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+        "n": 12,
+        "rho": 0.2027972027972028,
+        "p": 0.5273023541661079,
+        "note": "",
+        "q": 0.6779601696421388
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 vs malignant-like score",
+        "n": 12,
+        "rho": 0.027972027972027972,
+        "p": 0.9312343512018807,
+        "note": "",
+        "q": 1.0
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 vs TACSTD2 (comparator)",
+        "n": 12,
+        "rho": 0.39860139860139865,
+        "p": 0.19933549461780897,
+        "note": "",
+        "q": 0.4485048628900702
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "SFTPC vs DPT (control)",
+        "n": 0,
+        "rho": null,
+        "p": null,
+        "note": "n<4",
+        "q": null
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "AT2 score vs DPT (control)",
+        "n": 12,
+        "rho": -0.7762237762237763,
+        "p": 0.002992863680185982,
+        "note": "",
+        "q": 0.026935773121673837
+      }
+    ],
+    "sensitivity_spearman": [
+      {
+        "dataset": "GSE207422",
+        "contrast": "malignant-only CLDN4 vs DPT",
+        "n": 7,
+        "rho": -0.3571428571428572,
+        "p": 0.431611352038328,
+        "note": ""
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "malignant-only CLDN4 vs AT2",
+        "n": 7,
+        "rho": 0.5714285714285715,
+        "p": 0.18020198891152767,
+        "note": ""
+      }
+    ],
+    "outcome": [
+      {
+        "dataset": "GSE207422",
+        "contrast": "DPT MPR vs NMPR",
+        "scheme": "MPR_vs_NMPR",
+        "n_a": 4,
+        "n_b": 8,
+        "median_a": 0.49079175293445587,
+        "median_b": 0.5240932404994965,
+        "mean_a": 0.42469869554042816,
+        "mean_b": 0.43881059531122446,
+        "delta_median_a_minus_b": -0.03330148756504059,
+        "U": 14.0,
+        "p": 0.8080808080808081,
+        "method": "exact",
+        "note": "",
+        "label_a": "MPR",
+        "label_b": "NMPR"
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "CLDN4 MPR vs NMPR",
+        "scheme": "MPR_vs_NMPR",
+        "n_a": 4,
+        "n_b": 8,
+        "median_a": 1.537840443299085,
+        "median_b": 1.6155313319620466,
+        "mean_a": 1.5133934943326415,
+        "mean_b": 1.5202321056160364,
+        "delta_median_a_minus_b": -0.07769088866296148,
+        "U": 15.0,
+        "p": 0.9333333333333333,
+        "method": "exact",
+        "note": "",
+        "label_a": "MPR",
+        "label_b": "NMPR"
+      }
+    ],
+    "qc": {
+      "min_genes": 200,
+      "min_umi": 500,
+      "EPCAM_mean": 1.484579408913353,
+      "PTPRC_mean": 0.0688652688949683
+    }
+  },
+  "stacked": {
+    "n_rows": 34,
+    "n_rows_program": 34,
+    "n_205335": 22,
+    "n_207422": 12,
+    "cldn4_vs_dpt_rank": {
+      "contrast": "stacked CLDN4 vs DPT rank (within dataset)",
+      "n": 34,
+      "rho": -0.21348839083540436,
+      "p": 0.2253919198633832,
+      "note": ""
+    },
+    "cldn4_vs_dpt_z": {
+      "contrast": "stacked CLDN4 vs DPT z (within dataset)",
+      "n": 34,
+      "rho": -0.09152024446142093,
+      "p": 0.606712450987037,
+      "note": ""
+    },
+    "dl": {
+      "k": 2,
+      "N": 34,
+      "rho": -0.20328170955079736,
+      "p": 0.5167892510214112,
+      "I2": 0.6032927554203392,
+      "tau2": 0.12450589195817201,
+      "note": "DL Fisher-z"
+    },
+    "dpt_vs_benefit": {
+      "contrast": "stacked DPT z, benefit (PR+MPR) vs no-benefit (PD+NMPR)",
+      "n_a": 10,
+      "n_b": 15,
+      "median_a": 0.24885580171249783,
+      "median_b": -0.298712092992666,
+      "mean_a": 0.22999256216695066,
+      "mean_b": -0.1978376619267137,
+      "delta_median_a_minus_b": 0.5475678947051639,
+      "U": 97.0,
+      "p": 0.233023941435602,
+      "method": "asymptotic",
+      "note": ""
+    },
+    "cldn4_vs_dpt_rows": [
+      {
+        "dataset": "GSE205335",
+        "contrast": "GSE205335 CLDN4 vs DPT",
+        "n": 22,
+        "rho": 0.0694522868435912,
+        "p": 0.7587552446888981,
+        "note": "per-dataset raw DPT",
+        "q": 0.7587552446888981,
+        "k": 1,
+        "I2": null
+      },
+      {
+        "dataset": "GSE207422",
+        "contrast": "GSE207422 CLDN4 vs DPT",
+        "n": 12,
+        "rho": -0.5174825174825175,
+        "p": 0.08486877113393476,
+        "note": "per-dataset raw DPT",
+        "q": 0.2546063134018043,
+        "k": 1,
+        "I2": null
+      },
+      {
+        "contrast": "stacked CLDN4 vs DPT rank (within dataset)",
+        "n": 34,
+        "rho": -0.21348839083540436,
+        "p": 0.2253919198633832,
+        "note": "pooled patients; DPT ranked within dataset",
+        "k": 2,
+        "I2": null
+      },
+      {
+        "contrast": "stacked CLDN4 vs DPT z (within dataset)",
+        "n": 34,
+        "rho": -0.09152024446142093,
+        "p": 0.606712450987037,
+        "note": "pooled patients; DPT z within dataset",
+        "k": 2,
+        "I2": null
+      },
+      {
+        "contrast": "DL Fisher-z of per-dataset CLDN4 vs DPT",
+        "k": 2,
+        "N": 34,
+        "n": 34,
+        "rho": -0.20328170955079736,
+        "p": 0.5167892510214112,
+        "I2": 0.6032927554203392,
+        "note": "DL Fisher-z"
+      }
+    ],
+    "benefit_rows": [
+      {
+        "contrast": "stacked DPT z, benefit (PR+MPR) vs no-benefit (PD+NMPR)",
+        "n_a": 10,
+        "n_b": 15,
+        "median_a": 0.24885580171249783,
+        "median_b": -0.298712092992666,
+        "mean_a": 0.22999256216695066,
+        "mean_b": -0.1978376619267137,
+        "delta_median_a_minus_b": 0.5475678947051639,
+        "U": 97.0,
+        "p": 0.233023941435602,
+        "method": "asymptotic",
+        "note": ""
+      },
+      {
+        "contrast": "stacked DPT rank, benefit vs no-benefit",
+        "n_a": 10,
+        "n_b": 15,
+        "median_a": 8.5,
+        "median_b": 8.0,
+        "mean_a": 11.1,
+        "mean_b": 7.466666666666667,
+        "delta_median_a_minus_b": 0.5,
+        "U": 97.0,
+        "p": 0.23239422845028246,
+        "method": "asymptotic",
+        "note": ""
+      },
+      {
+        "contrast": "stacked CLDN4, benefit (PR+MPR) vs no-benefit (PD+NMPR)",
+        "n_a": 10,
+        "n_b": 15,
+        "median_a": 1.4968459555085958,
+        "median_b": 1.5145968651586725,
+        "mean_a": 1.3871850583793262,
+        "mean_b": 1.3642177910712603,
+        "delta_median_a_minus_b": -0.01775090965007675,
+        "U": 75.0,
+        "p": 1.0,
+        "method": "asymptotic",
+        "note": ""
+      },
+      {
+        "contrast": "stacked DPT z, benefit vs no-benefit, drop GSE205335 SCLC/NUT",
+        "n_a": 8,
+        "n_b": 14,
+        "median_a": 0.19181137144491514,
+        "median_b": -0.45306546356010674,
+        "mean_a": 0.0016864783181913257,
+        "mean_b": -0.24262999116860112,
+        "delta_median_a_minus_b": 0.6448768350050219,
+        "U": 67.0,
+        "p": 0.4735901991712048,
+        "method": "asymptotic",
+        "note": ""
+      }
+    ]
+  },
+  "verdict": "GSE205335 patient-level CLDN4 vs leftover-AT2-rooted DPT: n=22, \u03c1=0.069, p=0.759. GSE205335 DPT RECIST PR vs PD: PR n=6 med=0.316 vs PD n=7 med=0.084, p=0.101. GSE207422 patient-level CLDN4 vs leftover-AT2-rooted DPT: n=12, \u03c1=-0.517, p=0.0849. GSE207422 DPT MPR vs NMPR: MPR n=4 med=0.491 vs NMPR n=8 med=0.524, p=0.808. Stacked CLDN4 vs within-dataset DPT rank: n=34, \u03c1=-0.213, p=0.225. Stacked DPT z, PR+MPR vs PD+NMPR: benefit n=10 med=0.249 vs no-benefit n=15 med=-0.299, p=0.233. DL Fisher-z of the two per-dataset CLDN4\u2013DPT \u03c1: k=2, N=34, \u03c1=-0.203, p=0.517. Harmony was not run. Not a 7-pool. No GSE148071. No dual-high. Root is not CLDN4-high.",
+  "done_tables": [
+    "gse205335_patient_means.tsv",
+    "gse207422_patient_means.tsv",
+    "per_dataset_cldn4_vs_dpt.tsv",
+    "per_dataset_dpt_vs_benefit.tsv",
+    "stacked_patient_table.tsv",
+    "stacked_cldn4_vs_dpt.tsv",
+    "stacked_dpt_vs_benefit.tsv"
+  ]
+}

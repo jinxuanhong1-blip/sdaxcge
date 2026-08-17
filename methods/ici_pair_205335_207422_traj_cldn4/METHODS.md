@@ -32,8 +32,10 @@ map, DPT (10 DCs).
 **No Harmony.** Each dataset is its own graph. Platforms differ (GSE205335
 mixed 3′/5′ 10x biopsies/effusions; GSE207422 10x post-resection).
 
-Root: leftover epithelium at median AT2 score (`SFTPC/SFTPB/SFTPA1/NAPSA/LAMP3/ABCA3`).
-If leftover n < 20, max AT2 among leftover. Never CLDN4-high.
+Root: leftover epithelium **in the giant PAGA component**, CLDN4 at or below the
+leftover second tertile, AT2 near the 80th percentile (or max AT2 if that
+percentile is 0). Never CLDN4-high. Leftover cells are protected at extract
+time but still capped (one leftover-heavy patient cannot dominate).
 
 Barrier/keratin score: KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR. **CLDN4 out.**
 

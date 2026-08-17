@@ -1,0 +1,12 @@
+item	n	note
+GSE205335 GEO patients	26	catalog; 33 GSM
+GSE205335 patients in graph	22	tumor epithelium; normals dropped
+GSE205335 Spearman n	22	>=10 epi cells
+GSE205335 PR vs PD	13	SD/NE excluded; finite DPT
+GSE207422 GEO samples	15	3 pre + 12 post; catalog
+GSE207422 patients in graph	12	post-treatment only
+GSE207422 program Spearman n	12	>=10 epi cells
+GSE207422 finite-DPT n	12	DPT defined on root PAGA component
+GSE207422 MPR vs NMPR (finite DPT)	12	pCR counted as MPR
+stacked finite-DPT patient rows	34	eligible DPT patients
+stacked benefit vs no-benefit	25	10 vs 15; PR+MPR vs PD+NMPR
