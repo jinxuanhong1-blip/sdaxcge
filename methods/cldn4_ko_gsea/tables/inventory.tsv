@@ -1,0 +1,6 @@
+contrast	accession	species	tissue	n_loss	n_wt	n_note	rank_metric	perturb_gene	n_genes_ranked
+T47D CLDN4-/- vs WT (breast RNA-seq, group-mean FPKM)	GSE207704	human	T47D breast cancer cell line (in vitro)	2	2	2 vs 2 biological replicates deposited; GEO file collapses them to one FPKM per group	log2((KO+0.5)/(WT+0.5)) from group-mean FPKM	CLDN4	12635
+MCF7 CLDN4-/- vs WT (breast RNA-seq, group-mean FPKM)	GSE207704	human	MCF7 breast cancer cell line (in vitro)	2	2	2 vs 2 biological replicates deposited; GEO file collapses them to one FPKM per group	log2((KO+0.5)/(WT+0.5)) from group-mean FPKM	CLDN4	12635
+mean log2FC of T47D and MCF7 CLDN4-/- vs WT	GSE207704	human	T47D + MCF7 breast lines (descriptive mean rank)	4	4	mean of two group-mean log2FC ranks; not an independent sample	mean of T47D and MCF7 group-mean log2FC	CLDN4	12635
+Cldn4 KO vs WT, naive whole lung (no VILI)	GSE50927	mouse	mouse whole lung (not lung cancer; mixed-cell bulk)	1	1	n=1 vs 1; author edgeR table; no count matrix on GEO	author edgeR logFC (KO minus WT); Cldn4 logFC = -6.06 confirms sign	Cldn4	21588
+SKOV-3 CLDN4 siRNA vs CLDN4-overexpressing control	GSE22493	human	SKOV-3 ovarian line (in vitro two-colour array)	3	3	3 two-colour arrays; VALUE = author log2(KD / CLDN4-OE control), not parental WT	mean deposited log2(KD/OE) across 3 arrays after ORF/DESCRIPTION symbol map	CLDN4	18682
