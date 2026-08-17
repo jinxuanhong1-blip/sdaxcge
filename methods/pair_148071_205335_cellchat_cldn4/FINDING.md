@@ -72,10 +72,43 @@ significant CLDN4–T/NK anti-correlation.
 | Q1 | GSE205335 P1062 (ADC, PD) | 188 | 1934 | 45.2 | 0.633 |
 | Q1 | GSE205335 P4001 (ADC, SD) | 27 | 1801 | 48.1 | 0.780 |
 
-## CellChat-style ligands
+## CellChat-style outgoing CLDN4-high → T/NK
 
-Not scored in this write-up (matrix step skipped or failed).
-Re-run without `--skip-cellchat` to fill `results/ligand_table.tsv`.
+Jin et al. 2021 Hill probability on CellChatDB v2 protein pairs.
+Outgoing = malignant / putative-malignant → **same-patient** T/NK.
+Q4 vs Q1 labels are **within-cohort** on CLDN4 %pos, then stacked.
+Test = Mann–Whitney on per-patient *P* (detected ≥3 per tail).
+CellChat R and LIANA were not run. Cell-pooled truncated means are **not** the test.
+
+Patients scored: GSE148071 25, GSE205335 22. Detect-gated directed rows: 77. Outgoing tested: 54. Outgoing p<0.05: 1.
+
+| pair | class | n_Q1/n_Q4 (148071, 205335) | median P Q1 | median P Q4 | Δ | r | p |
+|---|---|---|---:|---:|---:|---:|---|
+| MDK–NCL ** | other | 13/12 (7/6, 6/6) | 0.517 | 0.778 | +0.261 | +0.654 | 0.00602 |
+| CD99–CD99 | other | 12/11 (6/6, 6/5) | 0.452 | 0.283 | -0.169 | -0.485 | 0.0525 |
+| JAG1–NOTCH1 | other | 3/3 (0/0, 3/3) | 0.001 | 0.016 | +0.015 | +1.000 | 0.1 |
+| LAMA3–CD44 | other | 8/3 (3/1, 5/2) | 0.047 | 0.314 | +0.267 | +0.667 | 0.133 |
+| LAMC1–CD44 | other | 9/8 (5/4, 4/4) | 0.040 | 0.091 | +0.052 | +0.444 | 0.139 |
+| MDK–ITGA4_ITGB1 | other | 10/7 (4/3, 6/4) | 0.263 | 0.362 | +0.099 | +0.429 | 0.161 |
+| SPP1–CD44 | other | 6/3 (4/3, 2/0) | 0.585 | 0.089 | -0.496 | -0.667 | 0.167 |
+| HLA-E–KLRK1 | inhibitory | 6/4 (0/0, 6/4) | 0.406 | 0.168 | -0.238 | -0.583 | 0.171 |
+| ICAM1–SPN | other | 11/5 (5/3, 6/2) | 0.064 | 0.141 | +0.078 | +0.455 | 0.18 |
+| LAMB2–CD44 | other | 4/4 (1/2, 3/2) | 0.022 | 0.068 | +0.047 | +0.625 | 0.2 |
+| FN1–ITGA4_ITGB7 | other | 3/3 (1/0, 2/3) | 0.029 | 0.006 | -0.023 | -0.778 | 0.2 |
+| THBS3–CD47 | other | 3/4 (0/1, 3/3) | 0.001 | 0.049 | +0.048 | +0.667 | 0.229 |
+| APP–CD74 | other | 12/12 (6/6, 6/6) | 0.496 | 0.595 | +0.099 | +0.292 | 0.237 |
+| HLA-E–CD8A | inhibitory | 12/5 (6/2, 6/3) | 0.340 | 0.168 | -0.172 | -0.367 | 0.279 |
+| HLA-B–CD8A | other | 12/5 (6/2, 6/3) | 0.587 | 0.214 | -0.373 | -0.333 | 0.328 |
+
+Stars mark p<0.05. The table is outgoing Mal→T/NK only, top by p.
+Full detect-gated table: `results/lr_q4q1_outgoing.tsv`.
+
+Only **MDK–NCL outgoing** is p<0.05 (higher in Q4; r=+0.654). It is detected
+in **both** cohorts (7/6 GSE148071 and 6/6 GSE205335), so it is not a
+GSE205335-only leftover. CD99–CD99 is next (p=0.053, lower in Q4) and is
+not claimed. Several later rows are one-cohort only (n=0 on an arm) or
+n=3 vs 3; those are listed, not highlighted. GSE205335 Q4 remains
+SCLC-heavy. n=13 vs 12 is still thin.
 
 ## What is not supported
 

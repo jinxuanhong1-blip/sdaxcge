@@ -939,6 +939,10 @@ def write_finding(q4: dict, cellchat: dict | None, out: Path) -> None:
                 "Stars mark p<0.05. The table is outgoing Mal→T/NK only, top by p.",
                 "Full detect-gated table: `results/lr_q4q1_outgoing.tsv`.",
                 "",
+                "Only **MDK–NCL outgoing** is p<0.05 (higher in Q4). It is detected",
+                "in both cohorts, so it is not a GSE205335-only leftover. Later rows",
+                "with n=3 vs 3 or a zero arm are listed, not claimed. n=13 vs 12 is thin.",
+                "",
             ]
 
     lines += [

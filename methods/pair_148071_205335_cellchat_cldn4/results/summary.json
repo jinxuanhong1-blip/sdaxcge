@@ -143,7 +143,15 @@
       "thin": false
     }
   ],
-  "cellchat": null,
+  "cellchat": {
+    "n_patients_scored_148071": 25,
+    "n_patients_scored_205335": 22,
+    "n_lr_rows": 191478,
+    "n_pairs_tested_after_detect_gate": 77,
+    "n_outgoing_tested": 54,
+    "n_outgoing_p_lt_05": 1,
+    "ligand_table_rows": 20
+  },
   "algorithm": "Within-cohort pd.qcut on average ranks; DL Fisher-z combo \u03c1; MWU rank-biserial; CellChat-like 10% trim mean, Hill Kh=0.5, expr_prop>=0.10, same-patient Mal\u2192T/NK, Q4 vs Q1 within-cohort then stacked",
   "not_run": "CellChat R; LIANA; GSE131907; TACSTD2 split; dual-high; EGA raw"
 }
