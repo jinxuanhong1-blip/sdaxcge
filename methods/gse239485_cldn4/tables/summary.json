@@ -1,0 +1,47 @@
+{
+  "one_row": {
+    "dataset": "GSE239485",
+    "model": "LLC subcutaneous syngeneic",
+    "contrast": "Poly I:C + anti-PD-1 vs vehicle",
+    "n_vehicle": 8,
+    "n_treated": 8,
+    "honest_n": "8/8",
+    "Tacstd2_log2FC_given": 2.09,
+    "Tacstd2_log2FC": 2.093217563465105,
+    "Tacstd2_welch_p": 0.000630978729467418,
+    "Cldn4_log2FC": -0.7712122003105111,
+    "Cldn4_welch_p": 0.23776200222522692,
+    "Cldn4_mwu_p": 0.2786324786324786,
+    "IFN_meanz_delta": 0.23537785542060652,
+    "IFN_welch_p": 0.487583549517546,
+    "IFN_genes": "Ifng,Stat1,Cxcl9,Cxcl10,Ido1,H2-Aa",
+    "IFN_n_genes": 6,
+    "MHC_meanz_delta": 0.8118519243514937,
+    "MHC_welch_p": 0.006849877213086256,
+    "MHC_genes": "H2-K1,H2-D1,H2-Q4,B2m,Tap1,Tap2",
+    "MHC_n_genes": 6,
+    "Cd8a_log2FC": 0.37484510885010813,
+    "Cd8a_welch_p": 0.3193229340126966,
+    "Ifng_log2FC": 0.184520215558587,
+    "Ifng_welch_p": 0.7466231444663604,
+    "TISMO_given": "49/64 Tacstd2 up after ICB",
+    "no_R_vs_NR": true,
+    "no_aPD1_monotherapy": true
+  },
+  "ifn_used": [
+    "Ifng",
+    "Stat1",
+    "Cxcl9",
+    "Cxcl10",
+    "Ido1",
+    "H2-Aa"
+  ],
+  "mhc_used": [
+    "H2-K1",
+    "H2-D1",
+    "H2-Q4",
+    "B2m",
+    "Tap1",
+    "Tap2"
+  ]
+}
