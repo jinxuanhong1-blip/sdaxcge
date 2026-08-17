@@ -1,0 +1,16 @@
+field	public	n	note
+GEO_status	yes	54	Public on Jul 06 2021; PMID 35122060
+series_matrix_GSM	yes	54	GSM5416019–GSM5416072
+series_matrix_expression_rows	yes (empty table)	0	RNA-seq series matrix; expression is in supplementary counts
+DESeq2_normalized_columns	yes	54	GSE179351_DESeq2_NormalizedCountsForAllSamples.txt.gz
+joined_title_samples	yes	53	GEO-only titles=['20-Pre-xRT']; count-only titles=['22-Pre-xRT']
+unique_patients_joined	yes	25	patient ID parsed from GEO title; 20-Pre-xRT does not join
+baseline_one_per_patient	yes	25	Pre-Tx preferred, else Pre-xRT; primary n
+Pre-Tx_only	yes	23	sensitivity; excludes Pre-xRT-only patients 7 and 51
+cancer_type	yes	53	samples {'MSS CRC': 31, 'PDAC': 22}; baseline patients {'MSS CRC': 14, 'PDAC': 11}; patient 52 cancer label conflicts: ['52']
+timepoint	yes	53	Post-xRT=11; Pre-Tx=23; Pre-xRT=19
+RECIST_DCR_ORR	no	0	not a GEO characteristic; not recovered here
+PFS_OS	no	0	not a GEO characteristic
+CLDN4	yes	53	protein_coding ENSG00000189143
+CD274	yes	53	protein_coding ENSG00000120217
+IFNG	yes	53	present on DESeq2 matrix (Ayers 6/6)
