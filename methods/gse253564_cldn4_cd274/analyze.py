@@ -204,6 +204,7 @@ def write_finding(one: dict, n_rows: list[dict], tests: pd.DataFrame) -> None:
     cd8 = pick("CD8A")
     b2m = pick("B2M")
     trop = pick("TACSTD2")
+    raw_abs = max(abs(ha["rho"]), abs(hb["rho"]), abs(hc["rho"]), abs(mi["rho"]))
 
     n = int(one["n"])
     n_geo = int(one["n_geo_columns"])
@@ -249,11 +250,13 @@ Full numeric row: `tables/one_row.tsv`. Axis-level tests: `tables/spearman.tsv`.
 
 ## How to read the row
 
-Continuous CLDN4 vs **CD274** is **null** at n={n} (ρ={fmt_rho(cd["rho"])}, p={fmt_p(cd["p"])}). Classical HLA-A/B/C and the HLA-A/B/C mean-z are also **null** (|ρ|≤{max(abs(ha["rho"]), abs(hb["rho"]), abs(hc["rho"]), abs(mi["rho"])):.3f}; MHC-I ρ={fmt_rho(mi["rho"])}, p={fmt_p(mi["p"])}). Residualising ranks on CD8A does not create a CD274 or MHC-I hit (partial CD274 ρ={fmt_rho(cd["partial_cd8a_rho"])}, p={fmt_p(cd["partial_cd8a_p"])}; partial MHC-I ρ={fmt_rho(mi["partial_cd8a_rho"])}, p={fmt_p(mi["partial_cd8a_p"])}).
+Continuous CLDN4 vs **CD274** is **null** at n={n} (ρ={fmt_rho(cd["rho"])}, p={fmt_p(cd["p"])}). Classical HLA-A/B/C and the HLA-A/B/C mean-z are also **null** (|ρ|≤{raw_abs:.3f}; MHC-I ρ={fmt_rho(mi["rho"])}, p={fmt_p(mi["p"])}). Residualising ranks on CD8A does not create a CD274 or MHC-I hit (partial CD274 ρ={fmt_rho(cd["partial_cd8a_rho"])}, p={fmt_p(cd["partial_cd8a_p"])}; partial MHC-I ρ={fmt_rho(mi["partial_cd8a_rho"])}, p={fmt_p(mi["partial_cd8a_p"])}).
+
+HLA-C after the CD8A residual is nominally positive (partial ρ={fmt_rho(hc["partial_cd8a_rho"])}, p={fmt_p(hc["partial_cd8a_p"])}). Raw HLA-C is null (ρ={fmt_rho(hc["rho"])}, p={fmt_p(hc["p"])}). That partial is one of five primary axes, unadjusted, and the MHC-I mean-z residual stays null. Do not upgrade it to an HLA-C claim.
 
 The sibling GSEA leftover (`gse253564_cldn4_gsea`) already printed CLDN4 vs CD274 ρ=−0.228, p=0.209, n=32 on the same matrix. This page keeps that CD274 number and adds the **gene-level HLA-A/B/C** row plus the **CD8A partial**. Do not upgrade the GSEA MHC-I/APM set (which mixed B2M/TAP) into an HLA-gene claim. HLA-A/B/C mean-z here is {fmt_rho(mi["rho"])}.
 
-Companion (not a CD274/HLA claim): CLDN4 vs CD8A ρ={fmt_rho(cd8["rho"])}, p={fmt_p(cd8["p"])}; vs B2M ρ={fmt_rho(b2m["rho"])}, p={fmt_p(b2m["p"])}; vs TACSTD2 ρ={fmt_rho(trop["rho"])}, p={fmt_p(trop["p"])}.
+Companion (not a CD274/HLA claim): CLDN4 vs CD8A ρ={fmt_rho(cd8["rho"])}, p={fmt_p(cd8["p"])}; vs B2M ρ={fmt_rho(b2m["rho"])}, p={fmt_p(b2m["p"])}; vs TACSTD2 ρ={fmt_rho(trop["rho"])}, p={fmt_p(trop["p"])}. CLDN4 is CD8A-low on this leftover matrix; that is a companion immune-low direction, not the CD274/HLA question.
 
 This is pre-treatment leftover durvalumab ± SBRT bulk, not an MPR test. CLDN4 vs MPR was already null in `opus_geo_leftover`.
 
@@ -284,6 +287,7 @@ This is pre-treatment leftover durvalumab ± SBRT bulk, not an MPR test. CLDN4 v
 - Not CLDN4 vs PD-L1 protein or HLA protein. These are RNA rows.
 - Not a claim that CLDN4 *induces* PD-L1. Association only. Bulk FFPE mixes epithelium and infiltrate.
 - Do not pool this ρ with the four ICI-bulk CD274 rows in `methods/cldn4_cd274_ici`.
+- Do not treat the HLA-C | CD8A partial (nominal p=0.027) as a pre-specified HLA-C hit. Raw HLA-C and MHC-I mean-z stay null.
 
 ---
 
