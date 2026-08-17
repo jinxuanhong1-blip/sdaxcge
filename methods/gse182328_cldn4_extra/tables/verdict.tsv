@@ -1,0 +1,9 @@
+cut	n	metric	effect	p	holds
+CLDN4 vs CD8A (known leftover, not extra)	44	Spearman_rho	-0.403	0.0067	already_known
+CLDN4 vs CD274	44	Spearman_rho	-0.169	0.273	no
+CLDN4 vs HLA-A	44	Spearman_rho	-0.040	0.798	no
+CLDN4 vs HLA-B	44	Spearman_rho	-0.121	0.435	no
+CLDN4 vs HLA-C	44	Spearman_rho	+0.124	0.421	no
+CLDN4 vs HLA-I (HLA-A/B/C mean-z)	44	Spearman_rho	+0.005	0.972	no
+CLDN4 Q4 vs Q1, endpoint CD8A	11 vs 11	rank_biserial_Q4_gt_Q1	-0.57	0.026	yes_modest_n
+CD8A Q4 vs Q1, endpoint CLDN4	11 vs 11	rank_biserial_Q4_gt_Q1	-0.45	0.076	same_sign_ns
