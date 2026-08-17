@@ -1,0 +1,1 @@
+`download.py` fetches the GEO supplementary UMI and sample sheet. `analyze.py` streams the matrix, assigns lineage, and runs the CellChat-style **CLDN4-high vs low** vs T/NK tests. TACSTD2 is not used to define groups. See `../METHODS.md` and `../FINDING.md`.
