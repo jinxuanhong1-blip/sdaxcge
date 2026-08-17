@@ -689,15 +689,15 @@ def write_finding(summary: dict, ntab: pd.DataFrame, ranks_liana: pd.DataFrame, 
     foc_keys = {(a, b): c for a, b, c in FOCUS}
     foc = ranks_liana[ranks_liana.apply(lambda r: (r.ligand, r.receptor) in foc_keys, axis=1)].copy()
     if not foc.empty:
-        foc["class"] = [foc_keys[(r.ligand, r.receptor)] for r in foc.itertuples(index=False)]
-        foc = foc.sort_values(["class", "median_delta"])
+        foc["pair_class"] = [foc_keys[(r.ligand, r.receptor)] for r in foc.itertuples(index=False)]
+        foc = foc.sort_values(["pair_class", "median_delta"])
 
     n_neg = int((foc["median_delta"] < 0).sum()) if not foc.empty else 0
     n_sig = int((foc["fdr"] < 0.05).sum()) if (not foc.empty and foc["fdr"].notna().any()) else 0
 
     # one-sentence verdict from focus recruit vs barrier
-    rec_sub = foc[foc["class"] == "recruit"] if not foc.empty else foc
-    bar_sub = foc[foc["class"].isin(["barrier", "inhibitory"])] if not foc.empty else foc
+    rec_sub = foc[foc["pair_class"] == "recruit"] if not foc.empty else foc
+    bar_sub = foc[foc["pair_class"].isin(["barrier", "inhibitory"])] if not foc.empty else foc
     rec_med = float(rec_sub["median_delta"].median()) if len(rec_sub) else np.nan
     bar_med = float(bar_sub["median_delta"].median()) if len(bar_sub) else np.nan
     verdict = (
@@ -788,7 +788,7 @@ def write_finding(summary: dict, ntab: pd.DataFrame, ranks_liana: pd.DataFrame, 
         ]
         for r in foc.itertuples(index=False):
             lines.append(
-                f"| {r.class_} | {r.ligand}–{r.receptor} | {int(r.n_patients)} | {int(r.n_cohorts)} | "
+                f"| {r.pair_class} | {r.ligand}–{r.receptor} | {int(r.n_patients)} | {int(r.n_cohorts)} | "
                 f"{r.median_delta:+.3f} | {fmt(r.wilcoxon_p)} | {fmt(r.fdr)} | {int(r.n_pos)}/{int(r.n_neg)} |"
             )
         lines += [
@@ -807,15 +807,15 @@ def write_finding(summary: dict, ntab: pd.DataFrame, ranks_liana: pd.DataFrame, 
     if foc_cc.empty:
         lines.append("No focus CellChat-style pairs with n_patients ≥ 4.")
     else:
-        foc_cc["class"] = [foc_keys[(r.ligand, r.receptor)] for r in foc_cc.itertuples(index=False)]
-        foc_cc = foc_cc.sort_values(["class", "median_delta"])
+        foc_cc["pair_class"] = [foc_keys[(r.ligand, r.receptor)] for r in foc_cc.itertuples(index=False)]
+        foc_cc = foc_cc.sort_values(["pair_class", "median_delta"])
         lines += [
             "| Class | Pair | n | median ΔP | Wilcoxon p | FDR |",
             "|---|---|---:|---:|---:|---:|",
         ]
         for r in foc_cc.itertuples(index=False):
             lines.append(
-                f"| {r.class_} | {r.ligand}–{r.receptor} | {int(r.n_patients)} | "
+                f"| {r.pair_class} | {r.ligand}–{r.receptor} | {int(r.n_patients)} | "
                 f"{r.median_delta:+.3f} | {fmt(r.wilcoxon_p)} | {fmt(r.fdr)} |"
             )
         lines += [""]
@@ -916,7 +916,7 @@ def main() -> None:
     if not ranks_liana.empty:
         foc = ranks_liana[ranks_liana.apply(lambda r: (r.ligand, r.receptor) in foc_keys, axis=1)].copy()
         if not foc.empty:
-            foc["class"] = [foc_keys[(r.ligand, r.receptor)] for r in foc.itertuples(index=False)]
+            foc["pair_class"] = [foc_keys[(r.ligand, r.receptor)] for r in foc.itertuples(index=False)]
             foc.to_csv(OUT / "ligand_table_focus.tsv", sep="\t", index=False)
     focus_pat = pd.DataFrame()
     if not all_delta.empty:
