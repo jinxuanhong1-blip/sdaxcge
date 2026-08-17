@@ -1,0 +1,3 @@
+- `download.py` — GEO annotation + raw UMI + series matrix (not the 3 GB log2TPM, not GSE207422).
+- `knn_nhood.py` — neighbourhoods + SpatialFDR fallback (not miloR). `python3 knn_nhood.py` runs the self-test.
+- `run_gse131907.py` — tLung (primary) and mBrain (secondary) graphs; writes `FINDING.md`.

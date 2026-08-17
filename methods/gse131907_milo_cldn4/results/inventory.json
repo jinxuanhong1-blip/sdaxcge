@@ -1,0 +1,32 @@
+{
+  "n_cells_matrix": 208506,
+  "n_genes_matrix": 29634,
+  "cell_type_counts": {
+    "T lymphocytes": 79676,
+    "Myeloid cells": 42245,
+    "Epithelial cells": 36467,
+    "B lymphocytes": 27657,
+    "NK cells": 11551,
+    "Fibroblasts": 4172,
+    "MAST cells": 3396,
+    "Endothelial cells": 1996,
+    "Oligodendrocytes": 716,
+    "Undetermined": 630
+  },
+  "origin_counts": {
+    "tLung": 45149,
+    "nLung": 42995,
+    "nLN": 37446,
+    "mBrain": 29060,
+    "mLN": 21479,
+    "PE": 20304,
+    "tL/B": 12073
+  },
+  "n_author_malignant": 31136,
+  "umi_bytes": 408736818,
+  "skipped": [
+    "GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz",
+    "EGAD00001005054",
+    "GSE207422"
+  ]
+}
