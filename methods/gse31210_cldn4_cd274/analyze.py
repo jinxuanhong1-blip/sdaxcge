@@ -339,7 +339,7 @@ Primary tests use **n={n_tumor}** tumors. That is the same tumor rule as the sib
 |---|---:|---|---|---|---|---|---|---|---|
 | GSE31210 LUAD tumors | {n_tumor} | {cell(c4_pd)} | {cell(c4_a)} | {cell(c4_b)} | {cell(c4_c)} | {cell(c4_pd, "partial")} | {cell(c4_a, "partial")} | {cell(c4_b, "partial")} | {cell(c4_c, "partial")} |
 
-MHC-I mean-z (HLA-A/B/C, {cov.get('mhc1_genes_used', 'NA')}): unadj {cell(c4_mhc)}; partial \\| ESTIMATE {cell(c4_mhc, "partial")}.
+MHC-I mean-z (HLA-A/B/C): unadj {cell(c4_mhc)}; partial \\| ESTIMATE {cell(c4_mhc, "partial")}.
 
 Full numeric rows: `tables/one_row.tsv`, `tables/stats.tsv`.
 
@@ -392,7 +392,7 @@ Partial = Pearson of rank residuals on ESTIMATEScore; df = n − 3.
 | CLDN4 | MHC-I (HLA-A/B/C mean-z) | {int(c4_mhc.n_unadjusted)} | {fmt_rho(c4_mhc.unadj_rho)} | {fmt_p(c4_mhc.unadj_p)} | {fmt_rho(c4_mhc.partial_rho)} | {fmt_p(c4_mhc.partial_p)} |
 | CLDN4 | ImmuneScore | {int(c4_imm.n_unadjusted)} | {fmt_rho(c4_imm.unadj_rho)} | {fmt_p(c4_imm.unadj_p)} | {fmt_rho(c4_imm.partial_rho)} | {fmt_p(c4_imm.partial_p)} |
 
-This is an antigen-presentation / PD-L1 cut on the same n={n_tumor} LUAD tumor matrix. It is not an ICI-response test. CLDN4–CD8A is not restated.
+Unadjusted CLDN4–CD274 is negative (ρ={fmt_rho(c4_pd.unadj_rho)}, p={fmt_p(c4_pd.unadj_p)}). HLA-A and HLA-B are null; HLA-C is weakly negative (p={fmt_p(c4_c.unadj_p)}). After the ESTIMATEScore residual every named endpoint is null (CD274 partial p={fmt_p(c4_pd.partial_p)}). That is the same attenuation pattern as the already-known CD8 residual on this matrix. Antigen-presentation / PD-L1 cut only; not an ICI-response test. CLDN4–CD8A is not restated.
 
 ## What is not done
 
