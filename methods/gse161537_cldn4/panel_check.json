@@ -1,0 +1,245 @@
+{
+  "accession": "GSE161537",
+  "alias": "NIVOBIO",
+  "public": true,
+  "public_on": "2022-07-07",
+  "pmid": [
+    "36111282",
+    "36038492"
+  ],
+  "platform_geo": "GPL18573",
+  "assay": "HTG EdgeSeq Oncology Biomarker Panel (OBP)",
+  "verdict": "panel-missing",
+  "n_gsm": 82,
+  "n_titles": 82,
+  "n_unique_patient_id": 82,
+  "n_matrix_patients": 82,
+  "n_matrix_genes": 2559,
+  "n_unique_matrix_genes": 2559,
+  "patient_unit_1to1": true,
+  "matrix_patient_ids_match_geo": true,
+  "recist": {
+    "PD": 34,
+    "SD": 22,
+    "PR": 19,
+    "NA": 6,
+    "CR": 1
+  },
+  "orr_CR_PR_vs_SD_PD": {
+    "CR_PR": 20,
+    "SD_PD": 56,
+    "NA": 6
+  },
+  "pfs_month_n": 82,
+  "pfs_event_deposited": false,
+  "os_month_n": 82,
+  "os_event": {
+    "0": 21,
+    "1": 61
+  },
+  "histology": {
+    "AD": 55,
+    "SC": 17,
+    "ADSC": 1,
+    "CNEGC": 3,
+    "CSARC": 3,
+    "NOS": 3
+  },
+  "immunotherapy_line": {
+    "1": 47,
+    "3": 13,
+    "6": 1,
+    "5": 1,
+    "2": 17,
+    "0": 2,
+    "4": 1
+  },
+  "hot_phenotype": {
+    "COLD": 38,
+    "HOT": 44
+  },
+  "sex": {
+    "Male": 53,
+    "Female": 29
+  },
+  "stage": {
+    "IV": 54,
+    "IA": 2,
+    "IIIB": 10,
+    "IIB": 4,
+    "IB": 2,
+    "IIIA": 9,
+    "IIA": 1
+  },
+  "dcb_field_deposited": false,
+  "cldn4_present": false,
+  "cldn4_n": 0,
+  "claudin_family_on_panel": [
+    "CLDN3"
+  ],
+  "tacstd_trop_on_panel": [],
+  "presence": [
+    {
+      "query": "CLDN4",
+      "on_htg_obp_matrix": false,
+      "ids": []
+    },
+    {
+      "query": "CLDN3",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "CLDN3"
+      ]
+    },
+    {
+      "query": "CLDN7",
+      "on_htg_obp_matrix": false,
+      "ids": []
+    },
+    {
+      "query": "CLDN18",
+      "on_htg_obp_matrix": false,
+      "ids": []
+    },
+    {
+      "query": "TACSTD2",
+      "on_htg_obp_matrix": false,
+      "ids": []
+    },
+    {
+      "query": "CD8A",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "CD8A"
+      ]
+    },
+    {
+      "query": "CD8B",
+      "on_htg_obp_matrix": false,
+      "ids": []
+    },
+    {
+      "query": "CD274",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "CD274"
+      ]
+    },
+    {
+      "query": "IFNG",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "IFNG"
+      ]
+    },
+    {
+      "query": "IFNGR1",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "IFNGR1"
+      ]
+    },
+    {
+      "query": "PDCD1",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "PDCD1"
+      ]
+    },
+    {
+      "query": "PDCD1LG2",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "PDCD1LG2"
+      ]
+    },
+    {
+      "query": "CXCL9",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "CXCL9"
+      ]
+    },
+    {
+      "query": "CXCL10",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "CXCL10"
+      ]
+    },
+    {
+      "query": "EPCAM",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "EPCAM"
+      ]
+    },
+    {
+      "query": "GZMB",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "GZMB"
+      ]
+    },
+    {
+      "query": "PRF1",
+      "on_htg_obp_matrix": true,
+      "ids": [
+        "PRF1"
+      ]
+    }
+  ],
+  "controls_on_panel_not_substitutes": {
+    "CD8A": true,
+    "CD274": true,
+    "IFNG": true,
+    "IFNGR1": true,
+    "PDCD1": true,
+    "CLDN3": true
+  },
+  "tests": {
+    "CLDN4_vs_DCB": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited HTG EdgeSeq Oncology Biomarker Panel (GSE161537_nivobio_log2cpm.csv.gz; 2559 genes). CLDN3 is on the panel and is not used as a proxy.",
+      "note": "No DCB/NDB characteristic on GEO. PFS months are deposited but were not recoded as DCB because CLDN4 n=0."
+    },
+    "CLDN4_vs_ORR": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited HTG EdgeSeq Oncology Biomarker Panel (GSE161537_nivobio_log2cpm.csv.gz; 2559 genes). CLDN3 is on the panel and is not used as a proxy."
+    },
+    "CLDN4_vs_PFS": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited HTG EdgeSeq Oncology Biomarker Panel (GSE161537_nivobio_log2cpm.csv.gz; 2559 genes). CLDN3 is on the panel and is not used as a proxy."
+    },
+    "CLDN4_vs_CD8A": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited HTG EdgeSeq Oncology Biomarker Panel (GSE161537_nivobio_log2cpm.csv.gz; 2559 genes). CLDN3 is on the panel and is not used as a proxy."
+    },
+    "CLDN4_vs_IFN": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited HTG EdgeSeq Oncology Biomarker Panel (GSE161537_nivobio_log2cpm.csv.gz; 2559 genes). CLDN3 is on the panel and is not used as a proxy."
+    },
+    "CLDN4_vs_CD274": {
+      "n": 0,
+      "status": "empty",
+      "reason": "CLDN4 not on deposited HTG EdgeSeq Oncology Biomarker Panel (GSE161537_nivobio_log2cpm.csv.gz; 2559 genes). CLDN3 is on the panel and is not used as a proxy."
+    }
+  },
+  "ftp": {
+    "log2cpm": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161537/suppl/GSE161537_nivobio_log2cpm.csv.gz",
+    "series_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE161nnn/GSE161537/matrix/GSE161537_series_matrix.txt.gz"
+  },
+  "note": "Series design: 82 advanced NSCLC, second-line PD-1/PD-L1, pre-IO FFPE, HTG EdgeSeq OBP. Do not use CLDN3, TACSTD2, CD8A, IFNG, or CD274 as a CLDN4 stand-in. Do not audit prior TACSTD2 leftover pages.",
+  "citation": {
+    "geo": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE161537",
+    "pmid": [
+      "36111282",
+      "36038492"
+    ]
+  }
+}
