@@ -1,0 +1,57 @@
+{
+  "dataset": "GSE205335",
+  "additive": true,
+  "marker": "CLDN4",
+  "unit": "patient",
+  "n_patients": 22,
+  "q4q1": [
+    {
+      "cohort": "GSE205335",
+      "malig_def": "author_malig",
+      "immune_def": "same_patient_tnk_fraction",
+      "score": "pct_pos",
+      "n_patients": 22,
+      "n_q1": 6,
+      "n_q4": 6,
+      "n_compared": 12,
+      "spearman_rho": -0.43534726143421804,
+      "spearman_p": 0.042861326301676765,
+      "q4q1_r_rb": -0.7777777777777778,
+      "q4q1_p": 0.025974025974025976,
+      "median_tnk_q1": 0.5142311424633498,
+      "median_tnk_q4": 0.11640665785333915,
+      "delta_median_tnk": -0.39782448461001063,
+      "thin": false,
+      "unit": "patient"
+    },
+    {
+      "cohort": "GSE205335",
+      "malig_def": "author_malig",
+      "immune_def": "same_patient_tnk_fraction",
+      "score": "mean",
+      "n_patients": 22,
+      "n_q1": 6,
+      "n_q4": 6,
+      "n_compared": 12,
+      "spearman_rho": -0.20045172219085267,
+      "spearman_p": 0.3710825718233011,
+      "q4q1_r_rb": -0.5555555555555556,
+      "q4q1_p": 0.13203463203463203,
+      "median_tnk_q1": 0.3305750083837795,
+      "median_tnk_q4": 0.16582536241770124,
+      "delta_median_tnk": -0.16474964596607827,
+      "thin": false,
+      "unit": "patient"
+    }
+  ],
+  "cellchat": {
+    "n_lr_in_matrix": 2187,
+    "n_patients_scored": 22,
+    "n_pairs_tested_after_detect_gate": 41,
+    "n_pairs_p_lt_05": 1,
+    "ligand_table_rows": 15
+  },
+  "algorithm": "pd.qcut on average ranks; MWU rank-biserial; CellChat-like 10% trim mean, Hill Kh=0.5, expr_prop>=0.10, same-patient Mal\u2194T/NK",
+  "not_run": "CellChat R; LIANA; EGA raw; MPR contrast; TACSTD2 split",
+  "matrix_sha256": "ebbee2f8857fdf0151fa81f04bfb635c6c87a5a5bad33f782a6d349599ad5c30"
+}
