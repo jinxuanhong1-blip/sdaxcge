@@ -1,0 +1,13 @@
+set	n_listed	n_present	probe_used	missing
+gene:CLDN4	1	1	201428_at	
+gene:CD8A	1	1	205758_at	
+gene:CD274	1	1	227458_at	
+gene:EPCAM	1	1	201839_s_at	
+gene:KRT8	1	1	209008_x_at	
+gene:KRT18	1	1	201596_x_at	
+gene:KRT19	1	1	201650_at	
+gene:CDH1	1	1	201131_s_at	
+gene:KRT7	1	1	209016_s_at	
+ESTIMATE_Stromal141	141	136	ssGSEA first-symbol collapse	
+ESTIMATE_Immune141	141	137	ssGSEA first-symbol collapse	
+epithelial_mean_z	6	6	EPCAM,KRT8,KRT18,KRT19,CDH1,KRT7	

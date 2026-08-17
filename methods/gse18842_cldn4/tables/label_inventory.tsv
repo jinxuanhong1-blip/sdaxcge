@@ -1,0 +1,21 @@
+field	public	n	note
+arrays in series matrix	yes	91	54,675 probes × 91 GSM; RMA as deposited
+unique GSM / unique titles	yes	91	Tumor N / Control N / NP titles; all unique
+tumor arrays (sample type: tumor)	yes	46	PRIMARY n; source_name Human Lung Tumor
+control / adjacent-normal arrays	yes	45	sample type: control; DROPPED from pairwise tests
+title-paired tumor+control	yes	44	44 numeric pair IDs shared by Tumor and Control titles
+unpaired tumors (title NP)	yes	2	Tumor NP_1, Tumor NP_2; GEO overall_design: all paired except three
+unpaired controls (title NP)	yes	1	Control NP
+LUAD / LUSC / histology characteristic	no	0	not a GEO characteristic; paper text mentions ADC and SCC but per-array labels are not deposited. No split invented.
+stage	no	0	paper discusses stage; not a GEO characteristic
+OS / DFS time or event	no	0	not deposited
+ICI / treatment	no	0	resected atlas, not an ICI series
+tumor % / ABSOLUTE purity	no	0	public proxies used here: epithelial mean-z and ESTIMATE
+CLDN4 finite on tumors (201428_at)	yes	46	named Plus2 probe; official GPL570 = CLDN4
+CD8A finite on tumors (205758_at)	yes	46	named Plus2 probe; official GPL570 = CD8A
+CD274 finite on tumors (227458_at)	yes	46	named Plus2 probe (higher-mean of two clean CD274 probes)
+primary pairwise n (CLDN4 + CD8A tumors)	yes	46	this is the n used below
+primary pairwise n (CLDN4 + CD274 tumors)	yes	46	this is the n used below
+ESTIMATE ImmuneScore on tumors	computed	46	Yoshihara Immune141 ssGSEA (137/141); Stromal141 136/141
+ESTIMATE TumorPurity in [0,1]	computed	11	cosine transform; values outside [0,1] are not used as a 0–1 fraction
+histology fields on series matrix	no	0	none
