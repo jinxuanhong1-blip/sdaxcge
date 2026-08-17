@@ -1,0 +1,153 @@
+{
+  "question": "TCGA-LUSC CLDN4 RNA Q4 vs Q1 versus ImmuneScore, CD8A, CD274. No TACSTD2 gate. Honest pairwise-complete n.",
+  "predictor": "CLDN4 RNA",
+  "tacstd2_gate": "none",
+  "quartile_rule": "pd.qcut(rank(method='first'), 4) among CLDN4-complete primaries",
+  "endpoints": {
+    "ImmuneScore": "Official MD Anderson ESTIMATE RNAseqV2 Immune_score",
+    "CD8A": "Xena HiSeqV2 CD8A (CD8 gene; not a deconvolution fraction)",
+    "CD274": "Xena HiSeqV2 CD274 (PD-L1 RNA; not IHC CPS)"
+  },
+  "cohort": {
+    "cohort": "TCGA-LUSC",
+    "predictor": "CLDN4 RNA (Xena HiSeqV2 log2(RSEM+1))",
+    "tacstd2_gate": "none",
+    "n_xena_primary_01": 502,
+    "n_estimate_primary_01": 501,
+    "n_cldn4": 502,
+    "n_cldn4_na": 0,
+    "quartile_counts": {
+      "Q1": 126,
+      "Q4": 126,
+      "Q2": 125,
+      "Q3": 125
+    },
+    "cldn4_q25": 11.31495,
+    "cldn4_q50": 12.06705,
+    "cldn4_q75": 12.745175,
+    "endpoint_n": {
+      "ImmuneScore": {
+        "n_non_na_among_cldn4": 501,
+        "n_na_among_cldn4": 1
+      },
+      "CD8A": {
+        "n_non_na_among_cldn4": 502,
+        "n_na_among_cldn4": 0
+      },
+      "CD274": {
+        "n_non_na_among_cldn4": 502,
+        "n_na_among_cldn4": 0
+      }
+    },
+    "genes_present": {
+      "CLDN4": true,
+      "CD8A": true,
+      "CD274": true
+    }
+  },
+  "q4_vs_q1": [
+    {
+      "n_q4": 126,
+      "n_q1": 125,
+      "median_q4": 363.25,
+      "median_q1": 388.75,
+      "delta_median_q4_minus_q1": -25.5,
+      "U": 7498.0,
+      "p": 0.5126874143418803,
+      "rank_biserial_q4_gt_q1": -0.047873015873015845,
+      "rank_biserial_lo95": -0.19085714285714284,
+      "rank_biserial_hi95": 0.09066984126984126,
+      "cohort": "TCGA-LUSC",
+      "predictor": "CLDN4_RNA",
+      "endpoint": "ImmuneScore",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 126,
+      "n_q1": 126,
+      "median_q4": 7.47255,
+      "median_q1": 7.7280999999999995,
+      "delta_median_q4_minus_q1": -0.2555499999999995,
+      "U": 7289.0,
+      "p": 0.26232721316423957,
+      "rank_biserial_q4_gt_q1": -0.08175862937767697,
+      "rank_biserial_lo95": -0.2248708742756362,
+      "rank_biserial_hi95": 0.06286218190980097,
+      "cohort": "TCGA-LUSC",
+      "predictor": "CLDN4_RNA",
+      "endpoint": "CD8A",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 126,
+      "n_q1": 126,
+      "median_q4": 6.3992,
+      "median_q1": 6.4008,
+      "delta_median_q4_minus_q1": -0.0015999999999998238,
+      "U": 8029.0,
+      "p": 0.8756973986860943,
+      "rank_biserial_q4_gt_q1": 0.011463844797178213,
+      "rank_biserial_lo95": -0.13496472663139325,
+      "rank_biserial_hi95": 0.14891975308641964,
+      "cohort": "TCGA-LUSC",
+      "predictor": "CLDN4_RNA",
+      "endpoint": "CD274",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    }
+  ],
+  "spearman": [
+    {
+      "n": 501,
+      "rho": -0.004218861887799659,
+      "p": 0.9249538979874004,
+      "cohort": "TCGA-LUSC",
+      "predictor": "CLDN4_RNA",
+      "endpoint": "ImmuneScore",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 502,
+      "rho": -0.017316531025107735,
+      "p": 0.6987229892224273,
+      "cohort": "TCGA-LUSC",
+      "predictor": "CLDN4_RNA",
+      "endpoint": "CD8A",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 502,
+      "rho": 0.024434926437492958,
+      "p": 0.5849353402374992,
+      "cohort": "TCGA-LUSC",
+      "predictor": "CLDN4_RNA",
+      "endpoint": "CD274",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    }
+  ],
+  "n_table": {
+    "cohort": "TCGA-LUSC",
+    "n_xena_primary_01": 502,
+    "n_estimate_primary_01": 501,
+    "n_cldn4": 502,
+    "n_cldn4_na": 0,
+    "n_ImmuneScore_join": 501,
+    "n_Q1": 126,
+    "n_Q2": 125,
+    "n_Q3": 125,
+    "n_Q4": 126,
+    "n_ImmuneScore_among_cldn4": 501,
+    "n_CD8A_among_cldn4": 502,
+    "n_CD274_among_cldn4": 502,
+    "n_ImmuneScore_NA_among_cldn4": 1,
+    "n_CD8A_NA_among_cldn4": 0,
+    "n_CD274_NA_among_cldn4": 0,
+    "tacstd2_gate": "none",
+    "quartile_rule": "pd.qcut(rank(method='first'), 4) among CLDN4-complete primaries"
+  }
+}
