@@ -224,6 +224,7 @@ def pool_members(members: list[dict], effect: str) -> dict:
 
 def forest_ci(rows: list[dict], title: str, path: Path, xlabel: str) -> None:
     """Forest with Fisher-z 95% CI. Extra figure for the three cuts."""
+    rows = list(reversed(rows))  # first table row at the top
     fig, ax = plt.subplots(figsize=(8.8, 1.15 + 0.48 * max(len(rows), 1)))
     y = np.arange(len(rows))
     for i, r in enumerate(rows):
@@ -302,7 +303,7 @@ def box_q4q1(path: Path, cldn4, immune, title: str) -> None:
     fig, ax = plt.subplots(figsize=(4.2, 3.8))
     bp = ax.boxplot(
         [q1, q4],
-        labels=[f"Q1\nn={len(q1)}", f"Q4\nn={len(q4)}"],
+        tick_labels=[f"Q1\nn={len(q1)}", f"Q4\nn={len(q4)}"],
         patch_artist=True,
         widths=0.55,
     )
@@ -388,21 +389,24 @@ def write_finding(cuts: list[dict], members: pd.DataFrame, honest: pd.DataFrame,
         "",
         f"- **LUAD-only** (k={int(luad['k'])}, N={int(luad['N'])}): "
         f"ρ={luad['rho']:+.3f} p={fmt_p(luad['p'])} I²={luad['I2']:.0f}%. "
-        "GSE131907 (LUAD series) + GSE205335 ADC. GSE148071 is **out** — the",
-        "locked extract has no LUAD/LUSC column; GEO SOFT is age/sex.",
+        "GSE131907 (LUAD series, n=21, ρ=−0.522) + GSE205335 ADC (n=14, ρ=−0.204).",
+        "The LUAD pool is carried by GSE131907. GSE205335 ADC alone is not a hit.",
+        "GSE148071 is **out** — the locked extract has no LUAD/LUSC column.",
         f"- **mixed-all** (k={int(mixed['k'])}, N={int(mixed['N'])}): "
         f"ρ={mixed['rho']:+.3f} p={fmt_p(mixed['p'])} I²={mixed['I2']:.0f}%. "
-        "Adds GSE148071 malignant-eligible NSCLC (T/NK near zero / weakly positive)",
-        "and GSE205335 SCLC + SQ + NUT. Larger N, **weaker** CLDN4-negative.",
+        "Adds GSE148071 malignant-eligible NSCLC (n=22, ρ=−0.015) and the full",
+        "GSE205335 mix (n=22, ρ=−0.435, Q4 r=−0.778). Larger N, **weaker**",
+        "Spearman and I²=40%. The extra Q4 row looks stronger only because",
+        "GSE205335 SCLC tails sit in Q4; that is not a LUAD effect.",
         f"- **drop-SCLC** (k={int(drop['k'])}, N={int(drop['N'])}): "
         f"ρ={drop['rho']:+.3f} p={fmt_p(drop['p'])} I²={drop['I2']:.0f}%. "
-        "Same as mixed-all after dropping GSE205335 `cancer_subtype==SCLC`",
-        "(keeps ADC + SQ + NUT). GSE205335's CLDN4–T/NK negative is",
-        "**SCLC-sensitive**: the full mixed row is not a LUAD result.",
+        "GSE205335 without SCLC is n=18, ρ=−0.181, Q4 r=−0.200. The mixed",
+        "negative **collapses**. SCLC is not free extra n.",
         "",
-        "Do not write that mixed-all is the preferred estimate because N is larger.",
-        "LUAD-only is the LUAD cut. mixed-all is the histology-mixed cut.",
-        "drop-SCLC is the sensitivity that shows SCLC is not a free extra n.",
+        "Do not write that mixed-all is the preferred estimate because N is larger",
+        "or because its Q4 p is 0.043. LUAD-only is the LUAD cut (I²=0%).",
+        "mixed-all is the histology-mixed cut. drop-SCLC is the sensitivity",
+        "that shows which histology was doing the work.",
         "",
         "## Honest n",
         "",
