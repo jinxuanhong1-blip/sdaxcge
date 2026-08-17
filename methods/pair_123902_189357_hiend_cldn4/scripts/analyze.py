@@ -494,16 +494,17 @@ def split_high_low(cldn4: np.ndarray, mal: np.ndarray, rule: str) -> tuple[np.nd
         if vals.size < MIN_MAL * 3:
             return hi, lo, info
         q1, q2 = np.quantile(vals, [1 / 3, 2 / 3])
-        hi[mal & (cldn4 >= q2)] = True
+        # exclusive arms: zeros/ties stay in the low arm, never both
         lo[mal & (cldn4 <= q1)] = True
+        hi[mal & (cldn4 >= q2) & ~lo] = True
         info["q_low"] = float(q1)
         info["q_high"] = float(q2)
     elif rule == "q4q1":
         if vals.size < MIN_MAL_Q4:
             return hi, lo, info
         q1, q3 = np.quantile(vals, [0.25, 0.75])
-        hi[mal & (cldn4 >= q3)] = True
         lo[mal & (cldn4 <= q1)] = True
+        hi[mal & (cldn4 >= q3) & ~lo] = True
         info["q_low"] = float(q1)
         info["q_high"] = float(q3)
     else:
@@ -751,6 +752,14 @@ def write_finding(out: Path, given: dict, n_df: pd.DataFrame, lr: pd.DataFrame, 
     lines = [
         "# FINDING — CLDN4-only high-end CellChat on GSE123902 + GSE189357",
         "",
+        f"**Verdict:** On the given differing pair, outgoing CellChat scores from CLDN4-high",
+        f"marker-malignant cells to T/NK are **higher**, not lower, for inhibitory and barrier",
+        f"pairs (LGALS9–PTPRC/CD44, NECTIN2–TIGIT, PVR–TIGIT) and for CXCL16–CXCR6.",
+        f"CXCL9/10 are not detected at scale. This is **not** a recruit-down copy of the given",
+        f"%pos Spearman. Honest LR n is **{n_med}** at the median split (given n=22);",
+        f"LX699 fails the median high floor (7 cells). Tertile / Q4 vs Q1 extras: {n_ter} / {n_q4}.",
+        f"Between-patient Q4 tails **7/5 are thin** and are not the CellChat n.",
+        "",
         "ADDITIVE. **CLDN4 only. No dual-high.** Patient/donor is the unit.",
         "",
         "The pair that already **differs** is **taken as given** and is not re-audited:",
@@ -779,8 +788,9 @@ def write_finding(out: Path, given: dict, n_df: pd.DataFrame, lr: pd.DataFrame, 
         f"| Median units with thin arm (<20 high or low) | {n_thin} | kept and flagged |",
         f"| Q4 vs Q1 units with thin arm | {n_thin_q4} | expected on GSE123902 mets |",
         "",
-        "GSE123902 LX699 (46 malignant) and LX701 (90) are the thinnest tumor/met donors.",
-        "Q4 vs Q1 within those units is a thin-tail extra, not the primary n.",
+        "GSE123902 LX699 (46 malignant; median high=7) **fails** the median floor.",
+        "LX701 (90 malignant; median high=10) is **thin** and is flagged, not dropped.",
+        "Tertile / Q4 vs Q1 arms are mutually exclusive (CLDN4=0 ties stay in the low arm).",
         "",
         "### Per-patient floors (median split)",
         "",
@@ -805,9 +815,9 @@ def write_finding(out: Path, given: dict, n_df: pd.DataFrame, lr: pd.DataFrame, 
             f"median Δ<0: {n_neg_b}; Δ>0: {n_pos_b}; BH-FDR<0.05: {n_sig_b}."
         )
         lines.append("")
-        sig = sub[sub["padj"].notna() & (sub["padj"] < 0.05)].sort_values("median_delta")
+        sig = sub[sub["padj"].notna() & (sub["padj"] < 0.05)].assign(absd=sub["median_delta"].abs()).sort_values("absd", ascending=False)
         if len(sig):
-            lines.append("FDR < 0.05 (sorted by median Δ):")
+            lines.append("FDR < 0.05 (sorted by |median Δ|):")
             lines.append("")
             lines.extend(md_table(sig, ["ligand", "receptor", "ligand_class", "n_patients", "median_delta", "pval", "padj"], n=20))
         else:
