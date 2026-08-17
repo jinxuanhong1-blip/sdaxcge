@@ -1,0 +1,191 @@
+{
+  "datasets": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "skipped": {
+    "GSE207422": "PR #334 already scored; n=12 signed tests NS; not re-run",
+    "nichenetr_R": "not installed; NicheNet-v2 ligand-target prior scored in Python",
+    "dual_high": "TACSTD2 not used to call senders"
+  },
+  "prior": "NicheNet-v2 ligand_target_matrix_nsga2r_final.rds (Zenodo 7074291)",
+  "sender_definition": "CLDN4-only malignant high (log1p CP10k >= cohort malignant median)",
+  "unit": "patient (GSE131907 collapsed from eligible samples)",
+  "n": {
+    "gse131907_eligible_samples": 31,
+    "gse131907_unique_patients": 31,
+    "gse131907_patients_from_eligible_samples": 31,
+    "gse205335_patients": 22,
+    "merged_patients": 53,
+    "malignant_cells": 59643,
+    "cldn4_high_malignant": 29823,
+    "dual_high_companion_not_used": 23367,
+    "tnk_cells": 92147,
+    "potential_ligands": 136,
+    "potential_ligands_GSE131907": 111,
+    "potential_ligands_GSE205335": 154,
+    "background_genes": 264,
+    "ifn_in_prior": 16,
+    "cyto_in_prior": 14,
+    "empirical_TNK_up": 7,
+    "empirical_TNK_down": 36
+  },
+  "cutoffs": {
+    "GSE131907": 1.7977968454360962,
+    "GSE205335": 1.3714609146118164
+  },
+  "patient_tests": {
+    "spearman_pct_ifn_merged": {
+      "k": 2,
+      "n_patients_total": 53,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.24754721013718267,
+      "pooled_rho": -0.24261162222067295,
+      "se_z": 0.14586499149789456,
+      "ci95_rho": [
+        -0.4880082267034678,
+        0.03832938620037629
+      ],
+      "p": 0.08967810215163853,
+      "Q": 0.0005090198323276379,
+      "df": 1,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "fixed_z": -0.24754721013718267,
+      "fixed_rho": -0.24261162222067295
+    },
+    "spearman_pct_cyto_merged": {
+      "k": 2,
+      "n_patients_total": 53,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.16234824917768567,
+      "pooled_rho": -0.16093679287529697,
+      "se_z": 0.2145619135071321,
+      "ci95_rho": [
+        -0.5247624779610593,
+        0.25260470415566066
+      ],
+      "p": 0.44925964085626646,
+      "Q": 2.1018360329539973,
+      "df": 1,
+      "tau2": 0.04867132852334386,
+      "I2": 52.42254941292621,
+      "fixed_z": -0.1407198028604483,
+      "fixed_rho": -0.13979825413577363
+    },
+    "spearman_pct_tnkfrac_merged": {
+      "k": 2,
+      "n_patients_total": 53,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.3794923201317929,
+      "pooled_rho": -0.36226649523909077,
+      "se_z": 0.14586499149789456,
+      "ci95_rho": [
+        -0.5819377345208319,
+        -0.09332457603407653
+      ],
+      "p": 0.00927715408544342,
+      "Q": 0.14005540830021168,
+      "df": 1,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "fixed_z": -0.3794923201317929,
+      "fixed_rho": -0.36226649523909077
+    },
+    "q4q1_ifn_merged": {
+      "k": 2,
+      "n_patients_total": 28,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.5251739988071122,
+      "pooled_rho": -0.4816834373529562,
+      "se_z": 0.21320071635561041,
+      "ci95_rho": [
+        -0.7366192424894525,
+        -0.10689068358480946
+      ],
+      "p": 0.013767066540196805,
+      "Q": 0.008869797588556936,
+      "df": 1,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "fixed_z": -0.5251739988071122,
+      "fixed_rho": -0.4816834373529562
+    },
+    "q4q1_cyto_merged": {
+      "k": 2,
+      "n_patients_total": 28,
+      "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+      "pooled_z": -0.23242554235565918,
+      "pooled_rho": -0.228328710884253,
+      "se_z": 0.21320071635561041,
+      "ci95_rho": [
+        -0.5718711804587149,
+        0.1833507980835273
+      ],
+      "p": 0.27563719690958977,
+      "Q": 0.9166927434372586,
+      "df": 1,
+      "tau2": 0.0,
+      "I2": 0.0,
+      "fixed_z": -0.23242554235565918,
+      "fixed_rho": -0.228328710884253
+    }
+  },
+  "empirical_sets": {
+    "up": [
+      "ANXA2",
+      "APLP2",
+      "CALM2",
+      "CD59",
+      "GRN",
+      "RTN4",
+      "TMEM167A"
+    ],
+    "down": [
+      "BST2",
+      "BTN3A1",
+      "CALM3",
+      "CCL3",
+      "CCL3L1",
+      "CD27",
+      "CD38",
+      "CD48",
+      "CXCR5",
+      "EOMES",
+      "GBP5",
+      "GZMM",
+      "HCST",
+      "HLA-F",
+      "ICAM2",
+      "ICAM3",
+      "IFI6",
+      "IFITM1",
+      "IFNAR2",
+      "IGFLR1",
+      "IL10RA",
+      "IL16",
+      "IRF7",
+      "IRF9",
+      "ISG20",
+      "KLRK1",
+      "LAMP1",
+      "LGALS9",
+      "LY9",
+      "MFNG",
+      "MX1",
+      "MX2",
+      "OAS2",
+      "PDCD1",
+      "PRDM1",
+      "SEMA4D"
+    ],
+    "p_cutoff": 0.15
+  },
+  "caveats": [
+    "Unsigned prior ranks recover prior structure, not a signed inductive axis",
+    "GSE205335 Q4 includes SCLC mixed with ADC",
+    "GSE131907 has no ICI/MPR labels",
+    "Patient-level ligand tests are unadjusted across ligands",
+    "Cells are descriptive counts"
+  ]
+}

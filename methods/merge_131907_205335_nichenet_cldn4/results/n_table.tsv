@@ -1,0 +1,18 @@
+item	n	note
+gse131907_eligible_samples	31	≥20 malig + T/NK; sample-level GEO
+gse131907_unique_patients	31	unit after collapse; from eligible samples
+gse131907_patients_from_eligible_samples	31	should match unique patients
+gse205335_patients	22	≥20 author-malig + T/NK
+merged_patients	53	GSE131907 patients + GSE205335 patients
+malignant_cells	59643	eligible patients only
+cldn4_high_malignant	29823	CLDN4-only; cohort malignant median
+dual_high_companion_not_used	23367	TACSTD2∩CLDN4; not used as sender
+tnk_cells	92147	same-patient receivers
+potential_ligands	136	merged CLDN4-high + T/NK receptor
+potential_ligands_GSE131907	111	
+potential_ligands_GSE205335	154	
+background_genes	264	T/NK-expressed ∩ prior
+ifn_in_prior	16	
+cyto_in_prior	14	
+empirical_TNK_up	7	merged Spearman p<0.15, ρ>0
+empirical_TNK_down	36	merged Spearman p<0.15, ρ<0
