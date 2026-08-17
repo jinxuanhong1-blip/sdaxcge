@@ -1,0 +1,263 @@
+{
+  "question": "CLDN4 protein Q4 vs Q1 versus ImmuneScore, GEP18, CD8A in CPTAC LUAD and LSCC public TMT. No TACSTD2 gate.",
+  "predictor": "CLDN4 protein (ENSG00000189143)",
+  "tacstd2_gate": "none",
+  "quartile_rule": "pd.qcut(rank(method='first'), 4) among CLDN4-protein-quantified tumors",
+  "endpoints": {
+    "ImmuneScore": "ESTIMATE_ImmuneScore from freeze phenotype (RNA-derived)",
+    "GEP18": "Ayers 18-gene T-cell inflamed; mean of per-gene z on tumor RNA",
+    "CD8A": "tumor RNA ENSG00000153563 (log2 RSEM coding UQ 1500)"
+  },
+  "cohorts": [
+    {
+      "cohort": "LUAD",
+      "n_protein_columns": 110,
+      "n_rna_columns": 110,
+      "n_pheno_rows": 110,
+      "n_intersect_tumors": 110,
+      "cldn4_protein_row": "ENSG00000189143.9",
+      "cd8a_rna_row": "ENSG00000153563.15",
+      "gep18_genes_used": 18,
+      "gep18_genes_requested": 18,
+      "gep18_rows": [
+        "ENSG00000271503.6",
+        "ENSG00000139193.3",
+        "ENSG00000120217.14",
+        "ENSG00000103855.18",
+        "ENSG00000153563.15",
+        "ENSG00000174600.14",
+        "ENSG00000138755.6",
+        "ENSG00000172215.6",
+        "ENSG00000196735.13",
+        "ENSG00000196126.11",
+        "ENSG00000204592.9",
+        "ENSG00000131203.13",
+        "ENSG00000089692.9",
+        "ENSG00000105374.10",
+        "ENSG00000197646.8",
+        "ENSG00000205220.12",
+        "ENSG00000115415.20",
+        "ENSG00000181847.12"
+      ],
+      "n_cldn4_protein_quantified": 79,
+      "n_cldn4_protein_na": 31,
+      "quartile_counts": {
+        "Q4": 20,
+        "Q1": 20,
+        "Q2": 20,
+        "Q3": 19
+      },
+      "cldn4_protein_q25": 22.76055482632755,
+      "cldn4_protein_q50": 23.0710721901358,
+      "cldn4_protein_q75": 23.292022612304102,
+      "tacstd2_gate": "none",
+      "endpoint_non_na_among_cldn4": {
+        "ImmuneScore": 79,
+        "GEP18": 79,
+        "CD8A": 79
+      }
+    },
+    {
+      "cohort": "LSCC",
+      "n_protein_columns": 108,
+      "n_rna_columns": 108,
+      "n_pheno_rows": 108,
+      "n_intersect_tumors": 108,
+      "cldn4_protein_row": "ENSG00000189143.9",
+      "cd8a_rna_row": "ENSG00000153563.15",
+      "gep18_genes_used": 18,
+      "gep18_genes_requested": 18,
+      "gep18_rows": [
+        "ENSG00000271503.6",
+        "ENSG00000139193.3",
+        "ENSG00000120217.14",
+        "ENSG00000103855.18",
+        "ENSG00000153563.15",
+        "ENSG00000174600.14",
+        "ENSG00000138755.6",
+        "ENSG00000172215.6",
+        "ENSG00000196735.13",
+        "ENSG00000196126.11",
+        "ENSG00000204592.9",
+        "ENSG00000131203.13",
+        "ENSG00000089692.9",
+        "ENSG00000105374.10",
+        "ENSG00000197646.8",
+        "ENSG00000205220.12",
+        "ENSG00000115415.20",
+        "ENSG00000181847.12"
+      ],
+      "n_cldn4_protein_quantified": 78,
+      "n_cldn4_protein_na": 30,
+      "quartile_counts": {
+        "Q1": 20,
+        "Q4": 20,
+        "Q3": 19,
+        "Q2": 19
+      },
+      "cldn4_protein_q25": 22.98841551103215,
+      "cldn4_protein_q50": 23.34019422656705,
+      "cldn4_protein_q75": 23.784005876653026,
+      "tacstd2_gate": "none",
+      "endpoint_non_na_among_cldn4": {
+        "ImmuneScore": 78,
+        "GEP18": 78,
+        "CD8A": 78
+      }
+    }
+  ],
+  "q4_vs_q1": [
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": 8179.4215,
+      "median_q1": 8785.913,
+      "delta_median_q4_minus_q1": -606.4915000000001,
+      "U": 168.0,
+      "p": 0.39417090995164517,
+      "rank_biserial_q4_gt_q1": -0.16000000000000003,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "ImmuneScore",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": -0.021228118946898702,
+      "median_q1": 0.26859257965376543,
+      "delta_median_q4_minus_q1": -0.2898206986006641,
+      "U": 143.0,
+      "p": 0.12643061736676814,
+      "rank_biserial_q4_gt_q1": -0.28500000000000003,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "GEP18",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": 8.11235,
+      "median_q1": 8.626100000000001,
+      "delta_median_q4_minus_q1": -0.5137500000000017,
+      "U": 159.0,
+      "p": 0.2732851201810752,
+      "rank_biserial_q4_gt_q1": -0.20499999999999996,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD8A",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": 7003.826999999999,
+      "median_q1": 9192.6595,
+      "delta_median_q4_minus_q1": -2188.8325000000004,
+      "U": 76.0,
+      "p": 0.0008357168217272526,
+      "rank_biserial_q4_gt_q1": -0.62,
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "ImmuneScore",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": -0.48873291003483493,
+      "median_q1": 0.29633299251803347,
+      "delta_median_q4_minus_q1": -0.7850659025528683,
+      "U": 66.0,
+      "p": 0.0003047989167029453,
+      "rank_biserial_q4_gt_q1": -0.6699999999999999,
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "GEP18",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n_q4": 20,
+      "n_q1": 20,
+      "median_q4": 7.5985499999999995,
+      "median_q1": 8.74735,
+      "delta_median_q4_minus_q1": -1.1488000000000014,
+      "U": 84.0,
+      "p": 0.001782375537505441,
+      "rank_biserial_q4_gt_q1": -0.5800000000000001,
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD8A",
+      "test": "MWU_Q4_vs_Q1",
+      "tacstd2_gate": "none"
+    }
+  ],
+  "spearman": [
+    {
+      "n": 79,
+      "rho": -0.16772151898734178,
+      "p": 0.13955015774719456,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "ImmuneScore",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 79,
+      "rho": -0.23690360272638752,
+      "p": 0.035543889650942045,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "GEP18",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 79,
+      "rho": -0.17455072146575346,
+      "p": 0.12391432843801525,
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD8A",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 78,
+      "rho": -0.43185927996054574,
+      "p": 7.882580232023335e-05,
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "ImmuneScore",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 78,
+      "rho": -0.4613740689690056,
+      "p": 2.1245850640831066e-05,
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "GEP18",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    },
+    {
+      "n": 78,
+      "rho": -0.436844401457925,
+      "p": 6.370007917678847e-05,
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD8A",
+      "test": "spearman_continuous",
+      "tacstd2_gate": "none"
+    }
+  ]
+}
