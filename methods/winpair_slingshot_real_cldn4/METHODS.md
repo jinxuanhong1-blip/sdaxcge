@@ -34,8 +34,8 @@ Diffusion pseudotime is **not** the primary clock. Palantir is an optional compa
 
 | Item | Choice |
 | --- | --- |
-| Graph | Seurat-v3 HVG 3000 → PCA 30 → Harmony (`batch = dataset`) → k-NN 30 |
-| Clusters | Leiden 0.4; PAGA on Leiden (geometry) |
+| Graph | Seurat-v3 HVG 3000 (`scikit-misc`) → PCA 30 → Harmony (`batch = dataset`) → k-NN 30 |
+| Clusters | Leiden 0.4 (`igraph`); PAGA on Leiden (geometry) |
 | Root | Leiden with most GSE131907 nLung author AT2, else highest AT2 among below-median-CLDN4 clusters. **Max-CLDN4 cluster is excluded.** |
 | Score | CLDN4 continuous |
 | Barrier/keratin | KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR (**no CLDN4**) |

@@ -1,0 +1,625 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "winning_pair": true,
+  "pr320_given": "author-malignant CLDN4 %pos vs T/NK Q4 vs Q1 n=23 r=-0.705",
+  "gse207422_added": false,
+  "gse148071_added": false,
+  "dual_high": false,
+  "primary_gene": "CLDN4",
+  "clock": "slingshot",
+  "clock_label": "Slingshot (pyslingshot-bio (Street et al. 2018 Python port))",
+  "slingshot_engine": "pyslingshot-bio (Street et al. 2018 Python port)",
+  "slingshot_notes": [
+    "Installed pyslingshot-bio; module pyslingshot. Documented R-parity port of Slingshot.",
+    "https://github.com/omicverse/py-Slingshot"
+  ],
+  "r_slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "used": "pyslingshot-bio or local Street-2018 MST+principal-curve port"
+  },
+  "palantir": {
+    "available": true,
+    "early_cell": "GSE131907:CAGATCAGTGAAATCA_LUNG_N34",
+    "n_waypoints": 107,
+    "module": "palantir"
+  },
+  "harmony": {
+    "used": true,
+    "reason": "harmonypy on PCA, batch=dataset"
+  },
+  "cap_per_unit": 280,
+  "n_cells": 16167,
+  "n_cells_gse131907": 10432,
+  "n_cells_gse205335": 5735,
+  "n_cells_nLung": 2883,
+  "n_author_AT2": 2020,
+  "n_units": 65,
+  "n_units_gse131907": 43,
+  "n_units_gse205335": 22,
+  "n_units_eligible": 65,
+  "subtype_counts": {
+    "Malignant cells": 10101,
+    "AT2": 2020,
+    "tS2": 973,
+    "tS1": 970,
+    "NA": 596,
+    "Non-malignant cells": 590,
+    "Ciliated": 362,
+    "AT1": 237,
+    "Club": 229,
+    "tS3": 54,
+    "Undetermined": 35
+  },
+  "genes_absent": {
+    "AT2": [],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": [],
+    "IFN": []
+  },
+  "root": {
+    "excluded_cldn4_high_cluster": "30",
+    "excluded_mean_CLDN4": 2.497829884622053,
+    "rule": "Leiden with most GSE131907 nLung author AT2; max-CLDN4 cluster excluded",
+    "root_cluster": "5",
+    "root_mean_CLDN4": 0.9638464483239538,
+    "root_mean_AT2": 3.680094989723584,
+    "root_n_nLung_AT2": 1942
+  },
+  "n_paga_components": 1,
+  "n_leiden": 35,
+  "leiden_resolution": 0.4,
+  "n_lineages": 14,
+  "lineages": [
+    {
+      "name": "Lineage1",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "14",
+        "25",
+        "13",
+        "32",
+        "27",
+        "31"
+      ],
+      "n_cells": 7366,
+      "terminal": "31",
+      "terminal_mean_CLDN4": 1.609009266027698,
+      "terminal_mean_barrier": 0.5980082224829526,
+      "terminal_mean_IFN": 0.07880185199657729,
+      "terminal_mean_AT2": 0.05845931068433899
+    },
+    {
+      "name": "Lineage2",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "19",
+        "22",
+        "9",
+        "21",
+        "23",
+        "24"
+      ],
+      "n_cells": 6529,
+      "terminal": "24",
+      "terminal_mean_CLDN4": 1.4811215796392339,
+      "terminal_mean_barrier": 2.2040752986613534,
+      "terminal_mean_IFN": 0.8274668206529903,
+      "terminal_mean_AT2": 0.3452897116051077
+    },
+    {
+      "name": "Lineage3",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "14",
+        "25",
+        "13",
+        "11"
+      ],
+      "n_cells": 6788,
+      "terminal": "11",
+      "terminal_mean_CLDN4": 2.081885638232492,
+      "terminal_mean_barrier": 1.5456882300399795,
+      "terminal_mean_IFN": 0.0898745704245104,
+      "terminal_mean_AT2": 0.0437468597243206
+    },
+    {
+      "name": "Lineage4",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "19",
+        "2",
+        "16",
+        "18"
+      ],
+      "n_cells": 6814,
+      "terminal": "18",
+      "terminal_mean_CLDN4": 0.010365971713889414,
+      "terminal_mean_barrier": 0.025016551542010983,
+      "terminal_mean_IFN": 0.24561880042352177,
+      "terminal_mean_AT2": 0.02386498540858897
+    },
+    {
+      "name": "Lineage5",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "19",
+        "2",
+        "16",
+        "34"
+      ],
+      "n_cells": 6797,
+      "terminal": "34",
+      "terminal_mean_CLDN4": 0.908960114536356,
+      "terminal_mean_barrier": 0.7513751009046433,
+      "terminal_mean_IFN": 0.045023207815974034,
+      "terminal_mean_AT2": 0.013174205437024716
+    },
+    {
+      "name": "Lineage6",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "14",
+        "25",
+        "3"
+      ],
+      "n_cells": 6309,
+      "terminal": "3",
+      "terminal_mean_CLDN4": 1.282834712344287,
+      "terminal_mean_barrier": 0.8087566634198032,
+      "terminal_mean_IFN": 0.10461279835197372,
+      "terminal_mean_AT2": 0.2628644684225072
+    },
+    {
+      "name": "Lineage7",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "19",
+        "22",
+        "30"
+      ],
+      "n_cells": 5363,
+      "terminal": "30",
+      "terminal_mean_CLDN4": 2.497829884622053,
+      "terminal_mean_barrier": 2.239450846275185,
+      "terminal_mean_IFN": 0.3151335127245552,
+      "terminal_mean_AT2": 0.04528524114205671
+    },
+    {
+      "name": "Lineage8",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "4",
+        "0"
+      ],
+      "n_cells": 4967,
+      "terminal": "0",
+      "terminal_mean_CLDN4": 1.0254220944248582,
+      "terminal_mean_barrier": 1.408712559423829,
+      "terminal_mean_IFN": 0.2803288478967294,
+      "terminal_mean_AT2": 0.5630260395466087
+    },
+    {
+      "name": "Lineage9",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "4",
+        "15"
+      ],
+      "n_cells": 5274,
+      "terminal": "15",
+      "terminal_mean_CLDN4": 1.2823869189656179,
+      "terminal_mean_barrier": 1.3529540172531191,
+      "terminal_mean_IFN": 0.08882627309159055,
+      "terminal_mean_AT2": 0.061896872725942444
+    },
+    {
+      "name": "Lineage10",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "4",
+        "17"
+      ],
+      "n_cells": 4864,
+      "terminal": "17",
+      "terminal_mean_CLDN4": 1.5336587739610303,
+      "terminal_mean_barrier": 2.0325191369380664,
+      "terminal_mean_IFN": 0.1930586175116406,
+      "terminal_mean_AT2": 0.3828233939924352
+    },
+    {
+      "name": "Lineage11",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "26",
+        "6",
+        "29"
+      ],
+      "n_cells": 5320,
+      "terminal": "29",
+      "terminal_mean_CLDN4": 1.1965380364012979,
+      "terminal_mean_barrier": 2.2648836627326547,
+      "terminal_mean_IFN": 0.37239200554812046,
+      "terminal_mean_AT2": 0.02291165118991618
+    },
+    {
+      "name": "Lineage12",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "8",
+        "28",
+        "33"
+      ],
+      "n_cells": 5119,
+      "terminal": "33",
+      "terminal_mean_CLDN4": 0.6585755708874831,
+      "terminal_mean_barrier": 0.6128355680353582,
+      "terminal_mean_IFN": 0.10851432452283898,
+      "terminal_mean_AT2": 0.0008998004497806987
+    },
+    {
+      "name": "Lineage13",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "10",
+        "12"
+      ],
+      "n_cells": 4998,
+      "terminal": "12",
+      "terminal_mean_CLDN4": 0.24676002382225007,
+      "terminal_mean_barrier": 0.33983521214581297,
+      "terminal_mean_IFN": 0.282814941955961,
+      "terminal_mean_AT2": 0.4843511748364363
+    },
+    {
+      "name": "Lineage14",
+      "clusters": [
+        "5",
+        "20",
+        "1",
+        "8",
+        "7"
+      ],
+      "n_cells": 5115,
+      "terminal": "7",
+      "terminal_mean_CLDN4": 1.7892718791813547,
+      "terminal_mean_barrier": 1.022514940428858,
+      "terminal_mean_IFN": 0.326692014948823,
+      "terminal_mean_AT2": 0.29119087964473284
+    }
+  ],
+  "primary_lineage": "Lineage7",
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs Slingshot PT (shared)",
+      "n": 65,
+      "rho": -0.13024475524475523,
+      "p": 0.30108707800944773,
+      "q": 0.4014494373459303
+    },
+    {
+      "contrast": "CLDN4 vs Slingshot PT (primary lineage)",
+      "n": 49,
+      "rho": 0.5060204081632653,
+      "p": 0.00020785711631032347,
+      "q": 0.00041571423262064695
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 65,
+      "rho": 0.08583916083916084,
+      "p": 0.4965767773359889,
+      "q": 0.550638801122367
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 65,
+      "rho": 0.40515734265734266,
+      "p": 0.0008142289056073031,
+      "q": 0.0013958209810410911
+    },
+    {
+      "contrast": "CLDN4 vs IFN (no CLDN4)",
+      "n": 65,
+      "rho": 0.045279720279720284,
+      "p": 0.7202256155234221,
+      "q": 0.7202256155234221
+    },
+    {
+      "contrast": "CLDN4 vs malignant-like score",
+      "n": 65,
+      "rho": 0.6294580419580419,
+      "p": 1.94830624524574e-08,
+      "q": 7.79322498098296e-08
+    },
+    {
+      "contrast": "barrier vs Slingshot PT (primary)",
+      "n": 49,
+      "rho": 0.5860204081632653,
+      "p": 9.69023575833039e-06,
+      "q": 2.907070727499117e-05
+    },
+    {
+      "contrast": "IFN vs Slingshot PT (primary)",
+      "n": 49,
+      "rho": 0.4498979591836734,
+      "p": 0.0011814711670351094,
+      "q": 0.001772206750552664
+    },
+    {
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "n": 65,
+      "rho": 0.49195804195804194,
+      "p": 3.1541050325747376e-05,
+      "q": 7.569852078179371e-05
+    },
+    {
+      "contrast": "SFTPC vs Slingshot PT (control)",
+      "n": 65,
+      "rho": -0.658566578281437,
+      "p": 2.4793460361598995e-09,
+      "q": 1.4876076216959398e-08
+    },
+    {
+      "contrast": "AT2 score vs Slingshot PT (control)",
+      "n": 65,
+      "rho": -0.8419580419580419,
+      "p": 1.549512709495853e-18,
+      "q": 1.8594152513950236e-17
+    },
+    {
+      "contrast": "CLDN4 vs Palantir PT (companion)",
+      "n": 65,
+      "rho": 0.08422202797202798,
+      "p": 0.5047522343621698,
+      "q": 0.550638801122367
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "GSE131907-only CLDN4 vs primary PT",
+      "n": 36,
+      "rho": 0.7423423423423423,
+      "p": 2.1880252564093453e-07
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs primary PT",
+      "n": 13,
+      "rho": 0.4450549450549451,
+      "p": 0.12752383613843685
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs barrier",
+      "n": 43,
+      "rho": 0.44488070069465413,
+      "p": 0.0027978857180275094
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs barrier",
+      "n": 22,
+      "rho": 0.30321852060982496,
+      "p": 0.17013992452174784
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs IFN",
+      "n": 43,
+      "rho": 0.15856236786469344,
+      "p": 0.30983553862393304
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs IFN",
+      "n": 22,
+      "rho": -0.0536420101637493,
+      "p": 0.8125892965812409
+    },
+    {
+      "contrast": "tLung-only CLDN4 vs primary PT",
+      "n": 11,
+      "rho": 0.790909090909091,
+      "p": 0.003746082953397407
+    },
+    {
+      "contrast": "nLung-only CLDN4 vs primary PT",
+      "n": 11,
+      "rho": 0.6545454545454547,
+      "p": 0.028864598957001903
+    },
+    {
+      "contrast": "tumor-only (drop nLung) CLDN4 vs primary PT",
+      "n": 38,
+      "rho": 0.38789801947696684,
+      "p": 0.016112789886741658
+    }
+  ],
+  "along_curve": [
+    {
+      "bin": 0,
+      "pt_lo": 0.0,
+      "pt_hi": 0.08333333333333333,
+      "pt_mid": 0.041666666666666664,
+      "n_cells": 1253,
+      "mean_CLDN4": 1.0677413787155074,
+      "mean_barrier": 0.789721043288776,
+      "mean_IFN": 0.11688358406864875,
+      "mean_AT2": 3.889657338001164,
+      "mean_malignant": 0.0796394449518811
+    },
+    {
+      "bin": 1,
+      "pt_lo": 0.08333333333333333,
+      "pt_hi": 0.16666666666666666,
+      "pt_mid": 0.125,
+      "n_cells": 1161,
+      "mean_CLDN4": 0.9162469034584431,
+      "mean_barrier": 0.6368600176022892,
+      "mean_IFN": 0.09075720955544701,
+      "mean_AT2": 3.8323064338838306,
+      "mean_malignant": 0.07411243709587846
+    },
+    {
+      "bin": 2,
+      "pt_lo": 0.16666666666666666,
+      "pt_hi": 0.25,
+      "pt_mid": 0.20833333333333331,
+      "n_cells": 687,
+      "mean_CLDN4": 1.0065971361177528,
+      "mean_barrier": 0.7029527957769591,
+      "mean_IFN": 0.1168006805713259,
+      "mean_AT2": 2.2578425592011353,
+      "mean_malignant": 0.2936042635745168
+    },
+    {
+      "bin": 3,
+      "pt_lo": 0.25,
+      "pt_hi": 0.3333333333333333,
+      "pt_mid": 0.29166666666666663,
+      "n_cells": 703,
+      "mean_CLDN4": 1.6385885382814864,
+      "mean_barrier": 1.1580772563053452,
+      "mean_IFN": 0.23208090626106803,
+      "mean_AT2": 1.8165732071838214,
+      "mean_malignant": 0.6007071377778456
+    },
+    {
+      "bin": 4,
+      "pt_lo": 0.3333333333333333,
+      "pt_hi": 0.41666666666666663,
+      "pt_mid": 0.375,
+      "n_cells": 596,
+      "mean_CLDN4": 2.002671402459916,
+      "mean_barrier": 1.3733563366970838,
+      "mean_IFN": 0.3728176354176436,
+      "mean_AT2": 1.2706550895364228,
+      "mean_malignant": 0.7674692194057896
+    },
+    {
+      "bin": 5,
+      "pt_lo": 0.41666666666666663,
+      "pt_hi": 0.5,
+      "pt_mid": 0.4583333333333333,
+      "n_cells": 469,
+      "mean_CLDN4": 1.994164740006452,
+      "mean_barrier": 1.6965778111792624,
+      "mean_IFN": 0.2652619434779132,
+      "mean_AT2": 0.6414291030496493,
+      "mean_malignant": 0.698694052188301
+    },
+    {
+      "bin": 6,
+      "pt_lo": 0.5,
+      "pt_hi": 0.5833333333333333,
+      "pt_mid": 0.5416666666666666,
+      "n_cells": 289,
+      "mean_CLDN4": 2.292135046426446,
+      "mean_barrier": 2.0825229151039966,
+      "mean_IFN": 0.2586694844777862,
+      "mean_AT2": 0.3560712220079062,
+      "mean_malignant": 0.6780504689359919
+    },
+    {
+      "bin": 7,
+      "pt_lo": 0.5833333333333333,
+      "pt_hi": 0.6666666666666666,
+      "pt_mid": 0.625,
+      "n_cells": 61,
+      "mean_CLDN4": 2.6192572276360417,
+      "mean_barrier": 2.071953981024617,
+      "mean_IFN": 0.37676591809143095,
+      "mean_AT2": 0.4678892474789901,
+      "mean_malignant": 1.0234847662427864
+    },
+    {
+      "bin": 8,
+      "pt_lo": 0.6666666666666666,
+      "pt_hi": 0.75,
+      "pt_mid": 0.7083333333333333,
+      "n_cells": 11,
+      "mean_CLDN4": 1.794942749432844,
+      "mean_barrier": 1.6979395975423925,
+      "mean_IFN": 0.5988002190397416,
+      "mean_AT2": 0.38183783037672375,
+      "mean_malignant": 1.2248868111707745
+    },
+    {
+      "bin": 9,
+      "pt_lo": 0.75,
+      "pt_hi": 0.8333333333333333,
+      "pt_mid": 0.7916666666666666,
+      "n_cells": 23,
+      "mean_CLDN4": 1.8280661723180578,
+      "mean_barrier": 1.9858584754108497,
+      "mean_IFN": 0.27658617211981634,
+      "mean_AT2": 0.060707605887854885,
+      "mean_malignant": 0.36208247464056836
+    },
+    {
+      "bin": 10,
+      "pt_lo": 0.8333333333333333,
+      "pt_hi": 0.9166666666666666,
+      "pt_mid": 0.875,
+      "n_cells": 30,
+      "mean_CLDN4": 2.547711312569992,
+      "mean_barrier": 2.157477077817352,
+      "mean_IFN": 0.2823120138408893,
+      "mean_AT2": 0.06985446469192401,
+      "mean_malignant": 0.5880631972933094
+    },
+    {
+      "bin": 11,
+      "pt_lo": 0.9166666666666666,
+      "pt_hi": 1.0,
+      "pt_mid": 0.9583333333333333,
+      "n_cells": 80,
+      "mean_CLDN4": 2.8037354808823016,
+      "mean_barrier": 2.3779776531457726,
+      "mean_IFN": 0.32750474254927553,
+      "mean_AT2": 0.0297401673362375,
+      "mean_malignant": 0.7393083596480456
+    }
+  ],
+  "verdict": "Slingshot engine=pyslingshot-bio (Street et al. 2018 Python port); 14 lineage(s) from root 5. Sample-level CLDN4 vs primary PT: n=49, \u03c1=0.506, p=0.000208. CLDN4 vs barrier/keratin (no CLDN4): n=65, \u03c1=0.405, p=0.000814. CLDN4 vs IFN: n=65, \u03c1=0.045, p=0.72. barrier vs primary PT: n=49, \u03c1=0.586, p=9.69e-06. IFN vs primary PT: n=49, \u03c1=0.450, p=0.00118. Not a DPT-null writeup. Not a TACSTD2 redo. No both-high gate. GSE148071 not added. PR #320 T/NK r=\u22120.705 given, not re-audited.",
+  "what_holds": "**What holds (n=65 units).** CLDN4 tracks a CLDN4-excluded barrier/keratin score (n=65, \u03c1=0.405, p=0.000814) and a malignant-like score (n=65, \u03c1=0.629, p=1.95e-08). On the primary Slingshot curve (Lineage7), root-bin \u2192 terminal-bin CLDN4 1.068 \u2192 2.804, barrier 0.790 \u2192 2.378, IFN 0.117 \u2192 0.328. The CLDN4-high terminal is Lineage7 Leiden 30 (CLDN4 2.498, IFN 0.315). The IFN-high terminal is a **different** lineage: Lineage2 Leiden 24 (CLDN4 1.481, IFN 0.827). Sample-level CLDN4 vs IFN is n=65, \u03c1=0.045, p=0.72 (null). **Thesis:** CLDN4-high sits at the barrier/malignant end, not the IFN-high end \u2014 supported."
+}

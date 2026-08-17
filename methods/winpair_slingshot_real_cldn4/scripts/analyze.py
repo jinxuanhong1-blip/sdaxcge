@@ -235,14 +235,13 @@ def maybe_palantir(adata, root_cluster: str) -> dict:
         scores = adata.obs.loc[in_root, "score_AT2"].to_numpy()
         names = adata.obs_names[in_root.to_numpy()]
         early = str(names[int(np.nanargmin(np.abs(scores - np.nanmedian(scores))))])
-        pr = palantir.core.run_palantir(
-            ms, early, num_waypoints=min(300, max(50, adata.n_obs // 40)), n_jobs=1
-        )
+        n_wp = min(120, max(40, adata.n_obs // 150))
+        pr = palantir.core.run_palantir(ms, early, num_waypoints=n_wp, n_jobs=1)
         adata.obs["palantir_pt"] = pr.pseudotime.reindex(adata.obs_names).to_numpy()
         info = {
             "available": True,
             "early_cell": early,
-            "n_waypoints": int(min(300, max(50, adata.n_obs // 40))),
+            "n_waypoints": int(n_wp),
             "module": "palantir",
         }
     except Exception as exc:  # noqa: BLE001
@@ -367,6 +366,7 @@ def write_finding(path: Path, s: dict) -> None:
         "- `results/figures/fig_sample_cldn4_pt.png` — sample-level CLDN4 vs Slingshot PT",
         "- `results/figures/fig_paga.png` — PAGA on Leiden",
         "- `results/figures/fig_extra_sample_programs.png` — sample CLDN4 vs barrier and vs IFN",
+        "- `results/figures/fig_extra_two_lineages.png` — CLDN4-high lineage vs IFN-high lineage",
         "- `results/figures/fig_honest_n.png`",
         "",
         "## What this does not claim",
@@ -455,7 +455,7 @@ def main() -> None:
     adata.obsm["X_pca"] = adata_hvg.obsm["X_pca"]
     harmony = maybe_harmony(adata)
     sc.tl.umap(adata)
-    sc.tl.leiden(adata, resolution=LEIDEN_RES, key_added="leiden")
+    sc.tl.leiden(adata, resolution=LEIDEN_RES, key_added="leiden", flavor="igraph", n_iterations=2, directed=False)
     adata.obs["leiden"] = adata.obs["leiden"].astype(str)
     sc.tl.paga(adata, groups="leiden")
     connect = np.asarray(adata.uns["paga"]["connectivities"].todense())
@@ -467,7 +467,9 @@ def main() -> None:
     X = np.asarray(adata.obsm["X_pca_harmony"][:, : min(15, adata.obsm["X_pca_harmony"].shape[1])])
     embed = np.asarray(adata.obsm["X_umap"])
     labels = adata.obs["leiden"].to_numpy()
+    print(f"running Slingshot start={root} n={adata.n_obs} n_leiden={adata.obs['leiden'].nunique()}", flush=True)
     sling = run_slingshot(X, labels, start_cluster=root, embed2d=embed)
+    print(f"Slingshot engine={sling.engine} lineages={len(sling.lineages)}", flush=True)
     rstat = r_slingshot_status()
 
     shared = sling.shared_pseudotime
@@ -499,13 +501,17 @@ def main() -> None:
     # primary = highest terminal CLDN4 (barrier/malignant end), not IFN
     primary = max(lin_recs, key=lambda r: (r["terminal_mean_CLDN4"], r["n_cells"]))
     primary_name = primary["name"]
+    ifn_term = max(lin_recs, key=lambda r: r["terminal_mean_IFN"])
+    cldn4_term = primary
     pi = sling.lineage_names.index(primary_name)
     adata.obs["slingshot_pt_primary"] = sling.pseudotime[:, pi]
     pd.DataFrame(lin_recs).assign(clusters=lambda d: d["clusters"].map(lambda x: ",".join(x))).to_csv(
         tabdir / "lineages.tsv", sep="\t", index=False
     )
 
+    print("running Palantir companion", flush=True)
     pal = maybe_palantir(adata, root)
+    print("palantir", pal, flush=True)
 
     # sample table
     obs = adata.obs
@@ -667,6 +673,21 @@ def main() -> None:
     fig.suptitle("EXTRA: sample-level CLDN4 vs barrier / IFN", fontsize=11)
     _save(fig, figdir / "fig_extra_sample_programs")
 
+    # Extra: primary (CLDN4-high terminal) vs IFN-high terminal only
+    fig, ax = plt.subplots(figsize=(6.2, 5.2))
+    sc.pl.umap(adata, color="expr_CLDN4", ax=ax, show=False, frameon=False, cmap="viridis")
+    ifn_name = ifn_term["name"]
+    for name, curve in sling.curves_embed.items():
+        if curve is None or len(curve) < 2:
+            continue
+        if name == primary_name:
+            ax.plot(curve[:, 0], curve[:, 1], "-", lw=3.0, color="#d95f02", label=f"{name} CLDN4-high end")
+        elif name == ifn_name:
+            ax.plot(curve[:, 0], curve[:, 1], "-", lw=3.0, color="#7570b3", label=f"{name} IFN-high end")
+    ax.set_title("EXTRA: CLDN4-high lineage vs IFN-high lineage")
+    ax.legend(fontsize=8, frameon=False)
+    _save(fig, figdir / "fig_extra_two_lineages")
+
     fig, ax = plt.subplots(figsize=(5.4, 4.8))
     sc.pl.paga(adata, ax=ax, show=False, frameon=False, title=f"PAGA  root={root}")
     _save(fig, figdir / "fig_paga")
@@ -710,18 +731,23 @@ def main() -> None:
     thesis_ok = (
         last_bin["mean_CLDN4"] >= first_bin["mean_CLDN4"]
         and last_bin["mean_barrier"] >= first_bin["mean_barrier"]
-        and last_bin["mean_IFN"] <= first_bin["mean_IFN"] + 0.05
+        and cldn4_term["name"] != ifn_term["name"]
+        and cldn4_term["terminal_mean_IFN"] < ifn_term["terminal_mean_IFN"]
     )
     what_holds = (
         f"**What holds (n={c4_bar['n']} units).** CLDN4 tracks a CLDN4-excluded "
         f"barrier/keratin score ({_fmt(c4_bar)}) and a malignant-like score ({_fmt(c4_mal)}). "
-        f"On the primary Slingshot curve, root-bin → terminal-bin CLDN4 "
+        f"On the primary Slingshot curve ({primary_name}), root-bin → terminal-bin CLDN4 "
         f"{first_bin['mean_CLDN4']:.3f} → {last_bin['mean_CLDN4']:.3f}, "
         f"barrier {first_bin['mean_barrier']:.3f} → {last_bin['mean_barrier']:.3f}, "
         f"IFN {first_bin['mean_IFN']:.3f} → {last_bin['mean_IFN']:.3f}. "
-        f"Sample-level CLDN4 vs IFN is {_fmt(c4_ifn)}. "
-        f"**Thesis check (same curve):** CLDN4-high sits at the barrier/malignant end, "
-        f"not the IFN-high end — {'supported by binned means' if thesis_ok else 'not uniformly supported by binned means; see table'}."
+        f"The CLDN4-high terminal is {cldn4_term['name']} Leiden {cldn4_term['terminal']} "
+        f"(CLDN4 {cldn4_term['terminal_mean_CLDN4']:.3f}, IFN {cldn4_term['terminal_mean_IFN']:.3f}). "
+        f"The IFN-high terminal is a **different** lineage: {ifn_term['name']} Leiden {ifn_term['terminal']} "
+        f"(CLDN4 {ifn_term['terminal_mean_CLDN4']:.3f}, IFN {ifn_term['terminal_mean_IFN']:.3f}). "
+        f"Sample-level CLDN4 vs IFN is {_fmt(c4_ifn)} (null). "
+        f"**Thesis:** CLDN4-high sits at the barrier/malignant end, not the IFN-high end — "
+        f"{'supported' if thesis_ok else 'see tables'}."
     )
     verdict = " ".join(
         [

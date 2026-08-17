@@ -180,10 +180,14 @@ def _principal_curve(
     s = init.copy()
     if weights is None:
         weights = np.ones(X.shape[0])
+    fit_idx = np.flatnonzero(weights > 0)
+    if fit_idx.size < 10:
+        fit_idx = np.arange(X.shape[0])
+    X_fit = X[fit_idx]
 
     for _ in range(max_iter):
-        # Project each cell onto current curve segment
-        D2 = cdist(X, s, "sqeuclidean")
+        # Project each contributing cell onto current curve segment
+        D2 = cdist(X_fit, s, "sqeuclidean")
         nearest = np.argmin(D2, axis=1)
         # Approximate arc-length along the curve up to each segment endpoint
         seg_lens = np.sqrt(((np.diff(s, axis=0)) ** 2).sum(axis=1))
@@ -194,10 +198,12 @@ def _principal_curve(
         # Refine via a per-dim lowess smoother of X vs lam
         order = np.argsort(lam)
         lam_sorted = lam[order]
-        X_sorted = X[order]
-        w_sorted = weights[order]
-        # Smooth each dim
-        new_s = np.zeros((max(50, X.shape[0]), X.shape[1]))
+        X_sorted = X_fit[order]
+        w_sorted = weights[fit_idx][order]
+        # Smooth each dim. Cap the curve grid — n_cells points is O(n²) and hangs
+        # on 10k+ cell objects (Street 2018 uses a much smaller smoother grid).
+        n_grid = int(min(80, max(20, X_fit.shape[0] // 50)))
+        new_s = np.zeros((n_grid, X.shape[1]))
         new_lam_grid = np.linspace(lam_sorted.min(), lam_sorted.max(), new_s.shape[0])
         for d in range(X.shape[1]):
             sm = lowess(

@@ -258,7 +258,7 @@ def run_pyslingshot_bio(
     from pyslingshot_core import slingshot as _slingshot
 
     labels = np.asarray(labels).astype(str)
-    sr = _slingshot(X, labels, start_cluster=start_cluster)
+    sr = _slingshot(X, labels, start_cluster=start_cluster, max_iter=5, smoother_span=0.4)
     pt = np.asarray(sr.pseudotime, dtype=float)
     if pt.ndim == 1:
         pt = pt[:, None]
