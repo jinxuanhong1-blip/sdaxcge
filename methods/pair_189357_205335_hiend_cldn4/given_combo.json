@@ -1,0 +1,20 @@
+{
+  "source_pr": 459,
+  "source_path": "methods/scrna_cldn4_combo_enum",
+  "combo": "GSE189357+GSE205335",
+  "score": "pct_pos",
+  "k": 2,
+  "n": 31,
+  "rho": -0.478,
+  "rho_p": 0.009,
+  "I2": 0,
+  "q4_r": -0.750,
+  "q4_p": 0.010,
+  "n_q1": 8,
+  "n_q4": 8,
+  "members": {
+    "GSE189357": {"n": 9, "malig_def": "marker_malig", "unit": "patient"},
+    "GSE205335": {"n": 22, "malig_def": "author_malig", "unit": "patient"}
+  },
+  "note": "Taken as given from PR #459. Not re-audited. High-end CellChat-style LR is the new work."
+}
