@@ -1,0 +1,22 @@
+figure_id	source_pr	accession	contrast	metric	n	n_note	effect	effect_lo	effect_hi	ci_source	p	p_note	display_effect	display_p	unit
+forest	289	CPTAC-LSCC	CLDN4 protein vs ImmuneScore	spearman_rho	78	78/108 tumors with CLDN4 protein	-0.43185927996054574	-0.5948563766865907	-0.23280013024112983	published_bootstrap_2000_seed_20260817	7.882580232023335e-05	two-sided Spearman	-0.432	7.9e-05	tumor
+forest	289	CPTAC-LSCC	CLDN4 protein vs GEP18 RNA	spearman_rho	78	78/108 tumors with CLDN4 protein	-0.4613740689690056	-0.6288214495198744	-0.2551302338534617	published_bootstrap_2000_seed_20260817	2.1245850640831066e-05	two-sided Spearman	-0.461	2.1e-05	tumor
+forest	289	CPTAC-LSCC	CLDN4 protein vs CD8A RNA	spearman_rho	78	78/108 tumors with CLDN4 protein	-0.436844401457925	-0.6191492912615851	-0.227617609603542	published_bootstrap_2000_seed_20260817	6.370007917678847e-05	two-sided Spearman	-0.437	6.4e-05	tumor
+forest	292	GSE218989	CLDN4 vs CD8A	spearman_rho	355	patient unit; GEO TPM matrix	-0.17218151898836034	-0.271407	-0.069334	fisher_z_display_from_published_n_rho	0.0011257074336079042	two-sided Spearman	-0.172	0.0011	patient
+forest	290	GSE131907+GSE205335	author %pos CLDN4 vs T/NK	spearman_rho	43	PR290 highlighted combo	-0.4787109080847739	-0.681127	-0.208313	fisher_z_display_from_published_n_rho	0.0015191063422345722	two-sided Spearman; I2=0%	-0.479	0.00152	patient
+forest	290	GSE148071+GSE207422+GSE253013	CLDN4 vs CXCL13+ T fraction	spearman_rho	60	PR290 highlighted combo	-0.42464120111880826	-0.612523	-0.191344	fisher_z_display_from_published_n_rho	0.001205818284719484	two-sided Spearman; I2=0%	-0.425	0.00121	patient
+forest	239	GSE285029	CLDN4 vs IFN-compact	spearman_rho	234	pre-ICI NSCLC WTS	0.20352754685378213	0.07729677056070866	0.32333618303535805	published_table_ci	0.001750911561898865	two-sided Spearman; BH q=0.006	+0.204	0.00175	patient
+forest	239	GSE285029	CLDN4 vs MHC-I	spearman_rho	234	pre-ICI NSCLC WTS	0.26303245195273867	0.1394895377152663	0.3785122952135637	published_table_ci	4.620337487083793e-05	two-sided Spearman; BH q=3.2e-04	+0.263	4.6e-05	patient
+forest	251	GSE265899	CLDN4 vs T+B all AOI	spearman_rho	95	GeoMx all AOI	-0.820873898709057	-0.877280	-0.742104	fisher_z_display_from_published_n_rho	2.3712117214115554e-24	two-sided Spearman	-0.821	2.4e-24	AOI
+forest	251	GSE265899	CLDN4 vs T+B tumor AOI	spearman_rho	48	GeoMx tumor AOIs	-0.3994355037159115	-0.613900	-0.130057	fisher_z_display_from_published_n_rho	0.004915203079367585	two-sided Spearman	-0.399	0.00492	AOI
+gse50927	287	GSE50927	Cldn4 KO naive whole lung	cldn4_log2FC	2	1 vs 1; author edgeR	-6.061296179			none	4.0673e-26	author edgeR FDR	-6.061	4.1e-26	sample
+gse50927	287	GSE50927	Hallmark IFN-γ after Cldn4 loss	NES	2	1 vs 1; prerank 1000 perm seed=42	1.5081012020314417			none	0.000999000999000999	nominal p; BH FDR=0.004995	+1.508	FDR 0.005	rank
+gse50927	287	GSE50927	Hallmark IFN-α after Cldn4 loss	NES	2	1 vs 1; prerank 1000 perm seed=42	1.5873141030188271			none	0.003996003996003996	nominal p; BH FDR=0.009990	+1.587	FDR 0.010	rank
+gse50927	287	GSE50927	MHC-I/APM after Cldn4 loss	NES	2	1 vs 1; prerank 1000 perm seed=42	1.4232382571581819			none	0.029970029970029972	nominal p; BH FDR=0.04995	+1.423	FDR 0.050	rank
+cptac	289	CPTAC-LSCC	CLDN4 protein vs ImmuneScore partial | WES	partial_spearman	77	WES residual	-0.29835953520164044	-0.5026802507686761	-0.06409343755291813	published_bootstrap	0.008399058347591476	partial Spearman	-0.298	0.0084	tumor
+gse218989	292	GSE218989	CLDN4 vs GEO ICI response	mwu_auc	355	168 R / 187 NR	0.4743124522536287			none	0.403492127146615	MWU; not significant	AUC 0.47	0.40	patient
+gse218989	292	GSE218989	CLDN4 OS Cox per SD	hr	355	265 deaths	1.1942475901745215	1.0471248221215714	1.362041350283325	published_cox	0.008133857641025926	Cox OS	HR 1.19	0.0081	patient
+gse312098	254	GSE312098	CX-1 IMMU132 2d vs vehicle CLDN4	log2FC	6	3 vs 3 FPKM	-0.8611090921796052			none	1.6934639623518238e-05	gene p; q=0.004305	-0.86	1.7e-05	sample
+gse312098	254	GSE312098	CX-1 IMMU132 2d IFN set	mwu_direction	6	3 vs 3; 55 genes	0.20387699095933032			none	2.6370750877017965e-08	gene-set MW on log2FC	IFN up	2.6e-08	genes
+gse312098	254	GSE312098	CX-1 IMMU132 2d APM set	mwu_direction	6	3 vs 3; 19 genes	0.39266123432505395			none	0.005649557428068615	gene-set MW on log2FC	APM up	0.0056	genes
+gse312098	254	GSE312098	CX-1 IMMU132 2d C4 IFN/MHC-I panel	mwu_direction	6	3 vs 3; 6 genes	0.5482776653379577			none	0.011513286025871993	gene-set MW on log2FC	C4 panel up	0.012	genes
