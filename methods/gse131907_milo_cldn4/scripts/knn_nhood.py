@@ -21,6 +21,7 @@ SpatialFDR, and the neighbourhood / sample counts actually tested.
 from __future__ import annotations
 
 import json
+import math
 from dataclasses import dataclass
 
 import numpy as np
@@ -31,6 +32,28 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.preprocessing import StandardScaler
 
 EPS = 1e-8
+
+
+def spearman_exact(x, y) -> tuple[float, float]:
+    """Spearman with an exact p when the asymptotic t-test explodes.
+
+    scipy's default t-approximation gives p≈0 when |ρ|=1 (division by
+    1-ρ²). For n=5 that is 2/5! = 0.0167, not 1e-24. Use method='auto'
+    when available; if |ρ| is still reported with an impossible p, fall
+    back to the no-tie exact two-sided tail 2/n!.
+    """
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    n = int(x.size)
+    try:
+        rho, p = stats.spearmanr(x, y, method="auto")
+    except TypeError:
+        rho, p = stats.spearmanr(x, y)
+    rho = float(rho)
+    p = float(p) if np.isfinite(p) else np.nan
+    if n >= 3 and abs(rho) >= 1.0 - 1e-12 and (not np.isfinite(p) or p < 2.0 / math.factorial(n)):
+        p = min(1.0, 2.0 / math.factorial(n))
+    return rho, p
 
 
 def spatial_fdr_kdistance(pvalues: np.ndarray, k_distance: np.ndarray) -> np.ndarray:
@@ -242,9 +265,9 @@ def spearman_da(
         }
         if m.sum() >= min_samples and np.unique(x[m]).size >= 3:
             rec["testable"] = True
-            rho, p = stats.spearmanr(x[m], y[m])
-            rec["spearman_rho"] = float(rho)
-            rec["p"] = float(p)
+            rho, p = spearman_exact(x[m], y[m])
+            rec["spearman_rho"] = rho
+            rec["p"] = p
         rows.append(rec)
     return pd.DataFrame(rows)
 
@@ -347,8 +370,8 @@ def spearman_safe(x, y) -> dict:
     m = np.isfinite(x) & np.isfinite(y)
     if m.sum() < 4:
         return {"n": int(m.sum()), "rho": None, "p": None}
-    rho, p = stats.spearmanr(x[m], y[m])
-    return {"n": int(m.sum()), "rho": float(rho), "p": float(p)}
+    rho, p = spearman_exact(x[m], y[m])
+    return {"n": int(m.sum()), "rho": rho, "p": p}
 
 
 def wilcoxon_paired(a, b) -> dict:
@@ -396,6 +419,9 @@ def self_test() -> None:
     bh = bh_fdr(p)
     if not np.allclose(q2, bh, atol=1e-8, equal_nan=True):
         raise AssertionError("equal-weight SpatialFDR should match BH")
+    rho1, p1 = spearman_exact(np.arange(5), np.arange(5))
+    if abs(rho1 - 1.0) > 1e-12 or abs(p1 - 2.0 / math.factorial(5)) > 1e-12:
+        raise AssertionError(f"|ρ|=1 n=5 should be p=2/5!, got rho={rho1} p={p1}")
     print("knn_nhood.self_test OK")
 
 

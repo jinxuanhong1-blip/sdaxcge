@@ -549,7 +549,7 @@ def write_finding(overall: dict, out_path: Path) -> None:
 | Malignant CLDN4 (continuous Spearman) | samples with ≥10 author-malignant cells | **{s['samples']['n_with_malignant_ge10']}** of {s['samples']['n']} | Mean log1p-CP10k CLDN4 in author malignant cells (tS1/tS2/tS3 or Malignant cells). Dropped if <10 ({drop}). |
 | Median split (Welch, secondary) | high / low | **{s['samples']['n_cldn4_high']} vs {s['samples']['n_cldn4_low']}** | Median of the scored samples. Ties at the median unlabeled. |
 
-Do not cite {s['n_cells_in_graph']:,} graph cells or {s['graph']['n_nhoods']:,} neighbourhoods as *n*. Neighbourhoods overlap. A disjoint subset has n={s['honest_n']['disjoint_nhood_subset_n']}.
+Do not cite {s['n_cells_in_graph']:,} graph cells or {s['graph']['n_nhoods']:,} neighbourhoods as *n*. Neighbourhoods overlap. A disjoint subset has n={s['honest_n']['disjoint_nhood_subset_n']}. Only {da['n_testable']} / {s['graph']['n_nhoods']} neighbourhoods are testable (cells from ≥5 scored samples); size-31 kNN after per-sample PCA centering is often sample-private. |ρ|=1 uses the exact two-sided tail 2/n!, not scipy’s t-approximation.
 
 Graph: {s['n_cells_in_graph']:,} epithelium+immune cells; {s['n_malignant']:,} author-malignant; {s['n_tnk']:,} T/NK; {s['graph']['n_nhoods']:,} neighbourhoods of size {s['graph']['nhood_size']}; k={s['graph']['k']}, d={s['graph']['d']}, {s['graph']['n_hvg']} HVG; PCA per-sample mean centering (not Harmony).
 
@@ -567,7 +567,16 @@ Disjoint interface subset: n={c['disjoint_interface']['n_disjoint_interface']} o
 Sample-paired T/NK in CLDN4-high vs CLDN4-low neighbourhoods (unit = sample): n={w.get('n')}; median T/NK high={fmt(w.get('median_a'))}, low={fmt(w.get('median_b'))}; Wilcoxon p={fmt(w.get('p'), sci=True)}. High nhoods={paired['n_high_nhoods']}, low nhoods={paired['n_low_nhoods']}.
 """
 
+    t_sf = t["da_malignant_cldn4"]["n_SpatialFDR_lt_0.1"]
+    b_sf = b["da_malignant_cldn4"]["n_SpatialFDR_lt_0.1"]
+    lead = (
+        f"**tLung (primary): {t_sf} neighbourhoods at SpatialFDR < 0.1.** "
+        f"mBrain (secondary): {b_sf} at SpatialFDR < 0.1. "
+        "Median-split Welch is reported in the tables. Sample is the unit."
+    )
     text = f"""# FINDING — Milo neighbourhoods vs malignant CLDN4 (GSE131907)
+
+{lead}
 
 Additive. Prior GSE131907 epithelial TACSTD2 work is taken as given. This
 folder asks whether **transcriptional neighbourhoods** are differentially

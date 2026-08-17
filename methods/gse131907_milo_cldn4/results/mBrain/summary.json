@@ -1,0 +1,107 @@
+{
+  "cohort": "mBrain",
+  "n_cells_in_graph": 27708,
+  "n_malignant": 15423,
+  "n_tnk": 4769,
+  "lineage_counts": {
+    "Epithelial cells": 15463,
+    "Myeloid cells": 5657,
+    "T lymphocytes": 3910,
+    "B lymphocytes": 1311,
+    "NK cells": 859,
+    "MAST cells": 508
+  },
+  "graph": {
+    "k": 30,
+    "d": 30,
+    "prop": 0.1,
+    "n_hvg": 2000,
+    "n_hvg_requested": 2000,
+    "n_nhoods": 1956,
+    "nhood_size": 31,
+    "median_nhood_size": 31.0,
+    "batch": "PCA per-sample mean centering (not Harmony)"
+  },
+  "samples": {
+    "n": 10,
+    "n_with_malignant_ge10": 10,
+    "n_cldn4_high": 5,
+    "n_cldn4_low": 5,
+    "dropped_lt10_malignant": [],
+    "median_split_cut": 1.3069068789482117
+  },
+  "sample_level_malignant_CLDN4_vs_TNK_fraction": {
+    "n": 10,
+    "rho": -0.6969696969696969,
+    "p": 0.02509667588225185
+  },
+  "da_malignant_cldn4": {
+    "n_nhoods_total": 1956,
+    "n_testable": 26,
+    "n_p_lt_0.05": 3,
+    "n_BH_FDR_lt_0.1": 2,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.1": 2,
+    "n_SpatialFDR_lt_0.05": 0,
+    "min_p": 0.002777777777777778,
+    "min_SpatialFDR": 0.06086482743163854,
+    "min_BH_FDR": 0.06246064139941672
+  },
+  "da_cldn4_median_split": {
+    "n_nhoods_total": 1956,
+    "n_testable": 10,
+    "n_p_lt_0.05": 0,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0,
+    "min_p": 0.19762123625650077,
+    "min_SpatialFDR": 0.6141820464039371,
+    "min_BH_FDR": 0.6265143496239195
+  },
+  "composition": {
+    "note": "transcriptional kNN != spatial niche",
+    "all_nhoods_maligCLDN4_vs_fracTNK": {
+      "n": 1140,
+      "rho": -0.1214051799494963,
+      "p": 3.95960128820257e-05
+    },
+    "interface_nhoods": {
+      "definition": ">=3 malignant AND >=3 T/NK cells",
+      "n": 10,
+      "spearman": {
+        "n": 10,
+        "rho": -0.05471149893120582,
+        "p": 0.8806762012346145
+      }
+    },
+    "disjoint_interface": {
+      "n_disjoint_nhoods": 192,
+      "n_disjoint_interface": 2,
+      "spearman": {
+        "n": 2,
+        "rho": null,
+        "p": null
+      }
+    },
+    "sample_paired_TNK_in_CLDN4high_vs_low_nhoods": {
+      "high_low_cut": "median malignant CLDN4 among nhoods with >=5 malignant cells",
+      "median_cut": 1.7493215799331665,
+      "n_high_nhoods": 562,
+      "n_low_nhoods": 561,
+      "wilcoxon_high_vs_low": {
+        "n": 10,
+        "median_a": 0.0,
+        "median_b": 0.0054251557984265975,
+        "p": 0.6875
+      }
+    }
+  },
+  "honest_n": {
+    "independent_unit_DA": "mBrain samples (n=10; scored=10)",
+    "nhoods_are_overlapping": true,
+    "SpatialFDR_is_overlap_aware": true,
+    "disjoint_nhood_subset_n": 192,
+    "do_not_cite_n_cells_as_n": 27708
+  }
+}

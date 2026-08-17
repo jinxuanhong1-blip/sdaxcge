@@ -48,6 +48,8 @@ prop[s, i] = n_cells(s in i) / n_cells(s)
 ```
 
 - **Primary:** Spearman of `prop` vs sample malignant CLDN4.
+  |ρ|=1 uses the exact two-sided tail `2/n!` (scipy’s t-approximation
+  reports p≈0 and is not used).
 - **Secondary:** Welch t-test after a median split of that score
   (`logFC = log2(mean_high) − log2(mean_low)`).
 
