@@ -11,6 +11,9 @@ r_libs <- Sys.getenv("R_LIBS_USER", "/tmp/r-libs")
 dir.create(r_libs, showWarnings = FALSE, recursive = TRUE)
 .libPaths(c(r_libs, .libPaths()))
 
+if (!requireNamespace("slingshot", quietly = TRUE)) {
+  stop("Bioconductor slingshot is not installed. Run scripts/install_tools.sh")
+}
 suppressPackageStartupMessages({
   library(slingshot)
 })

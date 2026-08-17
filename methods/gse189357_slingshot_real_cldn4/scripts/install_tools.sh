@@ -23,8 +23,8 @@ dir.create(Sys.getenv("R_LIBS_USER"), showWarnings=FALSE, recursive=TRUE)
 options(Ncpus=max(1L, parallel::detectCores()), repos=c(CRAN="https://cloud.r-project.org"))
 if (!requireNamespace("BiocManager", quietly=TRUE))
   install.packages("BiocManager")
-if (!requireNamespace("slingshot", quietly=TRUE))
-  BiocManager::install(c("slingshot", "SingleCellExperiment"), ask=FALSE, update=FALSE)
+if (!requireNamespace("slingshot", quietly=TRUE) || !requireNamespace("DelayedMatrixStats", quietly=TRUE))
+  BiocManager::install(c("slingshot", "SingleCellExperiment", "DelayedMatrixStats"), ask=FALSE, update=FALSE)
 cat("slingshot", as.character(packageVersion("slingshot")), "\n")
 '
 

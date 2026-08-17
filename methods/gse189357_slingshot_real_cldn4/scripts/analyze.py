@@ -208,7 +208,7 @@ def maybe_harmony(adata) -> dict:
     info["reason"] = (
         "harmonypy on PCA, batch=patient. Each patient is one stage "
         "(AIS/MIA/IAC), so Harmony removes between-patient/stage mean shifts; "
-        "the remaining axis is within-epithelium programs. n=9."
+        "the remaining axis is within-epithelium programs (n=9)"
     )
     return info
 
@@ -558,7 +558,9 @@ def main() -> None:
             adata.obs[f"expr_{g}"] = np.asarray(x, dtype=float).ravel()
         else:
             adata.obs[f"expr_{g}"] = np.nan
-            absent.setdefault("single_genes", []).append(g)
+            absent.setdefault("single_genes", [])
+            if g not in absent["single_genes"]:
+                absent["single_genes"].append(g)
 
     cldn = adata.obs["expr_CLDN4"].to_numpy()
     q1, q2 = np.nanquantile(cldn, [1 / 3, 2 / 3])
