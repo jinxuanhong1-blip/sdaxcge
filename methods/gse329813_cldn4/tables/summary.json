@@ -1,0 +1,67 @@
+{
+  "accession": "GSE329813",
+  "platform": "GPL24676",
+  "assay": "GeoMx DSP normalized counts (NOT bulk RNA-seq, NOT scRNA)",
+  "drug": "pembrolizumab + platinum-doublet; NCT05383716",
+  "durvalumab": false,
+  "verdict": "cldn4_absent_empty",
+  "cldn4_on_matrix": false,
+  "cldn4_hits": [],
+  "claudin_family_hits": [],
+  "n_genes": 1812,
+  "n_rois_in_matrix": 127,
+  "n_gsm": 127,
+  "n_patients": 22,
+  "n_tumorbed_roi": 72,
+  "n_ln_roi": 55,
+  "tumorbed_mpr": 11,
+  "tumorbed_nmpr": 11,
+  "series_matrix_expr_rows": 0,
+  "data_row_count_unique": [
+    "0"
+  ],
+  "tnk_present": [
+    "CD3D",
+    "CD3E",
+    "CD3G",
+    "CD2",
+    "CD8A",
+    "CD8B",
+    "NKG7",
+    "GNLY",
+    "KLRD1",
+    "GZMB",
+    "PRF1",
+    "GZMA",
+    "GZMK"
+  ],
+  "tnk_missing": [],
+  "ifn_present": [
+    "IFNG",
+    "STAT1",
+    "CXCL9",
+    "CXCL10",
+    "CXCL11",
+    "IDO1",
+    "HLA-DRA",
+    "HLA-A",
+    "HLA-B",
+    "HLA-C",
+    "CD274",
+    "LAG3"
+  ],
+  "ifn_missing": [],
+  "nearby_on_panel": {
+    "TACSTD2": true,
+    "EPCAM": true,
+    "CDH1": true,
+    "KRT8": false,
+    "KRT18": true,
+    "KRT19": true
+  },
+  "urls": {
+    "processed": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE329nnn/GSE329813/suppl/GSE329813_processed_data_file_normalized_data.csv.gz",
+    "series_matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE329nnn/GSE329813/matrix/GSE329813_series_matrix.txt.gz"
+  },
+  "note": "CLDN4 is not on the deposited GeoMx panel. T/NK and IFN genes are present. TACSTD2/EPCAM were not used as CLDN4 stand-ins. No CLDN4\u2013T/NK or CLDN4\u2013IFN Spearman is computed."
+}

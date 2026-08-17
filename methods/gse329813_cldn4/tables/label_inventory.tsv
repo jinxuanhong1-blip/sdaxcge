@@ -1,0 +1,13 @@
+item,public,n,note
+GEO GSM / ROI titles,yes,127,GSM9711715–GSM9711841; series matrix data_row_count=0
+"Titles parsed (ROI, patient, site, MPR/NMPR)",yes,127,all titles match the ROI/Patient/site/response pattern
+Patients in titles,yes,22,P1–P22; design text also says 22 patients
+Primary tumor-bed ROIs,yes,72,"20 patients with 3 ROIs, 2 patients with 6 ROIs"
+Lymph-node ROIs,yes,55,18/22 patients have LN ROIs
+Tumor-bed patients (MPR / NMPR),yes,22,MPR 11 / NMPR 11
+Processed matrix genes × ROIs,yes,1812 × 127,GSE329813_processed_data_file_normalized_data.csv.gz; only public counts
+Series-matrix expression rows,empty,0,header only; do not treat the series matrix as a count table
+Durvalumab / PACIFIC arm,no,0,"NCT05383716 pembrolizumab + platinum; leftover, not Durva"
+CLDN4 finite values,no,0,absent from the 1812-gene GeoMx panel; no claudin family member
+Primary pairwise n (CLDN4 + T/NK),empty,0,CLDN4 missing; T/NK genes are present but unused
+Primary pairwise n (CLDN4 + IFN),empty,0,CLDN4 missing; IFN genes are present but unused
