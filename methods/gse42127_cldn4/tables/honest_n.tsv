@@ -1,0 +1,13 @@
+item	n	rule
+arrays_on_series_matrix	176	GSE42127_series_matrix.txt.gz
+unique_GSM	176	all unique
+LUAD_adenocarcinoma	133	histology: Adenocarcinoma
+LUSC_squamous_dropped	43	histology: Squamous
+other_histology_dropped	0	not Adenocarcinoma / Squamous
+normals	0	none deposited
+CLDN4_finite_LUAD	133	max-mean official Symbol
+CD8A_finite_LUAD	133	max-mean official Symbol
+CD274_finite_LUAD	133	max-mean official Symbol
+pairwise_CLDN4_CD8A	133	primary n
+pairwise_CLDN4_CD274	133	primary n
+ICI_response	0	not deposited
