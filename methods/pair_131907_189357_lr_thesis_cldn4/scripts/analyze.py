@@ -127,7 +127,20 @@ def _marker_mal_tnk(extracted: dict[str, np.ndarray], n: int) -> tuple[np.ndarra
     return mal, tnk
 
 
-def stream_131907(matrix_path: Path, wanted: set[str]):
+def stream_131907(matrix_path: Path, wanted: set[str], cache_dir: Path | None = None):
+    cache_npz = None
+    if cache_dir is not None:
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        cache_npz = cache_dir / "gse131907_thesis_panel.npz"
+        if cache_npz.exists():
+            print(f"  loading cached panel {cache_npz}", flush=True)
+            z = np.load(cache_npz, allow_pickle=True)
+            cell_ids = z["cell_ids"].tolist()
+            n_umi = z["n_umi"]
+            n_streamed = int(z["n_streamed"])
+            found = {k: z[k] for k in z.files if k not in {"cell_ids", "n_umi", "n_streamed"}}
+            print(f"  cache genes={n_streamed} cells={len(cell_ids)} stored={len(found)}", flush=True)
+            return cell_ids, found, n_umi, n_streamed
     found: dict[str, np.ndarray] = {}
     with gzip.open(matrix_path, "rt") as handle:
         header = handle.readline().rstrip("\n").split("\t")
@@ -150,6 +163,15 @@ def stream_131907(matrix_path: Path, wanted: set[str]):
             if n_streamed % 4000 == 0:
                 print(f"  stream genes={n_streamed} stored={len(found)}", flush=True)
     print(f"stream done genes={n_streamed} cells={n} stored={len(found)}", flush=True)
+    if cache_npz is not None:
+        np.savez_compressed(
+            cache_npz,
+            cell_ids=np.asarray(cell_ids, dtype=object),
+            n_umi=n_umi,
+            n_streamed=np.asarray(n_streamed),
+            **found,
+        )
+        print(f"  wrote cache {cache_npz}", flush=True)
     return cell_ids, found, n_umi, n_streamed
 
 
@@ -159,13 +181,13 @@ def load_gse131907(raw: Path, wanted: set[str], locked: pd.DataFrame):
     ann_path = raw / "GSE131907" / "GSE131907_Lung_Cancer_cell_annotation.txt.gz"
     mat_path = raw / "GSE131907" / "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz"
     ann = pd.read_csv(ann_path, sep="\t")
-    cell_ids, found, n_umi, n_genes = stream_131907(mat_path, wanted)
+    cell_ids, found, n_umi, n_genes = stream_131907(mat_path, wanted, cache_dir=raw / "GSE131907")
     cell_index = {c: i for i, c in enumerate(cell_ids)}
     key = "Index" if "Index" in ann.columns else ann.columns[0]
     ann = ann.copy()
-    ann["_i"] = ann[key].map(cell_index)
-    ann = ann[ann["_i"].notna()].copy()
-    ann["_i"] = ann["_i"].astype(int)
+    ann["cell_i"] = ann[key].map(cell_index)
+    ann = ann[ann["cell_i"].notna()].copy()
+    ann["cell_i"] = ann["cell_i"].astype(int)
     sample_col = "Sample" if "Sample" in ann.columns else "sample"
     origin_col = "Sample_Origin" if "Sample_Origin" in ann.columns else None
     type_col = "Cell_type" if "Cell_type" in ann.columns else None
@@ -174,16 +196,18 @@ def load_gse131907(raw: Path, wanted: set[str], locked: pd.DataFrame):
     mal_mask = np.zeros(len(cell_ids), dtype=bool)
     tnk_mask = np.zeros(len(cell_ids), dtype=bool)
     sample_of = np.array([""] * len(cell_ids), dtype=object)
-    for rec in ann.itertuples(index=False):
-        i = int(getattr(rec, "_i"))
-        sample_of[i] = str(getattr(rec, sample_col))
-        subtype = str(getattr(rec, sub_col)) if sub_col else ""
-        ctype = str(getattr(rec, type_col)) if type_col else ""
-        origin = str(getattr(rec, origin_col)) if origin_col else ""
-        if subtype in MALIG_SUBTYPES and (origin in TUMOR_ORIGINS or origin_col is None):
-            mal_mask[i] = True
-        if ctype in {"T lymphocytes", "NK cells"}:
-            tnk_mask[i] = True
+    idx_arr = ann["cell_i"].to_numpy()
+    sample_arr = ann[sample_col].astype(str).to_numpy()
+    subtype_arr = ann[sub_col].astype(str).to_numpy() if sub_col else np.array([""] * len(ann), dtype=object)
+    ctype_arr = ann[type_col].astype(str).to_numpy() if type_col else np.array([""] * len(ann), dtype=object)
+    origin_arr = ann[origin_col].astype(str).to_numpy() if origin_col else np.array([""] * len(ann), dtype=object)
+    sample_of[idx_arr] = sample_arr
+    mal_ok = np.isin(subtype_arr, list(MALIG_SUBTYPES)) & (
+        np.isin(origin_arr, list(TUMOR_ORIGINS)) if origin_col else True
+    )
+    tnk_ok = np.isin(ctype_arr, ["T lymphocytes", "NK cells"])
+    mal_mask[idx_arr[mal_ok]] = True
+    tnk_mask[idx_arr[tnk_ok]] = True
 
     cldn4_all = None
     units = []
@@ -722,6 +746,14 @@ n_mal≥{MIN_MAL_Q4} and ≥{MIN_CELLS_ARM}/arm).
 GSE131907 malignant = author `Cell_subtype` in {{Malignant cells, tS1, tS2, tS3}}.
 GSE189357 malignant = marker-malignant (EPCAM|KRT8|KRT18|KRT19 > 0 and PTPRC == 0).
 TACSTD2 is never a gate.
+
+Median can drop units whose CLDN4 is almost all zero (high arm <10).
+Ligand n is pair-specific after the expr_prop≥{EXPR_PROP} detection floor.
+
+## Verdict
+
+Family tables below. Barrier/inhibitory is tested as high>low; IFN/T-recruit/MHC-I
+as low>high. Thin n and opposite calls are reported, not dropped.
 
 ## Family 1 — barrier / inhibitory (expect CLDN4-high > low)
 
