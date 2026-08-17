@@ -1,0 +1,374 @@
+{
+  "dataset": "GSE207422",
+  "task": "scVI or Harmony latent; malignant CLDN4 (not TACSTD2 redo)",
+  "tacstd2_gate": false,
+  "dual_high": false,
+  "n_cells_raw": 92330,
+  "n_genes_raw": 24292,
+  "n_cells": 92330,
+  "n_hvg": 2000,
+  "method": "scVI",
+  "integrator": {
+    "method": "scVI",
+    "scvi_version": "1.5.0.post1",
+    "n_latent": 10,
+    "max_epochs": 40,
+    "n_hvg": 2000,
+    "n_cells": 92330,
+    "batch_key": "sample"
+  },
+  "normal_lung_cut": 0.13617064416112476,
+  "cluster_nl_cut": 1.4533790951045653,
+  "lineage_counts": {
+    "T/NK": 38451,
+    "Myeloid": 23808,
+    "Epithelial": 14067,
+    "B/Plasma": 11295,
+    "Endothelial": 2510,
+    "Fibroblast": 1114,
+    "Mast": 1085
+  },
+  "cluster_lineage_counts": {
+    "T/NK": 38554,
+    "Myeloid": 28627,
+    "Epithelial": 12118,
+    "B/Plasma": 11081,
+    "Fibroblast": 868,
+    "Mast": 842,
+    "Endothelial": 240
+  },
+  "n_marker_malignant": 10550,
+  "n_cluster_malignant": 10170,
+  "n_a3_malignant": 8943,
+  "scores": {
+    "cluster_post_cldn4_tnk": {
+      "contrast": "post cluster CLDN4 vs T/NK",
+      "n": 10,
+      "n_samples_total": 12,
+      "n_eligible": 10,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune13"
+      ],
+      "rho": -0.0303030303030303,
+      "p": 0.9337729580941466,
+      "negative": true,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_tnk"
+    },
+    "cluster_post_cldn4_cxcl13": {
+      "contrast": "post cluster CLDN4 vs CXCL13+",
+      "n": 10,
+      "n_samples_total": 12,
+      "n_eligible": 10,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune13"
+      ],
+      "rho": -0.2727272727272727,
+      "p": 0.4458383415427516,
+      "negative": true,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cxcl13"
+    },
+    "cluster_post_cldn4_cyto": {
+      "contrast": "post cluster CLDN4 vs cyto-high",
+      "n": 10,
+      "n_samples_total": 12,
+      "n_eligible": 10,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune13"
+      ],
+      "rho": -0.12727272727272726,
+      "p": 0.7260570147627894,
+      "negative": true,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cyto_high"
+    },
+    "marker_post_cldn4_tnk": {
+      "contrast": "post marker CLDN4 vs T/NK",
+      "n": 11,
+      "n_samples_total": 12,
+      "n_eligible": 11,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.07339758434175737,
+      "p": 0.8301847435189387,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_tnk"
+    },
+    "marker_post_cldn4_cxcl13": {
+      "contrast": "post marker CLDN4 vs CXCL13+",
+      "n": 11,
+      "n_samples_total": 12,
+      "n_eligible": 11,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.31193973345246884,
+      "p": 0.35037717857997286,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cxcl13"
+    },
+    "marker_post_cldn4_cyto": {
+      "contrast": "post marker CLDN4 vs cyto-high",
+      "n": 11,
+      "n_samples_total": 12,
+      "n_eligible": 11,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.3394638275806278,
+      "p": 0.3071024935197742,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cyto_high"
+    },
+    "a3_post_cldn4_tnk": {
+      "contrast": "post A3 CLDN4 vs T/NK",
+      "n": 11,
+      "n_samples_total": 12,
+      "n_eligible": 11,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.27272727272727276,
+      "p": 0.4171414371425311,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_tnk"
+    },
+    "a3_post_cldn4_cxcl13": {
+      "contrast": "post A3 CLDN4 vs CXCL13+",
+      "n": 11,
+      "n_samples_total": 12,
+      "n_eligible": 11,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.4090909090909091,
+      "p": 0.21154501034209602,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cxcl13"
+    },
+    "a3_post_cldn4_cyto": {
+      "contrast": "post A3 CLDN4 vs cyto-high",
+      "n": 11,
+      "n_samples_total": 12,
+      "n_eligible": 11,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.21818181818181823,
+      "p": 0.5192482475549817,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cyto_high"
+    },
+    "cluster_all_cldn4_tnk": {
+      "contrast": "all15 cluster CLDN4 vs T/NK",
+      "n": 12,
+      "n_samples_total": 15,
+      "n_eligible": 12,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune08",
+        "BD_immune13"
+      ],
+      "rho": -0.1328671328671329,
+      "p": 0.6805975082860817,
+      "negative": true,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_tnk"
+    },
+    "cluster_all_cldn4_cxcl13": {
+      "contrast": "all15 cluster CLDN4 vs CXCL13+",
+      "n": 12,
+      "n_samples_total": 15,
+      "n_eligible": 12,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune08",
+        "BD_immune13"
+      ],
+      "rho": -0.4055944055944056,
+      "p": 0.19083587400450036,
+      "negative": true,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cxcl13"
+    },
+    "cluster_all_cldn4_cyto": {
+      "contrast": "all15 cluster CLDN4 vs cyto-high",
+      "n": 12,
+      "n_samples_total": 15,
+      "n_eligible": 12,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune08",
+        "BD_immune13"
+      ],
+      "rho": -0.2027972027972028,
+      "p": 0.5273023541661079,
+      "negative": true,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cyto_high"
+    },
+    "marker_all_cldn4_tnk": {
+      "contrast": "all15 marker CLDN4 vs T/NK",
+      "n": 14,
+      "n_samples_total": 15,
+      "n_eligible": 14,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": -0.1081688246553687,
+      "p": 0.7128142653138133,
+      "negative": true,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_tnk"
+    },
+    "marker_all_cldn4_cxcl13": {
+      "contrast": "all15 marker CLDN4 vs CXCL13+",
+      "n": 14,
+      "n_samples_total": 15,
+      "n_eligible": 14,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.10375377058780262,
+      "p": 0.7241098130956382,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cxcl13"
+    },
+    "marker_all_cldn4_cyto": {
+      "contrast": "all15 marker CLDN4 vs cyto-high",
+      "n": 14,
+      "n_samples_total": 15,
+      "n_eligible": 14,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.125829040925633,
+      "p": 0.6681964445441553,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "frac_cyto_high"
+    },
+    "cluster_post_cldn4_vs_tacstd2": {
+      "contrast": "post cluster CLDN4 vs TACSTD2",
+      "n": 10,
+      "n_samples_total": 12,
+      "n_eligible": 10,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune13"
+      ],
+      "rho": 0.5030303030303029,
+      "p": 0.13833369839449194,
+      "negative": false,
+      "x": "mal_CLDN4_mean",
+      "y": "mal_TACSTD2_mean"
+    },
+    "cluster_post_tacstd2_tnk": {
+      "contrast": "post cluster TACSTD2 vs T/NK (companion)",
+      "n": 10,
+      "n_samples_total": 12,
+      "n_eligible": 10,
+      "dropped": [
+        "BD_immune06",
+        "BD_immune13"
+      ],
+      "rho": -0.1515151515151515,
+      "p": 0.6760651759978539,
+      "negative": true,
+      "x": "mal_TACSTD2_mean",
+      "y": "frac_tnk"
+    },
+    "marker_post_tacstd2_tnk": {
+      "contrast": "post marker TACSTD2 vs T/NK (companion)",
+      "n": 11,
+      "n_samples_total": 12,
+      "n_eligible": 11,
+      "dropped": [
+        "BD_immune11"
+      ],
+      "rho": 0.19590028045862823,
+      "p": 0.5637442329087622,
+      "negative": false,
+      "x": "mal_TACSTD2_mean",
+      "y": "frac_tnk"
+    }
+  },
+  "nmpr_vs_mpr": {
+    "cluster_cldn4": {
+      "n_a": 7,
+      "n_b": 3,
+      "mean_a": 1.398199793229202,
+      "mean_b": 1.4827563289315757,
+      "delta": -0.08455653570237365,
+      "exact_p": 0.6666666666666666,
+      "note": "",
+      "contrast": "NMPR vs MPR mal_CLDN4_mean",
+      "dropped": [
+        "BD_immune06",
+        "BD_immune13"
+      ]
+    },
+    "marker_cldn4": {
+      "n_a": 8,
+      "n_b": 3,
+      "mean_a": 0.6325108661917314,
+      "mean_b": 0.3237098882096035,
+      "delta": 0.30880097798212786,
+      "exact_p": 0.3757575757575758,
+      "note": "",
+      "contrast": "NMPR vs MPR mal_CLDN4_mean",
+      "dropped": [
+        "BD_immune11"
+      ]
+    },
+    "a3_cldn4": {
+      "n_a": 8,
+      "n_b": 3,
+      "mean_a": 0.715980401895759,
+      "mean_b": 0.3226369556939746,
+      "delta": 0.39334344620178435,
+      "exact_p": 0.3757575757575758,
+      "note": "",
+      "contrast": "NMPR vs MPR mal_CLDN4_mean",
+      "dropped": [
+        "BD_immune11"
+      ]
+    },
+    "cluster_tnk": {
+      "n_a": 8,
+      "n_b": 4,
+      "mean_a": 0.4044706849405339,
+      "mean_b": 0.5368821710076565,
+      "delta": -0.13241148606712255,
+      "exact_p": 0.6828282828282828,
+      "note": "",
+      "contrast": "NMPR vs MPR frac_tnk",
+      "dropped": []
+    },
+    "marker_tnk": {
+      "n_a": 8,
+      "n_b": 4,
+      "mean_a": 0.40570504613465197,
+      "mean_b": 0.5346259786886152,
+      "delta": -0.1289209325539632,
+      "exact_p": 0.6828282828282828,
+      "note": "",
+      "contrast": "NMPR vs MPR frac_tnk",
+      "dropped": []
+    }
+  },
+  "CLDN4_present": true,
+  "TACSTD2_present": true
+}
