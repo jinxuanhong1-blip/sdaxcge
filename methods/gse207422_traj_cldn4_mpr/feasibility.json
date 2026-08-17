@@ -1,0 +1,13 @@
+{
+  "dataset": "GSE207422",
+  "task": "CLDN4-only PAGA+DPT on malignant-like epithelium vs MPR",
+  "size_budget_gb": 2.0,
+  "processed_umi_bytes": 184001817,
+  "processed_umi_gb": 0.171,
+  "umi_within_budget": true,
+  "decision": "ANALYZE",
+  "author_cell_labels_public": false,
+  "skipped_raw": "HRA001033 (GSA-Human controlled; not processed)",
+  "slingshot": "R not present; PAGA+DPT only",
+  "workdir": "/tmp/gse207422_traj_data"
+}

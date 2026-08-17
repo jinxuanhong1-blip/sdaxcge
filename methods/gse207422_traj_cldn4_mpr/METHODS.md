@@ -29,4 +29,5 @@ GSE207422-only T/NK was flat in the given slice and is not re-audited.
 
 **Honest n.** This set is small (12 post patients; MPR n=4 including pCR). Several
 MPR residuals have 0 A3-malignant-like cells. Do not write the graph cell count
-as the test n.
+as the test n. `SFTPC` is absent from the public UMI; the AT2 score uses the
+remaining locked AT2 genes.

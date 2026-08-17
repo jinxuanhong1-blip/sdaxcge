@@ -226,6 +226,15 @@ def main() -> None:
             if c in meta.columns
         ]
         obs = obs.merge(meta[keep], on="Sample", how="left")
+        for col in list(obs.columns):
+            if col in {"n_umi", "n_genes"} or pd.api.types.is_bool_dtype(obs[col]):
+                continue
+            if pd.api.types.is_numeric_dtype(obs[col]) and col not in {
+                "Residual Tumor",
+                "Age",
+            }:
+                continue
+            obs[col] = obs[col].map(lambda x: "" if pd.isna(x) else str(x))
         obs.index = obs["cell"].astype(str)
 
     import anndata as ad
