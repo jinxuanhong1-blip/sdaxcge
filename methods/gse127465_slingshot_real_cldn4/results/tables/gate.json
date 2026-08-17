@@ -1,0 +1,25 @@
+{
+  "cldn4_present": true,
+  "n_tumor": 40362,
+  "n_tumor_epithelium": 4281,
+  "n_malignant": 3694,
+  "n_malignant_cldn4_pos": 1529,
+  "n_type2": 403,
+  "patients": [
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "p6",
+    "p7"
+  ],
+  "lineage_counts": {
+    "Malignant": 3694,
+    "Type II cells": 403,
+    "Ciliated cells": 70,
+    "Club cells": 68,
+    "Type I cells": 46
+  },
+  "reason": null
+}

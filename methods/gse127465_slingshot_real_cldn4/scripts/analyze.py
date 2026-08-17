@@ -390,6 +390,7 @@ def write_finding(path: Path, s: dict) -> None:
         "- `results/figures/fig_extra_cldn4_tertile.png`",
         "- `results/figures/fig_extra_lineage_cldn4.png`",
         "- `results/figures/fig_extra_paga.png`",
+        "- `results/figures/fig_extra_patient_cldn4.png`",
         "- `results/figures/fig_honest_n.png`",
         "- `results/summary.json`",
         "",

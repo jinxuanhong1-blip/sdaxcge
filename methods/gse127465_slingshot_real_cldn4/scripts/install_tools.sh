@@ -21,9 +21,11 @@ if (!requireNamespace("BiocManager", quietly=TRUE)) {
                    lib=Sys.getenv("R_LIBS_USER"))
 }
 if (!requireNamespace("slingshot", quietly=TRUE)) {
-  BiocManager::install(c("slingshot", "SingleCellExperiment", "TrajectoryUtils"),
-                       ask=FALSE, update=FALSE, Ncpus=4,
-                       lib=Sys.getenv("R_LIBS_USER"))
+  BiocManager::install(
+    c("slingshot", "SingleCellExperiment", "TrajectoryUtils",
+      "DelayedMatrixStats", "sparseMatrixStats"),
+    ask=FALSE, update=FALSE, Ncpus=4,
+    lib=Sys.getenv("R_LIBS_USER"))
 }
 cat("slingshot", as.character(packageVersion("slingshot")), "\n")
 RS
