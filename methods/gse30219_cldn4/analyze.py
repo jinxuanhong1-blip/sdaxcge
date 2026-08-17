@@ -62,7 +62,8 @@ NSCLC_CODES = {"ADC", "SQC", "LCC", "BAS"}
 LCNE_CODES = {"LCNE", "LCNEC"}
 SCLC_CODES = {"SCC", "SCLC"}
 CARCINOID_CODES = {"CARCI", "CARCINOID"}
-NORMAL_CODES = {"NT", "NL", "NORMAL"}
+NORMAL_CODES = {"NT", "NTL", "NL", "NORMAL"}
+OTHER_CODES = {"OTHER"}
 
 
 def download(url: str, dest: Path) -> Path:
@@ -287,8 +288,8 @@ def estimate_scores(gene_expr: pd.DataFrame, stromal: list[str], immune: list[st
 
 def histology_code(raw: str) -> str:
     s = str(raw).strip().upper()
-    if s in {"NT", "NL", "NORMAL", "NONTUMORAL", "NON-TUMORAL", "NON TUMORAL"}:
-        return "NT"
+    if s in {"NT", "NTL", "NL", "NORMAL", "NONTUMORAL", "NON-TUMORAL", "NON TUMORAL"}:
+        return "NTL"
     if s in {"ADC", "ADENOCARCINOMA", "LUAD"}:
         return "ADC"
     if s in {"SQC", "SQUAMOUS", "LUSC", "SQCC"}:
@@ -303,6 +304,8 @@ def histology_code(raw: str) -> str:
         return "SCC"
     if s in {"CARCI", "CARCINOID"}:
         return "CARCI"
+    if s in {"OTHER"}:
+        return "OTHER"
     return s
 
 
@@ -414,12 +417,12 @@ GEO histology codes on this series are **not** WHO abbreviations. **`SCC` is sma
 |---|---:|---|
 | arrays on the series matrix | {n_matrix} | GEO `GSE30219_series_matrix.txt.gz` |
 | GEO histology inventory | {n_matrix} | {histo_txt} |
-| non-tumoral lung (`NT`) | {n_nt} | dropped |
-| all tumors (any histology) | {n_tumor} | matrix minus `NT` |
+| non-tumoral lung (`NTL`) | {n_nt} | titles “Non tumoral lung”; dropped. GEO `tissue` still says lung tumour |
+| all tumors (any histology) | {n_tumor} | matrix minus `NTL` = paper 293 |
 | SCLC (`SCC`) | {n_scc} | **not NSCLC**; held out |
 | carcinoid (`CARCI`) | {n_carci} | **not NSCLC**; held out |
 | LCNEC (`LCNE`) | {n_lcne} | neuroendocrine; **not** in primary NSCLC n |
-| other / unmapped histology | {n_other} | held out of primary n |
+| other / unmapped histology | {n_other} | GEO `Other` unspecified tumors; held out |
 | ADC | {n_adc} | GEO `ADC` |
 | SQC (squamous) | {n_sqc} | GEO `SQC` (not `SCC`) |
 | LCC | {n_lcc} | GEO `LCC` |
@@ -449,7 +452,7 @@ GEO series-matrix MAS5 linear intensity. Tests use native ranks (Spearman / ssGS
 |---|---|---:|---|
 | histology | yes | {n_matrix} | GEO characteristic; codes listed above |
 | ICI response | **no** | 0 | surgical / pretreatment diagnostic series |
-| OS / DFS | paper only | 0 | not used here (not an ICI or survival claim) |
+| OS / DFS | yes | {n_matrix} | GEO follow-up / status / DFS / relapse; **not used** (not a survival claim) |
 | ESTIMATE published scores | **no** | 0 | computed here from Yoshihara lists |
 
 Max-mean unique-mapped GPL570 probe (multi-mapped `///` probes dropped for the three named genes):
@@ -489,7 +492,7 @@ Partial = Pearson of rank residuals on ESTIMATE TumorPurity; df = n − 3. Boots
 | CLDN4 | TumorPurity | {int(c4_pur.n_unadjusted) if c4_pur is not None else 0} | {fmt_rho(c4_pur.unadj_rho) if c4_pur is not None else 'NA'} | {fmt_rho(c4_pur.unadj_ci_lo) if c4_pur is not None else 'NA'} to {fmt_rho(c4_pur.unadj_ci_hi) if c4_pur is not None else 'NA'} | {fmt_p(c4_pur.unadj_p) if c4_pur is not None else 'NA'} | — | — |
 | CD274 | CD8A | {int(pdl1_cd8.n_unadjusted) if pdl1_cd8 is not None else 0} | {fmt_rho(pdl1_cd8.unadj_rho) if pdl1_cd8 is not None else 'NA'} | {fmt_rho(pdl1_cd8.unadj_ci_lo) if pdl1_cd8 is not None else 'NA'} to {fmt_rho(pdl1_cd8.unadj_ci_hi) if pdl1_cd8 is not None else 'NA'} | {fmt_p(pdl1_cd8.unadj_p) if pdl1_cd8 is not None else 'NA'} | {fmt_rho(pdl1_cd8.partial_rho) if pdl1_cd8 is not None else 'NA'} | {fmt_p(pdl1_cd8.partial_p) if pdl1_cd8 is not None else 'NA'} |
 
-This is extra mixed-histology French surgical-array weight for CLDN4 vs CD8 / PD-L1 transcript. It is **not** an ICI-response test.
+Mixed NSCLC (ADC+SQC+LCC+BAS) is **null** for both named pairs. The ADC-only unadjusted CLDN4–CD8A inverse (see one-row table) attenuates after the ESTIMATE impurity axis, the same pattern as GSE31210 LUAD. Do not treat the mixed-NSCLC pool as evidence that CLDN4-high NSCLC is CD8-low or PD-L1-low. It is **not** an ICI-response test.
 
 ## What is not done
 
@@ -560,8 +563,8 @@ def main() -> None:
     is_lcne = meta["histo"].isin(LCNE_CODES)
     is_nsclc = meta["histo"].isin(NSCLC_CODES)
     is_tumor = ~is_nt
-    known = NSCLC_CODES | LCNE_CODES | SCLC_CODES | CARCINOID_CODES | NORMAL_CODES
-    is_other = ~meta["histo"].isin(known)
+    known = NSCLC_CODES | LCNE_CODES | SCLC_CODES | CARCINOID_CODES | NORMAL_CODES | OTHER_CODES
+    is_other = meta["histo"].isin(OTHER_CODES) | ~meta["histo"].isin(known)
 
     n_nt = int(is_nt.sum())
     n_scc = int(is_scc.sum())
@@ -600,7 +603,8 @@ def main() -> None:
             "LCNE": "LCNEC; sensitivity only",
             "SCC": "small-cell; NOT NSCLC",
             "CARCI": "carcinoid; NOT NSCLC",
-            "NT": "non-tumoral lung; dropped",
+            "NTL": "non-tumoral lung (GEO NTL / titles 'Non tumoral lung'); dropped",
+            "OTHER": "GEO histology Other; unspecified tumor; held out",
         }
     )
     inv.to_csv(TABLES / "histology_inventory.tsv", sep="\t", index=False)

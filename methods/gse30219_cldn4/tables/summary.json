@@ -1,0 +1,37 @@
+{
+  "dataset": "GSE30219",
+  "primary_cohort": "NSCLC = ADC+SQC+LCC+BAS",
+  "n_nsclc": 188,
+  "n_named_complete": 188,
+  "CLDN4_CD8A": {
+    "n": 188,
+    "rho": -0.07432631337512438,
+    "p": 0.3107177342450628,
+    "partial_rho": -0.016216163615160685,
+    "partial_p": 0.8256528585680722
+  },
+  "CLDN4_CD274": {
+    "n": 188,
+    "rho": -0.055395723731143,
+    "p": 0.4502116493266,
+    "partial_rho": -0.011364743522589045,
+    "partial_p": 0.8773152748056324
+  },
+  "probes": {
+    "CLDN4": "201428_at",
+    "CD8A": "205758_at",
+    "CD274": "227458_at"
+  },
+  "histo_column": "histology",
+  "histo_counts": {
+    "ADC": 85,
+    "SQC": 61,
+    "NTL": 14,
+    "LCC": 3,
+    "OTHER": 4,
+    "BAS": 39,
+    "LCNE": 56,
+    "SCC": 21,
+    "CARCI": 24
+  }
+}
