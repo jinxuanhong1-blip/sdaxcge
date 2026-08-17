@@ -1,0 +1,24 @@
+dataset	analysis	comparison	metric	n	stat	value	p_value	note
+GSE274595	spearman_patient	epi_TACSTD2 vs frac_tnk	epi_TACSTD2	7	spearman_rho	0.7500000000000002	0.0521814004570578	eligible n_epi>=10 and n_tnk>=20; unit=sample/patient; epithelial marker score (malignant split empty when AT2/club markers ~0)
+GSE274595	spearman_patient	epi_CLDN4 vs frac_tnk	epi_CLDN4	7	spearman_rho	0.25	0.5887244480896832	eligible n_epi>=10 and n_tnk>=20; unit=sample/patient; epithelial marker score (malignant split empty when AT2/club markers ~0)
+GSE274595	spearman_patient	mal_TACSTD2 vs frac_tnk	mal_TACSTD2	0	spearman_rho			n<4; eligible n_epi>=10 and n_tnk>=20; unit=row
+GSE274595	spearman_patient	mal_CLDN4 vs frac_tnk	mal_CLDN4	0	spearman_rho			n<4; eligible n_epi>=10 and n_tnk>=20; unit=row
+GSE274595_tissue	spearman_patient	epi_TACSTD2 vs frac_tnk	epi_TACSTD2	2	spearman_rho			n<4; eligible n_epi>=5 and n_tnk>=10; unit=row; tissue lanes only (nuclei excluded)
+GSE274595_tissue	spearman_patient	epi_CLDN4 vs frac_tnk	epi_CLDN4	2	spearman_rho			n<4; eligible n_epi>=5 and n_tnk>=10; unit=row; tissue lanes only (nuclei excluded)
+GSE267108	spearman_patient	epi_TACSTD2 vs frac_tnk	epi_TACSTD2	8	spearman_rho	-0.1428571428571428	0.735764859879812	eligible n_epi>=10 and n_tnk>=20; unit=sample/patient; epithelial marker score (malignant split empty when AT2/club markers ~0)
+GSE267108	spearman_patient	epi_CLDN4 vs frac_tnk	epi_CLDN4	8	spearman_rho	-0.3571428571428572	0.3851206435562561	eligible n_epi>=10 and n_tnk>=20; unit=sample/patient; epithelial marker score (malignant split empty when AT2/club markers ~0)
+GSE267108	spearman_patient	mal_TACSTD2 vs frac_tnk	mal_TACSTD2	1	spearman_rho			n<4; eligible n_epi>=10 and n_tnk>=20; unit=row
+GSE267108	spearman_patient	mal_CLDN4 vs frac_tnk	mal_CLDN4	1	spearman_rho			n<4; eligible n_epi>=10 and n_tnk>=20; unit=row
+GSE267108	mwu_pdl1_bin	epi_TACSTD2 neg vs pos_or_high	epi_TACSTD2	4+4	mannwhitney_u	2.0	0.1142857142857142	neg med=0.1694 (n=4); pos_or_high med=0.8092 (n=4); 
+GSE267108	mwu_pdl1_bin	epi_CLDN4 neg vs pos_or_high	epi_CLDN4	4+4	mannwhitney_u	4.0	0.3428571428571428	neg med=0.2020 (n=4); pos_or_high med=0.8862 (n=4); 
+GSE267108	mwu_pdl1_bin	mal_TACSTD2 neg vs pos_or_high	mal_TACSTD2	0+1	mannwhitney_u			neg med=nan (n=0); pos_or_high med=1.0670 (n=1); n<2 in a group
+GSE267108	mwu_pdl1_bin	mal_CLDN4 neg vs pos_or_high	mal_CLDN4	0+1	mannwhitney_u			neg med=nan (n=0); pos_or_high med=1.4988 (n=1); n<2 in a group
+GSE337519	descriptive_n1	epithelial TACSTD2 / CLDN4 vs T/NK (n=1 patient)	epi_TACSTD2	1	mean_log1p_cp10k	0.2856455458929485		n=1; cannot test response or patient-level ρ. n_epi=1363 n_tnk=4574 frac_tnk=0.5319 epi_CLDN4=0.0839
+GSE186446_bulk_fcount	spearman_region_bulk	bulk TACSTD2 vs T/NK score (viable tumor regions)	TACSTD2	19	spearman_rho	0.2719298245614035	0.2600673825269107	NOT scRNA. Bulk featureCounts of regions / 3 ICB patients. scRNA is T-cell only. 1344_C* mapped to viable tumor cores.
+GSE186446_bulk_fcount	spearman_region_bulk	bulk CLDN4 vs T/NK score (viable tumor regions)	CLDN4	19	spearman_rho	-0.0333919672103696	0.892052190027976	NOT scRNA. Region unit.
+GSE186446_bulk_fcount	spearman_patient_bulk	bulk TACSTD2 vs T/NK (patient mean of viable tumor)	TACSTD2	3	spearman_rho	-0.5	0.6666666666666666	n=3 patients. Underpowered.
+GSE186446_bulk_fcount	spearman_patient_bulk	bulk CLDN4 vs T/NK (patient mean of viable tumor)	CLDN4	3	spearman_rho	-1.0		n=3 patients. |ρ|=1 is a three-point rank coincidence; p is not a claim.
+E-MTAB-13526	spearman_patient_CD235a_minus	epi_TACSTD2 vs frac_tnk	epi_TACSTD2	11	spearman_rho	-0.0181818181818181	0.9576852410216188	Cvejic/De Zuani NSCLC atlas, tumor h5ad, author Cell types; not ICI; extra n. PRIMARY: CD235a- lanes only (has epithelium + immune). X streamed remotely (author-normalized CSR).
+E-MTAB-13526	spearman_patient_CD235a_minus	epi_CLDN4 vs frac_tnk	epi_CLDN4	11	spearman_rho	0.3272727272727273	0.3258949410128415	Cvejic/De Zuani NSCLC atlas, tumor h5ad, author Cell types; not ICI; extra n. PRIMARY: CD235a- lanes only (has epithelium + immune). X streamed remotely (author-normalized CSR).
+E-MTAB-13526	spearman_patient_all_sorts	epi_TACSTD2 vs frac_tnk	epi_TACSTD2	13	spearman_rho	0.2417582417582417	0.4261755195945088	Cvejic/De Zuani NSCLC atlas, tumor h5ad, author Cell types; not ICI; extra n. SENSITIVITY: all sorts including myeloid/MDSC. X streamed remotely (author-normalized CSR).
+E-MTAB-13526	spearman_patient_all_sorts	epi_CLDN4 vs frac_tnk	epi_CLDN4	13	spearman_rho	0.1043956043956044	0.7343037452877025	Cvejic/De Zuani NSCLC atlas, tumor h5ad, author Cell types; not ICI; extra n. SENSITIVITY: all sorts including myeloid/MDSC. X streamed remotely (author-normalized CSR).

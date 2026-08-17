@@ -1,0 +1,92 @@
+cohort	malig_def	immune_def	score	gene	n	rho	p	note	source
+GSE207422	author_DRMref	tnk	mean	CLDN4	12	-0.09090909090909093	0.7787253962454419	CLDN4 from the given A3 12-patient table; not an A3 re-cut	a3_given_table
+GSE207422	author_DRMref	cyto	mean	CLDN4	12	-0.09090909090909093	0.7787253962454419	CLDN4 vs T/NK cytotoxicity on the given A3 table	a3_given_table
+GSE207422	marker_malig	tnk	mean	CLDN4	7	0.25	0.5887244480896832	post, n_mal>=10	tnk_extract
+GSE207422	marker_malig	cd8	mean	CLDN4	7	-0.07142857142857144	0.879048193148154	post, n_mal>=10	tnk_extract
+GSE207422	marker_malig	tnk	pct	CLDN4	7	0.0	1.0	post, n_mal>=10	tnk_extract
+GSE207422	marker_malig	cd8	pct	CLDN4	7	-0.1785714285714286	0.7016579425162727	post, n_mal>=10	tnk_extract
+GSE207422	marker_malig	cxcl13_mean	mean	CLDN4	7	0.10714285714285716	0.8191508555699912	post, n_mal>=10; CXCL13 log2cpm from marker table	tnk_extract
+GSE207422	marker_malig_nsclc	tnk	mean	CLDN4	9	0.03333333333333333	0.9321567355405039	post, n_mal_like>=10	tnk_extract
+GSE207422	marker_malig_nsclc	cd8	mean	CLDN4	9	-0.13333333333333333	0.7323675052362973	post, n_mal_like>=10	tnk_extract
+GSE207422	marker_malig_nsclc	tnk	pct	CLDN4	9	0.03333333333333333	0.9321567355405039	post, n_mal_like>=10	tnk_extract
+GSE207422	marker_malig_nsclc	cd8	pct	CLDN4	9	-0.13333333333333333	0.7323675052362973	post, n_mal_like>=10	tnk_extract
+GSE205335	author_malig	tnk	mean	CLDN4	22	-0.20045172219085267	0.3710825718233011	author malignant	tnk_extract
+GSE205335	author_malig	tnk	pct	CLDN4	22	-0.43534726143421804	0.042861326301676765	author malignant	tnk_extract
+GSE205335	author_malig	cd8	mean	CLDN4	22	-0.17786561264822137	0.42841247523808007	author malignant	tnk_extract
+GSE205335	author_malig	cd8	pct	CLDN4	22	-0.36420101637492946	0.09564628896671849	author malignant	tnk_extract
+GSE205335	author_malig	b_plasma	mean	CLDN4	22	0.0005646527385657821	0.998010198944439	author malignant	tnk_extract
+GSE205335	author_malig	b_plasma	pct	CLDN4	22	-0.15866741953698477	0.48064705182624184	author malignant	tnk_extract
+GSE205335_NSCLC	author_malig	tnk	mean	CLDN4	17	-0.022058823529411766	0.9330304490530753	author malignant	tnk_extract
+GSE205335_NSCLC	author_malig	tnk	pct	CLDN4	17	-0.2058823529411765	0.42791485314270766	author malignant	tnk_extract
+GSE205335_NSCLC	author_malig	cd8	mean	CLDN4	17	-0.02450980392156863	0.9256077760199252	author malignant	tnk_extract
+GSE205335_NSCLC	author_malig	cd8	pct	CLDN4	17	-0.07107843137254903	0.7863266619781205	author malignant	tnk_extract
+GSE205335_NSCLC	author_malig	b_plasma	mean	CLDN4	17	0.07843137254901962	0.7647798831352098	author malignant	tnk_extract
+GSE205335_NSCLC	author_malig	b_plasma	pct	CLDN4	17	-0.08088235294117649	0.7576329086921563	author malignant	tnk_extract
+GSE241934_IIT	author_epi	tnk	mean	CLDN4	11	-0.06363636363636364	0.8525390725425217	author residual Epi	tnk_extract
+GSE241934_IIT	author_epi	tnk	pct	CLDN4	11	0.05454545454545456	0.8734465775233149	author residual Epi	tnk_extract
+GSE241934_IIT	author_epi	cd8	mean	CLDN4	11	-0.10909090909090911	0.7495085962341481	author residual Epi	tnk_extract
+GSE241934_IIT	author_epi	cd8	pct	CLDN4	11	0.18181818181818182	0.5926152128455	author residual Epi	tnk_extract
+GSE241934_Real	author_epi	tnk	mean	CLDN4	24	0.1782608695652174	0.404629262071875	author residual Epi	tnk_extract
+GSE241934_Real	author_epi	tnk	pct	CLDN4	24	-0.033913043478260865	0.8749966229566862	author residual Epi	tnk_extract
+GSE241934_Real	author_epi	cd8	mean	CLDN4	24	0.18521739130434778	0.3862326819021753	author residual Epi	tnk_extract
+GSE241934_Real	author_epi	cd8	pct	CLDN4	24	0.1226086956521739	0.5681672657020509	author residual Epi	tnk_extract
+GSE291670	marker_malig	tnk	mean	CLDN4	6	-0.8285714285714287	0.04156268221574335	marker malignant	tnk_extract
+GSE291670	marker_malig	tnk	pct	CLDN4	6	-0.8857142857142858	0.01884548104956266	marker malignant	tnk_extract
+GSE291670	marker_epi	tnk	mean	CLDN4	6	-0.8285714285714287	0.04156268221574335	all epithelial	tnk_extract
+GSE291670	marker_malig	tnk_umi	mean	CLDN4	6	-0.5428571428571429	0.26570262390670546	marker malignant	tnk_extract
+GSE291670	marker_malig	tnk_umi	pct	CLDN4	6	-0.6	0.208	marker malignant	tnk_extract
+GSE291670	marker_epi	tnk_umi	mean	CLDN4	6	-0.5428571428571429	0.26570262390670546	all epithelial	tnk_extract
+GSE253013	marker_malig	tnk	mean	CLDN4	9	-0.33333333333333337	0.38071318167686347	tumor malig-like; existing extract, no RDS	tnk_extract
+GSE253013	marker_malig	tnk	mean_cp10k	CLDN4	9	-0.5499999999999999	0.12497678418833194	tumor malig-like; existing extract, no RDS	tnk_extract
+GSE253013	marker_malig	tnk	pct	CLDN4	9	-0.5333333333333333	0.13922686754397814	tumor malig-like; existing extract, no RDS	tnk_extract
+GSE253013	marker_epi	tnk	mean	CLDN4	9	-0.19999999999999998	0.6059012741795534	tumor epithelium; existing extract	tnk_extract
+GSE253013	marker_epi	tnk	pct	CLDN4	9	-0.06666666666666667	0.8646897846262036	tumor epithelium; existing extract	tnk_extract
+GSE131907	author_epi	tnk	mean	CLDN4	36	-0.2102960102960103	0.21829713378991505	author epithelium, >=20 epi	tnk_extract
+GSE131907	author_epi	tnk	pct	CLDN4	36	-0.364993564993565	0.028610578513248885	author epithelium, >=20 epi	tnk_extract
+GSE131907	author_malig	tnk	mean	CLDN4	21	-0.39610389610389607	0.07547637795047248	author Malignant cells subtype	tnk_extract
+GSE131907	author_malig	tnk	pct	CLDN4	21	-0.5220779220779221	0.015195754492505785	author Malignant cells subtype	tnk_extract
+GSE131907	author_epi	cd8	mean	CLDN4	36	-0.09446589446589447	0.5836780479358336	author epithelium, >=20 epi	tnk_extract
+GSE131907	author_epi	cd8	pct	CLDN4	36	-0.3258687258687259	0.05243803861101634	author epithelium, >=20 epi	tnk_extract
+GSE131907	author_malig	cd8	mean	CLDN4	21	-0.3532467532467533	0.11623101293161814	author Malignant cells subtype	tnk_extract
+GSE131907	author_malig	cd8	pct	CLDN4	21	-0.5727272727272726	0.006656520496826817	author Malignant cells subtype	tnk_extract
+GSE131907	author_epi	b	mean	CLDN4	36	-0.3003861003861004	0.0750636626165563	author epithelium, >=20 epi	tnk_extract
+GSE131907	author_epi	b	pct	CLDN4	36	-0.409009009009009	0.013254266280653305	author epithelium, >=20 epi	tnk_extract
+GSE131907	author_malig	b	mean	CLDN4	21	-0.464935064935065	0.033699231028965625	author Malignant cells subtype	tnk_extract
+GSE131907	author_malig	b	pct	CLDN4	21	-0.6	0.00403591538162697	author Malignant cells subtype	tnk_extract
+GSE131907_tLung	author_epi	tnk	mean	CLDN4	11	-0.045454545454545456	0.8944269969053026	author epithelium, >=20 epi	tnk_extract
+GSE131907_tLung	author_epi	tnk	pct	CLDN4	11	-0.4000000000000001	0.22286835013352	author epithelium, >=20 epi	tnk_extract
+GSE131907_tLung	author_epi	cd8	mean	CLDN4	11	0.33636363636363636	0.31182431390038634	author epithelium, >=20 epi	tnk_extract
+GSE131907_tLung	author_epi	cd8	pct	CLDN4	11	0.29090909090909095	0.3854569696913654	author epithelium, >=20 epi	tnk_extract
+GSE131907_tLung	author_epi	b	mean	CLDN4	11	0.009090909090909092	0.9788365001441937	author epithelium, >=20 epi	tnk_extract
+GSE131907_tLung	author_epi	b	pct	CLDN4	11	0.02727272727272728	0.9365584481926121	author epithelium, >=20 epi	tnk_extract
+GSE325414	author_malig	tnk	mean	CLDN4	25	-0.11923076923076922	0.5702629145851892	author malignant, donor	tnk_extract
+GSE131907	malig_or_epi	b	mean	CLDN4	32	-0.3027859237536657	0.09209043331982752	PR #274 extract; TACSTD2-vs-B meta taken as given	tls_extract
+GSE131907	malig_or_epi	cxcl13pos	mean	CLDN4	32	0.05718475073313783	0.7558993810643633	PR #274 extract; frac CXCL13+ among T	tls_extract
+GSE131907	malig_or_epi	cxcl13_mean	mean	CLDN4	32	-0.0971407624633431	0.5968734614273277	PR #274 extract; CXCL13 mean log1p(CP10k)	tls_extract
+GSE148071	malig_or_epi	b	mean	CLDN4	41	0.2153135067223783	0.176387376065848	PR #274 extract; TACSTD2-vs-B meta taken as given	tls_extract
+GSE148071	malig_or_epi	cxcl13pos	mean	CLDN4	36	-0.39575892189971157	0.01688432431553232	PR #274 extract; frac CXCL13+ among T	tls_extract
+GSE148071	malig_or_epi	cxcl13_mean	mean	CLDN4	41	-0.2695398536231323	0.08833887458890977	PR #274 extract; CXCL13 mean log1p(CP10k)	tls_extract
+GSE154826	malig_or_epi	b	mean	CLDN4	30	-0.25230837846637955	0.1785896075903744	PR #274 extract; TACSTD2-vs-B meta taken as given	tls_extract
+GSE154826	malig_or_epi	cxcl13pos	mean	CLDN4	30	0.428523753903216	0.018144629806175958	PR #274 extract; frac CXCL13+ among T	tls_extract
+GSE154826	malig_or_epi	cxcl13_mean	mean	CLDN4	30	0.3833574392394814	0.03651349216228933	PR #274 extract; CXCL13 mean log1p(CP10k)	tls_extract
+GSE207422	author_epi_tls	b	mean	CLDN4	15	-0.23928571428571427	0.3903793119202356	PR #274 extract; TACSTD2-vs-B meta taken as given	tls_extract
+GSE207422	author_epi_tls	cxcl13pos	mean	CLDN4	15	-0.5107142857142856	0.051725498368269354	PR #274 extract; frac CXCL13+ among T	tls_extract
+GSE207422	author_epi_tls	cxcl13_mean	mean	CLDN4	15	-0.48571428571428565	0.06642631232518953	PR #274 extract; CXCL13 mean log1p(CP10k)	tls_extract
+GSE241934_IIT	author_epi	b	mean	CLDN4	11	-0.6090909090909091	0.046695709354098905	PR #274 extract; TACSTD2-vs-B meta taken as given	tls_extract
+GSE241934_IIT	author_epi	cxcl13pos	mean	CLDN4	11	-0.6545454545454547	0.028864598957001903	PR #274 extract; frac CXCL13+ among T	tls_extract
+GSE241934_IIT	author_epi	cxcl13_mean	mean	CLDN4	11	-0.7272727272727273	0.011204967253592074	PR #274 extract; CXCL13 mean log1p(CP10k)	tls_extract
+GSE241934_Real	author_epi	b	mean	CLDN4	24	0.24434782608695652	0.24985580217173992	PR #274 extract; TACSTD2-vs-B meta taken as given	tls_extract
+GSE241934_Real	author_epi	cxcl13pos	mean	CLDN4	24	0.034782608695652174	0.8718168719786574	PR #274 extract; frac CXCL13+ among T	tls_extract
+GSE241934_Real	author_epi	cxcl13_mean	mean	CLDN4	24	0.054782608695652164	0.799308243488264	PR #274 extract; CXCL13 mean log1p(CP10k)	tls_extract
+GSE253013	malig_or_epi	b	mean	CLDN4	9	0.26666666666666666	0.48792227483870076	PR #274 extract; TACSTD2-vs-B meta taken as given	tls_extract
+GSE253013	malig_or_epi	cxcl13pos	mean	CLDN4	9	-0.39999999999999997	0.286105101908313	PR #274 extract; frac CXCL13+ among T	tls_extract
+GSE253013	malig_or_epi	cxcl13_mean	mean	CLDN4	9	-0.6666666666666667	0.049867230568885125	PR #274 extract; CXCL13 mean log1p(CP10k)	tls_extract
+GSE205335	author_malig	cyto	mean	CLDN4	22	-0.24562394127611523	0.27054137518067206	PR #260 extract; T/NK cytotoxicity mean log1p(CP10k); n_mal>=10	exh_extract
+GSE207422	marker_malig	cyto	mean	CLDN4	7	0.0	1.0	PR #260 extract; T/NK cytotoxicity mean log1p(CP10k); n_mal>=10	exh_extract
+GSE233203	marker_or_author_malig	cyto	mean	CLDN4	6	0.7142857142857143	0.11078717201166179	PR #260 extract; T/NK cytotoxicity mean log1p(CP10k); n_mal>=10	exh_extract
+GSE241934_IIT	author_epi	cyto	mean	CLDN4	11	-0.24545454545454545	0.4669223669820161	PR #260 extract; T/NK cytotoxicity mean log1p(CP10k); n_mal>=10	exh_extract
+GSE241934_Real	author_epi	cyto	mean	CLDN4	29	0.1532019704433497	0.42752841989054247	PR #260 extract; T/NK cytotoxicity mean log1p(CP10k); n_mal>=10	exh_extract
+GSE291670	marker_malig	cyto	mean	CLDN4	6	0.7714285714285715	0.07239650145772594	PR #260 extract; T/NK cytotoxicity mean log1p(CP10k); n_mal>=10	exh_extract
+GSE267108	marker_epi	tnk	mean	CLDN4	8	-0.3571428571428572	0.38512064355625614	leftover PR #280; treatment-naive LUAD; extra n	leftover
+GSE274595	marker_epi	tnk	mean	CLDN4	7	0.25	0.5887244480896832	leftover PR #280; surgical, not ICI; extra n	leftover
+EMTAB13526	author_epi	tnk	mean	CLDN4	11	0.3272727272727273	0.3258949410128415	leftover PR #280 / #259; Cvejic atlas, not ICI; extra n	leftover
