@@ -1,0 +1,23 @@
+{
+  "given_combo_n": 22,
+  "given_combo_rho": -0.638,
+  "given_q4q1_thin": true,
+  "given_q4q1_n": "7/5",
+  "n_patients_gse123902": 13,
+  "n_patients_gse189357": 9,
+  "n_TNK_median": 21,
+  "n_TNK_tertile": 21,
+  "n_TNK_q4q1": 21,
+  "n_thin_median": 1,
+  "n_lr_rows": 651,
+  "n_patient_pair_rows": 7329,
+  "cellchat_pairs": 2239,
+  "cpdb_pairs": 2920,
+  "liana_package": "not_run (ModuleNotFoundError)",
+  "unit": "patient/donor",
+  "cldn4_only": true,
+  "dual_high": false,
+  "destination": "TNK",
+  "gse123902_mal_def": "marker_malig (EPCAM|KRT8|KRT18|KRT19)>0 & PTPRC==0; tumor/met donors",
+  "gse189357_mal_def": "marker_malig (EPCAM|KRT8|KRT18|KRT19)>0 & PTPRC==0; TD1\u2013TD9"
+}

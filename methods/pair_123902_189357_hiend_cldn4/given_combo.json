@@ -1,0 +1,43 @@
+{
+  "do_not_reaudit": true,
+  "source": "PR #459 methods/scrna_cldn4_combo_enum FINDING.md; pair GSE123902+GSE189357 %pos",
+  "combo": "GSE123902 + GSE189357",
+  "score": "pct",
+  "k": 2,
+  "n": 22,
+  "rho": -0.638,
+  "p": 0.003,
+  "I2": 0,
+  "q4q1_r": -1.0,
+  "q4q1_p": 0.003,
+  "n_q1": 7,
+  "n_q4": 5,
+  "q4q1_thin": true,
+  "q4q1_note": "Between-patient Q4 vs Q1 tails are 7/5 — thin. Do not treat r=−1 as a high-end CellChat n.",
+  "members": [
+    {
+      "cohort": "GSE123902",
+      "malignant_def": "marker_malig",
+      "unit": "donor",
+      "n": 13,
+      "cldn4_vs_tnk_pct_rho": -0.659,
+      "cldn4_vs_tnk_pct_p": 0.014,
+      "note": "Laughney 2020 tumor/met donors; marker-malignant; normals dropped. Donor is the unit."
+    },
+    {
+      "cohort": "GSE189357",
+      "malignant_def": "marker_malig",
+      "unit": "patient",
+      "n": 9,
+      "cldn4_vs_tnk_pct_rho": -0.600,
+      "cldn4_vs_tnk_pct_p": 0.088,
+      "note": "Zhu/Wang AIS–IAC; 9 patients; marker-malignant. Patient is the unit."
+    }
+  ],
+  "excluded": [
+    "dual-high TACSTD2 AND CLDN4 gate",
+    "GSE123902 NORMAL libraries",
+    "full 7-cohort pool (PR #459: bigger merge is not the answer)",
+    "GSE148071 / GSE127465 (do not differ)"
+  ]
+}
