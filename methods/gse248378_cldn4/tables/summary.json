@@ -1,0 +1,67 @@
+{
+  "accession": "GSE248378",
+  "pmid": [
+    "38114518",
+    "38401548"
+  ],
+  "n_samples": 29,
+  "n_genes_fpkm": 15165,
+  "series_matrix_expression_rows": 0,
+  "histology": {
+    "Adenocarcinoma": 20,
+    "Squamous": 7,
+    "Sarcomatoid": 1,
+    "NOS": 1
+  },
+  "arm": {
+    "Arm1": 18,
+    "Arm2": 11
+  },
+  "tnk_used": [
+    "CD8A",
+    "CD8B",
+    "CD2",
+    "CD3D",
+    "CD3E",
+    "CD3G",
+    "NKG7",
+    "GNLY",
+    "PRF1",
+    "GZMA",
+    "GZMB",
+    "GZMK",
+    "KLRD1",
+    "KLRK1",
+    "KLRB1",
+    "NCR1"
+  ],
+  "ifn_used": [
+    "STAT1",
+    "CXCL9",
+    "CXCL10",
+    "IDO1",
+    "HLA-DRA"
+  ],
+  "mhc_used": [
+    "HLA-A",
+    "HLA-B",
+    "HLA-C"
+  ],
+  "one_row": {
+    "dataset": "GSE248378",
+    "n": 29,
+    "matrix": "supplementary FPKM (series matrix has 0 expression rows)",
+    "CLDN4_vs_TNK_rho": -0.5783251231527092,
+    "CLDN4_vs_TNK_p": 0.0010158497077647473,
+    "CLDN4_vs_IFN_rho": -0.27044334975369455,
+    "CLDN4_vs_IFN_p": 0.15592226252623015,
+    "CLDN4_vs_CD8A_rho": -0.46403940886699496,
+    "CLDN4_vs_CD8A_p": 0.011222659676377032,
+    "TNK_genes": "16/16",
+    "IFN_genes": "5/6",
+    "IFNG": "absent",
+    "MPR_n": 0,
+    "recurrence_n": 0
+  },
+  "series_title": "Neoadjuvant durvalumab plus radiation versus durvalumab alone in stages I-III non-small cell lung cancer: survival outcomes and molecular correlates of a randomized phase II trial"
+}

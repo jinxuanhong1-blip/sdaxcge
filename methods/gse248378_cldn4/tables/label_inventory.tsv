@@ -1,0 +1,12 @@
+field	public	n	note
+series_matrix_expression_rows	yes (empty table)	0	RNA-seq series matrix; 0 features
+supplementary_FPKM_samples	yes	29	GSE248378_Durva_Post_FPKMs.txt.gz
+supplementary_FPKM_genes	yes	15165	HGNC symbols; Cufflinks FPKM, Gencode v19
+GEO_GSM	yes	29	GSM7912309–GSM7912337
+treatment_arm	yes	29	Arm1=18; Arm2=11
+histology	yes	29	Adenocarcinoma=20; NOS=1; Sarcomatoid=1; Squamous=7
+MPR	no	0	not a GEO characteristic
+recurrence	no	0	not a GEO characteristic; not recovered here
+PFS_OS	no	0	not a GEO characteristic
+CLDN4	yes	29	present on FPKM
+IFNG	no	0	absent from deposited FPKM; IFNAR/IFNGR present
