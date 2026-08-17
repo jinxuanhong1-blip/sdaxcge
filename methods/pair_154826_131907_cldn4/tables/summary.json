@@ -1,0 +1,92 @@
+{
+  "verdict": "stop",
+  "reason": "GSE154826 has no public labeled processed matrix <2GB usable for patient-level malignant CLDN4 vs T/NK",
+  "pair": [
+    "GSE154826",
+    "GSE131907"
+  ],
+  "cldn4_only": true,
+  "dual_high": false,
+  "gse154826": {
+    "pmid": 34767762,
+    "design": "CD45+ immune-enriched CITE-seq / scRNA, Mount Sinai NSCLC",
+    "author_cells": 361929,
+    "lineage": {
+      "T": 157641,
+      "epi_endo_fibro_doublet": 33759,
+      "MNP": 106662,
+      "NK": 11456,
+      "B&plasma": 41422,
+      "pDC": 1907,
+      "mast": 9082
+    },
+    "mount_sinai_patients": 35,
+    "tumor_patients": 35,
+    "digest_patients": [
+      "695",
+      "706"
+    ],
+    "beads_tumor_rows": 33,
+    "hashed_sample_rows": 40,
+    "mtx_tarball_n": 77,
+    "mtx_pile_bytes_approx": 3567029508,
+    "series_matrix": {
+      "GSE154826-GPL18573_series_matrix.txt.gz": {
+        "sample_meta_lines": 44,
+        "non_bang_lines": 2
+      },
+      "GSE154826-GPL24676_series_matrix.txt.gz": {
+        "sample_meta_lines": 43,
+        "non_bang_lines": 2
+      }
+    },
+    "immune_vs_ep_CLDN4": {
+      "": "CLDN4",
+      "l2fc": "-7.41557937121507",
+      "fg_exprs": "3.208005892035e-06",
+      "bg_exprs": "0.000717436130696484"
+    },
+    "dropbox_lung_ldm_rd_bytes": 2123085302
+  },
+  "gse131907": {
+    "annotation_cells": 208506,
+    "annotation_columns": [
+      "Index",
+      "Barcode",
+      "Sample",
+      "Sample_Origin",
+      "Cell_type",
+      "Cell_type.refined",
+      "Cell_subtype"
+    ],
+    "annotation_n_samples": 58,
+    "cell_type": {
+      "Myeloid cells": 42245,
+      "T lymphocytes": 79676,
+      "NK cells": 11551,
+      "B lymphocytes": 27657,
+      "Fibroblasts": 4172,
+      "Endothelial cells": 1996,
+      "MAST cells": 3396,
+      "Epithelial cells": 36467,
+      "Undetermined": 630,
+      "Oligodendrocytes": 716
+    },
+    "cell_subtype_malignant": 24784,
+    "tLung_malignant": 0,
+    "tLung_epithelial": 7270,
+    "tLung_T_plus_NK": 19591,
+    "malignant_by_origin": {
+      "tL/B": 6400,
+      "mLN": 2961,
+      "mBrain": 15423
+    },
+    "samples_malignant_and_TNK": 21,
+    "matrix_opened": false
+  },
+  "assigned_tests": {
+    "pair_rho": null,
+    "pair_Q4": null,
+    "CellChat_style": "not_run"
+  }
+}
