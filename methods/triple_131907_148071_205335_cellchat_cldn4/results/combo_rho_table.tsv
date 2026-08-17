@@ -1,0 +1,10 @@
+analysis	combo	k	n	n_q1	n_q4	effect	p	I2	unit	score	source	re_audited	stouffer_z	stouffer_p	ci95_lo	ci95_hi	thin
+spearman_single_given	GSE131907	1	21	6.0	5.0	-0.522	0.0152	0.0	sample	pct	PR #320; not re-audited	False					
+q4q1_single_given	GSE131907	1	11	6.0	5.0	-0.6	0.126	0.0	sample	pct	PR #320; not re-audited	False					
+spearman_single_given	GSE205335	1	22	6.0	6.0	-0.435	0.0429	0.0	patient	pct	PR #320; not re-audited	False					
+q4q1_single_given	GSE205335	1	12	6.0	6.0	-0.778	0.026	0.0	patient	pct	PR #320; not re-audited	False					
+spearman_single_given	GSE148071	1	25			-0.49	0.012902366983396946	0.0	patient	partial	given n=25 partial; not re-audited	False					
+q4q1_pair_given	GSE131907+GSE205335	2	23	12.0	11.0	-0.705	0.000301	0.0	sample+patient	pct	PR #320 author/tnk/pct; not re-audited	False					
+spearman_triple_combo	GSE131907+GSE148071+GSE205335	3	68			-0.48280840485566034	5.227900676066616e-05	0.0	sample+patient	pct + given partial	NEW triple Fisher-z of locked singles	False	-4.00815542715107	6.11948426645859e-05	-0.6537444503721109	-0.264991776316916	
+spearman_pair_given	GSE131907+GSE205335	2	43			-0.47850114250134307	0.0015277842875748957	0.0	sample+patient	pct	PR #320 author/tnk/pct reconstructed from locked singles (not a re-audit of Q4 r=−0.705)	False					
+q4q1_148071_table_extra	GSE148071	1	13	7.0	6.0	0.0	1.0	0.0	patient	pct vs tnk_frac (table extra; not the given −0.49)	NEW Q4 on the n=25 eligibility table	False					False

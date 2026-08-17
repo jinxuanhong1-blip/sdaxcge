@@ -1,0 +1,51 @@
+{
+  "note": "Locked singles. Do not re-audit. PR #320 131907+205335 Q4 r and GSE148071 n=25 partial rho are inputs.",
+  "GSE131907": {
+    "malig": "author_malig",
+    "immune": "same_sample_tnk_fraction",
+    "score": "pct",
+    "n": 21,
+    "unit": "sample",
+    "rho": -0.522,
+    "p": 0.0152,
+    "q4q1_r": -0.6,
+    "q4q1_p": 0.126,
+    "n_q1": 6,
+    "n_q4": 5,
+    "source": "PR #320; not re-audited"
+  },
+  "GSE205335": {
+    "malig": "author_malig",
+    "immune": "same_patient_tnk_fraction",
+    "score": "pct",
+    "n": 22,
+    "unit": "patient",
+    "rho": -0.435,
+    "p": 0.0429,
+    "q4q1_r": -0.778,
+    "q4q1_p": 0.026,
+    "n_q1": 6,
+    "n_q4": 6,
+    "source": "PR #320; not re-audited"
+  },
+  "GSE148071": {
+    "malig": "putative_epithelial",
+    "immune": "same_patient_tnk",
+    "score": "partial",
+    "n": 25,
+    "unit": "patient",
+    "rho": -0.49,
+    "p": null,
+    "source": "given n=25 partial; not re-audited"
+  },
+  "pair_131907_205335_q4q1": {
+    "k": 2,
+    "n_compared": 23,
+    "n_q1": 12,
+    "n_q4": 11,
+    "r": -0.705,
+    "p": 0.000301,
+    "I2": 0.0,
+    "source": "PR #320 author/tnk/pct; not re-audited"
+  }
+}
