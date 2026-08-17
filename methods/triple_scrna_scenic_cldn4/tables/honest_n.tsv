@@ -1,0 +1,20 @@
+item	n	note
+GEO patients GSE131907 (Kim 2020)	44	58 samples; not the test n
+GEO patients GSE148071 (Wu 2021)	42	one sample each; not the test n
+GEO patients GSE205335 (Hu 2022/2024)	26	33 samples; not the test n
+GEO patients summed	112	do not write this as the test n
+GSE131907 patients with any scored malignant cell	32	1 patient has <20 malignant
+GSE131907 eligible (≥20 malignant)	31	test n for this dataset
+GSE131907 malignant cells scored	31136	cell n; not the test n
+GSE131907 Q1/Q4 tails (CLDN4 mean)	16	Q1=8 Q4=8
+GSE148071 patients with any scored malignant cell	42	
+GSE148071 eligible (≥20 malignant)	37	test n for this dataset
+GSE148071 malignant cells scored	48118	cell n; not the test n
+GSE148071 Q1/Q4 tails (CLDN4 mean)	19	Q1=10 Q4=9
+GSE205335 patients with any scored malignant cell	22	
+GSE205335 eligible (≥20 malignant)	22	test n for this dataset
+GSE205335 malignant cells scored	28512	cell n; not the test n
+GSE205335 Q1/Q4 tails (CLDN4 mean)	12	Q1=6 Q4=6
+triple eligible patients	90	primary pooled n
+triple stratified Q1+Q4 (CLDN4 mean)	47	Q1=24 Q4=23; n_compared not 112
+pair 131907+205335 eligible (sensitivity only)	53	not the primary; other agent owns this pair
