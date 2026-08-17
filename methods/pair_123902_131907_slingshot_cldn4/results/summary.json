@@ -1,0 +1,553 @@
+{
+  "accessions": [
+    "GSE123902",
+    "GSE131907"
+  ],
+  "pr459_pair_that_differs": true,
+  "gse148071_added": false,
+  "not_a_pr325_redo": true,
+  "not_a_pr449_redo": true,
+  "primary_gene": "CLDN4",
+  "not_a_tacstd2_redo": true,
+  "dual_high": false,
+  "clock": "slingshot",
+  "slingshot": {
+    "available": true,
+    "version": "2.10.0",
+    "rscript": "/usr/bin/Rscript",
+    "fallback": null
+  },
+  "slingshot_run": {
+    "n_lineages": 16,
+    "primary_lineage": "Lineage1",
+    "pt_columns": [
+      "Lineage1",
+      "Lineage2",
+      "Lineage3",
+      "Lineage4",
+      "Lineage5",
+      "Lineage6",
+      "Lineage7",
+      "Lineage8",
+      "Lineage9",
+      "Lineage10",
+      "Lineage11",
+      "Lineage12",
+      "Lineage13",
+      "Lineage14",
+      "Lineage15",
+      "Lineage16"
+    ],
+    "n_cells_on_primary": 6928,
+    "lineages": [
+      {
+        "lineage": "Lineage1",
+        "n_clusters": 9,
+        "path": "2>3>6>7>16>15>27>29>4",
+        "start_cluster": 2,
+        "end_cluster": 4,
+        "n_cells_on_lineage": 6928,
+        "pt_column": "Lineage1"
+      },
+      {
+        "lineage": "Lineage2",
+        "n_clusters": 9,
+        "path": "2>3>6>7>16>15>27>29>9",
+        "start_cluster": 2,
+        "end_cluster": 9,
+        "n_cells_on_lineage": 6957,
+        "pt_column": "Lineage2"
+      },
+      {
+        "lineage": "Lineage3",
+        "n_clusters": 9,
+        "path": "2>3>6>7>16>15>27>29>30",
+        "start_cluster": 2,
+        "end_cluster": 30,
+        "n_cells_on_lineage": 6940,
+        "pt_column": "Lineage3"
+      },
+      {
+        "lineage": "Lineage4",
+        "n_clusters": 7,
+        "path": "2>3>6>7>17>13>14",
+        "start_cluster": 2,
+        "end_cluster": 14,
+        "n_cells_on_lineage": 7281,
+        "pt_column": "Lineage4"
+      },
+      {
+        "lineage": "Lineage5",
+        "n_clusters": 7,
+        "path": "2>3>6>7>21>8>19",
+        "start_cluster": 2,
+        "end_cluster": 19,
+        "n_cells_on_lineage": 6796,
+        "pt_column": "Lineage5"
+      },
+      {
+        "lineage": "Lineage6",
+        "n_clusters": 7,
+        "path": "2>3>6>7>16>15>20",
+        "start_cluster": 2,
+        "end_cluster": 20,
+        "n_cells_on_lineage": 6295,
+        "pt_column": "Lineage6"
+      },
+      {
+        "lineage": "Lineage7",
+        "n_clusters": 7,
+        "path": "2>3>6>7>17>13>22",
+        "start_cluster": 2,
+        "end_cluster": 22,
+        "n_cells_on_lineage": 7282,
+        "pt_column": "Lineage7"
+      },
+      {
+        "lineage": "Lineage8",
+        "n_clusters": 7,
+        "path": "2>3>6>7>16>15>28",
+        "start_cluster": 2,
+        "end_cluster": 28,
+        "n_cells_on_lineage": 6101,
+        "pt_column": "Lineage8"
+      },
+      {
+        "lineage": "Lineage9",
+        "n_clusters": 6,
+        "path": "2>3>6>0>24>12",
+        "start_cluster": 2,
+        "end_cluster": 12,
+        "n_cells_on_lineage": 5235,
+        "pt_column": "Lineage9"
+      },
+      {
+        "lineage": "Lineage10",
+        "n_clusters": 6,
+        "path": "2>3>6>0>24>25",
+        "start_cluster": 2,
+        "end_cluster": 25,
+        "n_cells_on_lineage": 5048,
+        "pt_column": "Lineage10"
+      },
+      {
+        "lineage": "Lineage11",
+        "n_clusters": 6,
+        "path": "2>3>6>7>16>26",
+        "start_cluster": 2,
+        "end_cluster": 26,
+        "n_cells_on_lineage": 5772,
+        "pt_column": "Lineage11"
+      },
+      {
+        "lineage": "Lineage12",
+        "n_clusters": 5,
+        "path": "2>3>6>7>5",
+        "start_cluster": 2,
+        "end_cluster": 5,
+        "n_cells_on_lineage": 5558,
+        "pt_column": "Lineage12"
+      },
+      {
+        "lineage": "Lineage13",
+        "n_clusters": 5,
+        "path": "2>3>6>11>10",
+        "start_cluster": 2,
+        "end_cluster": 10,
+        "n_cells_on_lineage": 5332,
+        "pt_column": "Lineage13"
+      },
+      {
+        "lineage": "Lineage14",
+        "n_clusters": 5,
+        "path": "2>3>6>7>18",
+        "start_cluster": 2,
+        "end_cluster": 18,
+        "n_cells_on_lineage": 5720,
+        "pt_column": "Lineage14"
+      },
+      {
+        "lineage": "Lineage15",
+        "n_clusters": 4,
+        "path": "2>3>6>23",
+        "start_cluster": 2,
+        "end_cluster": 23,
+        "n_cells_on_lineage": 4971,
+        "pt_column": "Lineage15"
+      },
+      {
+        "lineage": "Lineage16",
+        "n_clusters": 3,
+        "path": "2>3>1",
+        "start_cluster": 2,
+        "end_cluster": 1,
+        "n_cells_on_lineage": 3827,
+        "pt_column": "Lineage16"
+      }
+    ],
+    "stdout_tail": "slingshot n_cells=14651 n_dim=10 n_clusters=31 start=2 version=2.10.0\ngetLineages...\nlineages=Lineage1,Lineage2,Lineage3,Lineage4,Lineage5,Lineage6,Lineage7,Lineage8,Lineage9,Lineage10,Lineage11,Lineage12,Lineage13,Lineage14,Lineage15,Lineage16\ngetCurves (approx_points=150)...\ncurves done\nwrote 16 lineages to methods/pair_123902_131907_slingshot_cldn4/results/slingshot_work\n"
+  },
+  "harmony": {
+    "used": true,
+    "reason": "harmonypy on PCA, batch=dataset"
+  },
+  "cap_per_unit": 350,
+  "n_cells": 14651,
+  "n_cells_gse131907": 11983,
+  "n_cells_gse123902": 2668,
+  "n_cells_nLung": 3138,
+  "n_author_AT2": 2019,
+  "n_units": 56,
+  "n_units_gse131907": 43,
+  "n_units_gse123902": 13,
+  "n_units_eligible": 56,
+  "n_units_paired_tertile": 50,
+  "subtype_counts": {
+    "Malignant cells": 5850,
+    "marker_epithelial": 2668,
+    "AT2": 2019,
+    "tS2": 1171,
+    "tS1": 1103,
+    "NA": 665,
+    "Ciliated": 463,
+    "AT1": 310,
+    "Club": 302,
+    "tS3": 56,
+    "Undetermined": 44
+  },
+  "cldn4_tertile_counts": {
+    "low": 4884,
+    "high": 4884,
+    "mid": 4883
+  },
+  "cldn4_tertile_cuts": {
+    "q1": 0.8128563165664673,
+    "q2": 1.7951472600301102
+  },
+  "genes_absent": {
+    "AT2": [
+      "SFTPC",
+      "SFTPA1"
+    ],
+    "AT1": [],
+    "club": [
+      "SCGB1A1",
+      "SCGB3A2",
+      "SCGB3A1"
+    ],
+    "basal": [
+      "KRT5",
+      "TP63",
+      "NGFR"
+    ],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": [
+      "CEACAM5",
+      "CEACAM6"
+    ],
+    "IFN": [
+      "CXCL9",
+      "CXCL11",
+      "IDO1"
+    ],
+    "single_genes": [
+      "SFTPC",
+      "SCGB1A1",
+      "KRT5"
+    ]
+  },
+  "root": {
+    "n_nLung": 3138,
+    "n_nLung_author_AT2": 2019,
+    "cldn4_high_clusters": [
+      "16",
+      "18",
+      "21",
+      "4",
+      "9"
+    ],
+    "cluster_mean_CLDN4": {
+      "0": 1.19600749877562,
+      "1": 1.0508609990971338,
+      "2": 1.0836125568474073,
+      "3": 1.4650502932141196,
+      "4": 2.1595813572054077,
+      "5": 0.7127645654189918,
+      "6": 1.5051073144994729,
+      "7": 1.7830198318129633,
+      "8": 1.710937777033671,
+      "9": 1.8867028259869778,
+      "10": 1.8458599094088066,
+      "11": 1.2041636263225908,
+      "12": 0.4302779613462694,
+      "13": 0.45876307763046953,
+      "14": 0.005234955647323705,
+      "15": 1.054763508555682,
+      "16": 1.9378643994981593,
+      "17": 1.6415491818193018,
+      "18": 2.1783482394776903,
+      "19": 0.9503179957613538,
+      "20": 1.193829127908808,
+      "21": 2.2543408205052335,
+      "22": 1.4001218518080738,
+      "23": 1.347249732159152,
+      "24": 0.3474612595223961,
+      "25": 0.20652634558612354,
+      "26": 1.3730165053691183,
+      "27": 1.764494217019475,
+      "28": 1.737656259498039,
+      "29": 1.3962876610678328,
+      "30": 1.2922830821325382
+    },
+    "rule": "GSE131907 nLung author AT2 (median AT2, not CLDN4-high Leiden) start_cluster=2",
+    "start_cluster": "2",
+    "start_cluster_mean_CLDN4": 1.0836125568474073,
+    "start_cluster_n_AT2": 1885,
+    "index": 4718,
+    "root_unit": "GSE131907:LUNG_N09",
+    "root_origin": "nLung",
+    "root_subtype": "AT2",
+    "root_dataset": "GSE131907",
+    "root_CLDN4": 1.1507388353347778
+  },
+  "n_paga_components": 1,
+  "n_leiden": 31,
+  "leiden_resolution": 0.6,
+  "primary_spearman": [
+    {
+      "contrast": "CLDN4 vs Slingshot PT",
+      "n": 55,
+      "rho": 0.0891774891774892,
+      "p": 0.5173347657601414,
+      "q": 0.6322980470401728
+    },
+    {
+      "contrast": "barrier/keratin (no CLDN4) vs Slingshot PT",
+      "n": 55,
+      "rho": 0.5196248196248197,
+      "p": 4.7939440375758134e-05,
+      "q": 0.00017577794804444648
+    },
+    {
+      "contrast": "IFN vs Slingshot PT",
+      "n": 55,
+      "rho": 0.3144300144300145,
+      "p": 0.019389605353894394,
+      "q": 0.04265713177856766
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 56,
+      "rho": 0.4713602187286398,
+      "p": 0.0002455730918931233,
+      "q": 0.000675326002706089
+    },
+    {
+      "contrast": "CLDN4 vs IFN",
+      "n": 56,
+      "rho": -0.06937799043062201,
+      "p": 0.6113968684856438,
+      "q": 0.6725365553342082
+    },
+    {
+      "contrast": "CLDN4 vs AT2 score",
+      "n": 56,
+      "rho": 0.1330827067669173,
+      "p": 0.32817516957225085,
+      "q": 0.6016544775491265
+    },
+    {
+      "contrast": "CLDN4 vs malignant-like score",
+      "n": 56,
+      "rho": 0.10793629118115529,
+      "p": 0.4284651390108006,
+      "q": 0.6322980470401728
+    },
+    {
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "n": 56,
+      "rho": 0.6191387559808613,
+      "p": 3.6442225462613623e-07,
+      "q": 2.004322400443749e-06
+    },
+    {
+      "contrast": "SFTPC vs Slingshot PT (control)",
+      "n": 0,
+      "rho": null,
+      "p": null,
+      "note": "n<4",
+      "q": null
+    },
+    {
+      "contrast": "AT2 score vs Slingshot PT (control)",
+      "n": 55,
+      "rho": -0.6326839826839828,
+      "p": 2.1922458988294865e-07,
+      "q": 2.004322400443749e-06
+    },
+    {
+      "contrast": "CLDN4 vs DPT (companion)",
+      "n": 56,
+      "rho": 0.08913192071086808,
+      "p": 0.5135883342186082,
+      "q": 0.6322980470401728
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "contrast": "GSE131907-only CLDN4 vs Slingshot PT",
+      "n": 42,
+      "rho": 0.24058017988817768,
+      "p": 0.12485138155896931
+    },
+    {
+      "contrast": "GSE123902-only CLDN4 vs Slingshot PT",
+      "n": 13,
+      "rho": -0.010989010989010988,
+      "p": 0.971577682777073
+    },
+    {
+      "contrast": "GSE131907-only barrier vs Slingshot PT",
+      "n": 42,
+      "rho": 0.6225589498419902,
+      "p": 1.071328275688673e-05
+    },
+    {
+      "contrast": "GSE123902-only barrier vs Slingshot PT",
+      "n": 13,
+      "rho": 0.24175824175824176,
+      "p": 0.4261755195945088
+    },
+    {
+      "contrast": "GSE131907-only IFN vs Slingshot PT",
+      "n": 42,
+      "rho": 0.3381411554979338,
+      "p": 0.028506889380312064
+    },
+    {
+      "contrast": "GSE123902-only IFN vs Slingshot PT",
+      "n": 13,
+      "rho": -0.16483516483516483,
+      "p": 0.590478988652005
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs IFN",
+      "n": 43,
+      "rho": 0.08320749018423436,
+      "p": 0.5957851849424206
+    },
+    {
+      "contrast": "GSE123902-only CLDN4 vs IFN",
+      "n": 13,
+      "rho": -0.3516483516483516,
+      "p": 0.2386997053420338
+    },
+    {
+      "contrast": "tLung-only CLDN4 vs Slingshot PT",
+      "n": 11,
+      "rho": 0.7454545454545456,
+      "p": 0.008454728885061567
+    },
+    {
+      "contrast": "nLung-only CLDN4 vs Slingshot PT",
+      "n": 11,
+      "rho": 0.46363636363636374,
+      "p": 0.15090149929248592
+    },
+    {
+      "contrast": "tumor-only (drop nLung) CLDN4 vs Slingshot PT",
+      "n": 44,
+      "rho": 0.06708949964763918,
+      "p": 0.6652341393201763
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs DPT (companion)",
+      "n": 43,
+      "rho": 0.1717003926306252,
+      "p": 0.2709235840162519
+    },
+    {
+      "contrast": "GSE123902-only CLDN4 vs DPT (companion)",
+      "n": 13,
+      "rho": 0.005494505494505494,
+      "p": 0.9857869107140622
+    }
+  ],
+  "paired_tertile": [
+    {
+      "contrast": "barrier/keratin (no CLDN4) high vs low",
+      "n": 50,
+      "W": 1.0,
+      "p": 3.552713678800501e-15,
+      "delta_median": 0.3082234369974934,
+      "median_high": 1.4122748659834974,
+      "median_low": 0.884073220876443
+    },
+    {
+      "contrast": "IFN high vs low",
+      "n": 50,
+      "W": 24.0,
+      "p": 1.3535839116229909e-12,
+      "delta_median": 0.06576170786460364,
+      "median_high": 0.33360845257249433,
+      "median_low": 0.2931137337501688
+    },
+    {
+      "contrast": "AT2 high vs low",
+      "n": 50,
+      "W": 583.0,
+      "p": 0.6051405400941228,
+      "delta_median": 0.0609080485590708,
+      "median_high": 1.030192957788973,
+      "median_low": 1.0760636457031771
+    },
+    {
+      "contrast": "malignant-like high vs low",
+      "n": 50,
+      "W": 249.0,
+      "p": 0.006834771709611867,
+      "delta_median": 0.006425035796216944,
+      "median_high": 0.02447762444291011,
+      "median_low": 0.012986738720931694
+    },
+    {
+      "contrast": "Slingshot PT high vs low",
+      "n": 47,
+      "W": 525.0,
+      "p": 0.6864010712543376,
+      "delta_median": -0.596511373556524,
+      "median_high": 27.362229450939303,
+      "median_low": 23.4734685758018
+    },
+    {
+      "contrast": "DPT high vs low",
+      "n": 50,
+      "W": 204.0,
+      "p": 1.0451820186219152e-05,
+      "delta_median": 0.021615387871861458,
+      "median_high": 0.14680266380310059,
+      "median_low": 0.13034802675247192
+    }
+  ],
+  "extra_figure": {
+    "emitted": true,
+    "spearman_rho": 0.4713602187286398,
+    "spearman_p": 0.0002455730918931233,
+    "spearman_n": 56
+  },
+  "qc": {
+    "min_genes": 200,
+    "min_umi": 500,
+    "lineage_EPCAM_mean": 1.3145791943698082,
+    "lineage_PTPRC_mean": 0.03528643342113993
+  },
+  "verdict": "Sample-level CLDN4 vs AT2-rooted Slingshot PT: n=55, \u03c1=0.089, p=0.517. Barrier/keratin (no CLDN4) vs Slingshot PT: n=55, \u03c1=0.520, p=4.79e-05. IFN vs Slingshot PT: n=55, \u03c1=0.314, p=0.0194. CLDN4 vs barrier/keratin (CLDN4 excluded): n=56, \u03c1=0.471, p=0.000246. CLDN4 vs IFN: n=56, \u03c1=-0.069, p=0.611. CLDN4 vs malignant-like: n=56, \u03c1=0.108, p=0.428. GSE131907-only CLDN4 vs Slingshot: n=42, \u03c1=0.241, p=0.125. GSE123902-only CLDN4 vs Slingshot: n=13, \u03c1=-0.011, p=0.972. Paired CLDN4-high vs low barrier/keratin: n=50, W=1.0, \u0394med=0.308, p=3.55e-15. Paired CLDN4-high vs low IFN: n=50, W=24.0, \u0394med=0.066, p=1.35e-12. PAGA has 1 component(s) at connectivity>0 among 31 Leiden vertices. Slingshot produced 16 lineage(s); primary=Lineage1. The pooled Slingshot correlation mixes cohorts and nLung vs tumor and is not a within-tumor progression test. REAL Slingshot was run. Not a TACSTD2 redo. No both-high gate. GSE148071 not added.",
+  "what_holds": "**What holds (n=55 units).** CLDN4 vs Slingshot PT is n=55, \u03c1=0.089, p=0.517. Barrier vs Slingshot PT is n=55, \u03c1=0.520, p=4.79e-05. IFN vs Slingshot PT is n=55, \u03c1=0.314, p=0.0194. CLDN4 tracks barrier/keratin (n=56, \u03c1=0.471, p=0.000246) and IFN (n=56, \u03c1=-0.069, p=0.611). Within-unit CLDN4-high vs low barrier: n=50, W=1.0, \u0394med=0.308, p=3.55e-15; IFN: n=50, W=24.0, \u0394med=0.066, p=1.35e-12.",
+  "skipped": {
+    "GSE148071": "explicitly not added",
+    "GSE123902 NORMAL": "dropped (PR #459)",
+    "GSE123902 author H5": "36.5 GB skipped",
+    "GSE131907 PE": "unlabeled epithelium"
+  }
+}

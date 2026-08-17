@@ -1,0 +1,28 @@
+{
+  "accessions": [
+    "GSE123902",
+    "GSE131907"
+  ],
+  "papers": {
+    "GSE123902": "Laughney et al. Nat Med 2020 (human arm of GSE123904)",
+    "GSE131907": "Kim et al. Nat Commun 2020 PMID 32385277"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "ifn_excludes_CLDN4": true,
+  "slingshot": {
+    "available": true,
+    "version": "2.10.0",
+    "rscript": "/usr/bin/Rscript",
+    "fallback": null
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "GSE131907 nLung author AT2, never CLDN4-high",
+    "unit": "GSE123902 donor + GSE131907 sample",
+    "cap_per_unit": 350
+  }
+}
