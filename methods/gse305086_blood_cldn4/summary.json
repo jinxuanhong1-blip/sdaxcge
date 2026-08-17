@@ -1,0 +1,33 @@
+{
+  "dataset": "GSE305086",
+  "title": "Blood gene expression under immunotherapy as potential biomarker for immune checkpoint blockade in non-small-cell lung cancer",
+  "platform": "GPL570 Affymetrix Human Genome U133 Plus 2.0",
+  "compartment": "PAXgene whole blood (not PBMC-sorted)",
+  "n_arrays": 173,
+  "n_probes_in_processed_matrix": 26452,
+  "n_baseline": 76,
+  "n_followup_cycle4": 76,
+  "n_control": 21,
+  "n_paired_cycle4": 76,
+  "group_counts_arrays": {
+    "1LIO": 58,
+    "2LIO": 50,
+    "CHTIO": 44,
+    "control group": 21
+  },
+  "n_1LIO_arrays": 58,
+  "n_1LIO_patients_with_array": 29,
+  "named_probes": {
+    "201428_at": "CLDN4",
+    "202286_s_at": "TACSTD2"
+  },
+  "named_probe_percentile_rank": {
+    "201428_at": 26.37,
+    "202286_s_at": 41.97
+  },
+  "named_probes_below_array_median": true,
+  "public_PFS_or_IO_benefit_labels": false,
+  "public_cycle4_timepoint": true,
+  "stop_after_detection": true,
+  "note": "Epithelial genes in blood are expected to be low / shed-tumor signal. Named probes sit below the array-wide median; public deposit has regimen and cycle-4 timepoint but no PFS / RECIST / IO-benefit labels. Detection is the result. Cycle-4 deltas are recorded for the named probes only."
+}
