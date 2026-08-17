@@ -471,6 +471,4 @@ python3 methods/bfrac32_cldn4_hiend/scripts/analyze.py --data /tmp/bfrac32_cldn4
 ```
 
 Primary table: [`results/lr_table.tsv`](results/lr_table.tsv).
-Focus-class subset: [`results/lr_table_focus.tsv`](results/lr_table_focus.tsv).
-Extra n + key-pair figure: [`figures/fig_extra_honest_n_and_focus.png`](figures/fig_extra_honest_n_and_focus.png).
 
