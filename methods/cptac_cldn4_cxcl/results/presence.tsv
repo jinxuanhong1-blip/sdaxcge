@@ -1,0 +1,13 @@
+gene	row_present	n_rows	row_ids	used_row	n_samples	n_observed	n_na	na_frac	note	cohort	source
+CLDN4	True	1	ENSG00000189143.9	ENSG00000189143.9	110	79	31	0.2818181818181818	row present	LUAD	freeze_v1.2
+CXCL9	True	1	ENSG00000138755.6	ENSG00000138755.6	110	45	65	0.5909090909090909	row present	LUAD	freeze_v1.2
+CXCL10	True	1	ENSG00000169245.6	ENSG00000169245.6	110	80	30	0.2727272727272727	row present	LUAD	freeze_v1.2
+CLDN4	True	1	ENSG00000189143.9	ENSG00000189143.9	108	78	30	0.2777777777777778	row present	LSCC	freeze_v1.2
+CXCL9	True	1	ENSG00000138755.6	ENSG00000138755.6	108	88	20	0.18518518518518517	row present	LSCC	freeze_v1.2
+CXCL10	True	1	ENSG00000169245.6	ENSG00000169245.6	108	98	10	0.09259259259259259	row present	LSCC	freeze_v1.2
+CLDN4	False	0			110	0	110	1.0	gene absent from table (not a row of NAs — never quantified / dropped)	LUAD	linkedomics_NArm
+CXCL9	False	0			110	0	110	1.0	gene absent from table (not a row of NAs — never quantified / dropped)	LUAD	linkedomics_NArm
+CXCL10	True	1	CXCL10	CXCL10	110	55	55	0.5	row present	LUAD	linkedomics_NArm
+CLDN4	False	0			108	0	108	1.0	gene absent from table (not a row of NAs — never quantified / dropped)	LSCC	linkedomics_NArm
+CXCL9	True	1	CXCL9	CXCL9	108	59	49	0.4537037037037037	row present	LSCC	linkedomics_NArm
+CXCL10	True	1	CXCL10	CXCL10	108	88	20	0.18518518518518517	row present	LSCC	linkedomics_NArm
