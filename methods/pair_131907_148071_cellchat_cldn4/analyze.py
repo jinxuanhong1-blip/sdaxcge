@@ -973,6 +973,8 @@ def write_finding(tnk: dict, cellchat: dict | None, out: Path) -> None:
         ),
         "",
         "Primary cut is **%pos**. Mean is the same patients, secondary.",
+        "GSE131907 alone is CLDN4-negative vs T/NK. GSE148071 is null.",
+        "The pair is heterogeneous; that is the combo, not a hidden single-cohort claim.",
         "",
         "## Per-cohort malignant CLDN4 vs same-patient T/NK",
         "",
@@ -1051,6 +1053,13 @@ def write_finding(tnk: dict, cellchat: dict | None, out: Path) -> None:
                     "rows by p among detect-gated pairs. Cell-pooled truncated means "
                     "are **not** the test."
                 ),
+                "",
+                "Honest limits on those six: APP–CD74 (n=12/11, both cohorts) and",
+                "MDK–NCL (n=13/11, both cohorts) are the only p<0.05 rows with",
+                "both arms ≥6. F11R–ITGAL/ITGB2 is n_Q4=3 (thin). The three",
+                "HLA-II–CD4 rows are n=4/4 with |r|=1 (complete separation, not",
+                "a poolable effect). CD274–PDCD1 is not detect-gated.",
+                "NECTIN2–TIGIT is GSE148071-only and p>0.4.",
                 "",
             ]
         lines += [

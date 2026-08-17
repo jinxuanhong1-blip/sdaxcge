@@ -9,10 +9,11 @@ pairs GSE131907 with GSE205335 (PR #320) are given and are not re-ranked.
 ## Honest n
 
 - GSE131907 (Kim et al. 2020): locked author-`Malignant cells` extract
-  (PR #320) with ≥20 malignant **and** ≥20 T/NK. After the floor this
-  is **21 patients** (tL/B + mLN + mBrain; one sample each). tLung is
-  out of this extract because primary tumor epithelium is labeled tS*
-  not `Malignant cells`. PE / nLung / nLN out. No ICI / MPR labels.
+  (PR #320) with ≥20 malignant **and** ≥20 T/NK.
+  After the floor this is **21 patients** (tL/B + mLN + mBrain; one
+  sample each). tLung is out of this extract because primary tumor
+  epithelium is labeled tS* not `Malignant cells`. PE / nLung / nLN out.
+  No ICI / MPR labels.
 - GSE148071 (Wu et al. 2021): **25 / 42** biopsies with
   ≥25 marker-argmax epithelial (putative malignant) **and**
   ≥25 T/NK. No histology / ICI labels. Epithelium is
@@ -32,9 +33,8 @@ pairs GSE131907 with GSE205335 (PR #320) are given and are not re-ranked.
 Stacked companion (not the combo): ρ=-0.172 p=0.253 n=46.
 
 Primary cut is **%pos**. Mean is the same patients, secondary.
-GSE131907 alone is CLDN4-negative vs T/NK (ρ=−0.522, p=0.015).
-GSE148071 is null (ρ=+0.069, p=0.74). The pair is heterogeneous
-(I²=76%); that is the combo, not a hidden single-cohort claim.
+GSE131907 alone is CLDN4-negative vs T/NK. GSE148071 is null.
+The pair is heterogeneous; that is the combo, not a hidden single-cohort claim.
 
 ## Per-cohort malignant CLDN4 vs same-patient T/NK
 
@@ -76,10 +76,45 @@ GSE148071 is null (ρ=+0.069, p=0.74). The pair is heterogeneous
 
 Q4 vs Q1 is within-cohort so 10x and Singleron are not ranked on one scale.
 
-## CellChat-style ligands
+## CellChat-style outgoing CLDN4-high → T/NK (Q4 vs Q1 patients)
 
-Not scored in this write-up (matrix step skipped). Re-run without
-`--skip-cellchat` to fill `results/ligand_table.tsv`.
+Jin et al. 2021 Hill probability on CellChatDB v2 protein pairs.
+Outgoing = author-malignant (GSE131907) or putative epithelium
+(GSE148071) → **same-patient** T/NK. Incoming = T/NK → malignant.
+Test = Mann–Whitney on per-patient *P* (detected in ≥3
+Q1 and ≥3 Q4). CellChat R and LIANA were not run.
+
+Patients scored: 24 (Q1=13, Q4=11). Detect-gated direction×pair rows: 78. p<0.05: 6 (6 outgoing).
+
+| direction | pair | class | n_Q1/n_Q4 | median P Q1 | median P Q4 | Δ | r | p |
+|---|---|---|---|---:|---:|---:|---:|---|
+| outgoing | APP–CD74 ** | other | 12/11 | 0.482 | 0.619 | +0.137 | +0.697 | 0.00511 |
+| outgoing | F11R–ITGAL_ITGB2 ** | barrier | 8/3 | 0.081 | 0.237 | +0.156 | +1.000 | 0.0121 |
+| outgoing | HLA-DRB1–CD4 ** | other | 4/4 | 0.007 | 0.067 | +0.061 | +1.000 | 0.0286 |
+| outgoing | HLA-DQB1–CD4 ** | other | 4/4 | 0.004 | 0.031 | +0.027 | +1.000 | 0.0286 |
+| outgoing | HLA-DMA–CD4 ** | other | 4/4 | 0.001 | 0.021 | +0.020 | +1.000 | 0.0286 |
+| outgoing | MDK–NCL ** | other | 13/11 | 0.529 | 0.723 | +0.194 | +0.497 | 0.0426 |
+| outgoing | HLA-DPB1–CD4 | other | 4/4 | 0.003 | 0.044 | +0.041 | +0.875 | 0.0571 |
+| outgoing | HLA-DMB–CD4 | other | 3/4 | 0.000 | 0.005 | +0.005 | +1.000 | 0.0571 |
+| outgoing | CLEC2B–KLRB1 | other | 10/7 | 0.020 | 0.090 | +0.070 | +0.543 | 0.0702 |
+| outgoing | CDH1–ITGAE_ITGB7 | barrier|inhibitory | 4/4 | 0.056 | 0.238 | +0.182 | +0.750 | 0.114 |
+| outgoing | HLA-DPA1–CD4 | other | 4/4 | 0.002 | 0.031 | +0.029 | +0.750 | 0.114 |
+| outgoing | SPP1–CD44 | other | 10/6 | 0.508 | 0.056 | -0.451 | -0.500 | 0.118 |
+| outgoing | LGALS9–P4HB | inhibitory | 4/6 | 0.019 | 0.049 | +0.030 | +0.583 | 0.171 |
+| outgoing | HLA-F–CD8A | inhibitory | 9/6 | 0.188 | 0.065 | -0.124 | -0.444 | 0.181 |
+| outgoing | ICAM1–ITGAL | other | 8/3 | 0.040 | 0.228 | +0.188 | +0.583 | 0.194 |
+
+6 outgoing pair(s) p<0.05. The table is top outgoing rows by p among detect-gated pairs. Cell-pooled truncated means are **not** the test.
+
+Honest limits on those six: APP–CD74 (n=12/11, both cohorts) and
+MDK–NCL (n=13/11, both cohorts) are the only p<0.05 rows with
+both arms ≥6. F11R–ITGAL/ITGB2 is n_Q4=3 (thin). The three
+HLA-II–CD4 rows are n=4/4 with |r|=1 (complete separation, not
+a poolable effect). CD274–PDCD1 is not detect-gated.
+NECTIN2–TIGIT is GSE148071-only and p>0.4.
+
+CD274–PDCD1 / NECTIN2 are claimed only if they appear as detected rows.
+No dual-high TACSTD2×CLDN4 split.
 
 ## Files
 
