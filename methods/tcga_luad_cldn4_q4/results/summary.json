@@ -1,0 +1,99 @@
+{
+  "cohort": "TCGA-LUAD",
+  "predictor": "CLDN4 RNA (single gene)",
+  "tj7_recomputed": false,
+  "tacstd2_gate": null,
+  "n_hiseqv2_primary": 515,
+  "n_estimate_primary": 515,
+  "n_analysis": 515,
+  "n_q1": 129,
+  "n_q4": 129,
+  "cldn4_q1_max": 12.5247,
+  "cldn4_q4_min": 13.6603,
+  "q4_vs_q1": {
+    "ImmuneScore": {
+      "n_q4": 129,
+      "n_q1": 129,
+      "median_q4": 893.75,
+      "median_q1": 1137.51,
+      "delta_median_q4_minus_q1": -243.76,
+      "U": 7283.0,
+      "p": 0.08357072812706227,
+      "rank_biserial_q4_gt_q1": -0.12469202571960825,
+      "endpoint": "ImmuneScore",
+      "definition": "ESTIMATE Immune_score (MDACC RNAseqV2)",
+      "n_complete": 515
+    },
+    "CD8A": {
+      "n_q4": 129,
+      "n_q1": 129,
+      "median_q4": 7.9095,
+      "median_q1": 8.094,
+      "delta_median_q4_minus_q1": -0.184499999999999,
+      "U": 6671.0,
+      "p": 0.005932053069824673,
+      "rank_biserial_q4_gt_q1": -0.19824529775854816,
+      "endpoint": "CD8A",
+      "definition": "CD8A HiSeqV2 log2(norm_count+1)",
+      "n_complete": 515
+    },
+    "CD8_score": {
+      "n_q4": 129,
+      "n_q1": 129,
+      "median_q4": 6.8191500000000005,
+      "median_q1": 7.1832,
+      "delta_median_q4_minus_q1": -0.36404999999999976,
+      "U": 6567.0,
+      "p": 0.0034440347172200137,
+      "rank_biserial_q4_gt_q1": -0.21074454660176667,
+      "endpoint": "CD8_score",
+      "definition": "mean(CD8A, CD8B) \u2014 B3-style CD8",
+      "n_complete": 515
+    },
+    "CD274": {
+      "n_q4": 129,
+      "n_q1": 129,
+      "median_q4": 6.0466,
+      "median_q1": 6.0025,
+      "delta_median_q4_minus_q1": 0.04409999999999936,
+      "U": 8588.0,
+      "p": 0.6559476509524259,
+      "rank_biserial_q4_gt_q1": 0.0321495102457785,
+      "endpoint": "CD274",
+      "definition": "CD274 / PD-L1 HiSeqV2 log2(norm_count+1)",
+      "n_complete": 515
+    }
+  },
+  "spearman": {
+    "ImmuneScore": {
+      "n": 515,
+      "rho": -0.06462425880926838,
+      "p": 0.14305044325865524,
+      "endpoint": "ImmuneScore",
+      "definition": "ESTIMATE Immune_score (MDACC RNAseqV2)"
+    },
+    "CD8A": {
+      "n": 515,
+      "rho": -0.11828312656028608,
+      "p": 0.007205637863577844,
+      "endpoint": "CD8A",
+      "definition": "CD8A HiSeqV2 log2(norm_count+1)"
+    },
+    "CD8_score": {
+      "n": 515,
+      "rho": -0.11525826367888618,
+      "p": 0.008844665590404302,
+      "endpoint": "CD8_score",
+      "definition": "mean(CD8A, CD8B) \u2014 B3-style CD8"
+    },
+    "CD274": {
+      "n": 515,
+      "rho": 0.04462782588244787,
+      "p": 0.31210771788354064,
+      "endpoint": "CD274",
+      "definition": "CD274 / PD-L1 HiSeqV2 log2(norm_count+1)"
+    }
+  },
+  "matrix": "UCSC Xena HiSeqV2 log2(RSEM norm_count+1)",
+  "immunescore": "MDACC ESTIMATE Immune_score RNAseqV2"
+}

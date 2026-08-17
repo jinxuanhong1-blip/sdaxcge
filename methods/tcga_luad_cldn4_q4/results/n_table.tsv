@@ -1,0 +1,9 @@
+item	n	note
+HiSeqV2 primary tumors (-01)	515	Xena TCGA.LUAD.sampleMap/HiSeqV2; one column per -01
+MDACC ESTIMATE primaries (-01)	515	lung_adenocarcinoma_RNAseqV2.txt Immune_score
+HiSeqV2 ∩ ESTIMATE (analysis set)	515	complete-case for CLDN4 / CD8A / CD8B / CD274 / ImmuneScore
+ABSOLUTE not required	515	do not write n=502; that drop is purity-only
+Q1 / Q2 / Q3 / Q4	129/129/128/129	pd.qcut(rank(method='first'), 4) on CLDN4
+Q4 vs Q1 used (all four endpoints)	129 vs 129	same n for ImmuneScore, CD8A, CD8_score, CD274
+TJ7 genes in this test	0	single-gene CLDN4 extra; TJ7 vs CD8 already known
+TACSTD2 gate	0	none
