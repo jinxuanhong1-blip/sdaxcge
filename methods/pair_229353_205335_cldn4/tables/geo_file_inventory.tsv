@@ -1,0 +1,12 @@
+series	file	bytes	mib	usable_for_malignant_cldn4	note
+GSE229353	GSE229353_RAW.tar	163010560	155.5	no	only series supplementary; 7 CD45+ 10x MTX libraries
+GSE229353	GSM7159183_P01_C_{barcodes,features,matrix}	inside_tar		no	cell type: CD45+ immune cells; Chemo; SCC
+GSE229353	GSM7159184_P02_C_{barcodes,features,matrix}	inside_tar		no	cell type: CD45+ immune cells; anti-PD1+Chemo; SCC
+GSE229353	GSM7159185_P03_C_{barcodes,features,matrix}	inside_tar		no	cell type: CD45+ immune cells; anti-PD1+Chemo; SCC
+GSE229353	GSM7159186_P04_C_{barcodes,features,matrix}	inside_tar		no	cell type: CD45+ immune cells; anti-PD1+Chemo; AD
+GSE229353	GSM7159187_P05_C_{barcodes,features,matrix}	inside_tar		no	cell type: CD45+ immune cells; anti-PD1+Chemo; SCC
+GSE229353	GSM7159188_P06_C_{barcodes,features,matrix}	inside_tar		no	cell type: CD45+ immune cells; anti-PD1+Chemo; SCC
+GSE229353	GSM7159189_P07_C_{barcodes,features,matrix}	inside_tar		no	cell type: CD45+ immune cells; anti-PD1+Chemo; AD
+GSE205335	GSE205335_Lung_IO_UMI_matrix.rds.gz	523720227	499.5	yes_if_paired	author TME UMI; not used because 229353 gate failed
+GSE205335	GSE205335_Lung_IO_CellIdentity.txt.gz	735956	0.70	yes_if_paired	author identity including Malignant cells
+other	(not downloaded)			excluded	not a bigger pile

@@ -1,0 +1,12 @@
+item	n	note
+GSE229353 public series	1	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE229353 ; PMID 37231145
+GSE229353 GSM libraries	7	P01–P07; all cell type: CD45+ immune cells
+GSE229353 processed epithelial / malignant / unsorted TME matrix	0	GEO supplementary is CD45+ MTX only
+GSE229353 cell-identity / malignant labels	0	no identity file on GEO
+GSE229353 patients with malignant + T/NK for CLDN4	0	CD45 Microbead sort; epithelium not captured
+GSE229353 CLDN4 gene on 10x panel	1	P01 features: CLDN4 once (index 12425); gene present, malignant cells absent
+Pair GSE229353 + GSE205335 patients	0	229353 gate failed; 205335 not downloaded or merged
+Patient-level malignant CLDN4 vs T/NK	0	empty
+CellChat-style	0	not run; pair contrast does not exist
+Extra series added	0	not a bigger pile
+Dual-high / TACSTD2 gate	0	CLDN4-only; not used
