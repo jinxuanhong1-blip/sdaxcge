@@ -104,15 +104,28 @@ def score_and_embed(adata, batch_key: str = "dataset"):
     used_rep = "X_pca"
     harmony_ok = False
     try:
-        sc.external.pp.harmony_integrate(hvg, key=batch_key)
+        import harmonypy as hm
+
+        ho = hm.run_harmony(hvg.obsm["X_pca"], hvg.obs, [batch_key], max_iter_harmony=20)
+        z = np.asarray(ho.Z_corr)
+        if z.shape[0] == hvg.n_obs:
+            hvg.obsm["X_pca_harmony"] = z
+        else:
+            hvg.obsm["X_pca_harmony"] = z.T
         used_rep = "X_pca_harmony"
         harmony_ok = True
+        print(f"Harmony OK shape={hvg.obsm['X_pca_harmony'].shape}", flush=True)
     except Exception as exc:  # noqa: BLE001
         print(f"Harmony failed, using PCA: {exc}", flush=True)
     sc.pp.neighbors(hvg, n_neighbors=N_NEIGHBORS, n_pcs=N_PCS, use_rep=used_rep)
     sc.tl.leiden(hvg, resolution=LEIDEN_RES, flavor="igraph", n_iterations=2)
     sc.tl.paga(hvg)
-    sc.tl.umap(hvg, init_pos="paga")
+    try:
+        sc.pl.paga(hvg, show=False)
+        sc.tl.umap(hvg, init_pos="paga")
+    except Exception as exc:  # noqa: BLE001
+        print(f"PAGA-init UMAP failed ({exc}); spectral init", flush=True)
+        sc.tl.umap(hvg)
     return hvg, {"harmony": harmony_ok, "use_rep": used_rep, "n_cells": int(hvg.n_obs)}
 
 

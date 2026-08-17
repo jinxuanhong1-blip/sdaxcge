@@ -1,0 +1,79 @@
+{
+  "n_cells": 9516,
+  "n_genes_shared": 20138,
+  "by_dataset": {
+    "GSE205335": 4918,
+    "GSE131907": 4598
+  },
+  "by_compartment": {
+    "malignant": 6134,
+    "TNK": 3382
+  },
+  "n_units": 43,
+  "mal_cap_per_unit": 150,
+  "tnk_cap_per_unit": 80,
+  "subsampled": true,
+  "previous_oom_cells": 53296,
+  "gse148071_added": false,
+  "gse207422_added": false,
+  "GSE131907": {
+    "n_ann": 208506,
+    "n_winning_samples": 21,
+    "n_malignant_catalog": 24784,
+    "n_tnk_catalog": 15150,
+    "mal_by_sample": {
+      "NS_07": 5108,
+      "EBUS_28": 4640,
+      "NS_12": 2811,
+      "NS_03": 2713,
+      "NS_13": 1352,
+      "EBUS_51": 1285,
+      "NS_04": 1229,
+      "EBUS_06": 1186,
+      "NS_17": 1112,
+      "NS_19": 755,
+      "BRONCHO_58": 460,
+      "EBUS_13": 376,
+      "EBUS_10": 367,
+      "EBUS_12": 257,
+      "EBUS_15": 256,
+      "EBUS_19": 217,
+      "BRONCHO_11": 203,
+      "NS_02": 181,
+      "EBUS_49": 114,
+      "NS_06": 83,
+      "NS_16": 79
+    },
+    "tnk_by_sample": {
+      "NS_13": 1780,
+      "BRONCHO_58": 1546,
+      "EBUS_10": 1530,
+      "EBUS_19": 1427,
+      "EBUS_13": 1150,
+      "EBUS_51": 1143,
+      "EBUS_49": 1126,
+      "NS_02": 977,
+      "BRONCHO_11": 809,
+      "EBUS_06": 611,
+      "EBUS_15": 479,
+      "NS_17": 410,
+      "NS_16": 385,
+      "NS_06": 383,
+      "NS_19": 370,
+      "EBUS_12": 328,
+      "EBUS_28": 232,
+      "NS_07": 166,
+      "NS_03": 145,
+      "NS_04": 131,
+      "NS_12": 22
+    }
+  },
+  "GSE205335": {
+    "n_ident": 96505,
+    "n_patients": 22,
+    "n_malignant_catalog": 28512,
+    "n_tnk_catalog": 31642,
+    "n_normal_dropped": 15715
+  },
+  "out": "/tmp/pair_131907_205335/pair_subsample.h5ad"
+}

@@ -1,0 +1,4 @@
+cohort	unit_type	n_eligible	n_q1	n_q4	n_q4q1_compared	n_median_high	n_median_low	cldn4	note
+GSE131907	sample	21	6	5	11	11	10	author-malignant %pos	GSE131907 sample is the unit (not patient)
+GSE205335	patient	22	6	6	12	11	11	author-malignant %pos	GSE205335 B = B+plasma; all 22 patients
+merge_within_cohort	sample+patient	43	12	11	23	22	21	within-cohort author-malignant %pos	PR #320 Q4 vs Q1 n=23; not a 7-cohort pool

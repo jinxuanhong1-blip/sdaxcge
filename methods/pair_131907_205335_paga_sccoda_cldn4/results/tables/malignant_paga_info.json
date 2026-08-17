@@ -1,0 +1,18 @@
+{
+  "compartment": "malignant",
+  "n_cells": 6134,
+  "n_units": 43,
+  "n_units_in_means": 43,
+  "embed": {
+    "harmony": true,
+    "use_rep": "X_pca_harmony",
+    "n_cells": 6134
+  },
+  "root": {
+    "rule": "min CLDN4 among top AT2 tercile (never CLDN4-high)",
+    "n": 6134,
+    "root_CLDN4": 0.0,
+    "root_AT2": 1.181376028886018
+  },
+  "subsampled": true
+}
