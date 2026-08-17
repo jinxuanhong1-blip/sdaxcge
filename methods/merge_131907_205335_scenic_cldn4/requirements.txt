@@ -1,0 +1,8 @@
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+matplotlib>=3.8
+statsmodels>=0.14
+rdata>=0.9
+# Full pySCENIC cisTarget is not run (no motif DBs / no invented ChIP).
+# pyscenic and arboreto are optional and unused by default.
