@@ -1,0 +1,32 @@
+{
+  "given_combo_n": 32,
+  "given_combo_rho": -0.513,
+  "n_patients_gse131907": 21,
+  "n_patients_iit": 11,
+  "n_split_median": 28,
+  "n_split_tertile": 32,
+  "n_B_median": 25,
+  "n_TLS_median": 27,
+  "n_TNK_median": 28,
+  "n_lr_rows": 1098,
+  "n_patient_pair_rows": 14536,
+  "cellchat_pairs": 2239,
+  "cpdb_pairs": 2920,
+  "liana_package": "not_run (ModuleNotFoundError)",
+  "unit": "patient",
+  "cldn4_only": true,
+  "dual_high": false,
+  "gse207422_included": false,
+  "gse131907_mal_def": "author Cell_subtype == Malignant cells (combo author_malig n=21)",
+  "iit_mal_def": "author Epi (combo author_epi n=11)",
+  "iit_author_majors": [
+    "B",
+    "Endo",
+    "Epi",
+    "Fibro",
+    "Mast",
+    "Myeloid",
+    "NK",
+    "T"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "do_not_reaudit": true,
+  "source": "PR #290 methods/scrna_cldn4_combo FINDING.md; family author/b/mean",
+  "combo": "GSE131907 + GSE241934_IIT",
+  "k": 2,
+  "n": 32,
+  "rho": -0.513,
+  "p": 0.00388,
+  "I2": 0,
+  "members": [
+    {
+      "cohort": "GSE131907",
+      "malignant_def": "author_malig",
+      "n": 21,
+      "cldn4_vs_b_rho": -0.465,
+      "cldn4_vs_b_p": 0.0337,
+      "note": "21 tumor-origin samples with author Cell_subtype == Malignant cells (tL/B + mLN + mBrain). tLung tS* is a different row (author_epi n=36) and is not this combo."
+    },
+    {
+      "cohort": "GSE241934_IIT",
+      "malignant_def": "author_epi",
+      "n": 11,
+      "cldn4_vs_b_rho": -0.609,
+      "cldn4_vs_b_p": 0.0467,
+      "note": "NEOTIDE IIT; author Epi as malignant proxy. Real/RWC is a different stratum and is not in this combo."
+    }
+  ],
+  "excluded": [
+    "GSE207422-only B-frac (PR #400; NS; not this combo)",
+    "dual-high TACSTD2 AND CLDN4 gate",
+    "GSE241934 Real/RWC"
+  ]
+}
