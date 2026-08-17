@@ -272,16 +272,15 @@ def _run_palantir(adata, early_name: str) -> dict:
     """Real Palantir. Must write destinies + pseudotime or raise."""
     palantir = _require_palantir()
     info = {"ok": False}
-    if "X_pca_harmony" in adata.obsm:
-        adata.obsm["X_pca"] = np.asarray(adata.obsm["X_pca_harmony"])
-        info["pca"] = "X_pca_harmony copied onto X_pca for Palantir"
-    else:
-        info["pca"] = "X_pca"
+    pca_key = "X_pca_harmony" if "X_pca_harmony" in adata.obsm else "X_pca"
+    info["pca"] = pca_key
 
     run_dm = palantir.utils.run_diffusion_maps
     try:
-        run_dm(adata, n_components=N_DM_COMPS, knn=N_NEIGHBORS)
+        run_dm(adata, n_components=N_DM_COMPS, knn=N_NEIGHBORS, pca_key=pca_key)
     except TypeError:
+        if pca_key != "X_pca":
+            adata.obsm["X_pca"] = np.asarray(adata.obsm[pca_key])
         run_dm(adata, n_components=N_DM_COMPS)
 
     palantir.utils.determine_multiscale_space(adata)
@@ -298,22 +297,16 @@ def _run_palantir(adata, early_name: str) -> dict:
         early_cell=early_name,
         num_waypoints=n_wp,
         knn=N_NEIGHBORS,
+        save_as_df=True,
     )
     try:
         pr = palantir.core.run_palantir(adata, n_jobs=2, **kwargs)
     except TypeError:
+        kwargs.pop("save_as_df", None)
         try:
-            pr = palantir.core.run_palantir(adata, **kwargs)
+            pr = palantir.core.run_palantir(adata, n_jobs=2, **kwargs)
         except TypeError:
-            ms = adata.obsm.get("DM_EigenValues")
-            # oldest API: run on multi-scale DataFrame
-            if "palantir_multiscale" in adata.obsm:
-                ms_df = pd.DataFrame(
-                    adata.obsm["palantir_multiscale"], index=adata.obs_names
-                )
-            else:
-                raise
-            pr = palantir.core.run_palantir(ms_df, early_name, num_waypoints=n_wp)
+            pr = palantir.core.run_palantir(adata, **kwargs)
 
     # Normalize outputs onto AnnData
     pt = None
@@ -348,6 +341,54 @@ def _run_palantir(adata, early_name: str) -> dict:
     elif entropy is not None:
         adata.obs["palantir_entropy"] = np.asarray(entropy, dtype=float)
 
+    if branch is None and "palantir_fate_probabilities" in adata.obsm:
+        raw = adata.obsm["palantir_fate_probabilities"]
+        if isinstance(raw, pd.DataFrame):
+            branch = raw
+        else:
+            cols = adata.uns.get("palantir_fate_probabilities_columns")
+            branch = pd.DataFrame(raw, index=adata.obs_names, columns=cols)
+    if branch is None or (isinstance(branch, pd.DataFrame) and branch.shape[1] == 0):
+        print("Palantir auto-terminals empty; retry with DM-boundary terminals (not CLDN4).", flush=True)
+        ms_key = "DM_EigenVectors_multiscaled"
+        if ms_key not in adata.obsm:
+            raise RuntimeError("Palantir destiny table is empty and multiscale space is missing")
+        ms = pd.DataFrame(adata.obsm[ms_key], index=adata.obs_names)
+        # farthest diffusion-map extrema from the early cell — never CLDN4-defined
+        extrema = pd.Index(set(ms.idxmax()).union(ms.idxmin()))
+        extrema = extrema.difference([early_name])
+        high = adata.obs["cldn4_tertile"].astype(str) == "high"
+        extrema_ok = [c for c in extrema if c in adata.obs_names and not bool(high.get(c, False))]
+        if len(extrema_ok) < 2:
+            extrema_ok = [c for c in extrema if c in adata.obs_names]
+        if len(extrema_ok) < 1:
+            raise RuntimeError("Palantir destiny table is empty and no DM-boundary terminals")
+        # keep up to 3 farthest from early cell
+        early_vec = ms.loc[early_name].to_numpy()
+        dist = {c: float(np.linalg.norm(ms.loc[c].to_numpy() - early_vec)) for c in extrema_ok}
+        picked = sorted(dist, key=dist.get, reverse=True)[:3]
+        term = {f"boundary_{i+1}": c for i, c in enumerate(picked)}
+        info["terminal_fallback"] = term
+        kwargs["terminal_states"] = term
+        try:
+            pr = palantir.core.run_palantir(adata, n_jobs=2, **kwargs)
+        except TypeError:
+            kwargs.pop("save_as_df", None)
+            pr = palantir.core.run_palantir(adata, **kwargs)
+        pt = getattr(pr, "pseudotime", None) if pr is not None else None
+        entropy = getattr(pr, "entropy", None) if pr is not None else None
+        branch = getattr(pr, "branch_probs", None) if pr is not None else None
+        if pt is None and "palantir_pseudotime" in adata.obs:
+            pt = adata.obs["palantir_pseudotime"]
+        if entropy is None and "palantir_entropy" in adata.obs:
+            entropy = adata.obs["palantir_entropy"]
+        if branch is None and "palantir_fate_probabilities" in adata.obsm:
+            raw = adata.obsm["palantir_fate_probabilities"]
+            branch = raw if isinstance(raw, pd.DataFrame) else pd.DataFrame(raw, index=adata.obs_names)
+        if isinstance(pt, pd.Series):
+            adata.obs["palantir_pseudotime"] = pd.to_numeric(pt.reindex(adata.obs_names), errors="coerce")
+        if isinstance(entropy, pd.Series):
+            adata.obs["palantir_entropy"] = pd.to_numeric(entropy.reindex(adata.obs_names), errors="coerce")
     if branch is None:
         raise RuntimeError("Palantir returned no branch/destiny probabilities")
     if not isinstance(branch, pd.DataFrame):
@@ -355,7 +396,7 @@ def _run_palantir(adata, early_name: str) -> dict:
     branch = branch.reindex(adata.obs_names)
     branch.columns = [str(c) for c in branch.columns]
     if branch.shape[1] == 0:
-        raise RuntimeError("Palantir destiny table is empty")
+        raise RuntimeError("Palantir destiny table is empty after terminal fallback")
 
     # Rename destinies to destiny_1..k but keep original terminal cell ids
     rename = {c: f"destiny_{i+1}" for i, c in enumerate(branch.columns)}
