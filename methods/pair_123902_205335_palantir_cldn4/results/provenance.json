@@ -1,0 +1,62 @@
+{
+  "accessions": [
+    "GSE123902",
+    "GSE205335"
+  ],
+  "papers": {
+    "GSE123902": "Laughney et al. Nat Med 2020 PMID 32066974",
+    "GSE205335": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)",
+    "palantir": "Setty et al. Nat Biotechnol 2019 PMID 30899105"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "ifn_de_given": -1.05,
+  "palantir": {
+    "engine": "palantir",
+    "version": "1.4.5",
+    "n_components": 10,
+    "knn": 30,
+    "num_waypoints": 500,
+    "early_cell": "GSE123902:LX684:NORMAL:195622403159966",
+    "terminals_user_specified": true,
+    "terminals_defined_by_CLDN4": false,
+    "note": "terminals = malignant (author/marker, farthest from root) + AT1; not CLDN4-high quantile",
+    "eigenvalues": [
+      1.0000000009298737,
+      1.0,
+      0.9978532168687577,
+      0.9967975283726884,
+      0.9964975018897955,
+      0.9962283035705988,
+      0.9958557865922426,
+      0.9957611020286838,
+      0.9952693093392192,
+      0.9950650112890325
+    ],
+    "multiscale_eigs": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "specified_terminals": {
+      "GSE205335:LM-115-3P_GCTCAAATCGAACCTA-1": "malignant",
+      "GSE123902:LX685:NORMAL:131310529665268": "AT1"
+    },
+    "api": "anndata_sanitized_multiscale",
+    "n_terminals": 2,
+    "terminal_ids": [
+      "AT1",
+      "malignant"
+    ],
+    "available": true,
+    "module": "palantir"
+  },
+  "root_not_cldn4_high": true,
+  "gse148071": false,
+  "dual_high": false
+}
