@@ -6,7 +6,7 @@ No GSE148071.
 
 ```bash
 pip install -r methods/pair_131907_189357_slingshot_cldn4/requirements.txt
-# R 4.3 + Bioconductor slingshot in ~/R/library
+# R 4.3 + Bioconductor slingshot + DelayedMatrixStats in ~/R/library
 python3 methods/pair_131907_189357_slingshot_cldn4/scripts/run_all.py
 ```
 
