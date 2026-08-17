@@ -1,0 +1,251 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "winning_pair": true,
+  "gse148071_added": false,
+  "gse207422_added": false,
+  "dual_high": false,
+  "primary_gene": "CLDN4",
+  "unit": "patient (GSE131907 Sample / GSE205335 patient)",
+  "cap_per_unit": 200,
+  "n_cells": 7999,
+  "n_cells_gse131907": 3857,
+  "n_cells_gse205335": 4142,
+  "n_units": 43,
+  "n_units_gse131907": 21,
+  "n_units_gse205335": 22,
+  "n_units_eligible": 43,
+  "n_units_paired": 43,
+  "catalog_gse131907_malignant": 24784,
+  "catalog_gse205335_malignant": 28512,
+  "histology_counts": {
+    "LUAD": 3857,
+    "ADC": 2542,
+    "SCLC": 800,
+    "SQ": 600,
+    "NUT": 200
+  },
+  "potency_category_counts": {
+    "Differentiated": 6155,
+    "Unipotent": 1292,
+    "Oligopotent": 386,
+    "Multipotent": 166
+  },
+  "cldn4_tertile_counts": {
+    "low": 2667,
+    "high": 2667,
+    "mid": 2665
+  },
+  "genes_absent": {
+    "barrier_keratin": [],
+    "malignant_like": [],
+    "AT2": [],
+    "focal": [],
+    "comparator": []
+  },
+  "potency_method": {
+    "package": "cytotrace2-py",
+    "citation": "Kang et al. Nat Methods 2025 doi:10.1038/s41592-025-02857-2",
+    "ran": true,
+    "reason": null,
+    "input": "in-memory AnnData counts (raw UMI, not log)",
+    "n_scored": 7999,
+    "columns": [
+      "CytoTRACE2_Score",
+      "CytoTRACE2_Potency",
+      "CytoTRACE2_Relative",
+      "preKNN_CytoTRACE2_Score",
+      "preKNN_CytoTRACE2_Potency"
+    ],
+    "cached": true,
+    "n_joined": 7999,
+    "version": "1.1.0.4",
+    "name": "CytoTRACE2",
+    "primary_column": "CytoTRACE2_Score"
+  },
+  "gulati_ran": true,
+  "primary": [
+    {
+      "contrast": "CLDN4 vs CytoTRACE2",
+      "n": 43,
+      "rho": -0.36363636363636365,
+      "p": 0.01653190809860188,
+      "note": "",
+      "q": 0.023144671338042634
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 43,
+      "rho": 0.28752642706131076,
+      "p": 0.06154309730282359,
+      "note": "",
+      "q": 0.07180028018662753
+    },
+    {
+      "contrast": "CytoTRACE2 vs barrier/keratin (no CLDN4)",
+      "n": 43,
+      "rho": -0.5249169435215947,
+      "p": 0.00030174886274409964,
+      "note": "",
+      "q": 0.0010561210196043487
+    },
+    {
+      "contrast": "CLDN4 vs frac Differentiated",
+      "n": 43,
+      "rho": 0.44342852633695784,
+      "p": 0.002899460987068916,
+      "note": "",
+      "q": 0.0067654089698274715
+    },
+    {
+      "contrast": "CLDN4 vs malignant-like",
+      "n": 43,
+      "rho": 0.5561763817577772,
+      "p": 0.00010775431147218208,
+      "note": "",
+      "q": 0.0007542801803052746
+    },
+    {
+      "contrast": "CLDN4 vs TACSTD2 (comparator)",
+      "n": 43,
+      "rho": 0.3814557535487768,
+      "p": 0.011605986119361058,
+      "note": "",
+      "q": 0.02031047570888185
+    },
+    {
+      "contrast": "CLDN4 vs Gulati2020 CytoTRACE",
+      "n": 43,
+      "rho": 0.25943823618242223,
+      "p": 0.0929529163900859,
+      "note": "",
+      "q": 0.09295291639008589
+    }
+  ],
+  "sensitivity": [
+    {
+      "contrast": "GSE131907-only CLDN4 vs CytoTRACE2",
+      "n": 21,
+      "rho": -0.49870129870129876,
+      "p": 0.02138084599925308,
+      "note": ""
+    },
+    {
+      "contrast": "GSE131907-only CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 21,
+      "rho": 0.1987012987012987,
+      "p": 0.3878822634645567,
+      "note": ""
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs CytoTRACE2",
+      "n": 22,
+      "rho": -0.1485036702428007,
+      "p": 0.509537703044494,
+      "note": ""
+    },
+    {
+      "contrast": "GSE205335-only CLDN4 vs barrier/keratin (no CLDN4)",
+      "n": 22,
+      "rho": 0.24788255223037836,
+      "p": 0.26601937978240725,
+      "note": ""
+    },
+    {
+      "contrast": "GSE205335 ADC-only CLDN4 vs CytoTRACE2",
+      "n": 14,
+      "rho": -0.3098901098901099,
+      "p": 0.2809332808692584,
+      "note": ""
+    },
+    {
+      "contrast": "GSE205335 ADC+SQ CLDN4 vs CytoTRACE2",
+      "n": 17,
+      "rho": -0.32598039215686275,
+      "p": 0.20163694355296405,
+      "note": ""
+    },
+    {
+      "contrast": "GSE131907 mBrain CLDN4 vs CytoTRACE2",
+      "n": 10,
+      "rho": -0.4424242424242424,
+      "p": 0.20042268671194213,
+      "note": ""
+    },
+    {
+      "contrast": "GSE131907 mLN CLDN4 vs CytoTRACE2",
+      "n": 7,
+      "rho": -0.6071428571428572,
+      "p": 0.14823116148116164,
+      "note": ""
+    },
+    {
+      "contrast": "GSE131907 tL/B CLDN4 vs CytoTRACE2",
+      "n": 4,
+      "rho": 0.0,
+      "p": 1.0,
+      "note": ""
+    }
+  ],
+  "paired": [
+    {
+      "contrast": "potency high vs low",
+      "n": 43,
+      "W": 193.0,
+      "p": 0.001228423053212413,
+      "delta_median": -0.006391882729119679,
+      "note": "within-unit CLDN4-high minus CLDN4-low; negative potency \u0394 = high more differentiated"
+    },
+    {
+      "contrast": "barrier/keratin (no CLDN4) high vs low",
+      "n": 43,
+      "W": 0.0,
+      "p": 1.6479364449501875e-08,
+      "delta_median": 0.357332830242589,
+      "note": "within-unit CLDN4-high minus CLDN4-low; negative potency \u0394 = high more differentiated"
+    },
+    {
+      "contrast": "Gulati2020 high vs low",
+      "n": 43,
+      "W": 9.0,
+      "p": 3.1503081597039415e-08,
+      "delta_median": 0.24614546283934335,
+      "note": "within-unit CLDN4-high minus CLDN4-low; negative potency \u0394 = high more differentiated"
+    }
+  ],
+  "extra_emitted": true,
+  "inventory": {
+    "n_cells": 7999,
+    "n_genes_shared": 20138,
+    "by_dataset": {
+      "GSE205335": 4142,
+      "GSE131907": 3857
+    },
+    "by_origin": {
+      "LN": 2856,
+      "mBrain": 1743,
+      "mLN": 1400,
+      "tL/B": 714,
+      "Liver": 611,
+      "Lung": 390,
+      "Bronchus": 248,
+      "Effusion": 37
+    },
+    "by_histology": {
+      "LUAD": 3857,
+      "ADC": 2542,
+      "SCLC": 800,
+      "SQ": 600,
+      "NUT": 200
+    },
+    "n_units": 43,
+    "cap_per_unit": 200,
+    "gse148071_added": false,
+    "gse207422_added": false,
+    "dual_high": false,
+    "malignant_only": true,
+    "out": "/tmp/winpair_cytotrace2_cldn4/malignant.h5ad"
+  }
+}

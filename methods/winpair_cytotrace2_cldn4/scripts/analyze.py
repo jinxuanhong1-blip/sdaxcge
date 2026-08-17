@@ -193,30 +193,19 @@ def gulati_cytotrace(X, n_top: int = 200, n_neighbors: int = 10, seed: int = 14)
     return stats.rankdata(smooth) / n_cells
 
 
-def write_cytotrace2_input(adata, path: Path, min_cells: int = 10) -> Path:
-    """Write genes x cells TSV (raw UMI, not log) for cytotrace2-py."""
+def counts_as_cells_by_genes(adata, min_cells: int = 10) -> pd.DataFrame:
+    """Dense cells x genes raw UMI frame (what cytotrace2 read_file returns)."""
     X = adata.layers["counts"] if "counts" in adata.layers else adata.X
     if not sparse.issparse(X):
         X = sparse.csr_matrix(X)
     X = X.tocsr()
     nz = np.asarray((X > 0).sum(axis=0)).ravel()
     keep = nz >= min_cells
-    genes = adata.var_names.to_numpy()[keep]
-    Xs = X[:, keep].T.tocsr()  # genes x cells
+    genes = np.asarray(adata.var_names, dtype=str)[keep]
     cells = np.asarray(adata.obs_names, dtype=str)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    print(f"write CytoTRACE2 input {Xs.shape[0]} genes x {Xs.shape[1]} cells -> {path}", flush=True)
-    with path.open("w") as handle:
-        handle.write("Gene\t" + "\t".join(cells) + "\n")
-        for i, gene in enumerate(genes):
-            row = Xs.getrow(i)
-            dense = np.zeros(Xs.shape[1], dtype=np.float32)
-            dense[row.indices] = row.data
-            handle.write(gene + "\t" + "\t".join(f"{v:.4g}" if v else "0" for v in dense) + "\n")
-            if (i + 1) % 2000 == 0:
-                print(f"  wrote {i+1} genes", flush=True)
-    print(f"wrote {path} ({path.stat().st_size} bytes)", flush=True)
-    return path
+    print(f"CytoTRACE2 in-memory matrix {len(cells)} cells x {keep.sum()} genes", flush=True)
+    dense = np.asarray(X[:, keep].todense(), dtype=np.float32)
+    return pd.DataFrame(dense, index=cells, columns=genes)
 
 
 def run_cytotrace2(adata, work: Path) -> tuple[pd.DataFrame | None, dict]:
@@ -225,31 +214,42 @@ def run_cytotrace2(adata, work: Path) -> tuple[pd.DataFrame | None, dict]:
         "citation": "Kang et al. Nat Methods 2025 doi:10.1038/s41592-025-02857-2",
         "ran": False,
         "reason": None,
+        "input": "in-memory AnnData counts (raw UMI, not log)",
     }
     try:
-        from cytotrace2_py.cytotrace2_py import cytotrace2
+        from cytotrace2_py import cytotrace2_py as ctmod
     except Exception as exc:
         info["reason"] = f"import failed: {exc}"
         print(info["reason"], flush=True)
         return None, info
-    expr_path = work / "cytotrace2_input.tsv"
+    work.mkdir(parents=True, exist_ok=True)
     ann_path = work / "cytotrace2_annotation.tsv"
     out_dir = work / "cytotrace2_out"
-    if not expr_path.is_file():
-        write_cytotrace2_input(adata, expr_path)
+    cached = out_dir / "cytotrace2_results.txt"
+    if cached.is_file() and cached.stat().st_size > 1000:
+        print(f"reuse cached CytoTRACE2 {cached}", flush=True)
+        df = pd.read_csv(cached, sep="\t", index_col=0)
+        info["ran"] = True
+        info["n_scored"] = int(len(df))
+        info["columns"] = list(df.columns)
+        info["cached"] = True
+        return df, info
     pd.DataFrame(
         {
             "cell": adata.obs_names.astype(str),
             "phenotype": adata.obs["unit_id"].astype(str),
         }
     ).to_csv(ann_path, sep="\t", index=False)
+    expr = counts_as_cells_by_genes(adata)
+    orig_read = ctmod.read_file
+    ctmod.read_file = lambda path: expr
     try:
         print("running cytotrace2(species=human, disable_plotting, max_cores=1)", flush=True)
-        result = cytotrace2(
-            str(expr_path),
+        result = ctmod.cytotrace2(
+            "in-memory-malignant-counts",
             annotation_path=str(ann_path),
             species="human",
-            batch_size=4000,
+            batch_size=min(4000, expr.shape[0]),
             smooth_batch_size=800,
             disable_plotting=True,
             disable_parallelization=True,
@@ -257,28 +257,13 @@ def run_cytotrace2(adata, work: Path) -> tuple[pd.DataFrame | None, dict]:
             seed=14,
             output_dir=str(out_dir),
         )
-    except TypeError:
-        # older signature without some kwargs
-        try:
-            result = cytotrace2(
-                str(expr_path),
-                annotation_path=str(ann_path),
-                species="human",
-                batch_size=4000,
-                smooth_batch_size=800,
-                disable_plotting=True,
-                max_cores=1,
-                seed=14,
-                output_dir=str(out_dir),
-            )
-        except Exception as exc:
-            info["reason"] = f"cytotrace2() failed: {exc}\n{traceback.format_exc()}"
-            print(info["reason"], flush=True)
-            return None, info
     except Exception as exc:
         info["reason"] = f"cytotrace2() failed: {exc}\n{traceback.format_exc()}"
         print(info["reason"], flush=True)
         return None, info
+    finally:
+        ctmod.read_file = orig_read
+        del expr
     if result is None:
         info["reason"] = "cytotrace2() returned None"
         return None, info
@@ -312,12 +297,19 @@ def write_finding(path: Path, S: dict) -> None:
     s205 = sens["GSE205335-only CLDN4 vs CytoTRACE2"]
     adc = sens.get("GSE205335 ADC-only CLDN4 vs CytoTRACE2", {})
     method = S["potency_method"]
-    direction = (
-        "CLDN4-high cells have **lower** potency (more differentiated / barrier-locked)"
-        if (c4p.get("rho") is not None and c4p["rho"] < 0 and c4p.get("p", 1) < 0.05)
-        or (pair_p.get("delta_median") is not None and pair_p["delta_median"] < 0 and pair_p.get("p", 1) < 0.05)
-        else "the data do **not** support lower potency in CLDN4-high malignant cells at the patient unit"
-    )
+    gse205_null = s205.get("p") is not None and np.isfinite(s205.get("p", np.nan)) and s205["p"] >= 0.05
+    pair_tiny = pair_p.get("delta_median") is not None and abs(pair_p["delta_median"]) < 0.05
+    if c4p.get("rho") is not None and c4p["rho"] < 0 and c4p.get("p", 1) < 0.05:
+        direction = (
+            "at the **patient** unit, higher mean CLDN4 tracks **lower** CytoTRACE2 "
+            f"(n={c4p['n']}, ρ={_fmt_r(c4p['rho'])}, p={_fmt_p(c4p['p'])}). "
+            "The association is GSE131907-driven"
+            + ("; GSE205335-only is null" if gse205_null else "")
+            + (". Within-patient potency Δ is significant but tiny" if pair_tiny else "")
+            + ". CLDN4-high cells are strongly barrier/keratin-high in the same patient"
+        )
+    else:
+        direction = "the data do **not** support lower potency in CLDN4-high malignant cells at the patient unit"
     if method["ran"] and method.get("name") == "CytoTRACE2":
         method_line = (
             f"Primary potency = **CytoTRACE2** (`cytotrace2-py` {method.get('version', '')}, "
@@ -354,8 +346,25 @@ def write_finding(path: Path, S: dict) -> None:
         f"Paired within-patient CLDN4-high vs low potency: {_fmt(pair_p, keys=('W', 'delta', 'p'))}. "
         f"Paired barrier/keratin: {_fmt(pair_b, keys=('W', 'delta', 'p'))}. "
         f"GSE131907-only: {_fmt(s131)}. GSE205335-only: {_fmt(s205)}. "
+        "Gulati 2020 gene-count CytoTRACE does **not** agree with CytoTRACE2 "
+        f"(patient-level {_fmt(prim['CLDN4 vs Gulati2020 CytoTRACE'])}; "
+        f"paired {_fmt(paired['Gulati2020 high vs low'], keys=('W', 'delta', 'p'))}). "
         "tLung contributes **0** author-malignant cells (Kim labels those cells tS1/tS2/tS3, not "
         "`Malignant cells`). Not a TACSTD2 redo. No both-high gate. GSE148071 not used.",
+        "",
+        f"**What holds.** Pooled patient-mean CLDN4 vs CytoTRACE2 is negative ({_fmt(c4p)}; BH q={_fmt_p(c4p.get('q'))}). "
+        f"GSE131907-only is the same direction ({_fmt(s131)}). "
+        f"CLDN4-high cells are barrier/keratin-high in the same patient ({_fmt(pair_b, keys=('W', 'delta', 'p'))}). "
+        f"Higher barrier tracks lower CytoTRACE2 ({_fmt(p_bar)}). "
+        f"CLDN4 tracks the Differentiated fraction ({_fmt(prim['CLDN4 vs frac Differentiated'])}).",
+        "",
+        f"**What does not hold.** GSE205335-only CLDN4 vs CytoTRACE2 is null ({_fmt(s205)}). "
+        f"ADC-only n={adc.get('n', 'NA')} is also null. "
+        f"Between-patient CLDN4 vs barrier is NS ({_fmt(c4b)}). "
+        f"The paired potency shift is tiny (Δmed={pair_p.get('delta_median', float('nan')):+.3f}) — "
+        "do not quote it as a large within-tumor stemness drop. "
+        "Gulati 2020 gene-count CytoTRACE is **opposite** CytoTRACE2 at the paired test; "
+        "that is why this folder is not a residual-n_genes dump.",
         "",
         "## Honest n",
         "",
@@ -368,7 +377,7 @@ def write_finding(path: Path, S: dict) -> None:
         f"- Author malignant rule: GSE131907 `Cell_subtype==Malignant cells` "
         f"(catalog malignant {S['catalog_gse131907_malignant']}; tLung author-malignant = 0). "
         f"GSE205335 `lineage.sub==Malignant cells` on non-normal tissues "
-        f"(catalog {S['catalog_gse205335_malignant']}).",
+        f"(catalog malignant {S['catalog_gse205335_malignant']}; analyzed {S['n_cells_gse205335']}).",
         f"- Histology (cells): {S['histology_counts']}.",
         f"- CytoTRACE2 potency categories (cells): {S['potency_category_counts']}.",
         f"- CLDN4 tertile cells: {S['cldn4_tertile_counts']}.",
@@ -445,14 +454,18 @@ def write_finding(path: Path, S: dict) -> None:
         "- `results/tables/stats.tsv`",
         "- `results/figures/fig_patient_cldn4_vs_potency.png`",
         "- `results/figures/fig_extra_paired_potency.png`",
+        "- `results/figures/fig_extra_cldn4_vs_barrier.png`",
+        "- `results/figures/fig_extra_potency_category.png`",
         "- `results/figures/fig_honest_n.png`",
+        "- `results/figures/fig_umap_cldn4.png`",
+        "- `results/figures/fig_umap_potency.png`",
         "- `results/summary.json`",
         "",
         "## Reproduce",
         "",
         "```bash",
         "python3 -m venv /tmp/winpair_ct2_venv",
-        " /tmp/winpair_ct2_venv/bin/pip install -r methods/winpair_cytotrace2_cldn4/requirements.txt",
+        "/tmp/winpair_ct2_venv/bin/pip install -r methods/winpair_cytotrace2_cldn4/requirements.txt",
         "/tmp/winpair_ct2_venv/bin/python methods/winpair_cytotrace2_cldn4/scripts/download.py \\",
         "  --out /tmp/winpair_cytotrace2_cldn4",
         "/tmp/winpair_ct2_venv/bin/python methods/winpair_cytotrace2_cldn4/scripts/extract_malignant.py \\",
@@ -584,7 +597,7 @@ def main() -> None:
         adata_u = adata.copy()
         sc.pp.normalize_total(adata_u, target_sum=1e4)
         sc.pp.log1p(adata_u)
-        sc.pp.highly_variable_genes(adata_u, n_top_genes=2000, flavor="seurat_v3", layer="counts")
+        sc.pp.highly_variable_genes(adata_u, n_top_genes=2000, flavor="seurat")
         sc.pp.pca(adata_u, n_comps=30, use_highly_variable=True)
         sc.pp.neighbors(adata_u, n_neighbors=20, n_pcs=30)
         sc.tl.umap(adata_u)
@@ -861,7 +874,10 @@ def main() -> None:
     fig, ax = plt.subplots(figsize=(6.6, 4.2))
     data_box = [elig.loc[elig["dataset"] == ds, "mean_potency"].to_numpy() for ds in ("GSE131907", "GSE205335") if (elig["dataset"] == ds).any()]
     labels = [ds for ds in ("GSE131907", "GSE205335") if (elig["dataset"] == ds).any()]
-    bp = ax.boxplot(data_box, labels=labels, patch_artist=True)
+    try:
+        bp = ax.boxplot(data_box, tick_labels=labels, patch_artist=True)
+    except TypeError:
+        bp = ax.boxplot(data_box, labels=labels, patch_artist=True)
     for patch, col in zip(bp["boxes"], ["#2a6f97", "#b23a48"]):
         patch.set_facecolor(col)
         patch.set_alpha(0.4)
@@ -894,11 +910,6 @@ def main() -> None:
             ax.set_title(color)
             _save(fig, figdir / fname)
 
-    catalog_131 = int((adata.obs["dataset"] == "GSE131907").sum())
-    # catalog totals from uns if present; else analyzed
-    cat131 = 24784  # author malignant catalog from winning-pair meta
-    cat205 = 28912  # will overwrite from value_counts if we stored it
-    # better: from extract inventory if present
     inv_path = args.input.with_suffix(".inventory.json")
     inv = json.loads(inv_path.read_text()) if inv_path.is_file() else {}
 
@@ -920,7 +931,7 @@ def main() -> None:
         "n_units_eligible": int(len(elig)),
         "n_units_paired": int(len(paired_df)),
         "catalog_gse131907_malignant": 24784,
-        "catalog_gse205335_malignant": int(inv.get("by_dataset", {}).get("GSE205335", adata.obs["dataset"].eq("GSE205335").sum())),
+        "catalog_gse205335_malignant": 28512,
         "histology_counts": adata.obs["histology"].astype(str).value_counts().to_dict(),
         "potency_category_counts": adata.obs["CytoTRACE2_Potency"].astype(str).value_counts().to_dict(),
         "cldn4_tertile_counts": adata.obs["cldn4_tertile"].astype(str).value_counts().to_dict(),
