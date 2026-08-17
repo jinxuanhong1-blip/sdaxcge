@@ -1,0 +1,10 @@
+cohort	histology_source	n_LUAD	n_LUSC	n_mixed_or_unknown	can_split	note
+TCGA-LUAD	project is LUAD	515	0	0	True	Xena HiSeqV2 primary tumors
+TCGA-LUSC	project is LUSC	0	502	0	True	kept as extra LUSC row
+CPTAC-LUAD	CPTAC LUAD proteogenomic cohort	110	0	0	True	already LUAD-only
+CPTAC-LSCC	CPTAC LSCC / LUSC proteogenomic cohort	0	108	0	True	LUSC extra row
+GSE218989	none on GEO or Supp Data 8	0	0	355	False	Kang 2024; Clinical_table_v230613 has no histology column
+GSE285029	none on GEO series matrix	0	0	234	False	Koh 2025; characteristics = tissue/cell/genotype only
+GSE131907	Kim 2020 LUAD atlas (all LUAD)	11	0	0	True	primary tLung n=11; all tumor-site samples n=58
+GSE253013	Sze/Xiang 2024 LUAD	9	0	0	True	already LUAD-only
+GSE148071	Supp Table 1 aggregate only; GEO age/sex only	0	0	42	False	Wu 2021; 18 ADC / 18 SQ / 6 NSCLC in aggregate; Fig S2 has per-patient subtypes but no deposited table
