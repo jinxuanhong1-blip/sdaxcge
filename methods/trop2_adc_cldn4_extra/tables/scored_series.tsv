@@ -1,0 +1,4 @@
+series	tissue	agent	contrast	n	CLDN4_log2FC	CLDN4_p	TACSTD2_log2FC	TACSTD2_p	IFN_set_median_log2FC	IFN_mw_p	APM_set_median_log2FC	APM_mw_p	MHC_I_set_median_log2FC	MHC_I_mw_p	KEGG_TJ_median_log2FC	KEGG_TJ_mw_p	statistic
+GSE311016	CRC PDX	IMMU132 (sacituzumab govitecan)	IMMU132 vs vehicle, day 29, paired by model	5 pairs	-0.437	0.060	-0.421	0.27	0.082	0.0078	0.0048	0.56	0.11	0.16	-0.11	0.0085	paired t on log2(FPKM+1)
+GSE304294	ESCC KYSE30	IMMU132 (sacituzumab govitecan)	IMMU132 vs vehicle, 1 day	2 vs 3	+0.911	3.9e-05	+1.16	0.0099	0.012	0.026	0.50	3.4e-08	0.50	4.4e-06	+0.15	0.00021	Welch t on log2(FPKM+1)
+E-MTAB-16433	CRC PDOX HD42466	Trodelvy (sacituzumab govitecan)	SG vs vehicle, 28 d, mouse pseudobulk	4 vs 4 mice (1 library/arm)	-0.345	0.063	-0.424	0.034	0.034	0.84	-0.066	0.093	-0.060	0.24	-0.31	5.2e-05	Welch t on log2(CPM+1); library aliased with treatment
