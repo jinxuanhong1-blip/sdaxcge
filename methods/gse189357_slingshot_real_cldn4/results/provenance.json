@@ -1,0 +1,125 @@
+{
+  "accession": "GSE189357",
+  "paper": "Zhu et al. Exp Mol Med 2022 DOI 10.1038/s12276-022-00896-9",
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "ifn": "Hallmark IFNalpha union IFNgamma",
+  "slingshot": {
+    "available": true,
+    "version": "2.10.0",
+    "n_lineages": 10,
+    "lineages": [
+      {
+        "lineage": "Lineage1",
+        "lineage_index": 1,
+        "clusters": "11->6->0->12->4->3->1",
+        "n_clusters": 7,
+        "start_cluster": 11,
+        "end_cluster": 1,
+        "n_cells": 7467,
+        "mean_pseudotime": 18.3156411458615
+      },
+      {
+        "lineage": "Lineage2",
+        "lineage_index": 2,
+        "clusters": "11->6->0->12->4->3->8",
+        "n_clusters": 7,
+        "start_cluster": 11,
+        "end_cluster": 8,
+        "n_cells": 7128,
+        "mean_pseudotime": 17.3799979558578
+      },
+      {
+        "lineage": "Lineage3",
+        "lineage_index": 3,
+        "clusters": "11->6->0->12->10->16->15",
+        "n_clusters": 7,
+        "start_cluster": 11,
+        "end_cluster": 15,
+        "n_cells": 6596,
+        "mean_pseudotime": 20.181980772348
+      },
+      {
+        "lineage": "Lineage4",
+        "lineage_index": 4,
+        "clusters": "11->6->0->12->10->5",
+        "n_clusters": 6,
+        "start_cluster": 11,
+        "end_cluster": 5,
+        "n_cells": 7585,
+        "mean_pseudotime": 24.2914929875754
+      },
+      {
+        "lineage": "Lineage5",
+        "lineage_index": 5,
+        "clusters": "11->6->0->12->10->7",
+        "n_clusters": 6,
+        "start_cluster": 11,
+        "end_cluster": 7,
+        "n_cells": 6802,
+        "mean_pseudotime": 22.7036615742016
+      },
+      {
+        "lineage": "Lineage6",
+        "lineage_index": 6,
+        "clusters": "11->6->0->12->10->9",
+        "n_clusters": 6,
+        "start_cluster": 11,
+        "end_cluster": 9,
+        "n_cells": 7391,
+        "mean_pseudotime": 20.1951005482035
+      },
+      {
+        "lineage": "Lineage7",
+        "lineage_index": 7,
+        "clusters": "11->6->0->12->10->13",
+        "n_clusters": 6,
+        "start_cluster": 11,
+        "end_cluster": 13,
+        "n_cells": 6915,
+        "mean_pseudotime": 20.5808355305328
+      },
+      {
+        "lineage": "Lineage8",
+        "lineage_index": 8,
+        "clusters": "11->6->0->12->10->14",
+        "n_clusters": 6,
+        "start_cluster": 11,
+        "end_cluster": 14,
+        "n_cells": 6803,
+        "mean_pseudotime": 19.7385416716491
+      },
+      {
+        "lineage": "Lineage9",
+        "lineage_index": 9,
+        "clusters": "11->6->0->12->10->17",
+        "n_clusters": 6,
+        "start_cluster": 11,
+        "end_cluster": 17,
+        "n_cells": 6474,
+        "mean_pseudotime": 19.2623304561143
+      },
+      {
+        "lineage": "Lineage10",
+        "lineage_index": 10,
+        "clusters": "11->6->0->2",
+        "n_clusters": 4,
+        "start_cluster": 11,
+        "end_cluster": 2,
+        "n_cells": 3759,
+        "mean_pseudotime": 20.4013720537253
+      }
+    ],
+    "cldn4ward_lineage": "Lineage1",
+    "stdout": "wrote 10 lineages; start= 11"
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "highest-AT2 Leiden that is not CLDN4-highest; never CLDN4-high cell",
+    "unit": "patient",
+    "n_catalog": 9
+  }
+}
