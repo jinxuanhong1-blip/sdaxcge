@@ -1,0 +1,6 @@
+n	rho	p	note	contrast
+12	-0.04895104895104895	0.8799185788786748	; companion; not malignant-only	epithelium CLDN4 vs DPT (post complete-case)
+12	0.027972027972027972	0.9312343512018807	; leftover only	leftover-epi CLDN4 vs DPT (post ≥10 leftover)
+10	-0.1515151515151515	0.6760651759978539	; noisy; includes 1–9 cell residuals	A3-malignant CLDN4 vs DPT including 1–9 cell patients
+12	0.2027972027972028	0.5273023541661079	; companion	epithelium CLDN4 vs barrier/keratin (post)
+12	0.3916083916083916	0.20806346369535322	; companion	epithelium CLDN4 vs TACSTD2 (companion, not a gate)

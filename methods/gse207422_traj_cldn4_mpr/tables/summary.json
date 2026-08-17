@@ -1,0 +1,303 @@
+{
+  "accession": "GSE207422",
+  "paper": "Hu et al. Genome Med 2023 PMID 36915183",
+  "histology": "NSCLC mixed (LUAD+LUSC); neoadjuvant PD-1+platinum",
+  "public_only": true,
+  "primary_gene": "CLDN4",
+  "not_a_tacstd2_redo": true,
+  "no_dual_high": true,
+  "tnk_not_reaudited": true,
+  "slingshot_run": false,
+  "slingshot_reason": "R not present",
+  "n_cells_matrix": 92330,
+  "n_genes_matrix": 24292,
+  "n_epithelial_all": 11019,
+  "n_malig_a3_all": 6627,
+  "n_leftover_all": 4392,
+  "n_cells_qc": 11019,
+  "n_patients_qc": 15,
+  "n_cells": 4537,
+  "n_samples_on_graph": 15,
+  "n_post": 12,
+  "n_malig_eligible_post": 7,
+  "n_epi_eligible_post": 12,
+  "n_samples_paired_tertile": 11,
+  "empty_malig_post": [
+    "P11",
+    "P14"
+  ],
+  "noisy_malig_post": [
+    "P06",
+    "P13",
+    "P15"
+  ],
+  "malig_eligible_patients": [
+    "P02",
+    "P03",
+    "P04",
+    "P07",
+    "P09",
+    "P10",
+    "P12"
+  ],
+  "compartment_counts": {
+    "A3_malignant": 2314,
+    "leftover_epi": 2223
+  },
+  "cldn4_tertile_counts": {
+    "low": 1513,
+    "high": 1512,
+    "mid": 1512
+  },
+  "cldn4_tertile_cuts": {
+    "q1": 1.000300645828247,
+    "q2": 1.9266573190689087
+  },
+  "genes_absent": {
+    "AT2": [
+      "SFTPC"
+    ],
+    "AT1": [],
+    "club": [],
+    "basal": [],
+    "ciliated": [],
+    "barrier_keratin": [],
+    "malignant_like": [],
+    "single_genes": [
+      "SFTPC"
+    ]
+  },
+  "root": {
+    "n_leftover": 2223,
+    "n_leftover_not_cldn4_high": 1394,
+    "rule": "leftover epithelium, not CLDN4-high, median AT2 score",
+    "index": 2121,
+    "root_patient": "P07",
+    "root_compartment": "leftover_epi",
+    "root_cldn4": 1.7845048904418945,
+    "root_tertile": "mid",
+    "root_group": "NMPR"
+  },
+  "n_paga_components": 1,
+  "n_leiden": 17,
+  "leiden_resolution": 0.6,
+  "graph_capped": true,
+  "max_cells_per_patient": 500,
+  "primary_cldn4_vs_dpt": [
+    {
+      "n": 7,
+      "rho": -0.21428571428571433,
+      "p": 0.6445115810207203,
+      "note": "",
+      "contrast": "A3-malignant CLDN4 vs DPT",
+      "compartment": "A3_malignant",
+      "cohort": "post \u226510 malignant-like",
+      "q": 0.8056394762759003
+    },
+    {
+      "n": 7,
+      "rho": 0.7857142857142859,
+      "p": 0.03623846267982715,
+      "note": "",
+      "contrast": "A3-malignant CLDN4 vs AT2 score",
+      "compartment": "A3_malignant",
+      "cohort": "post \u226510 malignant-like",
+      "q": 0.18119231339913577
+    },
+    {
+      "n": 7,
+      "rho": -0.07142857142857144,
+      "p": 0.879048193148154,
+      "note": "",
+      "contrast": "A3-malignant CLDN4 vs barrier/keratin (no CLDN4)",
+      "compartment": "A3_malignant",
+      "cohort": "post \u226510 malignant-like",
+      "q": 0.8790481931481541
+    },
+    {
+      "n": 7,
+      "rho": 0.25,
+      "p": 0.5887244480896832,
+      "note": "",
+      "contrast": "A3-malignant CLDN4 vs TACSTD2 (companion)",
+      "compartment": "A3_malignant",
+      "cohort": "post \u226510 malignant-like",
+      "q": 0.8056394762759003
+    },
+    {
+      "n": 7,
+      "rho": 0.3571428571428572,
+      "p": 0.431611352038328,
+      "note": "",
+      "contrast": "A3-malignant AT2 vs DPT (control)",
+      "compartment": "A3_malignant",
+      "cohort": "post \u226510 malignant-like",
+      "q": 0.8056394762759003
+    }
+  ],
+  "primary_dpt_vs_mpr": [
+    {
+      "n_nmpr": 6,
+      "n_mpr": 1,
+      "mean_nmpr": 0.3790245422472556,
+      "mean_mpr": 0.3255139887332916,
+      "median_nmpr": 0.3406812846660614,
+      "median_mpr": 0.3255139887332916,
+      "delta_mean_nmpr_minus_mpr": null,
+      "mwu_u": null,
+      "exact_p": null,
+      "note": "too_few_samples; primary malignant-like gate",
+      "contrast": "NMPR vs MPR: A3-malignant DPT, post \u226510 malignant-like",
+      "score": "mal_mean_dpt",
+      "patients_nmpr": "P02,P04,P07,P09,P10,P12",
+      "patients_mpr": "P03"
+    },
+    {
+      "n_nmpr": 8,
+      "n_mpr": 2,
+      "mean_nmpr": 0.39278597896918654,
+      "mean_mpr": 0.3621729016304016,
+      "median_nmpr": 0.40816085040569305,
+      "median_mpr": 0.3621729016304016,
+      "delta_mean_nmpr_minus_mpr": 0.030613077338784933,
+      "mwu_u": 9.0,
+      "exact_p": 0.888888888888889,
+      "note": "noisy; includes 1\u20139 cell residuals",
+      "contrast": "NMPR vs MPR: A3-malignant DPT, post any malignant-like (\u22651 cell)",
+      "score": "mal_mean_dpt",
+      "patients_nmpr": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_mpr": "P03,P06"
+    },
+    {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "mean_nmpr": 0.41035331413149834,
+      "mean_mpr": 0.5448212698101997,
+      "median_nmpr": 0.4408362954854965,
+      "median_mpr": 0.576059490442276,
+      "delta_mean_nmpr_minus_mpr": -0.1344679556787014,
+      "mwu_u": 8.0,
+      "exact_p": 0.21414141414141416,
+      "note": "companion; leftover+malignant on the graph",
+      "contrast": "NMPR vs MPR: epithelial DPT, post complete-case",
+      "score": "epi_mean_dpt",
+      "patients_nmpr": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_mpr": "P03,P06,P11,P14"
+    },
+    {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "mean_nmpr": 0.41543068177998066,
+      "mean_mpr": 0.548020601272583,
+      "median_nmpr": 0.4445772171020508,
+      "median_mpr": 0.5769569128751755,
+      "delta_mean_nmpr_minus_mpr": -0.13258991949260235,
+      "mwu_u": 8.0,
+      "exact_p": 0.21414141414141416,
+      "note": "leftover only",
+      "contrast": "NMPR vs MPR: leftover-epi DPT, post \u226510 leftover",
+      "score": "leftover_mean_dpt",
+      "patients_nmpr": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_mpr": "P03,P06,P11,P14"
+    },
+    {
+      "n_nmpr": 6,
+      "n_mpr": 1,
+      "mean_nmpr": 1.3753597587469277,
+      "mean_mpr": 1.014394667123755,
+      "median_nmpr": 1.5018404758239492,
+      "median_mpr": 1.014394667123755,
+      "delta_mean_nmpr_minus_mpr": null,
+      "mwu_u": null,
+      "exact_p": null,
+      "note": "too_few_samples; CLDN4 vs MPR companion on the same n",
+      "contrast": "NMPR vs MPR: A3-malignant CLDN4, post \u226510 malignant-like",
+      "score": "mal_mean_CLDN4",
+      "patients_nmpr": "P02,P04,P07,P09,P10,P12",
+      "patients_mpr": "P03"
+    },
+    {
+      "n_nmpr": 8,
+      "n_mpr": 4,
+      "mean_nmpr": 1.5085507999877505,
+      "mean_mpr": 1.5051576058097607,
+      "median_nmpr": 1.5959875938201598,
+      "median_mpr": 1.5374434074873404,
+      "delta_mean_nmpr_minus_mpr": 0.003393194177989889,
+      "mwu_u": 17.0,
+      "exact_p": 0.9333333333333333,
+      "note": "CLDN4 vs MPR companion",
+      "contrast": "NMPR vs MPR: epithelial CLDN4, post complete-case",
+      "score": "epi_mean_CLDN4",
+      "patients_nmpr": "P02,P04,P07,P09,P10,P12,P13,P15",
+      "patients_mpr": "P03,P06,P11,P14"
+    }
+  ],
+  "sensitivity_spearman": [
+    {
+      "n": 12,
+      "rho": -0.04895104895104895,
+      "p": 0.8799185788786748,
+      "note": "; companion; not malignant-only",
+      "contrast": "epithelium CLDN4 vs DPT (post complete-case)"
+    },
+    {
+      "n": 12,
+      "rho": 0.027972027972027972,
+      "p": 0.9312343512018807,
+      "note": "; leftover only",
+      "contrast": "leftover-epi CLDN4 vs DPT (post \u226510 leftover)"
+    },
+    {
+      "n": 10,
+      "rho": -0.1515151515151515,
+      "p": 0.6760651759978539,
+      "note": "; noisy; includes 1\u20139 cell residuals",
+      "contrast": "A3-malignant CLDN4 vs DPT including 1\u20139 cell patients"
+    },
+    {
+      "n": 12,
+      "rho": 0.2027972027972028,
+      "p": 0.5273023541661079,
+      "note": "; companion",
+      "contrast": "epithelium CLDN4 vs barrier/keratin (post)"
+    },
+    {
+      "n": 12,
+      "rho": 0.3916083916083916,
+      "p": 0.20806346369535322,
+      "note": "; companion",
+      "contrast": "epithelium CLDN4 vs TACSTD2 (companion, not a gate)"
+    }
+  ],
+  "paired_tertile": [
+    {
+      "n": 11,
+      "W": 5.0,
+      "p": 0.009765625,
+      "delta_median": 0.12689745447680367,
+      "median_high": 1.0934963213072884,
+      "median_low": 0.9471151817727971,
+      "contrast": "barrier/keratin (no CLDN4) high vs low"
+    },
+    {
+      "n": 11,
+      "W": 23.0,
+      "p": 0.4130859375,
+      "delta_median": -0.021043031346120955,
+      "median_high": 0.4655051457432081,
+      "median_low": 0.5585339938982938,
+      "contrast": "AT2 score high vs low"
+    },
+    {
+      "n": 11,
+      "W": 10.0,
+      "p": 0.0419921875,
+      "delta_median": 0.03023582696914673,
+      "median_high": 0.5086866021156311,
+      "median_low": 0.4408815801143646,
+      "contrast": "DPT high vs low"
+    }
+  ],
+  "verdict": "Patient-level A3-malignant CLDN4 vs leftover/AT2-rooted DPT: n=7, \u03c1=-0.214, p=0.645. CLDN4 vs AT2 score (malignant-like): n=7, \u03c1=0.786, p=0.0362. CLDN4 vs barrier/keratin (CLDN4 excluded): n=7, \u03c1=-0.071, p=0.879. A3-malignant DPT vs MPR: n=6 vs 1 (too few for exact MWU). Epithelial DPT vs MPR (complete-case companion, not the malignant-like n): mean 0.410 vs 0.545 (\u0394=-0.134); exact p=0.214; n=8 vs 4. Paired CLDN4-high vs low barrier/keratin: n=11, W=5.0, \u0394med=0.127, p=0.00977. Paired CLDN4-high vs low DPT: n=11, W=10.0, \u0394med=0.030, p=0.042. PAGA has 1 component(s) at connectivity>0 among 17 Leiden vertices. Empty A3-malignant post patients: ['P11', 'P14']. Noisy 1\u20139 cell post patients: ['P06', 'P13', 'P15']. Honest n is the patient n after the \u226510 malignant-like gate. This set is small. Not a TACSTD2 redo. No both-high gate. T/NK was not re-tested."
+}
