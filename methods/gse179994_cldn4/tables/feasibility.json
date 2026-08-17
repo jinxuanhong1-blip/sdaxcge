@@ -1,0 +1,128 @@
+{
+  "dataset": "GSE179994",
+  "paper": "Liu et al. Nat Cancer 2022 PMID 35121991 (Zhang lab, PKU)",
+  "regimen": "pembrolizumab + carboplatin + pemetrexed",
+  "generated_at": "2026-08-17T17:04:48.440394+00:00",
+  "allowed_inputs": "public processed UMI / h5 / TISCH extract; skip files >2GB",
+  "endpoint": "malignant (author or EPCAM+epithelial) CLDN4 mean and %pos vs same-patient T/NK, CD8, CXCL13+",
+  "unit": "patient",
+  "no_dual_high": true,
+  "no_tacstd2_gate": true,
+  "usable_processed_matrix_lt_2gb": false,
+  "stop_reason": "No public processed all-cell UMI/h5/TISCH extract <2GB. GEO processed expression is T-cell-only; TISCH dataset absent (404).",
+  "n_patients_analysis": 0,
+  "n_patients_tcell_metadata_only": 36,
+  "n_samples_tcell_metadata_only": 47,
+  "n_tcell_barcodes_metadata": 150849,
+  "do_not_cite_barcode_count_as_n": true,
+  "q4_vs_q1": "not done; analysis n_patients=0 (threshold is >=16)",
+  "author_celltypes": {
+    "NA": 32487,
+    "CD4": 58706,
+    "CD8": 59656
+  },
+  "has_author_malignant_or_epithelial_label": false,
+  "tcell_rds_bytes": 441470188,
+  "tcell_rds_under_2gb": true,
+  "tcell_rds_usable_for_endpoint": false,
+  "tisch_dataset_present": false,
+  "geo_files": [
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/suppl/GSE179994_PBMC.bulkTCR.tsv.gz",
+      "status": 200,
+      "content_length": 2699065,
+      "content_type": "application/x-gzip",
+      "file": "GSE179994_PBMC.bulkTCR.tsv.gz",
+      "over_2gb": false
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/suppl/GSE179994_RAW.tar",
+      "status": 200,
+      "content_length": 46213120,
+      "content_type": "application/x-tar",
+      "file": "GSE179994_RAW.tar",
+      "over_2gb": false
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/suppl/GSE179994_Tcell.metadata.tsv.gz",
+      "status": 200,
+      "content_length": 935774,
+      "content_type": "application/x-gzip",
+      "file": "GSE179994_Tcell.metadata.tsv.gz",
+      "over_2gb": false
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/suppl/GSE179994_all.Tcell.rawCounts.rds.gz",
+      "status": 200,
+      "content_length": 441470188,
+      "content_type": "application/x-gzip",
+      "file": "GSE179994_all.Tcell.rawCounts.rds.gz",
+      "over_2gb": false
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/suppl/GSE179994_all.scTCR.tsv.gz",
+      "status": 200,
+      "content_length": 6775654,
+      "content_type": "application/x-gzip",
+      "file": "GSE179994_all.scTCR.tsv.gz",
+      "over_2gb": false
+    },
+    {
+      "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE179nnn/GSE179994/suppl/filelist.txt",
+      "status": 200,
+      "content_length": 258,
+      "content_type": "text/plain; charset=utf-8",
+      "file": "filelist.txt",
+      "over_2gb": false
+    }
+  ],
+  "tisch_probes": [
+    {
+      "url": "https://tisch.compbio.cn/static/data/NSCLC_GSE179994/NSCLC_GSE179994_expression.h5",
+      "status": 404,
+      "content_length": 0,
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://tisch.compbio.cn/static/data/NSCLC_GSE179994/NSCLC_GSE179994_CellMetainfo_table.tsv",
+      "status": 404,
+      "content_length": 0,
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://tisch.compbio.cn/static/data/LUAD_GSE179994/LUAD_GSE179994_expression.h5",
+      "status": 404,
+      "content_length": 0,
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://tisch.compbio.cn/static/data/LUAD_GSE179994/LUAD_GSE179994_CellMetainfo_table.tsv",
+      "status": 404,
+      "content_length": 0,
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://tisch.compbio.cn/static/data/NSCLC_GSE179994_aPD1/NSCLC_GSE179994_aPD1_CellMetainfo_table.tsv",
+      "status": 404,
+      "content_length": 0,
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://tisch.compbio.cn/static/data/LUAD_GSE179994_aPD1/LUAD_GSE179994_aPD1_CellMetainfo_table.tsv",
+      "status": 404,
+      "content_length": 0,
+      "content_type": "text/html; charset=utf-8"
+    }
+  ],
+  "raw_tar_members": [
+    {
+      "name": "GSM5444629_P019.blood.post.TCR.tsv.gz",
+      "size": 44438
+    },
+    {
+      "name": "GSM5444629_P019.blood.post.Tcell.Seurat.object.rds.gz",
+      "size": 46164376
+    }
+  ],
+  "gsm_supplementary": "Sample records state supplementary data files not provided; raw data not provided; processed data on series record only."
+}
