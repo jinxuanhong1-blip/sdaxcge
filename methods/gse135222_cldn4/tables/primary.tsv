@@ -1,0 +1,4 @@
+contrast	n	metric	effect	p	note	n_pos	n_neg	AUC	median_pos	median_neg	endpoint
+CLDN4 vs CD8A	27	Spearman_rho	0.12271062271062269	0.5420186784367842	log2(TPM+1)						
+CLDN4 vs CD274	27	Spearman_rho	-0.20757020757020758	0.29885136870466417	log2(TPM+1)						
+CLDN4 vs author DCB	27	Cliff_delta_pos_minus_neg	0.03947368421052633	0.8966210600993209	log2(TPM+1); pos=DCB, neg=NDB	8.0	19.0	0.5197368421052632	7.447849852364639	7.23429054170594	Kim2020_benefit_Y_N
