@@ -25,8 +25,8 @@ def mannwhitney(a: np.ndarray, b: np.ndarray) -> dict:
             "p": np.nan,
             "rank_biserial": np.nan,
         }
-    res = stats.mannwhitneyu(b, a, alternative="two-sided", method="auto")
-    # rank-biserial r = 1 - 2U/(n_a n_b) with U = U_{b vs a} so r < 0 when b < a
+    res = stats.mannwhitneyu(a, b, alternative="two-sided", method="auto")
+    # r = 1 - 2U_a,b/(n_a n_b); r < 0 when group b (Q4 / high) is lower than a (Q1 / low)
     r = 1.0 - (2.0 * float(res.statistic) / (na * nb))
     return {
         "n_a": na,

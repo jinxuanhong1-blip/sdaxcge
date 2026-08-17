@@ -95,7 +95,9 @@ def process_cohort(name: str, lr: pd.DataFrame) -> dict:
     raw = pd.read_parquet(path)
     n_all = pd.read_csv(CACHE / f"{name}_patient_n.tsv", sep="\t")
     n_map = n_all.set_index("patient")["n_cells"].to_dict()
+    genes = gene_cols(raw)
     raw = add_logs(raw)
+    raw.drop(columns=genes, inplace=True)
     mal = raw[raw["is_malignant"]].copy()
     tnk = raw[raw["is_tnk"]].copy()
     if "log_CLDN4" not in mal.columns:
@@ -137,7 +139,7 @@ def process_cohort(name: str, lr: pd.DataFrame) -> dict:
         }
         if len(mg):
             rec["mal_CLDN4_mean"] = float(mg["log_CLDN4"].mean())
-            rec["mal_CLDN4_pct"] = float((mg["CLDN4"] > 0).mean()) if "CLDN4" in mg.columns else np.nan
+            rec["mal_CLDN4_pct"] = float((mg["log_CLDN4"] > 0).mean())
         if len(tg):
             rec["tnk_cyto"] = float(mean_score(tg, CYTOTOXICITY).mean())
             rec["tnk_ifn"] = float(mean_score(tg, IFN).mean())
@@ -161,8 +163,8 @@ def process_cohort(name: str, lr: pd.DataFrame) -> dict:
                         "ligand": L,
                         "mean_high": float(hi[col].mean()) if len(hi) else np.nan,
                         "mean_low": float(lo[col].mean()) if len(lo) else np.nan,
-                        "frac_high": float((hi[L] > 0).mean()) if len(hi) and L in hi.columns else np.nan,
-                        "frac_low": float((lo[L] > 0).mean()) if len(lo) and L in lo.columns else np.nan,
+                        "frac_high": float((hi[col] > 0).mean()) if len(hi) else np.nan,
+                        "frac_low": float((lo[col] > 0).mean()) if len(lo) else np.nan,
                     }
                 )
         if rec["program"] and len(tg):
@@ -176,8 +178,6 @@ def process_cohort(name: str, lr: pd.DataFrame) -> dict:
     tnk_pat = pd.DataFrame(tnk_gene_rows)
     return {
         "name": name,
-        "raw": raw,
-        "mal": mal,
         "tnk": tnk,
         "thr": thr,
         "ligands": ligands,
@@ -224,7 +224,7 @@ def pooled_ligand_de(lig_pat: pd.DataFrame) -> pd.DataFrame:
         rows.append(
             {
                 "ligand": lig,
-                "n_patients": int(g["patient"].nunique()),
+                "n_patients": int(g[["cohort", "patient"]].drop_duplicates().shape[0]),
                 "n_cohorts": int(g["cohort"].nunique()),
                 "median_delta": float(delta.median()),
                 "mean_delta": float(delta.mean()),
@@ -466,6 +466,17 @@ def write_figures(patients: pd.DataFrame, tests: pd.DataFrame, prio: pd.DataFram
         fig.savefig(FIG / "ligand_activity_empirical.pdf")
         plt.close(fig)
 
+        if "activity_ifn" in prio.columns:
+            top_ifn = prio.sort_values("activity_ifn", ascending=False).head(15)
+            fig, ax = plt.subplots(figsize=(6.4, 4.6))
+            ax.barh(top_ifn["ligand"][::-1], top_ifn["activity_ifn"][::-1], color="#55a868")
+            ax.set_xlabel("NicheNet-v2 Pearson vs a priori IFN set")
+            ax.set_title("Extra: IFN gene-set ligand activity (prior structure)")
+            fig.tight_layout()
+            fig.savefig(FIG / "extra_ligand_activity_ifn.png", dpi=160)
+            fig.savefig(FIG / "extra_ligand_activity_ifn.pdf")
+            plt.close(fig)
+
     # 7. paired delta forest top
     if not de_all.empty:
         topd = de_all.reindex(de_all["median_delta"].abs().sort_values(ascending=False).index).head(15)
@@ -568,15 +579,17 @@ def write_finding(
         "",
         "| Item | n | Note |",
         "| --- | ---: | --- |",
-        f"| Program patients (all 3) | **{int(prog['patient'].nunique())}** | ≥20 malignant + ≥20 T/NK; unit of Spearman / Q4Q1 |",
-        f"| Paired patients (all 3) | **{int(paired['patient'].nunique())}** | ≥10 CLDN4-high + ≥10 low + ≥20 T/NK; unit of ligand Δ |",
+        f"| Program patients (all 3) | **{int(len(prog))}** | ≥20 malignant + ≥20 T/NK; unit of Spearman / Q4Q1 |",
+        f"| Paired patients (all 3) | **{int(len(paired))}** | ≥10 CLDN4-high + ≥10 low + ≥20 T/NK; unit of ligand Δ |",
         f"| GSE131907 program / paired | {int(prog[prog.cohort=='GSE131907'].shape[0])} / {int(paired[paired.cohort=='GSE131907'].shape[0])} | tumor-origin samples pooled per `patient_id` |",
         f"| GSE205335 program / paired | {int(prog[prog.cohort=='GSE205335'].shape[0])} / {int(paired[paired.cohort=='GSE205335'].shape[0])} | tumor samples pooled; normals dropped |",
         f"| GSE207422 program / paired | {int(prog[prog.cohort=='GSE207422'].shape[0])} / {int(paired[paired.cohort=='GSE207422'].shape[0])} | post-tx DRMref; pCR counted as MPR in the note column |",
         f"| Winning merge program N | **{int(prog[prog.cohort.isin(WINNING)].shape[0])}** | GSE131907+GSE205335 (PR #320 given) |",
         f"| Three-cohort program N | **{int(prog.shape[0])}** | +GSE207422 |",
         "",
-        "Cells are counts, not n. GSE131907 is patient-pooled (not the sample-level T/NK extract in PR #320).",
+        "Cells are counts, not n. GSE131907 is **patient-pooled** (mBrain/mLN/PE included); that is not the",
+        "PR #320 sample-level n=21 lock. GEO patient-ID strings can collide across studies — n is the",
+        "sum of per-cohort patients, not `nunique` across the merge.",
         "Q4 vs Q1 uses quartile **tails only**; thin tails (n<8 or a tail <3) are flagged and not treated as a pool.",
         "",
         "## Patient-level T/NK vs malignant CLDN4 %pos",
@@ -647,6 +660,7 @@ def write_finding(
         "- `figures/ligand_activity_empirical.png`",
         "- `figures/ligand_delta_top.png`",
         "- `figures/extra_n_dropped.png`",
+        "- `figures/extra_ligand_activity_ifn.png`",
         "",
         "## Reproduce",
         "",
@@ -708,8 +722,11 @@ def main() -> int:
     # background: T/NK-expressed panel genes present in prior
     tnk_all = pd.concat([C["tnk"] for C in packed], ignore_index=True)
     background = []
-    for g in gene_cols(tnk_all):
-        if g in lt.index and float((tnk_all[g] > 0).mean()) >= DETECT_FRAC:
+    for col in tnk_all.columns:
+        if not col.startswith("log_"):
+            continue
+        g = col[4:]
+        if g in lt.index and float((tnk_all[col] > 0).mean()) >= DETECT_FRAC:
             background.append(g)
     log(f"T/NK background genes in prior: {len(background)}")
 

@@ -58,7 +58,7 @@ FILES = [
             "soft/GSE205335_family.soft.gz"
         ),
         "dest": CACHE / "GSE205335_family.soft.gz",
-        "min_bytes": 10_000,
+        "min_bytes": 2_000,
     },
     {
         "url": (

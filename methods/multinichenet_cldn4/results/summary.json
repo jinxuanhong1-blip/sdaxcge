@@ -1,0 +1,85 @@
+{
+  "method": "Documented NicheNet-v2 ligand\u2013target prior (`ligand_target_matrix_nsga2r_final`, Zenodo 10.5281/zenodo.7074291) scored in Python (`rdata`); MultiNicheNet-style equal-weight prioritization (Bonte/Browaeys vignette). R packages `nichenetr` and `multinichenetr` were **not** installed.",
+  "n_program": 64,
+  "n_paired": 60,
+  "n_potential_ligands": 418,
+  "n_background": 234,
+  "pools": [
+    {
+      "k": 2,
+      "N": 53,
+      "rho": -0.38135575953707596,
+      "p": 0.005895445547735789,
+      "I2": 0.0,
+      "metric": "tnk_frac",
+      "cohorts": "GSE131907+GSE205335"
+    },
+    {
+      "k": 3,
+      "N": 64,
+      "rho": -0.42045987701442306,
+      "p": 0.0008863605263831291,
+      "I2": 0.0,
+      "metric": "tnk_frac",
+      "cohorts": "GSE131907+GSE205335+GSE207422"
+    },
+    {
+      "k": 2,
+      "N": 53,
+      "rho": -0.2049992531109631,
+      "p": 0.15398293712862535,
+      "I2": 0.0,
+      "metric": "tnk_cyto",
+      "cohorts": "GSE131907+GSE205335"
+    },
+    {
+      "k": 3,
+      "N": 64,
+      "rho": -0.17457013095770177,
+      "p": 0.19085841637840395,
+      "I2": 0.0,
+      "metric": "tnk_cyto",
+      "cohorts": "GSE131907+GSE205335+GSE207422"
+    },
+    {
+      "k": 2,
+      "N": 53,
+      "rho": -0.22319099375443557,
+      "p": 0.11963317995723514,
+      "I2": 0.0,
+      "metric": "tnk_ifn",
+      "cohorts": "GSE131907+GSE205335"
+    },
+    {
+      "k": 3,
+      "N": 64,
+      "rho": -0.17490419297349738,
+      "p": 0.18999313961330422,
+      "I2": 0.0,
+      "metric": "tnk_ifn",
+      "cohorts": "GSE131907+GSE205335+GSE207422"
+    },
+    {
+      "k": 2,
+      "N": 53,
+      "rho": -0.06656319697484957,
+      "p": 0.6476638299560376,
+      "I2": 60.46147379158785,
+      "metric": "tnk_exh",
+      "cohorts": "GSE131907+GSE205335"
+    },
+    {
+      "k": 3,
+      "N": 64,
+      "rho": -0.10745616464796252,
+      "p": 0.4237079247345795,
+      "I2": 35.02176662641032,
+      "metric": "tnk_exh",
+      "cohorts": "GSE131907+GSE205335+GSE207422"
+    }
+  ],
+  "cldn4_only": true,
+  "dual_high": false,
+  "r_nichenetr": false,
+  "r_multinichenetr": false
+}
