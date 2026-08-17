@@ -235,31 +235,38 @@ def score_outgoing(lr: pd.DataFrame, log_cp, pos, mal_idx, tnk_idx) -> list[dict
 
 
 def highend_split(cldn4: np.ndarray, idx: np.ndarray, mode: str) -> tuple[np.ndarray, np.ndarray] | None:
-    """Return (high_idx, low_idx) among malignant barcodes. CLDN4-only."""
+    """Return (high_idx, low_idx) among malignant barcodes. CLDN4-only.
+
+    Zero-inflated CLDN4 collapses quantile cuts (Q1=Q3=0). High-end vs
+    low-end is therefore the top vs bottom slice after a stable sort.
+    """
     if idx.size == 0:
         return None
     vals = cldn4[idx]
+    order = np.argsort(vals, kind="mergesort")
+    n = int(idx.size)
     if mode == "median":
-        if idx.size < 2 * MIN_CELLS_ARM:
+        if n < 2 * MIN_CELLS_ARM:
             return None
-        cut = float(np.median(vals))
-        hi = idx[vals > cut]
-        lo = idx[vals <= cut]
+        k = n // 2
     elif mode == "tertile":
-        if idx.size < 3 * MIN_CELLS_ARM:
+        if n < 3 * MIN_CELLS_ARM:
             return None
-        q1, q2 = np.quantile(vals, [1 / 3, 2 / 3])
-        hi = idx[vals >= q2]
-        lo = idx[vals <= q1]
+        k = n // 3
     elif mode == "q4q1":
-        if idx.size < MIN_MAL_Q4:
+        if n < MIN_MAL_Q4:
             return None
-        q1, q3 = np.quantile(vals, [0.25, 0.75])
-        hi = idx[vals >= q3]
-        lo = idx[vals <= q1]
+        k = max(MIN_CELLS_ARM, n // 4)
     else:
         raise ValueError(mode)
+    if k < MIN_CELLS_ARM or (n - k) < MIN_CELLS_ARM:
+        return None
+    lo = idx[order[:k]]
+    hi = idx[order[-k:]]
     if hi.size < MIN_CELLS_ARM or lo.size < MIN_CELLS_ARM:
+        return None
+    # refuse a no-contrast split (all ties)
+    if float(vals[order[-k:]].max()) <= float(vals[order[:k]].max()) and float(vals[order[-k:]].mean()) == float(vals[order[:k]].mean()):
         return None
     return hi, lo
 

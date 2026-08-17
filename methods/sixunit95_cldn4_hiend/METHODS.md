@@ -24,9 +24,11 @@ not re-rank or re-pool that Spearman.
 CellChat-style outgoing communication **CLDN4-high malignant → same-patient T/NK**,
 then a meta-analysis of **patient ΔP** across the six units.
 
-High-end split (primary): within each patient, malignant cells are cut on
-`log1p(CP10k)` **CLDN4** into Q4 vs Q1 (middle half dropped). Sensitivity:
-median and tertile. TACSTD2 is not used.
+High-end split (primary): within each patient, malignant cells are sorted
+on `log1p(CP10k)` **CLDN4** and the top vs bottom quarter are kept
+(middle half dropped). Quantile cuts collapse when CLDN4 is zero-inflated,
+so the split is a stable rank slice, not `qcut` on raw values. Sensitivity:
+median (halves) and tertile (top vs bottom third). TACSTD2 is not used.
 
 ΔP = P_high − P_low. One delta per patient per ligand–receptor pair.
 Unit means are DerSimonian–Laird random-effects pooled. A patient-level

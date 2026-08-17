@@ -669,10 +669,10 @@ def plot_forest(meta: pd.DataFrame, path: Path, title: str, n=12) -> None:
     ax.barh(y, show["mean_delta"], color=colors, alpha=0.85)
     if "se" in show:
         ax.errorbar(show["mean_delta"], y, xerr=1.96 * show["se"].fillna(0), fmt="none", ecolor="#333", lw=0.8)
-    labels = [
-        f"{r.interaction_name}  n={int(r.n_patients) if 'n_patients' in r else int(r.get('n_compared', 0))}  p={fmt_p(r.p_meta)}"
-        for r in show.itertuples()
-    ]
+    labels = []
+    for r in show.itertuples():
+        n_lab = int(getattr(r, "n_patients", getattr(r, "n_compared", 0)))
+        labels.append(f"{r.interaction_name}  n={n_lab}  p={fmt_p(r.p_meta)}")
     ax.set_yticks(y, labels, fontsize=8)
     ax.invert_yaxis()
     ax.set_xlabel("meta ΔP (CLDN4-high − low)")
@@ -831,7 +831,9 @@ epithelial lineage as the malignant proxy on the same 12 locked samples.
 
 ΔP = P(CLDN4-high mal → same-patient T/NK) − P(CLDN4-low mal → T/NK).
 Each patient is one delta. Unit means are random-effects pooled
-(DerSimonian–Laird). p-values are descriptive.
+(DerSimonian–Laird). Tables below keep **k≥2 units and n≥15 patients**.
+The full unfiltered meta is in `results/lr_meta_q4q1.tsv`. p-values are
+descriptive.
 
 {top_md(meta_q4)}
 
@@ -879,6 +881,10 @@ python3 methods/sixunit95_cldn4_hiend/scripts/analyze.py
 """
     (out / "FINDING.md").write_text(text)
     (ROOT / "FINDING.md").write_text(text)
+    (out / "README.md").write_text(
+        "# Results\n\nPrimary LR/meta: `lr_meta_q4q1.tsv` (all) and "
+        "`lr_meta_q4q1_reportable.tsv` (k≥2, n≥15).\n"
+    )
 
 
 def main() -> None:
