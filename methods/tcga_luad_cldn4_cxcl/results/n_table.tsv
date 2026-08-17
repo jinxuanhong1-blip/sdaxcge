@@ -1,0 +1,11 @@
+item	n	note
+HiSeqV2 primary tumors (-01)	515	Xena TCGA.LUAD.sampleMap/HiSeqV2; one column per -01
+MDACC ESTIMATE primaries (-01)	515	lung_adenocarcinoma_RNAseqV2.txt
+HiSeqV2 ∩ ESTIMATE (analysis set)	515	complete-case CLDN4 / CXCL9 / CXCL10 / CXCL13 / CXCR3 / ESTIMATE
+ABSOLUTE not required	515	do not write n=502; that drop is purity-only (PR #188 / #311)
+Q1 / Q2 / Q3 / Q4	129/129/128/129	pd.qcut(rank(method='first'), 4) on CLDN4
+Q4 vs Q1 used (all four CXCL endpoints)	129 vs 129	same n for CXCL9 / CXCL10 / CXCL13 / CXCR3
+endpoints tracking ImmuneScore (ρ>0.5)	4	CXCL9/10/13/CXCR3 vs ImmuneScore ρ=0.60–0.72; ESTIMATE residual is within-infiltrate leftover
+TJ7 genes in this test	0	not recomputed; TJ7 vs CD8 already known (PR #69 / #90)
+CD8 / CD274 re-audit	0	out of scope; see PR #352
+TACSTD2 gate	0	none
