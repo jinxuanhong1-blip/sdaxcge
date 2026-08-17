@@ -607,7 +607,6 @@ def main() -> None:
 
     for color, fname, cmap in (
         ("lineage", "fig_umap_lineage", None),
-        ("patient", "fig_umap_patient", None),
         ("cldn4_tertile", "fig_umap_cldn4_tertile", None),
         ("dpt_pseudotime", "fig_umap_dpt", "viridis"),
         ("score_AT2", "fig_umap_AT2", "viridis"),
@@ -617,8 +616,6 @@ def main() -> None:
         kw = {"color": color, "ax": ax, "show": False, "frameon": False}
         if cmap:
             kw["cmap"] = cmap
-        if color == "patient":
-            kw["legend"] = False
         sc.pl.umap(adata, **kw)
         _save(fig, figdir / fname)
 
