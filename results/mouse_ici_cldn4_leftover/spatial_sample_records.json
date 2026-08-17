@@ -1,0 +1,114 @@
+[
+  {
+    "gse": "GSE261890",
+    "gsm": "GSM8153570",
+    "sample": "Sen.Res.Veh",
+    "arm": "vehicle",
+    "note": "Public library title Sen.Res.Veh; overall-design lists sen+veh / sen+ICI / res+veh / res+ICI but only 2 GSM deposited",
+    "level": "L7_heAuto",
+    "extracted": {
+      "features": "L7_heAuto_features.tsv.gz",
+      "barcodes_pos": "L7_heAuto_barcodes_pos.tsv.gz",
+      "matrix": "L7_heAuto_matrix.mtx.gz",
+      "barcodes": "L7_heAuto_barcodes.tsv.gz"
+    },
+    "fmt": "mtx",
+    "mtx_shape": "28001x10795",
+    "n_genes_features": 28001,
+    "genes_found": "Ascl1,Cd2,Cd3d,Cd3e,Cd3g,Cd4,Cd79a,Cd8a,Cd8b1,Cdh1,Chga,Cldn4,Col1a1,Col3a1,Col6a1,Epcam,Gzma,Gzmb,Ifng,Insm1,Klrd1,Krt18,Krt19,Krt7,Krt8,Ms4a1,Ncr1,Nkg7,Nkx2-1,Prf1,Ptprc,Tacstd2",
+    "Cldn4_in_matrix": true,
+    "n_spots_raw": 10795,
+    "n_spots_used": 10793,
+    "n_spots_dropped": 2,
+    "median_umi": 4119.0,
+    "status": "ok",
+    "Cldn4_mean": 0.05784274637699127,
+    "Cldn4_pct": 7.514129528398036,
+    "Tscore_mean": 0.010278966277837753,
+    "Epi_mean": 0.6584481596946716,
+    "same_Cldn4_T": {
+      "n": 10793,
+      "rho": 0.09325975941960221,
+      "p": 2.767393169509003e-22
+    },
+    "exclusion_Cldn4_minus_T": 0.04756377637386322,
+    "hiCldn4_loT_median": {
+      "n_ok": 10793,
+      "cut": "median",
+      "cldn4_cut": 0.0,
+      "immune_cut": 0.0,
+      "n_hi_lo": 9583,
+      "frac_hi_lo": 0.8878902992680441
+    },
+    "hiCldn4_loT_quartile": {
+      "n_ok": 10793,
+      "cut": "quartile",
+      "cldn4_cut": 0.0,
+      "immune_cut": 0.0,
+      "n_hi_lo": 9583,
+      "frac_hi_lo": 0.8878902992680441
+    },
+    "n_with_xy": 10793,
+    "nei_Cldn4_vs_T": {
+      "n": 0,
+      "rho": NaN,
+      "p": NaN
+    }
+  },
+  {
+    "gse": "GSE261890",
+    "gsm": "GSM8153571",
+    "sample": "Sen.Res.ICI",
+    "arm": "ICI",
+    "note": "Public library title Sen.Res.ICI; n=1 section",
+    "level": "L7_heAuto",
+    "extracted": {
+      "features": "L7_heAuto_features.tsv.gz",
+      "barcodes_pos": "L7_heAuto_barcodes_pos.tsv.gz",
+      "matrix": "L7_heAuto_matrix.mtx.gz",
+      "barcodes": "L7_heAuto_barcodes.tsv.gz"
+    },
+    "fmt": "mtx",
+    "mtx_shape": "28001x10797",
+    "n_genes_features": 28001,
+    "genes_found": "Ascl1,Cd2,Cd3d,Cd3e,Cd3g,Cd4,Cd79a,Cd8a,Cd8b1,Cdh1,Chga,Cldn4,Col1a1,Col3a1,Col6a1,Epcam,Gzma,Gzmb,Ifng,Insm1,Klrd1,Krt18,Krt19,Krt7,Krt8,Ms4a1,Ncr1,Nkg7,Nkx2-1,Prf1,Ptprc,Tacstd2",
+    "Cldn4_in_matrix": true,
+    "n_spots_raw": 10797,
+    "n_spots_used": 10797,
+    "n_spots_dropped": 0,
+    "median_umi": 4953.0,
+    "status": "ok",
+    "Cldn4_mean": 0.08777802437543869,
+    "Cldn4_pct": 10.947485412614615,
+    "Tscore_mean": 0.023968281224370003,
+    "Epi_mean": 0.7542491555213928,
+    "same_Cldn4_T": {
+      "n": 10797,
+      "rho": 0.10472095908712531,
+      "p": 1.0307724463984992e-27
+    },
+    "exclusion_Cldn4_minus_T": 0.06380973756313324,
+    "hiCldn4_loT_median": {
+      "n_ok": 10797,
+      "cut": "median",
+      "cldn4_cut": 0.0,
+      "immune_cut": 0.0,
+      "n_hi_lo": 8185,
+      "frac_hi_lo": 0.7580809484115958
+    },
+    "hiCldn4_loT_quartile": {
+      "n_ok": 10797,
+      "cut": "quartile",
+      "cldn4_cut": 0.0,
+      "immune_cut": 0.0,
+      "n_hi_lo": 8185,
+      "frac_hi_lo": 0.7580809484115958
+    },
+    "n_with_xy": 10797,
+    "nei_Cldn4_vs_T": {
+      "n": 0,
+      "rho": NaN,
+      "p": NaN
+    }
+  }
+]

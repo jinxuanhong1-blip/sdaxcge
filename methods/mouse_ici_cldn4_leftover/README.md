@@ -17,6 +17,7 @@ Question: epithelial **Cldn4** versus T-cell / exclusion scores. Honest n. Extra
 python3 methods/mouse_ici_cldn4_leftover/01_download.py
 python3 methods/mouse_ici_cldn4_leftover/02_score_scrna.py
 python3 methods/mouse_ici_cldn4_leftover/03_score_spatial.py
+python3 methods/mouse_ici_cldn4_leftover/05_summarize.py
 python3 methods/mouse_ici_cldn4_leftover/04_figures.py
 ```
 

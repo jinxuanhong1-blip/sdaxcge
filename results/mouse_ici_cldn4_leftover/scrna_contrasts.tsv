@@ -1,0 +1,9 @@
+gse	contrast	field	n_a	n_b	mean_a	mean_b	delta	direction	welch_p	mwu_p	note
+GSE297632	aPD1_residual_vs_control	epithelial_Cldn4_mean	1	1	0.02678893879055977	0.13662119209766388	0.10983225330710411	up			subcutaneous LLC; n=1 vs 1; n=1 vs 1 — p not a sample-level claim
+GSE297632	aPD1_residual_vs_control	frac_tnk	1	1	0.22615803814713897	0.10071102621245888	-0.1254470119346801	down			subcutaneous LLC; n=1 vs 1; n=1 vs 1 — p not a sample-level claim
+GSE297632	aPD1_residual_vs_control	exclusion_Cldn4_minus_Tscore	1	1	-0.24822614714503288	-0.13822360336780548	0.1100025437772274	up			subcutaneous LLC; n=1 vs 1; n=1 vs 1 — p not a sample-level claim
+GSE285606	PD1R1_vs_WT_IgG	epithelial_Cldn4_mean	2	2	0.21118441969156265	0.020694001112133265	-0.1904904185794294	down	0.24626582322637033	0.3333333333333333	both arms IgG; acquired-resistant line vs parental; not ICB vs control
+GSE285606	PD1R1_vs_WT_IgG	frac_tnk	2	2	0.23897739262508672	0.3597485010484869	0.12077110842340016	up	0.2700012941104887	0.3333333333333333	both arms IgG; not ICB vs control
+GSE285606	PD1R1_vs_WT_IgG	tnk_Tscore_mean	2	2	0.5337325781583786	0.501965656876564	-0.031766921281814575	down	0.6772341671705199	0.6666666666666666	both arms IgG; not ICB vs control
+GSE285606	PD1R1_vs_WT_IgG	exclusion_Cldn4_minus_Tscore	2	2	-0.32254815846681595	-0.48127165576443076	-0.1587234972976148	down	0.38945209278932313	0.6666666666666666	both arms IgG; not ICB vs control
+POOL	epithelial_vs_tnk_Cldn4_paired	Cldn4_mean	6	6	0.10452782874926925	0.0018590486021518398	0.1026687801471174	6/6 epi>T/NK		0.03125	Wilcoxon signed-rank on libraries with ≥20 epi and ≥20 T/NK; not an ICB contrast

@@ -97,31 +97,35 @@ def extract_level(tar_path: Path, dest: Path, level: str) -> dict[str, Path]:
 
 
 def neighbor_mean(x, y, values, k=6):
-    """Mean of k nearest neighbors (exclude self). Grid-hash for 10k bins."""
+    """Mean of k nearest neighbors (exclude self). Grid-hash for ~10k bins."""
     x = np.asarray(x, float)
     y = np.asarray(y, float)
     values = np.asarray(values, float)
     n = x.size
     out = np.full(n, np.nan)
-    if n < k + 2:
+    ok = np.isfinite(x) & np.isfinite(y) & np.isfinite(values)
+    if int(ok.sum()) < k + 2:
         return out
-    # cell size ~ median nearest spacing
-    # hash into bins of width ~ 3 * median delta
-    order = np.argsort(x)
-    dx = np.diff(x[order])
-    dx = dx[dx > 0]
-    cell = float(np.median(dx)) * 3 if dx.size else 10.0
-    cell = max(cell, 1e-6)
+    rng = np.random.default_rng(0)
+    probe = rng.choice(np.flatnonzero(ok), size=min(250, int(ok.sum())), replace=False)
+    nn = []
+    for i in probe:
+        d2 = (x - x[i]) ** 2 + (y - y[i]) ** 2
+        d2[i] = np.inf
+        d2[~ok] = np.inf
+        nn.append(np.sqrt(np.min(d2)))
+    cell = float(np.median(nn)) * 2.5
+    cell = max(cell, 1e-3)
     buckets = {}
     ix = np.floor(x / cell).astype(int)
     iy = np.floor(y / cell).astype(int)
-    for i, (a, b) in enumerate(zip(ix, iy)):
-        buckets.setdefault((a, b), []).append(i)
-    for i in range(n):
+    for i in np.flatnonzero(ok):
+        buckets.setdefault((int(ix[i]), int(iy[i])), []).append(int(i))
+    for i in np.flatnonzero(ok):
         cand = []
-        for da in (-1, 0, 1):
-            for db in (-1, 0, 1):
-                cand.extend(buckets.get((ix[i] + da, iy[i] + db), []))
+        for da in (-2, -1, 0, 1, 2):
+            for db in (-2, -1, 0, 1, 2):
+                cand.extend(buckets.get((int(ix[i] + da), int(iy[i] + db)), []))
         if len(cand) <= 1:
             continue
         cand = np.asarray(cand, int)

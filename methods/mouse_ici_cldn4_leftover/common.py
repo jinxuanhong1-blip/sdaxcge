@@ -210,28 +210,44 @@ def wilcoxon_signed(a, b):
     return {"n": n, "p": p, "n_a_gt_b": int((a > b).sum())}
 
 
-def high_low_cut(cldn4, immune, how="median"):
-    """Boolean mask: Cldn4-high AND immune-low. how='median' or 'quartile'."""
+def high_low_cut(cldn4, immune, how="detected"):
+    """Cldn4-high + immune-low.
+
+    Sparse sc/spatial counts have median 0. Default ``detected`` is Cldn4>0
+    and T-score ≤ the median T-score among Cldn4-positive units (or 0 if
+    that median is 0). ``median`` / ``quartile`` are kept but are not the claim
+    when both medians are 0.
+    """
     c = np.asarray(cldn4, float)
     im = np.asarray(immune, float)
     ok = np.isfinite(c) & np.isfinite(im)
     mask = np.zeros(c.size, dtype=bool)
     if ok.sum() < 8:
-        return mask, {"n_ok": int(ok.sum()), "cut": how, "n_hi_lo": 0}
-    if how == "quartile":
-        c_cut = np.nanpercentile(c[ok], 75)
-        i_cut = np.nanpercentile(im[ok], 25)
+        return mask, {"n_ok": int(ok.sum()), "cut": how, "n_hi_lo": 0, "n_cldn4_pos": 0}
+    pos = ok & (c > 0)
+    n_pos = int(pos.sum())
+    if how == "detected":
+        c_cut = 0.0
+        i_cut = float(np.nanmedian(im[pos])) if n_pos >= 5 else 0.0
+        mask[ok] = (c[ok] > c_cut) & (im[ok] <= i_cut)
+    elif how == "quartile":
+        c_cut = float(np.nanpercentile(c[ok], 75))
+        i_cut = float(np.nanpercentile(im[ok], 25))
+        mask[ok] = (c[ok] >= c_cut) & (im[ok] <= i_cut)
     else:
-        c_cut = np.nanmedian(c[ok])
-        i_cut = np.nanmedian(im[ok])
-    mask[ok] = (c[ok] >= c_cut) & (im[ok] <= i_cut)
+        c_cut = float(np.nanmedian(c[ok]))
+        i_cut = float(np.nanmedian(im[ok]))
+        mask[ok] = (c[ok] >= c_cut) & (im[ok] <= i_cut)
     return mask, {
         "n_ok": int(ok.sum()),
         "cut": how,
         "cldn4_cut": float(c_cut),
         "immune_cut": float(i_cut),
+        "n_cldn4_pos": n_pos,
         "n_hi_lo": int(mask.sum()),
-        "frac_hi_lo": float(mask.sum() / ok.sum()),
+        "frac_hi_lo": float(mask.sum() / ok.sum()) if ok.sum() else np.nan,
+        "frac_of_cldn4_pos": float(mask.sum() / n_pos) if n_pos else np.nan,
+        "zero_zero_cut": bool(c_cut == 0 and i_cut == 0 and how != "detected"),
     }
 
 

@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-"""Extra figures: Cldn4 vs T/exclusion and Cldn4-high + immune-low cuts."""
+"""Extra figures: Cldn4 vs T/exclusion and Cldn4-detected + T-low cuts."""
 from __future__ import annotations
-
-from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -22,22 +20,29 @@ def _save(fig, name):
     plt.close(fig)
 
 
-def scatter_cut(df, xcol, ycol, title, name, hue=None):
+def scatter_cut(df, xcol, ycol, title, name):
     if df.empty or xcol not in df or ycol not in df:
-        return
+        return None
     x = df[xcol].to_numpy(float)
     y = df[ycol].to_numpy(float)
     ok = np.isfinite(x) & np.isfinite(y)
     if ok.sum() < 8:
-        return
-    mask, meta = high_low_cut(x, y, how="median")
-    qmask, qmeta = high_low_cut(x, y, how="quartile")
+        return None
+    mask, meta = high_low_cut(x, y, how="detected")
     fig, ax = plt.subplots(figsize=(4.6, 4.0))
     ax.scatter(x[ok & ~mask], y[ok & ~mask], s=6, c="#9aa3ad", alpha=0.35, linewidths=0, label="other")
-    ax.scatter(x[mask], y[mask], s=8, c="#c0392b", alpha=0.55, linewidths=0, label=f"Cldn4-high + T-low (median) n={meta['n_hi_lo']}")
-    if meta.get("cldn4_cut") is not None:
-        ax.axvline(meta["cldn4_cut"], color="#c0392b", ls="--", lw=0.8)
+    ax.scatter(
+        x[mask],
+        y[mask],
+        s=10,
+        c="#c0392b",
+        alpha=0.7,
+        linewidths=0,
+        label=f"Cldn4+ & T-low n={meta['n_hi_lo']} / {meta['n_cldn4_pos']} Cldn4+",
+    )
+    if meta.get("immune_cut") is not None:
         ax.axhline(meta["immune_cut"], color="#2980b9", ls="--", lw=0.8)
+    ax.axvline(0, color="#888", ls=":", lw=0.6)
     ax.set_xlabel("Cldn4 log1p(UMI)")
     ax.set_ylabel("T-cell score (mean log1p)")
     ax.set_title(title)
@@ -45,12 +50,13 @@ def scatter_cut(df, xcol, ycol, title, name, hue=None):
     ax.text(
         0.02,
         0.02,
-        f"median cut {meta['frac_hi_lo']:.1%}  |  Q3/Q1 cut {qmeta['frac_hi_lo']:.1%} (n={qmeta['n_hi_lo']})",
+        f"{meta['frac_of_cldn4_pos']:.0%} of Cldn4+ are T-low (cut T≤{meta['immune_cut']:.3g})",
         transform=ax.transAxes,
         fontsize=7,
         va="bottom",
     )
     _save(fig, name)
+    return meta
 
 
 def scrna_figures():
@@ -59,46 +65,35 @@ def scrna_figures():
         return
     df = pd.read_csv(p, sep="\t")
     for sample, sub in df.groupby("sample"):
-        scatter_cut(
-            sub,
-            "Cldn4",
-            "Tscore",
-            f"{sample}: all cells",
-            f"cut_{sample}_all",
-        )
         epi = sub[sub["label"] == "epithelial"]
-        scatter_cut(
-            epi,
-            "Cldn4",
-            "Tscore",
-            f"{sample}: epithelial cells",
-            f"cut_{sample}_epithelial",
-        )
-    # compartment Cldn4 per sample
+        scatter_cut(epi, "Cldn4", "Tscore", f"{sample}: epithelial cells", f"cut_{sample}_epithelial")
     inv = OUT / "scrna_sample_inventory.tsv"
-    if inv.exists():
-        s = pd.read_csv(inv, sep="\t")
-        ok = s[s.get("status", "ok") == "ok"] if "status" in s else s
-        if not ok.empty and "epithelial_Cldn4_mean" in ok:
-            fig, ax = plt.subplots(figsize=(6.2, 3.6))
-            x = np.arange(len(ok))
-            ax.bar(x - 0.18, ok["epithelial_Cldn4_mean"], 0.36, label="epithelial Cldn4", color="#2c3e50")
-            ax.bar(x + 0.18, ok["tnk_Cldn4_mean"], 0.36, label="T/NK Cldn4", color="#7f8c8d")
-            ax.set_xticks(x)
-            ax.set_xticklabels(ok["sample"], rotation=30, ha="right")
-            ax.set_ylabel("mean log1p Cldn4")
-            ax.legend(frameon=False)
-            ax.set_title("Cldn4 in epithelium vs T/NK (honest library n)")
-            _save(fig, "scrna_cldn4_epi_vs_tnk")
-            fig, ax = plt.subplots(figsize=(6.2, 3.6))
-            ax.bar(x - 0.18, ok["epithelial_Cldn4_mean"], 0.36, label="epithelial Cldn4", color="#2c3e50")
-            ax.bar(x + 0.18, ok["frac_tnk"], 0.36, label="T/NK fraction", color="#2980b9")
-            ax.set_xticks(x)
-            ax.set_xticklabels(ok["sample"], rotation=30, ha="right")
-            ax.set_ylabel("Cldn4 mean  |  T/NK fraction")
-            ax.legend(frameon=False)
-            ax.set_title("Exclusion-style: epithelial Cldn4 vs T/NK fraction")
-            _save(fig, "scrna_cldn4_vs_tnk_frac")
+    if not inv.exists():
+        return
+    s = pd.read_csv(inv, sep="\t")
+    ok = s[s["status"] == "ok"] if "status" in s else s
+    if ok.empty:
+        return
+    fig, ax = plt.subplots(figsize=(6.4, 3.6))
+    x = np.arange(len(ok))
+    ax.bar(x - 0.18, ok["epithelial_Cldn4_mean"], 0.36, label="epithelial Cldn4", color="#2c3e50")
+    ax.bar(x + 0.18, ok["tnk_Cldn4_mean"], 0.36, label="T/NK Cldn4", color="#7f8c8d")
+    ax.set_xticks(x)
+    ax.set_xticklabels(ok["sample"], rotation=30, ha="right")
+    ax.set_ylabel("mean log1p Cldn4")
+    ax.legend(frameon=False)
+    ax.set_title("Cldn4 in epithelium vs T/NK (library n as labeled)")
+    _save(fig, "scrna_cldn4_epi_vs_tnk")
+    fig, ax = plt.subplots(figsize=(5.2, 4.0))
+    for gse, sub in ok.groupby("gse"):
+        ax.scatter(sub["epithelial_Cldn4_mean"], sub["frac_tnk"], s=50, label=gse)
+        for _, r in sub.iterrows():
+            ax.annotate(r["sample"], (r["epithelial_Cldn4_mean"], r["frac_tnk"]), fontsize=6, xytext=(4, 3), textcoords="offset points")
+    ax.set_xlabel("epithelial Cldn4 mean")
+    ax.set_ylabel("T/NK fraction")
+    ax.legend(frameon=False, fontsize=7)
+    ax.set_title("Exclusion-style: epi Cldn4 vs T/NK fraction")
+    _save(fig, "scrna_cldn4_vs_tnk_frac")
 
 
 def spatial_figures():
@@ -107,14 +102,21 @@ def spatial_figures():
         return
     df = pd.read_csv(p, sep="\t")
     for sample, sub in df.groupby("sample"):
-        scatter_cut(sub, "Cldn4", "Tscore", f"GSE261890 {sample} spots/bins", f"spatial_cut_{sample}")
+        scatter_cut(sub, "Cldn4", "Tscore", f"GSE261890 {sample} L7 bins", f"spatial_cut_{sample}")
         if {"x", "y"}.issubset(sub.columns) and sub["x"].notna().any():
-            mask, meta = high_low_cut(sub["Cldn4"], sub["Tscore"], how="median")
+            mask, meta = high_low_cut(sub["Cldn4"], sub["Tscore"], how="detected")
             fig, ax = plt.subplots(figsize=(5.0, 4.4))
             ax.scatter(sub.loc[~mask, "x"], sub.loc[~mask, "y"], s=2, c="#bdc3c7", linewidths=0)
-            ax.scatter(sub.loc[mask, "x"], sub.loc[mask, "y"], s=3, c="#c0392b", linewidths=0, label=f"Cldn4-high + T-low n={meta['n_hi_lo']}")
+            ax.scatter(
+                sub.loc[mask, "x"],
+                sub.loc[mask, "y"],
+                s=6,
+                c="#c0392b",
+                linewidths=0,
+                label=f"Cldn4+ & T-low n={meta['n_hi_lo']}",
+            )
             ax.set_aspect("equal")
-            ax.set_title(f"{sample}: Cldn4-high + immune-low bins")
+            ax.set_title(f"{sample}: Cldn4-detected + T-low bins")
             ax.legend(frameon=False, fontsize=7)
             ax.set_xlabel("x")
             ax.set_ylabel("y")
