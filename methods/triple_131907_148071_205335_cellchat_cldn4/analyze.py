@@ -990,7 +990,8 @@ def write_finding(combo: pd.DataFrame, patients: pd.DataFrame, ligand: pd.DataFr
             f"(detected arm n≥{MIN_DETECT_ARM}). CellChat R was not run. "
             "Cell-pooled means are not the test.",
             "",
-            f"Detect-gated outgoing rows: {len(outg)}. p<0.05: {n_sig}.",
+            f"Detect-gated outgoing rows: {len(outg)}. p<0.05: **{n_sig}**. "
+            "Only p<0.05 rows are claimed. Q4 vs Q1 stacks within-cohort tails.",
             "",
             "| pair | class | n_Q1/n_Q4 | cohorts | median P Q1 | median P Q4 | Δ | r | p |",
             "|---|---|---|---:|---:|---:|---:|---:|---|",

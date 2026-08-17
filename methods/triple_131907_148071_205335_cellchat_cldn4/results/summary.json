@@ -190,7 +190,10 @@
       "thin": false
     }
   ],
-  "cellchat": null,
+  "cellchat": {
+    "n_lr_rows": 75,
+    "n_p_lt_05": 3
+  },
   "not_run": "CellChat R; LIANA; GSE207422; dual-high; 131907+205335-only CellChat redo",
   "algorithm": "locked singles Fisher-z DL; Jin 2021 Hill Kh=0.5, 10% trim, expr_prop>=0.10, same-patient Mal\u2192T/NK, within-cohort Q4 vs Q1"
 }
