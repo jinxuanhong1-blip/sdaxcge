@@ -157,12 +157,13 @@ def fmt_rho(row: dict, show_cells: bool = False) -> str:
 
 
 def fmt_rho_nop(row: dict, show_cells: bool = False) -> str:
-    """Same-cell pooled: report ρ and n, not p (cells are not independent)."""
-    if row.get("note") == "too_few_samples" or not np.isfinite(row.get("spearman_rho", np.nan)):
-        extra = f", n_cells={row['n_cells']}" if show_cells and row.get("n_cells") else ""
-        return f"n={row['n']}{extra} (too few)"
-    extra = f", n_cells={row['n_cells']}" if show_cells and row.get("n_cells") else ""
-    return f"ρ={row['spearman_rho']:.2f}, n={row['n']}{extra} (p not used)"
+    """Same-cell pooled: report ρ, not p (cells are not independent)."""
+    if row.get("note") in {"too_few_samples", "missing_contrast"} or not np.isfinite(
+        row.get("spearman_rho", np.nan)
+    ):
+        return f"n={row.get('n', 0)} (too few)"
+    extra = f"; {int(row['n_cells']):,} cells" if show_cells and row.get("n_cells") else ""
+    return f"ρ={row['spearman_rho']:.2f}{extra} (p not used)"
 
 
 def main() -> None:
@@ -751,23 +752,25 @@ def write_finding(outdir, post, pooled_rows, pb_rows, tnk_rows, within_summary, 
     tnk_mean = T("patient: A3-malignant CLDN4 mean vs T/NK")
     tnk_epi = T("patient: epithelial CLDN4 mean vs T/NK")
 
-    def sign_word(row, key="spearman_rho"):
-        v = row.get(key, np.nan)
-        if not np.isfinite(v):
-            return "undefined"
-        if v > 0.15:
-            return "positive"
-        if v < -0.15:
-            return "negative"
-        return "near-null"
+    def phrase(row, name: str) -> str:
+        rho = row.get("spearman_rho", np.nan)
+        p = row.get("spearman_p", np.nan)
+        if not np.isfinite(rho):
+            return f"{name} undefined"
+        direction = "positive" if rho > 0 else "negative"
+        if np.isfinite(p) and p < 0.05:
+            return f"{name} {direction}"
+        if abs(rho) >= 0.35:
+            return f"{name} directionally {direction} but NS"
+        return f"{name} near-null"
 
     verdict = (
-        f"Same-cell CLDN4 vs CD274/HLA is {sign_word(pb_cd274)} for CD274 "
-        f"({fmt_rho(pb_cd274)}) and {sign_word(pb_mhc1)} for MHC-I "
-        f"({fmt_rho(pb_mhc1)}) on A3-malignant **patient-pseudobulk**. "
+        f"On A3-malignant **patient-pseudobulk**, {phrase(pb_cd274, 'CLDN4 vs CD274')} "
+        f"({fmt_rho(pb_cd274)}) and {phrase(pb_mhc1, 'CLDN4 vs MHC-I')} "
+        f"({fmt_rho(pb_mhc1)}). "
         f"Pooled-cell ρ is descriptive only (n_cells={sanity['n_malig_a3_post']:,} "
-        f"from {sanity['n_patients_with_malig_a3_post']} patients). "
-        f"Patient-level CLDN4 vs T/NK is {sign_word(tnk_mean)} "
+        f"from {sanity['n_patients_with_malig_a3_post']} patients) and is near-zero / weakly negative. "
+        f"Patient-level CLDN4 vs T/NK is near-null "
         f"({fmt_rho(tnk_mean)}; epithelial complete-case {fmt_rho(tnk_epi)})."
     )
 

@@ -1,0 +1,12 @@
+{
+  "dataset": "GSE207422",
+  "task": "malignant CLDN4 vs CD274/HLA same-cell + patient-level vs T/NK; CLDN4 only",
+  "size_budget_gb": 2.0,
+  "processed_umi_bytes": 184001817,
+  "processed_umi_gb": 0.171,
+  "umi_within_budget": true,
+  "decision": "ANALYZE",
+  "author_cell_labels_public": false,
+  "skipped_raw": "HRA001033 (GSA-Human controlled; not processed)",
+  "workdir": "data/GSE207422"
+}

@@ -1,0 +1,46 @@
+{
+  "dataset": "GSE207422",
+  "task": "malignant CLDN4 vs CD274/HLA same-cell + patient vs T/NK; CLDN4 only",
+  "dual_high": false,
+  "tacstd2_gate": false,
+  "n_post": 12,
+  "n_cells": 92330,
+  "n_malig_a3": 6627,
+  "n_malig_a3_post": 4683,
+  "empty_a3_malignant_post": [
+    "P11",
+    "P14"
+  ],
+  "n_within_patient": 6,
+  "primary_pb_mal_cldn4_vs_cd274": {
+    "contrast": "patient-pseudobulk A3-malignant: CLDN4 vs CD274",
+    "n": 10,
+    "n_cells": null,
+    "spearman_rho": 0.5583242384172624,
+    "spearman_p": 0.09346396626964018,
+    "note": "",
+    "target": "CD274",
+    "compartment": "A3-malignant",
+    "unit": "patient_pseudobulk"
+  },
+  "primary_pb_mal_cldn4_vs_mhc1": {
+    "contrast": "patient-pseudobulk A3-malignant: CLDN4 vs MHC-I mean (HLA-A/B/C + B2M)",
+    "n": 10,
+    "n_cells": null,
+    "spearman_rho": 0.18787878787878787,
+    "spearman_p": 0.6032176100292089,
+    "note": "",
+    "target": "MHC-I mean (HLA-A/B/C + B2M)",
+    "compartment": "A3-malignant",
+    "unit": "patient_pseudobulk"
+  },
+  "primary_tnk_mal_cldn4_mean": {
+    "contrast": "patient: A3-malignant CLDN4 mean vs T/NK",
+    "n": 10,
+    "n_cells": null,
+    "spearman_rho": -0.12727272727272726,
+    "spearman_p": 0.7260570147627894,
+    "note": "",
+    "unit": "patient"
+  }
+}
