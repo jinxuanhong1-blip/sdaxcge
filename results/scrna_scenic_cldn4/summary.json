@@ -1,0 +1,55 @@
+{
+  "dataset": "GSE207422",
+  "pmid": "36869384",
+  "question": "Which TF regulons are recovered from CLDN4-high malignant-like cells?",
+  "a10_taken_as_given": "ELF3\u2013CLDN4 bulk RNA; ELF3 is labeled given, not a discovery.",
+  "method": "lightweight GRN proxy (Pearson + public priors + AUCell); not pySCENIC cisTarget; not ChIP",
+  "pyscenic": {
+    "importable": false,
+    "version": "No module named 'pyscenic'",
+    "cistarget_run": false,
+    "chip_peaks_invented": false
+  },
+  "n_genes_in_matrix": 24292,
+  "n_cells_raw": 92330,
+  "n_epithelial": 13043,
+  "n_malignant_like": 9782,
+  "nl_cut": 0.1184610378085762,
+  "n_cldn4_high": 5599,
+  "n_cldn4_low": 4169,
+  "n_samples_primary": 12,
+  "n_samples_paired": 5,
+  "cldn4_split": "within-sample median among malignant-like",
+  "global_cldn4_median": 1.3418925586001813,
+  "n_genes_scored": 6827,
+  "n_tfs_screened": 861,
+  "histology_primary_cells": {
+    "LUSC": 7414,
+    "LUAD": 2354
+  },
+  "high_cells_by_sample": {
+    "BD_immune01": 439,
+    "BD_immune03": 622,
+    "BD_immune04": 69,
+    "BD_immune05": 722,
+    "BD_immune06": 25,
+    "BD_immune07": 2242,
+    "BD_immune08": 29,
+    "BD_immune09": 146,
+    "BD_immune10": 428,
+    "BD_immune12": 682,
+    "BD_immune13": 89,
+    "BD_immune15": 106
+  },
+  "primary_output": "CLDN4-high regulon table only",
+  "primary_unit": "sample (paired high vs low for prior AUCell)",
+  "cell_level": "exploratory only",
+  "notes": [
+    "Author CopyKAT malignant labels are not on GEO; malignant-like is a marker proxy.",
+    "CLDN4 held out of every regulon (split gene).",
+    "CLDN4-low regulons are computed only to mark high-specific edges and are not reported as a table.",
+    "Pearson neighborhoods are co-expression, not binding.",
+    "BD_immune07 (LUSC) can dominate pooled cell counts; sample n is the claim.",
+    "GSE253013 and GSE131907 were not required."
+  ]
+}

@@ -1,0 +1,12 @@
+item	n	note
+cells_raw	92330	GSE207422 public UMI
+cells_UMI>=200	92330	
+epithelial	13043	marker argmax
+malignant_like	9782	epithelial AND normal-lung <= p75; not CopyKAT
+samples_ge20_malignant	12	min 20 malignant-like; primary GRN samples
+CLDN4_high_within_sample	5599	>= sample median CLDN4 log1p among malignant-like
+CLDN4_low_within_sample	4169	complement in the same samples
+samples_paired_ge20_high_and_low	5	unit of prior-AUCell high vs low
+LUAD_samples_ge20	6	sensitivity
+LUAD_CLDN4_high	1633	cells
+TFs_screened_in_high	861	human TF list ∩ det>=0.05 in CLDN4-high

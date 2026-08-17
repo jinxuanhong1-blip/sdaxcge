@@ -6,7 +6,9 @@ Additive public scRNA GRN. **A10 ELF3–CLDN4 bulk RNA is taken as given** and i
 
 **No ChIP peaks are invented.** Full pySCENIC cisTarget is not run.
 
-Finding: [`FINDING.md`](FINDING.md). Tables: [`results/scrna_scenic_cldn4/`](../../results/scrna_scenic_cldn4/).
+Finding (honest n + regulon table): [`FINDING.md`](FINDING.md). Tables: [`results/scrna_scenic_cldn4/`](../../results/scrna_scenic_cldn4/).
+
+**n (locked after the run, not retuned):** 9,782 malignant-like cells; 12 samples with ≥20; 5,599 CLDN4-high cells; paired AUCell n=5 (underpowered). ELF3 is given.
 
 ## Question (pre-specified)
 
