@@ -1,0 +1,59 @@
+{
+  "policy": "CLDN4-first. Gates are CLDN4-high vs CLDN4-low (median and Q4 vs Q1). TACSTD2 is companion only.",
+  "a3": "GSE207422 A3 TACSTD2 slide taken as given. CLDN4 from the same 12-patient table.",
+  "n_stat_rows": 68,
+  "full_pool": [
+    {
+      "row": "full_pool_continuous_spearman",
+      "endpoint": "CD8A",
+      "k": 7,
+      "N": 878,
+      "pooled_rho": -0.06154989146137922,
+      "p": 0.31037747714001285,
+      "I2": 55.24056262096354,
+      "ci95_lo": -0.17875860612856362,
+      "ci95_hi": 0.05738133212098377,
+      "cohorts": "GSE131907+GSE241934_IIT+GSE241934_Real+GSE218989+GSE285029+CPTAC_LUAD+CPTAC_LSCC",
+      "note": "one row, not the answer"
+    },
+    {
+      "row": "full_pool_continuous_spearman",
+      "endpoint": "CXCL13",
+      "k": 6,
+      "N": 213,
+      "pooled_rho": -0.2599901110289151,
+      "p": 0.030244570234978868,
+      "I2": 50.444624703048135,
+      "ci95_lo": -0.46744120385743493,
+      "ci95_hi": -0.025399048782764284,
+      "cohorts": "GSE148071_tls+GSE207422_tls+GSE253013_tls+GSE131907_tls+GSE241934_IIT_tls+CPTAC_LUAD",
+      "note": "one row, not the answer"
+    },
+    {
+      "row": "full_pool_continuous_spearman",
+      "endpoint": "ImmuneScore",
+      "k": 6,
+      "N": 879,
+      "pooled_rho": 0.0019744312235919757,
+      "p": 0.9569466007123364,
+      "I2": 7.728019078497514,
+      "ci95_lo": -0.06959655961131837,
+      "ci95_hi": 0.07352520001533212,
+      "cohorts": "GSE131907+GSE148071+GSE218989+GSE285029+CPTAC_LUAD+CPTAC_LSCC",
+      "note": "one row, not the answer"
+    },
+    {
+      "row": "full_pool_continuous_spearman",
+      "endpoint": "T/NK",
+      "k": 5,
+      "N": 92,
+      "pooled_rho": -0.0864155922180156,
+      "p": 0.44714113776448217,
+      "I2": 0.0,
+      "ci95_lo": -0.30043200108250706,
+      "ci95_hi": 0.13588530566737475,
+      "cohorts": "GSE207422+GSE253013+GSE131907+GSE241934_IIT+GSE241934_Real",
+      "note": "one row, not the answer"
+    }
+  ]
+}
