@@ -1,0 +1,2 @@
+cohort	n_xena_primary_01	n_estimate_primary_01	n_cldn4	n_cldn4_na	n_ImmuneScore_join	n_Q1	n_Q2	n_Q3	n_Q4	n_ImmuneScore_among_cldn4	n_CD8A_among_cldn4	n_CD274_among_cldn4	n_ImmuneScore_NA_among_cldn4	n_CD8A_NA_among_cldn4	n_CD274_NA_among_cldn4	tacstd2_gate	quartile_rule
+TCGA-LUSC	502	501	502	0	501	126	125	125	126	501	502	502	1	0	0	none	pd.qcut(rank(method='first'), 4) among CLDN4-complete primaries
