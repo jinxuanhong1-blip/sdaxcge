@@ -47,6 +47,8 @@
     "n_SpatialFDR_lt_0.2": 3,
     "n_SpatialFDR_lt_0.1": 3,
     "n_SpatialFDR_lt_0.05": 3,
+    "n_SpatialFDR_lt_0.1_excluding_perfect_rank": 0,
+    "n_perfect_rank_testable": 3,
     "min_p": 1.4042654220543602e-24,
     "min_SpatialFDR": 7.73365045839415e-23,
     "min_BH_FDR": 9.829857954380521e-23
@@ -60,10 +62,68 @@
     "n_SpatialFDR_lt_0.2": 0,
     "n_SpatialFDR_lt_0.1": 0,
     "n_SpatialFDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.1_excluding_perfect_rank": 0,
+    "n_perfect_rank_testable": 0,
     "min_p": 0.08012201580136809,
     "min_SpatialFDR": 0.8545611150471629,
     "min_BH_FDR": 0.8443569224425673
   },
+  "sensitivity_min_present": [
+    {
+      "min_n_present": 5,
+      "n_testable": 210,
+      "n_p_lt_0.05": 17,
+      "n_SpatialFDR_lt_0.1": 3,
+      "n_perfect_rank": 3,
+      "min_p": 1.4042654220543602e-24,
+      "min_SpatialFDR": 7.73365045839415e-23
+    },
+    {
+      "min_n_present": 6,
+      "n_testable": 103,
+      "n_p_lt_0.05": 6,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_perfect_rank": 0,
+      "min_p": 0.013697326615325618,
+      "min_SpatialFDR": 0.43237923937046113
+    },
+    {
+      "min_n_present": 8,
+      "n_testable": 9,
+      "n_p_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_perfect_rank": 0,
+      "min_p": 0.10173303745426478,
+      "min_SpatialFDR": 0.8342441672938892
+    },
+    {
+      "min_n_present": 10,
+      "n_testable": 1,
+      "n_p_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_perfect_rank": 0,
+      "min_p": 0.7009318849100584,
+      "min_SpatialFDR": 0.9332209182681445
+    },
+    {
+      "min_n_present": 12,
+      "n_testable": 0,
+      "n_p_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_perfect_rank": 0,
+      "min_p": null,
+      "min_SpatialFDR": null
+    },
+    {
+      "min_n_present": 15,
+      "n_testable": 0,
+      "n_p_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_perfect_rank": 0,
+      "min_p": null,
+      "min_SpatialFDR": null
+    }
+  ],
   "composition": {
     "note": "transcriptional kNN != spatial niche; not the PR #320 T/NK audit",
     "all_nhoods_maligCLDN4_vs_fracTNK": {

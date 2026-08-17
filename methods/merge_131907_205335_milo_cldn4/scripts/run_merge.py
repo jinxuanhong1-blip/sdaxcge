@@ -981,15 +981,22 @@ The 3 GB GSE131907 log2TPM text and EGA FASTQ were not used.
 
 ## Verdict
 
-Every SpatialFDR<0.1 neighbourhood on the continuous Spearman has
-**|ρ| = 1** and is present in exactly **5** units (the `min_samples=5`
-floor). scipy reports p≈1.4×10⁻²⁴ for a perfect rank correlation at that
-n. Those neighbourhoods are mostly T/NK- or myeloid-dominated and
-malignant-empty. This is the same floor artifact recorded on GSE148071.
-**It is not a cohort-level neighbourhood DA claim.**
+Per-dataset graphs: every SpatialFDR<0.1 neighbourhood on the continuous
+Spearman has **|ρ| = 1** and is present in exactly **5** units (the
+`min_samples=5` floor). scipy reports p≈1.4×10⁻²⁴ for a perfect rank
+correlation at that n. Those neighbourhoods are mostly T/NK- or
+myeloid-dominated and malignant-empty. This is the same floor artifact
+recorded on GSE148071. **It is not a cohort-level neighbourhood DA claim.**
+At n_present ≥ 6, SpatialFDR<0.1 is **0**. Median-split Welch is **0**
+at SpatialFDR<0.1.
 
-At n_present ≥ 6, SpatialFDR<0.1 is **0** on every per-dataset graph.
-Median-split Welch is **0** at SpatialFDR<0.1 on every graph.
+Harmony extra (1,200 cells/unit cap; 42 scored units): 2 of 3
+SpatialFDR<0.1 hits are the same |ρ|=1 / n=5 artifact. The remaining hit
+(nhood 1576) is a **myeloid-only** neighbourhood (0 malignant, 0 T/NK,
+ρ=0.988, n_present=8). At n_present ≥ 10, SpatialFDR<0.1 is **0**. Do not
+cite that myeloid nhood as malignant-CLDN4 DA. The cap also dropped
+GSE205335 P4001 below 10 malignant cells (27 → 9), so Harmony *n* is 42
+not 43.
 
 ## One-row SpatialFDR
 
