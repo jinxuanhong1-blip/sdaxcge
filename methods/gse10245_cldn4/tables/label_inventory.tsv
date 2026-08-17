@@ -1,0 +1,18 @@
+item	public	n	note
+arrays_in_series_matrix	yes	58	54675 probes × 58 GSM; 0 missing gcRMA values
+unique_GSM	yes	58	all unique
+unique_title	yes	58	NSCLC_AC_* / NSCLC_SCC_*; all unique
+patients	yes (1 array = 1 title)	58	GEO overall_design states 40 AC + 18 SCC; no duplicate-patient sentence
+adenocarcinoma	yes	40	characteristics_ch1 = disease state: adenocarcinoma
+squamous_cell_carcinoma	yes	18	characteristics_ch1 = disease state: squamous cell carcinoma
+normals / paired adjacent	no	0	source_name = human non-small cell lung cancer tumor tissue for all 58
+OS / DSS time or event	no	0	junction / histology paper; survival not deposited
+ICI / treatment response	no	0	resected atlas, not an ICI series
+numeric tumor % / purity	no	0	protocol text says tumor/stromal content was estimated then macro-dissected; values not deposited
+Lung_Cancer_Explorer_n48	external subset	48	LCE lists 48 tumors for this accession; that is not the GEO series matrix. Not used.
+CLDN4 finite (collapsed)	yes	58	max-mean chose 201428_at
+CD8A finite	yes	58	named U133 probe 205758_at; only CD8A probe on GPL570
+CD274 finite (collapsed)	yes	58	max-mean chose 227458_at of 223834_at / 227458_at
+primary pairwise n (all NSCLC)	yes	58	complete-case CLDN4 + CD8A + CD274 = 58 / 58
+primary pairwise n (ADC)	yes	40	HOLDS-rule eligible (n>=40)
+primary pairwise n (SCC)	yes	18	UNDERPOWERED for HOLDS rule (n>=40)
