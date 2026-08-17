@@ -1,0 +1,175 @@
+{
+  "dataset": "GSE309652",
+  "pmid_on_geo": null,
+  "title": "Clinically relevant metabolic subtypes of lung cancer for immunotherapy",
+  "platform": "GPL31904 NanoString nCounter Human Metabolic Pathways Panel",
+  "processing": "nSolver positive-control + housekeeping normalization as deposited. Values are linear nSolver counts. Spearman is rank-based.",
+  "n_arrays": 72,
+  "n_genes": 768,
+  "n_missing_values": 0,
+  "n_LUAD": 34,
+  "n_LUSC": 27,
+  "n_Other": 11,
+  "n_response_R": 24,
+  "n_response_NR": 48,
+  "n_pdl1_numeric": 71,
+  "cldn4_on_matrix": false,
+  "cldn4_on_gpl_soft": false,
+  "cldn_family_on_matrix": [],
+  "ImmuneScore_A1_present": [
+    "CD8A",
+    "GZMA",
+    "GZMB",
+    "IFNG",
+    "EOMES",
+    "CXCL9",
+    "TBX21"
+  ],
+  "ImmuneScore_A1_missing": [
+    "CXCL10"
+  ],
+  "IFN_Ayers6_present": [
+    "IFNG",
+    "STAT1",
+    "CXCL9",
+    "IDO1"
+  ],
+  "IFN_Ayers6_missing": [
+    "CXCL10",
+    "HLA-DRA"
+  ],
+  "epithelial_present": [],
+  "epithelial_missing": [
+    "EPCAM",
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "CDH1",
+    "KRT7"
+  ],
+  "primary_verdict": "ABSENT",
+  "dual_high": false,
+  "holds_rule": "n>=40, partial Spearman \u03c1<0, p<0.05 (PR 229 / GSE4573). Not applicable: CLDN4 n=0.",
+  "panel_inventory_spearman": [
+    {
+      "gene_x": "CD8A",
+      "gene_y": "CD274",
+      "subset": "all_tumors",
+      "role": "panel_inventory_not_claim",
+      "n": 72,
+      "rho": 0.420375003447071,
+      "p": 0.00023648649592326691,
+      "ci_low": 0.21678512444549103,
+      "ci_high": 0.591007259585753
+    },
+    {
+      "gene_x": "CD8A",
+      "gene_y": "IFNG",
+      "subset": "all_tumors",
+      "role": "panel_inventory_not_claim",
+      "n": 72,
+      "rho": 0.3617484957751393,
+      "p": 0.0017945170057780692,
+      "ci_low": 0.14204965387276594,
+      "ci_high": 0.5623926639613133
+    },
+    {
+      "gene_x": "CD274",
+      "gene_y": "IFNG",
+      "subset": "all_tumors",
+      "role": "panel_inventory_not_claim",
+      "n": 72,
+      "rho": 0.262328579289796,
+      "p": 0.026006316015841937,
+      "ci_low": 0.032366259211083014,
+      "ci_high": 0.47895268507851213
+    },
+    {
+      "gene_x": "CD8A",
+      "gene_y": "ImmuneScore_A1_7of8",
+      "subset": "all_tumors",
+      "role": "panel_inventory_not_claim",
+      "n": 72,
+      "rho": 0.7651529064052024,
+      "p": 5.067355544780642e-15,
+      "ci_low": 0.6204698059241496,
+      "ci_high": 0.8612007248499054
+    },
+    {
+      "gene_x": "CD274",
+      "gene_y": "ImmuneScore_A1_7of8",
+      "subset": "all_tumors",
+      "role": "panel_inventory_not_claim",
+      "n": 72,
+      "rho": 0.3576512574781205,
+      "p": 0.002039843327123499,
+      "ci_low": 0.12389453837384645,
+      "ci_high": 0.5645105350820568
+    },
+    {
+      "gene_x": "CD274",
+      "gene_y": "pdl1_ihc",
+      "subset": "all_tumors",
+      "role": "panel_inventory_not_claim",
+      "n": 71,
+      "rho": 0.07227714731144386,
+      "p": 0.5491780648124897,
+      "ci_low": -0.16391403838109647,
+      "ci_high": 0.2874862334223062
+    }
+  ],
+  "histology_contrast": [
+    {
+      "gene": "CD8A",
+      "n_LUAD": 34,
+      "n_LUSC": 27,
+      "median_LUAD": 7.5,
+      "median_LUSC": 8.0,
+      "mwu_U": 462.0,
+      "mwu_p": 0.9702081953493362,
+      "role": "panel_inventory_not_claim"
+    },
+    {
+      "gene": "CD274",
+      "n_LUAD": 34,
+      "n_LUSC": 27,
+      "median_LUAD": 7.0,
+      "median_LUSC": 7.0,
+      "mwu_U": 447.0,
+      "mwu_p": 0.8641363804366236,
+      "role": "panel_inventory_not_claim"
+    },
+    {
+      "gene": "IFNG",
+      "n_LUAD": 34,
+      "n_LUSC": 27,
+      "median_LUAD": 4.0,
+      "median_LUSC": 5.0,
+      "mwu_U": 355.0,
+      "mwu_p": 0.1274556949853892,
+      "role": "panel_inventory_not_claim"
+    },
+    {
+      "gene": "ImmuneScore_A1_7of8",
+      "n_LUAD": 34,
+      "n_LUSC": 27,
+      "median_LUAD": 0.021526330913808258,
+      "median_LUSC": -0.14144487274587808,
+      "mwu_U": 481.0,
+      "mwu_p": 0.754900004574649,
+      "role": "panel_inventory_not_claim"
+    },
+    {
+      "gene": "IFN_Ayers_4of6",
+      "n_LUAD": 34,
+      "n_LUSC": 27,
+      "median_LUAD": -0.0006457547195660163,
+      "median_LUSC": -0.08767917796684568,
+      "mwu_U": 503.0,
+      "mwu_p": 0.5276232724939327,
+      "role": "panel_inventory_not_claim"
+    }
+  ],
+  "geo_matrix_url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE309nnn/GSE309652/matrix/GSE309652_series_matrix.txt.gz",
+  "gpl_soft_url": "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPL31nnn/GPL31904/soft/GPL31904_family.soft.gz"
+}

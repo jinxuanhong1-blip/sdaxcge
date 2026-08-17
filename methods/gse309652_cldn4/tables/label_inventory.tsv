@@ -1,0 +1,25 @@
+item	public	n	note
+arrays in series matrix	yes	72	GSM9271195–GSM9271266; 768 genes × 72 GSM
+unique GSM / unique titles	yes	72	all unique pathology IDs
+source / tissue	yes	72	archival tumor; source_name = histology; no adjacent-normal rows
+histology LUAD (Adenocarcinoma)	yes	34	GEO tissue characteristic, not inferred
+histology LUSC (Squamous cell carcinoma)	yes	27	GEO tissue characteristic, not inferred
+histology Other	yes	11	GEO code Other; not recoded to LUAD/LUSC
+anti-PD-(L)1 ICI cohort	yes	72	stage IV NSCLC; pretreatment archival tumor
+ICI response R / NR	yes	72	24 R / 48 NR
+PD-L1 IHC numeric	yes	71	GEO pdl1 percent
+SUVmax numeric	yes	69	PET; not this claim
+EGFR / ALK / p53 / PI3K	yes	72	binary/coded on GEO; not this claim
+age <65 / >=65	yes	72	binned only
+stage (beyond IV enrollment)	no	0	cohort is stage IV; no TNM on GEO
+tumor % / ESTIMATE purity	no	0	not deposited; epithelial 6-gene set is 0/6
+OS / PFS time	no	0	design text mentions survival; times are not GEO characteristics
+CLDN4 on matrix / GPL31904	no	0	0/768 symbols; 0 CLDN* genes; GPL SOFT has no CLDN4
+CD8A finite	yes	72	symbol CD8A
+CD274 finite	yes	72	symbol CD274
+IFNG finite	yes	72	symbol IFNG
+ImmuneScore A1 8-gene	partial	72	7/8 present; missing CXCL10
+IFN Ayers-6	partial	72	4/6 present; missing CXCL10,HLA-DRA
+epithelial mean-z (6-gene)	no	0	0/6; missing EPCAM,KRT8,KRT18,KRT19,CDH1,KRT7; KRT1 is on panel and is not used as a substitute
+TACSTD2 companion	no	0	not on GPL31904; not substituted
+primary pairwise n (CLDN4 + any partner)	no	0	CLDN4 row does not exist
