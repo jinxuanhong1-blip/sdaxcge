@@ -1,0 +1,8 @@
+field	present	n	notes
+TPM_patients	True	355	GSE218989_SMC_KAIST_TPM_matrix_pc_rmdupli.txt.gz; paper text 497, public matrix 355
+GEO_treatment_outcome	True	355	Responder 168 / Non-responder 187; series matrix
+GEO_histology	False	0	not a series-matrix characteristic; LUAD vs LUSC not split
+CXCL9	True	355	single-gene log2(TPM+1)
+CXCL10	True	355	in Ayers6; not in GEP18
+CXCL13	True	355	TLS-associated chemokine; not in GEP18 or Ayers6
+GEP18	True	355	18/18 genes; unweighted mean-z; includes CD274 as 1/18, not isolated here
