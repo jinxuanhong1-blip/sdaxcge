@@ -172,25 +172,27 @@ def main() -> None:
     adata = AnnData(X=Xall, obs=obs, var=pd.DataFrame(index=pd.Index(genes, name="gene")))
     adata.obs_names = pd.Index(cells_all, name="cell")
     adata.var_names_make_unique()
-    adata.uns["extract"] = {
+    # keep uns JSON-safe (no list-of-dicts) so h5ad write succeeds
+    lineage_counts = {str(k): int(v) for k, v in adata.obs["lineage"].value_counts().items()}
+    extract = {
         "accession": "GSE148071",
         "paper": "Wu et al. Nat Commun 2021 PMID 33953163",
         "n_geo_samples": 42,
         "n_tisch_cells": 82267,
         "n_tisch_epithelial": int(len(tisch)),
         "n_matched": int(adata.n_obs),
-        "lineage_counts": adata.obs["lineage"].value_counts().to_dict(),
-        "patient_counts": adata.obs["patient"].value_counts().to_dict(),
-        "samples": sample_rows,
+        "n_genes": int(adata.n_vars),
         "counts": "GEO raw UMI (GSE148071_RAW.tar)",
         "labels": "TISCH2 CellMetainfo major-lineage",
     }
+    adata.uns["extract"] = extract
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    adata.write_h5ad(out)
-    (out.parent / "extract_summary.json").write_text(
-        json.dumps(adata.uns["extract"], indent=2, default=str)
+    summary_path = out.parent / "extract_summary.json"
+    summary_path.write_text(
+        json.dumps({**extract, "lineage_counts": lineage_counts, "samples": sample_rows}, indent=2)
     )
+    adata.write_h5ad(out)
     print(
         json.dumps(
             {
