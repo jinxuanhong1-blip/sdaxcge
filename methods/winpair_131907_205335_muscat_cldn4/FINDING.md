@@ -32,9 +32,9 @@ Winning-pair labels (PR #320 author %pos):
 | contrast | compartment | n_low / n_high | n_genes | note |
 |---|---|---:|---:|---|
 | Q4 vs Q1 combined | malignant | 11/11 | 15883 | cohort covariate; P4001 out of malignant matrix |
-| Q4 vs Q1 combined | T/NK | 0/0 | 0 | same Q labels; T/NK from those patients |
+| Q4 vs Q1 combined | T/NK | 12/11 | 12020 | same Q labels; T/NK from those patients |
 | continuous combined | malignant | n=42 | 16825 | CLDN4 %pos z |
-| continuous combined | T/NK | n=0 | 0 | CLDN4 %pos z |
+| continuous combined | T/NK | n=43 | 12735 | CLDN4 %pos z |
 
 Per-cohort Q4 vs Q1 n is in `tables/n_honest.tsv`. Do not quote a pooled n that
 ignores the sample-vs-patient unit difference on GSE131907.
@@ -54,7 +54,17 @@ Positive logFC = higher in CLDN4-high (Q4) than CLDN4-low (Q1).
 
 ### T/NK cells (same patients)
 
-_No family rows (contrast not run)._
+| family | n_tested | n p<0.05 (up/down) | n FDR<0.05 | median logFC | top gene (logFC, p, FDR) |
+|---|---:|---|---:|---:|---|
+| IFN | 206 | 39 (0/39) | 0 | -0.452 | JAK2 (-1.348, 0.000934, 0.3402) |
+| MHC | 29 | 4 (0/4) | 0 | -0.453 | PSMB10 (-1.099, 0.004764, 0.4229) |
+| TJ | 149 | 35 (20/15) | 0 | -0.050 | CLDN4 (+3.487, 0.0003, 0.242) |
+| chemokine | 20 | 3 (0/3) | 0 | -0.531 | CCL2 (-1.412, 0.01425, 0.4534) |
+
+T/NK top TJ hits are **epithelial genes** (CLDN4, CDH1, CLDN3, TJP1). That is
+ambient / doublet leakage from malignant cells, not a T/NK tight-junction
+program. The T/NK IFN arm is one-sided down (39/39 p<0.05 genes down; JAK2
+top). Do not quote T/NK CLDN4 logFC as a lymphocyte finding.
 
 Headline genes (combined Q4 vs Q1, family members only, lowest p):
 
@@ -68,6 +78,14 @@ Headline genes (combined Q4 vs Q1, family members only, lowest p):
 | malignant | chemokine | CCL3 | 11 | 11 | -2.333 | 0.0007827 | 0.1259 |
 | malignant | TJ | PARD6A | 11 | 11 | +1.672 | 0.001065 | 0.1382 |
 | malignant | IFN | GBP2 | 11 | 11 | -2.678 | 0.001173 | 0.1396 |
+| T/NK | TJ | CLDN4 | 12 | 11 | +3.487 | 0.0003 | 0.242 |
+| T/NK | TJ | CDH1 | 12 | 11 | +2.300 | 0.0003367 | 0.242 |
+| T/NK | TJ | CLDN3 | 12 | 11 | +3.253 | 0.00034 | 0.242 |
+| T/NK | IFN | JAK2 | 12 | 11 | -1.348 | 0.000934 | 0.3402 |
+| T/NK | TJ | MARVELD2 | 12 | 11 | +1.413 | 0.001883 | 0.4166 |
+| T/NK | TJ | EPB41L4B | 12 | 11 | +1.404 | 0.002591 | 0.4166 |
+| T/NK | TJ | TJP1 | 12 | 11 | +1.706 | 0.003841 | 0.4218 |
+| T/NK | TJ | F11R | 12 | 11 | +0.869 | 0.004729 | 0.4229 |
 
 ## What this is not
 

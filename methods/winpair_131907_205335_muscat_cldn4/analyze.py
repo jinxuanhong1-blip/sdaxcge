@@ -552,6 +552,11 @@ Positive logFC = higher in CLDN4-high (Q4) than CLDN4-low (Q1).
 
 {fam_md("T/NK", "q4q1_combined")}
 
+T/NK top TJ hits are **epithelial genes** (CLDN4, CDH1, CLDN3, TJP1). That is
+ambient / doublet leakage from malignant cells, not a T/NK tight-junction
+program. The T/NK IFN arm is one-sided down (39/39 p<0.05 genes down; JAK2
+top). Do not quote T/NK CLDN4 logFC as a lymphocyte finding.
+
 Headline genes (combined Q4 vs Q1, family members only, lowest p):
 
 {headline.get("md", "_none_")}
