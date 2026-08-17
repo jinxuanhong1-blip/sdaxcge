@@ -1,0 +1,10 @@
+# Raw/large data — downloaded from GEO, not committed
+data/
+*.txt.gz
+*.h5ad
+*.npz
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
