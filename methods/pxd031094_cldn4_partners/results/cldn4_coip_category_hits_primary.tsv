@@ -1,0 +1,14 @@
+rank	gene	uniprot	protein_name	is_bait	exclusive	stringent	n_cldn4	n_gfp	mean_lfq_cldn4	mean_lfq_gfp	log2fc	p_mod	fdr_mod	p_welch	fdr_welch	unique_peptides	razor_unique_peptides	categories	majority_protein_ids
+1	CLDN4	O14493	Claudin-4	True	True	True	4	0	2.58958e+09		10.3761	1.86938e-17	4.09021e-14	5.17515e-05	0.00781719	3	4	TJ	O14493
+2	OAS1	F1PLW6	2-5-oligoadenylate synthetase 1	False	True	True	4	0	9.9739e+07		5.76434	1.17202e-15	8.94719e-13	1.18591e-06	0.00128484	5	5	IFN;immune	F1PLW6
+3	CLDN3	Q95KM5	Claudin-3	False	False	True	4	2	3.58205e+07	2.1424e+07	2.48622	0.00175442	0.0142975	0.0914742	0.236299	2	2	TJ	Q95KM5
+4	MPP7	F1P8X0	Membrane palmitoylated protein 7	False	False	True	4	4	3.26212e+08	1.16051e+08	1.49544	3.3319e-06	0.000260364	0.000179386	0.0110431	11	11	TJ	F1P8X0
+5	ISG15	E2R7R1	ISG15 ubiquitin-like modifier	False	False	True	4	4	2.74675e+08	1.22224e+08	1.26934	0.000463369	0.00528047	0.026421	0.121448	5	5	IFN;immune	E2R7R1
+6	OAS2	F1PTR7	2-5-oligoadenylate synthetase 2	False	False	True	4	4	3.27488e+08	1.34852e+08	1.26165	7.0892e-05	0.0020961	0.0027246	0.0346736	4	5	IFN;immune	F1PTR7
+7	KIF22	E2RRZ0	Kinesin-like protein	False	False	True	4	4	2.909e+08	1.28966e+08	1.19828	0.000256409	0.003643	0.00737172	0.0576047	11	11	trafficking	E2RRZ0;E2RRY9
+8	CDC42	P60952	Cell division control protein 42 homolog	False	False	True	4	4	1.52822e+09	7.66028e+08	1.00497	0.000129527	0.00318432	0.000604164	0.0189299	8	10	TJ	P60952;J9P730
+9	SYNPO	J9P7S2	Synaptopodin	False	False	True	4	4	4.9032e+08	2.5186e+08	1.0039	0.000539512	0.00596188	0.0131602	0.0794505	13	13	TJ	J9P7S2;E2RG15
+10	PARD3B	F1PUY2	Par-3 family cell polarity regulator beta	False	True	False	2	0	7.28245e+07		2.65551	0.0135379	0.0563135	0.18175	0.356432	3	3	TJ	F1PUY2;J9P593
+11	EPN2	F1P9H0	Epsin 2	False	True	False	2	0	5.62175e+07		2.46726	0.0137983	0.0563672	0.181876	0.356432	2	2	trafficking	F1P9H0
+12	ICAM1	P33729	Intercellular adhesion molecule 1 (Fragment)	False	True	False	2	0	3.91615e+07		2.20558	0.0142583	0.0563672	0.182007	0.356432	2	2	IFN;TJ;immune	P33729;F1PB95
+13	RABL3	E2R3T1	RAB, member of RAS oncogene family like 3	False	True	False	2	0	3.68715e+07		2.16383	0.0143046	0.0563672	0.181851	0.356432	2	2	trafficking	E2R3T1
