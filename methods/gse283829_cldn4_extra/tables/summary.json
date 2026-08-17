@@ -1,0 +1,25 @@
+{
+  "cohort": "GSE283829",
+  "n_geo": 27,
+  "n_q1": 7,
+  "n_q4": 7,
+  "immune_genes_used": 141,
+  "stromal_genes_used": 141,
+  "mhc_i_genes": [
+    "HLA-A",
+    "HLA-B",
+    "HLA-C"
+  ],
+  "known_immune_spearman": {
+    "n": 27,
+    "rho": -0.5671550671550671,
+    "p": 0.0020357432118934676
+  },
+  "reproduced_immune_spearman": {
+    "n": 27,
+    "rho": -0.5671550671550671,
+    "p": 0.0020357432118934676
+  },
+  "seed": 20260817,
+  "bootstrap": 2000
+}

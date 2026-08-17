@@ -1,0 +1,8 @@
+item	n	note
+GEO RNA-seq samples (matrix n)	27	do not write a larger n
+CR / SD / PD	7 / 10 / 10	GEO disease stage; no PR
+continuous extra tests (CLDN4 vs CD274/HLA)	27	pairwise-complete; all genes present
+ESTIMATE ImmuneScore genes used	141	141/141 Yoshihara immune genes mapped
+MHC-I mean-z genes	3/3	HLA-A,HLA-B,HLA-C
+CLDN4 Q1 / Q2 / Q3 / Q4	7 / 7 / 6 / 7	rank(method=first) then qcut; ties do not inflate a bin
+Q4 vs Q1 used	7 vs 7	middle 13 samples excluded; do not write n=27 for Q4 vs Q1

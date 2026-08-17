@@ -1,0 +1,21 @@
+family	test	endpoint	metric	n	n_q1	n_q4	effect	p	note	median_q1	median_q4	delta_median	U	rank_biserial	rb_lo	rb_hi
+already_known	CLDN4_vs_ImmuneScore_continuous	ImmuneScore	Spearman_rho	27			-0.5671550671550671	0.0020357432118934676	already on leftover OPEN lung ICI bulk page; not a new claim							
+extra_continuous	CLDN4_vs_CD274	CD274	Spearman_rho	27			-0.37484737484737485	0.05404088338431772	log2(CPM+1); extra cut (not on leftover continuous ImmuneScore row)							
+extra_partial	CLDN4_vs_CD274_partial_ImmuneScore	CD274	partial_Spearman_rho	27			-0.23261166614724166	0.2528186243867921	partial Spearman after ESTIMATE ImmuneScore mean-z							
+extra_continuous	CLDN4_vs_HLA-A	HLA-A	Spearman_rho	27			-0.16056166056166057	0.4236902116698332	log2(CPM+1); extra cut (not on leftover continuous ImmuneScore row)							
+extra_partial	CLDN4_vs_HLA-A_partial_ImmuneScore	HLA-A	partial_Spearman_rho	27			0.05412377196389154	0.7928607965760872	partial Spearman after ESTIMATE ImmuneScore mean-z							
+extra_continuous	CLDN4_vs_HLA-B	HLA-B	Spearman_rho	27			-0.10073260073260072	0.6171250034863561	log2(CPM+1); extra cut (not on leftover continuous ImmuneScore row)							
+extra_partial	CLDN4_vs_HLA-B_partial_ImmuneScore	HLA-B	partial_Spearman_rho	27			0.1237105015381721	0.5471082809426439	partial Spearman after ESTIMATE ImmuneScore mean-z							
+extra_continuous	CLDN4_vs_HLA-C	HLA-C	Spearman_rho	27			-0.3217338217338217	0.10173092084859306	log2(CPM+1); extra cut (not on leftover continuous ImmuneScore row)							
+extra_partial	CLDN4_vs_HLA-C_partial_ImmuneScore	HLA-C	partial_Spearman_rho	27			-0.2516311353895649	0.21496045918583714	partial Spearman after ESTIMATE ImmuneScore mean-z							
+extra_continuous	CLDN4_vs_HLA-DRA	HLA-DRA	Spearman_rho	27			-0.1862026862026862	0.3524108083356056	log2(CPM+1); extra cut (not on leftover continuous ImmuneScore row)							
+extra_partial	CLDN4_vs_HLA-DRA_partial_ImmuneScore	HLA-DRA	partial_Spearman_rho	27			0.3312632464713361	0.09831064906030841	partial Spearman after ESTIMATE ImmuneScore mean-z							
+extra_continuous	CLDN4_vs_MHC_I	MHC_I	Spearman_rho	27			-0.24236874236874237	0.22320307469992504	log2(CPM+1); extra cut (not on leftover continuous ImmuneScore row)							
+extra_partial	CLDN4_vs_MHC_I_partial_ImmuneScore	MHC_I	partial_Spearman_rho	27			-0.052627055601517356	0.7984716934129727	partial Spearman after ESTIMATE ImmuneScore mean-z							
+extra_q4q1	CLDN4_Q4_vs_Q1_ImmuneScore	ImmuneScore	MWU_Q4_minus_Q1	14	7	7	-0.6734693877551021	0.03787878787878788	CLDN4 rank-qcut Q4 vs Q1; middle quartiles excluded	0.4206341604131677	-0.3984409313882139	-0.8190750918013816	8.0	-0.6734693877551021	-1.0	-0.1428571428571429
+extra_q4q1	CLDN4_Q4_vs_Q1_CD274	CD274	MWU_Q4_minus_Q1	14	7	7	-0.4285714285714286	0.20862470862470864	CLDN4 rank-qcut Q4 vs Q1; middle quartiles excluded	4.755769047269379	3.4689735767128225	-1.286795470556557	14.0	-0.4285714285714286	-1.0	0.4285714285714286
+extra_q4q1	CLDN4_Q4_vs_Q1_HLA-A	HLA-A	MWU_Q4_minus_Q1	14	7	7	-0.26530612244897955	0.45571095571095577	CLDN4 rank-qcut Q4 vs Q1; middle quartiles excluded	10.044630028709074	9.460117627116091	-0.584512401592983	18.0	-0.26530612244897955	-1.0	0.3877551020408163
+extra_q4q1	CLDN4_Q4_vs_Q1_HLA-B	HLA-B	MWU_Q4_minus_Q1	14	7	7	-0.22448979591836737	0.534965034965035	CLDN4 rank-qcut Q4 vs Q1; middle quartiles excluded	10.70154736060605	10.414208853034983	-0.28733850757106616	19.0	-0.22448979591836737	-0.8367346938775511	0.4285714285714286
+extra_q4q1	CLDN4_Q4_vs_Q1_HLA-C	HLA-C	MWU_Q4_minus_Q1	14	7	7	-0.4693877551020408	0.16491841491841494	CLDN4 rank-qcut Q4 vs Q1; middle quartiles excluded	10.115524567047295	9.465843194693113	-0.6496813723541823	13.0	-0.4693877551020408	-1.0	0.1428571428571428
+extra_q4q1	CLDN4_Q4_vs_Q1_HLA-DRA	HLA-DRA	MWU_Q4_minus_Q1	14	7	7	-0.1428571428571429	0.7103729603729605	CLDN4 rank-qcut Q4 vs Q1; middle quartiles excluded	8.707129089128104	8.637129866147049	-0.0699992229810551	21.0	-0.1428571428571429	-0.7142857142857143	0.510204081632653
+extra_q4q1	CLDN4_Q4_vs_Q1_MHC_I	MHC_I	MWU_Q4_minus_Q1	14	7	7	-0.34693877551020413	0.31759906759906764	CLDN4 rank-qcut Q4 vs Q1; middle quartiles excluded	0.8666685516659453	0.02826425211016805	-0.8384042995557772	16.0	-0.34693877551020413	-1.0	0.26530612244897966
