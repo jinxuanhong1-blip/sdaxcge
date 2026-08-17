@@ -108,7 +108,7 @@ def _read_10x_features(tf: tarfile.TarFile, members: dict, sample: str) -> list[
 
 def _extract_mtx(tf: tarfile.TarFile, members: dict, sample: str, dest: Path) -> Path:
     name = next(n for n in members if f"_{sample}_matrix.mtx" in n)
-    dest.parent.mkdir(parents=True, exist_ok=True)
+    dest.mkdir(parents=True, exist_ok=True)
     out = dest / f"{sample}_matrix.mtx"
     if out.exists() and out.stat().st_size > 1_000_000:
         return out

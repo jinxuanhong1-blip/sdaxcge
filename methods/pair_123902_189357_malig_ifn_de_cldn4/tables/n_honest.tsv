@@ -1,0 +1,7 @@
+contrast	compartment	cohort	split	n_low	n_high	n	n_genes	patients_q1	patients_q4	note
+malignant_q4q1_GSE123902	malignant	GSE123902	q4q1	4.0	3.0	7	11874	LX675,LX682,LX699,LX701	LX653,LX680,LX684	thin tails
+malignant_continuous_GSE123902	malignant	GSE123902	continuous			13	13549			
+malignant_q4q1_GSE189357	malignant	GSE189357	q4q1	3.0	2.0	5	0	TD2,TD4,TD7	TD6,TD9	thin tail n_Q1=3 n_Q4=2 (need ≥3 each)
+malignant_continuous_GSE189357	malignant	GSE189357	continuous			9	15607			
+malignant_q4q1_combined	malignant	GSE123902+GSE189357	q4q1	7.0	5.0	12	13754	LX675,LX682,LX699,LX701,TD2,TD4,TD7	LX653,LX680,LX684,TD6,TD9	thin tails 7/5; cohort covariate
+malignant_continuous_combined	malignant	GSE123902+GSE189357	continuous			22	14593			CLDN4 %pos z; n=22

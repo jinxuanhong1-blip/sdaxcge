@@ -607,9 +607,12 @@ Headline family genes (combined Q4 vs Q1, lowest p):
 
 {headline.get("md", "_none_")}
 
-Continuous (n=22) family summary is in `tables/family_summary.tsv` (contrast
-`continuous_combined`). It is the better-powered direction check when the
+### Continuous CLDN4 %pos (n=22, cohort covariate)
+
+Same sign as Q4 vs Q1. This is the better-powered direction check when the
 Q4 tail is only 5 donors/patients.
+
+{fam_md("continuous_combined")}
 
 ## What this is not
 
