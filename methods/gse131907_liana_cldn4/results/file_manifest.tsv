@@ -1,0 +1,5 @@
+file	size_bytes	size_gb	within_2gb_budget	action	url
+GSE131907_Lung_Cancer_cell_annotation.txt.gz	1886187	0.002	True	download	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131907/suppl/GSE131907_Lung_Cancer_cell_annotation.txt.gz
+GSE131907_series_matrix.txt.gz	6300	0.0	True	download	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131907/matrix/GSE131907_series_matrix.txt.gz
+GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz	408736818	0.381	True	download	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131907/suppl/GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz
+GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz	3065932358	2.855	False	skip_over_2gb	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE131nnn/GSE131907/suppl/GSE131907_Lung_Cancer_normalized_log2TPM_matrix.txt.gz

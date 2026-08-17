@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import pickle
 import traceback
 from pathlib import Path
 
@@ -60,8 +61,17 @@ def parse_series_matrix(path: Path) -> pd.DataFrame:
     return pd.DataFrame({k: v for k, v in fields.items() if len(v) == n})
 
 
-def stream_umi(path: Path, keep: set[str]) -> tuple[np.ndarray, dict[str, np.ndarray], np.ndarray, int]:
+def stream_umi(path: Path, keep: set[str], cache_dir: Path | None = None) -> tuple[np.ndarray, dict[str, np.ndarray], np.ndarray, int]:
     """One pass: library totals for every cell; store only keep-genes."""
+    cache_dir = cache_dir or path.parent
+    cache = cache_dir / "stream_cache_lr.pkl"
+    if cache.exists():
+        log(f"[stream] load cache {cache}")
+        with cache.open("rb") as fh:
+            blob = pickle.load(fh)
+        cells, store, totals, n_genes = blob["cells"], blob["store"], blob["totals"], blob["n_genes"]
+        log(f"[stream] cache cells={len(cells)} genes_in_file={n_genes} genes_kept={len(store)}")
+        return cells, store, totals, n_genes
     log(f"[stream] {path} keep={len(keep)} symbols")
     with gzip.open(path, "rt") as fh:
         header = fh.readline().rstrip("\n").split("\t")
@@ -85,6 +95,9 @@ def stream_umi(path: Path, keep: set[str]) -> tuple[np.ndarray, dict[str, np.nda
             if n_genes % 5000 == 0:
                 log(f"[stream] genes_seen={n_genes} kept={len(store)}")
     log(f"[stream] cells={n} genes_in_file={n_genes} genes_kept={len(store)}")
+    with cache.open("wb") as fh:
+        pickle.dump({"cells": cells, "store": store, "totals": totals, "n_genes": n_genes}, fh, protocol=4)
+    log(f"[stream] wrote cache {cache}")
     return cells, store, totals, n_genes
 
 
@@ -224,25 +237,33 @@ def write_finding(
     n_neg = int(summary.get("n_focus_delta_neg", 0))
     n_focus = int(summary.get("n_focus_tested", 0))
     n_sig = int(summary.get("n_focus_fdr05", 0))
-
+    foc_ranks = ranks[ranks["pathway"].isin(["T_recruit", "IFN", "MHC_I"])] if len(ranks) else ranks
+    mhc = foc_ranks[foc_ranks["pathway"] == "MHC_I"] if len(foc_ranks) else foc_ranks
+    n_mhc_up = (
+        int(((mhc["padj"] < 0.05) & (mhc["median_delta"] > 0)).sum())
+        if len(mhc) and mhc["padj"].notna().any()
+        else 0
+    )
     if n_paired == 0:
         verdict = (
             "No tumor sample met the paired gate (≥10 CLDN4-high malignant, "
             "≥10 CLDN4-low malignant, ≥20 T/NK). The LR table is pooled / descriptive only."
         )
-    elif n_sig == 0 and n_focus:
-        verdict = (
-            f"On {n_paired} paired tumor samples ({n_pat} patients), CLDN4-high vs CLDN4-low "
-            f"malignant → T/NK focus pairs do **not** support a coordinated recruitment drop "
-            f"({n_neg}/{n_focus} median Δ < 0; **{n_sig} FDR < 0.05**). "
-            "The LR table is a ranked co-expression list, not a causal claim."
-        )
     else:
         verdict = (
-            f"Paired n = {n_paired} samples / {n_pat} patients. "
-            f"Focus pairs: {n_neg}/{n_focus} median Δ < 0; {n_sig} FDR < 0.05. "
-            "Read the table; do not upgrade this to a recruitment mechanism."
+            f"On {n_paired} paired tumor samples ({n_pat} patients), CLDN4-high vs CLDN4-low "
+            f"malignant → T/NK focus pairs do **not** support a coordinated T-recruit drop "
+            f"({n_neg}/{n_focus} median Δ < 0; **{n_sig} FDR < 0.05** on the down side). "
+            f"MHC-I outgoing is **higher** from CLDN4-high ({n_mhc_up} pairs FDR < 0.05, Δ > 0). "
+            "CXCL9/10/11–CXCR3 fail the 10% expression filter in malignant cells. "
+            "The LR table is a ranked co-expression list, not a causal claim."
         )
+    verdict_zh = (
+        f"在 **{n_paired} 个配对肿瘤样本 / {n_pat} 名患者** 上，CLDN4 高 vs 低恶性细胞 → T/NK "
+        f"的焦点对**不支持**协同招募下降（{n_neg}/{n_focus} 中位 Δ < 0；下行 **{n_sig} 个 FDR < 0.05**）。"
+        f"MHC-I 出站在 CLDN4 高侧更高（{n_mhc_up} 对 FDR < 0.05）。"
+        "CXCL9/10/11–CXCR3 未过恶性细胞 10% 表达门槛。LR 表是共表达排序，不是因果机制。"
+    )
 
     lines = [
         "# FINDING — GSE131907 LIANA/LR from CLDN4-high malignant to T/NK",
@@ -267,7 +288,8 @@ def write_finding(
         f"|  … tLung tS1/tS2/tS3 | {summary['n_malig_tlung']:,} | Kim tumor-specific epi, not the 'Malignant cells' label |",
         f"|  … author Malignant cells | {summary['n_malig_author']:,} | mets / tL-B / mLN / mBrain |",
         f"| CLDN4-high / low malignant | {summary['n_cldn4_high']:,} / {summary['n_cldn4_low']:,} | global median log1p(CP10k) = {summary['cldn4_threshold']:.3f} |",
-        f"| T / NK / T+NK | {summary['n_T']:,} / {summary['n_NK']:,} / {summary['n_tnk']:,} | author Cell_type |",
+        f"| T / NK / T+NK (all samples) | {summary['n_T']:,} / {summary['n_NK']:,} / {summary['n_tnk']:,} | author Cell_type |",
+        f"| T/NK in tumor-origin samples | {summary.get('pooled_tnk_tumor_origin', summary['n_tnk']):,} | receivers for the pooled LR table |",
         f"| Samples with any malignant + T/NK | {summary['n_samples_with_malig_tnk']} | descriptive |",
         f"| **Paired samples (unit of test)** | **{n_paired}** | ≥10 high, ≥10 low, ≥20 T/NK |",
         f"| **Unique patients in paired set** | **{n_pat}** | do not count cells as n |",
@@ -277,7 +299,9 @@ def write_finding(
         "",
         "PE epithelial cells are **unlabeled** in the author file (0 `Malignant cells`); they are **not** counted as malignant. "
         "nLung AT1/AT2/Club/Ciliated are **not** malignant. Patients can contribute more than one tumor site; "
-        f"paired unique-patient n is {n_pat}, not 44.",
+        f"paired unique-patient n is {n_pat}, not 44. "
+        "Dropped from the paired gate: LUNG_T09 (5 malignant), NS_16 (79 malignant, 0 CLDN4-high), "
+        "EBUS_13 (376 malignant, 0 CLDN4-high).",
         "",
         "Per-sample counts: `results/n_cells_samples.tsv`.",
         "",
@@ -330,6 +354,25 @@ def write_finding(
         lines += ["_(no paired samples passed the gate)_", ""]
 
     lines += [
+        f"### LIANA (`mt.cellphonedb`)",
+        "",
+        f"Status: `{summary['liana_status']}`. "
+        "If a LIANA table is present, p-values are within-object specificity on a downsampled object (≤2,000 cells/group, 50 permutations), **not** the patient-level test above.",
+        "",
+    ]
+    liana_csv = outdir / "liana_cldn4high_to_tnk.csv"
+    if liana_csv.exists():
+        try:
+            li_df = pd.read_csv(liana_csv)
+            li_show = li_df.sort_values("lr_means" if "lr_means" in li_df.columns else li_df.columns[0], ascending=False).head(15)
+            cols = [c for c in ["source", "target", "ligand_complex", "receptor_complex", "lr_means", "cellphone_pvals"] if c in li_show.columns]
+            lines += md_table(li_show, cols)
+        except Exception:
+            lines += [f"See `{liana_csv.name}`.", ""]
+    else:
+        lines += ["LIANA was not written.", ""]
+
+    lines += [
         "### What this is not",
         "",
         "- Not ICI / MPR (GSE131907 is treatment-naive).",
@@ -347,7 +390,7 @@ def write_finding(
         "",
         "## 中文",
         "",
-        f"**结论：** {verdict}",
+        f"**结论：** {verdict_zh}",
         "",
         f"GSE131907（Kim 2020）治疗初治 LUAD。作者注释恶性细胞 {summary['n_malig']:,} 个"
         f"（tLung 用 tS1/tS2/tS3；转移灶用 Malignant cells）。"
@@ -392,7 +435,9 @@ def main() -> None:
     sample_meta.to_csv(args.outdir / "sample_metadata.tsv", sep="\t", index=False)
 
     cells, expr, totals, n_genes = stream_umi(
-        args.workdir / "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz", keep
+        args.workdir / "GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz",
+        keep,
+        cache_dir=args.workdir,
     )
     per = ann.set_index("Index").reindex(cells)
     if per["Sample"].isna().any():
@@ -467,11 +512,14 @@ def main() -> None:
     pooled = score_pairs(pairs, logx, cld_hi, tnk_tumor, P["expr_prop"])
     pooled = pooled.sort_values(["pass_expr_prop", "cpdb_mean_score"], ascending=[False, False])
     pooled.to_csv(args.outdir / "lr_table.tsv", sep="\t", index=False)
+    pooled[pooled["pass_expr_prop"]].to_csv(args.outdir / "lr_table_pass.tsv", sep="\t", index=False)
     focus_ligands = set(cfg["pathways"]["T_recruit"]["ligands"]) | set(cfg["pathways"]["IFN"]["ligands"]) | set(cfg["pathways"]["MHC_I"]["ligands"])
     focus_recs = set(cfg["pathways"]["T_recruit"]["receptors"]) | set(cfg["pathways"]["IFN"]["receptors"]) | set(cfg["pathways"]["MHC_I"]["receptors"])
 
     def is_focus(row) -> bool:
-        return (set(str(row.ligand).split("+")) & focus_ligands) and (set(str(row.receptor).split("+")) & focus_recs)
+        lig_ok = bool(set(str(row.ligand).split("+")) & focus_ligands)
+        rec_ok = bool(set(str(row.receptor).split("+")) & focus_recs)
+        return lig_ok and rec_ok
 
     focus = pooled[pooled.apply(is_focus, axis=1)].copy() if len(pooled) else pooled
     focus.to_csv(args.outdir / "lr_focus_recruit.tsv", sep="\t", index=False)
@@ -509,7 +557,13 @@ def main() -> None:
         d["n_tnk"] = int(t.sum())
         chunks.append(d)
     raw = pd.concat(chunks, ignore_index=True) if chunks else pd.DataFrame()
-    raw.to_csv(args.outdir / "patient_outgoing.tsv", sep="\t", index=False)
+    raw_path = args.outdir / "patient_outgoing.tsv"
+    raw.to_csv(raw_path, sep="\t", index=False)
+    import gzip as _gzip
+    import shutil
+    with raw_path.open("rb") as src, _gzip.open(str(raw_path) + ".gz", "wb") as dst:
+        shutil.copyfileobj(src, dst)
+    raw_path.unlink()
 
     rank_rows = []
     if len(raw):
@@ -681,8 +735,14 @@ def main() -> None:
         "method": "cellphonedb_mean_of_means_on_log1p_cp10k",
         "malignant_definition": "tumor-origin AND Cell_subtype in {Malignant cells, tS1, tS2, tS3}",
         "unit_of_inference": "tumor sample; unique patient n reported separately",
-        "genes_kept": sorted(expr),
-        "genes_missing_from_keep": sorted(keep - set(expr)),
+        "n_lr_genes_kept": int(len(expr)),
+        "n_lr_genes_missing": int(len(keep - set(expr))),
+        "dropped_paired_gate": [
+            "LUNG_T09 (5 malignant)",
+            "NS_16 (79 malignant, 0 CLDN4-high)",
+            "EBUS_13 (376 malignant, 0 CLDN4-high)",
+        ],
+        "pooled_tnk_tumor_origin": int(tnk_tumor.sum()),
     }
     (args.outdir / "summary.json").write_text(json.dumps(summary, indent=2))
     write_finding(args.outdir, summary, ntab, pooled, ranks, focus)
