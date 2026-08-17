@@ -27,9 +27,9 @@ Canonical marker scores on `log1p(CP10k)`; assigned lineage = argmax
 (same panel as the GSE148071 / GSE207422 CellChat folders). T vs NK
 broken by CD3E when scores are close.
 
-- **Malignant / sender** = epithelial lineage (putative). GSE253013 uses
-  author epithelial/malignant labels when the RDS walk recovers them.
-  GSE253013 adjacent lung (`ANT`/`NAT`) is dropped.
+- **Malignant / sender** = epithelial lineage (putative; marker-argmax) on
+  GSE148071 and GSE207422. GSE253013 uses author **Epithelial** (tumor),
+  not Airway Epithelium. Adjacent lung (`ANT`/`NAT`) is dropped.
 - **T/NK** = T or NK, merged.
 - **CXCL13+ T** = T lineage **and** CXCL13 UMI > 0.
 

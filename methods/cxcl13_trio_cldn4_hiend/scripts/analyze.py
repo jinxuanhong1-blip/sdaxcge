@@ -486,26 +486,33 @@ def load_gse253013(extracted: Path, wanted: set[str]):
     else:
         sample = np.array(["MRC_unknown"] * n, dtype=object)
     tissue = meta["tissue"].astype(str).to_numpy() if "tissue" in meta.columns else np.array(["Tumor"] * n)
-    rec = finish_cohort("GSE253013", sample, found, n_umi, {"tissue": tissue})
+    extra = {"tissue": tissue}
+    if "cell_type" in meta.columns:
+        extra["author_cell_type"] = meta["cell_type"].astype(str).to_numpy()
+    rec = finish_cohort("GSE253013", sample, found, n_umi, extra)
     # Tumor only — adjacent lung is not the CXCL13+ trio unit
     if "tissue" in rec:
         keep = rec["tissue"] == "Tumor"
-        if keep.sum() < rec["n"] and keep.sum() > 1000:
+        if 1000 < int(keep.sum()) < rec["n"]:
             print(f"  GSE253013 keep Tumor {int(keep.sum())}/{rec['n']}", flush=True)
             rec = subset_rec(rec, keep)
-    # Prefer author epithelial/malignant if present
-    if "cell_type" in meta.columns:
-        ct = meta["cell_type"].astype(str).to_numpy()
-        if "tissue" in rec and rec["n"] != len(ct):
-            ct = ct[rec.get("_keep_idx", np.arange(len(ct)))]
-        if len(ct) == rec["n"]:
-            rec["author_cell_type"] = ct
-            epi_like = np.array(
-                [re.search(r"epithel|malign|tumor|cancer|aluad|at2|club", str(x), re.I) is not None for x in ct]
+    # Author labels: Epithelial = tumor epithelium (not Airway Epithelium).
+    # T cells = author T (NK is not a separate ident here).
+    if "author_cell_type" in rec and len(rec["author_cell_type"]) == rec["n"]:
+        ct = rec["author_cell_type"]
+        mal = ct == "Epithelial"
+        tnk = ct == "T cells"
+        if int(mal.sum()) >= 50:
+            rec["is_mal"] = mal
+            print(f"  GSE253013 author tumor Epithelial n={int(mal.sum())} (Airway excluded)", flush=True)
+        if int(tnk.sum()) >= 50:
+            rec["is_tnk"] = tnk
+            cxcl = rec["found"].get("CXCL13", np.zeros(rec["n"], dtype=np.float32))
+            rec["is_cxcl13t"] = tnk & (cxcl > 0)
+            print(
+                f"  GSE253013 author T cells n={int(tnk.sum())} CXCL13+ T n={int(rec['is_cxcl13t'].sum())}",
+                flush=True,
             )
-            if epi_like.sum() >= 50:
-                rec["is_mal"] = epi_like
-                print(f"  GSE253013 author-like epithelial/malignant n={int(epi_like.sum())}", flush=True)
     return rec
 
 
