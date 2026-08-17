@@ -1,0 +1,10 @@
+data/
+*.h5ad
+*.rds
+*.rds.gz
+*.txt.gz
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+results/tables/cell_obs.tsv
+results/cytotrace2_raw/
