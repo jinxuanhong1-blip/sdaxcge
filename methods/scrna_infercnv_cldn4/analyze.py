@@ -386,7 +386,7 @@ def main() -> None:
             "pathology": str(smap.loc[samp, "Pathology"]),
             "n_cells": int(m.sum()),
             "n_tnk": int((m & is_tnk).sum()),
-            "frac_tnk": float((m & is_tnk).mean()),
+            "frac_tnk": float(is_tnk[m].mean()) if m.any() else np.nan,
             "tnk_cldn4_mean": float(cldn4[m & is_tnk].mean()) if (m & is_tnk).any() else np.nan,
             "tnk_cldn4_pctpos": float((cldn4_umi[m & is_tnk] > 0).mean()) if (m & is_tnk).any() else np.nan,
         }
