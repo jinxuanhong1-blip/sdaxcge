@@ -1,0 +1,362 @@
+{
+  "generated_at": "2026-08-17T17:30:48.503207+00:00",
+  "excluded_set": [
+    "GSE131907",
+    "GSE148071",
+    "GSE205335",
+    "GSE207422"
+  ],
+  "n_series_hunted": 6,
+  "n_usable_series": 4,
+  "n_eligible_patients": 7,
+  "n_eligible_malignant_patients": 4,
+  "n_highlighted_combos": 0,
+  "cellchat": {
+    "ran": false,
+    "reason": "no leftover series/merge with \u03c1<0 p<0.05 or clear Q4 vs Q1 drop"
+  },
+  "datasets": [
+    {
+      "dataset": "NSCLC_GSE117570",
+      "gse": "GSE117570",
+      "pmid": "31033233",
+      "paper": "Song et al. 2019, Nat Commun (10x NSCLC; tumor + NAT)",
+      "ici_gallery": "None",
+      "in_excluded_set": false,
+      "skip_reason": null,
+      "usable": true,
+      "n_cells_meta": 11453,
+      "lineages": {
+        "Mono/Macro": 3019,
+        "Malignant": 2721,
+        "CD4Tconv": 1795,
+        "CD8T": 1062,
+        "DC": 865,
+        "NK": 864,
+        "Epithelial": 501,
+        "B": 259,
+        "Endothelial": 219,
+        "Plasma": 148
+      },
+      "n_malignant": 2721,
+      "n_epithelial_nonmalig": 501,
+      "n_tnk": 3721,
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "NAT": 6581,
+        "Tumor": 4872
+      },
+      "has_cldn4_compartment": true,
+      "has_tnk": true,
+      "h5": {
+        "path": "data/tisch_leftover_merge_cldn4/NSCLC_GSE117570_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          10147,
+          11453
+        ],
+        "n_genes": 10147,
+        "n_cells": 11453,
+        "genes_present": [
+          "CLDN4",
+          "EPCAM",
+          "PTPRC",
+          "CD3D",
+          "CD8A",
+          "NKG7"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "CLDN4",
+        "EPCAM",
+        "PTPRC",
+        "CD3D",
+        "CD8A",
+        "NKG7"
+      ],
+      "n_cells_aligned": 11453,
+      "n_tumor_like_cells": 4872,
+      "n_patients_total": 4,
+      "n_patients_eligible": 2,
+      "n_patients_malignant_eligible": 2,
+      "n_samples_eligible": 2
+    },
+    {
+      "dataset": "NSCLC_GSE139555",
+      "gse": "GSE139555",
+      "pmid": "32103181",
+      "paper": "Wu/Zhang T-cell atlas (immune-sorted)",
+      "ici_gallery": "None",
+      "in_excluded_set": false,
+      "skip_reason": "no epithelial/malignant cells; CLDN4 cannot be scored",
+      "usable": false,
+      "n_cells_meta": 78829,
+      "lineages": {
+        "CD4Tconv": 31597,
+        "NK": 12091,
+        "CD8T": 12085,
+        "CD8Tex": 9190,
+        "Mono/Macro": 6344,
+        "B": 3003,
+        "Treg": 1410,
+        "Tprolif": 1282,
+        "DC": 1268,
+        "Plasma": 559
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 67655,
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "NAT": 37738,
+        "Tumor": 32876,
+        "PBMC": 8215
+      },
+      "has_cldn4_compartment": false,
+      "has_tnk": true
+    },
+    {
+      "dataset": "NSCLC_GSE146100",
+      "gse": "GSE146100",
+      "pmid": "33820821",
+      "paper": "Yang et al. 2021, 1 patient / 3 LUAD nodules after pembrolizumab",
+      "ici_gallery": "Immunotherapy",
+      "in_excluded_set": false,
+      "skip_reason": null,
+      "usable": true,
+      "n_cells_meta": 10996,
+      "lineages": {
+        "CD4Tconv": 3539,
+        "CD8T": 2670,
+        "Mono/Macro": 1588,
+        "Epithelial": 975,
+        "DC": 594,
+        "NK": 512,
+        "B": 492,
+        "Mast": 227,
+        "Endothelial": 134,
+        "Treg": 133,
+        "Fibroblasts": 132
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 975,
+      "n_tnk": 6854,
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Tumor": 10996
+      },
+      "has_cldn4_compartment": true,
+      "has_tnk": true,
+      "h5": {
+        "path": "data/tisch_leftover_merge_cldn4/NSCLC_GSE146100_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          17503,
+          10996
+        ],
+        "n_genes": 17503,
+        "n_cells": 10996,
+        "genes_present": [
+          "CLDN4",
+          "EPCAM",
+          "PTPRC",
+          "CD3D",
+          "CD8A",
+          "NKG7"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "CLDN4",
+        "EPCAM",
+        "PTPRC",
+        "CD3D",
+        "CD8A",
+        "NKG7"
+      ],
+      "n_cells_aligned": 10996,
+      "n_tumor_like_cells": 10996,
+      "n_patients_total": 1,
+      "n_patients_eligible": 1,
+      "n_patients_malignant_eligible": 0,
+      "n_samples_eligible": 3
+    },
+    {
+      "dataset": "NSCLC_GSE149655",
+      "gse": "GSE149655",
+      "pmid": "32891189",
+      "paper": "2-patient 10x (alveolar/club; no Malignant call)",
+      "ici_gallery": "None",
+      "in_excluded_set": false,
+      "skip_reason": null,
+      "usable": true,
+      "n_cells_meta": 9591,
+      "lineages": {
+        "Alveolar": 3578,
+        "CD8Tex": 1776,
+        "Mono/Macro": 1427,
+        "Endothelial": 1117,
+        "Mast": 561,
+        "Fibroblasts": 478,
+        "Ciliated": 330,
+        "Club": 211,
+        "Myofibroblasts": 113
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 4119,
+      "n_tnk": 1776,
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "tissue_col": "Tissue",
+      "tissue_values": {
+        "Normal": 5158,
+        "Tumor": 4433
+      },
+      "has_cldn4_compartment": true,
+      "has_tnk": true,
+      "h5": {
+        "path": "data/tisch_leftover_merge_cldn4/NSCLC_GSE149655_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          20131,
+          9591
+        ],
+        "n_genes": 20131,
+        "n_cells": 9591,
+        "genes_present": [
+          "CLDN4",
+          "EPCAM",
+          "PTPRC",
+          "CD3D",
+          "CD8A",
+          "NKG7"
+        ],
+        "genes_absent": []
+      },
+      "genes_present": [
+        "CLDN4",
+        "EPCAM",
+        "PTPRC",
+        "CD3D",
+        "CD8A",
+        "NKG7"
+      ],
+      "n_cells_aligned": 9591,
+      "n_tumor_like_cells": 4433,
+      "n_patients_total": 2,
+      "n_patients_eligible": 2,
+      "n_patients_malignant_eligible": 0,
+      "n_samples_eligible": 2
+    },
+    {
+      "dataset": "NSCLC_GSE143423",
+      "gse": "GSE143423",
+      "pmid": null,
+      "paper": "Brain-metastasis 10x (3 patients)",
+      "ici_gallery": "None",
+      "in_excluded_set": false,
+      "skip_reason": null,
+      "usable": true,
+      "n_cells_meta": 12193,
+      "lineages": {
+        "Malignant": 9237,
+        "Mono/Macro": 2020,
+        "Pericytes": 366,
+        "Endothelial": 221,
+        "Oligodendrocyte": 133,
+        "Plasma": 117,
+        "CD8T": 99
+      },
+      "n_malignant": 9237,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 99,
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "mBrain": 12193
+      },
+      "has_cldn4_compartment": true,
+      "has_tnk": true,
+      "h5": {
+        "path": "data/tisch_leftover_merge_cldn4/NSCLC_GSE143423_expression.h5",
+        "keys": [
+          "matrix"
+        ],
+        "shape": [
+          13375,
+          12193
+        ],
+        "n_genes": 13375,
+        "n_cells": 12193,
+        "genes_present": [
+          "CLDN4",
+          "EPCAM",
+          "PTPRC",
+          "CD3D",
+          "NKG7"
+        ],
+        "genes_absent": [
+          "CD8A"
+        ]
+      },
+      "genes_present": [
+        "CLDN4",
+        "EPCAM",
+        "PTPRC",
+        "CD3D",
+        "NKG7"
+      ],
+      "n_cells_aligned": 12193,
+      "n_tumor_like_cells": 12193,
+      "n_patients_total": 3,
+      "n_patients_eligible": 2,
+      "n_patients_malignant_eligible": 2,
+      "n_samples_eligible": 2
+    },
+    {
+      "dataset": "NSCLC_GSE127471",
+      "gse": "GSE127471",
+      "pmid": "31061481",
+      "paper": "PBMC-only 10x (1 patient)",
+      "ici_gallery": "None",
+      "in_excluded_set": false,
+      "skip_reason": "no epithelial/malignant cells; CLDN4 cannot be scored",
+      "usable": false,
+      "n_cells_meta": 1108,
+      "lineages": {
+        "Mono/Macro": 500,
+        "CD4Tconv": 191,
+        "CD8Tex": 189,
+        "CD8T": 84,
+        "NK": 57,
+        "B": 52,
+        "Others": 35
+      },
+      "n_malignant": 0,
+      "n_epithelial_nonmalig": 0,
+      "n_tnk": 521,
+      "patient_col": "Patient",
+      "sample_col": "Sample",
+      "tissue_col": "Source",
+      "tissue_values": {
+        "PBMC": 1108
+      },
+      "has_cldn4_compartment": false,
+      "has_tnk": true
+    }
+  ]
+}
