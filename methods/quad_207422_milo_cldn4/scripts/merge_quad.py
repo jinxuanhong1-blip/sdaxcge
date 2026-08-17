@@ -604,11 +604,11 @@ def write_finding(pack: dict, out_path: Path) -> None:
         "|---|---|---|",
         f"| Sample malignant CLDN4 vs T/NK, per-graph | see forest | Stouffer signed z={fmt(st.get('z'))}, p={fmt(st.get('p'), sci=True)}, k={st.get('n_studies')} graphs |",
         f"| Same, within-dataset ranks pooled | **{pooled['n']}** samples | ρ={fmt(pooled.get('rho'))}, p={fmt(pooled.get('p'), sci=True)} |",
-        f"| Nhood abundance vs malignant CLDN4 (SpatialFDR<0.1) | samples below, not cells | stacked table has **{nhood_n:,}** nhoods |",
+        f"| Nhood abundance vs malignant CLDN4 (SpatialFDR<0.1) | samples below, not cells | **{pack.get('n_hits', 0)}** / {nhood_n:,} nhoods; all are small-n |ρ|≈1 floors |",
         "",
         "Do not cite cell count as *n*. Neighbourhoods are not independent across",
-        "or within a graph. Dataset-native CLDN4 scales differ (log1p-CP10k vs",
-        "hunt log2TPM fallback); the pooled test uses **within-dataset ranks**.",
+        "or within a graph. CLDN4 is dataset-native log1p-CP10k (except a hunt",
+        "fallback if a Milo graph is missing). The pooled test uses **within-dataset ranks**.",
         "",
         "## Honest n (sample / patient is the unit)",
         "",
@@ -621,8 +621,8 @@ def write_finding(pack: dict, out_path: Path) -> None:
         )
     lines += [
         "",
-        f"Combined scored n across the four studies (sum of the rows above, not a",
-        f"single mixed graph): **{n_total}**. GSE131907 sites are not collapsed.",
+        f"Primary combined n (GSE207422 post + GSE131907 tLung + GSE148071 +",
+        f"GSE205335; mBrain kept separate): **{n_total}**. Not one mixed graph.",
         "",
         "## Sample-level malignant CLDN4 vs T/NK",
         "",
@@ -655,6 +655,24 @@ def write_finding(pack: dict, out_path: Path) -> None:
         "k-distance weights. This is **not** edgeR QLF and **not** a joint Harmony graph.",
         "",
     ]
+    floor = pack.get("floor_hits") or []
+    if floor:
+        lines += [
+            "### SpatialFDR<0.1 hits are small-n floors, not a cohort DA claim",
+            "",
+            "Every SpatialFDR<0.1 neighbourhood in this merge has |Spearman ρ| ≈ 1",
+            "on 5–6 samples (the testability floor). scipy reports p≈0 for a perfect",
+            "rank correlation at that n. They are T/NK-empty or malignant-empty.",
+            "At n_present ≥ 8, SpatialFDR<0.1 is **0** on every graph that was tested.",
+            "",
+            "| Dataset | Graph | nhood | n_present | ρ | n_tnk | n_malig | lineage |",
+            "|---|---|---:|---:|---:|---:|---:|---|",
+        ]
+        for h in floor:
+            lines.append(
+                f"| {h['dataset']} | {h['graph']} | {h['nhood']} | {h['n_samples_present']} | {fmt(h['spearman_rho'])} | {h['n_tnk']} | {h['n_malig']} | {h.get('dominant_lineage', '')} |"
+            )
+        lines.append("")
     if missing:
         lines += [
             "Nhood tables still missing from this merge (counts may come from a published summary): "
@@ -667,6 +685,7 @@ def write_finding(pack: dict, out_path: Path) -> None:
         "",
         "- It does not redo the GSE207422-only Milo (PR #323). Those 20 testable",
         "  nhoods, 0 SpatialFDR<0.1, n=7 are imported and sit in the stacked table.",
+        "- SpatialFDR<0.1 rows with |ρ|=1 on 5–6 samples are not a TME claim.",
         "- It does not treat 90k–200k cells as *n*.",
         "- It does not invent a shared ICI / MPR label. Only GSE207422 has MPR;",
         "  GSE205335 has RECIST; GSE131907 is treatment-naive; GSE148071 is a",
@@ -930,6 +949,21 @@ def main() -> None:
     )
     if len(hits):
         hits.to_csv(TAB / "nhoods_spatialfdr_lt_0.1.tsv", sep="\t", index=False)
+    floor_hits = []
+    if len(hits):
+        for r in hits.itertuples(index=False):
+            floor_hits.append(
+                {
+                    "dataset": r.dataset,
+                    "graph": r.graph,
+                    "nhood": int(r.nhood) if pd.notna(r.nhood) else None,
+                    "n_samples_present": int(r.n_samples_present) if pd.notna(r.n_samples_present) else None,
+                    "spearman_rho": float(r.spearman_rho) if pd.notna(r.spearman_rho) else None,
+                    "n_tnk": int(r.n_tnk) if pd.notna(r.n_tnk) else None,
+                    "n_malig": int(r.n_malig) if pd.notna(r.n_malig) else None,
+                    "dominant_lineage": getattr(r, "dominant_lineage", ""),
+                }
+            )
 
     summary = {
         "title": "QUAD merge Milo / nhood vs malignant CLDN4",
@@ -953,6 +987,7 @@ def main() -> None:
         "n_nhoods_in_table": int(len(nhoods)),
         "n_testable_in_table": int(len(testable)),
         "n_SpatialFDR_lt_0.1_in_table": int(len(hits)),
+        "floor_hits": floor_hits,
         "missing_nhood_tables": missing,
         "figures": figs,
         "da_by_graph": da_rows,
@@ -967,6 +1002,8 @@ def main() -> None:
         "stouffer": st,
         "pooled_rank": pooled,
         "n_nhoods_in_table": int(len(nhoods)),
+        "n_hits": int(len(hits)),
+        "floor_hits": floor_hits,
         "missing_nhood_tables": missing,
     }
     write_finding(pack, args.root / "FINDING.md")
