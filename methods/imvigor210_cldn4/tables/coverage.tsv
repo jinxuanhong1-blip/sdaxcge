@@ -1,0 +1,15 @@
+item	n	rule
+RNA libraries in cds	348	CountDataSet columns
+unique ANONPT_ID	347	package patient id
+patients after sizeFactor dedup	347	drop 1 extra library for ANONPT_ID 10285 (both NE)
+libraries dropped as duplicate	1	keep larger sizeFactor
+ORR-evaluable (CR/PR vs SD/PD)	298	package binaryResponse; NE excluded
+CR/PR	68	binaryResponse
+SD/PD	230	binaryResponse
+NE / missing binaryResponse	49	excluded from ORR
+Tissue == bladder	194	package Tissue; other sites are urothelial mets
+Tissue == bladder and ORR-evaluable	168	sensitivity, not primary
+Tissue == lung (urothelial met, not NSCLC)	10	metastatic deposit; still urothelial analog
+CLDN4 / CD274 / CD8A / CXCL9 finite	347	one row each in cds featureData
+ICI / PD-L1 labels	347	single-arm atezolizumab
+lung-primary NSCLC RNA	0	not this cohort; analog only
