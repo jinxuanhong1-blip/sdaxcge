@@ -221,6 +221,16 @@ def load_gse123902(raw: Path, wanted: set[str], locked: pd.DataFrame):
 
 
 def stream_131907(matrix_path: Path, wanted: set[str]):
+    cache = Path("/tmp/triple_differ_raw/GSE131907/wanted_stream_cache.npz")
+    if cache.exists():
+        print(f"  load stream cache {cache}", flush=True)
+        z = np.load(cache, allow_pickle=True)
+        cell_ids = z["cell_ids"].tolist()
+        n_umi = z["n_umi"]
+        n_streamed = int(z["n_streamed"])
+        found = {g: z[f"g_{g}"] for g in z["genes"].tolist() if g in wanted}
+        print(f"  cache cells={len(cell_ids)} stored={len(found)} genes={n_streamed}", flush=True)
+        return cell_ids, found, n_umi, n_streamed
     found: dict[str, np.ndarray] = {}
     with gzip.open(matrix_path, "rt") as handle:
         header = handle.readline().rstrip("\n").split("\t")
@@ -243,6 +253,12 @@ def stream_131907(matrix_path: Path, wanted: set[str]):
             if n_streamed % 4000 == 0:
                 print(f"  stream genes={n_streamed} stored={len(found)}", flush=True)
     print(f"stream done genes={n_streamed} cells={n} stored={len(found)}", flush=True)
+    payload = {"cell_ids": np.asarray(cell_ids, dtype=object), "n_umi": n_umi, "n_streamed": n_streamed, "genes": np.asarray(sorted(found), dtype=object)}
+    for g, arr in found.items():
+        payload[f"g_{g}"] = arr
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(cache, **payload)
+    print(f"  wrote stream cache {cache}", flush=True)
     return cell_ids, found, n_umi, n_streamed
 
 
@@ -256,9 +272,10 @@ def load_gse131907(raw: Path, wanted: set[str], locked: pd.DataFrame):
     cell_index = {c: i for i, c in enumerate(cell_ids)}
     key = "Index" if "Index" in ann.columns else ann.columns[0]
     ann = ann.copy()
-    ann["_i"] = ann[key].map(cell_index)
-    ann = ann[ann["_i"].notna()].copy()
-    ann["_i"] = ann["_i"].astype(int)
+    # pandas 3 itertuples drops leading-underscore names; use cell_i.
+    ann["cell_i"] = ann[key].map(cell_index)
+    ann = ann[ann["cell_i"].notna()].copy()
+    ann["cell_i"] = ann["cell_i"].astype(int)
     sample_col = "Sample" if "Sample" in ann.columns else "sample"
     origin_col = "Sample_Origin" if "Sample_Origin" in ann.columns else None
     type_col = "Cell_type" if "Cell_type" in ann.columns else None
@@ -268,7 +285,7 @@ def load_gse131907(raw: Path, wanted: set[str], locked: pd.DataFrame):
     tnk_mask = np.zeros(len(cell_ids), dtype=bool)
     sample_of = np.array([""] * len(cell_ids), dtype=object)
     for rec in ann.itertuples(index=False):
-        i = int(getattr(rec, "_i"))
+        i = int(rec.cell_i)
         sample_of[i] = str(getattr(rec, sample_col))
         subtype = str(getattr(rec, sub_col)) if sub_col else ""
         ctype = str(getattr(rec, type_col)) if type_col else ""
