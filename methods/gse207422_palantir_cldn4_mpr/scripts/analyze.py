@@ -282,16 +282,27 @@ def write_finding(path: Path, ctx: dict) -> None:
             f"{row['mean_barrier']:.3f} | {row['mean_ifn']:.3f} |"
         )
     lines.append("")
+    lines.append(
+        "Auto-terminals were **not** set as CLDN4-high. Palantir still placed three terminal "
+        "cells in the CLDN4-high tertile (dest_0/2/3 terminals). Assigned dest_1 and dest_3 "
+        "clouds are CLDN4-low (patient P05 TN and P12 NMPR). dest_2 is the majority multi-patient "
+        "cloud. dest_0 is small and mostly P04."
+    )
+    lines.append("")
     lines.append("## CLDN4 + barrier + IFN along destinies")
     lines.append("")
     lines.append("Primary = patient-mean Spearman on post patients with ≥20 A3-malignant cells. Cell-level is exploratory.")
     lines.append("")
-    lines.append("| Contrast | unit | n | ρ | p |")
-    lines.append("|---|---|---:|---:|---:|")
+    lines.append("| Contrast | n | ρ | p |")
+    lines.append("|---|---:|---:|---:|")
     for row in d["program_rows"]:
+        if row.get("unit") != "patient":
+            continue
         lines.append(
-            f"| {row['contrast']} | {row['unit']} | {row['n']} | {fmt_r(row.get('spearman_rho'))} | {fmt_p(row.get('spearman_p'))} |"
+            f"| {row['contrast']} | {row['n']} | {fmt_r(row.get('spearman_rho'))} | {fmt_p(row.get('spearman_p'))} |"
         )
+    lines.append("")
+    lines.append(d.get("cell_program_note", ""))
     lines.append("")
     lines.append("## Destiny vs MPR")
     lines.append("")
@@ -520,11 +531,43 @@ def main() -> None:
     dest_mpr.to_csv(tabdir / "destiny_vs_mpr.tsv", sep="\t", index=False)
     dest_mpr.to_csv(tabdir / "destiny_programs.tsv", sep="\t", index=False)
 
-    # Honest n
-    honest = patients[
-        ["Sample", "paper_group", "timing", "n_cells", "eligible_primary", "majority_destiny"]
-    ].copy()
-    honest["floor"] = MIN_MAL_PRIMARY
+    # Honest n — all 15 GEO samples, including A3-malignant n=0 (P11, P14)
+    class_path = args.input.parent / "classification_counts.tsv"
+    if class_path.exists():
+        occ = pd.read_csv(class_path, sep="\t")
+        occ["timing"] = np.where(occ["paper_group"].eq("TN"), "pre", "post")
+        occ = occ.merge(
+            patients[["Sample", "n_cells", "eligible_primary", "majority_destiny"]],
+            on="Sample",
+            how="left",
+            suffixes=("", "_qc"),
+        )
+        if "n_cells_qc" not in occ.columns:
+            occ["n_cells_qc"] = occ.get("n_malig_a3", 0)
+        occ["n_cells_qc"] = occ["n_cells_qc"].fillna(0).astype(int)
+        occ["n_malig_a3"] = occ["n_malig_a3"].astype(int)
+        occ["eligible_primary"] = occ["n_cells_qc"] >= MIN_MAL_PRIMARY
+        occ["majority_destiny"] = occ["majority_destiny"].fillna("none")
+        occ["floor"] = MIN_MAL_PRIMARY
+        honest = occ[
+            [
+                "Sample",
+                "paper_group",
+                "timing",
+                "n_cells",
+                "n_epithelial",
+                "n_malig_a3",
+                "n_cells_qc",
+                "eligible_primary",
+                "majority_destiny",
+                "floor",
+            ]
+        ].copy()
+    else:
+        honest = patients[
+            ["Sample", "paper_group", "timing", "n_cells", "eligible_primary", "majority_destiny"]
+        ].copy()
+        honest["floor"] = MIN_MAL_PRIMARY
     honest.to_csv(tabdir / "honest_n.tsv", sep="\t", index=False)
 
     # Tests
@@ -733,15 +776,20 @@ def main() -> None:
     ax.set_title(f"Destiny vs MPR (post; eligible n={len(post_pat)} / 12)")
     savefig(fig, figdir / "fig_destiny_vs_mpr")
 
-    fig, ax = plt.subplots(figsize=(8.2, 3.8))
-    post_h = patients[patients["timing"] == "post"].sort_values("Sample")
+    fig, ax = plt.subplots(figsize=(8.8, 3.8))
+    if "n_malig_a3" in honest.columns:
+        post_h = honest[honest["timing"] == "post"].sort_values("Sample")
+        heights = post_h["n_malig_a3"].to_numpy()
+    else:
+        post_h = patients[patients["timing"] == "post"].sort_values("Sample")
+        heights = post_h["n_cells"].to_numpy()
     cols = [COLOR_GROUP.get(g, "grey") for g in post_h["paper_group"]]
-    ax.bar(range(len(post_h)), post_h["n_cells"], color=cols)
+    ax.bar(range(len(post_h)), heights, color=cols)
     ax.axhline(MIN_MAL_PRIMARY, color="black", ls="--", lw=1, label=f"floor n={MIN_MAL_PRIMARY}")
     ax.set_xticks(range(len(post_h)))
     ax.set_xticklabels([s.replace("BD_immune", "P") for s in post_h["Sample"]])
-    ax.set_ylabel("A3-malignant-like cells (after QC)")
-    ax.set_title("Honest n: 12 post patients (red=MPR, blue=NMPR)")
+    ax.set_ylabel("A3-malignant-like cells")
+    ax.set_title("Honest n: all 12 post patients (red=MPR, blue=NMPR); P11/P14 = 0")
     ax.legend(frameon=False)
     savefig(fig, figdir / "fig_honest_n")
 
@@ -810,16 +858,47 @@ def main() -> None:
         f"{r['destiny']} n={r['n_cells']} (CLDN4 {r['mean_CLDN4']:.2f}, barrier {r['mean_barrier']:.2f}, IFN {r['mean_ifn']:.2f})"
         for r in destiny_rows
     )
+    elig_names = ",".join(
+        r.Sample.replace("BD_immune", "P") + f"({r.paper_group})"
+        for r in post_pat.itertuples()
+    )
     verdict = (
         f"Palantir auto-detected {len(dest_list)} destinies on {n_qc} QC A3-malignant-like cells "
         f"(from {n_in} extracted; matrix {extract_info.get('n_cells_matrix', 'NA')} cells). "
-        f"Root is CLDN4-low, not CLDN4-high. {dest_bits}. "
+        f"Root is CLDN4-low, not CLDN4-high. Destinies largely recover **patient identity** "
+        f"(Cramér's V={fmt_r(v_info.get('cramers_v'))}) — not a shared CLDN4 lineage. {dest_bits}. "
         f"Patient-level CLDN4 vs Palantir PT: n={cldn4_pt.get('n', 'NA')}, "
         f"ρ={fmt_r(cldn4_pt.get('spearman_rho'))}, p={fmt_p(cldn4_pt.get('spearman_p'))}. "
         f"Barrier vs PT: ρ={fmt_r(bar_pt.get('spearman_rho'))}, p={fmt_p(bar_pt.get('spearman_p'))}. "
         f"IFN vs PT: ρ={fmt_r(ifn_pt.get('spearman_rho'))}, p={fmt_p(ifn_pt.get('spearman_p'))}. "
-        f"MPR test n_MPR={n_mpr_elig} after the occupancy floor — small n, stated."
+        f"MPR test n_MPR={n_mpr_elig} after the occupancy floor — small n, stated. "
+        f"Eligible: {elig_names}."
     )
+
+    cell_prog = [r for r in program_rows if r.get("unit") == "cell_exploratory"]
+    def _cell_bit(name: str) -> str:
+        row = next((r for r in cell_prog if r["contrast"] == name), {})
+        return f"{name} ρ={fmt_r(row.get('spearman_rho'))} p={fmt_p(row.get('spearman_p'))}"
+    cell_program_note = (
+        "Cell-level (exploratory, post n_cells="
+        f"{int(len(post_cells))}): {_cell_bit('CLDN4_vs_palantir_pseudotime')}; "
+        f"{_cell_bit('barrier_no_cldn4_vs_palantir_pseudotime')}; "
+        f"{_cell_bit('ifn_isg_vs_palantir_pseudotime')}. "
+        "dest_1 fate is identically 0 on all post cells (TN-only destiny, P05), so those Spearman rows are NA. "
+        "These p-values treat cells as independent and are not a claim."
+    )
+
+    if "n_malig_a3" in honest.columns:
+        dropped = honest[(honest["timing"] == "post") & (~honest["eligible_primary"])]
+        dropped_txt = ", ".join(
+            f"{str(r.Sample).replace('BD_immune', 'P')} ({r.paper_group}, n={int(r.n_malig_a3)})"
+            for r in dropped.itertuples()
+        )
+    else:
+        dropped_txt = ", ".join(
+            f"{r.Sample.replace('BD_immune', 'P')} ({r.paper_group}, n={r.n_cells})"
+            for r in patients[(patients["timing"] == "post") & (~patients["eligible_primary"])].itertuples()
+        )
 
     missing_barrier = [g for g in MODULES["barrier_no_cldn4"] if g not in adata.var_names]
     missing_ifn = [g for g in MODULES["ifn_isg"] if g not in adata.var_names]
@@ -831,12 +910,8 @@ def main() -> None:
             f"A3-malignant-like extracted **n={extract_info.get('n_malig_a3', n_in)}**; after QC (n_genes≥{MIN_GENES}, UMI≥{MIN_UMI}) **n={n_qc}**.",
             f"Epithelial (pass 1) **n={extract_info.get('n_epithelial', 'NA')}**. A3-malignant-like = epithelial AND zero UMI for SFTPA2/AGER/SCGB1A1/SCGB3A1/TPPP3 (**not** CopyKAT).",
             f"Unit of every primary test is the **patient**. Post attempted **n={n_post_attempted}**. Eligible (≥{MIN_MAL_PRIMARY} A3-malignant after QC): **n={n_post_eligible}** ({n_nmpr_elig} NMPR, {n_mpr_elig} MPR).",
-            f"Dropped / below floor post: "
-            + ", ".join(
-                f"{r.Sample.replace('BD_immune', 'P')} ({r.paper_group}, n={r.n_cells})"
-                for r in patients[(patients['timing'] == 'post') & (~patients['eligible_primary'])].itertuples()
-            )
-            + ".",
+            f"Dropped / below floor post: {dropped_txt}.",
+            f"Eligible post: {elig_names}. dest_1 is TN-only (P05); post fate is identically 0 (Spearman NA).",
             f"Genes absent from barrier module: {missing_barrier or 'none'}. IFN ISG absent: {missing_ifn or 'none'}. SFTPC / KRT6A / KRT6B / KRT14 are known holes on this public UMI.",
             "No dual-high (TACSTD2 AND CLDN4) gate. TACSTD2 is reported only as a companion.",
         ],
@@ -856,6 +931,7 @@ def main() -> None:
         "n_leiden": n_leiden,
         "destiny_rows": destiny_rows,
         "program_rows": program_rows,
+        "cell_program_note": cell_program_note,
         "mpr_text": mpr_text,
         "mpr_rows": mpr_rows,
         "limits": [
