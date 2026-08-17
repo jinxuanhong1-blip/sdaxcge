@@ -1,0 +1,202 @@
+{
+  "additive": true,
+  "marker": "CLDN4",
+  "dual_high": false,
+  "include_207422": true,
+  "datasets": [
+    "GSE207422",
+    "GSE148071"
+  ],
+  "not_used": [
+    "TACSTD2 gate",
+    "dual-high",
+    "CellChat R",
+    "LIANA",
+    "raw FASTQ"
+  ],
+  "primary_combo_rho": {
+    "family": "primary_cellchat",
+    "cohort": "GSE148071+GSE207422",
+    "definition": "marker_epi_mean vs TNK/all; eligible \u226525/25",
+    "n": 37,
+    "rho": 0.14505593437650724,
+    "p": 0.41600341665730367,
+    "k": 2,
+    "I2": 0.0,
+    "ci95_lo": -0.203077194575366,
+    "ci95_hi": 0.4606316412549912,
+    "method": "DerSimonian-Laird random-effects on Fisher-z(Spearman \u03c1)",
+    "stouffer_p": 0.4114702669795518,
+    "stouffer_z": 0.8213090273360878,
+    "fixed_rho": 0.14505593437650724,
+    "Q": 0.15655425508107107,
+    "tau2": 0.0,
+    "n_deposited": 57,
+    "n_eligible": 37,
+    "note": "DL RE; include 207422"
+  },
+  "gse148071_cellchat_rho": {
+    "family": "primary_cellchat",
+    "cohort": "GSE148071",
+    "definition": "marker_epi_mean vs TNK/all; eligible \u226525/25",
+    "n": 25,
+    "rho": 0.18923076923076923,
+    "p": 0.364968831611586,
+    "k": 1,
+    "I2": 0.0,
+    "ci95_lo": -0.222546920975591,
+    "ci95_hi": 0.5437135188367124,
+    "method": "Spearman (patient unit)",
+    "n_deposited": 42,
+    "n_eligible": 25,
+    "note": "putative malignant = epithelium"
+  },
+  "gse207422_cellchat_rho": {
+    "family": "primary_cellchat",
+    "cohort": "GSE207422",
+    "definition": "marker_epi_mean vs TNK/all; post \u226525/25",
+    "n": 12,
+    "rho": 0.034965034965034975,
+    "p": 0.9140933424107599,
+    "k": 1,
+    "I2": 0.0,
+    "ci95_lo": -0.5499809757197732,
+    "ci95_hi": 0.5968969090708286,
+    "method": "Spearman (patient unit)",
+    "n_deposited": 15,
+    "n_eligible": 12,
+    "note": "12 post; 3 pre excluded in given CellChat"
+  },
+  "gse148071_tisch_rho": {
+    "family": "given_tisch_drmref",
+    "cohort": "GSE148071",
+    "definition": "TISCH locked eligible \u226520/20; CLDN4_epi_mean vs n_TNK/n_cells",
+    "n": 25,
+    "rho": 0.13538461538461538,
+    "p": 0.5187661950161317,
+    "k": 1,
+    "I2": 0.0,
+    "ci95_lo": -0.2744337391811345,
+    "ci95_hi": 0.5035825807866554,
+    "method": "Spearman (patient unit)",
+    "n_deposited": 42,
+    "n_eligible": 25,
+    "note": "given Q4 extract; 3 epithelial-like inside 25"
+  },
+  "gse207422_drmref_rho": {
+    "family": "given_tisch_drmref",
+    "cohort": "GSE207422",
+    "definition": "author DRMref malignant mean vs frac_tnk; n=12 post",
+    "n": 12,
+    "rho": -0.09090909090909093,
+    "p": 0.7787253962454419,
+    "k": 1,
+    "I2": 0.0,
+    "ci95_lo": -0.6318527237852697,
+    "ci95_hi": 0.5095875999008436,
+    "method": "Spearman (patient unit)",
+    "n_deposited": 15,
+    "n_eligible": 12,
+    "note": "given combo table; author malignant"
+  },
+  "n_148071_eligible": 25,
+  "n_207422_eligible": 12,
+  "n_combo_primary": 37,
+  "n_consensus_lr": 28,
+  "n_consensus_outgoing": 23,
+  "n_consensus_outgoing_high": 13,
+  "n_consensus_outgoing_low": 10,
+  "consensus_outgoing_pairs": [
+    "NECTIN2_TIGIT",
+    "MDK_NCL",
+    "MDK_ITGA4_ITGB1",
+    "ICAM1_ITGAL_ITGB2",
+    "CD55_ADGRE5",
+    "ICAM1_ITGAL",
+    "ICAM1_SPN",
+    "HLA-E_CD8A",
+    "HLA-F_CD8A",
+    "JAM1_ITGAL_ITGB2",
+    "CXCL16_CXCR6",
+    "HLA-E_CD8B",
+    "HLA-F_CD8B",
+    "IGFBP3_TMEM219",
+    "ITGAV_ITGB1_ADGRE5",
+    "PPIA_BSG",
+    "MIF_CD74_CXCR4",
+    "MIF_CD74_CD44",
+    "LAMA3_CD44",
+    "LAMB3_CD44",
+    "LAMC1_CD44",
+    "SPP1_ITGA4_ITGB1",
+    "SPP1_CD44"
+  ],
+  "honest_n": [
+    {
+      "item": "GSE148071_deposited",
+      "n": 42,
+      "note": "Wu 2021; one biopsy each; not the test n"
+    },
+    {
+      "item": "GSE148071_cellchat_eligible_25_25",
+      "n": 25,
+      "note": "\u226525 epi and \u226525 T/NK; marker-argmax"
+    },
+    {
+      "item": "GSE148071_cellchat_excluded",
+      "n": 17,
+      "note": "mostly epithelium with almost no T/NK"
+    },
+    {
+      "item": "GSE148071_TISCH_locked_eligible",
+      "n": 25,
+      "note": "given \u226520/20; 3 epithelial-like inside"
+    },
+    {
+      "item": "GSE207422_deposited_samples",
+      "n": 15,
+      "note": "Hu 2023; 3 pre + 12 post"
+    },
+    {
+      "item": "GSE207422_post_used",
+      "n": 12,
+      "note": "pre-treatment excluded in given CellChat"
+    },
+    {
+      "item": "GSE207422_cellchat_eligible_25_25",
+      "n": 12,
+      "note": "all 12 post pass \u226525/25"
+    },
+    {
+      "item": "GSE207422_drmref_patients",
+      "n": 12,
+      "note": "author malignant; given combo table"
+    },
+    {
+      "item": "combo_primary_n_patients",
+      "n": 37,
+      "note": "25 + 12; do not write 42+15"
+    },
+    {
+      "item": "GSE148071_sig_LR_pairs",
+      "n": 52,
+      "note": "kept median; 39 out / 13 in"
+    },
+    {
+      "item": "GSE207422_sig_LR_pairs",
+      "n": 100,
+      "note": "kept median_post; 68 out / 32 in"
+    },
+    {
+      "item": "consensus_both_sig_same_dir",
+      "n": 28,
+      "note": "intersection of kept ligand tables"
+    },
+    {
+      "item": "consensus_outgoing_both_sig_same_dir",
+      "n": 23,
+      "note": "Mal CLDN4-high \u2192 T/NK"
+    }
+  ],
+  "algorithm": "Patient Spearman on given CellChat per-sample tables; combo = DerSimonian\u2013Laird RE on Fisher-z(Spearman). LR tables taken as given from PR #348 and PR #324; consensus = significant in both kept splits, same \u0394P sign."
+}
