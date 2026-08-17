@@ -291,6 +291,16 @@ def extract_gse205335(data: Path, cap: int) -> "ad.AnnData":
     return adata
 
 
+def _sanitize_obs(obs: pd.DataFrame) -> pd.DataFrame:
+    out = obs.copy()
+    for col in out.columns:
+        if pd.api.types.is_bool_dtype(out[col]) or str(out[col].dtype) == "boolean":
+            out[col] = out[col].map({True: "True", False: "False"}).astype(str)
+        elif pd.api.types.is_categorical_dtype(out[col]) or out[col].dtype == object:
+            out[col] = out[col].astype(str).replace({"nan": "NA", "None": "NA", "<NA>": "NA"})
+    return out
+
+
 def concat_shared(a, b):
     import anndata as ad
 
@@ -301,14 +311,14 @@ def concat_shared(a, b):
     b2 = b[:, shared].copy()
     a2.obs_names = "GSE131907:" + a2.obs_names.astype(str)
     b2.obs_names = "GSE205335:" + b2.obs_names.astype(str)
-    # Harmonize obs columns before concat
     cols = sorted(set(a2.obs.columns) | set(b2.obs.columns))
     for frame in (a2, b2):
         for c in cols:
             if c not in frame.obs.columns:
-                frame.obs[c] = pd.NA
-        frame.obs = frame.obs[cols]
+                frame.obs[c] = "NA"
+        frame.obs = _sanitize_obs(frame.obs[cols])
     out = ad.concat([a2, b2], axis=0, join="inner", merge="same")
+    out.obs = _sanitize_obs(out.obs)
     out.layers["counts"] = out.X.copy()
     return out, int(len(shared))
 
@@ -321,8 +331,26 @@ def main() -> None:
     p.add_argument("--gene-cap", type=int, default=None, help="debug only")
     args = p.parse_args()
 
-    a = extract_gse131907(args.data, args.gene_cap, args.cap_per_unit)
-    b = extract_gse205335(args.data, args.cap_per_unit)
+    cache_a = args.data / "GSE131907_epithelium_cap.h5ad"
+    cache_b = args.data / "GSE205335_epithelium_cap.h5ad"
+    import anndata as ad
+
+    if cache_a.is_file() and args.gene_cap is None:
+        print(f"reuse {cache_a}", flush=True)
+        a = ad.read_h5ad(cache_a)
+    else:
+        a = extract_gse131907(args.data, args.gene_cap, args.cap_per_unit)
+        a.obs = _sanitize_obs(a.obs)
+        a.write_h5ad(cache_a)
+        print(f"cached {cache_a}", flush=True)
+    if cache_b.is_file() and args.gene_cap is None:
+        print(f"reuse {cache_b}", flush=True)
+        b = ad.read_h5ad(cache_b)
+    else:
+        b = extract_gse205335(args.data, args.cap_per_unit)
+        b.obs = _sanitize_obs(b.obs)
+        b.write_h5ad(cache_b)
+        print(f"cached {cache_b}", flush=True)
     joint, n_shared = concat_shared(a, b)
     del a, b
     args.out.parent.mkdir(parents=True, exist_ok=True)
