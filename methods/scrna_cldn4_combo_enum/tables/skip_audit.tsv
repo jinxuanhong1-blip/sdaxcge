@@ -1,0 +1,8 @@
+accession	n	cldn4	tnk	note
+GSE179994	0	absent (T-only RDS)	T-only	no usable processed TME matrix (PR #420); not invented
+GSE117570	1	present in 3/4 patients	1 eligible	TISCH; Spearman-eligible n=1 (P2); skip
+GSE146100	1	epithelial proxy	present	1 patient / 3 nodules; patient is the unit; skip
+GSE154826	0	gate only	no compact T/NK extract	CITE-seq; epithelium restricted; no <2GB malignant+T/NK matrix
+GSE139555	0	absent (T-sorted)	T-sorted only	TISCH: 0 epithelial/malignant cells
+GSE200563	0	spatial Visium	not scRNA	paired brain-met spatial RNA, not scRNA TME
+GSE229353	7	absent (CD45+ only)	CD45+ immune	7 NSCLC CD45+ libraries; no malignant epithelium

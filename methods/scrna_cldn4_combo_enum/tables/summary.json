@@ -1,0 +1,100 @@
+{
+  "n_scoreable": 7,
+  "scoreable": {
+    "GSE131907": {
+      "n": 21,
+      "has_pct": true,
+      "malig_def": "author_malig"
+    },
+    "GSE205335": {
+      "n": 22,
+      "has_pct": true,
+      "malig_def": "author_malig"
+    },
+    "GSE207422": {
+      "n": 12,
+      "has_pct": false,
+      "malig_def": "author_DRMref"
+    },
+    "GSE148071": {
+      "n": 22,
+      "has_pct": true,
+      "malig_def": "tisch_malig"
+    },
+    "GSE127465": {
+      "n": 7,
+      "has_pct": true,
+      "malig_def": "tisch_malig"
+    },
+    "GSE123902": {
+      "n": 13,
+      "has_pct": true,
+      "malig_def": "marker_malig"
+    },
+    "GSE189357": {
+      "n": 9,
+      "has_pct": true,
+      "malig_def": "marker_malig"
+    }
+  },
+  "n_pairs": 36,
+  "n_triples": 55,
+  "n_loo": 165,
+  "n_differ": 40,
+  "full_pool": [
+    {
+      "kind": "full_pool",
+      "k": 7,
+      "cohorts": "GSE123902+GSE127465+GSE131907+GSE148071+GSE189357+GSE205335+GSE207422",
+      "combo": "FULL_POOL:GSE123902+GSE127465+GSE131907+GSE148071+GSE189357+GSE205335+GSE207422",
+      "score": "mean",
+      "malig_def": "marker_malig+tisch_malig+author_malig+tisch_malig+marker_malig+author_malig+author_DRMref",
+      "unit": "mixed",
+      "n": 106,
+      "rho": -0.2522180595231167,
+      "p": 0.028089021690579734,
+      "I2": 11.909051729261641,
+      "stouffer_z": -2.3260264206670023,
+      "stouffer_p": 0.020017141250188178,
+      "note": "FULL-POOL one row, not the answer; Fisher-z RE of 7 cohort Spearmans; n=sum of patients",
+      "loo": "",
+      "source": "this_pr",
+      "member_rhos": "GSE123902:-0.654,GSE127465:0.107,GSE131907:-0.396,GSE148071:0.080,GSE189357:-0.517,GSE205335:-0.200,GSE207422:-0.091",
+      "member_ns": "GSE123902:13,GSE127465:7,GSE131907:21,GSE148071:22,GSE189357:9,GSE205335:22,GSE207422:12",
+      "n_q1": 27,
+      "n_q4": 27,
+      "n_compared": 54,
+      "r_rb": -0.3964334705075446,
+      "p_q4q1": 0.012731364269923499,
+      "delta_median": -0.20478743487125278,
+      "thin_q4": false
+    },
+    {
+      "kind": "full_pool",
+      "k": 6,
+      "cohorts": "GSE123902+GSE127465+GSE131907+GSE148071+GSE189357+GSE205335",
+      "combo": "FULL_POOL:GSE123902+GSE127465+GSE131907+GSE148071+GSE189357+GSE205335",
+      "score": "pct",
+      "malig_def": "marker_malig+tisch_malig+author_malig+tisch_malig+marker_malig+author_malig",
+      "unit": "mixed",
+      "n": 94,
+      "rho": -0.3910026723373074,
+      "p": 0.002980259336627027,
+      "I2": 27.201966870964867,
+      "stouffer_z": -3.508963364889749,
+      "stouffer_p": 0.0004498568651443729,
+      "note": "FULL-POOL one row, not the answer; Fisher-z RE of 6 cohort Spearmans; n=sum of patients",
+      "loo": "",
+      "source": "this_pr",
+      "member_rhos": "GSE123902:-0.659,GSE127465:0.179,GSE131907:-0.522,GSE148071:-0.015,GSE189357:-0.600,GSE205335:-0.435",
+      "member_ns": "GSE123902:13,GSE127465:7,GSE131907:21,GSE148071:22,GSE189357:9,GSE205335:22",
+      "n_q1": 24,
+      "n_q4": 24,
+      "n_compared": 48,
+      "r_rb": -0.5208333333333333,
+      "p_q4q1": 0.0020517454392337897,
+      "delta_median": -0.2786753734514373,
+      "thin_q4": false
+    }
+  ]
+}
