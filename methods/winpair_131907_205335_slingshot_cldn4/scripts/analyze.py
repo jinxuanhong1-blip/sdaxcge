@@ -250,7 +250,13 @@ def maybe_harmony(adata) -> dict:
         "dataset",
         max_iter_harmony=20,
     )
-    adata.obsm["X_pca_harmony"] = np.asarray(ho.Z_corr).T
+    z = np.asarray(ho.Z_corr)
+    if z.shape[0] == adata.n_obs:
+        adata.obsm["X_pca_harmony"] = z
+    elif z.shape[1] == adata.n_obs:
+        adata.obsm["X_pca_harmony"] = z.T
+    else:
+        raise ValueError(f"Harmony Z_corr shape {z.shape} vs n_obs={adata.n_obs}")
     sc.pp.neighbors(adata, n_neighbors=N_NEIGHBORS, use_rep="X_pca_harmony")
     info["used"] = True
     info["reason"] = "harmonypy on PCA, batch=dataset"
@@ -286,6 +292,8 @@ def write_finding(path: Path, ctx: dict) -> None:
         f"Primary clock: **{clock}**. Inferential unit = **sample/patient**. "
         "Cell-level ρ is descriptive. Barrier/keratin score **excludes CLDN4**. "
         "Root is GSE131907 nLung author AT2, never CLDN4-high.",
+        "",
+        s.get("what_holds", ""),
         "",
         "## Verdict",
         "",
@@ -785,6 +793,15 @@ def main() -> None:
         "Slingshot R was not run; DPT is the documented clock. Not a TACSTD2 redo. No both-high gate. GSE207422 not added.",
     ]
     verdict = " ".join(parts)
+    what_holds = (
+        f"**What holds (n={c4_bar['n']} units).** CLDN4 tracks a CLDN4-excluded "
+        f"barrier/keratin score ({_fmt(c4_bar)}) and a malignant-like score ({_fmt(c4_mal)}). "
+        f"Within the same unit, CLDN4-high cells are more barrier/keratin "
+        f"({_fmt(pair_bar, keys=('W', 'p'))}). "
+        f"**What does not hold.** Pooled CLDN4 vs DPT is {_fmt(c4_dpt)}. "
+        f"CLDN4 vs AT2 is {_fmt(c4_at2)}. "
+        "The PR #325 n=22 tLung+nLung DPT association is not recovered on this mixed winning-pair object."
+    )
 
     summary = {
         "accessions": ["GSE131907", "GSE205335"],
@@ -833,6 +850,7 @@ def main() -> None:
             "lineage_PTPRC_mean": float(adata.obs["expr_PTPRC"].mean()) if "expr_PTPRC" in adata.obs else None,
         },
         "verdict": verdict,
+        "what_holds": what_holds,
         "skipped": {
             "GSE207422": "explicitly not added",
             "GSE131907 PE": "unlabeled epithelium",

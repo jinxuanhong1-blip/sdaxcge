@@ -1,0 +1,30 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "papers": {
+    "GSE131907": "Kim et al. Nat Commun 2020 PMID 32385277",
+    "GSE205335": "Ahn / Lee et al. eLife 2024 (GEO GSE205335)"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "slingshot": {
+    "available": false,
+    "reason": "Rscript not on PATH",
+    "fallback": "scanpy diffusion pseudotime (Haghverdi et al. 2016)"
+  },
+  "palantir": {
+    "available": false,
+    "reason": "python package palantir not installed",
+    "note": "optional companion; DPT remains the primary clock"
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "GSE131907 nLung author AT2",
+    "cap_per_unit": 350
+  }
+}
