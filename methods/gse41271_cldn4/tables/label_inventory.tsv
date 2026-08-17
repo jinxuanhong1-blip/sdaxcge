@@ -1,0 +1,16 @@
+item	public	n	note
+arrays in series matrix	yes	275	275 GSM × 48,803 Illumina beads
+unique GSM / unique titles	yes	275	all unique; titles like 15-T
+histology Adenocarcinoma (LUAD)	yes	183	strict label; not adenosquamous / sarcomatoid-adeno
+histology Squamous	yes	80	dropped from primary
+other histology	yes	12	LCC-NE / adenosquamous / sarcomatoid / NSCLC / mixed
+GEO design text ADC	text only	183	series summary: mainly adenocarcinomas (n = 183)
+CLDN4 finite on LUAD	yes	183	ILMN_2132458
+CD8A finite on LUAD	yes	183	max-mean of 3 CD8A beads
+CD274 finite on LUAD	yes	183	ILMN_1701914
+primary pairwise n (LUAD, CLDN4+CD8A+CD274)	yes	183	this is the n used below
+tobacco history parsed	yes	272	3 arrays lack this token; later SOFT rows shift
+final patient stage parsed	yes	275	not used in the correlations
+vital A/D	yes	275	dates present; no OS time computed here
+recurrence Y/N	yes	275	not an ICI series
+ICI / PD-1 treatment	no	0	surgical 1997–2005 MD Anderson tumors
