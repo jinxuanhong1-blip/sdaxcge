@@ -1,0 +1,28 @@
+field	value
+accession	GSE165252
+geo_url	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE165252
+public	yes
+released	2021-02-04
+pmid	33504550
+title	RNA sequencing of the phase II PERFECT trial combining a PD-L1 inhibitor (atezolizumab) with neoadjuvant chemoradiotherapy in resectable esophageal adenocarcinoma patients.
+overall_design	RNA sequencing of esophageal tumor biopsies at baseline from patients, on-treatment (3rd week) and at resection.
+organism	Homo sapiens
+platform	GPL20301
+n_gsm	77
+n_patients_from_title	40
+n_baseline	35
+n_on_treatment	31
+n_resection	11
+n_endoscopic_biopsy	66
+n_resection_biopsy	11
+n_sample_responder	23
+n_sample_nonresponder	48
+n_sample_response_NA	6
+n_lung_samples	0
+public_lung	no
+gate	FAIL
+analysis	not_run
+cldn4_vs_cd274	empty
+source_checked	GSE165252_series_matrix.txt.gz
+source_url	https://ftp.ncbi.nlm.nih.gov/geo/series/GSE165nnn/GSE165252/matrix/GSE165252_series_matrix.txt.gz
+date_opened	2026-08-17
