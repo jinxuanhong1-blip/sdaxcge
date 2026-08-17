@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# full GEO matrices stay out; slim extracts and harvested scores are committed
+/data/GSE218989_SMC_KAIST_TPM_matrix_pc_rmdupli.txt.gz
