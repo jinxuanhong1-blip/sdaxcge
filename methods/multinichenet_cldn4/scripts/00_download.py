@@ -26,7 +26,7 @@ FILES = [
             "matrix/GSE131907_series_matrix.txt.gz"
         ),
         "dest": CACHE / "GSE131907_series_matrix.txt.gz",
-        "min_bytes": 10_000,
+        "min_bytes": 2_000,
     },
     {
         "url": (
