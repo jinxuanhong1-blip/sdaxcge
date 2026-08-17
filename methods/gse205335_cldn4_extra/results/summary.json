@@ -44,7 +44,13 @@
       "unit": "patient"
     }
   ],
-  "cellchat": null,
+  "cellchat": {
+    "n_lr_in_matrix": 2187,
+    "n_patients_scored": 22,
+    "n_pairs_tested_after_detect_gate": 41,
+    "n_pairs_p_lt_05": 1,
+    "ligand_table_rows": 15
+  },
   "algorithm": "pd.qcut on average ranks; MWU rank-biserial; CellChat-like 10% trim mean, Hill Kh=0.5, expr_prop>=0.10, same-patient Mal\u2194T/NK",
   "not_run": "CellChat R; LIANA; EGA raw; MPR contrast; TACSTD2 split",
   "matrix_sha256": "ebbee2f8857fdf0151fa81f04bfb635c6c87a5a5bad33f782a6d349599ad5c30"

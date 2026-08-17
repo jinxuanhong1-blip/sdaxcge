@@ -221,6 +221,8 @@ def load_selected_genes(path: Path, wanted: set[str]) -> tuple[dict[str, np.ndar
             with gzip.open(path, "rb") as source, matrix_path.open("wb") as dest:
                 shutil.copyfileobj(source, dest, 16 * 1024 * 1024)
         print("read RDS", flush=True)
+        import rdata
+
         with warnings.catch_warnings():
             warnings.filterwarnings(
                 "ignore", message='Missing constructor for R class "dgCMatrix"'
@@ -233,13 +235,16 @@ def load_selected_genes(path: Path, wanted: set[str]) -> tuple[dict[str, np.ndar
     barcodes = np.asarray(obj.Dimnames[1], dtype=str)
     print(f"build CSC {tuple(obj.Dim)}", flush=True)
     matrix = sparse.csc_matrix((obj.x, obj.i, obj.p), shape=tuple(obj.Dim), copy=False)
+    library_umi = np.asarray(matrix.sum(axis=0)).ravel()
+    print("convert CSR for row extract", flush=True)
+    matrix = matrix.tocsr()
+    name_to_row = {g: i for i, g in enumerate(genes)}
     extracted: dict[str, np.ndarray] = {}
     for gene in sorted(wanted):
-        positions = np.flatnonzero(genes == gene)
-        if len(positions) != 1:
+        row = name_to_row.get(gene)
+        if row is None:
             continue
-        extracted[gene] = np.asarray(matrix.getrow(int(positions[0])).toarray()).ravel()
-    library_umi = np.asarray(matrix.sum(axis=0)).ravel()
+        extracted[gene] = np.asarray(matrix.getrow(row).toarray()).ravel()
     print(f"extracted {len(extracted)} / {len(wanted)} genes", flush=True)
     return extracted, library_umi, barcodes, genes.tolist()
 
@@ -286,25 +291,38 @@ def complex_stats(log_cp: dict[str, np.ndarray], pos: dict[str, np.ndarray], idx
     return geom_mean(means), float(min(props)) if props else 0.0
 
 
+def compartment_gene_stats(log_cp, pos, idx: np.ndarray) -> tuple[dict[str, float], dict[str, float]]:
+    means, props = {}, {}
+    if idx.size == 0:
+        return means, props
+    for gene, vec in log_cp.items():
+        means[gene] = trim_mean_1d(vec[idx])
+        props[gene] = float(pos[gene][idx].mean())
+    return means, props
+
+
+def complex_from_maps(means: dict[str, float], props: dict[str, float], subunits: tuple[str, ...]):
+    vals = []
+    prs = []
+    for gene in subunits:
+        if gene not in means:
+            return 0.0, 0.0
+        vals.append(means[gene])
+        prs.append(props[gene])
+    return geom_mean(vals), float(min(prs)) if prs else 0.0
+
+
 def score_patient_pairs(lr: pd.DataFrame, log_cp, pos, mal_idx, tnk_idx) -> list[dict]:
     rows = []
     if mal_idx.size < MIN_CELLS or tnk_idx.size < MIN_CELLS:
         return rows
-    cache: dict[tuple[str, tuple[str, ...]], tuple[float, float]] = {}
-
-    def cached(kind: str, subunits: tuple[str, ...], idx: np.ndarray):
-        key = (kind, subunits)
-        hit = cache.get(key)
-        if hit is None:
-            hit = complex_stats(log_cp, pos, idx, subunits)
-            cache[key] = hit
-        return hit
-
+    mal_mu, mal_pr = compartment_gene_stats(log_cp, pos, mal_idx)
+    tnk_mu, tnk_pr = compartment_gene_stats(log_cp, pos, tnk_idx)
     for rec in lr.itertuples(index=False):
-        lig_mal, lig_mal_p = cached("Lmal", rec.ligand_genes, mal_idx)
-        rec_tnk, rec_tnk_p = cached("Rtnk", rec.receptor_genes, tnk_idx)
-        lig_tnk, lig_tnk_p = cached("Ltnk", rec.ligand_genes, tnk_idx)
-        rec_mal, rec_mal_p = cached("Rmal", rec.receptor_genes, mal_idx)
+        lig_mal, lig_mal_p = complex_from_maps(mal_mu, mal_pr, rec.ligand_genes)
+        rec_tnk, rec_tnk_p = complex_from_maps(tnk_mu, tnk_pr, rec.receptor_genes)
+        lig_tnk, lig_tnk_p = complex_from_maps(tnk_mu, tnk_pr, rec.ligand_genes)
+        rec_mal, rec_mal_p = complex_from_maps(mal_mu, mal_pr, rec.receptor_genes)
         out_det = lig_mal_p >= EXPR_PROP and rec_tnk_p >= EXPR_PROP
         in_det = lig_tnk_p >= EXPR_PROP and rec_mal_p >= EXPR_PROP
         rows.append(
@@ -479,8 +497,6 @@ def run_q4(patients: pd.DataFrame, out: Path) -> dict:
 
 
 def run_cellchat(args, patients: pd.DataFrame, out: Path) -> dict:
-    import rdata
-
     identities = pd.read_csv(args.identities, sep="\t")
     if identities["barcode"].duplicated().any():
         raise ValueError("Cell-identity barcodes are not unique")
@@ -605,13 +621,13 @@ def run_cellchat(args, patients: pd.DataFrame, out: Path) -> dict:
         contrast = contrast[contrast["delta_median"] != 0].copy()
         contrast = contrast.assign(_absd=contrast["delta_median"].abs()).sort_values(["p", "_absd"], ascending=[True, False]).drop(columns="_absd")
         contrast.to_csv(out / "results" / "lr_q4q1_all.tsv", sep="\t", index=False)
-        ligand_tbl = contrast[contrast["p"] < 0.05].copy()
-        if ligand_tbl.empty:
-            ligand_tbl = contrast.head(20).copy()
-            ligand_tbl["note"] = "no pair p<0.05; top 20 by p shown"
-        else:
-            ligand_tbl["note"] = "patient-level MWU p<0.05; detected in ≥3 Q1 and ≥3 Q4"
-        ligand_tbl = ligand_tbl.sort_values(["p", "delta_median"])
+        ligand_tbl = contrast.sort_values(["p"]).head(15).copy()
+        n_sig = int((contrast["p"] < 0.05).sum())
+        ligand_tbl["sig_p05"] = ligand_tbl["p"] < 0.05
+        ligand_tbl["note"] = (
+            f"{n_sig} pair(s) p<0.05 of {len(contrast)} detect-gated rows; "
+            "table is top 15 by p (n=6 vs 6 is thin)"
+        )
     ligand_tbl.to_csv(out / "results" / "ligand_table.tsv", sep="\t", index=False)
     plot_ligand_table(
         ligand_tbl,
@@ -734,19 +750,29 @@ def write_finding(q4: dict, cellchat: dict | None, out: Path) -> None:
                 "| direction | pair | class | n_Q1/n_Q4 | median P Q1 | median P Q4 | Δ | r | p |",
                 "|---|---|---|---|---:|---:|---:|---:|---|",
             ]
-            show = lig.head(25)
+            show = lig.head(12)
             for rec in show.itertuples():
+                star = " **" if getattr(rec, "sig_p05", rec.p < 0.05) else ""
                 lines.append(
-                    f"| {rec.direction} | {rec.ligand}–{rec.receptor} | {rec.ligand_class} | "
+                    f"| {rec.direction} | {rec.ligand}–{rec.receptor}{star} | {rec.ligand_class} | "
                     f"{int(rec.n_q1_detected)}/{int(rec.n_q4_detected)} | "
                     f"{rec.median_prob_q1:.3f} | {rec.median_prob_q4:.3f} | "
                     f"{rec.delta_median:+.3f} | {rec.r_rb:+.3f} | {fmt_p(rec.p)} |"
                 )
-            if "note" in lig.columns and len(lig):
-                lines += ["", str(lig["note"].iloc[0]), ""]
+            lines += [
+                "",
+                "Only **MDK–NCL outgoing** is p<0.05 (higher in Q4). The rest of the",
+                "table is the next detect-gated pairs by p; they are not claimed.",
+                "Q4 is SCLC-heavy (3/6). MDK is high in those SCLC and in Q4 ADC",
+                "P1084/P1089; Q4 SQ P1037 is not. n=6 vs 6 is thin.",
+                "",
+                "P0031 T/NK here is 5,182 author `lineage.total` cells; the given",
+                "extract listed 3,824. Malignant n matches (319). CellChat uses the",
+                "full author T/NK label.",
+                "",
+            ]
         lines += [
             "Cell-pooled (stacked Q4 vs Q1) truncated means are **not** the test.",
-            "n=6 vs 6 is thin; a single SCLC or LN sample can move a pair.",
             "",
         ]
 
