@@ -1,0 +1,34 @@
+{
+  "verdict": "STOP",
+  "reason": "GSE229353 is CD45+ bead-sorted 10x only. Malignant epithelium / malignant CLDN4 is absent. Pair with GSE205335 was not built.",
+  "additive": true,
+  "marker": "CLDN4",
+  "dual_high": false,
+  "bigger_pile": false,
+  "gse229353": {
+    "accession": "GSE229353",
+    "pmid": 37231145,
+    "title": "PD-1 blockade potentiates neoadjuvant chemotherapy in NSCLC via increasing CD127+ and KLRG1+ CD8 T cells",
+    "compartment": "CD45+ immune cells (Human CD45 Microbeads, then 10x Chromium 5' v1)",
+    "n_gsm": 7,
+    "raw_tar_bytes": 163010560,
+    "raw_tar_mib": 155.5,
+    "malignant_matrix": false,
+    "cell_identity_file": false,
+    "cldn4_gene_on_panel": true,
+    "cldn4_feature_index_p01": 12425,
+    "usable_for_malignant_cldn4": false
+  },
+  "gse205335": {
+    "accession": "GSE205335",
+    "umi_matrix_bytes": 523720227,
+    "umi_matrix_mib": 499.5,
+    "under_2gb": true,
+    "merged": false,
+    "reason_not_merged": "GSE229353 gate failed: no malignant epithelium"
+  },
+  "n_pair_patients": 0,
+  "patient_level_cldn4_vs_tnk": false,
+  "cellchat_run": false,
+  "extra_series_added": false
+}
