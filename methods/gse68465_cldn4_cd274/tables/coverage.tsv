@@ -1,0 +1,2 @@
+accession	title	platform	n_matrix	n_tumor	n_normal	tumor_rule	n_genes_firstsymbol	targets_present	cd274_present	estimate_stromal_present	estimate_immune_present	mhc1_genes_used	n_purity_in_0_1	n_purity_outside_0_1	partial_covariate	cd8_cut	pdl2_substituted
+GSE68465	Director's Challenge LUAD (Jacob / Shedden multi-site)	GPL96 U133A	462	443	19	disease_state contains Adenocarcinoma	13101	CLDN4,HLA-A,HLA-B,HLA-C	False	136	138	HLA-A,HLA-B,HLA-C	442	1	ESTIMATEScore (Stromal+Immune)	taken_as_given_PR298	False
