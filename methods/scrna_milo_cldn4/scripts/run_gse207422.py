@@ -244,6 +244,8 @@ def write_finding(summary: dict, sample_tab: pd.DataFrame, out_path: Path) -> No
     min_p_s = "NA" if min_p is None else f"{min_p:.2e}"
     min_sf_mpr = da_mpr.get("min_SpatialFDR")
     min_sf_mpr_s = "NA" if min_sf_mpr is None else f"{min_sf_mpr:.3f}"
+    min_p_mpr = da_mpr.get("min_p")
+    min_p_mpr_s = "NA" if min_p_mpr is None else f"{min_p_mpr:.2e}"
 
     text = f"""# FINDING — Milo neighbourhoods vs malignant CLDN4 (GSE207422)
 
@@ -272,7 +274,7 @@ Malignant-like = epithelial AND NOT (alveolar/club/ciliated log1p-CP10k ≥ 1). 
 | Contrast | testable | P<0.05 | min P | min SpatialFDR | SpatialFDR<0.1 | SpatialFDR<0.05 | BH<0.1 |
 |---|---|---|---|---|---|---|---|
 | Malignant CLDN4 | {da['n_testable']} | {da['n_p_lt_0.05']} | {min_p_s} | {min_sf_s} | **{da['n_SpatialFDR_lt_0.1']}** | {da['n_SpatialFDR_lt_0.05']} | {da['n_BH_FDR_lt_0.1']} |
-| MPR vs NMPR | {da_mpr['n_testable']} | {da_mpr['n_p_lt_0.05']} | {da_mpr.get('min_p')} | {min_sf_mpr_s} | **{da_mpr['n_SpatialFDR_lt_0.1']}** | {da_mpr['n_SpatialFDR_lt_0.05']} | {da_mpr['n_BH_FDR_lt_0.1']} |
+| MPR vs NMPR | {da_mpr['n_testable']} | {da_mpr['n_p_lt_0.05']} | {min_p_mpr_s} | {min_sf_mpr_s} | **{da_mpr['n_SpatialFDR_lt_0.1']}** | {da_mpr['n_SpatialFDR_lt_0.05']} | {da_mpr['n_BH_FDR_lt_0.1']} |
 
 DA model = sample-level Spearman (CLDN4) or Welch t-test (MPR vs NMPR) on neighbourhood proportions. Not edgeR QLF. SpatialFDR = miloR `graphSpatialFDR` k-distance weights.
 
