@@ -29,6 +29,8 @@ Honest label limits:
 
 GEO `patient_id` (GSE131907) or GEO `patient` (GSE205335) is the unit. GSE131907 tumor-origin samples from the same patient are pooled. Same-patient T/NK means T/NK from those same tumor origins, not a normal-lung match.
 
+GSE131907 gene symbols still use pre-HGNC nectin names (`PVRL2` = NECTIN2). Those rows are aliased to CellChatDB v2 symbols before scoring. GSE205335 already uses `NECTIN2`.
+
 ## CLDN4 splits (malignant cells, within patient)
 
 Score = `log1p(CP10k)` CLDN4 on that patient's malignant cells.

@@ -1,0 +1,37 @@
+{
+  "datasets": [
+    "GSE131907",
+    "GSE205335"
+  ],
+  "marker": "CLDN4",
+  "additive": true,
+  "dual_high": false,
+  "gse207422_run": false,
+  "algorithm": "Jin 2021 Hill Kh=0.5, 10% trim mean, expr_prop>=0.10, CellChatDB v2 protein",
+  "cellchat_r": false,
+  "liana": false,
+  "unit": "patient",
+  "floors": {
+    "min_bin": 10,
+    "min_tnk": 20,
+    "min_detect_paired": 6
+  },
+  "n_lr_both_matrices": 1204,
+  "n_paired_median": 51,
+  "n_paired_q4q1": 27,
+  "n_ligand_table": 135,
+  "n_ligand_p_lt_05_median": 58,
+  "n_ligand_p_lt_05_q4q1": 42,
+  "pr320_given": {
+    "q4q1_n": 23,
+    "q4q1_r": -0.705,
+    "q4q1_p": 0.0003,
+    "spearman_n": 43,
+    "spearman_rho": -0.479
+  },
+  "not_used": "FASTQ; GSE131907 2.86GB log2TPM; GSE207422; TACSTD2 groups",
+  "matrix_sha256": {
+    "GSE131907": "b44a9c6635d0b59ec66b5eb6b40b40e7292c3a75aaf8afc4f933eb0550a26372",
+    "GSE205335": "ebbee2f8857fdf0151fa81f04bfb635c6c87a5a5bad33f782a6d349599ad5c30"
+  }
+}

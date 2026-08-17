@@ -1,0 +1,93 @@
+split	direction	interaction_name	pathway_name	ligand	receptor	focus	ligand_class	n_paired	n_GSE131907	n_GSE205335	median_prob_high	median_prob_low	delta_median	median_paired_delta	p	thin	test	note
+median	outgoing	CD274_PDCD1	PD-L1	CD274	PDCD1	CD274–PDCD1	inhibitory	6	4	2	0.010396305582260307	0.0016727895912857509	0.008723515990974557	0.005718105882114357	0.09375	True	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-E_CD8A	MHC-I	HLA-E	CD8A	MHC-I	inhibitory	46	27	19	0.3389447170466686	0.2635064697219446	0.07543824732472404	0.052707855877845544	5.095428150525549e-07	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-E_CD8B	MHC-I	HLA-E	CD8B	MHC-I	inhibitory	41	23	18	0.23788698440942738	0.21093175087110322	0.026955233538324158	0.056292223782732784	9.396662790095434e-07	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-A_CD8A	MHC-I	HLA-A	CD8A	MHC-I	other	46	27	19	0.5513320038284009	0.52871778262699	0.022614221201410878	0.018125698051096817	2.5459397676286244e-05	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-C_CD8A	MHC-I	HLA-C	CD8A	MHC-I	other	46	27	19	0.5380266528468396	0.48783113063754807	0.05019552220929152	0.020132119683308747	2.8618401898938828e-05	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-E_KLRC2	MHC-I	HLA-E	KLRC2	MHC-I	inhibitory	15	4	11	0.17928583150863872	0.10161271856236098	0.07767311294627774	0.05673495628985281	6.103515625e-05	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-C_CD8B	MHC-I	HLA-C	CD8B	MHC-I	other	41	23	18	0.41895324505284	0.41465539714289795	0.004297847909942032	0.022676856355005784	7.864533290558029e-05	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-A_CD8B	MHC-I	HLA-A	CD8B	MHC-I	other	41	23	18	0.46532043563352987	0.43129069215335714	0.034029743480172736	0.01784679605238948	0.00010187543557549361	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-E_KLRC1	MHC-I	HLA-E	KLRC1	MHC-I	inhibitory	14	9	5	0.1230705160531175	0.10850601928435215	0.014564496768765353	0.03344138865723228	0.0001220703125	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-B_CD8A	MHC-I	HLA-B	CD8A	MHC-I	other	46	27	19	0.5424989360760277	0.5124128043897171	0.03008613168631058	0.020804922061109593	0.00030973913234788597	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-F_CD8B	MHC-I	HLA-F	CD8B	MHC-I	other	36	21	15	0.07222852687696568	0.043803989928989255	0.028424536947976427	0.017674727815528438	0.0010565961129032075	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-B_CD8B	MHC-I	HLA-B	CD8B	MHC-I	other	41	23	18	0.433438759761695	0.45991199434436564	-0.026473234582670646	0.017253856162317532	0.0011332355643389747	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-F_CD8A	MHC-I	HLA-F	CD8A	MHC-I	other	39	24	15	0.12004719991257536	0.07299556803666102	0.04705163187591434	0.024179235685373654	0.0013167040960979648	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-E_KLRK1	MHC-I	HLA-E	KLRK1	MHC-I	inhibitory	20	0	20	0.40312191889754817	0.29021423554587333	0.11290768335167484	0.09020022883615973	0.01068878173828125	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	HLA-G_CD8B	MHC-I	HLA-G	CD8B	MHC-I	inhibitory	4	2	2	0.05368899340946788	0.023799800957911826	0.029889192451556055	0.019034055139403726	0.125	True	wilcoxon_signed_rank_paired_patient	n_paired=4 below gate 6
+median	outgoing	HLA-B_KIR3DL2	MHC-I	HLA-B	KIR3DL2	MHC-I	other	3	1	2	0.04978224335649958	0.036548512006989234	0.013233731349510343	0.013233731349510343	0.25	True	wilcoxon_signed_rank_paired_patient	n_paired=3 below gate 6
+median	outgoing	HLA-G_CD8A	MHC-I	HLA-G	CD8A	MHC-I	inhibitory	5	3	2	0.15270272628493697	0.03675082396672279	0.11595190231821419	0.001337231070154734	0.3125	True	wilcoxon_signed_rank_paired_patient	n_paired=5 below gate 6
+median	outgoing	HLA-C_KIR2DL3	MHC-I	HLA-C	KIR2DL3	MHC-I	other	1	0	1	0.19973848936371982	0.10825504370716148	0.09148344565655835	0.09148344565655835	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=1 below gate 6
+median	outgoing	HLA-F_KIR3DL2	MHC-I	HLA-F	KIR3DL2	MHC-I	other	2	1	1	0.004904032712746494	0.0018085929810931424	0.0030954397316533514	0.003095439731653352	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=2 below gate 6
+median	outgoing	ULBP2_KLRK1	MHC-I	ULBP2	KLRK1	MHC-I	other	2	0	2	0.0425359759356268	0.024712066357401363	0.01782390957822544	0.01782390957822543	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=2 below gate 6
+median	outgoing	HLA-A_KIR3DL1	MHC-I	HLA-A	KIR3DL1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	HLA-C_KIR2DL1	MHC-I	HLA-C	KIR2DL1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	HLA-C_KIR3DL3	MHC-I	HLA-C	KIR3DL3	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	HLA-F_KIR3DL1	MHC-I	HLA-F	KIR3DL1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	HLA-F_LILRB1	MHC-I	HLA-F	LILRB1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	HLA-G_LILRB1	MHC-I	HLA-G	LILRB1	MHC-I	inhibitory	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	HLA-G_LILRB2	MHC-I	HLA-G	LILRB2	MHC-I	inhibitory	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	RAET1E_KLRK1	MHC-I	RAET1E	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	RAET1G_KLRK1	MHC-I	RAET1G	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	RAET1L_KLRK1	MHC-I	RAET1L	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	ULBP1_KLRK1	MHC-I	ULBP1	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	ULBP3_KLRK1	MHC-I	ULBP3	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	NECTIN2_TIGIT	NECTIN	NECTIN2	TIGIT	NECTIN2–TIGIT	barrier|inhibitory	39	26	13	0.1810643345881024	0.08658768309924786	0.09447665148885454	0.06465166394855573	3.637978807091713e-12	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	CXCL16_CXCR6	CXCL	CXCL16	CXCR6	T-recruit	recruit	25	17	8	0.04911536365909504	0.01503062641002703	0.034084737249068006	0.01087039242732233	2.0705605648246455e-05	False	wilcoxon_signed_rank_paired_patient	
+median	outgoing	CCL4_CCR5	CCL	CCL4	CCR5	T-recruit	recruit	3	3	0	0.013951968631151215	0.01271514515087295	0.0012368234802782648	0.0012368234802782648	0.25	True	wilcoxon_signed_rank_paired_patient	n_paired=3 below gate 6
+median	outgoing	CXCL10_CXCR3	CXCL	CXCL10	CXCR3	T-recruit	recruit	3	2	1	0.009092109025522916	0.009681713519124377	-0.0005896044936014606	-0.0005899458120930006	0.25	True	wilcoxon_signed_rank_paired_patient	n_paired=3 below gate 6
+median	outgoing	CCL5_CCR1	CCL	CCL5	CCR1	T-recruit	recruit	3	2	1	0.003508881374499477	0.0010981698062702307	0.0024107115682292465	0.0031477003924429486	0.5	True	wilcoxon_signed_rank_paired_patient	n_paired=3 below gate 6
+median	outgoing	CCL5_CCR4	CCL	CCL5	CCR4	T-recruit	recruit	1	0	1	0.0016670656340394103	0.0006595503090159828	0.0010075153250234275	0.0010075153250234275	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=1 below gate 6
+median	outgoing	CCL5_CCR5	CCL	CCL5	CCR5	T-recruit	recruit	4	2	2	0.0008606455118021636	0.0012726439486718637	-0.00041199843686970004	-0.00010325569810373949	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=4 below gate 6
+median	outgoing	CCL4_ACKR2	CCL	CCL4	ACKR2	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	CCL5_ACKR1	CCL	CCL5	ACKR1	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	CCL5_ACKR2	CCL	CCL5	ACKR2	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	CCL5_CCR3	CCL	CCL5	CCR3	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	CXCL10_ACKR1	CXCL	CXCL10	ACKR1	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	CXCL9_ACKR1	CXCL	CXCL9	ACKR1	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+median	outgoing	CXCL9_CXCR3	CXCL	CXCL9	CXCR3	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CD274_PDCD1	PD-L1	CD274	PDCD1	CD274–PDCD1	inhibitory	2	2	0	0.01278547822628029	0.006388820159491011	0.00639665806678928	0.006396658066789279	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=2 below gate 6
+q4q1	outgoing	HLA-E_CD8A	MHC-I	HLA-E	CD8A	MHC-I	inhibitory	22	18	4	0.3391606466704571	0.27411885244218115	0.06504179422827594	0.06808935273868313	4.76837158203125e-06	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-A_CD8A	MHC-I	HLA-A	CD8A	MHC-I	other	22	18	4	0.5585096026343555	0.526080535708235	0.032429066926120464	0.03261785280023782	9.059906005859375e-06	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-F_CD8A	MHC-I	HLA-F	CD8A	MHC-I	other	20	17	3	0.10497209455424181	0.05210963339277215	0.05286246116146966	0.04224912989860853	2.6702880859375e-05	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-A_CD8B	MHC-I	HLA-A	CD8B	MHC-I	other	20	17	3	0.47612303924972654	0.4369486604926479	0.03917437875707863	0.033231564429566374	3.62396240234375e-05	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-E_CD8B	MHC-I	HLA-E	CD8B	MHC-I	inhibitory	20	17	3	0.22417163669995177	0.18826509766594524	0.035906539034006535	0.05090885121864677	3.62396240234375e-05	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-F_CD8B	MHC-I	HLA-F	CD8B	MHC-I	other	19	16	3	0.05635928839285535	0.027992997576098647	0.028366290816756706	0.017546388606288984	9.5367431640625e-05	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-B_CD8A	MHC-I	HLA-B	CD8A	MHC-I	other	22	18	4	0.5308763855018878	0.48869614590595845	0.042180239595929314	0.032206117084089825	0.00017690658569335938	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-C_CD8B	MHC-I	HLA-C	CD8B	MHC-I	other	20	17	3	0.4414197644988512	0.43554570529665104	0.0058740592022001326	0.03612655771683601	0.000209808349609375	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-C_CD8A	MHC-I	HLA-C	CD8A	MHC-I	other	22	18	4	0.5307482248342656	0.4663901567252357	0.06435806810902994	0.03785631163571365	0.00021314620971679688	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-B_CD8B	MHC-I	HLA-B	CD8B	MHC-I	other	20	17	3	0.43155313384608973	0.4300053919121484	0.0015477419339413045	0.035964754834478085	0.000850677490234375	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-E_KLRC1	MHC-I	HLA-E	KLRC1	MHC-I	inhibitory	7	6	1	0.10835351485501507	0.09172391031424192	0.016629604540773155	0.04069813199833272	0.015625	True	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-E_KLRC2	MHC-I	HLA-E	KLRC2	MHC-I	inhibitory	6	3	3	0.11468652653226866	0.08805124546478865	0.026635281067480004	0.026635281067480004	0.03125	True	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	HLA-E_KLRK1	MHC-I	HLA-E	KLRK1	MHC-I	inhibitory	5	0	5	0.2444814864689102	0.14051028175994842	0.10397120470896176	0.0751871146166744	0.0625	True	wilcoxon_signed_rank_paired_patient	n_paired=5 below gate 6
+q4q1	outgoing	HLA-G_CD8B	MHC-I	HLA-G	CD8B	MHC-I	inhibitory	3	2	1	0.015360696313259321	0.004576601320486984	0.010784094992772338	0.010784094992772338	0.5	True	wilcoxon_signed_rank_paired_patient	n_paired=3 below gate 6
+q4q1	outgoing	HLA-G_CD8A	MHC-I	HLA-G	CD8A	MHC-I	inhibitory	4	3	1	0.09322618734648329	0.01617966663788214	0.07704652070860116	0.0005635473824094198	0.875	True	wilcoxon_signed_rank_paired_patient	n_paired=4 below gate 6
+q4q1	outgoing	HLA-B_KIR3DL2	MHC-I	HLA-B	KIR3DL2	MHC-I	other	1	0	1	0.015219190463010908	0.011778144285497723	0.0034410461775131844	0.0034410461775131844	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=1 below gate 6
+q4q1	outgoing	HLA-F_KIR3DL2	MHC-I	HLA-F	KIR3DL2	MHC-I	other	1	0	1	0.003196781936648572	0.0020262189506876885	0.0011705629859608837	0.0011705629859608837	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=1 below gate 6
+q4q1	outgoing	ULBP2_KLRK1	MHC-I	ULBP2	KLRK1	MHC-I	other	1	0	1	0.07399139691825377	0.03809990298244647	0.035891493935807296	0.035891493935807296	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=1 below gate 6
+q4q1	outgoing	HLA-A_KIR3DL1	MHC-I	HLA-A	KIR3DL1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	HLA-C_KIR2DL1	MHC-I	HLA-C	KIR2DL1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	HLA-C_KIR2DL3	MHC-I	HLA-C	KIR2DL3	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	HLA-C_KIR3DL3	MHC-I	HLA-C	KIR3DL3	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	HLA-F_KIR3DL1	MHC-I	HLA-F	KIR3DL1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	HLA-F_LILRB1	MHC-I	HLA-F	LILRB1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	HLA-G_LILRB1	MHC-I	HLA-G	LILRB1	MHC-I	inhibitory	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	HLA-G_LILRB2	MHC-I	HLA-G	LILRB2	MHC-I	inhibitory	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	RAET1E_KLRK1	MHC-I	RAET1E	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	RAET1G_KLRK1	MHC-I	RAET1G	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	RAET1L_KLRK1	MHC-I	RAET1L	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	ULBP1_KLRK1	MHC-I	ULBP1	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	ULBP3_KLRK1	MHC-I	ULBP3	KLRK1	MHC-I	other	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	NECTIN2_TIGIT	NECTIN	NECTIN2	TIGIT	NECTIN2–TIGIT	barrier|inhibitory	22	18	4	0.17744070683778182	0.08794867175013434	0.08949203508764748	0.0955068216347304	1.430511474609375e-06	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	CXCL16_CXCR6	CXCL	CXCL16	CXCR6	T-recruit	recruit	13	12	1	0.04750946952769094	0.020499874626862515	0.027009594900828424	0.008682746937443406	0.00048828125	False	wilcoxon_signed_rank_paired_patient	
+q4q1	outgoing	CCL4_CCR5	CCL	CCL4	CCR5	T-recruit	recruit	2	2	0	0.009326770290957232	0.0066750459252851195	0.0026517243656721127	0.0026517243656721135	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=2 below gate 6
+q4q1	outgoing	CCL5_CCR1	CCL	CCL5	CCR1	T-recruit	recruit	1	1	0	0.002359316149525576	0.00014517394311881206	0.002214142206406764	0.002214142206406764	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=1 below gate 6
+q4q1	outgoing	CCL5_CCR5	CCL	CCL5	CCR5	T-recruit	recruit	2	1	1	0.0010346757279762432	0.0181602394123714	-0.017125563684395155	-0.017125563684395155	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=2 below gate 6
+q4q1	outgoing	CXCL10_CXCR3	CXCL	CXCL10	CXCR3	T-recruit	recruit	1	1	0	0.004093934160792733	0.010965725810041372	-0.006871791649248639	-0.006871791649248639	1.0	True	wilcoxon_signed_rank_paired_patient	n_paired=1 below gate 6
+q4q1	outgoing	CCL4_ACKR2	CCL	CCL4	ACKR2	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CCL5_ACKR1	CCL	CCL5	ACKR1	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CCL5_ACKR2	CCL	CCL5	ACKR2	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CCL5_CCR3	CCL	CCL5	CCR3	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CCL5_CCR4	CCL	CCL5	CCR4	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CXCL10_ACKR1	CXCL	CXCL10	ACKR1	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CXCL9_ACKR1	CXCL	CXCL9	ACKR1	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6
+q4q1	outgoing	CXCL9_CXCR3	CXCL	CXCL9	CXCR3	T-recruit	recruit	0	0	0						True	wilcoxon_signed_rank_paired_patient	n_paired=0 below gate 6

@@ -41,7 +41,9 @@ MIN_DETECT_PAIRED = 6
 MIN_DETECT_ARM = 3
 TUMOR_ORIGINS = ("tLung", "tL/B", "mLN", "mBrain")
 MALIG_SUBTYPES = {"Malignant cells", "tS1", "tS2", "tS3"}
-EXTRA = ["CLDN4", "TACSTD2", "EPCAM", "PTPRC", "CD3E", "CD8A", "CD8B", "NKG7", "IFNG"]
+EXTRA = ["CLDN4", "TACSTD2", "EPCAM", "PTPRC", "CD3E", "CD8A", "CD8B", "NKG7", "IFNG", "NECTIN2", "TIGIT"]
+# Kim et al. GSE131907 still uses pre-HGNC nectin symbols.
+GENE_ALIAS = {"PVRL1": "NECTIN1", "PVRL2": "NECTIN2", "PVRL3": "NECTIN3", "PVRL4": "NECTIN4"}
 
 CLASSICAL_MHC1 = {"HLA-A", "HLA-B", "HLA-C"}
 RECRUIT_LIGANDS = {"CXCL9", "CXCL10", "CXCL16", "CCL4", "CCL5"}
@@ -321,7 +323,7 @@ def stream_matrix(matrix_path: Path, wanted: set[str]):
             gene, sep, rest = line.partition("\t")
             if not sep:
                 continue
-            gene = gene.split(".")[0]
+            gene = GENE_ALIAS.get(gene.split(".")[0], gene.split(".")[0])
             arr = np.fromstring(rest, sep="\t", dtype=np.float32)
             if arr.size != n:
                 raise ValueError(f"{gene}: {arr.size} != {n}")
@@ -851,8 +853,13 @@ def md_table(df: pd.DataFrame, n: int = 12) -> list[str]:
 
 
 def write_finding(out: Path, summary: dict, paired: pd.DataFrame, between: pd.DataFrame, elig: pd.DataFrame, key: pd.DataFrame) -> None:
-    med_elig = elig[(elig["split"] == "median") & elig["eligible"]]
-    q_elig = elig[(elig["split"] == "q4q1") & elig["eligible"]]
+    def _considered(frame: pd.DataFrame) -> pd.DataFrame:
+        return frame[(frame["n_malignant"] > 0) & (frame["n_tnk"] > 0)]
+
+    med_all = _considered(elig[elig["split"] == "median"])
+    q_all = _considered(elig[elig["split"] == "q4q1"])
+    med_elig = med_all[med_all["eligible"]]
+    q_elig = q_all[q_all["eligible"]]
     med_tab = paired[paired["split"] == "median"] if not paired.empty else paired
     q_tab = paired[paired["split"] == "q4q1"] if not paired.empty else paired
     key_med = key[key["split"] == "median"] if not key.empty else key
@@ -886,22 +893,24 @@ def write_finding(out: Path, summary: dict, paired: pd.DataFrame, between: pd.Da
         "",
         "## Honest paired n",
         "",
-        f"| split | eligible patients | GSE131907 | GSE205335 | dropped (floor / thin bins) |",
-        f"|---|---:|---:|---:|---:|",
+        f"| split | considered (mal>0 and T/NK>0) | eligible | GSE131907 | GSE205335 | out (floor / thin bins) |",
+        f"|---|---:|---:|---:|---:|---:|",
         (
-            f"| median | {int(len(med_elig))} | "
+            f"| median | {int(len(med_all))} | {int(len(med_elig))} | "
             f"{int((med_elig.cohort=='GSE131907').sum())} | "
             f"{int((med_elig.cohort=='GSE205335').sum())} | "
-            f"{int(((elig.split=='median') & ~elig.eligible).sum())} |"
+            f"{int((~med_all.eligible).sum())} |"
         ),
         (
-            f"| Q4 vs Q1 | {int(len(q_elig))} | "
+            f"| Q4 vs Q1 | {int(len(q_all))} | {int(len(q_elig))} | "
             f"{int((q_elig.cohort=='GSE131907').sum())} | "
             f"{int((q_elig.cohort=='GSE205335').sum())} | "
-            f"{int(((elig.split=='q4q1') & ~elig.eligible).sum())} |"
+            f"{int((~q_all.eligible).sum())} |"
         ),
         "",
-        "Cells are not n. Patients that lack a high bin, a low bin, or T/NK are out.",
+        "Cells are not n. nLung / nLN / PE-only patients (0 tumor malignant) are not",
+        "in the considered column. Q4 vs Q1 loses patients when `qcut` cannot form",
+        "four ranks (CLDN4 ties, often a large zero mass).",
         "",
         "## Primary ligand table — within-patient paired (outgoing)",
         "",
@@ -915,18 +924,34 @@ def write_finding(out: Path, summary: dict, paired: pd.DataFrame, between: pd.Da
     lines += md_table(med_tab)
     lines += ["### Q4 vs Q1 split", ""]
     lines += md_table(q_tab)
+    def key_block(df: pd.DataFrame, focuses: list[str]) -> pd.DataFrame:
+        if df.empty:
+            return df
+        show = df[df["focus"].isin(focuses) & (df["n_paired"] > 0)].copy()
+        order = {k: i for i, k in enumerate(focuses)}
+        show["_o"] = show["focus"].map(order)
+        return show.sort_values(["_o", "p"]).drop(columns="_o")
+
+    focus_order = ["MHC-I", "T-recruit", "CD274–PDCD1", "NECTIN2–TIGIT"]
     lines += [
-        "## Focused pairs (always shown if subunits exist)",
+        "## Focused pairs (same test; not a second discovery pass)",
         "",
-        "MHC-I (HLA-A/B/C–CD8), T-recruit (CXCL9/10/16, CCL4/5), CD274–PDCD1, NECTIN2–TIGIT.",
-        "These rows are the same test; they are not a second discovery pass.",
+        "MHC-I (HLA-A/B/C/E–CD8), T-recruit (CXCL9/10/16, CCL4/5), CD274–PDCD1,",
+        "NECTIN2–TIGIT. Rows with n_paired=0 (never detected on both arms) are omitted",
+        "here and kept in `ligand_table_key.tsv`. CXCL9–CXCR3 was not detected.",
         "",
         "### Median",
         "",
     ]
-    lines += md_table(key_med, n=20)
-    lines += ["### Q4 vs Q1", ""]
-    lines += md_table(key_q, n=20)
+    for split_name, kdf in (("Median", key_med), ("Q4 vs Q1", key_q)):
+        lines += [f"### {split_name}", ""]
+        for foc in focus_order:
+            sub = key_block(kdf, [foc])
+            if sub.empty:
+                lines += [f"**{foc}.** Not detected on both arms in ≥1 patient.", ""]
+                continue
+            lines += [f"**{foc}**", ""]
+            lines += md_table(sub, n=12)
     lines += [
         "## Companion — between-unit on the locked PR #320 slice",
         "",
