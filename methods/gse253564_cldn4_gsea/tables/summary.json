@@ -1,0 +1,20 @@
+{
+  "accession": "GSE253564",
+  "file": "GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz",
+  "sha256": "f60ae0651e662030abc4d799a299452e0979ae37bb1b2b3143aa4adf0ef0e377",
+  "bytes": 2110059,
+  "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253564/suppl/GSE253564_Pre-treatment_Samples_Pubs_FPKMs.txt.gz",
+  "n_total": 32,
+  "n_q4": 8,
+  "n_q1": 8,
+  "q1_cut": 5.043970225168826,
+  "q3_cut": 6.261998622155665,
+  "n_genes_matrix": 20187,
+  "n_genes_ranked": 20128,
+  "cldn4_present": true,
+  "cd274_present": true,
+  "cldn4_welch_t": 6.468252610352712,
+  "cldn4_log2fc_q4_minus_q1": 3.3520407879352083,
+  "engine": "gsea_core.py weighted KS p=1 nperm=1000 seed=42",
+  "note": "CLDN4 only; leftover Durva pre-treatment bulk; Q4 vs Q1 GSEA + CD274 Spearman"
+}
