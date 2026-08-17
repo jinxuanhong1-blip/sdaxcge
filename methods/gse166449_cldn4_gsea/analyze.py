@@ -440,7 +440,7 @@ CD274 is present on the deposited matrix. This is **not** a PD-L1 IHC result.
 | CD274 Q4 / Q1 n | {n_cd274_q4} / {n_cd274_q1} |
 | CD274 log2 cuts | P25 = {cd274['p25']:.4f}; P75 = {cd274['p75']:.4f} |
 
-Honest read: on n=22 the CLDN4–CD274 correlation is {('positive' if cd274['rho'] > 0 else 'negative' if cd274['rho'] < 0 else 'zero')} and {('not significant' if cd274['p'] >= 0.05 else 'nominally significant')}. Do not treat CD274 as a surrogate for CLDN4 on this series.
+Honest read: on n=22 the CLDN4–CD274 correlation is {('positive' if cd274['rho'] > 0 else 'negative' if cd274['rho'] < 0 else 'zero')} and {('not significant' if cd274['p'] >= 0.05 else 'nominally significant')}. Do not treat CD274 as a surrogate for CLDN4 on this series. CD274 is a Hallmark IFN-γ member, so the CD274 Q4 IFN-γ NES is partly circular; MHC-I / APM is the cleaner CD274-high comparator.
 
 **CD274 Q4 vs Q1 GSEA** (same three headline sets; BH inside the three; positive NES = up in CD274 Q4):
 
@@ -476,9 +476,10 @@ Tables: `methods/gse166449_cldn4_gsea/tables/gsea_headline.tsv` (the NES table),
 只补公开 **GSE166449**（诚实 n=22）上 **CLDN4 Q4 vs Q1** 的 prerank GSEA（IFN-γ / MHC-I / KEGG TJ），并报告与 **CD274** 的对照。不审不撤已有 `results/w200/GSE166449` 页。只做 CLDN4，不做 TACSTD2。引擎与 `cldn4_ko_gsea` 相同（加权 KS，1000 次基因集置换，seed=42）。正 NES = CLDN4 Q4 端富集。FDR 只在三个 headline set 内做 BH。
 
 - 22 例 ICI 前 LUAD 肿瘤 bulk。Q4={n_q4}，Q1={n_q1}。6 vs 6 是本仓库四分位 GSEA 的下限，功效不足。
-- Headline（Welch *t*）：{call_headline(gsea, "welch_t_Q4_minus_Q1")}。
+- Headline（Welch *t*，6 vs 6）：{call_headline(gsea, "welch_t_Q4_minus_Q1")}。
+- IFN-γ 在 Spearman（n=22）上是 NS（NES +0.747 FDR 0.949），不要把四分位 IFN-γ FDR 写成连续 CLDN4 事实。
 - CLDN4 是 KEGG tight junction 成员；去掉 CLDN4 后再跑：{tj_drop_txt}。
-- CLDN4 vs CD274（n=22）：ρ = {cd274['rho']:+.3f}，p = {fmt_p(cd274['p'])}。
+- CLDN4 vs CD274（n=22）：ρ = {cd274['rho']:+.3f}，p = {fmt_p(cd274['p'])}。CD274 高组 IFN/MHC 强，CLDN4 不是它的替代。
 """
     (HERE / "FINDING.md").write_text(md)
     log(f"wrote {HERE / 'FINDING.md'}")
