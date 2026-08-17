@@ -1,0 +1,6 @@
+gene	ensembl	antibody_id	scope	histology_bucket	High	Medium	Low	Not_detected	n_patients	pct_High	pct_Medium	pct_Low	pct_Not_detected	score_type	note
+CLDN4	ENSG00000189143	CAB002610	all_lung_cancer_TMA	all_labeled_plus_other	0	9	2	0	11	0.0	81.8	18.2	0.0	ordinal_IHC_counts	Semi-quantitative HPA staining categories only. No H-score was calculated from intensity x quantity.
+CLDN4	ENSG00000189143	CAB002610	LUAD_SNOMED_adenocarcinoma_NOS	LUAD	0	4	2	0	6	0.0	66.7	33.3	0.0	ordinal_IHC_counts	Semi-quantitative HPA staining categories only. No H-score was calculated from intensity x quantity.
+CLDN4	ENSG00000189143	CAB002610	LUSC_SNOMED_squamous_cell_carcinoma_NOS	LUSC	0	3	0	0	3	0.0	100.0	0.0	0.0	ordinal_IHC_counts	Semi-quantitative HPA staining categories only. No H-score was calculated from intensity x quantity.
+CLDN4	ENSG00000189143	CAB002610	other_SNOMED_not_LUAD_LUSC	other_labeled	0	2	0	0	2	0.0	100.0	0.0	0.0	ordinal_IHC_counts	Semi-quantitative HPA staining categories only. No H-score was calculated from intensity x quantity.
+CLDN4	ENSG00000189143	CAB002610	unspecified	unspecified	0	0	0	0	0					ordinal_IHC_counts	Semi-quantitative HPA staining categories only. No H-score was calculated from intensity x quantity.
