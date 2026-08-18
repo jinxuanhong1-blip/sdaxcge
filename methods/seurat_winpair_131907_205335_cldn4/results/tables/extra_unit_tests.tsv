@@ -1,0 +1,12 @@
+setting	contrast	n	rho	p	n_Q1	n_Q4	r_q4q1	p_q4q1	I2	note
+sample_plus_patient	seurat_cldn4_vs_tnk_DL	43	-0.4517	0.003062	12	10	-0.4667	0.06979	0	primary Seurat %pos; GSE131907=sample
+sample_plus_patient	locked_cldn4_vs_tnk_DL	43	-0.4787	0.001519	12	11	-0.6970	0.005105	0	recovers PR320 rho=-0.479; locked quartiles for Q
+sample_plus_patient	seurat_cldn4_vs_ifn_DL	43	-0.2443	0.1293	12	10	-0.2167	0.4098	0	capped AddModuleScore
+sample_plus_patient	seurat_cldn4_vs_mhc_DL	43	-0.1388	0.5336	12	10	-0.1167	0.6682	46.3	GSE131907 MHC not down
+sample_plus_patient	locked_cldn4_vs_seurat_ifn_DL	43	-0.3091	0.08857			23.2	locked %pos vs Seurat IFN
+sample_plus_patient	locked_cldn4_vs_seurat_mhc_DL	43	-0.2046	0.4969			71.0	locked %pos vs Seurat MHC
+patient_collapse_39	seurat_cldn4_vs_tnk_DL	39	-0.5280	0.004892				29.6	GSE131907 21 samples -> 17 patients
+patient_collapse_39	locked_cldn4_vs_tnk_DL	39	-0.6128	0.006899				55.7	same collapse
+patient_collapse_39	seurat_cldn4_vs_ifn_DL	39	-0.2663	0.1170				0	
+patient_collapse_39	seurat_cldn4_vs_mhc_DL	39	-0.2015	0.2573				6.6	
+qc	seurat_vs_locked_cldn4_pct	43	0.9739	4.84e-28					capped %pos tracks locked %pos
