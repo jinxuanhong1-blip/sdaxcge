@@ -1,0 +1,32 @@
+{
+  "combo": "GSE123902+GSE131907+GSE205335+GSE189357",
+  "full_pool": false,
+  "excluded": [
+    "GSE148071",
+    "GSE127465",
+    "CD45-only"
+  ],
+  "dual_high": false,
+  "primary_split": "q4q1",
+  "n_locked": {
+    "GSE123902": 13,
+    "GSE131907": 21,
+    "GSE205335": 22,
+    "GSE189357": 9
+  },
+  "n_lr": {
+    "q4q1": 64,
+    "pctpos": 62,
+    "median": 62,
+    "tertile": 64
+  },
+  "family_tables": [
+    "results/family_barrier_inhibitory.tsv",
+    "results/family_ifn_recruit_mhci.tsv"
+  ],
+  "n_streamed_131907_genes": 29634,
+  "re_audited_pr424_pr474": false,
+  "re_audited_tnk_rho": false,
+  "cxcl910": "CXCL9/10 (KD-like recruit arm): CXCL9_CXCR3 undetected at expr_prop\u22650.1 (honest n=1; units with any detect flag=1); CXCL10_CXCR3 n=10 mean \u0394P=-0.017 p_W=0.922.",
+  "pvrl2_aliased_to_nectin2": true
+}

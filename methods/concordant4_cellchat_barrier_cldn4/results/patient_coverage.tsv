@@ -1,0 +1,66 @@
+cohort	patient_id	n_cells	n_mal	n_tnk	malig_def	both_compartments	q4q1_ok	q4q1_n_high	q4q1_n_low	pctpos_ok	pctpos_n_high	pctpos_n_low	median_ok	median_n_high	median_n_low	tertile_ok	tertile_n_high	tertile_n_low
+GSE123902	LX255B	3886	228	1583	marker_malignant (epithelium proxy; author labels absent)	True	True	57.0	148.0	True	80.0	148.0	True	80.0	148.0	True	76.0	148.0
+GSE123902	LX653	392	145	49	marker_malignant (epithelium proxy; author labels absent)	True	True	37.0	41.0	True	104.0	41.0	True	72.0	73.0	True	49.0	49.0
+GSE123902	LX661	4566	117	3726	marker_malignant (epithelium proxy; author labels absent)	True	True	30.0	48.0	True	69.0	48.0	True	58.0	59.0	True	39.0	48.0
+GSE123902	LX666	1316	786	177	marker_malignant (epithelium proxy; author labels absent)	True	True	197.0	258.0	True	528.0	258.0	True	393.0	393.0	True	262.0	262.0
+GSE123902	LX675	3435	618	1336	marker_malignant (epithelium proxy; author labels absent)	True	True	155.0	424.0	True	194.0	424.0	True	194.0	424.0	True	618.0	424.0
+GSE123902	LX676	4014	147	2606	marker_malignant (epithelium proxy; author labels absent)	True	True	37.0	85.0	True	62.0	85.0	True	62.0	85.0	True	49.0	85.0
+GSE123902	LX679	2017	497	625	marker_malignant (epithelium proxy; author labels absent)	True	True	125.0	282.0	True	215.0	282.0	True	215.0	282.0	True	166.0	282.0
+GSE123902	LX680	941	258	344	marker_malignant (epithelium proxy; author labels absent)	True	True	65.0	69.0	True	189.0	69.0	True	129.0	129.0	True	86.0	86.0
+GSE123902	LX681	1630	1207	86	marker_malignant (epithelium proxy; author labels absent)	True	True	302.0	443.0	True	764.0	443.0	True	603.0	604.0	True	403.0	443.0
+GSE123902	LX682	4092	421	2558	marker_malignant (epithelium proxy; author labels absent)	True	True	421.0	342.0	True	79.0	342.0	True	79.0	342.0	True	421.0	342.0
+GSE123902	LX684	378	173	92	marker_malignant (epithelium proxy; author labels absent)	True	True	44.0	47.0	True	126.0	47.0	True	86.0	87.0	True	58.0	58.0
+GSE123902	LX699	2671	46	2263	marker_malignant (epithelium proxy; author labels absent)	True	True	46.0	39.0	False			False			True	46.0	39.0
+GSE123902	LX701	788	90	322	marker_malignant (epithelium proxy; author labels absent)	True	True	90.0	80.0	True	10.0	80.0	True	10.0	80.0	True	90.0	80.0
+GSE131907	BRONCHO_11	3178	203	809	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	51.0	51.0	True	164.0	39.0	True	101.0	102.0	True	68.0	68.0
+GSE131907	BRONCHO_58	2813	460	1546	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	115.0	128.0	True	332.0	128.0	True	230.0	230.0	True	154.0	154.0
+GSE131907	EBUS_06	2303	1186	611	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	297.0	342.0	True	844.0	342.0	True	593.0	593.0	True	396.0	396.0
+GSE131907	EBUS_10	5144	367	1530	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	92.0	92.0	True	310.0	57.0	True	183.0	184.0	True	123.0	123.0
+GSE131907	EBUS_12	3115	257	328	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	65.0	65.0	True	227.0	30.0	True	128.0	129.0	True	86.0	86.0
+GSE131907	EBUS_13	3550	376	1150	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	376.0	375.0	False			False			True	376.0	375.0
+GSE131907	EBUS_15	1105	256	479	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	64.0	135.0	True	121.0	135.0	True	121.0	135.0	True	86.0	135.0
+GSE131907	EBUS_19	2112	217	1427	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	55.0	55.0	True	204.0	13.0	True	108.0	109.0	True	73.0	73.0
+GSE131907	EBUS_28	5182	4640	232	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	1160.0	1160.0	True	4470.0	170.0	True	2320.0	2320.0	True	1547.0	1547.0
+GSE131907	EBUS_49	1775	114	1126	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	29.0	58.0	True	56.0	58.0	True	56.0	58.0	True	38.0	58.0
+GSE131907	EBUS_51	3275	1285	1143	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	322.0	322.0	True	1097.0	188.0	True	642.0	643.0	True	429.0	429.0
+GSE131907	NS_02	2313	181	977	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	46.0	75.0	True	106.0	75.0	True	90.0	91.0	True	61.0	75.0
+GSE131907	NS_03	2990	2713	145	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	679.0	679.0	True	2527.0	186.0	True	1356.0	1357.0	True	905.0	905.0
+GSE131907	NS_04	1904	1229	131	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	308.0	308.0	True	1098.0	131.0	True	614.0	615.0	True	410.0	410.0
+GSE131907	NS_06	1070	83	383	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	21.0	33.0	True	50.0	33.0	True	41.0	42.0	True	28.0	33.0
+GSE131907	NS_07	5730	5108	166	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	1277.0	1277.0	True	4618.0	490.0	True	2554.0	2554.0	True	1703.0	1703.0
+GSE131907	NS_12	3182	2811	22	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	703.0	703.0	True	2427.0	384.0	True	1405.0	1406.0	True	937.0	937.0
+GSE131907	NS_13	4845	1352	1780	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	338.0	373.0	True	979.0	373.0	True	676.0	676.0	True	451.0	451.0
+GSE131907	NS_16	1317	79	385	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	79.0	70.0	False			False			True	79.0	70.0
+GSE131907	NS_17	2409	1112	410	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	278.0	278.0	True	981.0	131.0	True	556.0	556.0	True	371.0	371.0
+GSE131907	NS_19	3300	755	370	author Cell_subtype in {Malignant cells, tS1, tS2, tS3}	True	True	189.0	248.0	True	507.0	248.0	True	377.0	378.0	True	252.0	252.0
+GSE205335	P0031	10930	319	5182	author lineage.sub == Malignant cells	True	True	80.0	130.0	True	189.0	130.0	True	158.0	161.0	True	107.0	130.0
+GSE205335	P1006	6090	1282	2998	author lineage.sub == Malignant cells	True	True	321.0	331.0	True	951.0	331.0	True	641.0	641.0	True	428.0	428.0
+GSE205335	P1015	1195	291	473	author lineage.sub == Malignant cells	True	True	73.0	170.0	True	121.0	170.0	True	121.0	170.0	True	97.0	170.0
+GSE205335	P1016	6924	5336	763	author lineage.sub == Malignant cells	True	True	1334.0	1334.0	True	4410.0	926.0	True	2668.0	2668.0	True	1779.0	1779.0
+GSE205335	P1017	6266	2186	2370	author lineage.sub == Malignant cells	True	True	547.0	780.0	True	1406.0	780.0	True	1093.0	1093.0	True	729.0	780.0
+GSE205335	P1018	5029	1180	2546	author lineage.sub == Malignant cells	True	True	295.0	389.0	True	791.0	389.0	True	590.0	590.0	True	394.0	394.0
+GSE205335	P1025	1222	980	128	author lineage.sub == Malignant cells	True	True	246.0	245.0	True	910.0	70.0	True	490.0	490.0	True	327.0	327.0
+GSE205335	P1027	4600	1318	2619	author lineage.sub == Malignant cells	True	True	330.0	330.0	True	1029.0	289.0	True	659.0	659.0	True	440.0	440.0
+GSE205335	P1030	861	603	140	author lineage.sub == Malignant cells	True	True	151.0	231.0	True	372.0	231.0	True	301.0	302.0	True	201.0	231.0
+GSE205335	P1037	4983	3671	611	author lineage.sub == Malignant cells	True	True	918.0	918.0	True	3159.0	512.0	True	1835.0	1836.0	True	1224.0	1224.0
+GSE205335	P1056	5103	2386	1354	author lineage.sub == Malignant cells	True	True	597.0	1200.0	True	1186.0	1200.0	True	1186.0	1200.0	True	796.0	1200.0
+GSE205335	P1062	3057	188	1934	author lineage.sub == Malignant cells	True	True	47.0	103.0	True	85.0	103.0	True	85.0	103.0	True	63.0	103.0
+GSE205335	P1063	4297	131	3144	author lineage.sub == Malignant cells	True	True	33.0	85.0	True	46.0	85.0	True	46.0	85.0	True	44.0	85.0
+GSE205335	P1072	1273	406	586	author lineage.sub == Malignant cells	True	True	102.0	167.0	True	239.0	167.0	True	203.0	203.0	True	136.0	167.0
+GSE205335	P1076	6975	849	2089	author lineage.sub == Malignant cells	True	True	213.0	345.0	True	504.0	345.0	True	424.0	425.0	True	283.0	345.0
+GSE205335	P1079	1277	543	501	author lineage.sub == Malignant cells	True	True	136.0	264.0	True	279.0	264.0	True	271.0	272.0	True	181.0	264.0
+GSE205335	P1084	3534	196	2350	author lineage.sub == Malignant cells	True	True	49.0	49.0	True	170.0	26.0	True	98.0	98.0	True	66.0	66.0
+GSE205335	P1089	1609	1063	272	author lineage.sub == Malignant cells	True	True	266.0	266.0	True	933.0	130.0	True	531.0	532.0	True	355.0	355.0
+GSE205335	P1090	976	566	247	author lineage.sub == Malignant cells	True	True	142.0	350.0	True	216.0	350.0	True	216.0	350.0	True	189.0	350.0
+GSE205335	P1115	4397	3769	271	author lineage.sub == Malignant cells	True	True	943.0	943.0	True	3350.0	419.0	True	1884.0	1885.0	True	1257.0	1257.0
+GSE205335	P1119	2386	1222	621	author lineage.sub == Malignant cells	True	True	306.0	781.0	True	441.0	781.0	True	441.0	781.0	True	408.0	781.0
+GSE205335	P4001	2308	27	1801	author lineage.sub == Malignant cells	True	False			True	13.0	14.0	True	13.0	14.0	False		
+GSE189357	TD1	15216	2186	9915	marker_malignant (epithelium proxy; author labels thin)	True	True	547.0	959.0	True	1227.0	959.0	True	1093.0	1093.0	True	729.0	959.0
+GSE189357	TD2	18064	1207	11334	marker_malignant (epithelium proxy; author labels thin)	True	True	302.0	777.0	True	430.0	777.0	True	430.0	777.0	True	403.0	777.0
+GSE189357	TD3	12658	664	6525	marker_malignant (epithelium proxy; author labels thin)	True	True	166.0	345.0	True	319.0	345.0	True	319.0	345.0	True	222.0	345.0
+GSE189357	TD4	11756	491	7096	marker_malignant (epithelium proxy; author labels thin)	True	True	123.0	342.0	True	149.0	342.0	True	149.0	342.0	True	491.0	342.0
+GSE189357	TD5	19079	1736	11055	marker_malignant (epithelium proxy; author labels thin)	True	True	434.0	1096.0	True	640.0	1096.0	True	640.0	1096.0	True	579.0	1096.0
+GSE189357	TD6	8999	1211	3392	marker_malignant (epithelium proxy; author labels thin)	True	True	303.0	442.0	True	769.0	442.0	True	605.0	606.0	True	404.0	442.0
+GSE189357	TD7	3507	849	1851	marker_malignant (epithelium proxy; author labels thin)	True	True	213.0	538.0	True	311.0	538.0	True	311.0	538.0	True	283.0	538.0
+GSE189357	TD8	15521	1019	7257	marker_malignant (epithelium proxy; author labels thin)	True	True	255.0	557.0	True	462.0	557.0	True	462.0	557.0	True	340.0	557.0
+GSE189357	TD9	17573	4889	4345	marker_malignant (epithelium proxy; author labels thin)	True	True	1223.0	1223.0	True	3841.0	1048.0	True	2444.0	2445.0	True	1630.0	1630.0
