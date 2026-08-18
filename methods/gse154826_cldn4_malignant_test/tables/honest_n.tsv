@@ -1,0 +1,23 @@
+item	n	note
+public_GSE154826_series	1	GEO; Leader/Grout Cancer Cell 2021 PMID 34767762
+GEO_series_matrix_expression_rows	0	GPL18573 + GPL24676 metadata only
+GEO_amp_batch_MTX_tarballs	77	unlabeled 10x MTX; pile ~3567029508 B; not downloaded as a pile
+GEO_sample_annots_rows	119	GSE154826_sample_annots.csv.gz
+author_annotated_barcodes	361929	effiken/Leader_et_al cell_metadata.csv
+author_clusters	60	annots_list.csv
+author_lineage_named_Malignant	0	no Malignant / tumor-cell lineage
+author_cells_labeled_malignant	0	0 barcodes
+author_lineage_epi_endo_fibro_doublet	33759	leftover gate after CD45+ enrichment
+author_lineage_T	157641	T/NK present; not the failure
+author_lineage_NK	11456	
+Mount_Sinai_patients_TableS1	35	excludes Lambrechts/Zilionis re-use
+tumor_patients_with_author_barcodes	35	patient x Tumor
+digest_no_CD45_tumor_patients	2	695 LUAD, 706 LUSC — real tissue digest
+author_malignant_units	0	stop threshold n<8 / score threshold n>=10
+author_malignant_and_same_patient_TNK_units	0	empty
+tumor_patients_gate_ge20_and_TNK_ge20	30	leftover gate, NOT author-malignant; not scored
+CLDN4_vs_TNK_table_rows	0	malignant absent; not computed
+IFN_MHC_Q4_vs_Q1	0	optional; not run
+joined_concordant_pool	0	sign not tested; do not merge 123902/131907
+dual_high_TACSTD2_x_CLDN4	0	not defined
+Dropbox_lung_ldm_rd_downloaded	0	HEAD 2123085302 B; extra huge object skipped
