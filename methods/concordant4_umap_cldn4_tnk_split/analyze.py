@@ -334,10 +334,10 @@ def make_figure(
         2,
         left=0.055,
         right=0.98,
-        top=0.90,
+        top=0.88,
         bottom=0.16,
         wspace=0.22,
-        hspace=0.38,
+        hspace=0.42,
         height_ratios=[1.12, 1.0],
     )
 
@@ -354,15 +354,15 @@ def make_figure(
         m = quart == q
         sca = scatter_quartile_umap(ax, xy_all[m], anno[m], cldn4[m], vmax)
         apply_umap_axes(ax, xlim, ylim)
-        ax.set_title(f"CLDN4-{q} units", pad=3)
+        ax.set_title(f"CLDN4-{q} units", pad=10)
         ax.text(
-            0.0,
-            1.015,
+            0.50,
+            1.02,
             f"n_units={n_u}  ·  n_cells={n_c:,}",
             transform=ax.transAxes,
             fontsize=6,
             va="bottom",
-            ha="left",
+            ha="center",
             color="0.25",
         )
         if i == 1 and sca is not None:
