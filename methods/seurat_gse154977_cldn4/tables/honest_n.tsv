@@ -1,0 +1,10 @@
+item	n	note
+GEO QC cells (depositor)	11017	do not quote as analysis n
+cells after Seurat QC	11017	nFeature>=200 & percent.mt<20
+libraries / GSM	4	one library per mouse
+biological mice	4	honest unit
+ND mice	2	no-drug 30w PT
+Cis72 mice	2	cisplatin 72h 30w PT
+PRIMARY mice (n_cells>=20)	4	all 4 pass
+T/NK-fraction mice	0	FACS CD45− tumor-only; design no-go
+Q4 vs Q1 usable?	0	locked off: needs n_units>=8

@@ -1,0 +1,50 @@
+{
+  "accession": "GSE154977",
+  "paper": "Marjanovic et al. Cancer Cell 2020 PMID 32707077",
+  "seurat_version": "5.5.1",
+  "r_version": "4.4.3",
+  "n_cells_depositor": 11017,
+  "n_cells_seurat_qc": 11017,
+  "n_mice": 4,
+  "mice": ["KP_30w_Cis72_m5", "KP_30w_Cis72_m6", "KP_30w_ND_m3", "KP_30w_ND_m4"],
+  "treatments": {
+    "KP_30w_Cis72_m5": "Cis72",
+    "KP_30w_Cis72_m6": "Cis72",
+    "KP_30w_ND_m3": "ND",
+    "KP_30w_ND_m4": "ND"
+  },
+  "tnk_design_nogo": true,
+  "tnk_leak_n": 1,
+  "tnk_leak_frac": 0.000091,
+  "epcam_n": 10361,
+  "cldn4_n": 5610,
+  "families_n": {
+    "IFN": 215,
+    "MHC-I/APM": 24,
+    "TJ": 196
+  },
+  "spearman": {
+    "IFN": {
+      "n": 4,
+      "rho": 0.8,
+      "p": 0.333333,
+      "test": "spearman_exact"
+    },
+    "MHC": {
+      "n": 4,
+      "rho": 1,
+      "p": 0.083333,
+      "test": "spearman_exact"
+    },
+    "TJ": {
+      "n": 4,
+      "rho": 1,
+      "p": 0.083333,
+      "test": "spearman_exact"
+    }
+  },
+  "q4q1_usable": false,
+  "object": "/workspace/methods/seurat_gse154977_cldn4/objects/gse154977_kp30w_seurat.rds",
+  "mouse_table": "/workspace/methods/seurat_gse154977_cldn4/tables/mouse_units.tsv",
+  "tnk_note": "design no-go; 1 leak cell; tumor-only CD45- libraries"
+}

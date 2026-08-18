@@ -12,12 +12,16 @@ suppressPackageStartupMessages({
   library(jsonlite)
 })
 
-HERE <- if (!is.null(sys.frame(1)$ofile)) {
-  dirname(normalizePath(sys.frame(1)$ofile))
-} else {
+HERE <- {
   args_all <- commandArgs(trailingOnly = FALSE)
   f <- sub("^--file=", "", args_all[grep("^--file=", args_all)])
-  if (length(f)) dirname(normalizePath(f)) else getwd()
+  if (length(f) == 1 && nzchar(f)) {
+    dirname(normalizePath(f))
+  } else if (dir.exists(file.path(getwd(), "methods/seurat_gse154977_cldn4"))) {
+    normalizePath(file.path(getwd(), "methods/seurat_gse154977_cldn4"))
+  } else {
+    normalizePath(getwd())
+  }
 }
 
 DATA <- file.path(HERE, "data")
@@ -117,9 +121,20 @@ load_families <- function(available) {
 read_coo_h5 <- function(path, genes, cells) {
   h5 <- H5File$new(path, mode = "r")
   on.exit(h5$close_all(), add = TRUE)
-  i <- as.numeric(h5[["i"]][])
-  j <- as.numeric(h5[["j"]][])
-  v <- as.numeric(h5[["v"]][])
+  read_vec <- function(name) {
+    d <- h5[[name]]
+    dims <- d$dims
+    if (length(dims) == 1) {
+      as.numeric(d[])
+    } else if (length(dims) == 2) {
+      as.numeric(d[, ])
+    } else {
+      stop("unexpected rank for ", name, ": ", paste(dims, collapse = "x"))
+    }
+  }
+  i <- read_vec("i")
+  j <- read_vec("j")
+  v <- read_vec("v")
   if (min(i) == 0 || min(j) == 0) {
     i <- i + 1
     j <- j + 1
@@ -144,7 +159,7 @@ spearman_safe <- function(x, y, min_n = MIN_N_SPEARMAN) {
   n <- sum(ok)
   out <- list(n = n, rho = NA_real_, p = NA_real_, usable = FALSE)
   if (n < min_n) return(out)
-  ct <- suppressWarnings(cor.test(x[ok], y[ok], method = "spearman", exact = FALSE))
+  ct <- suppressWarnings(cor.test(x[ok], y[ok], method = "spearman", exact = n <= 10))
   out$rho <- unname(ct$estimate)
   out$p <- unname(ct$p.value)
   out$usable <- TRUE
@@ -282,7 +297,7 @@ data_mat <- GetAssayData(obj, layer = "data")
 obj$mean_IFN <- mean_present(data_mat, families$IFN)
 obj$mean_MHC <- mean_present(data_mat, families$`MHC-I/APM`)
 obj$mean_TJ <- mean_present(data_mat, families$TJ)
-obj$Cldn4 <- if ("Cldn4" %in% rownames(obj)) as.numeric(data_mat["Cldn4", ]) else NA_real_
+obj$Cldn4_log <- if ("Cldn4" %in% rownames(obj)) as.numeric(data_mat["Cldn4", ]) else NA_real_
 obj$Cldn4_counts <- if ("Cldn4" %in% rownames(obj)) as.numeric(GetAssayData(obj, layer = "counts")["Cldn4", ]) else 0
 
 # Marker audit (counts > 0)
@@ -358,7 +373,7 @@ mouse_tab <- do.call(rbind, lapply(split(seq_len(nrow(md)), md$mouse), function(
     n_cells = nrow(d),
     n_Cldn4_pos = sum(d$Cldn4_counts > 0, na.rm = TRUE),
     frac_Cldn4_pos = mean(d$Cldn4_counts > 0, na.rm = TRUE),
-    mean_Cldn4 = mean(d$Cldn4, na.rm = TRUE),
+    mean_Cldn4 = mean(d$Cldn4_log, na.rm = TRUE),
     mean_IFN = mean(d$mean_IFN, na.rm = TRUE),
     mean_MHC = mean(d$mean_MHC, na.rm = TRUE),
     mean_TJ = mean(d$mean_TJ, na.rm = TRUE),
@@ -474,7 +489,7 @@ write.table(honest, file.path(TABLES, "honest_n.tsv"), sep = "\t", row.names = F
 
 # Plots — must be Seurat DimPlot / VlnPlot
 message("Plots ...")
-p_dim_lib <- DimPlot(obj, group.by = "library", reduction = "umap") + ggtitle("GSE154977 KP 30w 10x — library (mouse)")
+p_dim_lib <- DimPlot(obj, group.by = "library", reduction = "umap") + ggtitle("GSE154977 KP 30w 10x - library (mouse)")
 p_dim_cl <- DimPlot(obj, group.by = "seurat_clusters", reduction = "umap", label = TRUE) + ggtitle("Seurat clusters")
 p_dim_auth <- DimPlot(obj, group.by = "author_cluster", reduction = "umap", label = TRUE) + ggtitle("Author timecourse_pred_cluster")
 p_dim_trt <- DimPlot(obj, group.by = "treatment", reduction = "umap") + ggtitle("Treatment")
@@ -489,16 +504,26 @@ ggsave(file.path(FIGS, "DimPlot_treatment.pdf"), p_dim_trt, width = 7, height = 
 
 feat <- c("Cldn4", "Epcam", "Ptprc", "Cd3d", "Nkg7")
 feat <- feat[feat %in% rownames(obj)]
-p_vln_lib <- VlnPlot(obj, features = feat, group.by = "library", pt.size = 0, ncol = 2) +
-  plot_annotation(title = "GSE154977 — Cldn4 / epithelium / T-NK audit by mouse library")
-p_vln_cl <- VlnPlot(obj, features = intersect(c("Cldn4", "Epcam", "Ptprc", "Cd3d"), rownames(obj)),
-                    group.by = "seurat_clusters", pt.size = 0, ncol = 2)
+vln_feats <- paste0("rna_", feat)
+p_vln_lib <- VlnPlot(obj, features = vln_feats, group.by = "library", pt.size = 0, ncol = 2) +
+  plot_annotation(title = "GSE154977 - Cldn4 / epithelium / T-NK audit by mouse library")
+p_vln_cl <- VlnPlot(
+  obj,
+  features = paste0("rna_", intersect(c("Cldn4", "Epcam", "Ptprc", "Cd3d"), rownames(obj))),
+  group.by = "seurat_clusters",
+  pt.size = 0,
+  ncol = 2
+)
 ggsave(file.path(FIGS, "VlnPlot_markers_by_library.png"), p_vln_lib, width = 10, height = 8, dpi = 150)
 ggsave(file.path(FIGS, "VlnPlot_markers_by_library.pdf"), p_vln_lib, width = 10, height = 8)
 ggsave(file.path(FIGS, "VlnPlot_markers_by_cluster.png"), p_vln_cl, width = 10, height = 7, dpi = 150)
 ggsave(file.path(FIGS, "VlnPlot_markers_by_cluster.pdf"), p_vln_cl, width = 10, height = 7)
 
-p_feat <- FeaturePlot(obj, features = intersect(c("Cldn4", "Epcam", "Ptprc"), rownames(obj)), ncol = 3)
+p_feat <- FeaturePlot(
+  obj,
+  features = paste0("rna_", intersect(c("Cldn4", "Epcam", "Ptprc"), rownames(obj))),
+  ncol = 3
+)
 ggsave(file.path(FIGS, "FeaturePlot_Cldn4_Epcam_Ptprc.png"), p_feat, width = 12, height = 4, dpi = 150)
 ggsave(file.path(FIGS, "FeaturePlot_Cldn4_Epcam_Ptprc.pdf"), p_feat, width = 12, height = 4)
 
