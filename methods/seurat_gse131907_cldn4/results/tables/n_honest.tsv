@@ -1,0 +1,13 @@
+piece	n	note
+cells_in_CreateSeuratObject	208506	gene-subset object; do not quote as inferential n
+patients_in_GEO	44	44 LUAD patients in Kim 2020
+samples_in_GEO	58	58 samples
+tumor_bearing_origins	128065	tLung/tL/B/mLN/PE/mBrain cells
+author_Malignant_cells	24784	Cell_subtype == Malignant cells
+tS1_tS2_tS3	6352	included only in broad sensitivity
+patients_authorMal_n>=20	21	PRIMARY n
+patients_broadMal_n>=20	31	sensitivity: tS1/tS2/tS3 + Malignant cells
+samples_authorMal_n>=20	21	comparison to prior sample-level GSE131907 n=21
+nLung_authorMal_cells	0	must be 0; nLung cannot join malignant CLDN4
+Q1_patients_author	6	within-cohort %pos quartile
+Q4_patients_author	5	within-cohort %pos quartile
