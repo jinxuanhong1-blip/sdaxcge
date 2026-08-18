@@ -1,0 +1,43 @@
+subset	x	y	n_mice	spearman_n	spearman_rho	spearman_p	spearman_usable	dataset_partial_n	dataset_partial_rho	dataset_partial_p	dataset_partial_usable	q4q1_usable	q4q1_delta_median	q4q1_p	note
+TNK_all_usable	Cldn4_epi_mean	frac_tnk	4	4	-1	0	TRUE	4	-1	0	TRUE	FALSE	NA	NA	mixed-digest mice only; dataset as covariate
+TNK_all_usable	Cldn4_epi_mean	IFN_epi_mean	4	4	0	1	TRUE	4	0.6	0.4	TRUE	FALSE	NA	NA	mixed-digest mice only; dataset as covariate
+TNK_all_usable	Cldn4_epi_mean	MHC_epi_mean	4	4	-0.8	0.2	TRUE	4	0	1	TRUE	FALSE	NA	NA	mixed-digest mice only; dataset as covariate
+EPI_all_usable	Cldn4_epi_mean	frac_tnk	4	4	-1	0	TRUE	4	-1	0	TRUE	FALSE	NA	NA	mice with epithelium; dataset as covariate
+EPI_all_usable	Cldn4_epi_mean	IFN_epi_mean	8	8	-0.0476190476190476	0.910849168519584	TRUE	8	0.690476190476191	0.0579903181645727	TRUE	TRUE	-0.0797832812165126	0.698535358303339	mice with epithelium; dataset as covariate
+EPI_all_usable	Cldn4_epi_mean	MHC_epi_mean	8	8	-0.619047619047619	0.101733037454265	TRUE	8	-0.0952380952380952	0.822505430203611	TRUE	TRUE	-0.803286197169665	0.245278116806773	mice with epithelium; dataset as covariate
+EPI_no_Cis72	Cldn4_epi_mean	frac_tnk	4	4	-1	0	TRUE	4	-1	0	TRUE	FALSE	NA	NA	drop GSE154977 Cis72; dataset as covariate
+EPI_no_Cis72	Cldn4_epi_mean	IFN_epi_mean	6	6	-0.142857142857143	0.787172011661808	TRUE	6	0.657142857142857	0.156174927113702	TRUE	FALSE	NA	NA	drop GSE154977 Cis72; dataset as covariate
+EPI_no_Cis72	Cldn4_epi_mean	MHC_epi_mean	6	6	-0.771428571428571	0.0723965014577259	TRUE	6	-0.2	0.704	TRUE	FALSE	NA	NA	drop GSE154977 Cis72; dataset as covariate
+TNK_within_K	Cldn4_epi_mean	frac_tnk	1	1	NA	NA	FALSE	1	NA	NA	FALSE	FALSE	NA	NA	within-genotype K only
+TNK_within_K	Cldn4_epi_mean	IFN_epi_mean	1	1	NA	NA	FALSE	1	NA	NA	FALSE	FALSE	NA	NA	within-genotype K only
+TNK_within_K	Cldn4_epi_mean	MHC_epi_mean	1	1	NA	NA	FALSE	1	NA	NA	FALSE	FALSE	NA	NA	within-genotype K only
+EPI_within_K	Cldn4_epi_mean	frac_tnk	1	1	NA	NA	FALSE	1	NA	NA	FALSE	FALSE	NA	NA	within-genotype K only
+EPI_within_K	Cldn4_epi_mean	IFN_epi_mean	1	1	NA	NA	FALSE	1	NA	NA	FALSE	FALSE	NA	NA	within-genotype K only
+EPI_within_K	Cldn4_epi_mean	MHC_epi_mean	1	1	NA	NA	FALSE	1	NA	NA	FALSE	FALSE	NA	NA	within-genotype K only
+TNK_within_KL	Cldn4_epi_mean	frac_tnk	3	3	NA	NA	FALSE	3	NA	NA	FALSE	FALSE	NA	NA	within-genotype KL only
+TNK_within_KL	Cldn4_epi_mean	IFN_epi_mean	3	3	NA	NA	FALSE	3	NA	NA	FALSE	FALSE	NA	NA	within-genotype KL only
+TNK_within_KL	Cldn4_epi_mean	MHC_epi_mean	3	3	NA	NA	FALSE	3	NA	NA	FALSE	FALSE	NA	NA	within-genotype KL only
+EPI_within_KL	Cldn4_epi_mean	frac_tnk	3	3	NA	NA	FALSE	3	NA	NA	FALSE	FALSE	NA	NA	within-genotype KL only
+EPI_within_KL	Cldn4_epi_mean	IFN_epi_mean	3	3	NA	NA	FALSE	3	NA	NA	FALSE	FALSE	NA	NA	within-genotype KL only
+EPI_within_KL	Cldn4_epi_mean	MHC_epi_mean	3	3	NA	NA	FALSE	3	NA	NA	FALSE	FALSE	NA	NA	within-genotype KL only
+TNK_within_KP	Cldn4_epi_mean	frac_tnk	0	0	NA	NA	FALSE	0	NA	NA	FALSE	FALSE	NA	NA	within-genotype KP only empty
+EPI_within_KP	Cldn4_epi_mean	IFN_epi_mean	4	4	1	0	TRUE	4	1	0	TRUE	FALSE	NA	NA	within-genotype KP only
+EPI_within_KP	Cldn4_epi_mean	MHC_epi_mean	4	4	0.8	0.2	TRUE	4	0.8	0.2	TRUE	FALSE	NA	NA	within-genotype KP only
+TNK_LODO_drop_GSE154977	Cldn4_epi_mean	frac_tnk	4	4	-1	0	TRUE	4	-1	0	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE154977
+TNK_LODO_drop_GSE154977	Cldn4_epi_mean	IFN_epi_mean	4	4	0	1	TRUE	4	0.6	0.4	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE154977
+TNK_LODO_drop_GSE154977	Cldn4_epi_mean	MHC_epi_mean	4	4	-0.8	0.2	TRUE	4	0	1	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE154977
+EPI_LODO_drop_GSE154977	Cldn4_epi_mean	frac_tnk	4	4	-1	0	TRUE	4	-1	0	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE154977
+EPI_LODO_drop_GSE154977	Cldn4_epi_mean	IFN_epi_mean	4	4	0	1	TRUE	4	0.6	0.4	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE154977
+EPI_LODO_drop_GSE154977	Cldn4_epi_mean	MHC_epi_mean	4	4	-0.8	0.2	TRUE	4	0	1	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE154977
+TNK_LODO_drop_GSE165641	Cldn4_epi_mean	frac_tnk	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE165641
+TNK_LODO_drop_GSE165641	Cldn4_epi_mean	IFN_epi_mean	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE165641
+TNK_LODO_drop_GSE165641	Cldn4_epi_mean	MHC_epi_mean	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE165641
+EPI_LODO_drop_GSE165641	Cldn4_epi_mean	frac_tnk	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE165641
+EPI_LODO_drop_GSE165641	Cldn4_epi_mean	IFN_epi_mean	6	6	-0.371428571428571	0.468478134110787	TRUE	6	0.657142857142857	0.156174927113702	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE165641
+EPI_LODO_drop_GSE165641	Cldn4_epi_mean	MHC_epi_mean	6	6	-0.428571428571429	0.396501457725947	TRUE	6	0.485714285714286	0.328723032069971	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE165641
+TNK_LODO_drop_GSE180963	Cldn4_epi_mean	frac_tnk	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE180963
+TNK_LODO_drop_GSE180963	Cldn4_epi_mean	IFN_epi_mean	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE180963
+TNK_LODO_drop_GSE180963	Cldn4_epi_mean	MHC_epi_mean	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE180963
+EPI_LODO_drop_GSE180963	Cldn4_epi_mean	frac_tnk	2	2	NA	NA	FALSE	2	NA	NA	FALSE	FALSE	NA	NA	leave-one-dataset-out: drop GSE180963
+EPI_LODO_drop_GSE180963	Cldn4_epi_mean	IFN_epi_mean	6	6	0.828571428571429	0.0415626822157434	TRUE	6	0.942857142857143	0.00480466472303207	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE180963
+EPI_LODO_drop_GSE180963	Cldn4_epi_mean	MHC_epi_mean	6	6	-0.142857142857143	0.787172011661808	TRUE	6	-0.257142857142857	0.622787172011662	TRUE	FALSE	NA	NA	leave-one-dataset-out: drop GSE180963
