@@ -1,0 +1,401 @@
+{
+  "dataset": "GSE148071",
+  "citation": "Wu et al. Nature Communications 2021 PMID 33953163",
+  "public_only": true,
+  "author_barcode_labels": false,
+  "lineage_source": "marker_argmax_canonical",
+  "malignant_definition": "epithelial AND NOT (alveolar/club/ciliated log1p-CP10k >= 1); not inferCNV",
+  "gene": "CLDN4",
+  "additive_to": "methods/scrna_milo and methods/scrna_milo_cldn4 on GSE207422 (taken as given)",
+  "miloR": false,
+  "da_model": "sample-level Spearman (malignant CLDN4) or Welch t-test (median-split high vs low); not edgeR QLF",
+  "spatial_fdr": "miloR graphSpatialFDR k-distance reimplementation (Dann 2022 / cydar)",
+  "graph": {
+    "n_cells": 89887,
+    "n_cells_before_umi_filter": 89887,
+    "n_dropped_low_umi": 0,
+    "k": 30,
+    "d": 30,
+    "prop": 0.1,
+    "n_hvg": 2000,
+    "n_nhoods": 6401,
+    "nhood_size": 31,
+    "median_nhood_size": 31.0,
+    "batch": "PCA per-sample mean centering (not Harmony)"
+  },
+  "samples": {
+    "n": 42,
+    "n_with_malignant_ge10": 39,
+    "n_cldn4_high": 20,
+    "n_cldn4_low": 19,
+    "median_malignant_cldn4_cut": 1.232067584991455
+  },
+  "lineage_counts": {
+    "Epithelial": 51213,
+    "Myeloid": 13662,
+    "Fibroblast": 7136,
+    "Plasma": 6987,
+    "T": 3606,
+    "Neutrophil": 2009,
+    "Unassigned": 1676,
+    "Endothelial": 1199,
+    "Mast": 1160,
+    "B": 684,
+    "NK": 555
+  },
+  "n_malignant": 39924,
+  "n_tnk": 4161,
+  "da_malignant_cldn4": {
+    "n_nhoods_total": 6401,
+    "n_testable": 881,
+    "n_p_lt_0.05": 81,
+    "n_BH_FDR_lt_0.1": 8,
+    "n_BH_FDR_lt_0.05": 8,
+    "n_SpatialFDR_lt_0.1": 8,
+    "n_SpatialFDR_lt_0.05": 8,
+    "min_p": 0.0,
+    "min_SpatialFDR": 0.0,
+    "min_BH_FDR": 0.0,
+    "median_n_samples_present": 6.0
+  },
+  "da_cldn4_high_vs_low": {
+    "n_nhoods_total": 6401,
+    "n_testable": 810,
+    "n_p_lt_0.05": 5,
+    "n_BH_FDR_lt_0.1": 0,
+    "n_BH_FDR_lt_0.05": 0,
+    "n_SpatialFDR_lt_0.1": 0,
+    "n_SpatialFDR_lt_0.05": 0,
+    "min_p": 0.023964730791272593,
+    "min_SpatialFDR": 0.8251105914064104,
+    "min_BH_FDR": 0.7971745069331668
+  },
+  "da_malignant_cldn4_by_n_present": [
+    {
+      "n_nhoods_total": 881,
+      "n_testable": 881,
+      "n_p_lt_0.05": 81,
+      "n_BH_FDR_lt_0.1": 8,
+      "n_BH_FDR_lt_0.05": 8,
+      "n_SpatialFDR_lt_0.1": 8,
+      "n_SpatialFDR_lt_0.05": 8,
+      "min_p": 0.0,
+      "min_SpatialFDR": 0.0,
+      "min_BH_FDR": 0.0,
+      "min_samples_present": 5,
+      "n_abs_rho_eq_1": 8
+    },
+    {
+      "n_nhoods_total": 192,
+      "n_testable": 192,
+      "n_p_lt_0.05": 25,
+      "n_BH_FDR_lt_0.1": 0,
+      "n_BH_FDR_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "min_p": 0.002008275505429469,
+      "min_SpatialFDR": 0.17808016621394865,
+      "min_BH_FDR": 0.1707427067494708,
+      "min_samples_present": 8,
+      "n_abs_rho_eq_1": 0
+    },
+    {
+      "n_nhoods_total": 48,
+      "n_testable": 48,
+      "n_p_lt_0.05": 3,
+      "n_BH_FDR_lt_0.1": 0,
+      "n_BH_FDR_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "min_p": 0.003814920082550713,
+      "min_SpatialFDR": 0.21845429707535405,
+      "min_BH_FDR": 0.21164548104956205,
+      "min_samples_present": 10,
+      "n_abs_rho_eq_1": 0
+    },
+    {
+      "n_nhoods_total": 0,
+      "n_testable": 0,
+      "n_p_lt_0.05": 0,
+      "n_BH_FDR_lt_0.1": 0,
+      "n_BH_FDR_lt_0.05": 0,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "min_p": null,
+      "min_SpatialFDR": null,
+      "min_BH_FDR": null,
+      "min_samples_present": 15,
+      "n_abs_rho_eq_1": 0
+    }
+  ],
+  "spatialfdr_floor_hits": {
+    "n": 8,
+    "all_abs_rho_eq_1": true,
+    "n_samples_present_min": 5,
+    "n_samples_present_max": 6,
+    "n_tnk_max": 0
+  },
+  "sample_level_malignant_CLDN4_vs_fracTNK": {
+    "n": 39,
+    "rho": 0.004253165102152267,
+    "p": 0.9794990836165818
+  },
+  "composition": {
+    "note": "transcriptional kNN != spatial niche; unrestricted CLDN4 vs T/NK is partly lineage geometry",
+    "all_nhoods_maligCLDN4_vs_fracTNK": {
+      "n": 4094,
+      "rho": -0.09994327563149101,
+      "p": 1.4656716954374788e-10
+    },
+    "interface_nhoods": {
+      "definition": ">=3 malignant AND >=3 T/NK cells",
+      "n": 37,
+      "spearman": {
+        "n": 37,
+        "rho": -0.27381870306164957,
+        "p": 0.10102173304846035
+      }
+    },
+    "disjoint_interface": {
+      "n_disjoint_nhoods": 559,
+      "n_disjoint_interface": 4,
+      "spearman": {
+        "n": 4,
+        "rho": -0.9486832980505139,
+        "p": 0.05131670194948613
+      }
+    },
+    "sample_paired_TNK_in_CLDN4high_vs_low_nhoods": {
+      "high_low_cut": "median malignant CLDN4 among nhoods with >=5 malignant cells",
+      "median_cut": 1.0092549324035645,
+      "n_high_nhoods": 1882,
+      "n_low_nhoods": 1882,
+      "wilcoxon_high_vs_low": {
+        "n": 42,
+        "median_a": 0.0,
+        "median_b": 0.0,
+        "p": 0.16718404068982073
+      }
+    }
+  },
+  "honest_n": {
+    "independent_unit_DA": "patient biopsies (n=42 GEO samples; 39 with \u226510 malignant-like cells)",
+    "n_samples_with_malignant_CLDN4_score": 39,
+    "nhoods_are_overlapping": true,
+    "SpatialFDR_is_overlap_aware": true,
+    "disjoint_nhood_subset_n": 559,
+    "do_not_cite_n_cells_as_n": 89887
+  },
+  "file_inventory": [
+    {
+      "sample": "P1",
+      "n_barcodes": 5317,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P2",
+      "n_barcodes": 306,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P3",
+      "n_barcodes": 7835,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P4",
+      "n_barcodes": 4558,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P5",
+      "n_barcodes": 2454,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P6",
+      "n_barcodes": 3119,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P7",
+      "n_barcodes": 3059,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P8",
+      "n_barcodes": 1342,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P9",
+      "n_barcodes": 3520,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P10",
+      "n_barcodes": 3740,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P11",
+      "n_barcodes": 574,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P12",
+      "n_barcodes": 891,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P13",
+      "n_barcodes": 938,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P14",
+      "n_barcodes": 1808,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P15",
+      "n_barcodes": 3606,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P16",
+      "n_barcodes": 1148,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P17",
+      "n_barcodes": 8700,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P18",
+      "n_barcodes": 3314,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P19",
+      "n_barcodes": 453,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P20",
+      "n_barcodes": 429,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P21",
+      "n_barcodes": 1968,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P22",
+      "n_barcodes": 644,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P23",
+      "n_barcodes": 2387,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P24",
+      "n_barcodes": 386,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P25",
+      "n_barcodes": 4029,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P26",
+      "n_barcodes": 570,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P27",
+      "n_barcodes": 707,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P28",
+      "n_barcodes": 2373,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P29",
+      "n_barcodes": 969,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P30",
+      "n_barcodes": 742,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P31",
+      "n_barcodes": 387,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P32",
+      "n_barcodes": 595,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P33",
+      "n_barcodes": 350,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P34",
+      "n_barcodes": 972,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P35",
+      "n_barcodes": 1079,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P36",
+      "n_barcodes": 500,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P37",
+      "n_barcodes": 2486,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P38",
+      "n_barcodes": 1358,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P39",
+      "n_barcodes": 1896,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P40",
+      "n_barcodes": 1155,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P41",
+      "n_barcodes": 6222,
+      "n_genes": 29527
+    },
+    {
+      "sample": "P42",
+      "n_barcodes": 1001,
+      "n_genes": 29527
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "title": "QUAD merge Milo / nhood vs malignant CLDN4",
+  "datasets": [
+    "GSE207422",
+    "GSE131907",
+    "GSE148071",
+    "GSE205335"
+  ],
+  "include_207422": true,
+  "redo_207422_only_milo": false,
+  "pr_323": "imported; null SpatialFDR; honest n=7",
+  "dual_high": false,
+  "tacstd2_gate": false,
+  "unit": "patient/sample",
+  "graph": "per dataset (GSE131907 also split tLung / mBrain); not Harmony",
+  "harmony": false,
+  "harmony_reason": "four chemistries/label schemes; ~400k cells; 15 GB RAM; treatment and site confounded with dataset",
+  "miloR": false,
+  "da_model": "sample-level Spearman on nhood proportions vs malignant CLDN4; SpatialFDR k-distance",
+  "honest_n_primary_sum": 78,
+  "honest_rows": [
+    {
+      "dataset": "GSE207422",
+      "graph": "post_treatment",
+      "unit": "sample",
+      "n_scored": 7,
+      "n_in_graph": 12,
+      "note": "imported PR #323; 5/12 post samples dropped (<10 malignant-like); not re-run"
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "mBrain",
+      "unit": "sample",
+      "n_scored": 10,
+      "n_in_graph": 10,
+      "note": "this-run Milo graph; author malignant labels; sites not pooled"
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "unit": "sample",
+      "n_scored": 10,
+      "n_in_graph": 11,
+      "note": "this-run Milo graph; author malignant labels; sites not pooled"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "unit": "patient",
+      "n_scored": 39,
+      "n_in_graph": 42,
+      "note": "39/42 with \u226510 malignant-like; marker-reconstructed lineage (no public CNA IDs)"
+    },
+    {
+      "dataset": "GSE205335",
+      "graph": "non_normal",
+      "unit": "patient",
+      "n_scored": 22,
+      "n_in_graph": 22,
+      "note": "imported PR #385; 22 patients; 4 normal-only patients dropped; MPR n=0"
+    }
+  ],
+  "forest": [
+    {
+      "label": "GSE207422 post (imported #323)",
+      "dataset": "GSE207422",
+      "graph": "post_treatment",
+      "n": 7,
+      "rho": -0.07142857142857144,
+      "p": 0.879048193148154,
+      "source": "imported_PR323"
+    },
+    {
+      "label": "GSE131907 mBrain",
+      "dataset": "GSE131907",
+      "graph": "mBrain",
+      "n": 10,
+      "rho": -0.6969696969696969,
+      "p": 0.02509667588225185,
+      "source": "this_run"
+    },
+    {
+      "label": "GSE131907 tLung",
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "n": 10,
+      "rho": -0.29696969696969694,
+      "p": 0.40470167127015705,
+      "source": "this_run"
+    },
+    {
+      "label": "GSE148071 biopsies",
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "n": 39,
+      "rho": 0.004253165102152267,
+      "p": 0.9794990836165818,
+      "source": "this_run"
+    },
+    {
+      "label": "GSE205335 patients",
+      "dataset": "GSE205335",
+      "graph": "non_normal",
+      "n": 22,
+      "rho": -0.2625635234330887,
+      "p": 0.23780202752583146,
+      "source": "imported_PR385"
+    }
+  ],
+  "stouffer_signed_primary": {
+    "n_studies": 4,
+    "z": -0.9527149328203699,
+    "p": 0.34073452524056735
+  },
+  "pooled_within_dataset_ranks": {
+    "n": 78,
+    "rho": -0.10944436736910247,
+    "p": 0.34015951776121334
+  },
+  "n_nhoods_in_table": 22415,
+  "n_testable_in_table": 1497,
+  "n_SpatialFDR_lt_0.1_in_table": 13,
+  "floor_hits": [
+    {
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "nhood": 1116,
+      "n_samples_present": 5,
+      "spearman_rho": 1.0,
+      "n_tnk": 3,
+      "n_malig": 0,
+      "dominant_lineage": "Myeloid cells"
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "nhood": 1529,
+      "n_samples_present": 5,
+      "spearman_rho": 1.0,
+      "n_tnk": 31,
+      "n_malig": 0,
+      "dominant_lineage": "T lymphocytes"
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "nhood": 2722,
+      "n_samples_present": 5,
+      "spearman_rho": 1.0,
+      "n_tnk": 31,
+      "n_malig": 0,
+      "dominant_lineage": "T lymphocytes"
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "mBrain",
+      "nhood": 155,
+      "n_samples_present": 6,
+      "spearman_rho": -0.942857142857143,
+      "n_tnk": 0,
+      "n_malig": 1,
+      "dominant_lineage": "Myeloid cells"
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "mBrain",
+      "nhood": 744,
+      "n_samples_present": 6,
+      "spearman_rho": -1.0,
+      "n_tnk": 0,
+      "n_malig": 2,
+      "dominant_lineage": "B lymphocytes"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 3549,
+      "n_samples_present": 5,
+      "spearman_rho": -1.0,
+      "n_tnk": 0,
+      "n_malig": 21,
+      "dominant_lineage": "Epithelial"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 4248,
+      "n_samples_present": 5,
+      "spearman_rho": 1.0,
+      "n_tnk": 0,
+      "n_malig": 0,
+      "dominant_lineage": "Myeloid"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 4319,
+      "n_samples_present": 5,
+      "spearman_rho": -1.0,
+      "n_tnk": 0,
+      "n_malig": 0,
+      "dominant_lineage": "Epithelial"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 5063,
+      "n_samples_present": 5,
+      "spearman_rho": 1.0,
+      "n_tnk": 0,
+      "n_malig": 11,
+      "dominant_lineage": "Epithelial"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 5079,
+      "n_samples_present": 6,
+      "spearman_rho": 1.0,
+      "n_tnk": 0,
+      "n_malig": 25,
+      "dominant_lineage": "Epithelial"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 5224,
+      "n_samples_present": 5,
+      "spearman_rho": 1.0,
+      "n_tnk": 0,
+      "n_malig": 4,
+      "dominant_lineage": "Epithelial"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 5571,
+      "n_samples_present": 6,
+      "spearman_rho": 1.0,
+      "n_tnk": 0,
+      "n_malig": 4,
+      "dominant_lineage": "Myeloid"
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "nhood": 6329,
+      "n_samples_present": 5,
+      "spearman_rho": 1.0,
+      "n_tnk": 0,
+      "n_malig": 27,
+      "dominant_lineage": "Epithelial"
+    }
+  ],
+  "missing_nhood_tables": [],
+  "figures": [
+    "figures/fig_sample_cldn4_vs_tnk_by_dataset.png",
+    "figures/fig_sample_ranks_cldn4_vs_tnk.png",
+    "figures/fig_forest_sample_cldn4_vs_tnk.png",
+    "figures/fig_nhood_volcano_faceted.png",
+    "figures/fig_spatialfdr_counts.png",
+    "figures/fig_interface_cldn4_vs_tnk.png",
+    "figures/fig_honest_n.png"
+  ],
+  "da_by_graph": [
+    {
+      "dataset": "GSE207422",
+      "graph": "post_treatment",
+      "table": "yes_imported",
+      "n_nhoods_total": 5347,
+      "n_testable": 20,
+      "n_p_lt_0.05": 2,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "n_BH_FDR_lt_0.1": 0,
+      "min_p": 0.0373860734684987,
+      "min_SpatialFDR": 0.3676504456722385,
+      "min_BH_FDR": 0.3738607346849874
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "tLung",
+      "table": "yes",
+      "n_nhoods_total": 2998,
+      "n_testable": 210,
+      "n_p_lt_0.05": 17,
+      "n_SpatialFDR_lt_0.1": 3,
+      "n_SpatialFDR_lt_0.05": 3,
+      "n_BH_FDR_lt_0.1": 3,
+      "min_p": 1.4042654220543602e-24,
+      "min_SpatialFDR": 7.733650458394151e-23,
+      "min_BH_FDR": 9.82985795438052e-23
+    },
+    {
+      "dataset": "GSE131907",
+      "graph": "mBrain",
+      "table": "yes",
+      "n_nhoods_total": 1956,
+      "n_testable": 26,
+      "n_p_lt_0.05": 3,
+      "n_SpatialFDR_lt_0.1": 2,
+      "n_SpatialFDR_lt_0.05": 1,
+      "n_BH_FDR_lt_0.1": 2,
+      "min_p": 0.0,
+      "min_SpatialFDR": 0.0,
+      "min_BH_FDR": 0.0
+    },
+    {
+      "dataset": "GSE148071",
+      "graph": "all_biopsies",
+      "table": "yes",
+      "n_nhoods_total": 6401,
+      "n_testable": 881,
+      "n_p_lt_0.05": 81,
+      "n_SpatialFDR_lt_0.1": 8,
+      "n_SpatialFDR_lt_0.05": 8,
+      "n_BH_FDR_lt_0.1": 8,
+      "min_p": 0.0,
+      "min_SpatialFDR": 0.0,
+      "min_BH_FDR": 0.0
+    },
+    {
+      "dataset": "GSE205335",
+      "graph": "non_normal",
+      "table": "yes",
+      "n_nhoods_total": 5713,
+      "n_testable": 360,
+      "n_p_lt_0.05": 17,
+      "n_SpatialFDR_lt_0.1": 0,
+      "n_SpatialFDR_lt_0.05": 0,
+      "n_BH_FDR_lt_0.1": 0,
+      "min_p": 0.004804664723032,
+      "min_SpatialFDR": 0.8986669249960799,
+      "min_BH_FDR": 0.8411866530412216
+    }
+  ]
+}

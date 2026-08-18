@@ -1,0 +1,192 @@
+{
+  "dataset": "GSE131907",
+  "citation": "Kim et al. Nat Commun 2020 PMID 32385277",
+  "n_cells": 208506,
+  "n_samples": 58,
+  "n_tumor_samples_eligible": 36,
+  "n_tLung_eligible": 11,
+  "expression_metric": "author log2(TPM+1); selected genes + full-matrix rank streamed",
+  "spatial": false,
+  "ici_or_mpr_labels": false,
+  "trop2_q75": 2.6741201877593994,
+  "trop2_q25": 0.4042786657810211,
+  "n_trop2_high_tumor_epi": 7784,
+  "n_trop2_low_tumor_epi": 7784,
+  "genes_missing": [],
+  "epithelial_restricted": {
+    "supported": true,
+    "TACSTD2_vs_T": {
+      "gene": "TACSTD2",
+      "compartment_a": "epithelial",
+      "compartment_b": "T",
+      "n_a": 32764,
+      "n_b": 43285,
+      "mean_a": 1.708863377571106,
+      "mean_b": 0.06206253170967102,
+      "pct_pos_a": 74.97558295690392,
+      "pct_pos_b": 2.7515305533094607,
+      "median_a": 1.7559796571731567,
+      "median_b": 0.0,
+      "U": 1220897028.0,
+      "p": 0.0,
+      "note": ""
+    },
+    "CLDN4_vs_T": {
+      "gene": "CLDN4",
+      "compartment_a": "epithelial",
+      "compartment_b": "T",
+      "n_a": 32764,
+      "n_b": 43285,
+      "mean_a": 2.363731861114502,
+      "mean_b": 0.06686288118362427,
+      "pct_pos_a": 84.90111097546087,
+      "pct_pos_b": 2.878595356359016,
+      "median_a": 2.5633074045181274,
+      "median_b": 0.0,
+      "U": 1296249432.5,
+      "p": 0.0,
+      "note": ""
+    }
+  },
+  "neighborhood_anti_correlation_supported": false,
+  "neighborhood": {
+    "TACSTD2_vs_CD8": {
+      "contrast": "tumor_sites: epi TACSTD2 mean vs CD8 fraction",
+      "n": 36,
+      "spearman_rho": 0.10618443937297815,
+      "spearman_p": 0.5376512887290867,
+      "note": ""
+    },
+    "TACSTD2_vs_NK": {
+      "contrast": "tumor_sites: epi TACSTD2 mean vs NK fraction",
+      "n": 36,
+      "spearman_rho": -0.012356007490673823,
+      "spearman_p": 0.9429820921226926,
+      "note": ""
+    },
+    "TACSTD2_vs_B": {
+      "contrast": "tumor_sites: epi TACSTD2 mean vs B fraction",
+      "n": 36,
+      "spearman_rho": -0.027414891619932543,
+      "spearman_p": 0.8738942931814373,
+      "note": ""
+    },
+    "TACSTD2_vs_TLS_chemokine": {
+      "contrast": "tumor_sites: epi TACSTD2 mean vs 12-chemokine TLS score",
+      "n": 36,
+      "spearman_rho": 0.1612716394355656,
+      "spearman_p": 0.3473965623391669,
+      "note": ""
+    }
+  },
+  "gsea_tj_up_in_TACSTD2_high": true,
+  "gsea_keratin_up_in_TACSTD2_high": true,
+  "gsea_highlights": {
+    "sample": {
+      "KEGG_TIGHT_JUNCTION": {
+        "term": "KEGG_TIGHT_JUNCTION",
+        "NES": 1.7414666273804231,
+        "FDR": 0.007533611497450163
+      },
+      "GOBP_TIGHT_JUNCTION_ORGANIZATION": {
+        "term": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+        "NES": 1.7939738590778402,
+        "FDR": 0.00803585226394684
+      },
+      "HALLMARK_APICAL_JUNCTION": {
+        "term": "HALLMARK_APICAL_JUNCTION",
+        "NES": 1.7899869963909922,
+        "FDR": 0.006026889197960129
+      },
+      "CUSTOM_TJ_CORE": {
+        "term": "CUSTOM_TJ_CORE",
+        "NES": 2.205974718865192,
+        "FDR": 0.0
+      },
+      "GOBP_KERATINIZATION": {
+        "term": "GOBP_KERATINIZATION",
+        "NES": 1.4797068242700426,
+        "FDR": 0.030682345007797027
+      },
+      "GOBP_CORNIFICATION": {
+        "term": "GOBP_CORNIFICATION",
+        "NES": -1.0624819129605176,
+        "FDR": 0.3291139240506329
+      },
+      "CUSTOM_BARRIER_KERATIN": {
+        "term": "CUSTOM_BARRIER_KERATIN",
+        "NES": 1.5033774187352162,
+        "FDR": 0.026970329160871578
+      },
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+        "term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+        "NES": 1.2950103012087832,
+        "FDR": 0.09756026889197959
+      },
+      "CUSTOM_EMT_CORE": {
+        "term": "CUSTOM_EMT_CORE",
+        "NES": 0.7787417781749155,
+        "FDR": 0.8684515530829856
+      }
+    },
+    "cell": {
+      "KEGG_TIGHT_JUNCTION": {
+        "term": "KEGG_TIGHT_JUNCTION",
+        "NES": 1.5447791944170448,
+        "FDR": 0.004627249357326478
+      },
+      "GOBP_TIGHT_JUNCTION_ORGANIZATION": {
+        "term": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+        "NES": 1.4336100975990886,
+        "FDR": 0.014053127677806343
+      },
+      "HALLMARK_APICAL_JUNCTION": {
+        "term": "HALLMARK_APICAL_JUNCTION",
+        "NES": 1.3491094720305135,
+        "FDR": 0.03878075651854572
+      },
+      "CUSTOM_TJ_CORE": {
+        "term": "CUSTOM_TJ_CORE",
+        "NES": 1.8063452387975854,
+        "FDR": 0.0020565552699228795
+      },
+      "GOBP_KERATINIZATION": {
+        "term": "GOBP_KERATINIZATION",
+        "NES": 1.2184232159350807,
+        "FDR": 0.10776349614395886
+      },
+      "GOBP_CORNIFICATION": {
+        "term": "GOBP_CORNIFICATION",
+        "NES": 0.7302633982126584,
+        "FDR": 0.9416085200146896
+      },
+      "CUSTOM_BARRIER_KERATIN": {
+        "term": "CUSTOM_BARRIER_KERATIN",
+        "NES": 1.1588448780747225,
+        "FDR": 0.15972579263067693
+      },
+      "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION": {
+        "term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+        "NES": 1.2069935496043491,
+        "FDR": 0.10862351016592663
+      },
+      "CUSTOM_EMT_CORE": {
+        "term": "CUSTOM_EMT_CORE",
+        "NES": 0.7477481788744942,
+        "FDR": 1.0
+      }
+    }
+  },
+  "honest_limits": [
+    "Dissociated droplet scRNA-seq: no spatial neighborhood and no histologically scored TLS.",
+    "Immune fractions are author-label proportions within each dissociated sample.",
+    "12-chemokine TLS score is a bulk-style proxy averaged over all cells in the sample.",
+    "Cell-level GSEA treats cells as independent and is anti-conservative; sample-level Spearman prerank is the primary GSEA.",
+    "Treatment-naive atlas: no ICI / MPR / RECIST labels.",
+    "Primary tLung n is small (~11); tumor-site n pools primary, LN, brain met, and PE."
+  ],
+  "runtime_sec": 581.6,
+  "neighborhood_any_bh_fdr_lt_0.05": false,
+  "cldn4_nominal_inverse_nk_b_tnk": true,
+  "cldn4_bh_fdr_min_tumor": 0.14781370486938902
+}
