@@ -1,0 +1,10 @@
+# Do not commit GEO downloads or Seurat objects
+*.Rdata
+*.RData
+*.rds
+*.h5
+*.tar.gz
+*.mtx
+*.mtx.gz
+data/
+/tmp/
