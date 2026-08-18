@@ -1,0 +1,17 @@
+item	n	note
+GSE123902 GEO dense CSVs	17	GSE123902_RAW.tar public processed UMI
+GSE123902 barcodes read	42847	union of SEQC dense CSVs
+GSE123902 donors / LX IDs	14	filename MSK_LX*
+GSE123902 eligible tumor donors	13	≥20 marker-epithelial in tumor and ≥20 T/NK
+GSE205335 CellIdentity rows	96505	author annotation, 96505 barcodes
+GSE205335 locked eligible patients	22	author malignant ≥20 (PR #459 table) and ≥20 T/NK
+combined eligible patients	35	patient is the unit; cells are not n
+cells in Harmony object	9764	capped ≤150 mal + ≤150 T/NK per patient
+malignant cells in Harmony object	4859	author (205335) / marker epithelial (123902)
+T/NK cells in Harmony object	4905	T/NK fraction uses full-sample annotation, not this cap
+IFN genes present after merge	27	Hallmark IFNα ∩ IFNγ core; CLDN4 not in set
+MHC-I/APM genes present after merge	21	curated antigen-presentation set; CLDN4 not in set
+TJ genes present after merge (CLDN4 held out)	14	epithelial TJ; CLDN4 held out
+GSE148071 cells	0	not merged
+GSE127465 cells	0	not merged (mouse; out of scope)
+dual-high TACSTD2 ∩ CLDN4	NA	not defined; CLDN4-only
