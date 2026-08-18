@@ -49,17 +49,17 @@ FIB_MARKERS <- c("Col1a1", "Dcn", "Pdgfra", "Col3a1")
 
 present <- function(genes, features) intersect(genes, features)
 
-mean_expr <- function(obj, genes, slot = "data") {
+mean_expr <- function(obj, genes, layer = "data") {
   genes <- present(genes, rownames(obj))
   if (length(genes) == 0) return(rep(NA_real_, ncol(obj)))
-  mat <- GetAssayData(obj, slot = slot)[genes, , drop = FALSE]
+  mat <- GetAssayData(obj, layer = layer)[genes, , drop = FALSE]
   if (length(genes) == 1) as.numeric(mat) else Matrix::colMeans(mat)
 }
 
-any_pos <- function(obj, genes, slot = "counts") {
+any_pos <- function(obj, genes, layer = "counts") {
   genes <- present(genes, rownames(obj))
   if (length(genes) == 0) return(rep(FALSE, ncol(obj)))
-  mat <- GetAssayData(obj, slot = slot)[genes, , drop = FALSE]
+  mat <- GetAssayData(obj, layer = layer)[genes, , drop = FALSE]
   Matrix::colSums(mat > 0) > 0
 }
 
@@ -153,8 +153,8 @@ obj$compartment[obj$epcam_pos & !obj$ptprc_pos] <- "epithelial"
 # If a cell is T/NK-marker+ and Ptprc+ and not Epcam+, force T/NK
 obj$compartment[obj$tnk_marker_pos & obj$ptprc_pos & !obj$epcam_pos] <- "T_NK"
 
-obj$cldn4 <- as.numeric(GetAssayData(obj, slot = "data")[CLDN4, ])
-obj$cldn4_counts <- as.numeric(GetAssayData(obj, slot = "counts")[CLDN4, ])
+obj$cldn4 <- as.numeric(GetAssayData(obj, layer = "data")[CLDN4, ])
+obj$cldn4_counts <- as.numeric(GetAssayData(obj, layer = "counts")[CLDN4, ])
 obj$cldn4_pos <- obj$cldn4_counts > 0
 obj$ifn_score <- mean_expr(obj, IFN)
 obj$mhc_score <- mean_expr(obj, MHC)
@@ -162,7 +162,8 @@ obj$ifn_mhc_score <- mean_expr(obj, IFN_MHC)
 obj$tnk_gene_score <- mean_expr(obj, T_NK)
 
 # ---- 3. Mouse-level table (honest n = 2) ----
-md <- leo.a@example.org
+# Seurat [[ ]] returns the cell metadata data.frame (avoid @ slot syntax).
+md <- obj[[]]
 mice <- sort(unique(md$mouse))
 
 mouse_rows <- lapply(mice, function(m) {
