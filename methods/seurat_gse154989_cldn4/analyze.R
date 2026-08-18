@@ -203,9 +203,10 @@ stopifnot(nrow(smp) == 3891, nrow(gene) == 52638, nrow(annot) == 3891)
 
 message("Reading COO TPM h5")
 h5 <- H5File$new(file.path(data_dir, FILES[["h5"]]), mode = "r")
-ii <- as.integer(h5[["i"]][])
-jj <- as.integer(h5[["j"]][])
-vv <- as.numeric(h5[["v"]][])
+# MATLAB v7.3 datasets are 21203238 x 1; $read() returns a vector.
+ii <- as.integer(h5[["i"]]$read())
+jj <- as.integer(h5[["j"]]$read())
+vv <- as.numeric(h5[["v"]]$read())
 h5$close_all()
 # MATLAB 1-based gene x cell COO
 tpm <- sparseMatrix(

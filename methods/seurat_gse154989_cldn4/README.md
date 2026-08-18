@@ -13,6 +13,9 @@ not scored.
 Unit of analysis = biological mouse (`mouseID` with trailing `_T#` stripped)
 with enough cells (primary: KP, ≥20 cells).
 
+See `FINDING.md` for the locked result. Mouse-level table:
+`tables/mouse_units.tsv` and `tables/primary_KP_n20.tsv`.
+
 ```bash
 Rscript methods/seurat_gse154989_cldn4/analyze.R
 ```
