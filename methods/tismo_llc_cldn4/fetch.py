@@ -73,13 +73,13 @@ CTX = ssl.create_default_context()
 def _request(url: str, data: bytes | None, headers: dict[str, str], timeout: int) -> bytes:
     req = urllib.request.Request(url, data=data, headers=headers, method="POST" if data is not None else "GET")
     last_err: Exception | None = None
-    for attempt in range(1, 5):
+    for attempt in range(1, 4):
         try:
             with urllib.request.urlopen(req, timeout=timeout, context=CTX) as resp:
                 return resp.read()
         except (urllib.error.URLError, TimeoutError) as err:
             last_err = err
-            time.sleep(2**attempt)
+            time.sleep(min(8, 2**attempt))
     raise RuntimeError(f"request {url} failed: {last_err}")
 
 
@@ -108,7 +108,7 @@ def fetch_vivo_meta(raw_dir: Path) -> None:
         raise RuntimeError(f"vivoMeta unexpected status: {payload.get('status')}")
     dest = raw_dir / "vivo_meta.json"
     dest.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    print(f"wrote {dest}  n={len(payload['data'])}")
+    print(f"wrote {dest}  n={len(payload['data'])}", flush=True)
 
 
 def fetch_gene_icb(raw_dir: Path, gene: str, tumor: str, dest_name: str) -> None:
@@ -121,12 +121,14 @@ def fetch_gene_icb(raw_dir: Path, gene: str, tumor: str, dest_name: str) -> None
             "icbList": json.dumps(ICB_TREATMENTS),
             "tumorList": json.dumps([tumor]),
         },
+        timeout=60,
     )
     if blob[:1] not in (b"S", b"s") and b"Samples" not in blob[:120]:
         raise RuntimeError(f"{gene}/{tumor} download did not look like a CSV ({blob[:120]!r})")
     dest = raw_dir / dest_name
     dest.write_bytes(blob)
-    print(f"wrote {dest}  rows≈{blob.count(b\"\\n\") - 1}")
+    n_rows = blob.count(bytes([10])) - 1
+    print(f"wrote {dest}  rows≈{n_rows}", flush=True)
 
 
 def fetch_aliyun_share(raw_dir: Path, share_id: str) -> Path:
@@ -153,14 +155,14 @@ def fetch_aliyun_share(raw_dir: Path, share_id: str) -> Path:
     url = item["download_url"]
     name = item["name"]
     dest = raw_dir / name
-    print(f"downloading {name} ({item.get('size')} bytes) …")
+    print(f"downloading {name} ({item.get('size')} bytes) …", flush=True)
     req = urllib.request.Request(url, method="GET")
     last_err: Exception | None = None
-    for attempt in range(1, 5):
+    for attempt in range(1, 3):
         try:
-            with urllib.request.urlopen(req, timeout=300, context=CTX) as resp:
+            with urllib.request.urlopen(req, timeout=60, context=CTX) as resp:
                 dest.write_bytes(resp.read())
-            print(f"wrote {dest}")
+            print(f"wrote {dest}", flush=True)
             return dest
         except (urllib.error.URLError, TimeoutError) as err:
             last_err = err
@@ -180,17 +182,21 @@ def main() -> None:
         try:
             fetch_aliyun_share(raw_dir, sid)
         except Exception as err:
-            print(f"WARN {key}: {err}")
+            print(f"WARN {key}: {err}", flush=True)
 
     # All-models Cldn4 ICB export: find every lung line that has Cldn4 + ICI.
     fetch_gene_icb(raw_dir, "Cldn4", "All", "cldn4_icb_all.csv")
+    have_cmt = True
     for gene in GENES:
         safe = gene.lower().replace("-", "")
         fetch_gene_icb(raw_dir, gene, "LLC", f"{safe}_llc.csv")
+        if not have_cmt:
+            continue
         try:
             fetch_gene_icb(raw_dir, gene, "CMT-167", f"{safe}_cmt167.csv")
         except Exception as err:
-            print(f"WARN {gene} CMT-167: {err}")
+            print(f"WARN {gene} CMT-167: {err}", flush=True)
+            have_cmt = False
 
     manifest = {
         "source": "https://tismo.pku-genomics.org/",

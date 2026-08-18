@@ -1,0 +1,31 @@
+{
+  "verdict": "TISMO LLC Cldn4 present, near floor; only lung line with ICI outcome",
+  "lung_lines": [
+    "CMT-167",
+    "LLC"
+  ],
+  "lung_lines_with_cldn4_and_ici": [
+    "LLC"
+  ],
+  "n_mice_gse155972": 33,
+  "mean_cldn4_tpm": 0.4014695742637643,
+  "n_tpm_lt_1": 32,
+  "spearman_all_cldn4_tnk": {
+    "n": 33,
+    "rho": 0.12242854255817893,
+    "p": 0.4973021910069357
+  },
+  "spearman_all_cldn4_ifn": {
+    "n": 33,
+    "rho": 0.11958525673374037,
+    "p": 0.5074190682896657
+  },
+  "spearman_all_cldn4_mhc": {
+    "n": 33,
+    "rho": 0.14065902225604987,
+    "p": 0.4349425132799649
+  },
+  "private_8kl_used": false,
+  "tacstd2_rescored": false,
+  "source": "https://tismo.pku-genomics.org/"
+}

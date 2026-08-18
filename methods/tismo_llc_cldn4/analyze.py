@@ -132,34 +132,21 @@ def lung_inventory(meta: list[dict]) -> pd.DataFrame:
     return pd.DataFrame(rows).sort_values(["study_id", "cell_line", "mouse_treatment"])
 
 
-def try_immune_rds(raw_dir: Path) -> pd.DataFrame | None:
-    path = raw_dir / "TISMO_immune_infiltration.RDS"
-    if not path.exists():
-        return None
-    try:
-        import pyreadr
-    except ImportError:
-        return None
-    try:
-        obj = pyreadr.read_r(str(path))
-    except Exception as err:
-        print(f"WARN pyreadr immune RDS: {err}")
-        return None
-    frames = []
-    for key, val in obj.items():
-        if isinstance(val, pd.DataFrame) and not val.empty:
-            tmp = val.copy()
-            tmp["_rds_key"] = str(key)
-            frames.append(tmp)
-    if not frames:
-        return None
-    return pd.concat(frames, ignore_index=True)
-
-
 def build_wide(raw_dir: Path) -> tuple[pd.DataFrame, dict]:
     coverage = {}
     pieces = []
+    # LLC-only Cldn4 export drops SRX8918393; the All-models table keeps it.
+    cldn4_all = load_gene_csv(raw_dir / "cldn4_icb_all.csv")
+    cldn4_llc = cldn4_all.loc[cldn4_all["lung_line"] == "LLC"].copy()
+    coverage["Cldn4"] = {"present": True, "n": int(cldn4_llc["Samples"].nunique()), "n_rows": int(len(cldn4_llc)), "source": "cldn4_icb_all.csv LLC rows"}
+    one = cldn4_llc[
+        ["Samples", "value", "cell_line", "Responder", "Baseline", "GSE_ID", "Mouse_treatment", "cohort_key", "is_baseline", "lung_line"]
+    ].copy()
+    one = one.rename(columns={"value": "Cldn4"})
+    pieces.append(one)
     for gene in ALL_GENES:
+        if gene == "Cldn4":
+            continue
         safe = gene.lower().replace("-", "")
         path = raw_dir / f"{safe}_llc.csv"
         if not path.exists() or path.stat().st_size < 20:
@@ -167,7 +154,7 @@ def build_wide(raw_dir: Path) -> tuple[pd.DataFrame, dict]:
             continue
         g = load_gene_csv(path)
         coverage[gene] = {"present": True, "n": int(g["Samples"].nunique()), "n_rows": int(len(g))}
-        one = g[["Samples", "value", "cell_line", "Responder", "Baseline", "GSE_ID", "Mouse_treatment", "cohort_key", "is_baseline", "lung_line"]].copy()
+        one = g[["Samples", "value"]].copy()
         one = one.rename(columns={"value": gene})
         pieces.append(one)
     if not pieces:
@@ -190,7 +177,47 @@ def build_wide(raw_dir: Path) -> tuple[pd.DataFrame, dict]:
     wide["ifn_meanz"] = mean_z(wide, IFN_GENES)
     wide["mhc_meanz"] = mean_z(wide, MHC_GENES)
     wide["Cldn4_tpm"] = wide["Cldn4"].map(tpm_from_log2p1)
+    immune_scores = attach_immune(raw_dir, wide)
+    if immune_scores:
+        coverage["_immune_rds"] = {"present": True, "scores": immune_scores}
     return wide, coverage
+
+
+IMMUNE_TNK_ROWS = [
+    "CD8 T_mMCPcounter",
+    "T CD8_TIMER",
+    "T CD8_CIBERSORT_abs",
+    "T_mMCPcounter",
+    "T NK_xCell",
+    "NK_mMCPcounter",
+]
+
+
+def attach_immune(raw_dir: Path, wide: pd.DataFrame) -> list[str]:
+    path = raw_dir / "TISMO_immune_infiltration.RDS"
+    if not path.exists():
+        return []
+    try:
+        import pyreadr
+        imm = list(pyreadr.read_r(str(path)).values())[0]
+    except Exception as err:
+        print(f"WARN immune RDS: {err}")
+        return []
+    added = []
+    for rowname in IMMUNE_TNK_ROWS:
+        if rowname not in imm.index:
+            continue
+        col = rowname.replace(" ", "_")
+        series = imm.loc[rowname]
+        wide[col] = wide["Samples"].map(series)
+        added.append(col)
+    if added:
+        wide["tismo_tnk_infil"] = wide[added].apply(
+            lambda r: ((r - r.mean()) / r.std(ddof=0) if r.std(ddof=0) else 0.0),
+            axis=0,
+        ).mean(axis=1)
+        added.append("tismo_tnk_infil")
+    return added
 
 
 def contrast_rows(wide: pd.DataFrame, features: list[str], drop_outlier: bool) -> list[dict]:
@@ -331,7 +358,7 @@ Lung lines that appear in the Cldn4 ICB gene export: **{', '.join(lung_lines_icb
 
 {chr(10).join(line_md)}
 
-**CMT-167** is a TISMO lung line (GSE100412, orthotopic, untreated, n=3) but has **no ICB arm and no response label**. It is out of the ICI-outcome set. No other TISMO lung line has Cldn4 + ICI.
+**CMT-167** is a TISMO lung line (GSE100412, orthotopic, untreated, n=3) but has **no ICB arm and no response label**. The Cldn4 ICB gene-module query for CMT-167 returns HTTP 500 (empty ICI set). **KPB25L** appears in the Cldn4 ICB export (GSE124821) but TISMO labels it **Mammary cancer, NOS**, not lung — it is not added. MLE12 is a TISMO lung-adenocarcinoma *cell line* annotation only; it has no in-vivo ICI rows.
 
 The only ICI-outcome lung design is **GSE155972 LLC** (Griffin et al., *Nature* 2021): subcutaneous flank, anti-PD1 + anti-CTLA4, WT vs Setdb1_KO. Response is **confounded with genotype**: WT ICB = Non-responders (n=6); Setdb1_KO ICB = Responders (n=7). Baseline is untreated (n=10 / genotype). Honest ICI n = **1 study, 1 line, 2 genotype arms, {n_llc} mice**.
 
@@ -347,10 +374,10 @@ Cldn4 sits near the detection floor: mean TPM = **{fmt_num(cldn4_mean_tpm, 2)}**
 
 ### Cldn4 vs T/NK or IFN/MHC (Spearman, mouse unit)
 
-| subset | n | Cldn4 vs T/NK ρ (p) | Cldn4 vs IFN ρ (p) | Cldn4 vs MHC-I ρ (p) |
-|---|---:|---|---|---|
-| all GSE155972 mice | {int(all_tnk['n'])} | {fmt_num(all_tnk['rho'])} ({fmt_p(all_tnk['p'])}) | {fmt_num(all_ifn['rho'])} ({fmt_p(all_ifn['p'])}) | {fmt_num(all_mhc['rho'])} ({fmt_p(all_mhc['p'])}) |
-| drop {OUTLIER_SRX} | {int(noout_tnk['n'])} | {fmt_num(noout_tnk['rho'])} ({fmt_p(noout_tnk['p'])}) | {fmt_num(corr_row('drop_SRX8918393','Cldn4','ifn_meanz')['rho'])} ({fmt_p(corr_row('drop_SRX8918393','Cldn4','ifn_meanz')['p'])}) | {fmt_num(corr_row('drop_SRX8918393','Cldn4','mhc_meanz')['rho'])} ({fmt_p(corr_row('drop_SRX8918393','Cldn4','mhc_meanz')['p'])}) |
+| subset | n | Cldn4 vs T/NK genes ρ (p) | Cldn4 vs TISMO T/NK infil ρ (p) | Cldn4 vs IFN ρ (p) | Cldn4 vs MHC-I ρ (p) |
+|---|---:|---|---|---|---|
+| all GSE155972 mice | {int(all_tnk['n'])} | {fmt_num(all_tnk['rho'])} ({fmt_p(all_tnk['p'])}) | {fmt_num(corr_row('all_mice','Cldn4','tismo_tnk_infil')['rho'])} ({fmt_p(corr_row('all_mice','Cldn4','tismo_tnk_infil')['p'])}) | {fmt_num(all_ifn['rho'])} ({fmt_p(all_ifn['p'])}) | {fmt_num(all_mhc['rho'])} ({fmt_p(all_mhc['p'])}) |
+| drop {OUTLIER_SRX} | {int(noout_tnk['n'])} | {fmt_num(noout_tnk['rho'])} ({fmt_p(noout_tnk['p'])}) | {fmt_num(corr_row('drop_SRX8918393','Cldn4','tismo_tnk_infil')['rho'])} ({fmt_p(corr_row('drop_SRX8918393','Cldn4','tismo_tnk_infil')['p'])}) | {fmt_num(corr_row('drop_SRX8918393','Cldn4','ifn_meanz')['rho'])} ({fmt_p(corr_row('drop_SRX8918393','Cldn4','ifn_meanz')['p'])}) | {fmt_num(corr_row('drop_SRX8918393','Cldn4','mhc_meanz')['rho'])} ({fmt_p(corr_row('drop_SRX8918393','Cldn4','mhc_meanz')['p'])}) |
 
 Per-arm correlations are in `tables/spearman.tsv`. A positive Cldn4–T/NK ρ on near-floor Cldn4 is **not** a Cldn4-high / T-low exclusion pattern.
 
@@ -381,7 +408,7 @@ This does **not** reopen the Tacstd2 49/64 tally (2/64 of those cohorts are this
 
 - Inclusion: TISMO `cancerType == Lung carcinoma` AND (Cldn4 in the public ICB gene export) AND (ICI treatment or response field). That intersection is LLC GSE155972.
 - Expression: TISMO gene-module `downVivoExprn` type=3, `icbList` = the six ICB treatments, `tumorList` = LLC (and All for the lung-ICI census). Values = `log2(TPM+1)` as deposited.
-- T/NK score = unweighted mean of present T/NK genes (already log2p1). IFN / MHC-I = leftover 6-gene lists from the GSE239485 Cldn4 page, mean of gene-wise z on these mice.
+- T/NK score = unweighted mean of present T/NK genes (already log2p1). Extra T/NK = mean-z of TISMO public infiltrate rows (CD8 T mMCPcounter, T CD8 TIMER/CIBERSORT, T mMCPcounter, T NK xCell, NK mMCPcounter). IFN / MHC-I = leftover 6-gene lists from the GSE239485 Cldn4 page, mean of gene-wise z on these mice.
 - Tests: Spearman on the mouse; Welch t and two-sided MWU when both arms have n≥2. Outlier {OUTLIER_SRX} is kept in the primary table and dropped only in the sensitivity rows.
 - Public processed only. No GEO FASTQ. No user-private 8 KL.
 
@@ -441,7 +468,13 @@ def main() -> None:
         .reset_index()
         .rename(columns={"lung_line": "line"})
     )
-    lung_in_icb["mean_cldn4_tpm"] = lung_in_icb["mean_cldn4_log2p1"].map(tpm_from_log2p1)
+    tpm_by_line = (
+        cldn4_all.loc[cldn4_all["lung_line"].notna()]
+        .assign(tpm=lambda d: d["value"].map(tpm_from_log2p1))
+        .groupby("lung_line")["tpm"]
+        .mean()
+    )
+    lung_in_icb["mean_cldn4_tpm"] = lung_in_icb["line"].map(tpm_by_line)
     lung_in_icb["cldn4_in_icb_export"] = "yes"
     lung_in_icb["ici_outcome"] = lung_in_icb["line"].map(
         lambda x: "GSE155972 anti-PD1+anti-CTLA4; R/NR = Setdb1 genotype" if x == "LLC" else "in ICB export"
@@ -489,7 +522,9 @@ def main() -> None:
         "tnk_mean",
         "ifn_meanz",
         "mhc_meanz",
+        "tismo_tnk_infil",
     ] + [g for g in ALL_GENES if g in wide.columns and g != "Cldn4"]
+    mouse_cols = [c for c in mouse_cols if c in wide.columns]
     wide[mouse_cols].sort_values(["arm", "group", "Samples"]).to_csv(out_dir / "mouse_level.tsv", sep="\t", index=False)
 
     corr_rows = []
@@ -502,7 +537,7 @@ def main() -> None:
         "ICB": wide.loc[wide["group"] == "ICB"],
     }
     for name, sub in subsets.items():
-        for y in ["tnk_mean", "ifn_meanz", "mhc_meanz", "Cd8a", "Ifng", "Cd274"]:
+        for y in ["tnk_mean", "ifn_meanz", "mhc_meanz", "tismo_tnk_infil", "Cd8a", "Ifng", "Cd274"]:
             if y not in sub.columns:
                 continue
             rec = spearman(sub["Cldn4"], sub[y])
@@ -510,19 +545,10 @@ def main() -> None:
     corr_tbl = pd.DataFrame(corr_rows)
     corr_tbl.to_csv(out_dir / "spearman.tsv", sep="\t", index=False)
 
-    features = ["Cldn4", "Cldn4_tpm", "tnk_mean", "ifn_meanz", "mhc_meanz", "Cd8a", "Ifng", "Cd274", "Actb"]
+    features = ["Cldn4", "Cldn4_tpm", "tnk_mean", "ifn_meanz", "mhc_meanz", "tismo_tnk_infil", "Cd8a", "Ifng", "Cd274", "Actb"]
+    features = [f for f in features if f in wide.columns]
     contrast_tbl = pd.DataFrame(contrast_rows(wide, features, False) + contrast_rows(wide, features, True))
     contrast_tbl.to_csv(out_dir / "contrasts.tsv", sep="\t", index=False)
-
-    immune = try_immune_rds(raw_dir)
-    if immune is not None:
-        immune_head = immune.head(0)
-        (out_dir / "immune_rds_columns.txt").write_text(
-            "columns\t" + "\t".join(map(str, immune.columns)) + f"\nshape\t{immune.shape}\n",
-            encoding="utf-8",
-        )
-        # keep a tiny peek only; full immune table can be large-ish
-        immune.head(20).to_csv(out_dir / "immune_rds_preview.tsv", sep="\t", index=False)
 
     summary = {
         "verdict": "TISMO LLC Cldn4 present, near floor; only lung line with ICI outcome",
