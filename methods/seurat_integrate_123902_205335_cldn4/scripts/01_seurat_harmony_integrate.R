@@ -1069,7 +1069,7 @@ finding <- paste0(
   sprintf("| TJ (CLDN4 held out) | %d | %d | %+.3f | %+.3f | %.3g |\n",
           q_tj$n_q1, q_tj$n_q4, q_tj$delta, q_tj$r, q_tj$p_q4q1),
   "\n",
-  "Single-cohort Q4 vs Q1 tails are thinner (GSE123902 4 vs 4; GSE205335 6 vs 6 on %pos). ",
+  "Single-cohort Q4 vs Q1 tails are thinner (GSE123902 4 vs 3 on %pos; GSE205335 6 vs 6). ",
   "GSE205335 Q4 mixes SCLC with ADC; that histology mix is part of the honest n.\n\n",
   "## Seurat plots\n\n",
   "- `results/figures/fig_dimplot_dataset.png` — `DimPlot` by dataset (Harmony UMAP)\n",
