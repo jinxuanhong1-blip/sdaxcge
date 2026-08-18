@@ -220,7 +220,6 @@ def load_gse123902(data: Path, cap: int, rng: np.random.Generator) -> tuple[ad.A
     reservoirs: dict[str, list] = {}
     n_raw: dict[str, int] = {}
     n_qc: dict[str, int] = {}
-    genes_ref: list[str] | None = None
     n_files = 0
     for path in files:
         m = NAME_123902.match(path.name)
@@ -238,17 +237,14 @@ def load_gse123902(data: Path, cap: int, rng: np.random.Generator) -> tuple[ad.A
         n_qc.setdefault(donor, 0)
         with gzip.open(path, "rt") as handle:
             header = handle.readline().rstrip("\n").split(",")
-            genes = [g.strip() for g in header[1:]]
-            if genes_ref is None:
-                genes_ref = genes
-            elif genes != genes_ref:
-                print(f"  warn gene mismatch {path.name}; will inner-join later", flush=True)
-            mt = mito_mask(genes)
+            genes_u, keep_g = genes_to_upper_unique([g.strip() for g in header[1:]])
+            mt = mito_mask(genes_u)
             for line in handle:
                 parts = line.rstrip("\n").split(",")
-                vals = np.fromstring(",".join(parts[1:]), sep=",", dtype=np.float32)
-                if vals.size != len(genes):
+                raw_vals = np.fromstring(",".join(parts[1:]), sep=",", dtype=np.float32)
+                if raw_vals.size != len(header) - 1:
                     continue
+                vals = raw_vals[keep_g]
                 n_raw[donor] += 1
                 n_counts = float(vals.sum())
                 n_genes = int((vals > 0).sum())
@@ -257,21 +253,28 @@ def load_gse123902(data: Path, cap: int, rng: np.random.Generator) -> tuple[ad.A
                 if n_genes < MIN_GENES or n_counts < MIN_COUNTS or pct >= MAX_MITO:
                     continue
                 n_qc[donor] += 1
-                item = (vals, parts[0], m.group(1), tissue, path.name)
+                item = (vals, genes_u, parts[0], m.group(1), tissue, path.name)
                 reservoir_push(reservoirs[donor], n_qc[donor], item, cap, rng)
         print(
             f"  GSE123902 {path.name} donor={donor} raw_so_far={n_raw[donor]} "
             f"qc={n_qc[donor]} kept={len(reservoirs[donor])}",
             flush=True,
         )
-    if genes_ref is None:
+    if not any(reservoirs.values()):
         raise SystemExit("GSE123902: no tumor CSVs")
-    genes, keep_g = genes_to_upper_unique(genes_ref)
+    gene_sets = [set(item[1]) for items in reservoirs.values() for item in items]
+    genes = sorted(set.intersection(*gene_sets)) if gene_sets else []
+    print(f"  GSE123902 shared genes={len(genes)}", flush=True)
+    gene_index = {g: i for i, g in enumerate(genes)}
     rows = []
     obs_rows = []
     for donor, items in reservoirs.items():
-        for vals, barcode, gsm, tissue, fname in items:
-            rows.append(vals[keep_g])
+        for vals, genes_u, barcode, gsm, tissue, fname in items:
+            aligned = np.zeros(len(genes), dtype=np.float32)
+            lookup = np.fromiter((gene_index.get(g, -1) for g in genes_u), dtype=np.int32, count=len(genes_u))
+            ok = lookup >= 0
+            aligned[lookup[ok]] = vals[ok]
+            rows.append(aligned)
             obs_rows.append(
                 {
                     "barcode": f"{gsm}_{barcode}",
@@ -703,15 +706,26 @@ def integrate(adata: ad.AnnData) -> ad.AnnData:
     sc.pp.scale(adata, max_value=10)
     sc.pp.pca(adata, n_comps=N_PCS, svd_solver="arpack")
     print("Harmony batch=dataset", flush=True)
-    sc.external.pp.harmony_integrate(
-        adata,
-        key="dataset",
-        basis="X_pca",
-        adjusted_basis="X_pca_harmony",
+    import harmonypy as hm
+
+    ho = hm.run_harmony(
+        np.asarray(adata.obsm["X_pca"]),
+        adata.obs,
+        ["dataset"],
         theta=HARMONY_THETA,
         max_iter_harmony=20,
         random_state=SEED,
     )
+    z = np.asarray(ho.Z_corr)
+    # harmonypy ≥1.1 returns cells × PCs; older builds returned PCs × cells.
+    if z.ndim != 2:
+        raise RuntimeError(f"Harmony Z_corr has unexpected shape {z.shape}")
+    if z.shape[0] == adata.n_obs:
+        adata.obsm["X_pca_harmony"] = z
+    elif z.shape[1] == adata.n_obs:
+        adata.obsm["X_pca_harmony"] = z.T
+    else:
+        raise RuntimeError(f"Harmony Z_corr {z.shape} does not match n_obs={adata.n_obs}")
     sc.pp.neighbors(adata, use_rep="X_pca_harmony", n_neighbors=N_NEIGHBORS, n_pcs=N_PCS)
     sc.tl.umap(adata, min_dist=0.4, spread=1.0, random_state=SEED)
     try:
@@ -1063,7 +1077,12 @@ def write_finding(inventory: pd.DataFrame, ann: pd.DataFrame, adata: ad.AnnData,
         f"- **n_units = {n_units}** (13 donors + 21 samples + 22 patients + 9 patients).",
         f"- **n_cells used (after QC + cap) = {n_cells}**.",
         f"- **n_clusters (Leiden {LEIDEN_RES}) = {n_clust}**.",
-        f"- Plot subsample: **{plot_n}** cells (cap {PLOT_MAX}; say so if plotted < used).",
+        f"- Plot used **{plot_n}** cells"
+        + (
+            f" (subsampled from {n_cells}; plot cap {PLOT_MAX})."
+            if plot_n < n_cells
+            else f" (all used cells; below the {PLOT_MAX} plot cap; no subsample)."
+        ),
         "",
         "| dataset | unit | n_units | n_cells (author/raw in units) | n_cells QC | n_cells used | cap |",
         "|---|---|---:|---:|---:|---:|---:|",
@@ -1082,7 +1101,7 @@ def write_finding(inventory: pd.DataFrame, ann: pd.DataFrame, adata: ad.AnnData,
         "",
         f"- QC: n_genes ≥ {MIN_GENES}, n_counts ≥ {MIN_COUNTS}, mitochondrial % < {MAX_MITO}.",
         f"- Cap: ≤{CAP_PER_UNIT} cells / unit when the QC-pass set is larger (memory).",
-        f"- Concatenate (inner gene join) → HVG {N_HVG} (Seurat v3, `batch_key=dataset`) → PCA {N_PCS}.",
+        f"- Concatenate (inner gene join) → HVG {N_HVG} (Seurat flavor / seurat_v3 if `skmisc` is present, `batch_key=dataset`) → PCA {N_PCS}.",
         f"- Harmony: `batch=dataset`, theta={HARMONY_THETA}, max_iter=20. Sample was not a second Harmony key.",
         f"- Neighbors k={N_NEIGHBORS} on `X_pca_harmony`; UMAP; Leiden resolution **{LEIDEN_RES}**.",
         "- Public processed matrices only. Author 36.5 GB GSE123902 H5 and GSE131907 log2TPM text were not used.",
@@ -1154,11 +1173,22 @@ def main() -> None:
         "GSE205335": load_gse205335,
         "GSE189357": load_gse189357,
     }
+    cache = args.data / "cache"
+    cache.mkdir(parents=True, exist_ok=True)
     adatas = []
     infos = []
     for name, fn in loaders.items():
-        print(f"==== load {name} ====", flush=True)
-        a, info = fn(args.data, args.cap, rng)
+        h5 = cache / f"{name}.h5ad"
+        js = cache / f"{name}.json"
+        if h5.exists() and js.exists():
+            print(f"==== load {name} (cache) ====", flush=True)
+            a = ad.read_h5ad(h5)
+            info = json.loads(js.read_text())
+        else:
+            print(f"==== load {name} ====", flush=True)
+            a, info = fn(args.data, args.cap, rng)
+            a.write_h5ad(h5)
+            js.write_text(json.dumps(info, indent=2, default=str))
         adatas.append(a)
         infos.append(info)
         gc.collect()

@@ -1,0 +1,150 @@
+{
+  "n_cells": 22653,
+  "n_units": 65,
+  "n_clusters": 26,
+  "n_plot": 22653,
+  "qc": {
+    "min_genes": 200,
+    "min_counts": 500,
+    "max_mito": 20.0
+  },
+  "harmony": {
+    "batch": "dataset",
+    "theta": 2.0,
+    "n_pcs": 30,
+    "n_hvg": 2000
+  },
+  "leiden_resolution": 0.6,
+  "pr503_tnk_not_rerun": true,
+  "dual_high": false,
+  "datasets": [
+    "GSE123902",
+    "GSE131907",
+    "GSE205335",
+    "GSE189357"
+  ],
+  "annotation_counts": {
+    "malignant": 7285,
+    "T": 6620,
+    "myeloid": 4187,
+    "B": 1663,
+    "NK": 1621,
+    "other": 1277
+  },
+  "infos": [
+    {
+      "dataset": "GSE123902",
+      "unit": "donor",
+      "n_files_tumor": 13,
+      "n_units": 13,
+      "n_cells_raw": 30126,
+      "n_cells_qc": 26056,
+      "n_cells_used": 4453,
+      "n_units_raw": 13,
+      "capped": true,
+      "cap_per_unit": 350,
+      "note": "Laughney 2020; PRIMARY+METASTASIS; NORMAL dropped; no author cell types",
+      "per_unit_qc": {
+        "LX653": 283,
+        "LX661": 4430,
+        "LX666": 1172,
+        "LX675": 3169,
+        "LX676": 3943,
+        "LX255B": 2429,
+        "LX679": 1512,
+        "LX680": 732,
+        "LX681": 1139,
+        "LX682": 3752,
+        "LX684": 320,
+        "LX699": 2540,
+        "LX701": 635
+      },
+      "per_unit_used": {
+        "LX661": 350,
+        "LX666": 350,
+        "LX675": 350,
+        "LX676": 350,
+        "LX255B": 350,
+        "LX679": 350,
+        "LX680": 350,
+        "LX681": 350,
+        "LX682": 350,
+        "LX699": 350,
+        "LX701": 350,
+        "LX684": 320,
+        "LX653": 283
+      }
+    },
+    {
+      "dataset": "GSE131907",
+      "unit": "sample",
+      "n_units": 21,
+      "n_units_rule": 21,
+      "n_cells_author_in_units": 62612,
+      "n_cells_capped": 7350,
+      "n_cells_qc": 7350,
+      "n_cells_used": 7350,
+      "capped": true,
+      "cap_per_unit": 350,
+      "keep_samples": [
+        "BRONCHO_11",
+        "BRONCHO_58",
+        "EBUS_06",
+        "EBUS_10",
+        "EBUS_12",
+        "EBUS_13",
+        "EBUS_15",
+        "EBUS_19",
+        "EBUS_28",
+        "EBUS_49",
+        "EBUS_51",
+        "NS_02",
+        "NS_03",
+        "NS_04",
+        "NS_06",
+        "NS_07",
+        "NS_12",
+        "NS_13",
+        "NS_16",
+        "NS_17",
+        "NS_19"
+      ],
+      "note": "Kim 2020; tumor-bearing Sample_Origin; author Malignant cells n>=20 (21 samples); all compartments"
+    },
+    {
+      "dataset": "GSE205335",
+      "unit": "patient",
+      "n_units": 22,
+      "n_units_rule": 22,
+      "n_cells_author_in_units": 80790,
+      "n_cells_capped": 7700,
+      "n_cells_qc": 7700,
+      "n_cells_used": 7700,
+      "capped": true,
+      "cap_per_unit": 350,
+      "note": "Ahn/Lee eLife 2024; author lineage.sub; non-normal tissues; 22 patients with malignant; all compartments"
+    },
+    {
+      "dataset": "GSE189357",
+      "unit": "patient",
+      "n_units": 9,
+      "n_cells_raw": 122373,
+      "n_cells_qc": 119264,
+      "n_cells_used": 3150,
+      "capped": true,
+      "cap_per_unit": 350,
+      "per_unit_qc": {
+        "TD1": 14397,
+        "TD2": 17570,
+        "TD3": 12394,
+        "TD4": 11540,
+        "TD5": 18836,
+        "TD6": 8453,
+        "TD7": 3485,
+        "TD8": 15295,
+        "TD9": 17294
+      },
+      "note": "Zhu/Wang 2022 AIS\u2013IAC; 10x MTX; no author cell types; all compartments"
+    }
+  ]
+}
