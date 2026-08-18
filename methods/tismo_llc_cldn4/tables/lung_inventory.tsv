@@ -1,0 +1,20 @@
+tismo_id	study_id	cell_line	cancer_type	cell_genotype	mouse_strain	implantation	implantation_site	mouse_treatment	icb_study_label	replicates	tumor	is_icb_treatment	has_ici_outcome
+101	GSE100412	CMT-167	Lung carcinoma	luciferase	C57BL/6-Tg(UBC-GFP)30Scha/J	orthotopic	left lung lobe parenchyma	no_treatment		3	primary	False	False
+102	GSE100412	LLC	Lung carcinoma	luciferase	C57BL/6-Tg(UBC-GFP)30Scha/J	orthotopic	left lung lobe parenchyma	no_treatment		5	primary	False	False
+105	GSE115109	LLC	Lung carcinoma	WT	C57BL/6	subcutaneous	unknown	SRX3207		2	primary	False	False
+103	GSE115109	LLC	Lung carcinoma	WT	B6.129P2-Syktm1.2Tara/J (flox)	subcutaneous	unknown	no_treatment		2	primary	False	False
+104	GSE115109	LLC	Lung carcinoma	WT	C57BL/6 Syk cre	subcutaneous	unknown	no_treatment		2	primary	False	False
+106	GSE115109	LLC	Lung carcinoma	WT	C57BL/6	subcutaneous	unknown	vehicle		2	primary	False	False
+107	GSE131271	LLC	Lung carcinoma	Socs1_knockdown	C57BL/6-GFP(C57BL/6J-132Tg(UBC-GFP)30Scha/J)	orthotopic	left lung lobe parenchyma	no_treatment		3	primary	False	False
+108	GSE131271	LLC	Lung carcinoma	WT	C57BL/6-GFP(C57BL/6J-132Tg(UBC-GFP)30Scha/J)	orthotopic	left lung lobe parenchyma	no_treatment		3	primary	False	False
+109	GSE148101	LLC	Lung carcinoma	WT	C57BL/6	intravenous	tail vein	no_treatment		2	metastasis	False	False
+110	GSE155972	LLC	Lung carcinoma	WT	C57BL/6J	subcutaneous	flank	antiPD1; antiCTL4;	NR	6	primary	True	True
+112	GSE155972	LLC	Lung carcinoma	Setdb1_KO	C57BL/6J	subcutaneous	flank	antiPD1; antiCTL4;	R	7	primary	True	True
+111	GSE155972	LLC	Lung carcinoma	WT	C57BL/6J	subcutaneous	flank	no_treatment	Baseline	10	primary	False	True
+113	GSE155972	LLC	Lung carcinoma	Setdb1_KO	C57BL/6J	subcutaneous	flank	no_treatment	Baseline	10	primary	False	True
+114	GSE71491	LLC	Lung carcinoma	WT	C57BL/6	subcutaneous	flank	cyclophosphamide		2	primary	False	False
+115	GSE71491	LLC	Lung carcinoma	WT	C57BL/6	subcutaneous	flank	no_treatment		2	primary	False	False
+116	GSE80678	LLC	Lung carcinoma	luciferase	C57BL/6	subcutaneous	flank	no_treatment		2	primary	False	False
+117	GSE84535	LLC	Lung carcinoma	WT	C57BL/6 p110g_KO	subcutaneous	flank	no_treatment		3	primary	False	False
+118	GSE84535	LLC	Lung carcinoma	WT	C57BL/6	subcutaneous	flank	no_treatment		3	primary	False	False
+119	GSE98672	LLC	Lung carcinoma	WT	C57BL/6	subcutaneous	back	no_treatment		2	primary	False	False

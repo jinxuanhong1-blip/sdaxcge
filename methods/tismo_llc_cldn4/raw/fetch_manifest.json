@@ -1,0 +1,40 @@
+{
+  "source": "https://tismo.pku-genomics.org/",
+  "paper": "Zeng et al. Nucleic Acids Res 2022; PMID 34534350",
+  "icb_treatments": [
+    "antiCTLA4",
+    "antiCTLA4&antiPD1",
+    "antiCTLA4&antiPDL1",
+    "antiPD1",
+    "antiPDL1",
+    "antiPDL2"
+  ],
+  "genes": [
+    "Cldn4",
+    "Cd8a",
+    "Cd3e",
+    "Cd3d",
+    "Cd2",
+    "Nkg7",
+    "Gzmb",
+    "Prf1",
+    "Ifng",
+    "Ncr1",
+    "Stat1",
+    "Cxcl9",
+    "Cxcl10",
+    "Ido1",
+    "H2-Aa",
+    "H2-K1",
+    "H2-D1",
+    "H2-Q4",
+    "B2m",
+    "Tap1",
+    "Tap2",
+    "Cd274",
+    "Actb",
+    "Epcam",
+    "Ptprc"
+  ],
+  "note": "Public processed only. type=3 is TISMO gene-module per-sample CSV. tumorList=['All'] for Cldn4 keeps SRX8918393. No user-private 8 KL."
+}
