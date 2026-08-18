@@ -1,0 +1,14 @@
+field	public	n	note
+GEO series	yes	1	GSE50927 only (PMID 25106430)
+GSM records	yes	5	one GSM per condition; do not use 5 as pairwise n
+BioSamples	yes	5	SAMN02358107–111
+SRA experiments	yes	5	SRX352050–054
+SRA runs	yes	10	2 FASTQ runs per GSM; not a processed count matrix
+series-matrix expression rows	no	0	Sample_data_row_count=0
+author EdgeR tables	yes	4	naive KO vs WT; WT VILI; KOhigh; KOlow
+Cldn4 in EdgeR tables	yes	4	naive logFC −6.061; VILI induction +3.959
+sample-level Cldn4 Q4 vs Q1	no	0	no per-sample matrix; cannot Spearman
+primary genotype n (naive)	yes	1 vs 1	design text says duplicates; honest n is 1 vs 1 GSM
+KOlow / KOhigh meaning	yes	NA	BAL protein injury strata, NOT Cldn4 expression
+tumour / ICI / LUAD	no	0	injury whole lung; mixed 129S6/C57BL/6/BALB/c
+related processed mouse series	no	0	Wray 2009 and hyperoxia arm have no matrix
