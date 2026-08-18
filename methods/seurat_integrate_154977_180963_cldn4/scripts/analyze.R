@@ -110,9 +110,10 @@ fmt <- function(x, d = 3) {
 read_coo_h5 <- function(path, genes, cells) {
   h5 <- H5File$new(path, mode = "r")
   on.exit(h5$close_all(), add = TRUE)
-  ii <- as.numeric(h5[["i"]][])
-  jj <- as.numeric(h5[["j"]][])
-  vv <- as.numeric(h5[["v"]][])
+  # MATLAB COO dump: each of i/j/v is rank-2 (nnz x 1), not a 1-d vector.
+  ii <- as.numeric(h5[["i"]][, 1])
+  jj <- as.numeric(h5[["j"]][, 1])
+  vv <- as.numeric(h5[["v"]][, 1])
   if (min(ii) == 0 || min(jj) == 0) {
     ii <- ii + 1
     jj <- jj + 1
