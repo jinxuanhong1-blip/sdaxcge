@@ -1,0 +1,157 @@
+{
+  "GSE114601": {
+    "series": "GSE114601",
+    "model": "KP GEMM (KrasTrp53) lung tumor nodules",
+    "unit": "biological mouse nodule (n=2 / arm)",
+    "cldn4_present": true,
+    "tnk_genes": [
+      "Cd3d",
+      "Cd3e",
+      "Cd3g",
+      "Cd2",
+      "Cd8a",
+      "Cd8b1",
+      "Cd4",
+      "Nkg7",
+      "Gzma",
+      "Gzmb",
+      "Prf1",
+      "Klrb1c",
+      "Ncr1",
+      "Klrd1",
+      "Klrc1",
+      "Ifng"
+    ],
+    "spearman_all_n8": {
+      "n": 8,
+      "rho": -0.4047619047619048,
+      "p": 0.3198886412288163
+    },
+    "spearman_vehicle_pd1_n4": {
+      "n": 4,
+      "rho": -1.0,
+      "p": 0.0
+    },
+    "primary_contrast": "anti-PD1 vs Vehicle",
+    "n_ctrl": 2,
+    "n_pd1": 2
+  },
+  "GSE157880": {
+    "series": "GSE157880",
+    "model": "HKP1 (Kras/p53) orthotopic lung",
+    "unit": "pooled library (3-4 mice each); not one-mouse",
+    "cldn4_present": true,
+    "tnk_genes": [
+      "Cd3d",
+      "Cd3e",
+      "Cd3g",
+      "Cd2",
+      "Cd8a",
+      "Cd8b1",
+      "Cd4",
+      "Nkg7",
+      "Gzma",
+      "Gzmb",
+      "Prf1",
+      "Klrb1c",
+      "Ncr1",
+      "Klrd1",
+      "Klrc1",
+      "Ifng"
+    ],
+    "spearman_0Gy": {
+      "n": 5,
+      "rho": -0.7,
+      "p": 0.1881204043741873
+    },
+    "spearman_all_doses": {
+      "n": 16,
+      "rho": -0.4676470588235294,
+      "p": 0.06776085019015383
+    },
+    "primary_contrast": "PD-1 vs IgG at 0 Gy",
+    "n_ctrl_0Gy": 3,
+    "n_pd1_0Gy": 2
+  },
+  "GSE169194": {
+    "series": "GSE169194",
+    "model": "KPM GEMM Kras/p53/Msh2 (ICI-sensitized vs KP)",
+    "unit": "total viable cells from one mouse tumor",
+    "cldn4_present": true,
+    "tnk_genes": [
+      "Cd3d",
+      "Cd3e",
+      "Cd3g",
+      "Cd2",
+      "Cd8a",
+      "Cd8b1",
+      "Cd4",
+      "Nkg7",
+      "Gzma",
+      "Gzmb",
+      "Prf1",
+      "Klrb1c",
+      "Ncr1",
+      "Klrd1",
+      "Klrc1",
+      "Ifng"
+    ],
+    "spearman_IgG": {
+      "n": 3,
+      "rho": -0.5,
+      "p": 0.6666666666666666
+    },
+    "spearman_all_total": {
+      "n": 9,
+      "rho": -0.8166666666666667,
+      "p": 0.0072247852463587885
+    },
+    "primary_contrast": "A2V+aPD-1 vs IgG (combo; no PD-1 mono)",
+    "n_igg": 3,
+    "n_a2v": 3,
+    "n_a2v_pd1": 3,
+    "note": "total_A2V_aPD1_1 not deposited"
+  },
+  "GSE246922": {
+    "series": "GSE246922",
+    "model": "KP CD45- cancer cells; parental / IFNG / ICB-relapse",
+    "unit": "CD45- sorted tumor (n=3 / group)",
+    "cldn4_present": true,
+    "tnk_usable": false,
+    "tnk_genes_present_but_leak": [
+      "Cd3d",
+      "Cd3e",
+      "Cd3g",
+      "Cd2",
+      "Cd8a",
+      "Cd8b1",
+      "Cd4",
+      "Nkg7",
+      "Gzma",
+      "Gzmb",
+      "Prf1",
+      "Klrb1c",
+      "Ncr1",
+      "Klrd1",
+      "Klrc1",
+      "Ifng"
+    ],
+    "spearman_all_not_a_TNK_test": {
+      "n": 15,
+      "rho": -0.23928571428571427,
+      "p": 0.3903793119202356
+    },
+    "n_parental": 3,
+    "n_1st_relapse": 3,
+    "mean_cldn4_parental": 9.200834554272097
+  },
+  "GSE133604": {
+    "series": "GSE133604",
+    "model": "KP GEMM KrasG12D;Trp53-/- lung 10x",
+    "unit": "one 10x library per arm (honest n=1 vs 1)",
+    "cldn4_present": true,
+    "n_ctrl_wt": 1,
+    "n_pd1_wt": 1,
+    "direction_only": true
+  }
+}

@@ -1,0 +1,5 @@
+series	model	unit	arm	n	mean_Cldn4_norm	mean_Cldn4_log2p1	mean_TNK_log2p1	Cldn4_vs_TNK_note
+GSE114601	KP GEMM Kras/Trp53 lung nodules	biological mouse	Vehicle	2	70.90	6.167	0.423	Cldn4 not at floor
+GSE114601	KP GEMM Kras/Trp53 lung nodules	biological mouse	anti-PD1	2	31.56	4.845	0.605	Cldn4 down / TNK up vs Vehicle; n=2 vs 2, Welch Cldn4 p=0.23 TNK p=0.38
+GSE114601	KP GEMM Kras/Trp53 lung nodules	biological mouse	JQ1	2	89.45	6.078	0.409	not the PD-1 claim
+GSE114601	KP GEMM Kras/Trp53 lung nodules	biological mouse	anti-PD1+JQ1	2	163.10	7.299	0.383	combo; not PD-1 monotherapy
