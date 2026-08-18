@@ -1,0 +1,5 @@
+accession	endpoint	n_mice	spearman_r	spearman_p	high_n	low_n	high_vs_low_mwu_p	high_mean	low_mean	note
+GSE201247	frac_tnk	6	0.485714285714286	0.328723032069971	3	3	0.190430263825524	0.184698589078489	0.14066595970129	median split of epithelial Cldn4 (median=0.0065)
+GSE201247	mean_ifn_epithelial	6	-0.2	0.704	3	3	0.662520583540057	-0.00409897877370941	0.0133857251380706	median split of epithelial Cldn4 (median=0.0065)
+GSE201247_Kras_bearing_only	frac_tnk	4	0.8	0.2	2	2	0.245278116806773	0.174274436501954	0.12710632210227	median split of epithelial Cldn4 (median=0.0067)
+GSE201247_Kras_bearing_only	mean_ifn_epithelial	4	-0.2	0.8	2	2	1	-0.00540279348462866	0.0157924270972424	median split of epithelial Cldn4 (median=0.0067)

@@ -1,0 +1,4 @@
+accession	endpoint	n_mice	spearman_r	spearman_p	high_n	low_n	high_vs_low_mwu_p	high_mean	low_mean	note
+GSE266323	frac_tnk	4	0.4	0.6	2	2	1	0.242719131554934	0.351890886419977	median split of epithelial Cldn4 (median=0.3346)
+GSE266323	mean_ifn_epithelial	4	-0.4	0.6	2	2	1	0.0576164510866256	0.0905432239608099	median split of epithelial Cldn4 (median=0.3346)
+GSE266323	mean_Cldn4_epithelial	4	NA	NA	2	2	0.698535358303339	0.333525194515535	0.456066090760305	Malat1 CRISPRa (high_n) vs Tomato control (low_n) epithelial Cldn4; not a Cldn4 median split
