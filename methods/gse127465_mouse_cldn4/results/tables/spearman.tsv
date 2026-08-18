@@ -1,0 +1,19 @@
+contrast	n_mice	rho	p	ci95_lo	ci95_hi	note
+Cldn4_mean_log1p vs frac_T	4	0.39999999999999997	0.6	-0.9114990786715159	0.9831355366777352	n=4 is thin; p descriptive
+Cldn4_mean_log1p vs frac_T (tumor only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_T (healthy only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_TNK	4	0.39999999999999997	0.6	-0.9114990786715159	0.9831355366777352	n=4 is thin; p descriptive
+Cldn4_mean_log1p vs frac_TNK (tumor only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_TNK (healthy only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_myeloid	4	-0.39999999999999997	0.6	-0.9831355366777352	0.9114990786715159	n=4 is thin; p descriptive
+Cldn4_mean_log1p vs frac_myeloid (tumor only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_myeloid (healthy only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_neutrophil	4	-0.39999999999999997	0.6	-0.9831355366777352	0.9114990786715159	n=4 is thin; p descriptive
+Cldn4_mean_log1p vs frac_neutrophil (tumor only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_neutrophil (healthy only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_MoMacDC	4	0.39999999999999997	0.6	-0.9114990786715159	0.9831355366777352	n=4 is thin; p descriptive
+Cldn4_mean_log1p vs frac_MoMacDC (tumor only)	2					n<3; Spearman not computed
+Cldn4_mean_log1p vs frac_MoMacDC (healthy only)	2					n<3; Spearman not computed
+Cldn4_mean vs frac_T	4	0.39999999999999997	0.6	-0.9114990786715159	0.9831355366777352	n=4 is thin; p descriptive
+Cldn4_frac_pos vs frac_T	4	0.39999999999999997	0.6	-0.9114990786715159	0.9831355366777352	n=4 is thin; p descriptive
+Cldn4_frac_pos vs frac_myeloid	4	-0.39999999999999997	0.6	-0.9831355366777352	0.9114990786715159	n=4 is thin; p descriptive
