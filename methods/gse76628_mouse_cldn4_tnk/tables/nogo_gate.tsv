@@ -1,0 +1,11 @@
+criterion	result	detail
+public_processed_matrix	yes	series matrix 45101 x 78
+Cldn4_on_platform	yes	1418283_at
+T_NK_genes_on_platform	yes	Cd3d/e Nkg7 Klrd1
+lung_Kras_Lkb1_GEMM	no	Ad-VEGF-A164 flank skin
+epithelial_or_malignant_compartment	no	bulk whole-flank; no tumors
+cell_level_pctpos_or_fraction	no	bulk microarray
+T_cells_in_animals	no	athymic nude Foxn1nu
+same_study_KP_KL_deposit	no	GSE76588/GSE76630 same model
+mouse_units_scored	0	stop; empty mouse_units.tsv
+verdict	NO-GO	do not score Cldn4 vs T/NK; not claim-failed
