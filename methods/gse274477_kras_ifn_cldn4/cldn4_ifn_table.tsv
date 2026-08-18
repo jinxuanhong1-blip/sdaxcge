@@ -1,0 +1,9 @@
+comparison	score	n_high_Cldn4	n_low_Cldn4	median_high	median_low	delta_high_minus_low	MWU_p	rank_biserial_high_gt_low	spearman_rho	spearman_p	note
+GSE274477_MUT_AT2	IFN_core	26	242	-0.136	-0.324	0.187	0.0045	0.339	0.179	0.0033	Cldn4+ vs Cldn4- (median Cldn4=0)
+GSE274477_MUT_AT2	MHC	26	242	-0.132	-0.176	0.045	0.7524	0.038	0.019	0.7617	Cldn4+ vs Cldn4-
+GSE274477_MUT_AT2	H_IFNA	26	242	-0.043	-0.099	0.056	0.0782	0.210	0.115	0.0607	Cldn4+ vs Cldn4-
+GSE274477_all_QC_AT2	IFN_core	35	422	-0.088	-0.192	0.104	0.0768	0.180	0.085	0.0705	median split all QC AT2
+GSE274477_all_QC_AT2	MHC	35	422	0.079	-0.023	0.102	0.5213	0.065	0.029	0.5347	median split all QC AT2
+GSE274351_LCM_adenomas	IFN_core	7	7	-0.183	-0.386	0.203	0.9015	0.061	0.082	0.7799	adenoma-only median split; NL held out
+GSE274351_LCM_adenomas	MHC	7	7	-0.161	-0.209	0.048	0.7104	0.143	0.149	0.6114	adenoma-only median split; NL held out
+GSE274351_LCM_adenomas	H_IFNA	7	7	-0.257	-0.348	0.091	0.7104	0.143	0.200	0.4930	adenoma-only median split; NL held out
