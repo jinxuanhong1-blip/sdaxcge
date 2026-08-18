@@ -418,9 +418,9 @@ for (pat in keep_pats) {
   tumor_rows <- rows[!rows$is_normal, , drop = FALSE]
   if (!nrow(tumor_rows)) tumor_rows <- rows
   n_cells <- nrow(tumor_rows)
-  n_mal <- sum(tumor_rows$author_malignant)
-  n_tnk <- sum(tumor_rows$author_tnk)
-  mal_bc <- tumor_rows$mat_barcode[tumor_rows$author_malignant]
+  n_mal <- sum(tumor_rows$author_malignant %in% c(TRUE, "TRUE"), na.rm = TRUE)
+  n_tnk <- sum(tumor_rows$author_tnk %in% c(TRUE, "TRUE"), na.rm = TRUE)
+  mal_bc <- tumor_rows$mat_barcode[tumor_rows$author_malignant %in% c(TRUE, "TRUE")]
   mal_bc <- intersect(mal_bc, colnames(mat205))
   cldn4 <- if (length(mal_bc) && "CLDN4" %in% rownames(mat205)) as.numeric(mat205["CLDN4", mal_bc]) else numeric()
   units_205[[pat]] <- data.frame(
@@ -566,7 +566,7 @@ pb_all <- c(
 )
 pb_mat <- align_pb(pb_all)
 # drop sparse noisy units from DE (n_mal < 30), matching prior P4001 exclusion
-de_units <- patients[patients$n_malignant >= 30, ]
+de_units <- patients[is.finite(patients$n_malignant) & patients$n_malignant >= 30, ]
 de_ids <- paste(de_units$dataset, de_units$unit_id, sep = "|")
 pb_mat <- pb_mat[, intersect(colnames(pb_mat), de_ids), drop = FALSE]
 de_units <- de_units[match(colnames(pb_mat), paste(de_units$dataset, de_units$unit_id, sep = "|")), ]
@@ -582,7 +582,7 @@ score_fun <- function(genes) {
 de_units$ifn_score <- score_fun(sets$IFN)
 de_units$mhc_score <- score_fun(sets$MHC)
 de_units$tj_score <- score_fun(sets$TJ)
-de_units$cldn4_quartile <- within_quartile(de_units$mal_CLDN4_pct)
+# Keep the within-cohort quartiles from the full unit table. Do not recut.
 # attach scores onto the full patient table where possible
 patients$ifn_score <- de_units$ifn_score[match(paste(patients$dataset, patients$unit_id, sep = "|"),
                                               paste(de_units$dataset, de_units$unit_id, sep = "|"))]
@@ -703,6 +703,14 @@ if ("scale.data" %in% Layers(merged[["RNA"]])) {
   merged[["RNA"]]$scale.data <- NULL
 }
 saveRDS(merged, file.path(OUT_OBJ, "seurat_harmony_integrated.rds"))
+saveRDS(
+  list(
+    umap = Embeddings(merged, "umap"),
+    harmony = Embeddings(merged, "harmony"),
+    meta = merged[[]]
+  ),
+  file.path(OUT_OBJ, "seurat_harmony_embeddings.rds")
+)
 say("saved Seurat object", ncol(merged), "cells")
 
 # DimPlots
