@@ -1,0 +1,5 @@
+accession	contrastable_KL_vs_KP	contrastable_KL_vs_K	honest_unit	n_KL	n_KP	n_K	cldn4	tnk	ifn_mhc	note
+GSE6135	yes	yes	mouse (primary tumors collapsed)	7	5	5	yes (array)	yes (bulk score)	yes (bulk score)	Only public KL bulk with Cldn4. Excluded L/+ and metastasis from primary KL.
+GSE154989	no-go	no-go	biological mouse (strip _T#; ≥20 cells)	0	15	9	yes (epithelium)	no-go (CD45− FACS)	yes within KP / K vs KP	No KL arm. Allowed: K vs KP Cldn4; KP-only Cldn4 vs IFN/MHC.
+GSE179502	no-go	yes (Restored proxy)	mouse	3	0	3	yes (neoplastic epithelium)	no-go (sorted neoplastic)	yes (same epithelium)	NonRestored ≈ KL vs Restored ≈ K. n=3 vs 3.
+GSE267321	no-go	yes (T/NK only)	tumor (2 per genotype)	2	0	2	empty	yes (fraction)	leftover epi only; underpowered	KLK not KL; KEAP1 co-loss. Cldn4 floor. n=2 vs 2.
