@@ -1,0 +1,209 @@
+{
+  "accessions": [
+    "GSE131907",
+    "GSE189357"
+  ],
+  "papers": {
+    "GSE131907": "Kim et al. Nat Commun 2020 PMID 32385277",
+    "GSE189357": "Zhu / Fan / Jiang et al. GEO GSE189357 PMID 36434043",
+    "PR459": "CLDN4 %pos vs T/NK n=30 \u03c1=-0.542 (given, not re-audited)"
+  },
+  "primary_gene": "CLDN4",
+  "barrier_excludes_CLDN4": true,
+  "ifn_excludes_CLDN4": true,
+  "slingshot": {
+    "available": true,
+    "version": "2.10.0",
+    "n_cells": 15109,
+    "n_lineages": 25,
+    "start_cluster": "5",
+    "slingshot_version": "2.10.0",
+    "lineages": {
+      "Lineage1": [
+        "5",
+        "9",
+        "2",
+        "12",
+        "6",
+        "8"
+      ],
+      "Lineage2": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "10",
+        "20"
+      ],
+      "Lineage3": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "10",
+        "22"
+      ],
+      "Lineage4": [
+        "5",
+        "9",
+        "2",
+        "12",
+        "1"
+      ],
+      "Lineage5": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "7"
+      ],
+      "Lineage6": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "4"
+      ],
+      "Lineage7": [
+        "5",
+        "9",
+        "2",
+        "12",
+        "11"
+      ],
+      "Lineage8": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "13"
+      ],
+      "Lineage9": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "14"
+      ],
+      "Lineage10": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "15"
+      ],
+      "Lineage11": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "16"
+      ],
+      "Lineage12": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "17"
+      ],
+      "Lineage13": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "18"
+      ],
+      "Lineage14": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "19"
+      ],
+      "Lineage15": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "21"
+      ],
+      "Lineage16": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "23"
+      ],
+      "Lineage17": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "24"
+      ],
+      "Lineage18": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "25"
+      ],
+      "Lineage19": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "28"
+      ],
+      "Lineage20": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "29"
+      ],
+      "Lineage21": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "30"
+      ],
+      "Lineage22": [
+        "5",
+        "9",
+        "31",
+        "3",
+        "32"
+      ],
+      "Lineage23": [
+        "5",
+        "9",
+        "2",
+        "0"
+      ],
+      "Lineage24": [
+        "5",
+        "9",
+        "2",
+        "26"
+      ],
+      "Lineage25": [
+        "5",
+        "9",
+        "27"
+      ]
+    },
+    "representation": "X_pca_harmony",
+    "primary_column": "Lineage1",
+    "lineage_table": "methods/pair_131907_189357_slingshot_cldn4/results/tables/slingshot_lineages.tsv"
+  },
+  "locked": {
+    "leiden_resolution": 0.6,
+    "n_hvg": 3000,
+    "n_neighbors": 30,
+    "n_pcs": 30,
+    "root": "GSE131907 nLung author AT2, never CLDN4-high",
+    "cap_per_unit": 350
+  }
+}
