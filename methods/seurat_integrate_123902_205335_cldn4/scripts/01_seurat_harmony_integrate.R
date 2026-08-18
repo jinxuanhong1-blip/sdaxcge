@@ -559,7 +559,13 @@ obj$unit_id <- as.character(obj$unit_id)
 DefaultAssay(obj) <- "RNA"
 
 message("[seurat] split layers / normalize / PCA")
-obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+# merge() already splits v5 layers by project (= dataset). Join+resplit only if needed.
+n_count_layers <- length(Layers(obj[["RNA"]], search = "counts"))
+if (n_count_layers < 2) {
+  obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+} else {
+  message("[seurat] RNA already has ", n_count_layers, " count layers; keeping split")
+}
 obj <- NormalizeData(obj, verbose = FALSE)
 obj <- FindVariableFeatures(obj, selection.method = "vst", nfeatures = 2000, verbose = FALSE)
 obj <- ScaleData(obj, verbose = FALSE)
