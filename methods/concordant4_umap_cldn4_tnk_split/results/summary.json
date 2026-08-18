@@ -1,0 +1,104 @@
+{
+  "additive_visualization_only": true,
+  "new_spearman": false,
+  "pr503_quoted": {
+    "n": 65,
+    "rho_pct": -0.531,
+    "n_q1": 19,
+    "n_q4": 16,
+    "r_rb_q4q1": -0.724
+  },
+  "n_units_q1": 19,
+  "n_units_q4": 16,
+  "n_cells_q1": 6650,
+  "n_cells_q4": 5503,
+  "n_cells_tnk_q1": 3185,
+  "n_cells_tnk_q4": 1115,
+  "n_units_total": 65,
+  "n_cells_atlas": 22653,
+  "quartile_source": "PR503_locked_tnk_units",
+  "atlas_quartile_n_match": 36,
+  "dual_high": false,
+  "datasets": [
+    "GSE123902",
+    "GSE131907",
+    "GSE205335",
+    "GSE189357"
+  ],
+  "gse148071": false,
+  "composition_unit_avg": [
+    {
+      "quartile": "Q1",
+      "compartment": "T",
+      "n_units": 19,
+      "mean_unit_frac": 0.37879699248120297,
+      "sd_unit_frac": 0.19447543442200335,
+      "sem_unit_frac": 0.0446157245077202,
+      "median_unit_frac": 0.29714285714285715
+    },
+    {
+      "quartile": "Q1",
+      "compartment": "NK",
+      "n_units": 19,
+      "mean_unit_frac": 0.10015037593984961,
+      "sd_unit_frac": 0.09959771092730828,
+      "sem_unit_frac": 0.022849281944216496,
+      "median_unit_frac": 0.06285714285714286
+    },
+    {
+      "quartile": "Q1",
+      "compartment": "malignant",
+      "n_units": 19,
+      "mean_unit_frac": 0.13578947368421054,
+      "sd_unit_frac": 0.17250289930470286,
+      "sem_unit_frac": 0.039574879238788024,
+      "median_unit_frac": 0.08
+    },
+    {
+      "quartile": "Q1",
+      "compartment": "other",
+      "n_units": 19,
+      "mean_unit_frac": 0.38526315789473686,
+      "sd_unit_frac": 0.1852968768477198,
+      "sem_unit_frac": 0.04251001898594274,
+      "median_unit_frac": 0.32857142857142857
+    },
+    {
+      "quartile": "Q4",
+      "compartment": "T",
+      "n_units": 16,
+      "mean_unit_frac": 0.15526369652322058,
+      "sd_unit_frac": 0.1697325479438403,
+      "sem_unit_frac": 0.042433136985960074,
+      "median_unit_frac": 0.08142857142857143
+    },
+    {
+      "quartile": "Q4",
+      "compartment": "NK",
+      "n_units": 16,
+      "mean_unit_frac": 0.04714928539878849,
+      "sd_unit_frac": 0.07169472917588551,
+      "sem_unit_frac": 0.01792368229397138,
+      "median_unit_frac": 0.016517857142857143
+    },
+    {
+      "quartile": "Q4",
+      "compartment": "malignant",
+      "n_units": 16,
+      "mean_unit_frac": 0.6109180574835942,
+      "sd_unit_frac": 0.32624508027445986,
+      "sem_unit_frac": 0.08156127006861497,
+      "median_unit_frac": 0.6828571428571428
+    },
+    {
+      "quartile": "Q4",
+      "compartment": "other",
+      "n_units": 16,
+      "mean_unit_frac": 0.18666896059439678,
+      "sd_unit_frac": 0.14849148030221598,
+      "sem_unit_frac": 0.037122870075553996,
+      "median_unit_frac": 0.19571428571428573
+    }
+  ],
+  "infos": []
+}
