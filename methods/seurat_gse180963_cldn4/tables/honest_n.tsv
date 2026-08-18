@@ -1,0 +1,15 @@
+item	n	note
+GEO series	1	GSE180963
+mice (unit)	2	1 K + 1 KL; genotype = mouse = sample
+K mice	1	GSM5481386
+KL mice	1	GSM5481387
+libraries	1	two samples mixed in one 10x library, demultiplexed by label
+cells (not the unit)	14260	author-filtered MTX
+genes	20304	mm10 symbols; genes.tsv col2
+marker epithelial cells (tight)	202	Epcam+ AND structural (Cdh1/Krt8/18/19/Cldn18)+ AND Ptprc-; Cldn4 not a caller
+loose Epcam+ (audit)	2433	Epcam+ OR keratin pair; ambient-polluted; not the primary epi
+T/NK cells	7452	Cd3d/e/g or Cd8a or Nkg7/Ncr1/Klrb1c; tight epi wins if both fire
+Cldn4-positive cells	26	count > 0
+dual-high TACSTD2 x Cldn4	0	not defined
+private 8-KL mice used	0	public GEO only
+ICI / PD-1 arms	0	untreated GEMM

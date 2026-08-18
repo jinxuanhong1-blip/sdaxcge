@@ -144,24 +144,31 @@ mean_mod <- function(mat, genes) {
 }
 
 # Marker compartments. Cldn4 is never a caller.
+# Loose Epcam+ is kept as audit only. This digest has heavy AT2 ambient
+# (Sftpc+ in most cells); Sftpc is an ambient flag, not host epithelium.
 epcam <- if ("Epcam" %in% universe) as.numeric(counts["Epcam", ] > 0) else 0
 cdh1 <- if ("Cdh1" %in% universe) as.numeric(counts["Cdh1", ] > 0) else 0
 krt8 <- if ("Krt8" %in% universe) as.numeric(counts["Krt8", ] > 0) else 0
 krt18 <- if ("Krt18" %in% universe) as.numeric(counts["Krt18", ] > 0) else 0
 krt19 <- if ("Krt19" %in% universe) as.numeric(counts["Krt19", ] > 0) else 0
-epi_mark <- (epcam > 0) | (cdh1 > 0 & krt8 > 0) | (krt18 > 0 & krt19 > 0)
+cldn18 <- if ("Cldn18" %in% universe) as.numeric(counts["Cldn18", ] > 0) else 0
+ptprc <- if ("Ptprc" %in% universe) as.numeric(counts["Ptprc", ] > 0) else 0
+sftpc <- if ("Sftpc" %in% universe) as.numeric(counts["Sftpc", ] > 0) else 0
+struct <- (cdh1 > 0) | (krt8 > 0) | (krt18 > 0) | (krt19 > 0) | (cldn18 > 0)
+epi_loose <- (epcam > 0) | (cdh1 > 0 & krt8 > 0) | (krt18 > 0 & krt19 > 0)
+# Tight: Epcam AND a structural marker AND not CD45. Primary epi for IFN/MHC.
+epi_tight <- (epcam > 0) & (struct > 0) & (ptprc == 0)
 tnk_mark <- pos_any(counts, T_NK_CALL)
-host_mark <- pos_any(counts, HOST_LUNG)
-# Epithelium wins if both fire (locked rule).
-is_epi <- epi_mark
+# Epithelium (tight) wins if both fire.
+is_epi <- epi_tight
 is_tnk <- tnk_mark & !is_epi
-is_host <- is_epi & host_mark
-is_tumor_epi <- is_epi & !host_mark
+is_epi_loose <- epi_loose
 
 obj$is_epi <- is_epi
-obj$is_tumor_epi <- is_tumor_epi
-obj$is_host_epi <- is_host
+obj$is_epi_loose <- is_epi_loose
 obj$is_tnk <- is_tnk
+obj$sftpc_pos <- sftpc > 0
+obj$ptprc_pos <- ptprc > 0
 obj$compartment <- ifelse(is_epi, "epithelial",
                    ifelse(is_tnk, "T/NK", "other"))
 
@@ -193,7 +200,7 @@ obj <- FindNeighbors(obj, dims = 1:20, verbose = FALSE)
 obj <- FindClusters(obj, resolution = 0.5, verbose = FALSE)
 obj <- RunUMAP(obj, dims = 1:20, verbose = FALSE)
 
-md <- yosef.c@example.com
+md <- slot(obj, "meta.data")
 stopifnot(nrow(md) == ncol(obj))
 
 fmt <- function(x, d = 3) {
@@ -204,8 +211,7 @@ fmt <- function(x, d = 3) {
 mouse_rows <- lapply(SAMPLES$label, function(lab) {
   w <- md$mouse == lab
   we <- w & md$is_epi
-  wt <- w & md$is_tumor_epi
-  wh <- w & md$is_host_epi
+  wl <- w & md$is_epi_loose
   wn <- w & md$is_tnk
   data.frame(
     mouse = lab,
@@ -214,21 +220,20 @@ mouse_rows <- lapply(SAMPLES$label, function(lab) {
     arm = unique(md$arm[w]),
     n_cells = sum(w),
     n_epi = sum(we),
-    n_tumor_epi = sum(wt),
-    n_host_epi = sum(wh),
+    n_epi_loose = sum(wl),
     n_tnk = sum(wn),
     frac_tnk = mean(md$is_tnk[w]),
     frac_epi = mean(md$is_epi[w]),
+    frac_sftpc = mean(md$sftpc_pos[w]),
+    frac_ptprc = mean(md$ptprc_pos[w]),
     Cldn4_all_mean = mean(md$Cldn4_logn[w]),
     Cldn4_all_pctpos = 100 * mean(md$Cldn4_pos[w]),
     Cldn4_epi_mean = if (any(we)) mean(md$Cldn4_logn[we]) else NA_real_,
     Cldn4_epi_pctpos = if (any(we)) 100 * mean(md$Cldn4_pos[we]) else NA_real_,
-    Cldn4_tumor_epi_mean = if (any(wt)) mean(md$Cldn4_logn[wt]) else NA_real_,
-    Cldn4_tumor_epi_pctpos = if (any(wt)) 100 * mean(md$Cldn4_pos[wt]) else NA_real_,
+    Cldn4_loose_mean = if (any(wl)) mean(md$Cldn4_logn[wl]) else NA_real_,
+    Cldn4_loose_pctpos = if (any(wl)) 100 * mean(md$Cldn4_pos[wl]) else NA_real_,
     IFN_epi_mean = if (any(we)) mean(md$ifn_score[we]) else NA_real_,
     MHC_epi_mean = if (any(we)) mean(md$mhc_score[we]) else NA_real_,
-    IFN_tumor_epi_mean = if (any(wt)) mean(md$ifn_score[wt]) else NA_real_,
-    MHC_tumor_epi_mean = if (any(wt)) mean(md$mhc_score[wt]) else NA_real_,
     Stk11_all_mean = if ("Stk11" %in% universe) mean(as.numeric(logn["Stk11", w])) else NA_real_,
     percent_mt_mean = mean(md$percent.mt[w]),
     stringsAsFactors = FALSE
@@ -244,8 +249,9 @@ write.table(comp, file.path(tab_dir, "compartment_by_mouse.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE)
 
 cldn4_pos <- md[md$Cldn4_pos, c(
-  "mouse", "gsm", "arm", "compartment", "is_epi", "is_tumor_epi",
-  "is_tnk", "Cldn4_count", "Cldn4_logn", "ifn_score", "mhc_score"
+  "mouse", "gsm", "arm", "compartment", "is_epi", "is_epi_loose",
+  "is_tnk", "sftpc_pos", "ptprc_pos", "Cldn4_count", "Cldn4_logn",
+  "ifn_score", "mhc_score"
 )]
 write.table(cldn4_pos, file.path(tab_dir, "cldn4_positive_cells.tsv"),
             sep = "\t", quote = FALSE, row.names = FALSE)
@@ -292,14 +298,14 @@ honest <- data.frame(
   item = c(
     "GEO series", "mice (unit)", "K mice", "KL mice",
     "libraries", "cells (not the unit)", "genes",
-    "marker epithelial cells", "host-epithelial cells", "T/NK cells",
+    "marker epithelial cells (tight)", "loose Epcam+ (audit)", "T/NK cells",
     "Cldn4-positive cells", "dual-high TACSTD2 x Cldn4",
     "private 8-KL mice used", "ICI / PD-1 arms"
   ),
   n = c(
     1, 2, 1, 1,
     1, n_cells, nrow(obj),
-    n_epi, sum(md$is_host_epi), n_tnk,
+    n_epi, sum(md$is_epi_loose), n_tnk,
     n_cldn4, 0,
     0, 0
   ),
@@ -311,9 +317,9 @@ honest <- data.frame(
     "two samples mixed in one 10x library, demultiplexed by label",
     "author-filtered MTX",
     "mm10 symbols; genes.tsv col2",
-    "Epcam+ or (Cdh1+ and Krt8+) or (Krt18+ and Krt19+); Cldn4 not a caller",
-    "epi and Sftpc/Scgb1a1/Ager",
-    "Cd3d/e/g or Cd8a or Nkg7/Ncr1/Klrb1c; epi wins if both fire",
+    "Epcam+ AND structural (Cdh1/Krt8/18/19/Cldn18)+ AND Ptprc-; Cldn4 not a caller",
+    "Epcam+ OR keratin pair; ambient-polluted; not the primary epi",
+    "Cd3d/e/g or Cd8a or Nkg7/Ncr1/Klrb1c; tight epi wins if both fire",
     "count > 0",
     "not defined",
     "public GEO only",
@@ -404,7 +410,7 @@ p_ifn <- ggplot(ifn_long, aes(x = mouse, y = score, fill = mouse)) +
   facet_wrap(~module) +
   scale_fill_manual(values = c(K = "#4C72B0", KL = "#C44E52"), guide = "none") +
   labs(title = "Epithelial IFN / MHC module (mean lognorm)",
-       subtitle = "Marker epithelium. K epithelium is tiny. n = 1 vs 1.",
+       subtitle = "Tight marker epithelium (Epcam+ structural+ Ptprc-). n = 1 vs 1.",
        y = "mean log1p", x = NULL)
 ggsave(file.path(fig_dir, "fig_epi_ifn_mhc.png"), p_ifn, width = 7.0, height = 4.4, dpi = 140)
 ggsave(file.path(fig_dir, "fig_epi_ifn_mhc.pdf"), p_ifn, width = 7.0, height = 4.4)
@@ -492,11 +498,11 @@ finding <- paste0(
   "| Public processed matrix | **yes** — 10x MTX in `GSE180963_RAW.tar` (87.9 MB) |\n",
   "| CreateSeuratObject | **yes** — Seurat ", as.character(packageVersion("Seurat")), " |\n",
   "| Author malignant / epithelial labels | **no** — barcode matrix only |\n",
-  "| Marker epithelium | **", n_epi, "** cells (K ", k_row$n_epi, " / KL ", kl_row$n_epi, ") |\n",
-  "| Host-lung epithelium | **", sum(md$is_host_epi), "** cells |\n",
+  "| Marker epithelium (tight) | **", n_epi, "** cells (K ", k_row$n_epi, " / KL ", kl_row$n_epi, ") |\n",
+  "| Loose Epcam+ (audit) | **", sum(md$is_epi_loose), "** cells; Sftpc is ambient |\n",
   "| Cldn4 row present | **yes** — **", n_cldn4, "** cells > 0 |\n",
   "| Cldn4 vs T/NK at mouse unit | **no-go** — n = 1 vs 1 mice |\n",
-  "| Epithelial IFN/MHC at mouse unit | **no-go** — n = 1 vs 1; K epi is tiny |\n",
+  "| Epithelial IFN/MHC at mouse unit | **no-go** — n = 1 vs 1 mice |\n",
   "| T/NK fraction (descriptive) | K ", fmt(k_row$frac_tnk), " vs KL ", fmt(kl_row$frac_tnk), " |\n",
   "| Closest to user KL | **this KL arm** (Lkb1-targeted KrasG12D/+ lung GEMM) |\n",
   "| Unit | **mouse** |\n",
@@ -515,8 +521,9 @@ finding <- paste0(
   "| Cells in matrix | **", n_cells, "** | not the unit |\n",
   "| Genes | **", nrow(obj), "** | mm10 symbols |\n",
   "| Author malignant labels | **0** | none deposited |\n",
-  "| Marker epithelial cells | **", n_epi, "** | Cldn4 not a caller |\n",
-  "| Host-epithelial cells | **", sum(md$is_host_epi), "** | Sftpc / Scgb1a1 / Ager ∩ epi |\n",
+  "| Marker epithelial cells (tight) | **", n_epi, "** | Epcam+ structural+ Ptprc- |\n",
+  "| Loose Epcam+ (audit) | **", sum(md$is_epi_loose), "** | ambient-polluted |\n",
+  "| Sftpc+ cells (ambient flag) | **", sum(md$sftpc_pos), "** | not host AT2 |\n",
   "| T/NK cells | **", n_tnk, "** | Cd3d/e/g or Cd8a or Nkg7/Ncr1/Klrb1c |\n",
   "| Cldn4-positive cells (any) | **", n_cldn4, "** | count > 0 |\n",
   "| Dual-high | **0** | not defined |\n",
@@ -525,16 +532,18 @@ finding <- paste0(
   "Do not write n = ", n_cells, ". Do not write n = 2 genotypes as if they were biological replicates.\n\n",
   "---\n\n",
   "## Per-mouse table (the actual unit)\n\n",
-  "| mouse | GSM | genotype | n cells | n epi | n host-epi | n T/NK | frac T/NK | Cldn4 all | Cldn4 %pos | Cldn4 epi | Cldn4 epi %pos | IFN epi | MHC epi |\n",
-  "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n",
+  "| mouse | GSM | genotype | n cells | n epi tight | n epi loose | n T/NK | frac T/NK | %Sftpc | Cldn4 all | Cldn4 %pos | Cldn4 epi | Cldn4 epi %pos | IFN epi | MHC epi |\n",
+  "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|\n",
   "| K | GSM5481386 | KrasG12D/+ | ",
-  k_row$n_cells, " | ", k_row$n_epi, " | ", k_row$n_host_epi, " | ", k_row$n_tnk, " | ",
-  fmt(k_row$frac_tnk), " | ", fmt(k_row$Cldn4_all_mean, 4), " | ", fmt(k_row$Cldn4_all_pctpos, 2),
+  k_row$n_cells, " | ", k_row$n_epi, " | ", k_row$n_epi_loose, " | ", k_row$n_tnk, " | ",
+  fmt(k_row$frac_tnk), " | ", fmt(100 * k_row$frac_sftpc, 1), " | ",
+  fmt(k_row$Cldn4_all_mean, 4), " | ", fmt(k_row$Cldn4_all_pctpos, 2),
   " | ", fmt(k_row$Cldn4_epi_mean, 4), " | ", fmt(k_row$Cldn4_epi_pctpos, 2),
   " | ", fmt(k_row$IFN_epi_mean, 3), " | ", fmt(k_row$MHC_epi_mean, 3), " |\n",
   "| KL | GSM5481387 | KrasG12D/+;Lkb1fl/fl | ",
-  kl_row$n_cells, " | ", kl_row$n_epi, " | ", kl_row$n_host_epi, " | ", kl_row$n_tnk, " | ",
-  fmt(kl_row$frac_tnk), " | ", fmt(kl_row$Cldn4_all_mean, 4), " | ", fmt(kl_row$Cldn4_all_pctpos, 2),
+  kl_row$n_cells, " | ", kl_row$n_epi, " | ", kl_row$n_epi_loose, " | ", kl_row$n_tnk, " | ",
+  fmt(kl_row$frac_tnk), " | ", fmt(100 * kl_row$frac_sftpc, 1), " | ",
+  fmt(kl_row$Cldn4_all_mean, 4), " | ", fmt(kl_row$Cldn4_all_pctpos, 2),
   " | ", fmt(kl_row$Cldn4_epi_mean, 4), " | ", fmt(kl_row$Cldn4_epi_pctpos, 2),
   " | ", fmt(kl_row$IFN_epi_mean, 3), " | ", fmt(kl_row$MHC_epi_mean, 3), " |\n\n",
   "---\n\n",
@@ -567,9 +576,9 @@ finding <- paste0(
   "K: Cldn4 epi mean ", fmt(k_row$Cldn4_epi_mean, 4), ", T/NK fraction ", fmt(k_row$frac_tnk),
   ". KL: Cldn4 epi mean ", fmt(kl_row$Cldn4_epi_mean, 4), ", T/NK fraction ", fmt(kl_row$frac_tnk),
   ". Do not draw a slope.\n\n",
-  "**Cldn4 vs epithelial IFN/MHC.** Same two mice. K epithelium is **", k_row$n_epi,
-  "** cells — too small to carry an IFN/MHC claim. KL epithelium is **", kl_row$n_epi,
-  "** cells. Cell-level Spearman inside KL epithelium (",
+  "**Cldn4 vs epithelial IFN/MHC.** Same two mice. Tight epithelium is **",
+  k_row$n_epi, "** (K) and **", kl_row$n_epi, "** (KL) cells. ",
+  "Cell-level Spearman inside KL tight epithelium (",
   rho_txt(sp_kl_ifn), " for IFN; ", rho_txt(sp_kl_mhc),
   " for MHC) is exploratory and must not be cited as n.\n\n",
   "The series summary frames LKB1 loss as an immune-desert TME. ",
@@ -579,12 +588,11 @@ finding <- paste0(
   "---\n\n",
   "## Epithelium (honest)\n\n",
   "GEO deposits **no** author `Malignant` / `Epithelial` column. Calling is markers:\n\n",
-  "- **Marker epithelium** = Epcam+ **or** (Cdh1+ and Krt8+) **or** (Krt18+ and Krt19+).\n",
-  "- **Host epithelium** = those epi markers **and** Sftpc or Scgb1a1 or Ager.\n",
-  "- **T/NK** = Cd3d / Cd3e / Cd3g / Cd8a / Nkg7 / Ncr1 / Klrb1c. Epithelium wins if both fire.\n",
+  "- **Tight epithelium (primary)** = Epcam+ **and** (Cdh1 or Krt8/18/19 or Cldn18)+ **and** Ptprc−.\n",
+  "- **Loose Epcam+** is audit only. Sftpc is an **ambient flag** in this digest, not host AT2.\n",
+  "- **T/NK** = Cd3d / Cd3e / Cd3g / Cd8a / Nkg7 / Ncr1 / Klrb1c. Tight epithelium wins if both fire.\n",
   "- **Cldn4 is not a caller.** Tacstd2 is inventory only. No dual-high gate.\n\n",
-  "K epithelium is tiny. Prior cluster-majority work on this series also saw only one ",
-  "small K epithelial island. Do not treat K vs KL epithelial IFN/MHC as a powered contrast.\n\n",
+  "Do not treat K vs KL epithelial IFN/MHC as a powered contrast. n = 1 vs 1 mice.\n\n",
   "Lineage genes present: ",
   paste(present_in(c(EPI_CORE, HOST_LUNG, T_NK_CALL, CLDN4, AUDIT), universe), collapse = ", "),
   ".\n",
