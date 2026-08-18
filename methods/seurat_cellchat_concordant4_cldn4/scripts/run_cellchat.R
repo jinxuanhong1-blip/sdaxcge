@@ -243,7 +243,7 @@ run_one_cellchat <- function(counts, group) {
   cellchat@DB <- subset_cellchat_db()
   cellchat <- subsetData(cellchat)
   # Keep the pre-specified pairs even if they are not DE among 3 groups.
-  cellchat <- identifyOverExpressedGenes(cellchat, thresh.p = 1)
+  cellchat <- identifyOverExpressedGenes(cellchat, thresh.p = 1, do.fast = FALSE)
   cellchat <- identifyOverExpressedInteractions(cellchat)
   if (!is.null(cellchat@DB$interaction) && nrow(cellchat@DB$interaction)) {
     cellchat@LR$LRsig <- cellchat@DB$interaction
@@ -570,7 +570,8 @@ load_gse205335 <- function() {
     file.path(RAW, "GSE205335", "GSE205335_Lung_IO_CellIdentity.txt.gz"),
     stringsAsFactors = FALSE, check.names = FALSE
   )
-  soft <- parse_soft(file.path(RAW, "GSE205335", "GSE205335_family.soft.gz"))
+  gsm_map <- read.delim(file.path(HERE, "data", "GSE205335_gsm_map.tsv"),
+                        stringsAsFactors = FALSE)
   rds_gz <- file.path(RAW, "GSE205335", "GSE205335_Lung_IO_UMI_matrix.rds.gz")
   mat <- read_geo_rds(rds_gz)
   if (is.data.frame(mat)) mat <- as.matrix(mat)
@@ -588,7 +589,7 @@ load_gse205335 <- function() {
   common <- intersect(colnames(mat), bc)
   mat <- mat[, common, drop = FALSE]
   ident <- ident[match(colnames(mat), ident$barcode), , drop = FALSE]
-  ident <- merge(ident, soft[, c("orig.ident", "patient", "tissue"), drop = FALSE],
+  ident <- merge(ident, gsm_map[, c("orig.ident", "patient", "tissue"), drop = FALSE],
                  by = "orig.ident", all.x = TRUE, sort = FALSE)
   ident <- ident[match(colnames(mat), ident$barcode), , drop = FALSE]
   if (anyNA(ident$patient) || any(ident$patient == "")) {
