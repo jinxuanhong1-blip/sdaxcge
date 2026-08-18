@@ -1,0 +1,16 @@
+item	n	note
+GEO series with matrix	2	GSE165641+GSE180963
+mice (unit, after merge)	4	one row per GEO library / mouse
+K mice	1	GSE180963_K
+KL mice	3	GSE165641_KL1,GSE165641_KL2,GSE180963_KL
+datasets integrated	2	Seurat_IntegrateLayers_HarmonyIntegration
+cells (not the unit)	20953	QC: nFeature>=200, nCount>=500, percent.mt<25
+genes after merge	31053	symbol union; Cldn4 required
+marker epithelial cells (tight)	569	Epcam+ AND structural+ AND Ptprc-; Cldn4 not a caller
+T/NK cells	7802	Cd3d/e/g or Cd8a or Nkg7/Ncr1/Klrb1c; tight epi wins
+Cldn4-positive cells	323	count > 0
+dual-high TACSTD2 x Cldn4	0	not defined
+private 8-KL mice used	0	public GEO only
+ICI / PD-1 arms	0	untreated GEMM
+Q4 vs Q1 IFN/MHC/TJ	0	NO-GO n_mice<6
+Spearman Cldn4 vs T/NK	4	rho=-1.000 p=0

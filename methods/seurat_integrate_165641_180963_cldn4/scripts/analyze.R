@@ -220,8 +220,17 @@ if (n_ds == 1) {
     project = "GSE165641_GSE180963"
   )
   rm(objs_ds); gc()
-  # Split RNA layers by dataset so IntegrateLayers sees two batches.
-  obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+  # Merge of two JoinLayers'd dataset objects already yields
+  # counts.GSE165641 / counts.GSE180963. Re-split only if a single counts layer remains.
+  ly <- tryCatch(Layers(obj[["RNA"]]), error = function(e) character())
+  n_counts <- sum(grepl("^counts", ly))
+  message("RNA layers after merge: ", paste(ly, collapse = ", "))
+  if (n_counts <= 1) {
+    obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+  } else if (n_counts > 2) {
+    obj <- JoinLayers(obj)
+    obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+  }
   obj <- NormalizeData(obj, normalization.method = "LogNormalize", scale.factor = 10000)
   obj <- FindVariableFeatures(obj, selection.method = "vst", nfeatures = 2000, verbose = FALSE)
   obj <- ScaleData(obj, verbose = FALSE)
@@ -518,9 +527,11 @@ p_xy <- ggplot(pm, aes(x = Cldn4_epi_mean, y = frac_tnk, color = dataset, shape 
   labs(
     title = "Integrated mouse-level Cldn4 (epithelium) vs T/NK fraction",
     subtitle = sprintf(
-      "n = %d mice. Spearman %s. Q4 vs Q1 IFN/MHC/TJ %s.",
+      "n = %d mice. %s. Q4 vs Q1 IFN/MHC/TJ %s. Not a law.",
       n_mice,
-      if (is.finite(sp_tnk$rho)) sprintf("rho=%.2f p=%.3g", sp_tnk$rho, sp_tnk$p) else "not defined",
+      if (is.finite(sp_tnk$rho) && abs(sp_tnk$rho) >= 0.999) sprintf("rank order is the two-lab split (rho=%.2f)", sp_tnk$rho)
+      else if (is.finite(sp_tnk$rho)) sprintf("Spearman rho=%.2f p=%.3g", sp_tnk$rho, sp_tnk$p)
+      else "Spearman not defined",
       if (q4q1_allowed) "run" else "no-go (n<6)"
     ),
     x = "Cldn4 mean lognorm in marker epithelium",
@@ -643,6 +654,9 @@ mouse_md_rows <- apply(per_mouse, 1, function(r) {
 
 rho_txt <- function(sp) {
   if (is.na(sp$rho)) return(sprintf("n=%d, ρ undefined", sp$n))
+  if (is.finite(sp$rho) && abs(sp$rho) >= 0.999) {
+    return(sprintf("n=%d mice, ρ=%.3f (perfect rank order; do not cite p=%.3g)", sp$n, sp$rho, sp$p))
+  }
   sprintf("n=%d mice, ρ=%.3f, p=%.3g", sp$n, sp$rho, sp$p)
 }
 
@@ -714,8 +728,9 @@ finding <- paste0(
   rho_txt(sp_tnk), " for epithelial Cldn4 **mean** vs T/NK fraction. ",
   rho_txt(sp_tnk_pct), " for epithelial Cldn4 **%pos** vs T/NK fraction. ",
   "n = ", n_mice, " is the floor for Spearman and is **not powered**. ",
+  "If |ρ|=1 the rank order is the two-lab split (GSE165641 vs GSE180963), not a within-lab slope. ",
   "Strain / dataset is a confounder (C57BL/6 vs FVB). Harmony corrects the embedding, not the mouse-level scores. ",
-  "Do not write a Cldn4–T/NK law from this object.\n\n",
+  "Do not cite a perfect-correlation p-value. Do not write a Cldn4–T/NK law from this object.\n\n",
   "Cldn4 vs epithelial IFN / MHC / TJ (descriptive Spearman, same n): IFN ", rho_txt(sp_ifn),
   "; MHC ", rho_txt(sp_mhc), "; TJ ", rho_txt(sp_tj), ".\n\n",
   "## Epithelial IFN / MHC / TJ Q4 vs Q1\n\n",
