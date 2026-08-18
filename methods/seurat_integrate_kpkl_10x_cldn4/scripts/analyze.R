@@ -545,7 +545,7 @@ obj$ifn_score <- mean_mod(logn, IFN)
 obj$mhc_score <- mean_mod(logn, MHC)
 obj$tnk_score <- mean_mod(logn, T_NK_SCORE)
 
-md <- leo.a@example.org
+md <- slot(obj, "meta.data")
 mice <- sort(unique(md$mouse))
 
 mouse_rows <- lapply(mice, function(lab) {
