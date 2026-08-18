@@ -1,0 +1,13 @@
+{
+  "seurat": "5.5.1",
+  "seuratobject": "5.4.0",
+  "r": "4.3.3",
+  "n_cells_cellranger": 7180,
+  "n_cells_qc": 6693,
+  "n_mice": 2,
+  "create_seurat_object": true,
+  "python_primary": false,
+  "private_8kl": false,
+  "accession": "GSE165641",
+  "processed_matrix": "GSM5047302_KL1_count.tar.gz + GSM5047303_KL2_count.tar.gz (Cell Ranger filtered MTX) ; also GSE165641_processed_normalized_matrix_data.Rdata.gz (31,053 x 7,180 gene x cell data.frame, not used as primary counts)"
+}
