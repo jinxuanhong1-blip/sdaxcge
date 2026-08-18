@@ -1,0 +1,4 @@
+accession	endpoint	n_mice	spearman_r	spearman_p	high_n	low_n	high_vs_low_mwu_p	high_mean	low_mean	note
+GSE179501	frac_tnk	4	0.2	0.8	2	2	1	0.273719773835636	0.264267866030726	median split of epithelial Cldn4 (median=0.0473)
+GSE179501	mean_ifn_epithelial	4	-0.8	0.2	2	2	0.245278116806773	0.228751478195195	0.269971708097329	median split of epithelial Cldn4 (median=0.0473)
+GSE179501	mean_Cldn4_epithelial	4	NA	NA	2	2	1	0.0525712015585839	0.047304778365974	Restored (high_n) vs Non-Restored (low_n) epithelial Cldn4; not a Cldn4 median split
