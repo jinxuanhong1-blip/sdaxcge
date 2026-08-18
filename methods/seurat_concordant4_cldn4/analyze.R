@@ -196,7 +196,7 @@ say("sets IFN", length(sets$IFN), "MHC", length(sets$MHC), "TJ", length(sets$TJ)
 say("GSE123902 extract")
 d123 <- file.path(GEO, "gse123902")
 dir.create(d123, showWarnings = FALSE)
-if (!length(list.files(d123, pattern = "PRIMARY|METASTASIS"))) {
+if (length(list.files(d123, pattern = "dense\\.csv\\.gz$")) < 17) {
   system(sprintf("tar -C %s -xf %s", d123, file.path(GEO, "GSE123902_RAW.tar")))
 }
 locked_123 <- read.delim(LOCKED_123902, stringsAsFactors = FALSE)
