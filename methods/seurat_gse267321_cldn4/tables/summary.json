@@ -1,0 +1,18 @@
+{
+  "engine": "R + Seurat CreateSeuratObject",
+  "seurat_version": "5.5.1",
+  "seuratobject_version": "5.4.0",
+  "r_version": "4.6.1",
+  "geo": "GSE267321",
+  "matrix_file": "GSE267321_Normalized_expression_matrix_02122026.csv.gz",
+  "value_note": "counts_log1p (frac_int=1.000); CreateSeuratObject treats matrix as counts",
+  "n_cells": 7956,
+  "n_genes": 22497,
+  "n_tumors": 6,
+  "n_tnk": 1794,
+  "n_epithelial": 380,
+  "n_host_epithelial": 3,
+  "n_cldn4_pos": 6,
+  "cldn4_present": true,
+  "private_kl": 0
+}
