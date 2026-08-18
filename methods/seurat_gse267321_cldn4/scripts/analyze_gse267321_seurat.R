@@ -184,7 +184,12 @@ download_if_needed(SERIES_URL, SERIES)
 # Header is cell barcodes only (no gene-column name). Data rows are gene + cells.
 message("Reading normalized CSV...")
 hdr <- strsplit(readLines(gzfile(MATRIX), n = 1L), ",", fixed = TRUE)[[1]]
-dt <- fread(MATRIX, header = FALSE, skip = 1L, showProgress = TRUE)
+dt <- fread(
+  cmd = paste("gzip -dc", shQuote(MATRIX)),
+  header = FALSE,
+  skip = 1L,
+  showProgress = TRUE
+)
 if (ncol(dt) != length(hdr) + 1L) {
   stop("CSV shape mismatch: header cells=", length(hdr), " data cols=", ncol(dt))
 }
@@ -548,9 +553,9 @@ ggsave(file.path(FIGS, "fig3_compartments.png"), p3, width = 6.8, height = 4.6, 
 # -----------------------------------------------------------------------------
 # 5. FINDING.md from the Seurat run
 # -----------------------------------------------------------------------------
-gmap <- setNames(split(genotype_table, genotype_table$genotype), genotype_table$genotype)
-smap <- setNames(split(per_tumor, per_tumor$sample), per_tumor$sample)
-cmap <- setNames(split(klk_vs_k, klk_vs_k$metric), klk_vs_k$metric)
+gmap <- split(genotype_table, genotype_table$genotype)
+smap <- split(per_tumor, per_tumor$sample)
+cmap <- split(klk_vs_k, klk_vs_k$metric)
 cldn4_inv <- gene_inv[gene == "Cldn4"]
 n_epi_total <- summary$n_epithelial
 n_host_total <- summary$n_host_epithelial
