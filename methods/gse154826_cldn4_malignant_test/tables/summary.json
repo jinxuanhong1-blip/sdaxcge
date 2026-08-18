@@ -1,0 +1,134 @@
+{
+  "dataset": "GSE154826",
+  "pmid": 34767762,
+  "cldn4_only": true,
+  "dual_high": false,
+  "verdict": "malignant_absent_CD45_immune_only",
+  "malignant_present": false,
+  "reason": "Author annotations have 0 Malignant barcodes. Design is CD45+ bead/FACS CITE-seq; leftover epithelium is gated epi_endo_fibro_doublet. Real no-CD45 digest epithelium is 2 patients (<8). Stop. Do not score CLDN4 vs T/NK and do not merge with GSE123902/GSE131907.",
+  "n_author_malignant_cells": 0,
+  "n_author_malignant_units": 0,
+  "n_digest_no_cd45_tumor_patients": 2,
+  "n_gate_cells": 33759,
+  "n_T": 157641,
+  "n_NK": 11456,
+  "n_author_cells": 361929,
+  "n_tumor_patients": 35,
+  "n_mount_sinai_patients": 35,
+  "mtx_tarball_n": 77,
+  "mtx_pile_bytes": 3567029508,
+  "mtx_pile_downloaded": false,
+  "dropbox_lung_ldm_rd_bytes": 2123085302,
+  "dropbox_downloaded": false,
+  "series_matrix": {
+    "GSE154826-GPL18573_series_matrix.txt.gz": {
+      "bytes": 8816,
+      "sample_meta_lines": 44,
+      "non_bang_lines": 2
+    },
+    "GSE154826-GPL24676_series_matrix.txt.gz": {
+      "bytes": 6500,
+      "sample_meta_lines": 43,
+      "non_bang_lines": 2
+    }
+  },
+  "features_peek": {
+    "file": "GSE154826_amp_batch_ID_26.tar.gz",
+    "bytes": 6266201,
+    "url": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE154nnn/GSE154826/suppl/GSE154826_amp_batch_ID_26.tar.gz",
+    "members": [
+      "26_patient_464-464N_features.tsv",
+      "26_patient_464-464N_barcodes.tsv",
+      "26_patient_464-464N_matrix.mtx"
+    ],
+    "n_features": 33694,
+    "feature_types": {
+      "Gene Expression": 33694
+    },
+    "n_barcodes": 737280
+  },
+  "focus_genes_in_peeked_features": {
+    "TACSTD2": true,
+    "CLDN4": true,
+    "EPCAM": true,
+    "KRT19": true,
+    "PTPRC": true,
+    "CD3D": true,
+    "NKG7": true
+  },
+  "author_lineage": {
+    "T": 157641,
+    "epi_endo_fibro_doublet": 33759,
+    "MNP": 106662,
+    "NK": 11456,
+    "B&plasma": 41422,
+    "pDC": 1907,
+    "mast": 9082
+  },
+  "author_lig_rec_group": {
+    "T": 157641,
+    "gate": 33759,
+    "mono": 27858,
+    "mac": 60986,
+    "NK": 11456,
+    "plasma": 17610,
+    "DC3": 10716,
+    "B": 23812,
+    "cDC": 7102,
+    "pDC": 1907,
+    "mast": 9082
+  },
+  "digest_patients": [
+    "695",
+    "706"
+  ],
+  "immune_vs_ep_focus": [
+    {
+      "": "TACSTD2",
+      "l2fc": "-5.53229324999492",
+      "fg_exprs": "1.13493945353834e-05",
+      "bg_exprs": "0.000570520586616366"
+    },
+    {
+      "": "PTPRC",
+      "l2fc": "3.67789444065874",
+      "fg_exprs": "0.000323702359375923",
+      "bg_exprs": "2.43704924328539e-05"
+    },
+    {
+      "": "EPCAM",
+      "l2fc": "-7.83055126425676",
+      "fg_exprs": "2.27062582346598e-06",
+      "bg_exprs": "0.000743494809994135"
+    },
+    {
+      "": "CLDN4",
+      "l2fc": "-7.41557937121507",
+      "fg_exprs": "3.208005892035e-06",
+      "bg_exprs": "0.000717436130696484"
+    },
+    {
+      "": "CD3D",
+      "l2fc": "4.290005618892",
+      "fg_exprs": "0.000253970245271059",
+      "bg_exprs": "1.2033742267022e-05"
+    },
+    {
+      "": "KRT19",
+      "l2fc": "-7.81921880460393",
+      "fg_exprs": "4.907240677688e-06",
+      "bg_exprs": "0.00133314818107821"
+    },
+    {
+      "": "NKG7",
+      "l2fc": "4.36205039661622",
+      "fg_exprs": "0.00019670416570358",
+      "bg_exprs": "8.61408169473876e-06"
+    }
+  ],
+  "concordant_pool_joined": false,
+  "forced_merge_123902_131907": false,
+  "cldn4_pctpos_vs_tnk": null,
+  "ifn_mhc_q4q1": null,
+  "stop_rule": "CD45+/immune-only or malignant n<8 \u2192 write that and STOP"
+}
