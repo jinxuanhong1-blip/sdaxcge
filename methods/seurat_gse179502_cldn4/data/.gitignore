@@ -1,0 +1,10 @@
+# Public GEO cache (re-download from NCBI; do not commit counts)
+barcodes.tsv.gz
+features.tsv.gz
+matrix.mtx.gz
+GSE179502_family.soft.gz
+*.mtx
+*.tsv
+!a8_families.json
+!README.md
+!samples.csv
