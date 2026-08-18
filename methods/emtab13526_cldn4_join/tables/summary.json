@@ -1,0 +1,71 @@
+{
+  "dataset": "E-MTAB-13526",
+  "citation": "De Zuani, Xue, Park, et al. Nat Commun 2024 (Cvejic NSCLC atlas)",
+  "pmid": "38782901",
+  "target": "CLDN4-only",
+  "dual_high": false,
+  "unit": "patient",
+  "subset": "CD235a- tumor Cell Ranger mtx (15 lanes)",
+  "skipped_h5ads": [
+    "10X_Lung_Tumour_Annotated_v2.h5ad (58.74 GB)",
+    "10X_Lung_Healthy_Background_Annotated_v2.h5ad (45.51 GB)"
+  ],
+  "n_cells": 276018,
+  "n_tumor_patients": 12,
+  "n_eligible_malig": 10,
+  "CLDN4_present": true,
+  "n_IFN_genes": 222,
+  "n_MHC_genes": 21,
+  "primary_CLDN4_vs_tnk": {
+    "contrast": "tumor malig-like CLDN4 mean_log1p vs T/NK fraction (eligible)",
+    "n": 10,
+    "spearman_rho": 0.41818181818181815,
+    "spearman_p": 0.22911284098281892,
+    "note": ""
+  },
+  "primary_CLDN4_vs_ifnmhc": {
+    "contrast": "tumor malig-like CLDN4 vs IFN/MHC score (eligible, continuous)",
+    "n": 10,
+    "spearman_rho": 0.8060606060606059,
+    "spearman_p": 0.004862061101964607,
+    "note": ""
+  },
+  "q4q1_IFN_MHC": {
+    "contrast": "CLDN4 mean_log1p Q4 vs Q1 \u00b7 IFN/MHC",
+    "n": 10,
+    "n_Q1": 3,
+    "n_Q4": 3,
+    "mean_Q1": 0.12026467174291611,
+    "mean_Q4": 0.22544629871845245,
+    "delta_Q4_minus_Q1": 0.10518162697553635,
+    "mannwhitney_p": 0.1,
+    "note": ""
+  },
+  "q4q1_IFN": {
+    "contrast": "CLDN4 mean_log1p Q4 vs Q1 \u00b7 IFN",
+    "n": 10,
+    "n_Q1": 3,
+    "n_Q4": 3,
+    "mean_Q1": 0.11710600058237712,
+    "mean_Q4": 0.21646695832411447,
+    "delta_Q4_minus_Q1": 0.09936095774173735,
+    "mannwhitney_p": 0.1,
+    "note": ""
+  },
+  "q4q1_MHC": {
+    "contrast": "CLDN4 mean_log1p Q4 vs Q1 \u00b7 MHC-I/APM",
+    "n": 10,
+    "n_Q1": 3,
+    "n_Q4": 3,
+    "mean_Q1": 0.29215962688128155,
+    "mean_Q4": 0.5971825917561849,
+    "delta_Q4_minus_Q1": 0.3050229648749034,
+    "mannwhitney_p": 0.1,
+    "note": ""
+  },
+  "sign_tnk_inverse": false,
+  "sign_ifnmhc_down_continuous": false,
+  "sign_ifnmhc_down_q4q1": false,
+  "decision": "NO-JOIN",
+  "concordant_pool": "GSE123902+GSE131907+GSE205335+GSE189357"
+}
