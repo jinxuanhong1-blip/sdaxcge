@@ -1,0 +1,19 @@
+{
+  "accession": "GSE137669",
+  "verdict": "NO-GO",
+  "reason": "bulk left-ventricle RNA-seq; series matrix has 0 expression rows; Cldn4 all zeros",
+  "title": "Dietary enrichment of BCAA ameliorates cardiac metabolism and function in failing heart",
+  "pubmed": "36626303",
+  "n_series_matrix_expression_rows": 0,
+  "n_bulk_libraries": 8,
+  "n_genes_edger": 49671,
+  "cldn4_present_as_row": true,
+  "cldn4_all_zero": true,
+  "epcam_all_zero": true,
+  "tacstd2_all_zero": true,
+  "n_mouse_lung_tumor_scrna_units": 0,
+  "n_cldn4_vs_tnk_pairs": 0,
+  "n_epithelial_ifn_mhc_q4q1": 0,
+  "join_concordant4": false,
+  "dual_high": false
+}
