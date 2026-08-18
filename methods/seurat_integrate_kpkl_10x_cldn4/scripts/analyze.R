@@ -94,12 +94,21 @@ mean_mod <- function(mat, genes) {
   as.numeric(Matrix::colMeans(mat[genes, , drop = FALSE]))
 }
 
+read_h5_col <- function(ds) {
+  # MATLAB-style COO dumps as N x 1, not a 1-d vector.
+  if (length(ds$dims) >= 2 && ds$dims[2] == 1) {
+    as.numeric(ds[, 1])
+  } else {
+    as.numeric(ds[])
+  }
+}
+
 read_coo_h5 <- function(path, genes, cells) {
   h5 <- H5File$new(path, mode = "r")
   on.exit(h5$close_all(), add = TRUE)
-  i <- as.numeric(h5[["i"]][])
-  j <- as.numeric(h5[["j"]][])
-  v <- as.numeric(h5[["v"]][])
+  i <- read_h5_col(h5[["i"]])
+  j <- read_h5_col(h5[["j"]])
+  v <- read_h5_col(h5[["v"]])
   if (min(i) == 0 || min(j) == 0) {
     i <- i + 1
     j <- j + 1
