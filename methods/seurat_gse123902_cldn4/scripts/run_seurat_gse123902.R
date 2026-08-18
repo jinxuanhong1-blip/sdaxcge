@@ -138,7 +138,10 @@ fmt_rho <- function(s) {
 }
 
 read_geo_csv <- function(path, gsm) {
-  dt <- data.table::fread(path, sep = ",", header = TRUE, data.table = FALSE, showProgress = FALSE)
+  dt <- data.table::fread(
+    cmd = paste("zcat", shQuote(path)),
+    sep = ",", header = TRUE, data.table = FALSE, showProgress = FALSE
+  )
   bc <- as.character(dt[[1]])
   genes <- colnames(dt)[-1]
   m <- as.matrix(dt[, -1, drop = FALSE])
@@ -261,7 +264,8 @@ obj$lineage <- assign_lineage(data_mat)
 obj$malignant <- obj$lineage == "epithelial" & obj$tumor
 obj$is_tnk <- obj$lineage == "tnk"
 cldn4 <- if ("CLDN4" %in% rownames(data_mat)) as.numeric(data_mat["CLDN4", ]) else rep(0, ncol(obj))
-obj$CLDN4 <- cldn4
+# Do not store as $CLDN4 — that shadows the assay gene in VlnPlot/FeaturePlot.
+obj$CLDN4_log1p <- cldn4
 obj$CLDN4_pos <- cldn4 > 0
 
 # ---------------------------------------------------------------------------
@@ -293,12 +297,12 @@ pat_rows <- lapply(patients, function(p) {
     n_myeloid_tumor = sum(t$lineage == "myeloid"),
     n_b_tumor = sum(t$lineage == "b"),
     frac_tnk = if (nrow(t)) mean(t$is_tnk) else NA_real_,
-    cldn4_mean = if (nrow(mal)) mean(mal$CLDN4) else NA_real_,
+    cldn4_mean = if (nrow(mal)) mean(mal$CLDN4_log1p) else NA_real_,
     cldn4_pct_pos = if (nrow(mal)) mean(mal$CLDN4_pos) * 100 else NA_real_,
     ifn_mean = if (nrow(mal) && "IFN_score" %in% names(mal)) mean(mal$IFN_score) else NA_real_,
     mhc_mean = if (nrow(mal) && "MHC_score" %in% names(mal)) mean(mal$MHC_score) else NA_real_,
     tj_mean = if (nrow(mal) && "TJ_score" %in% names(mal)) mean(mal$TJ_score) else NA_real_,
-    tnk_cldn4_mean = if (nrow(tnk)) mean(tnk$CLDN4) else NA_real_,
+    tnk_cldn4_mean = if (nrow(tnk)) mean(tnk$CLDN4_log1p) else NA_real_,
     stringsAsFactors = FALSE
   )
 })
@@ -352,19 +356,19 @@ save_gg <- function(p, stem, w = 8, h = 6) {
 
 Idents(obj) <- obj$lineage
 p_dim_lin <- DimPlot(obj, group.by = "lineage", reduction = "umap", pt.size = 0.1) +
-  ggtitle("GSE123902 Seurat UMAP — marker lineage (CLDN4 not used to assign)")
+  ggtitle("GSE123902 Seurat UMAP - marker lineage (CLDN4 not used to assign)")
 save_gg(p_dim_lin, "fig_dimplot_lineage", 8, 6)
 
 p_dim_pat <- DimPlot(obj, group.by = "patient", reduction = "umap", pt.size = 0.1) +
-  ggtitle("GSE123902 Seurat UMAP — donor (LX ID)") +
+  ggtitle("GSE123902 Seurat UMAP - donor (LX ID)") +
   theme(legend.text = element_text(size = 7))
 save_gg(p_dim_pat, "fig_dimplot_patient", 9, 6)
 
 p_dim_tis <- DimPlot(obj, group.by = "site", reduction = "umap", pt.size = 0.1) +
-  ggtitle("GSE123902 Seurat UMAP — tissue")
+  ggtitle("GSE123902 Seurat UMAP - tissue")
 save_gg(p_dim_tis, "fig_dimplot_tissue", 8, 6)
 
-p_vln <- VlnPlot(obj, features = "CLDN4", group.by = "lineage", pt.size = 0) +
+p_vln <- VlnPlot(obj, features = "CLDN4", group.by = "lineage", pt.size = 0, assay = "RNA") +
   ggtitle("CLDN4 (log1p CP10k) by marker lineage")
 save_gg(p_vln, "fig_vlnplot_cldn4", 8, 5)
 

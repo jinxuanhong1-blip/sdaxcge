@@ -1,0 +1,23 @@
+{
+  "accession": "GSE123902",
+  "engine": "R_Seurat",
+  "seurat": "5.5.1",
+  "n_cells": 42847,
+  "n_donors": 14,
+  "n_eligible": 13,
+  "spearman_cldn4_mean_vs_tnk": {
+    "n": 13,
+    "rho": -0.1319,
+    "p": 0.6676,
+    "lo": -0.6366,
+    "hi": 0.452
+  },
+  "spearman_cldn4_pct_vs_tnk": {
+    "n": 13,
+    "rho": -0.4341,
+    "p": 0.1383,
+    "lo": -0.7949,
+    "hi": 0.1537
+  },
+  "q4q1_ran": true
+}
