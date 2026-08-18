@@ -1,0 +1,18 @@
+item	n	note
+GEO series (pair, not triple)	2	GSE154977 + GSE180963 only
+mice (unit)	6	4 KP + 1 K + 1 KL
+GSE154977 KP mice	4	FACS CD45− 30w 10x; 2 ND + 2 Cis72
+GSE180963 mice	2	1 K + 1 KL; mixed 10x library
+T/NK-honest mice	2	GSE180963 only; 154977 T/NK is design no-go
+IFN/MHC mice (tight epi, n_epi>=10)	6	all 6 pass
+cells after pair QC (not the unit)	25277	nFeature>=200 & percent.mt<25
+shared genes	18529	intersected symbols before merge
+Cldn4-positive cells	5636	count > 0
+tight epithelial cells	10485	Epcam+ structural+ Ptprc−; Cldn4 not a caller
+T/NK cells (marker)	7453	Cd3d/e/g or Cd8a or Nkg7/Ncr1/Klrb1c; tight epi wins
+Q4 vs Q1	0	locked: needs n_units>=8
+GSE267321	0	excluded (not the triple)
+human cohorts	0	excluded
+private 8-KL mice	0	excluded
+FACS-epi-only as pair primary	0	excluded; 154977 design is noted, not sold as T/NK
+Harmony batch	1	group.by.vars = dataset

@@ -1,0 +1,51 @@
+{
+  "pair": ["GSE154977", "GSE180963"],
+  "not_included": ["GSE267321", "human", "private_8_KL", "FACS_epi_only_primary", "triple"],
+  "seurat_version": "5.5.1",
+  "harmony_version": "2.0.5",
+  "r_version": "4.6.1",
+  "harmony_reduction": "harmony",
+  "n_cells": 25277,
+  "n_shared_genes": 18529,
+  "n_mice": 6,
+  "n_tnk_honest_mice": 2,
+  "mice": ["KP_30w_Cis72_m5", "KP_30w_Cis72_m6", "KP_30w_ND_m3", "KP_30w_ND_m4", "K", "KL"],
+  "tnk": {
+    "n": 2,
+    "rho": "NA",
+    "usable": false
+  },
+  "IFN": {
+    "n": 6,
+    "rho": -0.371429,
+    "p_exact": 0.497222,
+    "p_asymp": 0.468478
+  },
+  "MHC": {
+    "n": 6,
+    "rho": -0.428571,
+    "p_exact": 0.419444,
+    "p_asymp": 0.396501
+  },
+  "IFN_dataset_adj": {
+    "n": 6,
+    "rho": 0.771429,
+    "p_exact": 0.102778
+  },
+  "MHC_dataset_adj": {
+    "n": 6,
+    "rho": 0.657143,
+    "p_exact": 0.175
+  },
+  "lm_IFN_beta_Cldn4": 0.103194,
+  "lm_IFN_p_Cldn4": 0.50809,
+  "lm_MHC_beta_Cldn4": 0.352426,
+  "lm_MHC_p_Cldn4": 0.719264,
+  "loo_IFN_rho_range": [-0.5, 0],
+  "loo_MHC_rho_range": [-0.6, -0.1],
+  "q4q1_usable": false,
+  "gene_sets": {
+    "IFN": ["Stat1", "Stat2", "Irf1", "Irf7", "Irf9", "Isg15", "Ifit1", "Ifit2", "Ifit3", "Mx1", "Oasl2", "Rsad2", "Ifih1", "Ddx58"],
+    "MHC": ["B2m", "H2-K1", "H2-D1", "H2-Q4", "H2-Q6", "H2-Q7", "H2-Aa", "H2-Ab1", "H2-Eb1", "Tap1", "Tap2", "Psmb8", "Psmb9", "Nlrc5", "Ciita"]
+  }
+}
