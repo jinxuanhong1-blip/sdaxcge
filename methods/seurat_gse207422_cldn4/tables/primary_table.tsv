@@ -1,0 +1,7 @@
+contrast	n	rho	p	note	kind	mean_high	mean_low	median_delta	W	n_high_gt_low	compartment	module	n_patients_eligible	patients	n_a	n_b	mean_a	mean_b	U
+post_a3_CLDN4_vs_tnk_frac_min20	6	0.371428571428571	0.468478134110787		sample_spearman	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+post_a3_CLDN4_vs_ifn_isg_min20	6	0.942857142857143	0.00480466472303207		sample_spearman	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+post_a3_CLDN4_vs_mhc1_min20	6	0.257142857142857	0.622787172011662		sample_spearman	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+post_a3_ifn_isg_CLDN4high_vs_low	6	NA	0.03125		paired_high_vs_low	0.440959715579916	0.366996148386871	0.0531037964651759	21	6	a3	ifn_isg	6	P03,P04,P07,P09,P10,P12	NA	NA	NA	NA	NA
+post_a3_mhc1_CLDN4high_vs_low	6	NA	0.0625		paired_high_vs_low	1.41247247427628	1.24677668420073	0.216206264265919	20	5	a3	mhc1	6	P03,P04,P07,P09,P10,P12	NA	NA	NA	NA	NA
+post_a3_CLDN4_NMPR_vs_MPR_min20	NA	NA	NA	too_few_samples	ici_nmpr_vs_mpr	NA	NA	NA	NA	NA	NA	NA	NA	NA	5	1	NA	NA	NA
