@@ -1266,7 +1266,10 @@ Continuous family-score DE (units in the count matrices):
 
 {score_md("continuous")}
 
-Per-cohort family scores (within-cohort Q4 vs Q1; GSE123902 / GSE189357 tails are thin):
+Per-cohort family scores (within-cohort Q4 vs Q1; GSE123902 tails are thin).
+GSE189357 Q4 n=2: single-cohort binary family DE skipped (need ≥3 each);
+TD6 and TD9 stay in the stacked n={n_de}. P4001 is Q1 on the T/NK vector
+(stacked T/NK n_Q1=19) but is not in the malignant UMI-sum (DE n_Q1={n1}).
 
 {score_md_cohorts("q4q1")}
 
