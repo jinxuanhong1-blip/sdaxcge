@@ -1,0 +1,5 @@
+dataset	unit	n_units	n_cells_input	n_cells_qc	n_cells_used	cap_per_unit	note
+GSE123902	donor	13	30126	26056	4453	350	Laughney 2020; PRIMARY+METASTASIS; NORMAL dropped; no author cell types
+GSE131907	sample	21	62612	7350	7350	350	Kim 2020; tumor-bearing Sample_Origin; author Malignant cells n>=20 (21 samples); all compartments
+GSE205335	patient	22	80790	7700	7700	350	Ahn/Lee eLife 2024; author lineage.sub; non-normal tissues; 22 patients with malignant; all compartments
+GSE189357	patient	9	122373	119264	3150	350	Zhu/Wang 2022 AIS–IAC; 10x MTX; no author cell types; all compartments
