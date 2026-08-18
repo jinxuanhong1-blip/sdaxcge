@@ -1,0 +1,19 @@
+{
+  "engine": "R_Seurat_Harmony",
+  "seurat_version": "5.5.1",
+  "harmony_version": "2.0.5",
+  "harmony_method": "harmony::RunHarmony",
+  "python_primary": false,
+  "private_8_kl": false,
+  "cldn4_only": true,
+  "dual_high": false,
+  "unit": "mouse",
+  "datasets_kept": ["GSE154977", "GSE165641", "GSE180963"],
+  "datasets_dropped": [],
+  "n_mice": 8,
+  "n_tnk_usable": 4,
+  "n_epi_usable": 8,
+  "n_cells": 31970,
+  "n_genes": 18529,
+  "object": "/workspace/methods/seurat_integrate_kpkl_10x_cldn4/objects/kpkl_10x_harmony_seurat.rds"
+}

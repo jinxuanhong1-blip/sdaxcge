@@ -1,0 +1,17 @@
+item	n	note
+GEO series requested	3	GSE154977 + GSE180963 + GSE165641
+GEO series kept (processed matrix)	3	GSE154977,GSE165641,GSE180963
+GEO series dropped (no matrix)	0	none
+mice (unit)	8	honest unit; do not write cell n
+KP mice (GSE154977)	4	AT2-lineage / tumor-state FACS; T/NK design no-go
+K mice (GSE180963)	1	mixed digest
+KL mice (GSE180963 + GSE165641)	3	mixed digest
+T/NK-usable mice	4	mixed digest AND T/NK floor
+epithelium-usable mice	8	n_epi >= 10
+cells after QC (not the unit)	31970	nFeature>=200, nCount>=500, mt<25; before=32457
+genes (intersected symbols)	18529	symbol intersect across kept series
+Cldn4-positive cells	5933	count > 0
+dual-high TACSTD2 x Cldn4	0	not defined
+private 8-KL mice used	0	public GEO only
+human series	0	none
+excluded GEO (locked)	6	GSE179502, GSE154989, GSE267321, GSE127465, GSE50927, human
