@@ -252,17 +252,6 @@ obj <- RunUMAP(obj, dims = 1:20, verbose = FALSE)
 
 present <- rownames(obj)
 families <- load_families(present)
-write.csv(
-  data.frame(
-    family = names(families),
-    n_genes = vapply(families, length, integer(1)),
-    genes = vapply(families, function(x) paste(x, collapse = ";"), character(1)),
-    stringsAsFactors = FALSE
-  ),
-  file.path(TABLES, "geneset_coverage.tsv"),
-  row.names = FALSE, quote = TRUE
-)
-# rewrite as tsv
 write.table(
   data.frame(
     family = names(families),
