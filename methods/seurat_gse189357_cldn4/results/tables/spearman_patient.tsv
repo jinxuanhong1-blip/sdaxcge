@@ -1,0 +1,13 @@
+contrast	family	n_patients	rho	p	q
+CLDN4 %pos vs T/NK fraction	primary	9	-0.6	0.0876228290414023	0.414674751791269
+CLDN4 mean vs T/NK fraction	primary	9	-0.4	0.286105101908313	0.414674751791269
+CLDN4 %pos vs malignant IFN (pseudobulk)	primary	9	-0.366666666666667	0.331739801433015	0.414674751791269
+CLDN4 %pos vs malignant MHC-I/APM (pseudobulk)	primary	9	-0.25	0.516489552301226	0.516489552301226
+CLDN4 %pos vs malignant TJ (pseudobulk, CLDN4 out)	primary	9	-0.4	0.286105101908313	0.414674751791269
+CLDN4 %pos vs malignant IFN (cell mean)	extra	9	0.316666666666667	0.406397014486386	NA
+CLDN4 %pos vs malignant MHC-I/APM (cell mean)	extra	9	-0.2	0.605901274179553	NA
+CLDN4 %pos vs malignant TJ (cell mean, CLDN4 out)	extra	9	0.05	0.89835280435063	NA
+CLDN4 %pos vs TACSTD2 %pos (comparator)	comparator	9	0.85	0.00370477732758581	NA
+CLDN4 %pos vs AddModuleScore IFN	extra	9	0.483333333333333	0.187469855215542	NA
+CLDN4 %pos vs AddModuleScore MHC-I/APM	extra	9	-0.05	0.89835280435063	NA
+CLDN4 %pos vs AddModuleScore TJ	extra	9	-0.45	0.224216107492337	NA

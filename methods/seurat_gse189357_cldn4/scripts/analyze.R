@@ -75,14 +75,18 @@ logmsg <- function(...) {
 }
 
 fmt_p <- function(p) {
-  if (!is.finite(p)) return("NA")
-  if (p < 1e-4) return(formatC(p, format = "e", digits = 3))
-  formatC(p, format = "f", digits = 4)
+  vapply(p, function(z) {
+    if (!is.finite(z)) return("NA")
+    if (z < 1e-4) return(formatC(z, format = "e", digits = 3))
+    formatC(z, format = "f", digits = 4)
+  }, character(1))
 }
 
 fmt_num <- function(x, digits = 3) {
-  if (!is.finite(x)) return("NA")
-  formatC(x, format = "f", digits = digits)
+  vapply(x, function(z) {
+    if (!is.finite(z)) return("NA")
+    formatC(z, format = "f", digits = digits)
+  }, character(1))
 }
 
 spearman_one <- function(x, y) {
@@ -213,7 +217,12 @@ read_patient <- function(patient, gsm, extract_dir) {
   obj
 }
 
-process_patient <- function(patient, gsm, stage, extract_dir) {
+process_patient <- function(patient, gsm, stage, extract_dir, cache_dir = NULL) {
+  cache_file <- if (!is.null(cache_dir)) file.path(cache_dir, paste0(patient, ".rds")) else NULL
+  if (!is.null(cache_file) && file.exists(cache_file)) {
+    logmsg("cache hit", patient)
+    return(readRDS(cache_file))
+  }
   obj <- read_patient(patient, gsm, extract_dir)
   counts <- GetAssayData(obj, assay = "RNA", layer = "counts")
   feats <- rownames(obj)
@@ -297,6 +306,9 @@ process_patient <- function(patient, gsm, stage, extract_dir) {
       sc_ifn <- family_mean(norm, feats, fam$IFN)$score
       sc_mhc <- family_mean(norm, feats, fam$MHC_I_APM)$score
       sc_tj <- family_mean(norm, feats, fam$TJ)$score
+      names(sc_ifn) <- colnames(obj)
+      names(sc_mhc) <- colnames(obj)
+      names(sc_tj) <- colnames(obj)
       paired$d_IFN <- mean(sc_ifn[hi]) - mean(sc_ifn[lo])
       paired$d_MHC <- mean(sc_mhc[hi]) - mean(sc_mhc[lo])
       paired$d_TJ <- mean(sc_tj[hi]) - mean(sc_tj[lo])
@@ -308,7 +320,7 @@ process_patient <- function(patient, gsm, stage, extract_dir) {
     "CLDN4%pos", ifelse(n_mal > 0, mean(mal_cldn4_umi > 0), NA)
   )
 
-  list(
+  out <- list(
     patient = patient,
     gsm = gsm,
     stage = stage,
@@ -344,6 +356,11 @@ process_patient <- function(patient, gsm, stage, extract_dir) {
     missing_TJ = paste(pb_scores$TJ$missing, collapse = ","),
     seurat = paste(as.character(packageVersion("Seurat")), collapse = ".")
   )
+  if (!is.null(cache_file)) {
+    dir.create(dirname(cache_file), recursive = TRUE, showWarnings = FALSE)
+    saveRDS(out, cache_file)
+  }
+  out
 }
 
 save_plot <- function(p, path_stub, width = 6.2, height = 4.6) {
@@ -369,8 +386,10 @@ main <- function() {
   dir.create(file.path(opt$outdir, "tables"), recursive = TRUE, showWarnings = FALSE)
   dir.create(file.path(opt$outdir, "figures"), recursive = TRUE, showWarnings = FALSE)
 
+  cache_dir <- file.path(opt$outdir, ".cache")
+  dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
   rows <- lapply(seq_len(nrow(meta)), function(i) {
-    process_patient(meta$patient[i], meta$gsm[i], meta$stage[i], opt$extract)
+    process_patient(meta$patient[i], meta$gsm[i], meta$stage[i], opt$extract, cache_dir)
   })
   keep_fields <- setdiff(names(rows[[1]]), c("missing_IFN", "missing_MHC", "missing_TJ"))
   units <- as.data.frame(lapply(keep_fields, function(nm) {
@@ -452,9 +471,15 @@ main <- function() {
     stringsAsFactors = FALSE
   )
   if (paired_n >= 4) {
-    paired_tab$p[1] <- suppressWarnings(wilcox.test(units$paired_d_IFN[units$paired_eligible], exact = FALSE)$p.value)
-    paired_tab$p[2] <- suppressWarnings(wilcox.test(units$paired_d_MHC[units$paired_eligible], exact = FALSE)$p.value)
-    paired_tab$p[3] <- suppressWarnings(wilcox.test(units$paired_d_TJ[units$paired_eligible], exact = FALSE)$p.value)
+    safe_w <- function(x) {
+      x <- as.numeric(x)
+      x <- x[is.finite(x)]
+      if (length(x) < 4) return(NA_real_)
+      unname(suppressWarnings(wilcox.test(x, exact = FALSE)$p.value))
+    }
+    paired_tab$p[1] <- safe_w(units$paired_d_IFN[as.logical(units$paired_eligible)])
+    paired_tab$p[2] <- safe_w(units$paired_d_MHC[as.logical(units$paired_eligible)])
+    paired_tab$p[3] <- safe_w(units$paired_d_TJ[as.logical(units$paired_eligible)])
   }
 
   write.table(units, file.path(opt$outdir, "tables", "patient_units.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
