@@ -3,6 +3,10 @@
 # MUST use Seurat::CreateSeuratObject on the public GEO mtx.
 # Honest unit = mouse (n=3 Restored vs 3 NonRestored). No dual-high. No private 8 KL.
 
+user_lib <- Sys.getenv("R_LIBS_USER")
+if (!nzchar(user_lib)) user_lib <- file.path(Sys.getenv("HOME"), "R", "library")
+if (dir.exists(user_lib)) .libPaths(c(user_lib, .libPaths()))
+
 suppressPackageStartupMessages({
   if (!requireNamespace("Seurat", quietly = TRUE)) {
     stop(paste0(
