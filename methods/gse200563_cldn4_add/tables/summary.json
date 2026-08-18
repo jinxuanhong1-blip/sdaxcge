@@ -1,0 +1,64 @@
+{
+  "dataset": "GSE200563",
+  "platform": "GeoMx DSP Q3 (Zhang/Abdo 2022), not Wu scRNA",
+  "join": false,
+  "reason": "T/NK Spearman sign **flips** relative to the concordant sets (\u03c1=+0.129, n=16, p=0.633) and tumor-cell IFN/MHC is **not** down in CLDN4-high (IFN \u0394=0.044, MHC \u0394=0.649). Stop after the solo table. GSE200563 does not join.",
+  "solo": {
+    "n": 16,
+    "rho": 0.12941176470588234,
+    "p": 0.6328823324682601,
+    "n_q1": 4,
+    "n_q4": 4,
+    "q4_r": 0.25,
+    "q4_p": 0.6857142857142857,
+    "q4_usable": true
+  },
+  "concordant4": {
+    "k": 4,
+    "n": 65,
+    "rho": -0.40317105396341596,
+    "p": 0.0018599115894476507,
+    "I2": 0.0,
+    "member_rhos": {
+      "GSE123902": -0.6538461538461539,
+      "GSE131907": -0.39610389610389607,
+      "GSE205335": -0.20045172219085267,
+      "GSE189357": -0.5166666666666667
+    },
+    "member_ns": {
+      "GSE123902": 13,
+      "GSE131907": 21,
+      "GSE205335": 22,
+      "GSE189357": 9
+    },
+    "member_ps": {
+      "GSE123902": 0.015348516732105473,
+      "GSE131907": 0.07547637795047248,
+      "GSE205335": 0.3710825718233011,
+      "GSE189357": 0.15439012098622507
+    },
+    "ci95": [
+      -0.6022411894971033,
+      -0.1568962517228598
+    ]
+  },
+  "stacked": null,
+  "n_catalog": 35,
+  "n_tumor": 34,
+  "n_time_paired": 16,
+  "tnk_genes": [
+    "CD3D",
+    "CD3E",
+    "CD3G",
+    "CD2",
+    "CD8A",
+    "CD8B",
+    "NKG7",
+    "GNLY",
+    "KLRD1"
+  ],
+  "cldn4_present": true,
+  "tacstd2_present": true,
+  "dual_high": false,
+  "gse148071": false
+}
