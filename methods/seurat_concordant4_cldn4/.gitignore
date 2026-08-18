@@ -1,0 +1,9 @@
+# Large GEO extracts and Seurat objects stay local.
+data/*.tar
+data/*.gz
+data/*.rds
+results/*.rds
+results/objects/
+/tmp/
+.Rhistory
+.RData
