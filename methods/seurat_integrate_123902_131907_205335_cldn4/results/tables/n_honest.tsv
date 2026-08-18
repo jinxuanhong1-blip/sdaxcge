@@ -1,0 +1,10 @@
+item	n	note
+GSE123902 locked tumor donors	13	Laughney donor; marker-malignant; PRIMARY preferred
+GSE131907 locked tumor samples (patient-equal on this gate)	21	Kim GEO Sample; unique patient numbers on the gated set
+GSE205335 locked patients	22	Hu patient after collapsing tumor GSMs
+combined patients in Seurat scores	56	patient is the unit; cells are not n
+cells in Harmony object	8783	capped <=80 mal + <=80 T/NK per patient
+malignant cells in object	4392	123902 marker-mal; 131907/205335 author-mal
+T/NK cells in object	4391	T/NK fraction uses locked full-sample frac_tnk
+IFN genes scored	222	Hallmark IFNa U IFNg, CLDN4 excluded
+MHC genes scored	29	custom MHC-I + MHC-II, CLDN4 excluded
