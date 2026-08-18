@@ -1,49 +1,37 @@
 #!/usr/bin/env Rscript
 # Install Seurat + CellChat. If either fails, stop. Do not invent a Python primary.
-options(Ncpus = max(1L, parallel::detectCores() - 1L))
-options(repos = c(CRAN = "https://cloud.r-project.org"))
+# Use Posit noble binaries + libuv so `fs`/`Seurat` can install on Ubuntu 24.04.
+options(Ncpus = 1L)
+ua <- sprintf("R/%s R (%s)", getRversion(),
+              paste(getRversion(), R.version$platform, R.version$arch, R.version$os))
+options(HTTPUserAgent = ua)
+options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/noble/latest"))
 lib <- Sys.getenv("R_LIBS_USER", "/tmp/r_lib")
 dir.create(lib, recursive = TRUE, showWarnings = FALSE)
 .libPaths(c(lib, .libPaths()))
+Sys.setenv(USE_BUNDLED_LIBUV = "1")
 
 ok <- function(pkg) requireNamespace(pkg, quietly = TRUE)
 
-cran_min <- c(
-  "remotes", "BiocManager", "data.table", "Matrix", "ggplot2", "Rcpp",
-  "RcppArmadillo", "RcppEigen", "irlba", "RcppAnnoy", "uwot", "Rtsne",
-  "SeuratObject", "sctransform", "patchwork", "RColorBrewer", "igraph",
-  "future", "future.apply", "jsonlite", "NMF", "ggalluvial", "svglite",
-  "circlize", "FNN", "hdf5r"
-)
-need <- cran_min[!vapply(cran_min, ok, logical(1))]
-if (length(need)) {
-  message("CRAN: ", paste(need, collapse = ", "))
-  install.packages(need, lib = lib, dependencies = c("Depends", "Imports"))
-}
+if (!ok("fs")) install.packages("fs", lib = lib)
 if (!ok("Seurat")) {
-  message("Installing Seurat")
   install.packages("Seurat", lib = lib, dependencies = c("Depends", "Imports"))
 }
-if (!ok("BiocManager")) stop("BiocManager missing")
-for (p in c("ComplexHeatmap", "BiocNeighbors")) {
-  if (!ok(p)) {
-    message("Bioconductor: ", p)
-    BiocManager::install(p, lib = lib, ask = FALSE, update = FALSE)
-  }
-}
-if (!ok("CellChat")) {
-  message("Installing CellChat from jinworks/CellChat")
-  remotes::install_github(
-    "jinworks/CellChat",
-    lib = lib,
-    upgrade = "never",
-    dependencies = TRUE
-  )
-}
+if (!ok("Seurat")) stop("Seurat is not installed. Stop.")
 
-failed <- c("Seurat", "CellChat")[!vapply(c("Seurat", "CellChat"), ok, logical(1))]
-if (length(failed)) {
-  stop("INSTALL FAILED: ", paste(failed, collapse = ", "))
+if (!ok("BiocManager")) install.packages("BiocManager", lib = lib)
+for (p in c("Biobase", "BiocGenerics", "ComplexHeatmap", "BiocNeighbors")) {
+  if (!ok(p)) BiocManager::install(p, lib = lib, ask = FALSE, update = FALSE)
 }
+if (!ok("NMF")) install.packages("NMF", lib = lib, dependencies = c("Depends", "Imports"))
+for (p in c("ggalluvial", "ggpubr", "plotly", "shiny", "bslib", "svglite", "FNN", "circlize")) {
+  if (!ok(p)) install.packages(p, lib = lib, dependencies = c("Depends", "Imports"))
+}
+if (!ok("remotes")) install.packages("remotes", lib = lib)
+if (!ok("CellChat")) {
+  remotes::install_github("jinworks/CellChat", lib = lib, upgrade = "never",
+                          dependencies = FALSE)
+}
+if (!ok("CellChat")) stop("CellChat is not installed. Stop.")
 cat("OK Seurat", as.character(packageVersion("Seurat")),
     "CellChat", as.character(packageVersion("CellChat")), "\n")

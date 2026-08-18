@@ -178,17 +178,18 @@ get_layer <- function(obj, which = "counts") {
 }
 
 quartile_high_low <- function(x) {
-  r <- rank(as.numeric(x), ties.method = "average")
-  br <- tryCatch(
-    stats::quantile(r, probs = seq(0, 1, 0.25), type = 7, names = FALSE),
-    error = function(e) NULL
-  )
-  if (is.null(br) || length(unique(br)) < 5) {
-    return(list(high = rep(FALSE, length(x)), low = rep(FALSE, length(x)), ok = FALSE))
+  # ties.method="first" keeps four arms when many cells share CLDN4=0.
+  r <- rank(as.numeric(x), ties.method = "first")
+  n <- length(r)
+  if (n < 4) {
+    return(list(high = rep(FALSE, n), low = rep(FALSE, n), ok = FALSE))
   }
-  lab <- as.character(cut(r, breaks = br, include.lowest = TRUE,
-                          labels = c("Q1", "Q2", "Q3", "Q4")))
-  list(high = lab == "Q4", low = lab == "Q1", ok = TRUE)
+  q1 <- floor(n * 0.25)
+  q4 <- ceiling(n * 0.75)
+  if (q1 < 1 || q4 > n || q1 >= q4) {
+    return(list(high = rep(FALSE, n), low = rep(FALSE, n), ok = FALSE))
+  }
+  list(high = r > q4, low = r <= q1, ok = TRUE)
 }
 
 median_high_low <- function(x) {
@@ -235,7 +236,9 @@ run_one_cellchat <- function(counts, group) {
   obj <- NormalizeData(obj, normalization.method = "LogNormalize",
                        scale.factor = 1e4, verbose = FALSE)
   data.input <- get_layer(obj, "data")
-  meta <- data.frame(labels = obj$group, row.names = colnames(obj),
+  meta <- data.frame(labels = obj$group,
+                     samples = factor("sample1"),
+                     row.names = colnames(obj),
                      stringsAsFactors = FALSE)
 
   cellchat <- createCellChat(object = as.matrix(data.input), meta = meta,
@@ -278,6 +281,7 @@ extract_pair_rows <- function(df, cohort, patient, split, n_high, n_low, n_tnk, 
   out$pval_high <- NA_real_
   out$pval_low <- NA_real_
   out$detected <- FALSE
+  out$delta <- NA_real_
   if (is.null(df) || !nrow(df)) return(out)
   nm <- names(df)
   iname <- if ("interaction_name" %in% nm) "interaction_name" else if ("interaction_name_2" %in% nm) "interaction_name_2" else NA
@@ -309,6 +313,8 @@ extract_pair_rows <- function(df, cohort, patient, split, n_high, n_low, n_tnk, 
 score_unit <- function(counts, mal, tnk, cohort, patient, splits = c("q4q1", "median", "pctpos")) {
   rows <- list()
   inv <- list()
+  mal <- as.logical(mal) %in% TRUE
+  tnk <- as.logical(tnk) %in% TRUE
   n_mal <- as.integer(sum(mal))
   n_tnk <- as.integer(sum(tnk))
   cldn4_umi <- gene_row(counts, "CLDN4")
@@ -318,8 +324,8 @@ score_unit <- function(counts, mal, tnk, cohort, patient, splits = c("q4q1", "me
   inv[[1]] <- data.frame(
     cohort = cohort, patient = patient, n_cells = ncol(counts),
     n_mal = n_mal, n_tnk = n_tnk,
-    mal_cldn4_mean = if (n_mal) mean(cldn4_log[mal]) else NA_real_,
-    mal_cldn4_pct = if (n_mal) mean(cldn4_umi[mal] > 0) else NA_real_,
+    mal_cldn4_mean = if (isTRUE(n_mal > 0)) mean(cldn4_log[mal]) else NA_real_,
+    mal_cldn4_pct = if (isTRUE(n_mal > 0)) mean(cldn4_umi[mal] > 0) else NA_real_,
     stringsAsFactors = FALSE
   )
   if (n_tnk < MIN_TNK || n_mal < MIN_ARM * 2) {
@@ -415,7 +421,6 @@ load_gse123902 <- function() {
     rec <- score_unit(mat, mal, tnk, "GSE123902", patient)
     if (!is.null(rec$inv)) out_inv[[length(out_inv) + 1]] <- rec$inv
     if (!is.null(rec$lr)) out_lr[[length(out_lr) + 1]] <- rec$lr
-    seen <- c(seen, patient)
     rm(mat); gc(verbose = FALSE)
   }
   list(lr = out_lr, inv = out_inv)
@@ -597,9 +602,12 @@ load_gse205335 <- function() {
          paste(unique(ident$orig.ident[is.na(ident$patient) | ident$patient == ""]),
                collapse = ", "))
   }
-  is_normal <- grepl("^Normal ", ident$tissue)
-  mal <- ident$lineage.sub == "Malignant cells" & !is_normal
-  tnk <- ident$lineage.total == "T/NK cells" & !is_normal
+  is_normal <- grepl("^Normal ", ident$tissue %||% "")
+  is_normal[is.na(is_normal)] <- FALSE
+  mal <- !is.na(ident$lineage.sub) & ident$lineage.sub == "Malignant cells" & !is_normal
+  tnk <- !is.na(ident$lineage.total) & ident$lineage.total == "T/NK cells" & !is_normal
+  logmsg("  mapped patients", length(unique(ident$patient)),
+         "mal", sum(mal), "tnk", sum(tnk))
   locked <- read.delim(file.path(HERE, "data", "GSE205335_patients.tsv"),
                        stringsAsFactors = FALSE)
   keep <- as.character(locked$patient[locked$n_malignant > 0])
@@ -735,13 +743,13 @@ summarize_split <- function(lr, split) {
   do.call(rbind, rows)
 }
 
-write_finding <- function(lig, inv, versions) {
+write_finding <- function(lig, inv, per, versions) {
   q <- lig[lig$split == "q4q1", ]
   md <- lig[lig$split == "median", ]
   inv_n <- aggregate(patient ~ cohort, data = inv, FUN = function(x) length(unique(x)))
-  n_locked <- c(GSE123902 = 13, GSE131907 = 21, GSE205335 = 22, GSE189357 = 9)
   both <- inv[inv$n_mal >= 10 & inv$n_tnk >= 20, ]
-  q_units <- unique(q[is.finite(q$delta), c("cohort", "patient")])
+  q_per <- per[per$split == "q4q1" & is.finite(per$delta), , drop = FALSE]
+  q_units <- unique(q_per[, c("cohort", "patient"), drop = FALSE])
   md_path <- file.path(OUT, "FINDING.md")
   line_pair <- function(tab, nm) {
     r <- tab[tab$pair == nm, ]
@@ -918,7 +926,7 @@ main <- function() {
                      file.path(DIR_RES, "ligand_table.tsv"),
                      sep = "\t", quote = FALSE, row.names = FALSE)
 
-  write_finding(lig, inv, versions)
+  write_finding(lig, inv, per, versions)
   logmsg("DONE units", length(unique(paste(per$cohort, per$patient))),
          "rows", nrow(per))
 }
