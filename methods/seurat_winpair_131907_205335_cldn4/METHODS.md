@@ -11,7 +11,7 @@
 | T/NK | Author T/NK labels; **fraction is the locked full-sample `frac_tnk`** (not the capped object) |
 | Integration | Seurat v5 `IntegrateLayers(RPCAIntegration)` on dataset layers |
 | Scores | `AddModuleScore` on joined RNA: Hallmark IFNα∪IFNγ and custom MHC-I + MHC-II; CLDN4 excluded from both |
-| Unit | GSE131907 = GEO Sample; GSE205335 = patient (tumor GSMs collapsed). Cells are not n. |
+| Unit | GSE131907 = GEO Sample (21 gated samples = 17 patients); GSE205335 = patient. Cells are not n. |
 | Cap | ≤120 malignant + ≤120 T/NK cells per unit (memory). Means use the capped malignant cells. |
 
 ## Reproduce

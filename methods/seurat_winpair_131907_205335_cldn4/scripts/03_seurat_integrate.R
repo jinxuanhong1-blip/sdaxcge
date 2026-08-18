@@ -168,7 +168,13 @@ obj$dataset <- as.character(obj$dataset)
 obj$compartment <- as.character(obj$compartment)
 obj$unit_id <- as.character(obj$unit_id)
 DefaultAssay(obj) <- "RNA"
-obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+ly <- Layers(obj[["RNA"]])
+cat("[seurat] layers after merge:", paste(ly, collapse = ", "), "\n")
+if (!any(grepl("^counts\\.", ly))) {
+  obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+} else {
+  cat("[seurat] already split by merge; skip split()\n")
+}
 
 cat("[seurat] normalize / HVG / PCA\n")
 obj <- NormalizeData(obj, verbose = FALSE)

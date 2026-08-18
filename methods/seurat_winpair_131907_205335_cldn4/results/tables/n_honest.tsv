@@ -1,0 +1,10 @@
+item	n	note
+GSE131907 locked samples n_mal>=20	21	GEO Sample is the locked unit (PR #320)
+GSE131907 unique patient numbers on those samples	17	21 samples collapse to 17 patients (EBUS+NS share 6/12/13/19)
+GSE205335 locked patients n_mal>=20	22	patient after collapsing tumor GSMs
+combined units in Seurat scores	43	sample + patient; cells are not n
+cells in integrated object	10045	capped <=120 mal + <=120 T/NK per unit
+malignant cells in object	4983	author malignant labels
+T/NK cells in object	5062	author T/NK labels; fraction uses locked full-sample frac_tnk
+IFN genes scored	222	Hallmark IFNa U IFNg, CLDN4 excluded
+MHC genes scored	29	custom MHC-I + MHC-II, CLDN4 excluded
