@@ -1,0 +1,4 @@
+# raw GEO download lives in /tmp; do not commit the 16 MB matrix
+raw/
+*.csv.gz
+*.part

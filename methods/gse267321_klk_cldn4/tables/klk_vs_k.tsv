@@ -1,0 +1,12 @@
+contrast	metric	title	requires_epithelium	n_KLK_tumors	n_K_tumors	KLK_mean	K_mean	delta_KLK_minus_K	KLK_values	K_values	mannwhitney_p_tumors	note
+KLK_vs_K	frac_tnk	T/NK fraction	False	2	2	0.09500754527162979	0.37142523487417983	-0.27641768960255003	0.1388,0.05122	0.4261,0.3167	0.3333333333333333	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	Cldn4_all_mean	Cldn4 mean, all cells	False	2	2	0.001280409749597311	0.004056480131112039	-0.002776070381514728	0,0.002561	0.007357,0.0007559	0.6666666666666666	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	Cldn4_all_pctpos	Cldn4 %pos, all cells	False	2	2	0.12804097311139565	0.09438599057808372	0.03365498253331192	0,0.2561	0.1132,0.07559	1.0	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	Cldn4_epithelial_mean	Cldn4 mean, marker epithelium	True	2	2	0.0	0.05118110403418541	-0.05118110403418541	0,0	0.1024,0	0.6170750774519738	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	Cldn4_epithelial_pctpos	Cldn4 %pos, marker epithelium	True	2	2	0.0	0.7874015748031495	-0.7874015748031495	0,0	1.5748,0	0.6170750774519738	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	Cldn4_tnk_mean	Cldn4 mean, T/NK	False	2	2	0.0	0.0	0.0	0,0	0,0	nan	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	ifn_isg_epithelial_mean	IFN ISG mean, marker epithelium	True	2	2	0.391452319920063	0.2838897556066513	0.10756256431341171	0.5415,0.2414	0.3039,0.2639	1.0	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	mhc1_epithelial_mean	MHC-I APM mean, marker epithelium	True	2	2	0.9629120528697968	1.0801109373569489	-0.1171988844871521	1.3550,0.5708	1.2317,0.9285	1.0	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	ifn_isg_all_mean	IFN ISG mean, all cells	False	2	2	0.2627473920583725	0.2192865088582039	0.04346088320016861	0.3588,0.1667	0.2429,0.1957	1.0	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	mhc1_all_mean	MHC-I APM mean, all cells	False	2	2	0.6507639735937119	0.7608865201473236	-0.11012254655361176	0.915,0.3865	0.8313,0.6905	1.0	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.
+KLK_vs_K	n_epithelial	n marker epithelial cells	False	2	2	35.5	103.5	-68.0	60.0000,11.0000	127.0,80.0000	0.3333333333333333	n=2 vs 2 tumors; MW p floor is 0.333. Descriptive.

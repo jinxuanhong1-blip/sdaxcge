@@ -1,0 +1,19 @@
+item	n	note
+GEO series	1	GSE267321
+public processed matrix	1	GSE267321_Normalized_expression_matrix_02122026.csv.gz
+cells in matrix	7956	barcode-labeled; no author cluster file
+genes in matrix	22497	mm10 symbols
+Cldn4 row present	1	Cldn4-only
+genotypes	3	K, KK, KLK
+tumors / replicates	6	2 per genotype; unit
+K tumors	2	LKR13-K-1, LKR13-K-2
+KK tumors	2	LKR13-KK-1, LKR13-KK-2; KEAP1-loss only
+KLK tumors	2	LKR13-KLK-1, LKR13-KLK-2; STK11+KEAP1; closest to user KL
+author malignant / epithelial labels	0	none on GEO; title is non-malignant cells
+marker epithelial cells (Epcam or Cdh1+Krt8 or Krt18+Krt19, not Sftpc/Scgb1a1/Ager)	380	not author-malignant
+host-epithelial cells (Sftpc/Scgb1a1/Ager AND epi markers)	3	residual normal lung, not tumor
+tumors with ≥20 marker epithelial cells	5	LKR13-K-1,LKR13-K-2,LKR13-KK-1,LKR13-KK-2,LKR13-KLK-1
+T/NK cells (Cd3/Cd8a/Nkg7/Ncr1/Klrb1c)	1794	always reported
+KLK vs K tumor-level tests	2	2 vs 2; MW p cannot beat 1/3
+dual-high TACSTD2 × Cldn4	0	not defined
+ICI / anti-PD1 arm	0	GEO treatment: no
