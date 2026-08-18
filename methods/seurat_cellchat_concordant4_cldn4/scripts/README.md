@@ -1,0 +1,3 @@
+- `install_packages.R` — Seurat + CellChat. Stop if either fails.
+- `download.sh` — public processed GEO (CSV / UMI TXT / MTX; GSE205335 RDS only).
+- `run_cellchat.R` — per-patient Seurat object + CellChat truncatedMean.

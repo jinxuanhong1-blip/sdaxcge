@@ -1,0 +1,17 @@
+pair	axis	family	expect	split	n	n_gse123902	n_gse131907	n_gse205335	n_gse189357	mean_delta	p_W	observed	agrees
+JAM1_ITGAL_ITGB2	F11R	barrier_inhibitory	high>low	q4q1	43	6	13	15	9	0.00456382571692751	1.53938431943771e-08	high>low	yes
+NECTIN2_TIGIT	NECTIN2-TIGIT	barrier_inhibitory	high>low	q4q1	54	9	19	18	8	0.00283220232692782	5.36743578694053e-10	high>low	yes
+CDH1_ITGAE_ITGB7	CDH1	barrier_inhibitory	high>low	q4q1	43	7	15	17	4	0.00227131556618068	1.16059948351433e-08	high>low	yes
+CDH1_KLRG1	CDH1	barrier_inhibitory	high>low	q4q1	33	3	10	16	4	0.00152792913488233	5.64472371695364e-07	high>low	yes
+LGALS9_HAVCR2	LGALS9	barrier_inhibitory	high>low	q4q1	23	6	8	8	1	0.000998729074240637	0.00710838809789525	high>low	yes
+LGALS9_CD44	LGALS9	barrier_inhibitory	high>low	q4q1	43	10	13	16	4	0.00390443229524903	8.60223673544976e-06	high>low	yes
+LGALS9_CD45	LGALS9	barrier_inhibitory	high>low	q4q1	44	10	14	16	4	0.0051549952788392	1.70439350189224e-05	high>low	yes
+CXCL9_CXCR3	CXCL9/10-CXCR3	ifn_recruit_mhci	low>high	q4q1	1	1	0	0	0	0.0001024060256777	NA	high>low	opposite
+CXCL10_CXCR3	CXCL9/10-CXCR3	ifn_recruit_mhci	low>high	q4q1	7	1	4	2	0	-0.000598356215886326	0.554113130069446	low>high	yes
+CCL5_CCR5	CCL5	ifn_recruit_mhci	low>high	q4q1	2	0	1	1	0	-2.0510490848149e-05	1	low>high	yes
+CCL5_CCR1	CCL5	ifn_recruit_mhci	low>high	q4q1	2	0	0	2	0	-0.000119283776363612	0.371093369522698	low>high	yes
+HLA-A_CD8A	HLA-CD8	ifn_recruit_mhci	low>high	q4q1	46	8	17	14	7	0.00170237467361462	0.00719585129757681	high>low	opposite
+HLA-B_CD8A	HLA-CD8	ifn_recruit_mhci	low>high	q4q1	47	7	18	16	6	0.00276287852781677	8.82958611079007e-05	high>low	opposite
+HLA-C_CD8A	HLA-CD8	ifn_recruit_mhci	low>high	q4q1	43	8	16	14	5	0.00295401303697025	0.00034330058104429	high>low	opposite
+FAMILY_barrier_inhibitory	family	barrier_inhibitory	high>low	q4q1	59	12	19	19	9	0.00267954479502235	1.0140509353339e-10	high>low	yes
+FAMILY_ifn_recruit_mhci	family	ifn_recruit_mhci	low>high	q4q1	49	8	18	16	7	0.00240492351984728	7.21837995775317e-05	high>low	opposite
