@@ -213,7 +213,15 @@ obj$compartment <- as.character(obj$compartment)
 obj$unit_id <- as.character(obj$unit_id)
 obj$patient_id <- as.character(obj$patient_id)
 DefaultAssay(obj) <- "RNA"
-obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+# merge() already splits Assay5 layers by project (= dataset). Join+resplit
+# only if a single counts layer remains.
+ly <- Layers(obj[["RNA"]])
+cat("[seurat] RNA layers after merge:", paste(ly, collapse = ", "), "\n")
+if (length(ly) <= 1) {
+  obj[["RNA"]] <- split(obj[["RNA"]], f = obj$dataset)
+} else {
+  cat("[seurat] keeping pre-split dataset layers\n")
+}
 
 cat("[seurat] normalize / HVG / PCA\n")
 obj <- NormalizeData(obj, verbose = FALSE)
@@ -377,9 +385,17 @@ for (nm in names(contrasts)) {
     p_q4q1 = mw_stack$p, I2 = NA_real_, k = 3, beta = NA_real_,
     stringsAsFactors = FALSE
   )
-  # OLS with dataset covariate; CLDN4 z-scored within dataset
-  ok2 <- ok & is.finite(scores$cldn4_z)
-  fit <- lm(scores[[ycol]][ok2] ~ scores$cldn4_z[ok2] + scores$dataset[ok2])
+  # OLS with dataset covariate; predictor z-scored within dataset
+  xz <- scores$cldn4_z
+  if (xcol != "mal_CLDN4_pct") {
+    xz <- rep(NA_real_, nrow(scores))
+    for (ds in levels(scores$dataset)) {
+      idx <- scores$dataset == ds
+      xz[idx] <- as.numeric(scale(scores[[xcol]][idx]))
+    }
+  }
+  ok2 <- ok & is.finite(xz)
+  fit <- lm(scores[[ycol]][ok2] ~ xz[ok2] + scores$dataset[ok2])
   sm <- summary(fit)
   beta <- unname(coef(fit)[2])
   p_beta <- unname(sm$coefficients[2, 4])
