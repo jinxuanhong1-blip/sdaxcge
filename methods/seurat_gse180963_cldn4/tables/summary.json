@@ -1,0 +1,169 @@
+{
+  "series": "GSE180963",
+  "engine": "R_Seurat",
+  "seurat_version": "5.5.1",
+  "create_seurat_object": true,
+  "python_primary": false,
+  "private_8_kl": false,
+  "cldn4_only": true,
+  "dual_high": false,
+  "unit": "mouse",
+  "n_mice": 2,
+  "n_k": 1,
+  "n_kl": 1,
+  "n_cells": 14260,
+  "n_genes": 20304,
+  "n_epi": 202,
+  "n_tnk": 7452,
+  "n_cldn4_pos": 26,
+  "per_mouse": [
+    {
+      "mouse": "K",
+      "gsm": "GSM5481386",
+      "genotype": "KrasG12D/+",
+      "arm": "K",
+      "n_cells": 6696,
+      "n_epi": 28,
+      "n_epi_loose": 1313,
+      "n_tnk": 3634,
+      "frac_tnk": 0.54271207,
+      "frac_epi": 0.0041816,
+      "frac_sftpc": 0.7646356,
+      "frac_ptprc": 0.82810633,
+      "Cldn4_all_mean": 0.00011272,
+      "Cldn4_all_pctpos": 0.01493429,
+      "Cldn4_epi_mean": 0.0269564,
+      "Cldn4_epi_pctpos": 3.57142857,
+      "Cldn4_loose_mean": 0.00057485,
+      "Cldn4_loose_pctpos": 0.07616146,
+      "IFN_epi_mean": 0.12301506,
+      "MHC_epi_mean": 0.82241274,
+      "Stk11_all_mean": 0.27633559,
+      "percent_mt_mean": 3.84858317
+    },
+    {
+      "mouse": "KL",
+      "gsm": "GSM5481387",
+      "genotype": "KrasG12D/+;Lkb1fl/fl",
+      "arm": "KL",
+      "n_cells": 7564,
+      "n_epi": 174,
+      "n_epi_loose": 1120,
+      "n_tnk": 3818,
+      "frac_tnk": 0.50475939,
+      "frac_epi": 0.0230037,
+      "frac_sftpc": 0.77749868,
+      "frac_ptprc": 0.82271285,
+      "Cldn4_all_mean": 0.00314477,
+      "Cldn4_all_pctpos": 0.33051296,
+      "Cldn4_epi_mean": 0.09700746,
+      "Cldn4_epi_pctpos": 9.77011494,
+      "Cldn4_loose_mean": 0.01927699,
+      "Cldn4_loose_pctpos": 2.05357143,
+      "IFN_epi_mean": 0.25930109,
+      "MHC_epi_mean": 1.6873773,
+      "Stk11_all_mean": 0.32244498,
+      "percent_mt_mean": 3.82795925
+    }
+  ],
+  "kl_vs_k": [
+    {
+      "metric": "T/NK fraction",
+      "n_mice": "1 vs 1",
+      "KL": 0.50475939,
+      "K": 0.54271207,
+      "delta_KL_minus_K": -0.03795268,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    },
+    {
+      "metric": "Cldn4 mean, all cells",
+      "n_mice": "1 vs 1",
+      "KL": 0.00314477,
+      "K": 0.00011272,
+      "delta_KL_minus_K": 0.00303205,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    },
+    {
+      "metric": "Cldn4 %pos, all cells",
+      "n_mice": "1 vs 1",
+      "KL": 0.33051296,
+      "K": 0.01493429,
+      "delta_KL_minus_K": 0.31557867,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    },
+    {
+      "metric": "Cldn4 mean, marker epithelium",
+      "n_mice": "1 vs 1",
+      "KL": 0.09700746,
+      "K": 0.0269564,
+      "delta_KL_minus_K": 0.07005106,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    },
+    {
+      "metric": "Cldn4 %pos, marker epithelium",
+      "n_mice": "1 vs 1",
+      "KL": 9.77011494,
+      "K": 3.57142857,
+      "delta_KL_minus_K": 6.19868637,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    },
+    {
+      "metric": "IFN ISG mean, marker epithelium",
+      "n_mice": "1 vs 1",
+      "KL": 0.25930109,
+      "K": 0.12301506,
+      "delta_KL_minus_K": 0.13628603,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    },
+    {
+      "metric": "MHC/APM mean, marker epithelium",
+      "n_mice": "1 vs 1",
+      "KL": 1.6873773,
+      "K": 0.82241274,
+      "delta_KL_minus_K": 0.86496456,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    },
+    {
+      "metric": "n marker epithelial cells",
+      "n_mice": "1 vs 1",
+      "KL": 174,
+      "K": 28,
+      "delta_KL_minus_K": 146,
+      "note": "n=1 vs 1 mice; no mouse-level test"
+    }
+  ],
+  "cell_level_exploratory": [
+    {
+      "subset": "KL_epi_cells",
+      "contrast": "Cldn4 vs IFN",
+      "n_cells": 174,
+      "rho": 0.15971424,
+      "p": 0.03528061,
+      "note": "cell-level; pseudoreplication; not the unit"
+    },
+    {
+      "subset": "KL_epi_cells",
+      "contrast": "Cldn4 vs MHC",
+      "n_cells": 174,
+      "rho": -0.07596329,
+      "p": 0.31913231,
+      "note": "cell-level; pseudoreplication; not the unit"
+    },
+    {
+      "subset": "K_epi_cells",
+      "contrast": "Cldn4 vs IFN",
+      "n_cells": 28,
+      "rho": 0.08378878,
+      "p": 0.67163786,
+      "note": "cell-level; pseudoreplication; not the unit"
+    },
+    {
+      "subset": "K_epi_cells",
+      "contrast": "Cldn4 vs MHC",
+      "n_cells": 28,
+      "rho": -0.10721125,
+      "p": 0.58712083,
+      "note": "cell-level; pseudoreplication; not the unit"
+    }
+  ]
+}
