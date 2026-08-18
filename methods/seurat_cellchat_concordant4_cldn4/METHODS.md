@@ -23,10 +23,12 @@ Public processed GEO only. Prefer MTX / dense CSV / UMI TXT over RDS.
 - GSE131907 raw UMI TXT + author cell annotation. The 2.9 GB log2TPM
   text and both GEO RDS files are skipped. `PVRL2` is aliased to
   `NECTIN2`.
-- GSE205335 UMI RDS + CellIdentity + family SOFT (Hu 2023). GEO does
-  not ship MTX/H5/CSV for this series. The RDS is read with a
-  multi-layer gzip peeler (files may be double-gzipped). Genes are
-  subset immediately after `readRDS`.
+- GSE205335 UMI RDS + CellIdentity + public GSM brief map (Hu 2023).
+  GEO does not ship MTX/H5/CSV for this series. The 500 MB
+  `GSE205335_Lung_IO_UMI_matrix.rds.gz` is double-gzipped (confirmed:
+  layer 1 → still gzip; layer 2 → RDS `X\\n`, 2.58 GB, 33714 × 96505
+  dgCMatrix). Genes are subset immediately after `readRDS`. The 5 KB
+  series SOFT is not used for patient mapping.
 - GSE189357 `GSE189357_RAW.tar` (Zhu/Wang AIS–IAC 10x MTX; TD1–TD9).
 
 ## Malignant / T/NK
