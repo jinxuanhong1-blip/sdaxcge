@@ -685,7 +685,7 @@ def write_results(inv: pd.DataFrame, sec: pd.DataFrame, mixsec: pd.DataFrame, pa
             f"| {r.sample} | {r.patient} | {r.n_qc:,} | {r.n_fov} | {r.n_tumor:,} | {r.n_tumor_cd8a_pos:,} | {r.n_cldn4_high:,} | {r.n_cldn4_low:,} | {r.n_cd8nk:,} |"
         )
     lines.append("")
-    lines.append(f"Tumor cells with CD8A>0 were **kept** in the tumor index (n={int(inv['n_tumor_cd8a_pos'].sum()):,} across sections).")
+    lines.append(f"Tumor cells with CD8A>0 were **kept** in the tumor index (n={int(inv['n_tumor_cd8a_pos'].sum()):,} across sections). The CLDN4-low arm is larger than a strict quartile because CosMx CLDN4 is zero-inflated (Q1 = 0 in these sections); Q4 remains the top quartile.")
     lines.append("")
     lines.append("## Section-level paired CD8+NK neighbor counts")
     lines.append("")
@@ -719,8 +719,11 @@ def write_results(inv: pd.DataFrame, sec: pd.DataFrame, mixsec: pd.DataFrame, pa
             f"| {r} | {k['median_delta']:.3f} | {_fmt_p(k['wilcoxon_p'])} | {h['median_delta']:.3f} | {_fmt_p(h['wilcoxon_p'])} |"
         )
     lines.append("")
-    m40 = mixsec[mixsec["radius_um"] == PRIMARY_R]
+    m40 = mixsec[mixsec["radius_um"] == PRIMARY_R].copy()
     if not m40.empty:
+        order = {s: i for i, s in enumerate(SAMPLES)}
+        m40["_ord"] = m40["sample"].map(order)
+        m40 = m40.sort_values("_ord")
         lines.append(f"Per-section Keren mixing at {PRIMARY_R} µm (immune-side):")
         lines.append("")
         lines.append("| Section | vs CLDN4-high | vs CLDN4-low | Δ |")
