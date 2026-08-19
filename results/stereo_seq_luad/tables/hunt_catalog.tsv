@@ -1,0 +1,17 @@
+accession	source	platform	tissue	access	decision	reason
+GSE328481	GEO	BGI Stereo-seq / Stereo-XCR-seq cell-bin H5AD	11 LUAD tumors	public	analyze	Processed matrices public 2026-05-29; CLDN4/CD8A/KRT8 present; spatial x/y present
+HRA018548	GSA-Human / PRJCA047766	Stereo-XCR-seq FASTQ	LUAD	controlled	catalog_only	Same study as GSE328481; DAC HDAC007001
+HRA013757	GSA-Human / PRJCA047766	Stereo-seq FASTQ	LUAD	controlled	catalog_only	Same study; controlled raw
+HRA009729	GSA-Human	Stereo-XCR-seq FASTQ	NSCLC + ccRCC + IBD (earlier paper)	controlled	catalog_only	Raw only; processed claimed at STT0000123
+OMIX014896	NGDC OMIX	processed Stereo-seq / Stereo-XCR-seq	LUAD (same as GSE328481)	not_downloaded	skip_duplicate	Paper data-availability twin of GSE328481
+STT0000123	STOmicsDB	BGI Stereo-seq	4 sections (kidney cancer, lung cancer, IBD, CRC)	archive_page_no_exposed_files	catalog_only	2.83 GB listed; HTML table empty without interactive login; lung is one of four mixed-disease sections
+HRA004240	GSA-Human	Stereo-seq + WES	1 lung adenosquamous carcinoma	controlled	catalog_only	Request Data / DAC YCH; no public matrix
+CNP0005129	CNGBdb	spatial transcriptomics (platform not stated on project page)	LUAD STAS, 14 samples / 534.97 GB	controlled	catalog_only	Apply for data; published STAS papers from other groups use Visium/GeoMx — platform of this CNGB deposit not confirmed as Stereo-seq
+STDS0000164	STOmicsDB curated	GeoMx DSP (GSE200563)	NSCLC + brain mets	public_but_not_stereo	exclude	Not Stereo-seq; do not switch to Visium/GeoMx
+STT0000179	STOmicsDB	Stereo-seq	mouse HPAH lung	public_mouse	exclude	Mouse hypoxia, not human lung cancer
+STDS0000062	STOmicsDB	Stereo-seq	mouse normal lung	public_mouse	exclude	5-week mouse, not cancer
+STT0000184	STOmicsDB	Stereo-seq	10 mouse organs including lung	public_mouse	exclude	Normal mouse atlas
+GSE294759	GEO	Stereo-seq	human lung organoids + other organoids	public	exclude	Organoids, not LUAD/NSCLC tumor
+GSE260779	GEO	STOmics-seq / Stereo-seq	mouse lung + transplanted human P63+ progenitors	public	exclude	Repair/fibrosis xenograft, not lung cancer
+GSE285990 / GSE285991	GEO	Stereo-seq GEF	liver metastases (mouse/human mixed)	public	exclude	Liver mets, not lung primary
+SRA PRJNA1455526	SRA / GEO BioProject	linked to GSE328481	LUAD	no_raw_in_GEO	catalog_only	GEO says raw data not provided for GSE328481; raw is GSA-Human controlled
