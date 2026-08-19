@@ -23,6 +23,8 @@ Public processed Visium only. **CLDN4-only** (no dual-high / TACSTD2 gate). No p
 - Q4 vs Q1: two-sided Mann–Whitney U. Section is the unit; n=2 per source is too small for a signed-rank across sections.
 - Maps use array coordinates recovered from the public 10x barcode inclusion list. Section-specific H&E / `tissue_positions` pixel maps were **not** deposited with these count matrices.
 
+CD8A-high counts: MIA-034 1,745/10,674 (CD8A>0; Q3=0); MIA-039 621/4,758 (CD8A>0; Q3=0); lepidic 1,248/4,991 (section Q4); solid 926/3,701 (section Q4).
+
 ## Per-section results (computed)
 
 | Source | Section | Histology | n QC | n epi-like | Spearman CLDN4 vs CD8A | Partial \| KRT8 | Nearest CD8A-high µm (Q4 vs Q1) | Neighbor CD8A (Q4 vs Q1) |
@@ -40,6 +42,17 @@ Public processed Visium only. **CLDN4-only** (no dual-high / TACSTD2 gate). No p
 | GSE277206 | GSE277206_MIA-039 | -73.2 | 2.45e-07 | 0.076 | 0.1562 |
 | zenodo_13337961 | Zenodo13337961_lepidic | 0.0 | 6.65e-07 | 0.071 | 1.01e-12 |
 | zenodo_13337961 | Zenodo13337961_solid | 73.2 | 0.04334 | -0.012 | 0.001444 |
+
+## Section-level read (n=2 + n=2; not a pooled claim)
+
+Both public sources downloaded and ran. Signs are **mixed**.
+
+- Same-spot CLDN4 vs CD8A is near-null in MIA-034 (ρ=−0.001), weakly positive in MIA-039 and lepidic (ρ=+0.077 / +0.097), and negative in solid (ρ=−0.202). KRT8 partial does not flip those four signs except MIA-034, which becomes weakly **positive** (ρ=+0.118).
+- Nearest CD8A-high: MIA-034 and solid have larger Q4 than Q1 median distance (both Δ=+73 µm, one hex diagonal vs one hex step). MIA-039 is the opposite (Δ=−73 µm). Lepidic medians are both 100 µm (MW p is on the tied distribution, not a median shift).
+- Neighbor CD8A is lower at CLDN4 Q4 in MIA-034 and solid, higher in lepidic, and not different in MIA-039 (p=0.17).
+- KRT8-residual Q4/Q1 keeps the same distance signs.
+
+This is the additive public Visium n. It is not a uniform exclusion phenotype.
 
 ## What this does not claim
 
