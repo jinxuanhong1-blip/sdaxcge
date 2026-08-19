@@ -1,0 +1,164 @@
+{
+  "source_paper": "Ozirmak Lermi et al. Nat Commun 2025; Supplementary Data 2",
+  "paper_lists": {
+    "CosMx": {
+      "n_genes": 1000,
+      "present": {
+        "CLDN4": true,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": true,
+        "EPCAM": true,
+        "KRT19": true,
+        "TACSTD2": true
+      },
+      "claudins": [
+        "CLDN4"
+      ]
+    },
+    "Xenium": {
+      "n_genes": 339,
+      "present": {
+        "CLDN4": false,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": false,
+        "EPCAM": true,
+        "KRT19": true,
+        "TACSTD2": true
+      },
+      "claudins": [
+        "CLDN5"
+      ]
+    },
+    "MERFISH": {
+      "n_genes": 500,
+      "present": {
+        "CLDN4": false,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": false,
+        "EPCAM": true,
+        "KRT19": false,
+        "TACSTD2": false
+      },
+      "claudins": [
+        "CLDN5"
+      ]
+    }
+  },
+  "matrices": {
+    "GSE299786_CosMx_LUAD_TMA1": {
+      "n_genes": 1012,
+      "present": {
+        "CLDN4": true,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": true,
+        "EPCAM": true,
+        "KRT19": true,
+        "TACSTD2": true
+      },
+      "claudins": [
+        "CLDN4"
+      ],
+      "decision": "CLDN4_present_analyze"
+    },
+    "GSE300007_Xenium_LUAD_TMA2_UM": {
+      "n_genes": 541,
+      "present": {
+        "CLDN4": false,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": false,
+        "EPCAM": true,
+        "KRT19": true,
+        "TACSTD2": true
+      },
+      "claudins": [
+        "CLDN5"
+      ],
+      "decision": "CLDN4_absent"
+    },
+    "GSE299886_MERFISH_LUAD_TMA1": {
+      "n_genes": 551,
+      "present": {
+        "CLDN4": false,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": false,
+        "EPCAM": true,
+        "KRT19": false,
+        "TACSTD2": false
+      },
+      "claudins": [
+        "CLDN5"
+      ],
+      "decision": "CLDN4_absent"
+    },
+    "GSE311609_NSCLC_Prime5K_L1": {
+      "n_genes": 10029,
+      "present": {
+        "CLDN4": false,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": false,
+        "EPCAM": true,
+        "KRT19": false,
+        "TACSTD2": false
+      },
+      "claudins": [
+        "CLDN1",
+        "CLDN18",
+        "CLDN5",
+        "CLDN7"
+      ],
+      "decision": "CLDN4_absent"
+    },
+    "GSE311609_NSCLC_customIO_L1": {
+      "n_genes": 541,
+      "present": {
+        "CLDN4": false,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": true,
+        "EPCAM": true,
+        "KRT19": false,
+        "TACSTD2": true
+      },
+      "claudins": [],
+      "decision": "CLDN4_absent"
+    },
+    "GSE311609_NSCLC_lung289_L1": {
+      "n_genes": 541,
+      "present": {
+        "CLDN4": false,
+        "CD8A": true,
+        "CD8B": true,
+        "CD3E": true,
+        "KRT8": false,
+        "EPCAM": true,
+        "KRT19": false,
+        "TACSTD2": true
+      },
+      "claudins": [
+        "CLDN5"
+      ],
+      "decision": "CLDN4_absent"
+    }
+  },
+  "verdict": {
+    "GSE299786_CosMx": "CLDN4 present on CosMx Universal 1000-plex (paper list + CosMx matrix).",
+    "GSE300007_Xenium": "CLDN4 absent (paper list + LUAD TMA2 features.tsv). No proxy.",
+    "GSE299886_MERFISH": "CLDN4 absent (paper Immuno-Oncology 500-plex list). No proxy.",
+    "GSE311609_Xenium": "Public compact NSCLC matrices exist. CLDN4 absent on Prime 5K, custom IO, and lung 289 panels. Breast not used. No proxy."
+  }
+}

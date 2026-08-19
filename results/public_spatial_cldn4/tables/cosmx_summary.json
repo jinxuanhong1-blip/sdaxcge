@@ -1,0 +1,541 @@
+{
+  "tmas": [
+    {
+      "tma": "LUAD_TMA1",
+      "disease": "NSCLC",
+      "n_cells_qc": 37419,
+      "n_fov_total": 36,
+      "pct_cldn4_pos": 0.20556401827948367,
+      "pct_tumor": 0.475426922151848,
+      "pct_cd8": 0.09027499398701194,
+      "pct_cldn4_pos_in_tumor": 0.3064080944350759,
+      "um_per_px": 0.12028,
+      "um_per_px_source": "NanoString default 0.12028 \u00b5m/px",
+      "genes_used": {
+        "CLDN4": true,
+        "CD8A": true,
+        "EPCAM": true,
+        "KRT8": true,
+        "KRT19": true
+      },
+      "CLDN4": {
+        "n_fov": 32,
+        "paired_median_dist_high_vs_low": {
+          "n": 32,
+          "median_a": 22.438116743155007,
+          "median_b": 21.768217052096073,
+          "median_delta_a_minus_b": 0.8200607220819167,
+          "p": 0.04332865076139569
+        },
+        "n_fov_high_farther": 21,
+        "n_fov_high_closer": 11,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 32,
+          "median_a": 1.0,
+          "median_b": 1.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 1.0
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 32,
+          "median_a": 3.0,
+          "median_b": 3.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.3217747733509648
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 32,
+          "median_a": 11.0,
+          "median_b": 12.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.8765332312236405
+        }
+      },
+      "KRT8": {
+        "n_fov": 31,
+        "paired_median_dist_high_vs_low": {
+          "n": 31,
+          "median_a": 22.061530805101405,
+          "median_b": 21.1726967697169,
+          "median_delta_a_minus_b": 0.44646401997739815,
+          "p": 0.00914760958403349
+        },
+        "n_fov_high_farther": 22,
+        "n_fov_high_closer": 9,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 31,
+          "median_a": 1.0,
+          "median_b": 1.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.7360069109901641
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 31,
+          "median_a": 3.0,
+          "median_b": 3.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.28838109382592525
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 31,
+          "median_a": 12.0,
+          "median_b": 12.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.9369181344739744
+        }
+      },
+      "EPCAM": {
+        "n_fov": 32,
+        "paired_median_dist_high_vs_low": {
+          "n": 32,
+          "median_a": 22.05504793645794,
+          "median_b": 21.79997768628403,
+          "median_delta_a_minus_b": -0.2186090334746762,
+          "p": 0.9045956083573401
+        },
+        "n_fov_high_farther": 15,
+        "n_fov_high_closer": 17,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 32,
+          "median_a": 1.0,
+          "median_b": 1.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.18484062283458802
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 32,
+          "median_a": 3.0,
+          "median_b": 3.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.7486280288060971
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 32,
+          "median_a": 12.0,
+          "median_b": 12.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.6471504097393199
+        }
+      },
+      "n_maps": 4,
+      "pooled_mw_dist_CLDN4": {
+        "n_a": 5316,
+        "n_b": 12390,
+        "median_a": 20.847685003082127,
+        "median_b": 20.857051426546185,
+        "p": 0.789010889214596
+      }
+    },
+    {
+      "tma": "LUAD_TMA2",
+      "disease": "NSCLC",
+      "n_cells_qc": 39123,
+      "n_fov_total": 38,
+      "pct_cldn4_pos": 0.34831173478516475,
+      "pct_tumor": 0.5757227206502569,
+      "pct_cd8": 0.10610127035247809,
+      "pct_cldn4_pos_in_tumor": 0.4746048659207956,
+      "um_per_px": 0.12028,
+      "um_per_px_source": "NanoString default 0.12028 \u00b5m/px",
+      "genes_used": {
+        "CLDN4": true,
+        "CD8A": true,
+        "EPCAM": true,
+        "KRT8": true,
+        "KRT19": true
+      },
+      "CLDN4": {
+        "n_fov": 37,
+        "paired_median_dist_high_vs_low": {
+          "n": 37,
+          "median_a": 20.329107339171742,
+          "median_b": 19.72938967500312,
+          "median_delta_a_minus_b": -0.8747118593714305,
+          "p": 0.018893992484663613
+        },
+        "n_fov_high_farther": 12,
+        "n_fov_high_closer": 25,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 37,
+          "median_a": 1.0,
+          "median_b": 1.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.1644285754707836
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 37,
+          "median_a": 4.0,
+          "median_b": 4.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.11985254878976392
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 37,
+          "median_a": 14.0,
+          "median_b": 15.0,
+          "median_delta_a_minus_b": 0.5,
+          "p": 0.0325768131528461
+        }
+      },
+      "KRT8": {
+        "n_fov": 37,
+        "paired_median_dist_high_vs_low": {
+          "n": 37,
+          "median_a": 20.60895844990541,
+          "median_b": 20.331589847408768,
+          "median_delta_a_minus_b": -0.47390694366716346,
+          "p": 0.0748431685497053
+        },
+        "n_fov_high_farther": 15,
+        "n_fov_high_closer": 22,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 37,
+          "median_a": 1.0,
+          "median_b": 1.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.15729920705028502
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 37,
+          "median_a": 4.0,
+          "median_b": 4.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.4466609062806438
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 37,
+          "median_a": 13.0,
+          "median_b": 14.0,
+          "median_delta_a_minus_b": 0.5,
+          "p": 0.1379212362196371
+        }
+      },
+      "EPCAM": {
+        "n_fov": 37,
+        "paired_median_dist_high_vs_low": {
+          "n": 37,
+          "median_a": 19.332121682001663,
+          "median_b": 19.9164213444864,
+          "median_delta_a_minus_b": -0.6646567248207518,
+          "p": 0.04226187513268087
+        },
+        "n_fov_high_farther": 10,
+        "n_fov_high_closer": 27,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 37,
+          "median_a": 1.0,
+          "median_b": 1.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.03595719503775027
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 37,
+          "median_a": 4.0,
+          "median_b": 4.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.07615231491947236
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 37,
+          "median_a": 14.0,
+          "median_b": 14.0,
+          "median_delta_a_minus_b": 1.0,
+          "p": 0.004338445670723346
+        }
+      },
+      "n_maps": 4,
+      "pooled_mw_dist_CLDN4": {
+        "n_a": 8601,
+        "n_b": 13887,
+        "median_a": 19.28422648881783,
+        "median_b": 20.27922226808424,
+        "p": 9.640012012518419e-06
+      }
+    },
+    {
+      "tma": "MESO_TMA1",
+      "disease": "MESO",
+      "n_cells_qc": 59473,
+      "n_fov_total": 40,
+      "pct_cldn4_pos": 0.06438215660888134,
+      "pct_tumor": 0.6652430514687337,
+      "pct_cd8": 0.057185613639802936,
+      "pct_cldn4_pos_in_tumor": 0.07302092811646951,
+      "um_per_px": 0.12028,
+      "um_per_px_source": "NanoString default 0.12028 \u00b5m/px",
+      "genes_used": {
+        "CLDN4": true,
+        "CD8A": true,
+        "EPCAM": true,
+        "KRT8": true,
+        "KRT19": true
+      },
+      "CLDN4": {
+        "n_fov": 38,
+        "paired_median_dist_high_vs_low": {
+          "n": 38,
+          "median_a": 26.882953874075348,
+          "median_b": 27.980172892666538,
+          "median_delta_a_minus_b": -0.1269738346420226,
+          "p": 0.8074645392189268
+        },
+        "n_fov_high_farther": 19,
+        "n_fov_high_closer": 19,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 38,
+          "median_a": 0.0,
+          "median_b": 0.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.16428768545562578
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 38,
+          "median_a": 2.0,
+          "median_b": 2.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.42771755396250466
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 38,
+          "median_a": 7.5,
+          "median_b": 7.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.01906488430786661
+        }
+      },
+      "KRT8": {
+        "n_fov": 38,
+        "paired_median_dist_high_vs_low": {
+          "n": 38,
+          "median_a": 28.174449908102652,
+          "median_b": 28.293494565351118,
+          "median_delta_a_minus_b": -0.0876243857494785,
+          "p": 0.8409505394301959
+        },
+        "n_fov_high_farther": 18,
+        "n_fov_high_closer": 20,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 38,
+          "median_a": 0.0,
+          "median_b": 0.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.31731050786291415
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 38,
+          "median_a": 2.0,
+          "median_b": 2.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.011412036386001651
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 38,
+          "median_a": 7.0,
+          "median_b": 7.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.03541252976952732
+        }
+      },
+      "EPCAM": {
+        "n_fov": 38,
+        "paired_median_dist_high_vs_low": {
+          "n": 38,
+          "median_a": 28.361396294839295,
+          "median_b": 28.091211510730922,
+          "median_delta_a_minus_b": -0.7124777864271294,
+          "p": 0.4638921673540608
+        },
+        "n_fov_high_farther": 15,
+        "n_fov_high_closer": 23,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 38,
+          "median_a": 0.0,
+          "median_b": 0.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.5637028616507731
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 38,
+          "median_a": 2.0,
+          "median_b": 2.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.22292246128471083
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 38,
+          "median_a": 7.0,
+          "median_b": 7.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.04757140395098599
+        }
+      },
+      "n_maps": 4,
+      "pooled_mw_dist_CLDN4": {
+        "n_a": 2879,
+        "n_b": 36474,
+        "median_a": 24.749053171771465,
+        "median_b": 25.697871917508774,
+        "p": 0.0007743257696850832
+      }
+    },
+    {
+      "tma": "MESO_TMA2",
+      "disease": "MESO",
+      "n_cells_qc": 46283,
+      "n_fov_total": 40,
+      "pct_cldn4_pos": 0.081498606399758,
+      "pct_tumor": 0.6710239180692695,
+      "pct_cd8": 0.08223321738003155,
+      "pct_cldn4_pos_in_tumor": 0.0936664842064591,
+      "um_per_px": 0.12028,
+      "um_per_px_source": "NanoString default 0.12028 \u00b5m/px",
+      "genes_used": {
+        "CLDN4": true,
+        "CD8A": true,
+        "EPCAM": true,
+        "KRT8": true,
+        "KRT19": true
+      },
+      "CLDN4": {
+        "n_fov": 40,
+        "paired_median_dist_high_vs_low": {
+          "n": 40,
+          "median_a": 25.478506472450334,
+          "median_b": 25.9687987138501,
+          "median_delta_a_minus_b": 0.36596986335603354,
+          "p": 0.10289067040321243
+        },
+        "n_fov_high_farther": 23,
+        "n_fov_high_closer": 17,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 40,
+          "median_a": 0.25,
+          "median_b": 0.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.7284947199614045
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 40,
+          "median_a": 2.0,
+          "median_b": 2.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.7464061899006824
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 40,
+          "median_a": 8.0,
+          "median_b": 8.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.09347447696456739
+        }
+      },
+      "KRT8": {
+        "n_fov": 40,
+        "paired_median_dist_high_vs_low": {
+          "n": 40,
+          "median_a": 24.32214355008737,
+          "median_b": 27.132605541735032,
+          "median_delta_a_minus_b": -0.37457489376603625,
+          "p": 0.2213606056466233
+        },
+        "n_fov_high_farther": 18,
+        "n_fov_high_closer": 22,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 40,
+          "median_a": 1.0,
+          "median_b": 0.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.25683925795785656
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 40,
+          "median_a": 2.5,
+          "median_b": 2.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.43542225747848107
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 40,
+          "median_a": 8.75,
+          "median_b": 8.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.12700786506720765
+        }
+      },
+      "EPCAM": {
+        "n_fov": 40,
+        "paired_median_dist_high_vs_low": {
+          "n": 40,
+          "median_a": 24.66923622769778,
+          "median_b": 25.819906665940792,
+          "median_delta_a_minus_b": 0.6513300643660536,
+          "p": 0.19685455255421402
+        },
+        "n_fov_high_farther": 23,
+        "n_fov_high_closer": 17,
+        "paired_median_cd8_25_high_vs_low": {
+          "n": 40,
+          "median_a": 1.0,
+          "median_b": 0.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.035765369533213034
+        },
+        "paired_median_cd8_50_high_vs_low": {
+          "n": 40,
+          "median_a": 2.25,
+          "median_b": 2.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.46230094435078883
+        },
+        "paired_median_cd8_100_high_vs_low": {
+          "n": 40,
+          "median_a": 9.0,
+          "median_b": 8.0,
+          "median_delta_a_minus_b": 0.0,
+          "p": 0.05554443412316281
+        }
+      },
+      "n_maps": 4,
+      "pooled_mw_dist_CLDN4": {
+        "n_a": 2909,
+        "n_b": 28148,
+        "median_a": 23.454599999997814,
+        "median_b": 23.69836521026629,
+        "p": 0.22682041989969393
+      }
+    }
+  ],
+  "ICON_combined": {
+    "paired_median_dist_high_vs_low": {
+      "n": 69,
+      "median_a": 21.43617728376001,
+      "median_b": 20.603019573217548,
+      "median_delta_a_minus_b": -0.09464178216147445,
+      "p": 0.8741084591568281
+    },
+    "n_fov": 69,
+    "n_fov_high_farther": 33,
+    "n_fov_high_closer": 36,
+    "paired_median_cd8_25": {
+      "n": 69,
+      "median_a": 1.0,
+      "median_b": 1.0,
+      "median_delta_a_minus_b": 0.0,
+      "p": 0.2245199642685376
+    },
+    "paired_median_cd8_50": {
+      "n": 69,
+      "median_a": 3.0,
+      "median_b": 3.0,
+      "median_delta_a_minus_b": 0.0,
+      "p": 0.5730481457711014
+    },
+    "paired_median_cd8_100": {
+      "n": 69,
+      "median_a": 13.0,
+      "median_b": 13.0,
+      "median_delta_a_minus_b": 0.0,
+      "p": 0.11408900334922428
+    }
+  }
+}
