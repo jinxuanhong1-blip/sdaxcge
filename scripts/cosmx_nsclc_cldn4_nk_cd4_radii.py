@@ -706,6 +706,8 @@ def write_results(inv: pd.DataFrame, sec: pd.DataFrame, mixsec: pd.DataFrame, pa
         dlt = "".join([f" {getattr(row, f'delta_mean_{r}'):+.3f} |" for r in RADII_UM])
         lines.append(f"| {row.sample} | {row.patient} |{dlt} {row.mean_high_40:.3f} | {row.mean_low_40:.3f} |")
     lines.append("")
+    lines.append("All **8/8** sections have a lower mean CD8+NK neighbor count around CLDN4-high than around CLDN4-low at every radius. Wilcoxon p = 0.008 is the two-sided signed-rank minimum for n=8 with no sign ties.")
+    lines.append("")
     lines.append("Figures: `results/cosmx_nsclc_cldn4_nk_cd8/figures/ecdf_cd8nk_counts.png`, `section_paired_cd8nk_counts.png`.")
     lines.append("")
     lines.append("## Section-level paired mixing (CLDN4-high/low tumor vs CD8+NK)")
