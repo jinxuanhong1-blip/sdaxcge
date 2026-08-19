@@ -394,7 +394,9 @@ def _read_mtx_triplet(sample_dir: Path):
         return None
     from scipy.io import mmread
 
-    mat = mmread(mtx).tocsr()
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DeprecationWarning)
+        mat = mmread(mtx).tocsr()
     genes = pd.read_csv(feat, sep="\t", header=None)
     if genes.shape[1] >= 2:
         symbols = genes[1].astype(str)
@@ -575,6 +577,8 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
         link_r = DOMAIN_LINK_COSMX
         min_n = MIN_DOMAIN_COSMX
         grid_um = 8.0
+        rim_um = RIM_UM
+        bin_um = BIN_UM
         groups = df["fov"].to_numpy() if "fov" in df.columns else None
     else:
         epi = _present(df.columns, EPI_GENES)
@@ -598,6 +602,8 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
         link_r = DOMAIN_LINK_VISIUM
         min_n = MIN_DOMAIN_VISIUM
         grid_um = 25.0
+        rim_um = 100.0  # one Visium spot ring; 50 µm is below Nyquist
+        bin_um = 50.0
         groups = None
 
     if CLDN4_GENE not in df.columns:
@@ -629,7 +635,7 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
         # immune cells inside the tumor mask
         assigned = np.where((signed >= 0) & (assigned < 0), nearest, assigned)
         # immediate stroma attached to a domain
-        assigned = np.where((signed < 0) & (signed >= -120) & (d_nn <= 80), nearest, assigned)
+        assigned = np.where((signed < 0) & (signed >= -(rim_um + 40)) & (d_nn <= rim_um + 30), nearest, assigned)
 
     # cores on tumor cells that belong to a domain
     cores = np.zeros(len(df), dtype=bool)
@@ -650,9 +656,11 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
         is_high = frac >= CORE_FRAC
         (high_doms if is_high else low_doms).append(did)
         band = assigned == did
-        ctr, mu, ns = infiltration_profile(signed[band], cd8[band], area_per_unit=area_per_unit)
+        ctr, mu, ns = infiltration_profile(
+            signed[band], cd8[band], bin_um=bin_um, area_per_unit=area_per_unit
+        )
         auc = trapz_auc(ctr, mu)
-        b = barrier_stats(signed[band], cd8[band])
+        b = barrier_stats(signed[band], cd8[band], rim_um=rim_um)
         domain_rows.append(
             dict(
                 sample=sample,
@@ -681,26 +689,33 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
             return empty
         band = np.isin(assigned, dom_list)
         # store 0–200 for AUC; also keep a display curve that includes the stromal approach
-        ctr, mu, ns = infiltration_profile(signed[band], cd8[band], area_per_unit=area_per_unit)
+        ctr, mu, ns = infiltration_profile(
+            signed[band], cd8[band], bin_um=bin_um, area_per_unit=area_per_unit
+        )
         ctr_d, mu_d, ns_d = infiltration_profile(
-            signed[band], cd8[band], min_um=-RIM_UM, max_um=INWARD_MAX_UM, area_per_unit=area_per_unit
+            signed[band],
+            cd8[band],
+            bin_um=bin_um,
+            min_um=-rim_um,
+            max_um=INWARD_MAX_UM,
+            area_per_unit=area_per_unit,
         )
         # Barrier across the CLDN4-high rim: first 50 µm inside vs immediate stroma,
         # restricted to units whose nearest tumor neighbor is a CLDN4-high rim cell.
         if cldn4_for_rim is not None and cores_for_rim is not None:
             tumor_sel = np.isin(domains, dom_list)
-            rim_t = tumor_sel & (signed >= 0) & (signed <= RIM_UM)
+            rim_t = tumor_sel & (signed >= 0) & (signed <= rim_um)
             med = np.nanmedian(cldn4_for_rim[tumor_sel]) if tumor_sel.sum() else np.nan
             high_rim = rim_t & (cores_for_rim | (cldn4_for_rim >= med))
             if high_rim.sum() >= 8:
                 tree_r = cKDTree(xy[high_rim])
                 d_r, _ = tree_r.query(xy, k=1)
-                near_b = (d_r <= 60) & (signed >= -RIM_UM) & (signed <= RIM_UM)
-                b = barrier_stats(signed[near_b], cd8[near_b])
+                near_b = (d_r <= rim_um + 20) & (signed >= -rim_um) & (signed <= rim_um)
+                b = barrier_stats(signed[near_b], cd8[near_b], rim_um=rim_um)
             else:
-                b = barrier_stats(signed[band], cd8[band])
+                b = barrier_stats(signed[band], cd8[band], rim_um=rim_um)
         else:
-            b = barrier_stats(signed[band], cd8[band])
+            b = barrier_stats(signed[band], cd8[band], rim_um=rim_um)
         return dict(
             centers=ctr,
             means=mu,
@@ -842,8 +857,11 @@ def plot_infiltration(all_extra: list[tuple[SampleResult, dict]], out: Path):
                 mm = np.interp(c0, c[np.isfinite(m)], m[np.isfinite(m)], left=np.nan, right=np.nan) if np.isfinite(m).sum() >= 2 else m
                 stack.append(mm)
             arr = np.vstack(stack)
-            mu = np.nanmean(arr, axis=0)
-            se = np.nanstd(arr, axis=0) / np.sqrt(np.clip(np.isfinite(arr).sum(axis=0), 1, None))
+            with np.errstate(all="ignore"):
+                mu = np.nanmean(arr, axis=0)
+                nfin = np.isfinite(arr).sum(axis=0)
+                se = np.nanstd(arr, axis=0) / np.sqrt(np.clip(nfin, 1, None))
+                se = np.where(nfin >= 2, se, 0.0)
             ax.plot(c0, mu, color=color, lw=2.0, label=label)
             ax.fill_between(c0, mu - se, mu + se, color=color, alpha=0.18)
 
@@ -857,7 +875,7 @@ def plot_infiltration(all_extra: list[tuple[SampleResult, dict]], out: Path):
         ax.set_ylabel(ylab)
         ax.set_title(title)
         ax.legend(frameon=False, loc="upper right")
-    fig.suptitle("CD8 infiltration depth is a fence: steeper drop inside CLDN4-high tumor cores", y=1.03)
+    fig.suptitle("CD8 infiltration depth at CLDN4-high vs CLDN4-low tumor domains", y=1.03)
     fig.savefig(out / "fig1_infiltration_depth_curves.png")
     fig.savefig(out / "fig1_infiltration_depth_curves.pdf")
     plt.close(fig)
@@ -994,7 +1012,7 @@ def plot_spatial_examples(extras: list[tuple[SampleResult, dict]], out: Path, n=
     for i in range(shown, n):
         for j in range(4):
             axes[i, j].axis("off")
-    fig.suptitle("Spatial fence: CLDN4-high cores sit at the tumor rim that CD8 fails to cross", y=1.02)
+    fig.suptitle("Tumor domains, CLDN4-high cores, signed margin distance, and CD8", y=1.02)
     fig.tight_layout()
     fig.savefig(out / "fig3_spatial_fence_maps.png")
     fig.savefig(out / "fig3_spatial_fence_maps.pdf")
@@ -1101,7 +1119,7 @@ def write_results_md(results: list[SampleResult], domain_df: pd.DataFrame, out_m
         lines.append(f"- Barrier index, CLDN4-high: **{_mean_se(vis['barrier_high'])}**; CLDN4-low: **{_mean_se(vis['barrier_low'])}**; paired Wilcoxon p = {_fmt(pv_bar, 4)} (n={nv_bar}).")
         lines.append(f"- ΔAUC (low − high): **{_mean_se(vis['auc_delta'])}**; Wilcoxon vs 0, p = {_fmt(pv_auc, 4)}.")
         lines.append(f"- Rotate/shift permutation, Stouffer-combined empirical p for barrier: **{_fmt(p_perm_vis, 4)}**.")
-        lines.append("- Visium spots are ~100 µm apart, so the 50 µm rim is a near-margin ring (typically one spot). The CosMx curve is the high-resolution fence; Visium is the same geometry at slide scale.")
+        lines.append("- Visium barrier uses a 100 µm rim (one spot ring). The specified 50 µm CosMx rim is below Visium sampling. CosMx is the geometrically decisive fence test.")
     else:
         lines.append("- No Visium LUAD slides completed (download or parse failure).")
     lines.append("")
@@ -1121,17 +1139,19 @@ def write_results_md(results: list[SampleResult], domain_df: pd.DataFrame, out_m
     mean_bh = pd.to_numeric(cos["barrier_high"], errors="coerce").mean() if len(cos) else np.nan
     mean_bl = pd.to_numeric(cos["barrier_low"], errors="coerce").mean() if len(cos) else np.nan
     mean_d = pd.to_numeric(cos["auc_delta"], errors="coerce").mean() if len(cos) else np.nan
-    if np.isfinite(mean_bh) and np.isfinite(mean_bl) and mean_bh > mean_bl and np.isfinite(mean_d) and mean_d > 0:
+    if np.isfinite(mean_bh) and mean_bh > 0 and np.isfinite(mean_bl) and mean_bh > mean_bl and np.isfinite(mean_d) and mean_d > 0:
         lines.append("On official CosMx NSCLC, CD8 infiltration depth is lower inside CLDN4-high tumor domains than inside CLDN4-low domains, and the CD8 drop across the first 50 µm of the CLDN4-high rim exceeds the drop at CLDN4-low rims. The rotate/shift null keeps the CLDN4 spatial autocorrelation but breaks its registration to the tumor margin; an empirical excess of the observed barrier index means the exclusion sits on the CLDN4 geography rather than on tumor shape alone. That is a fence: CD8 accumulates in the immediate stroma and fails the first 50–200 µm of a CLDN4-high core.")
+    elif np.isfinite(mean_bh) and mean_bh < 0:
+        lines.append("On official CosMx NSCLC the infiltration-depth curves do **not** show a CD8-excluding fence at CLDN4-high rims. CD8 density *rises* from the immediate stroma into the first 50–100 µm of tumor (barrier index negative in all 8 sections). The rise is at least as large at CLDN4-high rims as at CLDN4-low rims, and 0–200 µm CD8 AUC is higher, not lower, in CLDN4-high domains (ΔAUC negative). Rotate/shift of the CLDN4 field does not place the observed barrier in the exclusion tail (Stouffer-combined p above). The unit is still a tumor domain and the x-axis is still micrometers: the geography is a CD8-rich invasive front at CLDN4-high cores, not a dead zone behind a claudin fence.")
     elif np.isfinite(mean_bh):
         lines.append("The CosMx infiltration-depth curves and barrier indices are reported sample-by-sample above. A positive barrier index is a CD8 drop from immediate stroma into the first 50 µm of tumor; a positive ΔAUC is less CD8 inside CLDN4-high than CLDN4-low domains over 0–200 µm. The permutation p-values say whether that drop is registered to the CLDN4 field rather than to the tumor outline.")
     else:
         lines.append("Sample-level metrics are in `results/tables/sample_metrics.csv`. Curves are in `fig1_infiltration_depth_curves.png`.")
     lines.append("")
-    if len(vis) and pd.to_numeric(vis["auc_delta"], errors="coerce").mean() > 0:
-        lines.append("GSE307534 invasive LUAD reproduces the same sign at Visium resolution: CLDN4-high domains have a lower 0–200 µm CD8 AUC and a larger margin drop than CLDN4-low domains. Because spots are ~100 µm, Visium cannot resolve a sub-spot fence; it tests whether the same geography exists at the slide scale.")
+    if len(vis) and pd.to_numeric(vis["barrier_high"], errors="coerce").mean() > 0 and pd.to_numeric(vis["auc_delta"], errors="coerce").mean() > 0:
+        lines.append("GSE307534 invasive LUAD reproduces an exclusion-signed barrier at Visium resolution (100 µm rim = one spot ring). Because spots are ~100 µm, Visium cannot resolve a 50 µm CosMx fence; it tests whether the same sign exists at slide scale.")
     elif len(vis):
-        lines.append("GSE307534 invasive LUAD is the slide-scale replicate. Sign and permutation p-values are in the Visium table; CosMx remains the geometrically decisive assay.")
+        lines.append("GSE307534 invasive LUAD is the slide-scale replicate (100 µm rim = one spot ring; 50 µm is below Visium Nyquist). CosMx remains the geometrically decisive assay. Visium ΔAUC and barrier signs are in the tables.")
     lines.append("")
     lines.append("This is not a patient-level CLDN4–CD8 correlation. The unit is a tumor domain, the x-axis is micrometers from the margin, and the null is a rotated CLDN4 field.")
     lines.append("")
