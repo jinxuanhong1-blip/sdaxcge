@@ -1,6 +1,8 @@
-# CosMx NSCLC CLDN4–CD8 spatial analysis
+# CosMx NSCLC CLDN4–CD8+NK spatial analysis
 
-Public additive analysis of **CLDN4-high tumor cells vs CD8 T cells** in the official NanoString/Bruker CosMx NSCLC FFPE 960-plex dataset (8 samples / 5 patients).
+Public additive analysis of **CLDN4-high tumor cells vs CD8+NK neighbors** in the official NanoString/Bruker CosMx NSCLC FFPE 960-plex dataset (all 8 sections / 5 donors).
+
+Primary readout: immune neighbor counts and mixing at 20/40/60 µm, paired at section and donor level. Nearest-µm and Ripley/PCF are secondary.
 
 - Script: `scripts/cosmx_cldn4_cd8_spatial.py`
 - Results: `RESULTS.md` and `figures/`
