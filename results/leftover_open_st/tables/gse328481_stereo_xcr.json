@@ -1,0 +1,695 @@
+[
+  {
+    "section": "GSM9684206_D06053D2",
+    "n_spots": 187607,
+    "n_epi": 36396,
+    "n_cldn4_hi_epi": 9102,
+    "n_cldn4_lo_epi": 22937,
+    "n_cd8_hi": 322,
+    "frac_cldn4_pos": 0.2706935242288401,
+    "frac_cd8a_pos": 0.006854754886544745,
+    "same_spot_CLDN4_CD8A": {
+      "n": 36396,
+      "rho": 0.0020459439976240642,
+      "p": 0.6963097017626958
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 187607,
+      "rho": -0.0004169274003531761,
+      "p": 0.8566931971156978
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 36396,
+      "rho": 0.2829208349516336,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 322.063653720008,
+      "n": 9102
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 301.2308085173228,
+      "n": 22937
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 9102,
+      "n_b": 22937,
+      "median_a": 322.063653720008,
+      "median_b": 301.2308085173228,
+      "p": 1.7841958848888934e-18
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.017798286090969017,
+      "n": 9102
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.02275798927497057,
+      "n": 22937
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 9102,
+      "n_b": 22937,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.012454232799621998
+    },
+    "radius": 45.79301256742124,
+    "platform": "h5ad",
+    "n_obs_raw": 187619,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684207_D06047C3",
+    "n_spots": 97833,
+    "n_epi": 1839,
+    "n_cldn4_hi_epi": 47,
+    "n_cldn4_lo_epi": 1792,
+    "n_cd8_hi": 82,
+    "frac_cldn4_pos": 0.01373769586949189,
+    "frac_cd8a_pos": 0.0033526519681498063,
+    "same_spot_CLDN4_CD8A": {
+      "n": 1839,
+      "rho": -0.011356001055416025,
+      "p": 0.6264919495707318
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 97833,
+      "rho": 0.006740031971011998,
+      "p": 0.03501696022490006
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 1839,
+      "rho": 0.9000987123944849,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 459.34409760004536,
+      "n": 47
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 410.4905521920027,
+      "n": 1792
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 47,
+      "n_b": 1792,
+      "median_a": 459.34409760004536,
+      "median_b": 410.4905521920027,
+      "p": 0.3379533465310225
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.02127659574468085,
+      "n": 47
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.012276785714285714,
+      "n": 1792
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 47,
+      "n_b": 1792,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.5842562468192938
+    },
+    "radius": 55.31726674375732,
+    "platform": "h5ad",
+    "n_obs_raw": 97923,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684208_D06047F6",
+    "n_spots": 47651,
+    "n_epi": 1960,
+    "n_cldn4_hi_epi": 140,
+    "n_cldn4_lo_epi": 1820,
+    "n_cd8_hi": 107,
+    "frac_cldn4_pos": 0.0507859226459046,
+    "frac_cd8a_pos": 0.008981973096052549,
+    "same_spot_CLDN4_CD8A": {
+      "n": 1960,
+      "rho": 0.0156428833498452,
+      "p": 0.48884909136783
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 47651,
+      "rho": 0.0018940420802096044,
+      "p": 0.6792827826056379
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 1960,
+      "rho": 0.765333801292699,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 312.4374845896248,
+      "n": 140
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 327.5683106977272,
+      "n": 1820
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 140,
+      "n_b": 1820,
+      "median_a": 312.4374845896248,
+      "median_b": 327.5683106977272,
+      "p": 0.4361374182249509
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.02142857142857143,
+      "n": 140
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.03021978021978022,
+      "n": 1820
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 140,
+      "n_b": 1820,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.5544612737030461
+    },
+    "radius": 61.773780845922005,
+    "platform": "h5ad",
+    "n_obs_raw": 47654,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684209_D06047E1",
+    "n_spots": 55714,
+    "n_epi": 1051,
+    "n_cldn4_hi_epi": 16,
+    "n_cldn4_lo_epi": 1035,
+    "n_cd8_hi": 69,
+    "frac_cldn4_pos": 0.010500053846429982,
+    "frac_cd8a_pos": 0.004953871558315684,
+    "same_spot_CLDN4_CD8A": {
+      "n": 1051,
+      "rho": -0.009420805172639829,
+      "p": 0.7603222551186948
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 55714,
+      "rho": 0.0002810584186402524,
+      "p": 0.9471079204385293
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 1051,
+      "rho": 0.9406921358653014,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 512.5634692628713,
+      "n": 16
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 370.3039292257105,
+      "n": 1035
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 16,
+      "n_b": 1035,
+      "median_a": 512.5634692628713,
+      "median_b": 370.3039292257105,
+      "p": 0.22641169373453784
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.0,
+      "n": 16
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.01642512077294686,
+      "n": 1035
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 16,
+      "n_b": 1035,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.6411974826977082
+    },
+    "radius": 55.154328932550705,
+    "platform": "h5ad",
+    "n_obs_raw": 55741,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684210_D06050A2",
+    "n_spots": 33012,
+    "n_epi": 465,
+    "n_cldn4_hi_epi": 8,
+    "n_cldn4_lo_epi": 457,
+    "n_cd8_hi": 32,
+    "frac_cldn4_pos": 0.018447837150127225,
+    "frac_cd8a_pos": 0.003816793893129771,
+    "same_spot_CLDN4_CD8A": {
+      "n": 465,
+      "rho": -0.006141952387906261,
+      "p": 0.8949139240175931
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 33012,
+      "rho": -0.00480348176473645,
+      "p": 0.3828122124136463
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 465,
+      "rho": -0.9557259025808537,
+      "p": 4.073349980017236e-248
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 280.4375235405766,
+      "n": 8
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 351.77833929905347,
+      "n": 457
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 8,
+      "n_b": 457,
+      "median_a": 280.4375235405766,
+      "median_b": 351.77833929905347,
+      "p": 0.5668567795040051
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.0,
+      "n": 8
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.02188183807439825,
+      "n": 457
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 8,
+      "n_b": 457,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.6765089459328542
+    },
+    "radius": 48.83646178829912,
+    "platform": "h5ad",
+    "n_obs_raw": 33057,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684211_D06047A2",
+    "n_spots": 130466,
+    "n_epi": 6888,
+    "n_cldn4_hi_epi": 901,
+    "n_cldn4_lo_epi": 5987,
+    "n_cd8_hi": 419,
+    "frac_cldn4_pos": 0.058758603774163386,
+    "frac_cd8a_pos": 0.012830929130961323,
+    "same_spot_CLDN4_CD8A": {
+      "n": 6888,
+      "rho": 0.024053139452817018,
+      "p": 0.04591301197109674
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 130466,
+      "rho": 0.012947241044916258,
+      "p": 2.9152159130682697e-06
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 6888,
+      "rho": 0.6012025159631771,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 271.326371737065,
+      "n": 901
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 247.9697562203907,
+      "n": 5987
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 901,
+      "n_b": 5987,
+      "median_a": 271.326371737065,
+      "median_b": 247.9697562203907,
+      "p": 7.816030232571862e-07
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.018867924528301886,
+      "n": 901
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.05044262568899282,
+      "n": 5987
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 901,
+      "n_b": 5987,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 4.419386593511246e-05
+    },
+    "radius": 55.072679252057455,
+    "platform": "h5ad",
+    "n_obs_raw": 130469,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684212_D06050C2",
+    "n_spots": 91489,
+    "n_epi": 1607,
+    "n_cldn4_hi_epi": 55,
+    "n_cldn4_lo_epi": 1552,
+    "n_cd8_hi": 73,
+    "frac_cldn4_pos": 0.018515887155832942,
+    "frac_cd8a_pos": 0.003191640525090448,
+    "same_spot_CLDN4_CD8A": {
+      "n": 1607,
+      "rho": -0.010514795159488596,
+      "p": 0.6736130591810722
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 91489,
+      "rho": 0.0007876365633756702,
+      "p": 0.8116993102266246
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 1607,
+      "rho": 0.8731901968142111,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 417.5739455473725,
+      "n": 55
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 430.7075444430518,
+      "n": 1552
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 55,
+      "n_b": 1552,
+      "median_a": 417.5739455473725,
+      "median_b": 430.7075444430518,
+      "p": 0.47126536002787944
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.0,
+      "n": 55
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.008376288659793814,
+      "n": 1552
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 55,
+      "n_b": 1552,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.4962872800650763
+    },
+    "radius": 52.39274758971894,
+    "platform": "h5ad",
+    "n_obs_raw": 91660,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684213_D06047D4",
+    "n_spots": 138901,
+    "n_epi": 5660,
+    "n_cldn4_hi_epi": 435,
+    "n_cldn4_lo_epi": 5225,
+    "n_cd8_hi": 170,
+    "frac_cldn4_pos": 0.04078444359651839,
+    "frac_cd8a_pos": 0.00496036745595784,
+    "same_spot_CLDN4_CD8A": {
+      "n": 5660,
+      "rho": 0.008457749854844881,
+      "p": 0.5246640011479409
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 138901,
+      "rho": 0.005849465182409036,
+      "p": 0.02925293740228469
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 5660,
+      "rho": 0.7593581167276269,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 360.82682827084795,
+      "n": 435
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 333.94610343586885,
+      "n": 5225
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 435,
+      "n_b": 5225,
+      "median_a": 360.82682827084795,
+      "median_b": 333.94610343586885,
+      "p": 0.00040776277667096473
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.009195402298850575,
+      "n": 435
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.017607655502392343,
+      "n": 5225
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 435,
+      "n_b": 5225,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.19967508212090845
+    },
+    "radius": 48.83646178829912,
+    "platform": "h5ad",
+    "n_obs_raw": 138926,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684214_D06047E2",
+    "n_spots": 152381,
+    "n_epi": 6738,
+    "n_cldn4_hi_epi": 388,
+    "n_cldn4_lo_epi": 6350,
+    "n_cd8_hi": 468,
+    "frac_cldn4_pos": 0.03961123762148824,
+    "frac_cd8a_pos": 0.012344058642481674,
+    "same_spot_CLDN4_CD8A": {
+      "n": 6738,
+      "rho": 0.05187316230474174,
+      "p": 2.0433244991938577e-05
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 152381,
+      "rho": 0.014238888877536804,
+      "p": 2.7205603066687914e-08
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 6738,
+      "rho": 0.7898801621023802,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 208.56606857338772,
+      "n": 388
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 185.1026514268319,
+      "n": 6350
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 388,
+      "n_b": 6350,
+      "median_a": 208.56606857338772,
+      "median_b": 185.1026514268319,
+      "p": 1.1229103902811472e-05
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.03350515463917526,
+      "n": 388
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.050393700787401574,
+      "n": 6350
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 388,
+      "n_b": 6350,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.17268144105482885
+    },
+    "radius": 47.43416490252569,
+    "platform": "h5ad",
+    "n_obs_raw": 152381,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684215_D06050D4",
+    "n_spots": 93235,
+    "n_epi": 3635,
+    "n_cldn4_hi_epi": 197,
+    "n_cldn4_lo_epi": 3438,
+    "n_cd8_hi": 391,
+    "frac_cldn4_pos": 0.03291682308146082,
+    "frac_cd8a_pos": 0.016753365152571458,
+    "same_spot_CLDN4_CD8A": {
+      "n": 3635,
+      "rho": 0.01721594302992734,
+      "p": 0.2994164233120234
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 93235,
+      "rho": 0.007690834698234694,
+      "p": 0.018856590352968917
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 3635,
+      "rho": 0.7924492276491414,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 148.48568954616468,
+      "n": 197
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 140.73023839957068,
+      "n": 3438
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 197,
+      "n_b": 3438,
+      "median_a": 148.48568954616468,
+      "median_b": 140.73023839957068,
+      "p": 0.2433588055496314
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.07614213197969544,
+      "n": 197
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.06602675974403723,
+      "n": 3438
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 197,
+      "n_b": 3438,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.7331657679993222
+    },
+    "radius": 42.42640687119285,
+    "platform": "h5ad",
+    "n_obs_raw": 93239,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  },
+  {
+    "section": "GSM9684216_D06050E4",
+    "n_spots": 70055,
+    "n_epi": 3618,
+    "n_cldn4_hi_epi": 519,
+    "n_cldn4_lo_epi": 3099,
+    "n_cd8_hi": 179,
+    "frac_cldn4_pos": 0.08834487188637499,
+    "frac_cd8a_pos": 0.010249090000713725,
+    "same_spot_CLDN4_CD8A": {
+      "n": 3618,
+      "rho": 0.00011608739846671796,
+      "p": 0.9944306334773462
+    },
+    "same_spot_CLDN4_CD8A_all": {
+      "n": 70055,
+      "rho": 0.016835320250950813,
+      "p": 8.342798599592157e-06
+    },
+    "krt8_residual_CLDN4_CD8A": {
+      "n": 3618,
+      "rho": 0.5823720431261383,
+      "p": 0.0
+    },
+    "nearest_cd8_from_cldn4hi": {
+      "median": 229.65191050805564,
+      "n": 519
+    },
+    "nearest_cd8_from_cldn4lo": {
+      "median": 228.0350850198276,
+      "n": 3099
+    },
+    "nearest_cd8_hi_vs_lo_mw": {
+      "n_a": 519,
+      "n_b": 3099,
+      "median_a": 229.65191050805564,
+      "median_b": 228.0350850198276,
+      "p": 0.6669268771291699
+    },
+    "neighbor_cd8_count_hi": {
+      "median": 0.0,
+      "mean": 0.028901734104046242,
+      "n": 519
+    },
+    "neighbor_cd8_count_lo": {
+      "median": 0.0,
+      "mean": 0.04582123265569538,
+      "n": 3099
+    },
+    "neighbor_cd8_hi_vs_lo_mw": {
+      "n_a": 519,
+      "n_b": 3099,
+      "median_a": 0.0,
+      "median_b": 0.0,
+      "p": 0.09519399640496076
+    },
+    "radius": 51.7880295048962,
+    "platform": "h5ad",
+    "n_obs_raw": 70071,
+    "genes_CLDN4": true,
+    "genes_CD8A": true,
+    "genes_KRT8": true
+  }
+]

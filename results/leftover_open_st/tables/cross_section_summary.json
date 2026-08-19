@@ -1,0 +1,74 @@
+{
+  "GSE328481_StereoXCR": {
+    "n_sections": 11,
+    "same_spot_rho": {
+      "n": 11,
+      "median": 0.002045943997624,
+      "n_neg": 4,
+      "n_pos": 7,
+      "p": 0.3203125
+    },
+    "krt8_resid_rho": {
+      "n": 11,
+      "median": 0.765333801292699,
+      "n_neg": 1,
+      "n_pos": 10,
+      "p": 0.0537109375
+    },
+    "nearest_cd8_delta_hi_minus_lo": {
+      "n": 11,
+      "median": 20.832845202685178,
+      "n_neg": 3,
+      "n_pos": 8,
+      "p": 0.1748046875
+    }
+  },
+  "GSE301973_VisiumHD": {
+    "n_sections": 2,
+    "same_spot_rho": {
+      "n": 2,
+      "median": 0.020368253411348403,
+      "n_neg": 1,
+      "n_pos": 1,
+      "p": null
+    },
+    "krt8_resid_rho": {
+      "n": 2,
+      "median": -0.1266589648290354,
+      "n_neg": 1,
+      "n_pos": 1,
+      "p": null
+    },
+    "nearest_cd8_delta_hi_minus_lo": {
+      "n": 2,
+      "median": -99.40411913047086,
+      "n_neg": 2,
+      "n_pos": 0,
+      "p": null
+    }
+  },
+  "Zenodo7306132_STopover_Visium": {
+    "n_sections": 11,
+    "same_spot_rho": {
+      "n": 11,
+      "median": 0.0049529478104819,
+      "n_neg": 5,
+      "n_pos": 6,
+      "p": 0.8984375
+    },
+    "krt8_resid_rho": {
+      "n": 11,
+      "median": 0.0092940215888028,
+      "n_neg": 3,
+      "n_pos": 8,
+      "p": 0.365234375
+    },
+    "nearest_cd8_delta_hi_minus_lo": {
+      "n": 11,
+      "median": 0.22949526788029484,
+      "n_neg": 1,
+      "n_pos": 6,
+      "p": 0.203125
+    }
+  }
+}
