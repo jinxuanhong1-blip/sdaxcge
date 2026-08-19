@@ -896,8 +896,8 @@ def write_results_md(panel, cosmx):
         "",
     ]
     text = "\n".join(lines)
-    (OUT / "RESULTS.md").write_text(text + "\n")
-    (Path(__file__).with_name("RESULTS.md")).write_text(text + "\n")
+    # Machine draft only. The curated write-up is RESULTS.md (do not clobber).
+    (OUT / "RESULTS.auto.md").write_text(text + "\n")
     return text
 
 
