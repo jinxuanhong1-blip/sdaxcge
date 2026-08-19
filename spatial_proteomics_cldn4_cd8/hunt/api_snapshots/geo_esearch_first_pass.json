@@ -1,0 +1,330 @@
+{
+  "CLDN4[All Fields] AND (IMC OR \"imaging mass cytometry\" OR CODEX OR PhenoCycler OR MIBI OR \"multiplex immunofluorescence\" OR \"multiplex IHC\" OR CosMx OR Xenium) AND (gse[Entry Type])": {
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    },
+    "esearchresult": {
+      "count": "0",
+      "retmax": "0",
+      "retstart": "0",
+      "idlist": [],
+      "translationset": [
+        {
+          "from": "CLDN4[All Fields]",
+          "to": "CLDN4[All Fields]"
+        }
+      ],
+      "translationstack": [
+        {
+          "term": "CLDN4[All Fields]",
+          "field": "All Fields",
+          "count": "3604",
+          "explode": "N"
+        },
+        {
+          "term": "IMC[All Fields]",
+          "field": "All Fields",
+          "count": "411",
+          "explode": "N"
+        },
+        {
+          "term": "\"imaging mass cytometry\"[All Fields]",
+          "field": "All Fields",
+          "count": "47",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "CODEX[All Fields]",
+          "field": "All Fields",
+          "count": "63",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "PhenoCycler[All Fields]",
+          "field": "All Fields",
+          "count": "6",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "MIBI[All Fields]",
+          "field": "All Fields",
+          "count": "20",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "\"multiplex immunofluorescence\"[All Fields]",
+          "field": "All Fields",
+          "count": "77",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "\"multiplex IHC\"[All Fields]",
+          "field": "All Fields",
+          "count": "2",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "CosMx[All Fields]",
+          "field": "All Fields",
+          "count": "494",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "Xenium[All Fields]",
+          "field": "All Fields",
+          "count": "1394",
+          "explode": "N"
+        },
+        "OR",
+        "GROUP",
+        "AND",
+        {
+          "term": "gse[Entry Type]",
+          "field": "Entry Type",
+          "count": "293451",
+          "explode": "N"
+        },
+        "AND"
+      ],
+      "querytranslation": "CLDN4[All Fields] AND (IMC[All Fields] OR \"imaging mass cytometry\"[All Fields] OR CODEX[All Fields] OR PhenoCycler[All Fields] OR MIBI[All Fields] OR \"multiplex immunofluorescence\"[All Fields] OR \"multiplex IHC\"[All Fields] OR CosMx[All Fields] OR Xenium[All Fields]) AND gse[Entry Type]"
+    }
+  },
+  "\"Claudin-4\"[All Fields] AND (IMC OR CODEX OR PhenoCycler OR MIBI OR CosMx) AND (gse[Entry Type])": {
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    },
+    "esearchresult": {
+      "count": "0",
+      "retmax": "0",
+      "retstart": "0",
+      "idlist": [],
+      "translationset": [],
+      "translationstack": [
+        {
+          "term": "\"Claudin-4\"[All Fields]",
+          "field": "All Fields",
+          "count": "40",
+          "explode": "N"
+        },
+        {
+          "term": "IMC[All Fields]",
+          "field": "All Fields",
+          "count": "411",
+          "explode": "N"
+        },
+        {
+          "term": "CODEX[All Fields]",
+          "field": "All Fields",
+          "count": "63",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "PhenoCycler[All Fields]",
+          "field": "All Fields",
+          "count": "6",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "MIBI[All Fields]",
+          "field": "All Fields",
+          "count": "20",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "CosMx[All Fields]",
+          "field": "All Fields",
+          "count": "494",
+          "explode": "N"
+        },
+        "OR",
+        "GROUP",
+        "AND",
+        {
+          "term": "gse[Entry Type]",
+          "field": "Entry Type",
+          "count": "293451",
+          "explode": "N"
+        },
+        "AND"
+      ],
+      "querytranslation": "\"Claudin-4\"[All Fields] AND (IMC[All Fields] OR CODEX[All Fields] OR PhenoCycler[All Fields] OR MIBI[All Fields] OR CosMx[All Fields]) AND gse[Entry Type]"
+    }
+  },
+  "CLDN4[All Fields] AND (\"protein profiling\" OR \"protein array\") AND spatial AND (gse[Entry Type])": {
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    },
+    "esearchresult": {
+      "count": "0",
+      "retmax": "0",
+      "retstart": "0",
+      "idlist": [],
+      "translationset": [
+        {
+          "from": "CLDN4[All Fields]",
+          "to": "CLDN4[All Fields]"
+        }
+      ],
+      "translationstack": [
+        {
+          "term": "CLDN4[All Fields]",
+          "field": "All Fields",
+          "count": "3604",
+          "explode": "N"
+        },
+        {
+          "term": "\"protein profiling\"[All Fields]",
+          "field": "All Fields",
+          "count": "362",
+          "explode": "N"
+        },
+        {
+          "term": "\"protein array\"[All Fields]",
+          "field": "All Fields",
+          "count": "2735",
+          "explode": "N"
+        },
+        "OR",
+        "GROUP",
+        "AND",
+        {
+          "term": "spatial[All Fields]",
+          "field": "All Fields",
+          "count": "23401",
+          "explode": "N"
+        },
+        "AND",
+        {
+          "term": "gse[Entry Type]",
+          "field": "Entry Type",
+          "count": "293451",
+          "explode": "N"
+        },
+        "AND"
+      ],
+      "querytranslation": "CLDN4[All Fields] AND (\"protein profiling\"[All Fields] OR \"protein array\"[All Fields]) AND spatial[All Fields] AND gse[Entry Type]"
+    }
+  },
+  "\"imaging mass cytometry\"[All Fields] AND lung AND (gse[Entry Type])": {
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    },
+    "esearchresult": {
+      "count": "8",
+      "retmax": "8",
+      "retstart": "0",
+      "idlist": [
+        "200316782",
+        "200295969",
+        "200200036",
+        "200285288",
+        "200285287",
+        "200285215",
+        "200255031",
+        "200253013"
+      ],
+      "translationset": [
+        {
+          "from": "lung",
+          "to": "\"lung\"[MeSH Terms] OR lung[All Fields]"
+        }
+      ],
+      "translationstack": [
+        {
+          "term": "\"imaging mass cytometry\"[All Fields]",
+          "field": "All Fields",
+          "count": "47",
+          "explode": "N"
+        },
+        {
+          "term": "\"lung\"[MeSH Terms]",
+          "field": "MeSH Terms",
+          "count": "313812",
+          "explode": "Y"
+        },
+        {
+          "term": "lung[All Fields]",
+          "field": "All Fields",
+          "count": "316514",
+          "explode": "N"
+        },
+        "OR",
+        "GROUP",
+        "AND",
+        {
+          "term": "gse[Entry Type]",
+          "field": "Entry Type",
+          "count": "293451",
+          "explode": "N"
+        },
+        "AND"
+      ],
+      "querytranslation": "\"imaging mass cytometry\"[All Fields] AND (\"lung\"[MeSH Terms] OR lung[All Fields]) AND gse[Entry Type]"
+    }
+  },
+  "CODEX[All Fields] AND lung AND (gse[Entry Type])": {
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    },
+    "esearchresult": {
+      "count": "1",
+      "retmax": "1",
+      "retstart": "0",
+      "idlist": [
+        "200271689"
+      ],
+      "translationset": [
+        {
+          "from": "lung",
+          "to": "\"lung\"[MeSH Terms] OR lung[All Fields]"
+        }
+      ],
+      "translationstack": [
+        {
+          "term": "CODEX[All Fields]",
+          "field": "All Fields",
+          "count": "63",
+          "explode": "N"
+        },
+        {
+          "term": "\"lung\"[MeSH Terms]",
+          "field": "MeSH Terms",
+          "count": "313812",
+          "explode": "Y"
+        },
+        {
+          "term": "lung[All Fields]",
+          "field": "All Fields",
+          "count": "316514",
+          "explode": "N"
+        },
+        "OR",
+        "GROUP",
+        "AND",
+        {
+          "term": "gse[Entry Type]",
+          "field": "Entry Type",
+          "count": "293451",
+          "explode": "N"
+        },
+        "AND"
+      ],
+      "querytranslation": "CODEX[All Fields] AND (\"lung\"[MeSH Terms] OR lung[All Fields]) AND gse[Entry Type]"
+    }
+  }
+}

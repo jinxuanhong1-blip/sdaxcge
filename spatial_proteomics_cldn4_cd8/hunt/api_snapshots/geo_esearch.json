@@ -1,0 +1,151 @@
+{
+  "CLDN4[All Fields] AND (IMC OR \"imaging mass cytometry\" OR CODEX OR PhenoCycler OR MIBI OR CosMx OR Xenium) AND (gse[Entry Type])": {
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    },
+    "esearchresult": {
+      "count": "0",
+      "retmax": "0",
+      "retstart": "0",
+      "idlist": [],
+      "translationset": [
+        {
+          "from": "CLDN4[All Fields]",
+          "to": "CLDN4[All Fields]"
+        }
+      ],
+      "translationstack": [
+        {
+          "term": "CLDN4[All Fields]",
+          "field": "All Fields",
+          "count": "3604",
+          "explode": "N"
+        },
+        {
+          "term": "IMC[All Fields]",
+          "field": "All Fields",
+          "count": "411",
+          "explode": "N"
+        },
+        {
+          "term": "\"imaging mass cytometry\"[All Fields]",
+          "field": "All Fields",
+          "count": "47",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "CODEX[All Fields]",
+          "field": "All Fields",
+          "count": "63",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "PhenoCycler[All Fields]",
+          "field": "All Fields",
+          "count": "6",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "MIBI[All Fields]",
+          "field": "All Fields",
+          "count": "20",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "CosMx[All Fields]",
+          "field": "All Fields",
+          "count": "494",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "Xenium[All Fields]",
+          "field": "All Fields",
+          "count": "1394",
+          "explode": "N"
+        },
+        "OR",
+        "GROUP",
+        "AND",
+        {
+          "term": "gse[Entry Type]",
+          "field": "Entry Type",
+          "count": "293451",
+          "explode": "N"
+        },
+        "AND"
+      ],
+      "querytranslation": "CLDN4[All Fields] AND (IMC[All Fields] OR \"imaging mass cytometry\"[All Fields] OR CODEX[All Fields] OR PhenoCycler[All Fields] OR MIBI[All Fields] OR CosMx[All Fields] OR Xenium[All Fields]) AND gse[Entry Type]"
+    }
+  },
+  "\"Claudin-4\"[All Fields] AND (IMC OR CODEX OR PhenoCycler OR MIBI OR CosMx) AND (gse[Entry Type])": {
+    "header": {
+      "type": "esearch",
+      "version": "0.3"
+    },
+    "esearchresult": {
+      "count": "0",
+      "retmax": "0",
+      "retstart": "0",
+      "idlist": [],
+      "translationset": [],
+      "translationstack": [
+        {
+          "term": "\"Claudin-4\"[All Fields]",
+          "field": "All Fields",
+          "count": "40",
+          "explode": "N"
+        },
+        {
+          "term": "IMC[All Fields]",
+          "field": "All Fields",
+          "count": "411",
+          "explode": "N"
+        },
+        {
+          "term": "CODEX[All Fields]",
+          "field": "All Fields",
+          "count": "63",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "PhenoCycler[All Fields]",
+          "field": "All Fields",
+          "count": "6",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "MIBI[All Fields]",
+          "field": "All Fields",
+          "count": "20",
+          "explode": "N"
+        },
+        "OR",
+        {
+          "term": "CosMx[All Fields]",
+          "field": "All Fields",
+          "count": "494",
+          "explode": "N"
+        },
+        "OR",
+        "GROUP",
+        "AND",
+        {
+          "term": "gse[Entry Type]",
+          "field": "Entry Type",
+          "count": "293451",
+          "explode": "N"
+        },
+        "AND"
+      ],
+      "querytranslation": "\"Claudin-4\"[All Fields] AND (IMC[All Fields] OR CODEX[All Fields] OR PhenoCycler[All Fields] OR MIBI[All Fields] OR CosMx[All Fields]) AND gse[Entry Type]"
+    }
+  }
+}
