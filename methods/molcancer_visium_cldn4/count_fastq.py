@@ -47,6 +47,9 @@ SAMPLES = [
         "timepoint": "post_chemoIO",
         "r1": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/000/SRR29925400/SRR29925400_1.fastq.gz",
         "r2": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/000/SRR29925400/SRR29925400_2.fastq.gz",
+        "expected_reads": 275367577,
+        "r1_bytes": 21093370359,
+        "r2_bytes": 18827361053,
     },
     {
         "patient": "PA08",
@@ -56,6 +59,9 @@ SAMPLES = [
         "timepoint": "post_chemoIO",
         "r1": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/001/SRR29925401/SRR29925401_1.fastq.gz",
         "r2": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/001/SRR29925401/SRR29925401_2.fastq.gz",
+        "expected_reads": 369145160,
+        "r1_bytes": 28304410261,
+        "r2_bytes": 26486849939,
     },
     {
         "patient": "PA09",
@@ -65,6 +71,9 @@ SAMPLES = [
         "timepoint": "post_chemoIO",
         "r1": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/098/SRR29925398/SRR29925398_1.fastq.gz",
         "r2": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/098/SRR29925398/SRR29925398_2.fastq.gz",
+        "expected_reads": 366823687,
+        "r1_bytes": 27977283186,
+        "r2_bytes": 26467870964,
     },
     {
         "patient": "PA12",
@@ -74,6 +83,9 @@ SAMPLES = [
         "timepoint": "post_chemoIO",
         "r1": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/099/SRR29925399/SRR29925399_1.fastq.gz",
         "r2": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/099/SRR29925399/SRR29925399_2.fastq.gz",
+        "expected_reads": 398010594,
+        "r1_bytes": 30404586962,
+        "r2_bytes": 28209463804,
     },
 ]
 
@@ -170,12 +182,15 @@ def open_fastq_stream(url: str) -> subprocess.Popen:
     )
 
 
-def aria2_get(url: str, dest: Path) -> Path:
+def aria2_get(url: str, dest: Path, expected_bytes: int | None = None) -> Path:
     dest.parent.mkdir(parents=True, exist_ok=True)
-    if dest.exists() and dest.stat().st_size > 1_000_000:
+    if dest.exists() and expected_bytes and dest.stat().st_size == expected_bytes:
+        return dest
+    if dest.exists() and expected_bytes is None and dest.stat().st_size > 1_000_000:
         return dest
     cmd = [
         "aria2c",
+        "-c",
         "-x",
         "16",
         "-s",
@@ -183,7 +198,10 @@ def aria2_get(url: str, dest: Path) -> Path:
         "-k",
         "1M",
         "--file-allocation=none",
-        "--allow-overwrite=true",
+        "--max-tries=0",
+        "--retry-wait=4",
+        "--timeout=60",
+        "--connect-timeout=20",
         "-d",
         str(dest.parent),
         "-o",
@@ -335,13 +353,24 @@ def main():
             r1 = fq_dir / f"{sample['srr']}_1.fastq.gz"
             r2 = fq_dir / f"{sample['srr']}_2.fastq.gz"
             print(f"[aria2] {sample['srr']} R1", flush=True)
-            aria2_get(sample["r1"], r1)
+            aria2_get(sample["r1"], r1, sample.get("r1_bytes"))
             print(f"[aria2] {sample['srr']} R2", flush=True)
-            aria2_get(sample["r2"], r2)
+            aria2_get(sample["r2"], r2, sample.get("r2_bytes"))
+            for p, key in ((r1, "r1_bytes"), (r2, "r2_bytes")):
+                exp = sample.get(key)
+                got = p.stat().st_size
+                print(f"  size {p.name}={got} expected={exp}", flush=True)
+                if exp and abs(got - exp) > 0.02 * exp:
+                    raise RuntimeError(f"size mismatch {p} {got} != {exp}")
             local["r1"] = str(r1)
             local["r2"] = str(r2)
         out = OUT / f"{sample['patient']}_spot_counts.csv"
         summaries.append(count_sample(local, exact, pref, wl, coords, fix, out))
+        exp_reads = sample.get("expected_reads")
+        if exp_reads and summaries[-1]["n_fastq_reads"] < 0.5 * exp_reads:
+            raise RuntimeError(
+                f"{sample['patient']} only {summaries[-1]['n_fastq_reads']} reads (expected {exp_reads}); keeping FASTQ"
+            )
         if args.aria2:
             for p in (r1, r2):
                 if p is not None and p.exists():

@@ -1,8 +1,12 @@
 data/PRJNA1139087/fastq/
+data/PRJNA1139087/counts/*INCOMPLETE*
 data/GSE292299/*.tar
 data/GSE292299/*.tar.gz
+data/GSE292299/*.h5
+data/GSE292299/positions/
 data/refs/Visium_Human_Transcriptome_Probe_Set_*.csv
 data/refs/visium-v[2-5]*
+logs/
 /tmp/
 *.pyc
 __pycache__/
