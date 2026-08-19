@@ -132,7 +132,14 @@ def _gmm_high_mask(score: np.ndarray, min_frac: float = 0.12) -> np.ndarray:
     return mask
 
 
-def gi_star_z(values: np.ndarray, xy: np.ndarray, radius: float) -> np.ndarray:
+def radius_weights(xy: np.ndarray, radius: float) -> csr_matrix | None:
+    if len(xy) < 15:
+        return None
+    W = radius_neighbors_graph(xy, radius=radius, mode="connectivity", include_self=True)
+    return csr_matrix(W)
+
+
+def gi_star_z(values: np.ndarray, xy: np.ndarray, radius: float, W: csr_matrix | None = None) -> np.ndarray:
     """Getis-Ord Gi* z-scores with binary weights, self included."""
     n = len(values)
     z = np.full(n, np.nan)
@@ -141,8 +148,10 @@ def gi_star_z(values: np.ndarray, xy: np.ndarray, radius: float) -> np.ndarray:
     x = np.asarray(values, dtype=float)
     if np.nanstd(x) < 1e-12:
         return z
-    W = radius_neighbors_graph(xy, radius=radius, mode="connectivity", include_self=True)
-    W = csr_matrix(W)
+    if W is None:
+        W = radius_weights(xy, radius)
+    if W is None:
+        return z
     Wx = np.asarray(W @ x).ravel()
     Wi = np.asarray(W.sum(axis=1)).ravel()
     S1 = np.asarray(W.multiply(W).sum(axis=1)).ravel()
@@ -214,23 +223,35 @@ def signed_distance_grid(
     return signed[iy, ix]
 
 
-def infiltration_profile(signed_um: np.ndarray, cd8: np.ndarray, bin_um=BIN_UM, max_um=INWARD_MAX_UM):
-    """Mean CD8 metric vs inward distance. Returns bin centers, means, ns."""
-    edges = np.arange(0, max_um + bin_um, bin_um)
+def infiltration_profile(
+    signed_um: np.ndarray,
+    cd8: np.ndarray,
+    bin_um=BIN_UM,
+    max_um=INWARD_MAX_UM,
+    min_um: float = 0.0,
+    area_per_unit: float | None = None,
+):
+    """CD8 metric vs signed distance. Positive distance = inward. Returns centers, means, ns."""
+    edges = np.arange(min_um, max_um + bin_um, bin_um)
     centers = 0.5 * (edges[:-1] + edges[1:])
     means = np.full(len(centers), np.nan)
     ns = np.zeros(len(centers), dtype=int)
-    inside = (signed_um >= 0) & (signed_um <= max_um) & np.isfinite(signed_um) & np.isfinite(cd8)
-    if inside.sum() == 0:
+    ok = (signed_um >= min_um) & (signed_um <= max_um) & np.isfinite(signed_um) & np.isfinite(cd8)
+    if ok.sum() == 0:
         return centers, means, ns
-    d = signed_um[inside]
-    v = cd8[inside]
+    d = signed_um[ok]
+    v = cd8[ok]
     bins = np.digitize(d, edges) - 1
     for i in range(len(centers)):
         sel = bins == i
         ns[i] = int(sel.sum())
         if sel.sum() >= 3:
-            means[i] = float(np.mean(v[sel]))
+            mu = float(np.mean(v[sel]))
+            if area_per_unit is not None and area_per_unit > 0:
+                # convert mean CD8-per-unit into per mm² (CosMx cell indicator)
+                means[i] = mu / area_per_unit
+            else:
+                means[i] = mu
     return centers, means, ns
 
 
@@ -247,7 +268,8 @@ def trapz_auc(centers, means, max_um=INWARD_MAX_UM) -> float:
     ok = np.isfinite(m) & (c <= max_um)
     if ok.sum() < 2:
         return float("nan")
-    return float(np.trapz(m[ok], c[ok]))
+    trap = getattr(np, "trapezoid", None) or getattr(np, "trapz")
+    return float(trap(m[ok], c[ok]))
 
 
 def barrier_stats(signed_um: np.ndarray, cd8: np.ndarray, rim_um=RIM_UM):
@@ -358,10 +380,16 @@ def load_cosmx_sample(sample_dir: Path) -> pd.DataFrame | None:
     return df.reset_index(drop=True)
 
 
+def _real_files(sample_dir: Path, pattern: str):
+    return [p for p in sample_dir.glob(pattern) if not p.name.startswith("._")]
+
+
 def _read_mtx_triplet(sample_dir: Path):
-    mtx = next(sample_dir.glob("*matrix.mtx*"), None)
-    feat = next(sample_dir.glob("*features.tsv*"), None) or next(sample_dir.glob("*genes.tsv*"), None)
-    barc = next(sample_dir.glob("*barcodes.tsv*"), None)
+    mtx = next(iter(_real_files(sample_dir, "*matrix.mtx*")), None)
+    feat = next(iter(_real_files(sample_dir, "*features.tsv*")), None) or next(
+        iter(_real_files(sample_dir, "*genes.tsv*")), None
+    )
+    barc = next(iter(_real_files(sample_dir, "*barcodes.tsv*")), None)
     if not (mtx and feat and barc):
         return None
     from scipy.io import mmread
@@ -437,69 +465,44 @@ def load_visium_sample(sample_dir: Path) -> pd.DataFrame | None:
     if packed is None:
         return None
     mat, symbols, barcodes = packed
-    pos = None
-    for cand in sample_dir.glob("*tissue_positions*"):
-        pos = pd.read_csv(cand, header=None)
-        break
-    if pos is None:
+    pos_path = next(iter(_real_files(sample_dir, "tissue_positions.csv")), None) or next(
+        iter(_real_files(sample_dir, "*tissue_positions*")), None
+    )
+    if pos_path is None:
         return None
-    # 10x tissue_positions: barcode, in_tissue, array_row, array_col, pxl_row, pxl_col
-    # sometimes with header
-    if pos.shape[1] < 6:
-        pos = pd.read_csv(next(sample_dir.glob("*tissue_positions*")))
-        cols = {c.lower(): c for c in pos.columns}
-        bcol = cols.get("barcode") or pos.columns[0]
-        pos = pos.rename(columns={bcol: "barcode"})
-        if "in_tissue" in cols:
-            pos = pos[pos[cols["in_tissue"]].astype(int) == 1]
-        xcol = cols.get("pxl_col_in_fullres") or cols.get("pxl_col") or pos.columns[-1]
-        ycol = cols.get("pxl_row_in_fullres") or cols.get("pxl_row") or pos.columns[-2]
-        pos["pxl_col"] = pos[xcol].astype(float)
-        pos["pxl_row"] = pos[ycol].astype(float)
-        barcodes_pos = pos["barcode"].astype(str)
+    peek = pos_path.read_text(errors="replace").splitlines()[0].lower()
+    if "barcode" in peek:
+        pos = pd.read_csv(pos_path)
     else:
-        if str(pos.iloc[0, 0]).startswith("barcode") or "barcode" in str(pos.iloc[0, 0]).lower():
-            pos = pd.read_csv(next(sample_dir.glob("*tissue_positions*")))
-            bcol = [c for c in pos.columns if "barcode" in c.lower()][0]
-            barcodes_pos = pos[bcol].astype(str)
-            in_t = [c for c in pos.columns if "in_tissue" in c.lower()]
-            if in_t:
-                pos = pos[pos[in_t[0]].astype(int) == 1]
-                barcodes_pos = pos[bcol].astype(str)
-            pxl_col = [c for c in pos.columns if "pxl_col" in c.lower()][0]
-            pxl_row = [c for c in pos.columns if "pxl_row" in c.lower()][0]
-            pos = pos.copy()
-            pos["pxl_col"] = pos[pxl_col].astype(float)
-            pos["pxl_row"] = pos[pxl_row].astype(float)
-        else:
-            pos.columns = ["barcode", "in_tissue", "array_row", "array_col", "pxl_row", "pxl_col"][: pos.shape[1]]
-            pos = pos[pos["in_tissue"].astype(int) == 1]
-            barcodes_pos = pos["barcode"].astype(str)
-            pos["pxl_col"] = pos["pxl_col"].astype(float)
-            pos["pxl_row"] = pos["pxl_row"].astype(float)
+        pos = pd.read_csv(pos_path, header=None)
+        pos.columns = ["barcode", "in_tissue", "array_row", "array_col", "pxl_row_in_fullres", "pxl_col_in_fullres"][: pos.shape[1]]
+    cols = {c.lower(): c for c in pos.columns}
+    bcol = cols.get("barcode") or pos.columns[0]
+    in_t = cols.get("in_tissue")
+    if in_t is not None:
+        pos = pos[pos[in_t].astype(int) == 1].copy()
+    xcol = cols.get("pxl_col_in_fullres") or cols.get("pxl_col") or pos.columns[-1]
+    ycol = cols.get("pxl_row_in_fullres") or cols.get("pxl_row") or pos.columns[-2]
+    pos["barcode"] = pos[bcol].astype(str)
+    pos["pxl_col"] = pos[xcol].astype(float)
+    pos["pxl_row"] = pos[ycol].astype(float)
 
     scale = 1.0
-    sf = next(sample_dir.glob("*scalefactors_json.json"), None)
+    sf = next(iter(_real_files(sample_dir, "*scalefactors_json.json")), None)
     if sf is not None:
         js = json.loads(sf.read_text())
-        # spot diameter in fullres pixels ≈ 55 µm for Visium
         spot_px = float(js.get("spot_diameter_fullres", 0) or 0)
         if spot_px > 0:
             scale = 55.0 / spot_px
-        else:
-            scale = float(js.get("microns_per_pixel", 0) or 0) or 1.0
 
-    # align barcodes
-    bar_to_i = {str(b).split("-")[0] if False else str(b): i for i, b in enumerate(barcodes)}
-    # try raw and stripped
+    bar_to_i = {str(b): i for i, b in enumerate(barcodes)}
+
     def _lookup(b):
         b = str(b)
         if b in bar_to_i:
             return bar_to_i[b]
-        b2 = b.split("-")[0]
-        return bar_to_i.get(b2, None)
+        return bar_to_i.get(b.split("-")[0], None)
 
-    rows = []
     gene_idx = {}
     for g in [CLDN4_GENE] + EPI_GENES + CD8_GENES + ["CD3E", "PTPRC"]:
         hits = np.flatnonzero(symbols.astype(str) == g)
@@ -511,16 +514,21 @@ def load_visium_sample(sample_dir: Path) -> pd.DataFrame | None:
     keep_idx = []
     keep_meta = []
     for rec in pos.itertuples(index=False):
-        b = str(getattr(rec, "barcode"))
+        b = str(rec.barcode)
         i = _lookup(b)
         if i is None:
             continue
         keep_idx.append(i)
-        keep_meta.append((b, float(getattr(rec, "pxl_col")) * scale, float(getattr(rec, "pxl_row")) * scale))
+        keep_meta.append((b, float(rec.pxl_col) * scale, float(rec.pxl_row) * scale))
     if len(keep_idx) < 30:
         return None
-    sub = mat[:, keep_idx] if mat.shape[1] == len(barcodes) else mat[keep_idx].T
-    # ensure genes x spots
+    # mat is genes x barcodes
+    if mat.shape[1] == len(barcodes):
+        sub = mat[:, keep_idx]
+    elif mat.shape[0] == len(barcodes):
+        sub = mat[keep_idx].T
+    else:
+        return None
     if sub.shape[0] != len(symbols):
         sub = sub.T
     lib = np.asarray(sub.sum(axis=0)).ravel()
@@ -538,16 +546,18 @@ def load_visium_sample(sample_dir: Path) -> pd.DataFrame | None:
     return df.reset_index(drop=True)
 
 
-def classify_cores(xy_t, cldn4_t, radius: float) -> np.ndarray:
-    z = gi_star_z(cldn4_t, xy_t, radius=radius)
+def classify_cores(xy_t, cldn4_t, radius: float, W: csr_matrix | None = None):
+    if W is None:
+        W = radius_weights(xy_t, radius)
+    z = gi_star_z(cldn4_t, xy_t, radius=radius, W=W)
     med = np.nanmedian(cldn4_t)
     gi_core = (z >= CORE_Z) & (cldn4_t >= med)
-    # local density peak: neighborhood mean in the top 20% of tumor
-    tree = cKDTree(xy_t)
-    loc = np.empty(len(cldn4_t))
-    for i, p in enumerate(xy_t):
-        nn = tree.query_ball_point(p, r=radius)
-        loc[i] = float(np.mean(cldn4_t[nn])) if nn else cldn4_t[i]
+    # local density peak = neighborhood mean (same W, includes self)
+    if W is not None:
+        Wi = np.clip(np.asarray(W.sum(axis=1)).ravel(), 1, None)
+        loc = np.asarray(W @ cldn4_t).ravel() / Wi
+    else:
+        loc = cldn4_t
     peak = loc >= np.nanpercentile(loc, 80)
     peak &= cldn4_t >= med
     return gi_core | peak, z
@@ -601,12 +611,32 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
     domains = connected_domains(xy, is_tumor, radius=link_r, min_n=min_n)
     signed = signed_distance_grid(xy, is_tumor, grid_um=grid_um)
 
-    # cores on tumor cells that belong to a domain
+    # CosMx: convert CD8+ fraction to cells/mm² using median cell area.
+    if platform == "cosmx" and "Area" in df.columns:
+        med_area_mm2 = float(np.median(df["Area"].to_numpy(float)) * (COSMX_UM_PER_PX ** 2) / 1e6)
+        area_per_unit = med_area_mm2 if med_area_mm2 > 0 else None
+    else:
+        area_per_unit = None
+
+    # Assign every unit to the nearest tumor domain so infiltrating CD8 inside
+    # the tumor mask (and peri-tumoral stroma) is counted in that domain's curve.
+    assigned = domains.copy()
     in_dom = domains >= 0
+    if in_dom.sum() >= 5:
+        tree_t = cKDTree(xy[in_dom])
+        d_nn, nn = tree_t.query(xy, k=1)
+        nearest = domains[in_dom][nn]
+        # immune cells inside the tumor mask
+        assigned = np.where((signed >= 0) & (assigned < 0), nearest, assigned)
+        # immediate stroma attached to a domain
+        assigned = np.where((signed < 0) & (signed >= -120) & (d_nn <= 80), nearest, assigned)
+
+    # cores on tumor cells that belong to a domain
     cores = np.zeros(len(df), dtype=bool)
     gi_z = np.full(len(df), np.nan)
+    W_tumor = radius_weights(xy[in_dom], gi_r) if in_dom.sum() >= 20 else None
     if in_dom.sum() >= 20:
-        core_sub, z_sub = classify_cores(xy[in_dom], cldn4[in_dom], radius=gi_r)
+        core_sub, z_sub = classify_cores(xy[in_dom], cldn4[in_dom], radius=gi_r, W=W_tumor)
         cores[in_dom] = core_sub
         gi_z[in_dom] = z_sub
 
@@ -615,24 +645,21 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
     high_doms, low_doms = [], []
     domain_rows = []
     for did in dom_ids:
-        sel = domains == did
-        frac = float(cores[sel].mean()) if sel.sum() else 0.0
+        tumor_sel = domains == did
+        frac = float(cores[tumor_sel].mean()) if tumor_sel.sum() else 0.0
         is_high = frac >= CORE_FRAC
         (high_doms if is_high else low_doms).append(did)
-        ctr, mu, ns = infiltration_profile(signed[sel], cd8[sel])
+        band = assigned == did
+        ctr, mu, ns = infiltration_profile(signed[band], cd8[band], area_per_unit=area_per_unit)
         auc = trapz_auc(ctr, mu)
-        # barrier on this domain's margin: cells of this domain plus nearby stroma
-        # use points whose nearest tumor domain is this one
-        tree_t = cKDTree(xy[sel])
-        d_to, _ = tree_t.query(xy, k=1)
-        near = (domains == did) | ((~is_tumor) & (d_to <= RIM_UM * 1.5) & (signed < 0))
-        b = barrier_stats(signed[near], cd8[near])
+        b = barrier_stats(signed[band], cd8[band])
         domain_rows.append(
             dict(
                 sample=sample,
                 platform=platform,
                 domain=did,
-                n=int(sel.sum()),
+                n=int(tumor_sel.sum()),
+                n_band=int(band.sum()),
                 core_frac=frac,
                 cldn4_class="high" if is_high else "low",
                 auc_0_200=auc,
@@ -640,37 +667,51 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
             )
         )
 
-    def _pool(dom_list):
+    def _pool(dom_list, cldn4_for_rim=None, cores_for_rim=None):
+        empty = dict(
+            centers=None,
+            means=None,
+            ns=None,
+            display_centers=None,
+            display_means=None,
+            auc=np.nan,
+            bar=dict(barrier=np.nan, drop=np.nan, cd8_rim=np.nan, cd8_stroma=np.nan),
+        )
         if not dom_list:
-            return dict(centers=None, means=None, auc=np.nan, bar=dict(barrier=np.nan, drop=np.nan, cd8_rim=np.nan, cd8_stroma=np.nan))
-        sel = np.isin(domains, dom_list)
-        # include adjacent stroma for barrier
-        if sel.sum():
-            tree_t = cKDTree(xy[sel])
-            d_to, _ = tree_t.query(xy, k=1)
-            near = sel | ((~is_tumor) & (d_to <= RIM_UM * 1.5) & (signed < 0))
-        else:
-            near = sel
-        # infiltration only inside those domains
-        ctr, mu, ns = infiltration_profile(signed[sel], cd8[sel])
-        # barrier specifically across CLDN4-high (or low) rim:
-        # restrict inside band to core-touching rim when high
-        if dom_list is high_doms:
-            rim_inside = sel & (signed >= 0) & (signed <= RIM_UM)
-            # prefer CLDN4-high rim cells
-            high_rim = rim_inside & (cores | (cldn4 >= np.nanmedian(cldn4[sel])))
+            return empty
+        band = np.isin(assigned, dom_list)
+        # store 0–200 for AUC; also keep a display curve that includes the stromal approach
+        ctr, mu, ns = infiltration_profile(signed[band], cd8[band], area_per_unit=area_per_unit)
+        ctr_d, mu_d, ns_d = infiltration_profile(
+            signed[band], cd8[band], min_um=-RIM_UM, max_um=INWARD_MAX_UM, area_per_unit=area_per_unit
+        )
+        # Barrier across the CLDN4-high rim: first 50 µm inside vs immediate stroma,
+        # restricted to units whose nearest tumor neighbor is a CLDN4-high rim cell.
+        if cldn4_for_rim is not None and cores_for_rim is not None:
+            tumor_sel = np.isin(domains, dom_list)
+            rim_t = tumor_sel & (signed >= 0) & (signed <= RIM_UM)
+            med = np.nanmedian(cldn4_for_rim[tumor_sel]) if tumor_sel.sum() else np.nan
+            high_rim = rim_t & (cores_for_rim | (cldn4_for_rim >= med))
             if high_rim.sum() >= 8:
                 tree_r = cKDTree(xy[high_rim])
                 d_r, _ = tree_r.query(xy, k=1)
-                near_b = high_rim | ((~is_tumor) & (d_r <= RIM_UM) & (signed < 0) & (signed >= -RIM_UM))
+                near_b = (d_r <= 60) & (signed >= -RIM_UM) & (signed <= RIM_UM)
                 b = barrier_stats(signed[near_b], cd8[near_b])
             else:
-                b = barrier_stats(signed[near], cd8[near])
+                b = barrier_stats(signed[band], cd8[band])
         else:
-            b = barrier_stats(signed[near], cd8[near])
-        return dict(centers=ctr, means=mu, ns=ns, auc=trapz_auc(ctr, mu), bar=b)
+            b = barrier_stats(signed[band], cd8[band])
+        return dict(
+            centers=ctr,
+            means=mu,
+            ns=ns,
+            display_centers=ctr_d,
+            display_means=mu_d,
+            auc=trapz_auc(ctr, mu),
+            bar=b,
+        )
 
-    pooled_h = _pool(high_doms)
+    pooled_h = _pool(high_doms, cldn4_for_rim=cldn4, cores_for_rim=cores)
     pooled_l = _pool(low_doms)
 
     # permutation of CLDN4 field
@@ -687,34 +728,22 @@ def analyze_sample(df: pd.DataFrame, n_perm: int, rng_seed: int = 1) -> tuple[Sa
         for _ in range(n_perm):
             cldn4_p = permute_cldn4(xy, cldn4, rng, groups=groups)
             cores_p = np.zeros(len(df), dtype=bool)
-            core_sub, _ = classify_cores(xy[in_dom], cldn4_p[in_dom], radius=gi_r)
+            core_sub, _ = classify_cores(xy[in_dom], cldn4_p[in_dom], radius=gi_r, W=W_tumor)
             cores_p[in_dom] = core_sub
             high_p, low_p = [], []
             for did in dom_ids:
                 sel = domains == did
                 frac = float(cores_p[sel].mean()) if sel.sum() else 0.0
                 (high_p if frac >= CORE_FRAC else low_p).append(did)
-            # barrier on permuted high rims
             if not high_p:
                 perm_barriers.append(np.nan)
                 perm_deltas.append(0.0)
                 continue
-            sel = np.isin(domains, high_p)
-            rim_inside = sel & (signed >= 0) & (signed <= RIM_UM)
-            high_rim = rim_inside & (cores_p | (cldn4_p >= np.nanmedian(cldn4_p[sel])))
-            if high_rim.sum() < 8:
-                high_rim = rim_inside
-            tree_r = cKDTree(xy[high_rim]) if high_rim.sum() else None
-            if tree_r is None:
-                perm_barriers.append(np.nan)
-            else:
-                d_r, _ = tree_r.query(xy, k=1)
-                near_b = high_rim | ((~is_tumor) & (d_r <= RIM_UM) & (signed < 0) & (signed >= -RIM_UM))
-                perm_barriers.append(barrier_stats(signed[near_b], cd8[near_b])["barrier"])
-            if low_p and high_p:
-                ctr_h, mu_h, _ = infiltration_profile(signed[np.isin(domains, high_p)], cd8[np.isin(domains, high_p)])
-                ctr_l, mu_l, _ = infiltration_profile(signed[np.isin(domains, low_p)], cd8[np.isin(domains, low_p)])
-                perm_deltas.append(trapz_auc(ctr_l, mu_l) - trapz_auc(ctr_h, mu_h))
+            ph = _pool(high_p, cldn4_for_rim=cldn4_p, cores_for_rim=cores_p)
+            pl = _pool(low_p)
+            perm_barriers.append(ph["bar"]["barrier"])
+            if np.isfinite(pl["auc"]) and np.isfinite(ph["auc"]):
+                perm_deltas.append(pl["auc"] - ph["auc"])
             else:
                 perm_deltas.append(np.nan)
 
@@ -795,10 +824,14 @@ def plot_infiltration(all_extra: list[tuple[SampleResult, dict]], out: Path):
             if res.platform != plat:
                 continue
             ch, cl = ex["curve_high"], ex["curve_low"]
-            if ch["means"] is not None and np.isfinite(ch["means"]).sum() >= 2:
-                highs.append((ch["centers"], ch["means"]))
-            if cl["means"] is not None and np.isfinite(cl["means"]).sum() >= 2:
-                lows.append((cl["centers"], cl["means"]))
+            hc = ch.get("display_centers") if ch.get("display_centers") is not None else ch.get("centers")
+            hm = ch.get("display_means") if ch.get("display_means") is not None else ch.get("means")
+            lc = cl.get("display_centers") if cl.get("display_centers") is not None else cl.get("centers")
+            lm = cl.get("display_means") if cl.get("display_means") is not None else cl.get("means")
+            if hm is not None and np.isfinite(hm).sum() >= 2:
+                highs.append((hc, hm))
+            if lm is not None and np.isfinite(lm).sum() >= 2:
+                lows.append((lc, lm))
 
         def _band(series, color, label):
             if not series:
@@ -816,10 +849,11 @@ def plot_infiltration(all_extra: list[tuple[SampleResult, dict]], out: Path):
 
         _band(highs, "#b2182b", "CLDN4-high domains")
         _band(lows, "#2166ac", "CLDN4-low domains")
+        ax.axvline(0, color="0.35", ls="-", lw=0.9)
         ax.axvline(50, color="0.6", ls="--", lw=0.8)
-        ax.set_xlim(0, 200)
-        ax.set_xlabel("Inward distance from tumor margin (µm)")
-        ylab = "CD8+ cell fraction" if plat == "cosmx" else "CD8A/B module (log1p)"
+        ax.set_xlim(-50, 200)
+        ax.set_xlabel("Distance from tumor margin (µm); negative = stroma")
+        ylab = "CD8+ cells / mm²" if plat == "cosmx" else "CD8A/B module (log1p)"
         ax.set_ylabel(ylab)
         ax.set_title(title)
         ax.legend(frameon=False, loc="upper right")
@@ -1022,7 +1056,7 @@ def write_results_md(results: list[SampleResult], domain_df: pd.DataFrame, out_m
     lines.append("")
     lines.append("| Cohort | Source | Units | Filter | Tumor definition | CLDN4 | CD8 |")
     lines.append("|---|---|---|---|---|---|---|")
-    lines.append(f"| CosMx NSCLC | Official S3 flat files, 8 FFPE sections / 5 patients | {int(cos.n_units.sum()) if len(cos) else 0} cells across {len(cos)} sections | QC: drop `cell_ID==0` | EPCAM/KRT RNA GMM, plus PanCK protein when present; author cell type if a type column exists | `CLDN4` only | CD8+ = CD8A+CD8B ≥ 1 transcript |")
+    lines.append(f"| CosMx NSCLC | Official S3 flat files, 8 FFPE sections / 5 patients | {int(cos.n_units.sum()) if len(cos) else 0} cells across {len(cos)} sections | QC: drop `cell_ID==0` | EPCAM/KRT RNA GMM, plus PanCK protein when present; author cell type if a type column exists | `CLDN4` only | CD8+ = CD8A+CD8B ≥ 1; density = CD8+ / mm² among all cells in each distance band |")
     lines.append(f"| Visium LUAD | GEO GSE307534, LUAD-titled samples | {int(vis.n_units.sum()) if len(vis) else 0} spots across {len(vis)} slides | Invasive LUAD label only | EPCAM/KRT RNA GMM; author pathology if labeled | `CLDN4` only | CD8A/B log1p-normalized module |")
     lines.append("")
     lines.append("CosMx physical scale is the official 0.18 µm/pixel (NanoString SMI-ReadMe). Visium coordinates are converted with `spot_diameter_fullres` → 55 µm.")
@@ -1036,7 +1070,7 @@ def write_results_md(results: list[SampleResult], domain_df: pd.DataFrame, out_m
     lines.append("")
     lines.append("## Metrics")
     lines.append("")
-    lines.append("- **Infiltration curve**: CD8 metric vs inward distance-from-margin (signed Euclidean distance transform of the tumor mask), 20 µm bins, 0–200 µm.")
+    lines.append("- **Infiltration curve**: CD8 metric vs inward distance-from-margin (signed Euclidean distance transform of the tumor mask), 20 µm bins, 0–200 µm. Every cell/spot inside or on the margin of a domain is counted — not only EPCAM/KRT-high units — so infiltrating CD8 is in the numerator.")
     lines.append("- **AUC₀–₂₀₀**: trapezoidal area under that curve. Lower AUC = less CD8 inside the core.")
     lines.append("- **ΔAUC**: AUC(CLDN4-low) − AUC(CLDN4-high). Positive = CLDN4-high domains exclude CD8 more.")
     lines.append("- **Barrier index**: (CD8_stroma − CD8_rim) / (CD8_stroma + CD8_rim) on the first 50 µm inside the tumor versus the immediate 50 µm of stroma, restricted to the CLDN4-high rim when cores contact the margin. Range (−1, 1); positive means a drop across the fence.")
@@ -1141,7 +1175,9 @@ def discover_visium(root: Path) -> list[Path]:
     for p in sorted(base.iterdir()):
         if not p.is_dir():
             continue
-        if list(p.glob("*tissue_positions*")) and (list(p.glob("*.h5")) or list(p.glob("*matrix.mtx*"))):
+        pos = _real_files(p, "*tissue_positions*")
+        mtx = _real_files(p, "*matrix.mtx*") or _real_files(p, "*.h5")
+        if pos and mtx:
             out.append(p)
     return out
 
