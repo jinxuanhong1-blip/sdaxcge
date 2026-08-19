@@ -1,0 +1,159 @@
+{
+  "dataset": "NanoString CosMx SMI NSCLC FFPE Lung5_Rep2 (He et al. 2022 prototype 960-plex)",
+  "accession": "NanoString-CosMx-NSCLC-Lung5_Rep2",
+  "platform": "CosMx SMI 960-plex RNA + PanCK/CD45/CD3 protein",
+  "n_cells": 81484,
+  "n_fov": 29,
+  "um_per_pixel": 0.18,
+  "genes_present": {
+    "CLDN4": true,
+    "CD8A": true,
+    "CD3D": true,
+    "CD3E": true,
+    "NKG7": true,
+    "KRT8": true,
+    "KRT19": true,
+    "EPCAM": true,
+    "PTPRC": true
+  },
+  "n_epithelial_panck": 32597,
+  "n_cldn4_high_epi": 9500,
+  "n_cldn4_low_epi": 15721,
+  "n_cd8_cells_CD8A_ge1": 10716,
+  "panck_cut": 1868.0,
+  "same_cell_spearman_all": {
+    "CLDN4_vs_CD8A": {
+      "rho": -0.011381693353812557,
+      "p": 0.0011580921607065732,
+      "n": 81484
+    },
+    "CLDN4_vs_CD3E": {
+      "rho": -0.00219928844843236,
+      "p": 0.5301435707598232,
+      "n": 81484
+    },
+    "CLDN4_vs_NKG7": {
+      "rho": -0.0195240266485126,
+      "p": 2.4944564580716375e-08,
+      "n": 81484
+    }
+  },
+  "same_cell_spearman_epithelial": {
+    "CLDN4_vs_CD8A": {
+      "rho": 0.018684412262213453,
+      "p": 0.0007420062505473913,
+      "n": 32597
+    },
+    "CLDN4_vs_CD3E": {
+      "rho": 0.07685766263964552,
+      "p": 6.660917810019483e-44,
+      "n": 32597
+    },
+    "CLDN4_vs_NKG7": {
+      "rho": -0.0034988193262197927,
+      "p": 0.5275980138452745,
+      "n": 32597
+    }
+  },
+  "cldn4_krt8_residual_vs_CD8A_all": {
+    "rho": 0.004053870680792607,
+    "p": 0.2471985403323422,
+    "n": 81484
+  },
+  "cldn4_krt8_residual_vs_CD8A_epithelial": {
+    "rho": 0.016332589565095642,
+    "p": 0.003189342612827967,
+    "n": 32597
+  },
+  "nearest_cd8_um": {
+    "cldn4_hi_median": 16.24443904083375,
+    "cldn4_hi_mean": 17.66982643509632,
+    "cldn4_lo_median": 16.82590859359329,
+    "cldn4_lo_mean": 18.44033652599519,
+    "mwu_p": 1.84343046261397e-06,
+    "n_hi": 9500,
+    "n_lo": 15721
+  },
+  "nhood_cd8_count": {
+    "25": {
+      "radius_um": 25,
+      "cldn4_hi_mean": 1.4514736842105262,
+      "cldn4_hi_median": 1.0,
+      "cldn4_lo_mean": 1.3926595000318045,
+      "cldn4_lo_median": 1.0,
+      "mwu_p": 1.1643696373355834e-05,
+      "n_hi": 9500,
+      "n_lo": 15721
+    },
+    "50": {
+      "radius_um": 50,
+      "cldn4_hi_mean": 4.9537894736842105,
+      "cldn4_hi_median": 5.0,
+      "cldn4_lo_mean": 4.991985242669041,
+      "cldn4_lo_median": 5.0,
+      "mwu_p": 0.8862841359303045,
+      "n_hi": 9500,
+      "n_lo": 15721
+    },
+    "100": {
+      "radius_um": 100,
+      "cldn4_hi_mean": 18.454105263157896,
+      "cldn4_hi_median": 18.0,
+      "cldn4_lo_mean": 18.87634374403664,
+      "cldn4_lo_median": 18.0,
+      "mwu_p": 0.0061477005641856555,
+      "n_hi": 9500,
+      "n_lo": 15721
+    }
+  },
+  "nhood_spearman_cldn4_vs_cd8count": {
+    "25": {
+      "all_cells": {
+        "rho": -0.0028820814846403646,
+        "p": 0.41068382228794603,
+        "n": 81484
+      },
+      "epithelial": {
+        "rho": 0.023872675570665376,
+        "p": 1.6283100373570366e-05,
+        "n": 32597
+      }
+    },
+    "50": {
+      "all_cells": {
+        "rho": -0.023935768086728162,
+        "p": 8.290482196852623e-12,
+        "n": 81484
+      },
+      "epithelial": {
+        "rho": 0.00043641469748362824,
+        "p": 0.9371995932069981,
+        "n": 32597
+      }
+    },
+    "100": {
+      "all_cells": {
+        "rho": -0.03525642374542456,
+        "p": 7.725036443990313e-24,
+        "n": 81484
+      },
+      "epithelial": {
+        "rho": -0.01484288599670978,
+        "p": 0.007364979499089466,
+        "n": 32597
+      }
+    }
+  },
+  "per_fov_spearman_CLDN4_CD8A": {
+    "n_fov": 29,
+    "median_rho": -0.006397542913870824,
+    "mean_rho": -0.010276737751729962,
+    "n_negative": 18
+  },
+  "definition": {
+    "epithelial": "Mean.PanCK >= 60th percentile of PanCK-positive cells",
+    "cldn4_high": "epithelial AND log1p(CLDN4) >= Q75 within epithelial",
+    "cd8_cell": "CD8A RNA count >= 1",
+    "not_used": "TACSTD2 intersection was not applied (CLDN4-only)"
+  }
+}

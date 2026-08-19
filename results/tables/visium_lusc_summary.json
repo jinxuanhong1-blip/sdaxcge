@@ -1,0 +1,155 @@
+{
+  "dataset": "10x Visium CytAssist FFPE Human Lung Squamous Cell Carcinoma (demo)",
+  "accession": "10x-CytAssist-FFPE-Human-Lung-SCC",
+  "platform": "Visium CytAssist FFPE (whole transcriptome probe set v2.0)",
+  "n_spots_in_tissue": 3826,
+  "n_genes": 18085,
+  "genes_present": {
+    "CLDN4": true,
+    "CD8A": true,
+    "CD8B": false,
+    "CD3D": true,
+    "CD3E": true,
+    "NKG7": true,
+    "KRT8": true,
+    "EPCAM": true,
+    "PTPRC": true
+  },
+  "um_per_pixel": 0.2147402628606651,
+  "n_epithelial": 1913,
+  "n_cldn4_high_epi": 479,
+  "n_cldn4_low_epi": 479,
+  "n_cd8_spots": 356,
+  "cldn4_q75_in_epi": 1.0699032157394872,
+  "same_spot_spearman_all": {
+    "CLDN4_vs_CD8A": {
+      "rho": 0.06364183679773475,
+      "p": 8.173604924771614e-05,
+      "n": 3826
+    },
+    "CLDN4_vs_CD3E": {
+      "rho": -0.005094564165025496,
+      "p": 0.7527452148521588,
+      "n": 3826
+    },
+    "CLDN4_vs_NKG7": {
+      "rho": 0.03655372468418651,
+      "p": 0.023757071178276003,
+      "n": 3826
+    }
+  },
+  "same_spot_spearman_epithelial": {
+    "CLDN4_vs_CD8A": {
+      "rho": 0.06184983104717708,
+      "p": 0.00680986968962662,
+      "n": 1913
+    },
+    "CLDN4_vs_CD3E": {
+      "rho": -0.0051190923221096675,
+      "p": 0.822949315249102,
+      "n": 1913
+    },
+    "CLDN4_vs_NKG7": {
+      "rho": 0.006038342611991218,
+      "p": 0.7918308234787814,
+      "n": 1913
+    }
+  },
+  "cldn4_krt8_residual_vs_CD8A_all": {
+    "rho": 0.06420349016456747,
+    "p": 7.0649339307451e-05,
+    "n": 3826
+  },
+  "cldn4_krt8_residual_vs_CD8A_epithelial": {
+    "rho": 0.053123824760869874,
+    "p": 0.02014456588763973,
+    "n": 1913
+  },
+  "nearest_cd8_um": {
+    "cldn4_hi_median": 136.78954744224347,
+    "cldn4_hi_mean": 168.32390572980563,
+    "cldn4_lo_median": 157.1898724140069,
+    "cldn4_lo_mean": 182.21471276866842,
+    "mwu_U": 105898.5,
+    "mwu_p": 0.03933425761515949,
+    "n_hi": 479,
+    "n_lo": 479
+  },
+  "nhood_cd8_count": {
+    "100": {
+      "radius_um": 100,
+      "cldn4_hi_mean": 0.48643006263048016,
+      "cldn4_hi_median": 0.0,
+      "cldn4_lo_mean": 0.407098121085595,
+      "cldn4_lo_median": 0.0,
+      "mwu_p": 0.09868602419244075,
+      "n_hi": 479,
+      "n_lo": 479
+    },
+    "150": {
+      "radius_um": 150,
+      "cldn4_hi_mean": 0.9269311064718163,
+      "cldn4_hi_median": 1.0,
+      "cldn4_lo_mean": 0.7891440501043842,
+      "cldn4_lo_median": 0.0,
+      "mwu_p": 0.07955349844665842,
+      "n_hi": 479,
+      "n_lo": 479
+    },
+    "250": {
+      "radius_um": 250,
+      "cldn4_hi_mean": 2.7077244258872653,
+      "cldn4_hi_median": 2.0,
+      "cldn4_lo_mean": 2.44258872651357,
+      "cldn4_lo_median": 2.0,
+      "mwu_p": 0.0693873420208609,
+      "n_hi": 479,
+      "n_lo": 479
+    }
+  },
+  "nhood_spearman_cldn4_vs_cd8count": {
+    "100": {
+      "all_spots": {
+        "rho": -0.085640936034583,
+        "p": 1.1248190310000105e-07,
+        "n": 3826
+      },
+      "epithelial": {
+        "rho": 0.032267271763511976,
+        "p": 0.15831947794155304,
+        "n": 1913
+      }
+    },
+    "150": {
+      "all_spots": {
+        "rho": -0.09171584918283372,
+        "p": 1.3221232133838777e-08,
+        "n": 3826
+      },
+      "epithelial": {
+        "rho": 0.03328234387789482,
+        "p": 0.14562774172758822,
+        "n": 1913
+      }
+    },
+    "250": {
+      "all_spots": {
+        "rho": -0.12346908283034194,
+        "p": 1.8025256324909778e-14,
+        "n": 3826
+      },
+      "epithelial": {
+        "rho": 0.03776035207418093,
+        "p": 0.09872507011139374,
+        "n": 1913
+      }
+    }
+  },
+  "definition": {
+    "epithelial": "top 50% z-mean of EPCAM/KRT7/KRT8/KRT18/KRT19/CDH1/ELF3/SFN (CLDN4 excluded)",
+    "cldn4_high": "epithelial AND CLDN4 >= Q75 within epithelial spots",
+    "cldn4_low": "epithelial AND CLDN4 <= Q25 within epithelial spots",
+    "cd8_spot": "CD8A >= max(median of nonzero, Q75 of all spots)",
+    "not_used": "TACSTD2 intersection was not applied (CLDN4-only)"
+  }
+}

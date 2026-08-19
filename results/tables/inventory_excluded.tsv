@@ -1,0 +1,18 @@
+accession	reason	platform	CLDN4	CD8_T_NK	notes
+GSE221733	CLDN4 absent	GeoMx CTA	no	TACSTD2/CD8 present	UQ CTA arm of ICI study
+GSE261345	CLDN4 absent	GeoMx CTA	no	yes	ES-SCLC CANTABRICO
+GSE261348	CLDN4 absent (CTA sister)	GeoMx CTA	no	yes	ES-SCLC IMfirst
+GSE186213	CLDN4 absent	GeoMx CTA	no	yes	COVID lung
+GSE329813	CLDN4 absent	GeoMx processed 1812-gene matrix	no	yes	NSCLC neoadjuvant chemo-IO
+GSE319755	CLDN4 absent	Xenium 568-plex	no	TACSTD2/T/B yes	NKG2A lung-cancer Xenium
+GSE311609	CLDN4 absent in deposited 5K names	Xenium 5K archival lung+breast	no (CLDN1/5/7/18 only)	CD8 likely	Do not assume Prime 5K always has CLDN4
+GSE174749	CTA; CLDN4 typically absent	GeoMx CTA NSCLC grid	no	CD8A yes	Vendor CTA showcase
+GSE174743	CTA sister	GeoMx CTA	no	CD8A yes	
+GSE175927	CTA mixed	GeoMx CTA	no	CD8A yes	
+TRACERx-IMC-Sorin2024	EGA / no access this run	IMC	CLDN4 protein not on published TRACERx IMC panel	CD8/CD3 yes	Cancer Discov 2024; skip EGA
+deVries-Nature2023-IMC	EGA / no access	IMC	CLDN4 protein not reported on 41-plex	CD8 yes	Nature 2023 lung TME
+WEHI-MIBI-NSCLC	Zenodo images; CLDN4 not on 38-plex IO panel	MIBI	no	CD8/CD3 yes	zenodo.17051520; skip (no CLDN4)
+CODEX-lung-TMA-zenodo19477006	panel not confirmed for CLDN4	CODEX	unconfirmed	CD8 likely	Skip until panel lists CLDN4
+GSE111672	not lung	old ST	n/a	n/a	PDAC
+GSE253013	not spatial matrix	scRNA	n/a	n/a	LUAD scRNA
+private-8KL-mouse-scRNA	out of scope	scRNA	n/a	n/a	User: do not use
