@@ -1,0 +1,413 @@
+{
+  "status": {
+    "GSE277206": "ran (2 sections)",
+    "zenodo_13337961": "ran (2 sections)"
+  },
+  "sections": [
+    {
+      "section": "GSE277206_MIA-034",
+      "source": "GSE277206",
+      "histology": "MIA",
+      "n_genes_matrix": 18082,
+      "CLDN4": true,
+      "CD8A": true,
+      "KRT8": true,
+      "epi_genes_present": [
+        "EPCAM",
+        "KRT8",
+        "KRT19",
+        "CDH1",
+        "KRT7"
+      ],
+      "n_raw": 10701,
+      "n_with_coords": 10701,
+      "n_qc": 10674,
+      "coord_match_frac": 1.0,
+      "same_CLDN4_CD8A": {
+        "n": 10674,
+        "rho": -0.001406697705159371,
+        "p": 0.8844613050942922
+      },
+      "same_KRT8_CD8A": {
+        "n": 10674,
+        "rho": 0.036191284170273216,
+        "p": 0.0001840996116837557
+      },
+      "same_CLDN4_KRT8": {
+        "n": 10674,
+        "rho": 0.292971365725831,
+        "p": 2.849736884613247e-210
+      },
+      "partial_CLDN4_CD8A_ctrl_KRT8": {
+        "n": 10674,
+        "rho": 0.11763669433042043,
+        "p": 3.3222025762424272e-34
+      },
+      "same_CLDN4residKRT8_CD8A": {
+        "n": 10674,
+        "rho": -0.029948937482724782,
+        "p": 0.0019713978307444604
+      },
+      "n_epithelial_like": 2669,
+      "epi_q3_cut": 1.0916180003392186,
+      "n_cldn4_q1": 1157,
+      "n_cldn4_q4": 668,
+      "cldn4_q1_cut": 0.0,
+      "cldn4_q4_cut": 1.6294683561112633,
+      "n_resid_q1": 668,
+      "n_resid_q4": 668,
+      "n_cd8a_pos": 1745,
+      "cd8a_q4_cut": 0.0,
+      "cd8a_high_rule": "CD8A>0 (section Q3==0)",
+      "n_cd8a_high": 1745,
+      "CLDN4_vs_neiCD8A": {
+        "n": 10615,
+        "rho": -0.016795874526323785,
+        "p": 0.08356196422172472
+      },
+      "partial_CLDN4_vs_neiCD8A_ctrl_KRT8": {
+        "n": 10615,
+        "rho": -0.00690461342668167,
+        "p": 0.4768977550731865
+      },
+      "q4q1_neighbor_CD8A": {
+        "n_q4": 665,
+        "n_q1": 1144,
+        "median_q4": 0.0,
+        "median_q1": 0.23419524037543665,
+        "delta_q4_minus_q1": -0.23419524037543665,
+        "p": 6.744107378296789e-31
+      },
+      "resid_q4q1_neighbor_CD8A": {
+        "n_q4": 665,
+        "n_q1": 663,
+        "median_q4": 0.0,
+        "median_q1": 0.2064720775241615,
+        "delta_q4_minus_q1": -0.2064720775241615,
+        "p": 1.6055450953073633e-12
+      },
+      "q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 668,
+        "n_q1": 1157,
+        "median_q4": 173.20508075688747,
+        "median_q1": 100.0,
+        "delta_q4_minus_q1": 73.20508075688747,
+        "p": 5.54949163069111e-15
+      },
+      "resid_q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 668,
+        "n_q1": 668,
+        "median_q4": 173.20508075688747,
+        "median_q1": 100.00000000000033,
+        "delta_q4_minus_q1": 73.20508075688714,
+        "p": 1.0788902338478882e-05
+      }
+    },
+    {
+      "section": "GSE277206_MIA-039",
+      "source": "GSE277206",
+      "histology": "MIA",
+      "n_genes_matrix": 18082,
+      "CLDN4": true,
+      "CD8A": true,
+      "KRT8": true,
+      "epi_genes_present": [
+        "EPCAM",
+        "KRT8",
+        "KRT19",
+        "CDH1",
+        "KRT7"
+      ],
+      "n_raw": 4774,
+      "n_with_coords": 4774,
+      "n_qc": 4758,
+      "coord_match_frac": 1.0,
+      "same_CLDN4_CD8A": {
+        "n": 4758,
+        "rho": 0.07720641131555753,
+        "p": 9.707039553542841e-08
+      },
+      "same_KRT8_CD8A": {
+        "n": 4758,
+        "rho": 0.05823806391852889,
+        "p": 5.831774069818323e-05
+      },
+      "same_CLDN4_KRT8": {
+        "n": 4758,
+        "rho": 0.2588468068330242,
+        "p": 1.0609442603048255e-73
+      },
+      "partial_CLDN4_CD8A_ctrl_KRT8": {
+        "n": 4758,
+        "rho": 0.08716397646054151,
+        "p": 1.7195173289732029e-09
+      },
+      "same_CLDN4residKRT8_CD8A": {
+        "n": 4758,
+        "rho": 0.06673837324768847,
+        "p": 4.076875808215037e-06
+      },
+      "n_epithelial_like": 1190,
+      "epi_q3_cut": 0.9693606437259448,
+      "n_cldn4_q1": 298,
+      "n_cldn4_q4": 298,
+      "cldn4_q1_cut": 0.47892819707135836,
+      "cldn4_q4_cut": 1.566357482796684,
+      "n_resid_q1": 298,
+      "n_resid_q4": 298,
+      "n_cd8a_pos": 621,
+      "cd8a_q4_cut": 0.0,
+      "cd8a_high_rule": "CD8A>0 (section Q3==0)",
+      "n_cd8a_high": 621,
+      "CLDN4_vs_neiCD8A": {
+        "n": 4682,
+        "rho": 0.028632918401802133,
+        "p": 0.05010224755663618
+      },
+      "partial_CLDN4_vs_neiCD8A_ctrl_KRT8": {
+        "n": 4682,
+        "rho": 0.045117071707253605,
+        "p": 0.0020158302894964786
+      },
+      "q4q1_neighbor_CD8A": {
+        "n_q4": 298,
+        "n_q1": 293,
+        "median_q4": 0.07661687536479933,
+        "median_q1": 0.0,
+        "delta_q4_minus_q1": 0.07661687536479933,
+        "p": 0.17087239589556402
+      },
+      "resid_q4q1_neighbor_CD8A": {
+        "n_q4": 298,
+        "n_q1": 294,
+        "median_q4": 0.07567767608195415,
+        "median_q1": 0.0,
+        "delta_q4_minus_q1": 0.07567767608195415,
+        "p": 0.1562090025815452
+      },
+      "q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 298,
+        "n_q1": 298,
+        "median_q4": 100.0,
+        "median_q1": 173.20508075688747,
+        "delta_q4_minus_q1": -73.20508075688747,
+        "p": 2.4266033183050816e-08
+      },
+      "resid_q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 298,
+        "n_q1": 298,
+        "median_q4": 100.00000000000017,
+        "median_q1": 173.20508075688747,
+        "delta_q4_minus_q1": -73.2050807568873,
+        "p": 2.446435707391645e-07
+      }
+    },
+    {
+      "section": "Zenodo13337961_lepidic",
+      "source": "zenodo_13337961",
+      "histology": "lepidic",
+      "n_genes_matrix": 18082,
+      "CLDN4": true,
+      "CD8A": true,
+      "KRT8": true,
+      "epi_genes_present": [
+        "EPCAM",
+        "KRT8",
+        "KRT19",
+        "CDH1",
+        "KRT7"
+      ],
+      "n_raw": 4992,
+      "n_with_coords": 4992,
+      "n_qc": 4991,
+      "coord_match_frac": 1.0,
+      "same_CLDN4_CD8A": {
+        "n": 4991,
+        "rho": 0.09675030090586358,
+        "p": 7.411865097993072e-12
+      },
+      "same_KRT8_CD8A": {
+        "n": 4991,
+        "rho": 0.10388267352721284,
+        "p": 1.8798539364388562e-13
+      },
+      "same_CLDN4_KRT8": {
+        "n": 4991,
+        "rho": 0.5951154796121142,
+        "p": 0.0
+      },
+      "partial_CLDN4_CD8A_ctrl_KRT8": {
+        "n": 4991,
+        "rho": 0.028641497658659067,
+        "p": 0.043037652352449246
+      },
+      "same_CLDN4residKRT8_CD8A": {
+        "n": 4991,
+        "rho": 0.05922220803012479,
+        "p": 2.8329073302398835e-05
+      },
+      "n_epithelial_like": 1248,
+      "epi_q3_cut": 1.4483154004401744,
+      "n_cldn4_q1": 312,
+      "n_cldn4_q4": 312,
+      "cldn4_q1_cut": 1.985208730088202,
+      "cldn4_q4_cut": 2.449249129653777,
+      "n_resid_q1": 312,
+      "n_resid_q4": 312,
+      "n_cd8a_pos": 1990,
+      "cd8a_q4_cut": 0.2768432047470229,
+      "cd8a_high_rule": "section Q4",
+      "n_cd8a_high": 1248,
+      "CLDN4_vs_neiCD8A": {
+        "n": 4989,
+        "rho": 0.031219459965043054,
+        "p": 0.027446765891632845
+      },
+      "partial_CLDN4_vs_neiCD8A_ctrl_KRT8": {
+        "n": 4989,
+        "rho": 0.034527120753829896,
+        "p": 0.014733467847163204
+      },
+      "q4q1_neighbor_CD8A": {
+        "n_q4": 311,
+        "n_q1": 311,
+        "median_q4": 0.19153632632569537,
+        "median_q1": 0.12285645071380213,
+        "delta_q4_minus_q1": 0.06867987561189323,
+        "p": 1.9834548214428087e-12
+      },
+      "resid_q4q1_neighbor_CD8A": {
+        "n_q4": 311,
+        "n_q1": 312,
+        "median_q4": 0.19486470579785456,
+        "median_q1": 0.12385894769290325,
+        "delta_q4_minus_q1": 0.07100575810495131,
+        "p": 1.009117530564121e-12
+      },
+      "q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 312,
+        "n_q1": 312,
+        "median_q4": 100.0,
+        "median_q1": 100.00000000000033,
+        "delta_q4_minus_q1": -3.268496584496461e-13,
+        "p": 4.85603115799563e-10
+      },
+      "resid_q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 312,
+        "n_q1": 312,
+        "median_q4": 100.0,
+        "median_q1": 100.0,
+        "delta_q4_minus_q1": 0.0,
+        "p": 6.646977875138629e-07
+      }
+    },
+    {
+      "section": "Zenodo13337961_solid",
+      "source": "zenodo_13337961",
+      "histology": "solid",
+      "n_genes_matrix": 18082,
+      "CLDN4": true,
+      "CD8A": true,
+      "KRT8": true,
+      "epi_genes_present": [
+        "EPCAM",
+        "KRT8",
+        "KRT19",
+        "CDH1",
+        "KRT7"
+      ],
+      "n_raw": 3701,
+      "n_with_coords": 3701,
+      "n_qc": 3701,
+      "coord_match_frac": 1.0,
+      "same_CLDN4_CD8A": {
+        "n": 3701,
+        "rho": -0.2024290390993826,
+        "p": 1.5894147844144664e-35
+      },
+      "same_KRT8_CD8A": {
+        "n": 3701,
+        "rho": -0.22060147395611662,
+        "p": 5.008974812503128e-42
+      },
+      "same_CLDN4_KRT8": {
+        "n": 3701,
+        "rho": 0.30476492109347825,
+        "p": 2.1490103469532916e-80
+      },
+      "partial_CLDN4_CD8A_ctrl_KRT8": {
+        "n": 3701,
+        "rho": -0.14135167888464217,
+        "p": 5.6333503369984684e-18
+      },
+      "same_CLDN4residKRT8_CD8A": {
+        "n": 3701,
+        "rho": -0.11254106099130533,
+        "p": 6.600878114624743e-12
+      },
+      "n_epithelial_like": 926,
+      "epi_q3_cut": 1.4420573886044215,
+      "n_cldn4_q1": 232,
+      "n_cldn4_q4": 232,
+      "cldn4_q1_cut": 1.3907440506151694,
+      "cldn4_q4_cut": 1.644279704579601,
+      "n_resid_q1": 232,
+      "n_resid_q4": 232,
+      "n_cd8a_pos": 1391,
+      "cd8a_q4_cut": 0.14197138291435837,
+      "cd8a_high_rule": "section Q4",
+      "n_cd8a_high": 926,
+      "CLDN4_vs_neiCD8A": {
+        "n": 3670,
+        "rho": -0.34488565104603386,
+        "p": 5.196153124249593e-103
+      },
+      "partial_CLDN4_vs_neiCD8A_ctrl_KRT8": {
+        "n": 3670,
+        "rho": -0.2828359385752733,
+        "p": 1.8071889182240664e-68
+      },
+      "q4q1_neighbor_CD8A": {
+        "n_q4": 230,
+        "n_q1": 231,
+        "median_q4": 0.03283754249245667,
+        "median_q1": 0.04600945712912746,
+        "delta_q4_minus_q1": -0.013171914636670792,
+        "p": 0.0003634047869914591
+      },
+      "resid_q4q1_neighbor_CD8A": {
+        "n_q4": 230,
+        "n_q1": 231,
+        "median_q4": 0.03363746371732939,
+        "median_q1": 0.045362860847272014,
+        "delta_q4_minus_q1": -0.011725397129942625,
+        "p": 0.0014436418587342437
+      },
+      "q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 232,
+        "n_q1": 232,
+        "median_q4": 173.20508075688747,
+        "median_q1": 100.00000000000033,
+        "delta_q4_minus_q1": 73.20508075688714,
+        "p": 0.06774762642681163
+      },
+      "resid_q4q1_nearest_CD8Ahigh_um": {
+        "n_q4": 232,
+        "n_q1": 232,
+        "median_q4": 173.20508075688747,
+        "median_q1": 100.00000000000033,
+        "delta_q4_minus_q1": 73.20508075688714,
+        "p": 0.043339320196453354
+      }
+    }
+  ],
+  "skips": [],
+  "methods": {
+    "min_genes": 200,
+    "pitch_um": 100.0,
+    "epithelial_like": "section Q3+ of mean(EPCAM,KRT8,KRT18,KRT19,CDH1,KRT7 if present)",
+    "cldn4_high": "Q4 of CLDN4 among epithelial-like",
+    "cd8a_high": "Q4 of CD8A among QC spots if Q3>0; else CD8A>0",
+    "krt8_residual": "linear residual of log CLDN4 on log KRT8; partial Spearman ranks"
+  }
+}

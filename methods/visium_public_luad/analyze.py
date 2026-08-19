@@ -298,9 +298,17 @@ def analyze_section(name, source, histology, barcodes, genes, mtx, pos):
     rec["n_resid_q4"] = int(rq4.sum())
 
     cd8_q1, cd8_q3 = quartiles(cd8)
-    cd8_high = np.isfinite(cd8) & (cd8 >= cd8_q3)
-    rec["n_cd8a_high"] = int(cd8_high.sum())
+    rec["n_cd8a_pos"] = int((cd8 > 0).sum())
     rec["cd8a_q4_cut"] = float(cd8_q3)
+    # Zero-inflated CD8A: if Q3==0, Q4 is not a high tail (every zero spot is "Q4").
+    # Then CD8A-high = any detected CD8A (the empirical high tail).
+    if (not np.isfinite(cd8_q3)) or cd8_q3 <= 0:
+        cd8_high = np.isfinite(cd8) & (cd8 > 0)
+        rec["cd8a_high_rule"] = "CD8A>0 (section Q3==0)"
+    else:
+        cd8_high = np.isfinite(cd8) & (cd8 >= cd8_q3)
+        rec["cd8a_high_rule"] = "section Q4"
+    rec["n_cd8a_high"] = int(cd8_high.sum())
 
     # hex ring-1 neighbor CD8A
     coord = {
@@ -387,7 +395,7 @@ def plot_section(rec, dest):
     m4 = df["cldn4_q"] == "Q4"
     m1 = df["cldn4_q"] == "Q1"
     hi = df["cd8a_high"] == 1
-    ax.scatter(df.loc[hi, "x_um"], df.loc[hi, "y_um"], c="#1f77b4", s=8, linewidths=0, label="CD8A-high (Q4)")
+    ax.scatter(df.loc[hi, "x_um"], df.loc[hi, "y_um"], c="#1f77b4", s=8, linewidths=0, label="CD8A-high")
     ax.scatter(df.loc[m1, "x_um"], df.loc[m1, "y_um"], c="#2ca02c", s=10, linewidths=0, label="epi CLDN4 Q1")
     ax.scatter(df.loc[m4, "x_um"], df.loc[m4, "y_um"], c="#d62728", s=10, linewidths=0, label="epi CLDN4 Q4")
     ax.set_aspect("equal")
@@ -419,7 +427,9 @@ def section_row(rec):
         "n_epithelial_like": rec["n_epithelial_like"],
         "n_cldn4_q4": rec["n_cldn4_q4"],
         "n_cldn4_q1": rec["n_cldn4_q1"],
+        "n_cd8a_pos": rec.get("n_cd8a_pos"),
         "n_cd8a_high": rec["n_cd8a_high"],
+        "cd8a_high_rule": rec.get("cd8a_high_rule"),
         "spearman_CLDN4_CD8A_rho": s["rho"],
         "spearman_CLDN4_CD8A_p": s["p"],
         "spearman_CLDN4_CD8A_n": s["n"],
@@ -468,7 +478,7 @@ def write_results_md(rows, skips, status):
     lines.append("- Same-spot test: Spearman **CLDN4 vs CD8A** on all QC spots.")
     lines.append("- Epithelial-like: section Q3+ of the mean of available `EPCAM`, `KRT8`, `KRT18`, `KRT19`, `CDH1`, `KRT7` (KRT18 is absent from the Visium Human Transcriptome Probe Set v2.0 matrices used here).")
     lines.append("- CLDN4-high / low: Q4 / Q1 of CLDN4 **among epithelial-like spots**.")
-    lines.append("- CD8A-high: section Q4 of CD8A among all QC spots.")
+    lines.append("- CD8A-high: section Q4 of CD8A among all QC spots **if Q3 > 0**. If Q3 == 0 (zero-inflated CD8A; Q4 is not a high tail), CD8A-high = CD8A > 0.")
     lines.append("- Nearest CD8A-high distance: hex-aware Euclidean distance in µm (100 µm Visium pitch). Self is excluded when a query spot is itself CD8A-high.")
     lines.append("- Neighbor CD8A: mean CD8A of hex ring-1 neighbors `(row, col±2)` and `(row±1, col±1)`; require ≥3 neighbors.")
     lines.append("- KRT8 residualization: (i) partial Spearman of CLDN4 vs CD8A controlling for KRT8 ranks; (ii) linear residual of log CLDN4 on log KRT8, then the same Q4/Q1 distance and neighbor tests on residual quartiles among epithelial-like spots.")
@@ -640,7 +650,7 @@ def main():
             "pitch_um": PITCH_UM,
             "epithelial_like": "section Q3+ of mean(EPCAM,KRT8,KRT18,KRT19,CDH1,KRT7 if present)",
             "cldn4_high": "Q4 of CLDN4 among epithelial-like",
-            "cd8a_high": "Q4 of CD8A among QC spots",
+            "cd8a_high": "Q4 of CD8A among QC spots if Q3>0; else CD8A>0",
             "krt8_residual": "linear residual of log CLDN4 on log KRT8; partial Spearman ranks",
         }},
     )
