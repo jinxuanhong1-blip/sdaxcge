@@ -1,0 +1,13 @@
+accession	platform	tissue	coords	CLDN4	decision	reason
+10x_VisiumHD_Human_Lung_Cancer	Visium HD	vendor lung cancer FFPE	yes	too_sparse	skip_CLDN4_too_sparse	feature_slice: CLDN4 nnz=4 UMIs; CD8A/KRT8 present
+GSE301973	Visium HD StarDist	EGFR-mutant NSCLC 2 slides	yes	yes	analyze	leftover public Visium HD; not CosMx demo
+GSE328481	Stereo-XCR-seq	LUAD 11 sections	yes	yes	analyze	leftover Stereo-seq lung cancer; public H5AD
+Zenodo_7306132	Visium	LUAD 11 sections	yes	yes	analyze	Zenodo LUAD Visium with tissue_positions
+GSE189357	scRNA-seq	early LUAD	no	—	skip_not_spatial	Title says spatiotemporal; deposit is scRNA; ST is GSE189487
+GSE200916	Visium	MPLC 12 sections	no	not_run	skip_no_coords	10x barcodes; no tissue_positions in RAW.tar
+Figshare_32384337	Visium CytAssist processed	KRAS G12C LUAD n=4	no	not_spot_matrix	skip_no_coords	RCTD plots + cluster xls only
+Zenodo_14624390	Visium claimed	LUAD plasticity	unknown	—	skip_controlled	Zenodo access_right=restricted; files=[]
+Zenodo_14620362	Visium	kidney 3 + lung 5 TLS	yes	not_extracted	skip_incomplete	2.1 GB Space Ranger; STopover used instead
+Zenodo_13337961	Visium	lepidic/solid LUAD	unknown	—	skip_no_files	.rar downloads are Zenodo JSON stubs
+CNP0005129	Stereo-seq	LUAD STAS	controlled	—	skip_controlled	CNGBdb apply-for-data
+GSE276934	Visium HD	PF	yes	not_run	skip_size	RAW.tar 49 GB; not NSCLC leftover

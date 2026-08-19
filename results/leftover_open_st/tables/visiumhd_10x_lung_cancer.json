@@ -1,0 +1,60 @@
+{
+  "section": "10x_VisiumHD_Human_Lung_Cancer",
+  "n_spots": 151337,
+  "n_cldn4_hi_epi": 151337,
+  "n_cldn4_lo_epi": 151333,
+  "n_cd8_hi": 1449,
+  "frac_cldn4_pos": 2.6431077661113937e-05,
+  "frac_cd8a_pos": 0.03833827814744577,
+  "same_spot_CLDN4_CD8A": {
+    "n": 151337,
+    "rho": -0.0010262607265143291,
+    "p": 0.6897212828212623
+  },
+  "krt8_residual_CLDN4_CD8A": {
+    "n": 151337,
+    "rho": 0.8856618321079569,
+    "p": 0.0
+  },
+  "nearest_cd8_from_cldn4hi": {
+    "median": 5.385164807134504,
+    "n": 151337
+  },
+  "nearest_cd8_from_cldn4lo": {
+    "median": 5.385164807134504,
+    "n": 151333
+  },
+  "nearest_cd8_hi_vs_lo_mw": {
+    "n_a": 151337,
+    "n_b": 151333,
+    "median_a": 5.385164807134504,
+    "median_b": 5.385164807134504,
+    "p": 0.9975676807989765
+  },
+  "neighbor_cd8_count_hi": {
+    "median": 0.0,
+    "mean": 0.12382299107290352,
+    "n": 151337
+  },
+  "neighbor_cd8_count_lo": {
+    "median": 0.0,
+    "mean": 0.1238196559904317,
+    "n": 151333
+  },
+  "neighbor_cd8_hi_vs_lo_mw": {
+    "n_a": 151337,
+    "n_b": 151333,
+    "median_a": 0.0,
+    "median_b": 0.0,
+    "p": 0.9973636398009453
+  },
+  "radius": 2.0,
+  "platform": "visium_hd_16um",
+  "bin_um": 16,
+  "genes_CLDN4": true,
+  "genes_CD8A": true,
+  "genes_KRT8": true,
+  "source": "Visium_HD_Human_Lung_Cancer_feature_slice.h5",
+  "skip": "CLDN4_too_sparse",
+  "cldn4_umis_2um": 4
+}
