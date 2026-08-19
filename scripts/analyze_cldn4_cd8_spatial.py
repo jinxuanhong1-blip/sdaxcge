@@ -92,7 +92,8 @@ def load_section(section_dir: Path) -> dict:
     mtx_path = section_dir / "filtered_feature_bc_matrix" / "matrix.mtx.gz"
     genes = read_features(feat_path)
     barcodes = read_barcodes(bc_path)
-    mat = mmread(mtx_path)
+    with gzip.open(mtx_path, "rb") as fh:
+        mat = mmread(fh)
     if sparse.issparse(mat):
         mat = mat.tocsr()
     else:
