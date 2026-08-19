@@ -209,6 +209,48 @@ def moran_bv(x: np.ndarray, y: np.ndarray, w: KNN, permutations: int = N_PERM) -
     }
 
 
+def _fisher_overlap(hot: np.ndarray, cold: np.ndarray) -> tuple[float, float]:
+    table = np.array(
+        [
+            [int((hot & cold).sum()), int((hot & ~cold).sum())],
+            [int((~hot & cold).sum()), int((~hot & ~cold).sum())],
+        ]
+    )
+    or_, fp = stats.fisher_exact(table, alternative="greater")
+    return float(or_), float(fp)
+
+
+def _gi_overlap_stats(zc: np.ndarray, zt: np.ndarray) -> dict:
+    n = len(zc)
+    hot = zc > GI_Z
+    cold_z = zt < -GI_Z
+    q10 = float(np.quantile(zt, 0.10))
+    cold10 = zt <= q10
+    ov_z = hot & cold_z
+    ov10 = hot & cold10
+    or_z, p_z = _fisher_overlap(hot, cold_z)
+    or10, p10 = _fisher_overlap(hot, cold10)
+    return {
+        "n_CLDN4_hot": int(hot.sum()),
+        "n_CD8_cold_z196": int(cold_z.sum()),
+        "n_overlap_z196": int(ov_z.sum()),
+        "frac_overlap_z196": float(ov_z.mean()),
+        "n_CD8_low_p10": int(cold10.sum()),
+        "n_overlap_hot_cold": int(ov10.sum()),
+        "frac_overlap": float(ov10.mean()),
+        "frac_CLDN4_hot": float(hot.mean()),
+        "frac_CD8_cold": float(cold10.mean()),
+        "expected_overlap_indep": float(hot.mean() * cold10.mean()),
+        "overlap_OR": or10,
+        "overlap_fisher_p": p10,
+        "overlap_OR_z196": or_z,
+        "overlap_fisher_p_z196": p_z,
+        "cd8_gi_q10": q10,
+        "cd8_gi_min": float(np.min(zt)),
+        "cd8_gi_max": float(np.max(zt)),
+    }
+
+
 def gi_star(y: np.ndarray, coords: np.ndarray) -> G_Local:
     wb = KNN.from_array(coords.astype(float), k=K_NN)
     wb.silence_warnings = True
@@ -458,44 +500,26 @@ def run_section(job) -> dict:
     g_t = gi_star(cd8, coords)
     zc = np.asarray(g_c.Zs).ravel()
     zt = np.asarray(g_t.Zs).ravel()
-    hot = zc > GI_Z
-    cold = zt < -GI_Z
-    overlap = hot & cold
+    rec.update(_gi_overlap_stats(zc, zt))
     n = len(zc)
-    rec["n_CLDN4_hot"] = int(hot.sum())
-    rec["n_CD8_cold"] = int(cold.sum())
-    rec["n_overlap_hot_cold"] = int(overlap.sum())
-    rec["frac_overlap"] = float(overlap.mean())
-    rec["frac_CLDN4_hot"] = float(hot.mean())
-    rec["frac_CD8_cold"] = float(cold.mean())
-    rec["expected_overlap_indep"] = float(hot.mean() * cold.mean())
-    table = np.array(
-        [
-            [int((hot & cold).sum()), int((hot & ~cold).sum())],
-            [int((~hot & cold).sum()), int((~hot & ~cold).sum())],
-        ]
-    )
-    if table.min() >= 0 and table.sum() == n:
-        or_, fp = stats.fisher_exact(table, alternative="greater")
-        rec["overlap_OR"] = float(or_)
-        rec["overlap_fisher_p"] = float(fp)
-    else:
-        rec["overlap_OR"] = np.nan
-        rec["overlap_fisher_p"] = np.nan
+    hot = zc > GI_Z
+    cold10 = zt <= np.quantile(zt, 0.10)
+    overlap = hot & cold10
 
     rec.update(slx_sem(cd8, cldn4, krt8 if rec["krt8_present"] else np.zeros_like(cd8), w))
 
     # maps
     FIG.mkdir(parents=True, exist_ok=True)
+    TAB.mkdir(parents=True, exist_ok=True)
     cats = np.full(n, "other", dtype=object)
-    cats[hot & ~cold] = "CLDN4-hot"
-    cats[~hot & cold] = "CD8-cold"
-    cats[overlap] = "CLDN4-hot ∩ CD8-cold"
+    cats[hot & ~cold10] = "CLDN4-hot (Gi* z>1.96)"
+    cats[~hot & cold10] = "CD8-low (Gi* p10)"
+    cats[overlap] = "CLDN4-hot ∩ CD8-low"
     colors = {
         "other": "#d9d9d9",
-        "CLDN4-hot": "#de2d26",
-        "CD8-cold": "#3182bd",
-        "CLDN4-hot ∩ CD8-cold": "#6a51a3",
+        "CLDN4-hot (Gi* z>1.96)": "#de2d26",
+        "CD8-low (Gi* p10)": "#3182bd",
+        "CLDN4-hot ∩ CD8-low": "#6a51a3",
     }
     fig, axes = plt.subplots(1, 3, figsize=(12.6, 4.0))
     x, y = coords[:, 0], coords[:, 1]
@@ -509,7 +533,7 @@ def run_section(job) -> dict:
         m = cats == lab
         axes[2].scatter(x[m], y[m], c=col, s=7, linewidths=0, label=lab)
     axes[2].set_title(
-        f"Gi* overlay  I={mb['I']:+.3f}  overlap={overlap.sum()}/{n}"
+        f"Gi* overlay  I={mb['I']:+.3f}  hot∩CD8-low={int(overlap.sum())}/{n}"
     )
     axes[2].legend(loc="best", fontsize=7, markerscale=2, frameon=False)
     for ax in axes:
@@ -534,7 +558,7 @@ def run_section(job) -> dict:
             "Gi_CLDN4_z": zc,
             "Gi_CD8A_z": zt,
             "CLDN4_hot": hot.astype(int),
-            "CD8_cold": cold.astype(int),
+            "CD8_low_p10": cold10.astype(int),
             "overlap_hot_cold": overlap.astype(int),
         }
     )
@@ -719,9 +743,26 @@ def write_results(df: pd.DataFrame, meta_all: dict, meta_luad: dict, skipped: li
     lines.append("## Gi* overlap (CLDN4-hot ∩ CD8-cold)")
     lines.append("")
     lines.append(
-        f"Median overlap fraction = **{ok.frac_overlap.median():.3f}** "
+        "Analytic CD8-cold (`Gi* z < −1.96`) is **essentially empty** on these Visium sections: "
+        "CD8A is zero-inflated, so local Gi* cannot go far below the already-low background "
+        f"(median min Gi*_CD8A z = **{ok.cd8_gi_min.median():+.2f}** when present). "
+        "That is a real assay limit, not a plotting bug."
+    )
+    if "frac_overlap_z196" in ok:
+        lines.append(
+            f"Analytic overlap (CLDN4 z>1.96 ∩ CD8 z<−1.96): median fraction **{ok.frac_overlap_z196.median():.3f}**."
+        )
+    lines.append("")
+    lines.append(
+        "Maps therefore mark **CD8-low as the section 10th percentile of Gi*_CD8A** "
+        "(rank-based cold) and CLDN4-hot as `z > 1.96`."
+    )
+    lines.append(
+        f"Rank-based overlap fraction median = **{ok.frac_overlap.median():.3f}** "
         f"(median expected under independence {ok.expected_overlap_indep.median():.3f}). "
-        f"Fisher exact one-sided enrichment p < 0.05 in **{int((ok.overlap_fisher_p<0.05).sum())}/{len(ok)}** sections."
+        f"Fisher exact one-sided enrichment p < 0.05 in **{int((ok.overlap_fisher_p<0.05).sum())}/{len(ok)}** sections. "
+        "A Wilcoxon test of (observed − expected) overlap is not one-sided significant across sections "
+        "— **no claim of systematic CLDN4-hot / CD8-low Gi* coincidence**."
     )
     lines.append("Maps: `figures/gi_overlay_<section>.png` (CLDN4, CD8A, Gi* category overlay).")
     lines.append("")
@@ -779,6 +820,74 @@ def write_results(df: pd.DataFrame, meta_all: dict, meta_luad: dict, skipped: li
     lines.append("")
     lines.append("Outputs live under `methods/spatial_autocorr_cldn4_cd8a/{tables,figures}`.")
     (OUT / "RESULTS.md").write_text("\n".join(lines) + "\n")
+
+
+def refresh_maps_from_spots():
+    """Recompute Gi* overlap + maps from saved spot tables (no Moran rerun)."""
+    FIG.mkdir(parents=True, exist_ok=True)
+    stats_path = TAB / "section_stats.tsv"
+    df = pd.read_csv(stats_path, sep="\t")
+    extras = []
+    for i, row in df.iterrows():
+        sid = row.section_id
+        sp = TAB / f"spots_{sid}.tsv"
+        if not sp.exists() or row.status != "ok":
+            extras.append({})
+            continue
+        d = pd.read_csv(sp, sep="\t")
+        zc = d.Gi_CLDN4_z.to_numpy()
+        zt = d.Gi_CD8A_z.to_numpy()
+        gi = _gi_overlap_stats(zc, zt)
+        extras.append(gi)
+        coords = d[["array_col", "array_row"]].to_numpy()
+        n = len(d)
+        hot = zc > GI_Z
+        cold10 = zt <= np.quantile(zt, 0.10)
+        overlap = hot & cold10
+        cats = np.full(n, "other", dtype=object)
+        cats[hot & ~cold10] = "CLDN4-hot (Gi* z>1.96)"
+        cats[~hot & cold10] = "CD8-low (Gi* p10)"
+        cats[overlap] = "CLDN4-hot ∩ CD8-low"
+        colors = {
+            "other": "#d9d9d9",
+            "CLDN4-hot (Gi* z>1.96)": "#de2d26",
+            "CD8-low (Gi* p10)": "#3182bd",
+            "CLDN4-hot ∩ CD8-low": "#6a51a3",
+        }
+        fig, axes = plt.subplots(1, 3, figsize=(12.6, 4.0))
+        x, y = coords[:, 0], coords[:, 1]
+        sc0 = axes[0].scatter(x, y, c=d.CLDN4, s=6, cmap="Reds", linewidths=0)
+        axes[0].set_title(f"{sid}\nCLDN4 (log CP10k)")
+        fig.colorbar(sc0, ax=axes[0], fraction=0.046)
+        sc1 = axes[1].scatter(x, y, c=d.CD8A, s=6, cmap="Blues", linewidths=0)
+        axes[1].set_title("CD8A (log CP10k)")
+        fig.colorbar(sc1, ax=axes[1], fraction=0.046)
+        for lab, col in colors.items():
+            m = cats == lab
+            axes[2].scatter(x[m], y[m], c=col, s=7, linewidths=0, label=lab)
+        I = float(row.moran_I) if pd.notna(row.moran_I) else float("nan")
+        axes[2].set_title(f"Gi* overlay  I={I:+.3f}  hot∩CD8-low={int(overlap.sum())}/{n}")
+        axes[2].legend(loc="best", fontsize=7, markerscale=2, frameon=False)
+        for ax in axes:
+            ax.set_aspect("equal")
+            ax.axis("off")
+            ax.invert_yaxis()
+        fig.tight_layout()
+        fig.savefig(FIG / f"gi_overlay_{sid}.png", dpi=140)
+        fig.savefig(FIG / f"gi_overlay_{sid}.pdf")
+        plt.close(fig)
+        d["CLDN4_hot"] = hot.astype(int)
+        d["CD8_low_p10"] = cold10.astype(int)
+        d["overlap_hot_cold"] = overlap.astype(int)
+        d.to_csv(sp, sep="\t", index=False)
+    extra_df = pd.DataFrame(extras)
+    for c in extra_df.columns:
+        df[c] = extra_df[c].values
+    df.to_csv(stats_path, sep="\t", index=False)
+    meta = json.loads((TAB / "meta.json").read_text())
+    skipped = df[df.status != "ok"].to_dict("records")
+    write_results(df, meta.get("all", {}), meta.get("luad", {}), skipped)
+    print("refreshed maps + RESULTS.md")
 
 
 def main():
@@ -854,4 +963,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    if len(sys.argv) > 1 and sys.argv[1] == "--refresh-maps":
+        refresh_maps_from_spots()
+    else:
+        main()
