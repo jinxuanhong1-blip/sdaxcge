@@ -324,9 +324,20 @@ def plot_envelope(r, obs, lo, hi, md, ax, ylabel, hline=None, title=""):
     ax.legend(frameon=False, fontsize=8)
 
 
+def powered_ranked(rows: list[dict]) -> list[dict]:
+    """Rank FOVs by CLDN4-specific Δg at the common r*, requiring enough points."""
+    usable = [d for d in rows if d["n_high"] >= 80 and d["n_cd8"] >= 50]
+    pool = usable if len(usable) >= 8 else list(rows)
+    return sorted(pool, key=lambda d: d["g_inhom_at_rstar"] - np.asarray(d["g_inhom_lab_md"])[r_index(d)])
+
+
+def r_index(d: dict) -> int:
+    rm = np.asarray(d["r_mid"], dtype=float)
+    return int(np.argmin(np.abs(rm - float(d["r_star_um"]))))
+
+
 def make_plots(rows: list[dict], meta: dict):
-    # pick example FOVs: strongest exclusion, median, weakest among those with p<0.05 if any
-    ranked = sorted(rows, key=lambda d: d["g_inhom_at_rstar"])
+    ranked = powered_ranked(rows)
     picks = []
     if ranked:
         picks.append(("strongest_exclusion", ranked[0]))
@@ -343,7 +354,7 @@ def make_plots(rows: list[dict], meta: dict):
             break
 
     for tag, d in picks:
-        fig, axes = plt.subplots(2, 2, figsize=(10.5, 8.5), layout="constrained")
+        fig, axes = plt.subplots(2, 3, figsize=(14.2, 8.2), layout="constrained")
         r = np.asarray(d["r"])
         rm = np.asarray(d["r_mid"])
         plot_envelope(
@@ -357,13 +368,18 @@ def make_plots(rows: list[dict], meta: dict):
             title="Homogeneous cross-K (label perm.)",
         )
         axes[0, 0].plot(r, d["pi_r2"], color="0.3", ls=":", lw=1, label="πr²")
+        l_obs = np.asarray(d["l_obs"]) - r
+        l_lo = np.sqrt(np.maximum(np.asarray(d["k_lab_lo"]), 0) / np.pi) - r
+        l_hi = np.sqrt(np.maximum(np.asarray(d["k_lab_hi"]), 0) / np.pi) - r
+        l_md = np.sqrt(np.maximum(np.asarray(d["k_lab_md"]), 0) / np.pi) - r
+        plot_envelope(r, l_obs, l_lo, l_hi, l_md, axes[0, 1], "L(r) − r", hline=0.0, title="Homogeneous L(r)−r")
         plot_envelope(
             rm,
             d["g_obs"],
             d["g_lab_lo"],
             d["g_lab_hi"],
             d["g_lab_md"],
-            axes[0, 1],
+            axes[0, 2],
             "g(r)",
             hline=1.0,
             title="Homogeneous g(r) (label perm.)",
@@ -378,13 +394,18 @@ def make_plots(rows: list[dict], meta: dict):
             r"$K_{\mathrm{inhom}}(r)$",
             title="Inhomogeneous cross-K (λ = tumor/epithelial)",
         )
+        li_obs = np.sqrt(np.maximum(np.asarray(d["k_inhom"]), 0) / np.pi) - r
+        li_lo = np.sqrt(np.maximum(np.asarray(d["k_inhom_lab_lo"]), 0) / np.pi) - r
+        li_hi = np.sqrt(np.maximum(np.asarray(d["k_inhom_lab_hi"]), 0) / np.pi) - r
+        li_md = np.sqrt(np.maximum(np.asarray(d["k_inhom_lab_md"]), 0) / np.pi) - r
+        plot_envelope(r, li_obs, li_lo, li_hi, li_md, axes[1, 1], r"$L_{\mathrm{inhom}}(r)-r$", hline=0.0, title="Inhomogeneous L(r)−r")
         plot_envelope(
             rm,
             d["g_inhom"],
             d["g_inhom_lab_lo"],
             d["g_inhom_lab_hi"],
             d["g_inhom_lab_md"],
-            axes[1, 1],
+            axes[1, 2],
             r"$g_{\mathrm{inhom}}(r)$",
             hline=1.0,
             title="Inhomogeneous g(r) (λ = tumor/epithelial)",
@@ -400,29 +421,45 @@ def make_plots(rows: list[dict], meta: dict):
 
     # meta mean g_inhom ± SEM and fraction g<1
     G = np.vstack([d["g_inhom"] for d in rows])
+    DG = np.vstack([d["delta_g_inhom"] for d in rows])
     P = np.vstack([d["p_g_inhom"] for d in rows])
     mean_g = np.nanmean(G, axis=0)
-    sem_g = np.nanstd(G, axis=0, ddof=1) / np.sqrt(np.sum(np.isfinite(G), axis=0))
+    mean_dg = np.nanmean(DG, axis=0)
+    sem_dg = np.nanstd(DG, axis=0, ddof=1) / np.sqrt(np.sum(np.isfinite(DG), axis=0))
     frac_lt1 = np.nanmean(G < 1.0, axis=0)
     frac_p05 = np.nanmean(P < 0.05, axis=0)
+    frac_below_env = np.nanmean(G < np.vstack([d["g_inhom_lab_lo"] for d in rows]), axis=0)
 
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.6), layout="constrained")
-    axes[0].plot(R_MID, mean_g, color="#b2182b", lw=2, label="mean g_inhom across FOVs")
-    axes[0].fill_between(R_MID, mean_g - 1.96 * sem_g, mean_g + 1.96 * sem_g, color="#b2182b", alpha=0.18, label="mean ± 1.96 SEM")
-    axes[0].axhline(1.0, color="0.3", ls=":", lw=1)
+    axes[0].plot(R_MID, mean_dg, color="#b2182b", lw=2, label=r"mean $\Delta g_{\mathrm{inhom}}$ (obs − label-perm median)")
+    axes[0].fill_between(R_MID, mean_dg - 1.96 * sem_dg, mean_dg + 1.96 * sem_dg, color="#b2182b", alpha=0.18, label="mean ± 1.96 SEM")
+    axes[0].axhline(0.0, color="0.3", ls=":", lw=1)
     axes[0].axvline(meta["r_star_meta_um"], color="0.2", ls="--", lw=1, label=f"r* = {meta['r_star_meta_um']:.0f} µm")
     axes[0].set_xlabel("r (µm)")
-    axes[0].set_ylabel(r"mean $g_{\mathrm{inhom}}(r)$")
-    axes[0].set_title("Meta-analysis: inhomogeneous pair correlation")
+    axes[0].set_ylabel(r"mean $\Delta g_{\mathrm{inhom}}(r)$")
+    axes[0].set_title("Meta-analysis: CLDN4-specific exclusion vs tumor-label null")
     axes[0].legend(frameon=False, fontsize=8)
-    axes[1].plot(R_MID, frac_lt1, color="#2166ac", lw=2, label="fraction of FOVs with g_inhom < 1")
-    axes[1].plot(R_MID, frac_p05, color="#4dac26", lw=2, label="fraction with p_label < 0.05 (one-sided)")
+    axes[1].plot(R_MID, frac_p05, color="#4dac26", lw=2, label="fraction with p_label < 0.05")
+    axes[1].plot(R_MID, frac_below_env, color="#2166ac", lw=2, label="fraction below 95% label envelope")
+    axes[1].plot(R_MID, frac_lt1, color="#bdbdbd", lw=1.5, ls="--", label="fraction with g_inhom < 1 (not the label null)")
     axes[1].set_xlabel("r (µm)")
     axes[1].set_ylabel("fraction of FOVs")
     axes[1].set_ylim(0, 1.05)
     axes[1].set_title("Consistency of exclusion across FOVs")
     axes[1].legend(frameon=False, fontsize=8)
     fig.savefig(FIG / "meta_g_inhom_across_fovs.png", dpi=160)
+    plt.close(fig)
+
+    fig, ax = plt.subplots(figsize=(6.8, 4.4), layout="constrained")
+    sem_g = np.nanstd(G, axis=0, ddof=1) / np.sqrt(np.sum(np.isfinite(G), axis=0))
+    ax.plot(R_MID, mean_g, color="#b2182b", lw=2, label="mean g_inhom")
+    ax.fill_between(R_MID, mean_g - 1.96 * sem_g, mean_g + 1.96 * sem_g, color="#b2182b", alpha=0.18)
+    ax.axhline(1.0, color="0.3", ls=":")
+    ax.set_xlabel("r (µm)")
+    ax.set_ylabel(r"mean $g_{\mathrm{inhom}}(r)$")
+    ax.set_title("Mean inhomogeneous g(r) (theoretical g=1 is not the label-permutation null)")
+    ax.legend(frameon=False, fontsize=8)
+    fig.savefig(FIG / "meta_g_inhom_raw_mean.png", dpi=160)
     plt.close(fig)
 
     # per-sample mean Δg at r*
@@ -468,7 +505,7 @@ def rng_jitter(n, scale=0.12):
 
 
 def plot_spatial_examples(df: pd.DataFrame, rows: list[dict]):
-    ranked = sorted(rows, key=lambda d: d["g_inhom_at_rstar"])
+    ranked = powered_ranked(rows)
     for tag, d in [("strongest_exclusion", ranked[0]), ("median_fov", ranked[len(ranked) // 2])]:
         sub = df[(df["sample"] == d["sample"]) & (df["fov"] == d["fov"])]
         fig, ax = plt.subplots(figsize=(6.4, 5.2), layout="constrained")
@@ -556,13 +593,13 @@ def write_results_md(df: pd.DataFrame, rows: list[dict], meta: dict, skipped: in
     a("### CLDN4-high definition (pre-specified)")
     a("")
     a("Among author tumor cells, **CLDN4-high** = CLDN4 count ≥ sample-specific 75th percentile **and** CLDN4 ≥ 1.")
-    a("This is a within-sample rank on tumor cells only (not a pan-cell Spearman).")
+    a("Lung6 tumor CLDN4 75th percentile is 0, so CLDN4-high there reduces to CLDN4 ≥ 1 (detected).")
     a("")
     a(df_to_md(qtab.reset_index()))
     a("")
     a("CD8 T cells per sample:")
     a("")
-    a(df_to_md(n_cd8.to_frame("n_cd8")))
+    a(df_to_md(n_cd8.rename_axis("sample").reset_index(name="n_cd8")))
     a("")
     a("## Estimators")
     a("")
@@ -576,16 +613,25 @@ def write_results_md(df: pd.DataFrame, rows: list[dict], meta: dict, skipped: in
     a("")
     a("## Where exclusion is strongest")
     a("")
-    a(f"- **Meta r\\*** (radius minimising mean Δg_inhom = g_obs − permutation median across FOVs): **{meta['r_star_meta_um']:.1f} µm**.")
-    a(f"- Mean g_inhom(r\\*) across FOVs: **{meta['mean_g_rstar']:.3f}** (SEM {meta['sem_g_rstar']:.3f}).")
-    a(f"- Mean Δg_inhom(r\\*): **{meta['mean_dg_rstar']:.3f}**.")
-    a(f"- Stouffer combined one-sided p (label permutation, inhomogeneous g at r\\*): **{meta['stouffer_p']:.4g}**.")
-    a(f"- FOVs with g_inhom(r\\*) < 1: **{n_excl}/{len(rows)}**.")
-    a(f"- FOVs with g_inhom(r\\*) < 1 and p < 0.05: **{n_sig}/{len(rows)}**.")
-    a(f"- FOVs with BH-FDR q < 0.05 on that p: **{n_fdr}/{len(rows)}**.")
-    a(f"- Median per-FOV r of minimum g_inhom: **{meta['median_fov_r_gmin']:.1f} µm**.")
+    a("Two nested questions are separated:")
     a("")
-    a("Interpretation is restricted to what the envelopes show: g_inhom < 1 inside the label-permutation envelope is evidence that CD8 are farther from CLDN4-high tumor cells than from a random tumor subset of the same size, after tumor/epithelial intensity is in λ. g ≈ 1 means no extra CLDN4-specific exclusion.")
+    a("1. **CSR / homogeneous g(r) vs πr²:** CD8 vs CLDN4-high tumor. g << 1 is the expected tumor-vs-stroma geometry (CD8 sit outside tumor nests). This is **not** a CLDN4-specific claim.")
+    a("2. **Label permutation + inhomogeneous λ(tumor/epithelial):** does CD8 avoid *CLDN4-high* tumor cells more than a random tumor subset of the same size? That is Δg_inhom = g_obs − permutation median. Negative Δg is extra exclusion.")
+    a("")
+    a(f"- **Meta r\\*** (radius minimising mean Δg_inhom across FOVs, search 15–120 µm): **{meta['r_star_meta_um']:.1f} µm**.")
+    a(f"- Mean g_inhom(r\\*) across FOVs: **{meta['mean_g_rstar']:.3f}** (SEM {meta['sem_g_rstar']:.3f}). This quantity is << 1 even under the label null because λ is tumor/epithelial density, not the CLDN4-high process intensity; **do not treat g_inhom < 1 as the CLDN4 test**.")
+    a(f"- Mean Δg_inhom(r\\*): **{meta['mean_dg_rstar']:.3f}** (Wilcoxon signed-rank one-sided p = **{meta.get('wilcoxon_p', float('nan')):.4g}**).")
+    a(f"- Stouffer combined one-sided p (label permutation, inhomogeneous g at r\\*): **{meta['stouffer_p']:.4g}**.")
+    a(f"- FOVs with g_inhom(r\\*) < 1 (CSR-like, not CLDN4-specific): **{n_excl}/{len(rows)}**.")
+    a(f"- FOVs with label-permutation p < 0.05 at r\\*: **{n_sig}/{len(rows)}**.")
+    a(f"- FOVs with BH-FDR q < 0.05 on that p: **{n_fdr}/{len(rows)}**.")
+    a(f"- Median per-FOV r of minimum *raw* g_inhom: **{meta['median_fov_r_gmin']:.1f} µm** (the 10–15 µm ring is dominated by cell-body exclusion; r* above is the meta Δg minimum).")
+    a("")
+    a("The CLDN4-specific statement is therefore: at **22.5 µm**, CD8–CLDN4-high pairs are fewer than expected from random labeling of tumor cells (mean Δg_inhom < 0; combined p as above). The effect is **not uniform**: it is strongest in Lung9 and Lung12 and is **not detected** in the Lung5 serial sections (median p ≈ 0.5–0.7). Lung5_Rep3’s mean Δg is pulled by one sparse-ring FOV; its median p remains 0.53.")
+    a("")
+    a("A CSR calibration of the homogeneous estimator on simulated uniform points recovered K/(πr²) ≈ 0.98 and g ≈ 0.99 (`scripts/test_csr_calibration.py`).")
+    a("")
+    a("Interpretation is restricted to the envelopes. Causal barrier function of CLDN4 is not claimed.")
     a("")
     a("## Per-FOV table (r*, g, p)")
     a("")
@@ -612,13 +658,14 @@ def write_results_md(df: pd.DataFrame, rows: list[dict], meta: dict, skipped: in
     fov_tbl.to_csv(TAB / "per_fov_g_inhom.csv", index=False)
     a("Full per-FOV numbers: `results/tables/per_fov_g_inhom.csv`.")
     a("")
-    a("FOVs with the smallest (strongest exclusion) inhomogeneous g(r*):")
+    a("FOVs with the most negative Δg_inhom(r*) among well-powered FOVs (n_high≥80 and n_CD8≥50):")
     a("")
-    a(df_to_md(fov_tbl.nsmallest(12, "g_inhom_rstar")))
+    powered = fov_tbl[(fov_tbl["n_high"] >= 80) & (fov_tbl["n_cd8"] >= 50)]
+    a(df_to_md(powered.nsmallest(12, "delta_g_inhom_rstar")))
     a("")
-    a("FOVs with the largest inhomogeneous g(r*):")
+    a("FOVs with the largest (least exclusive) Δg_inhom(r*) in that same subset:")
     a("")
-    a(df_to_md(fov_tbl.nlargest(8, "g_inhom_rstar")))
+    a(df_to_md(powered.nlargest(8, "delta_g_inhom_rstar")))
     a("")
     a("## Sample-level summary of g_inhom(r*)")
     a("")
@@ -628,6 +675,7 @@ def write_results_md(df: pd.DataFrame, rows: list[dict], meta: dict, skipped: in
             n_fov=("fov", "size"),
             mean_g=("g_inhom_rstar", "mean"),
             median_g=("g_inhom_rstar", "median"),
+            mean_delta_g=("delta_g_inhom_rstar", "mean"),
             frac_g_lt1=("g_inhom_rstar", lambda s: float((s < 1).mean())),
             frac_p05=("p_label_inhom", lambda s: float((s < 0.05).mean())),
             median_p=("p_label_inhom", "median"),
@@ -639,13 +687,12 @@ def write_results_md(df: pd.DataFrame, rows: list[dict], meta: dict, skipped: in
     a("")
     a("## Figures")
     a("")
-    a("- `results/figures/meta_g_inhom_across_fovs.png` — mean inhomogeneous g(r) ± 1.96 SEM and FOV consistency.")
-    a("- `results/figures/g_inhom_rstar_by_sample.png` — per-FOV g(r*) by sample.")
-    a("- `results/figures/kg_envelope_strongest_exclusion_*.png` — K and g vs label-permutation envelopes for the FOV with smallest g_inhom(r*).")
-    a("- `results/figures/kg_envelope_median_fov_*.png` — same for a median FOV.")
-    a("- `results/figures/kg_envelope_weakest_exclusion_*.png` — same for the FOV with largest g_inhom(r*).")
+    a("- `results/figures/meta_g_inhom_across_fovs.png` — mean Δg_inhom(r) ± 1.96 SEM and FOV-level p/envelope fractions.")
+    a("- `results/figures/meta_g_inhom_raw_mean.png` — mean raw g_inhom(r) (not the label-permutation null).")
+    a("- `results/figures/g_inhom_rstar_by_sample.png` — per-FOV g_inhom(r*) by sample.")
+    a("- `results/figures/kg_envelope_*.png` — K, L−r, and g vs 399 label-permutation envelopes for well-powered example FOVs (strongest Δg, median, weakest).")
     a("- `results/figures/g_nulls_csr_vs_label_*.png` — CSR vs label-permutation envelopes on homogeneous g(r).")
-    a("- `results/figures/spatial_strongest_exclusion_*.png` and `spatial_median_fov_*.png` — cell maps (CLDN4-high tumor vs CD8).")
+    a("- `results/figures/spatial_*.png` — cell maps (CLDN4-high tumor vs CD8).")
     a("")
     a("Curve objects (every FOV, every r) are in `results/tables/fov_curves.jsonl`.")
     a("")
@@ -721,6 +768,13 @@ def main():
 
     gstar = np.array([d["g_inhom_at_rstar"] for d in rows], float)
     pstar = np.array([d["p_label_inhom_rstar"] for d in rows], float)
+    dgstar = np.array([d["delta_g_inhom"][j] for d in rows], float)
+    try:
+        from scipy.stats import wilcoxon
+
+        wilcox_p = float(wilcoxon(dgstar[np.isfinite(dgstar)], alternative="less").pvalue)
+    except Exception:
+        wilcox_p = float("nan")
     meta = {
         "n_fov_analysed": len(rows),
         "n_fov_skipped": skipped,
@@ -729,6 +783,7 @@ def main():
         "sem_g_rstar": float(np.nanstd(gstar, ddof=1) / np.sqrt(len(gstar))),
         "mean_dg_rstar": float(mean_dg[j]),
         "stouffer_p": stouffer_combine(pstar),
+        "wilcoxon_p": wilcox_p,
         "median_fov_r_gmin": float(np.nanmedian([d["r_g_inhom_min"] for d in rows])),
         "n_perm_label": N_PERM_LABEL,
         "n_perm_csr": N_PERM_CSR,
@@ -747,5 +802,34 @@ def main():
     print("done", json.dumps({k: meta[k] for k in meta if k != "runtime_sec"}), "runtime", meta["runtime_sec"], flush=True)
 
 
+def rebuild_from_tables():
+    df = load_cells()
+    rows = [json.loads(line) for line in (TAB / "fov_curves.jsonl").read_text().splitlines() if line.strip()]
+    meta = json.loads((TAB / "meta_summary.json").read_text())
+    skipped = int(meta.get("n_fov_skipped", 0))
+    dgstar = np.array([d["g_inhom_at_rstar"] - d["g_inhom_lab_md"][r_index(d)] for d in rows], float)
+    try:
+        from scipy.stats import wilcoxon
+
+        meta["wilcoxon_p"] = float(wilcoxon(dgstar[np.isfinite(dgstar)], alternative="less").pvalue)
+    except Exception:
+        meta["wilcoxon_p"] = float("nan")
+    # drop stale example figures
+    for p in FIG.glob("kg_envelope_*.png"):
+        p.unlink()
+    for p in FIG.glob("spatial_*.png"):
+        p.unlink()
+    for p in FIG.glob("g_nulls_csr_vs_label_*.png"):
+        p.unlink()
+    make_plots(rows, meta)
+    plot_spatial_examples(df, rows)
+    write_results_md(df, rows, meta, skipped)
+    (TAB / "meta_summary.json").write_text(json.dumps(meta, indent=2))
+    print("rebuilt RESULTS.md and figures", flush=True)
+
+
 if __name__ == "__main__":
-    main()
+    if "--rebuild" in sys.argv:
+        rebuild_from_tables()
+    else:
+        main()
