@@ -448,7 +448,11 @@ def run_gse292299():
             rows.append({"section": name, "skip": "missing_files"})
             continue
         barcodes, genes, mtx = load_10x_h5(h5s[0])
-        gidx = {str(g).upper(): j for j, g in enumerate(genes)}
+        # First Gene Expression / ENSG hit wins. GSE292299 H5 also has antibody
+        # features that reuse gene symbols (empty CD8A protein column).
+        gidx = {}
+        for j, g in enumerate(genes):
+            gidx.setdefault(str(g).upper(), j)
         need = ["CLDN4", "CD8A", "KRT8"]
         if any(g not in gidx for g in need):
             rows.append({"section": name, "skip": "missing_gene", "have": [g for g in need if g in gidx]})

@@ -56,7 +56,27 @@ Reproduce: `python3 methods/molcancer_visium_cldn4/count_fastq.py && python3 met
 
 ## Results
 
-*Filled after the public FASTQ count and GSE292299 matrices finish.*
+### GSE292299 — open pre-ICI NSCLC Visium (n=16 sections, 121,087 QC spots)
+
+Not matched to PA08–12. CD8A is the Gene Expression feature (the H5 also has an empty antibody `CD8A` column; first ENSG hit is used).
+
+| Locked test | n sections | median | n neg / n pos | Wilcoxon p |
+|---|---:|---:|---:|---:|
+| Tumor same-spot CLDN4 vs CD8A | 16 | ρ = **−0.0035** | 9 / 7 | 0.56 |
+| Tumor same-spot CLDN4 vs CD8A \| KRT8 | 16 | ρ = **+0.0017** | 7 / 9 | 0.67 |
+| Tumor CLDN4 vs nearest CD8A+ (µm) | 16 | ρ = **+0.0063** | 6 / 10 | 0.94 |
+| CLDN4-high − low nearest CD8A (µm) | 16 | Δ = **0** | 4 / 5 (rest 0) | 0.95 |
+| Tumor CLDN4 vs hex ring-1 CD8A | 16 | ρ = **−0.033** | 13 / 3 | **0.011** |
+| Ring-1 partial \| KRT8 | 16 | ρ = **−0.042** | 12 / 4 | **0.021** |
+| CLDN4-high − low ring-1 CD8A | 16 | Δ = **0** | 7 / 2 | 0.37 |
+
+**Pre-ICI, computed:** same-spot and nearest-CD8 distance do **not** show CLDN4-high tumor spots farther from CD8. The only signed section-level signal is a **small negative** hex ring-1 neighbor CD8A that stays negative after KRT8 residual. Quartile high-vs-low deltas sit at 0. This is not a same-spot exclusion claim.
+
+Maps: `results/molcancer_visium_cldn4/maps/GSE292299_NSCLC_P1–P4_maps.png`.
+
+### PRJNA1139087 — post-chemoIO (this paper)
+
+Public FASTQ count is running (aria2 + official v1 probes). Section tables will be written to `results/molcancer_visium_cldn4/tables/prjna1139087_sections.csv`. n=4 cannot reject a two-sided Wilcoxon at 0.05 even if all signs agree (floor p=0.125).
 
 ## What this does not claim
 

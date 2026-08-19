@@ -40,6 +40,15 @@ TARGET_GENES = [
 
 SAMPLES = [
     {
+        "patient": "PA10",
+        "alias": "Tumor-2",
+        "srr": "SRR29925400",
+        "response": "pCR",
+        "timepoint": "post_chemoIO",
+        "r1": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/000/SRR29925400/SRR29925400_1.fastq.gz",
+        "r2": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/000/SRR29925400/SRR29925400_2.fastq.gz",
+    },
+    {
         "patient": "PA08",
         "alias": "Tumor-1",
         "srr": "SRR29925401",
@@ -56,15 +65,6 @@ SAMPLES = [
         "timepoint": "post_chemoIO",
         "r1": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/098/SRR29925398/SRR29925398_1.fastq.gz",
         "r2": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/098/SRR29925398/SRR29925398_2.fastq.gz",
-    },
-    {
-        "patient": "PA10",
-        "alias": "Tumor-2",
-        "srr": "SRR29925400",
-        "response": "pCR",
-        "timepoint": "post_chemoIO",
-        "r1": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/000/SRR29925400/SRR29925400_1.fastq.gz",
-        "r2": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR299/000/SRR29925400/SRR29925400_2.fastq.gz",
     },
     {
         "patient": "PA12",
@@ -158,13 +158,40 @@ def resolve_barcode(raw: str, wl: set[str], fix: dict[str, str]) -> str | None:
 
 
 def open_fastq_stream(url: str) -> subprocess.Popen:
-    cmd = f"curl -fsSL --retry 5 --retry-delay 4 '{url}' | gzip -dc"
+    if Path(url).exists():
+        cmd = f"gzip -dc '{url}'"
+    else:
+        cmd = f"curl -fsSL --retry 5 --retry-delay 4 '{url}' | gzip -dc"
     return subprocess.Popen(
         ["bash", "-lc", cmd],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         bufsize=1024 * 1024,
     )
+
+
+def aria2_get(url: str, dest: Path) -> Path:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    if dest.exists() and dest.stat().st_size > 1_000_000:
+        return dest
+    cmd = [
+        "aria2c",
+        "-x",
+        "16",
+        "-s",
+        "16",
+        "-k",
+        "1M",
+        "--file-allocation=none",
+        "--allow-overwrite=true",
+        "-d",
+        str(dest.parent),
+        "-o",
+        dest.name,
+        url,
+    ]
+    subprocess.check_call(cmd)
+    return dest
 
 
 def iter_pairs(p1: subprocess.Popen, p2: subprocess.Popen):
@@ -284,6 +311,11 @@ def ensure_probe_csv() -> Path:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--patient", action="append", default=None)
+    ap.add_argument(
+        "--aria2",
+        action="store_true",
+        help="Download FASTQ with aria2 (16 connections) then count locally and delete.",
+    )
     args = ap.parse_args()
     probe = ensure_probe_csv()
     exact, pref = load_probes(probe)
@@ -293,11 +325,27 @@ def main():
     wl, coords, fix = load_whitelist(REFS / "visium-v1_coordinates.txt")
     wanted = set(args.patient) if args.patient else {s["patient"] for s in SAMPLES}
     summaries = []
+    fq_dir = ROOT / "data" / "PRJNA1139087" / "fastq"
     for sample in SAMPLES:
         if sample["patient"] not in wanted:
             continue
+        local = dict(sample)
+        r1 = r2 = None
+        if args.aria2:
+            r1 = fq_dir / f"{sample['srr']}_1.fastq.gz"
+            r2 = fq_dir / f"{sample['srr']}_2.fastq.gz"
+            print(f"[aria2] {sample['srr']} R1", flush=True)
+            aria2_get(sample["r1"], r1)
+            print(f"[aria2] {sample['srr']} R2", flush=True)
+            aria2_get(sample["r2"], r2)
+            local["r1"] = str(r1)
+            local["r2"] = str(r2)
         out = OUT / f"{sample['patient']}_spot_counts.csv"
-        summaries.append(count_sample(sample, exact, pref, wl, coords, fix, out))
+        summaries.append(count_sample(local, exact, pref, wl, coords, fix, out))
+        if args.aria2:
+            for p in (r1, r2):
+                if p is not None and p.exists():
+                    p.unlink()
     import json
 
     (OUT / "count_summary.json").write_text(json.dumps(summaries, indent=2) + "\n")
