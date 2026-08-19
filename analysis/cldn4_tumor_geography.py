@@ -316,7 +316,8 @@ def permute_cldn4(xy: np.ndarray, values: np.ndarray, rng: np.random.Generator, 
 
 
 def define_tumor_cosmx(df: pd.DataFrame) -> tuple[np.ndarray, str]:
-    epi_cols = _present(df.columns, EPI_GENES)
+    """Tumor = EPCAM/KRT RNA ± PanCK protein (or author epithelial). Never CD8A==0."""
+    epi_cols = [c for c in _present(df.columns, EPI_GENES) if c.upper() not in {"CD8A", "CD8B"}]
     score = np.zeros(len(df), dtype=float)
     used = []
     if epi_cols:
@@ -1064,11 +1065,9 @@ def write_results_md(results: list[SampleResult], domain_df: pd.DataFrame, out_m
     p_perm_vis = _stouffer(vis["barrier_perm_p"])
 
     lines = []
-    lines.append("# CLDN4 tumor-geography: CD8 infiltration depth as a fence")
+    lines.append("# Barrier index and CD8 infiltration-depth AUC at CLDN4-high vs CLDN4-low tumor domains")
     lines.append("")
-    lines.append("CLDN4-only. Official CosMx NSCLC (He et al., *Nat Biotechnol* 2022; NanoString/Bruker showcase) and GEO GSE307534 Visium CytAssist LUAD. Invasive LUAD samples only when the GEO title labels the lesion (AAH/AIS/MIA/Normal excluded). No private 8-KL signature. No claim-failed placeholder.")
-    lines.append("")
-    lines.append("The figure is a **spatial immune-exclusion fence**, not a bulk correlation: CD8 density is measured as a function of inward distance from the tumor–stroma margin, then compared between CLDN4-high and CLDN4-low tumor domains. A barrier index asks whether CD8 drops across the first 50 µm inside a CLDN4-high rim relative to the immediate stroma. A rotate/shift permutation of the CLDN4 field (tumor mask and CD8 held fixed) tests whether that drop is aligned with the CLDN4 geography.")
+    lines.append("CLDN4-only. Primary endpoints are the **barrier index** and the **0–200 µm CD8 infiltration-depth AUC**, compared between CLDN4-high and CLDN4-low tumor domains — not nearest-µm distances. Official CosMx NSCLC uses **all 8 sections**. Tumor is EPCAM/KRT ± PanCK and is **not gated as CD8A==0**. GSE307534 Visium: LUAD-titled slides only.")
     lines.append("")
     lines.append("## Data")
     lines.append("")
