@@ -36,6 +36,7 @@ N_PERMS_ENRICH = 400
 N_PERMS_COMP = 1000
 COOC_QUERY_CAP = 2500
 COOC_BINS_UM = np.array([0, 25, 50, 75, 100, 150, 200, 300, 400, 500], dtype=float)
+VISIUM_COOC_BINS_UM = np.array([0, 100, 200, 300, 400, 500, 700, 900], dtype=float)
 
 COSMX_DIR = Path(
     os.environ.get(
@@ -141,10 +142,14 @@ def assign_labels_cosmx(adata: AnnData) -> None:
     n = adata.n_obs
     lab = np.array(["Other"] * n, dtype=object)
     tumor = (panck > 0.4) | ((tumor_z > 0.6) & (cd45 < 0.8))
-    treg = (foxp3 >= 1) & ((treg_z > 0.5) | (cd3 > 0.2) | (scores["T"] > 0))
-    cd8 = (cd8a >= 1) & ((cd8_z > 0.4) | (cd3 > 0.2) | (scores["T"] > 0)) & ~treg
-    nk = (nk_z > 1.0) & (cd8a == 0) & ~treg & ((cd3 < 0.8) | (scores["T"] < 0.4))
-    mac = (mac_z > 0.9) & (panck < 0.8)
+    treg = (foxp3 >= 1) & ((gene_vec(adata, "IL2RA") >= 1) | (gene_vec(adata, "CTLA4") >= 1) | (cd3 > 0.5))
+    cd8 = (cd8a >= 1) & ((cd3 > 0.0) | (scores["T"] > 0) | (cd8_z > 0.5)) & ~treg
+    # NK: cytotoxic module without CD8/TCR; NKG7 alone is not enough (shared with T)
+    nkg7 = gene_vec(adata, "NKG7")
+    gnly = gene_vec(adata, "GNLY")
+    ncr1 = gene_vec(adata, "NCR1")
+    nk = ((gnly >= 1) | (ncr1 >= 1) | ((nkg7 >= 1) & (nk_z > 1.2))) & (cd8a == 0) & ~treg & (scores["T"] < 0.25) & (cd3 < 0.4)
+    mac = (mac_z > 0.9) & (panck < 0.5) & (cd45 > -0.2)
     # priority: Treg > CD8 > NK > Mac > tumor > other
     lab[mac] = "Mac"
     lab[tumor] = "tumor/epi"
@@ -265,7 +270,7 @@ def load_visium(path: Path) -> AnnData:
         pos = pos.set_index("barcode")
     pos.index = pos.index.astype(str)
     adata.obs = adata.obs.join(pos, how="left")
-    adata = adata[adata.obs["in_tissue"] == 1].copy()
+    adata = adata[(adata.obs["in_tissue"] == 1) & (np.asarray(adata.X.sum(axis=1)).ravel() > 0)].copy()
     adata.obsm["spatial"] = np.column_stack(
         [
             adata.obs["pxl_col_in_fullres"].to_numpy(),
@@ -304,13 +309,11 @@ def build_visium_hop_graph(adata: AnnData, hops: int = 2) -> None:
     rows = adata.obs["array_row"].to_numpy().astype(int)
     cols = adata.obs["array_col"].to_numpy().astype(int)
     key_to_i = {(int(r), int(c)): i for i, (r, c) in enumerate(zip(rows, cols))}
-    # Visium even/odd row hex neighbors
-    offsets_even = [(-1, -1), (-1, 0), (0, -1), (0, 1), (1, -1), (1, 0)]
-    offsets_odd = [(-1, 0), (-1, 1), (0, -1), (0, 1), (1, 0), (1, 1)]
+    # Official Visium hex: same-row neighbors are ±2 columns.
+    offsets = [(0, -2), (0, 2), (-1, -1), (-1, 1), (1, -1), (1, 1)]
     ii, jj = [], []
     for i, (r, c) in enumerate(zip(rows, cols)):
-        offs = offsets_even if (r % 2 == 0) else offsets_odd
-        for dr, dc in offs:
+        for dr, dc in offsets:
             j = key_to_i.get((r + dr, c + dc))
             if j is not None:
                 ii.append(i)
@@ -522,25 +525,55 @@ def misty_like_cd8(adata: AnnData) -> dict:
     deg_safe = np.maximum(deg, 1.0)
     neigh_c = np.asarray(conn @ cldn4).ravel() / deg_safe
     neigh_k = np.asarray(conn @ krt8).ravel() / deg_safe
+    neigh_cd8 = np.asarray(conn @ cd8).ravel() / deg_safe
     use = deg > 0
-    y = cd8[use]
-    k = neigh_k[use]
-    c = neigh_c[use]
-    Xk = sm.add_constant(pd.DataFrame({"neigh_KRT8": k}))
-    Xkc = sm.add_constant(pd.DataFrame({"neigh_KRT8": k, "neigh_CLDN4": c}))
-    m_k = sm.OLS(y, Xk, missing="drop").fit()
-    m_kc = sm.OLS(y, Xkc, missing="drop").fit()
-    out = {
-        "n_cells": int(use.sum()),
-        "r2_krt8_only": float(m_k.rsquared),
-        "r2_krt8_plus_cldn4": float(m_kc.rsquared),
-        "delta_r2_cldn4_after_krt8": float(m_kc.rsquared - m_k.rsquared),
-        "coef_neigh_CLDN4": float(m_kc.params.get("neigh_CLDN4", np.nan)),
-        "pval_neigh_CLDN4": float(m_kc.pvalues.get("neigh_CLDN4", np.nan)),
-        "coef_neigh_KRT8_full": float(m_kc.params.get("neigh_KRT8", np.nan)),
-        "pval_neigh_KRT8_full": float(m_kc.pvalues.get("neigh_KRT8", np.nan)),
+    tumor = adata.obs["is_tumor"].to_numpy()
+
+    def ols_fit(y, k, c) -> dict:
+        Xk = sm.add_constant(pd.DataFrame({"neigh_KRT8": k}))
+        Xkc = sm.add_constant(pd.DataFrame({"neigh_KRT8": k, "neigh_CLDN4": c}))
+        m_k = sm.OLS(y, Xk, missing="drop").fit()
+        m_kc = sm.OLS(y, Xkc, missing="drop").fit()
+        return {
+            "n": int(len(y)),
+            "r2_krt8_only": float(m_k.rsquared),
+            "r2_krt8_plus_cldn4": float(m_kc.rsquared),
+            "delta_r2_cldn4_after_krt8": float(m_kc.rsquared - m_k.rsquared),
+            "coef_neigh_CLDN4": float(m_kc.params.get("neigh_CLDN4", np.nan)),
+            "pval_neigh_CLDN4": float(m_kc.pvalues.get("neigh_CLDN4", np.nan)),
+            "coef_neigh_KRT8_full": float(m_kc.params.get("neigh_KRT8", np.nan)),
+            "pval_neigh_KRT8_full": float(m_kc.pvalues.get("neigh_KRT8", np.nan)),
+        }
+
+    # 1) juxta: CD8A_i ~ neigh KRT8 + neigh CLDN4
+    all_cells = ols_fit(cd8[use], neigh_k[use], neigh_c[use])
+    # 2) same, non-tumor cells only (CD8 lives in stroma)
+    nt = use & ~tumor
+    nontumor = ols_fit(cd8[nt], neigh_k[nt], neigh_c[nt]) if nt.sum() > 20 else {}
+    # 3) tumor-centric: local CD8 neighborhood ~ own KRT8 + own CLDN4
+    tm = use & tumor
+    tumor_local_cd8 = {}
+    if tm.sum() > 20:
+        Xk = sm.add_constant(pd.DataFrame({"own_KRT8": krt8[tm]}))
+        Xkc = sm.add_constant(pd.DataFrame({"own_KRT8": krt8[tm], "own_CLDN4": cldn4[tm]}))
+        y = neigh_cd8[tm]
+        m_k = sm.OLS(y, Xk, missing="drop").fit()
+        m_kc = sm.OLS(y, Xkc, missing="drop").fit()
+        tumor_local_cd8 = {
+            "n": int(tm.sum()),
+            "r2_krt8_only": float(m_k.rsquared),
+            "r2_krt8_plus_cldn4": float(m_kc.rsquared),
+            "delta_r2_cldn4_after_krt8": float(m_kc.rsquared - m_k.rsquared),
+            "coef_own_CLDN4": float(m_kc.params.get("own_CLDN4", np.nan)),
+            "pval_own_CLDN4": float(m_kc.pvalues.get("own_CLDN4", np.nan)),
+        }
+    return {
+        "juxta_all_cells": all_cells,
+        "juxta_nontumor": nontumor,
+        "tumor_own_cldn4_explains_neigh_cd8": tumor_local_cd8,
+        # convenience aliases used by RESULTS.md (prefer non-tumor juxta)
+        **{f"primary_{k}": v for k, v in (nontumor or all_cells).items()},
     }
-    return out
 
 
 def plot_enrichment(z: pd.DataFrame, title: str, out: Path) -> None:
@@ -572,6 +605,9 @@ def plot_enrichment(z: pd.DataFrame, title: str, out: Path) -> None:
 def plot_cooccurrence(df: pd.DataFrame, title: str, out: Path) -> None:
     if df.empty:
         return
+    df = df.dropna(subset=["cooccurrence"]).copy()
+    if df.empty:
+        return
     fig, ax = plt.subplots(figsize=(8.4, 5.4))
     for t, sub in df.groupby("target", sort=False):
         ax.plot(sub["d_mid_um"], sub["cooccurrence"], marker="o", label=t, lw=2)
@@ -587,7 +623,7 @@ def plot_cooccurrence(df: pd.DataFrame, title: str, out: Path) -> None:
 
 
 def plot_composition(comp: pd.DataFrame, title: str, out: Path) -> None:
-    fig, axes = plt.subplots(1, 2, figsize=(11.2, 5.0))
+    fig, axes = plt.subplots(1, 3, figsize=(14.2, 5.0))
     x = np.arange(len(comp))
     w = 0.38
     axes[0].bar(x - w / 2, comp["frac_around_CLDN4_high"], w, label="CLDN4-high tumor/epi", color="#b2182b")
@@ -595,17 +631,29 @@ def plot_composition(comp: pd.DataFrame, title: str, out: Path) -> None:
     axes[0].set_xticks(x)
     axes[0].set_xticklabels(comp["neighbor_type"])
     axes[0].set_ylabel("Mean neighbor fraction")
-    axes[0].set_title("Neighborhood composition")
-    axes[0].legend(frameon=False, fontsize=10)
+    axes[0].set_title("Per-type composition")
+    axes[0].legend(frameon=False, fontsize=9)
+    pal = {"CD8": "#2166ac", "NK": "#67a9cf", "Treg": "#762a83", "Mac": "#4d9221"}
+    bottoms = np.zeros(2)
+    for _, row in comp.iterrows():
+        vals = [row["frac_around_CLDN4_high"], row["frac_around_CLDN4_low"]]
+        axes[1].bar([0, 1], vals, bottom=bottoms, color=pal.get(row["neighbor_type"], "0.5"), label=row["neighbor_type"])
+        bottoms = bottoms + np.asarray(vals)
+    axes[1].set_xticks([0, 1])
+    axes[1].set_xticklabels(["CLDN4-high", "CLDN4-low"])
+    axes[1].set_ylabel("Stacked mean neighbor fraction")
+    axes[1].set_title("Stacked immune neighborhood")
+    axes[1].legend(frameon=False, fontsize=9)
     colors = ["#b2182b" if p < 0.05 else "0.55" for p in comp["perm_p"]]
-    axes[1].bar(x, comp["delta_high_minus_low"], color=colors)
-    axes[1].axhline(0, color="0.3", lw=1)
-    axes[1].set_xticks(x)
-    axes[1].set_xticklabels(comp["neighbor_type"])
-    axes[1].set_ylabel("Δ fraction (high − low)")
-    axes[1].set_title("Permutation-tested difference")
+    axes[2].bar(x, comp["delta_high_minus_low"], color=colors)
+    axes[2].axhline(0, color="0.3", lw=1)
+    axes[2].set_xticks(x)
+    axes[2].set_xticklabels(comp["neighbor_type"])
+    axes[2].set_ylabel("Δ fraction (high − low)")
+    axes[2].set_title("Permutation-tested difference")
+    ymax = max(abs(float(comp["delta_high_minus_low"].min())), abs(float(comp["delta_high_minus_low"].max())), 1e-6)
     for i, p in enumerate(comp["perm_p"]):
-        axes[1].text(i, axes[1].get_ylim()[1] * 0.05, f"p={p:.3f}", ha="center", fontsize=9)
+        axes[2].text(i, 0.08 * ymax, f"p={p:.3f}", ha="center", fontsize=8)
     sns.despine(fig)
     fig.suptitle(title, y=1.02)
     fig.tight_layout()
@@ -666,6 +714,12 @@ def plot_focus_z(z_cos: pd.DataFrame, z_vis: pd.DataFrame, out: Path) -> None:
 
 
 def fmt_p(p: float) -> str:
+    try:
+        p = float(p)
+    except (TypeError, ValueError):
+        return "NA"
+    if not np.isfinite(p):
+        return "NA"
     if p < 1e-4:
         return f"{p:.1e}"
     return f"{p:.4f}"
@@ -680,10 +734,14 @@ def write_results(
     cc, cv = cos["comp"], vis["comp"]
     mc, mv = cos["misty"], vis["misty"]
 
-    def zline(z: pd.DataFrame, a: str, b: str) -> str:
+    def zf(z: pd.DataFrame, a: str, b: str) -> float:
         if a not in z.index or b not in z.columns:
-            return "NA"
-        return f"{z.loc[a, b]:.2f}"
+            return float("nan")
+        return float(z.loc[a, b])
+
+    def zline(z: pd.DataFrame, a: str, b: str) -> str:
+        v = zf(z, a, b)
+        return "NA" if not np.isfinite(v) else f"{v:.2f}"
 
     def cline(comp: pd.DataFrame, t: str, col: str) -> str:
         row = comp.loc[comp["neighbor_type"] == t]
@@ -691,9 +749,48 @@ def write_results(
             return "NA"
         return f"{float(row.iloc[0][col]):.4f}"
 
+    def misty_row(m: dict) -> dict:
+        if "primary_n" in m:
+            return {
+                "n": m["primary_n"],
+                "r2k": m["primary_r2_krt8_only"],
+                "r2c": m["primary_r2_krt8_plus_cldn4"],
+                "dr2": m["primary_delta_r2_cldn4_after_krt8"],
+                "coef": m["primary_coef_neigh_CLDN4"],
+                "p": m["primary_pval_neigh_CLDN4"],
+            }
+        j = m.get("juxta_nontumor") or m.get("juxta_all_cells") or m
+        return {
+            "n": j.get("n") or j.get("n_cells"),
+            "r2k": j.get("r2_krt8_only", float("nan")),
+            "r2c": j.get("r2_krt8_plus_cldn4", float("nan")),
+            "dr2": j.get("delta_r2_cldn4_after_krt8", float("nan")),
+            "coef": j.get("coef_neigh_CLDN4", float("nan")),
+            "p": j.get("pval_neigh_CLDN4", float("nan")),
+        }
+
+    mcr, mvr = misty_row(mc), misty_row(mv)
+    z_cd8 = zf(zc, "CLDN4-high tumor/epi", "CD8")
+    z_nk = zf(zc, "CLDN4-high tumor/epi", "NK")
+    z_mac = zf(zc, "CLDN4-high tumor/epi", "Mac")
+    lead_bits = []
+    lead_bits.append(
+        f"On CosMx Lung5_Rep2 (50 µm), CLDN4-high tumor/epi vs CD8 neighborhood z = {z_cd8:.2f}"
+        + (" (depleted vs random)" if z_cd8 < 0 else " (enriched vs random)")
+        + f", vs NK z = {z_nk:.2f}, vs Mac z = {z_mac:.2f}."
+    )
+    lead_bits.append(
+        f"Visium P1_LUAD 1–2 hop CLDN4-high vs CD8 z = {zf(zv, 'CLDN4-high tumor/epi', 'CD8'):.2f}."
+    )
+    if np.isfinite(mcr["dr2"]):
+        lead_bits.append(
+            f"After neighboring KRT8, neighboring CLDN4 adds ΔR² = {mcr['dr2']:.4f} to non-tumor CD8A on CosMx"
+            f" (coef {mcr['coef']:.4f}, p={fmt_p(mcr['p'])})."
+        )
+
     text = f"""# RESULTS: CLDN4-only spatial neighbor-graph analysis
 
-CLDN4-high tumor/epithelial cells are **locally depleted for CD8 and NK neighbors** on official CosMx NSCLC (50 µm radius) and show the same CD8 depletion on Visium LUAD (1–2 hop hex graph). Macrophage co-localization is enriched on CosMx. Neighboring CLDN4 explains additional CD8A variance after neighboring KRT8 on CosMx.
+{' '.join(lead_bits)}
 
 ## Datasets (public only)
 
@@ -744,7 +841,7 @@ Score = P(target in annulus d | query) / P(target). Score > 1 = attraction at th
 
 ![Visium co-occurrence](results/figures/visium_cooccurrence_vs_distance.png)
 
-On CosMx, CLDN4-high tumor/epi vs CD8/NK scores sit **below 1 at short range (≤50–100 µm)** and relax toward 1 at longer distances. Macrophage co-occurrence is **>1 near the query**. Visium distances are in full-resolution pixels converted with the CytAssist spot diameter scale in `scalefactors_json.json` only for display of spatial scatter; the graph itself is hop-based, and the co-occurrence curve uses Euclidean µm estimated from spot pitch (~100 µm center-to-center).
+Short-range CosMx scores (0–50 µm) and Visium first occupied bin are tabulated in `*_cooccurrence.csv`. Visium graph is hop-based; the curve uses Euclidean µm from hex pitch (~100 µm center-to-center). Empty short bins are expected on Visium because spots are not 25 µm apart.
 
 ## Neighborhood composition (CLDN4-high vs low tumor) + permutation p
 
@@ -778,10 +875,10 @@ OLS of log1p(CD8A) on **neighbor-mean KRT8**, then neighbor-mean KRT8 + **neighb
 
 | Dataset | n | R² (KRT8 neigh) | R² (+ CLDN4 neigh) | ΔR² CLDN4 after KRT8 | CLDN4 coef | CLDN4 p |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| CosMx 50 µm | {mc['n_cells']} | {mc['r2_krt8_only']:.4f} | {mc['r2_krt8_plus_cldn4']:.4f} | {mc['delta_r2_cldn4_after_krt8']:.4f} | {mc['coef_neigh_CLDN4']:.4f} | {fmt_p(mc['pval_neigh_CLDN4'])} |
-| Visium 1–2 hop | {mv['n_cells']} | {mv['r2_krt8_only']:.4f} | {mv['r2_krt8_plus_cldn4']:.4f} | {mv['delta_r2_cldn4_after_krt8']:.4f} | {mv['coef_neigh_CLDN4']:.4f} | {fmt_p(mv['pval_neigh_CLDN4'])} |
+| CosMx 50 µm (non-tumor) | {mcr['n']} | {mcr['r2k']:.4f} | {mcr['r2c']:.4f} | {mcr['dr2']:.4f} | {mcr['coef']:.4f} | {fmt_p(mcr['p'])} |
+| Visium 1–2 hop (non-tumor) | {mvr['n']} | {mvr['r2k']:.4f} | {mvr['r2c']:.4f} | {mvr['dr2']:.4f} | {mvr['coef']:.4f} | {fmt_p(mvr['p'])} |
 
-A **negative** CLDN4 neighbor coefficient with ΔR² > 0 means neighboring CLDN4 is associated with **lower** CD8A after accounting for neighboring KRT8.
+Primary model is juxta-view OLS on **non-tumor** cells: log1p(CD8A) ~ neighbor-mean KRT8 + neighbor-mean CLDN4. Sign of the CLDN4 coefficient is the direction of the residual association after KRT8. Tumor-centric and all-cell models are in `results/tables/misty_cd8_partition.json`. ΔR² can be significant and still tiny; report the coefficient with the increment.
 
 ## Spatial maps
 
@@ -792,7 +889,7 @@ A **negative** CLDN4 neighbor coefficient with ΔR² > 0 means neighboring CLDN4
 ## Methods notes
 
 - CosMx graph: `sklearn.neighbors.radius_neighbors_graph` on global µm coordinates, radius 50 µm, no self-loops.
-- Visium graph: hex 6-neighbors from `array_row`/`array_col`, then 2-hop closure (`A ∨ A²`).
+- Visium graph: official hex 6-neighbors (`±2` columns on the same row; `±1` row/`±1` col), then 2-hop closure (`A ∨ A²`).
 - Enrichment engine: `squidpy.gr.nhood_enrichment` when it completes; otherwise the same permutation z-score on undirected edges (implemented in this repo).
 - Co-occurrence: BallTree annuli around a cap of {COOC_QUERY_CAP} CLDN4-high query cells.
 - Composition p-values are two-sided label-shuffle tests among tumor/epi only (keeps tumor geography, breaks CLDN4 high/low).
@@ -800,7 +897,7 @@ A **negative** CLDN4 neighbor coefficient with ΔR² > 0 means neighboring CLDN4
 
 ## Interpretation (CLDN4-only)
 
-The CosMx 50 µm graph is the stronger single-cell test. CLDN4-high epithelium is **not CD8-rich at contact scale**; CD8/NK avoidance plus macrophage enrichment is the spatial pattern that survives permutation. Visium P1_LUAD is a mixed-spot assay, so labels are signature-dominant rather than pure cell types, but the CD8 neighborhood of CLDN4-high tumor spots is in the same direction. Incremental R² of neighboring CLDN4 after KRT8 is the cleanest statement that **CLDN4 geography is not just “more epithelium.”**
+Numbers above are the result. CosMx is the single-cell test: CLDN4-high epithelium is **self-clustered**, **CD8-poor vs random** (z={z_cd8:.2f}), and **macrophage-poor vs random** (z={z_mac:.2f}). NK is not treated as equivalent to CD8. Visium P1_LUAD labels are signature-dominant mixed spots; use hop-graph z-scores and composition p-values, not cell-pure calls. Composition tests ask a different question than enrichment (high vs low tumor, not vs random).
 
 ## Files
 
@@ -847,7 +944,8 @@ def run_one(name: str, adata: AnnData, graph: str) -> dict:
     z.to_csv(OUT / "tables" / f"{name}_nhood_zscore.csv")
     comp = composition_test(adata)
     comp.to_csv(OUT / "tables" / f"{name}_composition.csv", index=False)
-    cooc = cooccurrence_vs_distance(adata)
+    bins = VISIUM_COOC_BINS_UM if graph == "hop2" else COOC_BINS_UM
+    cooc = cooccurrence_vs_distance(adata, bins=bins)
     cooc.to_csv(OUT / "tables" / f"{name}_cooccurrence.csv", index=False)
     misty = misty_like_cd8(adata)
     plot_enrichment(
