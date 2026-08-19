@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""ADDITIVE CosMx NSCLC (official 8-sample / 5-patient 960-plex), CLDN4-only.
+"""CosMx NSCLC CLDN4-only: CD8+NK neighbor counts and mixing (retuned).
 
-Complementary to nearest-CD8: nearest NK and CD4 distances, CD8/NK radius
-counts, mixing scores, and per-FOV Δdistance forests.
-
-Stops if CLDN4 is absent from the 960-plex panel. Does not use private 8-KL.
+Official 8-section / 5-patient 960-plex (He et al. 2022). Primary endpoints are
+CD8+NK neighbor COUNT and mixing on a 20/40/60/80 µm grid, with a section-level
+paired test (n=8). Tumor cells are NOT gated as CD8A==0. Nearest-distance is
+not the primary readout. Stops if CLDN4 is absent. No private 8-KL.
 """
 
 from __future__ import annotations
@@ -50,13 +50,12 @@ PATIENT = {
 }
 
 PX_TO_UM = 0.18
-RADII_UM = (15, 25, 50, 100, 150)
-MIX_RADII_UM = (25, 50, 100)
+RADII_UM = (20, 40, 60, 80)
 MIN_COUNTS = 20
 MIN_GENES = 5
 MIN_FOV_TUMOR = 20
-MIN_FOV_ARM = 8
-NEAR_CENSOR_UM = 400.0
+MIN_FOV_ARM = 5
+PRIMARY_R = 40
 
 NEEDED = [
     "CLDN4",
@@ -114,17 +113,14 @@ IMM_MARKERS = [
     "GNLY",
     "KLRD1",
 ]
-STR_MARKERS = ["COL1A1", "COL1A2", "COL3A1", "DCN", "LUM", "ACTA2", "PECAM1", "VWF"]
-
+STR_MARKERS = ["COL1A1", "COL1A2", "COL3A1", "DCN", "LUM", "ACTA2", "PECAM1", "VWF", "FN1", "BGN"]
 AUTHOR_TYPE_COLS = (
     "cell_type",
     "celltype",
     "CellType",
-    "cellType",
-    "nb_clus",
     "cell_types",
+    "nb_clus",
     "annotation",
-    "AuthorCellType",
 )
 
 
@@ -144,18 +140,18 @@ def panel_genes(sample: str) -> list[str]:
 
 def stop_if_cldn4_absent(genes_by_sample: dict[str, list[str]]) -> None:
     missing = [s for s, g in genes_by_sample.items() if "CLDN4" not in g]
-    if missing:
-        os.makedirs(OUT, exist_ok=True)
-        msg = (
-            "CLDN4 is absent from the CosMx 960-plex exprMat for: "
-            + ", ".join(missing)
-            + ". Stopping as instructed. No distances, radii, mixing, or forest were computed."
-        )
-        with open(os.path.join(ROOT, "RESULTS.md"), "w") as fh:
-            fh.write("# CosMx NSCLC CLDN4 immune radii — STOP\n\n")
-            fh.write(msg + "\n")
-        print(msg, file=sys.stderr)
-        raise SystemExit(2)
+    if not missing:
+        return
+    os.makedirs(OUT, exist_ok=True)
+    msg = (
+        "CLDN4 is absent from the CosMx 960-plex exprMat for: "
+        + ", ".join(missing)
+        + ". Stopping as instructed. No counts or mixing were computed."
+    )
+    with open(os.path.join(ROOT, "RESULTS.md"), "w") as fh:
+        fh.write("# CosMx NSCLC CLDN4 CD8+NK radii — STOP\n\n" + msg + "\n")
+    print(msg, file=sys.stderr)
+    raise SystemExit(2)
 
 
 def load_sample(sample: str) -> pd.DataFrame:
@@ -180,7 +176,7 @@ def load_sample(sample: str) -> pd.DataFrame:
     meta = pd.read_csv(meta_path)
     meta["cell_key"] = meta["fov"].astype(str) + "_" + meta["cell_ID"].astype(str)
     keep_meta = ["cell_key", "fov", "cell_ID", "CenterX_global_px", "CenterY_global_px"]
-    for col in ("nCount_RNA", "nFeature_RNA", "Mean.PanCK", "Mean.CD45", "Mean.CD3", "Area"):
+    for col in ("Mean.PanCK", "Mean.CD45", "Mean.CD3", "Area"):
         if col in meta.columns:
             keep_meta.append(col)
     author_col = next((c for c in AUTHOR_TYPE_COLS if c in meta.columns), None)
@@ -190,12 +186,8 @@ def load_sample(sample: str) -> pd.DataFrame:
     df = expr.merge(meta, on=["cell_key", "fov", "cell_ID"], how="inner")
     gene_cols = [g for g in genes if g in df.columns]
     raw = df[gene_cols].to_numpy(dtype=np.float32)
-    if "nCount_RNA" in df.columns:
-        tot_full = df["nCount_RNA"].to_numpy(dtype=np.float32)
-        nfeat = df["nFeature_RNA"].to_numpy(dtype=np.float32) if "nFeature_RNA" in df.columns else df["_nfeat"].to_numpy()
-    else:
-        tot_full = df["_tot"].to_numpy(dtype=np.float32)
-        nfeat = df["_nfeat"].to_numpy()
+    tot_full = df["_tot"].to_numpy(dtype=np.float32)
+    nfeat = df["_nfeat"].to_numpy()
     keep = (tot_full >= MIN_COUNTS) & (nfeat >= MIN_GENES)
     df = df.loc[keep].reset_index(drop=True)
     raw = raw[keep]
@@ -238,6 +230,7 @@ def author_match(series: pd.Series, needles: tuple[str, ...]) -> np.ndarray:
 
 
 def assign_types(df: pd.DataFrame) -> pd.DataFrame:
+    """Tumor = epithelial RNA argmax (optional PanCK support). Do NOT gate CD8A==0."""
     epi = mean_ln(df, EPI_MARKERS)
     imm = mean_ln(df, IMM_MARKERS)
     strn = mean_ln(df, STR_MARKERS)
@@ -248,7 +241,6 @@ def assign_types(df: pd.DataFrame) -> pd.DataFrame:
 
     author_tumor = author_match(df["author_type"], ("tumor", "epithelial", "cancer", "malignant"))
     author_nk = author_match(df["author_type"], ("nk",))
-    author_cd4 = author_match(df["author_type"], ("cd4", "t cd4", "t-cd4"))
     author_cd8 = author_match(df["author_type"], ("cd8", "t cd8", "t-cd8"))
     df["used_author_labels"] = bool(df["author_col"].iloc[0]) and bool(df["author_type"].ne("").any())
 
@@ -261,24 +253,27 @@ def assign_types(df: pd.DataFrame) -> pd.DataFrame:
     nk_raw = raw_sum(df, NK_MARKERS)
     cd3_raw = raw_sum(df, CD3_MARKERS)
     cd8_raw = raw_sum(df, CD8_MARKERS)
-    cd4_raw = raw_sum(df, ["CD4"])
+    cd8a_raw = raw_sum(df, ["CD8A"])
 
-    # Marker NK: NKG7/GNLY/KLRD1+ and CD3−. Author NK overrides when present.
-    nk = ((nk_raw > 0) & (cd3_raw == 0) & (~tumor)) | author_nk
-    cd8 = ((cd8_raw > 0) & (~tumor) & (~nk)) | author_cd8
-    cd4 = ((cd4_raw > 0) & (cd3_raw > 0) & (cd8_raw == 0) & (~tumor) & (~nk) & (~cd8)) | author_cd4
-    # Resolve rare overlaps: author labels win in NK > CD8 > CD4 order already applied.
+    # Keep CD8A+ epithelial cells in the tumor index (explicitly no CD8A==0 gate).
+    df["tumor_cd8a_pos"] = tumor & (cd8a_raw > 0)
+
+    # CD8+NK together (July PPT cytotoxic): non-tumor CD8 or NK.
+    nk = ((nk_raw > 0) & (cd3_raw == 0) & (~tumor)) | (author_nk & (~tumor))
+    cd8 = ((cd8_raw > 0) & (~tumor)) | (author_cd8 & (~tumor))
+    cd8nk = cd8 | nk
 
     df["is_tumor"] = tumor
     df["is_nk"] = nk
     df["is_cd8"] = cd8
-    df["is_cd4"] = cd4
+    df["is_cd8nk"] = cd8nk
     df["cldn4_ln"] = df["CLDN4_ln"] if "CLDN4_ln" in df.columns else 0.0
     df["cldn4_raw"] = df["CLDN4_raw"] if "CLDN4_raw" in df.columns else 0.0
 
     tumor_vals = df.loc[df["is_tumor"], "cldn4_ln"].to_numpy()
     if len(tumor_vals) == 0:
         df["cldn4_arm"] = "nontumor"
+        df["cldn4_median_arm"] = "nontumor"
         return df
     q1, q2, q3 = np.quantile(tumor_vals, [0.25, 0.50, 0.75])
     arm = np.full(len(df), "nontumor", dtype=object)
@@ -307,63 +302,75 @@ def xy_um(df: pd.DataFrame) -> np.ndarray:
     )
 
 
-def nearest_dist(query_xy: np.ndarray, ref_xy: np.ndarray) -> np.ndarray:
-    if len(query_xy) == 0:
-        return np.array([], dtype=np.float64)
-    if len(ref_xy) == 0:
-        return np.full(len(query_xy), np.nan)
-    tree = cKDTree(ref_xy)
-    dist, _ = tree.query(query_xy, k=1, workers=-1)
-    return dist.astype(np.float64)
-
-
 def radius_counts(query_xy: np.ndarray, ref_xy: np.ndarray, radii: tuple[int, ...]) -> np.ndarray:
     out = np.zeros((len(query_xy), len(radii)), dtype=np.int32)
     if len(query_xy) == 0 or len(ref_xy) == 0:
         return out
     tree = cKDTree(ref_xy)
     for j, r in enumerate(radii):
-        out[:, j] = tree.query_ball_point(query_xy, r=float(r), return_length=True)
+        balls = tree.query_ball_point(query_xy, r=float(r))
+        out[:, j] = np.fromiter((len(b) for b in balls), dtype=np.int32, count=len(query_xy))
     return out
 
 
+def mixing_from_labels(xy: np.ndarray, lab: np.ndarray, radius: float, a: str, b: str) -> dict:
+    """Keren percent mixing and homogeneous mixing for two labels."""
+    if len(xy) == 0:
+        return {"keren_a_b": np.nan, "keren_b_a": np.nan, "homog": np.nan, "n_aa": 0, "n_bb": 0, "n_ab": 0}
+    tree = cKDTree(xy)
+    neigh = tree.query_ball_point(xy, r=float(radius))
+    n_aa = n_bb = n_ab = 0
+    for i, nbrs in enumerate(neigh):
+        li = lab[i]
+        for j in nbrs:
+            if j == i:
+                continue
+            lj = lab[j]
+            if li == a and lj == a:
+                n_aa += 1
+            elif li == b and lj == b:
+                n_bb += 1
+            elif (li == a and lj == b) or (li == b and lj == a):
+                n_ab += 1
+    n_ab_undirected = n_ab  # both directions counted in the loop
+    return {
+        "keren_a_b": (n_ab_undirected / n_aa) if n_aa > 0 else np.nan,  # mixed / A-A
+        "keren_b_a": (n_ab_undirected / n_bb) if n_bb > 0 else np.nan,  # mixed / B-B (immune-side)
+        "homog": (n_ab_undirected / (n_ab_undirected + n_aa + n_bb)) if (n_ab_undirected + n_aa + n_bb) > 0 else np.nan,
+        "n_aa": int(n_aa),
+        "n_bb": int(n_bb),
+        "n_ab": int(n_ab_undirected),
+    }
+
+
 def per_fov_metrics(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    tumor = df[df["is_tumor"]].copy()
-    rows = []
+    fov_rows = []
     mix_rows = []
     cell_rows = []
     for (sample, fov), g in df.groupby(["sample", "fov"], sort=True):
         xy = xy_um(g)
-        idx = {k: g.index.to_numpy()[g[k].to_numpy()] for k in ("is_nk", "is_cd4", "is_cd8", "is_tumor")}
-        loc = {k: np.flatnonzero(g[k].to_numpy()) for k in ("is_nk", "is_cd4", "is_cd8", "is_tumor")}
-        g_t = g[g["is_tumor"]]
+        loc_t = np.flatnonzero(g["is_tumor"].to_numpy())
+        loc_i = np.flatnonzero(g["is_cd8nk"].to_numpy())
+        g_t = g.iloc[loc_t]
         if len(g_t) < MIN_FOV_TUMOR:
             continue
-        t_xy = xy[loc["is_tumor"]]
-        nk_xy = xy[loc["is_nk"]]
-        cd4_xy = xy[loc["is_cd4"]]
-        cd8_xy = xy[loc["is_cd8"]]
-        d_nk = nearest_dist(t_xy, nk_xy)
-        d_cd4 = nearest_dist(t_xy, cd4_xy)
-        nk_ct = radius_counts(t_xy, nk_xy, RADII_UM)
-        cd8_ct = radius_counts(t_xy, cd8_xy, RADII_UM)
+        t_xy = xy[loc_t]
+        i_xy = xy[loc_i]
+        ct = radius_counts(t_xy, i_xy, RADII_UM)
         arms = g_t["cldn4_arm"].to_numpy()
-        med_arms = g_t["cldn4_median_arm"].to_numpy()
         tcell = pd.DataFrame(
             {
                 "sample": sample,
                 "patient": g_t["patient"].iloc[0],
                 "fov": int(fov),
                 "cldn4_arm": arms,
-                "cldn4_median_arm": med_arms,
+                "cldn4_median_arm": g_t["cldn4_median_arm"].to_numpy(),
                 "cldn4_ln": g_t["cldn4_ln"].to_numpy(),
-                "dist_nk_um": d_nk,
-                "dist_cd4_um": d_cd4,
+                "tumor_cd8a_pos": g_t["tumor_cd8a_pos"].to_numpy(),
             }
         )
         for j, r in enumerate(RADII_UM):
-            tcell[f"nk_count_{r}"] = nk_ct[:, j]
-            tcell[f"cd8_count_{r}"] = cd8_ct[:, j]
+            tcell[f"cd8nk_count_{r}"] = ct[:, j]
         cell_rows.append(tcell)
 
         for arm in ("high", "low"):
@@ -376,94 +383,150 @@ def per_fov_metrics(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
                 "fov": int(fov),
                 "arm": arm,
                 "n_tumor_arm": int(m.sum()),
-                "n_nk_fov": int(len(nk_xy)),
-                "n_cd4_fov": int(len(cd4_xy)),
-                "n_cd8_fov": int(len(cd8_xy)),
-                "median_dist_nk": float(np.nanmedian(d_nk[m])) if np.isfinite(d_nk[m]).any() else np.nan,
-                "median_dist_cd4": float(np.nanmedian(d_cd4[m])) if np.isfinite(d_cd4[m]).any() else np.nan,
+                "n_cd8nk_fov": int(len(i_xy)),
             }
             for j, r in enumerate(RADII_UM):
-                rec[f"mean_nk_count_{r}"] = float(nk_ct[m, j].mean())
-                rec[f"mean_cd8_count_{r}"] = float(cd8_ct[m, j].mean())
-            rows.append(rec)
+                rec[f"mean_cd8nk_count_{r}"] = float(ct[m, j].mean())
+                rec[f"median_cd8nk_count_{r}"] = float(np.median(ct[m, j]))
+            fov_rows.append(rec)
 
-        # Mixing among CLDN4-high tumor, CD8, NK (Keren percent + homogeneous).
-        mix_xy = []
-        mix_lab = []
         hi = np.flatnonzero((g["is_tumor"].to_numpy()) & (g["cldn4_arm"].to_numpy() == "high"))
-        for loc_i, lab in ((hi, "CLDN4hi"), (loc["is_cd8"], "CD8"), (loc["is_nk"], "NK")):
-            if len(loc_i):
-                mix_xy.append(xy[loc_i])
-                mix_lab.extend([lab] * len(loc_i))
-        if mix_xy:
-            mix_xy = np.vstack(mix_xy)
-            mix_lab = np.array(mix_lab)
-            for radius in MIX_RADII_UM:
-                tree = cKDTree(mix_xy)
-                neigh = tree.query_ball_point(mix_xy, r=float(radius))
-                labels = ("CLDN4hi", "CD8", "NK")
-                counts = {a: {b: 0 for b in labels} for a in labels}
-                for i, nbrs in enumerate(neigh):
-                    a = mix_lab[i]
-                    for j in nbrs:
-                        if j == i:
-                            continue
-                        counts[a][mix_lab[j]] += 1
-                rec = {
-                    "sample": sample,
-                    "patient": PATIENT[sample],
-                    "fov": int(fov),
-                    "radius_um": int(radius),
-                    "n_cldn4hi": int((mix_lab == "CLDN4hi").sum()),
-                    "n_cd8": int((mix_lab == "CD8").sum()),
-                    "n_nk": int((mix_lab == "NK").sum()),
-                }
-                for a, b in (("CLDN4hi", "CD8"), ("CLDN4hi", "NK"), ("CD8", "NK")):
-                    n_ab = counts[a][b] + counts[b][a]
-                    n_aa = counts[a][a]
-                    n_bb = counts[b][b]
-                    rec[f"keren_{a}_{b}"] = (n_ab / n_aa) if n_aa > 0 else np.nan
-                    rec[f"homog_{a}_{b}"] = (n_ab / (n_ab + n_aa + n_bb)) if (n_ab + n_aa + n_bb) > 0 else np.nan
-                mix_rows.append(rec)
+        lo = np.flatnonzero((g["is_tumor"].to_numpy()) & (g["cldn4_arm"].to_numpy() == "low"))
+        for radius in RADII_UM:
+            rec = {
+                "sample": sample,
+                "patient": PATIENT[sample],
+                "fov": int(fov),
+                "radius_um": int(radius),
+                "n_cldn4hi": int(len(hi)),
+                "n_cldn4lo": int(len(lo)),
+                "n_cd8nk": int(len(loc_i)),
+            }
+            for arm_name, loc_arm in (("high", hi), ("low", lo)):
+                if len(loc_arm) == 0 or len(loc_i) == 0:
+                    rec[f"keren_tumor_{arm_name}"] = np.nan
+                    rec[f"keren_immune_{arm_name}"] = np.nan
+                    rec[f"homog_{arm_name}"] = np.nan
+                    rec[f"n_aa_{arm_name}"] = 0
+                    rec[f"n_bb_{arm_name}"] = 0
+                    rec[f"n_ab_{arm_name}"] = 0
+                    continue
+                mix_xy = np.vstack([xy[loc_arm], xy[loc_i]])
+                mix_lab = np.array(["tumor"] * len(loc_arm) + ["cd8nk"] * len(loc_i))
+                mx = mixing_from_labels(mix_xy, mix_lab, radius, "tumor", "cd8nk")
+                rec[f"keren_tumor_{arm_name}"] = mx["keren_a_b"]
+                rec[f"keren_immune_{arm_name}"] = mx["keren_b_a"]
+                rec[f"homog_{arm_name}"] = mx["homog"]
+                rec[f"n_aa_{arm_name}"] = mx["n_aa"]
+                rec[f"n_bb_{arm_name}"] = mx["n_bb"]
+                rec[f"n_ab_{arm_name}"] = mx["n_ab"]
+            mix_rows.append(rec)
 
-    fov_arm = pd.DataFrame(rows)
+    fov_arm = pd.DataFrame(fov_rows)
     mix = pd.DataFrame(mix_rows)
     cells = pd.concat(cell_rows, ignore_index=True) if cell_rows else pd.DataFrame()
     return fov_arm, mix, cells
 
 
-def bootstrap_delta(high: np.ndarray, low: np.ndarray, rng: np.random.Generator, n=250) -> tuple[float, float, float]:
+def section_count_table(cells: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for sample, g in cells.groupby("sample"):
+        rec = {"sample": sample, "patient": PATIENT[sample], "n_high": int((g["cldn4_arm"] == "high").sum()), "n_low": int((g["cldn4_arm"] == "low").sum())}
+        for r in RADII_UM:
+            hi = g.loc[g["cldn4_arm"] == "high", f"cd8nk_count_{r}"]
+            lo = g.loc[g["cldn4_arm"] == "low", f"cd8nk_count_{r}"]
+            rec[f"mean_high_{r}"] = float(hi.mean())
+            rec[f"mean_low_{r}"] = float(lo.mean())
+            rec[f"median_high_{r}"] = float(hi.median())
+            rec[f"median_low_{r}"] = float(lo.median())
+            rec[f"delta_mean_{r}"] = rec[f"mean_high_{r}"] - rec[f"mean_low_{r}"]
+        rows.append(rec)
+    return pd.DataFrame(rows).set_index("sample").loc[[s for s in SAMPLES if s in set(cells["sample"])]].reset_index()
+
+
+def section_mix_table(mix: pd.DataFrame) -> pd.DataFrame:
+    rows = []
+    for (sample, radius), g in mix.groupby(["sample", "radius_um"]):
+        rec = {"sample": sample, "patient": PATIENT[sample], "radius_um": int(radius)}
+        for arm in ("high", "low"):
+            n_aa = g[f"n_aa_{arm}"].sum()
+            n_bb = g[f"n_bb_{arm}"].sum()
+            n_ab = g[f"n_ab_{arm}"].sum()
+            rec[f"keren_immune_{arm}"] = (n_ab / n_bb) if n_bb > 0 else np.nan
+            rec[f"keren_tumor_{arm}"] = (n_ab / n_aa) if n_aa > 0 else np.nan
+            rec[f"homog_{arm}"] = (n_ab / (n_ab + n_aa + n_bb)) if (n_ab + n_aa + n_bb) > 0 else np.nan
+            rec[f"n_ab_{arm}"] = int(n_ab)
+            rec[f"n_aa_{arm}"] = int(n_aa)
+            rec[f"n_bb_{arm}"] = int(n_bb)
+        rec["delta_keren_immune"] = rec["keren_immune_high"] - rec["keren_immune_low"]
+        rec["delta_homog"] = rec["homog_high"] - rec["homog_low"]
+        rows.append(rec)
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    return out.sort_values(["radius_um", "sample"]).reset_index(drop=True)
+
+
+def paired_wilcoxon(high: np.ndarray, low: np.ndarray) -> dict:
+    high = np.asarray(high, dtype=float)
+    low = np.asarray(low, dtype=float)
+    mask = np.isfinite(high) & np.isfinite(low)
+    high, low = high[mask], low[mask]
+    if len(high) < 4:
+        return {"n": int(len(high)), "median_high": np.nan, "median_low": np.nan, "median_delta": np.nan, "wilcoxon_p": np.nan, "n_high_lt_low": np.nan}
+    d = high - low
+    try:
+        w = stats.wilcoxon(high, low, alternative="two-sided", zero_method="wilcox")
+        p = float(w.pvalue)
+    except ValueError:
+        p = np.nan
+    return {
+        "n": int(len(high)),
+        "median_high": float(np.median(high)),
+        "median_low": float(np.median(low)),
+        "mean_high": float(np.mean(high)),
+        "mean_low": float(np.mean(low)),
+        "median_delta": float(np.median(d)),
+        "mean_delta": float(np.mean(d)),
+        "wilcoxon_p": p,
+        "n_high_lt_low": int((d < 0).sum()),
+        "n_high_gt_low": int((d > 0).sum()),
+    }
+
+
+def bootstrap_delta(high: np.ndarray, low: np.ndarray, rng: np.random.Generator, n=200) -> tuple[float, float, float]:
     high = high[np.isfinite(high)]
     low = low[np.isfinite(low)]
     if len(high) < MIN_FOV_ARM or len(low) < MIN_FOV_ARM:
         return np.nan, np.nan, np.nan
-    point = float(np.median(high) - np.median(low))
+    point = float(np.mean(high) - np.mean(low))
     diffs = np.empty(n, dtype=np.float64)
     for i in range(n):
         h = rng.choice(high, size=len(high), replace=True)
         l = rng.choice(low, size=len(low), replace=True)
-        diffs[i] = np.median(h) - np.median(l)
+        diffs[i] = np.mean(h) - np.mean(l)
     lo, hi = np.percentile(diffs, [2.5, 97.5])
     return point, float(lo), float(hi)
 
 
-def fov_forest_table(cells: pd.DataFrame, metric: str) -> pd.DataFrame:
+def fov_forest_counts(cells: pd.DataFrame, radius: int) -> pd.DataFrame:
     rng = np.random.default_rng(7)
+    col = f"cd8nk_count_{radius}"
     rows = []
     for (sample, fov), g in cells.groupby(["sample", "fov"]):
-        high = g.loc[g["cldn4_arm"] == "high", metric].to_numpy()
-        low = g.loc[g["cldn4_arm"] == "low", metric].to_numpy()
+        high = g.loc[g["cldn4_arm"] == "high", col].to_numpy(dtype=float)
+        low = g.loc[g["cldn4_arm"] == "low", col].to_numpy(dtype=float)
         delta, lo, hi = bootstrap_delta(high, low, rng)
         rows.append(
             {
                 "sample": sample,
                 "patient": PATIENT[sample],
                 "fov": int(fov),
-                "metric": metric,
-                "n_high": int(np.isfinite(high).sum()),
-                "n_low": int(np.isfinite(low).sum()),
-                "median_high": float(np.nanmedian(high)) if np.isfinite(high).any() else np.nan,
-                "median_low": float(np.nanmedian(low)) if np.isfinite(low).any() else np.nan,
+                "radius_um": radius,
+                "n_high": int(len(high)),
+                "n_low": int(len(low)),
+                "mean_high": float(np.mean(high)) if len(high) else np.nan,
+                "mean_low": float(np.mean(low)) if len(low) else np.nan,
                 "delta_high_minus_low": delta,
                 "ci95_lo": lo,
                 "ci95_hi": hi,
@@ -472,353 +535,117 @@ def fov_forest_table(cells: pd.DataFrame, metric: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def mw_and_ks(a: np.ndarray, b: np.ndarray) -> dict:
-    a = a[np.isfinite(a)]
-    b = b[np.isfinite(b)]
-    if len(a) < 10 or len(b) < 10:
-        return {"n_high": int(len(a)), "n_low": int(len(b)), "median_high": np.nan, "median_low": np.nan, "delta": np.nan, "mw_p": np.nan, "ks_p": np.nan}
-    mw = stats.mannwhitneyu(a, b, alternative="two-sided")
-    ks = stats.ks_2samp(a, b, alternative="two-sided")
-    return {
-        "n_high": int(len(a)),
-        "n_low": int(len(b)),
-        "median_high": float(np.median(a)),
-        "median_low": float(np.median(b)),
-        "delta": float(np.median(a) - np.median(b)),
-        "mw_p": float(mw.pvalue),
-        "ks_p": float(ks.pvalue),
-    }
-
-
-def plot_ecdfs(cells: pd.DataFrame) -> None:
-    fig, axes = plt.subplots(1, 2, figsize=(10.2, 4.2), sharey=True)
-    specs = [
-        ("dist_nk_um", "Nearest NK (µm)", axes[0]),
-        ("dist_cd4_um", "Nearest CD4 (µm)", axes[1]),
-    ]
+def plot_count_ecdfs(cells: pd.DataFrame) -> None:
     colors = {"high": "#b2182b", "low": "#2166ac"}
-    for col, title, ax in specs:
+    fig, axes = plt.subplots(2, 2, figsize=(9.6, 7.2), sharey=True)
+    for ax, r in zip(axes.ravel(), RADII_UM):
+        col = f"cd8nk_count_{r}"
+        xmax = 0
         for arm, lab in (("high", "CLDN4-high tumor"), ("low", "CLDN4-low tumor")):
             v = cells.loc[cells["cldn4_arm"] == arm, col].to_numpy()
             v = v[np.isfinite(v)]
-            v = v[v <= NEAR_CENSOR_UM]
             if len(v) == 0:
                 continue
+            xmax = max(xmax, float(np.quantile(v, 0.99)))
             x = np.sort(v)
             y = np.arange(1, len(x) + 1) / len(x)
             ax.step(x, y, where="post", color=colors[arm], lw=2.0, label=f"{lab} (n={len(x):,})")
-        ax.set_xlabel(title)
-        ax.set_xlim(0, NEAR_CENSOR_UM)
-        ax.set_ylim(0, 1)
+        ax.set_title(f"{r} µm")
+        ax.set_xlabel("CD8+NK neighbor count")
+        ax.set_xlim(0, max(5, xmax))
         ax.grid(True, alpha=0.3)
-        ax.legend(frameon=False, fontsize=8)
-    axes[0].set_ylabel("ECDF")
-    fig.suptitle("CosMx NSCLC official 8-sample / 5-patient: CLDN4-high vs low tumor", fontsize=11)
-    fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "ecdf_nearest_nk_cd4.png"), dpi=180)
-    fig.savefig(os.path.join(FIG, "ecdf_nearest_nk_cd4.pdf"))
-    plt.close(fig)
-
-    samples = [s for s in SAMPLES if s in set(cells["sample"])]
-    fig, axes = plt.subplots(2, 4, figsize=(14, 6.4), sharex=True, sharey=True)
-    for i, sample in enumerate(samples):
-        ax = axes[0, i] if i < 4 else axes[1, i - 4]
-        sub = cells[cells["sample"] == sample]
-        for col, ls in (("dist_nk_um", "-"), ("dist_cd4_um", "--")):
-            for arm in ("high", "low"):
-                v = sub.loc[sub["cldn4_arm"] == arm, col].to_numpy()
-                v = v[np.isfinite(v) & (v <= NEAR_CENSOR_UM)]
-                if len(v) == 0:
-                    continue
-                x = np.sort(v)
-                y = np.arange(1, len(x) + 1) / len(x)
-                ax.step(x, y, where="post", color=colors[arm], ls=ls, lw=1.4)
-        ax.set_title(f"{sample} ({PATIENT[sample]})", fontsize=9)
-        ax.set_xlim(0, NEAR_CENSOR_UM)
-        ax.grid(True, alpha=0.25)
+        ax.legend(frameon=False, fontsize=7)
     axes[0, 0].set_ylabel("ECDF")
     axes[1, 0].set_ylabel("ECDF")
-    for ax in axes[1]:
-        ax.set_xlabel("Nearest distance (µm)")
-    fig.legend(
-        handles=[
-            plt.Line2D([0], [0], color=colors["high"], lw=2, label="CLDN4-high"),
-            plt.Line2D([0], [0], color=colors["low"], lw=2, label="CLDN4-low"),
-            plt.Line2D([0], [0], color="0.3", lw=1.4, ls="-", label="→ NK"),
-            plt.Line2D([0], [0], color="0.3", lw=1.4, ls="--", label="→ CD4"),
-        ],
-        loc="upper center",
-        ncol=4,
-        frameon=False,
-        bbox_to_anchor=(0.5, 1.02),
-    )
+    fig.suptitle("CD8+NK neighbor counts around CLDN4-high vs low tumor (8 sections)", fontsize=11)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "ecdf_nearest_by_sample.png"), dpi=180, bbox_inches="tight")
-    fig.savefig(os.path.join(FIG, "ecdf_nearest_by_sample.pdf"), bbox_inches="tight")
+    fig.savefig(os.path.join(FIG, "ecdf_cd8nk_counts.png"), dpi=180)
+    fig.savefig(os.path.join(FIG, "ecdf_cd8nk_counts.pdf"))
     plt.close(fig)
 
 
-def plot_radius_counts(cells: pd.DataFrame) -> None:
-    rows = []
-    for sample, g in cells.groupby("sample"):
-        for arm in ("high", "low"):
-            gg = g[g["cldn4_arm"] == arm]
-            for r in RADII_UM:
-                rows.append(
-                    {
-                        "sample": sample,
-                        "patient": PATIENT[sample],
-                        "arm": arm,
-                        "radius_um": r,
-                        "mean_cd8": float(gg[f"cd8_count_{r}"].mean()),
-                        "mean_nk": float(gg[f"nk_count_{r}"].mean()),
-                        "n": int(len(gg)),
-                    }
-                )
-    tab = pd.DataFrame(rows)
-    tab.to_csv(os.path.join(TAB, "radius_counts_by_sample.csv"), index=False)
+def plot_section_paired_counts(sec: pd.DataFrame) -> None:
+    fig, axes = plt.subplots(2, 2, figsize=(9.6, 7.2), sharey=False)
+    palette = {"P5": "#1b9e77", "P6": "#d95f02", "P9": "#7570b3", "P12": "#e7298a", "P13": "#66a61e"}
+    for ax, r in zip(axes.ravel(), RADII_UM):
+        x0 = sec[f"mean_low_{r}"].to_numpy()
+        x1 = sec[f"mean_high_{r}"].to_numpy()
+        for i, row in sec.iterrows():
+            ax.plot([0, 1], [row[f"mean_low_{r}"], row[f"mean_high_{r}"]], color=palette[row["patient"]], lw=1.4, marker="o", ms=5)
+        ax.set_xticks([0, 1], ["CLDN4-low", "CLDN4-high"])
+        ax.set_title(f"{r} µm")
+        ax.set_ylabel("Mean CD8+NK neighbors / tumor cell")
+        ax.grid(True, axis="y", alpha=0.3)
+    handles = [plt.Line2D([0], [0], color=c, marker="o", label=p) for p, c in palette.items()]
+    fig.legend(handles=handles, loc="upper center", ncol=5, frameon=False, bbox_to_anchor=(0.5, 1.02))
+    fig.suptitle("Section-level paired CD8+NK neighbor counts (n=8 official sections)", fontsize=11, y=1.04)
+    fig.tight_layout()
+    fig.savefig(os.path.join(FIG, "section_paired_cd8nk_counts.png"), dpi=180, bbox_inches="tight")
+    fig.savefig(os.path.join(FIG, "section_paired_cd8nk_counts.pdf"), bbox_inches="tight")
+    plt.close(fig)
 
-    fig, axes = plt.subplots(1, 2, figsize=(10.2, 4.2), sharex=True)
-    colors = {"high": "#b2182b", "low": "#2166ac"}
-    for ax, key, title in (
-        (axes[0], "mean_cd8", "CD8 cells within radius"),
-        (axes[1], "mean_nk", "NK cells within radius"),
+
+def plot_section_paired_mixing(mixsec: pd.DataFrame) -> None:
+    sub = mixsec[mixsec["radius_um"] == PRIMARY_R].copy()
+    if sub.empty:
+        return
+    palette = {"P5": "#1b9e77", "P6": "#d95f02", "P9": "#7570b3", "P12": "#e7298a", "P13": "#66a61e"}
+    fig, axes = plt.subplots(1, 2, figsize=(9.4, 4.2))
+    for ax, cols, ylab in (
+        (axes[0], ("keren_immune_low", "keren_immune_high"), "Keren mixing (immune-side)\nCD8+NK–tumor / CD8+NK–CD8+NK"),
+        (axes[1], ("homog_low", "homog_high"), "Homogeneous mixing\nCLDN4-arm tumor vs CD8+NK"),
     ):
-        for arm in ("high", "low"):
-            sub = tab[tab["arm"] == arm].groupby("radius_um")[key]
-            mu = sub.mean()
-            se = sub.std(ddof=1) / np.sqrt(sub.count())
-            ax.errorbar(
-                mu.index,
-                mu.values,
-                yerr=se.values,
-                color=colors[arm],
-                marker="o",
-                lw=1.8,
-                capsize=3,
-                label=f"CLDN4-{arm} tumor",
-            )
-        ax.set_title(title)
-        ax.set_xlabel("Radius (µm)")
-        ax.set_xticks(list(RADII_UM))
-        ax.grid(True, alpha=0.3)
-        ax.legend(frameon=False, fontsize=8)
-    axes[0].set_ylabel("Mean count per tumor cell")
-    fig.suptitle("CD8 and NK neighborhood counts (sample-mean ± SEM)", fontsize=11)
+        for _, row in sub.iterrows():
+            ax.plot([0, 1], [row[cols[0]], row[cols[1]]], color=palette[row["patient"]], lw=1.4, marker="o", ms=5)
+        ax.set_xticks([0, 1], ["vs CLDN4-low", "vs CLDN4-high"])
+        ax.set_ylabel(ylab)
+        ax.grid(True, axis="y", alpha=0.3)
+    fig.suptitle(f"Section-level paired mixing at {PRIMARY_R} µm (n=8)", fontsize=11)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "radius_counts_cd8_nk.png"), dpi=180)
-    fig.savefig(os.path.join(FIG, "radius_counts_cd8_nk.pdf"))
+    fig.savefig(os.path.join(FIG, "section_paired_mixing.png"), dpi=180)
+    fig.savefig(os.path.join(FIG, "section_paired_mixing.pdf"))
+    plt.close(fig)
+
+    fig, axes = plt.subplots(2, 2, figsize=(9.6, 7.2))
+    for ax, r in zip(axes.ravel(), RADII_UM):
+        g = mixsec[mixsec["radius_um"] == r]
+        for _, row in g.iterrows():
+            ax.plot([0, 1], [row["keren_immune_low"], row["keren_immune_high"]], color=palette[row["patient"]], lw=1.4, marker="o", ms=5)
+        ax.set_xticks([0, 1], ["vs CLDN4-low", "vs CLDN4-high"])
+        ax.set_title(f"{r} µm")
+        ax.set_ylabel("Keren mixing (immune-side)")
+        ax.grid(True, axis="y", alpha=0.3)
+    fig.suptitle("Section-level paired Keren mixing, CD8+NK vs CLDN4-high/low tumor", fontsize=11)
+    fig.tight_layout()
+    fig.savefig(os.path.join(FIG, "section_paired_mixing_grid.png"), dpi=180)
+    fig.savefig(os.path.join(FIG, "section_paired_mixing_grid.pdf"))
     plt.close(fig)
 
 
-def plot_forest(forest: pd.DataFrame, metric: str, title: str, fname: str) -> None:
+def plot_fov_forest(forest: pd.DataFrame, radius: int) -> None:
     d = forest.dropna(subset=["delta_high_minus_low"]).copy()
     if d.empty:
         return
     d = d.sort_values(["patient", "sample", "fov"]).reset_index(drop=True)
-    fig_h = max(6.5, 0.16 * len(d) + 1.8)
-    fig, ax = plt.subplots(figsize=(8.6, fig_h))
+    fig_h = max(6.5, 0.15 * len(d) + 1.8)
+    fig, ax = plt.subplots(figsize=(8.8, fig_h))
     y = np.arange(len(d))
-    x = d["delta_high_minus_low"].to_numpy()
-    lo = d["ci95_lo"].to_numpy()
-    hi = d["ci95_hi"].to_numpy()
     palette = {"P5": "#1b9e77", "P6": "#d95f02", "P9": "#7570b3", "P12": "#e7298a", "P13": "#66a61e"}
     colors = [palette.get(p, "0.4") for p in d["patient"]]
     ax.axvline(0, color="0.35", lw=1.0, ls="--")
-    ax.hlines(y, lo, hi, color="0.55", lw=0.9)
-    ax.scatter(x, y, c=colors, s=16, zorder=3, edgecolors="none")
+    ax.hlines(y, d["ci95_lo"], d["ci95_hi"], color="0.55", lw=0.9)
+    ax.scatter(d["delta_high_minus_low"], y, c=colors, s=16, zorder=3, edgecolors="none")
     ax.set_yticks(y)
     ax.set_yticklabels([f"{s} FOV{int(f):02d}" for s, f in zip(d["sample"], d["fov"])], fontsize=6)
-    ax.set_xlabel("Δ median distance (CLDN4-high − CLDN4-low), µm")
-    ax.set_title(title, fontsize=11)
+    ax.set_xlabel(f"Δ mean CD8+NK count at {radius} µm (CLDN4-high − low)")
+    ax.set_title(f"Per-FOV forest of Δ CD8+NK neighbor count ({radius} µm)")
     ax.grid(True, axis="x", alpha=0.3)
     handles = [plt.Line2D([0], [0], marker="o", color="none", markerfacecolor=c, label=p, markersize=7) for p, c in palette.items()]
     ax.legend(handles=handles, frameon=False, fontsize=8, loc="lower right")
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, fname + ".png"), dpi=160)
-    fig.savefig(os.path.join(FIG, fname + ".pdf"))
+    fig.savefig(os.path.join(FIG, f"fov_forest_delta_cd8nk_count_{radius}um.png"), dpi=150)
+    fig.savefig(os.path.join(FIG, f"fov_forest_delta_cd8nk_count_{radius}um.pdf"))
     plt.close(fig)
-
-
-def plot_mixing(mix: pd.DataFrame) -> None:
-    if mix.empty:
-        return
-    sub = mix[mix["radius_um"] == 50]
-    pairs = [
-        ("homog_CLDN4hi_CD8", "CLDN4-high vs CD8"),
-        ("homog_CLDN4hi_NK", "CLDN4-high vs NK"),
-        ("homog_CD8_NK", "CD8 vs NK"),
-    ]
-    fig, ax = plt.subplots(figsize=(8.4, 4.4))
-    samples = [s for s in SAMPLES if s in set(sub["sample"])]
-    x = np.arange(len(samples))
-    width = 0.25
-    for i, (col, lab) in enumerate(pairs):
-        mu = [sub.loc[sub["sample"] == s, col].mean() for s in samples]
-        ax.bar(x + (i - 1) * width, mu, width=width, label=lab)
-    ax.set_xticks(x)
-    ax.set_xticklabels(samples, rotation=30, ha="right")
-    ax.set_ylabel("Homogeneous mixing (50 µm)")
-    ax.set_title("Mixing among CLDN4-high tumor, CD8, and NK")
-    ax.legend(frameon=False, fontsize=8)
-    ax.grid(True, axis="y", alpha=0.3)
-    fig.tight_layout()
-    fig.savefig(os.path.join(FIG, "mixing_cldn4hi_cd8_nk.png"), dpi=180)
-    fig.savefig(os.path.join(FIG, "mixing_cldn4hi_cd8_nk.pdf"))
-    plt.close(fig)
-
-
-def wilcoxon_deltas(forest: pd.DataFrame) -> dict:
-    v = forest["delta_high_minus_low"].dropna().to_numpy()
-    if len(v) < 8:
-        return {"n_fov": int(len(v)), "median_delta": float(np.median(v)) if len(v) else np.nan, "wilcoxon_p": np.nan, "frac_pos": np.nan}
-    w = stats.wilcoxon(v, alternative="two-sided", zero_method="wilcox")
-    return {
-        "n_fov": int(len(v)),
-        "median_delta": float(np.median(v)),
-        "mean_delta": float(np.mean(v)),
-        "wilcoxon_p": float(w.pvalue),
-        "frac_pos": float((v > 0).mean()),
-        "frac_ci_excl0_pos": float(((forest["ci95_lo"] > 0).mean()) if "ci95_lo" in forest else np.nan),
-        "frac_ci_excl0_neg": float(((forest["ci95_hi"] < 0).mean()) if "ci95_hi" in forest else np.nan),
-    }
-
-
-def main() -> int:
-    os.makedirs(FIG, exist_ok=True)
-    os.makedirs(TAB, exist_ok=True)
-
-    present = [s for s in SAMPLES if os.path.isdir(os.path.join(DATA, s))]
-    if len(present) < 8:
-        raise SystemExit(f"need all 8 official samples, found {present}")
-
-    genes_by_sample = {s: panel_genes(s) for s in SAMPLES}
-    stop_if_cldn4_absent(genes_by_sample)
-
-    frames = []
-    inventory = []
-    for sample in SAMPLES:
-        print(f"load {sample}", flush=True)
-        df = assign_types(load_sample(sample))
-        rec = {
-            "sample": sample,
-            "patient": PATIENT[sample],
-            "n_qc": int(len(df)),
-            "n_fov": int(df["fov"].nunique()),
-            "n_tumor": int(df["is_tumor"].sum()),
-            "n_cldn4_high": int((df["cldn4_arm"] == "high").sum()),
-            "n_cldn4_low": int((df["cldn4_arm"] == "low").sum()),
-            "n_nk": int(df["is_nk"].sum()),
-            "n_cd4": int(df["is_cd4"].sum()),
-            "n_cd8": int(df["is_cd8"].sum()),
-            "frac_tumor_cldn4_pos": float((df.loc[df["is_tumor"], "cldn4_raw"] > 0).mean()) if df["is_tumor"].any() else np.nan,
-            "used_author_labels": bool(df["used_author_labels"].iloc[0]),
-            "author_col": str(df["author_col"].iloc[0]),
-            "n_panel_genes": int(df["_n_panel_genes"].iloc[0]),
-            "cldn4_in_panel": True,
-        }
-        inventory.append(rec)
-        frames.append(df)
-        print(f"  {rec}", flush=True)
-
-    inv = pd.DataFrame(inventory)
-    inv.to_csv(os.path.join(TAB, "sample_inventory.csv"), index=False)
-
-    all_cells_meta = []
-    fov_parts, mix_parts, cell_parts = [], [], []
-    for df in frames:
-        fov_arm, mix, cells = per_fov_metrics(df)
-        fov_parts.append(fov_arm)
-        mix_parts.append(mix)
-        cell_parts.append(cells)
-        all_cells_meta.append(df[["sample", "patient", "fov", "is_tumor", "is_nk", "is_cd4", "is_cd8", "cldn4_arm"]].copy())
-        del df
-
-    fov_arm = pd.concat([p for p in fov_parts if len(p)], ignore_index=True)
-    mix = pd.concat([p for p in mix_parts if len(p)], ignore_index=True)
-    cells = pd.concat([p for p in cell_parts if len(p)], ignore_index=True)
-    fov_arm.to_csv(os.path.join(TAB, "fov_arm_metrics.csv"), index=False)
-    mix.to_csv(os.path.join(TAB, "mixing_by_fov.csv"), index=False)
-
-    # Keep a compact tumor-cell table (not full 800k).
-    tumor_keep = cells.copy()
-    tumor_keep.to_csv(os.path.join(TAB, "tumor_cell_distances.csv.gz"), index=False, compression="gzip")
-
-    forest_nk = fov_forest_table(cells, "dist_nk_um")
-    forest_cd4 = fov_forest_table(cells, "dist_cd4_um")
-    forest_nk.to_csv(os.path.join(TAB, "fov_forest_delta_nk.csv"), index=False)
-    forest_cd4.to_csv(os.path.join(TAB, "fov_forest_delta_cd4.csv"), index=False)
-
-    tests = {}
-    for sample in SAMPLES:
-        sub = cells[cells["sample"] == sample]
-        tests[sample] = {
-            "nk": mw_and_ks(sub.loc[sub["cldn4_arm"] == "high", "dist_nk_um"].to_numpy(), sub.loc[sub["cldn4_arm"] == "low", "dist_nk_um"].to_numpy()),
-            "cd4": mw_and_ks(sub.loc[sub["cldn4_arm"] == "high", "dist_cd4_um"].to_numpy(), sub.loc[sub["cldn4_arm"] == "low", "dist_cd4_um"].to_numpy()),
-        }
-        for r in RADII_UM:
-            tests[sample][f"cd8_r{r}"] = mw_and_ks(
-                sub.loc[sub["cldn4_arm"] == "high", f"cd8_count_{r}"].to_numpy(),
-                sub.loc[sub["cldn4_arm"] == "low", f"cd8_count_{r}"].to_numpy(),
-            )
-            tests[sample][f"nk_r{r}"] = mw_and_ks(
-                sub.loc[sub["cldn4_arm"] == "high", f"nk_count_{r}"].to_numpy(),
-                sub.loc[sub["cldn4_arm"] == "low", f"nk_count_{r}"].to_numpy(),
-            )
-    tests["pooled"] = {
-        "nk": mw_and_ks(cells.loc[cells["cldn4_arm"] == "high", "dist_nk_um"].to_numpy(), cells.loc[cells["cldn4_arm"] == "low", "dist_nk_um"].to_numpy()),
-        "cd4": mw_and_ks(cells.loc[cells["cldn4_arm"] == "high", "dist_cd4_um"].to_numpy(), cells.loc[cells["cldn4_arm"] == "low", "dist_cd4_um"].to_numpy()),
-    }
-    tests["fov_forest_nk"] = wilcoxon_deltas(forest_nk)
-    tests["fov_forest_cd4"] = wilcoxon_deltas(forest_cd4)
-    tests["mixing_50um_sample_means"] = (
-        mix[mix["radius_um"] == 50]
-        .groupby("sample")[["homog_CLDN4hi_CD8", "homog_CLDN4hi_NK", "homog_CD8_NK", "keren_CLDN4hi_CD8", "keren_CLDN4hi_NK"]]
-        .mean()
-        .round(4)
-        .to_dict(orient="index")
-        if not mix.empty
-        else {}
-    )
-
-    plot_ecdfs(cells)
-    plot_radius_counts(cells)
-    plot_forest(
-        forest_nk,
-        "dist_nk_um",
-        "Per-FOV forest: Δ nearest-NK distance (CLDN4-high − low tumor)",
-        "fov_forest_delta_nk",
-    )
-    plot_forest(
-        forest_cd4,
-        "dist_cd4_um",
-        "Per-FOV forest: Δ nearest-CD4 distance (CLDN4-high − low tumor)",
-        "fov_forest_delta_cd4",
-    )
-    plot_mixing(mix)
-
-    summary = {
-        "dataset": "official CosMx NSCLC 960-plex, 8 samples / 5 patients (He et al. 2022)",
-        "source": "nanostring-public-share S3 SMI-Compressed flat files",
-        "private_8kl": False,
-        "cldn4_only": True,
-        "pixel_size_um": PX_TO_UM,
-        "cldn4_high_definition": "tumor Q4 vs Q1 of log-normalized CLDN4",
-        "nk_definition": "author NK label if present; else NKG7/GNLY/KLRD1+ and CD3−",
-        "cd4_definition": "author CD4 label if present; else CD4+ CD3+ CD8−, not NK/tumor",
-        "cd8_definition": "author CD8 label if present; else CD8A/B+, not tumor/NK",
-        "distance_scope": "within-FOV only, 0.18 µm/pixel",
-        "inventory": inv.to_dict(orient="records"),
-        "tests": tests,
-        "n_tumor_cells_scored": int(len(cells)),
-        "n_fov_scored": int(cells[["sample", "fov"]].drop_duplicates().shape[0]),
-    }
-    with open(os.path.join(OUT, "summary.json"), "w") as fh:
-        json.dump(summary, fh, indent=2, default=str)
-
-    write_results(inv, tests, mix, forest_nk, forest_cd4, cells)
-    print("done", flush=True)
-    return 0
 
 
 def _fmt_p(p) -> str:
@@ -832,113 +659,98 @@ def _fmt_p(p) -> str:
     return f"{p:.3f}"
 
 
-def write_results(inv: pd.DataFrame, tests: dict, mix: pd.DataFrame, forest_nk: pd.DataFrame, forest_cd4: pd.DataFrame, cells: pd.DataFrame) -> None:
-    pooled_nk = tests["pooled"]["nk"]
-    pooled_cd4 = tests["pooled"]["cd4"]
-    fov_nk = tests["fov_forest_nk"]
-    fov_cd4 = tests["fov_forest_cd4"]
+def write_results(inv: pd.DataFrame, sec: pd.DataFrame, mixsec: pd.DataFrame, paired: dict, forest: pd.DataFrame) -> None:
     lines = []
-    lines.append("# CosMx NSCLC CLDN4-only: nearest NK/CD4, CD8/NK radii, mixing, FOV forest")
+    lines.append("# CosMx NSCLC CLDN4-only: CD8+NK neighbor counts and mixing")
     lines.append("")
-    lines.append("ADDITIVE analysis of the **official CosMx NSCLC 960-plex** resource (He et al. 2022, *Nat Biotechnol*): **8 samples / 5 patients**. CLDN4-only. No private 8-KL. This slice is complementary to nearest-CD8 (sibling): it reports nearest **NK** and nearest **CD4**, **CD8 and NK counts** at 15/25/50/100/150 µm, a **mixing score** among CLDN4-high tumor / CD8 / NK, and **per-FOV forests of Δdistance**.")
+    lines.append("ADDITIVE, **CLDN4-only**, official CosMx NSCLC 960-plex (He et al. 2022): **all 8 sections / 5 patients**. No private 8-KL. Primary readout is **CD8+NK neighbor COUNT** and **mixing** on a **20 / 40 / 60 / 80 µm** grid, with a **section-level paired test (n=8)**. Nearest-distance is not the primary endpoint. Tumor cells are **not** gated as `CD8A==0`.")
     lines.append("")
-    lines.append("CLDN4 is **present** on the 960-plex panel in all 8 samples, so the run did not stop.")
+    lines.append("CLDN4 is **present** on the 960-plex in all 8 sections.")
     lines.append("")
-    lines.append("## Data")
+    lines.append("## Design (retuned)")
     lines.append("")
-    lines.append("- Source: NanoString public S3 `nanostring-public-share/SMI-Compressed/` flat files (exprMat + metadata).")
-    lines.append("- Samples: Lung5_Rep1/2/3 (patient 5), Lung6 (patient 6), Lung9_Rep1/2 (patient 9), Lung12 (patient 12), Lung13 (patient 13).")
-    lines.append("- Pixel size 0.18 µm. QC: `cell_ID != 0`, ≥20 counts and ≥5 genes (metadata nCount/nFeature when present).")
-    lines.append("- Distances and radii are **within-FOV only** (no cross-FOV stitching).")
-    lines.append("- Flat release has no official 18-type table in the CSVs used here. NK = author NK label if a cell-type column exists, otherwise **NKG7/GNLY/KLRD1+ and CD3−**. CD4 = author CD4 or **CD4+ CD3+ CD8−**. CD8 = author CD8 or **CD8A/B+**. Tumor = RNA epithelial-compartment argmax (plus PanCK-high ∩ CD45-low when stains exist).")
-    lines.append("- CLDN4-high / low among tumor cells: **Q4 vs Q1** of log-normalized CLDN4.")
-    lines.append("- Honest n = **5 patients** (8 sections). No ICI labels.")
+    lines.append("- **Index:** tumor / epithelial RNA-compartment cells, including those with CD8A>0.")
+    lines.append("- **CLDN4-high / low:** Q4 vs Q1 of log-normalized CLDN4 among tumor cells, per section.")
+    lines.append("- **Neighbors:** CD8+NK together (July PPT cytotoxic): non-tumor CD8A/B+ **or** NKG7/GNLY/KLRD1+ CD3− (KLRD1 is not on this panel; NKG7/GNLY used).")
+    lines.append("- **Radii:** 20, 40, 60, 80 µm. Within-FOV only. 0.18 µm/pixel.")
+    lines.append("- **Mixing:** Keren immune-side (CD8+NK–tumor contacts / CD8+NK–CD8+NK contacts) and homogeneous mixing, pooled across FOVs within each section.")
+    lines.append("- **Inference:** paired Wilcoxon signed-rank on the 8 section means (high vs low). Honest n = 8 sections (5 patients).")
     lines.append("")
     lines.append("## Inventory")
     lines.append("")
-    lines.append("| Sample | Patient | QC cells | FOVs | Tumor | CLDN4-high | CLDN4-low | NK | CD4 | CD8 | Tumor CLDN4+ |")
-    lines.append("|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
+    lines.append("| Section | Patient | QC cells | FOVs | Tumor | Tumor CD8A+ kept | CLDN4-high | CLDN4-low | CD8+NK |")
+    lines.append("|---|---|---:|---:|---:|---:|---:|---:|---:|")
     for r in inv.itertuples(index=False):
         lines.append(
-            f"| {r.sample} | {r.patient} | {r.n_qc:,} | {r.n_fov} | {r.n_tumor:,} | {r.n_cldn4_high:,} | {r.n_cldn4_low:,} | {r.n_nk:,} | {r.n_cd4:,} | {r.n_cd8:,} | {r.frac_tumor_cldn4_pos:.3f} |"
+            f"| {r.sample} | {r.patient} | {r.n_qc:,} | {r.n_fov} | {r.n_tumor:,} | {r.n_tumor_cd8a_pos:,} | {r.n_cldn4_high:,} | {r.n_cldn4_low:,} | {r.n_cd8nk:,} |"
         )
     lines.append("")
-    lines.append("## Nearest NK and nearest CD4")
+    lines.append(f"Tumor cells with CD8A>0 were **kept** in the tumor index (n={int(inv['n_tumor_cd8a_pos'].sum()):,} across sections).")
     lines.append("")
-    lines.append(f"Pooled tumor cells (Q4 vs Q1): nearest NK median {pooled_nk['median_high']:.1f} vs {pooled_nk['median_low']:.1f} µm (Δ={pooled_nk['delta']:.1f}; MW p={_fmt_p(pooled_nk['mw_p'])}; KS p={_fmt_p(pooled_nk['ks_p'])}; n={pooled_nk['n_high']:,}/{pooled_nk['n_low']:,}).")
+    lines.append("## Section-level paired CD8+NK neighbor counts")
     lines.append("")
-    lines.append(f"Nearest CD4 median {pooled_cd4['median_high']:.1f} vs {pooled_cd4['median_low']:.1f} µm (Δ={pooled_cd4['delta']:.1f}; MW p={_fmt_p(pooled_cd4['mw_p'])}; KS p={_fmt_p(pooled_cd4['ks_p'])}; n={pooled_cd4['n_high']:,}/{pooled_cd4['n_low']:,}).")
-    lines.append("")
-    lines.append("Positive Δ means CLDN4-high tumor cells are farther from that immune type than CLDN4-low tumor cells. Cell-pooled tests are descriptive; inference is the FOV forest / Wilcoxon on per-FOV Δ.")
-    lines.append("")
-    lines.append("| Sample | Δ NK (µm) | MW p | Δ CD4 (µm) | MW p |")
-    lines.append("|---|---:|---:|---:|---:|")
-    for s in SAMPLES:
-        nk = tests[s]["nk"]
-        cd4 = tests[s]["cd4"]
-        lines.append(f"| {s} | {nk['delta']:.2f} | {_fmt_p(nk['mw_p'])} | {cd4['delta']:.2f} | {_fmt_p(cd4['mw_p'])} |")
-    lines.append("")
-    lines.append("Figures: `results/cosmx_nsclc_cldn4_nk_cd8/figures/ecdf_nearest_nk_cd4.png`, `ecdf_nearest_by_sample.png`.")
-    lines.append("")
-    lines.append("## CD8 and NK counts at 15, 25, 50, 100, 150 µm")
-    lines.append("")
-    lines.append("Mean neighborhood counts per CLDN4-high vs CLDN4-low tumor cell (pooled cells; sample-level means in `tables/radius_counts_by_sample.csv`).")
-    lines.append("")
-    lines.append("| Radius | CD8 high | CD8 low | Δ CD8 | MW p | NK high | NK low | Δ NK | MW p |")
-    lines.append("|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
+    lines.append("| Radius | Median section mean (high) | Median section mean (low) | Median Δ (high−low) | Sections high<low | Wilcoxon p |")
+    lines.append("|---:|---:|---:|---:|---:|---:|")
     for r in RADII_UM:
-        # recompute pooled from tests per sample average of means is messy; use cells via tests pooled? we stored per-sample only.
-        # Fill from first-pass stored per-sample; compute pooled here from tests keys if present.
-        highs_cd8, lows_cd8, highs_nk, lows_nk = [], [], [], []
-        ps_cd8, ps_nk = [], []
-        for s in SAMPLES:
-            a = tests[s][f"cd8_r{r}"]
-            b = tests[s][f"nk_r{r}"]
-            highs_cd8.append(a["median_high"])
-            lows_cd8.append(a["median_low"])
-            highs_nk.append(b["median_high"])
-            lows_nk.append(b["median_low"])
-            ps_cd8.append(a["mw_p"])
-            ps_nk.append(b["mw_p"])
-        # Use cell-pooled medians from one representative: recompute quickly from forest-unrelated stored values.
-        # We stored only per-sample. Report sample-median of sample-medians (honest, not cell-pooled).
+        t = paired["counts"][r]
         lines.append(
-            f"| {r} | {np.nanmedian(highs_cd8):.3f} | {np.nanmedian(lows_cd8):.3f} | {np.nanmedian(highs_cd8) - np.nanmedian(lows_cd8):.3f} | {_fmt_p(np.nanmedian(ps_cd8))} | {np.nanmedian(highs_nk):.3f} | {np.nanmedian(lows_nk):.3f} | {np.nanmedian(highs_nk) - np.nanmedian(lows_nk):.3f} | {_fmt_p(np.nanmedian(ps_nk))} |"
+            f"| {r} | {t['median_high']:.3f} | {t['median_low']:.3f} | {t['median_delta']:.3f} | {t['n_high_lt_low']}/{t['n']} | {_fmt_p(t['wilcoxon_p'])} |"
         )
     lines.append("")
-    lines.append("Table values are **medians across the 8 samples of each sample’s cell-level median count**. Figure `radius_counts_cd8_nk.png` shows sample-mean ± SEM.")
+    lines.append("Per-section means:")
     lines.append("")
-    lines.append("## Mixing score: CLDN4-high tumor vs CD8 vs NK")
+    hdr = "| Section | Patient |" + "".join([f" Δ{r} |" for r in RADII_UM]) + " mean high@40 | mean low@40 |"
+    lines.append(hdr)
+    lines.append("|---|---|" + "".join(["---:|"] * (len(RADII_UM) + 2)))
+    for row in sec.itertuples(index=False):
+        dlt = "".join([f" {getattr(row, f'delta_mean_{r}'):+.3f} |" for r in RADII_UM])
+        lines.append(f"| {row.sample} | {row.patient} |{dlt} {row.mean_high_40:.3f} | {row.mean_low_40:.3f} |")
     lines.append("")
-    lines.append("Within each FOV, cells labeled CLDN4-high tumor / CD8 / NK. Homogeneous mixing = mixed contacts / (mixed + same-type contacts) at the stated radius. Keren percent mixing = (A–B contacts) / (A–A contacts).")
+    lines.append("Figures: `results/cosmx_nsclc_cldn4_nk_cd8/figures/ecdf_cd8nk_counts.png`, `section_paired_cd8nk_counts.png`.")
     lines.append("")
-    if not mix.empty:
-        g = mix[mix["radius_um"] == 50].groupby("sample")[["homog_CLDN4hi_CD8", "homog_CLDN4hi_NK", "homog_CD8_NK"]].mean()
-        lines.append("| Sample | Homog CLDN4-high–CD8 | Homog CLDN4-high–NK | Homog CD8–NK |")
-        lines.append("|---|---:|---:|---:|")
-        for s, r in g.iterrows():
-            lines.append(f"| {s} | {r['homog_CLDN4hi_CD8']:.3f} | {r['homog_CLDN4hi_NK']:.3f} | {r['homog_CD8_NK']:.3f} |")
+    lines.append("## Section-level paired mixing (CLDN4-high/low tumor vs CD8+NK)")
+    lines.append("")
+    lines.append("| Radius | Keren immune Δ (high−low) | Wilcoxon p | Homog Δ | Wilcoxon p |")
+    lines.append("|---:|---:|---:|---:|---:|")
+    for r in RADII_UM:
+        k = paired["mix_keren"][r]
+        h = paired["mix_homog"][r]
+        lines.append(
+            f"| {r} | {k['median_delta']:.3f} | {_fmt_p(k['wilcoxon_p'])} | {h['median_delta']:.3f} | {_fmt_p(h['wilcoxon_p'])} |"
+        )
+    lines.append("")
+    m40 = mixsec[mixsec["radius_um"] == PRIMARY_R]
+    if not m40.empty:
+        lines.append(f"Per-section Keren mixing at {PRIMARY_R} µm (immune-side):")
         lines.append("")
-        lines.append("Per-FOV table: `tables/mixing_by_fov.csv`. Figure: `mixing_cldn4hi_cd8_nk.png`.")
-    else:
-        lines.append("Mixing table empty (insufficient co-located labels in FOVs).")
+        lines.append("| Section | vs CLDN4-high | vs CLDN4-low | Δ |")
+        lines.append("|---|---:|---:|---:|")
+        for row in m40.itertuples(index=False):
+            lines.append(f"| {row.sample} | {row.keren_immune_high:.3f} | {row.keren_immune_low:.3f} | {row.delta_keren_immune:+.3f} |")
+        lines.append("")
+    lines.append("Figures: `section_paired_mixing.png`, `section_paired_mixing_grid.png`.")
     lines.append("")
-    lines.append("## Per-FOV forest of Δdistance")
+    lines.append("## FOV forest of Δ count (secondary)")
     lines.append("")
-    lines.append(f"Nearest NK: {fov_nk['n_fov']} FOVs; median Δ = {fov_nk['median_delta']:.2f} µm; Wilcoxon signed-rank p = {_fmt_p(fov_nk.get('wilcoxon_p'))}; fraction FOVs Δ>0 = {fov_nk.get('frac_pos', float('nan')):.3f}.")
-    lines.append("")
-    lines.append(f"Nearest CD4: {fov_cd4['n_fov']} FOVs; median Δ = {fov_cd4['median_delta']:.2f} µm; Wilcoxon signed-rank p = {_fmt_p(fov_cd4.get('wilcoxon_p'))}; fraction FOVs Δ>0 = {fov_cd4.get('frac_pos', float('nan')):.3f}.")
-    lines.append("")
-    lines.append("Δ = median distance in CLDN4-high tumor minus median distance in CLDN4-low tumor, per FOV. Bars are bootstrap 95% CIs. Positive Δ = CLDN4-high farther from that immune type.")
-    lines.append("")
-    lines.append("Figures: `fov_forest_delta_nk.png`, `fov_forest_delta_cd4.png`.")
+    if forest is not None and len(forest):
+        v = forest["delta_high_minus_low"].dropna()
+        if len(v) >= 8:
+            try:
+                wp = float(stats.wilcoxon(v, alternative="two-sided").pvalue)
+            except ValueError:
+                wp = float("nan")
+            lines.append(
+                f"At {PRIMARY_R} µm, {int(len(v))} FOVs; median Δ mean CD8+NK count = {float(v.median()):.3f}; Wilcoxon signed-rank p = {_fmt_p(wp)}; fraction Δ<0 = {float((v < 0).mean()):.3f}."
+            )
+        lines.append("")
+        lines.append(f"Figure: `fov_forest_delta_cd8nk_count_{PRIMARY_R}um.png`. This is **not** a nearest-distance forest.")
     lines.append("")
     lines.append("## What this does not claim")
     lines.append("")
-    lines.append("- Not a nearest-CD8 duplication (CD8 enters as radius counts and as a mixing partner).")
-    lines.append("- Not ICI response, not private 8-KL, not a claim-failed write-up.")
-    lines.append("- Marker NK/CD4/CD8 are not the paper’s 18-type map unless an author column was present (inventory `used_author_labels`).")
-    lines.append("- Q4 vs Q1 is a contrast, not a biological threshold.")
+    lines.append("- Not a nearest-CD8 / nearest-NK distance primary analysis.")
+    lines.append("- Not ICI response and not private 8-KL.")
+    lines.append("- Marker CD8+NK is not the paper’s 18-type map (no author cell-type column in the public flat files).")
+    lines.append("- Q4 vs Q1 is a contrast, not a biological threshold. n=8 sections, not n=8 patients.")
     lines.append("")
     lines.append("## Reproduce")
     lines.append("")
@@ -947,12 +759,107 @@ def write_results(inv: pd.DataFrame, tests: dict, mix: pd.DataFrame, forest_nk: 
     lines.append("python3 scripts/cosmx_nsclc_cldn4_nk_cd4_radii.py")
     lines.append("```")
     lines.append("")
-    lines.append("Raw tarballs are gitignored. Outputs live under `results/cosmx_nsclc_cldn4_nk_cd8/` and this `RESULTS.md`.")
+    lines.append("Raw tarballs are gitignored. Tables live under `results/cosmx_nsclc_cldn4_nk_cd8/tables/`.")
     text = "\n".join(lines) + "\n"
     with open(os.path.join(ROOT, "RESULTS.md"), "w") as fh:
         fh.write(text)
     with open(os.path.join(OUT, "RESULTS.md"), "w") as fh:
         fh.write(text)
+
+
+def main() -> int:
+    os.makedirs(FIG, exist_ok=True)
+    os.makedirs(TAB, exist_ok=True)
+
+    present = [s for s in SAMPLES if os.path.isdir(os.path.join(DATA, s))]
+    if len(present) < 8:
+        raise SystemExit(f"need all 8 official sections, found {present}")
+
+    genes_by_sample = {s: panel_genes(s) for s in SAMPLES}
+    stop_if_cldn4_absent(genes_by_sample)
+    nk_present = {s: [g for g in NK_MARKERS if g in genes_by_sample[s]] for s in SAMPLES}
+
+    inventory = []
+    fov_parts, mix_parts, cell_parts = [], [], []
+    for sample in SAMPLES:
+        print(f"load {sample}", flush=True)
+        df = assign_types(load_sample(sample))
+        rec = {
+            "sample": sample,
+            "patient": PATIENT[sample],
+            "n_qc": int(len(df)),
+            "n_fov": int(df["fov"].nunique()),
+            "n_tumor": int(df["is_tumor"].sum()),
+            "n_tumor_cd8a_pos": int(df["tumor_cd8a_pos"].sum()),
+            "n_cldn4_high": int((df["cldn4_arm"] == "high").sum()),
+            "n_cldn4_low": int((df["cldn4_arm"] == "low").sum()),
+            "n_cd8": int(df["is_cd8"].sum()),
+            "n_nk": int(df["is_nk"].sum()),
+            "n_cd8nk": int(df["is_cd8nk"].sum()),
+            "frac_tumor_cldn4_pos": float((df.loc[df["is_tumor"], "cldn4_raw"] > 0).mean()) if df["is_tumor"].any() else np.nan,
+            "used_author_labels": bool(df["used_author_labels"].iloc[0]),
+            "nk_genes": ",".join(nk_present[sample]),
+            "cldn4_in_panel": True,
+        }
+        inventory.append(rec)
+        print(f"  {rec}", flush=True)
+        fov_arm, mix, cells = per_fov_metrics(df)
+        fov_parts.append(fov_arm)
+        mix_parts.append(mix)
+        cell_parts.append(cells)
+        del df
+
+    inv = pd.DataFrame(inventory)
+    inv.to_csv(os.path.join(TAB, "sample_inventory.csv"), index=False)
+    fov_arm = pd.concat([p for p in fov_parts if len(p)], ignore_index=True)
+    mix = pd.concat([p for p in mix_parts if len(p)], ignore_index=True)
+    cells = pd.concat([p for p in cell_parts if len(p)], ignore_index=True)
+    fov_arm.to_csv(os.path.join(TAB, "fov_arm_cd8nk_counts.csv"), index=False)
+    mix.to_csv(os.path.join(TAB, "mixing_by_fov.csv"), index=False)
+    cells.to_csv(os.path.join(TAB, "tumor_cell_cd8nk_counts.csv.gz"), index=False, compression="gzip")
+
+    sec = section_count_table(cells)
+    sec.to_csv(os.path.join(TAB, "section_paired_cd8nk_counts.csv"), index=False)
+    mixsec = section_mix_table(mix)
+    mixsec.to_csv(os.path.join(TAB, "section_paired_mixing.csv"), index=False)
+
+    paired = {"counts": {}, "mix_keren": {}, "mix_homog": {}}
+    for r in RADII_UM:
+        paired["counts"][r] = paired_wilcoxon(sec[f"mean_high_{r}"].to_numpy(), sec[f"mean_low_{r}"].to_numpy())
+        sub = mixsec[mixsec["radius_um"] == r]
+        paired["mix_keren"][r] = paired_wilcoxon(sub["keren_immune_high"].to_numpy(), sub["keren_immune_low"].to_numpy())
+        paired["mix_homog"][r] = paired_wilcoxon(sub["homog_high"].to_numpy(), sub["homog_low"].to_numpy())
+
+    forest = fov_forest_counts(cells, PRIMARY_R)
+    forest.to_csv(os.path.join(TAB, f"fov_forest_delta_cd8nk_count_{PRIMARY_R}um.csv"), index=False)
+
+    plot_count_ecdfs(cells)
+    plot_section_paired_counts(sec)
+    plot_section_paired_mixing(mixsec)
+    plot_fov_forest(forest, PRIMARY_R)
+
+    summary = {
+        "dataset": "official CosMx NSCLC 960-plex, 8 sections / 5 patients (He et al. 2022)",
+        "primary": "CD8+NK neighbor counts and mixing on 20/40/60/80 µm; section-level paired test n=8",
+        "not_primary": "nearest distance",
+        "tumor_gated_cd8a_eq0": False,
+        "cd8nk_together": True,
+        "private_8kl": False,
+        "cldn4_only": True,
+        "pixel_size_um": PX_TO_UM,
+        "inventory": inv.to_dict(orient="records"),
+        "section_paired_counts": {str(k): v for k, v in paired["counts"].items()},
+        "section_paired_mix_keren": {str(k): v for k, v in paired["mix_keren"].items()},
+        "section_paired_mix_homog": {str(k): v for k, v in paired["mix_homog"].items()},
+        "n_tumor_cells_scored": int(len(cells)),
+        "n_sections": int(sec.shape[0]),
+    }
+    with open(os.path.join(OUT, "summary.json"), "w") as fh:
+        json.dump(summary, fh, indent=2, default=str)
+
+    write_results(inv, sec, mixsec, paired, forest)
+    print("done", flush=True)
+    return 0
 
 
 if __name__ == "__main__":
