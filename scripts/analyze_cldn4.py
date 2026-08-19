@@ -291,9 +291,16 @@ def discover_slides(series_dir: str) -> list[dict]:
                 "features": os.path.join(series_dir, ft),
                 "positions": os.path.join(series_dir, pos) if pos else None,
             })
-    h5s = [f for f in files if "filtered_feature_bc_matrix.h5" in f]
-    for h in h5s:
-        prefix = h.split("_filtered_feature_bc_matrix")[0]
+    h5_by_prefix: dict[str, str] = {}
+    for f in files:
+        if "filtered_feature_bc_matrix.h5" not in f:
+            continue
+        prefix = f.split("_filtered_feature_bc_matrix")[0]
+        prev = h5_by_prefix.get(prefix)
+        # Prefer a decompressed .h5 over .h5.gz when both exist.
+        if prev is None or (f.endswith(".h5") and not f.endswith(".h5.gz")):
+            h5_by_prefix[prefix] = f
+    for prefix, h in h5_by_prefix.items():
         pos = next((f for f in files if f.startswith(prefix) and "tissue_positions" in f), None)
         slides.append({
             "sample": prefix,
