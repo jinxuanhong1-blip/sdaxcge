@@ -808,6 +808,27 @@ def write_results(rows):
         )
         lines.append(f"- Wilcoxon signed-rank on section Δ vs 0: p={fmt_p(w_dlt['p'])}")
         lines.append("")
+        lines.append("Negative lag-ρ / negative Δ is the exclusion direction. The pooled section")
+        lines.append("vector is **not** exclusion-signed for lag-ρ (more positive than negative).")
+        lines.append("Q4−Q1 Δ is consistent with zero.")
+        lines.append("")
+        lines.append("### By source (same pre-specified metrics; one series dominates n)")
+        lines.append("")
+        lines.append("| source | n | lag-ρ median | lag n_neg / n_pos | lag Wilcoxon p | Δ median | Δ n_neg / n_pos | Δ Wilcoxon p |")
+        lines.append("|---|---:|---:|---|---:|---:|---|---:|")
+        src = ok["dataset"].map(lambda s: "10x" if str(s).startswith("10x") else str(s))
+        for name in ["10x", "GSE189487", "GSE273378", "GSE300676", "GSE307534"]:
+            sub = ok[src == name]
+            if sub.empty:
+                continue
+            wl = wilcoxon_vs_zero(sub["lag_rho_ring1"])
+            wd = wilcoxon_vs_zero(sub["delta_nbCD8A_Q4_minus_Q1"])
+            lines.append(
+                f"| {name} | {wl['n']} | {fmt_rho(wl['median'])} | "
+                f"{wl['n_neg']} / {wl['n_pos']} | {fmt_p(wl['p'])} | "
+                f"{fmt_num(wd['median'])} | {wd['n_neg']} / {wd['n_pos']} | {fmt_p(wd['p'])} |"
+            )
+        lines.append("")
         lines.append("## Mixing (Morisita–Horn)")
         lines.append("")
         mh = ok["morisita_horn_Q4epi_CD8hi"].astype(float)
