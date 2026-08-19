@@ -1,0 +1,93 @@
+Cancer_Type	Cell_line	Parent	Background	Origin	Origin_year	Sex
+Melanoma	B16	NA	C57BL/6	spontaneous	1954	NA
+Melanoma	S91-M3	S91	DBA/2	spontaneous	1966	male
+Melanoma	YUMM1.1	NA	C57BL/6	GEMM; carcinogen-induced	2014	male
+Melanoma	YUMM2.1	NA	C57BL/6	GEMM; carcinogen-induced	2014	male
+Melanoma	YUMM1.7	NA	C57BL/6	GEMM; carcinogen-induced	2014	male
+Melanoma	YUMMER1.7	YUMM1.7	C57BL/6	irradiation of carcinogen-induced parent YUMM1.7	2017	male
+Melanoma	D4M.3A	NA	C57BL/6	GEMM	2014	male
+Melanoma	D4M.3A.3	D4M.3A	C57BL/6	GEMM	2021	male
+Melanoma	D3UV2	D4M.3A.3	C57BL/6	GEMM; carcinogen-induced	2021	male
+Colorectal carcinoma	CT26	NA	BALB/c	carcinogen-induced	1975	female
+Colorectal carcinoma	MC38	NA	C57BL/6	carcinogen-induced	1975	female
+Colorectal carcinoma	1638N-T1	NA	C57BL/6	GEMM	1971	NA
+Colorectal carcinoma	CMT93	NA	C57BL/icrf	carcinogen-induced	1978	male
+Lung carcinoma	LLC	NA	C57BL/6	spontaneous	1951	NA
+Lung carcinoma	CMT-167	CMT-64	C57BL/lcrf	spontaneous parent	1984	female
+Lung adenocarcinoma	MLE12	NA	FVB/N	GEMM	1992	female
+Mammary carcinoma	4T1	410.4	BALB/c	spontaneous	NA	NA
+Mammary carcinoma	4T07	44FT0	BALB/c	spontaneous	NA	female
+Mammary carcinoma	EMT6	NA	BALB/c	implantation	1971	female
+Mammary carcinoma	67NR	67	BALB/cJ	spontaneous	NA	NA
+Mammary carcinoma	D2A1	NA	BALB/c	spontaneous	NA	female
+Mammary carcinoma	F311	M3	BALB/c	spontaneous	NA	female
+Mammary carcinoma	6DT1	NA	FVB/N	GEMM	NA	female
+Mammary carcinoma	HRM1	NA	FVB/N	GEMM	NA	female
+Mammary carcinoma	Mvt1	NA	FVB/N	GEMM	NA	female
+Mammary carcinoma	Met1	NA	FVB/N	GEMM	2005	female
+Mammary carcinoma	NDL(UCD)	NA	FVB/N	GEMM	2019	female
+Mammary adenocarcinoma	E0771	NA	C57BL/6	spontaneous	1952	female
+Mammary adenocarcinoma	Py230	NA	C57BL/6	GEMM	NA	female
+Mammary adenocarcinoma	Py8119	NA	C57BL/6	GEMM	NA	female
+Mammary adenocarcinoma	TS/A	NA	BALB/c	spontaneous	1983	female
+Mammary adenocarcinoma	TSAE1	TS/A	BALB/c	spontaneous	NA	female
+Mammary adenocarcinoma	M6	NA	REAR	GEMM	NA	female
+Mammary cancer, NOS	KPB25L	NA	FVB/N	GEMM	2019	NA
+Mammary cancer, NOS	KPB25L-Apobec	KPB25L	FVB/N	GEMM	2019	NA
+Mammary cancer, NOS	KPB25L-UV	KPB25L	FVB/N	GEMM	2019	NA
+Mammary cancer, NOS	T11	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	T11-Apobec	T11	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	T11-UV	T11	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-2153F	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-2224	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-2225L	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-2245	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-2336R	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-9263-3	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-T1	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-T12	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-T2	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-T6	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	p53-T7	NA	BALB/c	GEMM	2019	NA
+Mammary cancer, NOS	R3T	NA	129S1J	GEMM	NA	female
+Renal adenocarcinoma	Renca	NA	BALB/c	spontaneous	NA	male
+Hepatocellular carcinoma	Hepa1-6	Hepa-1	C57BL/6	spontaneous	NA	NA
+Hepatocellular carcinoma	Hepa-1c1c7	Hepa-1c1	C57BL/6	spontaneous	NA	NA
+Hepatocellular carcinoma	BNL-MEA	BNL CL.2	BALB/c	carcinogen-induced	NA	NA
+Prostate carcinoma	RM-1	NA	C57BL/6	GEMM	NA	male
+Prostate adenocarcinoma	CE1-4	CE1	FVB/N	GEMM	NA	male
+Prostate adenocarcinoma	Pten-Smad4	NA	FVB/N	GEMM	2019	male
+Pancreatic ductal adenocarcinoma	Panc02	NA	C57BL/6	carcinogen-induced	NA	NA
+Pancreatic ductal adenocarcinoma	KPC	NA	C57BL/6	GEMM	NA	NA
+Pancreatic ductal adenocarcinoma	KCP	KPC1203	C57BL/6	GEMM	2021	NA
+Pancreatic ductal adenocarcinoma	6419c5	NA	KPCY	GEMM	2018	NA
+Bladder carcinoma	MB49	NA	C57BL/6	carcinogen-induced	NA	male
+Bladder carcinoma	UPPL1541	NA	C57BL/6	GEMM	2018	NA
+Bladder carcinoma	BBN963	NA	C57BL/6	carcinogen-induced	2018	NA
+Ovarian carcinoma	ID8	NA	C57BL/6	spontaneous	2000	female
+Ovarian carcinoma	KMF (ID8-IP)	ID8	C57BL/6	spontaneous	2019	female
+Ovarian carcinoma	HGS1	NA	C57BL/6	GEMM	2020	female
+Ovarian carcinoma	HGS2	NA	C57BL/6	GEMM	2020	female
+Ovarian carcinoma	HGS3	NA	C57BL/6	GEMM	2020	female
+Ovarian carcinoma	HGS4	NA	C57BL/6	GEMM	2020	female
+Ovarian carcinoma	30200	NA	FVB/N	GEMM	2014	NA
+Ovarian carcinoma	60577	NA	FVB/N	GEMM	2014	NA
+Head and neck squamous cell carcinoma	MOC1	NA	C57BL/6	carcinogen-induced	2012	female
+Head and neck squamous cell carcinoma	MOC2	NA	C57BL/6	carcinogen-induced	2012	female
+Head and neck squamous cell carcinoma	MOC22	NA	C57BL/6	carcinogen-induced	2012	NA
+Gastric adenocarcinoma	YTN2	NA	C57BL/6	carcinogen-induced	2018	male
+Gastric adenocarcinoma	YTN16	NA	C57BL/6	carcinogen-induced	2018	male
+Glioblastoma multiforme	GL261	NA	C57BL/6	carcinogen-induced	NA	NA
+Glioblastoma multiforme	CT-2A	NA	C57BL/6	carcinogen-induced	NA	NA
+Glioblastoma multiforme	Mut3	NA	Mixed	GEMM	2005	NA
+Glioblastoma multiforme	5	NA	C57BL/6	GEMM	2009	NA
+Neuroblastoma	Neuro-2a	C-1300	A/J	spontaneous	NA	male
+Follicular dendritic cell sarcoma (B lymphocyte)	A20	NA	BALB/c	spontaneous	NA	NA
+Plasmacytoma	MPC-11	NA	BALB/c	carcinogen-induced	1970	NA
+Mastocytoma	P815	NA	DBA/2	carcinogen-induced	1957	male
+T-cell lymphoma	EL4	NA	C57BL/6	carcinogen-induced	NA	NA
+Teratocarcinoma	F9	OTT6050	129/Sv	implantation	1973	male
+Mesothelioma	AB1	NA	BALB/c	carcinogen-induced	NA	female
+Mesothelioma	AB22	NA	BALB/c	carcinogen-induced	NA	NA
+Sarcoma	MCA205	NA	C57BL/6	carcinogen-induced	NA	NA
+Sarcoma	402230	NA	129/SvJae 	GEMM; carcinogen-induced	2020	NA

@@ -1,0 +1,98 @@
+{
+  "tismo": [
+    {
+      "key": "cell_lines_meta",
+      "share_id": "YzQB2DQonQE",
+      "name": "TISMO_cellline_annotations.text",
+      "path": "/tmp/tismo_dl/TISMO_cellline_annotations.text",
+      "bytes": 5376,
+      "md5": "2658efa3b11a40a6bfe818b6c9a590d0",
+      "source": "https://tismo.pku-genomics.org/ (Data Download Aliyun share)"
+    },
+    {
+      "key": "vitro_sample_meta",
+      "share_id": "MXMDDtkQLqQ",
+      "name": "TISMO_vitrosample_annotations.csv",
+      "path": "/tmp/tismo_dl/TISMO_vitrosample_annotations.csv",
+      "bytes": 64130,
+      "md5": "d90e9c4bb86496994adccc94803aeae9",
+      "source": "https://tismo.pku-genomics.org/ (Data Download Aliyun share)"
+    },
+    {
+      "key": "vivo_sample_meta",
+      "share_id": "voEA1DXBEFo",
+      "name": "TISMO_vivosample_annotations.csv",
+      "path": "/tmp/tismo_dl/TISMO_vivosample_annotations.csv",
+      "bytes": 268569,
+      "md5": "38598131b25bac09619db79a01c0346a",
+      "source": "https://tismo.pku-genomics.org/ (Data Download Aliyun share)"
+    },
+    {
+      "key": "vitro_expression",
+      "share_id": "AuDf6PnXFtV",
+      "name": "TISMO_expressionvitro_profiles.RDS",
+      "path": "/tmp/tismo_dl/TISMO_expressionvitro_profiles.RDS",
+      "bytes": 66369400,
+      "md5": "4dfac3cfc21023e21fca5409281b366a",
+      "source": "https://tismo.pku-genomics.org/ (Data Download Aliyun share)"
+    },
+    {
+      "key": "vivo_expression",
+      "share_id": "AQKzyRCi1Jb",
+      "name": "TISMO_expressionvivo_profiles.RDS",
+      "path": "/tmp/tismo_dl/TISMO_expressionvivo_profiles.RDS",
+      "bytes": 187697237,
+      "md5": "04cf57fe71ce9fc2c5ffe02a87827185",
+      "source": "https://tismo.pku-genomics.org/ (Data Download Aliyun share)"
+    }
+  ],
+  "geo": [
+    {
+      "name": "GSE274352_IFNB.tsv.gz",
+      "path": "/tmp/geo/GSE274352_IFNB.tsv.gz",
+      "bytes": 1026351,
+      "md5": "42924c223c4e5c5f12624aaeecd4b626",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE274352&format=file&file=GSE274352_normalizedcounts_genes_IFNB_vs_empty.tsv.gz"
+    },
+    {
+      "name": "GSE274352_STING.tsv.gz",
+      "path": "/tmp/geo/GSE274352_STING.tsv.gz",
+      "bytes": 674403,
+      "md5": "23c2070d72426f12697aa3568d6116f6",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE274352&format=file&file=GSE274352_normalizedcounts_genes_STING_vs_emtpy.tsv.gz"
+    },
+    {
+      "name": "GSE274352_series_matrix.txt.gz",
+      "path": "/tmp/geo/GSE274352_series_matrix.txt.gz",
+      "bytes": 3701,
+      "md5": "9ed977e3e306f8af3eef93775149d0dd",
+      "source": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE274nnn/GSE274352/matrix/GSE274352_series_matrix.txt.gz"
+    },
+    {
+      "name": "GSE295685_TPM.txt.gz",
+      "path": "/tmp/geo/GSE295685_TPM.txt.gz",
+      "bytes": 740584,
+      "md5": "90ae3923cb4dee8fdc0e1438dbce6262",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE295685&format=file&file=GSE295685_TPM.txt.gz"
+    },
+    {
+      "name": "GSE295685_series_matrix.txt.gz",
+      "path": "/tmp/geo/GSE295685_series_matrix.txt.gz",
+      "bytes": 2629,
+      "md5": "e29b28f4907e675f49434b2503cb5c95",
+      "source": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE295nnn/GSE295685/matrix/GSE295685_series_matrix.txt.gz"
+    },
+    {
+      "name": "GSE167381_bRNA-Matrices-Initial-LKB1-Resoration.xlsx",
+      "path": "/tmp/geo/GSE167381_bRNA-Matrices-Initial-LKB1-Resoration.xlsx",
+      "bytes": 8693468,
+      "md5": "ec318d2504d249b7e01ecb204f4b0f0e",
+      "source": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE167381&format=file&file=GSE167381_bRNA-Matrices-Initial-LKB1-Resoration.xlsx"
+    }
+  ],
+  "notes": [
+    "TISMO Zeng et al. NAR 2022 PMID 34534350",
+    "LLC is labeled LLC, not KL.",
+    "No private 8-KL matrices. No GSE76628."
+  ]
+}
