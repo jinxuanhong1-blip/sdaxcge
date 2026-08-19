@@ -167,7 +167,9 @@ def extract_counts(mat: sparse.csr_matrix, genes: list[str], wanted: tuple[str, 
 
 
 def log_norm(counts: dict[str, np.ndarray], lib: np.ndarray) -> dict[str, np.ndarray]:
-    scale = np.where(lib > 0, 1e4 / lib, 0.0)
+    scale = np.zeros_like(lib, dtype=float)
+    nz = lib > 0
+    scale[nz] = 1e4 / lib[nz]
     return {g: np.log1p(v * scale) for g, v in counts.items()}
 
 
@@ -833,6 +835,7 @@ def summarize_block(df: pd.DataFrame, name: str) -> dict:
         "delta_nn_um_Q4_minus_Q1",
         "delta_kNN_CD8A_Q4_minus_Q1",
         "n_Gi_overlap_hotCLDN4_coldCD8A",
+        "gi_overlap_minus_expected",
         "frac_CLDN4hot_that_are_CD8cold",
         "crossL_at_2nn",
         "delta_CD8A_core_minus_margin",
@@ -886,6 +889,7 @@ def write_results_md(path: Path, ok: pd.DataFrame, meta_rows: list[dict], gene_n
             ("Δ nearest-µm (CLDN4 Q4 − Q1) to CD8A-high", "delta_nn_um_Q4_minus_Q1"),
             ("Δ kNN CD8A sum (Q4 − Q1)", "delta_kNN_CD8A_Q4_minus_Q1"),
             ("Gi* overlap n (CLDN4 hot ∩ CD8A cold)", "n_Gi_overlap_hotCLDN4_coldCD8A"),
+            ("Gi* overlap minus independence expectation", "gi_overlap_minus_expected"),
             ("Cross-L at 2× median NN", "crossL_at_2nn"),
             ("Mean CD8A in CLDN4-high core − margin", "delta_CD8A_core_minus_margin"),
             ("Spearman CD8A vs hop-depth (tumor domain)", "rho_CD8A_vs_hopdepth_tumor"),
@@ -940,7 +944,8 @@ def write_results_md(path: Path, ok: pd.DataFrame, meta_rows: list[dict], gene_n
         "- CD8A-high: spots at or above the 75th percentile of CD8A (or CD8A>0 if that percentile is 0).",
         "- Spatial weights: row-standardized 6-nearest neighbors in micron coordinates "
         "(55 µm / `spot_diameter_fullres`).",
-        "- Bivariate Moran I(x,y) = z_x' W z_y / z_x' z_x. Lee's L as in Lee (2001) with row-standardized W.",
+        "- Bivariate Moran I(x,y) = z_x' W z_y / z_x' z_x with mean-centered (not variance-standardized) x,y; "
+        "|I| and |L| can exceed 1 when CLDN4 and CD8A have different variances. Lee's L as in Lee (2001) with row-standardized W.",
         "- Residual spatial lag: OLS-residualize CLDN4 and CD8A on KRT8, then Spearman of residual CLDN4 vs W·residual CD8A.",
         "- Getis-Ord Gi* with binary kNN including self; hotspot/coldspot |z|>1.96. Overlap = CLDN4 hot ∩ CD8A cold.",
         "- Cross-K / L₁₂(r) between CLDN4 Q4 epithelial-like points and CD8A-high points; L(r)=√(K/π)−r; "
@@ -974,6 +979,26 @@ def write_results_md(path: Path, ok: pd.DataFrame, meta_rows: list[dict], gene_n
     lines += block(use_primary, f"Primary: {primary_name}")
     lines += block(prec, "Secondary: precursor (AAH / AIS / MIA)")
     lines += block(ok, "All analyzed sections")
+    if len(use_primary):
+        s = summarize_block(use_primary, "primary")
+        lines += [
+            "## Observed direction on the primary set",
+            "",
+            f"- n={s['n_sections']} sections.",
+            f"- Median Spearman CLDN4 vs CD8A = {fmt(s.get('rho_CLDN4_CD8A_median'))} "
+            f"({s.get('rho_CLDN4_CD8A_n_neg', 0)} negative, {s.get('rho_CLDN4_CD8A_n_pos', 0)} positive; "
+            f"Wilcoxon p={fmt(s.get('rho_CLDN4_CD8A_wilcoxon_p'))}).",
+            f"- Median bivariate Moran I = {fmt(s.get('I_biv_CLDN4_CD8A_median'))}; "
+            f"median Lee's L = {fmt(s.get('LeeL_CLDN4_CD8A_median'))}.",
+            f"- Median residual CLDN4 vs lag residual CD8A ρ = {fmt(s.get('rho_resid_CLDN4_lagCD8A_median'))}.",
+            f"- Median Δ nearest-µm (Q4 − Q1 to CD8A-high) = {fmt(s.get('delta_nn_um_Q4_minus_Q1_median'))} "
+            f"(positive = Q4 farther from CD8A-high).",
+            f"- Median Gi* overlap count (CLDN4 hot ∩ CD8A cold) = {fmt(s.get('n_Gi_overlap_hotCLDN4_coldCD8A_median'))}.",
+            f"- Median cross-L at 2× NN = {fmt(s.get('crossL_at_2nn_median'))} "
+            f"(negative = fewer CD8A-high near CLDN4 Q4 than CSR).",
+            f"- Tumor-domain CD8A (core − margin) median = {fmt(s.get('delta_CD8A_core_minus_margin_median'))}.",
+            "",
+        ]
     lines += [
         "## How to read the exclusion-direction numbers",
         "",
@@ -992,6 +1017,7 @@ def write_results_md(path: Path, ok: pd.DataFrame, meta_rows: list[dict], gene_n
         "",
         "- `figures/summary_leeL_forest.png`, `figures/summary_biv_moran_forest.png`",
         "- `figures/summary_delta_nn_forest.png`, `figures/summary_gi_overlap.png`",
+        "- `figures/summary_crossL_overlay.png`",
         "- `figures/summary_by_histology_leeL.png`, `figures/summary_by_histology_delta_nn.png`",
         "- `figures/maps/*_cldn4_cd8a.png` (H&E-free)",
         "- `figures/gi_star/*_gi_star.png`",
@@ -1128,6 +1154,22 @@ def main() -> int:
             fig_root / "summary_by_histology_delta_nn.png",
         )
         box_by_histology(ok, "median_CLDN4_epi", "Median CLDN4 in epi-like spots", fig_root / "summary_cldn4_epi_by_histology.png")
+        fig, ax = plt.subplots(figsize=(6.4, 4.6))
+        colors = {"invasive": "#d62728", "precursor": "#1f77b4", "normal": "#7f7f7f"}
+        for rec in records:
+            if rec.get("status") != "ok":
+                continue
+            L = rec.get("crossL_Q4_CD8high") or []
+            radii = rec.get("K_radii_um") or []
+            if len(L) and len(radii) == len(L):
+                ax.plot(radii, L, color=colors.get(rec.get("class"), "#333"), alpha=0.35, lw=1.0)
+        ax.axhline(0, color="#222", lw=0.8)
+        ax.set_xlabel("r (µm)")
+        ax.set_ylabel("L₁₂(r) = √(K/π) − r")
+        ax.set_title("Cross-L: CLDN4 Q4 epi vs CD8A-high (red=LUAD, blue=precursor)")
+        fig.tight_layout()
+        fig.savefig(fig_root / "summary_crossL_overlay.png", dpi=140)
+        plt.close(fig)
         if "rho_resid_CLDN4_lagCD8A" in ok.columns:
             forest_plot(
                 ok,
