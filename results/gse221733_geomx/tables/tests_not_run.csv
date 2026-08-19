@@ -1,0 +1,5 @@
+test,status,reason
+tumor_AOI_CLDN4_vs_same_AOI_CD8A,skipped,CLDN4 absent from CTA panel
+tumor_AOI_CLDN4_vs_paired_Tcell_AOI_CD8A,skipped,CLDN4 absent; no dedicated T-cell AOI class (PanCK pos/neg only)
+tumor_AOI_CLDN4_vs_stroma_CD8A_or_Tcell_fraction,skipped,CLDN4 absent from CTA panel
+malignant_AOI_CLDN4_ICB_NR_vs_R,skipped,CLDN4 absent from CTA panel

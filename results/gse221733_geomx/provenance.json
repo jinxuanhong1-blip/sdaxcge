@@ -1,0 +1,66 @@
+{
+  "dataset": "GSE221733",
+  "panel": "NanoString GeoMx Cancer Transcriptome Atlas (CTA)",
+  "paper": "Monkman J, Kim H, Mayer A, et al. Multi-omic and spatial dissection of immunotherapy response groups in non-small cell lung cancer. Immunology. 2023;169(4):487-502. PMID 37022147. DOI 10.1111/imm.13646.",
+  "files": [
+    "GSE221733_4301_CTA_norm.xlsx",
+    "GSE221733_4301_CTA_QC.xlsx",
+    "GSE221733_4301_CTA_initial.csv.gz",
+    "GSE221733_series_matrix.txt"
+  ],
+  "urls": {
+    "geo": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE221733",
+    "norm": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE221733&format=file&file=GSE221733_4301_CTA_norm.xlsx",
+    "qc": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE221733&format=file&file=GSE221733_4301_CTA_QC.xlsx",
+    "initial": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE221733&format=file&file=GSE221733_4301_CTA_initial.csv.gz",
+    "matrix": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE221nnn/GSE221733/matrix/GSE221733_series_matrix.txt.gz"
+  },
+  "absent_on_panel": [
+    "CLDN4",
+    "CLDN3",
+    "CLDN7",
+    "CLDN1",
+    "F11R",
+    "OCLN"
+  ],
+  "present_not_used_as_proxy": [
+    "TACSTD2",
+    "EPCAM"
+  ],
+  "generated_utc": "2026-08-19T13:07:05Z",
+  "key": {
+    "dataset": "GSE221733",
+    "panel": "GeoMx Cancer Transcriptome Atlas (CTA)",
+    "n_genes": 1812,
+    "n_probes": 8659,
+    "n_probe_genes": 1812,
+    "cldn4_on_panel": false,
+    "n_cldn_string_hits": 0,
+    "n_geo_aoi": 93,
+    "n_geo_tumor": 46,
+    "n_geo_stroma": 46,
+    "n_geo_geom": 1,
+    "n_patients": 41,
+    "n_qc_fail": 23,
+    "n_norm": 68,
+    "n_norm_tumor": 39,
+    "n_norm_stroma": 29,
+    "n_qc_matrix": 69,
+    "n_tcell_aoi": 0,
+    "n_paired_cores": 23,
+    "n_tumor_only_cores": 16,
+    "n_stroma_only_cores": 6,
+    "n_norm_tumor_R": 15,
+    "n_norm_tumor_NR": 23,
+    "n_norm_tumor_NA": 1,
+    "n_norm_tumor_patients": 35,
+    "n_norm_tumor_patients_R": 15,
+    "n_norm_tumor_patients_NR": 19,
+    "n_norm_tumor_patients_NA": 1,
+    "tacstd2_on_panel": true,
+    "epcam_on_panel": true,
+    "cd8a_on_panel": true,
+    "tests_run": false,
+    "proxy_genes_used": false
+  }
+}
