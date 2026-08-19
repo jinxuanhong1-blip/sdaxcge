@@ -1,0 +1,24 @@
+{
+  "cldn4_on_official_lung_base": false,
+  "cldn4_on_lung_preview_addon": false,
+  "cldn4_on_any_official_10x_lung_xenium_run": false,
+  "action": "STOP",
+  "reason": "CLDN4 is not a gene target on the Xenium Human Lung Gene Expression Panel (base) or the official lung preview custom add-on. Per instructions: report panel genes and stop. No cell-level CLDN4-high vs CD8 neighborhood analysis was run.",
+  "n_official_lung_base_genes": 289,
+  "n_lung_preview_addon_genes": 100,
+  "excluded": [
+    "GSE300007",
+    "private_8KL",
+    "claim-failed framing"
+  ],
+  "datasets_checked": [
+    "official_predesigned_lung_panel",
+    "xenium_human_lung_preview_cancer",
+    "xenium_human_lung_preview_nondiseased",
+    "xenium_hlung_cancer_multitissue_preview",
+    "xenium_ffpe_luad_multimodal",
+    "xenium_ffpe_nsclc_io_addon",
+    "xenium_postxenium_v1_lung_panel",
+    "xenium_postxenium_prime5k"
+  ]
+}
