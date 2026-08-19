@@ -335,13 +335,14 @@ def fov_usable(df: pd.DataFrame) -> pd.Series:
 
 
 def tertile_split(values: np.ndarray) -> np.ndarray:
-    """Return -1 / 0 / +1 for low / mid / high tertiles. Constant vectors → 0."""
+    """Return -1 / 0 / +1 for equal-sized rank tertiles (ties broken by first)."""
     lab = np.zeros(len(values), dtype=int)
-    if len(values) < 6 or np.unique(values).size < 3:
+    if len(values) < 6:
         return lab
-    q1, q2 = np.quantile(values, [1 / 3, 2 / 3])
-    lab[values <= q1] = -1
-    lab[values >= q2] = 1
+    ranks = pd.Series(values).rank(method="first").to_numpy()
+    q1, q2 = np.quantile(ranks, [1 / 3, 2 / 3])
+    lab[ranks <= q1] = -1
+    lab[ranks >= q2] = 1
     return lab
 
 
@@ -443,6 +444,7 @@ def permute_or(df: pd.DataFrame, class_col: str, n_perm: int, strat: list[str]) 
         "null_q025": float(np.nanquantile(null, 0.025)),
         "null_q975": float(np.nanquantile(null, 0.975)),
         "frac_null_lt1": float(np.mean(null < 1)),
+        "null": null,
     }
 
 
@@ -688,7 +690,7 @@ def main():
     for s in available:
         print(f"== load {s}")
         frames.append(load_sample(s, resolved))
-    df = pd.concat(frames, axis=0)
+    df = pd.concat(frames, axis=0, ignore_index=True)
     print(f"QC cells: {len(df):,}")
 
     df = assign_contacts(df)
@@ -710,15 +712,18 @@ def main():
         row.update({"sample": sample, "patient": PATIENT[sample], "n_tumor": int(len(g))})
         sample_rows.append(row)
     sample_or = pd.DataFrame(sample_rows)
+    sample_or["_ord"] = sample_or["sample"].map({s: i for i, s in enumerate(SAMPLES)})
+    sample_or = sample_or.sort_values("_ord").drop(columns="_ord").reset_index(drop=True)
 
-    # Per-FOV 2x2 for MH
+    # Per-FOV 2x2 for MH (drop strata with an empty high or low arm)
     fov_rows = []
     for (sample, fov), g in tumor.groupby(["sample", "fov"]):
         row = or_from_group(g, "cldn4_tertile_fov")
         row.update({"sample": sample, "patient": PATIENT[sample], "fov": int(fov)})
         fov_rows.append(row)
     fov_or = pd.DataFrame(fov_rows)
-    mh = mantel_haenszel(fov_or)
+    fov_or_mh = fov_or[(fov_or["n_hi"] >= 5) & (fov_or["n_lo"] >= 5)]
+    mh = mantel_haenszel(fov_or_mh)
 
     # Simple pooled 2x2
     pooled_cells = or_from_group(tumor, "cldn4_tertile_fov")
@@ -731,10 +736,20 @@ def main():
     sens = {}
     sens["sample_tertiles"] = or_from_group(tumor, "cldn4_tertile_sample")
     med = tumor.copy()
-    med["cldn4_med"] = np.where(
-        med["cldn4"] >= med.groupby("sample")["cldn4"].transform("median"), 1, -1
-    )
+    med["cldn4_med"] = 0
+    for _, g in med.groupby("sample"):
+        ranks = g["cldn4"].rank(method="first")
+        med.loc[g.index, "cldn4_med"] = np.where(ranks >= ranks.median(), 1, -1)
     sens["median_split"] = or_from_group(med, "cldn4_med")
+    # Patient-collapsed 2x2 (Lung5 / Lung9 reps pooled)
+    pat_rows = []
+    for patient, g in tumor.groupby("patient"):
+        row = or_from_group(g, "cldn4_tertile_fov")
+        row.update({"patient": patient, "n_tumor": int(len(g))})
+        pat_rows.append(row)
+    pat_or = pd.DataFrame(pat_rows)
+    sens["patient_2x2"] = pat_or.to_dict(orient="records")
+    sens["patient_mh"] = mantel_haenszel(pat_or)
     prot = df.loc[df["prot_tumor"] & df["fov_usable"]].copy()
     if len(prot) >= 100:
         prot = add_cldn4_classes(prot.assign(is_tumor=True))
@@ -782,6 +797,22 @@ def main():
     plot_or_forest(sample_or, {**mh, **{k: mh[k] for k in mh}}, OUT / "contact_or_forest.png")
     if not lig.empty:
         plot_ligand_bars(lig, OUT / "ligand_enrichment_bars.png")
+    pat_or.to_csv(OUT / "contact_probability_by_patient.tsv", sep="\t", index=False)
+
+    fig, ax = plt.subplots(figsize=(5.8, 3.8))
+    ax.hist(perm["null"], bins=40, color="#4C78A8", alpha=0.75, edgecolor="white")
+    ax.axvline(perm["obs_or"], color="#E45756", lw=2, label=f"observed OR={perm['obs_or']:.3f}")
+    ax.axvline(1.0, color="k", ls="--", lw=0.8)
+    ax.set_xlabel("Odds ratio (CLDN4-high vs low, any CD8 contact)")
+    ax.set_ylabel("Permutations")
+    ax.set_title(f"FOV-restricted permutation (n={perm['n_perm']}; p={perm['p_perm']:.4g})")
+    ax.legend(frameon=False, fontsize=8)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    fig.tight_layout()
+    fig.savefig(OUT / "contact_or_permutation.png", dpi=150)
+    plt.close(fig)
+    perm.pop("null", None)
 
     inventory = {
         "dataset": "Official CosMx SMI NSCLC FFPE (He et al. 2022 Nat Biotechnol)",
