@@ -1,0 +1,78 @@
+{
+  "cosmx": {
+    "juxta_all_cells": {
+      "n": 100450,
+      "r2_krt8_only": 2.5577176216207143e-05,
+      "r2_krt8_plus_cldn4": 2.5783941520196585e-05,
+      "delta_r2_cldn4_after_krt8": 2.0676530398944237e-07,
+      "coef_neigh_CLDN4": 0.0003656881270674066,
+      "pval_neigh_CLDN4": 0.8854089717532722,
+      "coef_neigh_KRT8_full": 0.0005840345907384632,
+      "pval_neigh_KRT8_full": 0.47169871889578163
+    },
+    "juxta_nontumor": {
+      "n": 82052,
+      "r2_krt8_only": 0.0179781875187226,
+      "r2_krt8_plus_cldn4": 0.018237569784178564,
+      "delta_r2_cldn4_after_krt8": 0.0002593822654559652,
+      "coef_neigh_CLDN4": 0.017852948706330533,
+      "pval_neigh_CLDN4": 3.2307358902988927e-06,
+      "coef_neigh_KRT8_full": 0.02240789159088254,
+      "pval_neigh_KRT8_full": 2.930446410433388e-68
+    },
+    "tumor_own_cldn4_explains_neigh_cd8": {
+      "n": 18398,
+      "r2_krt8_only": 0.003018695374356062,
+      "r2_krt8_plus_cldn4": 0.0031357305987180784,
+      "delta_r2_cldn4_after_krt8": 0.00011703522436201652,
+      "coef_own_CLDN4": 0.00023839688365507282,
+      "pval_own_CLDN4": 0.14169544433272843
+    },
+    "primary_n": 82052,
+    "primary_r2_krt8_only": 0.0179781875187226,
+    "primary_r2_krt8_plus_cldn4": 0.018237569784178564,
+    "primary_delta_r2_cldn4_after_krt8": 0.0002593822654559652,
+    "primary_coef_neigh_CLDN4": 0.017852948706330533,
+    "primary_pval_neigh_CLDN4": 3.2307358902988927e-06,
+    "primary_coef_neigh_KRT8_full": 0.02240789159088254,
+    "primary_pval_neigh_KRT8_full": 2.930446410433388e-68
+  },
+  "visium": {
+    "juxta_all_cells": {
+      "n": 6588,
+      "r2_krt8_only": 0.006019209867655362,
+      "r2_krt8_plus_cldn4": 0.009996361336090276,
+      "delta_r2_cldn4_after_krt8": 0.003977151468434914,
+      "coef_neigh_CLDN4": 0.06762120424580233,
+      "pval_neigh_CLDN4": 2.7768606366443637e-07,
+      "coef_neigh_KRT8_full": 0.008718119378956939,
+      "pval_neigh_KRT8_full": 0.37167820984395644
+    },
+    "juxta_nontumor": {
+      "n": 3951,
+      "r2_krt8_only": 0.006422199967264897,
+      "r2_krt8_plus_cldn4": 0.010864786566397555,
+      "delta_r2_cldn4_after_krt8": 0.0044425865991326585,
+      "coef_neigh_CLDN4": 0.0772250637175249,
+      "pval_neigh_CLDN4": 2.5998370852898335e-05,
+      "coef_neigh_KRT8_full": 0.018627559658784813,
+      "pval_neigh_KRT8_full": 0.12891435900054599
+    },
+    "tumor_own_cldn4_explains_neigh_cd8": {
+      "n": 2637,
+      "r2_krt8_only": 0.006668074849786598,
+      "r2_krt8_plus_cldn4": 0.0129222689876769,
+      "delta_r2_cldn4_after_krt8": 0.006254194137890301,
+      "coef_own_CLDN4": 0.008518378372908171,
+      "pval_own_CLDN4": 4.534532581128397e-05
+    },
+    "primary_n": 3951,
+    "primary_r2_krt8_only": 0.006422199967264897,
+    "primary_r2_krt8_plus_cldn4": 0.010864786566397555,
+    "primary_delta_r2_cldn4_after_krt8": 0.0044425865991326585,
+    "primary_coef_neigh_CLDN4": 0.0772250637175249,
+    "primary_pval_neigh_CLDN4": 2.5998370852898335e-05,
+    "primary_coef_neigh_KRT8_full": 0.018627559658784813,
+    "primary_pval_neigh_KRT8_full": 0.12891435900054599
+  }
+}
