@@ -1,0 +1,3503 @@
+{
+  "header": {
+    "type": "esummary",
+    "version": "0.3"
+  },
+  "result": {
+    "uids": [
+      "200200036",
+      "200253013",
+      "200255031",
+      "200271689",
+      "200285215",
+      "200285287",
+      "200285288",
+      "200295969",
+      "200316782"
+    ],
+    "200200036": {
+      "uid": "200200036",
+      "accession": "GSE200036",
+      "gds": "",
+      "title": "Immune profiling and label-free detection of 2D MXenes at the single-cell and tissue level",
+      "summary": "There is a critical unmet need to image 2D materials within single cells and tissues. Here we propose a versatile label-free single-cell detection strategy based on mass cytometry. We use single-cell mass cytometry by time-of-flight (CyTOF), imaging mass cytometry, and multiplexed ion beam imaging by time-of-flight (MIBI-TOF) with three representative MXenes.  Nb4C3, Mo2Ti2C3, and Ta4C3 were selected to ensure mass-detection within the range and to avoid overlap with currently available tags. We demonstrated their biocompatibility, detection, and quantification in 16 primary human immune cell subpopulations also showing the impact of MXene lateral size on the detection signal and cell binding. We report the biological and  immune functional compatibility of MXenes. In vivo biodistribution experiments in mice using a mixture of MXenes revealed their presence in liver, blood, spleen, and lungs. Lastly, we applied MIBI-TOF to capture the presence of MXenes in different organs. The label-free detection of 2D materials by mass cytometry at the single cell level, on multiple subpopulations and in multiple organs in vivo opens exciting new opportunities in biomedicine.",
+      "gpl": "20301",
+      "gse": "200036",
+      "taxon": "Homo sapiens",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2025/04/01",
+      "suppfile": "TXT",
+      "samples": [
+        {
+          "accession": "GSM6005147",
+          "title": "ID9.MX3.T24.B_0700761921"
+        },
+        {
+          "accession": "GSM6005144",
+          "title": "ID7.MX1.T24.B_0700761861"
+        },
+        {
+          "accession": "GSM6005136",
+          "title": "ID4.CTRL.T24.C_0700761781"
+        },
+        {
+          "accession": "GSM6005150",
+          "title": "ID11.MX5.T24.B_0700761981"
+        },
+        {
+          "accession": "GSM6005139",
+          "title": "ID5.LPS.T24.C_0700761811"
+        },
+        {
+          "accession": "GSM6005142",
+          "title": "ID6.ConA.T24.C_0700761841"
+        },
+        {
+          "accession": "GSM6005148",
+          "title": "ID9.MX3.T24.C_0700761931"
+        },
+        {
+          "accession": "GSM6005145",
+          "title": "ID7.MX1.T24.C_0700761871"
+        },
+        {
+          "accession": "GSM6005151",
+          "title": "ID11.MX5.T24.C_0700761991"
+        },
+        {
+          "accession": "GSM6005137",
+          "title": "ID5.LPS.T24.A_0700761791"
+        },
+        {
+          "accession": "GSM6005134",
+          "title": "ID4.CTRL.T24.A_0700761761"
+        },
+        {
+          "accession": "GSM6005140",
+          "title": "ID6.ConA.T24.A_0700761821"
+        },
+        {
+          "accession": "GSM6005146",
+          "title": "ID9.MX3.T24.A_0700761911"
+        },
+        {
+          "accession": "GSM6005143",
+          "title": "ID7.MX1.T24.A_0700761851"
+        },
+        {
+          "accession": "GSM6005149",
+          "title": "ID11.MX5.T24.A_0700761971"
+        },
+        {
+          "accession": "GSM6005138",
+          "title": "ID5.LPS.T24.B_0700761801"
+        },
+        {
+          "accession": "GSM6005135",
+          "title": "ID4.CTRL.T24.B_0700761771"
+        },
+        {
+          "accession": "GSM6005141",
+          "title": "ID6.ConA.T24.B_0700761831"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 18,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE200nnn/GSE200036/",
+      "geo2r": "no",
+      "bioproject": "PRJNA822767"
+    },
+    "200253013": {
+      "uid": "200253013",
+      "accession": "GSE253013",
+      "gds": "",
+      "title": "Single-cell RNA sequencing identifies dysregulated NOTCH3 signaling in tumor stroma of lung adenocarcinoma",
+      "summary": "Cancer immunotherapy has revolutionized the treatment of lung adenocarcinoma (LUAD); however, a significant fraction of patients fails to respond. Recent studies to understand transcriptomic determinants of immunotherapy response have pinpointed stroma-mediated resistance mechanisms. To gain a better understanding of the stromal biology at the cellular and molecular levels in LUAD, we obtained the transcriptomes of 256,379 single cells with 13,857 mesenchymal cells from 9 treatment-na\u00efve patients. Among the mesenchymal cells, we identify subsets of FAP+PDPN+ cancer-associated fibroblasts (CAFs) and ACTA2+MCAM+ pericytes, which enrich in tumors, differentiate from lung resident fibroblasts and possess a myofibroblast phenotype.  By utilizing imaging-mass cytometry, we found that both subsets are topographically adjacent to the perivascular niche and have close spatial interaction with endothelial cells (ECs). Modelling of ligand and receptor interactomes between mesenchymal and ECs identifies that NOTCH3/NOTCH signaling drives the cell-cell interaction in tumors, with pericytes and CAFs as the signal receivers and arterial and PLVAPhigh immature neovascular ECs as the signal senders. Either pharmacologically blocking NOTCH signaling or tuning down NOTCH3 level in mesenchymal cells reduced collagen production and suppressed cell invasion. By evaluating the clinical relevance of NOTCH signaling using bulk-RNA sequencing data, we demonstrate that NOTCH3 correlates with poor survival in stroma-rich patients and that a T-cell inflammation gene signature predicts survival only in low-NOTCH3 expressing patients.  Our study underscores the importance of NOTCH3 in regulating tumor stroma biology and may serve as a potential target for immunotherapy combination strategies.",
+      "gpl": "16791",
+      "gse": "253013",
+      "taxon": "Homo sapiens",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2024/01/31",
+      "suppfile": "RDS",
+      "samples": [
+        {
+          "accession": "GSM8012405",
+          "title": "MRC006 Adeno_4"
+        },
+        {
+          "accession": "GSM8012445",
+          "title": "MRC009 Adeno_3"
+        },
+        {
+          "accession": "GSM8012408",
+          "title": "MRC006 Adeno_7"
+        },
+        {
+          "accession": "GSM8012388",
+          "title": "MRC002_ADENO_1"
+        },
+        {
+          "accession": "GSM8012425",
+          "title": "MRC008 Adeno ANT CD45+_2"
+        },
+        {
+          "accession": "GSM8012382",
+          "title": "MRC001_ADENO_3"
+        },
+        {
+          "accession": "GSM8012465",
+          "title": "MRC0010 Adeno_7"
+        },
+        {
+          "accession": "GSM8012428",
+          "title": "MRC008 Adeno_1"
+        },
+        {
+          "accession": "GSM8012385",
+          "title": "MRC002_ANT_2"
+        },
+        {
+          "accession": "GSM8012422",
+          "title": "MRC007 Adeno_7"
+        },
+        {
+          "accession": "GSM8012402",
+          "title": "MRC006 Adeno_1"
+        },
+        {
+          "accession": "GSM8012448",
+          "title": "MRC009 Adeno_6"
+        },
+        {
+          "accession": "GSM8012451",
+          "title": "MRC0010 Adeno ANT_1"
+        },
+        {
+          "accession": "GSM8012414",
+          "title": "MRC007 Adeno ANT_5"
+        },
+        {
+          "accession": "GSM8012454",
+          "title": "MRC0010 Adeno ANT_4"
+        },
+        {
+          "accession": "GSM8012434",
+          "title": "MRC008 Adeno_7"
+        },
+        {
+          "accession": "GSM8012457",
+          "title": "MRC0010 Adeno ANT_7"
+        },
+        {
+          "accession": "GSM8012437",
+          "title": "MRC009 Adeno ANT_3"
+        },
+        {
+          "accession": "GSM8012391",
+          "title": "MRC003_ADENO_1"
+        },
+        {
+          "accession": "GSM8012431",
+          "title": "MRC008 Adeno_4"
+        },
+        {
+          "accession": "GSM8012394",
+          "title": "MRC003_ADENO_4"
+        },
+        {
+          "accession": "GSM8012411",
+          "title": "MRC007 Adeno ANT_2"
+        },
+        {
+          "accession": "GSM8012433",
+          "title": "MRC008 Adeno_6"
+        },
+        {
+          "accession": "GSM8012387",
+          "title": "MRC002_ANT_4"
+        },
+        {
+          "accession": "GSM8012390",
+          "title": "MRC002_ADENO_3"
+        },
+        {
+          "accession": "GSM8012453",
+          "title": "MRC0010 Adeno ANT_3"
+        },
+        {
+          "accession": "GSM8012407",
+          "title": "MRC006 Adeno_6"
+        },
+        {
+          "accession": "GSM8012410",
+          "title": "MRC007 Adeno ANT_1"
+        },
+        {
+          "accession": "GSM8012450",
+          "title": "MRC009 Adeno_8"
+        },
+        {
+          "accession": "GSM8012413",
+          "title": "MRC007 Adeno ANT_4"
+        },
+        {
+          "accession": "GSM8012430",
+          "title": "MRC008 Adeno_3"
+        },
+        {
+          "accession": "GSM8012393",
+          "title": "MRC003_ADENO_3"
+        },
+        {
+          "accession": "GSM8012396",
+          "title": "MRC004 Adeno_2"
+        },
+        {
+          "accession": "GSM8012442",
+          "title": "MRC009 Adeno ANT_8"
+        },
+        {
+          "accession": "GSM8012399",
+          "title": "MRC004 Adeno_5"
+        },
+        {
+          "accession": "GSM8012436",
+          "title": "MRC009 Adeno ANT_2"
+        },
+        {
+          "accession": "GSM8012462",
+          "title": "MRC0010 Adeno_4"
+        },
+        {
+          "accession": "GSM8012379",
+          "title": "MRC001_ANT_3"
+        },
+        {
+          "accession": "GSM8012416",
+          "title": "MRC007 Adeno_1"
+        },
+        {
+          "accession": "GSM8012456",
+          "title": "MRC0010 Adeno ANT_6"
+        },
+        {
+          "accession": "GSM8012419",
+          "title": "MRC007 Adeno_4"
+        },
+        {
+          "accession": "GSM8012459",
+          "title": "MRC0010 Adeno_1"
+        },
+        {
+          "accession": "GSM8012415",
+          "title": "MRC007 Adeno ANT_6"
+        },
+        {
+          "accession": "GSM8012439",
+          "title": "MRC009 Adeno ANT_5"
+        },
+        {
+          "accession": "GSM8012395",
+          "title": "MRC004 Adeno_1"
+        },
+        {
+          "accession": "GSM8012461",
+          "title": "MRC0010 Adeno_3"
+        },
+        {
+          "accession": "GSM8012398",
+          "title": "MRC004 Adeno_4"
+        },
+        {
+          "accession": "GSM8012435",
+          "title": "MRC009 Adeno ANT_1"
+        },
+        {
+          "accession": "GSM8012392",
+          "title": "MRC003_ADENO_2"
+        },
+        {
+          "accession": "GSM8012438",
+          "title": "MRC009 Adeno ANT_4"
+        },
+        {
+          "accession": "GSM8012418",
+          "title": "MRC007 Adeno_3"
+        },
+        {
+          "accession": "GSM8012455",
+          "title": "MRC0010 Adeno ANT_5"
+        },
+        {
+          "accession": "GSM8012412",
+          "title": "MRC007 Adeno ANT_3"
+        },
+        {
+          "accession": "GSM8012424",
+          "title": "MRC008 Adeno ANT CD45+_1"
+        },
+        {
+          "accession": "GSM8012458",
+          "title": "MRC0010 Adeno ANT_8"
+        },
+        {
+          "accession": "GSM8012427",
+          "title": "MRC008 Adeno ANT CD45+_4"
+        },
+        {
+          "accession": "GSM8012378",
+          "title": "MRC001_ANT_2"
+        },
+        {
+          "accession": "GSM8012404",
+          "title": "MRC006 Adeno_3"
+        },
+        {
+          "accession": "GSM8012441",
+          "title": "MRC009 Adeno ANT_7"
+        },
+        {
+          "accession": "GSM8012401",
+          "title": "MRC004 Adeno_7"
+        },
+        {
+          "accession": "GSM8012444",
+          "title": "MRC009 Adeno_2"
+        },
+        {
+          "accession": "GSM8012464",
+          "title": "MRC0010 Adeno_6"
+        },
+        {
+          "accession": "GSM8012381",
+          "title": "MRC001_ADENO_2"
+        },
+        {
+          "accession": "GSM8012447",
+          "title": "MRC009 Adeno_5"
+        },
+        {
+          "accession": "GSM8012443",
+          "title": "MRC009 Adeno_1"
+        },
+        {
+          "accession": "GSM8012384",
+          "title": "MRC002_ANT_1"
+        },
+        {
+          "accession": "GSM8012397",
+          "title": "MRC004 Adeno_3"
+        },
+        {
+          "accession": "GSM8012417",
+          "title": "MRC007 Adeno_2"
+        },
+        {
+          "accession": "GSM8012377",
+          "title": "MRC001_ANT_1"
+        },
+        {
+          "accession": "GSM8012421",
+          "title": "MRC007 Adeno_6"
+        },
+        {
+          "accession": "GSM8012423",
+          "title": "MRC007 Adeno_8"
+        },
+        {
+          "accession": "GSM8012380",
+          "title": "MRC001_ADENO_1"
+        },
+        {
+          "accession": "GSM8012420",
+          "title": "MRC007 Adeno_5"
+        },
+        {
+          "accession": "GSM8012460",
+          "title": "MRC0010 Adeno_2"
+        },
+        {
+          "accession": "GSM8012440",
+          "title": "MRC009 Adeno ANT_6"
+        },
+        {
+          "accession": "GSM8012400",
+          "title": "MRC004 Adeno_6"
+        },
+        {
+          "accession": "GSM8012463",
+          "title": "MRC0010 Adeno_5"
+        },
+        {
+          "accession": "GSM8012403",
+          "title": "MRC006 Adeno_2"
+        },
+        {
+          "accession": "GSM8012406",
+          "title": "MRC006 Adeno_5"
+        },
+        {
+          "accession": "GSM8012452",
+          "title": "MRC0010 Adeno ANT_2"
+        },
+        {
+          "accession": "GSM8012432",
+          "title": "MRC008 Adeno_5"
+        },
+        {
+          "accession": "GSM8012426",
+          "title": "MRC008 Adeno ANT CD45+_3"
+        },
+        {
+          "accession": "GSM8012446",
+          "title": "MRC009 Adeno_4"
+        },
+        {
+          "accession": "GSM8012429",
+          "title": "MRC008 Adeno_2"
+        },
+        {
+          "accession": "GSM8012386",
+          "title": "MRC002_ANT_3"
+        },
+        {
+          "accession": "GSM8012409",
+          "title": "MRC006 Adeno_8"
+        },
+        {
+          "accession": "GSM8012449",
+          "title": "MRC009 Adeno_7"
+        },
+        {
+          "accession": "GSM8012389",
+          "title": "MRC002_ADENO_2"
+        },
+        {
+          "accession": "GSM8012383",
+          "title": "MRC001_ADENO_4"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 89,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "38335304"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE253nnn/GSE253013/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1055415"
+    },
+    "200255031": {
+      "uid": "200255031",
+      "accession": "GSE255031",
+      "gds": "",
+      "title": "Combined inhibition of IL-1, IL-33 and IL-36 signaling by targeting IL1RAP ameliorates skin and lung fibrosis in preclinical models of Systemic Sclerosis",
+      "summary": "Background: The IL-1 receptor accessory protein (IL1RAP) is an essential co-receptor required for signaling through the IL-1, IL-33 and IL-36 receptors. Here, we investigate the antifibrotic potential of the combined inhibition of these cytokines by an anti-IL1RAP antibody to provide a scientific background for clinical development in systemic sclerosis (SSc). Methods: The expression of IL1RAP-associated signaling molecules was determined by data mining of publicly available RNAseq data as well as by imaging mass cytometry (IMC). Efficacy of therapeutic dosing of anti-IL1RAP antibodies was determined in three complimentary mouse models: chronic sclerodermatous graft-versus-host-disease (cGvHD), bleomycin-induced dermal fibrosis model and topoisomerase-I (topo)-induced fibrosis.  Results: SSc skin showed upregulation of IL1RAP and IL1RAP-related signaling molecules on mRNA and protein level compared to normal skin. IL-1, IL-33, and IL-36 all regulate distinct genes sets related to different pathophysiological processes in SSc. The responses of human fibroblasts and endothelial cells to IL-1, IL-33, and IL-36 were completely blocked by treatment with an anti-IL1RAP-antibody in vitro. Moreover, anti-IL1RAP antibody treatment reduced dermal and pulmonary fibrosis in cGvHD-, bleomycin- and topoisomerase-induced fibrosis. Importantly, RNAseq analyses revealed effects of IL1RAP inhibition on multiple processes related to inflammation and fibrosis that are also deregulated in human SSc skin.  Conclusion: This study provides first evidence for the therapeutic benefits of targeting of IL1RAP in SSc. Our findings have high translational potential as the anti-IL1RAP antibody CAN10 has recently entered a phase 1 clinical trial.",
+      "gpl": "24247",
+      "gse": "255031",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2024/04/30",
+      "suppfile": "TXT",
+      "samples": [
+        {
+          "accession": "GSM8062824",
+          "title": "Allogeneic treated Nintedanib rep 5"
+        },
+        {
+          "accession": "GSM8062807",
+          "title": "Syngenic rep 4"
+        },
+        {
+          "accession": "GSM8062804",
+          "title": "Syngenic rep 1"
+        },
+        {
+          "accession": "GSM8062816",
+          "title": "Allogeneic treated anti-IL1RAP ab rep 1"
+        },
+        {
+          "accession": "GSM8062813",
+          "title": "Allogeneic treated ddH2O rep 2"
+        },
+        {
+          "accession": "GSM8062810",
+          "title": "Allogeneic treated isotype control ab rep 3"
+        },
+        {
+          "accession": "GSM8062812",
+          "title": "Allogeneic treated ddH2O rep 1"
+        },
+        {
+          "accession": "GSM8062809",
+          "title": "Allogeneic treated isotype control ab rep 2"
+        },
+        {
+          "accession": "GSM8062815",
+          "title": "Allogeneic treated ddH2O rep 4"
+        },
+        {
+          "accession": "GSM8062821",
+          "title": "Allogeneic treated Nintedanib rep 2"
+        },
+        {
+          "accession": "GSM8062818",
+          "title": "Allogeneic treated anti-IL1RAP ab rep 3"
+        },
+        {
+          "accession": "GSM8062820",
+          "title": "Allogeneic treated Nintedanib rep 1"
+        },
+        {
+          "accession": "GSM8062814",
+          "title": "Allogeneic treated ddH2O rep 3"
+        },
+        {
+          "accession": "GSM8062817",
+          "title": "Allogeneic treated anti-IL1RAP ab rep 2"
+        },
+        {
+          "accession": "GSM8062806",
+          "title": "Syngenic rep 3"
+        },
+        {
+          "accession": "GSM8062823",
+          "title": "Allogeneic treated Nintedanib rep 4"
+        },
+        {
+          "accession": "GSM8062822",
+          "title": "Allogeneic treated Nintedanib rep 3"
+        },
+        {
+          "accession": "GSM8062819",
+          "title": "Allogeneic treated anti-IL1RAP ab rep 4"
+        },
+        {
+          "accession": "GSM8062805",
+          "title": "Syngenic rep 2"
+        },
+        {
+          "accession": "GSM8062811",
+          "title": "Allogeneic treated isotype control ab rep 4"
+        },
+        {
+          "accession": "GSM8062808",
+          "title": "Allogeneic treated isotype control ab rep 1"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 21,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "38594058"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE255nnn/GSE255031/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1073269"
+    },
+    "200271689": {
+      "uid": "200271689",
+      "accession": "GSE271689",
+      "gds": "",
+      "title": "Enhancing Immunotherapy Outcomes: Spatial Multi-Omics Predictive Models for Non-Small Cell Lung Cancer",
+      "summary": "Non\u2013small cell lung cancer (NSCLC) has an increasing number of targeted and systemic therapies allowing subsets of patients to achieve long\u2013term durable benefit. Fundamental to understanding responses to a given therapy is comprehensive molecular characterization of the underlying tumor immune microenvironment (TIME). The TIME may inform models to predict immunotherapy outcomes and features to delineate therapeutic responses and clinical endpoints. We hypothesize that an integrated multi\u2013omics approach will uncover interactions within the NSCLC TIME and identify novel biomarkers that are predictive of immunotherapy responses, thus aiding precision oncology. To develop a spatially resolved TIME model for NSCLC immunotherapy, we utilized a multi\u2013omics approach, combining spatial mapping of protein expression at the single\u2013cell resolution by Phenocycler Fusion (PCF) and multi\u2013cellular readout whole transcriptome profiling at cellular compartment resolution by Digital Spatial Profiling (DSP\u2013GeoMx\u2013WTA). This approach facilitated a detailed examination of the TIME in NSCLC samples from patients undergoing first\u2013line immunotherapy. We studied two independent cohorts of advanced NSCLC tissue samples, treated with PD\u20131\u2013based immunotherapies. We derived gene signatures from cell type signatures to predict treatment outcomes using a multistage Least Absolute Shrinkage and Selection Operator (LASSO) approach. Our spatial proteomic analysis identified three distinct cell types, proliferating tumor cells, granulocytes, and vessels, associated with resistance to immunotherapy. A high proportion of these cell types demonstrated a hazard ratio (HR) of 3.8 (p = 0.004) in the Yale training cohort and 1.8 (p = 0.05) in the UQ validation cohort. In the response cell\u2013type model, higher levels of M1 macrophages, M2 macrophages, and CD4 T cells had an HR of 0.4 (p = 0.019) in the training cohort and 0.49 (p = 0.036) in the validation. In the transcriptomic analysis, gene signatures derived from these cell types predicted outcomes with high accuracy. The resistance gene model, which included 8 genes associated with epithelial\u2013mesenchymal transition (EMT) and cell migration, showed an HR of 5.3 (p < 0.001) in the Yale training cohort, 2.2 (p = 0.036) in the UQ validation cohort, and 1.7 (p = 0.042) in the Greece validation cohort. Conversely, the response gene model, consisting of 8 genes associated with immunomodulation, had an HR of 0.22 (p = 0.005) in the Yale training cohort, 0.38 (p = 0.034) in the UQ validation cohort, and 0.56 (p = 0.041) in the Greece validation cohort. Multivariable analysis, adjusting for age, sex, disease stage, prior chemotherapy, type of immunotherapy, line of immunotherapy, histology, and smoking status, confirmed that the resistance signature remained significantly associated with worse outcomes, while the response signature remained associated with improved outcomes in both the UQ and Greece cohorts. This research highlights the potential of a multi\u2013omics cell typing and gene expression profiling approach in advancing NSCLC treatment toward precision oncology. By offering insights into the TIME and unveiling novel biomarkers, our model seeks to define resistance and to improve prediction of response to treatment.",
+      "gpl": "24676",
+      "gse": "271689",
+      "taxon": "Homo sapiens",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2024/08/22",
+      "suppfile": "DCC",
+      "samples": [
+        {
+          "accession": "GSM8382522",
+          "title": "48_DSP-1001250002073-A-H09"
+        },
+        {
+          "accession": "GSM8382439",
+          "title": "101_DSP-1001250002073-A-A10"
+        },
+        {
+          "accession": "GSM8382356",
+          "title": "48_DSP-1001250002071-C-G11"
+        },
+        {
+          "accession": "GSM8382559",
+          "title": "81_DSP-1001250002072-B-C10"
+        },
+        {
+          "accession": "GSM8382476",
+          "title": "21_DSP-1001250002073-A-D11"
+        },
+        {
+          "accession": "GSM8382273",
+          "title": "99_DSP-1001660003116-F-E12"
+        },
+        {
+          "accession": "GSM8382190",
+          "title": "17_DSP-1001660003047-E-D04"
+        },
+        {
+          "accession": "GSM8382393",
+          "title": "72_DSP-1001250002070-D-B12"
+        },
+        {
+          "accession": "GSM8382310",
+          "title": "17_DSP-1001250002071-C-D01"
+        },
+        {
+          "accession": "GSM8382107",
+          "title": "69_DSP-1001660003045-D-B01"
+        },
+        {
+          "accession": "GSM8382024",
+          "title": "119_DSP-1001660003044-C-C02"
+        },
+        {
+          "accession": "GSM8382227",
+          "title": "4_DSP-1001660003047-E-G03"
+        },
+        {
+          "accession": "GSM8382144",
+          "title": "96_DSP-1001660003045-D-E02"
+        },
+        {
+          "accession": "GSM8382061",
+          "title": "3_DSP-1001660003044-C-F03"
+        },
+        {
+          "accession": "GSM8382542",
+          "title": "69_DSP-1001250002072-B-B05"
+        },
+        {
+          "accession": "GSM8382459",
+          "title": "119_DSP-1001250002073-A-C06"
+        },
+        {
+          "accession": "GSM8382496",
+          "title": "30_DSP-1001250002073-A-F07"
+        },
+        {
+          "accession": "GSM8382413",
+          "title": "9_DSP-1001250002070-D-D08"
+        },
+        {
+          "accession": "GSM8382376",
+          "title": "63_DSP-1001250002070-D-A07"
+        },
+        {
+          "accession": "GSM8382293",
+          "title": "116_DSP-1001250002071-C-B08"
+        },
+        {
+          "accession": "GSM8382210",
+          "title": "25_DSP-1001660003047-E-E10"
+        },
+        {
+          "accession": "GSM8382330",
+          "title": "27_DSP-1001250002071-C-E09"
+        },
+        {
+          "accession": "GSM8382127",
+          "title": "81_DSP-1001660003045-D-C09"
+        },
+        {
+          "accession": "GSM8382247",
+          "title": "51_DSP-1001660003047-E-H11"
+        },
+        {
+          "accession": "GSM8382044",
+          "title": "21_DSP-1001660003044-C-D10"
+        },
+        {
+          "accession": "GSM8382164",
+          "title": "103_DSP-1001660003047-E-B02"
+        },
+        {
+          "accession": "GSM8382081",
+          "title": "46_DSP-1001660003044-C-G11"
+        },
+        {
+          "accession": "GSM8382585",
+          "title": "99_DSP-1001250002072-B-E12"
+        },
+        {
+          "accession": "GSM8382419",
+          "title": "94_DSP-1001250002070-D-E02"
+        },
+        {
+          "accession": "GSM8382336",
+          "title": "32_DSP-1001250002071-C-F03"
+        },
+        {
+          "accession": "GSM8382502",
+          "title": "33_DSP-1001250002073-A-G01"
+        },
+        {
+          "accession": "GSM8382539",
+          "title": "67_DSP-1001250002072-B-B02"
+        },
+        {
+          "accession": "GSM8382373",
+          "title": "58_DSP-1001250002070-D-A04"
+        },
+        {
+          "accession": "GSM8382253",
+          "title": "87_DSP-1001660003116-F-D04"
+        },
+        {
+          "accession": "GSM8382170",
+          "title": "111_DSP-1001660003047-E-B08"
+        },
+        {
+          "accession": "GSM8382456",
+          "title": "118_DSP-1001250002073-A-C03"
+        },
+        {
+          "accession": "GSM8382087",
+          "title": "49_DSP-1001660003044-C-H05"
+        },
+        {
+          "accession": "GSM8382290",
+          "title": "109_DSP-1001250002071-C-B05"
+        },
+        {
+          "accession": "GSM8382004",
+          "title": "101_DSP-1001660003044-C-A06"
+        },
+        {
+          "accession": "GSM8382041",
+          "title": "20_DSP-1001660003044-C-D07"
+        },
+        {
+          "accession": "GSM8382207",
+          "title": "24_DSP-1001660003047-E-E07"
+        },
+        {
+          "accession": "GSM8382124",
+          "title": "80_DSP-1001660003045-D-C06"
+        },
+        {
+          "accession": "GSM8382582",
+          "title": "98_DSP-1001250002072-B-E09"
+        },
+        {
+          "accession": "GSM8382545",
+          "title": "70_DSP-1001250002072-B-B08"
+        },
+        {
+          "accession": "GSM8382462",
+          "title": "120_DSP-1001250002073-A-C09"
+        },
+        {
+          "accession": "GSM8382499",
+          "title": "32_DSP-1001250002073-A-F10"
+        },
+        {
+          "accession": "GSM8382250",
+          "title": "81_DSP-1001660003116-F-D01"
+        },
+        {
+          "accession": "GSM8382167",
+          "title": "109_DSP-1001660003047-E-B05"
+        },
+        {
+          "accession": "GSM8382333",
+          "title": "3_DSP-1001250002071-C-E12"
+        },
+        {
+          "accession": "GSM8382416",
+          "title": "93_DSP-1001250002070-D-D11"
+        },
+        {
+          "accession": "GSM8382084",
+          "title": "48_DSP-1001660003044-C-H02"
+        },
+        {
+          "accession": "GSM8382001",
+          "title": "100_DSP-1001660003044-C-A03"
+        },
+        {
+          "accession": "GSM8382399",
+          "title": "79_DSP-1001250002070-D-C06"
+        },
+        {
+          "accession": "GSM8382565",
+          "title": "88_DSP-1001250002072-B-D04"
+        },
+        {
+          "accession": "GSM8382316",
+          "title": "20_DSP-1001250002071-C-D07"
+        },
+        {
+          "accession": "GSM8382482",
+          "title": "23_DSP-1001250002073-A-E05"
+        },
+        {
+          "accession": "GSM8382436",
+          "title": "100_DSP-1001250002073-A-A07"
+        },
+        {
+          "accession": "GSM8382187",
+          "title": "15_DSP-1001660003047-E-D01"
+        },
+        {
+          "accession": "GSM8382519",
+          "title": "46_DSP-1001250002073-A-H06"
+        },
+        {
+          "accession": "GSM8382104",
+          "title": "67_DSP-1001660003045-D-A10"
+        },
+        {
+          "accession": "GSM8382233",
+          "title": "42_DSP-1001660003047-E-G09"
+        },
+        {
+          "accession": "GSM8382270",
+          "title": "98_DSP-1001660003116-F-E09"
+        },
+        {
+          "accession": "GSM8382353",
+          "title": "46_DSP-1001250002071-C-G08"
+        },
+        {
+          "accession": "GSM8382021",
+          "title": "118_DSP-1001660003044-C-B11"
+        },
+        {
+          "accession": "GSM8382396",
+          "title": "77_DSP-1001250002070-D-C03"
+        },
+        {
+          "accession": "GSM8382313",
+          "title": "18_DSP-1001250002071-C-D04"
+        },
+        {
+          "accession": "GSM8382562",
+          "title": "87_DSP-1001250002072-B-D01"
+        },
+        {
+          "accession": "GSM8382479",
+          "title": "22_DSP-1001250002073-A-E02"
+        },
+        {
+          "accession": "GSM8382184",
+          "title": "120_DSP-1001660003047-E-C10"
+        },
+        {
+          "accession": "GSM8382064",
+          "title": "32_DSP-1001660003044-C-F06"
+        },
+        {
+          "accession": "GSM8382230",
+          "title": "40_DSP-1001660003047-E-G06"
+        },
+        {
+          "accession": "GSM8382147",
+          "title": "98_DSP-1001660003045-D-E05"
+        },
+        {
+          "accession": "GSM8382101",
+          "title": "66_DSP-1001660003045-D-A07"
+        },
+        {
+          "accession": "GSM8382018",
+          "title": "117_DSP-1001660003044-C-B08"
+        },
+        {
+          "accession": "GSM8382513",
+          "title": "42_DSP-1001250002073-A-G12"
+        },
+        {
+          "accession": "GSM8382181",
+          "title": "119_DSP-1001660003047-E-C07"
+        },
+        {
+          "accession": "GSM8382347",
+          "title": "40_DSP-1001250002071-C-G02"
+        },
+        {
+          "accession": "GSM8382264",
+          "title": "94_DSP-1001660003116-F-E03"
+        },
+        {
+          "accession": "GSM8382430",
+          "title": "No Template Control_DSP-1001250002073-A-A01"
+        },
+        {
+          "accession": "GSM8382301",
+          "title": "118_DSP-1001250002071-C-C04"
+        },
+        {
+          "accession": "GSM8382052",
+          "title": "24_DSP-1001660003044-C-E06"
+        },
+        {
+          "accession": "GSM8382135",
+          "title": "9_DSP-1001660003045-D-D05"
+        },
+        {
+          "accession": "GSM8382098",
+          "title": "63_DSP-1001660003045-D-A04"
+        },
+        {
+          "accession": "GSM8382015",
+          "title": "116_DSP-1001660003044-C-B05"
+        },
+        {
+          "accession": "GSM8382218",
+          "title": "32_DSP-1001660003047-E-F06"
+        },
+        {
+          "accession": "GSM8382579",
+          "title": "96_DSP-1001250002072-B-E06"
+        },
+        {
+          "accession": "GSM8382367",
+          "title": "53_DSP-1001250002071-C-H10"
+        },
+        {
+          "accession": "GSM8382284",
+          "title": "102_DSP-1001250002071-C-A11"
+        },
+        {
+          "accession": "GSM8382450",
+          "title": "116_DSP-1001250002073-A-B09"
+        },
+        {
+          "accession": "GSM8382533",
+          "title": "53_DSP-1001250002072-B-A08"
+        },
+        {
+          "accession": "GSM8382118",
+          "title": "79_DSP-1001660003045-D-B12"
+        },
+        {
+          "accession": "GSM8382201",
+          "title": "21_DSP-1001660003047-E-E01"
+        },
+        {
+          "accession": "GSM8382012",
+          "title": "111_DSP-1001660003044-C-B02"
+        },
+        {
+          "accession": "GSM8382095",
+          "title": "No Template Control_DSP-1001660003045-D-A01"
+        },
+        {
+          "accession": "GSM8382576",
+          "title": "94_DSP-1001250002072-B-E03"
+        },
+        {
+          "accession": "GSM8382364",
+          "title": "51_DSP-1001250002071-C-H07"
+        },
+        {
+          "accession": "GSM8382078",
+          "title": "45_DSP-1001660003044-C-G08"
+        },
+        {
+          "accession": "GSM8382530",
+          "title": "51_DSP-1001250002072-B-A05"
+        },
+        {
+          "accession": "GSM8382327",
+          "title": "25_DSP-1001250002071-C-E06"
+        },
+        {
+          "accession": "GSM8382244",
+          "title": "49_DSP-1001660003047-E-H08"
+        },
+        {
+          "accession": "GSM8382447",
+          "title": "109_DSP-1001250002073-A-B06"
+        },
+        {
+          "accession": "GSM8382410",
+          "title": "88_DSP-1001250002070-D-D05"
+        },
+        {
+          "accession": "GSM8382493",
+          "title": "3_DSP-1001250002073-A-F04"
+        },
+        {
+          "accession": "GSM8382161",
+          "title": "102_DSP-1001660003047-E-A11"
+        },
+        {
+          "accession": "GSM8382115",
+          "title": "72_DSP-1001660003045-D-B09"
+        },
+        {
+          "accession": "GSM8382032",
+          "title": "17_DSP-1001660003044-C-C10"
+        },
+        {
+          "accession": "GSM8382281",
+          "title": "101_DSP-1001250002071-C-A08"
+        },
+        {
+          "accession": "GSM8382198",
+          "title": "20_DSP-1001660003047-E-D10"
+        },
+        {
+          "accession": "GSM8382573",
+          "title": "93_DSP-1001250002072-B-D12"
+        },
+        {
+          "accession": "GSM8382287",
+          "title": "103_DSP-1001250002071-C-B02"
+        },
+        {
+          "accession": "GSM8382453",
+          "title": "117_DSP-1001250002073-A-B12"
+        },
+        {
+          "accession": "GSM8382536",
+          "title": "58_DSP-1001250002072-B-A11"
+        },
+        {
+          "accession": "GSM8382370",
+          "title": "No Template Control_DSP-1001250002070-D-A01"
+        },
+        {
+          "accession": "GSM8382158",
+          "title": "101_DSP-1001660003047-E-A08"
+        },
+        {
+          "accession": "GSM8382075",
+          "title": "40_DSP-1001660003044-C-G05"
+        },
+        {
+          "accession": "GSM8382241",
+          "title": "48_DSP-1001660003047-E-H05"
+        },
+        {
+          "accession": "GSM8382490",
+          "title": "27_DSP-1001250002073-A-F01"
+        },
+        {
+          "accession": "GSM8382324",
+          "title": "24_DSP-1001250002071-C-E03"
+        },
+        {
+          "accession": "GSM8382038",
+          "title": "2_DSP-1001660003044-C-D04"
+        },
+        {
+          "accession": "GSM8382204",
+          "title": "22_DSP-1001660003047-E-E04"
+        },
+        {
+          "accession": "GSM8382407",
+          "title": "81_DSP-1001250002070-D-D02"
+        },
+        {
+          "accession": "GSM8382121",
+          "title": "8_DSP-1001660003045-D-C03"
+        },
+        {
+          "accession": "GSM8382473",
+          "title": "20_DSP-1001250002073-A-D08"
+        },
+        {
+          "accession": "GSM8382390",
+          "title": "71_DSP-1001250002070-D-B09"
+        },
+        {
+          "accession": "GSM8382556",
+          "title": "80_DSP-1001250002072-B-C07"
+        },
+        {
+          "accession": "GSM8382261",
+          "title": "93_DSP-1001660003116-F-D12"
+        },
+        {
+          "accession": "GSM8382178",
+          "title": "118_DSP-1001660003047-E-C04"
+        },
+        {
+          "accession": "GSM8382344",
+          "title": "4_DSP-1001250002071-C-F11"
+        },
+        {
+          "accession": "GSM8382072",
+          "title": "4_DSP-1001660003044-C-G02"
+        },
+        {
+          "accession": "GSM8382427",
+          "title": "98_DSP-1001250002070-D-E10"
+        },
+        {
+          "accession": "GSM8382058",
+          "title": "27_DSP-1001660003044-C-E12"
+        },
+        {
+          "accession": "GSM8382510",
+          "title": "40_DSP-1001250002073-A-G09"
+        },
+        {
+          "accession": "GSM8382224",
+          "title": "35_DSP-1001660003047-E-F12"
+        },
+        {
+          "accession": "GSM8382141",
+          "title": "93_DSP-1001660003045-D-D11"
+        },
+        {
+          "accession": "GSM8382307",
+          "title": "15_DSP-1001250002071-C-C10"
+        },
+        {
+          "accession": "GSM8382035",
+          "title": "18_DSP-1001660003044-C-D01"
+        },
+        {
+          "accession": "GSM8382470",
+          "title": "18_DSP-1001250002073-A-D05"
+        },
+        {
+          "accession": "GSM8382350",
+          "title": "45_DSP-1001250002071-C-G05"
+        },
+        {
+          "accession": "GSM8382553",
+          "title": "77_DSP-1001250002072-B-C04"
+        },
+        {
+          "accession": "GSM8382267",
+          "title": "96_DSP-1001660003116-F-E06"
+        },
+        {
+          "accession": "GSM8382433",
+          "title": "1_DSP-1001250002073-A-A04"
+        },
+        {
+          "accession": "GSM8382138",
+          "title": "90_DSP-1001660003045-D-D08"
+        },
+        {
+          "accession": "GSM8382055",
+          "title": "25_DSP-1001660003044-C-E09"
+        },
+        {
+          "accession": "GSM8382516",
+          "title": "45_DSP-1001250002073-A-H03"
+        },
+        {
+          "accession": "GSM8382221",
+          "title": "33_DSP-1001660003047-E-F09"
+        },
+        {
+          "accession": "GSM8382387",
+          "title": "70_DSP-1001250002070-D-B06"
+        },
+        {
+          "accession": "GSM8382304",
+          "title": "119_DSP-1001250002071-C-C07"
+        },
+        {
+          "accession": "GSM8382245",
+          "title": "49_DSP-1001660003047-E-H09"
+        },
+        {
+          "accession": "GSM8382328",
+          "title": "27_DSP-1001250002071-C-E07"
+        },
+        {
+          "accession": "GSM8382033",
+          "title": "17_DSP-1001660003044-C-C11"
+        },
+        {
+          "accession": "GSM8382162",
+          "title": "102_DSP-1001660003047-E-A12"
+        },
+        {
+          "accession": "GSM8382079",
+          "title": "45_DSP-1001660003044-C-G09"
+        },
+        {
+          "accession": "GSM8382560",
+          "title": "81_DSP-1001250002072-B-C11"
+        },
+        {
+          "accession": "GSM8382348",
+          "title": "42_DSP-1001250002071-C-G03"
+        },
+        {
+          "accession": "GSM8382514",
+          "title": "42_DSP-1001250002073-A-H01"
+        },
+        {
+          "accession": "GSM8382228",
+          "title": "4_DSP-1001660003047-E-G04"
+        },
+        {
+          "accession": "GSM8382431",
+          "title": "1_DSP-1001250002073-A-A02"
+        },
+        {
+          "accession": "GSM8382311",
+          "title": "17_DSP-1001250002071-C-D02"
+        },
+        {
+          "accession": "GSM8382016",
+          "title": "116_DSP-1001660003044-C-B06"
+        },
+        {
+          "accession": "GSM8382394",
+          "title": "77_DSP-1001250002070-D-C01"
+        },
+        {
+          "accession": "GSM8382477",
+          "title": "21_DSP-1001250002073-A-D12"
+        },
+        {
+          "accession": "GSM8382099",
+          "title": "63_DSP-1001660003045-D-A05"
+        },
+        {
+          "accession": "GSM8382265",
+          "title": "94_DSP-1001660003116-F-E04"
+        },
+        {
+          "accession": "GSM8382182",
+          "title": "119_DSP-1001660003047-E-C08"
+        },
+        {
+          "accession": "GSM8382557",
+          "title": "80_DSP-1001250002072-B-C08"
+        },
+        {
+          "accession": "GSM8382142",
+          "title": "94_DSP-1001660003045-D-D12"
+        },
+        {
+          "accession": "GSM8382059",
+          "title": "27_DSP-1001660003044-C-F01"
+        },
+        {
+          "accession": "GSM8382225",
+          "title": "35_DSP-1001660003047-E-G01"
+        },
+        {
+          "accession": "GSM8382391",
+          "title": "72_DSP-1001250002070-D-B10"
+        },
+        {
+          "accession": "GSM8382013",
+          "title": "111_DSP-1001660003044-C-B03"
+        },
+        {
+          "accession": "GSM8382308",
+          "title": "15_DSP-1001250002071-C-C11"
+        },
+        {
+          "accession": "GSM8382474",
+          "title": "20_DSP-1001250002073-A-D09"
+        },
+        {
+          "accession": "GSM8382179",
+          "title": "118_DSP-1001660003047-E-C05"
+        },
+        {
+          "accession": "GSM8382096",
+          "title": "55_DSP-1001660003045-D-A02"
+        },
+        {
+          "accession": "GSM8382262",
+          "title": "93_DSP-1001660003116-F-E01"
+        },
+        {
+          "accession": "GSM8382268",
+          "title": "96_DSP-1001660003116-F-E07"
+        },
+        {
+          "accession": "GSM8382540",
+          "title": "67_DSP-1001250002072-B-B03"
+        },
+        {
+          "accession": "GSM8382139",
+          "title": "90_DSP-1001660003045-D-D09"
+        },
+        {
+          "accession": "GSM8382305",
+          "title": "120_DSP-1001250002071-C-C08"
+        },
+        {
+          "accession": "GSM8382222",
+          "title": "33_DSP-1001660003047-E-F10"
+        },
+        {
+          "accession": "GSM8382411",
+          "title": "9_DSP-1001250002070-D-D06"
+        },
+        {
+          "accession": "GSM8382494",
+          "title": "3_DSP-1001250002073-A-F05"
+        },
+        {
+          "accession": "GSM8382388",
+          "title": "70_DSP-1001250002070-D-B07"
+        },
+        {
+          "accession": "GSM8382102",
+          "title": "66_DSP-1001660003045-D-A08"
+        },
+        {
+          "accession": "GSM8382577",
+          "title": "94_DSP-1001250002072-B-E04"
+        },
+        {
+          "accession": "GSM8382019",
+          "title": "117_DSP-1001660003044-C-B09"
+        },
+        {
+          "accession": "GSM8382185",
+          "title": "120_DSP-1001660003047-E-C11"
+        },
+        {
+          "accession": "GSM8382471",
+          "title": "2_DSP-1001250002073-A-D06"
+        },
+        {
+          "accession": "GSM8382056",
+          "title": "25_DSP-1001660003044-C-E10"
+        },
+        {
+          "accession": "GSM8382454",
+          "title": "117_DSP-1001250002073-A-C01"
+        },
+        {
+          "accession": "GSM8382537",
+          "title": "58_DSP-1001250002072-B-A12"
+        },
+        {
+          "accession": "GSM8382242",
+          "title": "48_DSP-1001660003047-E-H06"
+        },
+        {
+          "accession": "GSM8382325",
+          "title": "25_DSP-1001250002071-C-E04"
+        },
+        {
+          "accession": "GSM8382408",
+          "title": "87_DSP-1001250002070-D-D03"
+        },
+        {
+          "accession": "GSM8382122",
+          "title": "8_DSP-1001660003045-D-C04"
+        },
+        {
+          "accession": "GSM8382039",
+          "title": "2_DSP-1001660003044-C-D05"
+        },
+        {
+          "accession": "GSM8382491",
+          "title": "27_DSP-1001250002073-A-F02"
+        },
+        {
+          "accession": "GSM8382205",
+          "title": "22_DSP-1001660003047-E-E05"
+        },
+        {
+          "accession": "GSM8382574",
+          "title": "93_DSP-1001250002072-B-E01"
+        },
+        {
+          "accession": "GSM8382371",
+          "title": "55_DSP-1001250002070-D-A02"
+        },
+        {
+          "accession": "GSM8382288",
+          "title": "103_DSP-1001250002071-C-B03"
+        },
+        {
+          "accession": "GSM8382159",
+          "title": "101_DSP-1001660003047-E-A09"
+        },
+        {
+          "accession": "GSM8382076",
+          "title": "42_DSP-1001660003044-C-G06"
+        },
+        {
+          "accession": "GSM8382534",
+          "title": "55_DSP-1001250002072-B-A09"
+        },
+        {
+          "accession": "GSM8382451",
+          "title": "116_DSP-1001250002073-A-B10"
+        },
+        {
+          "accession": "GSM8382248",
+          "title": "53_DSP-1001660003047-E-H12"
+        },
+        {
+          "accession": "GSM8382165",
+          "title": "103_DSP-1001660003047-E-B03"
+        },
+        {
+          "accession": "GSM8382036",
+          "title": "18_DSP-1001660003044-C-D02"
+        },
+        {
+          "accession": "GSM8382331",
+          "title": "3_DSP-1001250002071-C-E10"
+        },
+        {
+          "accession": "GSM8382497",
+          "title": "32_DSP-1001250002073-A-F08"
+        },
+        {
+          "accession": "GSM8382119",
+          "title": "79_DSP-1001660003045-D-C01"
+        },
+        {
+          "accession": "GSM8382414",
+          "title": "90_DSP-1001250002070-D-D09"
+        },
+        {
+          "accession": "GSM8382580",
+          "title": "96_DSP-1001250002072-B-E07"
+        },
+        {
+          "accession": "GSM8382285",
+          "title": "102_DSP-1001250002071-C-A12"
+        },
+        {
+          "accession": "GSM8381999",
+          "title": "No Template Control_DSP-1001660003044-C-A01"
+        },
+        {
+          "accession": "GSM8382202",
+          "title": "21_DSP-1001660003047-E-E02"
+        },
+        {
+          "accession": "GSM8382368",
+          "title": "55_DSP-1001250002071-C-H11"
+        },
+        {
+          "accession": "GSM8382082",
+          "title": "46_DSP-1001660003044-C-G12"
+        },
+        {
+          "accession": "GSM8382351",
+          "title": "45_DSP-1001250002071-C-G06"
+        },
+        {
+          "accession": "GSM8382554",
+          "title": "8_DSP-1001250002072-B-C05"
+        },
+        {
+          "accession": "GSM8382531",
+          "title": "53_DSP-1001250002072-B-A06"
+        },
+        {
+          "accession": "GSM8382319",
+          "title": "22_DSP-1001250002071-C-D10"
+        },
+        {
+          "accession": "GSM8382434",
+          "title": "100_DSP-1001250002073-A-A05"
+        },
+        {
+          "accession": "GSM8382402",
+          "title": "80_DSP-1001250002070-D-C09"
+        },
+        {
+          "accession": "GSM8382485",
+          "title": "24_DSP-1001250002073-A-E08"
+        },
+        {
+          "accession": "GSM8382517",
+          "title": "45_DSP-1001250002073-A-H04"
+        },
+        {
+          "accession": "GSM8382199",
+          "title": "20_DSP-1001660003047-E-D11"
+        },
+        {
+          "accession": "GSM8382116",
+          "title": "77_DSP-1001660003045-D-B10"
+        },
+        {
+          "accession": "GSM8382365",
+          "title": "53_DSP-1001250002071-C-H08"
+        },
+        {
+          "accession": "GSM8382448",
+          "title": "109_DSP-1001250002073-A-B07"
+        },
+        {
+          "accession": "GSM8382236",
+          "title": "45_DSP-1001660003047-E-G12"
+        },
+        {
+          "accession": "GSM8382153",
+          "title": "1_DSP-1001660003047-E-A03"
+        },
+        {
+          "accession": "GSM8382568",
+          "title": "9_DSP-1001250002072-B-D07"
+        },
+        {
+          "accession": "GSM8382282",
+          "title": "101_DSP-1001250002071-C-A09"
+        },
+        {
+          "accession": "GSM8382422",
+          "title": "96_DSP-1001250002070-D-E05"
+        },
+        {
+          "accession": "GSM8382136",
+          "title": "9_DSP-1001660003045-D-D06"
+        },
+        {
+          "accession": "GSM8382007",
+          "title": "102_DSP-1001660003044-C-A09"
+        },
+        {
+          "accession": "GSM8382070",
+          "title": "35_DSP-1001660003044-C-F12"
+        },
+        {
+          "accession": "GSM8382505",
+          "title": "35_DSP-1001250002073-A-G04"
+        },
+        {
+          "accession": "GSM8382302",
+          "title": "119_DSP-1001250002071-C-C05"
+        },
+        {
+          "accession": "GSM8382219",
+          "title": "32_DSP-1001660003047-E-F07"
+        },
+        {
+          "accession": "GSM8382090",
+          "title": "51_DSP-1001660003044-C-H08"
+        },
+        {
+          "accession": "GSM8382551",
+          "title": "77_DSP-1001250002072-B-C02"
+        },
+        {
+          "accession": "GSM8382468",
+          "title": "17_DSP-1001250002073-A-D03"
+        },
+        {
+          "accession": "GSM8382339",
+          "title": "35_DSP-1001250002071-C-F06"
+        },
+        {
+          "accession": "GSM8382428",
+          "title": "99_DSP-1001250002070-D-E11"
+        },
+        {
+          "accession": "GSM8382053",
+          "title": "24_DSP-1001660003044-C-E07"
+        },
+        {
+          "accession": "GSM8382345",
+          "title": "40_DSP-1001250002071-C-F12"
+        },
+        {
+          "accession": "GSM8382385",
+          "title": "69_DSP-1001250002070-D-B04"
+        },
+        {
+          "accession": "GSM8382216",
+          "title": "3_DSP-1001660003047-E-F04"
+        },
+        {
+          "accession": "GSM8382133",
+          "title": "88_DSP-1001660003045-D-D03"
+        },
+        {
+          "accession": "GSM8382256",
+          "title": "9_DSP-1001660003116-F-D07"
+        },
+        {
+          "accession": "GSM8382173",
+          "title": "116_DSP-1001660003047-E-B11"
+        },
+        {
+          "accession": "GSM8382511",
+          "title": "40_DSP-1001250002073-A-G10"
+        },
+        {
+          "accession": "GSM8382299",
+          "title": "118_DSP-1001250002071-C-C02"
+        },
+        {
+          "accession": "GSM8382548",
+          "title": "71_DSP-1001250002072-B-B11"
+        },
+        {
+          "accession": "GSM8382425",
+          "title": "98_DSP-1001250002070-D-E08"
+        },
+        {
+          "accession": "GSM8382050",
+          "title": "23_DSP-1001660003044-C-E04"
+        },
+        {
+          "accession": "GSM8382465",
+          "title": "15_DSP-1001250002073-A-C12"
+        },
+        {
+          "accession": "GSM8382382",
+          "title": "67_DSP-1001250002070-D-B01"
+        },
+        {
+          "accession": "GSM8382213",
+          "title": "27_DSP-1001660003047-E-F01"
+        },
+        {
+          "accession": "GSM8382508",
+          "title": "4_DSP-1001250002073-A-G07"
+        },
+        {
+          "accession": "GSM8382379",
+          "title": "66_DSP-1001250002070-D-A10"
+        },
+        {
+          "accession": "GSM8382296",
+          "title": "117_DSP-1001250002071-C-B11"
+        },
+        {
+          "accession": "GSM8382093",
+          "title": "53_DSP-1001660003044-C-H11"
+        },
+        {
+          "accession": "GSM8382010",
+          "title": "109_DSP-1001660003044-C-A12"
+        },
+        {
+          "accession": "GSM8382342",
+          "title": "4_DSP-1001250002071-C-F09"
+        },
+        {
+          "accession": "GSM8382259",
+          "title": "90_DSP-1001660003116-F-D10"
+        },
+        {
+          "accession": "GSM8382528",
+          "title": "51_DSP-1001250002072-B-A03"
+        },
+        {
+          "accession": "GSM8382130",
+          "title": "86_DSP-1001660003045-D-C12"
+        },
+        {
+          "accession": "GSM8382047",
+          "title": "22_DSP-1001660003044-C-E01"
+        },
+        {
+          "accession": "GSM8382113",
+          "title": "71_DSP-1001660003045-D-B07"
+        },
+        {
+          "accession": "GSM8382176",
+          "title": "117_DSP-1001660003047-E-C02"
+        },
+        {
+          "accession": "GSM8382030",
+          "title": "15_DSP-1001660003044-C-C08"
+        },
+        {
+          "accession": "GSM8382196",
+          "title": "2_DSP-1001660003047-E-D09"
+        },
+        {
+          "accession": "GSM8382445",
+          "title": "103_DSP-1001250002073-A-B04"
+        },
+        {
+          "accession": "GSM8382362",
+          "title": "51_DSP-1001250002071-C-H05"
+        },
+        {
+          "accession": "GSM8382322",
+          "title": "24_DSP-1001250002071-C-E01"
+        },
+        {
+          "accession": "GSM8382239",
+          "title": "46_DSP-1001660003047-E-H03"
+        },
+        {
+          "accession": "GSM8382525",
+          "title": "49_DSP-1001250002073-A-H12"
+        },
+        {
+          "accession": "GSM8382110",
+          "title": "70_DSP-1001660003045-D-B04"
+        },
+        {
+          "accession": "GSM8382279",
+          "title": "100_DSP-1001250002071-C-A06"
+        },
+        {
+          "accession": "GSM8382027",
+          "title": "120_DSP-1001660003044-C-C05"
+        },
+        {
+          "accession": "GSM8382150",
+          "title": "99_DSP-1001660003045-D-E08"
+        },
+        {
+          "accession": "GSM8382067",
+          "title": "33_DSP-1001660003044-C-F09"
+        },
+        {
+          "accession": "GSM8382405",
+          "title": "81_DSP-1001250002070-D-C12"
+        },
+        {
+          "accession": "GSM8382193",
+          "title": "18_DSP-1001660003047-E-D07"
+        },
+        {
+          "accession": "GSM8382442",
+          "title": "102_DSP-1001250002073-A-B01"
+        },
+        {
+          "accession": "GSM8382156",
+          "title": "100_DSP-1001660003047-E-A06"
+        },
+        {
+          "accession": "GSM8382488",
+          "title": "25_DSP-1001250002073-A-E11"
+        },
+        {
+          "accession": "GSM8382571",
+          "title": "90_DSP-1001250002072-B-D10"
+        },
+        {
+          "accession": "GSM8382359",
+          "title": "49_DSP-1001250002071-C-H02"
+        },
+        {
+          "accession": "GSM8382276",
+          "title": "1_DSP-1001250002071-C-A03"
+        },
+        {
+          "accession": "GSM8382073",
+          "title": "4_DSP-1001660003044-C-G03"
+        },
+        {
+          "accession": "GSM8382486",
+          "title": "25_DSP-1001250002073-A-E09"
+        },
+        {
+          "accession": "GSM8382200",
+          "title": "20_DSP-1001660003047-E-D12"
+        },
+        {
+          "accession": "GSM8382117",
+          "title": "79_DSP-1001660003045-D-B11"
+        },
+        {
+          "accession": "GSM8382569",
+          "title": "9_DSP-1001250002072-B-D08"
+        },
+        {
+          "accession": "GSM8382283",
+          "title": "101_DSP-1001250002071-C-A10"
+        },
+        {
+          "accession": "GSM8382154",
+          "title": "1_DSP-1001660003047-E-A04"
+        },
+        {
+          "accession": "GSM8382071",
+          "title": "4_DSP-1001660003044-C-G01"
+        },
+        {
+          "accession": "GSM8382532",
+          "title": "53_DSP-1001250002072-B-A07"
+        },
+        {
+          "accession": "GSM8382409",
+          "title": "88_DSP-1001250002070-D-D04"
+        },
+        {
+          "accession": "GSM8382403",
+          "title": "80_DSP-1001250002070-D-C10"
+        },
+        {
+          "accession": "GSM8382449",
+          "title": "116_DSP-1001250002073-A-B08"
+        },
+        {
+          "accession": "GSM8382366",
+          "title": "53_DSP-1001250002071-C-H09"
+        },
+        {
+          "accession": "GSM8382320",
+          "title": "22_DSP-1001250002071-C-D11"
+        },
+        {
+          "accession": "GSM8382034",
+          "title": "18_DSP-1001660003044-C-C12"
+        },
+        {
+          "accession": "GSM8382575",
+          "title": "94_DSP-1001250002072-B-E02"
+        },
+        {
+          "accession": "GSM8382237",
+          "title": "46_DSP-1001660003047-E-H01"
+        },
+        {
+          "accession": "GSM8382492",
+          "title": "3_DSP-1001250002073-A-F03"
+        },
+        {
+          "accession": "GSM8382363",
+          "title": "51_DSP-1001250002071-C-H06"
+        },
+        {
+          "accession": "GSM8382280",
+          "title": "100_DSP-1001250002071-C-A07"
+        },
+        {
+          "accession": "GSM8382077",
+          "title": "42_DSP-1001660003044-C-G07"
+        },
+        {
+          "accession": "GSM8382512",
+          "title": "42_DSP-1001250002073-A-G11"
+        },
+        {
+          "accession": "GSM8382529",
+          "title": "51_DSP-1001250002072-B-A04"
+        },
+        {
+          "accession": "GSM8382326",
+          "title": "25_DSP-1001250002071-C-E05"
+        },
+        {
+          "accession": "GSM8382243",
+          "title": "49_DSP-1001660003047-E-H07"
+        },
+        {
+          "accession": "GSM8382383",
+          "title": "69_DSP-1001250002070-D-B02"
+        },
+        {
+          "accession": "GSM8382097",
+          "title": "58_DSP-1001660003045-D-A03"
+        },
+        {
+          "accession": "GSM8382300",
+          "title": "118_DSP-1001250002071-C-C03"
+        },
+        {
+          "accession": "GSM8382014",
+          "title": "111_DSP-1001660003044-C-B04"
+        },
+        {
+          "accession": "GSM8382446",
+          "title": "109_DSP-1001250002073-A-B05"
+        },
+        {
+          "accession": "GSM8382160",
+          "title": "101_DSP-1001660003047-E-A10"
+        },
+        {
+          "accession": "GSM8382114",
+          "title": "72_DSP-1001660003045-D-B08"
+        },
+        {
+          "accession": "GSM8382031",
+          "title": "17_DSP-1001660003044-C-C09"
+        },
+        {
+          "accession": "GSM8382466",
+          "title": "15_DSP-1001250002073-A-D01"
+        },
+        {
+          "accession": "GSM8382180",
+          "title": "118_DSP-1001660003047-E-C06"
+        },
+        {
+          "accession": "GSM8382306",
+          "title": "15_DSP-1001250002071-C-C09"
+        },
+        {
+          "accession": "GSM8382509",
+          "title": "40_DSP-1001250002073-A-G08"
+        },
+        {
+          "accession": "GSM8382429",
+          "title": "99_DSP-1001250002070-D-E12"
+        },
+        {
+          "accession": "GSM8382094",
+          "title": "55_DSP-1001660003044-C-H12"
+        },
+        {
+          "accession": "GSM8382346",
+          "title": "40_DSP-1001250002071-C-G01"
+        },
+        {
+          "accession": "GSM8382263",
+          "title": "93_DSP-1001660003116-F-E02"
+        },
+        {
+          "accession": "GSM8382549",
+          "title": "72_DSP-1001250002072-B-B12"
+        },
+        {
+          "accession": "GSM8382217",
+          "title": "30_DSP-1001660003047-E-F05"
+        },
+        {
+          "accession": "GSM8382134",
+          "title": "88_DSP-1001660003045-D-D04"
+        },
+        {
+          "accession": "GSM8382051",
+          "title": "24_DSP-1001660003044-C-E05"
+        },
+        {
+          "accession": "GSM8382389",
+          "title": "71_DSP-1001250002070-D-B08"
+        },
+        {
+          "accession": "GSM8382260",
+          "title": "90_DSP-1001660003116-F-D11"
+        },
+        {
+          "accession": "GSM8382177",
+          "title": "117_DSP-1001660003047-E-C03"
+        },
+        {
+          "accession": "GSM8382303",
+          "title": "119_DSP-1001250002071-C-C06"
+        },
+        {
+          "accession": "GSM8382472",
+          "title": "2_DSP-1001250002073-A-D07"
+        },
+        {
+          "accession": "GSM8382555",
+          "title": "8_DSP-1001250002072-B-C06"
+        },
+        {
+          "accession": "GSM8382426",
+          "title": "98_DSP-1001250002070-D-E09"
+        },
+        {
+          "accession": "GSM8382091",
+          "title": "53_DSP-1001660003044-C-H09"
+        },
+        {
+          "accession": "GSM8382343",
+          "title": "4_DSP-1001250002071-C-F10"
+        },
+        {
+          "accession": "GSM8382011",
+          "title": "109_DSP-1001660003044-C-B01"
+        },
+        {
+          "accession": "GSM8382469",
+          "title": "18_DSP-1001250002073-A-D04"
+        },
+        {
+          "accession": "GSM8382386",
+          "title": "70_DSP-1001250002070-D-B05"
+        },
+        {
+          "accession": "GSM8382257",
+          "title": "9_DSP-1001660003116-F-D08"
+        },
+        {
+          "accession": "GSM8382174",
+          "title": "116_DSP-1001660003047-E-B12"
+        },
+        {
+          "accession": "GSM8382489",
+          "title": "27_DSP-1001250002073-A-E12"
+        },
+        {
+          "accession": "GSM8382406",
+          "title": "81_DSP-1001250002070-D-D01"
+        },
+        {
+          "accession": "GSM8382552",
+          "title": "77_DSP-1001250002072-B-C03"
+        },
+        {
+          "accession": "GSM8382220",
+          "title": "32_DSP-1001660003047-E-F08"
+        },
+        {
+          "accession": "GSM8382340",
+          "title": "35_DSP-1001250002071-C-F07"
+        },
+        {
+          "accession": "GSM8382137",
+          "title": "9_DSP-1001660003045-D-D07"
+        },
+        {
+          "accession": "GSM8382054",
+          "title": "25_DSP-1001660003044-C-E08"
+        },
+        {
+          "accession": "GSM8382008",
+          "title": "103_DSP-1001660003044-C-A10"
+        },
+        {
+          "accession": "GSM8382572",
+          "title": "93_DSP-1001250002072-B-D11"
+        },
+        {
+          "accession": "GSM8382074",
+          "title": "40_DSP-1001660003044-C-G04"
+        },
+        {
+          "accession": "GSM8382042",
+          "title": "21_DSP-1001660003044-C-D08"
+        },
+        {
+          "accession": "GSM8382274",
+          "title": "No Template Control_DSP-1001250002071-C-A01"
+        },
+        {
+          "accession": "GSM8382323",
+          "title": "24_DSP-1001250002071-C-E02"
+        },
+        {
+          "accession": "GSM8382240",
+          "title": "48_DSP-1001660003047-E-H04"
+        },
+        {
+          "accession": "GSM8382062",
+          "title": "3_DSP-1001660003044-C-F04"
+        },
+        {
+          "accession": "GSM8382157",
+          "title": "100_DSP-1001660003047-E-A07"
+        },
+        {
+          "accession": "GSM8382111",
+          "title": "70_DSP-1001660003045-D-B05"
+        },
+        {
+          "accession": "GSM8382028",
+          "title": "120_DSP-1001660003044-C-C06"
+        },
+        {
+          "accession": "GSM8382005",
+          "title": "101_DSP-1001660003044-C-A07"
+        },
+        {
+          "accession": "GSM8382125",
+          "title": "80_DSP-1001660003045-D-C07"
+        },
+        {
+          "accession": "GSM8382357",
+          "title": "48_DSP-1001250002071-C-G12"
+        },
+        {
+          "accession": "GSM8382440",
+          "title": "102_DSP-1001250002073-A-A11"
+        },
+        {
+          "accession": "GSM8382483",
+          "title": "23_DSP-1001250002073-A-E06"
+        },
+        {
+          "accession": "GSM8382354",
+          "title": "46_DSP-1001250002071-C-G09"
+        },
+        {
+          "accession": "GSM8382271",
+          "title": "98_DSP-1001660003116-F-E10"
+        },
+        {
+          "accession": "GSM8382145",
+          "title": "96_DSP-1001660003045-D-E03"
+        },
+        {
+          "accession": "GSM8382523",
+          "title": "48_DSP-1001250002073-A-H10"
+        },
+        {
+          "accession": "GSM8382191",
+          "title": "17_DSP-1001660003047-E-D05"
+        },
+        {
+          "accession": "GSM8382108",
+          "title": "69_DSP-1001660003045-D-B02"
+        },
+        {
+          "accession": "GSM8382025",
+          "title": "119_DSP-1001660003044-C-C03"
+        },
+        {
+          "accession": "GSM8382586",
+          "title": "99_DSP-1001250002072-B-F01"
+        },
+        {
+          "accession": "GSM8382457",
+          "title": "118_DSP-1001250002073-A-C04"
+        },
+        {
+          "accession": "GSM8382374",
+          "title": "63_DSP-1001250002070-D-A05"
+        },
+        {
+          "accession": "GSM8382171",
+          "title": "111_DSP-1001660003047-E-B09"
+        },
+        {
+          "accession": "GSM8382088",
+          "title": "49_DSP-1001660003044-C-H06"
+        },
+        {
+          "accession": "GSM8382065",
+          "title": "32_DSP-1001660003044-C-F07"
+        },
+        {
+          "accession": "GSM8382566",
+          "title": "88_DSP-1001250002072-B-D05"
+        },
+        {
+          "accession": "GSM8382520",
+          "title": "46_DSP-1001250002073-A-H07"
+        },
+        {
+          "accession": "GSM8382317",
+          "title": "20_DSP-1001250002071-C-D08"
+        },
+        {
+          "accession": "GSM8382400",
+          "title": "8_DSP-1001250002070-D-C07"
+        },
+        {
+          "accession": "GSM8382234",
+          "title": "45_DSP-1001660003047-E-G10"
+        },
+        {
+          "accession": "GSM8382437",
+          "title": "101_DSP-1001250002073-A-A08"
+        },
+        {
+          "accession": "GSM8382151",
+          "title": "No Template Control_DSP-1001660003047-E-A01"
+        },
+        {
+          "accession": "GSM8382105",
+          "title": "67_DSP-1001660003045-D-A11"
+        },
+        {
+          "accession": "GSM8382188",
+          "title": "15_DSP-1001660003047-E-D02"
+        },
+        {
+          "accession": "GSM8382022",
+          "title": "118_DSP-1001660003044-C-B12"
+        },
+        {
+          "accession": "GSM8382068",
+          "title": "35_DSP-1001660003044-C-F10"
+        },
+        {
+          "accession": "GSM8382380",
+          "title": "67_DSP-1001250002070-D-A11"
+        },
+        {
+          "accession": "GSM8382168",
+          "title": "109_DSP-1001660003047-E-B06"
+        },
+        {
+          "accession": "GSM8382503",
+          "title": "35_DSP-1001250002073-A-G02"
+        },
+        {
+          "accession": "GSM8382420",
+          "title": "94_DSP-1001250002070-D-E03"
+        },
+        {
+          "accession": "GSM8382337",
+          "title": "33_DSP-1001250002071-C-F04"
+        },
+        {
+          "accession": "GSM8382208",
+          "title": "25_DSP-1001660003047-E-E08"
+        },
+        {
+          "accession": "GSM8382291",
+          "title": "109_DSP-1001250002071-C-B06"
+        },
+        {
+          "accession": "GSM8382254",
+          "title": "88_DSP-1001660003116-F-D05"
+        },
+        {
+          "accession": "GSM8382377",
+          "title": "66_DSP-1001250002070-D-A08"
+        },
+        {
+          "accession": "GSM8382583",
+          "title": "98_DSP-1001250002072-B-E10"
+        },
+        {
+          "accession": "GSM8382417",
+          "title": "93_DSP-1001250002070-D-D12"
+        },
+        {
+          "accession": "GSM8382131",
+          "title": "86_DSP-1001660003045-D-D01"
+        },
+        {
+          "accession": "GSM8382297",
+          "title": "117_DSP-1001250002071-C-B12"
+        },
+        {
+          "accession": "GSM8382500",
+          "title": "33_DSP-1001250002073-A-F11"
+        },
+        {
+          "accession": "GSM8382214",
+          "title": "3_DSP-1001660003047-E-F02"
+        },
+        {
+          "accession": "GSM8382085",
+          "title": "48_DSP-1001660003044-C-H03"
+        },
+        {
+          "accession": "GSM8382002",
+          "title": "100_DSP-1001660003044-C-A04"
+        },
+        {
+          "accession": "GSM8382480",
+          "title": "22_DSP-1001250002073-A-E03"
+        },
+        {
+          "accession": "GSM8382563",
+          "title": "87_DSP-1001250002072-B-D02"
+        },
+        {
+          "accession": "GSM8382277",
+          "title": "1_DSP-1001250002071-C-A04"
+        },
+        {
+          "accession": "GSM8382194",
+          "title": "18_DSP-1001660003047-E-D08"
+        },
+        {
+          "accession": "GSM8382506",
+          "title": "4_DSP-1001250002073-A-G05"
+        },
+        {
+          "accession": "GSM8382546",
+          "title": "70_DSP-1001250002072-B-B09"
+        },
+        {
+          "accession": "GSM8382423",
+          "title": "96_DSP-1001250002070-D-E06"
+        },
+        {
+          "accession": "GSM8382463",
+          "title": "120_DSP-1001250002073-A-C10"
+        },
+        {
+          "accession": "GSM8382211",
+          "title": "27_DSP-1001660003047-E-E11"
+        },
+        {
+          "accession": "GSM8382294",
+          "title": "116_DSP-1001250002071-C-B09"
+        },
+        {
+          "accession": "GSM8382128",
+          "title": "81_DSP-1001660003045-D-C10"
+        },
+        {
+          "accession": "GSM8382334",
+          "title": "32_DSP-1001250002071-C-F01"
+        },
+        {
+          "accession": "GSM8382251",
+          "title": "86_DSP-1001660003116-F-D02"
+        },
+        {
+          "accession": "GSM8382550",
+          "title": "72_DSP-1001250002072-B-C01"
+        },
+        {
+          "accession": "GSM8382048",
+          "title": "23_DSP-1001660003044-C-E02"
+        },
+        {
+          "accession": "GSM8382467",
+          "title": "17_DSP-1001250002073-A-D02"
+        },
+        {
+          "accession": "GSM8382338",
+          "title": "33_DSP-1001250002071-C-F05"
+        },
+        {
+          "accession": "GSM8382255",
+          "title": "9_DSP-1001660003116-F-D06"
+        },
+        {
+          "accession": "GSM8382526",
+          "title": "No Template Control_DSP-1001250002072-B-A01"
+        },
+        {
+          "accession": "GSM8382443",
+          "title": "103_DSP-1001250002073-A-B02"
+        },
+        {
+          "accession": "GSM8382397",
+          "title": "79_DSP-1001250002070-D-C04"
+        },
+        {
+          "accession": "GSM8382314",
+          "title": "18_DSP-1001250002071-C-D05"
+        },
+        {
+          "accession": "GSM8382231",
+          "title": "40_DSP-1001660003047-E-G07"
+        },
+        {
+          "accession": "GSM8382570",
+          "title": "90_DSP-1001250002072-B-D09"
+        },
+        {
+          "accession": "GSM8382441",
+          "title": "102_DSP-1001250002073-A-A12"
+        },
+        {
+          "accession": "GSM8382543",
+          "title": "69_DSP-1001250002072-B-B06"
+        },
+        {
+          "accession": "GSM8382460",
+          "title": "119_DSP-1001250002073-A-C07"
+        },
+        {
+          "accession": "GSM8382335",
+          "title": "32_DSP-1001250002071-C-F02"
+        },
+        {
+          "accession": "GSM8382049",
+          "title": "23_DSP-1001660003044-C-E03"
+        },
+        {
+          "accession": "GSM8382504",
+          "title": "35_DSP-1001250002073-A-G03"
+        },
+        {
+          "accession": "GSM8382384",
+          "title": "69_DSP-1001250002070-D-B03"
+        },
+        {
+          "accession": "GSM8382045",
+          "title": "22_DSP-1001660003044-C-D11"
+        },
+        {
+          "accession": "GSM8382089",
+          "title": "51_DSP-1001660003044-C-H07"
+        },
+        {
+          "accession": "GSM8382172",
+          "title": "116_DSP-1001660003047-E-B10"
+        },
+        {
+          "accession": "GSM8382006",
+          "title": "102_DSP-1001660003044-C-A08"
+        },
+        {
+          "accession": "GSM8382152",
+          "title": "1_DSP-1001660003047-E-A02"
+        },
+        {
+          "accession": "GSM8382404",
+          "title": "80_DSP-1001250002070-D-C11"
+        },
+        {
+          "accession": "GSM8382321",
+          "title": "23_DSP-1001250002071-C-D12"
+        },
+        {
+          "accession": "GSM8382487",
+          "title": "25_DSP-1001250002073-A-E10"
+        },
+        {
+          "accession": "GSM8382298",
+          "title": "117_DSP-1001250002071-C-C01"
+        },
+        {
+          "accession": "GSM8382215",
+          "title": "3_DSP-1001660003047-E-F03"
+        },
+        {
+          "accession": "GSM8382360",
+          "title": "49_DSP-1001250002071-C-H03"
+        },
+        {
+          "accession": "GSM8382252",
+          "title": "86_DSP-1001660003116-F-D03"
+        },
+        {
+          "accession": "GSM8382169",
+          "title": "111_DSP-1001660003047-E-B07"
+        },
+        {
+          "accession": "GSM8382086",
+          "title": "48_DSP-1001660003044-C-H04"
+        },
+        {
+          "accession": "GSM8382148",
+          "title": "98_DSP-1001660003045-D-E06"
+        },
+        {
+          "accession": "GSM8382444",
+          "title": "103_DSP-1001250002073-A-B03"
+        },
+        {
+          "accession": "GSM8382361",
+          "title": "49_DSP-1001250002071-C-H04"
+        },
+        {
+          "accession": "GSM8382232",
+          "title": "42_DSP-1001660003047-E-G08"
+        },
+        {
+          "accession": "GSM8382149",
+          "title": "98_DSP-1001660003045-D-E07"
+        },
+        {
+          "accession": "GSM8382421",
+          "title": "94_DSP-1001250002070-D-E04"
+        },
+        {
+          "accession": "GSM8382567",
+          "title": "9_DSP-1001250002072-B-D06"
+        },
+        {
+          "accession": "GSM8382401",
+          "title": "8_DSP-1001250002070-D-C08"
+        },
+        {
+          "accession": "GSM8382484",
+          "title": "24_DSP-1001250002073-A-E07"
+        },
+        {
+          "accession": "GSM8382189",
+          "title": "17_DSP-1001660003047-E-D03"
+        },
+        {
+          "accession": "GSM8382069",
+          "title": "35_DSP-1001660003044-C-F11"
+        },
+        {
+          "accession": "GSM8382464",
+          "title": "15_DSP-1001250002073-A-C11"
+        },
+        {
+          "accession": "GSM8382547",
+          "title": "71_DSP-1001250002072-B-B10"
+        },
+        {
+          "accession": "GSM8382358",
+          "title": "48_DSP-1001250002071-C-H01"
+        },
+        {
+          "accession": "GSM8382155",
+          "title": "100_DSP-1001660003047-E-A05"
+        },
+        {
+          "accession": "GSM8382481",
+          "title": "23_DSP-1001250002073-A-E04"
+        },
+        {
+          "accession": "GSM8382278",
+          "title": "100_DSP-1001250002071-C-A05"
+        },
+        {
+          "accession": "GSM8382564",
+          "title": "87_DSP-1001250002072-B-D03"
+        },
+        {
+          "accession": "GSM8382398",
+          "title": "79_DSP-1001250002070-D-C05"
+        },
+        {
+          "accession": "GSM8382112",
+          "title": "71_DSP-1001660003045-D-B06"
+        },
+        {
+          "accession": "GSM8382066",
+          "title": "32_DSP-1001660003044-C-F08"
+        },
+        {
+          "accession": "GSM8382524",
+          "title": "49_DSP-1001250002073-A-H11"
+        },
+        {
+          "accession": "GSM8382544",
+          "title": "70_DSP-1001250002072-B-B07"
+        },
+        {
+          "accession": "GSM8382258",
+          "title": "90_DSP-1001660003116-F-D09"
+        },
+        {
+          "accession": "GSM8382418",
+          "title": "93_DSP-1001250002070-D-E01"
+        },
+        {
+          "accession": "GSM8382132",
+          "title": "87_DSP-1001660003045-D-D02"
+        },
+        {
+          "accession": "GSM8382046",
+          "title": "22_DSP-1001660003044-C-D12"
+        },
+        {
+          "accession": "GSM8382003",
+          "title": "101_DSP-1001660003044-C-A05"
+        },
+        {
+          "accession": "GSM8382381",
+          "title": "67_DSP-1001250002070-D-A12"
+        },
+        {
+          "accession": "GSM8382275",
+          "title": "1_DSP-1001250002071-C-A02"
+        },
+        {
+          "accession": "GSM8382192",
+          "title": "18_DSP-1001660003047-E-D06"
+        },
+        {
+          "accession": "GSM8382541",
+          "title": "69_DSP-1001250002072-B-B04"
+        },
+        {
+          "accession": "GSM8382412",
+          "title": "9_DSP-1001250002070-D-D07"
+        },
+        {
+          "accession": "GSM8382329",
+          "title": "27_DSP-1001250002071-C-E08"
+        },
+        {
+          "accession": "GSM8382126",
+          "title": "81_DSP-1001660003045-D-C08"
+        },
+        {
+          "accession": "GSM8382043",
+          "title": "21_DSP-1001660003044-C-D09"
+        },
+        {
+          "accession": "GSM8382318",
+          "title": "22_DSP-1001250002071-C-D09"
+        },
+        {
+          "accession": "GSM8382235",
+          "title": "45_DSP-1001660003047-E-G11"
+        },
+        {
+          "accession": "GSM8382507",
+          "title": "4_DSP-1001250002073-A-G06"
+        },
+        {
+          "accession": "GSM8382106",
+          "title": "69_DSP-1001660003045-D-A12"
+        },
+        {
+          "accession": "GSM8382461",
+          "title": "120_DSP-1001250002073-A-C08"
+        },
+        {
+          "accession": "GSM8382175",
+          "title": "117_DSP-1001660003047-E-C01"
+        },
+        {
+          "accession": "GSM8382378",
+          "title": "66_DSP-1001250002070-D-A09"
+        },
+        {
+          "accession": "GSM8382092",
+          "title": "53_DSP-1001660003044-C-H10"
+        },
+        {
+          "accession": "GSM8382295",
+          "title": "116_DSP-1001250002071-C-B10"
+        },
+        {
+          "accession": "GSM8382009",
+          "title": "103_DSP-1001660003044-C-A11"
+        },
+        {
+          "accession": "GSM8382023",
+          "title": "118_DSP-1001660003044-C-C01"
+        },
+        {
+          "accession": "GSM8382123",
+          "title": "80_DSP-1001660003045-D-C05"
+        },
+        {
+          "accession": "GSM8382527",
+          "title": "49_DSP-1001250002072-B-A02"
+        },
+        {
+          "accession": "GSM8382458",
+          "title": "119_DSP-1001250002073-A-C05"
+        },
+        {
+          "accession": "GSM8382578",
+          "title": "96_DSP-1001250002072-B-E05"
+        },
+        {
+          "accession": "GSM8382375",
+          "title": "63_DSP-1001250002070-D-A06"
+        },
+        {
+          "accession": "GSM8382315",
+          "title": "20_DSP-1001250002071-C-D06"
+        },
+        {
+          "accession": "GSM8382292",
+          "title": "109_DSP-1001250002071-C-B07"
+        },
+        {
+          "accession": "GSM8382029",
+          "title": "15_DSP-1001660003044-C-C07"
+        },
+        {
+          "accession": "GSM8382163",
+          "title": "102_DSP-1001660003047-E-B01"
+        },
+        {
+          "accession": "GSM8382246",
+          "title": "51_DSP-1001660003047-E-H10"
+        },
+        {
+          "accession": "GSM8382080",
+          "title": "45_DSP-1001660003044-C-G10"
+        },
+        {
+          "accession": "GSM8382438",
+          "title": "101_DSP-1001250002073-A-A09"
+        },
+        {
+          "accession": "GSM8382226",
+          "title": "4_DSP-1001660003047-E-G02"
+        },
+        {
+          "accession": "GSM8382238",
+          "title": "46_DSP-1001660003047-E-H02"
+        },
+        {
+          "accession": "GSM8382372",
+          "title": "58_DSP-1001250002070-D-A03"
+        },
+        {
+          "accession": "GSM8382109",
+          "title": "70_DSP-1001660003045-D-B03"
+        },
+        {
+          "accession": "GSM8382538",
+          "title": "67_DSP-1001250002072-B-B01"
+        },
+        {
+          "accession": "GSM8382026",
+          "title": "119_DSP-1001660003044-C-C04"
+        },
+        {
+          "accession": "GSM8382455",
+          "title": "118_DSP-1001250002073-A-C02"
+        },
+        {
+          "accession": "GSM8382435",
+          "title": "100_DSP-1001250002073-A-A06"
+        },
+        {
+          "accession": "GSM8382518",
+          "title": "46_DSP-1001250002073-A-H05"
+        },
+        {
+          "accession": "GSM8382040",
+          "title": "20_DSP-1001660003044-C-D06"
+        },
+        {
+          "accession": "GSM8382020",
+          "title": "117_DSP-1001660003044-C-B10"
+        },
+        {
+          "accession": "GSM8382223",
+          "title": "35_DSP-1001660003047-E-F11"
+        },
+        {
+          "accession": "GSM8382341",
+          "title": "35_DSP-1001250002071-C-F08"
+        },
+        {
+          "accession": "GSM8382424",
+          "title": "96_DSP-1001250002070-D-E07"
+        },
+        {
+          "accession": "GSM8382558",
+          "title": "80_DSP-1001250002072-B-C09"
+        },
+        {
+          "accession": "GSM8382355",
+          "title": "46_DSP-1001250002071-C-G10"
+        },
+        {
+          "accession": "GSM8382212",
+          "title": "27_DSP-1001660003047-E-E12"
+        },
+        {
+          "accession": "GSM8382272",
+          "title": "99_DSP-1001660003116-F-E11"
+        },
+        {
+          "accession": "GSM8382129",
+          "title": "86_DSP-1001660003045-D-C11"
+        },
+        {
+          "accession": "GSM8382143",
+          "title": "94_DSP-1001660003045-D-E01"
+        },
+        {
+          "accession": "GSM8382515",
+          "title": "45_DSP-1001250002073-A-H02"
+        },
+        {
+          "accession": "GSM8382229",
+          "title": "40_DSP-1001660003047-E-G05"
+        },
+        {
+          "accession": "GSM8382475",
+          "title": "21_DSP-1001250002073-A-D10"
+        },
+        {
+          "accession": "GSM8382017",
+          "title": "116_DSP-1001660003044-C-B07"
+        },
+        {
+          "accession": "GSM8382060",
+          "title": "3_DSP-1001660003044-C-F02"
+        },
+        {
+          "accession": "GSM8382352",
+          "title": "45_DSP-1001250002071-C-G07"
+        },
+        {
+          "accession": "GSM8382495",
+          "title": "30_DSP-1001250002073-A-F06"
+        },
+        {
+          "accession": "GSM8382209",
+          "title": "25_DSP-1001660003047-E-E09"
+        },
+        {
+          "accession": "GSM8382140",
+          "title": "93_DSP-1001660003045-D-D10"
+        },
+        {
+          "accession": "GSM8382332",
+          "title": "3_DSP-1001250002071-C-E11"
+        },
+        {
+          "accession": "GSM8382203",
+          "title": "22_DSP-1001660003047-E-E03"
+        },
+        {
+          "accession": "GSM8382120",
+          "title": "8_DSP-1001660003045-D-C02"
+        },
+        {
+          "accession": "GSM8382269",
+          "title": "98_DSP-1001660003116-F-E08"
+        },
+        {
+          "accession": "GSM8382186",
+          "title": "15_DSP-1001660003047-E-C12"
+        },
+        {
+          "accession": "GSM8382057",
+          "title": "27_DSP-1001660003044-C-E11"
+        },
+        {
+          "accession": "GSM8382561",
+          "title": "81_DSP-1001250002072-B-C12"
+        },
+        {
+          "accession": "GSM8382349",
+          "title": "42_DSP-1001250002071-C-G04"
+        },
+        {
+          "accession": "GSM8382432",
+          "title": "1_DSP-1001250002073-A-A03"
+        },
+        {
+          "accession": "GSM8382146",
+          "title": "96_DSP-1001660003045-D-E04"
+        },
+        {
+          "accession": "GSM8382063",
+          "title": "30_DSP-1001660003044-C-F05"
+        },
+        {
+          "accession": "GSM8382584",
+          "title": "99_DSP-1001250002072-B-E11"
+        },
+        {
+          "accession": "GSM8382478",
+          "title": "22_DSP-1001250002073-A-E01"
+        },
+        {
+          "accession": "GSM8382501",
+          "title": "33_DSP-1001250002073-A-F12"
+        },
+        {
+          "accession": "GSM8382266",
+          "title": "96_DSP-1001660003116-F-E05"
+        },
+        {
+          "accession": "GSM8382289",
+          "title": "103_DSP-1001250002071-C-B04"
+        },
+        {
+          "accession": "GSM8382206",
+          "title": "24_DSP-1001660003047-E-E06"
+        },
+        {
+          "accession": "GSM8382535",
+          "title": "55_DSP-1001250002072-B-A10"
+        },
+        {
+          "accession": "GSM8382249",
+          "title": "79_DSP-1001660003116-F-C04"
+        },
+        {
+          "accession": "GSM8382166",
+          "title": "109_DSP-1001660003047-E-B04"
+        },
+        {
+          "accession": "GSM8382037",
+          "title": "2_DSP-1001660003044-C-D03"
+        },
+        {
+          "accession": "GSM8382581",
+          "title": "98_DSP-1001250002072-B-E08"
+        },
+        {
+          "accession": "GSM8382452",
+          "title": "117_DSP-1001250002073-A-B11"
+        },
+        {
+          "accession": "GSM8382521",
+          "title": "48_DSP-1001250002073-A-H08"
+        },
+        {
+          "accession": "GSM8382369",
+          "title": "55_DSP-1001250002071-C-H12"
+        },
+        {
+          "accession": "GSM8382083",
+          "title": "46_DSP-1001660003044-C-H01"
+        },
+        {
+          "accession": "GSM8382309",
+          "title": "17_DSP-1001250002071-C-C12"
+        },
+        {
+          "accession": "GSM8382392",
+          "title": "72_DSP-1001250002070-D-B11"
+        },
+        {
+          "accession": "GSM8382103",
+          "title": "67_DSP-1001660003045-D-A09"
+        },
+        {
+          "accession": "GSM8382395",
+          "title": "77_DSP-1001250002070-D-C02"
+        },
+        {
+          "accession": "GSM8382312",
+          "title": "18_DSP-1001250002071-C-D03"
+        },
+        {
+          "accession": "GSM8382183",
+          "title": "119_DSP-1001660003047-E-C09"
+        },
+        {
+          "accession": "GSM8382100",
+          "title": "66_DSP-1001660003045-D-A06"
+        },
+        {
+          "accession": "GSM8382498",
+          "title": "32_DSP-1001250002073-A-F09"
+        },
+        {
+          "accession": "GSM8382415",
+          "title": "90_DSP-1001250002070-D-D10"
+        },
+        {
+          "accession": "GSM8382286",
+          "title": "102_DSP-1001250002071-C-B01"
+        },
+        {
+          "accession": "GSM8382000",
+          "title": "100_DSP-1001660003044-C-A02"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 586,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE271nnn/GSE271689/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1132922"
+    },
+    "200285215": {
+      "uid": "200285215",
+      "accession": "GSE285215",
+      "gds": "",
+      "title": "Cancer cells avoid ferroptosis induced by immune cells via fatty acid binding proteins",
+      "summary": "Cancer creates an immunosuppressive environment that hampers immune responses, allowing tumors to grow and resist therapy. One way the immune system fights back is by inducing ferroptosis, a type of cell death, in tumor cells through CD8+ T cells. This involves lipid peroxidation and enzymes like lysophosphatidylcholine acyltransferase 3 (Lpcat3), which makes cells more prone to ferroptosis. However, the mechanisms by which cancer cells avoid immunotherapy-mediated ferroptosis are unclear. Our study reveals how cancer cells evade ferroptosis and anti-tumor immunity through the upregulation of fatty acid-binding protein 7 (Fabp7).    Methods  To explore how cancer cells resist immune cell-mediated ferroptosis, we used a comprehensive range of techniques. We worked with cell lines including PD1-sensitive, PD1-resistant, B16F10, and QPP7 glioblastoma cells, and conducted in vivo studies in syngeneic 129 Sv/Ev, C57BL/6, and conditional knockout mice with Rora deletion specifically in CD8+ T cells, Cd8 cre;Rorafl mice. Methods included mass spectrometry-based lipidomics, targeted lipidomics, Oil Red O staining, Seahorse analysis, quantitative PCR, immunohistochemistry, PPAR\u03b3 transcription factor assays, ChIP-seq, untargeted lipidomic analysis, ROS assay, ex vivo co-culture of CD8+ T cells with cancer cells, ATAC-seq, RNA-seq, Western blotting, co-immunoprecipitation assay, flow cytometry and Imaging Mass Cytometry.    Results  PD1-resistant tumors upregulate Fabp7, driving protective metabolic changes that shield cells from ferroptosis and evade anti-tumor immunity. Fabp7 decreases the transcription of ferroptosis-inducing genes like Lpcat3 and increases the transcription of ferroptosis-protective genes such as Bmal1 through epigenetic reprogramming. Lipidomic profiling revealed that Fabp7 increases triglycerides and monounsaturated fatty acids (MUFAs), which impede lipid peroxidation and ROS generation. Fabp7 also improves mitochondrial function and fatty acid oxidation (FAO), enhancing cancer cell survival. Furthermore, cancer cells increase Fabp7 expression in CD8+ T cells, disrupting circadian clock gene expression and triggering apoptosis through p53 stabilization. Clinical trial data revealed that higher FABP7 expression correlates with poorer overall survival and progression-free survival in patients undergoing immunotherapy.    Conclusions  Our study uncovers a novel mechanism by which cancer cells evade immune-mediated ferroptosis through Fabp7 upregulation. This protein reprograms lipid metabolism and disrupts circadian regulation in immune cells, promoting tumor survival and resistance to immunotherapy. Targeting Fabp7 could enhance immunotherapy effectiveness by re-sensitizing resistant tumors to ferroptosis.",
+      "gpl": "1261",
+      "gse": "285215",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by array",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2025/01/31",
+      "suppfile": "CEL",
+      "samples": [
+        {
+          "accession": "GSM8698466",
+          "title": "Res+IgG_1"
+        },
+        {
+          "accession": "GSM8698460",
+          "title": "Sen+IgG_1"
+        },
+        {
+          "accession": "GSM8698463",
+          "title": "Sen+PD1_1"
+        },
+        {
+          "accession": "GSM8698462",
+          "title": "Sen+IgG_3"
+        },
+        {
+          "accession": "GSM8698468",
+          "title": "Res+IgG_3"
+        },
+        {
+          "accession": "GSM8698471",
+          "title": "Res+PD1_3"
+        },
+        {
+          "accession": "GSM8698465",
+          "title": "Sen+PD1_3"
+        },
+        {
+          "accession": "GSM8698467",
+          "title": "Res+IgG_2"
+        },
+        {
+          "accession": "GSM8698461",
+          "title": "Sen+IgG_2"
+        },
+        {
+          "accession": "GSM8698464",
+          "title": "Sen+PD1_2"
+        },
+        {
+          "accession": "GSM8698470",
+          "title": "Res+PD1_2"
+        },
+        {
+          "accession": "GSM8698469",
+          "title": "Res+PD1_1"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 12,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "39901247"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE285nnn/GSE285215/",
+      "geo2r": "yes",
+      "bioproject": "PRJNA1202038"
+    },
+    "200285287": {
+      "uid": "200285287",
+      "accession": "GSE285287",
+      "gds": "",
+      "title": "Cancer cells avoid ferroptosis induced by immune cells via fatty acid binding proteins [ChIP-seq]",
+      "summary": "Background Cancer creates an immunosuppressive environment that hampers immune responses, allowing tumors to grow and resist therapy. One way the immune system fights back is by inducing ferroptosis, a type of cell death, in tumor cells through CD8+ T cells. This involves lipid peroxidation and enzymes like lysophosphatidylcholine acyltransferase 3 (Lpcat3), which makes cells more prone to ferroptosis. However, the mechanisms by which cancer cells avoid immunotherapy-mediated ferroptosis are unclear. Our study reveals how cancer cells evade ferroptosis and anti-tumor immunity through the upregulation of fatty acid-binding protein 7 (Fabp7).  Methods To explore how cancer cells resist immune cell-mediated ferroptosis, we used a comprehensive range of techniques. We worked with cell lines including PD1-sensitive, PD1-resistant, B16F10, and QPP7 glioblastoma cells, and conducted in vivo studies in syngeneic 129 Sv/Ev, C57BL/6, and conditional knockout mice with Rora deletion specifically in CD8+ T cells, Cd8 cre;Rorafl mice. Methods included mass spectrometry-based lipidomics, targeted lipidomics, Oil Red O staining, Seahorse analysis, quantitative PCR, immunohistochemistry, PPAR\u03b3 transcription factor assays, ChIP-seq, untargeted lipidomic analysis, ROS assay, ex vivo co-culture of CD8+ T cells with cancer cells, ATAC-seq, RNA-seq, Western blotting, co-immunoprecipitation assay, flow cytometry and Imaging Mass Cytometry.  Results PD1-resistant tumors upregulate Fabp7, driving protective metabolic changes that shield cells from ferroptosis and evade anti-tumor immunity. Fabp7 decreases the transcription of ferroptosis-inducing genes like Lpcat3 and increases the transcription of ferroptosis-protective genes such as Bmal1 through epigenetic reprogramming. Lipidomic profiling revealed that Fabp7 increases triglycerides and monounsaturated fatty acids (MUFAs), which impede lipid peroxidation and ROS generation. Fabp7 also improves mitochondrial function and fatty acid oxidation (FAO), enhancing cancer cell survival. Furthermore, cancer cells increase Fabp7 expression in CD8+ T cells, disrupting circadian clock gene expression and triggering apoptosis through p53 stabilization. Clinical trial data revealed that higher FABP7 expression correlates with poorer overall survival and progression-free survival in patients undergoing immunotherapy.",
+      "gpl": "24247",
+      "gse": "285287",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2025/01/31",
+      "suppfile": "TXT",
+      "samples": [
+        {
+          "accession": "GSM8699995",
+          "title": "Res_shFabp7_1-H3K27ac"
+        },
+        {
+          "accession": "GSM8699992",
+          "title": "Res_3-H3K27ac"
+        },
+        {
+          "accession": "GSM8700004",
+          "title": "Res_Ctrl_2-H3K27ac"
+        },
+        {
+          "accession": "GSM8699984",
+          "title": "Sen_2-H3K9ac"
+        },
+        {
+          "accession": "GSM8700001",
+          "title": "Res_shFabp7-Input"
+        },
+        {
+          "accession": "GSM8699981",
+          "title": "Sen_1-H3K27ac"
+        },
+        {
+          "accession": "GSM8699998",
+          "title": "Res_shFabp7_2-H3K9ac"
+        },
+        {
+          "accession": "GSM8700000",
+          "title": "Res_shFabp7_3-H3K9ac"
+        },
+        {
+          "accession": "GSM8699997",
+          "title": "Res_shFabp7_2-H3K27ac"
+        },
+        {
+          "accession": "GSM8700006",
+          "title": "Res_Ctrl_3-H3K27ac"
+        },
+        {
+          "accession": "GSM8700003",
+          "title": "Res_Ctrl_1-H3K9ac"
+        },
+        {
+          "accession": "GSM8699986",
+          "title": "Sen_3-H3K9ac"
+        },
+        {
+          "accession": "GSM8699983",
+          "title": "Sen_2-H3K27ac"
+        },
+        {
+          "accession": "GSM8699989",
+          "title": "Res_1-H3K9ac"
+        },
+        {
+          "accession": "GSM8700005",
+          "title": "Res_Ctrl_2-H3K9ac"
+        },
+        {
+          "accession": "GSM8699985",
+          "title": "Sen_3-H3K27ac"
+        },
+        {
+          "accession": "GSM8700002",
+          "title": "Res_Ctrl_1-H3K27ac"
+        },
+        {
+          "accession": "GSM8699982",
+          "title": "Sen_1-H3K9ac"
+        },
+        {
+          "accession": "GSM8700008",
+          "title": "Res_Ctrl-Input"
+        },
+        {
+          "accession": "GSM8699994",
+          "title": "Res-Input"
+        },
+        {
+          "accession": "GSM8699991",
+          "title": "Res_2-H3K9ac"
+        },
+        {
+          "accession": "GSM8699987",
+          "title": "Sen-Input"
+        },
+        {
+          "accession": "GSM8699988",
+          "title": "Res_1-H3K27ac"
+        },
+        {
+          "accession": "GSM8700007",
+          "title": "Res_Ctrl_3-H3K9ac"
+        },
+        {
+          "accession": "GSM8699990",
+          "title": "Res_2-H3K27ac"
+        },
+        {
+          "accession": "GSM8699996",
+          "title": "Res_shFabp7_1-H3K9ac"
+        },
+        {
+          "accession": "GSM8699993",
+          "title": "Res_3-H3K9ac"
+        },
+        {
+          "accession": "GSM8699999",
+          "title": "Res_shFabp7_3-H3K27ac"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 28,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "39901247"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE285nnn/GSE285287/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1202174"
+    },
+    "200285288": {
+      "uid": "200285288",
+      "accession": "GSE285288",
+      "gds": "",
+      "title": "Cancer cells avoid ferroptosis induced by immune cells via fatty acid binding proteins [ATAC-seq]",
+      "summary": "Background Cancer creates an immunosuppressive environment that hampers immune responses, allowing tumors to grow and resist therapy. One way the immune system fights back is by inducing ferroptosis, a type of cell death, in tumor cells through CD8+ T cells. This involves lipid peroxidation and enzymes like lysophosphatidylcholine acyltransferase 3 (Lpcat3), which makes cells more prone to ferroptosis. However, the mechanisms by which cancer cells avoid immunotherapy-mediated ferroptosis are unclear. Our study reveals how cancer cells evade ferroptosis and anti-tumor immunity through the upregulation of fatty acid-binding protein 7 (Fabp7).  Methods To explore how cancer cells resist immune cell-mediated ferroptosis, we used a comprehensive range of techniques. We worked with cell lines including PD1-sensitive, PD1-resistant, B16F10, and QPP7 glioblastoma cells, and conducted in vivo studies in syngeneic 129 Sv/Ev, C57BL/6, and conditional knockout mice with Rora deletion specifically in CD8+ T cells, Cd8 cre;Rorafl mice. Methods included mass spectrometry-based lipidomics, targeted lipidomics, Oil Red O staining, Seahorse analysis, quantitative PCR, immunohistochemistry, PPAR\u03b3 transcription factor assays, ChIP-seq, untargeted lipidomic analysis, ROS assay, ex vivo co-culture of CD8+ T cells with cancer cells, ATAC-seq, RNA-seq, Western blotting, co-immunoprecipitation assay, flow cytometry and Imaging Mass Cytometry.  Results PD1-resistant tumors upregulate Fabp7, driving protective metabolic changes that shield cells from ferroptosis and evade anti-tumor immunity. Fabp7 decreases the transcription of ferroptosis-inducing genes like Lpcat3 and increases the transcription of ferroptosis-protective genes such as Bmal1 through epigenetic reprogramming. Lipidomic profiling revealed that Fabp7 increases triglycerides and monounsaturated fatty acids (MUFAs), which impede lipid peroxidation and ROS generation. Fabp7 also improves mitochondrial function and fatty acid oxidation (FAO), enhancing cancer cell survival. Furthermore, cancer cells increase Fabp7 expression in CD8+ T cells, disrupting circadian clock gene expression and triggering apoptosis through p53 stabilization. Clinical trial data revealed that higher FABP7 expression correlates with poorer overall survival and progression-free survival in patients undergoing immunotherapy.",
+      "gpl": "24247",
+      "gse": "285288",
+      "taxon": "Mus musculus",
+      "entrytype": "GSE",
+      "gdstype": "Genome binding/occupancy profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2025/01/31",
+      "suppfile": "TXT",
+      "samples": [
+        {
+          "accession": "GSM8700011",
+          "title": "Co-cultured Tcell-Res_shFabp7-3"
+        },
+        {
+          "accession": "GSM8700010",
+          "title": "Co-cultured Tcell-Res_shFabp7-2"
+        },
+        {
+          "accession": "GSM8700013",
+          "title": "Co-cultured Tcell-Res_ctrl-2"
+        },
+        {
+          "accession": "GSM8700009",
+          "title": "Co-cultured Tcell-Res_shFabp7-1"
+        },
+        {
+          "accession": "GSM8700012",
+          "title": "Co-cultured Tcell-Res_ctrl-1"
+        },
+        {
+          "accession": "GSM8700014",
+          "title": "Co-cultured Tcell-Res_ctrl-3"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 6,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "39901247"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE285nnn/GSE285288/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1202175"
+    },
+    "200295969": {
+      "uid": "200295969",
+      "accession": "GSE295969",
+      "gds": "",
+      "title": "Blood immunomap for prediction of responses to anti-PD-1 immunotherapy in metastatic non-small cell lung cancer",
+      "summary": "The identification of circulating predictors of response to ICB therapy is vital as very few of them meet the demands of the clinic. Herein, by using high-dimensionality mass cytometry, we designed a blood immunomap in metastatic NSCLC individuals who underwent anti-PD-1 treatment. We identified heightened frequencies of CD8+PD-L1+ T cells in non-responders compared responders. Notably, Imaging Mass Cytometry data revealed that CD8+PD-L1+ T cells were enriched in tumor biopsies, pleural infusions and BAL of early-stage NSCLC individuals, proposing this cells subset as candidate not only for the advanced but also for early disease detection. Transcriptomic analysis unveiled that CD8+PD-L1+ T cells displayed an exhausted phenotype related to their increased frequencies to non-responders to immunotherapy, and gene signatures correlated with the overall survival of an independent cohort. Overall, our study pinpoints immune-related events which may benefit the quest for detection of predictive biomarkers of immunotherapy responses.",
+      "gpl": "18573",
+      "gse": "295969",
+      "taxon": "Homo sapiens",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2025/05/31",
+      "suppfile": "TXT",
+      "samples": [
+        {
+          "accession": "GSM8962638",
+          "title": "M014, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962635",
+          "title": "P212, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962641",
+          "title": "M202, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962644",
+          "title": "M212, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962633",
+          "title": "P208, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962630",
+          "title": "P198, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962642",
+          "title": "M208, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962639",
+          "title": "M198, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962636",
+          "title": "P215, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962645",
+          "title": "M215, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962634",
+          "title": "P209, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962631",
+          "title": "P201, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962637",
+          "title": "P222, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962643",
+          "title": "M209, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962640",
+          "title": "M201, CD8 T cells, PD-L1\u2212"
+        },
+        {
+          "accession": "GSM8962632",
+          "title": "P202, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962629",
+          "title": "P014, CD8 T cells, PD-L1+"
+        },
+        {
+          "accession": "GSM8962646",
+          "title": "M222, CD8 T cells, PD-L1\u2212"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 18,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [
+        "40860257"
+      ],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE295nnn/GSE295969/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1256890"
+    },
+    "200316782": {
+      "uid": "200316782",
+      "accession": "GSE316782",
+      "gds": "",
+      "title": "Multimodal single-cell and spatial profiling reveals altered T cell-mediated immunity and B-cell follicular architecture in non-metastatic lymph nodes of patients with aggressive non-small cell lung cancer",
+      "summary": "Regional lymph nodes (LNs) in the thoracic cavity serve as essential immunological hubs that coordinate humoral and cell-mediated responses against the development and progression of non-small cell lung cancer (NSCLC). To investigate immune dysregulation in the non-metastatic regional LNs of patients with aggressive NSCLC, we performed multimodal profiling on 36 LNs from 11 patients undergoing curative-intent resection including CITE-seq, scRNA-seq, and Imaging Mass Cytometry (IMC). Regional N1 LNs from patients with more aggressive disease (stage IB\u2013IIIA) exhibited a significant enrichment of dysfunctional CD8\u207a T cells and regulatory T cells (Tregs) compared to N2 LNs and LNs from patients with less aggressive disease (stage IA). These immune subsets were spatially co-localized with mature regulatory dendritic cells (mregDCs; CD1c\u207a, TIM3\u207a, LAMP3\u207a), forming an immunosuppressive niche uniquely enriched in the N1 LNs of higher-stage patients. Concurrently, higher-stage N1 LNs contained larger number of \u201cdecorticated\u201d B-cell follicles characterized by decreased encapsulation of the mantle zone layer surrounding the germinal centers. This mantle zone disorganization was associated with increased spatial niches involving Tregs, CD68\u207a CD163\u207a TIM3\u207a Macrophages, CD163\u207a TIM3dim Monocytic-Myeloid Derived Suppressor Cells (M-MDSC), plasma B cells, and a decrease in spatial niches involving CD4\u207a T helper cells and fibroblastic reticular cells (FRCs). Together, our findings reveal parallel alterations in humoral and cell-mediated immunity within the regional LNs of patients with aggressive NSCLC.",
+      "gpl": "30173",
+      "gse": "316782",
+      "taxon": "Homo sapiens",
+      "entrytype": "GSE",
+      "gdstype": "Expression profiling by high throughput sequencing; Other",
+      "ptechtype": "",
+      "valtype": "",
+      "ssinfo": "",
+      "subsetinfo": "",
+      "pdat": "2026/01/21",
+      "suppfile": "CSV, TSV",
+      "samples": [
+        {
+          "accession": "GSM9460205",
+          "title": "XC_CJ_LR_016_T"
+        },
+        {
+          "accession": "GSM9460202",
+          "title": "XC_CJ_LR_015_L"
+        },
+        {
+          "accession": "GSM9460208",
+          "title": "CJ_XC_LR_018_L"
+        },
+        {
+          "accession": "GSM9460211",
+          "title": "CJ_XC_1027LR_019_T"
+        },
+        {
+          "accession": "GSM9460213",
+          "title": "CJ_XC_1027LR_020_T"
+        },
+        {
+          "accession": "GSM9460210",
+          "title": "CJ_XC_1027LR_019_L"
+        },
+        {
+          "accession": "GSM9460207",
+          "title": "CJ_XC_LR_017_T"
+        },
+        {
+          "accession": "GSM9460196",
+          "title": "CJ_XC_LR_010_TL"
+        },
+        {
+          "accession": "GSM9460199",
+          "title": "CJ_XC_LR_013_T"
+        },
+        {
+          "accession": "GSM9460212",
+          "title": "CJ_XC_1027LR_020_L"
+        },
+        {
+          "accession": "GSM9460198",
+          "title": "CJ_XC_LR_012_TL"
+        },
+        {
+          "accession": "GSM9460204",
+          "title": "XC_CJ_LR_016_L"
+        },
+        {
+          "accession": "GSM9460201",
+          "title": "CJ_XC_LR_014_T"
+        },
+        {
+          "accession": "GSM9460197",
+          "title": "CJ_XC_LR_012_L"
+        },
+        {
+          "accession": "GSM9460203",
+          "title": "XC_CJ_LR_015_T"
+        },
+        {
+          "accession": "GSM9460200",
+          "title": "CJ_XC_LR_014_L"
+        },
+        {
+          "accession": "GSM9460206",
+          "title": "CJ_XC_LR_017_L"
+        },
+        {
+          "accession": "GSM9460209",
+          "title": "CJ_XC_LR_018_T"
+        }
+      ],
+      "relations": [],
+      "extrelations": [],
+      "n_samples": 18,
+      "seriestitle": "",
+      "platformtitle": "",
+      "platformtaxa": "",
+      "samplestaxa": "",
+      "pubmedids": [],
+      "projects": [],
+      "ftplink": "ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE316nnn/GSE316782/",
+      "geo2r": "no",
+      "bioproject": "PRJNA1404196"
+    }
+  }
+}

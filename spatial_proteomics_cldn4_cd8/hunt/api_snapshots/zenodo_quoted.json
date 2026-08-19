@@ -1,0 +1,126 @@
+{
+  "metadata.title:\"CLDN4\"": {
+    "hits": {
+      "hits": [],
+      "total": 0
+    },
+    "aggregations": {
+      "publication_date": {
+        "buckets": [],
+        "label": "Publication date"
+      },
+      "access_status": {
+        "buckets": [],
+        "label": "Access status"
+      },
+      "resource_type": {
+        "buckets": [],
+        "label": "Resource types"
+      },
+      "subject": {
+        "buckets": [],
+        "label": "Subjects"
+      },
+      "file_type": {
+        "buckets": [],
+        "label": "File type"
+      }
+    },
+    "links": {
+      "self": "https://zenodo.org/api/records?page=1&q=metadata.title:%22CLDN4%22&size=15&sort=bestmatch"
+    }
+  },
+  "metadata.description:\"Claudin-4\" AND metadata.description:CODEX": {
+    "hits": {
+      "hits": [],
+      "total": 0
+    },
+    "aggregations": {
+      "publication_date": {
+        "buckets": [],
+        "label": "Publication date"
+      },
+      "access_status": {
+        "buckets": [],
+        "label": "Access status"
+      },
+      "resource_type": {
+        "buckets": [],
+        "label": "Resource types"
+      },
+      "subject": {
+        "buckets": [],
+        "label": "Subjects"
+      },
+      "file_type": {
+        "buckets": [],
+        "label": "File type"
+      }
+    },
+    "links": {
+      "self": "https://zenodo.org/api/records?page=1&q=metadata.description:%22Claudin-4%22+AND+metadata.description:CODEX&size=15&sort=bestmatch"
+    }
+  },
+  "metadata.description:\"Claudin-4\" AND (IMC OR \"imaging mass\")": {
+    "hits": {
+      "hits": [],
+      "total": 0
+    },
+    "aggregations": {
+      "publication_date": {
+        "buckets": [],
+        "label": "Publication date"
+      },
+      "access_status": {
+        "buckets": [],
+        "label": "Access status"
+      },
+      "resource_type": {
+        "buckets": [],
+        "label": "Resource types"
+      },
+      "subject": {
+        "buckets": [],
+        "label": "Subjects"
+      },
+      "file_type": {
+        "buckets": [],
+        "label": "File type"
+      }
+    },
+    "links": {
+      "self": "https://zenodo.org/api/records?page=1&q=metadata.description:%22Claudin-4%22+AND+(IMC+OR+%22imaging+mass%22)&size=15&sort=bestmatch"
+    }
+  },
+  "\"Claudin-4\" AND \"antibody panel\"": {
+    "hits": {
+      "hits": [],
+      "total": 0
+    },
+    "aggregations": {
+      "publication_date": {
+        "buckets": [],
+        "label": "Publication date"
+      },
+      "access_status": {
+        "buckets": [],
+        "label": "Access status"
+      },
+      "resource_type": {
+        "buckets": [],
+        "label": "Resource types"
+      },
+      "subject": {
+        "buckets": [],
+        "label": "Subjects"
+      },
+      "file_type": {
+        "buckets": [],
+        "label": "File type"
+      }
+    },
+    "links": {
+      "self": "https://zenodo.org/api/records?page=1&q=%22Claudin-4%22+AND+%22antibody+panel%22&size=15&sort=bestmatch"
+    }
+  }
+}

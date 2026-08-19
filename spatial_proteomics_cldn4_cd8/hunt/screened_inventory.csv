@@ -1,0 +1,42 @@
+id,class,tissue,tech,public_cell_xy,cd8_protein,cldn4_protein,qualified,note
+sorin2023_luad_imc,lung,LUAD,IMC_35plex,yes,yes,no,no,Zenodo 7760826; panCK not CLDN4
+sorin2025_luad_driver_imc,lung,LUAD,IMC_35plex,yes,yes,no,no,same panel family as Sorin 2023
+cords2025_luad_imc,lung,LUAD,IMC,restricted,unknown,unknown,no,Zenodo 14827075 files restricted
+gse271689_nsclc_spatial,lung,NSCLC,spatial_seq,no,no,no,no,GEO RNA spatial multi-omics
+gse253013_luad_scrna,lung,LUAD,scRNA,no,no,no,no,GEO false positive
+gse295969_nsclc_blood_cytof,lung,NSCLC_blood,CyTOF,no,yes,no,no,blood mass cytometry not imaging
+gse316782_ln_spatial,lung,thoracic_LN,spatial_seq,no,no,no,no,GEO false positive
+gse200036_mxene_cytof,other,mixed,mass_cytometry,no,yes,no,no,GEO false positive
+gse255031_il1rap,other,mouse_skin_lung,RNA,no,no,no,no,GEO false positive
+gse285215_ferroptosis,other,mouse,array,no,no,no,no,GEO false positive
+gse285287_ferroptosis_chip,other,mouse,ChIPseq,no,no,no,no,GEO false positive
+gse285288_ferroptosis_atac,other,mouse,ATACseq,no,no,no,no,GEO false positive
+cosmx_nsclc_rna_demo,lung,NSCLC,CosMx_RNA,yes,rna,rna_only,no,CLDN4 is transcript not protein
+cosmx_io64_protein_kit,kit,multi_incl_lung,CosMx_protein,if_deposited,yes,no,no,official 64-plex list
+xenium_protein_27_kit,kit,multi,Xenium_protein,if_deposited,yes,no,no,official 27-plex; CD8A present
+geomx_io_protein_kit,kit,multi,GeoMx_DSP,roi_only,yes,no,no,no cell XY
+phenocode_io60_kit,kit,multi,PhenoCycler,if_deposited,yes,no,no,official IO60 list
+hickey2023_intestine_codex,gi_not_tumor,intestine,CODEX_57,yes,yes,no,no,Zenodo 7311360 header verified
+hickey2021_colon_codex47,gi_not_tumor,colon,CODEX_47,yes,yes,no,no,Frontiers cell-typing paper
+schurch2020_crc_codex,gi_tumor,CRC,CODEX_56,yes,yes,no,no,Cell 2020; no CLDN in PMC
+jackson2020_breast_imc,breast,breast,IMC,yes,yes,no,no,Nature 2020 breast IMC
+keren2018_mibi_tnbc,breast,TNBC,MIBI,yes,yes,no,no,published 36-plex
+immucan_bodenmiller_imc,mixed,NSCLC_CRC_HN,IMC,yes,yes,no,no,Zenodo 5949116 panel.csv
+omap2_intestine,gi_not_tumor,intestine,CODEX,yes,yes,no,no,HuBMAP OMAP-2
+omap34_esophagus,gi,esophagus,CODEX_31,images,yes,no,no,Zenodo 17613542
+omap_pancreas_12plex,gi,pancreas,CODEX_12,images,unknown,no,no,Zenodo 7742474; 12-plex not listing CLDN4
+karlsen2024_breast_caf_imc,breast,breast,IMC_42,paper,yes,no,no,Frontiers table
+scheuermann2024_macsima,other_tumor,HCC_solid,cyclicIF_118,code_only,yes,no,no,Frontiers Table 1 no Claudin
+ferrara2024_pdac_visium_ihc_codex,gi_tumor,PDAC,Visium_IHC_CODEX51,partial,codex_immune,ihc_or_rna,no,CLDN4 not on 51-plex; IHC single-plex
+bolen_cosmx_colon_protein,gi,colon,CosMx_protein,yes,yes,no,no,Zenodo 14851272; kit 64-plex
+danenberg2022_breast_imc,breast,breast,IMC,yes,yes,no,no,standard breast IMC epithelial set
+htan_crc_orion,gi_tumor,CRC,Orion_mIF,yes,yes,no,no,HTAN Orion IO/epithelial; no CLDN4 in published channel lists
+enablemed_stanford_pc_codex,gi_tumor,PDAC,CODEX,yes,yes,unknown_not_listed,no,Zenodo 12682727 Stanford_PC; papers do not list CLDN4
+melanoma_codex_zenodo10421443,other_tumor,melanoma,CODEX_40plus,yes,yes,no,no,immune/tumor panel
+bpd_mxif_ajplung,lung_not_tumor,BPD_lung,mIHC,not_public_table,yes_in_later_40plex,no_on_18plex,no,CLDN4 from proteomics not mIHC panel
+cldn18_gastric_mihc,gi_tumor,gastric,mIHC,no_public_xy,yes,no,no,CLDN18.2 not CLDN4
+wang2024_pdac_ihc_cldn4,gi_tumor,PDAC,IHC_singleplex,no,no,yes,no,CLDN4 protein without CD8 on panel
+syn61831984_stanford_visium,gi_tumor,PDAC_IPMN,Visium_RNA,spot,rna,rna_only,no,Synapse transcriptome
+gse233254_ipmn_visium,gi_tumor,IPMN,Visium_RNA,spot,rna,rna_only,no,GEO transcriptome
+htan_wustl_pdac_visium,gi_tumor,PDAC,Visium_RNA,spot,rna,rna_only,no,HTAN transcriptome
+liu2025_caf_spatial_multiomics,pancancer,8_cancers,CosMx_MERSCOPE_RNA,yes,rna,rna_only,no,CLDN4 mentions are transcriptomic

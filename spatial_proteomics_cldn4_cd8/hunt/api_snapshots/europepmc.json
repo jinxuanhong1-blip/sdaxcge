@@ -1,0 +1,984 @@
+{
+  "\"Claudin-4\" AND PhenoCycler": {
+    "error": "HTTP Error 504: Gateway Time-out"
+  },
+  "\"Claudin 4\" AND \"imaging mass cytometry\"": {
+    "version": "6.9",
+    "hitCount": 10,
+    "request": {
+      "queryString": "\"Claudin 4\" AND \"imaging mass cytometry\"",
+      "resultType": "lite",
+      "cursorMark": "*",
+      "pageSize": 15,
+      "sort": "",
+      "synonym": false
+    },
+    "resultList": {
+      "result": [
+        {
+          "id": "34871544",
+          "source": "MED",
+          "pmid": "34871544",
+          "pmcid": "PMC8641959",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC8641959"
+            ]
+          },
+          "doi": "10.1016/s2213-2600(21)00408-2",
+          "title": "Post-mortem lung tissue: the fossil record of the pathophysiology and immunopathology of severe COVID-19.",
+          "authorString": "Milross L, Majo J, Cooper N, Kaye PM, Bayraktar O, Filby A, Fisher AJ.",
+          "journalTitle": "Lancet Respir Med",
+          "issue": "1",
+          "journalVolume": "10",
+          "pubYear": "2022",
+          "journalIssn": "2213-2600; 2213-2619; ",
+          "pageInfo": "95-106",
+          "pubType": "research support, non-u.s. gov't; review-article; review; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 37,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "doi"
+            ]
+          },
+          "firstIndexDate": "2021-12-15",
+          "firstPublicationDate": "2021-12-03"
+        },
+        {
+          "id": "40154487",
+          "source": "MED",
+          "pmid": "40154487",
+          "pmcid": "PMC12074878",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC12074878"
+            ]
+          },
+          "doi": "10.1016/j.ccell.2025.03.004",
+          "title": "Conserved spatial subtypes and cellular neighborhoods of cancer-associated fibroblasts revealed by single-cell spatial multi-omics.",
+          "authorString": "Liu Y, Sinjab A, Min J, Han G, Paradiso F, Zhang Y, Wang R, Pei G, Dai Y, Liu Y, Cho KS, Dai E, Basi A, Burks JK, Rajapakshe KI, Chu Y, Jiang J, Zhang D, Yan X, Guerrero PA, Serrano A, Li M, Hwang TH, Futreal A, Ajani JA, Solis Soto LM, Jazaeri AA, Kadara H, Maitra A, Wang L.",
+          "journalTitle": "Cancer Cell",
+          "issue": "5",
+          "journalVolume": "43",
+          "pubYear": "2025",
+          "journalIssn": "1535-6108; 1878-3686; ",
+          "pageInfo": "905-924.e6",
+          "pubType": "research-article; journal article",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 166,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "Y",
+          "dbCrossReferenceList": {
+            "dbName": [
+              "EMBL"
+            ]
+          },
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "geo"
+            ]
+          },
+          "firstIndexDate": "2025-04-01",
+          "firstPublicationDate": "2025-03-27"
+        },
+        {
+          "id": "38256274",
+          "source": "MED",
+          "pmid": "38256274",
+          "pmcid": "PMC10815984",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10815984"
+            ]
+          },
+          "doi": "10.3390/ijms25021201",
+          "title": "An Overview of Advances in Rare Cancer Diagnosis and Treatment.",
+          "authorString": "Christyani G, Carswell M, Qin S, Kim W.",
+          "journalTitle": "Int J Mol Sci",
+          "issue": "2",
+          "journalVolume": "25",
+          "pubYear": "2024",
+          "journalIssn": "1422-0067",
+          "pageInfo": "1201",
+          "pubType": "review-article; review; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 17,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "nct"
+            ]
+          },
+          "firstIndexDate": "2024-01-24",
+          "firstPublicationDate": "2024-01-18"
+        },
+        {
+          "id": "39533380",
+          "source": "MED",
+          "pmid": "39533380",
+          "pmcid": "PMC11558909",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC11558909"
+            ]
+          },
+          "doi": "10.1186/s12951-024-02990-8",
+          "title": "Inflammation-targeted delivery of Urolithin A mitigates chemical- and immune checkpoint inhibitor-induced colitis.",
+          "authorString": "Ghosh S, Singh R, Goap TJ, Sunnapu O, Vanwinkle ZM, Li H, Nukavarapu SP, Dryden GW, Haribabu B, Vemula PK, Jala VR.",
+          "journalTitle": "J Nanobiotechnology",
+          "issue": "1",
+          "journalVolume": "22",
+          "pubYear": "2024",
+          "journalIssn": "1477-3155",
+          "pageInfo": "701",
+          "pubType": "research-article; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 9,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "doi"
+            ]
+          },
+          "firstIndexDate": "2024-11-16",
+          "firstPublicationDate": "2024-11-13"
+        },
+        {
+          "id": "32784716",
+          "source": "MED",
+          "pmid": "32784716",
+          "pmcid": "PMC7461199",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC7461199"
+            ]
+          },
+          "doi": "10.3390/ijms21165670",
+          "title": "Evolution of Urothelial Bladder Cancer in the Context of Molecular Classifications.",
+          "authorString": "Minoli M, Kiener M, Thalmann GN, Kruithof-de Julio M, Seiler R.",
+          "journalTitle": "Int J Mol Sci",
+          "issue": "16",
+          "journalVolume": "21",
+          "pubYear": "2020",
+          "journalIssn": "1422-0067",
+          "pageInfo": "E5670",
+          "pubType": "review-article; review; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 70,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "doi"
+            ]
+          },
+          "firstIndexDate": "2020-08-14",
+          "firstPublicationDate": "2020-08-07"
+        },
+        {
+          "id": "35084716",
+          "source": "MED",
+          "pmid": "35084716",
+          "pmcid": "PMC10010205",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10010205"
+            ]
+          },
+          "doi": "10.1007/s43032-022-00863-9",
+          "title": "Multiomics Analysis-Based Biomarkers in Diagnosis of Polycystic Ovary Syndrome.",
+          "authorString": "Rani S, Chandna P.",
+          "journalTitle": "Reprod Sci",
+          "issue": "1",
+          "journalVolume": "30",
+          "pubYear": "2023",
+          "journalIssn": "1933-7191; 1933-7205; ",
+          "pageInfo": "1-27",
+          "pubType": "news; research support, non-u.s. gov't; review; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 7,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2022-01-28",
+          "firstPublicationDate": "2022-01-27"
+        },
+        {
+          "id": "37290960",
+          "source": "MED",
+          "pmid": "37290960",
+          "pmcid": "PMC10250143",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10250143"
+            ]
+          },
+          "doi": "10.1002/1878-0261.13471",
+          "title": "EACR 2023: Innovative Cancer Science, 12-15 June 2023, Torino, Italy.",
+          "journalTitle": "Mol Oncol",
+          "journalVolume": "17 Suppl 1",
+          "pubYear": "2023",
+          "journalIssn": "1574-7891; 1878-0261; ",
+          "pageInfo": "1-597",
+          "pubType": "abstract; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 2,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2023-06-09",
+          "firstPublicationDate": "2023-06-01"
+        },
+        {
+          "id": "PMC10576948",
+          "source": "PMC",
+          "pmcid": "PMC10576948",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10576948"
+            ]
+          },
+          "title": "UEG Week 2023 Poster Presentations",
+          "journalTitle": "United European Gastroenterol J",
+          "issue": "suppl 8",
+          "journalVolume": "11",
+          "pubYear": "2023",
+          "journalIssn": "2050-6406; 2050-6414; ",
+          "pageInfo": "535-1498",
+          "pubType": "abstract",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2023-10-17",
+          "firstPublicationDate": "2023-10-01"
+        },
+        {
+          "id": "PMC10902613",
+          "source": "PMC",
+          "pmcid": "PMC10902613",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10902613"
+            ]
+          },
+          "title": "Abstracts",
+          "journalTitle": "Cancer Sci",
+          "issue": "suppl 1",
+          "journalVolume": "115",
+          "pubYear": "2024",
+          "journalIssn": "1347-9032; 1349-7006; ",
+          "pageInfo": "1-2243",
+          "pubType": "abstract",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "N",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2025-06-12",
+          "firstPublicationDate": "2024-02-28"
+        },
+        {
+          "id": "PMC9548091",
+          "source": "PMC",
+          "pmcid": "PMC9548091",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC9548091"
+            ]
+          },
+          "title": "UEG Week 2022 Poster Presentations",
+          "journalTitle": "United European Gastroenterol J",
+          "issue": "suppl 8",
+          "journalVolume": "10",
+          "pubYear": "2022",
+          "journalIssn": "2050-6406; 2050-6414; ",
+          "pageInfo": "473-1092",
+          "pubType": "abstract",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2022-10-17",
+          "firstPublicationDate": "2022-10-01"
+        }
+      ]
+    }
+  },
+  "\"Claudin-4\" AND \"multiplex immunofluorescence\" AND CD8": {
+    "version": "6.9",
+    "hitCount": 15,
+    "request": {
+      "queryString": "\"Claudin-4\" AND \"multiplex immunofluorescence\" AND CD8",
+      "resultType": "lite",
+      "cursorMark": "*",
+      "pageSize": 15,
+      "sort": "",
+      "synonym": false
+    },
+    "resultList": {
+      "result": [
+        {
+          "id": "41396068",
+          "source": "MED",
+          "pmid": "41396068",
+          "pmcid": "PMC12922271",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC12922271"
+            ]
+          },
+          "doi": "10.1158/1541-7786.mcr-25-0802",
+          "title": "The Multifaceted Role of Androgen Receptor Signaling in Immunity: Implications for Oncology.",
+          "authorString": "Lee P, Nelson PS.",
+          "journalTitle": "Mol Cancer Res",
+          "issue": "3",
+          "journalVolume": "24",
+          "pubYear": "2026",
+          "journalIssn": "1541-7786; 1557-3125; ",
+          "pageInfo": "155-168",
+          "pubType": "research support, non-u.s. gov't; research-article; review; journal article; research support, n.i.h., extramural",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "nct",
+              "doi"
+            ]
+          },
+          "firstIndexDate": "2025-12-15",
+          "firstPublicationDate": "2026-03-01"
+        },
+        {
+          "id": "42123721",
+          "source": "MED",
+          "pmid": "42123721",
+          "pmcid": "PMC13163264",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC13163264"
+            ]
+          },
+          "doi": "10.3390/ijms27094144",
+          "title": "Molecular Insights into Oral Manifestations in Sj\u00f6gren's Disease.",
+          "authorString": "Xanthopoulou K, Siatra A, Tosios KI, Kalogirou EM.",
+          "journalTitle": "Int J Mol Sci",
+          "issue": "9",
+          "journalVolume": "27",
+          "pubYear": "2026",
+          "journalIssn": "1422-0067",
+          "pageInfo": "4144",
+          "pubType": "review-article; review; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "N",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "doi"
+            ]
+          },
+          "firstIndexDate": "2026-05-15",
+          "firstPublicationDate": "2026-05-06"
+        },
+        {
+          "id": "41759624",
+          "source": "MED",
+          "pmid": "41759624",
+          "pmcid": "PMC13092071",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC13092071"
+            ]
+          },
+          "doi": "10.1016/j.jcmgh.2026.101757",
+          "title": "Helicobacter pylori-Induced Inflammatory Cancer Transformation Microenvironment Drives Gastric Carcinogenesis.",
+          "authorString": "Fu Y, Tong J, Zhu M, Xu L, Huang F, Zhang Y, Wang X, Wang Z, Zhang J, Lv J, Jiang T, Lv B, Zhang G.",
+          "journalTitle": "Cell Mol Gastroenterol Hepatol",
+          "issue": "7",
+          "journalVolume": "20",
+          "pubYear": "2026",
+          "journalIssn": "2352-345x",
+          "pageInfo": "101757",
+          "pubType": "research-article; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 1,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "N",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "gen"
+            ]
+          },
+          "firstIndexDate": "2026-03-01",
+          "firstPublicationDate": "2026-02-26"
+        },
+        {
+          "id": "38412124",
+          "source": "MED",
+          "pmid": "38412124",
+          "pmcid": "PMC10927519",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10927519"
+            ]
+          },
+          "doi": "10.1073/pnas.2217877121",
+          "title": "Claudin-2 upregulation enhances intestinal permeability, immune activation, dysbiosis, and mortality in sepsis.",
+          "authorString": "Oami T, Abtahi S, Shimazui T, Chen CW, Sweat YY, Liang Z, Burd EM, Farris AB, Roland JT, Tsukita S, Ford ML, Turner JR, Coopersmith CM.",
+          "journalTitle": "Proc Natl Acad Sci U S A",
+          "issue": "10",
+          "journalVolume": "121",
+          "pubYear": "2024",
+          "journalIssn": "0027-8424; 1091-6490; ",
+          "pageInfo": "e2217877121",
+          "pubType": "research-article; research support, u.s. gov't, non-p.h.s.; journal article; research support, n.i.h., extramural",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 37,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2024-02-28",
+          "firstPublicationDate": "2024-02-27"
+        },
+        {
+          "id": "40154487",
+          "source": "MED",
+          "pmid": "40154487",
+          "pmcid": "PMC12074878",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC12074878"
+            ]
+          },
+          "doi": "10.1016/j.ccell.2025.03.004",
+          "title": "Conserved spatial subtypes and cellular neighborhoods of cancer-associated fibroblasts revealed by single-cell spatial multi-omics.",
+          "authorString": "Liu Y, Sinjab A, Min J, Han G, Paradiso F, Zhang Y, Wang R, Pei G, Dai Y, Liu Y, Cho KS, Dai E, Basi A, Burks JK, Rajapakshe KI, Chu Y, Jiang J, Zhang D, Yan X, Guerrero PA, Serrano A, Li M, Hwang TH, Futreal A, Ajani JA, Solis Soto LM, Jazaeri AA, Kadara H, Maitra A, Wang L.",
+          "journalTitle": "Cancer Cell",
+          "issue": "5",
+          "journalVolume": "43",
+          "pubYear": "2025",
+          "journalIssn": "1535-6108; 1878-3686; ",
+          "pageInfo": "905-924.e6",
+          "pubType": "research-article; journal article",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 166,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "Y",
+          "dbCrossReferenceList": {
+            "dbName": [
+              "EMBL"
+            ]
+          },
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "geo"
+            ]
+          },
+          "firstIndexDate": "2025-04-01",
+          "firstPublicationDate": "2025-03-27"
+        },
+        {
+          "id": "40904706",
+          "source": "MED",
+          "pmid": "40904706",
+          "pmcid": "PMC12402622",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC12402622"
+            ]
+          },
+          "doi": "10.1002/mco2.70327",
+          "title": "Pleural Mesothelioma: Pathogenesis, Diagnosis, Treatment, Prognosis, and Survival.",
+          "authorString": "Zhang L, Huang M.",
+          "journalTitle": "MedComm (2020)",
+          "issue": "9",
+          "journalVolume": "6",
+          "pubYear": "2025",
+          "journalIssn": "2688-2663",
+          "pageInfo": "e70327",
+          "pubType": "review-article; review; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 2,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "N",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "nct"
+            ]
+          },
+          "firstIndexDate": "2025-09-04",
+          "firstPublicationDate": "2025-09-01"
+        },
+        {
+          "id": "39036344",
+          "source": "MED",
+          "pmid": "39036344",
+          "pmcid": "PMC11258453",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC11258453"
+            ]
+          },
+          "doi": "10.1002/mco2.644",
+          "title": "Development of a genome atlas for discriminating benign, preinvasive, and invasive lung nodules.",
+          "authorString": "Liang P, Peng M, Tao J, Wang B, Wei J, Lin L, Cheng B, Xiong S, Li J, Li C, Yu Z, Li C, Wang J, Li H, Chen Z, Fan JB, Liang W, He J.",
+          "journalTitle": "MedComm (2020)",
+          "issue": "8",
+          "journalVolume": "5",
+          "pubYear": "2024",
+          "journalIssn": "2688-2663",
+          "pageInfo": "e644",
+          "pubType": "research-article; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "Y",
+          "citedByCount": 6,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "doi"
+            ]
+          },
+          "firstIndexDate": "2024-07-22",
+          "firstPublicationDate": "2024-07-19"
+        },
+        {
+          "id": "PMC10902613",
+          "source": "PMC",
+          "pmcid": "PMC10902613",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10902613"
+            ]
+          },
+          "title": "Abstracts",
+          "journalTitle": "Cancer Sci",
+          "issue": "suppl 1",
+          "journalVolume": "115",
+          "pubYear": "2024",
+          "journalIssn": "1347-9032; 1349-7006; ",
+          "pageInfo": "1-2243",
+          "pubType": "abstract",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "N",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2025-06-12",
+          "firstPublicationDate": "2024-02-28"
+        },
+        {
+          "id": "33236167",
+          "source": "MED",
+          "pmid": "33236167",
+          "pmcid": "PMC7715650",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC7715650"
+            ]
+          },
+          "doi": "10.1007/s00428-020-02938-x",
+          "title": "Abstracts : 32 <sup>nd</sup> Congress of the ESP and XXXIII International Congress of the IAP.",
+          "journalTitle": "Virchows Arch",
+          "issue": "suppl 1",
+          "journalVolume": "477",
+          "pubYear": "2020",
+          "journalIssn": "0945-6317; 1432-2307; ",
+          "pageInfo": "1-390",
+          "pubType": "abstract; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 2,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "geo",
+              "refsnp",
+              "omim",
+              "nct",
+              "pdb"
+            ]
+          },
+          "firstIndexDate": "2020-11-26",
+          "firstPublicationDate": "2020-12-01"
+        },
+        {
+          "id": "37290960",
+          "source": "MED",
+          "pmid": "37290960",
+          "pmcid": "PMC10250143",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10250143"
+            ]
+          },
+          "doi": "10.1002/1878-0261.13471",
+          "title": "EACR 2023: Innovative Cancer Science, 12-15 June 2023, Torino, Italy.",
+          "journalTitle": "Mol Oncol",
+          "journalVolume": "17 Suppl 1",
+          "pubYear": "2023",
+          "journalIssn": "1574-7891; 1878-0261; ",
+          "pageInfo": "1-597",
+          "pubType": "abstract; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 2,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2023-06-09",
+          "firstPublicationDate": "2023-06-01"
+        },
+        {
+          "id": "31440833",
+          "source": "MED",
+          "pmid": "31440833",
+          "pmcid": "PMC7103147",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC7103147"
+            ]
+          },
+          "doi": "10.1007/s00428-019-02631-8",
+          "title": "Abstracts : 31 <sup>st</sup> European Congress of Pathology.",
+          "journalTitle": "Virchows Arch",
+          "issue": "suppl 1",
+          "journalVolume": "475",
+          "pubYear": "2019",
+          "journalIssn": "0945-6317; 1432-2307; ",
+          "pageInfo": "1-436",
+          "pubType": "abstract; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 6,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "gen",
+              "refsnp",
+              "omim",
+              "nct"
+            ]
+          },
+          "firstIndexDate": "2019-08-24",
+          "firstPublicationDate": "2019-09-01"
+        },
+        {
+          "id": "34448894",
+          "source": "MED",
+          "pmid": "34448894",
+          "pmcid": "PMC8390845",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC8390845"
+            ]
+          },
+          "doi": "10.1007/s00428-021-03157-8",
+          "title": "33&lt;sup&gt;rd&lt;/sup&gt; European Congress of Pathology - Abstracts.",
+          "journalTitle": "Virchows Arch",
+          "issue": "suppl 1",
+          "journalVolume": "479",
+          "pubYear": "2021",
+          "journalIssn": "0945-6317; 1432-2307; ",
+          "pageInfo": "1-320",
+          "pubType": "abstract; journal article",
+          "isOpenAccess": "Y",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 1,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "geo",
+              "gen",
+              "go",
+              "nct"
+            ]
+          },
+          "firstIndexDate": "2021-08-28",
+          "firstPublicationDate": "2021-08-27"
+        },
+        {
+          "id": "PMC10576948",
+          "source": "PMC",
+          "pmcid": "PMC10576948",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC10576948"
+            ]
+          },
+          "title": "UEG Week 2023 Poster Presentations",
+          "journalTitle": "United European Gastroenterol J",
+          "issue": "suppl 8",
+          "journalVolume": "11",
+          "pubYear": "2023",
+          "journalIssn": "2050-6406; 2050-6414; ",
+          "pageInfo": "535-1498",
+          "pubType": "abstract",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2023-10-17",
+          "firstPublicationDate": "2023-10-01"
+        },
+        {
+          "id": "PMC11470995",
+          "source": "PMC",
+          "pmcid": "PMC11470995",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC11470995"
+            ]
+          },
+          "title": "UEG Week 2024 Poster Presentations",
+          "journalTitle": "United European Gastroenterol J",
+          "issue": "suppl 8",
+          "journalVolume": "12",
+          "pubYear": "2024",
+          "journalIssn": "2050-6406; 2050-6414; ",
+          "pageInfo": "665-1360",
+          "pubType": "abstract",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 0,
+          "hasReferences": "N",
+          "hasTextMinedTerms": "N",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "N",
+          "hasTMAccessionNumbers": "N",
+          "firstIndexDate": "2024-10-31",
+          "firstPublicationDate": "2024-10-01"
+        },
+        {
+          "id": "33043826",
+          "source": "MED",
+          "pmid": "33043826",
+          "pmcid": "PMC8939488",
+          "fullTextIdList": {
+            "fullTextId": [
+              "PMC8939488"
+            ]
+          },
+          "doi": "10.1177/2050640620927345",
+          "title": "<b>UEG</b> Week 2020 Poster Presentations.",
+          "journalTitle": "United European Gastroenterol J",
+          "issue": "8_suppl",
+          "journalVolume": "8",
+          "pubYear": "2020",
+          "journalIssn": "2050-6406; 2050-6414; ",
+          "pageInfo": "144-887",
+          "pubType": "meeting-report; journal article",
+          "isOpenAccess": "N",
+          "inEPMC": "Y",
+          "inPMC": "Y",
+          "hasPDF": "Y",
+          "hasBook": "N",
+          "hasSuppl": "N",
+          "citedByCount": 5,
+          "hasReferences": "Y",
+          "hasTextMinedTerms": "Y",
+          "hasDbCrossReferences": "N",
+          "hasLabsLinks": "Y",
+          "hasTMAccessionNumbers": "Y",
+          "tmAccessionTypeList": {
+            "accessionType": [
+              "refsnp",
+              "eudract",
+              "nct"
+            ]
+          },
+          "firstIndexDate": "2020-10-16",
+          "firstPublicationDate": "2020-10-01"
+        }
+      ]
+    }
+  }
+}
