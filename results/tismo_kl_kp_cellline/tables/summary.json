@@ -1,0 +1,258 @@
+{
+  "inventory": {
+    "n_vitro_samples": 605,
+    "n_vitro_lines": 49,
+    "n_vivo_samples": 1518,
+    "n_vivo_lines": 68,
+    "vitro_lung_lines": [
+      "LLC",
+      "MLE12"
+    ],
+    "vivo_lung_lines": [
+      "CMT-167",
+      "LLC"
+    ],
+    "n_kl_genotype_rows": 2,
+    "n_kp_genotype_rows": 0,
+    "tismo_cell_line_table_n": 92
+  },
+  "vitro": {
+    "n_lines": 49,
+    "n_lung": 2,
+    "n_high": 21,
+    "n_low": 28,
+    "tj_core_present": [
+      "Cldn3",
+      "Cldn4",
+      "Cldn6",
+      "Cldn7",
+      "Cdh1",
+      "F11r",
+      "Ocln",
+      "Tjp1",
+      "Nectin2"
+    ],
+    "tj_hi": 0.38974661965995666,
+    "tj_lo": -0.3281696543884792,
+    "tj_delta": 0.7179162740484359,
+    "tj_p": "0.0003",
+    "cldn4_hi": 4.353555515663547,
+    "cldn4_lo": 0.004939428771756317,
+    "cldn4_delta": 4.3486160868917905,
+    "cldn4_p": "1.21e-05",
+    "go_rho": 0.6765713056942614,
+    "go_p": "9.48e-08",
+    "krt_rho": 0.6836984676805063,
+    "krt_p": "6.15e-08",
+    "lung_rank": [
+      {
+        "line": "MLE12",
+        "class": "lung_other",
+        "n": 4,
+        "Tacstd2": 5.917343422099444,
+        "Cldn4": 0.0,
+        "tj": 0.3727966483138858
+      },
+      {
+        "line": "LLC",
+        "class": "LLC",
+        "n": 19,
+        "Tacstd2": 0.0,
+        "Cldn4": 0.0,
+        "tj": -0.40110855264805895
+      }
+    ],
+    "headline": [
+      {
+        "label": "Tacstd2 vs TJ-core (49 lines)",
+        "n": 49,
+        "stat": "Spearman \u03c1",
+        "value": "0.634",
+        "p": "9.84e-07"
+      },
+      {
+        "label": "Tacstd2 vs Cldn4",
+        "n": 49,
+        "stat": "Spearman \u03c1",
+        "value": "0.700",
+        "p": "2.14e-08"
+      },
+      {
+        "label": "TROP2-positive vs floor, TJ-core",
+        "n": "21 vs 28",
+        "stat": "MWU \u0394 median",
+        "value": "0.718",
+        "p": "0.0003"
+      },
+      {
+        "label": "TROP2-positive vs floor, Cldn4",
+        "n": "21 vs 28",
+        "stat": "MWU \u0394 median",
+        "value": "4.349",
+        "p": "1.21e-05"
+      },
+      {
+        "label": "GSEA GO TJ on Tacstd2 ranking",
+        "n": 89,
+        "stat": "NES",
+        "value": "1.905",
+        "p": "0.0010"
+      },
+      {
+        "label": "GSEA Reactome keratinization on Tacstd2 ranking",
+        "n": 145,
+        "stat": "NES",
+        "value": "2.345",
+        "p": "0.0010"
+      }
+    ]
+  },
+  "icb": {
+    "n_nr_samples": 169,
+    "n_r_samples": 265,
+    "tac_nr": 0.4168267738092343,
+    "tac_r": 0.4791543680588814,
+    "tac_delta": -0.06232759424964712,
+    "tac_p": "0.0444",
+    "tj_delta": 0.13577691076688042,
+    "tj_p": "0.0048",
+    "n_res_models": 3,
+    "n_sen_models": 9,
+    "model_tj_delta": 0.866384648746306,
+    "model_tj_p": "0.2091"
+  },
+  "gse274352": {
+    "n_kl": 3,
+    "n_kp": 3,
+    "contrasts": [
+      {
+        "metric": "Tacstd2",
+        "n_a": 3,
+        "n_b": 3,
+        "median_a": 5.222837531643305,
+        "median_b": 6.8681706698031695,
+        "delta": -1.6453331381598648,
+        "U": 0.0,
+        "p": 0.1
+      },
+      {
+        "metric": "Cldn4",
+        "n_a": 3,
+        "n_b": 3,
+        "median_a": 9.708965960580574,
+        "median_b": 9.472028010975052,
+        "delta": 0.2369379496055224,
+        "U": 4.0,
+        "p": 1.0
+      },
+      {
+        "metric": "tj_core_score",
+        "n_a": 3,
+        "n_b": 3,
+        "median_a": -0.05466526798907141,
+        "median_b": -0.5894216563607247,
+        "delta": 0.5347563883716533,
+        "U": 6.0,
+        "p": 0.7
+      },
+      {
+        "metric": "go_tj_score",
+        "n_a": 3,
+        "n_b": 3,
+        "median_a": 0.06233110648985231,
+        "median_b": -0.14088979871208474,
+        "delta": 0.20322090520193703,
+        "U": 9.0,
+        "p": 0.1
+      },
+      {
+        "metric": "reactome_keratin_score",
+        "n_a": 3,
+        "n_b": 3,
+        "median_a": 0.1717135803439832,
+        "median_b": -0.2954296481650579,
+        "delta": 0.4671432285090411,
+        "U": 9.0,
+        "p": 0.1
+      }
+    ],
+    "gsea_tj_nes": 1.5692269610315714,
+    "gsea_tj_p": "0.0090",
+    "gsea_tj_hits": 77,
+    "gsea_krt_nes": 2.0592233355622573,
+    "gsea_krt_p": "0.0020",
+    "gsea_krt_hits": 57
+  },
+  "gse167381": {
+    "n_off": 4,
+    "n_on": 4,
+    "tac_delta": 0.12230892053368914,
+    "tac_p": "1.0000",
+    "cldn4_delta": -0.7810294411208654,
+    "cldn4_p": "0.3429",
+    "tj_delta": -0.12566463269362654,
+    "tj_p": "0.1143"
+  },
+  "gse295685": {
+    "n_dmso": 2,
+    "n_tng": 2,
+    "tac_dmso": 3.8504722865304726,
+    "cldn4_dmso": 10.40812425036623,
+    "tac_delta": 1.2195641275745817,
+    "tac_p": "0.3333",
+    "cldn4_delta": 0.3619116845556718,
+    "cldn4_p": "0.3333",
+    "tj_delta": 0.6857188529149921,
+    "tj_p": "0.3333"
+  },
+  "gsea_vitro": {
+    "rows": [
+      {
+        "collection": "TJ_CORE",
+        "n_in_set_mapped": 9,
+        "n_hit_in_ranking": 9,
+        "ES": 0.7905723777476198,
+        "NES": 1.8888326466303398,
+        "p": 0.000999000999000999,
+        "leading_edge": "Cldn4;Cdh1;Cldn7;Cldn3;Ocln;Cldn6;Tjp1"
+      },
+      {
+        "collection": "GO_CC_TIGHT_JUNCTION",
+        "n_in_set_mapped": 89,
+        "n_hit_in_ranking": 89,
+        "ES": 0.5623272804769076,
+        "NES": 1.9047448536376363,
+        "p": 0.000999000999000999,
+        "leading_edge": "Cldn8;Cldn1;Marveld3;Patj;Cldn4;Cldn7;Ildr1;Cldn3;Epcam;Marveld2;Pof1b;Cgn;Ocln;Lsr;Cldn23;Shroom2;Pard6g;Eppk1;Tjp2;Prkcz;Cxadr;Ect2;Apc;Tjp3;Prkci;Cldn2;Amotl2;Cldn6;Frmd4b;Pard6b;Dlg1;Strn;Aoc1;Epha2;Amotl1;Cldn24;Tgfbr1;Cldn17;Tjp1;Jaml"
+      },
+      {
+        "collection": "GO_BP_TIGHT_JUNCTION_ASSEMBLY",
+        "n_in_set_mapped": 50,
+        "n_hit_in_ranking": 50,
+        "ES": 0.5718928835074947,
+        "NES": 1.8593349805351131,
+        "p": 0.000999000999000999,
+        "leading_edge": "Cldn8;Cldn1;Marveld3;Patj;Cldn4;Cldn7;Ildr1;Cldn3;Marveld2;Pof1b;Ocln;Lsr;Cldn23;Grhl2;Ect2;Apc;Cldn2;Cldn6;Dlg1;Strn;Cldn24;Pak2;Cldn17"
+      },
+      {
+        "collection": "REACTOME_KERATINIZATION",
+        "n_in_set_mapped": 145,
+        "n_hit_in_ranking": 145,
+        "ES": 0.6701333015482,
+        "NES": 2.3448687614250936,
+        "p": 0.000999000999000999,
+        "leading_edge": "Krt17;Dsg3;Sprr3;Evpl;Krt32;Krt4;Ppl;St14;Krt6b;Tgm5;Krt6a;Krt14;Casp14;Krt79;Krt16;Krt78;Pkp1;Lce3c;Kazn;Krt7;Rptn;Dsg2;Krt15;Prss8;Krtap3-2;Tgm1;Krt36;Tchh;Flg;Perp;Pkp3;Dsc3;Krt75;Krt5;Ivl;Klk14;Spink5;Lipm;Klk12;Sprr2f"
+      },
+      {
+        "collection": "GO_BP_KERATINOCYTE_DIFFERENTIATION",
+        "n_in_set_mapped": 37,
+        "n_hit_in_ranking": 37,
+        "ES": 0.6363144576225491,
+        "NES": 1.9942408699143452,
+        "p": 0.000999000999000999,
+        "leading_edge": "Sprr3;Evpl;Dsp;St14;Krt16;Cers3;Tgm1;Ivl;Exph5;Sprr2f;Sprr1b;Scel;Jag1;Anxa1;Epha2;Wnt16;Sprr1a;Tgm3"
+      }
+    ]
+  },
+  "takehome": "In TISMO's 49 untreated syngeneic cell lines, Tacstd2 correlates with the pre-specified TJ-core score (\u03c1=0.63, p=9.84e-07, n=49); TROP2-high lines (n=21) have higher TJ-core than TROP2-floor lines (n=28; \u0394=0.72, p=0.0003). True KL/KP lines are absent from TISMO; lung coverage is LLC (not KL), MLE12, and CMT-167 (vivo only). In GSE274352 GEMM cell lines (empty vector; n=3 KL vs 3 KP), KL vs KP Tacstd2 \u0394=-1.65 (p=0.1000), Cldn4 \u0394=0.24 (p=1.0000), TJ-core \u0394=0.53 (p=0.7000)."
+}
