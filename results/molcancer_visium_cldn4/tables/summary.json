@@ -1,0 +1,1967 @@
+{
+  "post_PRJNA1139087": {
+    "cohort": "PRJNA1139087_MolCancer2025",
+    "timepoint": "post_neoadjuvant_chemoIO",
+    "n_sections": 4,
+    "n_spots": 12979,
+    "same_CLDN4_CD8A_tumor": {
+      "n": 4,
+      "median": -0.0026728946494331465,
+      "n_neg": 2,
+      "n_pos": 2,
+      "p": 0.625
+    },
+    "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+      "n": 4,
+      "median": -0.008979824592318726,
+      "n_neg": 3,
+      "n_pos": 1,
+      "p": 0.875
+    },
+    "spearman_CLDN4_vs_nnCD8_tumor": {
+      "n": 4,
+      "median": 0.011131471739583518,
+      "n_neg": 2,
+      "n_pos": 2,
+      "p": 1.0
+    },
+    "spearman_CLDN4_vs_ring1CD8_tumor": {
+      "n": 4,
+      "median": -0.01658096063370648,
+      "n_neg": 2,
+      "n_pos": 2,
+      "p": 0.875
+    },
+    "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+      "n": 4,
+      "median": -0.021886295422411224,
+      "n_neg": 2,
+      "n_pos": 2,
+      "p": 0.875
+    },
+    "nnCD8_high_minus_low_um": {
+      "n": 4,
+      "median": 2.1316282072803006e-14,
+      "n_neg": 1,
+      "n_pos": 2,
+      "p": 1.0
+    },
+    "ring1CD8_high_minus_low": {
+      "n": 4,
+      "median": -0.0005624246468128383,
+      "n_neg": 3,
+      "n_pos": 0,
+      "p": 0.25
+    },
+    "sections": [
+      {
+        "section": "PA08",
+        "timepoint": "post_chemoIO",
+        "response": "NMPR",
+        "n_spots": 3245,
+        "n_tumor": 1623,
+        "n_cd8pos": 598,
+        "n_cldn4_high_tumor": 406,
+        "n_cldn4_low_tumor": 406,
+        "frac_cd8pos": 0.18428351309707242,
+        "mean_CLDN4_log": 0.6638417528552721,
+        "mean_CD8A_log": 0.025249478260562064,
+        "same_CLDN4_CD8A_all": {
+          "n": 3245,
+          "rho": -0.183341199308208,
+          "p": 6.326397401839468e-26
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 1623,
+          "rho": -0.02716195631229614,
+          "p": 0.2741224895633806
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 1623,
+          "rho": 0.06366477840496029,
+          "p": 0.010304023987461748
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 3245,
+          "rho": -0.1044974265248581,
+          "p": 2.420502111866196e-09
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 1623,
+          "rho": -0.01771035498629321,
+          "p": 0.47584949009586786
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 1623,
+          "rho": 0.02755144183508597,
+          "p": 0.26729825918288475
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 1623,
+          "rho": 0.07775182872520288,
+          "p": 0.0017204172963232183
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 1618,
+          "rho": -0.04143312047647841,
+          "p": 0.09570373475536212
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 1623,
+          "rho": 0.0028073575209047854,
+          "p": 0.9100213412731405
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 1623,
+          "rho": 0.027793044691793445,
+          "p": 0.2631242371522125
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 1618,
+          "rho": -0.0463518167291232,
+          "p": 0.06231698213331741
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 406,
+          "n_low": 406,
+          "median_high": 100.00000000000033,
+          "median_low": 100.00000000000004,
+          "delta_high_minus_low": 2.8421709430404007e-13,
+          "p": 0.4124579946504402
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 404,
+          "n_low": 404,
+          "median_high": 0.011664253500915954,
+          "median_low": 0.012774089991941392,
+          "delta_high_minus_low": -0.0011098364910254385,
+          "p": 0.15872116328383268
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 406,
+          "n_low": 406,
+          "median_high": 0.012834370555819439,
+          "median_low": 0.013625416614011045,
+          "delta_high_minus_low": -0.0007910460581916062,
+          "p": 0.6080636300685704
+        },
+        "n_reads_cut": 48752.29999999999,
+        "note": "cold / unresponsive"
+      },
+      {
+        "section": "PA09",
+        "timepoint": "post_chemoIO",
+        "response": "NMPR",
+        "n_spots": 3245,
+        "n_tumor": 1623,
+        "n_cd8pos": 162,
+        "n_cldn4_high_tumor": 406,
+        "n_cldn4_low_tumor": 406,
+        "frac_cd8pos": 0.04992295839753467,
+        "mean_CLDN4_log": 0.7083722403345661,
+        "mean_CD8A_log": 0.005379297764875881,
+        "same_CLDN4_CD8A_all": {
+          "n": 3245,
+          "rho": -0.01620966833061406,
+          "p": 0.35596184561206423
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 1623,
+          "rho": 0.023927194350649612,
+          "p": 0.335378161943173
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 1623,
+          "rho": -0.016498939678300385,
+          "p": 0.5065513011334838
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 3245,
+          "rho": -0.008385132187192126,
+          "p": 0.63301851401746
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 1623,
+          "rho": -0.0002492941983442408,
+          "p": 0.9919930064579053
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 1623,
+          "rho": -0.0753204556147442,
+          "p": 0.0023944409308245315
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 1623,
+          "rho": -0.07455780928641138,
+          "p": 0.002651089122849414
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 1611,
+          "rho": 0.06628955153449415,
+          "p": 0.007778320235430015
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 1621,
+          "rho": 0.016805367721232436,
+          "p": 0.49895332282248145
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 1620,
+          "rho": 0.037465595029470916,
+          "p": 0.13172702937619224
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 1611,
+          "rho": 0.04710365780593868,
+          "p": 0.05873205965715973
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 406,
+          "n_low": 406,
+          "median_high": 200.0,
+          "median_low": 264.5751311064589,
+          "delta_high_minus_low": -64.57513110645891,
+          "p": 0.01520922973238212
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 401,
+          "n_low": 404,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.03850188360959476
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 405,
+          "n_low": 406,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.5573249609163609
+        },
+        "n_reads_cut": 36655.74999999999,
+        "note": "cold / unresponsive"
+      },
+      {
+        "section": "PA10",
+        "timepoint": "post_chemoIO",
+        "response": "pCR",
+        "n_spots": 3244,
+        "n_tumor": 1622,
+        "n_cd8pos": 1115,
+        "n_cldn4_high_tumor": 1622,
+        "n_cldn4_low_tumor": 1371,
+        "frac_cd8pos": 0.343711467324291,
+        "mean_CLDN4_log": 0.021071034033584374,
+        "mean_CD8A_log": 0.056871223829340005,
+        "same_CLDN4_CD8A_all": {
+          "n": 3244,
+          "rho": 0.013856609564101289,
+          "p": 0.4301397821711191
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 1622,
+          "rho": 0.02181616701342985,
+          "p": 0.379915074533643
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 1622,
+          "rho": 0.018334592570963877,
+          "p": 0.46057445018285836
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 3244,
+          "rho": 0.28000921493465974,
+          "p": 1.648783622352588e-59
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 1622,
+          "rho": 0.2946201076801901,
+          "p": 7.63965055372329e-34
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 1622,
+          "rho": -0.005288498355918933,
+          "p": 0.831462219057049
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 1622,
+          "rho": 0.023338013822508916,
+          "p": 0.347566514954487
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 1604,
+          "rho": 0.00827119920906545,
+          "p": 0.7406379239780229
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 1612,
+          "rho": -0.029782056179257888,
+          "p": 0.2320562661864296
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 1617,
+          "rho": -0.07758260831788666,
+          "p": 0.0017960192693360856
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 1604,
+          "rho": 0.002579225884300756,
+          "p": 0.9177903045044462
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1622,
+          "n_low": 1371,
+          "median_high": 99.99999999999994,
+          "median_low": 99.99999999999994,
+          "delta_high_minus_low": 0.0,
+          "p": 0.9107648935459699
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1604,
+          "n_low": 1354,
+          "median_high": 0.05093241944798463,
+          "median_low": 0.050947432250584866,
+          "delta_high_minus_low": -1.5012802600238018e-05,
+          "p": 0.9224724773451574
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1612,
+          "n_low": 1363,
+          "median_high": 0.05355288923595728,
+          "median_low": 0.053848604708300184,
+          "delta_high_minus_low": -0.00029571547234290285,
+          "p": 0.7027285909000918
+        },
+        "n_reads_cut": 23856.0,
+        "note": "pathologic complete response"
+      },
+      {
+        "section": "PA12",
+        "timepoint": "post_chemoIO",
+        "response": "NMPR_responsive_like",
+        "n_spots": 3245,
+        "n_tumor": 1623,
+        "n_cd8pos": 1213,
+        "n_cldn4_high_tumor": 406,
+        "n_cldn4_low_tumor": 406,
+        "frac_cd8pos": 0.3738058551617874,
+        "mean_CLDN4_log": 0.3954473751106694,
+        "mean_CD8A_log": 0.07198450237837636,
+        "same_CLDN4_CD8A_all": {
+          "n": 3245,
+          "rho": -0.1793381223241535,
+          "p": 7.374513006252432e-25
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 1623,
+          "rho": -0.16602892175751843,
+          "p": 1.6928007437855843e-11
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 1623,
+          "rho": -0.11421921074317676,
+          "p": 3.9680666883753995e-06
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 3245,
+          "rho": -0.08028451983803679,
+          "p": 4.671360760289271e-06
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 1623,
+          "rho": -0.1345391051264688,
+          "p": 5.307671079091887e-08
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 1623,
+          "rho": 0.06405719880061934,
+          "p": 0.009842851537339421
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 1623,
+          "rho": 0.08277853717326547,
+          "p": 0.0008437886644823949
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 1568,
+          "rho": -0.18557464645797095,
+          "p": 1.292401588041119e-13
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 1603,
+          "rho": -0.15746489738317493,
+          "p": 2.3101311304719465e-10
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 1613,
+          "rho": -0.17992148285435747,
+          "p": 3.3401648007466623e-13
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 1568,
+          "rho": -0.17487408457033532,
+          "p": 3.103978972075858e-12
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 406,
+          "n_low": 406,
+          "median_high": 99.99999999999999,
+          "median_low": 99.99999999999994,
+          "delta_high_minus_low": 4.263256414560601e-14,
+          "p": 0.06761468483128948
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 398,
+          "n_low": 379,
+          "median_high": 0.02984730061551956,
+          "median_low": 0.04852838103640348,
+          "delta_high_minus_low": -0.01868108042088392,
+          "p": 5.287258349561072e-10
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 404,
+          "n_low": 395,
+          "median_high": 0.035151885576326064,
+          "median_low": 0.05901729369565889,
+          "delta_high_minus_low": -0.023865408119332826,
+          "p": 4.560517431472162e-09
+        },
+        "n_reads_cut": 30304.899999999994,
+        "note": "NMPR but therapy-responsive histology"
+      }
+    ],
+    "skips": []
+  },
+  "pre_GSE292299": {
+    "cohort": "GSE292299",
+    "timepoint": "pre_ICI_biopsy",
+    "n_sections": 16,
+    "n_spots": 121087,
+    "same_CLDN4_CD8A_tumor": {
+      "n": 16,
+      "median": -0.003530521621811865,
+      "n_neg": 9,
+      "n_pos": 7,
+      "p": 0.5618896484375
+    },
+    "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+      "n": 16,
+      "median": 0.0017434462888893335,
+      "n_neg": 7,
+      "n_pos": 9,
+      "p": 0.668548583984375
+    },
+    "spearman_CLDN4_vs_nnCD8_tumor": {
+      "n": 16,
+      "median": 0.0062866300205895505,
+      "n_neg": 6,
+      "n_pos": 10,
+      "p": 0.93988037109375
+    },
+    "spearman_CLDN4_vs_ring1CD8_tumor": {
+      "n": 16,
+      "median": -0.03341749853710052,
+      "n_neg": 13,
+      "n_pos": 3,
+      "p": 0.010986328125
+    },
+    "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+      "n": 16,
+      "median": -0.042325624675111306,
+      "n_neg": 12,
+      "n_pos": 4,
+      "p": 0.021392822265625
+    },
+    "nnCD8_high_minus_low_um": {
+      "n": 16,
+      "median": 0.0,
+      "n_neg": 4,
+      "n_pos": 5,
+      "p": 0.9527650219907529
+    },
+    "ring1CD8_high_minus_low": {
+      "n": 16,
+      "median": 0.0,
+      "n_neg": 7,
+      "n_pos": 2,
+      "p": 0.3742593192802244
+    },
+    "sections": [
+      {
+        "section": "NSCLC_P1",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 8457,
+        "n_tumor": 4229,
+        "n_cd8pos": 1405,
+        "n_cldn4_high_tumor": 1058,
+        "n_cldn4_low_tumor": 1864,
+        "frac_cd8pos": 0.16613456308383587,
+        "mean_CLDN4_log": 0.6419441519737272,
+        "mean_CD8A_log": 0.20408802387712002,
+        "same_CLDN4_CD8A_all": {
+          "n": 8457,
+          "rho": 0.011717295273118872,
+          "p": 0.28129132887422764
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 4229,
+          "rho": 0.007722536331494963,
+          "p": 0.6156242980545985
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 4229,
+          "rho": -0.022293134716558433,
+          "p": 0.14720048670046187
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 8457,
+          "rho": 0.15067899905095977,
+          "p": 3.919766289591983e-44
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 4229,
+          "rho": -0.13115437878826983,
+          "p": 1.094334411654756e-17
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 4229,
+          "rho": -0.03395869458386441,
+          "p": 0.02722031342734822
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 4229,
+          "rho": -0.04721126058508878,
+          "p": 0.0021335099108832937
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 4185,
+          "rho": -0.0974079541672703,
+          "p": 2.708394879324162e-10
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 4204,
+          "rho": -0.15136438117548462,
+          "p": 5.718652641896541e-23
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 4216,
+          "rho": -0.15303403287243145,
+          "p": 1.6425621370293677e-23
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 4185,
+          "rho": -0.11778586708988947,
+          "p": 2.1041448733844618e-14
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1058,
+          "n_low": 1864,
+          "median_high": 100.00000000000013,
+          "median_low": 100.00000000000033,
+          "delta_high_minus_low": -1.9895196601282805e-13,
+          "p": 0.05818039623844357
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1043,
+          "n_low": 1845,
+          "median_high": 0.06696550162377608,
+          "median_low": 0.22694723087586768,
+          "delta_high_minus_low": -0.1599817292520916,
+          "p": 2.4390183796501526e-09
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1050,
+          "n_low": 1855,
+          "median_high": 0.12039927818010782,
+          "median_low": 0.19825166704390637,
+          "delta_high_minus_low": -0.07785238886379856,
+          "p": 7.002269860217143e-21
+        }
+      },
+      {
+        "section": "NSCLC_P2",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 6904,
+        "n_tumor": 3452,
+        "n_cd8pos": 821,
+        "n_cldn4_high_tumor": 863,
+        "n_cldn4_low_tumor": 863,
+        "frac_cd8pos": 0.11891657010428737,
+        "mean_CLDN4_log": 0.7528475194670556,
+        "mean_CD8A_log": 0.12363851859642727,
+        "same_CLDN4_CD8A_all": {
+          "n": 6904,
+          "rho": 0.06854000164719883,
+          "p": 1.19328146575426e-08
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 3452,
+          "rho": 0.042112178063538924,
+          "p": 0.013344193728789158
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 3452,
+          "rho": 0.004742079929472344,
+          "p": 0.7806166590318789
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 6904,
+          "rho": 0.07520161292481581,
+          "p": 3.9433419828616156e-10
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 3452,
+          "rho": 0.0046558555550799,
+          "p": 0.784506353930355
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 3452,
+          "rho": -0.1024485553516462,
+          "p": 1.6101000330577534e-09
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 3452,
+          "rho": -0.08845882537176546,
+          "p": 1.9336029732346078e-07
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 3425,
+          "rho": 0.014720837084033862,
+          "p": 0.38910196910874945
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 3436,
+          "rho": -0.07287594738879859,
+          "p": 1.903404135916637e-05
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 3452,
+          "rho": -0.02766668694957393,
+          "p": 0.10411074004119598
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 3425,
+          "rho": 0.015294117097554535,
+          "p": 0.37089889495735
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 863,
+          "n_low": 863,
+          "median_high": 100.00000000000033,
+          "median_low": 173.20508075688747,
+          "delta_high_minus_low": -73.20508075688714,
+          "p": 2.59343273502323e-11
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 855,
+          "n_low": 860,
+          "median_high": 0.06441289947295599,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.06441289947295599,
+          "p": 0.2796141662474343
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 858,
+          "n_low": 863,
+          "median_high": 0.07673634996602088,
+          "median_low": 0.11576995825596526,
+          "delta_high_minus_low": -0.03903360828994437,
+          "p": 2.947679268847302e-05
+        }
+      },
+      {
+        "section": "NSCLC_P3",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 9155,
+        "n_tumor": 4578,
+        "n_cd8pos": 1133,
+        "n_cldn4_high_tumor": 1145,
+        "n_cldn4_low_tumor": 1145,
+        "frac_cd8pos": 0.12375750955761879,
+        "mean_CLDN4_log": 1.295599143730223,
+        "mean_CD8A_log": 0.14264520428845717,
+        "same_CLDN4_CD8A_all": {
+          "n": 9155,
+          "rho": -0.007505795174825946,
+          "p": 0.47270809988656276
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 4578,
+          "rho": -0.006368509228739172,
+          "p": 0.666624061969381
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 4578,
+          "rho": -0.04352310874354987,
+          "p": 0.0032253215685469723
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 9155,
+          "rho": 0.04590336296013118,
+          "p": 1.113703805070807e-05
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 4578,
+          "rho": 0.010017762426358458,
+          "p": 0.49799812521559284
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 4578,
+          "rho": -0.004690476592496588,
+          "p": 0.7510333987672422
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 4578,
+          "rho": -0.0035343507855268466,
+          "p": 0.8110490812455444
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 4574,
+          "rho": -0.04597356345675734,
+          "p": 0.0018705638382143987
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 4578,
+          "rho": -0.061261689288859715,
+          "p": 3.357055430915444e-05
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 4578,
+          "rho": -0.03298458508459497,
+          "p": 0.0256304898109271
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 4574,
+          "rho": -0.03996149354873944,
+          "p": 0.0068718636214654
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1145,
+          "n_low": 1145,
+          "median_high": 173.20508075688747,
+          "median_low": 173.20508075688747,
+          "delta_high_minus_low": 0.0,
+          "p": 0.9407544846183158
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1144,
+          "n_low": 1145,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.0034291528004017544
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1145,
+          "n_low": 1145,
+          "median_high": 0.09635124146393742,
+          "median_low": 0.12045087738539383,
+          "delta_high_minus_low": -0.024099635921456405,
+          "p": 0.00010183486932963951
+        }
+      },
+      {
+        "section": "NSCLC_P4",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 9491,
+        "n_tumor": 4746,
+        "n_cd8pos": 695,
+        "n_cldn4_high_tumor": 1187,
+        "n_cldn4_low_tumor": 1609,
+        "frac_cd8pos": 0.07322726793804657,
+        "mean_CLDN4_log": 0.7622317578349133,
+        "mean_CD8A_log": 0.10775352225978842,
+        "same_CLDN4_CD8A_all": {
+          "n": 9491,
+          "rho": 0.005027138130333985,
+          "p": 0.6243523947065699
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 4746,
+          "rho": 0.006054195260863051,
+          "p": 0.6766968063916453
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 4746,
+          "rho": -0.016901836311980393,
+          "p": 0.24435733856662617
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 9491,
+          "rho": 0.01754221011694882,
+          "p": 0.08746957955793441
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 4746,
+          "rho": 0.00040190610453962587,
+          "p": 0.9779169692051416
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 4746,
+          "rho": -0.024585905634272067,
+          "p": 0.090348388032202
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 4746,
+          "rho": -0.030161307698460524,
+          "p": 0.037730125592929285
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 4726,
+          "rho": -0.056235181952772544,
+          "p": 0.0001097420335936866
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 4744,
+          "rho": -0.07637884467741453,
+          "p": 1.386474884530556e-07
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 4744,
+          "rho": -0.11230255405229729,
+          "p": 8.659160932000432e-15
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 4726,
+          "rho": -0.04695585061247782,
+          "p": 0.0012424572373462652
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1187,
+          "n_low": 1609,
+          "median_high": 173.20508075688792,
+          "median_low": 173.20508075688792,
+          "delta_high_minus_low": 0.0,
+          "p": 0.08566652867854085
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1183,
+          "n_low": 1598,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.0011682540082576752
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1187,
+          "n_low": 1607,
+          "median_high": 0.03652745499454219,
+          "median_low": 0.06880140906291611,
+          "delta_high_minus_low": -0.03227395406837392,
+          "p": 8.109104386314694e-06
+        }
+      },
+      {
+        "section": "NSCLC_P5",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 5369,
+        "n_tumor": 2685,
+        "n_cd8pos": 342,
+        "n_cldn4_high_tumor": 673,
+        "n_cldn4_low_tumor": 1416,
+        "frac_cd8pos": 0.06369901285155523,
+        "mean_CLDN4_log": 0.6031985458173491,
+        "mean_CD8A_log": 0.10967208964717236,
+        "same_CLDN4_CD8A_all": {
+          "n": 5369,
+          "rho": -0.01315783316899338,
+          "p": 0.33507741035332456
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 2685,
+          "rho": -0.012958734007570336,
+          "p": 0.502094377582821
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 2685,
+          "rho": -0.01626689565077564,
+          "p": 0.39947191461840836
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 5369,
+          "rho": -0.19572963371713892,
+          "p": 1.651858295481189e-47
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 2685,
+          "rho": -0.22821010511703085,
+          "p": 4.630916291350903e-33
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 2685,
+          "rho": 0.001284482859277002,
+          "p": 0.9469582109836886
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 2685,
+          "rho": -0.022615837465313968,
+          "p": 0.2414024125022253
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 2682,
+          "rho": -0.0361329371058394,
+          "p": 0.06134615813838205
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 2685,
+          "rho": -0.05324193997149106,
+          "p": 0.005788820984592274
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 2684,
+          "rho": -0.05230320770925901,
+          "p": 0.006722588107703601
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 2682,
+          "rho": -0.1451600811510863,
+          "p": 4.217899023350914e-14
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 673,
+          "n_low": 1416,
+          "median_high": 173.2050807568885,
+          "median_low": 173.2050807568885,
+          "delta_high_minus_low": 0.0,
+          "p": 0.9721888220045359
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 673,
+          "n_low": 1414,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.10032251259752252
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 673,
+          "n_low": 1416,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.026950863495919065
+        }
+      },
+      {
+        "section": "NSCLC_P6",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 10078,
+        "n_tumor": 5039,
+        "n_cd8pos": 1860,
+        "n_cldn4_high_tumor": 1260,
+        "n_cldn4_low_tumor": 1260,
+        "frac_cd8pos": 0.18456042865647945,
+        "mean_CLDN4_log": 1.5617157831260688,
+        "mean_CD8A_log": 0.12197687469266909,
+        "same_CLDN4_CD8A_all": {
+          "n": 10078,
+          "rho": -0.08465378529733426,
+          "p": 1.701373450243725e-17
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 5039,
+          "rho": -0.09441648629692023,
+          "p": 1.8731496439045733e-11
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 5039,
+          "rho": 0.013187180366515653,
+          "p": 0.3493182390211497
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 10078,
+          "rho": -0.010085392785784637,
+          "p": 0.3113635187869665
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 5039,
+          "rho": -0.04145410345297363,
+          "p": 0.0032484640509616433
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 5039,
+          "rho": 0.08933228808644963,
+          "p": 2.118926178729479e-10
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 5039,
+          "rho": 0.11947017462564738,
+          "p": 1.7530942031593344e-17
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 5034,
+          "rho": -0.10781075119695119,
+          "p": 1.7238535366853304e-14
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 5038,
+          "rho": -0.12185695728393237,
+          "p": 3.975657150456381e-18
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 5039,
+          "rho": -0.12365190102518593,
+          "p": 1.2605313546631131e-18
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 5034,
+          "rho": -0.09038883612639605,
+          "p": 1.3211966049656233e-10
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1260,
+          "n_low": 1260,
+          "median_high": 100.00000000000033,
+          "median_low": 100.0,
+          "delta_high_minus_low": 3.268496584496461e-13,
+          "p": 3.954281384138588e-09
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1259,
+          "n_low": 1259,
+          "median_high": 0.0390237268034647,
+          "median_low": 0.060870971895113236,
+          "delta_high_minus_low": -0.021847245091648537,
+          "p": 4.378487175524135e-12
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1260,
+          "n_low": 1260,
+          "median_high": 0.04487880196602928,
+          "median_low": 0.06761265932036686,
+          "delta_high_minus_low": -0.022733857354337583,
+          "p": 6.232356569350735e-16
+        }
+      },
+      {
+        "section": "NSCLC_P7",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 5701,
+        "n_tumor": 2851,
+        "n_cd8pos": 686,
+        "n_cldn4_high_tumor": 713,
+        "n_cldn4_low_tumor": 713,
+        "frac_cd8pos": 0.12032976670759515,
+        "mean_CLDN4_log": 1.3171568743268514,
+        "mean_CD8A_log": 0.07845496492517683,
+        "same_CLDN4_CD8A_all": {
+          "n": 5701,
+          "rho": 0.0914057458246705,
+          "p": 4.693417152613881e-12
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 2851,
+          "rho": -0.10565827452701464,
+          "p": 1.5588394316194342e-08
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 2851,
+          "rho": -0.07141154987808193,
+          "p": 0.00013552109539280717
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 5701,
+          "rho": -0.08822113028839713,
+          "p": 2.5116349438614254e-11
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 2851,
+          "rho": -0.06027470017126966,
+          "p": 0.0012824907748824642
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 2851,
+          "rho": 0.020555098363308696,
+          "p": 0.27256748940946934
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 2851,
+          "rho": 0.013280476333315082,
+          "p": 0.4784311650465535
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 2836,
+          "rho": -0.12141277451756861,
+          "p": 8.762697567561555e-11
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 2848,
+          "rho": -0.16755788904231947,
+          "p": 2.2206958672060754e-19
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 2849,
+          "rho": -0.1354826764969536,
+          "p": 3.818083011848183e-13
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 2836,
+          "rho": -0.11237475522526658,
+          "p": 1.9635431657334656e-09
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 713,
+          "n_low": 713,
+          "median_high": 173.20508075688667,
+          "median_low": 100.00000000000033,
+          "delta_high_minus_low": 73.20508075688635,
+          "p": 0.1816814215407474
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 710,
+          "n_low": 708,
+          "median_high": 0.0,
+          "median_low": 0.05759883737873173,
+          "delta_high_minus_low": -0.05759883737873173,
+          "p": 2.8785206976281873e-09
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 713,
+          "n_low": 711,
+          "median_high": 0.050599860457493456,
+          "median_low": 0.10801569614510098,
+          "delta_high_minus_low": -0.057415835687607525,
+          "p": 1.6300494037618228e-17
+        }
+      },
+      {
+        "section": "NSCLC_P8",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 5171,
+        "n_tumor": 2588,
+        "n_cd8pos": 385,
+        "n_cldn4_high_tumor": 647,
+        "n_cldn4_low_tumor": 1105,
+        "frac_cd8pos": 0.07445368400696191,
+        "mean_CLDN4_log": 0.8843039756587335,
+        "mean_CD8A_log": 0.11798607144390338,
+        "same_CLDN4_CD8A_all": {
+          "n": 5171,
+          "rho": 0.0344946923430764,
+          "p": 0.013114664428618137
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 2588,
+          "rho": 0.0484579703311113,
+          "p": 0.013684885446009083
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 2588,
+          "rho": 0.004841902304208684,
+          "p": 0.8055261893311919
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 5171,
+          "rho": 0.14647513747335897,
+          "p": 3.4027079962516057e-26
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 2588,
+          "rho": 0.1857997959354965,
+          "p": 1.5635771781003596e-21
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 2588,
+          "rho": -0.10222506622406081,
+          "p": 1.8724069676182457e-07
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 2588,
+          "rho": -0.10254874049948505,
+          "p": 1.7119869868509307e-07
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 2580,
+          "rho": 0.04363939017428293,
+          "p": 0.026651267236910307
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 2587,
+          "rho": 0.04595235949626513,
+          "p": 0.01942048542392784
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 2588,
+          "rho": 0.00011969830443752592,
+          "p": 0.9951437878036716
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 2580,
+          "rho": -0.04468975580148317,
+          "p": 0.02320806079779866
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 647,
+          "n_low": 1105,
+          "median_high": 173.20508075688792,
+          "median_low": 199.9999999999999,
+          "delta_high_minus_low": -26.794919243111963,
+          "p": 1.8427114116574956e-05
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 643,
+          "n_low": 1101,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.045150125036978246
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 646,
+          "n_low": 1105,
+          "median_high": 0.09365960217817568,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.09365960217817568,
+          "p": 0.06065695726528035
+        }
+      },
+      {
+        "section": "NSCLC_P9",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 12242,
+        "n_tumor": 6121,
+        "n_cd8pos": 1585,
+        "n_cldn4_high_tumor": 1531,
+        "n_cldn4_low_tumor": 1531,
+        "frac_cd8pos": 0.12947230844633228,
+        "mean_CLDN4_log": 1.539429236892568,
+        "mean_CD8A_log": 0.10512956675684697,
+        "same_CLDN4_CD8A_all": {
+          "n": 12242,
+          "rho": -0.007479151667163729,
+          "p": 0.40798367865702206
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 6121,
+          "rho": -0.014254170947973195,
+          "p": 0.2648376147292666
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 6121,
+          "rho": -0.019115517140239575,
+          "p": 0.13481830905832107
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 12242,
+          "rho": 0.030079085882243197,
+          "p": 0.0008732418077287785
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 6121,
+          "rho": -0.008474390967321326,
+          "p": 0.5074036372278697
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 6121,
+          "rho": 0.008199528535126585,
+          "p": 0.5212727051308511
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 6121,
+          "rho": -0.00942786522503066,
+          "p": 0.46083540221828134
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 6117,
+          "rho": -0.030702059968361645,
+          "p": 0.01633596043674159
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 6120,
+          "rho": -0.01668867604986982,
+          "p": 0.19176127276142493
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 6121,
+          "rho": -0.02421531123576637,
+          "p": 0.05816931265566834
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 6117,
+          "rho": -0.0286861183483638,
+          "p": 0.024859411425249986
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1531,
+          "n_low": 1531,
+          "median_high": 100.00000000000033,
+          "median_low": 100.00000000000033,
+          "delta_high_minus_low": 0.0,
+          "p": 0.7911758912555195
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1531,
+          "n_low": 1530,
+          "median_high": 0.07144843221561972,
+          "median_low": 0.078515137913297,
+          "delta_high_minus_low": -0.0070667056976772835,
+          "p": 0.0638872194593167
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1531,
+          "n_low": 1531,
+          "median_high": 0.07776998096848635,
+          "median_low": 0.07962595375228636,
+          "delta_high_minus_low": -0.0018559727838000084,
+          "p": 0.23169229324104257
+        }
+      },
+      {
+        "section": "NSCLC_P10",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 8681,
+        "n_tumor": 4341,
+        "n_cd8pos": 810,
+        "n_cldn4_high_tumor": 1086,
+        "n_cldn4_low_tumor": 1086,
+        "frac_cd8pos": 0.09330722267019928,
+        "mean_CLDN4_log": 1.2977174239626157,
+        "mean_CD8A_log": 0.05033171546151187,
+        "same_CLDN4_CD8A_all": {
+          "n": 8681,
+          "rho": 0.019430003422091276,
+          "p": 0.0702585445036552
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 4341,
+          "rho": -0.0038330818420750424,
+          "p": 0.8006734371997227
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 4341,
+          "rho": 0.012223639755672686,
+          "p": 0.4207226729710973
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 8681,
+          "rho": -0.028082099498729578,
+          "p": 0.0088809998825104
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 4341,
+          "rho": -0.0026885072903175145,
+          "p": 0.8594416144378356
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 4341,
+          "rho": 0.018010033103559562,
+          "p": 0.23547688240073772
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 4341,
+          "rho": 0.022128766356257046,
+          "p": 0.14491211716262606
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 4322,
+          "rho": -0.026018914544765324,
+          "p": 0.0872052117944755
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 4333,
+          "rho": -0.043223014153903234,
+          "p": 0.004431578132438595
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 4326,
+          "rho": -0.019036383038901407,
+          "p": 0.21063584512192662
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 4322,
+          "rho": -0.024397653478599436,
+          "p": 0.10877505308800994
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1086,
+          "n_low": 1086,
+          "median_high": 173.20508075688792,
+          "median_low": 173.2050807568878,
+          "delta_high_minus_low": 1.1368683772161603e-13,
+          "p": 0.6745022088076067
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1082,
+          "n_low": 1081,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.2108717197674007
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1085,
+          "n_low": 1083,
+          "median_high": 0.020981034049646487,
+          "median_low": 0.02551285760744001,
+          "delta_high_minus_low": -0.004531823557793524,
+          "p": 0.014227646351851838
+        }
+      },
+      {
+        "section": "NSCLC_P11",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 13202,
+        "n_tumor": 6601,
+        "n_cd8pos": 3999,
+        "n_cldn4_high_tumor": 1651,
+        "n_cldn4_low_tumor": 1651,
+        "frac_cd8pos": 0.30290865020451446,
+        "mean_CLDN4_log": 1.336453322403933,
+        "mean_CD8A_log": 0.1082648536971795,
+        "same_CLDN4_CD8A_all": {
+          "n": 13202,
+          "rho": 0.012497777884620557,
+          "p": 0.15102674627369053
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 6601,
+          "rho": -0.03688908148759083,
+          "p": 0.00272147808587844
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 6601,
+          "rho": -0.0002636815849289902,
+          "p": 0.9829112902250818
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 13202,
+          "rho": -0.0269409781259538,
+          "p": 0.001962919879698955
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 6601,
+          "rho": -0.029062528877453874,
+          "p": 0.01821190413329927
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 6601,
+          "rho": 0.0215793451731183,
+          "p": 0.07958155086145205
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 6601,
+          "rho": 0.026015357770120897,
+          "p": 0.034548148790938406
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 6595,
+          "rho": -0.05070222165982651,
+          "p": 3.79899174239421e-05
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 6600,
+          "rho": -0.05015963237661851,
+          "p": 4.5663236942784274e-05
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 6601,
+          "rho": -0.0318531284221561,
+          "p": 0.009650051458016735
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 6595,
+          "rho": -0.04881997486048089,
+          "p": 7.300789077482824e-05
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1651,
+          "n_low": 1651,
+          "median_high": 100.0,
+          "median_low": 100.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.11858739336195055
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1651,
+          "n_low": 1650,
+          "median_high": 0.07695654694430275,
+          "median_low": 0.08757078579477061,
+          "delta_high_minus_low": -0.01061423885046786,
+          "p": 7.369339068636426e-05
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1651,
+          "n_low": 1650,
+          "median_high": 0.08465408788005434,
+          "median_low": 0.09570282033696606,
+          "delta_high_minus_low": -0.011048732456911722,
+          "p": 9.387827295437397e-05
+        }
+      },
+      {
+        "section": "NSCLC_P12",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 2042,
+        "n_tumor": 1021,
+        "n_cd8pos": 285,
+        "n_cldn4_high_tumor": 256,
+        "n_cldn4_low_tumor": 294,
+        "frac_cd8pos": 0.1395690499510284,
+        "mean_CLDN4_log": 0.757751586702038,
+        "mean_CD8A_log": 0.1615529655245971,
+        "same_CLDN4_CD8A_all": {
+          "n": 2042,
+          "rho": 0.08945792732344315,
+          "p": 5.163243014255229e-05
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 1021,
+          "rho": 0.02441390217340508,
+          "p": 0.4358264728119446
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 1021,
+          "rho": -0.04678846168490113,
+          "p": 0.13516965480697488
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 2042,
+          "rho": 0.015565451416432362,
+          "p": 0.4820612312616122
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 1021,
+          "rho": 0.0030849864732390413,
+          "p": 0.9215715316151548
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 1021,
+          "rho": -0.12260831175361561,
+          "p": 8.574674006208213e-05
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 1021,
+          "rho": -0.12065562791998077,
+          "p": 0.0001112147390128979
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 1015,
+          "rho": 0.04153555471888,
+          "p": 0.18609358853969893
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 1019,
+          "rho": 0.0639810063181899,
+          "p": 0.04115419143010031
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 1019,
+          "rho": 0.1374089457941792,
+          "p": 1.073318983877728e-05
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 1015,
+          "rho": 0.01872643667039295,
+          "p": 0.5512260951089162
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 256,
+          "n_low": 294,
+          "median_high": 100.00000000000033,
+          "median_low": 173.20508075688758,
+          "delta_high_minus_low": -73.20508075688726,
+          "p": 1.8579714271393957e-05
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 253,
+          "n_low": 292,
+          "median_high": 0.1321815729151429,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.1321815729151429,
+          "p": 0.09235743811819494
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 254,
+          "n_low": 294,
+          "median_high": 0.1638129656559073,
+          "median_low": 0.11978432447778717,
+          "delta_high_minus_low": 0.04402864117812014,
+          "p": 0.018308598683319393
+        }
+      },
+      {
+        "section": "NSCLC_P13",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 5242,
+        "n_tumor": 2621,
+        "n_cd8pos": 654,
+        "n_cldn4_high_tumor": 656,
+        "n_cldn4_low_tumor": 656,
+        "frac_cd8pos": 0.12476154139641359,
+        "mean_CLDN4_log": 1.177383979872028,
+        "mean_CD8A_log": 0.03519918793885059,
+        "same_CLDN4_CD8A_all": {
+          "n": 5242,
+          "rho": -0.010813510715904242,
+          "p": 0.4337726020267077
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 2621,
+          "rho": -0.003227961401548688,
+          "p": 0.8688028169201093
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 2621,
+          "rho": -0.012379063419669068,
+          "p": 0.5264223204145974
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 5242,
+          "rho": 0.03263700564633304,
+          "p": 0.01812575041103016
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 2621,
+          "rho": 0.012714338332905674,
+          "p": 0.5152819491799848
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 2621,
+          "rho": 0.007580205591995548,
+          "p": 0.6980941777965889
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 2621,
+          "rho": 0.015880749165381073,
+          "p": 0.41639608520525595
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 2617,
+          "rho": -0.007728476002915504,
+          "p": 0.6927102408251368
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 2621,
+          "rho": 0.02535902049290997,
+          "p": 0.1943346642218178
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 2621,
+          "rho": 0.03941807183864,
+          "p": 0.04360610870309574
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 2617,
+          "rho": -0.004039314923141273,
+          "p": 0.8363692564882639
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 656,
+          "n_low": 656,
+          "median_high": 100.00000000000033,
+          "median_low": 100.00000000000033,
+          "delta_high_minus_low": 0.0,
+          "p": 0.42032704232298335
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 655,
+          "n_low": 655,
+          "median_high": 0.016442749373666358,
+          "median_low": 0.018573381748317155,
+          "delta_high_minus_low": -0.002130632374650797,
+          "p": 0.3946016641929616
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 656,
+          "n_low": 656,
+          "median_high": 0.01962643846641035,
+          "median_low": 0.018562363736417925,
+          "delta_high_minus_low": 0.0010640747299924258,
+          "p": 0.6180624499160474
+        }
+      },
+      {
+        "section": "NSCLC_P14",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 1324,
+        "n_tumor": 1324,
+        "n_cd8pos": 14,
+        "n_cldn4_high_tumor": 1324,
+        "n_cldn4_low_tumor": 1288,
+        "frac_cd8pos": 0.010574018126888218,
+        "mean_CLDN4_log": 0.06144557341280632,
+        "mean_CD8A_log": 0.026577377143524317,
+        "same_CLDN4_CD8A_all": {
+          "n": 1324,
+          "rho": -0.017280591007497403,
+          "p": 0.5298476450662976
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 1324,
+          "rho": -0.017280591007497403,
+          "p": 0.5298476450662976
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 1324,
+          "rho": 0.02066443021155533,
+          "p": 0.45248251777138593
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 1324,
+          "rho": 0.8545204537808156,
+          "p": 0.0
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 1324,
+          "rho": 0.8545204537808156,
+          "p": 0.0
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 1324,
+          "rho": 0.05578518508677272,
+          "p": 0.042406551212206295
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 1324,
+          "rho": 0.12135459822587251,
+          "p": 9.515054677972261e-06
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 1282,
+          "rho": -0.04233979297442041,
+          "p": 0.1297273067192
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 1306,
+          "rho": -0.015839695926580098,
+          "p": 0.5673812280217082
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 1306,
+          "rho": -0.042808204032656866,
+          "p": 0.12204251798182263
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 1282,
+          "rho": -0.755235059837342,
+          "p": 4.4054498064150985e-237
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 1324,
+          "n_low": 1288,
+          "median_high": 458.25756949558405,
+          "median_low": 458.2575694955839,
+          "delta_high_minus_low": 1.7053025658242404e-13,
+          "p": 0.8128450391734241
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 1282,
+          "n_low": 1246,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.8574422456066217
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 1306,
+          "n_low": 1270,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.9478979327718081
+        }
+      },
+      {
+        "section": "NSCLC_P15",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 12766,
+        "n_tumor": 6383,
+        "n_cd8pos": 2216,
+        "n_cldn4_high_tumor": 6383,
+        "n_cldn4_low_tumor": 4877,
+        "frac_cd8pos": 0.17358608804637318,
+        "mean_CLDN4_log": 0.1597620761778645,
+        "mean_CD8A_log": 0.12178849720981223,
+        "same_CLDN4_CD8A_all": {
+          "n": 12766,
+          "rho": 0.033540686687549615,
+          "p": 0.00015043659672931344
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 6383,
+          "rho": 0.009028287932149518,
+          "p": 0.47080088537061265
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 6383,
+          "rho": -0.029578361418544797,
+          "p": 0.018118949104499283
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 12766,
+          "rho": 0.3572921475577678,
+          "p": 0.0
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 6383,
+          "rho": 0.3112985127231282,
+          "p": 1.8642177296611501e-143
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 6383,
+          "rho": 0.004993054449183553,
+          "p": 0.6900126861027688
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 6383,
+          "rho": -0.08596801532221808,
+          "p": 5.9980983804892605e-12
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 6374,
+          "rho": -0.027171784301735287,
+          "p": 0.03006007715475869
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 6379,
+          "rho": -0.043046769012995104,
+          "p": 0.0005838516164584757
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 6381,
+          "rho": -0.04053271755369198,
+          "p": 0.0012016127148487892
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 6374,
+          "rho": 0.019864138862244956,
+          "p": 0.11279709603621826
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 6383,
+          "n_low": 4877,
+          "median_high": 100.0,
+          "median_low": 100.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.5076277946141865
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 6374,
+          "n_low": 4872,
+          "median_high": 0.12029482726240333,
+          "median_low": 0.12296325969398876,
+          "delta_high_minus_low": -0.0026684324315854324,
+          "p": 0.7368970594222517
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 6379,
+          "n_low": 4873,
+          "median_high": 0.12986298724504763,
+          "median_low": 0.1317193260987516,
+          "delta_high_minus_low": -0.0018563388537039538,
+          "p": 0.43364187066639426
+        }
+      },
+      {
+        "section": "NSCLC_P16",
+        "timepoint": "pre_ICI_biopsy",
+        "response": "pre_ICI_NSCLC",
+        "n_spots": 5262,
+        "n_tumor": 2631,
+        "n_cd8pos": 60,
+        "n_cldn4_high_tumor": 658,
+        "n_cldn4_low_tumor": 1220,
+        "frac_cd8pos": 0.011402508551881414,
+        "mean_CLDN4_log": 0.6387699284027887,
+        "mean_CD8A_log": 0.014140335724431262,
+        "same_CLDN4_CD8A_all": {
+          "n": 5262,
+          "rho": 0.021758170499242797,
+          "p": 0.1145330414309679
+        },
+        "same_CLDN4_CD8A_tumor": {
+          "n": 2631,
+          "rho": 0.0019628730815134223,
+          "p": 0.9198406566875995
+        },
+        "same_KRT8_CD8A_tumor": {
+          "n": 2631,
+          "rho": -0.024537241261185973,
+          "p": 0.2083242168193142
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_all": {
+          "n": 5262,
+          "rho": 0.2702361150936477,
+          "p": 9.871583860946374e-89
+        },
+        "partial_CLDN4_CD8A_ctrl_KRT8_tumor": {
+          "n": 2631,
+          "rho": 0.20529003419854996,
+          "p": 1.972909488763341e-26
+        },
+        "spearman_CLDN4_vs_nnCD8_tumor": {
+          "n": 2631,
+          "rho": 0.04825743048641983,
+          "p": 0.013303201711726076
+        },
+        "spearman_CLDN4residKRT8_vs_nnCD8_tumor": {
+          "n": 2631,
+          "rho": 0.022397262882465473,
+          "p": 0.2507923051635627
+        },
+        "spearman_CLDN4_vs_ring1CD8_tumor": {
+          "n": 2604,
+          "rho": -0.029270561989583655,
+          "p": 0.1353685959921944
+        },
+        "spearman_CLDN4_vs_ring2CD8_tumor": {
+          "n": 2622,
+          "rho": 0.006415813184377363,
+          "p": 0.7426308304607159
+        },
+        "spearman_CLDN4_vs_ring3CD8_tumor": {
+          "n": 2616,
+          "rho": 0.0005486723417731529,
+          "p": 0.9776227108771504
+        },
+        "partial_CLDN4_vs_ring1CD8_ctrl_KRT8_tumor": {
+          "n": 2604,
+          "rho": 0.1603830722536995,
+          "p": 1.81554947827258e-16
+        },
+        "nnCD8_high_vs_low_tumor_um": {
+          "n_high": 658,
+          "n_low": 1220,
+          "median_high": 519.6152422706627,
+          "median_low": 435.88989435406745,
+          "delta_high_minus_low": 83.7253479165953,
+          "p": 0.0005698843327167173
+        },
+        "ring1CD8_high_vs_low_tumor": {
+          "n_high": 652,
+          "n_low": 1208,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.044369114258052865
+        },
+        "ring2CD8_high_vs_low_tumor": {
+          "n_high": 658,
+          "n_low": 1216,
+          "median_high": 0.0,
+          "median_low": 0.0,
+          "delta_high_minus_low": 0.0,
+          "p": 0.8900358180304816
+        }
+      }
+    ],
+    "skips": [],
+    "note": "Open pre-treatment NSCLC Visium (immunotherapy spatial biology). Not matched to PRJNA1139087 patients."
+  }
+}
