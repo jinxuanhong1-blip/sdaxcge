@@ -100,6 +100,7 @@ def load_sample(zf: zipfile.ZipFile, sample: str) -> pd.DataFrame:
     df = df.reset_index(drop=True)
     df["x_um"] = pd.to_numeric(df["x_px"], errors="coerce") * UM_PER_PX
     df["y_um"] = pd.to_numeric(df["y_px"], errors="coerce") * UM_PER_PX
+    df = df[np.isfinite(df["x_um"]) & np.isfinite(df["y_um"])].copy()
     df["cell_type"] = df["cell_type"].astype(str)
     # Author tumor types only. Do NOT drop CD8A>0 tumor cells (interface).
     df["is_tumor"] = df["cell_type"].str.lower().str.startswith("tumor")
@@ -266,8 +267,15 @@ def analyze_section(sub: pd.DataFrame) -> dict | None:
     xy_tum = tum[["x_um", "y_um"]].to_numpy()
     prev = float(sub["is_cd8nk"].mean())
 
-    nb_h = tumor_neighborhoods(high, xy_imm, xy_all, xy_tum)
-    nb_l = tumor_neighborhoods(low, xy_imm, xy_all, xy_tum)
+    nb_all_tum = tumor_neighborhoods(tum, xy_imm, xy_all, xy_tum)
+    high_mask = tum["cldn4_hl"].eq("high").to_numpy()
+    low_mask = ~high_mask
+
+    def _slice(nb: dict, mask: np.ndarray) -> dict:
+        return {k: (v[mask] if isinstance(v, np.ndarray) else v) for k, v in nb.items()}
+
+    nb_h = _slice(nb_all_tum, high_mask)
+    nb_l = _slice(nb_all_tum, low_mask)
     sh = summarize_arm(nb_h)
     sl = summarize_arm(nb_l)
 
@@ -300,22 +308,18 @@ def analyze_section(sub: pd.DataFrame) -> dict | None:
         rec[f"high_enrich{ri}"] = rec[f"high_frac{ri}"] / prev if prev > 0 else np.nan
         rec[f"low_enrich{ri}"] = rec[f"low_frac{ri}"] / prev if prev > 0 else np.nan
 
-    # section-level high/low label permutation (primary null)
-    n_high = len(high)
-    xy_t = tum[["x_um", "y_um"]].to_numpy()
-    hl = tum["cldn4_hl"].to_numpy()
+    # section-level high/low label permutation on precomputed neighborhoods
+    n_high = int(high_mask.sum())
     null_d40 = np.zeros(N_PERM)
     null_dmix40 = np.zeros(N_PERM)
+    n_imm40 = nb_all_tum["n_imm"][:, 1]
+    mix40 = nb_all_tum["mix"][:, 1]
     for p in range(N_PERM):
         pick = RNG.choice(len(tum), size=n_high, replace=False)
         mask = np.zeros(len(tum), dtype=bool)
         mask[pick] = True
-        h_df = tum.iloc[np.flatnonzero(mask)]
-        l_df = tum.iloc[np.flatnonzero(~mask)]
-        nh = tumor_neighborhoods(h_df, xy_imm, xy_all, xy_t)
-        nl = tumor_neighborhoods(l_df, xy_imm, xy_all, xy_t)
-        null_d40[p] = np.nanmean(nh["n_imm"][:, 1]) - np.nanmean(nl["n_imm"][:, 1])
-        null_dmix40[p] = np.nanmean(nh["mix"][:, 1]) - np.nanmean(nl["mix"][:, 1])
+        null_d40[p] = np.nanmean(n_imm40[mask]) - np.nanmean(n_imm40[~mask])
+        null_dmix40[p] = np.nanmean(mix40[mask]) - np.nanmean(mix40[~mask])
     rec["p_perm_delta_cnt40_less"] = perm_pvalue(rec["delta_cnt40"], null_d40, "less")
     rec["p_perm_delta_mix40_less"] = perm_pvalue(rec["delta_mix40"], null_dmix40, "less")
 
@@ -375,6 +379,8 @@ def paired_wilcoxon(a: np.ndarray, b: np.ndarray, alternative: str) -> tuple[flo
 def fmt_p(p: float) -> str:
     if not np.isfinite(p):
         return "NA"
+    if p <= 0:
+        return "<1e-300"
     if p < 0.001:
         return f"{p:.2e}"
     return f"{p:.3f}"
@@ -635,16 +641,21 @@ def write_results(df: pd.DataFrame, sec: pd.DataFrame, recs: list[dict], genes_p
     _, p_nn = paired_wilcoxon(sec["high_median_nn"], sec["low_median_nn"], "greater")
 
     r40 = [x for x in rows_p if x[0] == 40][0]
+    _, p40_two = paired_wilcoxon(sec["high_cnt40"], sec["low_cnt40"], "two-sided")
+    _, p40_d_two = paired_wilcoxon(don["high_cnt40"], don["low_cnt40"], "two-sided")
+    n_fewer = int(r40[5])
+    n_more = int((sec["high_cnt40"] > sec["low_cnt40"]).sum())
     paper = (
         f"In the official CosMx NSCLC FFPE 960-plex cohort (all 8 sections / 5 donors; "
         f"{n_tumor:,} author-typed tumor cells, {n_cd8:,} CD8 T cells + {n_nk:,} NK = {n_cd8nk:,} CD8+NK; "
-        f"{n_cells:,} cells, {n_fov} FOVs), CLDN4-high tumor cells (per-section residual split on "
-        f"KRT8/EPCAM; tumor not gated on CD8A==0) had fewer CD8+NK neighbors within 40 µm than "
-        f"CLDN4-low tumor cells (section-paired median ∆ = {r40[1]:.3f} cells, Wilcoxon p = {fmt_p(r40[2])}, "
-        f"n = 8 sections, {r40[5]}/8 sections in the same direction; donor-paired mean ∆ = {r40[3]:.3f}, "
-        f"p = {fmt_p(r40[4])}, n = 5 donors). The 40 µm mixing score and density-normalized CD8+NK "
-        f"neighbor fraction were also lower for CLDN4-high tumor cells "
-        f"(∆mix = {d_mix:.4f}, section p = {fmt_p(p_mix_s)}; ∆frac = {d_frac:.4f}, section p = {fmt_p(p_frac_s)})."
+        f"{n_cells:,} cells, {n_fov} FOVs), CD8+NK neighbor counts at 40 µm around CLDN4-high vs "
+        f"CLDN4-low tumor cells were heterogeneous and not consistently reduced "
+        f"(section-paired median ∆[high−low] = {r40[1]:+.3f} cells, two-sided Wilcoxon p = {fmt_p(p40_two)}, "
+        f"one-sided high<low p = {fmt_p(r40[2])}; {n_fewer}/8 sections with fewer neighbors around high, "
+        f"{n_more}/8 with more; donor-paired mean ∆ = {r40[3]:+.3f}, two-sided p = {fmt_p(p40_d_two)}, "
+        f"n = 5 donors). Mixing score ∆med = {d_mix:+.4f} (section two-sided p follows count direction; "
+        f"one-sided high<low p = {fmt_p(p_mix_s)}); density-normalized CD8+NK fraction ∆med = {d_frac:+.4f} "
+        f"(one-sided high<low p = {fmt_p(p_frac_s)}). Tumor cells were not gated on CD8A==0."
     )
 
     lines = [

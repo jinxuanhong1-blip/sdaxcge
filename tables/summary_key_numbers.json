@@ -1,0 +1,16 @@
+{
+  "n_cells": 765771,
+  "n_fov": 232,
+  "n_sections": 8,
+  "n_donors": 5,
+  "n_tumor": 302313,
+  "n_cd8nk": 23769,
+  "delta_cnt40_section_median": 0.009955086888885745,
+  "p_section_cnt40": 0.578125,
+  "p_donor_cnt40": 0.40625,
+  "delta_mix40_section_median": 0.006359531350103949,
+  "p_section_mix40": 0.84375,
+  "paper_sentence": "In the official CosMx NSCLC FFPE 960-plex cohort (all 8 sections / 5 donors; 302,313 author-typed tumor cells, 15,955 CD8 T cells + 7,814 NK = 23,769 CD8+NK; 765,771 cells, 232 FOVs), CD8+NK neighbor counts at 40 \u00b5m around CLDN4-high vs CLDN4-low tumor cells were heterogeneous and not consistently reduced (section-paired median \u2206[high\u2212low] = +0.010 cells, two-sided Wilcoxon p = 0.945, one-sided high<low p = 0.578; 3/8 sections with fewer neighbors around high, 5/8 with more; donor-paired mean \u2206 = -0.019, two-sided p = 0.812, n = 5 donors). Mixing-score \u2206med = +0.0064 (two-sided p = 0.383); density-normalized CD8+NK fraction \u2206med = +0.0005 (two-sided p = 0.742). Tumor cells were not gated on CD8A==0.",
+  "p_section_cnt40_twosided": 0.9453125,
+  "p_donor_cnt40_twosided": 0.8125
+}
