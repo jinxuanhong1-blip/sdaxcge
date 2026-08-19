@@ -1,0 +1,54 @@
+[
+  {
+    "dataset_id": "xenium_human_lung_preview_cancer",
+    "sources": {
+      "current|hLung_100g": 100,
+      "base|hLung_292g": 292
+    },
+    "cldn4": false
+  },
+  {
+    "dataset_id": "xenium_human_lung_preview_nondiseased",
+    "sources": {
+      "current|hLung_100g": 100,
+      "base|hLung_292g": 292
+    },
+    "cldn4": false
+  },
+  {
+    "dataset_id": "xenium_hlung_cancer_multitissue_preview",
+    "sources": {
+      "current|hMulti_377g": 377
+    },
+    "cldn4": false
+  },
+  {
+    "dataset_id": "xenium_ffpe_luad_multimodal",
+    "sources": {
+      "current|Xenium Human Multi-Tissue and Cancer Gene Expression": 377
+    },
+    "cldn4": false
+  },
+  {
+    "dataset_id": "xenium_ffpe_nsclc_io_addon",
+    "sources": {
+      "current|Xenium Human Immuno-Oncology Add-on A Gene Expression": 100,
+      "base|Xenium Human Immuno-Oncology Profiling": 380
+    },
+    "cldn4": false
+  },
+  {
+    "dataset_id": "xenium_postxenium_v1_lung_panel",
+    "sources": {
+      "current|Xenium Human Lung Gene Expression": 289
+    },
+    "cldn4": false
+  },
+  {
+    "dataset_id": "xenium_postxenium_prime5k",
+    "sources": {
+      "current|Xenium Human 5K Pan Tissue & Pathways Panel": 5001
+    },
+    "cldn4": false
+  }
+]
