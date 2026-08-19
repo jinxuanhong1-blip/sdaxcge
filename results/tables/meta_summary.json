@@ -1,0 +1,16 @@
+{
+  "n_fov_analysed": 159,
+  "n_fov_skipped": 74,
+  "r_star_meta_um": 22.5,
+  "mean_g_rstar": 0.09127480471539616,
+  "sem_g_rstar": 0.007923622425720464,
+  "mean_dg_rstar": -0.04250672006709572,
+  "stouffer_p": 1.9793679500713235e-10,
+  "median_fov_r_gmin": 12.5,
+  "n_perm_label": 399,
+  "n_perm_csr": 199,
+  "cldn4_high_rule": "tumor cells with CLDN4 >= sample 75th percentile and CLDN4>=1",
+  "lambda": "Gaussian-smoothed intensity of epithelial+tumor cells, bandwidth 80 \u00b5m",
+  "runtime_sec": 131.54076170921326,
+  "wilcoxon_p": 1.1021201876226011e-12
+}
