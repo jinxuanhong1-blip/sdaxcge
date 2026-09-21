@@ -1,0 +1,190 @@
+{
+  "seed": 20260921,
+  "n_boot": 2000,
+  "cohorts": {
+    "LUAD": {
+      "n_tumors": 110,
+      "n_protein_rows": 12433,
+      "treat_cols": [],
+      "ifn_members": [
+        "STAT1",
+        "STAT2",
+        "IRF1",
+        "IRF9",
+        "JAK1",
+        "JAK2",
+        "ISG15",
+        "MX1",
+        "OAS1",
+        "IFI35"
+      ],
+      "mhc_members": [
+        "HLA-A",
+        "HLA-B",
+        "HLA-C"
+      ],
+      "cldn4_missing": 31,
+      "tacstd2_missing": 0,
+      "wes_n": 108
+    },
+    "LSCC": {
+      "n_tumors": 108,
+      "n_protein_rows": 12760,
+      "treat_cols": [],
+      "ifn_members": [
+        "STAT1",
+        "STAT2",
+        "IRF1",
+        "IRF9",
+        "JAK1",
+        "JAK2",
+        "ISG15",
+        "MX1",
+        "OAS1",
+        "IFI35"
+      ],
+      "mhc_members": [
+        "HLA-A",
+        "HLA-B",
+        "HLA-C"
+      ],
+      "cldn4_missing": 30,
+      "tacstd2_missing": 0,
+      "wes_n": 107
+    }
+  },
+  "primary_calls": [
+    {
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD8A_protein",
+      "n": 79,
+      "rho": -0.09790652385589094,
+      "p": 0.3906679722862911,
+      "q_primary": 0.5860019584294366,
+      "rho_partial": -0.04416566290158749,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "MHC1_protein",
+      "n": 79,
+      "rho": 0.04946445959104188,
+      "p": 0.6650821699051745,
+      "q_primary": 0.7884665146868516,
+      "rho_partial": 0.07089906157392716,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "CLDN4_protein",
+      "endpoint": "IFN_core_protein",
+      "n": 79,
+      "rho": -0.19235637779941578,
+      "p": 0.08944180748999395,
+      "q_primary": 0.2683254224699818,
+      "rho_partial": -0.15398992802971845,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "endpoint": "CD8A_protein",
+      "n": 110,
+      "rho": -0.03836079615896129,
+      "p": 0.6907172403595156,
+      "q_primary": 0.7884665146868516,
+      "rho_partial": 0.010040213917549362,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "endpoint": "MHC1_protein",
+      "n": 110,
+      "rho": -0.08329012916168879,
+      "p": 0.38699507924129223,
+      "q_primary": 0.5860019584294366,
+      "rho_partial": -0.0392431837185344,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LUAD",
+      "predictor": "TACSTD2_protein",
+      "endpoint": "IFN_core_protein",
+      "n": 110,
+      "rho": -0.02587291211144422,
+      "p": 0.7884665146868517,
+      "q_primary": 0.7884665146868516,
+      "rho_partial": 0.024159412158305738,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "CD8A_protein",
+      "n": 78,
+      "rho": -0.4441002035938745,
+      "p": 4.64372740784413e-05,
+      "q_primary": 0.0005572472889412957,
+      "rho_partial": -0.3759290382971399,
+      "call": "supports inverse"
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "MHC1_protein",
+      "n": 78,
+      "rho": -0.4097042198308021,
+      "p": 0.0001953844621326853,
+      "q_primary": 0.001172306772796112,
+      "rho_partial": -0.3200168974444453,
+      "call": "supports inverse"
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "CLDN4_protein",
+      "endpoint": "IFN_core_protein",
+      "n": 78,
+      "rho": -0.17540687160940327,
+      "p": 0.1245196891966577,
+      "q_primary": 0.29884725407197854,
+      "rho_partial": -0.11325121640820363,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "endpoint": "CD8A_protein",
+      "n": 108,
+      "rho": -0.10335629293015898,
+      "p": 0.28711792033709344,
+      "q_primary": 0.5742358406741869,
+      "rho_partial": -0.08885142111548107,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "endpoint": "MHC1_protein",
+      "n": 108,
+      "rho": 0.0291996532243467,
+      "p": 0.7641888603082562,
+      "q_primary": 0.7884665146868516,
+      "rho_partial": 0.06958092498707238,
+      "call": "null; does not support"
+    },
+    {
+      "cohort": "LSCC",
+      "predictor": "TACSTD2_protein",
+      "endpoint": "IFN_core_protein",
+      "n": 108,
+      "rho": 0.2299579867958501,
+      "p": 0.01665828639006896,
+      "q_primary": 0.06663314556027584,
+      "rho_partial": 0.2518161654734101,
+      "call": "positive CI; primary-family q \u2265 0.05"
+    }
+  ]
+}
