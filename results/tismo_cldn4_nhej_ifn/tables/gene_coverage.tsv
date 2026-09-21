@@ -1,0 +1,8 @@
+score	set	role	n_requested	n_used	n_missing_or_dropped	missing	n_samples_scored
+IFN_gamma	HALLMARK_INTERFERON_GAMMA_RESPONSE	primary_IFN	188	185	3	Cxcl11;Mx2;Tmt1b	604
+IFN_alpha	HALLMARK_INTERFERON_ALPHA_RESPONSE	secondary_IFN	94	92	2	Cxcl11;Mx2	604
+NHEJ_GO	GOBP_DOUBLE_STRAND_BREAK_REPAIR_VIA_NONHOMOLOGOUS_END_JOINING	primary_NHEJ	79	78	1	Bend2	604
+NHEJ_Reactome	REACTOME_NONHOMOLOGOUS_END_JOINING_NHEJ	secondary_NHEJ_histone_heavy	67	59	8	H2bc22;H2bc23;H2bc24;H2bc26;H2bc27;H4c16;H4c17;H4c18	565
+NHEJ_Reactome_no_histone	REACTOME_NHEJ_minus_histones	secondary_NHEJ_no_histone	34	34	0		604
+NHEJ_WP	WP_NONHOMOLOGOUS_END_JOINING	secondary_NHEJ_short	7	7	0		603
+NHEJ_core	cNHEJ_machinery	secondary_NHEJ_core	12	12	0		604

@@ -1,0 +1,599 @@
+{
+  "lock": {
+    "Tacstd2": {
+      "max_abs_diff": 9.645062526431047e-16,
+      "n": 64,
+      "n_up": 49,
+      "n_down": 15,
+      "n_tie": 0
+    },
+    "Cldn4": {
+      "max_abs_diff": 1.7208456881689926e-15,
+      "n": 64,
+      "n_up": 34,
+      "n_down": 28,
+      "n_tie": 2
+    }
+  },
+  "tacstd2_wilcoxon_p": 5.8398482923347564e-05,
+  "cldn4_wilcoxon_p": 0.07667785136224303,
+  "primary_correlations": [
+    {
+      "label": "delta Cldn4 vs IFN_gamma",
+      "n": 64,
+      "rho": -0.02770178230243651,
+      "p": 0.827983845761401,
+      "ci_low": -0.29491211202519985,
+      "ci_high": 0.25359651502999875,
+      "family": "primary",
+      "kind": "delta",
+      "score": "IFN_gamma",
+      "q": 0.827983845761401
+    },
+    {
+      "label": "delta Cldn4 vs NHEJ_GO",
+      "n": 64,
+      "rho": 0.05249602216486522,
+      "p": 0.6803575888164394,
+      "ci_low": -0.18992299667801213,
+      "ci_high": 0.2968224559982172,
+      "family": "primary",
+      "kind": "delta",
+      "score": "NHEJ_GO",
+      "q": 0.827983845761401
+    },
+    {
+      "label": "baseline Cldn4 vs IFN_gamma",
+      "n": 64,
+      "rho": 0.393926913324347,
+      "p": 0.0012792282546557519,
+      "ci_low": 0.13294370997534208,
+      "ci_high": 0.5979237033928376,
+      "family": "primary",
+      "kind": "baseline",
+      "score": "IFN_gamma",
+      "q": 0.007675369527934512
+    },
+    {
+      "label": "baseline Cldn4 vs NHEJ_GO",
+      "n": 64,
+      "rho": 0.11266831842551953,
+      "p": 0.3753973210032877,
+      "ci_low": -0.1458337385433383,
+      "ci_high": 0.3581453300812851,
+      "family": "primary",
+      "kind": "baseline",
+      "score": "NHEJ_GO",
+      "q": 0.7507946420065754
+    },
+    {
+      "label": "icb Cldn4 vs IFN_gamma",
+      "n": 64,
+      "rho": 0.16826196914705,
+      "p": 0.18382698999896638,
+      "ci_low": -0.09651863839476459,
+      "ci_high": 0.41332957918277347,
+      "family": "primary",
+      "kind": "icb",
+      "score": "IFN_gamma",
+      "q": 0.5514809699968991
+    },
+    {
+      "label": "icb Cldn4 vs NHEJ_GO",
+      "n": 64,
+      "rho": 0.03998168183597567,
+      "p": 0.7537680026224196,
+      "ci_low": -0.2355987991836675,
+      "ci_high": 0.29786483317850393,
+      "family": "primary",
+      "kind": "icb",
+      "score": "NHEJ_GO",
+      "q": 0.827983845761401
+    }
+  ],
+  "partial": [
+    {
+      "label": "delta Cldn4 vs IFN_gamma given NHEJ_GO",
+      "n": 64,
+      "rho": -0.0220255279434535,
+      "p": 0.8628461398694013
+    },
+    {
+      "label": "delta Cldn4 vs NHEJ_GO given IFN_gamma",
+      "n": 64,
+      "rho": 0.04974061901895854,
+      "p": 0.6962970249696583
+    },
+    {
+      "label": "baseline Cldn4 vs IFN_gamma given NHEJ_GO",
+      "n": 64,
+      "rho": 0.3812217941563529,
+      "p": 0.001883952892365071
+    },
+    {
+      "label": "baseline Cldn4 vs NHEJ_GO given IFN_gamma",
+      "n": 64,
+      "rho": -0.03442104642628245,
+      "p": 0.7871440318689034
+    }
+  ],
+  "score_directions": [
+    {
+      "score": "IFN_gamma",
+      "n_pairs": 64,
+      "n_up": 49,
+      "n_down": 15,
+      "n_tie": 0,
+      "n_tested": 64,
+      "binomial_p_two_sided": 2.436457216293327e-05,
+      "binomial_p_greater": 1.2182286081466635e-05,
+      "mean_delta": 0.15877066373085472,
+      "median_delta": 0.14745493558924505,
+      "wilcoxon_stat": 314.0,
+      "wilcoxon_p_two_sided": 1.2030875452442866e-06,
+      "wilcoxon_p_greater": 6.015437726221433e-07
+    },
+    {
+      "score": "IFN_alpha",
+      "n_pairs": 64,
+      "n_up": 48,
+      "n_down": 16,
+      "n_tie": 0,
+      "n_tested": 64,
+      "binomial_p_two_sided": 7.733076881287027e-05,
+      "binomial_p_greater": 3.866538440643513e-05,
+      "mean_delta": 0.1602605986790402,
+      "median_delta": 0.12055141893703569,
+      "wilcoxon_stat": 376.0,
+      "wilcoxon_p_two_sided": 8.974880260619573e-06,
+      "wilcoxon_p_greater": 4.487440130309786e-06
+    },
+    {
+      "score": "NHEJ_GO",
+      "n_pairs": 64,
+      "n_up": 18,
+      "n_down": 46,
+      "n_tie": 0,
+      "n_tested": 64,
+      "binomial_p_two_sided": 0.0006173782640671298,
+      "binomial_p_greater": 0.9998865588085584,
+      "mean_delta": -0.1086095099206226,
+      "median_delta": -0.0626412811607574,
+      "wilcoxon_stat": 442.0,
+      "wilcoxon_p_two_sided": 6.357634159958537e-05,
+      "wilcoxon_p_greater": 0.9999682118292003
+    },
+    {
+      "score": "NHEJ_Reactome",
+      "n_pairs": 62,
+      "n_up": 16,
+      "n_down": 46,
+      "n_tie": 0,
+      "n_tested": 62,
+      "binomial_p_two_sided": 0.00017632711255144299,
+      "binomial_p_greater": 0.9999711081399754,
+      "mean_delta": -0.12083697462226602,
+      "median_delta": -0.07938497370764838,
+      "wilcoxon_stat": 368.0,
+      "wilcoxon_p_two_sided": 1.9879672515839892e-05,
+      "wilcoxon_p_greater": 0.999990060163742
+    },
+    {
+      "score": "NHEJ_Reactome_no_histone",
+      "n_pairs": 64,
+      "n_up": 17,
+      "n_down": 47,
+      "n_tie": 0,
+      "n_tested": 64,
+      "binomial_p_two_sided": 0.0002268823828832806,
+      "binomial_p_greater": 0.9999613346155936,
+      "mean_delta": -0.14624974102552205,
+      "median_delta": -0.09627487749508137,
+      "wilcoxon_stat": 381.0,
+      "wilcoxon_p_two_sided": 1.0478046214573503e-05,
+      "wilcoxon_p_greater": 0.9999947609768927
+    },
+    {
+      "score": "NHEJ_WP",
+      "n_pairs": 64,
+      "n_up": 17,
+      "n_down": 47,
+      "n_tie": 0,
+      "n_tested": 64,
+      "binomial_p_two_sided": 0.0002268823828832806,
+      "binomial_p_greater": 0.9999613346155936,
+      "mean_delta": -0.21454615158597895,
+      "median_delta": -0.14217511532351934,
+      "wilcoxon_stat": 378.0,
+      "wilcoxon_p_two_sided": 9.549601894788907e-06,
+      "wilcoxon_p_greater": 0.9999952251990526
+    },
+    {
+      "score": "NHEJ_core",
+      "n_pairs": 64,
+      "n_up": 20,
+      "n_down": 44,
+      "n_tie": 0,
+      "n_tested": 64,
+      "binomial_p_two_sided": 0.0036899642765400487,
+      "binomial_p_greater": 0.999218605327586,
+      "mean_delta": -0.11047786162754925,
+      "median_delta": -0.07358554745048168,
+      "wilcoxon_stat": 466.0,
+      "wilcoxon_p_two_sided": 0.0001237238634844825,
+      "wilcoxon_p_greater": 0.9999381380682577
+    }
+  ],
+  "concordance": [
+    {
+      "score": "IFN_gamma",
+      "same": 35,
+      "cldn4_up_score_down": 7,
+      "cldn4_down_score_up": 20,
+      "n": 62
+    },
+    {
+      "score": "NHEJ_GO",
+      "same": 26,
+      "cldn4_up_score_down": 26,
+      "cldn4_down_score_up": 10,
+      "n": 62
+    },
+    {
+      "score": "IFN_alpha",
+      "same": 34,
+      "cldn4_up_score_down": 8,
+      "cldn4_down_score_up": 20,
+      "n": 62
+    },
+    {
+      "score": "NHEJ_core",
+      "same": 31,
+      "cldn4_up_score_down": 23,
+      "cldn4_down_score_up": 8,
+      "n": 62
+    },
+    {
+      "score": "NHEJ_Reactome",
+      "same": 24,
+      "cldn4_up_score_down": 26,
+      "cldn4_down_score_up": 10,
+      "n": 62
+    },
+    {
+      "score": "NHEJ_Reactome_no_histone",
+      "same": 26,
+      "cldn4_up_score_down": 27,
+      "cldn4_down_score_up": 9,
+      "n": 62
+    },
+    {
+      "score": "NHEJ_WP",
+      "same": 28,
+      "cldn4_up_score_down": 26,
+      "cldn4_down_score_up": 8,
+      "n": 62
+    }
+  ],
+  "dependence": [
+    {
+      "check": "64 slices (primary unit)",
+      "n": 64,
+      "ifn_rho": -0.02770178230243651,
+      "ifn_p": 0.827983845761401,
+      "nhej_rho": 0.05249602216486522,
+      "nhej_p": 0.6803575888164394
+    },
+    {
+      "check": "cell-line mean of slice deltas",
+      "n": 17,
+      "ifn_rho": -0.1593137254901961,
+      "ifn_p": 0.5413616326261632,
+      "nhej_rho": -0.09803921568627452,
+      "nhej_p": 0.7081513097186048
+    },
+    {
+      "check": "drop GSE124821 (19 slices)",
+      "n": 45,
+      "ifn_rho": 0.03550841597499287,
+      "ifn_p": 0.8168737809717165,
+      "nhej_rho": -0.07431074808866783,
+      "nhej_p": 0.6275800882695471
+    }
+  ],
+  "cell_line_delta": {
+    "check": "cell-line mean of slice deltas",
+    "n": 17,
+    "ifn_rho": -0.1593137254901961,
+    "ifn_p": 0.5413616326261632,
+    "nhej_rho": -0.09803921568627452,
+    "nhej_p": 0.7081513097186048
+  },
+  "level_dependence": [
+    {
+      "kind": "baseline",
+      "unit": "64 slices",
+      "n": 64,
+      "ifn_rho": 0.393926913324347,
+      "ifn_p": 0.0012792282546557519,
+      "nhej_rho": 0.11266831842551953,
+      "nhej_p": 0.3753973210032877
+    },
+    {
+      "kind": "baseline",
+      "unit": "cell-line means",
+      "n": 17,
+      "ifn_rho": 0.07598039215686275,
+      "ifn_p": 0.7719448512425435,
+      "nhej_rho": 0.16911764705882354,
+      "nhej_p": 0.5164176230839818
+    },
+    {
+      "kind": "after ICB",
+      "unit": "64 slices",
+      "n": 64,
+      "ifn_rho": 0.16826196914705,
+      "ifn_p": 0.18382698999896638,
+      "nhej_rho": 0.03998168183597567,
+      "nhej_p": 0.7537680026224196
+    },
+    {
+      "kind": "after ICB",
+      "unit": "cell-line means",
+      "n": 17,
+      "ifn_rho": -0.26470588235294124,
+      "ifn_p": 0.3045422200057607,
+      "nhej_rho": 0.10784313725490197,
+      "nhej_p": 0.6803504180481621
+    }
+  ],
+  "level_dependence_index": {
+    "baseline": {
+      "64 slices": {
+        "kind": "baseline",
+        "unit": "64 slices",
+        "n": 64,
+        "ifn_rho": 0.393926913324347,
+        "ifn_p": 0.0012792282546557519,
+        "nhej_rho": 0.11266831842551953,
+        "nhej_p": 0.3753973210032877
+      },
+      "cell-line means": {
+        "kind": "baseline",
+        "unit": "cell-line means",
+        "n": 17,
+        "ifn_rho": 0.07598039215686275,
+        "ifn_p": 0.7719448512425435,
+        "nhej_rho": 0.16911764705882354,
+        "nhej_p": 0.5164176230839818
+      }
+    },
+    "after ICB": {
+      "64 slices": {
+        "kind": "after ICB",
+        "unit": "64 slices",
+        "n": 64,
+        "ifn_rho": 0.16826196914705,
+        "ifn_p": 0.18382698999896638,
+        "nhej_rho": 0.03998168183597567,
+        "nhej_p": 0.7537680026224196
+      },
+      "cell-line means": {
+        "kind": "after ICB",
+        "unit": "cell-line means",
+        "n": 17,
+        "ifn_rho": -0.26470588235294124,
+        "ifn_p": 0.3045422200057607,
+        "nhej_rho": 0.10784313725490197,
+        "nhej_p": 0.6803504180481621
+      }
+    }
+  },
+  "strata": [
+    {
+      "group": "Colorectal",
+      "n": 10,
+      "ifn_rho": 0.2727272727272727,
+      "ifn_p": 0.4458383415427516,
+      "nhej_rho": -0.0303030303030303,
+      "nhej_p": 0.9337729580941466
+    },
+    {
+      "group": "Mammary",
+      "n": 29,
+      "ifn_rho": -0.05320197044334973,
+      "ifn_p": 0.7840131675880627,
+      "nhej_rho": 0.14532019704433494,
+      "nhej_p": 0.45195706543857933
+    },
+    {
+      "group": "Melanoma",
+      "n": 14,
+      "ifn_rho": 0.14521460932458408,
+      "ifn_p": 0.6203708364871107,
+      "nhej_rho": -0.46204648421458555,
+      "nhej_p": 0.09624625123888673
+    }
+  ],
+  "baseline_strata": [
+    {
+      "group": "Colorectal",
+      "n": 10,
+      "ifn_rho": 0.5878787878787878,
+      "ifn_p": 0.07387770688865808,
+      "nhej_rho": 0.4787878787878787,
+      "nhej_p": 0.16152292801745594
+    },
+    {
+      "group": "Mammary",
+      "n": 29,
+      "ifn_rho": 0.11138491867915232,
+      "ifn_p": 0.5651315256762514,
+      "nhej_rho": -0.08871365204534254,
+      "nhej_p": 0.6472201618576272
+    },
+    {
+      "group": "Melanoma",
+      "n": 14,
+      "ifn_rho": 0.6585932777285565,
+      "ifn_p": 0.010431447787301895,
+      "nhej_rho": 0.1146356899800559,
+      "nhej_p": 0.6963681778902949
+    }
+  ],
+  "secondary": [
+    {
+      "score": "IFN_alpha",
+      "n_genes": 92,
+      "n": 64,
+      "rho": -0.01133254730554221,
+      "p": 0.929180174788277,
+      "n_up": 48,
+      "n_pairs": 64
+    },
+    {
+      "score": "NHEJ_Reactome",
+      "n_genes": 59,
+      "n": 62,
+      "rho": 0.14610745270041714,
+      "p": 0.257158889332156,
+      "n_up": 16,
+      "n_pairs": 62
+    },
+    {
+      "score": "NHEJ_Reactome_no_histone",
+      "n_genes": 34,
+      "n": 64,
+      "rho": 0.13750157397391213,
+      "p": 0.27859162107014457,
+      "n_up": 17,
+      "n_pairs": 64
+    },
+    {
+      "score": "NHEJ_core",
+      "n_genes": 12,
+      "n": 64,
+      "rho": 0.08276193638289916,
+      "p": 0.5155869892407753,
+      "n_up": 20,
+      "n_pairs": 64
+    },
+    {
+      "score": "NHEJ_WP",
+      "n_genes": 7,
+      "n": 64,
+      "rho": 0.13557847503721407,
+      "p": 0.28543381234933346,
+      "n_up": 17,
+      "n_pairs": 64
+    }
+  ],
+  "coverage": [
+    {
+      "score": "IFN_gamma",
+      "set": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "role": "primary_IFN",
+      "n_requested": 188,
+      "n_used": 185,
+      "n_missing_or_dropped": 3,
+      "missing": "Cxcl11;Mx2;Tmt1b",
+      "n_samples_scored": 604
+    },
+    {
+      "score": "IFN_alpha",
+      "set": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "role": "secondary_IFN",
+      "n_requested": 94,
+      "n_used": 92,
+      "n_missing_or_dropped": 2,
+      "missing": "Cxcl11;Mx2",
+      "n_samples_scored": 604
+    },
+    {
+      "score": "NHEJ_GO",
+      "set": "GOBP_DOUBLE_STRAND_BREAK_REPAIR_VIA_NONHOMOLOGOUS_END_JOINING",
+      "role": "primary_NHEJ",
+      "n_requested": 79,
+      "n_used": 78,
+      "n_missing_or_dropped": 1,
+      "missing": "Bend2",
+      "n_samples_scored": 604
+    },
+    {
+      "score": "NHEJ_Reactome",
+      "set": "REACTOME_NONHOMOLOGOUS_END_JOINING_NHEJ",
+      "role": "secondary_NHEJ_histone_heavy",
+      "n_requested": 67,
+      "n_used": 59,
+      "n_missing_or_dropped": 8,
+      "missing": "H2bc22;H2bc23;H2bc24;H2bc26;H2bc27;H4c16;H4c17;H4c18",
+      "n_samples_scored": 565
+    },
+    {
+      "score": "NHEJ_Reactome_no_histone",
+      "set": "REACTOME_NHEJ_minus_histones",
+      "role": "secondary_NHEJ_no_histone",
+      "n_requested": 34,
+      "n_used": 34,
+      "n_missing_or_dropped": 0,
+      "missing": "",
+      "n_samples_scored": 604
+    },
+    {
+      "score": "NHEJ_WP",
+      "set": "WP_NONHOMOLOGOUS_END_JOINING",
+      "role": "secondary_NHEJ_short",
+      "n_requested": 7,
+      "n_used": 7,
+      "n_missing_or_dropped": 0,
+      "missing": "",
+      "n_samples_scored": 603
+    },
+    {
+      "score": "NHEJ_core",
+      "set": "cNHEJ_machinery",
+      "role": "secondary_NHEJ_core",
+      "n_requested": 12,
+      "n_used": 12,
+      "n_missing_or_dropped": 0,
+      "missing": "",
+      "n_samples_scored": 604
+    }
+  ],
+  "lung": [
+    {
+      "stem": "LLC_GSE155972_Setdb1_KO_antiCTLA4&antiPD1",
+      "Cldn4_delta_mean": 0.3336000027234918,
+      "IFN_gamma_delta_mean": 0.20402492980381226,
+      "NHEJ_GO_delta_mean": -0.37801752483998763
+    },
+    {
+      "stem": "LLC_GSE155972_antiCTLA4&antiPD1",
+      "Cldn4_delta_mean": 0.08069353897217499,
+      "IFN_gamma_delta_mean": 0.30442371072942775,
+      "NHEJ_GO_delta_mean": -0.06047767789438918
+    }
+  ],
+  "shared_baselines": [
+    {
+      "stem": "4T1_GSE130472_old_antiCTLA4",
+      "baseline_from": "4T1_GSE130472_old_antiPDL1",
+      "n_baseline_samples": 7
+    },
+    {
+      "stem": "4T1_GSE130472_young_antiCTLA4",
+      "baseline_from": "4T1_GSE130472_young_antiPDL1",
+      "n_baseline_samples": 7
+    }
+  ],
+  "baseline_note": "The current TISMO export keeps each sample once. Two slices had ICB rows and no isotype rows; their baselines are the same sample IDs the PR #542 export repeated onto that arm (4T1_GSE130472_old_antiCTLA4 from 4T1_GSE130472_old_antiPDL1 (n=7); 4T1_GSE130472_young_antiCTLA4 from 4T1_GSE130472_young_antiPDL1 (n=7)).",
+  "largest_gse_dropped": "GSE124821",
+  "reactome_unscored": [
+    "EMT6_GSE107801_antiPDL1",
+    "EMT6_GSE107801_antiTGFb_trap_antiPDL1"
+  ],
+  "tacstd2_ifn_both_up": 38,
+  "tacstd2_ifn_overlap_expected": 37.515625,
+  "n_cell_lines": 17,
+  "n_studies": 22
+}
