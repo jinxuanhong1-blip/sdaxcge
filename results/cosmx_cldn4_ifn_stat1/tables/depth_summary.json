@@ -1,0 +1,158 @@
+{
+  "patient_means": {
+    "rho_cldn4_logn": {
+      "Lung12": 0.3913528400537883,
+      "Lung13": 0.20328792919069827,
+      "Lung5": 0.15591178071131725,
+      "Lung6": 0.18733478239288676,
+      "Lung9": 0.2084527583200831
+    },
+    "rho_ifn_logn": {
+      "Lung12": 0.6362359689844103,
+      "Lung13": 0.6014438608531234,
+      "Lung5": 0.5393592766066184,
+      "Lung6": 0.5073863469199021,
+      "Lung9": 0.5428096239466214
+    },
+    "rho_same": {
+      "Lung12": 0.23809413296136975,
+      "Lung13": 0.08783939709320535,
+      "Lung5": 0.09616649101280578,
+      "Lung6": 0.09715154843937795,
+      "Lung9": 0.12703058765625536
+    },
+    "rho_same_lib": {
+      "Lung12": -0.0006301164436575234,
+      "Lung13": -0.055311709442832376,
+      "Lung5": -0.0038268628637051455,
+      "Lung6": 0.003363128256288949,
+      "Lung9": 0.004514264088905163
+    },
+    "rho_quintile_mean": {
+      "Lung12": -0.006547104718016598,
+      "Lung13": -0.040366460556308395,
+      "Lung5": 0.013924520583136757,
+      "Lung6": 0.004673422813346325,
+      "Lung9": 0.019835008401047148
+    },
+    "rho_within_fov_mean": {
+      "Lung12": 0.21057592144530823,
+      "Lung13": 0.08789787803257548,
+      "Lung5": 0.11231140190939892,
+      "Lung6": 0.06766681318681347,
+      "Lung9": 0.12218638116577828
+    },
+    "rho_within_fov_lib_mean": {
+      "Lung12": 0.00199271081032456,
+      "Lung13": -0.05180605196449663,
+      "Lung5": -0.014418108879793818,
+      "Lung6": -0.0016132428242642937,
+      "Lung9": 0.0036622044728813774
+    }
+  },
+  "patient_mean_of_means": {
+    "rho_cldn4_logn": 0.22926801813375475,
+    "rho_ifn_logn": 0.5654470154621352,
+    "rho_same": 0.12925643143260285,
+    "rho_same_lib": -0.010378259281000186,
+    "rho_quintile_mean": -0.0016961226953589523,
+    "rho_within_fov_mean": 0.12012767914797488,
+    "rho_within_fov_lib_mean": -0.01243649767706976
+  },
+  "patient_n_neg": {
+    "rho_cldn4_logn": 0,
+    "rho_ifn_logn": 0,
+    "rho_same": 0,
+    "rho_same_lib": 3,
+    "rho_quintile_mean": 2,
+    "rho_within_fov_mean": 0,
+    "rho_within_fov_lib_mean": 3
+  },
+  "gene_lib": [
+    {
+      "gene": "CD274",
+      "mean_rho_lib": 0.10011196074293441,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "CXCL10",
+      "mean_rho_lib": 0.09796853248453011,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "CXCL9",
+      "mean_rho_lib": 0.10558193871938493,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "DDX58",
+      "mean_rho_lib": 0.09101881730897937,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "IDO1",
+      "mean_rho_lib": 0.10117096981115085,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "IFI27",
+      "mean_rho_lib": 0.08105725564998072,
+      "n_patients_neg": 1
+    },
+    {
+      "gene": "IFIH1",
+      "mean_rho_lib": 0.08643224254579276,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "IFIT1",
+      "mean_rho_lib": 0.11294549665601297,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "IFITM1",
+      "mean_rho_lib": 0.06733562170746434,
+      "n_patients_neg": 1
+    },
+    {
+      "gene": "IFITM3",
+      "mean_rho_lib": -2.680680308165817e-05,
+      "n_patients_neg": 4
+    },
+    {
+      "gene": "MX1",
+      "mean_rho_lib": 0.05921001064328655,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "NLRC5",
+      "mean_rho_lib": 0.08139940019694739,
+      "n_patients_neg": 1
+    },
+    {
+      "gene": "OAS1",
+      "mean_rho_lib": 0.08942190701860613,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "OAS2",
+      "mean_rho_lib": 0.07080397599702001,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "OAS3",
+      "mean_rho_lib": 0.04447878800468329,
+      "n_patients_neg": 1
+    },
+    {
+      "gene": "OASL",
+      "mean_rho_lib": 0.11068805895269049,
+      "n_patients_neg": 0
+    },
+    {
+      "gene": "STAT1",
+      "mean_rho_lib": 0.025699931582733315,
+      "n_patients_neg": 1
+    }
+  ]
+}
