@@ -2,7 +2,11 @@
 
 Public CosMx SMI NSCLC, figshare 25976224 (`cosmx_human_nsclc_clustered.h5ad`): **765,771 cells, 960 genes, 8 sections, 5 donors** (He et al. 2022). CLDN4-only. No private cohort.
 
-This layer does **not** replace the locked cell-level exclusion result (CLDN4-high tumor has fewer nearby cytotoxic cells at 50/100 µm; 8/8 sections, 5/5 donors, one-sided sign P = 0.031). It asks whether that exclusion is visible as spaGCN-style spatial domains whose CLDN4 enrichment tracks Shannon diversity and a normalized mixing index.
+This layer does **not** replace the locked cell-level exclusion result (CLDN4-high tumor has fewer nearby cytotoxic cells at 50/100 µm; 8/8 sections, 5/5 donors, one-sided sign P = 0.031). Raw CLDN4 domain enrichment tracks Shannon diversity and normalized mixing. A separate battery asks whether any of that immune-poor signal is CLDN4-specific after epithelial covariates.
+
+**FINAL: epithelial-domain exclusion.** Joint EPCAM+KRT residuals, residual-scored domains, TACSTD2∩CLDN4 versus TACSTD2-only, alternate k, and FOV holdouts do not produce a CLDN4-unique immune-poor signal at the bar (≥7/8 sections and ≥4/5 donors, ≥6 sections in the test, and ≥2 domains in each arm). Strongest adequate unique contrast: domain_resid_joint_k6 / shannon (6/8 sections, 4/5 donors, median Δ -0.474). The locked cell-level ratios 0.36 / 0.52 are unchanged.
+
+Domains fit after dropping CLDN4, EPCAM, TACSTD2, KRT7, KRT8, KRT18, and KRT19 are still immune-poor when split on raw CLDN4 (8/8 sections, 5/5 donors at 50 µm). Those domains still track EPCAM (median within-section Spearman of domain-mean CLDN4 vs EPCAM 0.726), so the remaining panel still carries the epithelial program. That result is not counted as CLDN4-specific.
 
 ## Method
 
@@ -103,19 +107,25 @@ Epithelial control genes, within-section Spearman of the tumor-cell mean against
 
 ## Sensitivity to domain count
 
-Same smoothed embedding, KMeans k = 6, 8, and 10, each with its own HMRF pass. Deltas are still high − low CLDN4.
+Same smoothed embedding, KMeans k = 4, 6, 8, 10, and 12, each with its own HMRF pass. Deltas are still high − low raw CLDN4.
 
 | k | Metric | Sections <0 | Wilcoxon p (high<low) | Donors <0 | Sign p one-sided | Median section Δ |
 |---:|---|---:|---:|---:|---:|---:|
+| 4 | mean_cytotoxic_50um | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.585 |
 | 6 | mean_cytotoxic_50um | 7/8 | 0.0078 | 5/5 | 0.0312 | -0.164 |
 | 8 | mean_cytotoxic_50um | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.422 |
 | 10 | mean_cytotoxic_50um | 7/8 | 0.0078 | 4/5 | 0.1875 | -0.412 |
+| 12 | mean_cytotoxic_50um | 6/8 | 0.0742 | 3/5 | 0.5000 | -0.109 |
+| 4 | normalized_mixing | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.686 |
 | 6 | normalized_mixing | 7/8 | 0.0078 | 5/5 | 0.0312 | -0.276 |
 | 8 | normalized_mixing | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.439 |
 | 10 | normalized_mixing | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.441 |
+| 12 | normalized_mixing | 7/8 | 0.0742 | 4/5 | 0.1875 | -0.169 |
+| 4 | shannon | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.720 |
 | 6 | shannon | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.591 |
 | 8 | shannon | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.546 |
 | 10 | shannon | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.599 |
+| 12 | shannon | 7/8 | 0.0391 | 5/5 | 0.0312 | -0.500 |
 
 ## How this sits with exclusion
 
@@ -136,6 +146,53 @@ The domain contrast follows the epithelial program, not a CLDN4-only axis. EPCAM
 | stroma | 8 | 1.386 | 1.396 | 1.115 | 1.830 | 0.526 |
 | neutrophils | 7 | 1.277 | 1.345 | 1.325 | 1.023 | 0.645 |
 | macrophages | 5 | 0.994 | 0.773 | 2.032 | 0.773 | 0.816 |
+
+## CLDN4 after epithelium
+
+Tumor cells only. Joint residual is log1p(CLDN4) after an intercept and log1p(EPCAM)+log1p(KRT8)+log1p(KRT18), fit inside each section. The broader residual adds KRT7 and KRT19. Residual-scored domains are the same spaGCN/HMRF domains, median-split on the mean of that cell-level residual. Dual-high is the top half of domain-mean CLDN4 and the top half of domain-mean TACSTD2; the contrast is dual-high minus TACSTD2-high/CLDN4-low. Epithelial-held-out domains drop CLDN4, EPCAM, TACSTD2, KRT7, KRT8, KRT18, and KRT19 from the features, then split on raw CLDN4. EPCAM tertiles split raw CLDN4 inside an EPCAM band and do **not** remove keratins. A negative delta is immune-poor in the high arm. Domain contrasts enter the sign test only when each arm has at least two domains. The beyond-epithelium bar is ≥7/8 sections and ≥4/5 donors on a test with at least 6 sections.
+
+| Contrast | Outcome | Sections <0 | Wilcoxon p (high<low) | Donors <0 | Sign p one-sided | Median Δ |
+|---|---|---:|---:|---:|---:|---:|
+| cell_resid_EPCAM_KRT7_8_18_19 | cytotoxic_100um | 4/8 | 0.4219 | 3/5 | 0.5000 | 0.011 |
+| cell_resid_EPCAM_KRT7_8_18_19 | cytotoxic_50um | 5/8 | 0.1914 | 2/5 | 0.8125 | -0.016 |
+| cell_resid_EPCAM_KRT7_8_18_19 | immune_neighbor_frac | 5/8 | 0.1914 | 2/5 | 0.8125 | -0.009 |
+| cell_resid_EPCAM_KRT8_KRT18 | cytotoxic_100um | 4/8 | 0.3203 | 3/5 | 0.5000 | -0.003 |
+| cell_resid_EPCAM_KRT8_KRT18 | cytotoxic_50um | 6/8 | 0.0977 | 3/5 | 0.5000 | -0.020 |
+| cell_resid_EPCAM_KRT8_KRT18 | immune_neighbor_frac | 6/8 | 0.1250 | 3/5 | 0.5000 | -0.010 |
+| domain_resid_joint_k10 | mean_cytotoxic_50um | 4/8 | 0.2305 | 3/5 | 0.5000 | -0.085 |
+| domain_resid_joint_k10 | normalized_mixing | 5/8 | 0.3711 | 4/5 | 0.1875 | -0.152 |
+| domain_resid_joint_k10 | shannon | 5/8 | 0.1250 | 4/5 | 0.1875 | -0.348 |
+| domain_resid_joint_k12 | mean_cytotoxic_50um | 5/8 | 0.1914 | 4/5 | 0.1875 | -0.256 |
+| domain_resid_joint_k12 | normalized_mixing | 5/8 | 0.3203 | 4/5 | 0.1875 | -0.352 |
+| domain_resid_joint_k12 | shannon | 5/8 | 0.1914 | 4/5 | 0.1875 | -0.303 |
+| domain_resid_joint_k4 | mean_cytotoxic_50um | 5/5 | 0.0312 | 4/4 | 0.0625 | -0.597 |
+| domain_resid_joint_k4 | normalized_mixing | 5/5 | 0.0312 | 4/4 | 0.0625 | -0.558 |
+| domain_resid_joint_k4 | shannon | 5/5 | 0.0312 | 4/4 | 0.0625 | -0.699 |
+| domain_resid_joint_k6 | mean_cytotoxic_50um | 5/8 | 0.1562 | 4/5 | 0.1875 | -0.316 |
+| domain_resid_joint_k6 | normalized_mixing | 5/8 | 0.1562 | 4/5 | 0.1875 | -0.517 |
+| domain_resid_joint_k6 | shannon | 6/8 | 0.1250 | 4/5 | 0.1875 | -0.474 |
+| domain_resid_joint_k8 | mean_cytotoxic_50um | 5/8 | 0.3711 | 4/5 | 0.1875 | -0.290 |
+| domain_resid_joint_k8 | normalized_mixing | 5/8 | 0.5273 | 4/5 | 0.1875 | -0.366 |
+| domain_resid_joint_k8 | shannon | 5/8 | 0.1250 | 4/5 | 0.1875 | -0.321 |
+| domains_epithelial_genes_held_out_k8 | mean_cytotoxic_50um | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.232 |
+| domains_epithelial_genes_held_out_k8 | normalized_mixing | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.317 |
+| domains_epithelial_genes_held_out_k8 | shannon | 8/8 | 0.0039 | 5/5 | 0.0312 | -0.607 |
+| dual_high_vs_TACSTD2_only_k8 | mean_cytotoxic_50um | 0/0 | NA | 0/0 | NA | NA |
+| dual_high_vs_TACSTD2_only_k8 | normalized_mixing | 0/0 | NA | 0/0 | NA | NA |
+| dual_high_vs_TACSTD2_only_k8 | shannon | 0/0 | NA | 0/0 | NA | NA |
+| epcam_tertile1_raw_CLDN4 | cytotoxic_100um | 3/4 | 0.1250 | 2/3 | 0.5000 | -0.305 |
+| epcam_tertile1_raw_CLDN4 | cytotoxic_50um | 4/4 | 0.0625 | 3/3 | 0.1250 | -0.111 |
+| epcam_tertile1_raw_CLDN4 | immune_neighbor_frac | 4/4 | 0.0625 | 3/3 | 0.1250 | -0.077 |
+| epcam_tertile2_raw_CLDN4 | cytotoxic_100um | 3/6 | 0.4219 | 2/3 | 0.5000 | 8.34e-04 |
+| epcam_tertile2_raw_CLDN4 | cytotoxic_50um | 4/6 | 0.1562 | 2/3 | 0.5000 | -0.045 |
+| epcam_tertile2_raw_CLDN4 | immune_neighbor_frac | 3/6 | 0.2812 | 2/3 | 0.5000 | -0.003 |
+| epcam_tertile3_raw_CLDN4 | cytotoxic_100um | 4/7 | 0.4062 | 3/4 | 0.3125 | -0.299 |
+| epcam_tertile3_raw_CLDN4 | cytotoxic_50um | 4/7 | 0.1484 | 3/4 | 0.3125 | -0.075 |
+| epcam_tertile3_raw_CLDN4 | immune_neighbor_frac | 4/7 | 0.5312 | 3/4 | 0.3125 | -0.007 |
+
+TACSTD2∩CLDN4 versus TACSTD2-only: 3 sections had a non-empty TACSTD2-high/CLDN4-low arm, and 0 of those had at least two domains in each arm. Where the TACSTD2-only arm existed it was a single domain, so this contrast does not enter the sign test.
+
+FOV holdout of the joint cell residual, 50 µm cytotoxic counts: 140/212 tested FOVs (at least 20 residual-high and 20 residual-low tumor cells) have Δ < 0. Leave-one-FOV-out sign flips of the section residual Δ: 1/232.
 
 ## Run
 
