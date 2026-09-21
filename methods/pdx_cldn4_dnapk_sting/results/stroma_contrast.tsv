@@ -1,0 +1,19 @@
+n_pairwise	rho	p	tested	note	cohort	partner	species
+9	0.38333333333333336	0.3084952723803716	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD	PRKDC	mouse
+24	0.24260869565217388	0.25334838197246123	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD	XRCC5	mouse
+18	0.34365325077399383	0.1626286535167655	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD	XRCC6	mouse
+24	-0.06956521739130435	0.7466974841785088	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD	STING1	mouse
+5	-0.6	0.28475697986529386	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD	TBK1	mouse
+24	-0.040869565217391296	0.8496151500324183	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD	STAT1	mouse
+5	-0.3	0.623837664781073	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUSC	PRKDC	mouse
+23	-0.042490118577075096	0.8473520965225482	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUSC	XRCC5	mouse
+15	-0.07857142857142857	0.7807545523090464	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUSC	XRCC6	mouse
+23	-0.43774703557312256	0.036704688168162844	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUSC	STING1	mouse
+2			False	n=2 < 4; Spearman not computed; murine stroma protein, excluded from the human test	LUSC	TBK1	mouse
+23	-0.3142292490118577	0.14422478191856075	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUSC	STAT1	mouse
+14	-0.015384615384615385	0.958369789371986	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD_plus_LUSC	PRKDC	mouse
+47	0.06001387604070306	0.6886285032357659	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD_plus_LUSC	XRCC5	mouse
+33	0.15207219251336898	0.3982036993589422	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD_plus_LUSC	XRCC6	mouse
+47	-0.1569148936170213	0.29219015421119887	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD_plus_LUSC	STING1	mouse
+7	0.07142857142857144	0.879048193148154	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD_plus_LUSC	TBK1	mouse
+47	-0.08591581868640147	0.565824351810052	True	two-sided Spearman, pairwise-complete log2 protein; murine stroma protein, excluded from the human test	LUAD_plus_LUSC	STAT1	mouse

@@ -1,0 +1,66 @@
+n_pairwise	rho	p	tested	note	cohort	analysis	family	partner	species	q_bh
+24	-0.34956521739130436	0.0940531188359595	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	IFI16	human	0.4791329610913574
+24	-0.046956521739130425	0.8275237958648594	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	STAT1	human	0.8275237958648594
+24	-0.2713043478260869	0.1997112401580552	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	STAT2	human	0.4791329610913574
+23	-0.0958498023715415	0.6635269596839087	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	IRF9	human	0.7962323516206905
+24	0.1026086956521739	0.6332868165639752	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	MAVS	human	0.7962323516206905
+24	0.049565217391304345	0.8180937896030709	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	DDX58	human	0.8275237958648594
+21	-0.32987012987012987	0.14419837372344504	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	IFIH1	human	0.4791329610913574
+9	-0.39999999999999997	0.286105101908313	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	IRF7	human	0.49046588898567944
+24	-0.10173913043478258	0.6361837822056855	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	NFKB1	human	0.7962323516206905
+24	-0.2495652173913043	0.2395664805456787	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	RELA	human	0.4791329610913574
+24	-0.2782608695652174	0.1879713945221431	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	JAK1	human	0.4791329610913574
+21	-0.3181818181818181	0.1598268955547498	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	extended	extended	TYK2	human	0.4791329610913574
+24	0.22702412164388064	0.2860521619034689	True	partial Spearman, covariate = median log2 human proteome	LUAD	partial_median	DNA-PK	PRKDC	human	0.5053154700081742
+24	0.344024064722605	0.09974620406932262	True	partial Spearman, covariate = median log2 human proteome	LUAD	partial_median	DNA-PK	XRCC5	human	0.4046583675600981
+24	0.3297221315234656	0.11561667644574232	True	partial Spearman, covariate = median log2 human proteome	LUAD	partial_median	DNA-PK	XRCC6	human	0.4046583675600981
+24	0.19509711746884714	0.36093962143441016	True	partial Spearman, covariate = median log2 human proteome	LUAD	partial_median	STING	STING1	human	0.5053154700081742
+24	-0.20410718497499597	0.33873876551733584	True	partial Spearman, covariate = median log2 human proteome	LUAD	partial_median	STING	CGAS	human	0.5053154700081742
+24	0.16430405929841702	0.44296931347290336	True	partial Spearman, covariate = median log2 human proteome	LUAD	partial_median	STING	TBK1	human	0.516797532385054
+18	-0.10449069884819392	0.6798828469624482	True	partial Spearman, covariate = median log2 human proteome	LUAD	partial_median	STING	IRF3	human	0.6798828469624482
+24	0.2452173913043478	0.24812129907550173	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	primary_histology	DNA-PK	PRKDC	human	0.4852687038289703
+24	0.34695652173913033	0.0967023678304582	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	primary_histology	DNA-PK	XRCC5	human	0.36084722138928854
+24	0.3408695652173913	0.10309920611122529	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	primary_histology	DNA-PK	XRCC6	human	0.36084722138928854
+24	0.21565217391304345	0.31151444912851095	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	primary_histology	STING	STING1	human	0.4852687038289703
+24	-0.2008695652173913	0.3466205027349788	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	primary_histology	STING	CGAS	human	0.4852687038289703
+24	0.17391304347826084	0.41636999529355617	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	primary_histology	STING	TBK1	human	0.4857649945091489
+18	-0.09184726522187822	0.7170028416617739	True	two-sided Spearman, pairwise-complete log2 protein	LUAD	primary_histology	STING	IRF3	human	0.7170028416617739
+47	0.16651248843663274	0.2632919773049537	True	two-sided Spearman, pairwise-complete log2 protein	LUAD_plus_LUSC	pooled_sensitivity	DNA-PK	PRKDC	human	0.42852707421124514
+47	0.158418131359852	0.28753307550627494	True	two-sided Spearman, pairwise-complete log2 protein	LUAD_plus_LUSC	pooled_sensitivity	DNA-PK	XRCC5	human	0.42852707421124514
+47	0.14072617946345978	0.34542643777985976	True	two-sided Spearman, pairwise-complete log2 protein	LUAD_plus_LUSC	pooled_sensitivity	DNA-PK	XRCC6	human	0.42852707421124514
+47	0.0938945420906568	0.5301583729697712	True	two-sided Spearman, pairwise-complete log2 protein	LUAD_plus_LUSC	pooled_sensitivity	STING	STING1	human	0.5301583729697712
+47	-0.1561054579093432	0.2947179746652548	True	two-sided Spearman, pairwise-complete log2 protein	LUAD_plus_LUSC	pooled_sensitivity	STING	CGAS	human	0.42852707421124514
+47	0.19623034227567068	0.18618250502202852	True	two-sided Spearman, pairwise-complete log2 protein	LUAD_plus_LUSC	pooled_sensitivity	STING	TBK1	human	0.42852707421124514
+35	-0.15714285714285714	0.3673089207524958	True	two-sided Spearman, pairwise-complete log2 protein	LUAD_plus_LUSC	pooled_sensitivity	STING	IRF3	human	0.42852707421124514
+23	-0.15711462450592886	0.47402784223966754	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	IFI16	human	0.8303828960155492
+23	-0.24802371541501977	0.25383302490399035	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	STAT1	human	0.8303828960155492
+23	-0.26383399209486164	0.2238176464102387	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	STAT2	human	0.8303828960155492
+23	0.017786561264822136	0.9357994824312978	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	IRF9	human	0.9357994824312978
+23	0.16699604743083005	0.4463021295256066	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	MAVS	human	0.8303828960155492
+23	-0.05731225296442688	0.795060350014236	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	DDX58	human	0.8673385636518938
+18	0.12487100103199174	0.62152591689147	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	IFIH1	human	0.8303828960155492
+6	0.2571428571428572	0.6227871720116619	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	IRF7	human	0.8303828960155492
+23	-0.06521739130434782	0.7675018255842938	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	NFKB1	human	0.8673385636518938
+23	-0.25	0.24994590679180836	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	RELA	human	0.8303828960155492
+23	0.15217391304347824	0.48821185662637934	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	JAK1	human	0.8303828960155492
+18	-0.1826625386996904	0.46816133789331493	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	extended	extended	TYK2	human	0.8303828960155492
+23	0.12000284903104487	0.5854808255083752	True	partial Spearman, covariate = median log2 human proteome	LUSC	partial_median	DNA-PK	PRKDC	human	0.8196731557117253
+23	-0.029603122276554702	0.8933367485857646	True	partial Spearman, covariate = median log2 human proteome	LUSC	partial_median	DNA-PK	XRCC5	human	0.8933367485857646
+23	-0.03377590086964126	0.8784034542450814	True	partial Spearman, covariate = median log2 human proteome	LUSC	partial_median	DNA-PK	XRCC6	human	0.8933367485857646
+23	-0.2086189607019575	0.3394389548665665	True	partial Spearman, covariate = median log2 human proteome	LUSC	partial_median	STING	STING1	human	0.7383377577034693
+23	-0.23260108718944475	0.28550110051837224	True	partial Spearman, covariate = median log2 human proteome	LUSC	partial_median	STING	CGAS	human	0.7383377577034693
+23	0.21692417411033288	0.3201154742638643	True	partial Spearman, covariate = median log2 human proteome	LUSC	partial_median	STING	TBK1	human	0.7383377577034693
+17	-0.20851149474053127	0.42190729011626815	True	partial Spearman, covariate = median log2 human proteome	LUSC	partial_median	STING	IRF3	human	0.7383377577034693
+23	0.13438735177865613	0.5409737774662914	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	primary_histology	DNA-PK	PRKDC	human	0.7573632884528079
+23	0.04545454545454545	0.836836496093119	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	primary_histology	DNA-PK	XRCC5	human	0.9144659262773517
+23	0.023715415019762844	0.9144659262773517	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	primary_histology	DNA-PK	XRCC6	human	0.9144659262773517
+23	-0.18972332015810275	0.38591224597759055	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	primary_histology	STING	STING1	human	0.700516408745144
+23	-0.22924901185770752	0.2926972090293334	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	primary_histology	STING	CGAS	human	0.700516408745144
+23	0.22529644268774704	0.3013260034345568	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	primary_histology	STING	TBK1	human	0.700516408745144
+17	-0.21813725490196081	0.40029509071151087	True	two-sided Spearman, pairwise-complete log2 protein	LUSC	primary_histology	STING	IRF3	human	0.700516408745144
+24	0.3565217391304348	0.08725310458309882	True	two-sided Spearman, pairwise-complete log2 protein; mean of within-cohort z-scores (composite, not in protein FDR)	LUAD	primary_histology	DNA-PK	DNAPK_score	human	
+24	0.1452173913043478	0.49837946924561144	True	two-sided Spearman, pairwise-complete log2 protein; mean of within-cohort z-scores (composite, not in protein FDR)	LUAD	primary_histology	STING	STING_score	human	
+23	0.12351778656126483	0.5744611041376416	True	two-sided Spearman, pairwise-complete log2 protein; mean of within-cohort z-scores (composite, not in protein FDR)	LUSC	primary_histology	DNA-PK	DNAPK_score	human	
+23	-0.1116600790513834	0.6119928487517099	True	two-sided Spearman, pairwise-complete log2 protein; mean of within-cohort z-scores (composite, not in protein FDR)	LUSC	primary_histology	STING	STING_score	human	
+47	0.16766882516188716	0.25994372411849864	True	two-sided Spearman, pairwise-complete log2 protein; mean of within-cohort z-scores (composite, not in protein FDR)	LUAD_plus_LUSC	pooled_sensitivity	DNA-PK	DNAPK_score	human	
+47	0.11505550416281221	0.44123851771539646	True	two-sided Spearman, pairwise-complete log2 protein; mean of within-cohort z-scores (composite, not in protein FDR)	LUAD_plus_LUSC	pooled_sensitivity	STING	STING_score	human	
