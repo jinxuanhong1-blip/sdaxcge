@@ -1,0 +1,25 @@
+question	cohort	accession	model	kras	response_family	confounded	subset	module	score	association	transform	sample_filter	effect_name	effect	p	n	n_resistant	n_reference	n_genes	thesis_aligned	eligible_headline	pre_specified	q_bh
+cldn4_response	GSE155972_LLC	GSE155972	LLC	KrasG12C and NrasQ61; not Stk11/Lkb1	tismo_label	1	pooled			mwu	log2_cpm	all	median_resistant_minus_reference	-0.110814	0.445221	13	6	7		0	0	1	1
+cldn4_nhej	GSE155972_LLC	GSE155972	LLC	KrasG12C and NrasQ61; not Stk11/Lkb1	tismo_label	0	continuous	nhej_core	zmean	spearman	log2_cpm	all	rho	-0.267158	0.132839	33			10	0	0	1	0.581493
+cldn4_ifn	GSE155972_LLC	GSE155972	LLC	KrasG12C and NrasQ61; not Stk11/Lkb1	tismo_label	0	continuous	ifn_chemokine	zmean	spearman	log2_cpm	all	rho	-0.0833613	0.644645	33			16	1	1	1	0.976585
+cldn4_response	GSE246922_KP	GSE246922	KP	Kras/Trp53 lung cancer cells; not Lkb1	acquired_resistance	0	pooled			mwu	author_scale	all	median_resistant_minus_reference	-0.282548	0.727273	12	9	3		0	0	1	1
+cldn4_nhej	GSE246922_KP	GSE246922	KP	Kras/Trp53 lung cancer cells; not Lkb1	acquired_resistance	0	continuous	nhej_core	zmean	spearman	author_scale	all	rho	-0.0285714	0.91949	15			10	0	0	1	1
+cldn4_ifn	GSE246922_KP	GSE246922	KP	Kras/Trp53 lung cancer cells; not Lkb1	acquired_resistance	0	continuous	ifn_chemokine	zmean	spearman	author_scale	all	rho	0.0464286	0.869492	15			15	0	0	1	1
+cldn4_response	GSE246922_LLC1	GSE246922	LLC1	KrasG12C and Nras; not Stk11/Lkb1	acquired_resistance	0	pooled			mwu	author_scale	all	median_resistant_minus_reference	-0.1947	0.184039	6	3	3		0	0	1	1
+cldn4_nhej	GSE246922_LLC1	GSE246922	LLC1	KrasG12C and Nras; not Stk11/Lkb1	acquired_resistance	0	continuous	nhej_core	zmean	spearman	author_scale	all	rho	-0.226301	0.558208	9			10	0	0	1	0.900361
+cldn4_ifn	GSE246922_LLC1	GSE246922	LLC1	KrasG12C and Nras; not Stk11/Lkb1	acquired_resistance	0	continuous	ifn_chemokine	zmean	spearman	author_scale	all	rho	0.261116	0.497362	9			14	0	0	1	0.90863
+cldn4_response	GSE297630_LLC	GSE297630	LLC	KrasG12C and Nras; not Stk11/Lkb1	tolerant_proxy	0	pooled			mwu	author_scale	all	median_resistant_minus_reference	-0.18	0.1	6	3	3		0	0	1	1
+cldn4_nhej	GSE297630_LLC	GSE297630	LLC	KrasG12C and Nras; not Stk11/Lkb1	tolerant_proxy	0	continuous	nhej_core	zmean	spearman	author_scale	all	rho	0.257143	0.622787	6			8	1	0	1	0.9308
+cldn4_ifn	GSE297630_LLC	GSE297630	LLC	KrasG12C and Nras; not Stk11/Lkb1	tolerant_proxy	0	continuous	ifn_chemokine	zmean	spearman	author_scale	all	rho	0.0857143	0.871743	6			15	0	0	1	1
+cldn4_nhej	GSE114601_KP	GSE114601	KP	Kras/Trp53 GEMM lung tumor; not Lkb1	none	0	continuous	nhej_core	zmean	spearman	log2_value	all	rho	0.190476	0.651401	8			10	1	1	1	0.944073
+cldn4_ifn	GSE114601_KP	GSE114601	KP	Kras/Trp53 GEMM lung tumor; not Lkb1	none	0	continuous	ifn_chemokine	zmean	spearman	log2_value	all	rho	0.333333	0.419753	8			16	0	0	1	0.864706
+cldn4_nhej	GSE157880_HKP1	GSE157880	HKP1	KrasG12D/Trp53-null lung line; not Lkb1	none	0	continuous	nhej_core	zmean	spearman	log2_value	all	rho	-0.302941	0.254067	16			10	0	0	1	0.69716
+cldn4_ifn	GSE157880_HKP1	GSE157880	HKP1	KrasG12D/Trp53-null lung line; not Lkb1	none	0	continuous	ifn_chemokine	zmean	spearman	log2_value	all	rho	-0.176471	0.513251	16			16	1	1	1	0.916063
+cldn4_nhej	GSE274960_LL2	GSE274960	LL/2	LL/2 is Lewis lung, KrasG12C; not Stk11/Lkb1	none	0	continuous	nhej_core	zmean	spearman	log2_cpm	all	rho	-0.514443	0.0720638	13			10	0	0	1	0.53945
+cldn4_ifn	GSE274960_LL2	GSE274960	LL/2	LL/2 is Lewis lung, KrasG12C; not Stk11/Lkb1	none	0	continuous	ifn_chemokine	zmean	spearman	log2_cpm	all	rho	0.602476	0.0293199	13			16	0	0	1	0.670085
+cldn4_nhej	GSE262305_LLC	GSE262305	LLC	KrasG12C and Nras; not Stk11/Lkb1	none	0	continuous	nhej_core	zmean	spearman	log2_value	all	rho	-0.309626	0.417478	9			9	0	0	1	0.809358
+cldn4_ifn	GSE262305_LLC	GSE262305	LLC	KrasG12C and Nras; not Stk11/Lkb1	none	0	continuous	ifn_chemokine	zmean	spearman	log2_value	all	rho	-0.476992	0.194179	9			16	1	1	1	0.73623
+cldn4_nhej	GSE239485_LLC	GSE239485	LLC	KrasG12C and Nras; not Stk11/Lkb1	none	0	continuous	nhej_core	zmean	spearman	author_scale	all	rho	-0.00173913	0.993565	24			10	0	0	1	1
+cldn4_ifn	GSE239485_LLC	GSE239485	LLC	KrasG12C and Nras; not Stk11/Lkb1	none	0	continuous	ifn_chemokine	zmean	spearman	author_scale	all	rho	0.0556522	0.796187	24			16	0	0	1	1
+cldn4_nhej	GSE260596_KP	GSE260596	KP	refractory KP mouse lung tumors (series summary); not Lkb1	none	0	continuous	nhej_core	zmean	spearman	log2_cpm	all	rho	-0.214286	0.644512	7			9	0	0	1	0.936661
+cldn4_ifn	GSE260596_KP	GSE260596	KP	refractory KP mouse lung tumors (series summary); not Lkb1	none	0	continuous	ifn_chemokine	zmean	spearman	log2_cpm	all	rho	-0.571429	0.180202	7			16	1	0	1	0.73623

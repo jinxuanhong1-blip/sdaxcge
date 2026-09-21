@@ -1,0 +1,16 @@
+source	model	kras	icb	scored	note
+TISMO	LLC	KrasG12C/Nras	yes	yes	Only TISMO lung line with ICB rows. Response label equals Setdb1 genotype.
+TISMO	CMT-167	KrasG12V	no	no	No ICB expression rows.
+TISMO	MLE12	not Kras (SV40 large T)	no	no	Not a Kras lung line.
+TISMO	KPB25L	Kras/p53	yes	no	Mammary, not lung.
+GSE246922	KP and LLC1	Kras/Trp53; LLC1 KrasG12C	acquired resistance	yes	CD45- cells. Chronic IFNG is not the resistant arm.
+GSE297630	LLC	KrasG12C/Nras	anti-PD-1 tolerant vs untreated	yes	Proxy, not per-mouse response.
+GSE114601	KP GEMM	Kras/Trp53	anti-PD-1 vs vehicle	modules	n=2 per monotherapy arm. No R/NR.
+GSE157880	HKP1	KrasG12D/Trp53	anti-PD-1 ± radiation	modules	No R/NR. Monotherapy 0 Gy is n=2 vs 3.
+GSE274960	LL/2	KrasG12C	anti-PD-1 ± entrectinib	modules	No R/NR.
+GSE262305	LLC	KrasG12C/Nras	anti-PD-L1 ± bortezomib	modules	Cldn4 FPKM is near the floor. No R/NR.
+GSE239485	LLC	KrasG12C/Nras	Poly I:C + anti-PD-1	modules	No anti-PD-1 monotherapy and no R/NR.
+GSE260596	KP	KP lung, series summary	anti-PD-1 ± anti-LAIR1	modules	Every sample is on anti-PD-1. n=7.
+GSE193895	K / KL / KK / KKL	KrasG12D GEMM	no	no	Deposited counts have no ICB arm.
+GSE277929	KL	Kras/Lkb1	no	no	Entinostat and trametinib, not ICB.
+GSE137244	KL vs KP lines	Kras ± Lkb1	no	no	Locked cell-line contrast. Not rerun.
