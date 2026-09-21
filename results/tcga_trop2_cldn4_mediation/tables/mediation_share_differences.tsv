@@ -1,0 +1,9 @@
+pool	outcome	contrast	share_difference	ci_low	ci_high	n_boot
+lung_funnel8	CD8_score	CLDN4 minus CLDN7	0.19665371	-0.026979449	0.51667371	2000
+lung_funnel8	CD8_score	CLDN4 minus EPCAM	0.21579996	-0.039333862	0.61960552	2000
+lung_funnel8	CD3_score	CLDN4 minus CLDN7	0.22511868	-0.065754226	0.80313852	2000
+lung_funnel8	CD3_score	CLDN4 minus EPCAM	0.42871457	0.089487835	1.3960139	2000
+keratin_funnel7	CD8_score	CLDN4 minus CLDN7	0.32924855	-0.027800337	1.6782493	2000
+keratin_funnel7	CD8_score	CLDN4 minus EPCAM	0.31946261	-0.098560728	1.7338351	2000
+keratin_funnel7	CD3_score	CLDN4 minus CLDN7	0.42365252	-1.226592	3.1833184	2000
+keratin_funnel7	CD3_score	CLDN4 minus EPCAM	0.59698846	-1.5754813	4.7744882	2000
