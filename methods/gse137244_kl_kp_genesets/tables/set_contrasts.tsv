@@ -1,0 +1,15 @@
+set_name	role	n_genes_used	n_genes_requested	n_genes_unmatched	mean_kp	mean_kl	delta	separation	U_kl	p_mw_two_sided	p_welch_greater	t_welch	p_perm_greater	perm_extreme	n_permutations	rank_biserial_kl	q_bh_welch_primary4	note
+Cldn4	primary_gene	1	1	0	3.305358	8.874985	5.569627	KL>KP	25.000000	7.936508e-03	1.361516e-05	1.018837e+01	3.968254e-03	1	252	1.000000		locked single gene
+Tacstd2	primary_gene	1	1	0	2.617385	5.855613	3.238227	KL>KP	25.000000	7.936508e-03	2.854003e-03	4.647609e+00	3.968254e-03	1	252	1.000000		locked single gene
+Cldn4_Tacstd2	primary	2	2	0	2.961372	7.365299	4.403927	KL>KP	25.000000	7.936508e-03	2.561583e-04	7.334839e+00	3.968254e-03	1	252	1.000000	5.123167e-04	mean of Cldn4 and Tacstd2
+TJ_TISMO	secondary	7	7	0	4.079883	7.348401	3.268518	KL>KP	25.000000	7.936508e-03	7.880474e-05	9.856779e+00	3.968254e-03	1	252	1.000000		TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+NHEJ_KEGG	primary	13	13	0	2.371538	2.673311	0.301772	overlap	24.000000	1.587302e-02	6.632193e-04	4.824449e+00	7.936508e-03	2	252	0.920000	6.632193e-04	KEGG 2019 Mouse Non-homologous end-joining
+Rad50	primary_gene	1	1	0	2.901424	3.862485	0.961060	KL>KP	25.000000	7.936508e-03	5.614652e-05	7.832212e+00	3.968254e-03	1	252	1.000000		strongest single KEGG NHEJ gene
+MRN	primary	3	3	0	2.698766	3.381980	0.683214	KL>KP	25.000000	7.936508e-03	4.142813e-04	5.204122e+00	3.968254e-03	1	252	1.000000	5.523751e-04	Mre11a, Rad50, Nbn
+STING_kinases	primary	2	2	0	2.693173	4.037211	1.344038	KL>KP	25.000000	7.936508e-03	1.028286e-07	1.776841e+01	3.968254e-03	1	252	1.000000	4.113142e-07	Tbk1 and Ikbke
+STING_core	secondary	5	5	0	2.830191	3.305543	0.475351	KL>KP	25.000000	7.936508e-03	1.068235e-02	2.867733e+00	3.968254e-03	1	252	1.000000		Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+IFN_compact	primary	15	15	0	2.096912	1.226137	-0.870775	overlap	2.000000	3.174603e-02	9.855113e-01	-2.682603e+00	9.920635e-01	250	252	-0.840000		mouse epithelial IFN list
+Hallmark_IFN_alpha	secondary	89	97	8	3.127111	2.493602	-0.633510	overlap	2.000000	3.174603e-02	9.816282e-01	-2.515631e+00	9.801587e-01	247	252	-0.840000		MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_gamma	secondary	185	200	15	2.842667	2.243130	-0.599537	overlap	2.000000	3.174603e-02	9.926068e-01	-3.391921e+00	9.920635e-01	250	252	-0.840000		MSigDB Hallmark 2020 interferon gamma response
+KEGG_cytosolic_DNA	secondary	60	61	1	2.436555	2.235970	-0.200584	overlap	2.000000	3.174603e-02	9.929356e-01	-3.289864e+00	9.920635e-01	250	252	-0.840000		KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+thesis_joint	primary			0	-0.869953	0.869953	1.739906	KL>KP	25.000000	7.936508e-03	6.880935e-08	1.750805e+01	3.968254e-03	1	252	1.000000		mean z of Cldn4, Tacstd2, NHEJ_KEGG, STING_kinases across the 10 tumor libraries

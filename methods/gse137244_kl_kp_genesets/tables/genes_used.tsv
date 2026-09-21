@@ -1,0 +1,385 @@
+set_name	gene	role	source
+Cldn4	Cldn4	primary_gene	locked single gene
+Tacstd2	Tacstd2	primary_gene	locked single gene
+Cldn4_Tacstd2	Cldn4	primary	mean of Cldn4 and Tacstd2
+Cldn4_Tacstd2	Tacstd2	primary	mean of Cldn4 and Tacstd2
+TJ_TISMO	Cldn3	secondary	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cldn4	secondary	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cldn6	secondary	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cldn7	secondary	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cdh1	secondary	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	F11r	secondary	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Ocln	secondary	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+NHEJ_KEGG	Dclre1c	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Fen1	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Xrcc5	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Xrcc6	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Xrcc4	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Mre11a	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Dntt	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Lig4	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Prkdc	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Rad50	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Polm	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Poll	primary	KEGG 2019 Mouse Non-homologous end-joining
+NHEJ_KEGG	Nhej1	primary	KEGG 2019 Mouse Non-homologous end-joining
+Rad50	Rad50	primary_gene	strongest single KEGG NHEJ gene
+MRN	Mre11a	primary	Mre11a, Rad50, Nbn
+MRN	Rad50	primary	Mre11a, Rad50, Nbn
+MRN	Nbn	primary	Mre11a, Rad50, Nbn
+STING_kinases	Tbk1	primary	Tbk1 and Ikbke
+STING_kinases	Ikbke	primary	Tbk1 and Ikbke
+STING_core	Mb21d1	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Tmem173	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Tbk1	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Ikbke	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Irf3	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+IFN_compact	Stat1	primary	mouse epithelial IFN list
+IFN_compact	Stat2	primary	mouse epithelial IFN list
+IFN_compact	Irf1	primary	mouse epithelial IFN list
+IFN_compact	Irf7	primary	mouse epithelial IFN list
+IFN_compact	Irf9	primary	mouse epithelial IFN list
+IFN_compact	Isg15	primary	mouse epithelial IFN list
+IFN_compact	Ifit1	primary	mouse epithelial IFN list
+IFN_compact	Ifit2	primary	mouse epithelial IFN list
+IFN_compact	Ifit3	primary	mouse epithelial IFN list
+IFN_compact	Mx1	primary	mouse epithelial IFN list
+IFN_compact	Oasl2	primary	mouse epithelial IFN list
+IFN_compact	Rsad2	primary	mouse epithelial IFN list
+IFN_compact	Ifih1	primary	mouse epithelial IFN list
+IFN_compact	Ddx58	primary	mouse epithelial IFN list
+IFN_compact	Ifnb1	primary	mouse epithelial IFN list
+Hallmark_IFN_alpha	Mx1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Isg15	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifit3	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifi44	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifi35	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Irf7	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Rsad2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifi44l	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifitm1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifi27	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Irf9	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Eif2ak2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifit2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Cxcl10	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Tap1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Sp110	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ddx60	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ube2l6	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Usp18	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Psmb8	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifih1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Bst2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Lgals3bp	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Adar	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Isg20	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Gbp2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Irf1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Plscr1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Psmb9	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Herc6	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Cmpk2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifitm3	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Rtp4	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Stat2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Samd9l	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ly6e	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifitm2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Helz2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Cxcl11	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Trim21	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Parp14	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Trim26	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Parp12	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Nmi	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Rnf31	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Casp1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Trim14	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Tdrd7	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Dhx58	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Parp9	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Pnpt1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Trim25	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Psme1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Epsti1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Uba7	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Psme2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	B2m	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Trim5	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Lap3	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Lamp3	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Gbp4	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ncoa7	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Tmem140	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Cd74	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Gmpr	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Psma3	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Procr	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Il7	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ifi30	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Irf2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Csf1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Il15	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Cnp	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Cmtr1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Cd47	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Lpar6	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Mov10	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Casp8	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Txnip	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Slc25a28	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Sell	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Trafd1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Batf2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ripk2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ccrl2	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Nub1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Ogfr	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Mvb12a	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_alpha	Elf1	secondary	MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_gamma	Stat1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Isg15	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifit1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Mx1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifit3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifi35	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Irf7	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifit2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Oas2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tap1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Eif2ak2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Rsad2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Mx2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Irf1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Oas3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tnfsf10	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Irf9	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cxcl10	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifi44	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Bst2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Xaf1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Sp110	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psmb8	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifi44l	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifitm3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ddx60	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Lgals3bp	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Gbp4	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Irf8	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psmb9	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Pml	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifih1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ube2l6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifi27	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Adar	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ly6e	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Stat2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cxcl9	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Il10ra	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Pla2g4a	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Trim21	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Usp18	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ptgs2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Epsti1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ddx58	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Il15	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Nlrc5	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Nmi	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ido1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psmb10	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cxcl11	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Itgb7	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Samhd1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Herc6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cmpk2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Samd9l	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Rtp4	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ptpn2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Parp14	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tnfaip2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifitm2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Plscr1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Socs1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Casp1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Icam1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psme1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Isg20	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Irf2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Trim14	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Socs3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Jak2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Parp12	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tnfaip6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Trim26	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Vcam1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cd274	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ciita	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Nampt	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Selp	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Gpr18	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Fpr1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Helz2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psme2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Serping1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ccl5	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Rnf31	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Sod2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Trim25	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Lap3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psma3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Rnf213	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Peli1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cfb	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cd86	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Txnip	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Gch1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Pnp	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ccl7	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ptpn6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Sppl2a	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Pnpt1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Dhx58	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Btg1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Casp8	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifi30	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ccl2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Fgl2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Casp7	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Il15ra	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cd40	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Trafd1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Gbp6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Lcp2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ripk1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Klrk1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Upp1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psmb2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tdrd7	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Hif1a	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Eif4e3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Vamp8	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Pfkp	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cd38	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Zbp1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Bank1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tor1b	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Rbck1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Pde4b	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Mvp	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Il7	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Bpgm	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cmtr1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Auts2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	B2m	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ripk2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cd69	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Myd88	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Psma2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Pim1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Nod1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cfh	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tapbp	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Slc25a28	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ptpn1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Tnfaip3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Sspn	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Nup93	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Mthfd2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cdkn1a	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Irf4	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Nfkb1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Batf2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Lats2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Irf5	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Slamf7	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Isoc1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	P2ry14	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Stat3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ncoa3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Il6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Gzma	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ifnar2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cd74	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Rapgef6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Casp4	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Fas	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Ogfr	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Arl4a	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Sri	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Lysmd2	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Csf2rb	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	St3gal5	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Casp3	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Cmklr1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Nfkbia	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Mettl7b	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	St8sia4	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Xcl1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Il2rb	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Vamp5	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Il18bp	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Znfx1	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Arid5b	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Apol6	secondary	MSigDB Hallmark 2020 interferon gamma response
+Hallmark_IFN_gamma	Stat4	secondary	MSigDB Hallmark 2020 interferon gamma response
+KEGG_cytosolic_DNA	Zbp1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3gl	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ripk3	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Tmem173	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Il18	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Cxcl10	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Nfkbib	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Il1b	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Nfkbia	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3a	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Il6	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3b	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3c	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3d	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3e	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3f	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Irf3	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3g	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3h	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Irf7	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr3k	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Rela	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Adar	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Pycard	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Casp1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ripk1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna12	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Il33	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna13	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna14	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna15	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ddx58	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Chuk	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Nfkb1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifi202b	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Aim2	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Mavs	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr1c	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr1d	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna11	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna6	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna5	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna7	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna2	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna4	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifna9	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ikbkb	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifnab	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Tbk1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr2e	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ccl5	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ccl4	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr2f	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Trex1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ifnb1	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr2h	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ikbkg	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Ikbke	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
+KEGG_cytosolic_DNA	Polr2l	secondary	KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
