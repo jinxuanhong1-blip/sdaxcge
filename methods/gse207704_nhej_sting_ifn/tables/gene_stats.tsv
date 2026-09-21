@@ -1,0 +1,95 @@
+set	symbol	deposited_symbol	alias_used	mapped	T47D_WT	T47D_KO	log2FC_T47D	dir_T47D	MCF7_WT	MCF7_KO	log2FC_MCF7	dir_MCF7	log2FC_mean	consensus	note
+QC	CLDN4	CLDN4	False	True	42.5059	20.4365	-1.03851	DOWN	85.8545	50.8495	-0.749921	DOWN	-0.894218	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+QC	TACSTD2	TACSTD2	False	True	59.6053	38.5188	-0.623323	DOWN	59.9174	29.539	-1.00813	DOWN	-0.815725	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+NHEJ_CORE	PRKDC	PRKDC	False	True	47.0476	59.036	0.32439	UP	45.4075	38.1347	-0.248833	FLAT	0.0377786	UP	descriptive; group-mean FPKM, no gene-level FDR
+NHEJ_CORE	LIG4	LIG4	False	True	3.11745	6.92803	1.03801	UP	4.90257	4.73464	-0.0455555	FLAT	0.496226	UP	descriptive; group-mean FPKM, no gene-level FDR
+NHEJ_CORE	XRCC4	XRCC4	False	True	17.825	17.3546	-0.0375174	FLAT	18.843	22.3152	0.238184	FLAT	0.100333	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+NHEJ_CORE	XRCC5	XRCC5	False	True	81.4203	91.31	0.16443	FLAT	77.472	87.1284	0.168442	FLAT	0.166436	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+NHEJ_CORE	XRCC6	XRCC6	False	True	441.698	389.464	-0.181352	FLAT	450.729	485.682	0.107637	FLAT	-0.0368574	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+NHEJ_CORE	NHEJ1	NHEJ1	False	True	7.00274	7.44659	0.0829183	FLAT	5.81177	5.34164	-0.111671	FLAT	-0.0143764	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+STING_AXIS	CGAS	MB21D1	True	True	10.3282	11.4136	0.137816	FLAT	8.60214	9.93231	0.196781	FLAT	0.167298	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+STING_AXIS	STING1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+STING_AXIS	TBK1	TBK1	False	True	44.395	44.5696	0.00559987	FLAT	46.5068	48.555	0.0615307	FLAT	0.0335653	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+STING_AXIS	IRF3	IRF3	False	True	30.408	28.2823	-0.102798	FLAT	31.7074	34.3925	0.115525	FLAT	0.00636317	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFI27		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	OAS2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	IFIT1	IFIT1	False	True	1.03426	1.00283	-0.0298612	FLAT	1.42341	0.402981	-1.0909	DOWN	-0.56038	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	MX1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	ISG15	ISG15	False	True	50.6308	13.1474	-1.90557	DOWN	40.0522	43.1148	0.105038	FLAT	-0.900264	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFIT2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	IFIT3		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	IFIT5	IFIT5	False	True	7.68333	7.19201	-0.0893274	FLAT	2.85571	4.58175	0.598707	UP	0.25469	UP	descriptive; group-mean FPKM, no gene-level FDR
+IFN	MX2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	OAS1	OAS1	False	True	1.96057	1.10937	-0.612497	DOWN	0.839395	0.136714	-1.07286	LOW	-0.84268	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	OAS3	OAS3	False	True	7.1991	2.99109	-1.14101	DOWN	4.51072	2.96373	-0.532691	DOWN	-0.836852	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	OASL		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	RSAD2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	USP18	USP18	False	True	15.5443	12.1073	-0.347802	DOWN	7.99059	5.96711	-0.392744	DOWN	-0.370273	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFI6	IFI6	False	True	78.8604	30.5673	-1.35302	DOWN	32.5125	23.3648	-0.468128	DOWN	-0.910575	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFI35	IFI35	False	True	2.8439	0.424033	-1.85552	DOWN	0.462029	0.507106	0.0660632	LOW	-0.894726	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFI44	IFI44	False	True	6.45941	0.526812	-2.76079	DOWN	1.10851	0.229645	-1.14046	DOWN	-1.95063	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFI44L	IFI44L	False	True	1.25912	1.57567	0.238723	FLAT	0.721774	0.151599	-0.906921	LOW	-0.334099	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFI16		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	BST2	BST2	False	True	8.22435	0.223806	-3.59137	DOWN	0.628339	0.180084	-0.730416	LOW	-2.16089	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFITM1	IFITM1	False	True	9.44832	10.783	0.181626	FLAT	1.21007	0.772711	-0.426151	DOWN	-0.122262	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFITM2	IFITM2	False	True	51.4519	81.1973	0.653112	UP	35.7235	16.7911	-1.0669	DOWN	-0.206892	DISCORDANT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFITM3	IFITM3	False	True	75.095	83.025	0.143917	FLAT	47.0849	20.6026	-1.17308	DOWN	-0.514583	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	DDX58	DDX58	False	True	10.1026	8.3337	-0.263328	DOWN	4.22753	5.49201	0.341953	UP	0.0393125	DISCORDANT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFIH1	IFIH1	False	True	3.83419	2.78052	-0.401838	DOWN	0.20697	1.03956	1.1228	UP	0.36048	DISCORDANT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	DDX60		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	HERC5	HERC5	False	True	3.77091	8.70442	1.10778	UP	4.16165	17.1943	1.92437	UP	1.51608	UP	descriptive; group-mean FPKM, no gene-level FDR
+IFN	XAF1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	EIF2AK2	EIF2AK2	False	True	11.2584	12.8619	0.184433	FLAT	9.06659	8.64484	-0.0650468	FLAT	0.0596933	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	LY6E		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	CMPK2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	EPSTI1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	SAMD9L		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	TRIM22		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	ZBP1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	PLSCR1	PLSCR1	False	True	10.0577	11.4673	0.180802	FLAT	8.72318	9.02064	0.0457943	FLAT	0.113298	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	STAT1	STAT1	False	True	24.152	25.9968	0.104113	FLAT	34.9779	33.6943	-0.0531648	FLAT	0.0254743	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	STAT2	STAT2	False	True	6.72633	6.80434	0.0154908	FLAT	8.83472	7.18218	-0.281091	DOWN	-0.1328	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IRF1	IRF1	False	True	4.0123	2.7409	-0.477468	DOWN	2.74523	2.41637	-0.154147	FLAT	-0.315808	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IRF7		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	IRF9		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	JAK1	JAK1	False	True	32.9549	34.1005	0.0485754	FLAT	37.4113	43.1203	0.202372	FLAT	0.125474	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	JAK2	JAK2	False	True	12.1464	6.21673	-0.912896	DOWN	1.20587	2.77163	0.939502	UP	0.013303	DISCORDANT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFNAR1	IFNAR1	False	True	18.3103	19.6087	0.096297	FLAT	10.3178	6.93243	-0.541501	DOWN	-0.222602	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFNAR2	IFNAR2	False	True	4.2239	3.90514	-0.100791	FLAT	2.61485	2.41003	-0.0981287	FLAT	-0.0994596	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFNGR1	IFNGR1	False	True	22.6744	22.5716	-0.00641393	FLAT	19.7315	18.6901	-0.0762411	FLAT	-0.0413275	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+IFN	IFNGR2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	SOCS1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	SOCS3	SOCS3	False	True	0.545867	0.569773	0.0326053	LOW	6.03821	2.52842	-1.11033	DOWN	-0.538863	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	GBP1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	GBP2	GBP2	False	True	4.31222	3.61122	-0.227136	FLAT	7.38002	4.04543	-0.793783	DOWN	-0.510459	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+IFN	GBP4		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	GBP5		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	CXCL9		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	CXCL10		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	CXCL11		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	CIITA		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	IDO1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	IFNG		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+IFN	IFNB1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	HLA-A		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	HLA-B		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	HLA-C	HLA-C	False	True	10.8526	7.53342	-0.498937	DOWN	3.09998	8.2832	1.28676	UP	0.393911	DISCORDANT	descriptive; group-mean FPKM, no gene-level FDR
+APM	HLA-E		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	HLA-F		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	HLA-G		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	B2M		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	NLRC5		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	TAP1		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	TAP2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	TAPBP		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	PSMB8		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	PSMB9		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	PSMB10	PSMB10	False	True	22.8328	22.1521	-0.0427146	FLAT	12.7734	16.5049	0.357413	UP	0.157349	UP	descriptive; group-mean FPKM, no gene-level FDR
+APM	ERAP1	ERAP1	False	True	15.0387	11.3888	-0.386263	DOWN	8.01057	4.6334	-0.729341	DOWN	-0.557802	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+APM	ERAP2		False	False				ABSENT				ABSENT		ABSENT	absent from cufflinks table (annotation gap, not a measured zero)
+APM	CALR	CALR	False	True	331.015	287.075	-0.205136	FLAT	400.529	368.677	-0.119394	FLAT	-0.162265	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+APM	CANX	CANX	False	True	467.05	521.424	0.158719	FLAT	315.644	305.356	-0.0477293	FLAT	0.0554949	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+APM	PDIA3	PDIA3	False	True	57.7448	58.876	0.0277507	FLAT	64.3749	55.8692	-0.202753	FLAT	-0.0875013	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+APM	SEC61A1	SEC61A1	False	True	53.0073	58.5202	0.141473	FLAT	97.1459	96.3272	-0.0121471	FLAT	0.064663	FLAT	descriptive; group-mean FPKM, no gene-level FDR
+APM	PSME1	PSME1	False	True	164.64	139.925	-0.23389	FLAT	169.28	126.867	-0.414675	DOWN	-0.324282	DOWN	descriptive; group-mean FPKM, no gene-level FDR
+APM	PSME2	PSME2	False	True	108.325	84.634	-0.354203	DOWN	109.702	101.092	-0.117364	FLAT	-0.235783	DOWN	descriptive; group-mean FPKM, no gene-level FDR
