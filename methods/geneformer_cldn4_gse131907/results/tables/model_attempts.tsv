@@ -1,0 +1,9 @@
+model	status	note	sec_per_cell	n_cells
+Geneformer-V1-10M	self_check_ok	BertForMaskedLM 6x256, 41MB safetensors, CPU		
+scGPT-human	self_check_ok	eager attention in place of flash-attn; weights 196MB		
+Geneformer-V1-10M-holdout	ran	"{""n_genes_in_vocab"": 17413, ""n_empty_cells"": 0, ""holdout"": ""ENSG00000189143"", ""special_tokens"": false, ""max_len"": 2048}"	0.14790785948774732	1874.0
+Geneformer-V1-10M-full	ran	"{""n_genes_in_vocab"": 17414, ""n_empty_cells"": 0, ""holdout"": null, ""special_tokens"": false, ""max_len"": 2048}"	0.15796258113681952	1874.0
+scGPT-human-holdout	ran	CLS L2-normalized; eager attention; CLDN4 held out	0.47841867667761023	1874.0
+scGPT-human-full	ran	CLS L2-normalized; eager attention; CLDN4 token kept	0.5854854340741575	1874.0
+Geneformer-V2-104M_CLcancer	skipped_time	benchmark only; full cohort not run because probe > 1.5 s/cell on CPU	2.70131915807724	8.0
+Geneformer-V2-316M	skipped_weight	1.26GB root checkpoint not loaded. Heavier than V2-104M on a 16GB CPU host; not run.		

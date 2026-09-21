@@ -27,6 +27,12 @@ Primary tokenization **removes ENSG00000189143 (CLDN4) before ranking**. A secon
 
 **Geneformer V2-104M_CLcancer** is benchmarked on 8 cells (CLS+EOS, max 4096, second-to-last layer). The full cohort is embedded only if that probe is at or under 1.5 s/cell. **V2-316M** is not loaded.
 
+## Library size
+
+CLDN4 detection in this malignant subset tracks library size. The unmatched high-vs-low draw is reported, including a paired test of log1p(nUMI) and nGenes. It is not interpreted as a gene-program result.
+
+A depth caliper was added after that gap was observed and before the matched statistics were used as a biological claim. Within each sample, high cells are sorted by log1p(nUMI) and greedily paired to an unused low cell if |Δ log1p(nUMI)| ≤ 0.25. The match is deterministic (barcode order breaks ties). A sample is kept if it yields at least 5 pairs. Program scores, the leave-one-sample-out embedding contrast, and a refit PCA / diffusion map use only those cells.
+
 ## Separation test
 
 For each embedding, the direction for sample *s* is the mean of (centroid high − centroid low) over the other samples that pass the arm gate, L2-normalized. Cells in *s* are projected onto that direction. The paired difference is the mean projection of high cells minus low cells. Wilcoxon signed-rank, two-sided, across samples.

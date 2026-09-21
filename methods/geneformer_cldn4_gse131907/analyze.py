@@ -45,6 +45,8 @@ SEED = 1
 PRE_PER_ARM = 70
 CAP_PER_ARM = 50
 MIN_ARM = 5
+CALIPER = 0.25
+MIN_PAIRS = 5
 MIN_UMI = 500
 MIN_GENES = 200
 MAX_MITO = 0.20
@@ -896,16 +898,42 @@ def main():
         token_of = pickle.load(handle)
     with open(CACHE / "gene_median_dictionary_gc30M.pkl", "rb") as handle:
         median_of = pickle.load(handle)
-    gf_model = BertForMaskedLM.from_pretrained(CACHE / "gf_v1", local_files_only=True)
-    gf_model.eval()
-    layer = int(gf_model.config.num_hidden_layers) - 1
-    vocab_size = int(gf_model.config.vocab_size)
     gf_emb = {}
+    gf_raw = {}
     gf_cos_tables = []
+    gf_cache = CACHE / "gf_v1_raw.npz"
+    reuse_gf = False
+    if gf_cache.exists():
+        z = np.load(gf_cache)
+        if z["holdout"].shape[0] == len(meta) and z["full"].shape[0] == len(meta):
+            gf_raw["holdout"] = z["holdout"]
+            gf_raw["full"] = z["full"]
+            for label in ("holdout", "full"):
+                proj, _ = loso_projection(gf_raw[label], high, sample)
+                gf_emb[label] = proj
+            reuse_gf = True
+            attempts.append(
+                {
+                    "model": "Geneformer-V1-10M",
+                    "status": "reused_cache",
+                    "n_cells": int(len(meta)),
+                    "note": str(gf_cache),
+                }
+            )
+            print("reused Geneformer V1 embeddings", flush=True)
+    if not reuse_gf:
+        gf_model = BertForMaskedLM.from_pretrained(CACHE / "gf_v1", local_files_only=True)
+        gf_model.eval()
+        layer = int(gf_model.config.num_hidden_layers) - 1
+        vocab_size = int(gf_model.config.vocab_size)
     id_to_ens = {int(v): k for k, v in token_of.items() if isinstance(k, str) and k.startswith("ENSG")}
     ens_to_symbol = {e: s for s, e in zip(symbols, ensembl)}
     t_gf = time.time()
-    for label, hold in (("holdout", CLDN4_ENS), ("full", None)):
+    if reuse_gf:
+        label_iter = []
+    else:
+        label_iter = (("holdout", CLDN4_ENS), ("full", None))
+    for label, hold in label_iter:
         print(f" tokenize {label}", flush=True)
         seqs, info = tokenize_geneformer(
             counts,
@@ -940,6 +968,7 @@ def main():
         )
         proj, _ = loso_projection(emb, high, sample)
         gf_emb[label] = proj
+        gf_raw[label] = emb
         delta = full_delta(emb, high, sample)
         cos = token_cosine(gene_sum, gene_n, delta, min_n=30)
         order = np.argsort(np.nan_to_num(cos, nan=-np.inf))[::-1]
@@ -955,7 +984,9 @@ def main():
                     "n_token_observations": int(gene_n[tok_i]),
                 }
             )
-    del gf_model
+    if not reuse_gf:
+        np.savez_compressed(gf_cache, holdout=gf_raw["holdout"], full=gf_raw["full"])
+        del gf_model
     print(f"Geneformer V1 done in {time.time() - t_gf:.0f}s", flush=True)
 
     # depth residual of the primary (holdout) projection
@@ -1072,9 +1103,14 @@ def main():
         "Genes tracking the Geneformer holdout axis",
         "mean_within_sample_spearman",
     )
-    write_tsv(pd.DataFrame(gf_cos_tables), TABLES / "nearest_genes_token_cosine.tsv")
     cos_df = pd.DataFrame(gf_cos_tables)
-    hold_cos = cos_df[cos_df["model"].eq("Geneformer-V1-10M-holdout")].head(20)
+    if len(cos_df):
+        write_tsv(cos_df, TABLES / "nearest_genes_token_cosine.tsv")
+    hold_cos = (
+        cos_df[cos_df["model"].eq("Geneformer-V1-10M-holdout")].head(20)
+        if len(cos_df)
+        else cos_df
+    )
     if len(hold_cos) and hold_cos["symbol"].astype(bool).any():
         plot_genes(
             hold_cos[hold_cos["symbol"].astype(bool)],
@@ -1085,6 +1121,7 @@ def main():
 
     # --- scGPT ---
     scgpt_proj = {}
+    sc_raw = {}
     try:
         print("scGPT-human embeddings", flush=True)
         vocab = json.loads((CACHE / "scgpt" / "vocab.json").read_text())
@@ -1140,6 +1177,7 @@ def main():
             )
             proj, _ = loso_projection(emb, high, sample)
             scgpt_proj[label] = proj
+            sc_raw[label] = emb
             projections[f"scgpt_{label}_loso"] = proj
         del sc_model
     except Exception as exc:
@@ -1171,6 +1209,7 @@ def main():
 
     # --- Geneformer V2-104M cancer: benchmark, run only if fast ---
     v2_path = CACHE / "gf_v2_cancer" / "model.safetensors"
+    v2_raw = None
     try:
         if not v2_path.exists() or v2_path.stat().st_size < 400_000_000:
             raise RuntimeError(f"V2 weights incomplete ({v2_path})")
@@ -1237,6 +1276,7 @@ def main():
                 }
             )
             proj, _ = loso_projection(emb, high, sample)
+            v2_raw = emb
             projections["gf_v2_cancer_holdout_loso"] = proj
             test = paired_means(proj, high, sample)
             embed_rows.append(
@@ -1291,6 +1331,45 @@ def main():
     for name, vec in projections.items():
         cell[name] = vec
     write_tsv(cell, TABLES / "cell_projections.tsv")
+
+    from depth_match import run_depth_match
+
+    raw_embeddings = {
+        "gf_v1_holdout": gf_raw.get("holdout"),
+        "gf_v1_full": gf_raw.get("full"),
+    }
+    raw_embeddings.update({f"scgpt_{k}": v for k, v in sc_raw.items()})
+    if v2_raw is not None:
+        raw_embeddings["gf_v2_cancer_holdout"] = v2_raw
+    run_depth_match(
+        meta,
+        counts,
+        lognorm,
+        symbols,
+        ensembl,
+        programs,
+        raw_embeddings,
+        tables=TABLES,
+        figs=FIGS,
+        caliper=CALIPER,
+        min_pairs=MIN_PAIRS,
+        helpers={
+            "paired_means": paired_means,
+            "bh": bh,
+            "loso_projection": loso_projection,
+            "mean_gene_rho": mean_gene_rho,
+            "diffusion_map": diffusion_map,
+            "orient_components": orient_components,
+            "plot_deltas": plot_deltas,
+            "plot_paired": plot_paired,
+            "plot_genes": plot_genes,
+            "write_tsv": write_tsv,
+            "program_scores": program_scores,
+            "PROGRAM_ORDER": PROGRAM_ORDER,
+            "CONTROLS": CONTROLS,
+            "SEED": SEED,
+        },
+    )
 
     write_finding(embed_df, prog_df, geom_df, axis_df, gene_tbl, pd.DataFrame(attempts))
     print(f"ALL DONE {time.time() - t_all:.0f}s", flush=True)
@@ -1363,7 +1442,7 @@ def write_finding(embed_df, prog_df, geom_df, axis_df, gene_tbl, attempts):
 
     def sig_sentence(frame, label):
         if frame.empty:
-            return f"No {label} survives BH q<0.10."
+            return f"None of the tested {label} survive BH q<0.10."
         bits = [f"{r['component']} Δ={fmt_n(r['median_delta_high_minus_low'])} q={fmt_p(r['q_bh'])}" for _, r in frame.iterrows()]
         return f"{label} with BH q<0.10: " + "; ".join(bits) + "."
 
@@ -1394,6 +1473,144 @@ def write_finding(embed_df, prog_df, geom_df, axis_df, gene_tbl, attempts):
             f"| {r['model']} | {r['status']} | {fmt_n(sec) if np.isfinite(sec) else 'NA'} | {note} |"
         )
 
+    def _opt(name: str):
+        path = TABLES / name
+        if not path.exists():
+            return None
+        return pd.read_csv(path, sep="\t")
+
+    def _md_table(df: pd.DataFrame | None, cols: list[str], formats: dict) -> str:
+        if df is None or df.empty:
+            return "_not run_"
+        lines = ["| " + " | ".join(cols) + " |", "|" + "|".join(["---"] * len(cols)) + "|"]
+        for _, r in df.iterrows():
+            cells = []
+            for c in cols:
+                val = r[c]
+                fmt = formats.get(c)
+                if fmt == "p":
+                    cells.append(fmt_p(val))
+                elif fmt == "n":
+                    cells.append(fmt_n(val) if pd.notna(val) else "NA")
+                elif fmt == "i":
+                    cells.append(str(int(val)) if pd.notna(val) else "NA")
+                else:
+                    cells.append(str(val))
+            lines.append("| " + " | ".join(cells) + " |")
+        return "\n".join(lines)
+
+    depth_tests = _opt("depth_gap_tests.tsv")
+    depth_arms = _opt("depth_gap_by_sample.tsv")
+    matched_prog = _opt("program_paired_tests_matched.tsv")
+    matched_emb = _opt("embedding_loso_tests_matched.tsv")
+    matched_geom = _opt("pca_diffusion_paired_tests_matched.tsv")
+    matched_genes = _opt("nearest_genes_expression_axis_top_matched.tsv")
+    matched_axis = _opt("program_vs_geneformer_axis_matched.tsv")
+    pairs = _opt("depth_caliper_pairs.tsv")
+
+    if depth_arms is not None and len(depth_arms):
+        depth_sentence = (
+            f"Unmatched embedded cells: median nUMI high {int(round(float(depth_arms['median_umi_high'].median())))} "
+            f"vs low {int(round(float(depth_arms['median_umi_low'].median())))}; "
+            f"median genes detected {int(round(float(depth_arms['median_genes_high'].median())))} vs "
+            f"{int(round(float(depth_arms['median_genes_low'].median())))} "
+            f"({int(len(depth_arms))} samples)."
+        )
+    else:
+        depth_sentence = "Depth table was not written."
+    if pairs is not None and len(pairs):
+        match_sentence = (
+            f"Caliper match |Δ log1p(nUMI)| ≤ {CALIPER}, greedy within sample, ≥{MIN_PAIRS} pairs: "
+            f"**{int(len(pairs))} pairs**, **{int(pairs['sample'].nunique())} samples**, "
+            f"median |Δ log1p(nUMI)| = {fmt_n(float(pairs['abs_d_log1p_umi'].median()))}."
+        )
+    else:
+        match_sentence = "Caliper match did not return pairs."
+
+    def _sig_prog(df):
+        if df is None or df.empty:
+            return "Matched program table was not written."
+        sig = df[df["family"].eq("program") & df["q_bh"].lt(0.10)]
+        if sig.empty:
+            return "After the depth caliper, no pre-specified program survives BH q<0.10."
+        bits = [
+            f"{r['program']} Δ={fmt_n(r['median_delta_high_minus_low'])} q={fmt_p(r['q_bh'])}"
+            for _, r in sig.iterrows()
+        ]
+        return "Depth-matched programs with BH q<0.10: " + "; ".join(bits) + "."
+
+    cos = _opt("nearest_genes_token_cosine.tsv")
+    if cos is not None and len(cos) and "symbol" in cos.columns:
+        full_cos = cos[cos["model"].astype(str).str.contains("full")]
+        hit = full_cos[full_cos["symbol"].eq("CLDN4")]
+        if hit.empty:
+            token_note = (
+                "CLDN4 is not among the top 25 full-token cosine genes, so that "
+                "probe is not used as evidence that the marker token was recovered."
+            )
+        else:
+            token_note = (
+                f"CLDN4 token-cosine rank in the full model is {int(hit.iloc[0]['rank'])} "
+                f"(cosine {fmt_n(float(hit.iloc[0]['cosine_to_high_minus_low']))})."
+            )
+    else:
+        token_note = "Token-cosine table was not written."
+
+    matched_gene_s = "NA"
+    if matched_genes is not None and len(matched_genes):
+        matched_gene_s = ", ".join(matched_genes.head(12)["symbol"].astype(str).tolist())
+    matched_axis_s = "Matched axis table was not written."
+    if matched_axis is not None and len(matched_axis):
+        sig = matched_axis[matched_axis["family"].eq("program") & matched_axis["q_bh"].lt(0.10)]
+        if sig.empty:
+            matched_axis_s = "After the depth caliper, no pre-specified program tracks the Geneformer axis at BH q<0.10."
+        else:
+            bits = [
+                f"{r['program']} median ρ={fmt_n(r['median_spearman_vs_gf_holdout_loso'])} q={fmt_p(r['q_bh'])}"
+                for _, r in sig.iterrows()
+            ]
+            matched_axis_s = "Depth-matched programs tracking the holdout axis at BH q<0.10: " + "; ".join(bits) + "."
+
+    depth_md = _md_table(
+        depth_tests,
+        ["measure", "n_samples", "median_delta_high_minus_low", "n_samples_delta_pos", "p_wilcoxon"],
+        {"n_samples": "i", "median_delta_high_minus_low": "n", "n_samples_delta_pos": "i", "p_wilcoxon": "p"},
+    )
+    matched_prog_md = _md_table(
+        None if matched_prog is None else matched_prog[matched_prog["family"].eq("program")],
+        ["program", "n_samples", "median_delta_high_minus_low", "n_samples_delta_pos", "p_wilcoxon", "q_bh"],
+        {
+            "n_samples": "i",
+            "median_delta_high_minus_low": "n",
+            "n_samples_delta_pos": "i",
+            "p_wilcoxon": "p",
+            "q_bh": "p",
+        },
+    )
+    matched_emb_md = _md_table(
+        matched_emb,
+        ["embedding", "n_samples", "n_pairs", "median_delta_high_minus_low", "n_samples_delta_pos", "p_wilcoxon", "q_bh_holdouts"],
+        {
+            "n_samples": "i",
+            "n_pairs": "i",
+            "median_delta_high_minus_low": "n",
+            "n_samples_delta_pos": "i",
+            "p_wilcoxon": "p",
+            "q_bh_holdouts": "p",
+        },
+    )
+    matched_geom_md = _md_table(
+        matched_geom,
+        ["component", "n_samples", "median_delta_high_minus_low", "n_samples_delta_pos", "p_wilcoxon", "q_bh"],
+        {
+            "n_samples": "i",
+            "median_delta_high_minus_low": "n",
+            "n_samples_delta_pos": "i",
+            "p_wilcoxon": "p",
+            "q_bh": "p",
+        },
+    )
+
     primary_p = fmt_p(gf["p_wilcoxon"]) if gf is not None else "NA"
     primary_d = fmt_n(gf["median_delta_high_minus_low"]) if gf is not None else "NA"
     primary_n = int(gf["n_samples"]) if gf is not None else 0
@@ -1423,7 +1640,17 @@ CLDN4-high cells sit on the high side of a direction they did not help fit.
 - tLung epithelial states labeled tS1/tS2 are not `Cell_subtype == Malignant cells` and are not in this object.
 - Full-sample CLDN4 %pos (all author-malignant cells, not the cap) is in `results/tables/sample_inventory.tsv`.
 
-## Foundation-model separation
+## Library size comes first
+
+CLDN4 UMI>0 vs UMI=0 inside a sample is not a depth-balanced contrast. {depth_sentence}
+
+{depth_md}
+
+The unmatched program table below moves together with that gap: large gene sets rise in the deeper arm. That is not evidence for a specific program. The caliper match is a sensitivity added after this gap was measured, and it is the contrast used for program claims.
+
+{match_sentence}
+
+## Foundation-model separation (unmatched draw)
 
 Primary result, Geneformer V1-10M holdout LOSO: median Δ = {primary_d}, {primary_pos}/{primary_n} samples positive, Wilcoxon p = {primary_p}.
 
@@ -1442,7 +1669,27 @@ Primary result, Geneformer V1-10M holdout LOSO: median Δ = {primary_d}, {primar
 
 Figure: `results/figures/fig_geneformer_v1_loso_paired.png`.
 
-## Nearest gene programs
+## Depth-matched contrast
+
+Same embeddings, restricted to the caliper pairs. PCA and the diffusion map are refit on those cells with CLDN4 still held out of the features. Geneformer / scGPT vectors are not refit; only the leave-one-sample-out contrast is recomputed on the matched cells.
+
+{matched_emb_md}
+
+{_sig_prog(matched_prog)}
+
+This cell-level contrast is not the concordant-4 patient pseudobulk (IFN/MHC lower in CLDN4-high units). A positive cell-level Δ does not replace that result.
+
+{matched_prog_md}
+
+{matched_axis_s}
+
+Depth-matched genes with the highest mean within-sample Spearman vs the Geneformer holdout axis: {matched_gene_s}.
+
+{matched_geom_md}
+
+Figures: `fig_geneformer_v1_loso_paired_matched.png`, `fig_program_paired_matched.png`, `fig_nearest_genes_axis_matched.png`, `fig_pca_diffusion_paired_matched.png`.
+
+## Nearest gene programs (unmatched draw)
 
 Expression programs are mean log1p(CP10k). TJ / apical junction / every multi-gene set has **CLDN4 removed**. IFN is Hallmark IFNα ∪ IFNγ. MHC-I/APM is the repo custom set. Barrier/keratin matches the prior epithelial list and does not contain CLDN4. BH is across the 17 programs, not across the CLDN4 or TACSTD2 controls.
 
@@ -1456,13 +1703,13 @@ Genes with the highest mean within-sample Spearman vs that axis (detection ≥5%
 
 Lowest: {bot_genes}.
 
-Token-space probe (same layer as the cell vector; cosine of the mean contextual token state to the high−low vector; tokens seen in ≥30 cells): `results/tables/nearest_genes_token_cosine.tsv`. The holdout run cannot list CLDN4 because that token was removed. The full-token run is the positive control for whether CLDN4's contextual state aligns with the axis.
+Token-space probe (same layer as the cell vector; cosine of the mean contextual token state to the high−low vector; tokens seen in ≥30 cells): `results/tables/nearest_genes_token_cosine.tsv`. The holdout run cannot list CLDN4 because that token was removed. {token_note}
 
 ## PCA / diffusion map (CLDN4 held out of the features)
 
 2000 HVGs by variance of log1p(CP10k), CLDN4 excluded, z-scored, 30 PCs (full SVD). Diffusion map: k=15 adaptive Gaussian on those PCs, symmetric normalization, 10 nontrivial components. Components are sign-oriented so the median paired Δ is ≥0; p-values are two-sided and unchanged by that flip. BH is within the 10 PCs and, separately, within the 10 DCs.
 
-{sig_sentence(pc_sig, "PCs")} {sig_sentence(dc_sig, "DCs")}
+{sig_sentence(pc_sig, "PCs")} {sig_sentence(dc_sig, "diffusion components")}
 
 {chr(10).join(geom_lines)}
 
