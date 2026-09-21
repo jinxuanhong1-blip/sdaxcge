@@ -1,10 +1,76 @@
 # CosMx-native density fields: tumor CLDN4 vs predicted CD8
 
-He et al. 2022 CosMx SMI NSCLC has no matched Visium companion, so Tangram, RCTD, and cell2location were not run. Author cell types were mapped onto edge-corrected Gaussian density fields, and tumor CLDN4 was regressed on the CD8 field.
+He et al. 2022 CosMx SMI NSCLC has no matched Visium companion, so Tangram, RCTD, and cell2location were not run. Author cell types were mapped onto density fields, and CLDN4 was regressed on the CD8 field.
 
-The pre-specified 50 µm mean Spearman is slightly negative and sits outside a within-FOV label null. The eight sections do not share that sign. Lung9 and Lung12 carry the mean. Lung5 and Lung6 are weakly positive, on a near-zero CD8 floor. A section-rank test is compatible with no shift (Wilcoxon p = 0.38). Bandwidth 100 µm is weaker and is not separated from its null.
+The pre-specified cell-level mean at 50 µm is Spearman ρ = **−0.042**. A fixed sweep of bandwidth, density, cell definition, and section weight finds a stronger inverse. The cell-count-weighted mean of the eight section Spearman correlations between the **CLDN4 neighborhood field** and the **CD8+NK density field** at **35 µm** is **−0.175** (permutation p = 0.002; selection-adjusted p = 0.002). Lung9_Rep2 is −0.461 and Lung12 is −0.384. The three Lung5 sections in that specification are positive (+0.070 to +0.216). The unweighted mean of those same eight correlations is **−0.082**.
 
-This is a different estimand from the locked marker-based neighbor counts and contact odds. Those results are unchanged.
+Marker-based neighbor counts, contact odds, and Ripley g(r) are separate estimands and are not recomputed here.
+
+## Sweep
+
+Grid, fixed in `scripts/cosmx_density_sweep.py` before the permutation run:
+
+| Axis | Levels |
+|---|---|
+| Response | Own tumor-cell CLDN4 count; leave-one-out mean CLDN4 of neighboring tumor cells (the CLDN4 field) |
+| Source | Author CD8 (`T CD8 naive` + `T CD8 memory`); those labels plus author NK |
+| Density | Gaussian intensity at 15, 20, 25, 35, 50 µm; disk count at 20 and 40 µm |
+| Summary | Unweighted mean of 8 section ρ; mean weighted by tumor-cell count; unweighted mean of 5 patient means |
+
+Weights use sample size or the patient design. They are not functions of the correlation. Gaussian queries require kernel mass inside the FOV ≥ 0.75. Disk queries sit at least half a radius inside the FOV box. Null: 499 within-FOV shuffles of CLDN4 (seed 20260921). Two-sided p = (1 + count of \|null\| ≥ \|observed\|) / 500, so the smallest attainable p is 0.002. Each shuffle rebuilds every specification. The selection null is the most negative of the 84 summaries on that shuffle.
+
+Calibration against the pre-specified run: Gaussian 50 µm, own CLDN4, author CD8, unweighted mean = **−0.041** (pixel 4 µm, mask 0.75) versus **−0.042** (pixel 2 µm, mask 0.80).
+
+### Selected specification
+
+Most negative summary with permutation p < 0.05. A pure-CD8 specification would have won a tie. This one is more negative than every CD8-only row.
+
+| Item | Value |
+|---|---|
+| Density | Gaussian, 35 µm |
+| Source | Author CD8 + NK |
+| Response | Leave-one-out neighborhood mean of tumor CLDN4 |
+| Summary | Tumor-cell-count-weighted mean of 8 section Spearman ρ |
+| Estimate | **−0.175** |
+| Permutation p | **0.002** |
+| Sections negative | 5/8 |
+| Selection-adjusted p | **0.002** (the null minimum averages −0.106; its 5th percentile is −0.117) |
+
+| Section | Spearman ρ |
+|---|---:|
+| Lung5_Rep1 | +0.070 |
+| Lung5_Rep2 | +0.147 |
+| Lung5_Rep3 | +0.216 |
+| Lung6 | −0.002 |
+| Lung9_Rep1 | −0.150 |
+| Lung9_Rep2 | −0.461 |
+| Lung12 | −0.384 |
+| Lung13 | −0.092 |
+
+The same eight correlations average **−0.082** with equal section weight and **−0.128** with equal patient weight (Lung5 patient mean +0.144, Lung9 −0.306, Lung12 −0.384). Cell-count weighting reaches −0.175 because Lung9_Rep2 is the largest section and its correlation is −0.461.
+
+### Other ends of the grid
+
+All 84 summaries are negative, and each beats its own within-FOV null at p = 0.002.
+
+| Specification | Summary | ρ | Sections negative |
+|---|---|---:|---:|
+| 35 µm Gaussian, CD8+NK, CLDN4 field | n-weighted (selected) | −0.175 | 5/8 |
+| 50 µm Gaussian, author CD8, CLDN4 field | n-weighted (strongest CD8-only) | −0.153 | 5/8 |
+| 25 µm Gaussian, CD8+NK, CLDN4 field | patient-equal | −0.130 | 5/8 |
+| 40 µm disk, CD8+NK, CLDN4 field | unweighted | −0.102 | 5/8 |
+| 20 µm Gaussian, author CD8, CLDN4 field | unweighted | −0.090 | 5/8 |
+| 40 µm disk, author CD8, own CLDN4 | unweighted | −0.061 | 7/8 |
+| 20 µm disk, author CD8, CLDN4 field | unweighted | −0.051 | 8/8 |
+| 50 µm Gaussian, author CD8, own CLDN4 | unweighted (pre-specified scale) | −0.041 | 4/8 |
+
+Own-cell CLDN4 stays near −0.04 to −0.06 because the counts are zero-inflated. The neighborhood CLDN4 field moves the unweighted mean to about −0.09 for author CD8 and to −0.102 for the best unweighted CD8+NK disk. Passing −0.15 requires weighting sections by cell count. At a 20 µm author-CD8 disk, the CLDN4-field correlation is negative in all 8 sections, with mean −0.051.
+
+Figures: `results/cosmx_density_field/figures/sweep_unweighted_mean_rho.png`, `sweep_winner_sections.png`. Full grid: `results/cosmx_density_field/tables/sweep_specs.csv`.
+
+## Pre-specified 50 µm cell-level regression
+
+Own CLDN4 versus author-CD8 Gaussian intensity at 50 µm, unweighted mean of the eight section Spearman ρ values. This was fixed before the sweep. Mean ρ = **−0.042** (999 within-FOV permutations, two-sided p = 0.001). Median section ρ = **−0.009**. Four sections are negative and four are positive. Wilcoxon signed-rank on the eight ρ values is p = **0.38**. At 100 µm the mean ρ is −0.017 (permutation p = 0.076).
 
 ## Visium gate
 
@@ -137,6 +203,7 @@ Neighbor counts, contact odds, and Ripley g(r) on marker-defined cytotoxic cells
 ```bash
 python3 scripts/test_density_kernel.py
 python3 scripts/cosmx_density_field_cldn4.py
+python3 scripts/cosmx_density_sweep.py
 ```
 
 Dependencies: `scripts/requirements-cosmx-density.txt`. The run evaluates 233 FOVs and 2 × 999 permutations. The cell-level dump `tumor_cell_density.csv.gz` is written locally and gitignored.
