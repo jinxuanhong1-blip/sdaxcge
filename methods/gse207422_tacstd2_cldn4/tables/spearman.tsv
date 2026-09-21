@@ -1,0 +1,43 @@
+gene	cohort	expression	test	endpoint	endpoint_col	n	rho	p
+TACSTD2	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	A3-malignant fraction	frac_tumor	7	0.3214285714285715	0.48207203829967776
+TACSTD2	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	7	0.0	1.0
+TACSTD2	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	7	0.10714285714285716	0.8191508555699912
+TACSTD2	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	7	0.3243374865704013	0.477885479739931
+CLDN4	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	A3-malignant fraction	frac_tumor	7	-0.3214285714285715	0.48207203829967776
+CLDN4	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	7	-0.07142857142857144	0.879048193148154
+CLDN4	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	7	0.14285714285714288	0.7599453002180927
+CLDN4	post_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	7	0.4684874806016907	0.2889967715971478
+TACSTD2	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	A3-malignant fraction	frac_tumor	9	0.41666666666666663	0.26458604674749636
+TACSTD2	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	9	-0.19999999999999998	0.6059012741795534
+TACSTD2	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	9	0.03333333333333333	0.9321567355405039
+TACSTD2	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	9	0.10084389681792215	0.7962955385080446
+CLDN4	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	A3-malignant fraction	frac_tumor	9	-0.48333333333333334	0.18746985521554216
+CLDN4	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	9	0.049999999999999996	0.8983528043506303
+CLDN4	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	9	0.25	0.5164895523012261
+CLDN4	response_known_ge10_A3	A3_malignant_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	9	0.4874121679532904	0.18322476791125944
+TACSTD2	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman	epithelial fraction	frac_tumor	12	-0.06993006993006995	0.8290236405313092
+TACSTD2	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	12	-0.18181818181818185	0.5717012385276553
+TACSTD2	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	12	-0.0979020979020979	0.7621216559962992
+TACSTD2	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	12	0.4771959199593026	0.11670671668806785
+CLDN4	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman	epithelial fraction	frac_tumor	12	-0.06293706293706294	0.8459309212287789
+CLDN4	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	12	-0.10489510489510491	0.7456094809807079
+CLDN4	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	12	0.034965034965034975	0.9140933424107599
+CLDN4	post_epithelial_n12	epithelial_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	12	0.11579018646071314	0.7200804614772964
+TACSTD2	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman	PTPRC-negative malignant fraction	frac_tumor	6	-0.08571428571428573	0.8717434402332361
+TACSTD2	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	6	-0.14285714285714288	0.7871720116618076
+TACSTD2	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	6	0.028571428571428574	0.9571545189504373
+TACSTD2	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	6	0.48571428571428577	0.3287230320699708
+CLDN4	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman	PTPRC-negative malignant fraction	frac_tumor	6	0.08571428571428573	0.8717434402332361
+CLDN4	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman	CD8 T + NK fraction	frac_cd8nk	6	0.028571428571428574	0.9571545189504373
+CLDN4	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman	all T + NK fraction	frac_tnk	6	0.3714285714285715	0.4684781341107872
+CLDN4	post_ge10_A3_PTPRCneg	A3_PTPRCneg_mean_log1p_cp10k	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	6	0.48571428571428577	0.3287230320699708
+TACSTD2	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	A3-malignant fraction	frac_tumor	12	0.3636363636363637	0.24526500073077723
+TACSTD2	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	CD8 T + NK fraction	frac_cd8nk	12	-0.0979020979020979	0.7621216559962992
+TACSTD2	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	all T + NK fraction	frac_tnk	12	-0.18881118881118883	0.5567370561768314
+TACSTD2	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	12	0.3824584946732647	0.21982901960594778
+CLDN4	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	A3-malignant fraction	frac_tumor	12	0.3846153846153847	0.21702022575997731
+CLDN4	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	CD8 T + NK fraction	frac_cd8nk	12	-0.18881118881118883	0.5567370561768314
+CLDN4	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	all T + NK fraction	frac_tnk	12	-0.2797202797202798	0.37856866966230307
+CLDN4	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman_residual_tumor_companion	residual tumor fraction	residual_tumor	12	0.357896939969477	0.253351129116156
+TACSTD2	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	epithelial fraction	frac_epithelial	12	0.9090909090909092	4.191044653034231e-05
+CLDN4	post_all12_allcell_mean	all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction	spearman	epithelial fraction	frac_epithelial	12	0.965034965034965	3.880985299627466e-07
