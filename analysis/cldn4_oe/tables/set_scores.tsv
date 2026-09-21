@@ -1,0 +1,11 @@
+contrast	set	role	n_set_genes	n_detected	mean_log2fc	median_log2fc	frac_positive	rank_p	q_bh_primary
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	KEGG_NHEJ	primary	13	12	-0.0287	-0.0576	0.417	0.869333	0.869333
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Hallmark_IFN_alpha	primary	97	58	-0.0649	-0.0440	0.431	0.85474	0.869333
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Hallmark_IFN_gamma	primary	200	116	0.0045	-0.0228	0.474	0.868758	0.869333
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Reactome_NHEJ_no_histone	sensitivity	35	34	-0.0537	-0.0307	0.441	0.777055	
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Reactome_IFN_ab_no_ligand	sensitivity	59	37	0.1588	0.0873	0.541	0.0593462	
+GSE207704_deposited_FPKM_T47D_WT_over_KO	KEGG_NHEJ	primary	13	12	-0.0666	-0.0270	0.333	0.723326	0.723326
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Hallmark_IFN_alpha	primary	97	63	0.3704	0.2108	0.683	0.00052377	0.00157131
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Hallmark_IFN_gamma	primary	200	119	0.2178	0.0855	0.605	0.0192505	0.0288757
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Reactome_NHEJ_no_histone	sensitivity	35	34	-0.0580	-0.0467	0.324	0.233351	
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Reactome_IFN_ab_no_ligand	sensitivity	59	38	0.3144	0.0121	0.500	0.25374	
