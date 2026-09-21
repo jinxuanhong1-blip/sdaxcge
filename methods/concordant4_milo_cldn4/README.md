@@ -27,6 +27,7 @@ pip install -r methods/concordant4_milo_cldn4/requirements.txt
 # R packages edgeR, limma, jsonlite (user library is fine)
 python3 methods/concordant4_milo_cldn4/scripts/run_milo.py
 python3 methods/concordant4_milo_cldn4/scripts/deepen_milo.py
+python3 methods/concordant4_milo_cldn4/scripts/max_effect_sweep.py
 ```
 
 `scripts/nhood_gene_scores.py` reads the public GEO count matrices
@@ -35,4 +36,6 @@ GSE189357 raw tar, GSE205335 UMI RDS and cell-identity table) and
 writes the within-unit IFN / NHEJ / STING tables. The abundance
 scripts do not need those matrices.
 
-Write-up: `FINDING.md`.
+Write-up: `FINDING.md`. The wider k / d / quantile sweep that
+keeps all 65 units is `MAX_EFFECT.md`. It does not replace the
+primary model.

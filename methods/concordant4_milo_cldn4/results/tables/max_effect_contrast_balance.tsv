@@ -1,0 +1,9 @@
+contrast	rule	n_high	n_low	n_units	GSE123902_high	GSE123902_low	GSE131907_high	GSE131907_low	GSE189357_high	GSE189357_low	GSE205335_high	GSE205335_low
+q4_vs_rest	locked Q4 vs Q1+Q2+Q3	16	49	65	3	10	5	16	2	7	6	16
+q34	locked Q3+Q4 vs Q1+Q2	31	34	65	6	7	10	11	4	5	11	11
+top15	within-cohort top 0.150 vs rest	12	53	65	2	11	4	17	2	7	4	18
+top20	within-cohort top 0.200 vs rest	15	50	65	3	10	5	16	2	7	5	17
+top25	within-cohort top 0.250 vs rest	19	46	65	4	9	6	15	3	6	6	16
+top33	within-cohort top 0.333 vs rest	23	42	65	5	8	7	14	3	6	8	14
+top40	within-cohort top 0.400 vs rest	28	37	65	6	7	9	12	4	5	9	13
+half	within-cohort top 0.500 vs rest	34	31	65	7	6	11	10	5	4	11	11

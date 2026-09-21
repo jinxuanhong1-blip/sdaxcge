@@ -299,6 +299,12 @@ neighbourhoods have the same IFN score. Quote **n = 65** (31 vs 34)
 for the primary contrast, **n = 35** (16 vs 19) for Q4 vs Q1, and
 **n = 65** (16 vs 49) for Q4 versus the rest.
 
+A wider search, k ∈ {5, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60},
+d ∈ {3, 5, 8, 10, 15, 20, 30}, and eight high-rich cuts that keep
+all 65 units, is in `MAX_EFFECT.md`. The count of 65 above is the
+maximum inside the 45-specification grid on this page. The primary
+model is unchanged.
+
 Figures: `figures/volcano_binary_tmm.png`, `figures/logfc_by_class_binary_tmm.png`,
 `figures/grid_tnk_down_sfdr05.png`, `figures/nhood_ifn_delta_primary.png`.
 Primary table: `results/tables/da_binary_tmm.tsv`.
