@@ -1,0 +1,613 @@
+set_name	gene	status	source
+TJ_EPITHELIAL	Cldn1	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Cldn3	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Cldn4	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Cldn7	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Ocln	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Marveld2	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Marveld3	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Tjp1	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Tjp2	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Tjp3	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	F11r	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Jam2	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Jam3	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Cgn	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Cgnl1	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Crb3	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Ildr1	used	18 structural epithelial tight-junction genes
+TJ_EPITHELIAL	Lsr	used	18 structural epithelial tight-junction genes
+TJ_TISMO	Cldn3	used	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cldn4	used	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cldn6	used	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cldn7	used	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Cdh1	used	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	F11r	used	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+TJ_TISMO	Ocln	used	TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+CLDN4_TJ_EDGE	Cldn4	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Cldn1	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Cldn7	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Cgnl1	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Marveld2	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Marveld3	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Tjp1	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Tjp2	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Ildr1	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Cldn3	used	prior TJ-core leading edge, vendored
+CLDN4_TJ_EDGE	Ocln	used	prior TJ-core leading edge, vendored
+NHEJ_CORE	Xrcc6	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Xrcc5	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Prkdc	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Xrcc4	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Lig4	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Nhej1	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Dclre1c	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Paxx	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Poll	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Polm	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_CORE	Trp53bp1	used	c-NHEJ enzymes plus Trp53bp1
+NHEJ_EXTENDED	Trp53bp1	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Rnf8	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Rnf168	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Rif1	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Mad2l2	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Atm	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	H2afx	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Mre11a	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Rad50	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Nbn	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Parp1	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Pnkp	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Aplf	used	53BP1-pathway and end-sensing genes
+NHEJ_EXTENDED	Aptx	used	53BP1-pathway and end-sensing genes
+NHEJ_KEGG	Dclre1c	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Fen1	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Xrcc5	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Xrcc6	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Xrcc4	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Mre11a	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Dntt	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Lig4	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Prkdc	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Rad50	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Polm	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Poll	used	KEGG 2019 Mouse non-homologous end-joining
+NHEJ_KEGG	Nhej1	used	KEGG 2019 Mouse non-homologous end-joining
+STING_CORE	Mb21d1	used	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_CORE	Tmem173	used	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_CORE	Tbk1	used	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_CORE	Ikbke	used	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_CORE	Irf3	used	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+IFN_COMPACT	Stat1	used	15-gene epithelial ISG list
+IFN_COMPACT	Stat2	used	15-gene epithelial ISG list
+IFN_COMPACT	Irf1	used	15-gene epithelial ISG list
+IFN_COMPACT	Irf7	used	15-gene epithelial ISG list
+IFN_COMPACT	Irf9	used	15-gene epithelial ISG list
+IFN_COMPACT	Isg15	used	15-gene epithelial ISG list
+IFN_COMPACT	Ifit1	used	15-gene epithelial ISG list
+IFN_COMPACT	Ifit2	used	15-gene epithelial ISG list
+IFN_COMPACT	Ifit3	used	15-gene epithelial ISG list
+IFN_COMPACT	Mx1	used	15-gene epithelial ISG list
+IFN_COMPACT	Oasl2	used	15-gene epithelial ISG list
+IFN_COMPACT	Rsad2	used	15-gene epithelial ISG list
+IFN_COMPACT	Ifih1	used	15-gene epithelial ISG list
+IFN_COMPACT	Ddx58	used	15-gene epithelial ISG list
+IFN_COMPACT	Ifnb1	used	15-gene epithelial ISG list
+IFN_OAS	Oas1a	used	OAS antiviral enzymes
+IFN_OAS	Oas1b	used	OAS antiviral enzymes
+IFN_OAS	Oas1g	used	OAS antiviral enzymes
+IFN_OAS	Oas2	used	OAS antiviral enzymes
+IFN_OAS	Oas3	used	OAS antiviral enzymes
+IFN_OAS	Oasl1	used	OAS antiviral enzymes
+IFN_OAS	Oasl2	used	OAS antiviral enzymes
+IFN_HALLMARK_ALPHA	Mx1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Isg15	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifit3	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifi44	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifi35	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Irf7	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Rsad2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifi44l	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifitm1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifi27	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Irf9	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Eif2ak2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifit2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Cxcl10	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Tap1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Sp110	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ddx60	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ube2l6	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Usp18	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Psmb8	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifih1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Bst2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Lgals3bp	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Adar	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Isg20	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Gbp2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Irf1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Plscr1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Psmb9	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Herc6	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Cmpk2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifitm3	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Rtp4	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Stat2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Samd9l	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ly6e	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifitm2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Helz2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Cxcl11	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Trim21	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Parp14	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Trim26	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Parp12	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Nmi	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Rnf31	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Casp1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Trim14	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Tdrd7	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Dhx58	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Parp9	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Pnpt1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Trim25	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Psme1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Wars	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Epsti1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Uba7	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Psme2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	B2m	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Trim5	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Lap3	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Lamp3	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Gbp4	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ncoa7	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Tmem140	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Cd74	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Gmpr	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Psma3	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Procr	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Il7	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ifi30	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Irf2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Csf1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Il15	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Cnp	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Cmtr1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Cd47	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Lpar6	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Mov10	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Casp8	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Txnip	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Slc25a28	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Sell	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Trafd1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Batf2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ripk2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ccrl2	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Nub1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Ogfr	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Mvb12a	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	Elf1	used	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	OAS1	absent	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	OASL	absent	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	SAMD9	absent	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	HLA-C	absent	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	C1S	absent	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	TENT5A	absent	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_ALPHA	IL4R	absent	MSigDB Hallmark 2020 interferon alpha, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Stat1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Isg15	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifit1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Mx1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifit3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifi35	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Irf7	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifit2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Oas2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tap1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Eif2ak2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Rsad2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Mx2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Irf1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Oas3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tnfsf10	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Irf9	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cxcl10	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifi44	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Bst2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Xaf1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Sp110	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psmb8	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifi44l	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifitm3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ddx60	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Lgals3bp	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Gbp4	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Irf8	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psmb9	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Pml	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifih1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ube2l6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifi27	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Adar	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ly6e	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Stat2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cxcl9	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Il10ra	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Pla2g4a	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Trim21	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Usp18	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ptgs2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Epsti1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ddx58	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Il15	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Nlrc5	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Nmi	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ido1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psmb10	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cxcl11	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Itgb7	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Samhd1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Herc6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cmpk2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Samd9l	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Rtp4	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ptpn2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Parp14	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tnfaip2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifitm2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Plscr1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Socs1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Casp1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Icam1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Wars	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psme1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Isg20	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Irf2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Trim14	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Socs3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Jak2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Parp12	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tnfaip6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Trim26	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Vcam1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cd274	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ciita	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Nampt	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Selp	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Gpr18	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Fpr1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Helz2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psme2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Serping1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ccl5	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Rnf31	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Sod2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Trim25	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Lap3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psma3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Rnf213	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Peli1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cfb	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cd86	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Txnip	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Gch1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Pnp	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ccl7	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ptpn6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Sppl2a	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Pnpt1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Dhx58	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Btg1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Casp8	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifi30	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ccl2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Fgl2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Casp7	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Il15ra	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cd40	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Trafd1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Gbp6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Lcp2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ripk1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Klrk1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Upp1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psmb2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tdrd7	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Hif1a	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Eif4e3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Vamp8	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Pfkp	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cd38	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Zbp1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Bank1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tor1b	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Rbck1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Pde4b	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Mvp	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Il7	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Bpgm	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cmtr1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Auts2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	B2m	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ripk2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cd69	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Myd88	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Psma2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Pim1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Nod1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cfh	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tapbp	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Slc25a28	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ptpn1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Tnfaip3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Sspn	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Nup93	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Mthfd2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cdkn1a	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Irf4	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Nfkb1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Batf2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Lats2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Irf5	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Slamf7	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Isoc1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	P2ry14	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Stat3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ncoa3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Il6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Gzma	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ifnar2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cd74	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Rapgef6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Casp4	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Fas	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Ogfr	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Arl4a	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Sri	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Lysmd2	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Csf2rb	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	St3gal5	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Casp3	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Cmklr1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Nfkbia	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Mettl7b	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	St8sia4	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Xcl1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Il2rb	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Vamp5	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Il18bp	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Znfx1	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Arid5b	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Apol6	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	Stat4	used	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	OASL	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	C1S	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	FCGR1A	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	MARCHF1	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	HLA-DMA	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	HLA-DQA1	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	IL4R	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	SECTM1	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	HLA-DRB1	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	HLA-G	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	MT2A	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	HLA-B	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	HLA-A	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+IFN_HALLMARK_GAMMA	C1R	absent	MSigDB Hallmark 2020 interferon gamma, case-matched to this matrix
+APM_MHCI	B2m	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	H2-K1	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	H2-D1	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Tap1	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Tap2	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Tapbp	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Psmb8	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Psmb9	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Psmb10	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Erap1	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Nlrc5	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Calr	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Canx	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Pdia3	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Psme1	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	Psme2	used	MHC-I antigen presentation and immunoproteasome
+APM_MHCI	H2-L	absent	MHC-I antigen presentation and immunoproteasome
+APM_KEGG	Ctsb	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M10.1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Cd74	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hsp90aa1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Klrc3	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M10.4	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hspa5	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hspa1l	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M10.5	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Gm7030	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hspa8	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M10.2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Gm11127	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M10.3	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hspa2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Tap2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hspa4	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Tap1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Aa	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T-ps	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Tapbp	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Cd4	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Rfx5	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Ifng	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hspa1a	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Klrd1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M10.6	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Calr	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T10	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hspa1b	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Bl	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-K1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-DMa	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Tnf	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Ctss	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Gm8909	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Psme2b	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Ctsl	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-DMb2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-DMb1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Oa	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Ob	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	B2m	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Ciita	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Pdia3	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-D1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Eb1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Nfyb	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Nfyc	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Gm10499	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Rfxank	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Kir3dl1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Cd8b1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Kir3dl2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T3	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Ea-ps	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Creb1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Rfxap	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Cd8a	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Canx	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Lgmn	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Psme2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Psme3	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M11	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Psme1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Ab1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q10	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M9	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T24	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T23	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T22	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M5	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Hsp90ab1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q7	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M3	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q6	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-M2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q4	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Ifi30	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Klrc1	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Klrc2	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	Nfya	used	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T18	absent	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-T9	absent	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q9	absent	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-Q8	absent	KEGG 2019 Mouse antigen processing and presentation
+APM_KEGG	H2-L	absent	KEGG 2019 Mouse antigen processing and presentation
+CLDN4_NEIGHBORHOOD	AA467197	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	AC162893.1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Abhd17c	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Actg-ps1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Aggf1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Anxa7	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	App	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Arc	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Atg10	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Atp5l2-ps	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	B3galt6	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	B4galt6	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	BC016579	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	BC030870	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Cblc	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ccdc25	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Chmp2b	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Chst4	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Cldn23	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Clptm1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Cotl1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Creb3	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Cyb5r4	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Cyp3a13	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Dapp1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Dlc1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Dnajc10	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Dok4	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Dsp	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Efnb1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Erap1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ets2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	F11r	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gcnt2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm14336	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm15720	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm17936	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm22058	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm24146	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm26782	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm45734	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm5915	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm6054	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm6059	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm6375	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gm8399	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gpa33	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Gucd1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Hadha	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Hr	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ifngr2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Il17rc	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Il6st	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Irak2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Irf6	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Itgb6	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Itpkc	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Kcne3	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Kcnk5	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Kctd14	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Kif13b	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Lgr4	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Liph	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Mal2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Mgat4a	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Mkrn1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Mxd1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ndufb2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Nectin4	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ngly1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Nod2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ocln	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Pag1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Paqr8	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Pik3r1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Pof1b	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ptdss1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ptgfrn	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Pygb	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Qsox2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rab28	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rmdn3	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rmrp	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rnaset2a	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rnaset2b	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rnf103	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rpl17-ps9	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Rps11-ps3	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Sap18b	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Sephs1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Sgms1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Slc35f5	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Spin1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Sptlc2	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Srd5a1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	St14	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Suds3	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Sumf1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Tjp3	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Tm4sf4	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Tmem260	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Trim21	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Tspyl1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Twsg1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Ugt2b34	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Vhl	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
+CLDN4_NEIGHBORHOOD	Znfx1	used	within-arm Spearman >= 0.9, both arms > 0, mean FPKM >= 1.0
