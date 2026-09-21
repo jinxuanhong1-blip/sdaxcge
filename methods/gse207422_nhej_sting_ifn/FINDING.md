@@ -1,5 +1,7 @@
 # GSE207422 — NHEJ, STING, and IFN scored separately
 
+**FINAL discordant.** An exhaustive sweep (64 pre-specified contrasts) found no patient-level specification in which CLDN4-low cells have higher IFN, higher STING, and lower NHEJ together. The search is closed for this series. Details are in the sweep section below.
+
 **Additive slice.** Public GEO only. TACSTD2 (TROP2) and CLDN4 are both rows in the UMI, so the split was run. CLDN4 is the primary splitter. TACSTD2 is a second splitter and is never a gate. The three modules share no genes. Dual-high was not run. GSE148071 was not merged. The locked T/NK-fraction result on this series is unchanged.
 
 **Verdict (honest n=6 paired post patients, of 12):** in the same A3-malignant cells, CLDN4-high (within-tumor Q4) and CLDN4-low (Q1) separate the three programs.
@@ -13,6 +15,34 @@
 IFN is the only module at the n=6 floor (exact two-sided Wilcoxon cannot go below 0.031 when every sign agrees). Across the three tests that floor is BH q=0.094. STING misses the floor by one patient. NHEJ is flat. Homologous recombination is also flat (3/6, p=1.0). Patient-mean Spearman, same 6 tumors: CLDN4 vs IFN ρ=+0.94 (p=0.0048), vs STING ρ=+0.60 (p=0.21), vs NHEJ ρ=+0.09 (p=0.87).
 
 Removing the sensor/signaling genes from the old 40-gene ISG list does not change the IFN ranking (delta Spearman ρ=1). The earlier same-cell IFN lift is the effector program.
+
+## Sweep — thesis direction was not found
+
+Thesis hunted: CLDN4-low → IFN up, STING up, NHEJ down. Delta is CLDN4-high minus CLDN4-low. A hit required all three signs, with n≥4 patients and a strict majority on each module for paired tests, or n≥8 and |ρ|≥0.3 on each module for a single correlation. Bulk sample quartiles needed both arms n≥4.
+
+**0 / 64 specifications are joint hits. 0 / 64 have the joint sign even before the majority rule.**
+
+Families run on the public UMI, post-treatment A3-malignant cells unless noted:
+
+| Family | What was varied |
+|---|---|
+| Quartile splits | Q4/Q1, median, tertile, top 20%, decile, detected vs undetected, and the same splits inside CLDN4-positive cells only. Epithelial as well as A3. |
+| Continuous | Within-patient Spearman; patient-mean Spearman |
+| Pre vs post | Pre biopsies alone (2 tumors pass the cell floor), post, and both timings together |
+| Response | NMPR, MPR, squamous, adeno, RECIST PR, RECIST SD |
+| UMI matching | Log-UMI calipers 0.10, 0.25, 0.50; UMI quintiles and deciles; residual on log UMI |
+| Ribosomal depth | 99 cytosolic RPS/RPL genes (median fraction 0.073 in post A3 cells). Non-ribosomal library size, residual on ribosome fraction, residual on log UMI plus ribosome fraction, drop above-median ribosome fraction |
+| Subtypes | Non-cycling, cycling, keratin-high, keratin-low, EPCAM-high, squamous-like (KRT5/KRT17/TP63), adeno-like (KRT7). KRT6A is absent |
+| Double-low | TACSTD2-low ∩ CLDN4-low vs double-high, and CLDN4 split inside TACSTD2-low cells |
+| Bulk | 24 pre-treatment biopsies: all, NMPR, MPR, squamous, adeno, EPCAM partial, sample Q4/Q1, double-low |
+
+The original Q4 vs Q1 contrast stays IFN-high in CLDN4-high cells (median Δ +0.062, 6/6). In four of the six tumors the Q1 tail is mostly CLDN4-undetected cells (P04, P10, P12 are 100% zeros in Q1; P03 is 95%). P07 is the tumor whose Q1 is mostly detected (q25 = 1.19) and its IFN delta is +0.006.
+
+Inside CLDN4-positive cells only, the median split flips IFN and STING (median Δ −0.017 and −0.003; 6/6 and 4/6) and also flips NHEJ (median Δ −0.048; 0/6 in the thesis direction). Q4 vs Q1 among positive cells is the same pattern (IFN 5/6 negative, STING 5/6 negative, NHEJ 0/6 thesis). CLDN4-low expressors are higher on all three modules. That is not IFN/STING up with NHEJ down.
+
+Caliper UMI matching leaves IFN and STING higher in CLDN4-high cells (median IFN Δ +0.022 at caliper 0.10). Removing ribosomal depth does the same (non-ribosomal library, IFN median Δ +0.060, 6 tumors). NMPR-only and squamous-only repeats stay IFN-positive in the CLDN4-high tail. Pre-treatment scRNA has two eligible tumors, both with IFN higher in CLDN4-high cells. Bulk CLDN4 vs IFN is ρ=+0.17 (n=24); the squamous bulk IFN ρ is −0.16 and the STING ρ in that stratum is +0.15.
+
+Per-specification signs are in `tables/sweep_specs.tsv` and `figures/fig_sweep_signs.png`. Patient deltas are in `tables/sweep_patient_deltas.tsv`.
 
 ## Depth
 
@@ -99,6 +129,7 @@ The identical CLDN4–STING and CLDN4–IFN rank correlations (both ρ=+0.1696) 
 - `figures/fig_detection.png` — detection in malignant vs myeloid cells
 - `figures/fig_honest_n.png` — A3-malignant occupancy; floor n=20
 - `figures/fig_bulk_cldn4_modules.png` — baseline bulk, n=24
+- `figures/fig_sweep_signs.png` — thesis sign for every sweep contrast
 
 ## Honest limits
 
@@ -116,4 +147,5 @@ python3 methods/gse207422_nhej_sting_ifn/scripts/download.py
 python3 methods/gse207422_nhej_sting_ifn/scripts/extract.py
 python3 methods/gse207422_nhej_sting_ifn/scripts/analyze.py
 python3 methods/gse207422_nhej_sting_ifn/scripts/analyze_bulk.py
+python3 methods/gse207422_nhej_sting_ifn/scripts/sweep_thesis.py
 ```

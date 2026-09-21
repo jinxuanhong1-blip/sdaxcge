@@ -1,0 +1,28 @@
+{
+  "dataset": "GSE207422",
+  "thesis": "CLDN4-low \u2192 IFN\u2191 STING\u2191 NHEJ\u2193",
+  "n_specs": 64,
+  "n_joint_sign": 0,
+  "n_hits": 0,
+  "hit_specs": [],
+  "joint_sign_specs": [],
+  "final_status": "FINAL_DISCORDANT",
+  "rule": {
+    "paired": "n>=4 and strict majority on each module",
+    "correlation": "n>=8 and |rho|>=0.3 on each module",
+    "bulk_split": "both arms n>=4 and all three mean differences in the thesis direction"
+  },
+  "aux": {
+    "n_ribo_genes": 99,
+    "n_mito_genes": 37,
+    "subtype_genes_present": {
+      "KRT5": true,
+      "KRT6A": false,
+      "KRT7": true,
+      "KRT17": true,
+      "TP63": true,
+      "SOX2": true
+    },
+    "median_ribo_frac_post_a3": 0.07271906052393858
+  }
+}
