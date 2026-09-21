@@ -1,0 +1,1486 @@
+{
+  "primary_core_vs_margin_50": {
+    "count": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.10149565676780113,
+        "mean_ratio": 0.7626292922770689,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0234375,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.17500492461139744,
+        "mean_ratio": 0.8397573862847688,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.078125,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.546875,
+        "n_core_stronger": 2,
+        "stat": 13.0
+      },
+      "interaction_ratio": {
+        "n": 8,
+        "p_two": 0.1484375,
+        "n_core_stronger": 7
+      },
+      "mean_interaction_delta": 0.07350926784359631,
+      "mean_interaction_ratio": -0.07712809400769997,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.27212657420691855,
+          "delta_b": -0.3267934207193116,
+          "interaction": 0.054666846512393064,
+          "ratio_a": 0.3987672800915735,
+          "ratio_b": 0.5412079987167364
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.2756312947015036,
+          "delta_b": -0.03558185268813219,
+          "interaction": -0.24004944201337142,
+          "ratio_a": 0.798239193961119,
+          "ratio_b": 0.9813261915453542
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.028451009018208965,
+          "delta_b": -0.13847966771384226,
+          "interaction": 0.11002865869563332,
+          "ratio_a": 0.7937606839213536,
+          "ratio_b": 0.797790860542929
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.009604653267497015,
+          "delta_b": 0.2543844615824049,
+          "interaction": -0.2447798083149079,
+          "ratio_a": 1.0962374508591866,
+          "ratio_b": 1.2264429188914314
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.09422950572342854,
+          "delta_b": -0.4383047909623069,
+          "interaction": 0.34407528523887837,
+          "ratio_a": 0.7132541807703057,
+          "ratio_b": 0.7878546997479206
+        }
+      ]
+    },
+    "fraction": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.0031018329860433426,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.015625,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.004662788771807873,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.078125,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.546875,
+        "n_core_stronger": 3,
+        "stat": 13.0
+      },
+      "interaction_ratio": {
+        "n": 0,
+        "p_two": null,
+        "n_core_stronger": 0
+      },
+      "mean_interaction_delta": 0.00156095578576453,
+      "mean_interaction_ratio": null,
+      "patients_core_stronger_delta": "3/5",
+      "patient_sign_p_one_core_stronger": 0.5,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.008669211579284238,
+          "delta_b": -0.00814875251239537,
+          "interaction": -0.0005204590668888686,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.009415998723556175,
+          "delta_b": -0.0017190130515887247,
+          "interaction": -0.00769698567196745,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.0007845744564111915,
+          "delta_b": -0.004431417451184379,
+          "interaction": 0.003646842994773188,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.00025200455033113234,
+          "delta_b": 0.005289823588669196,
+          "interaction": -0.005037819038338063,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.0023138673833019434,
+          "delta_b": -0.009715057922797473,
+          "interaction": 0.007401190539495529,
+          "ratio_a": null,
+          "ratio_b": null
+        }
+      ]
+    },
+    "contact_log_or": {
+      "mh_or_a": 0.7304764530627741,
+      "mh_or_b": 0.7477000321955513,
+      "mean_log_or_a": -0.2909784970962417,
+      "mean_log_or_b": -0.28156500818895586,
+      "interaction": {
+        "n": 8,
+        "p_two": 0.9453125,
+        "n_core_stronger": 4
+      },
+      "mean_interaction_log_or": -0.009413488907285852
+    },
+    "samples": [
+      "LUAD-5 R1",
+      "LUAD-5 R2",
+      "LUAD-5 R3",
+      "LUSC-6",
+      "LUAD-9 R1",
+      "LUAD-9 R2",
+      "LUAD-12",
+      "LUAD-13"
+    ]
+  },
+  "primary_core_vs_margin_100": {
+    "count": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.23991875320871353,
+        "mean_ratio": 0.8751907882688208,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0390625,
+          "n_exclusion": 6
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.2017396536565357,
+        "mean_ratio": 0.9401776059623319,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.640625,
+          "n_exclusion": 4
+        },
+        "patients_exclusion": "3/5",
+        "patient_sign_p_one": 0.5
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.84375,
+        "n_core_stronger": 4,
+        "stat": 16.0
+      },
+      "interaction_ratio": {
+        "n": 8,
+        "p_two": 0.1484375,
+        "n_core_stronger": 7
+      },
+      "mean_interaction_delta": -0.03817909955217784,
+      "mean_interaction_ratio": -0.06498681769351106,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.6904391838036028,
+          "delta_b": -1.0164013025993193,
+          "interaction": 0.32596211879571646,
+          "ratio_a": 0.642059482856582,
+          "ratio_b": 0.6560387782859927
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.5300029192818565,
+          "delta_b": 0.08697450595284195,
+          "interaction": -0.6169774252346985,
+          "ratio_a": 0.8979814312465846,
+          "ratio_b": 1.009977977318442
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.0831914263555232,
+          "delta_b": -0.15554471877871853,
+          "interaction": 0.07235329242319533,
+          "ratio_a": 0.8904824415796799,
+          "ratio_b": 0.9548129201434016
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.07666897724277655,
+          "delta_b": 0.8310996858040562,
+          "interaction": -0.7544307085612797,
+          "ratio_a": 1.1363027151036122,
+          "ratio_b": 1.1448466746316208
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.263001310380228,
+          "delta_b": -0.5244779810368545,
+          "interaction": 0.2614766706566265,
+          "ratio_a": 0.8268676761023737,
+          "ratio_b": 0.9230593285161971
+        }
+      ]
+    },
+    "fraction": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.0021404030912751536,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0390625,
+          "n_exclusion": 6
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.002372792114199857,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.1953125,
+          "n_exclusion": 6
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.9453125,
+        "n_core_stronger": 4,
+        "stat": 17.0
+      },
+      "interaction_ratio": {
+        "n": 0,
+        "p_two": null,
+        "n_core_stronger": 0
+      },
+      "mean_interaction_delta": 0.00023238902292470315,
+      "mean_interaction_ratio": null,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.0060751412942839575,
+          "delta_b": -0.006600496107635209,
+          "interaction": 0.0005253548133512514,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.006347446357868984,
+          "delta_b": -0.0009799854335094463,
+          "interaction": -0.005367460924359538,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.0005951974610822167,
+          "delta_b": -0.001883976581395232,
+          "interaction": 0.0012887791203130153,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.0004893062821689316,
+          "delta_b": 0.004443859045032937,
+          "interaction": -0.0039545527628640055,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.0017021754884852841,
+          "delta_b": -0.00509689233665072,
+          "interaction": 0.0033947168481654358,
+          "ratio_a": null,
+          "ratio_b": null
+        }
+      ]
+    },
+    "contact_log_or": {
+      "mh_or_a": 0.8455699025992208,
+      "mh_or_b": 0.7129421021839457,
+      "mean_log_or_a": -0.23107247429583352,
+      "mean_log_or_b": -0.24640110990155678,
+      "interaction": {
+        "n": 8,
+        "p_two": 0.84375,
+        "n_core_stronger": 3
+      },
+      "mean_interaction_log_or": 0.015328635605723277
+    },
+    "samples": [
+      "LUAD-5 R1",
+      "LUAD-5 R2",
+      "LUAD-5 R3",
+      "LUSC-6",
+      "LUAD-9 R1",
+      "LUAD-9 R2",
+      "LUAD-12",
+      "LUAD-13"
+    ]
+  },
+  "tertile_far_vs_near_50": {
+    "count": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.10014295149210703,
+        "mean_ratio": 0.7065125274888838,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0078125,
+          "n_exclusion": 8
+        },
+        "patients_exclusion": "5/5",
+        "patient_sign_p_one": 0.03125
+      },
+      "stratum_b": {
+        "mean_delta": -0.1668295104763837,
+        "mean_ratio": 0.8084605210982265,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.078125,
+          "n_exclusion": 6
+        },
+        "patients_exclusion": "3/5",
+        "patient_sign_p_one": 0.5
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.25,
+        "n_core_stronger": 3,
+        "stat": 9.0
+      },
+      "interaction_ratio": {
+        "n": 8,
+        "p_two": 0.3125,
+        "n_core_stronger": 5
+      },
+      "mean_interaction_delta": 0.06668655898427667,
+      "mean_interaction_ratio": -0.1019479936093427,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.2542856046654389,
+          "delta_b": -0.3237761606891115,
+          "interaction": 0.0694905560236726,
+          "ratio_a": 0.41412596685082875,
+          "ratio_b": 0.564139609331335
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.2810408555093886,
+          "delta_b": 0.022358226422730443,
+          "interaction": -0.30339908193211906,
+          "ratio_a": 0.7735887511081836,
+          "ratio_b": 1.010475301190578
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.031594537949310234,
+          "delta_b": -0.06887870151515013,
+          "interaction": 0.0372841635658399,
+          "ratio_a": 0.7505387556064226,
+          "ratio_b": 0.8564671886933173
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": -0.018257543636550536,
+          "delta_b": 0.028504487314265747,
+          "interaction": -0.04676203095081628,
+          "ratio_a": 0.7670002733204753,
+          "ratio_b": 1.1074966038207728
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.07638799713877371,
+          "delta_b": -0.4275432661567519,
+          "interaction": 0.3511552690179782,
+          "ratio_a": 0.7228844809061575,
+          "ratio_b": 0.6080855441815873
+        }
+      ]
+    },
+    "fraction": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.0028812039158197405,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0078125,
+          "n_exclusion": 8
+        },
+        "patients_exclusion": "5/5",
+        "patient_sign_p_one": 0.03125
+      },
+      "stratum_b": {
+        "mean_delta": -0.0042593367639969645,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.015625,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.3828125,
+        "n_core_stronger": 3,
+        "stat": 11.0
+      },
+      "interaction_ratio": {
+        "n": 0,
+        "p_two": null,
+        "n_core_stronger": 0
+      },
+      "mean_interaction_delta": 0.0013781328481772236,
+      "mean_interaction_ratio": null,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.0078094311309662295,
+          "delta_b": -0.008273620221471841,
+          "interaction": 0.00046418909050561195,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.008045985698583568,
+          "delta_b": -0.0010448633574286423,
+          "interaction": -0.007001122341154926,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.0008441497436858331,
+          "delta_b": -0.002362389068245053,
+          "interaction": 0.0015182393245592202,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": -0.0006399791125906548,
+          "delta_b": 0.0006113611020321739,
+          "interaction": -0.0012513402146228287,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.002010893076679986,
+          "delta_b": -0.009140202215186122,
+          "interaction": 0.007129309138506136,
+          "ratio_a": null,
+          "ratio_b": null
+        }
+      ]
+    },
+    "contact_log_or": {
+      "mh_or_a": 0.6790908770272845,
+      "mh_or_b": 0.7015891064307878,
+      "mean_log_or_a": -0.35389685836019613,
+      "mean_log_or_b": -0.2532183027307549,
+      "interaction": {
+        "n": 8,
+        "p_two": 0.4609375,
+        "n_core_stronger": 5
+      },
+      "mean_interaction_log_or": -0.10067855562944127
+    },
+    "samples": [
+      "LUAD-5 R1",
+      "LUAD-5 R2",
+      "LUAD-5 R3",
+      "LUSC-6",
+      "LUAD-9 R1",
+      "LUAD-9 R2",
+      "LUAD-12",
+      "LUAD-13"
+    ]
+  },
+  "tertile_far_vs_near_100": {
+    "count": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.248968937752229,
+        "mean_ratio": 0.8365136559045288,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.015625,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "5/5",
+        "patient_sign_p_one": 0.03125
+      },
+      "stratum_b": {
+        "mean_delta": -0.39438216208077204,
+        "mean_ratio": 0.9023517351164533,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.1953125,
+          "n_exclusion": 5
+        },
+        "patients_exclusion": "3/5",
+        "patient_sign_p_one": 0.5
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.640625,
+        "n_core_stronger": 4,
+        "stat": 14.0
+      },
+      "interaction_ratio": {
+        "n": 8,
+        "p_two": 0.3125,
+        "n_core_stronger": 4
+      },
+      "mean_interaction_delta": 0.14541322432854298,
+      "mean_interaction_ratio": -0.06583807921192447,
+      "patients_core_stronger_delta": "3/5",
+      "patient_sign_p_one_core_stronger": 0.5,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.6438244961121342,
+          "delta_b": -1.0562841822884952,
+          "interaction": 0.412459686176361,
+          "ratio_a": 0.6560430578816608,
+          "ratio_b": 0.655687710522863
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.6201981095391265,
+          "delta_b": 0.28929466676689763,
+          "interaction": -0.9094927763060241,
+          "ratio_a": 0.8856998023078734,
+          "ratio_b": 1.0300493847064098
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.08803894892282271,
+          "delta_b": -0.04953429515762794,
+          "interaction": -0.038504653765194775,
+          "ratio_a": 0.8643921763953255,
+          "ratio_b": 0.9824016776683622
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": -0.05597877415397634,
+          "delta_b": 0.08170333309971722,
+          "interaction": -0.13768210725369356,
+          "ratio_a": 0.8766564460008507,
+          "ratio_b": 1.0522867712910409
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.20381663772206354,
+          "delta_b": -1.160584114375706,
+          "interaction": 0.9567674766536425,
+          "ratio_a": 0.8402667059299345,
+          "ratio_b": 0.766792490703113
+        }
+      ]
+    },
+    "fraction": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.0020032072918068707,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0078125,
+          "n_exclusion": 8
+        },
+        "patients_exclusion": "5/5",
+        "patient_sign_p_one": 0.03125
+      },
+      "stratum_b": {
+        "mean_delta": -0.0028723057946527714,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0390625,
+          "n_exclusion": 6
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.3828125,
+        "n_core_stronger": 3,
+        "stat": 11.0
+      },
+      "interaction_ratio": {
+        "n": 0,
+        "p_two": null,
+        "n_core_stronger": 0
+      },
+      "mean_interaction_delta": 0.0008690985028459003,
+      "mean_interaction_ratio": null,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.005330974825654072,
+          "delta_b": -0.006880723024732348,
+          "interaction": 0.0015497481990782765,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.0053708310674945615,
+          "delta_b": -0.0005370053857191789,
+          "interaction": -0.004833825681775383,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.0006059362123986052,
+          "delta_b": -0.0008180669078211115,
+          "interaction": 0.00021213069542250638,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": -0.0005417404055766423,
+          "delta_b": 0.00038911088789755563,
+          "interaction": -0.000930851293474198,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.0014821516992669379,
+          "delta_b": -0.006747814055602432,
+          "interaction": 0.005265662356335494,
+          "ratio_a": null,
+          "ratio_b": null
+        }
+      ]
+    },
+    "contact_log_or": {
+      "mh_or_a": 0.7981224966712924,
+      "mh_or_b": 0.831381780351236,
+      "mean_log_or_a": -0.23874545208918574,
+      "mean_log_or_b": -0.21092422851636602,
+      "interaction": {
+        "n": 8,
+        "p_two": 0.9453125,
+        "n_core_stronger": 3
+      },
+      "mean_interaction_log_or": -0.0278212235728197
+    },
+    "samples": [
+      "LUAD-5 R1",
+      "LUAD-5 R2",
+      "LUAD-5 R3",
+      "LUSC-6",
+      "LUAD-9 R1",
+      "LUAD-9 R2",
+      "LUAD-12",
+      "LUAD-13"
+    ]
+  },
+  "niche_label_50": {
+    "count": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.07412797748759126,
+        "mean_ratio": 0.8268380656104848,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0546875,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.03677354959249933,
+        "mean_ratio": 0.9357427241691443,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.25,
+          "n_exclusion": 6
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.546875,
+        "n_core_stronger": 5,
+        "stat": 13.0
+      },
+      "interaction_ratio": {
+        "n": 8,
+        "p_two": 0.0234375,
+        "n_core_stronger": 7
+      },
+      "mean_interaction_delta": -0.037354427895091934,
+      "mean_interaction_ratio": -0.10890465855865952,
+      "patients_core_stronger_delta": "3/5",
+      "patient_sign_p_one_core_stronger": 0.5,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.09485451802201875,
+          "delta_b": -0.12125959174736509,
+          "interaction": 0.02640507372534634,
+          "ratio_a": 0.5127163919311337,
+          "ratio_b": 0.6460954837510311
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.26968297090566096,
+          "delta_b": -0.07707961134212638,
+          "interaction": -0.19260335956353458,
+          "ratio_a": 0.7879678881050126,
+          "ratio_b": 0.9468297065318148
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.010757260146384853,
+          "delta_b": -0.005883873249132902,
+          "interaction": -0.004873386897251951,
+          "ratio_a": 0.9105923960151191,
+          "ratio_b": 0.9737271976463043
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.015976436043581246,
+          "delta_b": 0.19935568118729807,
+          "interaction": -0.18337924514371684,
+          "ratio_a": 1.1461017941887632,
+          "ratio_b": 1.2038507360055009
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.10609549328873852,
+          "delta_b": -0.13877662754520126,
+          "interaction": 0.03268113425646274,
+          "ratio_a": 0.7180706313068055,
+          "ratio_b": 0.8839921370629472
+        }
+      ]
+    },
+    "fraction": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.002111433291074889,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0546875,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.0009624912522844056,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.3125,
+          "n_exclusion": 6
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.3125,
+        "n_core_stronger": 5,
+        "stat": 10.0
+      },
+      "interaction_ratio": {
+        "n": 0,
+        "p_two": null,
+        "n_core_stronger": 0
+      },
+      "mean_interaction_delta": -0.0011489420387904832,
+      "mean_interaction_ratio": null,
+      "patients_core_stronger_delta": "3/5",
+      "patient_sign_p_one_core_stronger": 0.5,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.003934492109022618,
+          "delta_b": -0.0036372701131850314,
+          "interaction": -0.0002972219958375863,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.00757852218322547,
+          "delta_b": -0.0024790210468160455,
+          "interaction": -0.005099501136409425,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.00016046140617547973,
+          "delta_b": -0.0001664031160717201,
+          "interaction": 5.941709896240364e-06,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.0004118751292248174,
+          "delta_b": 0.006365863259755435,
+          "interaction": -0.005953988130530618,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.0026544714735246997,
+          "delta_b": -0.003725146384907221,
+          "interaction": 0.0010706749113825213,
+          "ratio_a": null,
+          "ratio_b": null
+        }
+      ]
+    },
+    "contact_log_or": {
+      "mh_or_a": 0.744743865105853,
+      "mh_or_b": 0.8875643777121244,
+      "mean_log_or_a": -0.2461638040849077,
+      "mean_log_or_b": -0.06624594701294112,
+      "interaction": {
+        "n": 8,
+        "p_two": 0.015625,
+        "n_core_stronger": 7
+      },
+      "mean_interaction_log_or": -0.17991785707196659
+    },
+    "samples": [
+      "LUAD-5 R1",
+      "LUAD-5 R2",
+      "LUAD-5 R3",
+      "LUSC-6",
+      "LUAD-9 R1",
+      "LUAD-9 R2",
+      "LUAD-12",
+      "LUAD-13"
+    ]
+  },
+  "niche_label_100": {
+    "count": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.14276273787329294,
+        "mean_ratio": 0.9538973915554889,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.25,
+          "n_exclusion": 5
+        },
+        "patients_exclusion": "3/5",
+        "patient_sign_p_one": 0.5
+      },
+      "stratum_b": {
+        "mean_delta": 0.009548528125215977,
+        "mean_ratio": 0.9998012446421078,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.9453125,
+          "n_exclusion": 4
+        },
+        "patients_exclusion": "3/5",
+        "patient_sign_p_one": 0.5
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.109375,
+        "n_core_stronger": 7,
+        "stat": 6.0
+      },
+      "interaction_ratio": {
+        "n": 8,
+        "p_two": 0.078125,
+        "n_core_stronger": 6
+      },
+      "mean_interaction_delta": -0.15231126599850892,
+      "mean_interaction_ratio": -0.04590385308661887,
+      "patients_core_stronger_delta": "4/5",
+      "patient_sign_p_one_core_stronger": 0.1875,
+      "patient_sign_p_two_core_stronger": 0.375,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.16819726136770585,
+          "delta_b": -0.2879678102119556,
+          "interaction": 0.11977054884424976,
+          "ratio_a": 0.7888897076238849,
+          "ratio_b": 0.843642000260109
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.598964363773753,
+          "delta_b": -0.0769285740177823,
+          "interaction": -0.5220357897559706,
+          "ratio_a": 0.8961791383613883,
+          "ratio_b": 0.988366696972331
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": 0.022785116679619726,
+          "delta_b": 0.08924453924903404,
+          "interaction": -0.06645942256941433,
+          "ratio_a": 1.0349994435678835,
+          "ratio_b": 1.045496050616067
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.0827517839927534,
+          "delta_b": 0.504328039597457,
+          "interaction": -0.4215762556047036,
+          "ratio_a": 1.1248667132322288,
+          "ratio_b": 1.096239329247821
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.26302370593824864,
+          "delta_b": -0.1653885240565467,
+          "interaction": -0.09763518188170195,
+          "ratio_a": 0.8581226212613795,
+          "ratio_b": 0.9668368894042003
+        }
+      ]
+    },
+    "fraction": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.0012075213244106902,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.3125,
+          "n_exclusion": 4
+        },
+        "patients_exclusion": "3/5",
+        "patient_sign_p_one": 0.5
+      },
+      "stratum_b": {
+        "mean_delta": -0.0003025386140070381,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.9453125,
+          "n_exclusion": 4
+        },
+        "patients_exclusion": "3/5",
+        "patient_sign_p_one": 0.5
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.0546875,
+        "n_core_stronger": 7,
+        "stat": 4.0
+      },
+      "interaction_ratio": {
+        "n": 0,
+        "p_two": null,
+        "n_core_stronger": 0
+      },
+      "mean_interaction_delta": -0.0009049827104036522,
+      "mean_interaction_ratio": null,
+      "patients_core_stronger_delta": "5/5",
+      "patient_sign_p_one_core_stronger": 0.03125,
+      "patient_sign_p_two_core_stronger": 0.0625,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.002403544375695804,
+          "delta_b": -0.0022528448509489627,
+          "interaction": -0.00015069952474684126,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.004880268487781916,
+          "delta_b": -0.0017929573880347272,
+          "interaction": -0.0030873110997471885,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": 0.0002253187546548532,
+          "delta_b": 0.00046599097052334344,
+          "interaction": -0.00024067221586849025,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.0005324146119878763,
+          "delta_b": 0.0037122714421413683,
+          "interaction": -0.003179856830153492,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.0017923643038801193,
+          "delta_b": -0.0017423755133920069,
+          "interaction": -4.998879048811241e-05,
+          "ratio_a": null,
+          "ratio_b": null
+        }
+      ]
+    },
+    "contact_log_or": {
+      "mh_or_a": 0.8702047726227075,
+      "mh_or_b": 0.9102908093099593,
+      "mean_log_or_a": -0.15573719008720055,
+      "mean_log_or_b": 0.05092384947615264,
+      "interaction": {
+        "n": 8,
+        "p_two": 0.109375,
+        "n_core_stronger": 5
+      },
+      "mean_interaction_log_or": -0.20666103956335316
+    },
+    "samples": [
+      "LUAD-5 R1",
+      "LUAD-5 R2",
+      "LUAD-5 R3",
+      "LUSC-6",
+      "LUAD-9 R1",
+      "LUAD-9 R2",
+      "LUAD-12",
+      "LUAD-13"
+    ]
+  },
+  "plus_stroma_50": {
+    "count": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.0729285468487791,
+        "mean_ratio": 0.8197350717180639,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0234375,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.19329829419350564,
+        "mean_ratio": 0.8253958544720282,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.078125,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.25,
+        "n_core_stronger": 2,
+        "stat": 9.0
+      },
+      "interaction_ratio": {
+        "n": 8,
+        "p_two": 0.84375,
+        "n_core_stronger": 5
+      },
+      "mean_interaction_delta": 0.12036974734472655,
+      "mean_interaction_ratio": -0.00566078275396438,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.11505259846922727,
+          "delta_b": -0.3762369269315766,
+          "interaction": 0.26118432846234935,
+          "ratio_a": 0.5541711809317443,
+          "ratio_b": 0.5220050430086375
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.2756312947015036,
+          "delta_b": -0.035605947102579805,
+          "interaction": -0.2400253475989238,
+          "ratio_a": 0.798239193961119,
+          "ratio_b": 0.9813116406055229
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.012414822331675937,
+          "delta_b": -0.15711079000225056,
+          "interaction": 0.1446959676705746,
+          "ratio_a": 0.8802326398446989,
+          "ratio_b": 0.7783490390526863
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.009234973670721666,
+          "delta_b": 0.23450100850500055,
+          "interaction": -0.22526603483427887,
+          "ratio_a": 1.092582279289247,
+          "ratio_b": 1.2066463972497665
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.0823674941475979,
+          "delta_b": -0.44885605900606884,
+          "interaction": 0.3664885648584709,
+          "ratio_a": 0.7360950000141522,
+          "ratio_b": 0.7790783188771202
+        }
+      ]
+    },
+    "fraction": {
+      "n_sections": 8,
+      "stratum_a": {
+        "mean_delta": -0.0024217722346173455,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0234375,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "stratum_b": {
+        "mean_delta": -0.00527755755448819,
+        "mean_ratio": null,
+        "wilcoxon_delta_vs_0": {
+          "n": 8,
+          "p_two": 0.0546875,
+          "n_exclusion": 7
+        },
+        "patients_exclusion": "4/5",
+        "patient_sign_p_one": 0.1875
+      },
+      "interaction_delta": {
+        "n": 8,
+        "p_two": 0.3828125,
+        "n_core_stronger": 2,
+        "stat": 11.0
+      },
+      "interaction_ratio": {
+        "n": 0,
+        "p_two": null,
+        "n_core_stronger": 0
+      },
+      "mean_interaction_delta": 0.002855785319870844,
+      "mean_interaction_ratio": null,
+      "patients_core_stronger_delta": "2/5",
+      "patient_sign_p_one_core_stronger": 0.8125,
+      "patient_sign_p_two_core_stronger": 1.0,
+      "patients": [
+        {
+          "patient": "Lung12",
+          "delta_a": -0.005262274512479452,
+          "delta_b": -0.009251265886000844,
+          "interaction": 0.003988991373521392,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung13",
+          "delta_a": -0.009415998723556175,
+          "delta_b": -0.0017176184093966665,
+          "interaction": -0.007698380314159509,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung5",
+          "delta_a": -0.00026135903401782373,
+          "delta_b": -0.005540145609102281,
+          "interaction": 0.005278786575084456,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung6",
+          "delta_a": 0.00024263567844069788,
+          "delta_b": 0.0050014809048054,
+          "interaction": -0.004758845226364702,
+          "ratio_a": null,
+          "ratio_b": null
+        },
+        {
+          "patient": "Lung9",
+          "delta_a": -0.0020772316086451826,
+          "delta_b": -0.009816310109003284,
+          "interaction": 0.007739078500358101,
+          "ratio_a": null,
+          "ratio_b": null
+        }
+      ]
+    },
+    "contact_log_or": {
+      "mh_or_a": 0.7470820666526248,
+      "mh_or_b": 0.7347538017632357,
+      "mean_log_or_a": -0.2359230476667638,
+      "mean_log_or_b": -0.2770732939567185,
+      "interaction": {
+        "n": 8,
+        "p_two": 0.546875,
+        "n_core_stronger": 3
+      },
+      "mean_interaction_log_or": 0.041150246289954666
+    },
+    "samples": [
+      "LUAD-5 R1",
+      "LUAD-5 R2",
+      "LUAD-5 R3",
+      "LUSC-6",
+      "LUAD-9 R1",
+      "LUAD-9 R2",
+      "LUAD-12",
+      "LUAD-13"
+    ]
+  },
+  "unstratified_50": {
+    "mean_ratio": 0.7986429128138431,
+    "mean_delta": -0.12636178069894258,
+    "section_exclusion": "7/8",
+    "wilcoxon": {
+      "n": 8,
+      "p_two": 0.0234375,
+      "n_exclusion": 7
+    },
+    "patient_exclusion": "4/5",
+    "patient_sign_p_one": 0.1875,
+    "ratios": {
+      "LUAD-5 R1": 0.971970517399559,
+      "LUAD-5 R2": 0.859288591840809,
+      "LUAD-5 R3": 0.9253169906265593,
+      "LUSC-6": 1.083243989792132,
+      "LUAD-9 R1": 0.6475767135706683,
+      "LUAD-9 R2": 0.532710992854794,
+      "LUAD-12": 0.46221274921662003,
+      "LUAD-13": 0.9068227572096036
+    },
+    "deltas": {
+      "LUAD-5 R1": -0.006249532026802257,
+      "LUAD-5 R2": -0.03613039398211951,
+      "LUAD-5 R3": -0.018416099957747678,
+      "LUSC-6": 0.011769267304682501,
+      "LUAD-9 R1": -0.23403889469894412,
+      "LUAD-9 R2": -0.2625041461458687,
+      "LUAD-12": -0.30588326879909994,
+      "LUAD-13": -0.15944117728564078
+    }
+  },
+  "unstratified_100": {
+    "mean_ratio": 0.9104066750225757,
+    "mean_delta": -0.31608319198591994,
+    "section_exclusion": "4/8",
+    "wilcoxon": {
+      "n": 8,
+      "p_two": 0.3125,
+      "n_exclusion": 4
+    },
+    "patient_exclusion": "3/5",
+    "patient_sign_p_one": 0.5,
+    "ratios": {
+      "LUAD-5 R1": 1.0640563611897242,
+      "LUAD-5 R2": 1.0209402953767617,
+      "LUAD-5 R3": 1.0980100265635118,
+      "LUSC-6": 1.0690899451506204,
+      "LUAD-9 R1": 0.7760182797114796,
+      "LUAD-9 R2": 0.6648929822625027,
+      "LUAD-12": 0.6363732778294321,
+      "LUAD-13": 0.9538722320965722
+    },
+    "deltas": {
+      "LUAD-5 R1": 0.08499759902867843,
+      "LUAD-5 R2": 0.029802429792352925,
+      "LUAD-5 R3": 0.12430770780077038,
+      "LUSC-6": 0.05638632329370796,
+      "LUAD-9 R1": -0.7651688203679874,
+      "LUAD-9 R2": -0.8099353098838897,
+      "LUAD-12": -0.8916046882444939,
+      "LUAD-13": -0.3574507773064983
+    }
+  },
+  "auc_primary": {
+    "n": 8,
+    "mean_auc_high": 90.22641976649848,
+    "mean_auc_low": 108.11195469441765,
+    "n_high_lt_low": 7,
+    "n_high_gt_low": 1,
+    "p_two": 0.078125,
+    "patients_high_gt_low": "1/5",
+    "patients_high_lt_low": "4/5",
+    "claim": false,
+    "opposite": false
+  },
+  "auc_plus_stroma": {
+    "n": 8,
+    "mean_auc_high": 84.32182489684536,
+    "mean_auc_low": 96.39781416365166,
+    "n_high_lt_low": 7,
+    "n_high_gt_low": 1,
+    "p_two": 0.109375,
+    "patients_high_gt_low": "1/5",
+    "patients_high_lt_low": "4/5",
+    "claim": false,
+    "opposite": false
+  },
+  "permutation_50": {
+    "radius_um": 50.0,
+    "obs_interaction_delta_mean": 0.07350926784359631,
+    "obs_interaction_ratio_mean": -0.07712809400769997,
+    "delta": {
+      "p_one_core_stronger": 0.979,
+      "p_one_margin_stronger": 0.022,
+      "p_two": 0.064,
+      "n": 999,
+      "null_mean": 0.02896333359717129,
+      "null_median": 0.029641056622536195,
+      "null_sd": 0.023162339560971117
+    },
+    "ratio": {
+      "p_one_core_stronger": 0.002,
+      "p_one_margin_stronger": 0.999,
+      "p_two": 0.003,
+      "n": 999,
+      "null_mean": 0.020146713805549585,
+      "null_median": 0.019717036482793382,
+      "null_sd": 0.028101209247570053
+    },
+    "section_interaction_delta": [
+      0.015626156343561834,
+      0.11836019640319907,
+      0.19609962334013903,
+      -0.2447798083149079,
+      0.20312092117808636,
+      0.48502964929967035,
+      0.054666846512393064,
+      -0.24004944201337142
+    ]
+  },
+  "permutation_100": {
+    "radius_um": 100.0,
+    "obs_interaction_delta_mean": -0.03817909955217784,
+    "obs_interaction_ratio_mean": -0.06498681769351106,
+    "delta": {
+      "p_one_core_stronger": 0.001,
+      "p_one_margin_stronger": 1.0,
+      "p_two": 0.003,
+      "n": 999,
+      "null_mean": 0.15133840369869883,
+      "null_median": 0.1485144628395856,
+      "null_sd": 0.06545341270309088
+    },
+    "ratio": {
+      "p_one_core_stronger": 0.001,
+      "p_one_margin_stronger": 1.0,
+      "p_two": 0.001,
+      "n": 999,
+      "null_mean": 0.038727070799410256,
+      "null_median": 0.03868036323527414,
+      "null_sd": 0.015235619261641941
+    },
+    "section_interaction_delta": [
+      -0.2712137852610904,
+      0.04487945176590613,
+      0.44339421076477026,
+      -0.7544307085612797,
+      -0.5947417508521886,
+      1.1176950921654416,
+      0.32596211879571646,
+      -0.6169774252346985
+    ]
+  }
+}
