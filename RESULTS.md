@@ -6,6 +6,8 @@ Public CosMx NSCLC (He et al. 2022; CellCharter object, figshare 25976224; 765,7
 
 This layer does not revise the locked unstratified cytotoxic ratios (0.36 at 50 µm, 0.52 at 100 µm; 8/8 sections, 5/5 patients, sign P = 0.031).
 
+A follow-up grid (distance cutoffs, LUSC-6 removed, four extra neighbor definitions, radii 25/50/100 µm; 1,770 specs) does not produce a specification in which the absolute gap and the fold ratio are both section-significant in the core-stronger direction. The fold ratio can be made consistently core-stronger. The absolute gap cannot. Details are below.
+
 ## Definitions (set before the cross-section test)
 
 - Tumor: author `cell_type` `tumor 5/6/9/12/13` (epithelial is not tumor).
@@ -74,6 +76,36 @@ Far tertile versus near tertile, 50 µm counts. This keeps every section balance
 The far tertile is where the exclusion sign is uniform across patients. The absolute gap remains larger in the near tertile.
 
 Author niche labels, without a distance cut: tumor cells in `tumor interior` versus `tumor-stroma boundary`. Interior ratio 0.83 versus boundary 0.94. The core ratio is smaller in 7/8 sections (Wilcoxon p = 0.023). The absolute-delta interaction is not (5/8, p = 0.55). Adding generic stroma to the immune-rich set does not create an absolute core-stronger gap (2/8, p = 0.25).
+
+## Searched cutoffs, LUSC-6 removed, other neighbor definitions
+
+The pre-specified 50 µm / ≤50 vs ≥150 µm CD8+NK contrast leaves the absolute gap larger at the margin. This grid asks whether another cutoff or neighbor definition reverses that, with LUSC-6 kept or dropped. It is a search, not a second pre-specified test. The locked 0.36 / 0.52 ratios are not recomputed here.
+
+Grid: CD8+NK, CD8 only, NK only, all T/NK, and immune cells with GZMB, PRF1, or GNLY > 0; neighbor radii 25, 50, and 100 µm; margin/core cuts on a micrometre grid plus within-section quantiles; with and without LUSC-6. 1,770 specs with at least 4 usable sections. Script: `scripts/cosmx_core_margin_grid.py`. Table: `results/cosmx_core_margin/tables/cutoff_grid.csv`.
+
+**No spec has both Wilcoxon tests at p < 0.05.** 418 specs have section-mean absolute and fold interactions that point core-stronger. 121 of those have a significant fold test. Zero have a significant absolute-gap test. The smallest absolute-gap p in the core-stronger direction is 0.11.
+
+Dropping LUSC-6 does not fix the absolute gap. On the original cut, LUSC-6 is one of only two sections whose absolute interaction favors the core, and that happens because the margin anti-exclusion (Δ = +0.25) is larger than the core anti-exclusion (Δ = +0.01), not because the core excludes. Removing it leaves the absolute interaction favoring the margin in the remaining adenocarcinoma sections.
+
+### Clearest fold result on the original cytotoxic definition
+
+CD8+NK neighbors at 100 µm, margin ≤20 µm, core ≥250 µm. Lung13 has too few tumor cells at ≥250 µm (its median distance to an immune-rich niche is 19 µm), so the contrast is 7 sections. LUSC-6 is kept.
+
+| | Core ≥250 µm | Margin ≤20 µm |
+|---|---:|---:|
+| Section-mean Δ (high−low) | −0.256 | +0.126 |
+| Section-mean ratio | 0.803 | 0.973 |
+| Sections with the core contrast stronger | absolute 4/7 (p = 0.69) | fold **7/7 (p = 0.016)** |
+
+Patients with both gaps core-stronger: 2/4 (Lung9, Lung12). A top-versus-bottom CLDN4 quartile on the same geography does not make the absolute interaction significant (p = 0.94).
+
+The fold test is the part that lines up with a stronger core effect. The absolute test does not: LUAD-5 R2, LUAD-5 R3, and LUAD-9 R2 still have the larger count gap at the margin, where the neighborhoods contain more CD8 and NK cells.
+
+![Searched CD8+NK cutoff](results/cosmx_core_margin/figures/searched_cd8nk_100um.png)
+
+### Granule-positive immune cells
+
+Immune cells with GZMB, PRF1, or GNLY detected (89,642 cells) are 20% neutrophils and 12% CD8+NK. At 100 µm, margin ≤20 µm, core ≥250 µm, 7 sections: absolute interaction mean −1.20 (6/7, p = 0.11), fold interaction mean −0.16 (6/7, p = 0.031). The margin mean Δ is **+0.53**, so the large absolute interaction is a sign flip at the edge, not a bigger exclusion gap on top of exclusion in both strata. Dropping LUSC-6 leaves absolute p = 0.16. This definition is not used as a cytotoxic claim.
 
 ## Infiltration-depth AUC — not claimed
 
