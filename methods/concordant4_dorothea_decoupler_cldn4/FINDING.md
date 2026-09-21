@@ -186,6 +186,7 @@ Full rows: `results/sweep_panel.tsv`, `results/sweep_long.tsv`, `results/sweep_c
 - Not a significant DoRothEA junction-TF program.
 - Not a genome-wide TF discovery (pre-specified STAT1/STAT2/IRF1 sit at FDR ≈ 0.058).
 - Not cell-level n, and not N=65.
+- Not a confirmatory test of the specification search. The joint CollecTRI p-values were selected after seeing 276 stacked or meta specs.
 
 ## Figures
 
@@ -194,6 +195,8 @@ Full rows: `results/sweep_panel.tsv`, `results/sweep_long.tsv`, `results/sweep_c
 - `figures/fig_ulm_boxes.png` — patient activities, Q1 vs Q4
 - `figures/fig_ulm_by_cohort.png` — which cohort carries STAT1
 - `figures/fig_stat1_targets.png` — IFN-overlap vs the rest of the STAT1 regulon
+- `figures/fig_sweep_signs.png` — IFN-arm vs barrier-arm coefficients across the sweep
+- `figures/fig_sweep_best.png` — smallest joint nominal spec (CollecTRI wmean NES, locked quartiles, meta)
 
 ## Reproduce
 
