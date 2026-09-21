@@ -19,6 +19,8 @@ Datopotamab, Dato-DXd, DS-1062, and Datroway: **0** GEO Series, **0** ArrayExpre
 
 No new GEO Series for these drug names was released between 2026-08-18 and 2026-09-21.
 
+A second pass the same day, aimed at lung PDX and cell-line ADC RNA, is still empty. GEO queries for PDX/xenograft plus these drugs plus lung/NSCLC/LUAD, for Calu-3/HCC827/H1975 plus the drugs, and for TROP2/TACSTD2 plus antibody-drug conjugate plus lung, each returned either 0 Series or only **GSE302284**. SRA returned 0 for PDX plus drug plus lung, 0 for Calu-3 plus the drugs, and 0 for TROP2 plus the drugs plus lung restricted to RNA-Seq. BioProject drug-name AND lung/NSCLC returned **PRJNA1289808**, which is GSE302284. **GSE235812** is breast tumor versus matching PDX TACSTD2 correlation, with no ADC arm. `tables/lung_adc_expression_contrasts.tsv` stays header only.
+
 ## Inventory
 
 Full open/skip table: `tables/inventory.tsv`. Query counts: `tables/queries.tsv`.
@@ -28,11 +30,11 @@ Open expression matrices that really do treat with sacituzumab govitecan (IMMU13
 | Accession | Tissue | Contrast | Expression readout |
 |---|---|---|---|
 | GSE312098 | CRC CX-1 cell line | IMMU132 vs control, 48 h, 3 vs 3 | yes, scored below as a weak analogy |
-| GSE311016 | CRC PDX | IMMU132 vs vehicle, day 29, 5 pairs | yes; scored earlier in PR 294 |
-| GSE304294 | ESCC KYSE30 | IMMU132 vs vehicle, 1 day, 2 vs 3 | yes; scored earlier in PR 294 |
-| E-MTAB-16433 | CRC PDOX | Trodelvy vs vehicle, 28 d, 4 vs 4 mice | yes; scored earlier in PR 294 |
-| E-MTAB-16843 | CRC organoid | SG vs IgG1-SN-38 time course | yes, multi-GB matrix, not scored |
-| E-MTAB-16849 | CRC liver-met PDOX | SG vs IgG1-SN-38 time course | yes, multi-GB matrix, not scored |
+| GSE311016 | CRC PDX | IMMU132 vs vehicle, day 29, 5 pairs | yes; in the sweep below |
+| GSE304294 | ESCC KYSE30 | IMMU132 vs vehicle, 1 day, 2 vs 3 | yes; in the sweep below |
+| E-MTAB-16433 | CRC PDOX | Trodelvy vs vehicle, 28 d, 4 vs 4 mice | yes; sweep uses the PR 294 mouse pseudobulk |
+| E-MTAB-16843 | CRC organoid | SG vs IgG1-SN-38 time course | not scored this round: ftp.ebi.ac.uk TLS failed |
+| E-MTAB-16849 | CRC liver-met PDOX | SG vs IgG1-SN-38 time course | not scored this round: ftp.ebi.ac.uk TLS failed |
 
 Other name hits are not drug-versus-control expression:
 
@@ -91,4 +93,39 @@ The same file has an IMMU132 + GSK2606414 (PERK inhibitor) arm, also 3 versus 3.
 
 Figure: `figures/gse312098_immu132_keygenes.png`.
 
-Reproduce with `python3 methods/trop2_adc_public_omics_20260921/analyze_gse312098.py`. The script downloads the GEO FPKM file and the MSigDB hallmark GMT into `data/`, which is gitignored.
+Reproduce the single-series table with `python3 methods/trop2_adc_public_omics_20260921/analyze_gse312098.py`. The script downloads the GEO FPKM file and the MSigDB hallmark GMT into `data/`, which is gitignored.
+
+## Method sweep: CLDN4 down, IFN, APM, NHEJ
+
+Grid: 78 rows. Contrasts are the ADC-versus-control arms above, plus the two combination arms (IMMU132+GSK2606414; IMMU132+IACS010759). Transforms are log2(x+1) and log2(x+0.1); for the PDOX counts also log2(CPM+1), log2(CPM+0.1), and log2(count+1). Set summaries are the median and the mean. Three set bundles are defined in `sweep_cldn4_ifn_apm_nhej.py`.
+
+Pre-specified primary row, fixed before ranking: log2(x+1) or log2(CPM+1), median log2FC, Hallmark interferon-gamma, Reactome class I MHC antigen presentation (29 genes), Reactome NHEJ (34 of 68 symbols present; the absent symbols are histone genes under current names such as H2BC and H4C).
+
+signed_score = (−CLDN4 log2FC) + IFN summary + APM summary + NHEJ summary.
+
+A sign hit requires CLDN4 log2FC < 0 and all three summaries > 0. Moderate threshold: CLDN4 < −0.25 and the same sign rule. Strict threshold: CLDN4 < −0.5 and each summary > 0.25.
+
+Primary ADC-monotherapy rows:
+
+| Contrast | n | CLDN4 log2FC (Welch p) | IFN-γ median | APM median | NHEJ median | Sign hit |
+|---|---:|---:|---:|---:|---:|---|
+| GSE312098 IMMU132 vs control | 3 vs 3 | −0.861 (1.69×10⁻⁵) | +0.131 | +0.089 | +0.041 | yes |
+| GSE311016 IMMU132 vs control | 5 pairs | −0.437 (Welch 0.15; paired 0.060) | +0.001 | −0.307 | −0.119 | no |
+| GSE304294 IMMU132 vs control | 2 vs 3 | +0.911 (3.90×10⁻⁵) | +0.035 | +0.109 | −0.145 | no |
+| E-MTAB-16433 SG vs vehicle | 4 vs 4 mice | −0.345 (0.063) | −0.034 | −0.145 | +0.057 | no |
+
+On that primary row, GSE312098 is the only sign hit. Its NHEJ median is +0.041, and the sample-level Welch test on the mean NHEJ score is p = 0.91. The 8-gene classical NHEJ core (XRCC5, XRCC6, PRKDC, LIG4, XRCC4, NHEJ1, DCLRE1C, PAXX) has median log2FC **−0.233** on the same transform, so the NHEJ leg changes sign with the gene-set definition.
+
+Strict threshold: **0 / 78** rows. Moderate threshold: **6 / 78**, all of them GSE312098 IMMU132 versus control.
+
+The highest ADC-only sign-hit score in the grid is still GSE312098, using log2(x+0.1), the primary sets, and the median: CLDN4 −0.873, IFN +0.328, APM +0.159, NHEJ +0.042, score 1.40. The larger interferon median is the pseudocount. NHEJ stays near +0.04.
+
+E-MTAB-16433 produces 6 sign hits only on log2(count+1), where CLDN4 log2FC is −0.149. Those rows miss the moderate threshold. The library-normalized CPM rows do not sign-hit. Mouse total counts in the pseudobulk are 11.3–21.3 million (SG) and 11.0–15.6 million (vehicle). The cell-level metadata was not re-opened: `ftp.ebi.ac.uk` and `ftp.sra.ebi.ac.uk` closed the TLS handshake from this environment.
+
+Combination arms on the primary sets and median log2(x+1) are not sign hits. GSE312098 combination: CLDN4 −0.614, IFN +0.241, APM +0.154, NHEJ −0.070. GSE304294 combination: CLDN4 +1.36, NHEJ −0.180.
+
+Datopotamab still has no public treatment-versus-control RNA matrix, so it is not in the sweep.
+
+Figure: `figures/sweep_primary_adc_only.png`. Full grid: `tables/sweep_all_rows.tsv`.
+
+Reproduce with `python3 methods/trop2_adc_public_omics_20260921/sweep_cldn4_ifn_apm_nhej.py`.

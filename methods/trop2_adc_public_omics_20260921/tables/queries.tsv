@@ -68,3 +68,11 @@ query_date	archive	query	n_series_or_records	note
 2026-09-21	PRIDE	DS-1062	0	
 2026-09-21	PRIDE	TACSTD2	0	
 2026-09-21	PRIDE	TROP2	1	PXD065965 prostate TROP2 shedding, not an ADC treatment
+2026-09-21	GEO gds	(PDX OR xenograft) AND (sacituzumab OR govitecan OR IMMU132 OR datopotamab OR SKB264 OR tirumotecan) AND (lung OR NSCLC OR LUAD) AND gse[ETYP]	1	Second lung pass. Only GSE302284
+2026-09-21	GEO gds	(Calu-3 OR Calu3 OR HCC827 OR H1975) AND (IMMU132 OR sacituzumab OR govitecan OR datopotamab) AND gse[ETYP]	0	Second lung pass
+2026-09-21	GEO gds	(TROP2 OR TACSTD2) AND (antibody-drug conjugate OR govitecan) AND (lung OR NSCLC) AND gse[ETYP]	1	Second lung pass. Only GSE302284
+2026-09-21	SRA	(PDX OR xenograft) AND (sacituzumab OR IMMU132 OR datopotamab OR SKB264) AND (lung OR NSCLC)	0	Second lung pass
+2026-09-21	SRA	Calu-3 AND (sacituzumab OR IMMU132 OR govitecan OR datopotamab)	0	Second lung pass
+2026-09-21	SRA	(TROP2 OR TACSTD2) AND (govitecan OR sacituzumab OR datopotamab) AND (lung OR NSCLC) AND RNA-Seq[Strategy]	0	Second lung pass
+2026-09-21	BioProject	(sacituzumab OR datopotamab OR SKB264 OR IMMU132 OR govitecan) AND (lung OR NSCLC)	1	PRJNA1289808 = GSE302284
+2026-09-21	EBI FTP	E-MTAB-16843 and E-MTAB-16849 processed counts	0 files retrieved	TLS handshake to ftp.ebi.ac.uk and ftp.sra.ebi.ac.uk failed. Not scored.
