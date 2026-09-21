@@ -1,0 +1,255 @@
+{
+  "search_date": "2026-09-21",
+  "qualifying_protein_matrices_scored": 0,
+  "mhc_ifn_proteins_in_panel": 90,
+  "mhc_ifn_proteins_with_a_log2fc": 0,
+  "language_flag_rows": 45,
+  "search_counts": [
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "pride_quoted_CLDN4",
+      "domain": "pride",
+      "query": "\"CLDN4\"",
+      "hitCount": 0,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "pride_quoted_Cldn4",
+      "domain": "pride",
+      "query": "\"Cldn4\"",
+      "hitCount": 0,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "pride_quoted_claudin4",
+      "domain": "pride",
+      "query": "\"claudin-4\"",
+      "hitCount": 0,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "pride_quoted_phrase_knockdown",
+      "domain": "pride",
+      "query": "\"claudin-4 knockdown\"",
+      "hitCount": 0,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "pride_quoted_phrase_knockout",
+      "domain": "pride",
+      "query": "\"claudin-4 knockout\"",
+      "hitCount": 0,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "pride_unquoted_CLDN4",
+      "domain": "pride",
+      "query": "CLDN4",
+      "hitCount": 2,
+      "n_fetched": 2
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "pride_CLDN4_AND_ko_language",
+      "domain": "pride",
+      "query": "CLDN4 AND (knockout OR knockdown OR siRNA OR shRNA OR CRISPR)",
+      "hitCount": 0,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "ae_CLDN4",
+      "domain": "biostudies-arrayexpress",
+      "query": "CLDN4",
+      "hitCount": 7,
+      "n_fetched": 7
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "ae_quoted_CLDN4",
+      "domain": "biostudies-arrayexpress",
+      "query": "\"CLDN4\"",
+      "hitCount": 7,
+      "n_fetched": 7
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "ae_CLDN4_AND_proteomics",
+      "domain": "biostudies-arrayexpress",
+      "query": "CLDN4 AND proteomics",
+      "hitCount": 0,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "ae_CLDN4_AND_ko",
+      "domain": "biostudies-arrayexpress",
+      "query": "CLDN4 AND (knockout OR knockdown OR siRNA OR CRISPR)",
+      "hitCount": 4,
+      "n_fetched": 4
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "bs_quoted_CLDN4_AND_proteomics",
+      "domain": "biostudies",
+      "query": "\"CLDN4\" AND proteomics",
+      "hitCount": 3,
+      "n_fetched": 3
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "bs_quoted_CLDN4_AND_proteome",
+      "domain": "biostudies",
+      "query": "\"CLDN4\" AND proteome",
+      "hitCount": 1,
+      "n_fetched": 1
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "bs_CLDN4_AND_ko",
+      "domain": "biostudies",
+      "query": "CLDN4 AND (knockout OR knockdown OR siRNA OR CRISPR)",
+      "hitCount": 15,
+      "n_fetched": 15
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "ebisearch",
+      "name": "bs_CLDN4",
+      "domain": "biostudies",
+      "query": "CLDN4",
+      "hitCount": 116,
+      "n_fetched": 116
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "pride_v2_keyword",
+      "name": "keyword:CLDN4",
+      "domain": "pride",
+      "query": "CLDN4",
+      "hitCount": "0",
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "pride_v2_keyword",
+      "name": "keyword:Cldn4",
+      "domain": "pride",
+      "query": "Cldn4",
+      "hitCount": "0",
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "pride_v2_keyword",
+      "name": "keyword:claudin-4",
+      "domain": "pride",
+      "query": "claudin-4",
+      "hitCount": "0",
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "pride_v2_keyword",
+      "name": "keyword:claudin",
+      "domain": "pride",
+      "query": "claudin",
+      "hitCount": "30",
+      "n_fetched": 30
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "omicsdi",
+      "name": "omicsdi_CLDN4",
+      "domain": "omicsdi",
+      "query": "CLDN4",
+      "hitCount": 166,
+      "n_fetched": 0
+    },
+    {
+      "search_date": "2026-09-21",
+      "source": "biostudies_arrayexpress_api",
+      "name": "arrayexpress_api_CLDN4",
+      "domain": "arrayexpress",
+      "query": "CLDN4",
+      "hitCount": 4,
+      "n_fetched": 4
+    }
+  ],
+  "pubmed": [
+    {
+      "name": "title_abstract_ko_and_proteomics",
+      "count": "2",
+      "pmids": "30353739;20511395",
+      "term": "(CLDN4[Title/Abstract] OR \"claudin-4\"[Title/Abstract] OR \"claudin 4\"[Title/Abstract] OR Cldn4[Title/Abstract]) AND (knockout[Title/Abstract] OR knockdown[Title/Abstract] OR siRNA[Title/Abstract] OR shRNA[Title/Abstract] OR CRISPR[Title/Abstract]) AND (proteome[Title/Abstract] OR proteomic[Title/Abstract] OR proteomics[Title/Abstract] OR \"mass spectrometry\"[Title/Abstract])"
+    },
+    {
+      "name": "all_fields_ko_and_proteomics",
+      "count": "6",
+      "pmids": "38345099;37889067;33757879;30353739;20511395;19318328",
+      "term": "(CLDN4 OR \"claudin-4\" OR \"claudin 4\" OR Cldn4) AND (knockout OR knockdown OR siRNA OR shRNA OR CRISPR) AND (proteomics OR proteome OR \"mass spectrometry\" OR \"LC-MS/MS\")"
+    }
+  ],
+  "pride_false_positive_tokens": [
+    {
+      "accession": "PXD051838",
+      "claudin_tokens_in_ebisearch_description": "Cldn5"
+    },
+    {
+      "accession": "PXD051839",
+      "claudin_tokens_in_ebisearch_description": "Cldn5"
+    }
+  ],
+  "omicsdi": {
+    "query": "CLDN4",
+    "count": 166,
+    "repository_facet": [
+      {
+        "label": "biostudies-arrayexpress",
+        "count": "7"
+      },
+      {
+        "label": "geo",
+        "count": "20"
+      },
+      {
+        "label": "iProX",
+        "count": "1"
+      },
+      {
+        "label": "ENA",
+        "count": "22"
+      }
+    ],
+    "sources_in_fetched_datasets": {
+      "biostudies-arrayexpress": 7,
+      "geo": 20,
+      "project": 22,
+      "biostudies-literature": 114,
+      "iprox": 1,
+      "biostudies-other": 1,
+      "bioimages": 1
+    },
+    "n_fetched": 166,
+    "pride_datasets_fetched": 0
+  }
+}

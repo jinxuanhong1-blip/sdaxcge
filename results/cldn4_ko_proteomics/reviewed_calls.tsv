@@ -1,0 +1,20 @@
+accession	repository	call	organism_line	why
+E-GEOD-22493	ArrayExpress/BioStudies	near_miss_rna	human ovarian SKOV3	CLDN4 siRNA versus overexpression. Microarray RNA (GSE22493). Not a proteome.
+E-GEOD-50927	ArrayExpress/BioStudies	near_miss_rna	mouse lung	Cldn4 germline knockout RNA-seq (GSE50927). Not human and not protein.
+E-GEOD-60885	ArrayExpress/BioStudies	not_a_ko_proteome	human trophoblast	DNA methylation study that names claudin-4. Not a CLDN4 knockout proteome.
+E-GEOD-84742	ArrayExpress/BioStudies	not_a_ko_proteome	mouse colon	Colonic epithelial differentiation RNA-seq. Not a CLDN4 knockout.
+GSE207704	GEO (not ArrayExpress proteomics, not PRIDE)	near_miss_rna	human breast MCF7 and T47D	CLDN4 CRISPR RNA-seq. No PRIDE or ArrayExpress proteome for this series.
+S-BSST1967	BioStudies	near_miss_wrong_contrast	human HCC (MHCC97H, PLC/PRF/5, Huh7 and primary cells)	Public files include ExpAll.xlsx described as protein omics (258294 bytes). The paired paper (PMC12281411, doi:10.1016/j.xcrm.2025.102208) uses MS for lenvatinib-tolerant versus mock primary cells, a palmitoyl-proteome, and CLDN4 IP-MS. CLDN4 shRNA is a functional assay, not the proteomic contrast. ftp.ebi.ac.uk did not serve ExpAll.xlsx in this session (FTP 421 / HTTPS TLS EOF), so MHC/IFN proteins were not read from that workbook.
+PXD051838	PRIDE	false_positive_search	mouse brain endothelial cells	Unquoted EBI Search query CLDN4 returned this Foxf2 knockout. The project text names Cldn5, not Cldn4.
+PXD051839	PRIDE	false_positive_search	mouse brain vessels	Same Foxf2 endothelial knockout series as PXD051838. Text names Cldn5, not Cldn4.
+PXD066158	PRIDE	near_miss_other_claudin	human germ-cell tumor cells	Proteome of CLDN6-deficient cells. Not CLDN4. Not scored.
+PXD031094	PRIDE	near_miss_not_ko	MDCK-C7 (dog) plus human reagents	Pan-claudin co-IP interactome, not a CLDN4 knockout abundance proteome.
+PXD005292	PRIDE	near_miss_not_ko	human breast claudin-low lines	Glycoproteome of the claudin-low subtype. Not a CLDN4 genetic loss contrast.
+PXD024559	iProX (OmicsDI hit under query CLDN4)	near_miss_not_ko	not a CLDN4 knockout	APEX2 interactors of PEDV M protein. Indexed because a paper mentions CLDN4.
+PMC12603150	literature; no PXD or GSE in the full text	near_miss_no_proteome_deposit	human high-grade serous ovarian models	CLDN4 knockdown with ISRE reporter, immunoblot, and flow (PMID 41214101). No proteome accession.
+PMID35373300	literature	near_miss_no_proteome_deposit	human ovarian models	CLDN4 knockdown scored DNA-repair proteins by immunoblot (PMC8988515 abstract). No PRIDE/ArrayExpress proteome.
+PMID38867360	literature	near_miss_metabolomics	human ovarian models	CLDN4 CRISPRi. The deposited full text describes UHPLC-MS metabolomics, not a proteome (PMC11218812).
+PMID41016339	literature; no public matrix	near_miss_rna	human SCLC H1688	CLDN4 knockout RNA-seq reported. No ArrayExpress or PRIDE proteome.
+PMID40892111	literature	near_miss_not_human_epithelial_proteome	mouse 266-6 acinar cells	CLDN4 knockdown RNA-seq in a pancreatitis model. Not a human epithelial proteome.
+PMID30353739	PubMed title/abstract co-occurrence	not_a_ko_proteome	human intestinal Caco-2	One of two PubMed title/abstract hits for CLDN4 plus knockdown-language plus proteomics-language. Bifidobacterium treatment of Caco-2, not a CLDN4 knockout proteome.
+PMID20511395	PubMed title/abstract co-occurrence	not_a_ko_proteome	dog MDCK	The other PubMed title/abstract hit. Plasma-membrane proteomics during H-Ras/TGF-beta EMT. Not a human CLDN4 knockout.
