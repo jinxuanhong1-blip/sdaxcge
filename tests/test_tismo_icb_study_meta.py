@@ -150,5 +150,58 @@ class LockedReferenceTests(unittest.TestCase):
         self.assertTrue(all(lo < 0 for lo in cld_lows))
 
 
+class Cldn4SweepTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import cldn4_sweep
+
+        slices = cldn4_sweep.annotate_slices(analyze.load_locked_slices()["slices"]["Cldn4"])
+        cls.grid = cldn4_sweep.build_grid(slices)
+        cls.summary = cldn4_sweep.sweep_summary(cls.grid)
+
+    def test_sweep_does_not_move_the_tacstd2_lock(self):
+        ref = self.payload["blocks"]["Tacstd2"]["reference"] if hasattr(self, "payload") else None
+        locked = analyze.locked_reference_row("Tacstd2", analyze.load_locked_slices()["slices"]["Tacstd2"])
+        self.assertTrue(locked["matches_lock"])
+        self.assertEqual(locked["n_up"], 49)
+        if ref is not None:
+            self.assertEqual(ref["n_up"], 49)
+
+    def test_unfiltered_cldn4_row_is_the_lock(self):
+        row = self.summary["locked_all"]
+        self.assertEqual(row["n_up"], 34)
+        self.assertEqual(row["n_down"], 28)
+        self.assertEqual(row["n_tie"], 2)
+        self.assertEqual(row["n_slices"], 64)
+        self.assertAlmostEqual(row["slice_wilcoxon_p"], 0.07667785136224303, places=10)
+
+    def test_biology_grid_hits_are_only_the_combo_regimen(self):
+        self.assertEqual(self.summary["n_biology"], 54)
+        hits = self.grid[(self.grid["family"] == "biology") & (self.grid["slice_wilcoxon_p"] < 0.05)]
+        self.assertGreater(len(hits), 0)
+        self.assertTrue((hits["regimen"] == "icb_plus_other").all())
+        icb = self.grid[
+            (self.grid["family"] == "biology")
+            & (self.grid["regimen"] == "icb_only")
+            & (self.grid["n_slices"] >= 10)
+        ]
+        self.assertTrue((icb["slice_wilcoxon_p"] >= 0.05).all())
+        self.assertGreater(self.summary["best_biology"]["slice_wilcoxon_p"], 0.05 / 54)
+        self.assertGreater(hits["slice_wilcoxon_p"].min(), 0.05 / 54)
+
+    def test_expressed_baseline_is_weaker_not_stronger(self):
+        expressed = self.summary["expressed_baseline_ge_1_all"]
+        locked = self.summary["locked_all"]
+        self.assertGreater(expressed["slice_wilcoxon_p"], locked["slice_wilcoxon_p"])
+        self.assertLess(expressed["n_up"] / expressed["n_slices"], locked["n_up"] / locked["n_slices"])
+
+    def test_line_deletion_is_not_labeled_as_biology(self):
+        drop = self.summary["best_drop_line"]
+        self.assertEqual(drop["family"], "influence_drop_line")
+        self.assertTrue(str(drop["spec"]).startswith("drop_line:"))
+        biology = self.grid[self.grid["family"] == "biology"]
+        self.assertFalse(biology["spec"].astype(str).str.startswith("drop_line:").any())
+
+
 if __name__ == "__main__":
     unittest.main()

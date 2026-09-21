@@ -1381,6 +1381,9 @@ def write_outputs(payload: dict) -> None:
 def main() -> int:
     payload = run()
     write_outputs(payload)
+    import cldn4_sweep
+
+    cldn4_sweep.run_sweep()
     for marker in MARKERS:
         ref = payload["blocks"][marker]["reference"]
         fit = payload["blocks"][marker]["fit"]
