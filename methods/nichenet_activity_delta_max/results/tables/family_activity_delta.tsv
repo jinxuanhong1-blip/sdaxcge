@@ -1,0 +1,15 @@
+family	metric	expect	n_ligands_in_null	ligands_scored	ligands_not_potential	mean	perm_p	side	n_null
+core_barrier	delta_auroc	high>low	4	F11R,NECTIN2,CDH1,LGALS9		0.13497398354307838	0.1752061984503874	greater	286
+core_barrier	delta_aupr_corrected	high>low	4	F11R,NECTIN2,CDH1,LGALS9		0.018546775549432563	0.422144463884029	greater	286
+core_barrier	target_auroc	high>low	4	F11R,NECTIN2,CDH1,LGALS9		0.6261641461877757	0.09197700574856287	greater	286
+core_barrier	centered_z	high>low	4	F11R,NECTIN2,CDH1,LGALS9		0.07444927498116773	0.13021744563859036	greater	286
+core_barrier	realized_activity_delta	high>low	4	F11R,NECTIN2,CDH1,LGALS9		0.06709548271577936	0.00899775056235941	greater	286
+core_barrier	outgoing_expr	high>low	4	F11R,NECTIN2,CDH1,LGALS9		0.2592319254278987	0.01324668832791802	greater	286
+core_barrier	outgoing_lr	high>low	4	F11R,NECTIN2,CDH1,LGALS9		0.24481833421127375	0.0022494376405898524	greater	286
+core_ifn_recruit	delta_auroc	low>high	1	CCL5	CXCL9,CXCL10,IFNG	0.07375564698289777	0.050487378155461136	less	286
+core_ifn_recruit	delta_aupr_corrected	low>high	1	CCL5	CXCL9,CXCL10,IFNG	0.006940239332421945	0.037740564858785304	less	286
+core_ifn_recruit	target_auroc	low>high	1	CCL5	CXCL9,CXCL10,IFNG	0.5554379332073094	0.17770557360659836	less	286
+core_ifn_recruit	centered_z	low>high	1	CCL5	CXCL9,CXCL10,IFNG	0.025445406832330597	0.12871782054486378	less	286
+core_ifn_recruit	realized_activity_delta	low>high	1	CCL5	CXCL9,CXCL10,IFNG	-0.013379729331951395	0.033741564608847786	less	286
+core_ifn_recruit	outgoing_expr	low>high	1	CCL5	CXCL9,CXCL10,IFNG	-0.1206730532496412	0.01849537615596101	less	286
+core_ifn_recruit	outgoing_lr	low>high	1	CCL5	CXCL9,CXCL10,IFNG	-0.08385754547856422	0.019745063734066485	less	286
