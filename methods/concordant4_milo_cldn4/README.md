@@ -26,6 +26,13 @@ Do not quote the cell count as n.
 pip install -r methods/concordant4_milo_cldn4/requirements.txt
 # R packages edgeR, limma, jsonlite (user library is fine)
 python3 methods/concordant4_milo_cldn4/scripts/run_milo.py
+python3 methods/concordant4_milo_cldn4/scripts/deepen_milo.py
 ```
+
+`scripts/nhood_gene_scores.py` reads the public GEO count matrices
+from `/tmp/geo_c4` (GSE123902 raw tar, GSE131907 UMI matrix,
+GSE189357 raw tar, GSE205335 UMI RDS and cell-identity table) and
+writes the within-unit IFN / NHEJ / STING tables. The abundance
+scripts do not need those matrices.
 
 Write-up: `FINDING.md`.

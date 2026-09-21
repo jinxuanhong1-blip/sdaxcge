@@ -151,14 +151,157 @@ the covariate and dataset as a batch term. Under that design the
 composition shift is large enough to pass SpatialFDR. The GSE189357-only
 fit is still empty, which is the honest small-n limit.
 
+## Sensitivity grid at SpatialFDR < 0.05
+
+The primary model stays k = 30, d = 30, Q3+Q4 vs Q1+Q2. The grid
+below was fixed before the new fits: k ∈ {15, 30, 50}, d ∈ {10, 20, 30}
+(the first d Harmony dimensions), and five high-rich definitions.
+A neighbourhood is tested when ≥5 patients **in that contrast**
+contribute a cell. The search, among full-graph specs with at least
+10 units in each arm, maximises the number of T/NK neighbourhoods
+with SpatialFDR < 0.05 and log2FC < 0. Ties go to the more negative
+median log2FC of those hits, then of all tested T/NK neighbourhoods.
+
+| contrast | high | low | rule |
+|---|---:|---:|---|
+| Q3+Q4 vs Q1+Q2 | 31 | 34 | primary |
+| Q4 vs Q1 | 16 | 19 | drop Q2 and Q3 |
+| Q4 vs the rest | 16 | 49 | Q1–Q3 are the low arm |
+| upper half vs lower half | 34 | 31 | within-cohort rank; the middle of an odd cohort is low |
+| top vs bottom tertile | 21 | 23 | middle tertile dropped |
+
+The count maximum is **k = 15, d = 10, Q4 vs the rest**: **65** T/NK
+neighbourhoods down and **0** up, out of 725 tested T/NK neighbourhoods
+(9.0%). Median log2FC of tested T/NK neighbourhoods is −0.73; of the
+65 hits, −1.99. Malignant neighbourhoods in that fit are 99 up and
+30 down. This row wins the pre-specified count. It uses the coarser
+embedding and a low arm that includes Q2 and Q3. It does not replace
+the primary.
+
+The primary specification, refit inside the grid, is **23** T/NK
+neighbourhoods down and **1** up (536 tested, 4.3%). Median log2FC
+of tested T/NK neighbourhoods is −0.55; of the 23 down-hits, −2.33.
+Malignant neighbourhoods are 104 up and 25 down. Minimum SpatialFDR
+is 1.70×10⁻⁸, the same minimum as the primary table.
+
+The most negative median T/NK log2FC among specs with at least 20
+T/NK-down hits is **k = 30, d = 30, Q4 vs Q1** (16 vs 19): **42** down
+and **0** up, median log2FC −1.06 for tested T/NK neighbourhoods and
+−2.88 for the hits. That filter is applied inside the 35-unit contrast
+(1,139 tested neighbourhoods). The earlier Q4-vs-Q1 table filtered on
+all 65 units first, so the two rows are different fits.
+
+The full 45-spec table is `results/tables/grid_full_ranked.tsv`.
+The count heatmap is `figures/grid_tnk_down_sfdr05.png`.
+
+## Malignant-only graph
+
+The same k and d values were refit on the 7,424 embedded malignant
+cells alone, for Q3+Q4 and for Q4 vs Q1. There are no T/NK cells on
+this graph, so it cannot increase the T/NK-down count.
+
+At the primary k and d, Q3+Q4 vs Q1+Q2: **281** tested neighbourhoods,
+**71** up and **17** down at SpatialFDR < 0.05, median log2FC +1.03,
+minimum SpatialFDR 1.64×10⁻⁷. The largest up count on this graph is
+k = 50, d = 10, same contrast: 161 up and 2 down (499 tested, median
+log2FC +1.08). These are malignant transcriptional states that are
+more abundant in CLDN4-high-rich units.
+
+## IFN, NHEJ, and STING inside differential neighbourhoods
+
+Gene lists are in `data/gene_sets.json`.
+
+| set | n | source |
+|---|---:|---|
+| IFN | 224 | MSigDB Hallmark IFNα ∪ IFNγ |
+| NHEJ | 78 | GO:0006303, non-homologous end joining |
+| STING | 16 | Reactome R-HSA-1834941 |
+| cGAS–STING (secondary) | 29 | GO:0140896 |
+
+Raw counts are the public matrices that built the Harmony object.
+Every embedded cell matched a matrix column (4,453 + 7,350 + 3,150
++ 7,700). The score is the mean of log1p(count / nCount_RNA × 10⁴)
+over the fixed gene list. A gene missing from a matrix contributes 0.
+`nCount_RNA` matched the matrix column sum on the cells that were
+checked (GSE123902 20/20, GSE131907 3/3, GSE189357 45/45, GSE205335
+20/20).
+
+Where the current symbol is absent and one HGNC previous symbol is
+present, the count is read from that alias: STING1 = TMEM173,
+CGAS = MB21D1, MRE11 = MRE11A, MARCHF1 = MARCH1, MARCHF5 = MARCH5,
+WARS1 = WARS, TENT5A = FAM46A, NSD2 = WHSC1, CYREN = C7orf49,
+MRNIP = C5orf45, PAXX = C9orf142, SHLD1 = C20orf196, SHLD2 = FAM35A.
+MIR4691 is absent from all four matrices. SHLD3 and TREX1 are absent
+from every GSE123902 donor file. SHLD3 and ATP23 are absent from
+GSE131907. GSE123902 drops genes that are zero in a donor, so a few
+other symbols are zero-scored in some donors only. Coverage is
+`results/tables/gene_coverage.tsv`.
+
+The rebuilt graphs match the cached neighbourhood counts, and the
+recomputed SpatialFDR matches the saved values (maximum absolute gap
+1×10⁻¹⁶). A cell in both an up-hit and a down-hit is kept in the up
+compartment (70 such cells on the primary malignant hits). Within
+each locked unit, Δ is the mean score in the focal compartment minus
+the mean score in other neighbourhoods of the same class. The
+Wilcoxon signed-rank is across units that contain both compartments.
+The unit of that test is the locked sample.
+
+Primary graph, malignant cells in malignant-up neighbourhoods
+(SpatialFDR < 0.05 and log2FC > 0; 2,770 cells) versus other
+malignant-majority neighbourhoods (3,952 cells):
+
+| set | units | median Δ | units negative / positive | P |
+|---|---:|---:|---:|---:|
+| IFN | 61 | −0.0068 | 32 / 29 | 0.47 |
+| NHEJ | 61 | +0.0015 | 30 / 31 | 0.59 |
+| STING | 61 | +0.0025 | 30 / 31 | 0.77 |
+
+Median IFN scores in those 61 units are 0.24 in the up compartment
+and 0.26 in the other malignant compartment. The within-unit IFN
+difference is centered at zero. The secondary cGAS–STING set on the
+same contrast has median Δ +0.0033 (P = 0.81).
+
+Primary graph, T/NK cells in T/NK-down neighbourhoods (997 cells)
+versus other T/NK-majority neighbourhoods (7,012 cells). Both sides
+are T/NK cells from the same locked unit:
+
+| set | units | median Δ | units negative / positive | P |
+|---|---:|---:|---:|---:|
+| IFN | 53 | −0.036 | 38 / 15 | 0.0016 |
+| NHEJ | 53 | −0.024 | 44 / 9 | 1.2×10⁻⁶ |
+| STING | 53 | −0.019 | 38 / 15 | 0.0034 |
+
+The single T/NK neighbourhood that is up in high-rich units holds
+62 embedded cells. In the 22 units that also have other T/NK
+neighbourhoods, its IFN score is higher (median Δ +0.069, 20/22
+positive, P = 9.9×10⁻⁵).
+
+On the count-maximum graph, malignant-up versus other IFN has median
+Δ +0.0055 (58 units, P = 0.22). T/NK-down versus other IFN has median
+Δ −0.0099 (58 units, P = 0.18). NHEJ in those T/NK-down neighbourhoods
+is lower (median Δ −0.011, 43/58 negative, P = 0.0016).
+
+On the malignant-only graph at k = 30, d = 30, Q3+Q4, malignant-up
+versus other IFN has median Δ **+0.023** (54 units, 32 positive,
+P = 0.021). NHEJ on that contrast has P = 0.45 and STING has P = 0.28.
+
+Patient-level deltas: `results/tables/nhood_gene_patient_deltas.tsv`.
+Summary: `results/tables/nhood_gene_paired.tsv`.
+Figure: `figures/nhood_ifn_delta_primary.png`.
+
 ## What this is for
 
 Use it as neighbourhood-resolved abundance between CLDN4-high-rich and
 low-rich patients: malignant states up, T/NK states down, on dissociated
 cells. The patient-level T/NK association remains the locked Spearman.
-Quote **n = 65** (31 vs 34) for the primary contrast, and **n = 35**
-(16 vs 19) for Q4 vs Q1.
+Inside a sample, malignant-up neighbourhoods and other malignant
+neighbourhoods have the same IFN score. Quote **n = 65** (31 vs 34)
+for the primary contrast, **n = 35** (16 vs 19) for Q4 vs Q1, and
+**n = 65** (16 vs 49) for Q4 versus the rest.
 
-Figures: `figures/volcano_binary_tmm.png`, `figures/logfc_by_class_binary_tmm.png`.
+Figures: `figures/volcano_binary_tmm.png`, `figures/logfc_by_class_binary_tmm.png`,
+`figures/grid_tnk_down_sfdr05.png`, `figures/nhood_ifn_delta_primary.png`.
 Primary table: `results/tables/da_binary_tmm.tsv`.
+Grid: `results/tables/grid_full_ranked.tsv`, `results/tables/grid_malignant_only.tsv`.
+Gene scores: `results/tables/nhood_gene_paired.tsv`.
 Design ranks: `results/tables/design_rank.tsv`.
