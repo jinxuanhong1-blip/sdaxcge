@@ -1,0 +1,34 @@
+accession	decision	lineage	note
+GSE273409	include	epithelial cancer	SCLC lines DMS114 H146 H196 H446 H720 H1341, NU7441 vs DMSO, 5 d, n=3
+GSE242255	include	epithelial cancer	CWR22Rv1-AR-EK siDNA-PKcs and NU7441/NU5455/AZD7648, n=3
+GSE116765	include	epithelial cancer	C4-2 NU7441 vs control RNA-seq; CC-115 dual; CC-223 TORKi specificity
+GSE116765	include	epithelial cancer	22Rv1 CC-115 vs control, dual DNA-PK/mTOR, n=2 vs 3
+GSE167956	include	epithelial cancer	SUM159 shDNA-PKcs vs shNTC, normoxia primary, hypoxia companion
+GSE319513	include	epithelial cancer	8505C anaplastic thyroid, KU-57788 vs CON, 24 h primary, 48 h companion. GEO characteristics text is copy-pasted onto both arms; column names KU vs CON are used
+GSE93075	include	epithelial cancer	HCT116 siPRKDC vs siNeg, Illumina HT-12, n=3
+GSE93074	include	epithelial cancer	HCT116 NU7441 40 µM 48 h vs vehicle, same paper as GSE93075
+GSE63480	include	epithelial cancer	C4-2 DNA-PKcs siRNA and NU7441, HuGene 2.0 ST, n=2
+GSE285698	include	epithelial cancer	HCT116 DNA-PK KO vs WT, normoxia primary, CoCl2 companion
+GSE85202	include	non-epithelial cancer	Ewing TC32 and SK-N-MC NU7441 40 µM 48 h
+GSE93075	include	non-epithelial cancer	TC32 Ewing siPRKDC
+GSE268415	include	non-epithelial cancer	HOS osteosarcoma siPRKDC and AZD7648
+GSE315862	include	non-epithelial cancer	LPS853 and T778 liposarcoma peposertib 0.5 µM vs NTC, no doxorubicin
+GSE129436	include	non-epithelial cancer	U937 histiocytic lymphoma, NU7441 vs DMSO, lipofectamine only, 8 h. DNA-transfection arms scored separately
+GSE180581	include	epithelial non-cancer	HEK293T DNA-PKcs heterozygous + siDNA-PKcs vs siControl
+GSE287819	not scored	epithelial cancer	C4-2 AZD7648 4 h SLAM-seq, n=2. GEO deposits RAW only, no gene-count matrix
+GSE141686	exclude	not epithelial/cancer	MC3T3-E1 osteoblasts + NU7441
+GSE225461	exclude	not epithelial/cancer	primary naive B cells + DNA-PKcs inhibitor
+GSE183507	exclude	wrong drug	AT2 organoids treated with p38 inhibitors VX-702 and PH-797804, not a DNA-PKcs inhibitor
+GSE294709	exclude	not PRKDC	Ku70/Ku80 depletion, not DNA-PKcs
+GSE302992	exclude	not PRKDC	PTK7 knockout in SUM159
+GSE285638	exclude	not PRKDC	TIMELESS degron plus ATR inhibitor in HCT116
+GSE303774	exclude	not PRKDC	CHK2 knockout
+GSE305143	exclude	not inhibitor/KD	Licochalcone A reported to induce PRKDC
+GSE306599	exclude	not PRKDC	CRTC2 auxin-degron RNA-seq
+GSE338690	exclude	not selective / not epithelial	3-hydroxyflavone in AML lines
+GSE243758	exclude	not RNA-seq expression	CRISPR screen, not expression RNA-seq
+GSE270287	exclude	not RNA-seq expression	CUT&Tag
+GSE106609	exclude	not PRKDC	PRMT1 knockdown in SK-OV-3; DNA-PK is mentioned as a pathway
+GSE180443	exclude	not PRKDC	lnc-LEMGC overexpression
+GSE240510	exclude	not a cell-intrinsic PRKDC contrast	mouse bone-marrow scRNA after AsiDNA
+GSE265857	exclude	not PRKDC	Prrx1 knockout MEFs
