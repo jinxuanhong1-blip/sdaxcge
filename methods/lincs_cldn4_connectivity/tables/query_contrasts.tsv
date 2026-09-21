@@ -1,0 +1,5 @@
+query	accession	contrast	species	tissue	n_loss	n_wt	symbol	target_log2fc	n_genes	rank_metric
+GSE207704_T47D	GSE207704	T47D CLDN4-/- vs WT	human	T47D breast cancer line, group-mean FPKM	2	2	CLDN4	-1.0385143134411772	12635	log2((KO+0.5)/(WT+0.5)) on GEO group-mean FPKM; replicates already collapsed
+GSE207704_MCF7	GSE207704	MCF7 CLDN4-/- vs WT	human	MCF7 breast cancer line, group-mean FPKM	2	2	CLDN4	-0.749921130859537	12635	log2((KO+0.5)/(WT+0.5)) on GEO group-mean FPKM; replicates already collapsed
+GSE50927_naive_lung	GSE50927	Cldn4 KO vs WT, naive whole lung	mouse	naive whole lung; symbols uppercased onto human symbols	1	1	CLDN4	-6.061296179	21588	author edgeR logFC; one row per uppercased symbol, highest logCPM kept
+GSE22493_SKOV3	GSE22493	SKOV-3 CLDN4 siRNA vs CLDN4-overexpressing control	human	SKOV-3 ovarian line, two-colour array GPL10555	3	3	CLDN4	-1.22505	18682	mean deposited log2(KD/CLDN4-OE) across GSM558700-702; ORF else DESCRIPTION
