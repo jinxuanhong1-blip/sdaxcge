@@ -1,0 +1,32 @@
+R version 4.3.3 (2024-02-29) 
+limma 3.58.1 edgeR 4.0.16 metafor 4.4.0 nlme 3.1.164 
+R version 4.3.3 (2024-02-29)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] metafor_4.4-0       numDeriv_2016.8-1.1 metadat_1.2-0      
+[4] Matrix_1.6-5        nlme_3.1-164        edgeR_4.0.16       
+[7] limma_3.58.1       
+
+loaded via a namespace (and not attached):
+[1] compiler_4.3.3 tools_4.3.3    Rcpp_1.0.12    mathjaxr_1.6-0 splines_4.3.3 
+[6] grid_4.3.3     locfit_1.5-9.8 lattice_0.22-5 statmod_1.5.0 

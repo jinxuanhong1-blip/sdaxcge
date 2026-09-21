@@ -1,0 +1,5 @@
+cohort	unit	malig_def	n_quartile_vector	n_q1_vector	n_q4_vector	n_q1_de	n_q4_de	n_de	thin_arm	patients_q1_de	patients_q4_de	dropped_q_tail	min_n_malignant_de	median_n_malignant_de
+GSE123902	donor	marker_malig	13	4	3	4	3	7	FALSE	LX675,LX682,LX699,LX701	LX653,LX680,LX684		46	173
+GSE131907	sample	author_malig	21	6	5	6	5	11	FALSE	EBUS_13,EBUS_15,EBUS_49,NS_02,NS_06,NS_16	EBUS_19,EBUS_28,NS_03,NS_04,NS_07		79	256
+GSE205335	patient	author_malig	22	6	6	5	6	11	FALSE	P1015,P1062,P1063,P1090,P1119	P1016,P1025,P1037,P1084,P1089,P1115	P4001	131	980
+GSE189357	patient	marker_malig	9	3	2	3	2	5	TRUE	TD2,TD4,TD7	TD6,TD9		491	1207
