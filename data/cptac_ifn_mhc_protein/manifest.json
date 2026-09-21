@@ -4,13 +4,13 @@
   "linkedomics_luad": "https://www.linkedomics.org/data_download/CPTAC-pancan-LUAD/",
   "linkedomics_lscc": "https://www.linkedomics.org/data_download/CPTAC-pancan-LSCC/",
   "scope": "CLDN4 and TACSTD2 protein vs MHC-I / IFN / CD8A protein; LUAD + LSCC public TMT; phenotype for purity sensitivity only",
-  "downloaded_at_utc": "2026-09-21T16:39:10.651593+00:00",
+  "downloaded_at_utc": "2026-09-21T16:52:04.156250+00:00",
   "files": [
     {
       "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
       "name": "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
       "content_length": 20132337,
-      "status": "downloaded",
+      "status": "cached",
       "local_bytes": 20132337,
       "sha256": "746900f54072198481207ea13f8a7ba14dcabd52345bace0bef7438120c03845",
       "cohort": "LUAD",
@@ -20,17 +20,27 @@
       "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_phenotype.txt",
       "name": "LUAD_phenotype.txt",
       "content_length": 210137,
-      "status": "downloaded",
+      "status": "cached",
       "local_bytes": 210137,
       "sha256": "9f777402f7d7d53856a5adfc73c8291136430ddfad85641584426921609b349a",
       "cohort": "LUAD",
       "path": "data/cptac_ifn_mhc_protein/LUAD/LUAD_phenotype.txt"
     },
     {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_meta.txt",
+      "name": "LUAD_meta.txt",
+      "content_length": 12232,
+      "status": "downloaded",
+      "local_bytes": 12232,
+      "sha256": "f9facf713af130ad097c56794f1fbc9107334e02ad9bf0df3958b40d68b6af10",
+      "cohort": "LUAD",
+      "path": "data/cptac_ifn_mhc_protein/LUAD/LUAD_meta.txt"
+    },
+    {
       "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
       "name": "LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
       "content_length": 20631271,
-      "status": "downloaded",
+      "status": "cached",
       "local_bytes": 20631271,
       "sha256": "fd9f9cc0aed40942fd33d750d1d207bcdf9ea231fcddeff3cc8ac8fdf3e1384d",
       "cohort": "LSCC",
@@ -40,11 +50,41 @@
       "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_phenotype.txt",
       "name": "LSCC_phenotype.txt",
       "content_length": 212329,
-      "status": "downloaded",
+      "status": "cached",
       "local_bytes": 212329,
       "sha256": "34f17a653dd5ebce0cdf1257c4498fe6579e314d18d435d333e4bcc4db22ef8d",
       "cohort": "LSCC",
       "path": "data/cptac_ifn_mhc_protein/LSCC/LSCC_phenotype.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_meta.txt",
+      "name": "LSCC_meta.txt",
+      "content_length": 12051,
+      "status": "downloaded",
+      "local_bytes": 12051,
+      "sha256": "6c334bbd8c9c4acfc94709a7fea5fd0181efa0881cee8ce1793085a5281a9d99",
+      "cohort": "LSCC",
+      "path": "data/cptac_ifn_mhc_protein/LSCC/LSCC_meta.txt"
+    },
+    {
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/luad_cptac_2020/data_clinical_sample.txt",
+      "name": "luad_cptac_2020_data_clinical_sample.txt",
+      "content_length": 45656,
+      "status": "downloaded",
+      "local_bytes": 45656,
+      "sha256": "1f7ce2eb04ca8e5a4e7252c79c2abc1c83bbe6c7c4dd6757aa348e1ec20af19f",
+      "cohort": "clinical",
+      "path": "data/cptac_ifn_mhc_protein/clinical/luad_cptac_2020_data_clinical_sample.txt"
+    },
+    {
+      "url": "https://media.githubusercontent.com/media/cBioPortal/datahub/master/public/lusc_cptac_2021/data_clinical_sample.txt",
+      "name": "lusc_cptac_2021_data_clinical_sample.txt",
+      "content_length": 43541,
+      "status": "downloaded",
+      "local_bytes": 43541,
+      "sha256": "017caf3816e728a10b42814c7b2075f81c2c8d1a7963d0c19f5794e0f450e59b",
+      "cohort": "clinical",
+      "path": "data/cptac_ifn_mhc_protein/clinical/lusc_cptac_2021_data_clinical_sample.txt"
     }
   ]
 }

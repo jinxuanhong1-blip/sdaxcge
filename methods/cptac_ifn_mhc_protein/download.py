@@ -27,11 +27,26 @@ NEEDED = {
     "LUAD": [
         "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
         "LUAD_phenotype.txt",
+        "LUAD_meta.txt",
     ],
     "LSCC": [
         "LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
         "LSCC_phenotype.txt",
+        "LSCC_meta.txt",
     ],
+}
+
+# Dominant histologic subtype (LUAD) and pathology text (LSCC). Public cBioPortal
+# datahub clinical sample tables for the same CPTAC studies. Not in the freeze phenotype.
+CLINICAL = {
+    "luad_cptac_2020_data_clinical_sample.txt": (
+        "https://media.githubusercontent.com/media/cBioPortal/datahub/master/"
+        "public/luad_cptac_2020/data_clinical_sample.txt"
+    ),
+    "lusc_cptac_2021_data_clinical_sample.txt": (
+        "https://media.githubusercontent.com/media/cBioPortal/datahub/master/"
+        "public/lusc_cptac_2021/data_clinical_sample.txt"
+    ),
 }
 
 
@@ -109,6 +124,12 @@ def main() -> int:
             rec["cohort"] = cohort
             rec["path"] = str(dest)
             manifest["files"].append(rec)
+    for name, url in CLINICAL.items():
+        dest = outdir / "clinical" / name
+        rec = fetch(url, dest)
+        rec["cohort"] = "clinical"
+        rec["path"] = str(dest)
+        manifest["files"].append(rec)
 
     man_path = outdir / "manifest.json"
     man_path.write_text(json.dumps(manifest, indent=2) + "\n")

@@ -792,6 +792,8 @@ def write_finding(
     )
     lines.append("")
 
+    lines.append("<!-- SENSITIVITY -->")
+    lines.append("")
     lines.append("## CLDN4 missingness — completeness")
     lines.append("")
     lines.append(
@@ -1147,6 +1149,16 @@ def main() -> int:
     plot_forest(corrs[corrs["primary_family"]], fig)
     plot_scatters(bundles, fig)
     write_finding(outdir / "FINDING.md", bundles, coverage, corrs, miss, joint)
+
+    from sensitivity import run_sensitivity  # noqa: E402
+
+    run_sensitivity(data, outdir, bundles, rng)
+    finding = (outdir / "FINDING.md").read_text()
+    extra = (outdir / "SENSITIVITY.md").read_text()
+    marker = "<!-- SENSITIVITY -->"
+    if marker not in finding:
+        raise RuntimeError("FINDING.md is missing the sensitivity marker")
+    (outdir / "FINDING.md").write_text(finding.replace(marker, extra.rstrip() + "\n"))
 
     summary = {
         "seed": SEED,

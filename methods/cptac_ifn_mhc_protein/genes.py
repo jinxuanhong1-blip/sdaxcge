@@ -72,3 +72,12 @@ ENDPOINTS = CD8 + IFN_LIGANDS + IFN_RECEPTORS + IFN_SIGNALING + IFN_ISG + MHC1 +
 
 # Primary support family: these scores, both predictors, both cohorts.
 PRIMARY_SCORES = ["MHC1_protein", "IFN_core_protein", "CD8A_protein"]
+
+# Decomposition of the locked list. Not new genes. Used only to see whether
+# the IFN-core null is ISG dilution. Minimum quantified members for a score.
+SENSITIVITY_PANELS: dict[str, tuple[list[str], int]] = {
+    "IFN_signaling_protein": (IFN_SIGNALING, 4),
+    "IFN_isg_protein": (IFN_ISG, 3),
+    "IFN_receptor_protein": (["IFNAR1", "IFNGR1"], 2),
+    "APM_protein": (["TAP1", "TAP2", "TAPBP", "PSMB8", "PSMB9", "NLRC5"], 4),
+}
