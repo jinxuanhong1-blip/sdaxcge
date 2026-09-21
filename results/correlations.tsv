@@ -1,0 +1,53 @@
+dataset	contrast	role	compartment	x	y	scope	spearman_rho	spearman_p	spearman_p_method	n	n_genes_used	interpretable_program	paired_score_deltas	paired_cldn_deltas	paired_labels
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	0.8857142857142857	0.03333333333333333	exact_permutation	6	75	True			
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	0.7714285714285715	0.10277777777777777	exact_permutation	6	125	True			
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples			undefined	6	0	False			
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples	0.6	0.24166666666666667	exact_permutation	6	1	False			
+GSE245459	shTACSTD2_DDP_vs_shNC_DDP	secondary_kd_on_cisplatin	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	-0.6571428571428571	0.175	exact_permutation	6	71	True			
+GSE245459	shTACSTD2_DDP_vs_shNC_DDP	secondary_kd_on_cisplatin	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	-0.6	0.24166666666666667	exact_permutation	6	121	True			
+GSE245459	shTACSTD2_DDP_vs_shNC_DDP	secondary_kd_on_cisplatin	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples	0.3142857142857143	0.5638888888888889	exact_permutation	6	1	False			
+GSE245459	shTACSTD2_DDP_vs_shNC_DDP	secondary_kd_on_cisplatin	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	6	0	False			
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	log2(Cldn4+1)	ifn_alpha	contrast_samples	-0.13939393939393938	0.7009318849100584	student_t	10	93	True			
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	log2(Cldn4+1)	ifn_gamma	contrast_samples	-0.2121212121212121	0.5563057751029299	student_t	10	187	True			
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	log2(Cldn4+1)	effector	contrast_samples	-0.17575757575757575	0.6271883447764846	student_t	10	10	True			
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	log2(Cldn4+1)	leukocyte	contrast_samples	-0.1515151515151515	0.6760651759978539	student_t	10	9	True			
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	ifn_alpha	contrast_samples	0.21428571428571427	0.6615079365079365	exact_permutation	7	90	True			
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	ifn_gamma	contrast_samples	0.32142857142857145	0.4976190476190476	exact_permutation	7	171	True			
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	effector	contrast_samples	-0.5357142857142857	0.2357142857142857	exact_permutation	7	1	False			
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	leukocyte	contrast_samples	-0.8928571428571429	0.012301587301587301	exact_permutation	7	4	False			
+GSE289287	DSG2KO_vs_WT_xenograft	comparator_not_TACSTD2	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	ifn_alpha	contrast_samples	-0.5636363636363636	0.0897240283170912	student_t	10	94	True			
+GSE289287	DSG2KO_vs_WT_xenograft	comparator_not_TACSTD2	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	ifn_gamma	contrast_samples	-0.49090909090909085	0.1496556734208368	student_t	10	180	True			
+GSE289287	DSG2KO_vs_WT_xenograft	comparator_not_TACSTD2	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	effector	contrast_samples	0.3988030274409017	0.25362657589473014	student_t	10	1	False			
+GSE289287	DSG2KO_vs_WT_xenograft	comparator_not_TACSTD2	bulk_xenograft_NRG_human_genes	log2(CLDN4+1)	leukocyte	contrast_samples	-0.41818181818181815	0.22911284098281892	student_t	10	6	True			
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	0.9	0.08333333333333333	exact_permutation	5	75	True			
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	0.9	0.08333333333333333	exact_permutation	5	129	True			
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples	0.7	0.23333333333333334	exact_permutation	5	1	False			
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	5	0	False			
+GSE304294	IACS_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	0.7714285714285715	0.10277777777777777	exact_permutation	6	76	True			
+GSE304294	IACS_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	0.37142857142857144	0.49722222222222223	exact_permutation	6	130	True			
+GSE304294	IACS_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples			undefined	6	0	False			
+GSE304294	IACS_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	6	0	False			
+GSE304294	IMMU132_plus_IACS_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	0.7714285714285715	0.10277777777777777	exact_permutation	6	77	True			
+GSE304294	IMMU132_plus_IACS_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	0.8285714285714286	0.058333333333333334	exact_permutation	6	129	True			
+GSE304294	IMMU132_plus_IACS_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples	0.7714285714285715	0.10277777777777777	exact_permutation	6	1	False			
+GSE304294	IMMU132_plus_IACS_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	6	0	False			
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	-0.8857142857142857	0.03333333333333333	exact_permutation	6	76	True			
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	-0.8857142857142857	0.03333333333333333	exact_permutation	6	127	True			
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples	0.6	0.24166666666666667	exact_permutation	6	1	False			
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	6	0	False			
+GSE312098	GSK2606414_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	-0.2571428571428571	0.6583333333333333	exact_permutation	6	75	True			
+GSE312098	GSK2606414_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	-0.14285714285714285	0.8027777777777778	exact_permutation	6	126	True			
+GSE312098	GSK2606414_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples	-0.3142857142857143	0.5638888888888889	exact_permutation	6	1	False			
+GSE312098	GSK2606414_vs_control	same_experiment_not_adc	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	6	0	False			
+GSE312098	IMMU132_plus_GSK_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	ifn_alpha	contrast_samples	-0.7142857142857143	0.1361111111111111	exact_permutation	6	78	True			
+GSE312098	IMMU132_plus_GSK_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	ifn_gamma	contrast_samples	-0.7142857142857143	0.1361111111111111	exact_permutation	6	129	True			
+GSE312098	IMMU132_plus_GSK_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	effector	contrast_samples	0.8285714285714286	0.058333333333333334	exact_permutation	6	1	False			
+GSE312098	IMMU132_plus_GSK_vs_control	secondary_adc_combination	in_vitro_cell_line	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	6	0	False			
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	log2(CLDN4+1)	ifn_alpha	contrast_samples	0.41818181818181815	0.22911284098281892	student_t	10	92	True			
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	log2(CLDN4+1)	ifn_gamma	contrast_samples	0.5757575757575757	0.08155281477260244	student_t	10	154	True			
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	log2(CLDN4+1)	effector	contrast_samples	-0.6121212121212121	0.05997214247725527	student_t	10	3	False			
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	log2(CLDN4+1)	leukocyte	contrast_samples			undefined	10	0	False			
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	paired_delta_log2(CLDN4+1)	paired_delta_ifn_alpha	paired_deltas	-1.0	0.016666666666666666	exact_permutation	5	92	True	-0.123851;0.730628;0.264417;-0.758148;0.197783	-0.0865988;-0.941753;-0.562848;-0.0417395;-0.552665	T_114_minus_C_114;T_36_minus_C_36;T_82_minus_C_82;T_83_minus_C_83;T_196_minus_C_196
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	paired_delta_log2(CLDN4+1)	paired_delta_ifn_gamma	paired_deltas	-0.9	0.08333333333333333	exact_permutation	5	154	True	-0.110048;0.482028;0.153781;-0.553988;0.171296	-0.0865988;-0.941753;-0.562848;-0.0417395;-0.552665	T_114_minus_C_114;T_36_minus_C_36;T_82_minus_C_82;T_83_minus_C_83;T_196_minus_C_196
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	paired_delta_log2(CLDN4+1)	paired_delta_effector	paired_deltas	-0.7	0.23333333333333334	exact_permutation	5	3	False	0.0289868;0.301518;-0.110096;-0.28349;0.0859421	-0.0865988;-0.941753;-0.562848;-0.0417395;-0.552665	T_114_minus_C_114;T_36_minus_C_36;T_82_minus_C_82;T_83_minus_C_83;T_196_minus_C_196
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	paired_delta_log2(CLDN4+1)	paired_delta_leukocyte	paired_deltas			undefined	5	0	False	nan;nan;nan;nan;nan	-0.0865988;-0.941753;-0.562848;-0.0417395;-0.552665	T_114_minus_C_114;T_36_minus_C_36;T_82_minus_C_82;T_83_minus_C_83;T_196_minus_C_196

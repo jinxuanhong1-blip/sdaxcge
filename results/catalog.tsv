@@ -1,0 +1,23 @@
+accession	class	what_it_is	matrix	reanalyzed	why
+GSE245459	TACSTD2_shRNA	SKOV3 shTACSTD2 vs shNC, with and without cisplatin. 12 FPKM samples.	GSE245459_fpkm.anno.txt.gz	yes	Direct TACSTD2 knockdown transcriptome.
+GSE334497	TACSTD2_KO	4T1 Trop2 KO vs WT tumors in BALB/c. 5 vs 5 normalized counts.	GSE334497_normalized_counts.csv.gz	yes	Only immunocompetent bulk tumor transcriptome of Trop2 loss found.
+GSE289287	TACSTD2_KO	T-47D Trop2 KO vs WT xenografts in NRG mice. DESeq2 table includes normalized counts. In vitro Trop2 KO RNA-seq was described but not deposited.	GSE289287_DESeq2-Trop2KO_tumors_vs_WT.tsv.gz	yes	Trop2 KO tumors. NRG host has no adaptive immunity; human genes only.
+GSE289287	comparator_DSG2_KO	Same study, DSG2 KO vs WT xenografts. Not a TACSTD2 perturbation.	GSE289287_DESeq2-DSG2KO_tumors_vs_WT.tsv.gz	yes_as_comparator	Asks whether a CLDN4/IFN shift in this model is Trop2-specific.
+GSE304294	TROP2_ADC	KYSE30 IMMU132 (sacituzumab govitecan) vs control, 1 day, n=2 vs 3. Also IACS and the combination.	GSE304294_gene_fpkm.txt.gz	yes	ADC monotherapy matrix. n=2 treated samples.
+GSE312098	TROP2_ADC	CX-1 IMMU132 vs control, 48 h, n=3 vs 3. Also GSK2606414 and the combination.	GSE312098_gene_fpkm.txt.gz	yes	ADC monotherapy matrix.
+GSE311016	TROP2_ADC	Five CRC PDX models, paired control vs IMMU132, day 29. Human FPKM.	GSE311016_gene_fpkm.txt.gz	yes	In vivo ADC matrix. Mouse stroma is not in the human gene table.
+E-MTAB-16433	TROP2_ADC_scRNA	CRC PDOX tumors, vehicle vs sacituzumab govitecan, endpoint scRNA. Processed counts listed (~0.75 GB).	BioStudies processed counts	no	ftp.ebi.ac.uk accepted TCP then closed the TLS handshake from this environment. No numbers computed.
+E-MTAB-16843	TROP2_ADC_scRNA	CRC organoids, SG vs IgG1-SN-38 time course. Counts files are multi-GB.	BioStudies processed counts	no	Same EBI FTP failure. Not retrieved.
+E-MTAB-16849	TROP2_ADC_scRNA	CRC liver-metastasis SG time course. Largest processed file is ~23 GB.	BioStudies processed counts	no	Same EBI FTP failure. Not retrieved.
+E-MTAB-16836	not_ADC	FOLFIRI organoid time course from the same CRC paper.	not downloaded	no	Chemotherapy, not a TROP2 ADC or TACSTD2 knockout.
+E-MTAB-16583	not_perturbation	CRC cohort tissue-seq from the same paper.	not downloaded	no	Baseline cohort, not a perturbation.
+E-MTAB-16585	not_perturbation	CRC PDOX-seq from the same paper.	not downloaded	no	Baseline cohort, not a perturbation.
+GSE235812	baseline_not_on_treatment	36 breast PDX samples named BCX-*.P0/P1. Cited by the TROP2-regulation paper (PMID 37567892) and the datopotamab deruxtecan PDX paper (PMID 39585341).	series matrix not used	no	Sample titles are passage labels, not drug treatment. Not an on-treatment ADC matrix.
+GSE278664	not_SG_treatment	35 pretreatment HGSOC biopsies from NCT02203513. The paper discusses sacituzumab govitecan, but the GEO design is baseline RNA-seq.	xlsx not used	no	Not an SG-treated transcriptome.
+GSE309617	not_SG_treatment	Carboplatin-sensitive vs resistant TNBC PDX bulk RNA-seq. SG is a later drug-screen result in the abstract.	not used	no	RNA-seq is not an SG contrast.
+GSE302284	not_ADC	scRNA of residual EGFR-mutant NSCLC after EGFR TKI. TROP2 is discussed as a target.	h5 not used	no	Not a TROP2 ADC or TACSTD2 knockout experiment.
+GSE128724	sorted_Trop2_positive	Mouse prostate Trop2+ vs Trop2- sorted cells.	not used	no	A sort, not a knockout or ADC.
+GSE78736	not_KD	Huh7.5 vs HepG2 microarrays in a paper about TACSTD2 regulating CLDN1/OCLN.	not used	no	No TACSTD2 knockdown samples were deposited.
+GSE69715	not_KD	HCC tumor vs adjacent liver from the same TACSTD2/CLDN1 paper.	not used	no	Patient tissues, not a perturbation.
+SKB264_MK-2870_sac-TMT	none_found	GEO queries for SKB264, MK-2870, sacituzumab tirumotecan, and sac-TMT returned no transcriptome. The preclinical SKB264 paper (PMID 36620535) reports pharmacology, not an RNA-seq accession.	none	no	No public SKB264 omics matrix was found. Private CD34 HIS / SKB264 data are outside this repository.
+LINCS_L1000_CRISPR	consensus_list_only	Harmonizome TACSTD2 CRISPR-knockout consensus places CLDN4 on the increased-expression side of a top-500 list.	collapsed list, not the per-cell-line matrix	no	Not recomputed. Standardized values are not fold changes.
