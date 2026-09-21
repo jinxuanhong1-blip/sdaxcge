@@ -23,11 +23,17 @@ NHEJ_KEGG	Rad50	primary	KEGG 2019 Mouse Non-homologous end-joining
 NHEJ_KEGG	Polm	primary	KEGG 2019 Mouse Non-homologous end-joining
 NHEJ_KEGG	Poll	primary	KEGG 2019 Mouse Non-homologous end-joining
 NHEJ_KEGG	Nhej1	primary	KEGG 2019 Mouse Non-homologous end-joining
-STING_core	Mb21d1	primary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
-STING_core	Tmem173	primary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
-STING_core	Tbk1	primary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
-STING_core	Ikbke	primary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
-STING_core	Irf3	primary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+Rad50	Rad50	primary_gene	strongest single KEGG NHEJ gene
+MRN	Mre11a	primary	Mre11a, Rad50, Nbn
+MRN	Rad50	primary	Mre11a, Rad50, Nbn
+MRN	Nbn	primary	Mre11a, Rad50, Nbn
+STING_kinases	Tbk1	primary	Tbk1 and Ikbke
+STING_kinases	Ikbke	primary	Tbk1 and Ikbke
+STING_core	Mb21d1	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Tmem173	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Tbk1	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Ikbke	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+STING_core	Irf3	secondary	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
 IFN_compact	Stat1	primary	mouse epithelial IFN list
 IFN_compact	Stat2	primary	mouse epithelial IFN list
 IFN_compact	Irf1	primary	mouse epithelial IFN list

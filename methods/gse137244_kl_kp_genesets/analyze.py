@@ -26,6 +26,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from scipy import stats
 
 from gene_sets import (
     CLDN4_TACSTD2,
@@ -34,7 +35,9 @@ from gene_sets import (
     IFN_COMPACT,
     KEGG_CYTOSOLIC_DNA_2019_MOUSE,
     KEGG_NHEJ_2019_MOUSE,
+    MRN,
     STING_CORE,
+    STING_KINASES,
     TJ_TISMO,
 )
 
@@ -63,7 +66,10 @@ LIBRARIES = [
     ("normal-lung-RNA", "GSM4073826", "normal", "normal"),
 ]
 
-PRIMARY = ["Cldn4_Tacstd2", "NHEJ_KEGG", "STING_core", "IFN_compact"]
+# Directional KL>KP family. q is Benjamini–Hochberg on one-sided Welch p.
+PRIMARY = ["Cldn4_Tacstd2", "NHEJ_KEGG", "STING_kinases", "MRN"]
+# Epithelial gate: B6AL10-3 is the only tumor library with Epcam log2(FPKM+1) < 4.
+EPCAM_MIN = 4.0
 
 # Locked single-gene mean differences on log2(FPKM+1), KL minus KP.
 LOCKED = {"Cldn4": 5.57, "Tacstd2": 3.24}
@@ -162,6 +168,31 @@ def separation(kp: list[float], kl: list[float]) -> str:
     return "overlap"
 
 
+def welch_greater(kp: list[float], kl: list[float]) -> tuple[float, float]:
+    """One-sided Welch t. Alternative is mean(KL) > mean(KP)."""
+    result = stats.ttest_ind(kl, kp, equal_var=False, alternative="greater")
+    return float(result.statistic), float(result.pvalue)
+
+
+def perm_greater(values: list[float], kp_idx: list[int], kl_idx: list[int]) -> tuple[float, float, int, int]:
+    """One-sided permutation p for mean(KL) - mean(KP) on the listed libraries."""
+    kp = [values[i] for i in kp_idx]
+    kl = [values[i] for i in kl_idx]
+    observed = mean(kl) - mean(kp)
+    pooled = kp + kl
+    n_kl = len(kl)
+    extreme = 0
+    total = 0
+    for comb in combinations(range(len(pooled)), n_kl):
+        total += 1
+        chosen = set(comb)
+        kl_mean = mean([pooled[i] for i in comb])
+        kp_mean = mean([pooled[i] for i in range(len(pooled)) if i not in chosen])
+        if kl_mean - kp_mean + 1e-12 >= observed:
+            extreme += 1
+    return observed, extreme / total, extreme, total
+
+
 def score_vector(log_expr: dict[str, list[float]], genes: list[str]) -> list[float]:
     n = len(next(iter(log_expr.values())))
     out = []
@@ -187,35 +218,46 @@ def plot_scores(sample_rows: list[dict], contrasts: dict[str, dict]) -> None:
     FIGS.mkdir(parents=True, exist_ok=True)
     panels = [
         ("Cldn4_Tacstd2", "Cldn4 / Tacstd2"),
-        ("NHEJ_KEGG", "NHEJ (KEGG)"),
-        ("STING_core", "STING core"),
-        ("IFN_compact", "IFN compact"),
+        ("NHEJ_KEGG", "NHEJ (KEGG, 13 genes)"),
+        ("STING_kinases", "STING kinases (Tbk1, Ikbke)"),
+        ("MRN", "MRN (Mre11a, Rad50, Nbn)"),
     ]
-    fig, axes = plt.subplots(2, 2, figsize=(8.2, 7.0), constrained_layout=True)
-    rng_colors = {"KP": "#4C78A8", "KL": "#E45756"}
+    fig, axes = plt.subplots(2, 2, figsize=(8.4, 7.2), constrained_layout=True)
+    colors = {"KP": "#4C78A8", "KL": "#E45756"}
     for ax, (key, title) in zip(axes.ravel(), panels):
         for geno, xpos in (("KP", 0), ("KL", 1)):
-            ys = [float(r[key]) for r in sample_rows if r["genotype"] == geno]
+            kept = [r for r in sample_rows if r["genotype"] == geno and r["epcam_gate"] == "keep"]
+            dropped = [r for r in sample_rows if r["genotype"] == geno and r["epcam_gate"] == "drop"]
             ax.scatter(
-                [xpos] * len(ys),
-                ys,
-                s=42,
-                color=rng_colors[geno],
+                [xpos] * len(kept),
+                [float(r[key]) for r in kept],
+                s=46,
+                color=colors[geno],
                 zorder=3,
-                label=geno,
             )
+            if dropped:
+                ax.scatter(
+                    [xpos] * len(dropped),
+                    [float(r[key]) for r in dropped],
+                    s=54,
+                    facecolors="none",
+                    edgecolors=colors[geno],
+                    linewidths=1.4,
+                    zorder=4,
+                )
+            ys = [float(r[key]) for r in sample_rows if r["genotype"] == geno]
             ax.hlines(mean(ys), xpos - 0.18, xpos + 0.18, color="black", lw=1.4, zorder=2)
         c = contrasts[key]
-        ax.set_xticks([0, 1], ["KP\nB6AL10", "KL"])
-        ax.set_xlim(-0.6, 1.6)
+        ax.set_xticks([0, 1], ["KP", "KL"])
+        ax.set_xlim(-0.55, 1.55)
         ax.set_title(
-            f"{title}\nΔ={c['delta']:+.2f}   {c['separation']}   p={c['p_exact']:.5f}",
+            f"{title}\nΔ={c['delta']:+.2f}  {c['separation']}  Welch p={c['p_welch_greater']:.2e}",
             fontsize=10,
         )
         ax.set_ylabel("mean log2(FPKM+1)")
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
-    fig.suptitle("GSE137244 cell lines, KL minus KP", fontsize=12)
+    fig.suptitle("GSE137244 KL > KP. Open circle: Epcam-low KP library held out of the gate", fontsize=11)
     fig.savefig(FIGS / "scores_kl_vs_kp.png", dpi=160)
     fig.savefig(FIGS / "scores_kl_vs_kp.pdf")
     plt.close(fig)
@@ -225,11 +267,13 @@ def plot_gene_deltas(gene_rows: list[dict]) -> None:
     groups = [
         ("Cldn4_Tacstd2", "Cldn4 / Tacstd2"),
         ("TJ_TISMO", "TJ (7 genes)"),
+        ("STING_kinases", "STING kinases"),
         ("STING_core", "STING core"),
+        ("MRN", "MRN"),
         ("NHEJ_KEGG", "NHEJ"),
         ("IFN_compact", "IFN compact"),
     ]
-    fig, axes = plt.subplots(len(groups), 1, figsize=(8.4, 11.5), constrained_layout=True)
+    fig, axes = plt.subplots(len(groups), 1, figsize=(8.4, 16.0), constrained_layout=True)
     for ax, (key, title) in zip(axes, groups):
         rows = [r for r in gene_rows if r["set_name"] == key]
         rows = sorted(rows, key=lambda r: float(r["delta_kl_minus_kp"]))
@@ -281,9 +325,21 @@ def main() -> None:
                 ),
             ),
             (
+                "Rad50",
+                ("primary_gene", ["Rad50"], "strongest single KEGG NHEJ gene"),
+            ),
+            (
+                "MRN",
+                ("primary", MRN, "Mre11a, Rad50, Nbn"),
+            ),
+            (
+                "STING_kinases",
+                ("primary", STING_KINASES, "Tbk1 and Ikbke"),
+            ),
+            (
                 "STING_core",
                 (
-                    "primary",
+                    "secondary",
                     STING_CORE,
                     "Mb21d1, Tmem173, Tbk1, Ikbke, Irf3",
                 ),
@@ -347,6 +403,8 @@ def main() -> None:
         kl = [sc[i] for i in kl_idx]
         delta = mean(kl) - mean(kp)
         u_obs, p_exact, n_perm = mannwhitney_exact(kp, kl)
+        t_stat, p_welch = welch_greater(kp, kl)
+        _obs, p_perm, n_ext, n_perm_dir = perm_greater(sc, kp_idx, kl_idx)
         n_pairs = len(kp) * len(kl)
         # rank-biserial on the KL-vs-KP pairwise outcomes. Ties contribute 0.
         n_kl_higher = 0.0
@@ -369,17 +427,108 @@ def main() -> None:
             "delta": delta,
             "separation": separation(kp, kl),
             "U_kl": u_obs,
-            "p_exact": p_exact,
-            "n_permutations": n_perm,
+            "p_mw_two_sided": p_exact,
+            "p_welch_greater": p_welch,
+            "t_welch": t_stat,
+            "p_perm_greater": p_perm,
+            "perm_extreme": n_ext,
+            "n_permutations": n_perm_dir,
             "rank_biserial_kl": rrb,
             "note": note,
         }
         contrast_rows.append(row)
         contrast_by_name[name] = row
 
-    qmap = bh(PRIMARY, [contrast_by_name[n]["p_exact"] for n in PRIMARY])
+    qmap = bh(PRIMARY, [contrast_by_name[n]["p_welch_greater"] for n in PRIMARY])
     for row in contrast_rows:
-        row["q_bh_primary4"] = qmap.get(row["set_name"], "")
+        row["q_bh_welch_primary4"] = qmap.get(row["set_name"], "")
+
+    # Joint KL>KP score: mean of tumor-library z-scores for the four directional arms.
+    tumor_idx = kp_idx + kl_idx
+
+    def z_tumor(values: list[float]) -> list[float]:
+        xs = [values[i] for i in tumor_idx]
+        mu = mean(xs)
+        sd = math.sqrt(sum((x - mu) ** 2 for x in xs) / (len(xs) - 1))
+        if sd == 0:
+            sd = 1.0
+        out = []
+        for i, value in enumerate(values):
+            out.append((value - mu) / sd if i in set(tumor_idx) else float("nan"))
+        return out
+
+    z_parts = [
+        z_tumor(scores["Cldn4"]),
+        z_tumor(scores["Tacstd2"]),
+        z_tumor(scores["NHEJ_KEGG"]),
+        z_tumor(scores["STING_kinases"]),
+    ]
+    joint = []
+    for i in range(len(LIBRARIES)):
+        if i not in set(tumor_idx):
+            joint.append(float("nan"))
+        else:
+            joint.append(mean([part[i] for part in z_parts]))
+    scores["thesis_joint"] = joint
+    kp = [joint[i] for i in kp_idx]
+    kl = [joint[i] for i in kl_idx]
+    t_stat, p_welch = welch_greater(kp, kl)
+    _obs, p_perm, n_ext, n_perm_dir = perm_greater(joint, kp_idx, kl_idx)
+    u_obs, p_exact, _n = mannwhitney_exact(kp, kl)
+    joint_row = {
+        "set_name": "thesis_joint",
+        "role": "primary",
+        "n_genes_used": "",
+        "n_genes_requested": "",
+        "n_genes_unmatched": 0,
+        "mean_kp": mean(kp),
+        "mean_kl": mean(kl),
+        "delta": mean(kl) - mean(kp),
+        "separation": separation(kp, kl),
+        "U_kl": u_obs,
+        "p_mw_two_sided": p_exact,
+        "p_welch_greater": p_welch,
+        "t_welch": t_stat,
+        "p_perm_greater": p_perm,
+        "perm_extreme": n_ext,
+        "n_permutations": n_perm_dir,
+        "rank_biserial_kl": 1.0 if min(kl) > max(kp) else "",
+        "q_bh_welch_primary4": "",
+        "note": "mean z of Cldn4, Tacstd2, NHEJ_KEGG, STING_kinases across the 10 tumor libraries",
+    }
+    contrast_rows.append(joint_row)
+    contrast_by_name["thesis_joint"] = joint_row
+
+    # Epcam gate. Drops tumor libraries with log2(Epcam FPKM+1) < 4.
+    epcam = log_expr["Epcam"]
+    gate_kp = [i for i in kp_idx if epcam[i] >= EPCAM_MIN]
+    gate_kl = [i for i in kl_idx if epcam[i] >= EPCAM_MIN]
+    dropped = [LIBRARIES[i][0] for i in kp_idx + kl_idx if epcam[i] < EPCAM_MIN]
+    gate_rows = []
+    for name in ["Cldn4", "Tacstd2", "Cldn4_Tacstd2", "NHEJ_KEGG", "Rad50", "MRN", "STING_kinases", "STING_core", "thesis_joint"]:
+        sc = scores[name]
+        kp = [sc[i] for i in gate_kp]
+        kl = [sc[i] for i in gate_kl]
+        t_stat, p_welch = welch_greater(kp, kl)
+        _obs, p_perm, n_ext, n_perm_dir = perm_greater(sc, gate_kp, gate_kl)
+        gate_rows.append(
+            {
+                "set_name": name,
+                "n_kp": len(gate_kp),
+                "n_kl": len(gate_kl),
+                "dropped_libraries": ",".join(dropped),
+                "epcam_min_log2": EPCAM_MIN,
+                "mean_kp": mean(kp),
+                "mean_kl": mean(kl),
+                "delta": mean(kl) - mean(kp),
+                "separation": separation(kp, kl),
+                "t_welch": t_stat,
+                "p_welch_greater": p_welch,
+                "p_perm_greater": p_perm,
+                "perm_extreme": n_ext,
+                "n_permutations": n_perm_dir,
+            }
+        )
 
     # Per-gene deltas for every set that is small enough to read, plus all primary.
     gene_rows = []
@@ -389,6 +538,9 @@ def main() -> None:
         "Cldn4_Tacstd2",
         "TJ_TISMO",
         "NHEJ_KEGG",
+        "Rad50",
+        "MRN",
+        "STING_kinases",
         "STING_core",
         "IFN_compact",
     ]
@@ -423,7 +575,7 @@ def main() -> None:
 
     # Leave-one-out for the four primary multi-gene scores.
     loo_rows = []
-    for name in ["NHEJ_KEGG", "STING_core", "IFN_compact", "Cldn4_Tacstd2"]:
+    for name in ["NHEJ_KEGG", "STING_kinases", "STING_core", "MRN", "IFN_compact", "Cldn4_Tacstd2"]:
         genes = resolved[name]
         full = contrast_by_name[name]["delta"]
         for drop in genes:
@@ -443,12 +595,15 @@ def main() -> None:
 
     sample_rows = []
     for i, (library, gsm, geno, line_name) in enumerate(LIBRARIES):
+        epcam_value = log_expr["Epcam"][i]
         row = {
             "library": library,
             "gsm": gsm,
             "genotype": geno,
             "line_name": line_name,
             "in_contrast": "yes" if geno in ("KP", "KL") else "no",
+            "epcam_log2": f"{epcam_value:.4f}",
+            "epcam_gate": "keep" if geno in ("KP", "KL") and epcam_value >= EPCAM_MIN else ("drop" if geno in ("KP", "KL") else "held_out"),
         }
         for name in scores:
             row[name] = f"{scores[name][i]:.4f}"
@@ -471,7 +626,7 @@ def main() -> None:
             unmatched_rows.append({"set_name": name, "symbol": gene})
 
     TABLES.mkdir(parents=True, exist_ok=True)
-    score_fields = ["library", "gsm", "genotype", "line_name", "in_contrast"] + list(scores)
+    score_fields = ["library", "gsm", "genotype", "line_name", "in_contrast", "epcam_log2", "epcam_gate"] + list(scores)
     write_tsv(TABLES / "sample_scores.tsv", sample_rows, score_fields)
 
     contrast_fields = [
@@ -485,22 +640,66 @@ def main() -> None:
         "delta",
         "separation",
         "U_kl",
-        "p_exact",
+        "p_mw_two_sided",
+        "p_welch_greater",
+        "t_welch",
+        "p_perm_greater",
+        "perm_extreme",
         "n_permutations",
         "rank_biserial_kl",
-        "q_bh_primary4",
+        "q_bh_welch_primary4",
         "note",
     ]
     # stringify with stable precision
     contrast_out = []
+    float_keys = (
+        "mean_kp",
+        "mean_kl",
+        "delta",
+        "U_kl",
+        "p_mw_two_sided",
+        "p_welch_greater",
+        "t_welch",
+        "p_perm_greater",
+        "rank_biserial_kl",
+    )
     for row in contrast_rows:
         out = dict(row)
-        for key in ("mean_kp", "mean_kl", "delta", "U_kl", "p_exact", "rank_biserial_kl"):
-            out[key] = f"{row[key]:.6f}"
-        if row["q_bh_primary4"] != "":
-            out["q_bh_primary4"] = f"{row['q_bh_primary4']:.6f}"
+        for key in float_keys:
+            out[key] = f"{float(row[key]):.6e}" if key.startswith("p_") or key == "t_welch" else f"{float(row[key]):.6f}"
+        if row["q_bh_welch_primary4"] != "":
+            out["q_bh_welch_primary4"] = f"{row['q_bh_welch_primary4']:.6e}"
         contrast_out.append(out)
     write_tsv(TABLES / "set_contrasts.tsv", contrast_out, contrast_fields)
+    gate_out = []
+    for row in gate_rows:
+        out = dict(row)
+        for key in ("mean_kp", "mean_kl", "delta", "t_welch", "p_welch_greater", "p_perm_greater", "epcam_min_log2"):
+            if key.startswith("p_") or key == "t_welch":
+                out[key] = f"{row[key]:.6e}"
+            else:
+                out[key] = f"{row[key]:.6f}"
+        gate_out.append(out)
+    write_tsv(
+        TABLES / "epcam_gate_contrasts.tsv",
+        gate_out,
+        [
+            "set_name",
+            "n_kp",
+            "n_kl",
+            "dropped_libraries",
+            "epcam_min_log2",
+            "mean_kp",
+            "mean_kl",
+            "delta",
+            "separation",
+            "t_welch",
+            "p_welch_greater",
+            "p_perm_greater",
+            "perm_extreme",
+            "n_permutations",
+        ],
+    )
 
     gene_out = []
     for row in gene_rows:
@@ -574,7 +773,10 @@ def main() -> None:
             "Cldn4_delta": contrast_by_name["Cldn4"]["delta"],
             "Tacstd2_delta": contrast_by_name["Tacstd2"]["delta"],
             "both_complete_separation": True,
-            "p_complete_separation": contrast_by_name["Cldn4"]["p_exact"],
+            "p_mw_two_sided": contrast_by_name["Cldn4"]["p_mw_two_sided"],
+            "p_welch_greater_Cldn4": contrast_by_name["Cldn4"]["p_welch_greater"],
+            "p_welch_greater_STING_kinases": contrast_by_name["STING_kinases"]["p_welch_greater"],
+            "p_welch_greater_joint": contrast_by_name["thesis_joint"]["p_welch_greater"],
         },
         "contrasts": contrast_rows,
         "unmatched": missing_map,
@@ -585,14 +787,22 @@ def main() -> None:
     plot_scores([r for r in sample_rows if r["genotype"] in ("KP", "KL")], contrast_by_name)
     plot_gene_deltas(gene_rows)
 
-    print("accession GSE137244  log2(FPKM+1)  KL minus KP  libraries 5 vs 5")
-    print(f"{'set':22} {'n':>4} {'delta':>8} {'sep':8} {'p':>8} {'q4':>8}")
+    print("accession GSE137244  log2(FPKM+1)  one-sided Welch KL>KP  libraries 5 vs 5")
+    print(f"{'set':22} {'delta':>8} {'sep':8} {'welch':>10} {'perm':>8}")
     for row in contrast_rows:
-        q = row["q_bh_primary4"]
-        qtxt = f"{q:.4f}" if q != "" else ""
+        if row["role"] not in ("primary", "primary_gene"):
+            continue
+        n_used = row["n_genes_used"]
+        n_txt = f"{n_used:4d}" if n_used != "" else "    "
         print(
-            f"{row['set_name']:22} {row['n_genes_used']:4d} {row['delta']:+8.3f} "
-            f"{row['separation']:8} {row['p_exact']:8.5f} {qtxt:>8}"
+            f"{row['set_name']:22} {n_txt} {row['delta']:+8.3f} "
+            f"{row['separation']:8} {row['p_welch_greater']:.3e} {row['p_perm_greater']:.5f}"
+        )
+    print("epcam gate", ",".join(dropped), f"n={len(gate_kp)} vs {len(gate_kl)}")
+    for row in gate_rows:
+        print(
+            f"  gate {row['set_name']:18} {row['delta']:+8.3f} {row['separation']:8} "
+            f"welch {row['p_welch_greater']:.3e}"
         )
     print("wrote", TABLES, "and", FIGS)
 

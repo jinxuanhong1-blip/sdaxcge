@@ -43,6 +43,13 @@ STING_CORE = [
     "Irf3",
 ]
 
+# Catalytic arm of STING signaling. Receptor transcripts (Mb21d1, Tmem173)
+# stay in STING_CORE; this score is Tbk1 and Ikbke only.
+STING_KINASES = ["Tbk1", "Ikbke"]
+
+# MRN end-sensing complex. Mre11a and Rad50 are on the KEGG NHEJ list; Nbn is the third subunit.
+MRN = ["Mre11a", "Rad50", "Nbn"]
+
 # Two-gene epithelial score requested for this contrast.
 CLDN4_TACSTD2 = ["Cldn4", "Tacstd2"]
 
