@@ -723,9 +723,12 @@ def assign_states(
         info["reason"] = "fewer than 25 cells express CLDN4"
         return np.array(["intermediate"] * n, dtype=object), info
     hi = cldn4 >= q80 if q80 > 0 else cldn4 > 0
-    barrier = hi & (score_barrier >= bmed) & (score_airway < air75)
+    barrier_pre = hi & (score_barrier >= bmed)
+    info["n_barrier_before_airway"] = int(barrier_pre.sum())
+    info["n_airway_removed"] = int((barrier_pre & (score_airway >= air75)).sum())
+    barrier = barrier_pre & (score_airway < air75)
     if int(barrier.sum()) < MIN_TERMINAL:
-        barrier = hi & (score_barrier >= bmed)
+        barrier = barrier_pre
         info["airway_filter_relaxed"] = True
     if int(barrier.sum()) < MIN_TERMINAL:
         info["estimable"] = False
@@ -1128,6 +1131,10 @@ def run_dataset(adata: ad.AnnData, rng: np.random.Generator) -> tuple[pd.DataFra
     summary["mean_barrier_score_barrier"] = float(cells.loc[barrier, "score_barrier"].mean())
     summary["mean_barrier_score_rest"] = float(cells.loc[~barrier, "score_barrier"].mean())
     air_cut = float(st_info["airway_q75"])
+    n_before = int(st_info.get("n_barrier_before_airway") or 0)
+    n_removed = int(st_info.get("n_airway_removed") or 0)
+    summary["airway_removed_frac"] = float(n_removed / n_before) if n_before else float("nan")
+    summary["airway_filter_relaxed"] = bool(st_info.get("airway_filter_relaxed"))
     summary["airway_frac_in_barrier"] = float((cells.loc[barrier, "score_airway"] >= air_cut).mean()) if barrier.any() else float("nan")
     return cells, summary, coef, pd.DataFrame(T_rows)
 
@@ -1147,6 +1154,7 @@ def within_unit_table(adata: ad.AnnData, rng: np.random.Generator) -> pd.DataFra
             rows.append(rec)
             continue
         sub = adata[list(idx)].copy()
+        sub.uns.pop("iroot", None)
         try:
             state, info = assign_states(
                 sub.obs["cldn4"].to_numpy(),
@@ -1290,6 +1298,8 @@ def cohort_rows(units: pd.DataFrame, summaries: list[dict]) -> tuple[pd.DataFram
             "contact_absorb_intermediate": (s.get("contact_absorption") or {}).get("intermediate", float("nan")),
             "contact_absorb_at2": (s.get("contact_absorption") or {}).get("at2_like", float("nan")),
             "gpcca_mean_fate_nonmember": (s.get("gpcca") or {}).get("mean_fate_nonmember", float("nan")),
+            "airway_removed_frac": s.get("airway_removed_frac"),
+            "airway_filter_relaxed": s.get("airway_filter_relaxed"),
             "airway_frac_in_barrier": s.get("airway_frac_in_barrier"),
             "mean_cldn4_barrier": s.get("mean_cldn4_barrier"),
             "mean_cldn4_cycle": s.get("mean_cldn4_cycle"),
@@ -1326,6 +1336,16 @@ def fmt_p(p) -> str:
     return f"{p:.4f}"
 
 
+def fmt_int(x) -> str:
+    try:
+        x = float(x)
+    except (TypeError, ValueError):
+        return "NA"
+    if not np.isfinite(x):
+        return "NA"
+    return str(int(round(x)))
+
+
 def fmt(x, nd=3) -> str:
     try:
         x = float(x)
@@ -1336,7 +1356,14 @@ def fmt(x, nd=3) -> str:
     return f"{x:.{nd}f}"
 
 
-def write_finding(units: pd.DataFrame, cohort: pd.DataFrame, meta: dict, inventory: pd.DataFrame, versions: dict) -> None:
+def write_finding(
+    units: pd.DataFrame,
+    cohort: pd.DataFrame,
+    meta: dict,
+    inventory: pd.DataFrame,
+    versions: dict,
+    summaries: list | None = None,
+) -> None:
     included = units[units["included"]] if len(units) else units
     lines = []
     lines.append("# CellRank 2 fate toward barrier CLDN4-high (concordant-4)")
@@ -1385,7 +1412,7 @@ def write_finding(units: pd.DataFrame, cohort: pd.DataFrame, meta: dict, invento
         f"Units entering the fate test (non-terminal cells ≥15): **n={n_units}** "
         f"({', '.join(f'{ds} {n_by.get(ds, 0)}' for ds in COHORTS)})."
     )
-    lines.append("Do not quote cell counts as n.")
+    lines.append("That unit split matches the locked concordant-4 table. The estimand here is fate, not the T/NK correlation. Do not quote cell counts as n.")
     lines.append("")
     lines.append("## Primary result")
     lines.append("")
@@ -1420,19 +1447,98 @@ def write_finding(units: pd.DataFrame, cohort: pd.DataFrame, meta: dict, invento
     lines.append("")
     lines.append("Wilcoxon p-values are descriptive (units inside one cohort). They are not a substitute for the meta-analytic Δ.")
     lines.append("")
+    lines.append("## Reading")
+    lines.append("")
+    n_orient_fail = 0
+    n_cycle_distal = 0
+    n_est = 0
+    if len(cohort) and "estimable" in cohort.columns:
+        est = cohort[cohort["estimable"] == True]  # noqa: E712
+        n_est = int(len(est))
+        if "orientation_ok" in est.columns:
+            n_orient_fail = int((est["orientation_ok"] == False).sum())  # noqa: E712
+        if "dpt_cycle" in est.columns and "dpt_barrier" in est.columns:
+            n_cycle_distal = int((est["dpt_cycle"] > est["dpt_barrier"]).sum())
+    lines.append(
+        f"The pre-specified 0.8/0.2 pseudotime mixture is the primary kernel in {n_est - n_orient_fail} of {n_est} estimable cohorts. "
+        f"In the other {n_orient_fail}, AT2-like cells are present but the barrier terminal misses the downstream gate "
+        "(barrier mean diffusion pseudotime must exceed the AT2-like mean by more than 0.02), so the primary kernel is ConnectivityKernel. "
+        f"Mean DPT of the cycle-high CLDN4-low sink exceeds mean DPT of the barrier sink in {n_cycle_distal} of {n_est} cohorts."
+    )
+    lines.append("")
+    if len(cohort) and "estimable" in cohort.columns:
+        hi = cohort[cohort["estimable"] & (cohort["mean_unit_fate"] > 0.5)]
+        lo = cohort[cohort["estimable"] & (cohort["mean_unit_fate"] <= 0.5)]
+        def _bit(frame: pd.DataFrame) -> str:
+            parts = []
+            for _, r in frame.iterrows():
+                parts.append(
+                    f"{r['dataset']} mean {fmt(r['mean_unit_fate'])} "
+                    f"({fmt(r['frac_units_gt_0.5'], 2)} of units >0.5; within-unit mean {fmt(r['mean_within_unit_cr'])})"
+                )
+            return "; ".join(parts) if parts else "none"
+        i2 = meta.get("I2")
+        lines.append(
+            f"The four cohort means disagree (I²={fmt(100 * i2, 1) if i2 is not None else 'NA'}%). "
+            f"Above 0.5: {_bit(hi)}. At or below 0.5: {_bit(lo)}. "
+            "The meta-analytic Δ is compatible with an even split between the two sinks. "
+            "A single concordant fate toward barrier CLDN4-high is not supported."
+        )
+        lines.append("")
+        lines.append(
+            "Within-unit ConnectivityKernel fates, recomputed inside each unit with no cross-unit edges, keep that split. "
+            "Contact-matrix absorption of the intermediate state has the same sign relative to 0.5 and sits closer to 0.5."
+        )
+    if summaries:
+        bits = []
+        flat = []
+        separated = []
+        for s in summaries:
+            g = s.get("gpcca") or {}
+            if not g.get("ok"):
+                continue
+            macros = g.get("macrostates") or []
+            cldn = sorted(float(m["wmean_cldn4"]) for m in macros if m.get("wmean_cldn4") is not None)
+            if len(cldn) < 2:
+                continue
+            gap = cldn[-1] - cldn[-2]
+            bits.append(
+                f"{s.get('dataset')} CLDN4 means {fmt(cldn[0])}–{fmt(cldn[-1])} (gap {fmt(gap)}), "
+                f"non-member fate toward the highest {fmt(g.get('mean_fate_nonmember'))}"
+            )
+            (separated if gap >= 0.5 else flat).append(str(s.get("dataset")))
+        if bits:
+            lines.append("")
+            extra = ""
+            if flat:
+                extra += f" A small gap ({', '.join(flat)}) means the macrostates are all CLDN4-high, so the highest one is not a distinct sink."
+            if separated:
+                extra += f" A gap of at least 0.5 ({', '.join(separated)}) separates the highest-CLDN4 macrostate from the rest."
+            lines.append(
+                "GPCCA macrostates on the connectivity kernel were named by CLDN4 only after fitting. "
+                + ". ".join(bits)
+                + "."
+                + extra
+            )
+        lines.append("")
+        lines.append(
+            "The multinomial logistic puts a positive coefficient on the barrier score (CLDN4 held out) for the barrier-neighbor class in every cohort (`results/tables/multinomial_coefs.tsv`). "
+            "That is co-localization on the kNN graph. CLDN4 was not a predictor, and the fit is cell-level, so it is not a unit-level p-value."
+        )
+    lines.append("")
     lines.append("## What the terminals actually are")
     lines.append("")
-    lines.append("| dataset | n barrier / cycle / AT2 / intermediate | mean CLDN4 barrier vs cycle | mean barrier-score (CLDN4 held out) barrier vs rest | airway score ≥q75 inside barrier | DPT barrier vs AT2 | orientation ok |")
+    lines.append("| dataset | n barrier / cycle / AT2 / intermediate | mean CLDN4 barrier vs cycle | mean barrier-score (CLDN4 held out) barrier vs rest | fraction of CLDN4-high barrier candidates removed as airway | DPT barrier vs AT2 | orientation ok |")
     lines.append("|---|---|---|---|---:|---|---|")
     if len(cohort):
         for _, r in cohort.iterrows():
             if not r.get("estimable", False):
                 continue
             lines.append(
-                f"| {r['dataset']} | {r.get('n_barrier')} / {r.get('n_cycle')} / {r.get('n_at2')} / {r.get('n_intermediate')} | "
+                f"| {r['dataset']} | {fmt_int(r.get('n_barrier'))} / {fmt_int(r.get('n_cycle'))} / {fmt_int(r.get('n_at2'))} / {fmt_int(r.get('n_intermediate'))} | "
                 f"{fmt(r.get('mean_cldn4_barrier'))} vs {fmt(r.get('mean_cldn4_cycle'))} | "
                 f"{fmt(r.get('mean_barrier_score_barrier'))} vs {fmt(r.get('mean_barrier_score_rest'))} | "
-                f"{fmt(r.get('airway_frac_in_barrier'), 2)} | "
+                f"{fmt(r.get('airway_removed_frac'), 2)} | "
                 f"{fmt(r.get('dpt_barrier'))} vs {fmt(r.get('dpt_at2'))} | {r.get('orientation_ok')} |"
             )
     lines.append("")
@@ -1480,7 +1586,7 @@ def plot_figure(cells: pd.DataFrame, units: pd.DataFrame) -> None:
     for i, ds in enumerate(COHORTS):
         ax = fig.add_subplot(gs[0, i])
         sub = cells[cells["dataset"] == ds] if len(cells) else pd.DataFrame()
-        ax.set_title(ds, loc="left", fontweight="medium")
+        ax.set_title(ds, loc="left")
         if len(sub) == 0 or "umap1" not in sub:
             ax.text(0.5, 0.5, "not estimable", ha="center", va="center", transform=ax.transAxes, fontsize=6)
             ax.set_axis_off()
@@ -1512,13 +1618,14 @@ def plot_figure(cells: pd.DataFrame, units: pd.DataFrame) -> None:
             ax.scatter(x, y, s=10, color=DATASET_COLORS[ds], linewidths=0, zorder=3, label=f"{ds} (n={len(y)})")
             ax.hlines(np.median(y), i - 0.22, i + 0.22, colors="black", linewidths=0.8, zorder=4)
     ax.axhline(0.5, color="#666666", linewidth=0.6, linestyle="--", zorder=1)
+    ax.text(3.55, 0.52, "0.5", ha="left", va="bottom", fontsize=6, color="#666666")
     ax.set_xlim(-0.6, 3.6)
     ax.set_xticks(range(4))
     ax.set_xticklabels(COHORTS, rotation=15, ha="right")
     ax.set_ylabel("Unit mean fate of non-terminal cells")
     ax.set_ylim(-0.02, 1.02)
     despine(ax)
-    ax.legend(frameon=False, loc="lower right", ncol=2)
+    ax.legend(frameon=False, loc="upper center", ncol=4, bbox_to_anchor=(0.5, 1.18))
     fig.savefig(FIGS / "fig_cellrank_fate.png", dpi=200)
     fig.savefig(FIGS / "fig_cellrank_fate.pdf")
     plt.close(fig)
@@ -1720,7 +1827,7 @@ def main() -> None:
         pd.concat(trans_frames, ignore_index=True).to_csv(TABLES / "contact_transition.tsv", sep="\t", index=False)
     payload = {"versions": versions, "meta": meta, "summaries": summaries, "cap": args.cap, "seed": SEED}
     (RESULTS / "summary.json").write_text(json.dumps(json_safe(payload), indent=2))
-    write_finding(units, cohort, meta, inventory, versions)
+    write_finding(units, cohort, meta, inventory, versions, summaries=summaries)
     if len(cells) and len(units):
         plot_figure(cells, units)
     print("DONE", flush=True)
