@@ -1343,6 +1343,8 @@ def main():
         "n_288479": int(len(e288.columns)),
     })
     print("wrote FINDING.md", flush=True)
+    from weak_geo import run as run_weak_geo
+    run_weak_geo()
 
 
 if __name__ == "__main__":

@@ -6,4 +6,4 @@ Additive public analysis. The signature is built from the locked concordant-4 ma
 python3 methods/cldn4_high_malignant_signature/analyze.py
 ```
 
-Raw matrices are downloaded to `/tmp/cldn4sig` and are not committed. The write-up is `FINDING.md`.
+Raw matrices are downloaded to `/tmp/cldn4sig` and are not committed. The write-up is `FINDING.md`. `weak_geo.py` is the size, ssGSEA, ESTIMATE, and histology grid for GSE282774 and GSE233774; `analyze.py` calls it.
