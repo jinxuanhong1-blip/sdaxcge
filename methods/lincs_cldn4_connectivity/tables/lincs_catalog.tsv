@@ -1,0 +1,25 @@
+resource	query	n	note
+SigCom LINCS pert_name	CLDN4	0	
+SigCom LINCS pert_name	CLDN3	0	
+SigCom LINCS pert_name	CLDN7	0	
+SigCom LINCS pert_name	TACSTD2	21	"{""CRISPR Knockout"": 21}"
+SigCom LINCS pert_name	STING1	0	
+SigCom LINCS pert_name	CGAS	0	
+SigCom LINCS pert_name	PRKDC	66	"{""CRISPR Knockout"": 21, ""shRNA"": 45}"
+SigCom LINCS pert_name	LIG4	21	"{""CRISPR Knockout"": 21}"
+SigCom LINCS pert_name	XRCC4	65	"{""Overexpression"": 9, ""shRNA"": 56}"
+SigCom LINCS pert_name	XRCC5	88	"{""shRNA"": 88}"
+SigCom LINCS pert_name	XRCC6	98	"{""CRISPR Knockout"": 33, ""Overexpression"": 9, ""shRNA"": 56}"
+SigCom LINCS pert_name	NHEJ1	21	"{""CRISPR Knockout"": 21}"
+SigCom LINCS pert_name	DCLRE1C	21	"{""CRISPR Knockout"": 21}"
+SigCom LINCS pert_name	TMEM173	21	"{""CRISPR Knockout"": 21}"
+SigCom LINCS pert_name	MB21D1	21	"{""CRISPR Knockout"": 21}"
+SigCom LINCS pert_name	diABZI	0	STING agonist name check
+SigCom LINCS pert_name	ADU-S100	0	STING agonist name check
+SigCom LINCS pert_name	cGAMP	0	STING agonist name check
+SigCom LINCS pert_name	2'3'-cGAMP	0	STING agonist name check
+SigCom LINCS pert_name	vadimezan	0	STING agonist name check
+SigCom LINCS pert_name	DMXAA	0	STING agonist name check
+iLINCS SignatureMeta treatment	CLDN4	0	LIB_6-style treatment field; empty list means no knockdown signature
+GSE92742 pert_info pert_iname	CLDN4	0	LINCS L1000 Phase I perturbagen table
+GSE92742 gene_info	CLDN4	1	pr_gene_id=1364 pr_is_lm=0 pr_is_bing=1
