@@ -966,39 +966,49 @@ def _roll_sentence(label: str, roll: dict) -> str:
     )
 
 
-def conclusion_text(roll_partial: dict, roll_raw: dict, roll_tumor: dict) -> str:
-    psign = (roll_partial or {}).get("patient_sign", {})
-    sec = (roll_partial or {}).get("section", {})
-    med_p = (roll_partial or {}).get("fov", {}).get("median", float("nan"))
-    med_r = (roll_raw or {}).get("fov", {}).get("median", float("nan"))
-    n_pat_neg = psign.get("n_neg", 0)
-    n_pat = psign.get("n", 0)
-    sec_p = sec.get("wilcoxon_p", 1)
+def _two_sided(v: np.ndarray) -> float:
+    v = np.asarray(v, dtype=float)
+    v = v[np.isfinite(v)]
+    if v.size < 5 or np.allclose(v, 0):
+        return float("nan")
+    try:
+        return float(stats.wilcoxon(v, alternative="two-sided", zero_method="wilcox").pvalue)
+    except ValueError:
+        return float("nan")
+
+
+def conclusion_text(roll_partial: dict, roll_raw: dict, roll_tumor: dict, fov: pd.DataFrame | None = None) -> str:
     lines = []
     lines.append(_roll_sentence("Primary partial Moran I (radius 50 µm, both genes residualized on KRT8+EPCAM)", roll_partial))
     lines.append(_roll_sentence("Raw Moran I on the same graph (no residualization)", roll_raw))
-    lines.append(_roll_sentence("Within-tumor partial cross-correlation on the same graph", roll_tumor))
-    if n_pat and n_pat_neg == n_pat and np.isfinite(sec_p) and sec_p < 0.05 and np.isfinite(med_p) and med_p < 0:
-        lines.append(
-            "Partial Moran I is negative in every patient, and the section-level Wilcoxon test is in the same direction. "
-            "On this public CosMx cohort, CLDN4 remains spatially anti-associated with CD8A after linear removal of KRT8 and EPCAM. "
-            "This is neighbor-graph autocorrelation of the expression field. It sits beside the locked CLDN4-high versus CLDN4-low tumor-cell neighbor-count result; it does not replace that count."
-        )
-    elif np.isfinite(med_p) and med_p < 0 and n_pat_neg >= max(1, n_pat - 1):
-        lines.append(
-            "Partial Moran I leans negative, but the patient panel is not uniformly negative or the section-level test is weak. "
-            "The table below is the result. A uniform CLDN4-specific anti-association, after KRT8 and EPCAM removal, is not claimed from this test."
-        )
-    else:
-        lines.append(
-            "Partial Moran I does not support a consistent CLDN4-specific spatial anti-association with CD8A after KRT8 and EPCAM are removed. "
-            "A negative raw Moran I, when present, is the spatial complement of CLDN4 marking epithelium while CD8A marks T cells."
-        )
-    if np.isfinite(med_r) and np.isfinite(med_p):
-        lines.append(
-            f"Median raw I is {fmt(med_r)} and median partial I is {fmt(med_p)} on the primary radius. "
-            "The gap between them is the part of the spatial association shared with KRT8 and EPCAM."
-        )
+    lines.append(_roll_sentence("Within-tumor partial correlation on the same graph", roll_tumor))
+    med_p = (roll_partial or {}).get("fov", {}).get("median", float("nan"))
+    med_r = (roll_raw or {}).get("fov", {}).get("median", float("nan"))
+    med_t = (roll_tumor or {}).get("fov", {}).get("median", float("nan"))
+    p_two = float("nan")
+    raw_two = float("nan")
+    tumor_two = float("nan")
+    if fov is not None and len(fov):
+        prim = fov[(fov["graph"] == "radius_50um") & (fov["status"] == "ok")]
+        p_two = _two_sided(prim["partial_moran_I"].to_numpy()) if "partial_moran_I" in prim else float("nan")
+        raw_two = _two_sided(prim["moran_I"].to_numpy()) if "moran_I" in prim else float("nan")
+        tumor_two = _two_sided(prim["tumor_partial_r"].to_numpy()) if "tumor_partial_r" in prim else float("nan")
+    lines.append(
+        f"On the primary 50 µm graph the partial Moran I is centered at zero "
+        f"(median {fmt(med_p)}, FOV two-sided Wilcoxon p={fmt_p(p_two)}). "
+        f"Raw Moran I is a very small positive (median {fmt(med_r)}, FOV two-sided Wilcoxon p={fmt_p(raw_two)}). "
+        "That FOV p-value treats FOVs as independent. Section medians of raw I are split evenly, and the patient sign test is not negative. "
+        "The raw shift has the same direction as the KRT8 and EPCAM baselines. "
+        "Co-primary kNN k=15 partial I is also centered at zero (see the graph table). "
+        "No graph gives a patient-level negative sign test."
+    )
+    lines.append(
+        f"Within tumor cells, CLDN4 and the CD8A lag are weakly positively correlated "
+        f"(median r {fmt(med_t)}, FOV two-sided Wilcoxon p={fmt_p(tumor_two)}; section medians are positive in every section that has enough tumor cells). "
+        "The top-minus-bottom CLDN4 quartile difference in mean neighbor CD8A is a small positive, not a deficit. "
+        "CD8A is detected in a similar fraction of tumor cells and other cells, so this transcript field is not a CD8 T-cell mask. "
+        "The locked result counted cytotoxic cell types around CLDN4-high tumor cells. That count is a different estimand and is not recomputed here."
+    )
     return "\n\n".join(lines)
 
 
@@ -1068,7 +1078,7 @@ def write_results(fov: pd.DataFrame, sample: pd.DataFrame, headline: dict, out: 
     lines.append("Within-tumor cross-correlation residualizes CLDN4 on KRT8 and EPCAM inside the tumor-cell set (author labels tumor 5/6/9/12/13) and correlates that residual with the lag of CD8A. The null shuffles the residual among tumor cells.")
     lines.append("KRT8–CD8A and EPCAM–CD8A Moran use the same CD8A permutations as raw CLDN4–CD8A Moran and are the epithelial baselines.")
     lines.append("")
-    lines.append("Permutation p-values use 199 within-unit shuffles. Section Wilcoxon and the patient sign test are the confirmatory summaries. FOV inverse-variance p-values assume independent FOVs and are reported as descriptive effect sizes (RE = DerSimonian–Laird).")
+    lines.append("Permutation p-values use 199 within-unit shuffles. Section Wilcoxon and the patient sign test are the confirmatory summaries. FOV inverse-variance p-values assume independent FOVs and are reported as descriptive effect sizes (RE = DerSimonian–Laird). I² in the tables is a fraction from 0 to 1.")
     lines.append("")
     lines.append("## Headline")
     lines.append("")
@@ -1209,9 +1219,6 @@ def gi_paragraph(fov: pd.DataFrame) -> str:
         sub = fov[(fov["graph"] == graph) & (fov["status"] == "ok")]
         if sub.empty or "gi_resid_frac_overlap" not in sub.columns:
             continue
-        d = (sub["gi_resid_frac_overlap"] - sub["gi_resid_expected"]).to_numpy()
-        w = wilcoxon_less(-d)  # less on -d means d>0 if we flip... use greater via less on negative
-        # Report Wilcoxon on (observed - expected), alternative greater, by testing -delta < 0.
         try:
             delta = sub["gi_resid_frac_overlap"] - sub["gi_resid_expected"]
             delta = delta[np.isfinite(delta)]
@@ -1223,19 +1230,28 @@ def gi_paragraph(fov: pd.DataFrame) -> str:
         med_min = float(sub["gi_resid_cd8_min"].median()) if "gi_resid_cd8_min" in sub else float("nan")
         med_frac = float(sub["gi_resid_frac_overlap"].median())
         med_exp = float(sub["gi_resid_expected"].median())
-        med_or = float(sub["gi_resid_OR"].median())
+        med_or = float(sub["gi_resid_OR"].median()) if n_cold >= 0.5 * len(sub) else float("nan")
+        or_txt = f"median OR {med_or:.3f}" if np.isfinite(med_or) else "median OR omitted because analytic cold cells are rare"
         med_frac10 = float(sub["gi_raw_frac_overlap10"].median()) if "gi_raw_frac_overlap10" in sub else float("nan")
         med_exp10 = float(sub["gi_raw_expected10"].median()) if "gi_raw_expected10" in sub else float("nan")
         ptxt = fmt_p(ww.pvalue) if ww is not None else "NA"
+        rank_p = "NA"
+        if "gi_raw_frac_overlap10" in sub and "gi_raw_expected10" in sub:
+            delta = (sub["gi_raw_frac_overlap10"] - sub["gi_raw_expected10"]).dropna()
+            if len(delta) >= 5:
+                try:
+                    rank_p = fmt_p(stats.wilcoxon(delta, alternative="greater", zero_method="wilcox").pvalue)
+                except ValueError:
+                    rank_p = "NA"
         chunks.append(
             f"**{graph}.** Residual Gi* (CLDN4 z>1.96 and CD8A z<−1.96): median overlap fraction {med_frac:.4f} "
-            f"versus independence {med_exp:.4f} (median OR {med_or:.3f}). "
+            f"versus independence {med_exp:.4f} ({or_txt}). "
             f"FOVs with any analytic CD8 cold cells: {n_cold}/{len(sub)}. "
             f"Fisher p<0.05 in {n_sig}/{len(sub)} FOVs. "
             f"Wilcoxon on (overlap − expected), alternative greater: p={ptxt}. "
             f"Median minimum residual CD8 Gi* z={med_min:.2f}. "
             f"Raw-expression rank cold (CD8 Gi* at or below the FOV 10th percentile) overlap median {med_frac10:.4f} "
-            f"versus independence {med_exp10:.4f}."
+            f"versus independence {med_exp10:.4f} (Wilcoxon greater p={rank_p})."
         )
     if not chunks:
         return "Gi* summaries were not produced."
@@ -1521,7 +1537,12 @@ def build_headline(fov: pd.DataFrame, arr: dict) -> dict:
         "tumor_q_diff_partial",
     ]:
         rolls[value] = section_patient_rollups(prim, value)
-    prose = conclusion_text(rolls.get("partial_moran_I"), rolls.get("moran_I"), rolls.get("tumor_partial_r"))
+    prose = conclusion_text(
+        rolls.get("partial_moran_I"),
+        rolls.get("moran_I"),
+        rolls.get("tumor_partial_r"),
+        fov,
+    )
     return {
         "n_cells": int(arr["xy"].shape[0]),
         "n_fov": int(fov["unit_id"].nunique()) if len(fov) else 0,
