@@ -1,0 +1,681 @@
+{
+  "nperm": 1000,
+  "seed": 42,
+  "n_symbols_universe": 14589,
+  "n_unmapped_ensembl": 22205,
+  "contrasts": [
+    {
+      "id": "DNA-PKcs",
+      "kd": [
+        "A19",
+        "A20",
+        "A21"
+      ],
+      "ctrl": [
+        "A16",
+        "A17",
+        "A18"
+      ],
+      "target": "PRKDC"
+    },
+    {
+      "id": "Ku70",
+      "kd": [
+        "A07",
+        "A08",
+        "A09"
+      ],
+      "ctrl": [
+        "A04",
+        "A05",
+        "A06"
+      ],
+      "target": "XRCC6"
+    },
+    {
+      "id": "Ku80",
+      "kd": [
+        "A13",
+        "A14",
+        "A15"
+      ],
+      "ctrl": [
+        "A10",
+        "A11",
+        "A12"
+      ],
+      "target": "XRCC5"
+    }
+  ],
+  "family_summary": [
+    {
+      "contrast": "DNA-PKcs",
+      "run": "primary",
+      "family": "DNA-sensing",
+      "n_sets": 5,
+      "median_nes": -1.0275380752438814,
+      "min_nes": -1.4657066213800414,
+      "max_nes": 0.9539629094770512,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 1,
+      "n_nes_positive": 2
+    },
+    {
+      "contrast": "DNA-PKcs",
+      "run": "primary",
+      "family": "STING",
+      "n_sets": 2,
+      "median_nes": -1.202841748088026,
+      "min_nes": -1.5612217504082948,
+      "max_nes": -0.8444617457677575,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 1,
+      "n_nes_positive": 0
+    },
+    {
+      "contrast": "DNA-PKcs",
+      "run": "primary",
+      "family": "IFN",
+      "n_sets": 13,
+      "median_nes": -0.9539472162823251,
+      "min_nes": -1.3603367652782818,
+      "max_nes": 0.9210589601490777,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 1,
+      "n_nes_positive": 3
+    },
+    {
+      "contrast": "DNA-PKcs",
+      "run": "primary",
+      "family": "APM",
+      "n_sets": 6,
+      "median_nes": -0.19600172814165007,
+      "min_nes": -1.1924936771235555,
+      "max_nes": 1.4398565270179182,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 1,
+      "n_nom05_down": 1,
+      "n_nes_positive": 3
+    },
+    {
+      "contrast": "Ku70",
+      "run": "primary",
+      "family": "DNA-sensing",
+      "n_sets": 5,
+      "median_nes": -0.7481417854824762,
+      "min_nes": -1.552966407720601,
+      "max_nes": 0.991779414688808,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 1,
+      "n_nes_positive": 2
+    },
+    {
+      "contrast": "Ku70",
+      "run": "primary",
+      "family": "STING",
+      "n_sets": 2,
+      "median_nes": -1.1624205810065398,
+      "min_nes": -1.4924540103850847,
+      "max_nes": -0.8323871516279946,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 1,
+      "n_nes_positive": 0
+    },
+    {
+      "contrast": "Ku70",
+      "run": "primary",
+      "family": "IFN",
+      "n_sets": 13,
+      "median_nes": 0.9646793959898078,
+      "min_nes": -1.0958833364519243,
+      "max_nes": 1.187407445487968,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 0,
+      "n_nes_positive": 9
+    },
+    {
+      "contrast": "Ku70",
+      "run": "primary",
+      "family": "APM",
+      "n_sets": 6,
+      "median_nes": -0.8610827423875598,
+      "min_nes": -1.1347519934103516,
+      "max_nes": 1.3601813064911197,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 1,
+      "n_nom05_down": 0,
+      "n_nes_positive": 2
+    },
+    {
+      "contrast": "Ku80",
+      "run": "primary",
+      "family": "DNA-sensing",
+      "n_sets": 5,
+      "median_nes": -1.2917061365639773,
+      "min_nes": -1.4891081329031868,
+      "max_nes": -0.6698454409194845,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 2,
+      "n_nes_positive": 0
+    },
+    {
+      "contrast": "Ku80",
+      "run": "primary",
+      "family": "STING",
+      "n_sets": 2,
+      "median_nes": -0.13560809324285378,
+      "min_nes": -1.1581376987285543,
+      "max_nes": 0.8869215122428468,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 0,
+      "n_nes_positive": 1
+    },
+    {
+      "contrast": "Ku80",
+      "run": "primary",
+      "family": "IFN",
+      "n_sets": 13,
+      "median_nes": -0.7183723428776198,
+      "min_nes": -1.4354908204689554,
+      "max_nes": 0.8629503511518435,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 0,
+      "n_nom05_up": 0,
+      "n_nom05_down": 1,
+      "n_nes_positive": 4
+    },
+    {
+      "contrast": "Ku80",
+      "run": "primary",
+      "family": "APM",
+      "n_sets": 6,
+      "median_nes": -0.8670764971456503,
+      "min_nes": -1.4986095180490302,
+      "max_nes": 1.5211536067764302,
+      "n_fdr05_up": 0,
+      "n_fdr05_down": 1,
+      "n_nom05_up": 1,
+      "n_nom05_down": 1,
+      "n_nes_positive": 2
+    }
+  ],
+  "correlation": [
+    {
+      "a": "DNA-PKcs",
+      "b": "Ku70",
+      "spearman_welch_t": 0.3350263370775533,
+      "spearman_welch_t_p": 0.0,
+      "n_genes": 14570,
+      "spearman_panel_nes": 0.5514529914529913,
+      "spearman_panel_nes_p": 0.0034985633791806527,
+      "n_sets": 26
+    },
+    {
+      "a": "DNA-PKcs",
+      "b": "Ku80",
+      "spearman_welch_t": 0.32145183824915746,
+      "spearman_welch_t_p": 0.0,
+      "n_genes": 14553,
+      "spearman_panel_nes": 0.5835897435897436,
+      "spearman_panel_nes_p": 0.0017502702588024497,
+      "n_sets": 26
+    },
+    {
+      "a": "Ku70",
+      "b": "Ku80",
+      "spearman_welch_t": 0.33085709500747923,
+      "spearman_welch_t_p": 0.0,
+      "n_genes": 14560,
+      "spearman_panel_nes": 0.4666666666666667,
+      "spearman_panel_nes_p": 0.016248326208227505,
+      "n_sets": 26
+    }
+  ],
+  "breadth": [
+    {
+      "contrast": "DNA-PKcs",
+      "n_rank": 14570,
+      "n_abs_log2fc_gt1": 159,
+      "n_abs_log2fc_gt1_welch_p_lt_0.05": 35,
+      "n_welch_p_lt_0.05": 863
+    },
+    {
+      "contrast": "Ku70",
+      "n_rank": 14589,
+      "n_abs_log2fc_gt1": 152,
+      "n_abs_log2fc_gt1_welch_p_lt_0.05": 66,
+      "n_welch_p_lt_0.05": 1972
+    },
+    {
+      "contrast": "Ku80",
+      "n_rank": 14560,
+      "n_abs_log2fc_gt1": 166,
+      "n_abs_log2fc_gt1_welch_p_lt_0.05": 63,
+      "n_welch_p_lt_0.05": 2112
+    }
+  ],
+  "replicates": [
+    {
+      "group": "DNAPKcs_siControl",
+      "n": 3,
+      "n_genes_mean_count_ge_20": 12082,
+      "min_pearson": 0.9728831875251526,
+      "median_pearson": 0.9801137018107352
+    },
+    {
+      "group": "DNAPKcs_siDNAPKcs",
+      "n": 3,
+      "n_genes_mean_count_ge_20": 12082,
+      "min_pearson": 0.9643365000582809,
+      "median_pearson": 0.9764552211635456
+    },
+    {
+      "group": "Ku70_siControl",
+      "n": 3,
+      "n_genes_mean_count_ge_20": 12082,
+      "min_pearson": 0.9781365659712481,
+      "median_pearson": 0.979329842151096
+    },
+    {
+      "group": "Ku70_siKu70",
+      "n": 3,
+      "n_genes_mean_count_ge_20": 12082,
+      "min_pearson": 0.9800988315826715,
+      "median_pearson": 0.9826198317535914
+    },
+    {
+      "group": "Ku80_siControl",
+      "n": 3,
+      "n_genes_mean_count_ge_20": 12082,
+      "min_pearson": 0.974493108606321,
+      "median_pearson": 0.981308754593122
+    },
+    {
+      "group": "Ku80_siKu80",
+      "n": 3,
+      "n_genes_mean_count_ge_20": 12082,
+      "min_pearson": 0.9789546440734057,
+      "median_pearson": 0.9792590399480857
+    },
+    {
+      "group": "parental_siControl",
+      "n": 3,
+      "n_genes_mean_count_ge_20": 12082,
+      "min_pearson": 0.9784145279765901,
+      "median_pearson": 0.9793301645015586
+    }
+  ],
+  "size_factors": {
+    "A01": 1.2107,
+    "A02": 1.1296,
+    "A03": 1.1629,
+    "A04": 1.1553,
+    "A05": 0.8296,
+    "A06": 0.892,
+    "A07": 1.3016,
+    "A08": 1.5069,
+    "A09": 0.9965,
+    "A10": 0.9462,
+    "A11": 0.9496,
+    "A12": 1.1427,
+    "A13": 0.9452,
+    "A14": 0.929,
+    "A15": 0.8796,
+    "A16": 0.8079,
+    "A17": 0.9188,
+    "A18": 1.2107,
+    "A19": 0.9148,
+    "A20": 1.0323,
+    "A21": 0.5591
+  },
+  "headline": [
+    {
+      "term": "CUSTOM_CYTOSOLIC_DNA_SENSORS",
+      "family": "DNA-sensing",
+      "label": "Custom cytosolic DNA sensors",
+      "nes_DNA-PKcs": -1.4657066213800414,
+      "fdr_DNA-PKcs": 0.14545454545454545,
+      "nes_Ku70": -1.552966407720601,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -1.4054851041002336,
+      "fdr_Ku80": 0.2545454545454545
+    },
+    {
+      "term": "GOBP_CYTOSOLIC_PATTERN_RECOGNITION_RECEPTOR_SIGNALING_PATHWAY",
+      "family": "DNA-sensing",
+      "label": "GO cytosolic PRR signaling",
+      "nes_DNA-PKcs": -1.2753936225916802,
+      "fdr_DNA-PKcs": 0.24819624819624822,
+      "nes_Ku70": 0.8400737666496106,
+      "fdr_Ku70": 0.3837072018890201,
+      "nes_Ku80": -1.4891081329031868,
+      "fdr_Ku80": 0.2077922077922078
+    },
+    {
+      "term": "KEGG_CYTOSOLIC_DNA_SENSING_PATHWAY",
+      "family": "DNA-sensing",
+      "label": "KEGG cytosolic DNA-sensing",
+      "nes_DNA-PKcs": 0.9337460749869387,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": 0.991779414688808,
+      "fdr_Ku70": 0.37373737373737376,
+      "nes_Ku80": -1.1635114149890862,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "REACTOME_REGULATION_OF_INNATE_IMMUNE_RESPONSES_TO_CYTOSOLIC_DNA",
+      "family": "DNA-sensing",
+      "label": "Reactome cytosolic DNA innate regulation",
+      "nes_DNA-PKcs": 0.9539629094770512,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": -0.7481417854824762,
+      "fdr_Ku70": 0.44655344655344653,
+      "nes_Ku80": -0.6698454409194845,
+      "fdr_Ku80": 0.6199887069452287
+    },
+    {
+      "term": "REACTOME_CYTOSOLIC_SENSORS_OF_PATHOGEN_ASSOCIATED_DNA",
+      "family": "DNA-sensing",
+      "label": "Reactome cytosolic DNA sensors",
+      "nes_DNA-PKcs": -1.0275380752438814,
+      "fdr_DNA-PKcs": 0.3209647495361781,
+      "nes_Ku70": -1.087153708467075,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -1.2917061365639773,
+      "fdr_Ku80": 0.2694805194805195
+    },
+    {
+      "term": "REACTOME_STING_MEDIATED_INDUCTION_OF_HOST_IMMUNE_RESPONSES",
+      "family": "STING",
+      "label": "Reactome STING host response",
+      "nes_DNA-PKcs": -1.5612217504082948,
+      "fdr_DNA-PKcs": 0.14545454545454545,
+      "nes_Ku70": -1.4924540103850847,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -1.1581376987285543,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "REACTOME_ZBP1_DAI_MEDIATED_INDUCTION_OF_TYPE_I_IFNS",
+      "family": "STING",
+      "label": "Reactome ZBP1/DAI type I IFN",
+      "nes_DNA-PKcs": -0.8444617457677575,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": -0.8323871516279946,
+      "fdr_Ku70": 0.40542066629023155,
+      "nes_Ku80": 0.8869215122428468,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "GOBP_POSITIVE_REGULATION_OF_INTERFERON_BETA_PRODUCTION",
+      "family": "IFN",
+      "label": "GO + IFN-\u03b2 production",
+      "nes_DNA-PKcs": 0.9210589601490777,
+      "fdr_DNA-PKcs": 0.3749294184076793,
+      "nes_Ku70": 1.0441198808285594,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -1.0755172396265935,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "GOBP_POSITIVE_REGULATION_OF_TYPE_I_INTERFERON_PRODUCTION",
+      "family": "IFN",
+      "label": "GO + type I IFN production",
+      "nes_DNA-PKcs": -1.3603367652782818,
+      "fdr_DNA-PKcs": 0.14545454545454545,
+      "nes_Ku70": 0.9117385222174739,
+      "fdr_Ku70": 0.3837072018890201,
+      "nes_Ku80": -1.3335821559397492,
+      "fdr_Ku80": 0.2694805194805195
+    },
+    {
+      "term": "GOBP_INTERFERON_MEDIATED_SIGNALING_PATHWAY",
+      "family": "IFN",
+      "label": "GO IFN-mediated signaling",
+      "nes_DNA-PKcs": 0.7954541148264155,
+      "fdr_DNA-PKcs": 0.4610389610389611,
+      "nes_Ku70": 1.1138641615073848,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": 0.751960492411652,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "GOBP_CELLULAR_RESPONSE_TO_TYPE_I_INTERFERON",
+      "family": "IFN",
+      "label": "GO cellular response to type I IFN",
+      "nes_DNA-PKcs": -0.8247019355821743,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": 1.0201242590720363,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": 0.5850072476603007,
+      "fdr_Ku80": 0.4866712235133288
+    },
+    {
+      "term": "GOBP_CELLULAR_RESPONSE_TO_TYPE_II_INTERFERON",
+      "family": "IFN",
+      "label": "GO cellular response to type II IFN",
+      "nes_DNA-PKcs": -1.037190081469753,
+      "fdr_DNA-PKcs": 0.3209647495361781,
+      "nes_Ku70": 0.9646793959898078,
+      "fdr_Ku70": 0.37373737373737376,
+      "nes_Ku80": 0.8629503511518435,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "GOBP_CELLULAR_RESPONSE_TO_TYPE_III_INTERFERON",
+      "family": "IFN",
+      "label": "GO cellular response to type III IFN",
+      "nes_DNA-PKcs": NaN,
+      "fdr_DNA-PKcs": NaN,
+      "nes_Ku70": NaN,
+      "fdr_Ku70": NaN,
+      "nes_Ku80": NaN,
+      "fdr_Ku80": NaN
+    },
+    {
+      "term": "GOBP_RESPONSE_TO_TYPE_I_INTERFERON",
+      "family": "IFN",
+      "label": "GO response to type I IFN",
+      "nes_DNA-PKcs": NaN,
+      "fdr_DNA-PKcs": NaN,
+      "nes_Ku70": NaN,
+      "fdr_Ku70": NaN,
+      "nes_Ku80": NaN,
+      "fdr_Ku80": NaN
+    },
+    {
+      "term": "GOBP_RESPONSE_TO_TYPE_II_INTERFERON",
+      "family": "IFN",
+      "label": "GO response to type II IFN",
+      "nes_DNA-PKcs": -1.043514458018802,
+      "fdr_DNA-PKcs": 0.3209647495361781,
+      "nes_Ku70": -0.7837321657616023,
+      "fdr_Ku70": 0.44655344655344653,
+      "nes_Ku80": -0.7183723428776198,
+      "fdr_Ku80": 0.6439393939393939
+    },
+    {
+      "term": "GOBP_TYPE_I_INTERFERON_MEDIATED_SIGNALING_PATHWAY",
+      "family": "IFN",
+      "label": "GO type I IFN signaling",
+      "nes_DNA-PKcs": -0.8553408277330838,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": 1.0337630299410878,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": 0.6281257289502356,
+      "fdr_Ku80": 0.4516594516594517
+    },
+    {
+      "term": "GOBP_TYPE_II_INTERFERON_MEDIATED_SIGNALING_PATHWAY",
+      "family": "IFN",
+      "label": "GO type II IFN signaling",
+      "nes_DNA-PKcs": NaN,
+      "fdr_DNA-PKcs": NaN,
+      "nes_Ku70": NaN,
+      "fdr_Ku70": NaN,
+      "nes_Ku80": NaN,
+      "fdr_Ku80": NaN
+    },
+    {
+      "term": "GOBP_TYPE_III_INTERFERON_MEDIATED_SIGNALING_PATHWAY",
+      "family": "IFN",
+      "label": "GO type III IFN signaling",
+      "nes_DNA-PKcs": NaN,
+      "fdr_DNA-PKcs": NaN,
+      "nes_Ku70": NaN,
+      "fdr_Ku70": NaN,
+      "nes_Ku80": NaN,
+      "fdr_Ku80": NaN
+    },
+    {
+      "term": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "family": "IFN",
+      "label": "Hallmark IFN-\u03b1",
+      "nes_DNA-PKcs": -1.204077808574487,
+      "fdr_DNA-PKcs": 0.22943722943722944,
+      "nes_Ku70": -0.9990838411255132,
+      "fdr_Ku70": 0.37373737373737376,
+      "nes_Ku80": -0.8481703107950063,
+      "fdr_Ku80": 0.6199887069452287
+    },
+    {
+      "term": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "family": "IFN",
+      "label": "Hallmark IFN-\u03b3",
+      "nes_DNA-PKcs": -1.1085924281981137,
+      "fdr_DNA-PKcs": 0.24819624819624822,
+      "nes_Ku70": -1.0958833364519243,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -0.9759064944865817,
+      "fdr_Ku80": 0.5467532467532468
+    },
+    {
+      "term": "REACTOME_INTERFERON_SIGNALING",
+      "family": "IFN",
+      "label": "Reactome IFN signaling",
+      "nes_DNA-PKcs": -0.8643618821987495,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": 1.0973604758070499,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -1.24027227771274,
+      "fdr_Ku80": 0.2694805194805195
+    },
+    {
+      "term": "REACTOME_INTERFERON_ALPHA_BETA_SIGNALING",
+      "family": "IFN",
+      "label": "Reactome IFN-\u03b1/\u03b2",
+      "nes_DNA-PKcs": 0.6608380784537699,
+      "fdr_DNA-PKcs": 0.5824175824175825,
+      "nes_Ku70": -1.010141383838748,
+      "fdr_Ku70": 0.37373737373737376,
+      "nes_Ku80": -0.6924967162578042,
+      "fdr_Ku80": 0.6815584415584417
+    },
+    {
+      "term": "REACTOME_INTERFERON_GAMMA_SIGNALING",
+      "family": "IFN",
+      "label": "Reactome IFN-\u03b3",
+      "nes_DNA-PKcs": -1.101542030975306,
+      "fdr_DNA-PKcs": 0.2909090909090909,
+      "nes_Ku70": 1.187407445487968,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -0.6101295705396506,
+      "fdr_Ku80": 0.7232767232767233
+    },
+    {
+      "term": "REACTOME_ANTIVIRAL_MECHANISM_BY_IFN_STIMULATED_GENES",
+      "family": "IFN",
+      "label": "Reactome antiviral ISGs",
+      "nes_DNA-PKcs": -0.9539472162823251,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": 0.8490845755392793,
+      "fdr_Ku70": 0.3837072018890201,
+      "nes_Ku80": -1.4354908204689554,
+      "fdr_Ku80": 0.2077922077922078
+    },
+    {
+      "term": "CUSTOM_MHC_I_ANTIGEN_PRESENTATION",
+      "family": "APM",
+      "label": "Custom MHC-I / APM",
+      "nes_DNA-PKcs": 0.7305201878863627,
+      "fdr_DNA-PKcs": 0.5101298701298701,
+      "nes_Ku70": -1.109548404036163,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -0.7216817403619016,
+      "fdr_Ku80": 0.6199887069452287
+    },
+    {
+      "term": "GOBP_ANTIGEN_PROCESSING_AND_PRESENTATION_OF_PEPTIDE_ANTIGEN_VIA_MHC_CLASS_I",
+      "family": "APM",
+      "label": "GO MHC-I peptide antigen processing",
+      "nes_DNA-PKcs": -1.1225236441696629,
+      "fdr_DNA-PKcs": 0.31168831168831174,
+      "nes_Ku70": -0.8920958891080489,
+      "fdr_Ku70": 0.3837072018890201,
+      "nes_Ku80": -1.012471253929399,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "KEGG_ANTIGEN_PROCESSING_AND_PRESENTATION",
+      "family": "APM",
+      "label": "KEGG antigen processing",
+      "nes_DNA-PKcs": 1.4398565270179182,
+      "fdr_DNA-PKcs": 0.14545454545454545,
+      "nes_Ku70": 1.3601813064911197,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": 1.5211536067764302,
+      "fdr_Ku80": 0.1038961038961039
+    },
+    {
+      "term": "REACTOME_CLASS_I_MHC_MEDIATED_ANTIGEN_PROCESSING_PRESENTATION",
+      "family": "APM",
+      "label": "Reactome MHC-I antigen processing",
+      "nes_DNA-PKcs": -1.1924936771235555,
+      "fdr_DNA-PKcs": 0.14545454545454545,
+      "nes_Ku70": -1.1347519934103516,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": -1.4986095180490302,
+      "fdr_Ku80": 0.025974025974025976
+    },
+    {
+      "term": "REACTOME_ANTIGEN_PRESENTATION_FOLDING_ASSEMBLY_PEPTIDE_LOADING_CLASS_I_MHC",
+      "family": "APM",
+      "label": "Reactome MHC-I peptide loading",
+      "nes_DNA-PKcs": 0.9490541093432562,
+      "fdr_DNA-PKcs": 0.371900826446281,
+      "nes_Ku70": 1.1409820869101435,
+      "fdr_Ku70": 0.34693877551020413,
+      "nes_Ku80": 0.9445655254792198,
+      "fdr_Ku80": 0.44003055767761656
+    },
+    {
+      "term": "REACTOME_ANTIGEN_PROCESSING_CROSS_PRESENTATION",
+      "family": "APM",
+      "label": "Reactome cross-presentation",
+      "nes_DNA-PKcs": -1.1660948801638464,
+      "fdr_DNA-PKcs": 0.24819624819624822,
+      "nes_Ku70": -0.8300695956670707,
+      "fdr_Ku70": 0.44655344655344653,
+      "nes_Ku80": -1.0356687650476029,
+      "fdr_Ku80": 0.44003055767761656
+    }
+  ]
+}
