@@ -1,0 +1,15 @@
+{
+  "n_units": 65,
+  "by_cohort": {
+    "GSE123902": 13,
+    "GSE131907": 21,
+    "GSE189357": 9,
+    "GSE205335": 22
+  },
+  "sources": {
+    "GSE123902": "GEO GSE123902_RAW.tar dense UMI CSV",
+    "GSE131907": "GEO GSE131907_Lung_Cancer_raw_UMI_matrix.txt.gz + cell annotation",
+    "GSE205335": "GEO GSE205335_Lung_IO_UMI_matrix.rds.gz + CellIdentity",
+    "GSE189357": "GEO GSE189357_RAW.tar 10x MTX"
+  }
+}
