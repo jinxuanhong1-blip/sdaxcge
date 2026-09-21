@@ -1,0 +1,17 @@
+{
+  "empirical_high_rule": "FALLBACK unadjusted p<=0.01, same sign in every contributing cohort, epithelial genes removed (FDR set had <15 genes)",
+  "empirical_low_rule": "FALLBACK unadjusted p<=0.01, same sign in every contributing cohort, epithelial genes removed (FDR set had <15 genes)",
+  "n_high_before_background": 69,
+  "n_low_before_background": 135,
+  "n_high": 12,
+  "n_low": 62,
+  "n_background": 7077,
+  "n_potential": 286,
+  "programs": {
+    "empirical_high": 12,
+    "empirical_low": 62,
+    "a_priori_ifn": 12,
+    "a_priori_cytotoxicity": 14,
+    "a_priori_exhaustion": 13
+  }
+}
