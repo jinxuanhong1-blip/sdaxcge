@@ -1,0 +1,10 @@
+MSigDB c2.cgp v2023.2.Hs symbols
+https://data.broadinstitute.org/gsea-msigdb/msigdb/release/2023.2.Hs/c2.cgp.v2023.2.Hs.symbols.gmt
+
+BENPORATH_ES_1 — Ben-Porath et al. Nat Genet 2008 embryonic stem cell set 1 (n=379).
+BENPORATH_ES_CORE_NINE — Ben-Porath ES core transcription-factor set (n=9).
+WONG_EMBRYONIC_STEM_CELL_CORE — Wong et al. Cell Stem Cell 2008 ESC core (n=335).
+
+Scoring drops CLDN4, TACSTD2, and the locked barrier/keratin genes
+(KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR) plus EPCAM so the stemness
+score is not the epithelial gate and not the barrier score.

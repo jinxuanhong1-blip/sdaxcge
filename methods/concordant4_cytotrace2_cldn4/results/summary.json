@@ -1,0 +1,736 @@
+{
+  "cytotrace2_version": "1.1.0.4",
+  "cap": 200,
+  "n_cells": 11902,
+  "n_cells_by": {
+    "GSE123902": 2103,
+    "GSE131907": 3857,
+    "GSE205335": 4142,
+    "GSE189357": 1800
+  },
+  "n_units": 65,
+  "n_units_by": {
+    "GSE123902": 13,
+    "GSE131907": 21,
+    "GSE205335": 22,
+    "GSE189357": 9
+  },
+  "n_eligible": 65,
+  "n_paired": 65,
+  "catalog": {
+    "GSE123902": {
+      "dataset": "GSE123902",
+      "malignant_rule": "marker epithelium, not CNV; NORMAL dropped",
+      "n_units_files": 13,
+      "n_cells_qc_before_cap": 4384,
+      "n_cells": 2103,
+      "n_units": 13,
+      "n_genes": 22896
+    },
+    "GSE189357": {
+      "dataset": "GSE189357",
+      "malignant_rule": "marker epithelium, not CNV",
+      "n_cells_qc_before_cap": 14168,
+      "n_cells": 1800,
+      "n_units": 9,
+      "n_genes": 33514
+    },
+    "GSE131907": {
+      "dataset": "GSE131907",
+      "malignant_rule": "author Cell_subtype==Malignant cells",
+      "n_author_malignant": 24784,
+      "n_author_samples": 21,
+      "tLung_author_malignant": 0,
+      "n_cells_capped_before_qc": 3857,
+      "n_cells": 3857,
+      "n_units": 21,
+      "n_genes": 29634
+    },
+    "GSE205335": {
+      "dataset": "GSE205335",
+      "malignant_rule": "author lineage.sub==Malignant cells; drop Normal *",
+      "n_author_malignant_non_normal": 28512,
+      "n_patients": 22,
+      "n_cells_capped_before_qc": 4142,
+      "n_cells": 4142,
+      "n_units": 22,
+      "n_genes": 33714,
+      "histology": {
+        "ADC": 2542,
+        "SCLC": 800,
+        "SQ": 600,
+        "NUT": 200
+      }
+    }
+  },
+  "potency_counts": {
+    "Differentiated": 8897,
+    "Unipotent": 2160,
+    "Oligopotent": 625,
+    "Multipotent": 220
+  },
+  "frac_lt_500": 0.06780373046546799,
+  "coverage_brief": {
+    "GSE123902": {
+      "es1_used": 358,
+      "wong_used": 325,
+      "core9_detected_frac": 0.761,
+      "frac_genes_lt_500": 0.114
+    },
+    "GSE131907": {
+      "es1_used": 361,
+      "wong_used": 325,
+      "core9_detected_frac": 0.883,
+      "frac_genes_lt_500": 0.019
+    },
+    "GSE205335": {
+      "es1_used": 373,
+      "wong_used": 331,
+      "core9_detected_frac": 0.874,
+      "frac_genes_lt_500": 0.08
+    },
+    "GSE189357": {
+      "es1_used": 359,
+      "wong_used": 328,
+      "core9_detected_frac": 0.59,
+      "frac_genes_lt_500": 0.089
+    }
+  },
+  "primary": [
+    {
+      "contrast": "CLDN4 vs CytoTRACE2",
+      "k": 4,
+      "n": 65,
+      "rho": -0.3032832914503907,
+      "ci_lo": -0.5731660137547183,
+      "ci_hi": 0.025956229627954786,
+      "p": 0.07030566562798654,
+      "I2": 33.02927114079284,
+      "x": "mean_CLDN4",
+      "y": "mean_ct2",
+      "q": 0.1071838166691875
+    },
+    {
+      "contrast": "CLDN4 vs Ben-Porath ES1 stemness",
+      "k": 4,
+      "n": 65,
+      "rho": 0.2385784736350196,
+      "ci_lo": -0.025954628370739675,
+      "ci_hi": 0.47188530921533073,
+      "p": 0.07655986904941965,
+      "I2": 0.0,
+      "x": "mean_CLDN4",
+      "y": "mean_es1",
+      "q": 0.1071838166691875
+    },
+    {
+      "contrast": "CLDN4 vs Wong ESC stemness",
+      "k": 4,
+      "n": 65,
+      "rho": 0.06882440409168163,
+      "ci_lo": -0.19765719917718025,
+      "ci_hi": 0.3258338095673947,
+      "p": 0.6157782417003703,
+      "I2": 0.0,
+      "x": "mean_CLDN4",
+      "y": "mean_wong",
+      "q": 0.6157782417003703
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "k": 4,
+      "n": 65,
+      "rho": 0.35007869300241645,
+      "ci_lo": 0.09601008302495978,
+      "ci_hi": 0.5613212341253572,
+      "p": 0.0077880367048057935,
+      "I2": 0.0,
+      "x": "mean_CLDN4",
+      "y": "mean_barrier",
+      "q": 0.027258128466820276
+    },
+    {
+      "contrast": "CytoTRACE2 vs Ben-Porath ES1",
+      "k": 4,
+      "n": 65,
+      "rho": 0.36736801686404674,
+      "ci_lo": -0.03562453704265431,
+      "ci_hi": 0.6675960782989159,
+      "p": 0.07279985629107842,
+      "I2": 55.67705553508387,
+      "x": "mean_ct2",
+      "y": "mean_es1",
+      "q": 0.1071838166691875
+    },
+    {
+      "contrast": "CytoTRACE2 vs barrier/keratin (no CLDN4)",
+      "k": 4,
+      "n": 65,
+      "rho": -0.2428777797477834,
+      "ci_lo": -0.6416783324256982,
+      "ci_hi": 0.25930351567844157,
+      "p": 0.3438826840608413,
+      "I2": 70.08616879447932,
+      "x": "mean_ct2",
+      "y": "mean_barrier",
+      "q": 0.4011964647376482
+    },
+    {
+      "contrast": "CLDN4 vs frac Differentiated",
+      "k": 4,
+      "n": 65,
+      "rho": 0.394732743863046,
+      "ci_lo": 0.1470924605557185,
+      "ci_hi": 0.5958066911124658,
+      "p": 0.002376217237914023,
+      "I2": 0.0,
+      "x": "mean_CLDN4",
+      "y": "frac_diff",
+      "q": 0.016633520665398163
+    }
+  ],
+  "cohort": [
+    {
+      "contrast": "CLDN4 vs CytoTRACE2",
+      "dataset": "GSE123902",
+      "n": 13,
+      "rho": -0.46703296703296704,
+      "p": 0.10760914039913913,
+      "lo": -0.8096717468245659,
+      "hi": 0.11305222120809028
+    },
+    {
+      "contrast": "CLDN4 vs CytoTRACE2",
+      "dataset": "GSE131907",
+      "n": 21,
+      "rho": -0.5116883116883117,
+      "p": 0.01773639724372509,
+      "lo": -0.7726985876074025,
+      "hi": -0.1026747103586626
+    },
+    {
+      "contrast": "CLDN4 vs CytoTRACE2",
+      "dataset": "GSE205335",
+      "n": 22,
+      "rho": -0.24788255223037836,
+      "p": 0.26601937978240725,
+      "lo": -0.6061485629096101,
+      "hi": 0.19400874879489877
+    },
+    {
+      "contrast": "CLDN4 vs CytoTRACE2",
+      "dataset": "GSE189357",
+      "n": 9,
+      "rho": 0.3666666666666667,
+      "p": 0.3317398014330152,
+      "lo": -0.3932172966438105,
+      "hi": 0.8289382660157639
+    },
+    {
+      "contrast": "CLDN4 vs Ben-Porath ES1 stemness",
+      "dataset": "GSE123902",
+      "n": 13,
+      "rho": 0.4450549450549451,
+      "p": 0.12752383613843685,
+      "lo": -0.14035693332675833,
+      "hi": 0.7998958964665674
+    },
+    {
+      "contrast": "CLDN4 vs Ben-Porath ES1 stemness",
+      "dataset": "GSE131907",
+      "n": 21,
+      "rho": 0.1064935064935065,
+      "p": 0.6459166351388025,
+      "lo": -0.340870892419405,
+      "hi": 0.5145327957108198
+    },
+    {
+      "contrast": "CLDN4 vs Ben-Porath ES1 stemness",
+      "dataset": "GSE205335",
+      "n": 22,
+      "rho": 0.29531338226990406,
+      "p": 0.1821131852004085,
+      "lo": -0.14426396613162304,
+      "hi": 0.6375483552913562
+    },
+    {
+      "contrast": "CLDN4 vs Ben-Porath ES1 stemness",
+      "dataset": "GSE189357",
+      "n": 9,
+      "rho": 0.06666666666666667,
+      "p": 0.8646897846262036,
+      "lo": -0.6251416095115173,
+      "hi": 0.6998121787447572
+    },
+    {
+      "contrast": "CLDN4 vs Wong ESC stemness",
+      "dataset": "GSE123902",
+      "n": 13,
+      "rho": 0.09890109890109891,
+      "p": 0.7478683035983906,
+      "lo": -0.4781482680629534,
+      "hi": 0.6163092756591617
+    },
+    {
+      "contrast": "CLDN4 vs Wong ESC stemness",
+      "dataset": "GSE131907",
+      "n": 21,
+      "rho": 0.05844155844155843,
+      "p": 0.8013282220179796,
+      "lo": -0.3829125725558924,
+      "hi": 0.47807398711844296
+    },
+    {
+      "contrast": "CLDN4 vs Wong ESC stemness",
+      "dataset": "GSE205335",
+      "n": 22,
+      "rho": 0.07396950875211745,
+      "p": 0.7435587990333695,
+      "lo": -0.3588366529984439,
+      "hi": 0.480596542569655
+    },
+    {
+      "contrast": "CLDN4 vs Wong ESC stemness",
+      "dataset": "GSE189357",
+      "n": 9,
+      "rho": 0.03333333333333333,
+      "p": 0.9321567355405039,
+      "lo": -0.6450770928495034,
+      "hi": 0.6823574591513761
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE123902",
+      "n": 13,
+      "rho": 0.5714285714285714,
+      "p": 0.0413422673717235,
+      "lo": 0.029826221444744883,
+      "hi": 0.8536479508285921
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE131907",
+      "n": 21,
+      "rho": 0.1155844155844156,
+      "p": 0.6178368603191974,
+      "lo": -0.3327105499578341,
+      "hi": 0.5212683429670406
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE205335",
+      "n": 22,
+      "rho": 0.39243365330321855,
+      "p": 0.07084079067181379,
+      "lo": -0.03496710501260858,
+      "hi": 0.6984810130596242
+    },
+    {
+      "contrast": "CLDN4 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE189357",
+      "n": 9,
+      "rho": 0.45,
+      "p": 0.22421610749233675,
+      "lo": -0.3054018567746413,
+      "hi": 0.8577762355445255
+    },
+    {
+      "contrast": "CytoTRACE2 vs Ben-Porath ES1",
+      "dataset": "GSE123902",
+      "n": 13,
+      "rho": -0.027472527472527472,
+      "p": 0.9290117291603509,
+      "lo": -0.5698399923176898,
+      "hi": 0.5315671316769668
+    },
+    {
+      "contrast": "CytoTRACE2 vs Ben-Porath ES1",
+      "dataset": "GSE131907",
+      "n": 21,
+      "rho": 0.3649350649350649,
+      "p": 0.10382027127753134,
+      "lo": -0.0792424975319764,
+      "hi": 0.6882083028364143
+    },
+    {
+      "contrast": "CytoTRACE2 vs Ben-Porath ES1",
+      "dataset": "GSE205335",
+      "n": 22,
+      "rho": 0.20158102766798422,
+      "p": 0.3683370734344016,
+      "lo": -0.24047182529749034,
+      "hi": 0.5743799287083272
+    },
+    {
+      "contrast": "CytoTRACE2 vs Ben-Porath ES1",
+      "dataset": "GSE189357",
+      "n": 9,
+      "rho": 0.8499999999999999,
+      "p": 0.0037047773275858125,
+      "lo": 0.4268071838243652,
+      "hi": 0.9677979066903138
+    },
+    {
+      "contrast": "CytoTRACE2 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE123902",
+      "n": 13,
+      "rho": -0.39010989010989006,
+      "p": 0.18757411613383787,
+      "lo": -0.7746036814073891,
+      "hi": 0.20493333553289172
+    },
+    {
+      "contrast": "CytoTRACE2 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE131907",
+      "n": 21,
+      "rho": -0.07272727272727272,
+      "p": 0.7540636728389067,
+      "lo": -0.48906628094174204,
+      "hi": 0.37060179218624845
+    },
+    {
+      "contrast": "CytoTRACE2 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE205335",
+      "n": 22,
+      "rho": -0.6691134952004518,
+      "p": 0.0006611865482963787,
+      "lo": -0.8507304808373493,
+      "hi": -0.3447571622849447
+    },
+    {
+      "contrast": "CytoTRACE2 vs barrier/keratin (no CLDN4)",
+      "dataset": "GSE189357",
+      "n": 9,
+      "rho": 0.48333333333333334,
+      "p": 0.18746985521554216,
+      "lo": -0.2662673970281427,
+      "hi": 0.868634837422806
+    },
+    {
+      "contrast": "CLDN4 vs frac Differentiated",
+      "dataset": "GSE123902",
+      "n": 13,
+      "rho": 0.510989010989011,
+      "p": 0.07432891414402142,
+      "lo": -0.055681404913708425,
+      "hi": 0.8286691989399193
+    },
+    {
+      "contrast": "CLDN4 vs frac Differentiated",
+      "dataset": "GSE131907",
+      "n": 21,
+      "rho": 0.5254277479842545,
+      "p": 0.014442401621788961,
+      "lo": 0.12123247788055713,
+      "hi": 0.780162075487095
+    },
+    {
+      "contrast": "CLDN4 vs frac Differentiated",
+      "dataset": "GSE205335",
+      "n": 22,
+      "rho": 0.2554394814362859,
+      "p": 0.2512405014428077,
+      "lo": -0.1862324708794102,
+      "hi": 0.6112272697637793
+    },
+    {
+      "contrast": "CLDN4 vs frac Differentiated",
+      "dataset": "GSE189357",
+      "n": 9,
+      "rho": 0.16666666666666669,
+      "p": 0.668231040071504,
+      "lo": -0.5593801039689896,
+      "hi": 0.7480015563861971
+    }
+  ],
+  "sensitivity": [
+    {
+      "contrast": "pooled Spearman CLDN4 vs CytoTRACE2 (not meta)",
+      "n": 65,
+      "rho": -0.25450174825174826,
+      "p": 0.04076946946870294,
+      "note": "all eligible units stacked; cohort is not the weight"
+    },
+    {
+      "contrast": "DL CLDN4 %pos vs CytoTRACE2",
+      "n": 65,
+      "k": 4,
+      "rho": -0.04143860834548036,
+      "p": 0.870463718669972,
+      "note": "sensitivity; %pos is the T/NK score"
+    },
+    {
+      "contrast": "DL CLDN4 vs Gulati2020",
+      "n": 65,
+      "k": 4,
+      "rho": 0.23189123785253785,
+      "p": 0.08552897077387107,
+      "note": "gene-count CytoTRACE, per dataset"
+    },
+    {
+      "contrast": "DL CLDN4 vs preKNN CytoTRACE2",
+      "n": 65,
+      "k": 4,
+      "rho": -0.29553425292218427,
+      "p": 0.07799419088306561,
+      "note": "unsmoothed CytoTRACE2"
+    },
+    {
+      "contrast": "DL CLDN4 vs Ben-Porath core nine",
+      "n": 65,
+      "k": 4,
+      "rho": 0.16657065749427996,
+      "p": 0.22093015502400748,
+      "note": "n=9 TF set"
+    },
+    {
+      "contrast": "DL CytoTRACE2 vs Wong ESC",
+      "n": 65,
+      "k": 4,
+      "rho": 0.49545332477747267,
+      "p": 7.653202646121392e-05,
+      "note": "second stemness agreement"
+    },
+    {
+      "contrast": "LOO drop GSE123902: CLDN4 vs CytoTRACE2",
+      "n": 52,
+      "k": 3,
+      "rho": -0.23345838724843415,
+      "p": 0.3013347003252209,
+      "note": "leave-one-cohort-out"
+    },
+    {
+      "contrast": "LOO drop GSE131907: CLDN4 vs CytoTRACE2",
+      "n": 44,
+      "k": 3,
+      "rho": -0.19116085241219546,
+      "p": 0.37420409580784797,
+      "note": "leave-one-cohort-out"
+    },
+    {
+      "contrast": "LOO drop GSE205335: CLDN4 vs CytoTRACE2",
+      "n": 43,
+      "k": 3,
+      "rho": -0.2977296176889543,
+      "p": 0.24550617221067228,
+      "note": "leave-one-cohort-out"
+    },
+    {
+      "contrast": "LOO drop GSE189357: CLDN4 vs CytoTRACE2",
+      "n": 56,
+      "k": 3,
+      "rho": -0.4023457784122575,
+      "p": 0.003460565793157038,
+      "note": "leave-one-cohort-out"
+    },
+    {
+      "contrast": "GSE205335 ADC-only CLDN4 vs CytoTRACE2",
+      "n": 14,
+      "rho": -0.3230769230769231,
+      "p": 0.2598736195087899,
+      "note": "not meta"
+    },
+    {
+      "contrast": "GSE123902 primary-only CLDN4 vs CytoTRACE2",
+      "n": 8,
+      "rho": -0.30952380952380953,
+      "p": 0.4556448907375822,
+      "note": "donor tissue; n may be small"
+    },
+    {
+      "contrast": "GSE123902 met-only CLDN4 vs CytoTRACE2",
+      "n": 5,
+      "rho": -0.09999999999999999,
+      "p": 0.8728885715695384,
+      "note": "donor tissue; n may be small"
+    }
+  ],
+  "paired": [
+    {
+      "contrast": "CytoTRACE2 high vs low",
+      "n": 65,
+      "W": 948.0,
+      "p": 0.5383893465300222,
+      "delta": -0.0006838139447709612
+    },
+    {
+      "contrast": "Ben-Porath ES1 high vs low",
+      "n": 65,
+      "W": 238.0,
+      "p": 8.167947740448236e-08,
+      "delta": 0.07229073088083725
+    },
+    {
+      "contrast": "Wong ESC high vs low",
+      "n": 65,
+      "W": 369.0,
+      "p": 7.2126173270206575e-06,
+      "delta": 0.06943477042829402
+    },
+    {
+      "contrast": "barrier/keratin high vs low",
+      "n": 65,
+      "W": 0.0,
+      "p": 3.5254980732707397e-12,
+      "delta": 0.32401577356447114
+    },
+    {
+      "contrast": "Gulati2020 high vs low",
+      "n": 65,
+      "W": 62.0,
+      "p": 6.136288138125172e-11,
+      "delta": 0.1790831943471649
+    },
+    {
+      "contrast": "preKNN CytoTRACE2 high vs low",
+      "n": 65,
+      "W": 901.0,
+      "p": 0.3525973125048051,
+      "delta": -0.0027021408675081543
+    }
+  ],
+  "what_holds": "Between patients, CLDN4 tracks barrier/keratin with CLDN4 held out of the score (CLDN4 vs barrier/keratin (no CLDN4): \u03c1=0.350, p=0.0078, q=0.0273, I\u00b2=0.0%). Between patients, CLDN4 tracks a higher CytoTRACE2 Differentiated fraction (CLDN4 vs frac Differentiated: \u03c1=0.395, p=0.0024, q=0.0166, I\u00b2=0.0%). GSE131907 carries the cohort-level signal; the other three cohorts are the same sign and not significant alone. Within a tumor, CLDN4-high cells are barrier-higher (n=65, \u0394med=+0.324, p=3.53e-12).",
+  "what_fails": "Continuous CytoTRACE2 vs CLDN4 is negative but the four-cohort meta CI includes 0 (CLDN4 vs CytoTRACE2: \u03c1=-0.303, p=0.0703, q=0.1072, I\u00b2=33.0%). Cohorts: GSE123902 \u03c1=-0.467 (p=0.1076, n=13); GSE131907 \u03c1=-0.512 (p=0.0177, n=21); GSE205335 \u03c1=-0.248 (p=0.2660, n=22); GSE189357 \u03c1=0.367 (p=0.3317, n=9). Leave-one-out dropping GSE189357 is \u03c1=-0.402, p=0.0035. That sensitivity is not the primary. The within-patient CytoTRACE2 shift is null (\u0394med=-0.001, p=0.5384). Do not quote it as a within-tumor potency drop. Stemness does not mark CLDN4-high cells as less stem-like. Ben-Porath ES1 vs CLDN4 is positive (CLDN4 vs Ben-Porath ES1 stemness: \u03c1=0.239, p=0.0766, q=0.1072, I\u00b2=0.0%). Wong ESC vs CLDN4 is null (CLDN4 vs Wong ESC stemness: \u03c1=0.069, p=0.6158, q=0.6158, I\u00b2=0.0%). Within a tumor, CLDN4-high cells score higher on both (ES1 \u0394med=+0.072, p=8.17e-08; Wong \u0394med=+0.069, p=7.21e-06). Wong stemness does track CytoTRACE2 (sensitivity DL \u03c1=0.495, p=7.65e-05), so the stemness score is coupled to potency and CLDN4 is not on that axis. Gulati 2020 gene-count CytoTRACE goes the other way on the paired test (\u0394med=+0.179, p=6.14e-11). Same disagreement as the winning-pair potency folder. This is why Gulati is not the primary. CLDN4 %pos vs CytoTRACE2 is null. Do not substitute the T/NK %pos score for the mean used here.",
+  "metas": {
+    "GSE123902": {
+      "cytotrace2": {
+        "package": "cytotrace2-py",
+        "citation": "Kang et al. Nat Methods 2025 doi:10.1038/s41592-025-02857-2",
+        "ran": true,
+        "dataset": "GSE123902",
+        "cached": true,
+        "n_scored": 2103,
+        "n_joined": 2103,
+        "frac_genes_lt_500": 0.11364717070851164
+      },
+      "coverage": {
+        "barrier_genes_used": 6,
+        "barrier_absent": [],
+        "benporath_es1_genes_used": 358,
+        "benporath_es1_n_set": 377,
+        "benporath_es1_absent_n": 12,
+        "benporath_es1_frac_any_detected": 1.0,
+        "wong_esc_genes_used": 325,
+        "wong_esc_n_set": 335,
+        "wong_esc_absent_n": 10,
+        "wong_esc_frac_any_detected": 1.0,
+        "benporath_core9_genes_used": 9,
+        "benporath_core9_n_set": 9,
+        "benporath_core9_absent_n": 0,
+        "benporath_core9_frac_any_detected": 0.7612933903946743
+      },
+      "n_cells": 2103,
+      "potency_counts": {
+        "Differentiated": 1570,
+        "Unipotent": 353,
+        "Oligopotent": 125,
+        "Multipotent": 55
+      }
+    },
+    "GSE131907": {
+      "cytotrace2": {
+        "package": "cytotrace2-py",
+        "citation": "Kang et al. Nat Methods 2025 doi:10.1038/s41592-025-02857-2",
+        "ran": true,
+        "dataset": "GSE131907",
+        "cached": true,
+        "n_scored": 3857,
+        "n_joined": 3857,
+        "frac_genes_lt_500": 0.01944516463572725
+      },
+      "coverage": {
+        "barrier_genes_used": 6,
+        "barrier_absent": [],
+        "benporath_es1_genes_used": 361,
+        "benporath_es1_n_set": 377,
+        "benporath_es1_absent_n": 13,
+        "benporath_es1_frac_any_detected": 1.0,
+        "wong_esc_genes_used": 325,
+        "wong_esc_n_set": 335,
+        "wong_esc_absent_n": 9,
+        "wong_esc_frac_any_detected": 1.0,
+        "benporath_core9_genes_used": 9,
+        "benporath_core9_n_set": 9,
+        "benporath_core9_absent_n": 0,
+        "benporath_core9_frac_any_detected": 0.8828104744620171
+      },
+      "n_cells": 3857,
+      "potency_counts": {
+        "Differentiated": 3041,
+        "Unipotent": 590,
+        "Oligopotent": 116,
+        "Multipotent": 110
+      }
+    },
+    "GSE205335": {
+      "cytotrace2": {
+        "package": "cytotrace2-py",
+        "citation": "Kang et al. Nat Methods 2025 doi:10.1038/s41592-025-02857-2",
+        "ran": true,
+        "dataset": "GSE205335",
+        "cached": true,
+        "n_scored": 4142,
+        "n_joined": 4142,
+        "frac_genes_lt_500": 0.08015451472718493
+      },
+      "coverage": {
+        "barrier_genes_used": 6,
+        "barrier_absent": [],
+        "benporath_es1_genes_used": 373,
+        "benporath_es1_n_set": 377,
+        "benporath_es1_absent_n": 3,
+        "benporath_es1_frac_any_detected": 1.0,
+        "wong_esc_genes_used": 331,
+        "wong_esc_n_set": 335,
+        "wong_esc_absent_n": 4,
+        "wong_esc_frac_any_detected": 1.0,
+        "benporath_core9_genes_used": 9,
+        "benporath_core9_n_set": 9,
+        "benporath_core9_absent_n": 0,
+        "benporath_core9_frac_any_detected": 0.8737324963785611
+      },
+      "n_cells": 4142,
+      "potency_counts": {
+        "Differentiated": 2748,
+        "Unipotent": 986,
+        "Oligopotent": 356,
+        "Multipotent": 52
+      }
+    },
+    "GSE189357": {
+      "cytotrace2": {
+        "package": "cytotrace2-py",
+        "citation": "Kang et al. Nat Methods 2025 doi:10.1038/s41592-025-02857-2",
+        "ran": true,
+        "dataset": "GSE189357",
+        "cached": true,
+        "n_scored": 1800,
+        "n_joined": 1800,
+        "frac_genes_lt_500": 0.08944444444444444
+      },
+      "coverage": {
+        "barrier_genes_used": 6,
+        "barrier_absent": [],
+        "benporath_es1_genes_used": 359,
+        "benporath_es1_n_set": 377,
+        "benporath_es1_absent_n": 4,
+        "benporath_es1_frac_any_detected": 1.0,
+        "wong_esc_genes_used": 328,
+        "wong_esc_n_set": 335,
+        "wong_esc_absent_n": 4,
+        "wong_esc_frac_any_detected": 1.0,
+        "benporath_core9_genes_used": 8,
+        "benporath_core9_n_set": 9,
+        "benporath_core9_absent_n": 0,
+        "benporath_core9_frac_any_detected": 0.59
+      },
+      "n_cells": 1800,
+      "potency_counts": {
+        "Differentiated": 1538,
+        "Unipotent": 231,
+        "Oligopotent": 28,
+        "Multipotent": 3
+      }
+    }
+  }
+}
