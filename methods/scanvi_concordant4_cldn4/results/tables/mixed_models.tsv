@@ -1,0 +1,21 @@
+model	term	estimate	se	stat	p	n_units	note
+glmer_patientRE_mal_CLDN4_pct	cldn4_z	-0.618788734216803	0.143116835262644	-4.32366138533752	1.5346078259771e-05	65	patient RE sd=1.0357 singular=FALSE family=binomial Wald
+glmer_patientRE_mal_CLDN4_pct_LRT	cldn4_z	-0.618788734216803	0.143116835262644	16.4416927383347	5.01695483690407e-05	65	patient RE sd=1.0357 singular=FALSE family=binomial Wald LRT vs dataset + (1|unit)
+lmer_datasetRE_mal_CLDN4_pct	cldn4_z	-0.109862260790334	0.0236331887802308	-4.64864313537891	1.75662518467779e-05	65	dataset RE sd=0.0000 singular=TRUE gaussian t df=63
+lm_datasetFE_mal_CLDN4_pct	cldn4_z	-0.0989171435617209	0.0263649548625156	-3.75184194615696	0.000397907072207682	65	OLS equal-unit weight, dataset fixed effect
+lm_datasetFE_mal_CLDN4_pct_marginal	cldn4_z	-0.109862260790334	0.0240053878789978	-4.57656678342829	2.27599743529766e-05	65	OLS equal-unit weight, no dataset term
+glmer_patientRE_mal_CLDN4_mean_log1p	cldn4_z	-0.379429372664933	0.16528707477801	-2.29557800072709	0.021700021822235	65	patient RE sd=1.1310 singular=FALSE family=binomial Wald
+glmer_patientRE_mal_CLDN4_mean_log1p_LRT	cldn4_z	-0.379429372664933	0.16528707477801	5.06855284898211	0.0243637152538174	65	patient RE sd=1.1310 singular=FALSE family=binomial Wald LRT vs dataset + (1|unit)
+lmer_datasetRE_mal_CLDN4_mean_log1p	cldn4_z	-0.0724908131867408	0.0259307827687273	-2.79555051744004	0.00685947762247411	65	dataset RE sd=0.0165 singular=FALSE gaussian t df=63
+lm_datasetFE_mal_CLDN4_mean_log1p	cldn4_z	-0.0565336926805257	0.0301306257009994	-1.87628671377543	0.0654821151164473	65	OLS equal-unit weight, dataset fixed effect
+lm_datasetFE_mal_CLDN4_mean_log1p_marginal	cldn4_z	-0.0734711699218312	0.0261181680703792	-2.81302921873588	0.00653735169943586	65	OLS equal-unit weight, no dataset term
+glmer_patientRE_latent_CLDN4_seed	cldn4_z	-0.635298758790623	0.152673143442796	-4.16116904692316	3.16622595738249e-05	65	patient RE sd=1.0446 singular=FALSE family=binomial Wald
+glmer_patientRE_latent_CLDN4_seed_LRT	cldn4_z	-0.635298758790623	0.152673143442796	15.3658143032657	8.85764218364913e-05	65	patient RE sd=1.0446 singular=FALSE family=binomial Wald LRT vs dataset + (1|unit)
+lmer_datasetRE_latent_CLDN4_seed	cldn4_z	-0.103339556701114	0.0246763779859148	-4.18779274495226	8.9210005741538e-05	65	dataset RE sd=0.0294 singular=FALSE gaussian t df=63
+lm_datasetFE_latent_CLDN4_seed	cldn4_z	-0.101333777243055	0.028094612643649	-3.60687575687086	0.000632218385722518	65	OLS equal-unit weight, dataset fixed effect
+lm_datasetFE_latent_CLDN4_seed_marginal	cldn4_z	-0.103087539825628	0.0244777094106773	-4.21148638118323	8.22154598419198e-05	65	OLS equal-unit weight, no dataset term
+glmer_patientRE_latent_CLDN4	cldn4_z	-0.457375785515445	0.139650420038085	-3.27514794005424	0.00105606653805218	65	patient RE sd=1.0893 singular=FALSE family=binomial Wald
+glmer_patientRE_latent_CLDN4_LRT	cldn4_z	-0.457375785515445	0.139650420038085	9.93486464958994	0.00162177359908212	65	patient RE sd=1.0893 singular=FALSE family=binomial Wald LRT vs dataset + (1|unit)
+lmer_datasetRE_latent_CLDN4	cldn4_z	-0.0719302234029968	0.0252352617279593	-2.85038547166333	0.00589507290934031	65	dataset RE sd=0.0488 singular=FALSE gaussian t df=63
+lm_datasetFE_latent_CLDN4	cldn4_z	-0.0677810531135214	0.0257431354152031	-2.63297582133263	0.0107479789886929	65	OLS equal-unit weight, dataset fixed effect
+lm_datasetFE_latent_CLDN4_marginal	cldn4_z	-0.0744925982837741	0.0260722025304903	-2.85716552702665	0.00578493907129467	65	OLS equal-unit weight, no dataset term
