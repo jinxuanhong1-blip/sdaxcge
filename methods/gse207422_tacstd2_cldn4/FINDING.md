@@ -147,3 +147,17 @@ All-cell means versus epithelial fraction are in `tables/spearman.tsv` under coh
 - Adenocarcinoma versus squamous is unbalanced inside some splits. Counts are listed; there is no multivariable model at this n.
 - Dual-high is the intersection of the two median groups. A dual-high count is not a CLDN4 result.
 
+## FINAL — GSE207422 immune endpoints
+
+Closed after one additional method sweep (`scripts/sweep_immune.py`, `SWEEP.md`). The sweep added CD8-only fraction, CD8 within T/NK, NK fraction, CD8 cytotoxicity (GZMB/GZMA/PRF1/IFNG/NKG7/GNLY), epithelial percent-positive, partial correlation adjusted for epithelial fraction, a top-3 vs bottom-3 cut, histology strata, and leave-one-out.
+
+A positive result required the epithelial-mean test and either percent-positive or the partial correlation to agree at P<0.05. Quartile, histology-only, and leave-one-out cuts were not allowed to reopen the endpoint.
+
+- TACSTD2 vs CD8: closed. Largest |ρ| on the four primary CD8 rows is 0.27.
+- CLDN4 vs CD8: closed. Largest |ρ| on the four primary CD8 rows is 0.26. CLDN4 versus T/NK stays flat, as in the earlier CLDN4-only run.
+- TACSTD2 vs MPR: closed as not significant. Epithelial-mean NMPR−MPR Δ=0.366 (P=0.109); percent-positive Δ=1.947 (P=1.000). The direction (higher in NMPR) is recorded. It does not meet the concordance rule.
+- CLDN4 vs MPR: closed as null. Epithelial-mean Δ=0.062 (P=1.000); percent-positive Δ=-3.906 (P=0.570).
+
+Two cuts in the sweep fall under P=0.05 and are not used to reopen the endpoint. Squamous-only CLDN4 percent-positive versus CD8 fraction is ρ=-0.83 (P=0.042, n=6); the epithelial mean in that same stratum is ρ=-0.43 (P=0.397), and the full-sample percent-positive correlation is ρ=-0.30 (P=0.342). Leave-one-out of the TACSTD2 epithelial-mean MPR test moves P from 0.109 to 0.042 when P02 or P12 is dropped. The full-sample test and the percent-positive MPR test (P=1.00) stay the recorded result.
+
+No further cut of GSE207422 will be treated as new evidence for CD8 or MPR.

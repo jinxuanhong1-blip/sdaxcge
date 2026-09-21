@@ -6,6 +6,8 @@ Slide 5–6 use this cohort for TROP2-high → higher tumor fraction, lower CD8 
 
 The lead cohort is all 12 post-treatment samples, using the epithelial-cell mean. The A3-malignant filter leaves fewer than 10 cells in 3 of 4 MPR samples, so that subset is reported separately and is not used as the MPR test. Numbers are in `FINDING.md`.
 
+Immune endpoints (CD8 and MPR) are **FINAL** after `scripts/sweep_immune.py`. See `SWEEP.md`. No further cut of this matrix is new evidence for those endpoints.
+
 ```bash
 python3 methods/gse207422_tacstd2_cldn4/scripts/download.py --outdir data/GSE207422
 python3 methods/gse207422_tacstd2_cldn4/scripts/analyze.py \

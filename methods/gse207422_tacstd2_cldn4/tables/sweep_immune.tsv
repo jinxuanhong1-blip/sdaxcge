@@ -1,0 +1,81 @@
+gene	expression	test	stratum	endpoint	n	rho	p	note	n_nmpr	n_mpr	delta	method
+TACSTD2	epithelial_mean	spearman	all_post	CD8 fraction	12	-0.23076923076923078	0.470531995381542					
+TACSTD2	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8 fraction	12	-0.268137530882792	0.39943272875583197					
+TACSTD2	epithelial_mean	spearman	all_post	CD8+NK fraction	12	-0.18181818181818185	0.5717012385276553					
+TACSTD2	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8+NK fraction	12	-0.2142271689412531	0.5037566211587924					
+TACSTD2	epithelial_mean	spearman	all_post	NK fraction	12	0.2937062937062937	0.3541476412329215					
+TACSTD2	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	NK fraction	12	0.29023539240257507	0.3601284157454879					
+TACSTD2	epithelial_mean	spearman	all_post	CD8 within T/NK	12	0.006993006993006993	0.9827917689028476					
+TACSTD2	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8 within T/NK	12	0.006030315271167747	0.9851604905361563					
+TACSTD2	epithelial_mean	spearman	all_post	CD8 cytotoxicity	12	0.22377622377622378	0.4844516614553987					
+TACSTD2	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8 cytotoxicity	12	0.22074933745029368	0.49053421045526996					
+TACSTD2	epithelial_mean	spearman	all_post	T/NK cytotoxicity	12	0.0979020979020979	0.7621216559962992					
+TACSTD2	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	T/NK cytotoxicity	12	0.10329745933461108	0.7493735174044701					
+TACSTD2	epithelial_mean	NMPR_vs_MPR	all_post	MPR	12		0.1090909090909091		8.0	4.0	0.3655475974082947	exact
+TACSTD2	epithelial_mean	quartile_top3_vs_bottom3	all_post	CD8 fraction	6		0.7	n=3 vs 3; minimum two-sided exact P is 0.10			-0.09738661693094999	exact
+TACSTD2	epithelial_mean	quartile_top3_vs_bottom3	all_post	CD8 cytotoxicity	6		0.7	n=3 vs 3; minimum two-sided exact P is 0.10			0.19515397665597067	exact
+TACSTD2	epithelial_mean	quartile_top3_vs_bottom3	all_post	MPR	6		1.0	top MPR 0/3 vs bottom 1/3; OR=0; minimum informative P is large at n=3				fisher_exact
+TACSTD2	epithelial_mean	spearman	Adeno	CD8 fraction	6	0.2	0.7040000000000001					
+TACSTD2	epithelial_mean	NMPR_vs_MPR	Adeno	MPR	6		1.0	descriptive stratum	4.0	2.0	-0.1927727460861206	exact
+TACSTD2	epithelial_mean	spearman	Squamous	CD8 fraction	6	-0.3714285714285715	0.4684781341107872					
+TACSTD2	epithelial_mean	NMPR_vs_MPR	Squamous	MPR	6		0.13333333333333333	descriptive stratum	4.0	2.0	0.8233292400836945	exact
+CLDN4	epithelial_mean	spearman	all_post	CD8 fraction	12	-0.04895104895104895	0.8799185788786748					
+CLDN4	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8 fraction	12	-0.07322602802511534	0.8210774757207484					
+CLDN4	epithelial_mean	spearman	all_post	CD8+NK fraction	12	-0.10489510489510491	0.7456094809807079					
+CLDN4	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8+NK fraction	12	-0.1308555271465344	0.6852125136492822					
+CLDN4	epithelial_mean	spearman	all_post	NK fraction	12	-0.055944055944055944	0.8628980736949713					
+CLDN4	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	NK fraction	12	-0.06061350955871001	0.8515622436765705					
+CLDN4	epithelial_mean	spearman	all_post	CD8 within T/NK	12	-0.3636363636363637	0.24526500073077723					
+CLDN4	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8 within T/NK	12	-0.3652764200696764	0.24298266567217303					
+CLDN4	epithelial_mean	spearman	all_post	CD8 cytotoxicity	12	-0.25874125874125875	0.41677476889913817					
+CLDN4	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	CD8 cytotoxicity	12	-0.26319537048132285	0.4085081314297153					
+CLDN4	epithelial_mean	spearman	all_post	T/NK cytotoxicity	12	-0.2867132867132868	0.36625146058358227					
+CLDN4	epithelial_mean	partial_spearman_adj_epithelial_fraction	all_post	T/NK cytotoxicity	12	-0.28356709131477525	0.371766785371536					
+CLDN4	epithelial_mean	NMPR_vs_MPR	all_post	MPR	12		1.0		8.0	4.0	0.06238353252410889	exact
+CLDN4	epithelial_mean	quartile_top3_vs_bottom3	all_post	CD8 fraction	6		1.0	n=3 vs 3; minimum two-sided exact P is 0.10			-0.13372386238466713	exact
+CLDN4	epithelial_mean	quartile_top3_vs_bottom3	all_post	CD8 cytotoxicity	6		0.7	n=3 vs 3; minimum two-sided exact P is 0.10			-0.8273446716467443	exact
+CLDN4	epithelial_mean	quartile_top3_vs_bottom3	all_post	MPR	6		1.0	top MPR 1/3 vs bottom 1/3; OR=1; minimum informative P is large at n=3				fisher_exact
+CLDN4	epithelial_mean	spearman	Adeno	CD8 fraction	6	0.4285714285714286	0.3965014577259473					
+CLDN4	epithelial_mean	NMPR_vs_MPR	Adeno	MPR	6		0.5333333333333333	descriptive stratum	4.0	2.0	-0.2556954026222227	exact
+CLDN4	epithelial_mean	spearman	Squamous	CD8 fraction	6	-0.4285714285714286	0.3965014577259473					
+CLDN4	epithelial_mean	NMPR_vs_MPR	Squamous	MPR	6		0.5333333333333333	descriptive stratum	4.0	2.0	0.39625442028045654	exact
+TACSTD2	epithelial_pct	spearman	all_post	CD8 fraction	12	-0.2657342657342658	0.4038330883147116					
+TACSTD2	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8 fraction	12	-0.2268503276449194	0.4783096424936168					
+TACSTD2	epithelial_pct	spearman	all_post	CD8+NK fraction	12	-0.2377622377622378	0.45680085263992326					
+TACSTD2	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8+NK fraction	12	-0.19842604086141846	0.5364295383607236					
+TACSTD2	epithelial_pct	spearman	all_post	NK fraction	12	0.3916083916083916	0.20806346369535322					
+TACSTD2	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	NK fraction	12	0.41015253500509696	0.18541835395695677					
+TACSTD2	epithelial_pct	spearman	all_post	CD8 within T/NK	12	-0.09090909090909093	0.7787253962454419					
+TACSTD2	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8 within T/NK	12	-0.08984484765208481	0.7812599050508844					
+TACSTD2	epithelial_pct	spearman	all_post	CD8 cytotoxicity	12	0.034965034965034975	0.9140933424107599					
+TACSTD2	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8 cytotoxicity	12	0.04506301162726612	0.8894024583074375					
+TACSTD2	epithelial_pct	spearman	all_post	T/NK cytotoxicity	12	0.055944055944055944	0.8628980736949713					
+TACSTD2	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	T/NK cytotoxicity	12	0.04495367260482638	0.8896693610953692					
+TACSTD2	epithelial_pct	NMPR_vs_MPR	all_post	MPR	12		1.0		8.0	4.0	1.9472241760998088	exact
+TACSTD2	epithelial_pct	quartile_top3_vs_bottom3	all_post	CD8 fraction	6		0.4	n=3 vs 3; minimum two-sided exact P is 0.10			-0.09738661693094999	exact
+TACSTD2	epithelial_pct	quartile_top3_vs_bottom3	all_post	CD8 cytotoxicity	6		1.0	n=3 vs 3; minimum two-sided exact P is 0.10			-0.07748666622195821	exact
+TACSTD2	epithelial_pct	quartile_top3_vs_bottom3	all_post	MPR	6		1.0	top MPR 1/3 vs bottom 1/3; OR=1; minimum informative P is large at n=3				fisher_exact
+TACSTD2	epithelial_pct	spearman	Adeno	CD8 fraction	6	0.14285714285714288	0.7871720116618076					
+TACSTD2	epithelial_pct	NMPR_vs_MPR	Adeno	MPR	6		0.26666666666666666	descriptive stratum	4.0	2.0	-16.382542546412253	exact
+TACSTD2	epithelial_pct	spearman	Squamous	CD8 fraction	6	-0.7142857142857143	0.11078717201166179					
+TACSTD2	epithelial_pct	NMPR_vs_MPR	Squamous	MPR	6		0.26666666666666666	descriptive stratum	4.0	2.0	14.914368008249085	exact
+CLDN4	epithelial_pct	spearman	all_post	CD8 fraction	12	-0.30069930069930073	0.34225952894002437					
+CLDN4	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8 fraction	12	-0.2835063539699572	0.37187368232350076					
+CLDN4	epithelial_pct	spearman	all_post	CD8+NK fraction	12	-0.30069930069930073	0.34225952894002437					
+CLDN4	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8+NK fraction	12	-0.2836751557055889	0.37157663302011545					
+CLDN4	epithelial_pct	spearman	all_post	NK fraction	12	0.3216783216783217	0.30790987618065263					
+CLDN4	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	NK fraction	12	0.33165070024090115	0.29228324929470023					
+CLDN4	epithelial_pct	spearman	all_post	CD8 within T/NK	12	-0.30069930069930073	0.34225952894002437					
+CLDN4	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8 within T/NK	12	-0.3009216035708403	0.34188517583921724					
+CLDN4	epithelial_pct	spearman	all_post	CD8 cytotoxicity	12	-0.2797202797202798	0.37856866966230307					
+CLDN4	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	CD8 cytotoxicity	12	-0.27580309842250833	0.38556055977601794					
+CLDN4	epithelial_pct	spearman	all_post	T/NK cytotoxicity	12	-0.16083916083916086	0.6175234895401425					
+CLDN4	epithelial_pct	partial_spearman_adj_epithelial_fraction	all_post	T/NK cytotoxicity	12	-0.16952240756962822	0.5983934267167061					
+CLDN4	epithelial_pct	NMPR_vs_MPR	all_post	MPR	12		0.5696969696969697		8.0	4.0	-3.9063582015917575	exact
+CLDN4	epithelial_pct	quartile_top3_vs_bottom3	all_post	CD8 fraction	6		0.2	n=3 vs 3; minimum two-sided exact P is 0.10			-0.24668858298001248	exact
+CLDN4	epithelial_pct	quartile_top3_vs_bottom3	all_post	CD8 cytotoxicity	6		0.2	n=3 vs 3; minimum two-sided exact P is 0.10			-0.8273446716467443	exact
+CLDN4	epithelial_pct	quartile_top3_vs_bottom3	all_post	MPR	6		1.0	top MPR 1/3 vs bottom 1/3; OR=1; minimum informative P is large at n=3				fisher_exact
+CLDN4	epithelial_pct	spearman	Adeno	CD8 fraction	6	0.3142857142857143	0.5440932944606415					
+CLDN4	epithelial_pct	NMPR_vs_MPR	Adeno	MPR	6		0.13333333333333333	descriptive stratum	4.0	2.0	-13.739600137253689	exact
+CLDN4	epithelial_pct	spearman	Squamous	CD8 fraction	6	-0.8285714285714287	0.04156268221574335					
+CLDN4	epithelial_pct	NMPR_vs_MPR	Squamous	MPR	6		0.5333333333333333	descriptive stratum	4.0	2.0	8.349672663929042	exact
