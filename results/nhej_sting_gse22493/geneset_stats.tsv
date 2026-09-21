@@ -1,0 +1,5 @@
+gene_set,expected_if_nhej_sting_ifn_logic,n_in_list,n_on_platform,n_scored_ge2_arrays,n_median_up,n_median_down,n_median_zero,median_of_mean_log2,background_median_mean_log2,mannwhitney_p_two_sided,median_on_expected_side_of_zero,absent_from_platform,on_platform_but_lt2_arrays
+NHEJ,down,13,11,10,5,4,1,0.1485,-0.0274,0.9792,no,"NHEJ1,PAXX",APLF
+STING,up,9,7,7,4,3,0,0.0351,-0.0274,0.618,yes,"STING1,TBK1",
+IFN,up,73,66,63,28,35,0,-0.1574,-0.0274,0.4658,no,"MX2,IFITM1,IFITM3,DDX60,CMPK2,IRF9,IFNL1","RSAD2,CXCL9,CCL5"
+BREAK_MARKERS,up,2,2,2,1,1,0,0.2196,-0.0274,0.6541,yes,,
