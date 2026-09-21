@@ -1,0 +1,9 @@
+role	panel	n_detected	n_up	n_down	mean_logFC_KO_minus_WT	concordance_frac_up	joint_mean_x_concordance	genes_down	n_mice	inference_unit
+max_joint	ayers_ifng6	6	5	1	1.5653555996666666	0.8333333333333334	1.3044629997222221	H2-Aa	1 vs 1	genes on one KO-vs-WT edgeR column; not mice
+max_joint_module_n_ge_20	compact26	26	23	3	1.0237861997692308	0.8846153846153846	0.905657022872781	Ifit2,Ifit3,Eif2ak2	1 vs 1	genes on one KO-vs-WT edgeR column; not mice
+max_concordance	fable_isg	25	23	2	0.54220847048	0.92	0.4988317928416	Ifit2,Ifit3	1 vs 1	genes on one KO-vs-WT edgeR column; not mice
+max_mean	ayers_ifng6	6	5	1	1.5653555996666666	0.8333333333333334	1.3044629997222221	H2-Aa	1 vs 1	genes on one KO-vs-WT edgeR column; not mice
+max_mean_sign_concordant	compact26	26	23	3	1.0237861997692308	0.8846153846153846	0.905657022872781	Ifit2,Ifit3,Eif2ak2	1 vs 1	genes on one KO-vs-WT edgeR column; not mice
+pareto_detected	ayers_ifng6	6	5	1	1.5653555996666666	0.8333333333333334	1.3044629997222221	H2-Aa	1 vs 1	genes on one KO-vs-WT edgeR column; not mice
+pareto_detected	compact26	26	23	3	1.0237861997692308	0.8846153846153846	0.905657022872781	Ifit2,Ifit3,Eif2ak2	1 vs 1	genes on one KO-vs-WT edgeR column; not mice
+pareto_detected	fable_isg	25	23	2	0.54220847048	0.92	0.4988317928416	Ifit2,Ifit3	1 vs 1	genes on one KO-vs-WT edgeR column; not mice

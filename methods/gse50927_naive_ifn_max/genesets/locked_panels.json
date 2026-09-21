@@ -1,0 +1,71 @@
+{
+  "compact26_mouse": [
+    "Stat1", "Stat2", "Irf1", "Irf7", "Irf9", "Isg15", "Mx1",
+    "Oas1a", "Oas2", "Oasl1", "Rsad2", "Ifit1", "Ifit2", "Ifit3",
+    "Ifi44", "Usp18", "Gbp2", "Gbp3", "Cxcl9", "Cxcl10", "Cxcl11",
+    "Ccl5", "Ifng", "Eif2ak2", "Bst2", "Dhx58"
+  ],
+  "fable_isg_human": [
+    "ISG15", "MX1", "MX2", "OAS1", "OAS2", "OAS3", "OASL", "RSAD2",
+    "IFIT1", "IFIT2", "IFIT3", "IFI27", "IFI44", "IFI44L", "IFI6",
+    "USP18", "HERC5", "DDX58", "IFIH1", "XAF1", "BST2", "ISG20",
+    "STAT1", "STAT2", "IRF1", "IRF7", "IRF9", "GBP1", "GBP2"
+  ],
+  "fable_core8_human": [
+    "IFI27", "OAS2", "IFIT1", "MX1", "ISG15", "HLA-A", "TAP1", "TAP2"
+  ],
+  "fable_mhc_apm_human": [
+    "HLA-A", "HLA-B", "HLA-C", "HLA-E", "HLA-F", "B2M", "TAP1",
+    "TAP2", "TAPBP", "PSMB8", "PSMB9", "PSMB10", "NLRC5", "ERAP1"
+  ],
+  "ifn_alpha_type1_human": [
+    "ISG15", "IFIT1", "IFIT2", "IFIT3", "IFIT5", "MX1", "MX2", "OAS1",
+    "OAS2", "OAS3", "OASL", "STAT1", "STAT2", "IRF7", "IRF9", "DDX58",
+    "IFIH1", "BST2", "RSAD2", "USP18", "IFI27", "IFI44", "IFI44L",
+    "IFI6", "XAF1", "HERC5", "EPSTI1", "SAMD9L", "CMPK2", "LY6E",
+    "IFITM1", "IFITM2", "IFITM3", "PLSCR1", "SP100", "SP110",
+    "EIF2AK2", "ZBP1", "TRIM22", "HELZ2"
+  ],
+  "ifn_gamma_type2_human": [
+    "GBP1", "GBP2", "GBP3", "GBP4", "GBP5", "CXCL9", "CXCL10", "CXCL11",
+    "IDO1", "STAT1", "IRF1", "CIITA", "SOCS1", "SOCS3", "HLA-DRA",
+    "HLA-DRB1", "TAP1", "TAP2", "PSMB8", "PSMB9", "PSMB10", "IFNG",
+    "IFNGR1", "IFNGR2", "JAK1", "JAK2", "NLRC5", "B2M", "UBD",
+    "VCAM1", "ICAM1"
+  ],
+  "ayers_ifng6_human": ["IFNG", "STAT1", "IDO1", "CXCL9", "CXCL10", "HLA-DRA"],
+  "fable_mouse_first_hit": {
+    "HLA-A": ["H2-K1", "H2-D1", "H2-Q7"],
+    "HLA-B": ["H2-K1", "H2-D1"],
+    "HLA-C": ["H2-D1", "H2-K1"],
+    "HLA-E": ["H2-T23"],
+    "HLA-F": [],
+    "B2M": ["B2m"],
+    "IFI27": ["Ifi27l2a", "Ifi27l2b", "Ifi27"],
+    "IFIT1": ["Ifit1", "Ifit1bl1"],
+    "OAS1": ["Oas1a", "Oas1g", "Oas1b"],
+    "OASL": ["Oasl1", "Oasl2"],
+    "MX1": ["Mx1"],
+    "MX2": ["Mx2"],
+    "GBP1": ["Gbp2", "Gbp3"],
+    "IFI44L": [],
+    "ISG20": ["Isg20"],
+    "PSMB10": ["Psmb10"],
+    "ERAP1": ["Erap1"]
+  },
+  "kdko_mouse_exceptions": {
+    "HLA-A": ["H2-K1", "H2-D1", "H2-Q7"],
+    "HLA-B": ["H2-K1", "H2-D1"],
+    "HLA-C": ["H2-K1", "H2-D1"],
+    "HLA-E": ["H2-Q7", "H2-T23"],
+    "HLA-F": [],
+    "HLA-DRA": ["H2-Ea", "H2-Aa"],
+    "HLA-DRB1": ["H2-Ab1", "H2-Eb1"],
+    "HLA-DQA1": ["H2-Aa"],
+    "GBP1": ["Gbp2"],
+    "GBP3": ["Gbp3"],
+    "GBP5": ["Gbp5"],
+    "IFI44L": [],
+    "ERAP2": []
+  }
+}
