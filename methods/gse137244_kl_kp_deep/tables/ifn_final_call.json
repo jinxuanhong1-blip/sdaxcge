@@ -1,0 +1,24 @@
+{
+  "final_call": "soft_ifn",
+  "n_ifn_panels": 18,
+  "n_primary_mean_hard_cold": 0,
+  "n_ssgsea_hard_cold": 6,
+  "n_robust_hard_cold": 0,
+  "strongest_kind": "soft_most_negative_mean",
+  "strongest_panel": "COMPACT_ISG",
+  "strongest_mean_delta": -0.8707747110531279,
+  "strongest_mean_p": 0.031746031746031744,
+  "strongest_mean_complete_kl_lower": false,
+  "strongest_ssgsea_complete_kl_lower": false,
+  "strongest_leaveone_n_complete": 1,
+  "strongest_block_complete_kl_lower": false,
+  "ssgsea_hard_panels": [
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE__2023_2",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE__2024_1",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE__2025_1",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE__2022_1",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE__2023_1",
+    "REACTOME_INTERFERON_GAMMA_SIGNALING"
+  ],
+  "rule": "Robust hard IFN-cold requires complete KL-lower mean log2 on all 10 libraries, in every leave-one-library contrast, and after collapsing the r>=0.98 KP block to one unit beside B6AL10-3. Otherwise the call is soft."
+}

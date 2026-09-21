@@ -28,6 +28,13 @@ The script downloads `GSE137244_counts.fpkm.csv.gz` into `cache/` (gitignored) a
 | `figures/ssgsea_per_line.png` | ssGSEA by library |
 | `figures/gsea_nes.png` | NES under two rankings |
 | `figures/library_correlation.png` | why the KP arm is one block |
+| `tables/ifn_hunt.tsv` | Hallmark versions, Reactome ISG, leave-one and KP-block flags |
+| `tables/ifn_final_call.json` | soft IFN call |
+| `tables/ifn_nhej_sting_primary.tsv` | IFN, NHEJ, and STING scores |
+| `figures/ifn_leaveone.png` | Δ after dropping each library |
+| `figures/nhej_sting_per_line.png` | NHEJ and STING by library |
+
+`ifn_sensitivity.py` is the IFN / NHEJ / STING pass. It does not rewrite the Tacstd2, Cldn4, or TJ tables. Hallmark GMTs and the Reactome GMT are downloaded into `cache/msig/` on first run.
 
 ## Gene sets
 

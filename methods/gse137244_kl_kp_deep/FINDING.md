@@ -89,6 +89,8 @@ The inversions are the same two libraries. KP **B6AL10-3** is IFN-low (IFN-α me
 
 So the 5-vs-5 mean leans IFN-lower, one discrete step above the floor, and it is not a cold wall. After near-replicate libraries are averaged (next section), the IFN mean contrast is not separated (cluster p = 0.53 for both hallmark IFN sets and for the compact ISG).
 
+The version, ISG-panel, leave-one-library, and KP-block hunt is in **FINAL soft IFN** below. It does not change this call.
+
 ## Soft power: the exact MW floor
 
 For 5 vs 5 with no ties there are C(10,5) = 252 equally likely rank assignments. The two-sided exact p-values are a ladder, not a continuous tail (`tables/mw_exact_ladder.tsv`):
@@ -122,3 +124,48 @@ At that coarser n, Tacstd2, Cldn4, the epithelial TJ mean, and the EMT mean are 
 KL libraries are higher for Tacstd2 and for the epithelial claudins Cldn1/3/4/7, lower for EMT, and only lean lower for IFN. Broad TJ averages look separated because those claudins dominate the mean; ssGSEA of the full GO/KEGG lists does not. The 5-vs-5 p-value cannot go below 0.00794, and the KP arm is mostly one correlated block.
 
 Do not quote 0.00794 as genome-wide discovery. Do not read cell-line ISG as immune exclusion. Do not merge this series with private 8-KL or with TISMO.
+
+## FINAL soft IFN
+
+Tacstd2, Cldn4, and the TJ results above are unchanged. This section is only the IFN limb.
+
+Catalog, fixed before ranking: mouse Hallmark IFN-α and IFN-γ from MSigDB 2022.1, 2023.1, 2023.2, 2024.1, and 2025.1; Reactome 2024.1 interferon alpha/beta, interferon gamma, interferon signaling, antiviral ISG, ISG15, OAS, and DDX58/IFIH1; and the existing 15-gene compact ISG. A robust hard cold would be every KL library below every KP library on the mean log2 score, in every leave-one-library contrast, and after the r ≥ 0.98 KP block (B6AL10-1/2/4/5) is averaged and kept beside B6AL10-3. No panel meets that rule. The call is **soft**.
+
+Hallmark versions do not move the result. After mapping Wars1→Wars, Rigi→Ddx58, and Tmt1b→Mettl7b onto symbols this matrix actually has, all five releases give the same scores: IFN-α Δ = −0.660 (93 genes; Tent5a absent), IFN-γ Δ = −0.652 (187 genes; Marchf1 absent). Both p = 0.0317. Neither is complete separation.
+
+| panel | genes used | mean Δ | exact p | complete KL < KP | ssGSEA complete KL < KP |
+|---|---:|---:|---:|---|---|
+| Compact ISG | 15 | **−0.871** | 0.0317 | no | no |
+| Hallmark IFN-α, all five releases | 93 | −0.660 | 0.0317 | no | no |
+| Hallmark IFN-γ, all five releases | 187 | −0.652 | 0.0317 | no | yes, thin |
+| Reactome IFN-γ signaling | 19 | −0.293 | 0.0159 | no | yes |
+| Reactome DDX58/IFIH1 | 33 | −0.104 | 0.22 | no | no |
+| Reactome IFN-α/β signaling | 34 | −0.018 | 0.55 | no | no |
+| Reactome IFN signaling | 136 | +0.130 | 0.00794 | no; complete the other way | no |
+| Reactome ISG15 antiviral | 28 | +0.143 | 0.0159 | no | no |
+| Reactome antiviral ISG | 91 | +0.237 | 0.00794 | no; complete the other way | no |
+| Reactome OAS antiviral | 5 | +0.777 | 0.0317 | no | no |
+
+The most negative mean in the catalog is the compact ISG (Δ = −0.871, Cliff’s δ = −0.84). That is the strongest thesis-aligned score, and it is still one inversion class short of a cold wall. KL KLD (2.02) sits above KP B6AL10-3 (1.09). The other four KP libraries sit at 2.24–2.42, above every KL library.
+
+Leave-one-library (`figures/ifn_leaveone.png`): Hallmark IFN-α, Hallmark IFN-γ, and the compact ISG become completely KL-lower in **1 of 10** drops, and that drop is always B6AL10-3. Removing any other library leaves the overlap. Reactome IFN-γ signaling becomes complete in 2 of 10 drops (B6AL10-3 or KLD), not in the rest.
+
+KP-block collapse (5 KL libraries vs the block mean and B6AL10-3; exact floor 2/21 = 0.095): every KL compact-ISG score is below the block mean (2.35), and every KL score is above B6AL10-3. The contrast is not cold (p = 0.38). The same pattern holds for both Hallmark means.
+
+ssGSEA of Hallmark IFN-γ is completely KL-lower in every release (KL max 15,964 vs KP min 16,064, both the KLD and B6AL10-3 libraries). Reactome IFN-γ signaling ssGSEA is also complete (19,834 vs 20,194). Those rank scores are not matched by the mean log2 scores of the same sets, and IFN-α ssGSEA is not complete (KLD 18,684 vs B6AL10-3 16,834). A gamma-only rank split is not an IFN-cold line.
+
+Two named ISG sets go the other direction and hit the 5-vs-5 floor because they completely separate with KL higher: Reactome interferon signaling (Δ = +0.130) and Reactome antiviral ISG (Δ = +0.237). OAS is also higher in KL (Δ = +0.777, p = 0.0317). The thesis-aligned direction is not what those panels show.
+
+## NHEJ and STING
+
+Same 5-vs-5 mean log2(FPKM+1). Not part of the IFN rule. Reactome NHEJ lists 66 genes; 31 are histone symbols this mm10 matrix does not use (H2bc*, H4c*, H3f4), so that score is the 35 genes that map, with H2ax read as H2afx. The core is the 11 enzymatic subunits (Ku70/80, DNA-PKcs, XRCC4, LIG4, XLF, Artemis, PAXX, Pol λ, Pol μ, 53BP1). cGAS-STING core is Mb21d1, Tmem173, Tbk1, Irf3, Ikbke, Ifnb1. Reactome STING uses Sting1, read as Tmem173.
+
+| panel | genes | mean Δ | exact p | direction |
+|---|---:|---:|---:|---|
+| NHEJ core | 11 | +0.165 | 0.0317 | KL higher, not complete |
+| Reactome NHEJ | 35/66 | +0.344 | 0.0159 | KL higher, not complete |
+| Alt-NHEJ | 12 | +0.378 | 0.15 | KL higher, not separated |
+| cGAS-STING core | 6 | **+0.396** | 0.00794 | complete KL higher |
+| Reactome STING | 7 | +0.015 | 1.00 | flat |
+
+cGAS-STING is on the floor because every KL library is above every KP library. The closest pair is KLC 2.498 vs B6AL10-2 2.486, so the separation is real and thin. B6AL10-3 is the low KP library (1.941). NHEJ mRNA is not lower in KL: the core fails complete separation because KLC (2.442) is below B6AL10-3 (2.530). Per-library scores are in `figures/nhej_sting_per_line.png`.
