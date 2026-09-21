@@ -1,0 +1,52 @@
+{
+  "n_uninjured_genes": 21590,
+  "n_gse22493_genes": 16574,
+  "cldn4_uninjured_log2fc": -6.061296179,
+  "cldn4_vili_wt_log2fc": 3.958568579,
+  "cldn4_vili_low_log2fc": -12.69283342,
+  "cldn4_vili_high_log2fc": -10.16213953,
+  "summaries": [
+    {
+      "contrast_id": "E-GEOD-50927_uninjured_KOvsWT",
+      "pattern": "NHEJ:null STING:supports IFN:supports APM:supports",
+      "n_axes_support": 3,
+      "primary": "yes"
+    },
+    {
+      "contrast_id": "E-GEOD-50927_VILIlow_KOvsWT",
+      "pattern": "NHEJ:null STING:null IFN:null APM:null",
+      "n_axes_support": 0,
+      "primary": "no"
+    },
+    {
+      "contrast_id": "E-GEOD-50927_VILIhigh_KOvsWT",
+      "pattern": "NHEJ:null STING:null IFN:supports APM:supports",
+      "n_axes_support": 2,
+      "primary": "no"
+    },
+    {
+      "contrast_id": "E-GEOD-22493_siRNA_vs_OE",
+      "pattern": "NHEJ:null STING:directional IFN:null APM:null",
+      "n_axes_support": 0,
+      "primary": "yes"
+    },
+    {
+      "contrast_id": "GSE207704_MCF7_KOvsWT",
+      "pattern": "NHEJ:null STING:insufficient IFN:opposite_directional APM:insufficient",
+      "n_axes_support": 0,
+      "primary": "no"
+    },
+    {
+      "contrast_id": "GSE207704_T47D_KOvsWT",
+      "pattern": "NHEJ:null STING:insufficient IFN:opposite APM:insufficient",
+      "n_axes_support": 0,
+      "primary": "yes"
+    },
+    {
+      "contrast_id": "GSE207704_mean_MCF7_T47D",
+      "pattern": "NHEJ:null STING:insufficient IFN:opposite APM:insufficient",
+      "n_axes_support": 0,
+      "primary": "yes"
+    }
+  ]
+}
