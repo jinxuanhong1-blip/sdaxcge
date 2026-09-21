@@ -1,0 +1,98 @@
+{
+  "expr_url": "https://toil-xena-hub.s3.us-east-1.amazonaws.com/download/TcgaTargetGtex_rsem_gene_tpm.gz",
+  "pheno_url": "https://toil-xena-hub.s3.us-east-1.amazonaws.com/download/TcgaTargetGTEX_phenotype.txt.gz",
+  "probe_url": "https://toil-xena-hub.s3.us-east-1.amazonaws.com/download/probeMap/gencode.v23.annotation.gene.probemap",
+  "expr_sha256": "a8c36cb16ef82eccb0b6e1e62a2af3ab9d54c1f56735bc59dfac4cbbe2391d4d",
+  "pheno_sha256": "ba4d4461cff0fe5e91cc3e58f793aa47ff3c5d6fbf77d65ccff5a07231aaf2db",
+  "probe_sha256": "6783ea58791ae876efb697889a042cc7be8e32e40fc01191c622ef25d9416931",
+  "expr_bytes": 1323254426,
+  "n_expr_samples": 19131,
+  "n_joined_samples": 19130,
+  "genes": {
+    "CLDN4": {
+      "ensembl": "ENSG00000189143.9",
+      "matrix_symbol": "CLDN4",
+      "chrom": "chr7"
+    },
+    "PRKDC": {
+      "ensembl": "ENSG00000253729.7",
+      "matrix_symbol": "PRKDC",
+      "chrom": "chr8"
+    },
+    "LIG4": {
+      "ensembl": "ENSG00000174405.13",
+      "matrix_symbol": "LIG4",
+      "chrom": "chr13"
+    },
+    "STING1": {
+      "ensembl": "ENSG00000184584.12",
+      "matrix_symbol": "TMEM173",
+      "chrom": "chr5"
+    },
+    "HLA-A": {
+      "ensembl": "ENSG00000206503.11",
+      "matrix_symbol": "HLA-A",
+      "chrom": "chr6"
+    },
+    "HLA-B": {
+      "ensembl": "ENSG00000234745.9",
+      "matrix_symbol": "HLA-B",
+      "chrom": "chr6"
+    },
+    "HLA-C": {
+      "ensembl": "ENSG00000204525.14",
+      "matrix_symbol": "HLA-C",
+      "chrom": "chr6"
+    },
+    "PTPRC": {
+      "ensembl": "ENSG00000081237.18",
+      "matrix_symbol": "PTPRC",
+      "chrom": "chr1"
+    },
+    "EPCAM": {
+      "ensembl": "ENSG00000119888.10",
+      "matrix_symbol": "EPCAM",
+      "chrom": "chr2"
+    }
+  },
+  "value_scale": "log2(RSEM TPM + 0.001)",
+  "floor_flag": -9.9,
+  "hiseqv2": {
+    "LUAD": {
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap/HiSeqV2.gz",
+      "sha256": "5432e5a67fc4c4fd6ca22f76f18494756f0e8409a8969df3157935f39947aa00",
+      "bytes": 30884695,
+      "symbols": {
+        "HLA-C": "HLA-C",
+        "PTPRC": "PTPRC",
+        "CLDN4": "CLDN4",
+        "LIG4": "LIG4",
+        "STING1": "TMEM173",
+        "HLA-B": "HLA-B",
+        "HLA-A": "HLA-A",
+        "EPCAM": "EPCAM",
+        "PRKDC": "PRKDC"
+      }
+    },
+    "LUSC": {
+      "url": "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUSC.sampleMap/HiSeqV2.gz",
+      "sha256": "baa2b486d38cb68be6921b72dd798dd71a08a560ce3d4b5e690aa8c2a77bfa0d",
+      "bytes": 30037912,
+      "symbols": {
+        "HLA-C": "HLA-C",
+        "PTPRC": "PTPRC",
+        "CLDN4": "CLDN4",
+        "LIG4": "LIG4",
+        "STING1": "TMEM173",
+        "HLA-B": "HLA-B",
+        "HLA-A": "HLA-A",
+        "EPCAM": "EPCAM",
+        "PRKDC": "PRKDC"
+      }
+    }
+  },
+  "n_correlation_rows": 712,
+  "n_sample_rows": 18147,
+  "primary_family": "18 = 3 lung cohorts x 6 genes, Toil, BH",
+  "generated_by": "methods/gtex_tcga_cldn4_nhej/analyze.py"
+}

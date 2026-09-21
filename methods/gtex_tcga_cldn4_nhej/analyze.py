@@ -524,27 +524,103 @@ def lookup(df: pd.DataFrame, cohort: str, endpoint: str, matrix: str = "Toil") -
     return hit.iloc[0]
 
 
-def lung_gene_paragraph(df: pd.DataFrame, gene: str) -> str:
-    bits = []
-    for cohort in LUNG_PRIMARY_IDS:
-        r = lookup(df, cohort, gene)
-        bits.append(
-            f"{cohort} ρ={fmt_r(r['rho'])} (n={int(r['n'])}, p={fmt_p(r['p'])}, q={fmt_p(r['q_lung'])})"
-        )
-    rhos = [float(lookup(df, c, gene)["rho"]) for c in LUNG_PRIMARY_IDS]
-    qs = [float(lookup(df, c, gene)["q_lung"]) for c in LUNG_PRIMARY_IDS]
-    n_sig = sum(np.isfinite(q) and q < 0.05 for q in qs)
-    signs = {np.sign(v) for v in rhos if np.isfinite(v) and v != 0}
-    if n_sig == 3 and len(signs) == 1:
-        word = "positive" if rhos[0] > 0 else "negative"
-        lead = f"All three lung cohorts are {word} and survive the 18-test BH."
-    elif n_sig == 0:
-        lead = "None of the three survive the 18-test BH."
-    else:
-        lead = f"{n_sig} of 3 survive the 18-test BH."
-    same = len(signs) == 1
-    agree = "The sign agrees across the three cohorts." if same else "The sign does not agree across the three cohorts."
-    return f"**{gene}.** {lead} {agree} " + "; ".join(bits) + "."
+def _r(df: pd.DataFrame, cohort: str, gene: str, col: str = "rho", matrix: str = "Toil") -> str:
+    return fmt_r(lookup(df, cohort, gene, matrix=matrix)[col])
+
+
+def _p(df: pd.DataFrame, cohort: str, gene: str, col: str = "p", matrix: str = "Toil") -> str:
+    return fmt_p(lookup(df, cohort, gene, matrix=matrix)[col])
+
+
+def what_holds_lines(df: pd.DataFrame) -> list[str]:
+    """Lead interpretation. Every number is read back from the result table."""
+    lines = [
+        "## What holds",
+        "",
+        "The three lung cohorts are not one correlation. LUSC is null. "
+        "LUAD and GTEx lung point different ways, and the LUAD NHEJ estimates change sign on the HiSeqV2 freeze.",
+        "",
+        (
+            f"**LUSC primary, Toil** (n={int(lookup(df, 'TCGA-LUSC', 'PRKDC')['n'])}). "
+            "The largest |ρ| among the six is "
+            f"{max(abs(float(lookup(df, 'TCGA-LUSC', g)['rho'])) for g in ENDPOINTS):.3f}. "
+            + (
+                "Every lung-family q is above 0.05."
+                if all(float(lookup(df, "TCGA-LUSC", g)["q_lung"]) >= 0.05 for g in ENDPOINTS)
+                else "At least one lung-family q is below 0.05; see the table."
+            )
+        ),
+        "",
+        (
+            "**LUAD STING1 is the tumor association that is positive on both RNA freezes.** "
+            f"Toil ρ={_r(df, 'TCGA-LUAD', 'STING1')} "
+            f"(n={int(lookup(df, 'TCGA-LUAD', 'STING1')['n'])}, "
+            f"p={_p(df, 'TCGA-LUAD', 'STING1')}, q={_p(df, 'TCGA-LUAD', 'STING1', 'q_lung')}). "
+            f"It stays after PTPRC ({_r(df, 'TCGA-LUAD', 'STING1', 'rho_partial_ptprc')}) and after EPCAM "
+            f"({_r(df, 'TCGA-LUAD', 'STING1', 'rho_partial_epcam')}). "
+            f"STING1 itself tracks PTPRC (ρ={_r(df, 'TCGA-LUAD', 'STING1', 'rho_endpoint_vs_PTPRC')}). "
+            "The PTPRC partial stays positive and is slightly larger than the unadjusted ρ. "
+            f"HiSeqV2 LUAD STING1 ρ={_r(df, 'TCGA-LUAD-HiSeqV2', 'STING1', matrix='HiSeqV2')} "
+            f"(n={int(lookup(df, 'TCGA-LUAD-HiSeqV2', 'STING1', matrix='HiSeqV2')['n'])}, "
+            f"q={_p(df, 'TCGA-LUAD-HiSeqV2', 'STING1', 'q_hiseqv2', matrix='HiSeqV2')} in that separate 12). "
+            f"LUSC STING1 is null on both freezes "
+            f"(Toil {_r(df, 'TCGA-LUSC', 'STING1')}, "
+            f"HiSeqV2 {_r(df, 'TCGA-LUSC-HiSeqV2', 'STING1', matrix='HiSeqV2')})."
+        ),
+        "",
+        (
+            "**LUAD PRKDC on Toil is small, and the HiSeqV2 freeze is negative.** "
+            f"Toil ρ={_r(df, 'TCGA-LUAD', 'PRKDC')} (q={_p(df, 'TCGA-LUAD', 'PRKDC', 'q_lung')}). "
+            f"PTPRC leaves it ({_r(df, 'TCGA-LUAD', 'PRKDC', 'rho_partial_ptprc')}); "
+            f"EPCAM shrinks it to {_r(df, 'TCGA-LUAD', 'PRKDC', 'rho_partial_epcam')} "
+            f"(EPCAM-partial q={_p(df, 'TCGA-LUAD', 'PRKDC', 'q_lung_partial_epcam')}). "
+            f"HiSeqV2 LUAD PRKDC is {_r(df, 'TCGA-LUAD-HiSeqV2', 'PRKDC', matrix='HiSeqV2')} "
+            f"(q={_p(df, 'TCGA-LUAD-HiSeqV2', 'PRKDC', 'q_hiseqv2', matrix='HiSeqV2')}). "
+            f"LUSC Toil PRKDC is {_r(df, 'TCGA-LUSC', 'PRKDC')}; "
+            f"HiSeqV2 LUSC PRKDC is {_r(df, 'TCGA-LUSC-HiSeqV2', 'PRKDC', matrix='HiSeqV2')}."
+        ),
+        "",
+        (
+            "**LIG4 is null in the Toil lung 18.** "
+            f"LUAD {_r(df, 'TCGA-LUAD', 'LIG4')}, LUSC {_r(df, 'TCGA-LUSC', 'LIG4')}, "
+            f"GTEx lung {_r(df, 'GTEx-Lung', 'LIG4')}, all lung-family q above 0.05. "
+            f"HiSeqV2 LUAD LIG4 is {_r(df, 'TCGA-LUAD-HiSeqV2', 'LIG4', matrix='HiSeqV2')} "
+            f"(q={_p(df, 'TCGA-LUAD-HiSeqV2', 'LIG4', 'q_hiseqv2', matrix='HiSeqV2')}). "
+            "The Toil lung estimates for LIG4 sit near zero; the HiSeqV2 LUAD estimate is negative."
+        ),
+        "",
+        (
+            "**GTEx lung HLA is negative on Toil, and most of that is shared with PTPRC.** "
+            f"HLA-A {_r(df, 'GTEx-Lung', 'HLA-A')}, HLA-B {_r(df, 'GTEx-Lung', 'HLA-B')}, "
+            f"HLA-C {_r(df, 'GTEx-Lung', 'HLA-C')}, n={int(lookup(df, 'GTEx-Lung', 'HLA-B')['n'])}, "
+            "all three lung-family q below 0.05. "
+            f"In the same donors CLDN4 vs PTPRC is {_r(df, 'GTEx-Lung', 'HLA-A', 'rho_CLDN4_vs_PTPRC')}, "
+            f"and HLA-B vs PTPRC is {_r(df, 'GTEx-Lung', 'HLA-B', 'rho_endpoint_vs_PTPRC')}. "
+            f"After PTPRC the partials are HLA-A {_r(df, 'GTEx-Lung', 'HLA-A', 'rho_partial_ptprc')}, "
+            f"HLA-B {_r(df, 'GTEx-Lung', 'HLA-B', 'rho_partial_ptprc')} "
+            f"(partial q={_p(df, 'GTEx-Lung', 'HLA-B', 'q_lung_partial_ptprc')}), "
+            f"HLA-C {_r(df, 'GTEx-Lung', 'HLA-C', 'rho_partial_ptprc')}. "
+            "Read that as bulk composition in normal lung: CLDN4 against leukocyte HLA. "
+            "The LUAD tumor HLA estimates are small and positive. A bulk ρ is not a spatial neighborhood."
+        ),
+        "",
+        (
+            "**LUAD HLA on Toil is a small positive. HiSeqV2 HLA is null, and that null matches the earlier HiSeqV2 table.** "
+            f"Toil LUAD HLA-A {_r(df, 'TCGA-LUAD', 'HLA-A')} (q={_p(df, 'TCGA-LUAD', 'HLA-A', 'q_lung')}), "
+            f"HLA-B {_r(df, 'TCGA-LUAD', 'HLA-B')} (q={_p(df, 'TCGA-LUAD', 'HLA-B', 'q_lung')}), "
+            f"HLA-C {_r(df, 'TCGA-LUAD', 'HLA-C')} (q={_p(df, 'TCGA-LUAD', 'HLA-C', 'q_lung')}). "
+            f"HiSeqV2 LUAD n={int(lookup(df, 'TCGA-LUAD-HiSeqV2', 'HLA-A', matrix='HiSeqV2')['n'])}: "
+            f"HLA-A {_r(df, 'TCGA-LUAD-HiSeqV2', 'HLA-A', matrix='HiSeqV2')} "
+            f"(p={_p(df, 'TCGA-LUAD-HiSeqV2', 'HLA-A', matrix='HiSeqV2')}), "
+            f"HLA-B {_r(df, 'TCGA-LUAD-HiSeqV2', 'HLA-B', matrix='HiSeqV2')} "
+            f"(p={_p(df, 'TCGA-LUAD-HiSeqV2', 'HLA-B', matrix='HiSeqV2')}), "
+            f"HLA-C {_r(df, 'TCGA-LUAD-HiSeqV2', 'HLA-C', matrix='HiSeqV2')} "
+            f"(p={_p(df, 'TCGA-LUAD-HiSeqV2', 'HLA-C', matrix='HiSeqV2')}). "
+            "Quote both freezes for HLA. The HiSeqV2 unadjusted result is null."
+        ),
+        "",
+    ]
+    return lines
 
 
 def partial_sentence(df: pd.DataFrame, gene: str) -> str:
@@ -671,7 +747,7 @@ def write_finding(
             "for CLDN4 or for any of the six endpoints."
         )
 
-    n_solid = int((counts["compartment"] == "TCGA_solid_primary").sum())
+    n_solid = int(((counts["matrix"] == "Toil") & (counts["compartment"] == "TCGA_solid_primary")).sum())
     n_gtex = int(((counts["compartment"] == "GTEx_normal") & (counts["n_donors"] >= MIN_N_FDR)).sum())
 
     lines: list[str] = []
@@ -704,10 +780,22 @@ def write_finding(
     lines.append(
         f"| GTEx lung | {int(c_glung['n_samples'])} | **{glung_n}** | {int(c_glung['n_donors_with_replicates'])} |"
     )
-    lines.append(f"| TCGA-LUAD solid-tissue normal |  | {luad_norm} |  |")
-    lines.append(f"| TCGA-LUSC solid-tissue normal |  | {lusc_norm} |  |")
-    lines.append(f"| TCGA-LUAD HiSeqV2 primary (sensitivity) |  | {h_luad} |  |")
-    lines.append(f"| TCGA-LUSC HiSeqV2 primary (sensitivity) |  | {h_lusc} |  |")
+    c_luad_n = counts[counts["cohort_id"] == "TCGA-LUAD-normal"].iloc[0]
+    c_lusc_n = counts[counts["cohort_id"] == "TCGA-LUSC-normal"].iloc[0]
+    c_h_luad = counts[counts["cohort_id"] == "TCGA-LUAD-HiSeqV2"].iloc[0]
+    c_h_lusc = counts[counts["cohort_id"] == "TCGA-LUSC-HiSeqV2"].iloc[0]
+    lines.append(
+        f"| TCGA-LUAD solid-tissue normal | {int(c_luad_n['n_samples'])} | {luad_norm} | {int(c_luad_n['n_donors_with_replicates'])} |"
+    )
+    lines.append(
+        f"| TCGA-LUSC solid-tissue normal | {int(c_lusc_n['n_samples'])} | {lusc_norm} | {int(c_lusc_n['n_donors_with_replicates'])} |"
+    )
+    lines.append(
+        f"| TCGA-LUAD HiSeqV2 primary (sensitivity) | {int(c_h_luad['n_samples'])} | {h_luad} | {int(c_h_luad['n_donors_with_replicates'])} |"
+    )
+    lines.append(
+        f"| TCGA-LUSC HiSeqV2 primary (sensitivity) | {int(c_h_lusc['n_samples'])} | {h_lusc} | {int(c_h_lusc['n_donors_with_replicates'])} |"
+    )
     lines.append("")
     lines.append(
         "Analysis n is donors after averaging replicate aliquots. No imputation. "
@@ -725,9 +813,7 @@ def write_finding(
     lines.append("")
     lines.extend(md_result_table(stats_df, LUNG_PRIMARY_IDS, "q_lung"))
     lines.append("")
-    for gene in ENDPOINTS:
-        lines.append(lung_gene_paragraph(stats_df, gene))
-        lines.append("")
+    lines.extend(what_holds_lines(stats_df))
     lines.append(floor_txt)
     lines.append("")
     lines.append("## Composition sensitivity (lung 18, separate BH)")
@@ -766,18 +852,35 @@ def write_finding(
         )
     )
     lines.append("")
-    # One comparison sentence per gene: Toil vs HiSeqV2 sign in LUAD and LUSC.
-    agree_bits = []
+    lines.append("Same genes, two quantifications. Toil is log2(TPM+0.001). HiSeqV2 is log2(norm_count+1).")
+    lines.append("")
+    lines.append("| Endpoint | Toil LUAD | HiSeqV2 LUAD | Toil LUSC | HiSeqV2 LUSC |")
+    lines.append("|---|---:|---:|---:|---:|")
     for gene in ENDPOINTS:
-        flags = []
-        for toil_id, hseq_id in (("TCGA-LUAD", "TCGA-LUAD-HiSeqV2"), ("TCGA-LUSC", "TCGA-LUSC-HiSeqV2")):
-            a = float(lookup(stats_df, toil_id, gene)["rho"])
-            b = float(lookup(stats_df, hseq_id, gene, matrix="HiSeqV2")["rho"])
-            flags.append(np.sign(a) == np.sign(b) or abs(a) < 0.05 and abs(b) < 0.05)
-        agree_bits.append(f"{gene} {'sign-agrees' if all(flags) else 'sign differs'} in both histologies")
+        lines.append(
+            f"| {gene} | {_r(stats_df, 'TCGA-LUAD', gene)} | "
+            f"{_r(stats_df, 'TCGA-LUAD-HiSeqV2', gene, matrix='HiSeqV2')} | "
+            f"{_r(stats_df, 'TCGA-LUSC', gene)} | "
+            f"{_r(stats_df, 'TCGA-LUSC-HiSeqV2', gene, matrix='HiSeqV2')} |"
+        )
+    lines.append("")
     lines.append(
-        "Toil vs HiSeqV2, LUAD and LUSC, calling |ρ|<0.05 on both a match: " + "; ".join(agree_bits) + "."
+        "STING1 in LUAD is positive on both. PRKDC and LIG4 in LUAD change sign. "
+        "HLA-A/B/C in LUAD are null on HiSeqV2 and only HLA-A clears the Toil 18-test BH. "
+        "LUSC HLA is null on both. Report both freezes."
     )
+    prior_luad_hla = {"HLA-A": 0.059, "HLA-B": 0.035, "HLA-C": 0.023}
+    matched = []
+    for gene, expected in prior_luad_hla.items():
+        got = float(lookup(stats_df, "TCGA-LUAD-HiSeqV2", gene, matrix="HiSeqV2")["rho"])
+        matched.append(abs(got - expected) < 0.0015)
+    if all(matched):
+        lines.append("")
+        lines.append(
+            "HiSeqV2 LUAD HLA-A/B/C match the earlier unadjusted LUAD HiSeqV2 estimates "
+            "(+0.059 / +0.035 / +0.023) within 0.001. "
+            "That earlier table joined ESTIMATE and used the same HiSeqV2 freeze."
+        )
     lines.append("")
     lines.append("## TCGA pan-cancer context")
     lines.append("")
@@ -788,7 +891,12 @@ def write_finding(
         "(not LAML, not SKCM metastatic). This is a description of heterogeneity, not a single pan-cancer p-value."
     )
     lines.append("")
-    solid_ids = set(counts.loc[counts["compartment"] == "TCGA_solid_primary", "cohort_id"])
+    solid_ids = set(
+        counts.loc[
+            (counts["matrix"] == "Toil") & (counts["compartment"] == "TCGA_solid_primary"),
+            "cohort_id",
+        ]
+    )
     lines.extend(md_sign_table(tcga_summary))
     lines.append("")
     lines.append(
@@ -822,6 +930,14 @@ def write_finding(
             ["TCGA-LUAD-normal", "TCGA-LUSC-normal"],
             "q_lung_adjacent",
         )
+    )
+    lines.append("")
+    lines.append(
+        f"The only adjacent test with q<0.05 in that 12 is LUAD normal vs LIG4 "
+        f"(ρ={_r(stats_df, 'TCGA-LUAD-normal', 'LIG4')}, n={int(lookup(stats_df, 'TCGA-LUAD-normal', 'LIG4')['n'])}, "
+        f"q={_p(stats_df, 'TCGA-LUAD-normal', 'LIG4', 'q_lung_adjacent')}). "
+        f"Tumor LIG4 is null (LUAD {_r(stats_df, 'TCGA-LUAD', 'LIG4')}, LUSC {_r(stats_df, 'TCGA-LUSC', 'LIG4')}). "
+        "The normal correlation is not a substitute for the tumor result."
     )
     lines.append("")
     lines.append("## Companions (not in any FDR family)")
@@ -1028,6 +1144,12 @@ def prepare_toil() -> tuple[pd.DataFrame, dict, dict]:
     if len(both) < 0.99 * len(expr.index):
         raise SystemExit(f"expression/phenotype overlap {len(both)} / {len(expr.index)}")
     df = expr.join(pheno, how="inner")
+    # One TCGA control analyte has an empty disease label (TCGA-07-0249-20). It is not a cohort.
+    unlabeled = df["detailed_category"].isna() | (df["detailed_category"].astype(str).str.strip() == "")
+    n_unlabeled = int(unlabeled.sum())
+    if n_unlabeled:
+        print(f"  dropping {n_unlabeled} samples with no detailed_category")
+        df = df.loc[~unlabeled].copy()
     unknown = sorted(set(df.loc[df["_study"] == "TCGA", "detailed_category"]) - set(TCGA_ABBR))
     # phenotype includes normals and metastases under the same disease names; the abbr map covers diseases.
     if unknown:

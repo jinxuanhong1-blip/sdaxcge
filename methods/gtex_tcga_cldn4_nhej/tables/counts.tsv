@@ -1,0 +1,90 @@
+cohort_id	matrix	compartment	in_lung_primary	n_samples	n_donors	n_donors_with_replicates	label
+TCGA-LUAD-HiSeqV2	HiSeqV2	TCGA_solid_primary	False	515	515	0	TCGA-LUAD HiSeqV2 primary
+TCGA-LUSC-HiSeqV2	HiSeqV2	TCGA_solid_primary	False	502	502	0	TCGA-LUSC HiSeqV2 primary
+GTEx-Adipose - Subcutaneous	Toil	GTEx_normal	False	318	307	11	GTEx Adipose - Subcutaneous
+GTEx-Adipose - Visceral (Omentum)	Toil	GTEx_normal	False	197	197	0	GTEx Adipose - Visceral (Omentum)
+GTEx-Adrenal Gland	Toil	GTEx_normal	False	128	127	1	GTEx Adrenal Gland
+GTEx-Artery - Aorta	Toil	GTEx_normal	False	207	205	2	GTEx Artery - Aorta
+GTEx-Artery - Coronary	Toil	GTEx_normal	False	118	118	0	GTEx Artery - Coronary
+GTEx-Artery - Tibial	Toil	GTEx_normal	False	281	279	2	GTEx Artery - Tibial
+GTEx-Bladder	Toil	GTEx_normal	False	9	9	0	GTEx Bladder
+GTEx-Brain - Amygdala	Toil	GTEx_normal	False	69	67	2	GTEx Brain - Amygdala
+GTEx-Brain - Anterior Cingulate Cortex (Ba24)	Toil	GTEx_normal	False	83	81	2	GTEx Brain - Anterior Cingulate Cortex (Ba24)
+GTEx-Brain - Caudate (Basal Ganglia)	Toil	GTEx_normal	False	109	109	0	GTEx Brain - Caudate (Basal Ganglia)
+GTEx-Brain - Cerebellar Hemisphere	Toil	GTEx_normal	False	97	96	1	GTEx Brain - Cerebellar Hemisphere
+GTEx-Brain - Cerebellum	Toil	GTEx_normal	False	119	112	3	GTEx Brain - Cerebellum
+GTEx-Brain - Cortex	Toil	GTEx_normal	False	105	102	2	GTEx Brain - Cortex
+GTEx-Brain - Frontal Cortex (Ba9)	Toil	GTEx_normal	False	102	100	2	GTEx Brain - Frontal Cortex (Ba9)
+GTEx-Brain - Hippocampus	Toil	GTEx_normal	False	84	82	1	GTEx Brain - Hippocampus
+GTEx-Brain - Hypothalamus	Toil	GTEx_normal	False	82	81	1	GTEx Brain - Hypothalamus
+GTEx-Brain - Nucleus Accumbens (Basal Ganglia)	Toil	GTEx_normal	False	104	103	1	GTEx Brain - Nucleus Accumbens (Basal Ganglia)
+GTEx-Brain - Putamen (Basal Ganglia)	Toil	GTEx_normal	False	81	81	0	GTEx Brain - Putamen (Basal Ganglia)
+GTEx-Brain - Spinal Cord (Cervical C-1)	Toil	GTEx_normal	False	60	57	3	GTEx Brain - Spinal Cord (Cervical C-1)
+GTEx-Brain - Substantia Nigra	Toil	GTEx_normal	False	57	57	0	GTEx Brain - Substantia Nigra
+GTEx-Breast - Mammary Tissue	Toil	GTEx_normal	False	179	179	0	GTEx Breast - Mammary Tissue
+GTEx-Cervix - Ectocervix	Toil	GTEx_normal	False	6	6	0	GTEx Cervix - Ectocervix
+GTEx-Cervix - Endocervix	Toil	GTEx_normal	False	4	4	0	GTEx Cervix - Endocervix
+GTEx-Colon - Sigmoid	Toil	GTEx_normal	False	141	139	2	GTEx Colon - Sigmoid
+GTEx-Colon - Transverse	Toil	GTEx_normal	False	167	166	1	GTEx Colon - Transverse
+GTEx-Esophagus - Gastroesophageal Junction	Toil	GTEx_normal	False	137	137	0	GTEx Esophagus - Gastroesophageal Junction
+GTEx-Esophagus - Mucosa	Toil	GTEx_normal	False	273	269	3	GTEx Esophagus - Mucosa
+GTEx-Esophagus - Muscularis	Toil	GTEx_normal	False	245	242	3	GTEx Esophagus - Muscularis
+GTEx-Fallopian Tube	Toil	GTEx_normal	False	5	5	0	GTEx Fallopian Tube
+GTEx-Heart - Atrial Appendage	Toil	GTEx_normal	False	175	173	2	GTEx Heart - Atrial Appendage
+GTEx-Heart - Left Ventricle	Toil	GTEx_normal	False	202	193	6	GTEx Heart - Left Ventricle
+GTEx-Kidney - Cortex	Toil	GTEx_normal	False	28	28	0	GTEx Kidney - Cortex
+GTEx-Liver	Toil	GTEx_normal	False	110	109	1	GTEx Liver
+GTEx-Lung	Toil	GTEx_normal	True	288	266	14	GTEx Lung
+GTEx-Minor Salivary Gland	Toil	GTEx_normal	False	55	54	1	GTEx Minor Salivary Gland
+GTEx-Muscle - Skeletal	Toil	GTEx_normal	False	396	380	11	GTEx Muscle - Skeletal
+GTEx-Nerve - Tibial	Toil	GTEx_normal	False	278	276	2	GTEx Nerve - Tibial
+GTEx-Ovary	Toil	GTEx_normal	False	88	88	0	GTEx Ovary
+GTEx-Pancreas	Toil	GTEx_normal	False	167	165	2	GTEx Pancreas
+GTEx-Pituitary	Toil	GTEx_normal	False	107	107	0	GTEx Pituitary
+GTEx-Prostate	Toil	GTEx_normal	False	100	100	0	GTEx Prostate
+GTEx-Skin - Not Sun Exposed (Suprapubic)	Toil	GTEx_normal	False	233	232	1	GTEx Skin - Not Sun Exposed (Suprapubic)
+GTEx-Skin - Sun Exposed (Lower Leg)	Toil	GTEx_normal	False	324	318	6	GTEx Skin - Sun Exposed (Lower Leg)
+GTEx-Small Intestine - Terminal Ileum	Toil	GTEx_normal	False	92	92	0	GTEx Small Intestine - Terminal Ileum
+GTEx-Spleen	Toil	GTEx_normal	False	100	99	1	GTEx Spleen
+GTEx-Stomach	Toil	GTEx_normal	False	175	172	2	GTEx Stomach
+GTEx-Testis	Toil	GTEx_normal	False	165	165	0	GTEx Testis
+GTEx-Thyroid	Toil	GTEx_normal	False	279	272	7	GTEx Thyroid
+GTEx-Uterus	Toil	GTEx_normal	False	78	78	0	GTEx Uterus
+GTEx-Vagina	Toil	GTEx_normal	False	85	85	0	GTEx Vagina
+GTEx-Whole Blood	Toil	GTEx_normal	False	337	328	7	GTEx Whole Blood
+TCGA-LUAD-normal	Toil	TCGA_adjacent_normal	False	59	59	0	TCGA-LUAD solid tissue normal
+TCGA-LUSC-normal	Toil	TCGA_adjacent_normal	False	50	50	0	TCGA-LUSC solid tissue normal
+TCGA-LAML	Toil	TCGA_blood_primary	False	173	173	0	TCGA-LAML blood primary
+TCGA-SKCM-metastatic	Toil	TCGA_metastatic	False	366	366	0	TCGA-SKCM metastatic
+TCGA-ACC	Toil	TCGA_solid_primary	False	77	77	0	TCGA-ACC primary tumor
+TCGA-BLCA	Toil	TCGA_solid_primary	False	407	407	0	TCGA-BLCA primary tumor
+TCGA-BRCA	Toil	TCGA_solid_primary	False	1092	1092	0	TCGA-BRCA primary tumor
+TCGA-CESC	Toil	TCGA_solid_primary	False	304	304	0	TCGA-CESC primary tumor
+TCGA-CHOL	Toil	TCGA_solid_primary	False	36	36	0	TCGA-CHOL primary tumor
+TCGA-COAD	Toil	TCGA_solid_primary	False	288	288	0	TCGA-COAD primary tumor
+TCGA-DLBC	Toil	TCGA_solid_primary	False	47	47	0	TCGA-DLBC primary tumor
+TCGA-ESCA	Toil	TCGA_solid_primary	False	181	181	0	TCGA-ESCA primary tumor
+TCGA-GBM	Toil	TCGA_solid_primary	False	153	153	0	TCGA-GBM primary tumor
+TCGA-HNSC	Toil	TCGA_solid_primary	False	518	518	0	TCGA-HNSC primary tumor
+TCGA-KICH	Toil	TCGA_solid_primary	False	66	66	0	TCGA-KICH primary tumor
+TCGA-KIRC	Toil	TCGA_solid_primary	False	530	530	0	TCGA-KIRC primary tumor
+TCGA-KIRP	Toil	TCGA_solid_primary	False	288	288	0	TCGA-KIRP primary tumor
+TCGA-LGG	Toil	TCGA_solid_primary	False	509	509	0	TCGA-LGG primary tumor
+TCGA-LIHC	Toil	TCGA_solid_primary	False	369	369	0	TCGA-LIHC primary tumor
+TCGA-LUAD	Toil	TCGA_solid_primary	True	513	513	0	TCGA-LUAD primary tumor
+TCGA-LUSC	Toil	TCGA_solid_primary	True	498	498	0	TCGA-LUSC primary tumor
+TCGA-MESO	Toil	TCGA_solid_primary	False	87	87	0	TCGA-MESO primary tumor
+TCGA-OV	Toil	TCGA_solid_primary	False	419	419	0	TCGA-OV primary tumor
+TCGA-PAAD	Toil	TCGA_solid_primary	False	178	178	0	TCGA-PAAD primary tumor
+TCGA-PCPG	Toil	TCGA_solid_primary	False	177	177	0	TCGA-PCPG primary tumor
+TCGA-PRAD	Toil	TCGA_solid_primary	False	495	495	0	TCGA-PRAD primary tumor
+TCGA-READ	Toil	TCGA_solid_primary	False	92	92	0	TCGA-READ primary tumor
+TCGA-SARC	Toil	TCGA_solid_primary	False	258	258	0	TCGA-SARC primary tumor
+TCGA-SKCM	Toil	TCGA_solid_primary	False	102	102	0	TCGA-SKCM primary tumor
+TCGA-STAD	Toil	TCGA_solid_primary	False	414	414	0	TCGA-STAD primary tumor
+TCGA-TGCT	Toil	TCGA_solid_primary	False	148	148	0	TCGA-TGCT primary tumor
+TCGA-THCA	Toil	TCGA_solid_primary	False	504	504	0	TCGA-THCA primary tumor
+TCGA-THYM	Toil	TCGA_solid_primary	False	119	119	0	TCGA-THYM primary tumor
+TCGA-UCEC	Toil	TCGA_solid_primary	False	180	180	0	TCGA-UCEC primary tumor
+TCGA-UCS	Toil	TCGA_solid_primary	False	57	57	0	TCGA-UCS primary tumor
+TCGA-UVM	Toil	TCGA_solid_primary	False	79	79	0	TCGA-UVM primary tumor
