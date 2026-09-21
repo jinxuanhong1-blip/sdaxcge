@@ -1,0 +1,7 @@
+MAX_HISTOLOGY_PARTIAL
+baseline S1 Lung Spearman 0.6931 n=45 (rounds to 0.69)
+histology max: NSCLC Primary | OncotreeSubtype rho=0.8457 n=17 p=7.127e-05
+n_equals_118 anywhere in the grid: False
+NSCLC primary leave-one-out rho range: 0.7853 to 0.8559
+CLDN4 peptides>=2: rho=0.8292 n=25 same-size null p=0.0234
+No value was imputed. No line was removed to raise rho.
