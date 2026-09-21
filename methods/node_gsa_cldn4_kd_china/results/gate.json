@@ -1,0 +1,21 @@
+{
+  "question": "CLDN4 knockdown lung, ovarian, or breast datasets in NODE or GSA-family China archives",
+  "node_cldn4_records": 0,
+  "hra_cldn4_records": 0,
+  "omix_cldn4_records": 0,
+  "gsa_cldn4_records_insdc_mirror": 11,
+  "chinese_cldn4_knockdown_accessions": 0,
+  "files_downloaded": 0,
+  "nearest_chinese_lung_study": {
+    "accession": "HRA006761",
+    "bioproject": "PRJCA023797",
+    "pmid": "38629624",
+    "access": "Controlled",
+    "design": "16 baseline MPE scRNA-seq samples, recurrent vs non-recurrent NSCLC, not a CLDN4 knockdown",
+    "public_run_rows": 32,
+    "unique_runs": 16,
+    "listed_fastq_gb": 100.53,
+    "downloaded": false
+  },
+  "hra_knockdown_records_mentioning_cldn4": 0
+}
