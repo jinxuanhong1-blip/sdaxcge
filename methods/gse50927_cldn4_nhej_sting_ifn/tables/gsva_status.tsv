@@ -1,0 +1,9 @@
+item	value	note
+series_matrix_bytes	2328	FTP GSE50927_series_matrix.txt.gz
+expression_rows	0	header ID_REF plus five GSM columns only
+author_tables	4 EdgeR logFC tables	no per-sample counts
+sra_runs	10	SRR988118–SRR988127
+experiments	5	SRX352050–SRX352054, one per GSM
+runs_per_experiment	2	same sample_accession; lane splits, not a second mouse
+gsva_computed	no	a recount would remain 1 library vs 1 library
+custom_sets_scored_on	deposited logFC	sweep_compact.tsv and sweep_gsea.tsv
