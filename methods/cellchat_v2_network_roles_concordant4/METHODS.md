@@ -32,6 +32,8 @@ Same public files as the locked concordant-four CellChat run.
 - GSE205335: author `lineage.sub` malignant; T/NK = author `lineage.total`.
 
 TACSTD2 is never a gate.
+PVRL2, JAM1, and CD45 in a matrix are renamed to the CellChat symbols NECTIN2, F11R, and PTPRC.
+Complex receptors (ITGAL_ITGB2, ITGAE_ITGB7) stay complexes; only their subunits are read from the matrix.
 
 CLDN4 rank inside malignant cells is log1p(count / full UMI library size × 10,000).
 Primary split is Q4 vs Q1 (`rank(..., ties.method = "first")`).

@@ -49,7 +49,7 @@ SMOKE <- parse_int("--smoke", 0L)
 COHORTS <- strsplit(parse_opt(
   "--cohorts", "GSE189357,GSE123902,GSE131907,GSE205335"
 ), ",", fixed = TRUE)[[1]]
-ANALYSIS_VERSION <- "v1"
+ANALYSIS_VERSION <- "v2"
 
 DIR_RES <- file.path(OUT, "results")
 DIR_FIG <- file.path(DIR_RES, "figures")
@@ -91,14 +91,8 @@ PAIR_SPEC <- data.frame(
   stringsAsFactors = FALSE
 )
 
-SYNONYMS <- list(
-  NECTIN2 = "PVRL2",
-  PVRL2 = "NECTIN2",
-  F11R = "JAM1",
-  JAM1 = "F11R",
-  PTPRC = "CD45",
-  CD45 = "PTPRC"
-)
+# Alias -> CellChat symbol. Never rename the CellChat symbol back to the alias.
+CANON_FROM <- c(PVRL2 = "NECTIN2", JAM1 = "F11R", CD45 = "PTPRC")
 
 fmt_p <- function(p) {
   if (length(p) != 1 || !is.finite(p)) return("NA")
@@ -186,6 +180,30 @@ resolve_pairs <- function(db) {
   hit
 }
 
+expand_complexes <- function(db, genes) {
+  genes <- unique(genes[!is.na(genes) & nzchar(genes)])
+  cx <- db$complex
+  if (!is.null(cx) && nrow(cx)) {
+    hit <- genes %in% rownames(cx)
+    if (any(hit)) {
+      subcols <- grep("^subunit", names(cx), value = TRUE)
+      subs <- unlist(cx[genes[hit], subcols, drop = FALSE], use.names = FALSE)
+      subs <- subs[!is.na(subs) & nzchar(subs)]
+      genes <- unique(c(genes[!hit], subs))
+    }
+  }
+  co <- db$cofactor
+  if (!is.null(co) && nrow(co)) {
+    hit <- genes %in% rownames(co)
+    if (any(hit)) {
+      subs <- unlist(co[genes[hit], , drop = FALSE], use.names = FALSE)
+      subs <- subs[!is.na(subs) & nzchar(subs)]
+      genes <- unique(c(genes[!hit], subs))
+    }
+  }
+  unique(genes[!is.na(genes) & nzchar(genes)])
+}
+
 genes_for_pairs <- function(db, pair_df) {
   genes <- unique(c(as.character(pair_df$ligand), as.character(pair_df$receptor)))
   extra_cols <- intersect(
@@ -193,40 +211,17 @@ genes_for_pairs <- function(db, pair_df) {
     names(pair_df)
   )
   extra <- unlist(pair_df[, extra_cols, drop = FALSE], use.names = FALSE)
-  extra <- extra[!is.na(extra) & nzchar(extra)]
-  genes <- unique(c(genes, extra))
-  cx <- db$complex
-  if (!is.null(cx) && nrow(cx)) {
-    hit <- rownames(cx) %in% genes
-    subcols <- grep("^subunit", names(cx), value = TRUE)
-    if (any(hit) && length(subcols)) {
-      subs <- unlist(cx[hit, subcols, drop = FALSE], use.names = FALSE)
-      subs <- subs[!is.na(subs) & nzchar(subs)]
-      genes <- unique(c(genes, subs))
-    }
-  }
-  co <- db$cofactor
-  if (!is.null(co) && nrow(co) && length(extra)) {
-    hit <- intersect(extra, rownames(co))
-    if (length(hit)) {
-      subs <- unlist(co[hit, , drop = FALSE], use.names = FALSE)
-      subs <- subs[!is.na(subs) & nzchar(subs)]
-      genes <- unique(c(genes, subs))
-    }
-  }
-  genes <- genes[!is.na(genes) & nzchar(genes)]
-  unique(genes)
+  expand_complexes(db, c(genes, extra))
 }
 
 harmonize_genes <- function(mat, needed) {
   rn <- rownames(mat)
   idx <- match(toupper(rn), toupper(needed))
   rn[!is.na(idx)] <- needed[idx[!is.na(idx)]]
-  for (target in needed) {
-    if (target %in% rn) next
-    syn <- SYNONYMS[[target]]
-    if (is.null(syn)) next
-    if (syn %in% rn) rn[rn == syn] <- target
+  for (alias in names(CANON_FROM)) {
+    target <- unname(CANON_FROM[[alias]])
+    if (!target %in% needed || target %in% rn) next
+    if (alias %in% rn) rn[rn == alias] <- target
   }
   rownames(mat) <- rn
   if (anyDuplicated(rn)) mat <- mat[!duplicated(rn), , drop = FALSE]
@@ -1505,7 +1500,7 @@ main <- function() {
   logmsg(paste(pair_df$requested_name, "->", pair_df$interaction_name, "path", pair_df$pathway_name, collapse = " | "))
   needed <- unique(c(
     "CLDN4", "PTPRC", EPI, TNK_MARKERS,
-    collect_db_genes(db), unlist(SYNONYMS, use.names = FALSE)
+    collect_db_genes(db), names(CANON_FROM), unname(CANON_FROM)
   ))
   needed <- needed[!is.na(needed) & nzchar(needed)]
   logmsg("needed genes", length(needed))

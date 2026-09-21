@@ -1,0 +1,7 @@
+family	metric	expect	observed	agrees	n	n_gse123902	n_gse131907	n_gse205335	n_gse189357	mean_delta	p_signflip_two	p_signflip_thesis	p_wilcox	p_stouffer_label	frac_units_label_p05
+barrier_inhibitory	delta_sum	high>low	high>low	yes	64	13	21	21	9	0.00368135296933515	9.99900009999e-05	9.99900009999e-05	8.91708812055304e-10	3.19338840528803e-24	0.703125
+ifn_recruit	delta_sum	low>high	high>low	opposite	64	13	21	21	9	0.00243286057349476	9.99900009999e-05	1	5.4998334232913e-06	1	0.109375
+barrier_inhibitory	mean_detected_delta	high>low	high>low	yes	62	13	20	20	9	0.000678906747439998	9.99900009999e-05	9.99900009999e-05	4.18769687248771e-10	NA	NA
+ifn_recruit	mean_detected_delta	low>high	high>low	opposite	58	11	19	19	9	0.000780332508501951	9.99900009999e-05	1	6.36796101058976e-06	NA	NA
+barrier_inhibitory	delta_outdeg	high>low	high>low	yes	64	13	21	21	9	0.00397082461206812	9.99900009999e-05	9.99900009999e-05	1.21236084638987e-09	4.64717384659424e-24	0.703125
+ifn_recruit	delta_outdeg	low>high	high>low	opposite	64	13	21	21	9	0.0024239235495833	9.99900009999e-05	1	6.13939009668372e-06	1	0.109375
