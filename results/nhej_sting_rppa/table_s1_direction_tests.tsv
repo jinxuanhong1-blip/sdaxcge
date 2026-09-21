@@ -1,0 +1,8 @@
+n_in_table	n_missing	missing_genes	n_fdr05	n_predicted	n_opposite	fisher_odds_ratio	fisher_p	predicted_genes	opposite_genes	set	prediction
+34	0		8	0	8	0.0	0.026316641627180698		PRKDC,TDP1,ATM,HERC2,MDC1,RNF168,BARD1,MRE11	nhej_core_no_histone	NHEJ down under CLDN4-low
+30	4	H2BC12L,H2BC26,H4C15,H4C16	7	7	0	inf	0.001298971772132554	H2BC4,H2BC12,H2BC5,H4C8,H2BC21,H2BC8,H4C14		nhej_reactome_histones_only	histone genes inside Reactome NHEJ, lower under CLDN4-low
+64	4	H2BC12L,H2BC26,H4C15,H4C16	15	7	8	1.383855024711697	0.5980711159765241	H2BC4,H2BC12,H2BC5,H4C8,H2BC21,H2BC8,H4C14	PRKDC,TDP1,ATM,HERC2,MDC1,RNF168,BARD1,MRE11	nhej_reactome_full	full Reactome NHEJ including histones, lower under CLDN4-low
+16	0		2	2	0	inf	0.524735500823224	PRKDC,MRE11		sting_reactome	STING-pathway genes higher under CLDN4-low
+97	0		1	1	0	inf	1.0	TRIM25		ifn_alpha_hallmark	Hallmark IFN-alpha higher under CLDN4-low
+198	2	RIGI,TMT1B	7	3	4	0.4740932642487047	0.4408560785757926	RAPGEF6,TRIM25,VCAM1	BPGM,VAMP8,SRI,SOCS3	ifn_gamma_hallmark	Hallmark IFN-gamma higher under CLDN4-low
+237	2	RIGI,TMT1B	9	5	4	0.7917964693665628	0.7416482614173635	PRKDC,RAPGEF6,TRIM25,MRE11,VCAM1	BPGM,VAMP8,SRI,SOCS3	sting_union_ifn	STING union IFN hallmarks higher under CLDN4-low
