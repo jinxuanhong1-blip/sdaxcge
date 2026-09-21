@@ -1,0 +1,83 @@
+dataset	design	sweep_rule	n_mice_with_epi	n_epi_cells	threshold_name	threshold_value	primary_prespecified	in_sweep	eligible_for_strongest	rho_frac_T	p_frac_T	rho_frac_T_of_epi_plus_T	p_frac_T_of_epi_plus_T	n_corr	reason	mean_high_frac	mean_frac_T
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	gt0	0.0	False	yes	False					28	T compartment too thin	0.4285978323222944	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	q0.50	0.019855177029967308	False	yes	False					28	T compartment too thin	0.4229423264595592	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	q0.60	0.44567403197288513	False	yes	False					28	T compartment too thin	0.3322967246905966	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	q0.70	0.9725372791290283	False	yes	False					28	T compartment too thin	0.23800290207008468	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	q0.75	1.2660372257232666	True	yes	False					28	T compartment too thin	0.20178288129863914	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	q0.80	1.5863691568374634	False	yes	False					28	T compartment too thin	0.16516619893875814	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	q0.90	2.353320598602295	False	yes	False					28	T compartment too thin	0.08451303761129987	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	q0.95	2.771681308746338	False	yes	False					28	T compartment too thin	0.04139947957832348	0.0
+GSE154989	sorted_or_tumor_cell_plate	ineligible_tumor_cell_plate	28	3847	mouse_mean		False	no	False					28	fewer than 3 mice or 20 T cells		0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	gt0	0.0	False	yes	False					4	T compartment too thin	0.5388305270806709	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	q0.50	0.19790935516357422	False	yes	False					4	T compartment too thin	0.5277738632305022	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	q0.60	0.44021183252334595	False	yes	False					4	T compartment too thin	0.4321235901941408	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	q0.70	0.7100558280944824	False	yes	False					4	T compartment too thin	0.3347546508265272	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	q0.75	0.8832224011421204	True	yes	False					4	T compartment too thin	0.2850612271953836	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	q0.80	1.0736712217330933	False	yes	False					4	T compartment too thin	0.23467084473929584	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	q0.90	1.5606361627578735	False	yes	False					4	T compartment too thin	0.1221283886984972	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	q0.95	1.925499677658081	False	yes	False					4	T compartment too thin	0.062136883652476216	0.0
+GSE154977	kp_tumor_10x	ineligible_no_T_cells	4	11009	mouse_mean		False	no	False					4	fewer than 3 mice or 20 T cells		0.0
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	gt0	0.0	False	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.06217204694362027	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	q0.50	0.0	False	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.06217204694362027	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	q0.60	0.0	False	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.06217204694362027	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	q0.70	0.0	False	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.06217204694362027	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	q0.75	0.0	True	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.06217204694362027	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	q0.80	0.0	False	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.06217204694362027	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	q0.90	0.0	False	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.06217204694362027	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	q0.95	0.8658987283706665	False	yes	True	0.39999999999999997	0.6	0.7999999999999999	0.2000000000000001	4		0.056035877907756514	0.21965386167756137
+GSE179501	mixed_lung	eligible_if_both_compartments	4	1564	mouse_mean		False	no	False	0.39999999999999997	0.6			4	continuous mean, not a threshold		0.21965386167756137
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	gt0	0.0	False	yes	False					6	T compartment too thin	0.21340111225366934	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	q0.50	0.0	False	yes	False					6	T compartment too thin	0.21340111225366934	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	q0.60	0.0	False	yes	False					6	T compartment too thin	0.21340111225366934	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	q0.70	0.0	False	yes	False					6	T compartment too thin	0.21340111225366934	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	q0.75	0.0	True	yes	False					6	T compartment too thin	0.21340111225366934	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	q0.80	0.15522749722003937	False	yes	False					6	T compartment too thin	0.21163611806149316	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	q0.90	0.8430915474891663	False	yes	False					6	T compartment too thin	0.10427888361615974	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	q0.95	1.5110969543457031	False	yes	False					6	T compartment too thin	0.054586253100169714	5.0170579971904475e-05
+GSE179502	sorted_neoplastic	ineligible_sorted_neoplastic	6	12478	mouse_mean		False	no	False					6	fewer than 3 mice or 20 T cells		5.0170579971904475e-05
+GSE165641	mixed_lung	descriptive_n2	2	1043	gt0	0.0	False	yes	False					2	n<4	0.24929435634817243	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	q0.50	0.0	False	yes	False					2	n<4	0.24929435634817243	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	q0.60	0.0	False	yes	False					2	n<4	0.24929435634817243	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	q0.70	0.0	False	yes	False					2	n<4	0.24929435634817243	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	q0.75	0.0	True	yes	False					2	n<4	0.24929435634817243	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	q0.80	0.5398054718971252	False	yes	False					2	n<4	0.21428357516134344	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	q0.90	1.587296962738037	False	yes	False					2	n<4	0.10990633843942321	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	q0.95	2.03883957862854	False	yes	False					2	n<4	0.05654695057125316	0.043781208520321094
+GSE165641	mixed_lung	descriptive_n2	2	1043	mouse_mean		False	no	False					2	fewer than 3 mice or 20 T cells		0.043781208520321094
+GSE180963	mixed_lung	descriptive_n2	2	2177	gt0	0.0	False	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	q0.50	0.0	False	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	q0.60	0.0	False	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	q0.70	0.0	False	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	q0.75	0.0	True	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	q0.80	0.0	False	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	q0.90	0.0	False	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	q0.95	0.0	False	yes	False					2	n<4	0.00932229431857131	0.3824218520477114
+GSE180963	mixed_lung	descriptive_n2	2	2177	mouse_mean		False	no	False					2	fewer than 3 mice or 20 T cells		0.3824218520477114
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	gt0	0.0	False	yes	False					2	n<4	0.06455892289033252	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	q0.50	0.0	False	yes	False					2	n<4	0.06455892289033252	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	q0.60	0.0	False	yes	False					2	n<4	0.06455892289033252	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	q0.70	0.0	False	yes	False					2	n<4	0.06455892289033252	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	q0.75	0.0	True	yes	False					2	n<4	0.06455892289033252	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	q0.80	0.0	False	yes	False					2	n<4	0.06455892289033252	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	q0.90	0.0	False	yes	False					2	n<4	0.06455892289033252	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	q0.95	0.7689016461372375	False	yes	False					2	n<4	0.0505366775322048	9.823182711198428e-05
+GSE149813	sorted_epithelium	ineligible_sorted_epithelium	2	9372	mouse_mean		False	no	False					2	fewer than 3 mice or 20 T cells		9.823182711198428e-05
+GSE127465	cd45_immune	ineligible_cd45	0	15	none			no						0	no epithelium		
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	gt0	0.0	False	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	q0.50	0.0	False	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	q0.60	0.0	False	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	q0.70	0.0	False	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	q0.75	0.0	True	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	q0.80	0.0	False	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	q0.90	0.0	False	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	q0.95	0.0	False	yes	False	0.6761234037828132	0.14035738661899466	0.6761234037828132	0.14035738661899466	6		0.008156966490299823	0.1773261411952024
+GSE267321	subcutaneous_nonmalignant	ineligible_subcutaneous_nonmalignant	6	319	mouse_mean		False	no	False	0.6761234037828132	0.14035738661899466			6	continuous mean, not a threshold		0.1773261411952024
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	gt0	0.0	False	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.0778708227923054	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	q0.50	0.0	False	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.0778708227923054	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	q0.60	0.0	False	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.0778708227923054	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	q0.70	0.0	False	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.0778708227923054	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	q0.75	0.0	True	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.0778708227923054	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	q0.80	0.0	False	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.0778708227923054	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	q0.90	0.0	False	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.0778708227923054	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	q0.95	0.7967462539672852	False	yes	True	-0.3571428571428572	0.431611352038328	-0.4642857142857144	0.29393410760025196	7		0.042265274494623854	0.03400551713301016
+GSE136246	mixed_lung	eligible_if_both_compartments	7	4371	mouse_mean		False	no	False	-0.07142857142857144	0.879048193148154			7	continuous mean, not a threshold		0.03400551713301016
