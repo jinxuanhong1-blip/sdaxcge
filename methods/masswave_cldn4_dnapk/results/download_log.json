@@ -1,0 +1,37 @@
+[
+  {
+    "name": "proteinGroups_Cldn4.txt",
+    "url": "https://ftp.pride.ebi.ac.uk/pride/data/archive/2023/10/PXD031094/proteinGroups_Cldn4.txt",
+    "status": "already_present",
+    "bytes": 3950383,
+    "sha1": "4dbde6c0d827105412ef1f34cbb969b8dd8acb36",
+    "pride_api_sha1": "4dbde6c0d827105412ef1f34cbb969b8dd8acb36",
+    "sha1_matches_pride_api": true
+  },
+  {
+    "name": "proteinGroups_PRISMA.txt",
+    "url": "https://ftp.pride.ebi.ac.uk/pride/data/archive/2023/10/PXD031094/proteinGroups_PRISMA.txt",
+    "status": "failed: <urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)>",
+    "pride_api_sha1": "770554ea6737df2a850b08fa2404d0f5be0f75b6",
+    "pride_api_bytes": 66679807,
+    "note": "C-terminal PRISMA peptide matrix. Not scanned when the download fails."
+  },
+  {
+    "name": "crc24_suppst1_bioid.docx",
+    "url": "https://ndownloader.figshare.com/files/53292048",
+    "status": "already_present",
+    "bytes": 47326
+  },
+  {
+    "name": "plos2015_s2_all_proteins.xlsx",
+    "url": "https://journals.plos.org/plosone/article/file?type=supplementary&id=10.1371/journal.pone.0117074.s006",
+    "status": "already_present",
+    "bytes": 165343
+  },
+  {
+    "name": "plos2015_s3_enriched.xlsx",
+    "url": "https://journals.plos.org/plosone/article/file?type=supplementary&id=10.1371/journal.pone.0117074.s007",
+    "status": "already_present",
+    "bytes": 94348
+  }
+]

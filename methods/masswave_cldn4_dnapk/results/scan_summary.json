@@ -1,0 +1,99 @@
+{
+  "targets": [
+    "PRKDC",
+    "XRCC5",
+    "XRCC6",
+    "XRCC4",
+    "STING1",
+    "TMEM173",
+    "CGAS",
+    "MB21D1"
+  ],
+  "pxd031094": {
+    "file": "proteinGroups_Cldn4.txt",
+    "bytes": 3950383,
+    "sha1": "4dbde6c0d827105412ef1f34cbb969b8dd8acb36",
+    "pride_api_sha1": "4dbde6c0d827105412ef1f34cbb969b8dd8acb36",
+    "sha1_matches_pride_api": true,
+    "n_protein_groups": 2788,
+    "n_target_hits": 0,
+    "parp1_rows": [
+      {
+        "gene": "PARP1",
+        "unique_peptides": "2",
+        "lfq_cldn4": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "lfq_gfp": [
+          "0",
+          "0",
+          "38298000",
+          "0"
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "gene": "CLDN4",
+        "ids": "O14493",
+        "unique_peptides": "3",
+        "lfq_cldn4": [
+          "1987700000",
+          "1512900000",
+          "3165900000",
+          "3691800000"
+        ],
+        "lfq_gfp": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "gene": "OAS1",
+        "ids": "F1PLW6",
+        "unique_peptides": "5",
+        "lfq_cldn4": [
+          "104270000",
+          "99869000",
+          "104060000",
+          "90757000"
+        ],
+        "lfq_gfp": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      }
+    ]
+  },
+  "plos2015_s2": {
+    "file": "plos2015_s2_all_proteins.xlsx",
+    "bytes": 165343,
+    "sha1": "80a494263fee6b532cc6eefd76d419c1f461e600",
+    "n_bl_cldn4_proteins": 953,
+    "n_target_hits": 0
+  },
+  "plos2015_s3": {
+    "file": "plos2015_s3_enriched.xlsx",
+    "bytes": 94348,
+    "sha1": "706b19c532e70dd84363335144f8c373f23c8c1f",
+    "n_shared_strings": 1820,
+    "n_target_hits": 0,
+    "target_hits": []
+  },
+  "crc2024_bioid": {
+    "file": "crc24_suppst1_bioid.docx",
+    "bytes": 47326,
+    "sha1": "b1206501b06becd490ef6d2dc439024a2ae44bb9",
+    "figshare_md5": "70bcbba8b14311102973f11eda6cc41d",
+    "n_rows": 411,
+    "n_log2fc_gt_1": 309,
+    "n_target_hits": 0
+  }
+}
