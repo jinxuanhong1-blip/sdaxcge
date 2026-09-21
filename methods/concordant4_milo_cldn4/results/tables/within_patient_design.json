@@ -1,0 +1,7 @@
+{
+  "n_units": 65,
+  "n_patients": 65,
+  "n_patients_with_two_or_more_samples": 0,
+  "within_patient_design": "unidentified",
+  "reason": "Each concordant-4 unit is one dissociated sample from one patient. model.matrix(~ patient_id + cldn4_high) has more columns than rows and is rank-deficient. There is no second sampled condition inside a patient, so a within-patient malignant-neighbourhood contrast is not a Milo design."
+}

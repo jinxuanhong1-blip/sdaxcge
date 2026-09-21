@@ -1,0 +1,14 @@
+model	n_samples	n_nhoods_in	n_zero_rows_dropped	n_coef	rank	singular	coef	formula	norm	lib_mode
+binary_tmm	65	1287	0	5	5	False	cldn4_high	~ dataset + cldn4_high	TMM	colsum
+binary_logms	65	1287	0	5	5	False	cldn4_high	~ dataset + cldn4_high	logMS	column
+continuous_tmm	65	1287	0	5	5	False	cldn4_per10	~ dataset + cldn4_per10	TMM	colsum
+site_binary_tmm	65	1287	0	7	7	False	cldn4_high	~ dataset + site_mLN + site_tLB + cldn4_high	TMM	colsum
+q4q1_tmm	35	1285	2	5	5	False	cldn4_high	~ dataset + cldn4_high	TMM	colsum
+gse131907_origin_tmm	21	1265	22	4	4	False	cldn4_high	~ tissue + cldn4_high	TMM	colsum
+malignant_state_logms	65	480	0	5	5	False	cldn4_high	~ dataset + cldn4_high	logMS	column
+class_logms	65	5	0	5	5	False	cldn4_high	~ dataset + cldn4_high	logMS	column
+patient_intercept_check	65	1287	0	66	65	True	cldn4_high	~ patient_id + cldn4_high	TMM	colsum
+binary_tmm_GSE123902	13	1232	55	2	2	False	cldn4_high	~ cldn4_high	TMM	colsum
+binary_tmm_GSE131907	21	1265	22	2	2	False	cldn4_high	~ cldn4_high	TMM	colsum
+binary_tmm_GSE189357	9	1167	120	2	2	False	cldn4_high	~ cldn4_high	TMM	colsum
+binary_tmm_GSE205335	22	1273	14	2	2	False	cldn4_high	~ cldn4_high	TMM	colsum
