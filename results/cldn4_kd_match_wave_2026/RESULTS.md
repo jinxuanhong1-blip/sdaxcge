@@ -4,7 +4,9 @@ Search date: **2026-09-21**.
 
 **New public CLDN4/Cldn4 KD/KO/CRISPR/shRNA/siRNA expression datasets outside the catalog: 0.**
 
-IFN/APM overlap was **not scored**. There is no new matrix to download. No overlap count, logFC, or p-value was imputed.
+The second pass (NODE, CNGB, Figshare, Zenodo, author GitHub, and full-text accession mining) also found **no new matrix**.
+
+IFN/APM and NHEJ/STING/IFN were **not scored**. There is no new count matrix, FPKM table, or DEG table to download. No overlap count, logFC, or p-value was imputed.
 
 Catalog held out, not re-scored: **GSE22493, GSE50927, GSE207704, GSE274940**.
 
@@ -60,14 +62,43 @@ Author spot checks: Sato-Yazawa plus CLDN4/SAA1/RNA-seq returns no GEO series. K
 | GSE303714, GSE297058 | 266-6 / pancreatitis RNA-seq. Not a Cldn4 knockdown |
 | GSE174462 | H1688 shFOXM1, 2022. Not CLDN4 |
 
-## IFN/APM
+## Expanded hunt (NODE, CNGB, Figshare, Zenodo, GitHub, full text)
 
-Prespecified panels from the existing catalog audit (claim C4), not re-fit here:
+Searched 2026-09-21 after the GEO/ArrayExpress/SRA/GSA pass. Still **0** new CLDN4/Cldn4-loss expression matrices.
+
+| Source | Query | Result |
+|---|---|---|
+| NODE `POST /node/api/app/browse/search` | `queryWord` = CLDN4, Cldn4, claudin-4, "CLDN4 knockout", "H1688 CLDN4" | **0** each. The same endpoint returns 7,888 hits for `lung`, so the empty CLDN4 result is not a dead API |
+| CNGB `search/ajax/project` | CLDN4 | 5 hits: catalog PRJNA128653 (GSE22493), three pre-2024 ceRNA projects, and **CNP0006650** |
+| CNGB project | H1688, Kashiwagi, Sato-Yazawa | **0** |
+| Figshare article search | "H1688 CLDN4", "CLDN4 CRISPR RNA-seq", "CLDN4 knockout" | **0** |
+| Zenodo title `CLDN4` | metadata.title:CLDN4 | 1 dataset, not a CLDN4 knockdown (see below) |
+| GitHub | repo search `CLDN4`; code search `CLDN4 knockout`, `H1688 CLDN4` | one public repo, variant tables, not expression |
+| Europe PMC annotations | PMID 41016339, 40892111, 41214101, 38867360, 41697223, 42159105 and the OA PMCs | no GSE/SRA/CNP/OEP/Zenodo/Figshare expression accession on the H1688 paper |
+
+### Records opened
+
+| ID | What it actually is |
+|---|---|
+| PMID 41016339 (10.1016/j.bbrc.2025.152710) | Unpaywall: no OA PDF. Elsevier `mmc1`–`mmc5` URLs for PII S0006291X25014263 returned 404. Europe PMC text-mined accessions are only Addgene plasmids (RRID:Addgene_98293, Addgene_52961). No expression deposit to score |
+| PMID 40892111 supplement `10142_2025_1683_MOESM1_ESM.docx` | Primer sequences (GAPDH, CLDN4, GPX4, ACSL4). Data-availability line: available from the corresponding author on request. Not a matrix |
+| Zenodo 16886088 (10.5281/zenodo.16886088), 2025-09-24 | Source data for Science Advances adx7431 (27-claudin EpH4 paper). The paper states the RNA-seq is **GSE274940** (catalog). Figure 4 and figure S9 source workbooks are conductance / dilution-potential / strand counts for single-Cldn addbacks, not gene-expression matrices |
+| Zenodo 21976731, 2026-08-17 | Title names CLDN4 as a gastric-cancer biomarker with KRT18, GPRC5A, EPCAM, and CLDN7. Zip central directories: qPCR/wound images for **si-KRT18**, plus a re-pack of public **GSE163558** and TCGA TPM. Not a CLDN4 knockdown transcriptome |
+| CNP0006650 / CSE0000463 | CNGB project already tied to PMID 40592346 (HCC scRNA and CPP-S4 peptide RNA-seq). Peptide treatment is not CLDN4 KD/KO/CRISPR/shRNA/siRNA |
+| github.com/poojascis/CLDN4_Data | `Supple_Table1_nsSNV.csv` is missense variants on ENST00000340958.4. No count matrix |
+
+Figshare hits for the string "Sato-Yazawa" are other people with the same surname (amorphous alumina, spider silk), not the Dokkyo CLDN4 paper.
+
+## IFN/APM and NHEJ/STING/IFN
+
+Prespecified panels, not re-fit on a result:
 
 - CLAIM6: IFI27, OAS2, IFIT1, MX1, ISG15, HLA-A
-- IFN/ISG panel (39 genes) and MHC-I/APM panel (18 genes)
+- IFN/ISG (39 genes) and MHC-I/APM (18 genes), as in the catalog audit
+- NHEJ: XRCC6, XRCC5, PRKDC, LIG4, XRCC4, NHEJ1, DCLRE1C, PAXX, POLL, POLM
+- STING axis: CGAS, STING1, TBK1, IRF3, IFI16, TREX1, CCL5, CXCL10, IFNB1
 
-They were not applied. A set-level overlap on zero new contrasts would be a fabricated number.
+They were not applied. A set-level score on zero new contrasts would be a fabricated number.
 
 ## Reproduce
 

@@ -36,3 +36,10 @@ GSE264098	GEO	2024-04-16	Mus musculus	CEBPA scATAC-seq	no	no	no	string hit only
 GSE303714	GEO	2026-02-17	Mus musculus	METTL18 in pancreas; 266-6 mentioned	no	no	no	not Cldn4 knockdown
 GSE297058	GEO	2025-12-20	Mus musculus	hereditary pancreatitis	no	no	no	not Cldn4 knockdown
 GSE174462	GEO	2022-05-01	Homo sapiens	H1688 shFOXM1	no	no	no	wrong gene; before the window
+NODE:CLDN4	NODE browse/search	2026-09-21 query	na	queryWord CLDN4, Cldn4, claudin-4, CLDN4 knockout, H1688 CLDN4	no	no	no	0 projects; control query lung returns 7888
+CNP0006650	CNGB	2025	Homo sapiens	HCC scRNA and CPP-S4 peptide RNA-seq; CSE0000463	no	no	no	not genetic CLDN4 loss; outside GEO/AE/SRA/GSA
+10.5281/zenodo.16886088	Zenodo	2025-09-24	Mus musculus	Science Advances adx7431 figure source data	no	no	no	RNA-seq is catalog GSE274940; small source xlsx are physiology not expression
+10.5281/zenodo.21976731	Zenodo	2026-08-17	Homo sapiens	gastric-cancer biomarker raw data naming CLDN4	no	no	no	si-KRT18 images plus public GSE163558/TCGA; not CLDN4 KD
+github:poojascis/CLDN4_Data	GitHub	2026-03-09	Homo sapiens	CLDN4 nsSNV and UTR SNV tables	no	no	no	variant tables, not an expression matrix
+PMID:41016339-fulltext	Europe PMC annotations / Unpaywall / Elsevier	2025-10-20	Homo sapiens	H1688 CLDN4 CRISPR; text-mined accessions	no	no	no	Addgene_98293 and Addgene_52961 only; no OA PDF; mmc URLs 404; not scored
+PMID:40892111-MOESM1	Springer Nature supplement	2025	Mus musculus	primer table docx	no	no	no	primers only; expression data on request; not scored
