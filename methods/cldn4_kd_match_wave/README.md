@@ -9,3 +9,11 @@ python3 scripts/cldn4_kd_match_wave/build_concordance.py
 ```
 
 Write-up: `FINDING.md`. Forest: `figures/forest_ifn_apm.png`.
+
+Cancer-set sensitivity sweep (does not refit lung IFN/APM, and does not pool the two classes):
+
+```bash
+python3 scripts/cldn4_kd_match_wave/sweep_cancer_kd.py
+```
+
+Write-up: `SWEEP.md`. Figure: `figures/sweep_cancer_sensitivity.png`.

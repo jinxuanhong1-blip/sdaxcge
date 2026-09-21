@@ -53,3 +53,5 @@ A DerSimonian–Laird summary that weights each cancer median by its gene-resamp
 - `figures/forest_ifn_apm.png`
 
 Reproduce: `python3 scripts/cldn4_kd_match_wave/build_concordance.py`
+
+Cancer-cell discordance is re-checked in `SWEEP.md`. Alternate collapses, pathway tests, outlier and probe rules, and a kallisto n=2 versus n=2 quantification of both GSE207704 lines (CLDN4 down in both; pseudoalignment 37.0–42.1%) do not call IFN/ISG or MHC-I/APM up on the combined cancer contrasts. The only non-optimistic up calls are one SKOV-3 array (GSM558701) for Hallmark IFN-α, Hallmark IFN-γ, NHEJ_EXT, and Reactome NHEJ. NHEJ_CORE stays weak in both classes. That sweep does not refit the lung IFN/APM baseline.
