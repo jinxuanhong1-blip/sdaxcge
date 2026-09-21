@@ -4,7 +4,7 @@ Additive public series. Not merged into the concordant-4 (n=65) result.
 
 **Series:** [GSE325414](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE325414), Jimenez et al., pulsed-electric-field treat-and-resect early NSCLC. BD Rhapsody whole-transcriptome RNA, 25 donors, 156,467 cells. GEO defines INXBX as the index diagnostic biopsy, RESRT as the resected treatment area, and RESRU as resected untreated tumor. Every library in this deposit is the PEF arm. This is clinical stage and histology, not an ICI cohort.
 
-**Why this one:** among 224 GEO series dated 2024–2026 it is the largest open matrix that has CLDN4, author-labeled tumor epithelium, and author-labeled T/NK in the same donors, plus stage. The best unused ICI-response series is GSE233203 (pleural fluid, n=7) and was not the run. GSE243013 (n=234, ICI) and GSE280232 (n=13, neoadjuvant nivolumab + ipilimumab) are immune-only or sorted T cells. Candidate table: `CANDIDATES.md`.
+**Why this one:** among 224 GEO series dated 2024–2026 it is the largest open matrix that has CLDN4, author-labeled tumor epithelium, and author-labeled T/NK in the same donors, plus stage. The best unused ICI-response series is GSE233203 (pleural fluid, n=7), scored separately in `results/gse233203/FINDING.md`. GSE243013 (n=234, ICI) and GSE280232 (n=13, neoadjuvant nivolumab + ipilimumab) are immune-only or sorted T cells. Candidate table: `CANDIDATES.md`.
 
 ## LUAD stability sweep
 
