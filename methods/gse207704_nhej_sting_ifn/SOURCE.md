@@ -8,3 +8,4 @@
 - WT is parental, “No treatment”. There is no siRNA negative-control arm.
 - Reactome 2022 sets in `reactome_sets.gmt` were taken from the Enrichr library `Reactome_2022` (gene-set names and R-HSA ids are in the GMT description field).
 - The matrix is downloaded by `scripts/gse207704_nhej_sting_ifn/analyze.py` and is not committed.
+- Replicate-level counts are a separate analysis in `scripts/gse207704_nhej_sting_ifn/de_sweep.py`. Reads are the eight SRA runs (SRR20029118–SRR20029125), quantified with kallisto 0.51.1 against Ensembl 110 cDNA (`--single -l 200 -s 30`). Transcript estimates are summed to `gene_symbol` and rounded. The gene-count matrix is `tables/kallisto_gene_counts.tsv.gz`. DE uses inmoose 0.9.1 (DESeq2, edgeR QL, limma-trend). Results are in `SWEEP.md`.
