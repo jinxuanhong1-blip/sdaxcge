@@ -1,0 +1,5 @@
+normalization	log2FC_or_mean_diff	pvalue	padj_or_note	note
+author_DESeq2	0.284440042778056	0.1291740464809	0.46637365651771	author Wald p and genome-wide padj
+author_norm	0.2872251881319965	0.041351419908000245	0.08571428571428572	welch p in pvalue column; exact two-sided perm p in padj_or_note; nperm=35; one-sided KO>WT p=0.0571
+cpm	0.39898473704865367	0.008741096844178906	0.05714285714285714	welch p in pvalue column; exact two-sided perm p in padj_or_note; nperm=35; one-sided KO>WT p=0.0286
+median_ratio	0.29784129548545835	0.03766365777376304	0.05714285714285714	welch p in pvalue column; exact two-sided perm p in padj_or_note; nperm=35; one-sided KO>WT p=0.0286

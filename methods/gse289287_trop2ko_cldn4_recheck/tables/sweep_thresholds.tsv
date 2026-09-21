@@ -1,0 +1,115 @@
+set	short	axis	rule	n_genes_in_table	n_with_stat	n_up	n_down	up_genes
+Interferon Alpha Response	IFN-α Hallmark	IFN	padj<0.05	95	82	5	0	IFI44L,ISG15,IFI44,IFITM3,STAT2
+Interferon Alpha Response	IFN-α Hallmark	IFN	padj<0.1	95	82	9	1	IFI44L,ISG15,IFI44,IFITM3,IFIT3,OAS1,UBE2L6,MOV10,STAT2
+Interferon Alpha Response	IFN-α Hallmark	IFN	padj<0.2	95	82	14	2	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,OAS1,CMPK2,UBE2L6,MOV10,STAT2,BST2
+Interferon Alpha Response	IFN-α Hallmark	IFN	pvalue<0.05	95	95	24	2	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,TDRD7,OAS1,CMPK2,UBE2L6,ISG20,MOV10
+Interferon Alpha Response	IFN-α Hallmark	IFN	pvalue<0.1	95	95	30	4	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,TDRD7,OAS1,CMPK2,UBE2L6,ISG20,MOV10
+Interferon Alpha Response	IFN-α Hallmark	IFN	pvalue<0.05 and |log2FC|>0.5	95	95	24	2	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,TDRD7,OAS1,CMPK2,UBE2L6,ISG20,MOV10
+Interferon Gamma Response	IFN-γ Hallmark	IFN	padj<0.05	186	141	5	0	IFI44L,ISG15,IFI44,IFITM3,STAT2
+Interferon Gamma Response	IFN-γ Hallmark	IFN	padj<0.1	186	141	11	2	IFI44L,ISG15,IFI44,IFITM3,IFIT3,DDX58,OAS3,UBE2L6,OAS2,STAT2,MYD88
+Interferon Gamma Response	IFN-γ Hallmark	IFN	padj<0.2	186	141	19	6	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,MX2,IFIT1,DDX58,CMPK2,OAS3,UBE2L6
+Interferon Gamma Response	IFN-γ Hallmark	IFN	pvalue<0.05	186	186	33	10	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,MX2,IFIT1,DDX58,TDRD7,CMPK2,OAS3
+Interferon Gamma Response	IFN-γ Hallmark	IFN	pvalue<0.1	186	186	45	16	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,MX2,IFIT1,DDX58,TDRD7,CMPK2,OAS3
+Interferon Gamma Response	IFN-γ Hallmark	IFN	pvalue<0.05 and |log2FC|>0.5	186	186	33	8	IFI44L,ISG15,IFI44,IFITM3,IFIT3,MX1,MX2,IFIT1,DDX58,TDRD7,CMPK2,OAS3
+Interferon Alpha/Beta Signaling R-HSA-909733	IFN-α/β Reactome	IFN	padj<0.05	58	52	3	1	ISG15,IFITM3,STAT2
+Interferon Alpha/Beta Signaling R-HSA-909733	IFN-α/β Reactome	IFN	padj<0.1	58	52	8	1	ISG15,IFITM3,IFIT3,HLA-F,OAS1,OAS3,OAS2,STAT2
+Interferon Alpha/Beta Signaling R-HSA-909733	IFN-α/β Reactome	IFN	padj<0.2	58	52	16	2	ISG15,IFITM3,IFIT3,MX1,MX2,IFIT1,HLA-F,IFI6,OAS1,OAS3,OAS2,STAT1
+Interferon Alpha/Beta Signaling R-HSA-909733	IFN-α/β Reactome	IFN	pvalue<0.05	58	58	21	2	ISG15,IFITM3,IFIT3,MX1,MX2,IFIT1,HLA-F,IFI6,OAS1,OAS3,OAS2,ISG20
+Interferon Alpha/Beta Signaling R-HSA-909733	IFN-α/β Reactome	IFN	pvalue<0.1	58	58	26	4	ISG15,IFITM3,IFIT3,MX1,MX2,IFIT1,HLA-F,IFI6,OAS1,OAS3,OAS2,ISG20
+Interferon Alpha/Beta Signaling R-HSA-909733	IFN-α/β Reactome	IFN	pvalue<0.05 and |log2FC|>0.5	58	58	21	2	ISG15,IFITM3,IFIT3,MX1,MX2,IFIT1,HLA-F,IFI6,OAS1,OAS3,OAS2,ISG20
+Interferon Gamma Signaling R-HSA-877300	IFN-γ Reactome	IFN	padj<0.05	78	62	0	0	
+Interferon Gamma Signaling R-HSA-877300	IFN-γ Reactome	IFN	padj<0.1	78	62	5	0	TRIM45,HLA-F,OAS1,OAS3,OAS2
+Interferon Gamma Signaling R-HSA-877300	IFN-γ Reactome	IFN	padj<0.2	78	62	8	1	TRIM45,HLA-F,OAS1,OAS3,OAS2,MT2A,STAT1,HLA-C
+Interferon Gamma Signaling R-HSA-877300	IFN-γ Reactome	IFN	pvalue<0.05	78	78	12	4	TRIM45,HLA-F,OAS1,OAS3,OAS2,MT2A,STAT1,HLA-C,OASL,SP100,PML,B2M
+Interferon Gamma Signaling R-HSA-877300	IFN-γ Reactome	IFN	pvalue<0.1	78	78	15	7	TRIM45,HLA-F,OAS1,OAS3,OAS2,MT2A,STAT1,HLA-C,OASL,HLA-A,SP100,HLA-B
+Interferon Gamma Signaling R-HSA-877300	IFN-γ Reactome	IFN	pvalue<0.05 and |log2FC|>0.5	78	78	12	4	TRIM45,HLA-F,OAS1,OAS3,OAS2,MT2A,STAT1,HLA-C,OASL,SP100,PML,B2M
+Response To Type I Interferon (GO:0034340)	IFN-I response GO	IFN	padj<0.05	8	8	1	1	ISG15
+Response To Type I Interferon (GO:0034340)	IFN-I response GO	IFN	padj<0.1	8	8	1	1	ISG15
+Response To Type I Interferon (GO:0034340)	IFN-I response GO	IFN	padj<0.2	8	8	3	1	ISG15,MX1,IFIT1
+Response To Type I Interferon (GO:0034340)	IFN-I response GO	IFN	pvalue<0.05	8	8	4	1	ISG15,MX1,IFIT1,SP100
+Response To Type I Interferon (GO:0034340)	IFN-I response GO	IFN	pvalue<0.1	8	8	4	1	ISG15,MX1,IFIT1,SP100
+Response To Type I Interferon (GO:0034340)	IFN-I response GO	IFN	pvalue<0.05 and |log2FC|>0.5	8	8	4	1	ISG15,MX1,IFIT1,SP100
+Type I Interferon-Mediated Signaling Pathway (GO:0060337)	IFN-I signaling GO	IFN	padj<0.05	22	19	2	0	IFITM3,STAT2
+Type I Interferon-Mediated Signaling Pathway (GO:0060337)	IFN-I signaling GO	IFN	padj<0.1	22	19	4	0	IFITM3,OAS2,STAT2,MYD88
+Type I Interferon-Mediated Signaling Pathway (GO:0060337)	IFN-I signaling GO	IFN	padj<0.2	22	19	5	0	IFITM3,OAS2,STAT1,STAT2,MYD88
+Type I Interferon-Mediated Signaling Pathway (GO:0060337)	IFN-I signaling GO	IFN	pvalue<0.05	22	22	7	0	IFITM3,OAS2,STAT1,STAT2,MYD88,IFI27,SP100
+Type I Interferon-Mediated Signaling Pathway (GO:0060337)	IFN-I signaling GO	IFN	pvalue<0.1	22	22	7	1	IFITM3,OAS2,STAT1,STAT2,MYD88,IFI27,SP100
+Type I Interferon-Mediated Signaling Pathway (GO:0060337)	IFN-I signaling GO	IFN	pvalue<0.05 and |log2FC|>0.5	22	22	7	0	IFITM3,OAS2,STAT1,STAT2,MYD88,IFI27,SP100
+Antigen processing and presentation	APM KEGG (I+II)	APM	padj<0.05	56	42	0	0	
+Antigen processing and presentation	APM KEGG (I+II)	APM	padj<0.1	56	42	1	1	HLA-F
+Antigen processing and presentation	APM KEGG (I+II)	APM	padj<0.2	56	42	2	2	HLA-F,HLA-C
+Antigen processing and presentation	APM KEGG (I+II)	APM	pvalue<0.05	56	56	3	3	HLA-F,HLA-C,B2M
+Antigen processing and presentation	APM KEGG (I+II)	APM	pvalue<0.1	56	56	5	5	HLA-F,HLA-C,HLA-A,HLA-B,B2M
+Antigen processing and presentation	APM KEGG (I+II)	APM	pvalue<0.05 and |log2FC|>0.5	56	56	3	2	HLA-F,HLA-C,B2M
+Antigen Processing And Presentation Of Peptide Antigen Via MHC Class I (GO:0002474)	APM MHC-I GO	APM	padj<0.05	17	14	0	0	
+Antigen Processing And Presentation Of Peptide Antigen Via MHC Class I (GO:0002474)	APM MHC-I GO	APM	padj<0.1	17	14	0	0	
+Antigen Processing And Presentation Of Peptide Antigen Via MHC Class I (GO:0002474)	APM MHC-I GO	APM	padj<0.2	17	14	0	2	
+Antigen Processing And Presentation Of Peptide Antigen Via MHC Class I (GO:0002474)	APM MHC-I GO	APM	pvalue<0.05	17	17	1	3	B2M
+Antigen Processing And Presentation Of Peptide Antigen Via MHC Class I (GO:0002474)	APM MHC-I GO	APM	pvalue<0.1	17	17	2	3	HLA-A,B2M
+Antigen Processing And Presentation Of Peptide Antigen Via MHC Class I (GO:0002474)	APM MHC-I GO	APM	pvalue<0.05 and |log2FC|>0.5	17	17	1	3	B2M
+STING Mediated Induction Of Host Immune Responses R-HSA-1834941	STING Reactome	STING	padj<0.05	15	11	0	1	
+STING Mediated Induction Of Host Immune Responses R-HSA-1834941	STING Reactome	STING	padj<0.1	15	11	0	1	
+STING Mediated Induction Of Host Immune Responses R-HSA-1834941	STING Reactome	STING	padj<0.2	15	11	1	1	STAT6
+STING Mediated Induction Of Host Immune Responses R-HSA-1834941	STING Reactome	STING	pvalue<0.05	15	15	1	2	STAT6
+STING Mediated Induction Of Host Immune Responses R-HSA-1834941	STING Reactome	STING	pvalue<0.1	15	15	1	3	STAT6
+STING Mediated Induction Of Host Immune Responses R-HSA-1834941	STING Reactome	STING	pvalue<0.05 and |log2FC|>0.5	15	15	0	1	
+Cytosolic Sensors Of Pathogen-Associated DNA R-HSA-1834949	DNA sensors Reactome	STING	padj<0.05	61	53	0	2	
+Cytosolic Sensors Of Pathogen-Associated DNA R-HSA-1834949	DNA sensors Reactome	STING	padj<0.1	61	53	1	2	MYD88
+Cytosolic Sensors Of Pathogen-Associated DNA R-HSA-1834949	DNA sensors Reactome	STING	padj<0.2	61	53	3	4	NFKBIB,MYD88,STAT6
+Cytosolic Sensors Of Pathogen-Associated DNA R-HSA-1834949	DNA sensors Reactome	STING	pvalue<0.05	61	61	5	7	NFKBIB,MYD88,IKBKB,STAT6,RELA
+Cytosolic Sensors Of Pathogen-Associated DNA R-HSA-1834949	DNA sensors Reactome	STING	pvalue<0.1	61	61	5	10	NFKBIB,MYD88,IKBKB,STAT6,RELA
+Cytosolic Sensors Of Pathogen-Associated DNA R-HSA-1834949	DNA sensors Reactome	STING	pvalue<0.05 and |log2FC|>0.5	61	61	2	3	NFKBIB,MYD88
+Regulation Of Innate Immune Responses To Cytosolic DNA R-HSA-3134975	Cytosolic DNA reg.	STING	padj<0.05	14	11	0	0	
+Regulation Of Innate Immune Responses To Cytosolic DNA R-HSA-3134975	Cytosolic DNA reg.	STING	padj<0.1	14	11	0	0	
+Regulation Of Innate Immune Responses To Cytosolic DNA R-HSA-3134975	Cytosolic DNA reg.	STING	padj<0.2	14	11	0	0	
+Regulation Of Innate Immune Responses To Cytosolic DNA R-HSA-3134975	Cytosolic DNA reg.	STING	pvalue<0.05	14	14	0	0	
+Regulation Of Innate Immune Responses To Cytosolic DNA R-HSA-3134975	Cytosolic DNA reg.	STING	pvalue<0.1	14	14	0	1	
+Regulation Of Innate Immune Responses To Cytosolic DNA R-HSA-3134975	Cytosolic DNA reg.	STING	pvalue<0.05 and |log2FC|>0.5	14	14	0	0	
+IRF3-mediated Induction Of Type I IFN R-HSA-3270619	IRF3 type-I IFN	STING	padj<0.05	12	9	0	1	
+IRF3-mediated Induction Of Type I IFN R-HSA-3270619	IRF3 type-I IFN	STING	padj<0.1	12	9	0	1	
+IRF3-mediated Induction Of Type I IFN R-HSA-3270619	IRF3 type-I IFN	STING	padj<0.2	12	9	0	1	
+IRF3-mediated Induction Of Type I IFN R-HSA-3270619	IRF3 type-I IFN	STING	pvalue<0.05	12	12	0	2	
+IRF3-mediated Induction Of Type I IFN R-HSA-3270619	IRF3 type-I IFN	STING	pvalue<0.1	12	12	0	3	
+IRF3-mediated Induction Of Type I IFN R-HSA-3270619	IRF3 type-I IFN	STING	pvalue<0.05 and |log2FC|>0.5	12	12	0	1	
+Cytosolic DNA-sensing pathway	DNA sensing KEGG	STING	padj<0.05	44	33	0	1	
+Cytosolic DNA-sensing pathway	DNA sensing KEGG	STING	padj<0.1	44	33	1	2	DDX58
+Cytosolic DNA-sensing pathway	DNA sensing KEGG	STING	padj<0.2	44	33	2	3	DDX58,NFKBIB
+Cytosolic DNA-sensing pathway	DNA sensing KEGG	STING	pvalue<0.05	44	44	4	4	DDX58,NFKBIB,IKBKB,RELA
+Cytosolic DNA-sensing pathway	DNA sensing KEGG	STING	pvalue<0.1	44	44	5	7	DDX58,NFKBIB,CCL5,IKBKB,RELA
+Cytosolic DNA-sensing pathway	DNA sensing KEGG	STING	pvalue<0.05 and |log2FC|>0.5	44	44	2	3	DDX58,NFKBIB
+Non-homologous end-joining	NHEJ KEGG	NHEJ	padj<0.05	12	11	1	1	POLM
+Non-homologous end-joining	NHEJ KEGG	NHEJ	padj<0.1	12	11	1	1	POLM
+Non-homologous end-joining	NHEJ KEGG	NHEJ	padj<0.2	12	11	2	1	POLM,FEN1
+Non-homologous end-joining	NHEJ KEGG	NHEJ	pvalue<0.05	12	12	3	1	POLM,DCLRE1C,FEN1
+Non-homologous end-joining	NHEJ KEGG	NHEJ	pvalue<0.1	12	12	4	2	POLM,DCLRE1C,FEN1,POLL
+Non-homologous end-joining	NHEJ KEGG	NHEJ	pvalue<0.05 and |log2FC|>0.5	12	12	2	0	POLM,DCLRE1C
+Double-Strand Break Repair Via Nonhomologous End Joining (GO:0006303)	NHEJ GO	NHEJ	padj<0.05	39	36	1	1	POLM
+Double-Strand Break Repair Via Nonhomologous End Joining (GO:0006303)	NHEJ GO	NHEJ	padj<0.1	39	36	2	1	POLM,TP53BP1
+Double-Strand Break Repair Via Nonhomologous End Joining (GO:0006303)	NHEJ GO	NHEJ	padj<0.2	39	36	2	2	POLM,TP53BP1
+Double-Strand Break Repair Via Nonhomologous End Joining (GO:0006303)	NHEJ GO	NHEJ	pvalue<0.05	39	39	5	4	POLM,DCLRE1C,TP53BP1,SMC5,KDM2A
+Double-Strand Break Repair Via Nonhomologous End Joining (GO:0006303)	NHEJ GO	NHEJ	pvalue<0.1	39	39	7	5	POLM,DCLRE1C,PAXX,TP53BP1,POLL,SMC5,KDM2A
+Double-Strand Break Repair Via Nonhomologous End Joining (GO:0006303)	NHEJ GO	NHEJ	pvalue<0.05 and |log2FC|>0.5	39	39	2	2	POLM,DCLRE1C
+Double-Strand Break Repair Via Classical Nonhomologous End Joining (GO:0097680)	NHEJ classical GO	NHEJ	padj<0.05	5	5	0	0	
+Double-Strand Break Repair Via Classical Nonhomologous End Joining (GO:0097680)	NHEJ classical GO	NHEJ	padj<0.1	5	5	0	0	
+Double-Strand Break Repair Via Classical Nonhomologous End Joining (GO:0097680)	NHEJ classical GO	NHEJ	padj<0.2	5	5	0	0	
+Double-Strand Break Repair Via Classical Nonhomologous End Joining (GO:0097680)	NHEJ classical GO	NHEJ	pvalue<0.05	5	5	0	0	
+Double-Strand Break Repair Via Classical Nonhomologous End Joining (GO:0097680)	NHEJ classical GO	NHEJ	pvalue<0.1	5	5	0	0	
+Double-Strand Break Repair Via Classical Nonhomologous End Joining (GO:0097680)	NHEJ classical GO	NHEJ	pvalue<0.05 and |log2FC|>0.5	5	5	0	0	
+Nonhomologous End-Joining (NHEJ) R-HSA-5693571	NHEJ Reactome	NHEJ	padj<0.05	35	33	2	2	POLM,NSD2
+Nonhomologous End-Joining (NHEJ) R-HSA-5693571	NHEJ Reactome	NHEJ	padj<0.1	35	33	3	2	POLM,NSD2,TP53BP1
+Nonhomologous End-Joining (NHEJ) R-HSA-5693571	NHEJ Reactome	NHEJ	padj<0.2	35	33	3	2	POLM,NSD2,TP53BP1
+Nonhomologous End-Joining (NHEJ) R-HSA-5693571	NHEJ Reactome	NHEJ	pvalue<0.05	35	35	6	2	POLM,NSD2,DCLRE1C,MDC1,TP53BP1,TDP1
+Nonhomologous End-Joining (NHEJ) R-HSA-5693571	NHEJ Reactome	NHEJ	pvalue<0.1	35	35	7	4	POLM,NSD2,DCLRE1C,MDC1,TP53BP1,POLL,TDP1
+Nonhomologous End-Joining (NHEJ) R-HSA-5693571	NHEJ Reactome	NHEJ	pvalue<0.05 and |log2FC|>0.5	35	35	4	1	POLM,NSD2,DCLRE1C,MDC1
+HDR Thru MMEJ (alt-NHEJ) R-HSA-5685939	alt-NHEJ MMEJ	NHEJ	padj<0.05	12	11	0	0	
+HDR Thru MMEJ (alt-NHEJ) R-HSA-5685939	alt-NHEJ MMEJ	NHEJ	padj<0.1	12	11	0	0	
+HDR Thru MMEJ (alt-NHEJ) R-HSA-5685939	alt-NHEJ MMEJ	NHEJ	padj<0.2	12	11	1	0	FEN1
+HDR Thru MMEJ (alt-NHEJ) R-HSA-5685939	alt-NHEJ MMEJ	NHEJ	pvalue<0.05	12	12	1	0	FEN1
+HDR Thru MMEJ (alt-NHEJ) R-HSA-5685939	alt-NHEJ MMEJ	NHEJ	pvalue<0.1	12	12	2	1	FEN1,RBBP8
+HDR Thru MMEJ (alt-NHEJ) R-HSA-5685939	alt-NHEJ MMEJ	NHEJ	pvalue<0.05 and |log2FC|>0.5	12	12	0	0	
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	APM MHC-I custom	APM	padj<0.05	21	17	0	0	
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	APM MHC-I custom	APM	padj<0.1	21	17	1	0	HLA-F
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	APM MHC-I custom	APM	padj<0.2	21	17	2	2	HLA-F,HLA-C
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	APM MHC-I custom	APM	pvalue<0.05	21	21	3	3	HLA-F,HLA-C,B2M
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	APM MHC-I custom	APM	pvalue<0.1	21	21	5	3	HLA-F,HLA-C,HLA-A,HLA-B,B2M
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	APM MHC-I custom	APM	pvalue<0.05 and |log2FC|>0.5	21	21	3	2	HLA-F,HLA-C,B2M
