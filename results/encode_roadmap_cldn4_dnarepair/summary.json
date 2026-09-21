@@ -1,0 +1,429 @@
+{
+  "cldn4": {
+    "symbol": "CLDN4",
+    "ensembl": "ENSG00000189143",
+    "chrom": "7",
+    "start": 73799541,
+    "end": 73832690,
+    "strand": 1,
+    "tss": 73799541,
+    "description": "claudin 4 [Source:HGNC Symbol;Acc:HGNC:2046]"
+  },
+  "kegg_genes_with_coords": 175,
+  "nearest_repair": [
+    {
+      "symbol": "RFC2",
+      "entrez": "5982",
+      "chrom": "7",
+      "start0": 74223230,
+      "end0": 74254458,
+      "tss0": 74254457,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 390540,
+      "tss_distance_bp": 454916,
+      "within_1Mb_gap": true,
+      "within_2Mb_gap": true,
+      "pathways": "base excision repair;mismatch repair;nucleotide excision repair"
+    },
+    {
+      "symbol": "SEM1",
+      "entrez": "7979",
+      "chrom": "7",
+      "start0": 96481625,
+      "end0": 96709893,
+      "tss0": 96709892,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 22648935,
+      "tss_distance_bp": 22910351,
+      "within_1Mb_gap": false,
+      "within_2Mb_gap": false,
+      "pathways": "homologous recombination"
+    },
+    {
+      "symbol": "POLR2J",
+      "entrez": "5439",
+      "chrom": "7",
+      "start0": 102473109,
+      "end0": 102478936,
+      "tss0": 102478935,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 28640419,
+      "tss_distance_bp": 28679394,
+      "within_1Mb_gap": false,
+      "within_2Mb_gap": false,
+      "pathways": "nucleotide excision repair"
+    },
+    {
+      "symbol": "POLR2J3",
+      "entrez": "548644",
+      "chrom": "7",
+      "start0": 102537917,
+      "end0": 102572653,
+      "tss0": 102572652,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 28705227,
+      "tss_distance_bp": 28773111,
+      "within_1Mb_gap": false,
+      "within_2Mb_gap": false,
+      "pathways": "nucleotide excision repair"
+    },
+    {
+      "symbol": "POLR2J2",
+      "entrez": "246721",
+      "chrom": "7",
+      "start0": 102665367,
+      "end0": 102671752,
+      "tss0": 102671751,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 28832677,
+      "tss_distance_bp": 28872210,
+      "within_1Mb_gap": false,
+      "within_2Mb_gap": false,
+      "pathways": "nucleotide excision repair"
+    },
+    {
+      "symbol": "POLD2",
+      "entrez": "5425",
+      "chrom": "7",
+      "start0": 44114630,
+      "end0": 44124407,
+      "tss0": 44124406,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 29675134,
+      "tss_distance_bp": 29675135,
+      "within_1Mb_gap": false,
+      "within_2Mb_gap": false,
+      "pathways": "base excision repair;homologous recombination;mismatch repair;nucleotide excision repair"
+    },
+    {
+      "symbol": "POLM",
+      "entrez": "27434",
+      "chrom": "7",
+      "start0": 44070914,
+      "end0": 44082985,
+      "tss0": 44082984,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 29716556,
+      "tss_distance_bp": 29716557,
+      "within_1Mb_gap": false,
+      "within_2Mb_gap": false,
+      "pathways": "non-homologous end-joining"
+    },
+    {
+      "symbol": "RPA3",
+      "entrez": "6119",
+      "chrom": "7",
+      "start0": 7634842,
+      "end0": 7718607,
+      "tss0": 7718606,
+      "strand": -1,
+      "same_chrom_as_CLDN4": true,
+      "gap_bp": 66080934,
+      "tss_distance_bp": 66080935,
+      "within_1Mb_gap": false,
+      "within_2Mb_gap": false,
+      "pathways": "Fanconi anemia;homologous recombination;mismatch repair;nucleotide excision repair"
+    }
+  ],
+  "n_repair_within_1Mb": 1,
+  "n_repair_within_2Mb": 1,
+  "baseline_hic_domain_experiments": 30,
+  "baseline_hic_domain_hit_any": 1,
+  "baseline_hic_domain_hit_le2mb": 1,
+  "baseline_hic_loop_experiments": 27,
+  "baseline_hic_loop_gene_hit": 0,
+  "baseline_chia_loop_experiments": 18,
+  "baseline_chia_loop_gene_hit": 5,
+  "lung_domain_experiments": 3,
+  "lung_domain_le2mb": 0,
+  "lung_loop_experiments": 1,
+  "lung_loop_hit": 0,
+  "chromhmm_primary_n": 9,
+  "chromhmm_CLDN4": {
+    "Quies": 2,
+    "Enh": 7
+  },
+  "chromhmm_nearest": {
+    "TssA": 8,
+    "TssBiv": 1
+  },
+  "chip_files_scored": 50,
+  "chip_both_promoter_peaks_le_50kb": 0,
+  "local_genes_1Mb": [
+    {
+      "gap_bp": 0,
+      "symbol": "CLDN4",
+      "description": "claudin 4"
+    },
+    {
+      "gap_bp": 0,
+      "symbol": "METTL27",
+      "description": "methyltransferase like 27"
+    },
+    {
+      "gap_bp": 28468,
+      "symbol": "TMEM270",
+      "description": "transmembrane protein 270"
+    },
+    {
+      "gap_bp": 29271,
+      "symbol": "CLDN3",
+      "description": "claudin 3"
+    },
+    {
+      "gap_bp": 60677,
+      "symbol": "ABHD11",
+      "description": "abhydrolase domain containing 11"
+    },
+    {
+      "gap_bp": 79835,
+      "symbol": "STX1A",
+      "description": "syntaxin 1A"
+    },
+    {
+      "gap_bp": 101313,
+      "symbol": "BUD23",
+      "description": "BUD23 rRNA methyltransferase and ribosome maturation factor"
+    },
+    {
+      "gap_bp": 116088,
+      "symbol": "DNAJC30",
+      "description": "DnaJ heat shock protein family (Hsp40) member C30"
+    },
+    {
+      "gap_bp": 117517,
+      "symbol": "VPS37D",
+      "description": "VPS37D subunit of ESCRT-I"
+    },
+    {
+      "gap_bp": 174966,
+      "symbol": "MLXIPL",
+      "description": "MLX interacting protein like"
+    },
+    {
+      "gap_bp": 195082,
+      "symbol": "ELN",
+      "description": "elastin"
+    },
+    {
+      "gap_bp": 220750,
+      "symbol": "TBL2",
+      "description": "transducin beta like 2"
+    },
+    {
+      "gap_bp": 241524,
+      "symbol": "BCL7B",
+      "description": "BAF chromatin remodeling complex subunit BCL7B"
+    },
+    {
+      "gap_bp": 250242,
+      "symbol": "LIMK1",
+      "description": "LIM domain kinase 1"
+    },
+    {
+      "gap_bp": 277248,
+      "symbol": "BAZ1B",
+      "description": "bromodomain adjacent to zinc finger domain 1B"
+    },
+    {
+      "gap_bp": 341436,
+      "symbol": "EIF4H",
+      "description": "eukaryotic translation initiation factor 4H"
+    },
+    {
+      "gap_bp": 363421,
+      "symbol": "FZD9",
+      "description": "frizzled class receptor 9"
+    },
+    {
+      "gap_bp": 366961,
+      "symbol": "LAT2",
+      "description": "linker for activation of T cells family member 2"
+    },
+    {
+      "gap_bp": 390540,
+      "symbol": "RFC2",
+      "description": "replication factor C subunit 2"
+    },
+    {
+      "gap_bp": 440904,
+      "symbol": "FKBP6",
+      "description": "FKBP prolyl isomerase family member 6 (inactive)"
+    },
+    {
+      "gap_bp": 456716,
+      "symbol": "CLIP2",
+      "description": "CAP-Gly domain containing linker protein 2"
+    },
+    {
+      "gap_bp": 471459,
+      "symbol": "TRIM50",
+      "description": "tripartite motif containing 50"
+    },
+    {
+      "gap_bp": 490674,
+      "symbol": "NSUN5",
+      "description": "NOP2/Sun RNA methyltransferase 5"
+    },
+    {
+      "gap_bp": 619772,
+      "symbol": "GTF2IRD1",
+      "description": "GTF2I repeat domain containing 1"
+    },
+    {
+      "gap_bp": 644110,
+      "symbol": "SPDYE10",
+      "description": "speedy/RINGO cell cycle regulator family member E10"
+    },
+    {
+      "gap_bp": 713503,
+      "symbol": "SPDYE9",
+      "description": "speedy/RINGO cell cycle regulator family member E9"
+    },
+    {
+      "gap_bp": 741630,
+      "symbol": "SPDYE11",
+      "description": "speedy/RINGO cell cycle regulator family member E11"
+    },
+    {
+      "gap_bp": 769775,
+      "symbol": "SPDYE8",
+      "description": "speedy/RINGO cell cycle regulator family member E8"
+    },
+    {
+      "gap_bp": 817535,
+      "symbol": "GTF2I",
+      "description": "general transcription factor IIi"
+    },
+    {
+      "gap_bp": 830075,
+      "symbol": "TRIM74",
+      "description": "tripartite motif containing 74"
+    },
+    {
+      "gap_bp": 848101,
+      "symbol": "POM121",
+      "description": "POM121 transmembrane nucleoporin"
+    },
+    {
+      "gap_bp": 941284,
+      "symbol": "NCF1",
+      "description": "neutrophil cytosolic factor 1"
+    },
+    {
+      "gap_bp": 963453,
+      "symbol": "GTF2IRD2",
+      "description": "GTF2I repeat domain containing 2"
+    },
+    {
+      "gap_bp": 971281,
+      "symbol": "TYW1B",
+      "description": "tRNA-yW synthesizing protein 1 homolog B"
+    }
+  ],
+  "nearest_symbol": "RFC2",
+  "nearest_gap_bp": 390540,
+  "nearest_tss_bp": 454916,
+  "nearest_pathways": "base excision repair;mismatch repair;nucleotide excision repair",
+  "domain_le2mb_by_biosample": [
+    [
+      "HCT116",
+      "in situ Hi-C",
+      "RFC2"
+    ]
+  ],
+  "loop_hit_by_biosample": [
+    [
+      "A549",
+      "ChIA-PET",
+      "CTCF",
+      "RFC2"
+    ],
+    [
+      "A549",
+      "ChIA-PET",
+      "POLR2A",
+      "RFC2"
+    ],
+    [
+      "MCF-7",
+      "ChIA-PET",
+      "POLR2A",
+      "RFC2"
+    ],
+    [
+      "Panc1",
+      "ChIA-PET",
+      "CTCF",
+      "RFC2"
+    ],
+    [
+      "RWPE1",
+      "ChIA-PET",
+      "CTCF",
+      "RFC2"
+    ]
+  ],
+  "domain_miss_biosamples": [
+    "A549",
+    "Caki2",
+    "DLD1",
+    "HCT116",
+    "HepG2",
+    "LNCaP clone FGC",
+    "MCF 10A",
+    "MCF-7",
+    "NCI-H460",
+    "Panc1",
+    "T47D",
+    "breast epithelium",
+    "esophagus squamous epithelium",
+    "hTERT RPE-1",
+    "keratinocyte",
+    "mammary epithelial cell"
+  ],
+  "hic_loop_biosamples_scanned": [
+    "A549",
+    "Caki2",
+    "DLD1",
+    "HCT116",
+    "HepG2",
+    "MCF 10A",
+    "MCF-7",
+    "Panc1",
+    "T47D",
+    "breast epithelium",
+    "esophagus squamous epithelium",
+    "hTERT RPE-1",
+    "keratinocyte",
+    "mammary epithelial cell"
+  ],
+  "hic_domain_biosamples_scanned": [
+    "A549",
+    "Caki2",
+    "DLD1",
+    "HCT116",
+    "HepG2",
+    "LNCaP clone FGC",
+    "MCF 10A",
+    "MCF-7",
+    "NCI-H460",
+    "Panc1",
+    "T47D",
+    "breast epithelium",
+    "esophagus squamous epithelium",
+    "hTERT RPE-1",
+    "keratinocyte",
+    "mammary epithelial cell"
+  ],
+  "kegg_unmapped_entrez": [],
+  "n_experiments_seen": 179,
+  "n_files_used": 251
+}
