@@ -1,0 +1,48 @@
+{
+  "n_units": 65,
+  "n_perm_ilr": 1999,
+  "n_perm_dm": 299,
+  "reference_cohort": "GSE131907",
+  "covariate": "within-cohort z of malignant CLDN4 percent positive",
+  "locked_match": {
+    "author_tnk_exact": true,
+    "marker_gate_exact": true,
+    "malignant_exact_all": true,
+    "cells_exact_all": true,
+    "extra_marker_cells_in_split": 12095
+  },
+  "ilr_joint": [
+    {
+      "simplex": "T_NK_myeloid_Rest",
+      "stat": "wilks",
+      "lambda": 0.7932540621221291,
+      "p_perm": 0.004,
+      "n": 65,
+      "n_balances": 3
+    },
+    {
+      "simplex": "within_T_NK_myeloid",
+      "stat": "wilks",
+      "lambda": 0.892752940749275,
+      "p_perm": 0.04,
+      "n": 65,
+      "n_balances": 2
+    }
+  ],
+  "dirichlet": {
+    "four": {
+      "phi": 9.627175200111216,
+      "nll": 1349.091612154407,
+      "success": true
+    },
+    "three": {
+      "phi": 11.490933022930093,
+      "nll": 814.7436986214574,
+      "success": true
+    }
+  },
+  "quartile_n": {
+    "Q1": 19,
+    "Q4": 16
+  }
+}

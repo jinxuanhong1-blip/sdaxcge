@@ -1,0 +1,13 @@
+{
+  "datasets": [
+    "GSE123902",
+    "GSE131907",
+    "GSE189357",
+    "GSE205335"
+  ],
+  "n_cells": 4095,
+  "n_units": 35,
+  "n_genes_panel": 343,
+  "primary_score": "unit-mean OOF probability AUC; folds grouped by unit",
+  "cldn4_held_out": true
+}
