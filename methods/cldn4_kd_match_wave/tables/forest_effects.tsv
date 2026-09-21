@@ -1,0 +1,11 @@
+row_type	accession	contrast	class	organ	module	label	estimate	lo	hi	interval	n_up	n_observed	call_vs_thesis	thesis_sign_match
+contrast	GSE50927	baseline KO vs WT	non-cancer	lung	IFN_ISG	Non-cancer GSE50927   lung baseline	0.442283218	0.286246407	0.57577684	gene_resample_2.5_97.5	34	37	concordant	yes
+contrast	GSE50927	baseline KO vs WT	non-cancer	lung	MHC_APM	Non-cancer GSE50927   lung baseline	0.2782370525	0.1791381285	0.479744714	gene_resample_2.5_97.5	14	16	concordant	yes
+contrast	GSE207704	T47D KO vs WT	cancer	breast	IFN_ISG	Cancer     GSE207704  T47D breast	-0.3478015085	-0.6171259297	0.01549078211	gene_resample_2.5_97.5	7	21	discordant	no
+contrast	GSE207704	T47D KO vs WT	cancer	breast	MHC_APM	Cancer     GSE207704  T47D breast	-0.2195128472	-0.4119432531	0.02775065207	gene_resample_2.5_97.5	2	8	discordant	no
+contrast	GSE207704	MCF-7 KO vs WT	cancer	breast	IFN_ISG	Cancer     GSE207704  MCF-7 breast	-0.2810909808	-0.4681281505	0.1050375898	gene_resample_2.5_97.5	6	17	unsigned	no
+contrast	GSE207704	MCF-7 KO vs WT	cancer	breast	MHC_APM	Cancer     GSE207704  MCF-7 breast	-0.1014057097	-0.4146749875	0.3574125557	gene_resample_2.5_97.5	2	8	unsigned	no
+contrast	GSE22493	SKOV-3 KD	cancer	ovary	IFN_ISG	Cancer     GSE22493   SKOV-3 ovary	-0.01366666667	-0.4742166667	0.3254	gene_resample_2.5_97.5	12	27	unsigned	no
+contrast	GSE22493	SKOV-3 KD	cancer	ovary	MHC_APM	Cancer     GSE22493   SKOV-3 ovary	-0.4536083333	-0.8122	0.1378833333	gene_resample_2.5_97.5	4	14	discordant	no
+cancer_median	cancer_median	median of 3 cancer medians	cancer	breast+ovary	IFN_ISG	Cancer      median of medians	-0.2810909808	-0.3478015085	-0.01366666667	min_max_of_contrast_medians		3	0 concordant / 1 discordant / 2 unsigned	no
+cancer_median	cancer_median	median of 3 cancer medians	cancer	breast+ovary	MHC_APM	Cancer      median of medians	-0.2195128472	-0.4536083333	-0.1014057097	min_max_of_contrast_medians		3	0 concordant / 2 discordant / 1 unsigned	no

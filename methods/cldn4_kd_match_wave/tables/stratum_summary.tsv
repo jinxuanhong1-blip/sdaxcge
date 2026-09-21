@@ -1,0 +1,5 @@
+class	module	n_contrasts	n_median_positive	n_median_negative	n_call_concordant	n_call_discordant	n_call_unsigned	median_of_medians	min_median	max_median	dl_mu	dl_wald_lo	dl_wald_hi	dl_I2	dl_tau2	dl_Q	method	dl_note
+non-cancer	IFN_ISG	1	1	0	1	0	0	0.442283218	0.442283218	0.442283218							single_contrast	
+cancer	IFN_ISG	3	0	3	0	1	2	-0.2810909808	-0.3478015085	-0.01366666667	-0.1941300005	-0.4252553232	0.03699532226	0	0	1.545788887	median_of_medians_plus_descriptive_DL	Descriptive DerSimonian-Laird using gene-resample SDs as weights. Not a replicate-level confidence interval and not a confirmatory test.
+non-cancer	MHC_APM	1	1	0	1	0	0	0.2782370525	0.2782370525	0.2782370525							single_contrast	
+cancer	MHC_APM	3	0	3	0	2	1	-0.2195128472	-0.4536083333	-0.1014057097	-0.2274141188	-0.385140097	-0.06968814056	0	0	1.944185069	median_of_medians_plus_descriptive_DL	Descriptive DerSimonian-Laird using gene-resample SDs as weights. Not a replicate-level confidence interval and not a confirmatory test.
