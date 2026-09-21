@@ -1,0 +1,100 @@
+contrast_id	series	species	model	drug	n_treat	n_ctrl	scale	panel_limited	whole_transcriptome	n_genes_ranked	rank_stat	gene_set	n_set_in_list	nes	nominal_p	fdr_q	lead_gene	eligible	in_max_grid
+GSE237361_UWB_olaparib_96h	GSE237361	human	UWB1.289 BRCA1-mutant cell, 3.5 uM, 96 h	olaparib	4	4	counts	False	True	13986	log2fc	Interferon Alpha Response	90	2.90433	0	0	CXCL10	True	True
+GSE237361_UWB_olaparib_96h	GSE237361	human	UWB1.289 BRCA1-mutant cell, 3.5 uM, 96 h	olaparib	4	4	counts	False	True	13986	log2fc	Interferon Gamma Response	156	2.87007	0	0	CXCL10	False	True
+GSE237361_UWB_olaparib_96h	GSE237361	human	UWB1.289 BRCA1-mutant cell, 3.5 uM, 96 h	olaparib	4	4	counts	False	True	13986	welch_t	Interferon Alpha Response	90	3.04603	0	0	CXCL10	True	True
+GSE237361_UWB_olaparib_96h	GSE237361	human	UWB1.289 BRCA1-mutant cell, 3.5 uM, 96 h	olaparib	4	4	counts	False	True	13986	welch_t	Interferon Gamma Response	156	3.15969	0	0	CXCL10	False	True
+GSE237361_UWB_olaparib_96h	GSE237361	human	UWB1.289 BRCA1-mutant cell, 3.5 uM, 96 h	olaparib	4	4	counts	False	True	13986	s2n	Interferon Alpha Response	90	3.03439	0	0	IFIT2	True	True
+GSE237361_UWB_olaparib_96h	GSE237361	human	UWB1.289 BRCA1-mutant cell, 3.5 uM, 96 h	olaparib	4	4	counts	False	True	13986	s2n	Interferon Gamma Response	156	3.10883	0	0	IFIT2	False	True
+GSE237361_OVCAR3_olaparib_96h	GSE237361	human	OVCAR3 BRCA1-WT cell, 7.5 uM, 96 h	olaparib	4	4	counts	False	True	14332	log2fc	Interferon Alpha Response	85	2.30448	0	0	IL4R	True	True
+GSE237361_OVCAR3_olaparib_96h	GSE237361	human	OVCAR3 BRCA1-WT cell, 7.5 uM, 96 h	olaparib	4	4	counts	False	True	14332	log2fc	Interferon Gamma Response	154	2.32585	0	0	TNFAIP3	False	True
+GSE237361_OVCAR3_olaparib_96h	GSE237361	human	OVCAR3 BRCA1-WT cell, 7.5 uM, 96 h	olaparib	4	4	counts	False	True	14332	welch_t	Interferon Alpha Response	85	2.29936	0	0	CD74	True	True
+GSE237361_OVCAR3_olaparib_96h	GSE237361	human	OVCAR3 BRCA1-WT cell, 7.5 uM, 96 h	olaparib	4	4	counts	False	True	14332	welch_t	Interferon Gamma Response	154	2.37254	0	0	NFKBIA	False	True
+GSE237361_OVCAR3_olaparib_96h	GSE237361	human	OVCAR3 BRCA1-WT cell, 7.5 uM, 96 h	olaparib	4	4	counts	False	True	14332	s2n	Interferon Alpha Response	85	2.26873	0	0	CD74	True	True
+GSE237361_OVCAR3_olaparib_96h	GSE237361	human	OVCAR3 BRCA1-WT cell, 7.5 uM, 96 h	olaparib	4	4	counts	False	True	14332	s2n	Interferon Gamma Response	154	2.36524	0	0	NFKBIA	False	True
+GSE243208_UWB_olaparib_24h	GSE243208	human	UWB1.289, 24 h (GSM 4 uM; series text 10 uM)	olaparib	3	3	counts	False	True	13184	log2fc	Interferon Alpha Response	85	3.08471	0	0	MX1	True	True
+GSE243208_UWB_olaparib_24h	GSE243208	human	UWB1.289, 24 h (GSM 4 uM; series text 10 uM)	olaparib	3	3	counts	False	True	13184	log2fc	Interferon Gamma Response	144	3.00974	0	0	MX1	False	True
+GSE243208_UWB_olaparib_24h	GSE243208	human	UWB1.289, 24 h (GSM 4 uM; series text 10 uM)	olaparib	3	3	counts	False	True	13184	welch_t	Interferon Alpha Response	85	2.44946	0	0	SELL	True	True
+GSE243208_UWB_olaparib_24h	GSE243208	human	UWB1.289, 24 h (GSM 4 uM; series text 10 uM)	olaparib	3	3	counts	False	True	13184	welch_t	Interferon Gamma Response	144	2.24524	0	0	PML	False	True
+GSE243208_UWB_olaparib_24h	GSE243208	human	UWB1.289, 24 h (GSM 4 uM; series text 10 uM)	olaparib	3	3	counts	False	True	13184	s2n	Interferon Alpha Response	85	2.42879	0	0	SELL	True	True
+GSE243208_UWB_olaparib_24h	GSE243208	human	UWB1.289, 24 h (GSM 4 uM; series text 10 uM)	olaparib	3	3	counts	False	True	13184	s2n	Interferon Gamma Response	144	2.17374	0	0	DDX60	False	True
+GSE285827_OVCAR3_talazoparib	GSE285827	human	OVCAR3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	14400	log2fc	Interferon Alpha Response	88	2.10638	0	0	BST2	True	True
+GSE285827_OVCAR3_talazoparib	GSE285827	human	OVCAR3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	14400	log2fc	Interferon Gamma Response	160	2.0295	0	0	HLA-DMA	False	True
+GSE285827_OVCAR3_talazoparib	GSE285827	human	OVCAR3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	14400	welch_t	Interferon Alpha Response	88	2.0458	0	0	PLSCR1	True	True
+GSE285827_OVCAR3_talazoparib	GSE285827	human	OVCAR3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	14400	welch_t	Interferon Gamma Response	160	1.93645	0	0	CFH	False	True
+GSE285827_OVCAR3_talazoparib	GSE285827	human	OVCAR3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	14400	s2n	Interferon Alpha Response	88	2.04661	0	0	PLSCR1	True	True
+GSE285827_OVCAR3_talazoparib	GSE285827	human	OVCAR3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	14400	s2n	Interferon Gamma Response	160	1.95494	0	0	CFH	False	True
+GSE285827_OVCAR3_veliparib	GSE285827	human	OVCAR3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	13968	log2fc	Interferon Alpha Response	86	1.7875	0	0	C1S	True	True
+GSE285827_OVCAR3_veliparib	GSE285827	human	OVCAR3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	13968	log2fc	Interferon Gamma Response	153	1.94861	0	0	HLA-DMA	False	True
+GSE285827_OVCAR3_veliparib	GSE285827	human	OVCAR3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	13968	welch_t	Interferon Alpha Response	86	1.38112	0.0213333	0.0165062	IL4R	True	True
+GSE285827_OVCAR3_veliparib	GSE285827	human	OVCAR3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	13968	welch_t	Interferon Gamma Response	153	1.62964	0	0.00275103	CFH	False	True
+GSE285827_OVCAR3_veliparib	GSE285827	human	OVCAR3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	13968	s2n	Interferon Alpha Response	86	1.35874	0.0477387	0.0327654	CD47	True	True
+GSE285827_OVCAR3_veliparib	GSE285827	human	OVCAR3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	13968	s2n	Interferon Gamma Response	153	1.65123	0	0.00262123	CFH	False	True
+GSE285827_CAOV3_talazoparib	GSE285827	human	CAOV3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	15080	log2fc	Interferon Alpha Response	91	2.17567	0	0	TXNIP	True	True
+GSE285827_CAOV3_talazoparib	GSE285827	human	CAOV3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	15080	log2fc	Interferon Gamma Response	165	2.25835	0	0	TNFAIP3	False	True
+GSE285827_CAOV3_talazoparib	GSE285827	human	CAOV3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	15080	welch_t	Interferon Alpha Response	91	1.77579	0	0	BATF2	True	True
+GSE285827_CAOV3_talazoparib	GSE285827	human	CAOV3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	15080	welch_t	Interferon Gamma Response	165	1.72863	0	0	TNFAIP3	False	True
+GSE285827_CAOV3_talazoparib	GSE285827	human	CAOV3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	15080	s2n	Interferon Alpha Response	91	1.78354	0	0	BATF2	True	True
+GSE285827_CAOV3_talazoparib	GSE285827	human	CAOV3 talazoparib vs DMSO, three dates	talazoparib	3	3	counts	False	True	15080	s2n	Interferon Gamma Response	165	1.73147	0	0	TNFAIP3	False	True
+GSE285827_CAOV3_veliparib	GSE285827	human	CAOV3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	14927	log2fc	Interferon Alpha Response	91	-2.35426	0	0	OASL	True	True
+GSE285827_CAOV3_veliparib	GSE285827	human	CAOV3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	14927	log2fc	Interferon Gamma Response	164	-2.35273	0	0	OASL	False	True
+GSE285827_CAOV3_veliparib	GSE285827	human	CAOV3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	14927	welch_t	Interferon Alpha Response	91	-2.17387	0	0	IFI35	True	True
+GSE285827_CAOV3_veliparib	GSE285827	human	CAOV3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	14927	welch_t	Interferon Gamma Response	164	-2.189	0	0	IFI35	False	True
+GSE285827_CAOV3_veliparib	GSE285827	human	CAOV3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	14927	s2n	Interferon Alpha Response	91	-2.23917	0	0	IFI35	True	True
+GSE285827_CAOV3_veliparib	GSE285827	human	CAOV3 veliparib vs DMSO, three dates	veliparib	3	3	counts	False	True	14927	s2n	Interferon Gamma Response	164	-2.18813	0	0	IFI35	False	True
+GSE120500_Brca1def_tumor_olaparib	GSE120500	mouse	Brca1-deficient mouse ovarian tumors, bulk AmpliSeq	olaparib	6	6	counts	True	False	3911	log2fc	Interferon Alpha Response	53	1.85984	0	0	Cd74	True	True
+GSE120500_Brca1def_tumor_olaparib	GSE120500	mouse	Brca1-deficient mouse ovarian tumors, bulk AmpliSeq	olaparib	6	6	counts	True	False	3911	log2fc	Interferon Gamma Response	126	1.95572	0	0	Cd74	False	True
+GSE120500_Brca1def_tumor_olaparib	GSE120500	mouse	Brca1-deficient mouse ovarian tumors, bulk AmpliSeq	olaparib	6	6	counts	True	False	3911	welch_t	Interferon Alpha Response	53	2.12961	0	0	Irf1	True	True
+GSE120500_Brca1def_tumor_olaparib	GSE120500	mouse	Brca1-deficient mouse ovarian tumors, bulk AmpliSeq	olaparib	6	6	counts	True	False	3911	welch_t	Interferon Gamma Response	126	2.23466	0	0	Samhd1	False	True
+GSE120500_Brca1def_tumor_olaparib	GSE120500	mouse	Brca1-deficient mouse ovarian tumors, bulk AmpliSeq	olaparib	6	6	counts	True	False	3911	s2n	Interferon Alpha Response	53	2.14183	0	0	Cd74	True	True
+GSE120500_Brca1def_tumor_olaparib	GSE120500	mouse	Brca1-deficient mouse ovarian tumors, bulk AmpliSeq	olaparib	6	6	counts	True	False	3911	s2n	Interferon Gamma Response	126	2.2134	0	0	Samhd1	False	True
+GSE309870_A2780_shControl_olaparib	GSE309870	human	A2780 scramble, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11321	log2fc	Interferon Alpha Response	74	-1.97022	0	0	PSMB9	True	True
+GSE309870_A2780_shControl_olaparib	GSE309870	human	A2780 scramble, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11321	log2fc	Interferon Gamma Response	128	-1.40626	0	0.0240964	PSMB9	False	True
+GSE309870_A2780_shControl_olaparib	GSE309870	human	A2780 scramble, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11321	welch_t	Interferon Alpha Response	74	-1.90972	0	0	IFIT3	True	True
+GSE309870_A2780_shControl_olaparib	GSE309870	human	A2780 scramble, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11321	welch_t	Interferon Gamma Response	128	-1.52323	0.010989	0.0188679	IFIT3	False	True
+GSE309870_A2780_shControl_olaparib	GSE309870	human	A2780 scramble, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11321	s2n	Interferon Alpha Response	74	-1.94846	0	0	NMI	True	True
+GSE309870_A2780_shControl_olaparib	GSE309870	human	A2780 scramble, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11321	s2n	Interferon Gamma Response	128	-1.53403	0.0107527	0.0153631	NMI	False	True
+GSE309870_A2780_shA3B_olaparib	GSE309870	human	A2780 APOBEC3B knockdown, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11323	log2fc	Interferon Alpha Response	74	-1.22749	0.131148	0.108197	IFIH1	True	True
+GSE309870_A2780_shA3B_olaparib	GSE309870	human	A2780 APOBEC3B knockdown, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11323	log2fc	Interferon Gamma Response	128	0.920904	0.640091	0.630088	CDKN1A	False	True
+GSE309870_A2780_shA3B_olaparib	GSE309870	human	A2780 APOBEC3B knockdown, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11323	welch_t	Interferon Alpha Response	74	-1.72393	0	0	PSMB9	True	True
+GSE309870_A2780_shA3B_olaparib	GSE309870	human	A2780 APOBEC3B knockdown, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11323	welch_t	Interferon Gamma Response	128	-1.29811	0.0654664	0.0902192	PSMB9	False	True
+GSE309870_A2780_shA3B_olaparib	GSE309870	human	A2780 APOBEC3B knockdown, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11323	s2n	Interferon Alpha Response	74	-1.69169	0.00374532	0.00541516	PSMB9	True	True
+GSE309870_A2780_shA3B_olaparib	GSE309870	human	A2780 APOBEC3B knockdown, olaparib vs DMSO	olaparib	3	3	tpm	False	True	11323	s2n	Interferon Gamma Response	128	-1.25762	0.0853659	0.101083	PSMB9	False	True
+GSE246085_ES2_olaparib	GSE246085	human	ES2 ovarian clear-cell, olaparib vs control, n=6	olaparib	6	6	counts	False	True	13361	log2fc	Interferon Alpha Response	77	-1.35085	0.0542929	0.0934466	BATF2	True	True
+GSE246085_ES2_olaparib	GSE246085	human	ES2 ovarian clear-cell, olaparib vs control, n=6	olaparib	6	6	counts	False	True	13361	log2fc	Interferon Gamma Response	136	-0.768953	0.906542	0.887136	BATF2	False	True
+GSE246085_ES2_olaparib	GSE246085	human	ES2 ovarian clear-cell, olaparib vs control, n=6	olaparib	6	6	counts	False	True	13361	welch_t	Interferon Alpha Response	77	-1.26987	0.0985545	0.0829146	TRIM14	True	True
+GSE246085_ES2_olaparib	GSE246085	human	ES2 ovarian clear-cell, olaparib vs control, n=6	olaparib	6	6	counts	False	True	13361	welch_t	Interferon Gamma Response	136	0.958344	0.514793	0.531863	CDKN1A	False	True
+GSE246085_ES2_olaparib	GSE246085	human	ES2 ovarian clear-cell, olaparib vs control, n=6	olaparib	6	6	counts	False	True	13361	s2n	Interferon Alpha Response	77	-1.25625	0.114401	0.0990415	TRIM14	True	True
+GSE246085_ES2_olaparib	GSE246085	human	ES2 ovarian clear-cell, olaparib vs control, n=6	olaparib	6	6	counts	False	True	13361	s2n	Interferon Gamma Response	136	0.974398	0.522472	0.512644	CDKN1A	False	True
+GSE302064_ID8OR_scramble_olaparib	GSE302064	mouse	ID8 olaparib-resistant scramble, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14264	log2fc	Interferon Alpha Response	77	0.786216	0.827451	0.849524	Tap1	True	True
+GSE302064_ID8OR_scramble_olaparib	GSE302064	mouse	ID8 olaparib-resistant scramble, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14264	log2fc	Interferon Gamma Response	134	-0.866805	0.8	0.781176	Wars1	False	True
+GSE302064_ID8OR_scramble_olaparib	GSE302064	mouse	ID8 olaparib-resistant scramble, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14264	welch_t	Interferon Alpha Response	77	-0.978873	0.477578	0.477064	Plscr1	True	True
+GSE302064_ID8OR_scramble_olaparib	GSE302064	mouse	ID8 olaparib-resistant scramble, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14264	welch_t	Interferon Gamma Response	134	-1.23098	0.112676	0.252294	Plscr1	False	True
+GSE302064_ID8OR_scramble_olaparib	GSE302064	mouse	ID8 olaparib-resistant scramble, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14264	s2n	Interferon Alpha Response	77	-1.0209	0.413093	0.400927	Plscr1	True	True
+GSE302064_ID8OR_scramble_olaparib	GSE302064	mouse	ID8 olaparib-resistant scramble, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14264	s2n	Interferon Gamma Response	134	-1.27206	0.0738095	0.159907	Plscr1	False	True
+GSE302064_ID8OR_Rad52KO_olaparib	GSE302064	mouse	ID8 olaparib-resistant Rad52 KO, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14309	log2fc	Interferon Alpha Response	76	0.850218	0.738806	0.758545	Stat2	True	True
+GSE302064_ID8OR_Rad52KO_olaparib	GSE302064	mouse	ID8 olaparib-resistant Rad52 KO, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14309	log2fc	Interferon Gamma Response	132	-0.958088	0.552542	0.5488	Casp4	False	True
+GSE302064_ID8OR_Rad52KO_olaparib	GSE302064	mouse	ID8 olaparib-resistant Rad52 KO, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14309	welch_t	Interferon Alpha Response	76	0.995745	0.436992	0.901468	Helz2	True	True
+GSE302064_ID8OR_Rad52KO_olaparib	GSE302064	mouse	ID8 olaparib-resistant Rad52 KO, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14309	welch_t	Interferon Gamma Response	132	0.796818	0.896104	0.870021	Rbck1	False	True
+GSE302064_ID8OR_Rad52KO_olaparib	GSE302064	mouse	ID8 olaparib-resistant Rad52 KO, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14309	s2n	Interferon Alpha Response	76	1.02271	0.378218	0.772497	Helz2	True	True
+GSE302064_ID8OR_Rad52KO_olaparib	GSE302064	mouse	ID8 olaparib-resistant Rad52 KO, acute olaparib vs vehicle	olaparib	3	3	counts	False	True	14309	s2n	Interferon Gamma Response	132	0.805601	0.896694	0.857432	Helz2	False	True
+GSE163854_PH039_first_passage_niraparib	GSE163854	human	HGSOC PDX PH039 first-passage niraparib vs untreated source	niraparib	4	3	counts	False	True	13505	log2fc	Interferon Alpha Response	89	3.41226	0	0	IFI27	True	True
+GSE163854_PH039_first_passage_niraparib	GSE163854	human	HGSOC PDX PH039 first-passage niraparib vs untreated source	niraparib	4	3	counts	False	True	13505	log2fc	Interferon Gamma Response	161	3.57576	0	0	IFI27	False	True
+GSE163854_PH039_first_passage_niraparib	GSE163854	human	HGSOC PDX PH039 first-passage niraparib vs untreated source	niraparib	4	3	counts	False	True	13505	welch_t	Interferon Alpha Response	89	3.15481	0	0	IL15	True	True
+GSE163854_PH039_first_passage_niraparib	GSE163854	human	HGSOC PDX PH039 first-passage niraparib vs untreated source	niraparib	4	3	counts	False	True	13505	welch_t	Interferon Gamma Response	161	2.8275	0	0	IL15	False	True
+GSE163854_PH039_first_passage_niraparib	GSE163854	human	HGSOC PDX PH039 first-passage niraparib vs untreated source	niraparib	4	3	counts	False	True	13505	s2n	Interferon Alpha Response	89	3.13263	0	0	IL15	True	True
+GSE163854_PH039_first_passage_niraparib	GSE163854	human	HGSOC PDX PH039 first-passage niraparib vs untreated source	niraparib	4	3	counts	False	True	13505	s2n	Interferon Gamma Response	161	2.79758	0	0	IL15	False	True
+GSE191231_BRCAWT_PDX_olaparib	GSE191231	human	BRCA-WT ovarian PDX, olaparib vs vehicle	olaparib	2	2	tpm	False	True	13325	log2fc	Interferon Alpha Response	77	-0.749461	0.957746	0.969388	GMPR	False	True
+GSE191231_BRCAWT_PDX_olaparib	GSE191231	human	BRCA-WT ovarian PDX, olaparib vs vehicle	olaparib	2	2	tpm	False	True	13325	log2fc	Interferon Gamma Response	144	-1.42176	0	0.0408163	SOD2	False	True
+GSE191231_BRCAWT_PDX_olaparib	GSE191231	human	BRCA-WT ovarian PDX, olaparib vs vehicle	olaparib	2	2	tpm	False	True	13325	welch_t	Interferon Alpha Response	77	0.683141	0.910714	0.93275	GBP4	False	True
+GSE191231_BRCAWT_PDX_olaparib	GSE191231	human	BRCA-WT ovarian PDX, olaparib vs vehicle	olaparib	2	2	tpm	False	True	13325	welch_t	Interferon Gamma Response	144	-0.80852	0.80597	0.748538	PFKP	False	True
+GSE191231_BRCAWT_PDX_olaparib	GSE191231	human	BRCA-WT ovarian PDX, olaparib vs vehicle	olaparib	2	2	tpm	False	True	13325	s2n	Interferon Alpha Response	77	0.731296	0.888262	0.90939	GBP4	False	True
+GSE191231_BRCAWT_PDX_olaparib	GSE191231	human	BRCA-WT ovarian PDX, olaparib vs vehicle	olaparib	2	2	tpm	False	True	13325	s2n	Interferon Gamma Response	144	-0.815485	0.753846	0.731844	PFKP	False	True
+GSE264286_OCCC_PDX_niraparib	GSE264286	human	ovarian clear-cell PDX, niraparib vs control	niraparib	2	2	counts	False	True	12841	log2fc	Interferon Alpha Response	85	-2.08643	0	0	LY6E	False	True
+GSE264286_OCCC_PDX_niraparib	GSE264286	human	ovarian clear-cell PDX, niraparib vs control	niraparib	2	2	counts	False	True	12841	log2fc	Interferon Gamma Response	154	-1.75888	0	0	HLA-DRB1	False	True
+GSE264286_OCCC_PDX_niraparib	GSE264286	human	ovarian clear-cell PDX, niraparib vs control	niraparib	2	2	counts	False	True	12841	welch_t	Interferon Alpha Response	85	-2.59231	0	0	ISG15	False	True
+GSE264286_OCCC_PDX_niraparib	GSE264286	human	ovarian clear-cell PDX, niraparib vs control	niraparib	2	2	counts	False	True	12841	welch_t	Interferon Gamma Response	154	-2.47088	0	0.00058651	ISG15	False	True
+GSE264286_OCCC_PDX_niraparib	GSE264286	human	ovarian clear-cell PDX, niraparib vs control	niraparib	2	2	counts	False	True	12841	s2n	Interferon Alpha Response	85	-2.63194	0	0	ISG15	False	True
+GSE264286_OCCC_PDX_niraparib	GSE264286	human	ovarian clear-cell PDX, niraparib vs control	niraparib	2	2	counts	False	True	12841	s2n	Interferon Gamma Response	154	-2.49574	0	0.00233918	ISG15	False	True
+GSE163854_PH039_sensitive_only_niraparib	GSE163854	human	sensitivity: PH039 samples labeled sensitive (F1A3, F1A4) vs untreated source; mixed phenotype excluded	niraparib	2	3	counts	False	True	13559	log2fc	Interferon Alpha Response	89	2.278	0			False	False
+GSE163854_PH039_sensitive_only_niraparib	GSE163854	human	sensitivity: PH039 samples labeled sensitive (F1A3, F1A4) vs untreated source; mixed phenotype excluded	niraparib	2	3	counts	False	True	13559	welch_t	Interferon Alpha Response	89	-0.956	0.536			False	False
+GSE163854_PH039_sensitive_only_niraparib	GSE163854	human	sensitivity: PH039 samples labeled sensitive (F1A3, F1A4) vs untreated source; mixed phenotype excluded	niraparib	2	3	counts	False	True	13559	s2n	Interferon Alpha Response	89	0.954	0.563			False	False

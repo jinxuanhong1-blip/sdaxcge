@@ -1,0 +1,421 @@
+predictor	expression	filter	adjustment	n	rho	abs_rho	p	ci95_lo	ci95_hi	eligible	q_grid
+mut_all	protein	brca_nonsyn_absent	none	74	-0.267929	0.267929	0.0210025	-0.467792	-0.0419969	True	0.067733
+tmb	protein	tmb_le_10	none	81	-0.267302	0.267302	0.0158479	-0.458873	-0.0519828	True	0.0571173
+tmb	protein	brca_nonsyn_absent	none	74	-0.266136	0.266136	0.0219103	-0.466283	-0.0400704	True	0.069702
+mut_nonsyn	protein	brca_nonsyn_absent	none	74	-0.264124	0.264124	0.0229694	-0.464588	-0.0379093	True	0.0705488
+tmb	protein	all_paired	purity_krt18_krt19	48	-0.260961	0.260961	0.08337	-0.507472	0.0250354	True	0.152549
+tmb	protein	msi_lt_3.5	purity_krt18_krt19	48	-0.260961	0.260961	0.08337	-0.507472	0.0250354	True	0.152549
+tmb	protein	tmb_le_10	purity_krt18_krt19	48	-0.260961	0.260961	0.08337	-0.507472	0.0250354	True	0.152549
+mut_all	protein	all_paired	purity_krt18_krt19	48	-0.25939	0.25939	0.0853116	-0.50622	0.0267188	True	0.15285
+mut_all	protein	msi_lt_3.5	purity_krt18_krt19	48	-0.25939	0.25939	0.0853116	-0.50622	0.0267188	True	0.15285
+mut_all	protein	count_le_500	purity_krt18_krt19	48	-0.25939	0.25939	0.0853116	-0.50622	0.0267188	True	0.15285
+mut_all	protein	all_paired	krt18_krt19	50	-0.255081	0.255081	0.0801629	-0.498069	0.0250503	True	0.152549
+mut_all	protein	msi_lt_3.5	krt18_krt19	50	-0.255081	0.255081	0.0801629	-0.498069	0.0250503	True	0.152549
+mut_all	protein	count_le_500	krt18_krt19	50	-0.255081	0.255081	0.0801629	-0.498069	0.0250503	True	0.152549
+mut_nonsyn	protein	all_paired	purity_krt18_krt19	48	-0.253353	0.253353	0.0931054	-0.501398	0.0331749	True	0.15559
+mut_nonsyn	protein	msi_lt_3.5	purity_krt18_krt19	48	-0.253353	0.253353	0.0931054	-0.501398	0.0331749	True	0.15559
+mut_nonsyn	protein	count_le_500	purity_krt18_krt19	48	-0.253353	0.253353	0.0931054	-0.501398	0.0331749	True	0.15559
+tmb	protein	all_paired	krt18_krt19	50	-0.253164	0.253164	0.0825384	-0.496527	0.0270983	True	0.152549
+tmb	protein	msi_lt_3.5	krt18_krt19	50	-0.253164	0.253164	0.0825384	-0.496527	0.0270983	True	0.152549
+tmb	protein	tmb_le_10	krt18_krt19	50	-0.253164	0.253164	0.0825384	-0.496527	0.0270983	True	0.152549
+mut_nonsyn	protein	all_paired	krt18_krt19	50	-0.247966	0.247966	0.089258	-0.492336	0.0326398	True	0.15545
+mut_nonsyn	protein	msi_lt_3.5	krt18_krt19	50	-0.247966	0.247966	0.089258	-0.492336	0.0326398	True	0.15545
+mut_nonsyn	protein	count_le_500	krt18_krt19	50	-0.247966	0.247966	0.089258	-0.492336	0.0326398	True	0.15545
+mut_all	protein	brca_nonsyn_absent	krt18_krt19	45	-0.234733	0.234733	0.129735	-0.494218	0.0631581	True	0.191267
+tmb	protein	brca_nonsyn_absent	krt18_krt19	45	-0.233418	0.233418	0.131959	-0.493167	0.0645429	True	0.191462
+mut_nonsyn	protein	brca_nonsyn_absent	krt18_krt19	45	-0.231162	0.231162	0.135844	-0.49136	0.0669178	True	0.192573
+mut_all	protein	all_paired	none	82	-0.227151	0.227151	0.0401436	-0.423296	-0.0106653	True	0.103904
+mut_all	protein	msi_lt_3.5	none	82	-0.227151	0.227151	0.0401436	-0.423296	-0.0106653	True	0.103904
+mut_all	protein	count_le_500	none	82	-0.227151	0.227151	0.0401436	-0.423296	-0.0106653	True	0.103904
+tmb	protein	tmb_le_10	purity	79	-0.225133	0.225133	0.0475087	-0.425086	-0.0042289	True	0.107568
+tmb	protein	all_paired	none	82	-0.223407	0.223407	0.0436371	-0.420053	-0.00672237	True	0.105218
+tmb	protein	msi_lt_3.5	none	82	-0.223407	0.223407	0.0436371	-0.420053	-0.00672237	True	0.105218
+tmb	protein	tmb_le_10	purity_ploidy	79	-0.221754	0.221754	0.0525918	-0.422168	-0.000672198	True	0.113072
+mut_nonsyn	protein	all_paired	none	82	-0.219333	0.219333	0.0477225	-0.416519	-0.00243791	True	0.107568
+mut_nonsyn	protein	msi_lt_3.5	none	82	-0.219333	0.219333	0.0477225	-0.416519	-0.00243791	True	0.107568
+mut_nonsyn	protein	count_le_500	none	82	-0.219333	0.219333	0.0477225	-0.416519	-0.00243791	True	0.107568
+mut_all	star	msi_lt_3.5	purity_ploidy	271	-0.209967	0.209967	0.000527497	-0.32109	-0.0931395	True	0.0171328
+mut_all	star	all_paired	purity_ploidy	274	-0.206147	0.206147	0.000623849	-0.316908	-0.0898398	True	0.0171328
+mut_all	protein	brca_nonsyn_absent	purity_krt18_krt19	43	-0.205014	0.205014	0.204428	-0.47605	0.10159	True	0.253569
+mut_all	star	count_le_500	purity_ploidy	273	-0.204246	0.204246	0.000718318	-0.315319	-0.0876516	True	0.0171328
+tmb	protein	brca_nonsyn_absent	purity_krt18_krt19	43	-0.203205	0.203205	0.208538	-0.474588	0.103459	True	0.25743
+mut_nonsyn	star	msi_lt_3.5	purity_ploidy	271	-0.203135	0.203135	0.000804776	-0.314675	-0.0860604	True	0.0171328
+mut_all	star	msi_lt_3.5	none	281	-0.201619	0.201619	0.000674675	-0.31129	-0.0866491	True	0.0171328
+tmb	star	msi_lt_3.5	purity_ploidy	271	-0.201442	0.201442	0.00089169	-0.313085	-0.0843089	True	0.0171328
+mut_all	protein	brca_nonsyn_absent	purity	72	-0.200646	0.200646	0.0933918	-0.413115	0.0325395	True	0.15559
+mut_nonsyn	star	all_paired	purity_ploidy	274	-0.2002	0.2002	0.000899363	-0.311316	-0.0836831	True	0.0171328
+mut_all	star	msi_lt_3.5	purity	271	-0.19923	0.19923	0.000996364	-0.311004	-0.0820197	True	0.0171328
+mut_nonsyn	protein	brca_nonsyn_absent	purity_krt18_krt19	43	-0.198415	0.198415	0.219695	-0.470712	0.108394	True	0.269911
+mut_all	protein	brca_nonsyn_absent	purity_ploidy	72	-0.198395	0.198395	0.0996784	-0.411169	0.0348809	True	0.163803
+mut_nonsyn	star	count_le_500	purity_ploidy	273	-0.198272	0.198272	0.00103247	-0.309702	-0.0814708	True	0.0171328
+tmb	star	all_paired	purity_ploidy	274	-0.198126	0.198126	0.00101929	-0.309364	-0.0815378	True	0.0171328
+mut_all	rsem	msi_lt_3.5	purity_ploidy	194	-0.19769	0.19769	0.00598557	-0.329394	-0.0584406	True	0.0285977
+mut_nonsyn	star	msi_lt_3.5	none	281	-0.196499	0.196499	0.000927686	-0.306467	-0.0813552	True	0.0171328
+tmb	star	tmb_le_10	purity_ploidy	273	-0.196173	0.196173	0.00117005	-0.307725	-0.0793003	True	0.0171328
+mut_all	star	brca_nonsyn_absent	purity_ploidy	252	-0.196108	0.196108	0.0018363	-0.312119	-0.0743342	True	0.0182837
+tmb	protein	brca_nonsyn_absent	purity	72	-0.196048	0.196048	0.101307	-0.409138	0.0373198	True	0.165425
+mut_all	star	all_paired	none	284	-0.195941	0.195941	0.000901016	-0.305371	-0.0814042	True	0.0171328
+tmb	star	msi_lt_3.5	none	281	-0.194979	0.194979	0.00101817	-0.305034	-0.0797846	True	0.0171328
+mut_all	rsem	msi_lt_3.5	purity	194	-0.194943	0.194943	0.00659249	-0.326844	-0.0555924	True	0.0303725
+mut_nonsyn	star	msi_lt_3.5	purity	271	-0.194699	0.194699	0.00130348	-0.30674	-0.0773359	True	0.0171328
+mut_nonsyn	protein	brca_nonsyn_absent	purity	72	-0.194221	0.194221	0.104593	-0.407555	0.0392162	True	0.167142
+mut_all	star	count_le_500	none	283	-0.193969	0.193969	0.00103868	-0.3037	-0.0791602	True	0.0171328
+tmb	protein	brca_nonsyn_absent	purity_ploidy	72	-0.193694	0.193694	0.108134	-0.407099	0.0397631	True	0.169169
+mut_all	star	all_paired	purity	274	-0.193589	0.193589	0.0013072	-0.305092	-0.0768495	True	0.0171328
+tmb	star	msi_lt_3.5	purity	271	-0.192336	0.192336	0.00149608	-0.304515	-0.0748954	True	0.0171328
+mut_nonsyn	protein	brca_nonsyn_absent	purity_ploidy	72	-0.192158	0.192158	0.111014	-0.405767	0.0413559	True	0.17254
+mut_nonsyn	star	all_paired	none	284	-0.191843	0.191843	0.00115826	-0.301504	-0.0771721	True	0.0171328
+mut_all	star	count_le_500	purity	273	-0.190772	0.190772	0.00157291	-0.302637	-0.0737226	True	0.0171328
+mut_nonsyn	star	all_paired	purity	274	-0.190199	0.190199	0.00159375	-0.301896	-0.0733499	True	0.0171328
+tmb	star	all_paired	none	284	-0.189904	0.189904	0.00130211	-0.299674	-0.0751716	True	0.0171328
+mut_nonsyn	star	count_le_500	none	283	-0.189869	0.189869	0.00133103	-0.299831	-0.0749287	True	0.0171328
+mut_all	rsem	all_paired	purity_ploidy	196	-0.188805	0.188805	0.00837641	-0.32048	-0.049972	True	0.0379143
+tmb	star	tmb_le_10	none	283	-0.187916	0.187916	0.00149533	-0.297987	-0.0729144	True	0.0171328
+mut_nonsyn	star	brca_nonsyn_absent	purity_ploidy	252	-0.187802	0.187802	0.00287222	-0.304314	-0.0657525	True	0.0218896
+tmb	star	all_paired	purity	274	-0.18738	0.18738	0.00187466	-0.299237	-0.0704418	True	0.0182837
+mut_nonsyn	star	count_le_500	purity	273	-0.187362	0.187362	0.00191341	-0.299421	-0.0702045	True	0.0182837
+tmb	star	brca_nonsyn_absent	purity_ploidy	252	-0.185826	0.185826	0.00318618	-0.302456	-0.0637145	True	0.0218896
+mut_all	rsem	count_le_500	purity_ploidy	195	-0.1847	0.1847	0.0101279	-0.316988	-0.0453627	True	0.0435499
+tmb	star	tmb_le_10	purity	273	-0.184513	0.184513	0.00224816	-0.296732	-0.0672671	True	0.0196189
+mut_all	rsem	all_paired	purity	196	-0.184091	0.184091	0.00998856	-0.316091	-0.0450998	True	0.0435499
+mut_all	star	msi_lt_3.5	krt18_krt19	281	-0.182323	0.182323	0.00223274	-0.293085	-0.0667322	True	0.0196189
+mut_nonsyn	star	msi_lt_3.5	krt18_krt19	281	-0.181945	0.181945	0.00228127	-0.292727	-0.0663428	True	0.0196189
+mut_all	star	brca_nonsyn_absent	none	262	-0.181028	0.181028	0.0032766	-0.29573	-0.0611806	True	0.0218896
+tmb	star	msi_lt_3.5	krt18_krt19	281	-0.18084	0.18084	0.00242864	-0.291682	-0.0652049	True	0.0202125
+mut_all	star	brca_nonsyn_absent	purity	252	-0.180239	0.180239	0.00417315	-0.297195	-0.0579547	True	0.0239261
+mut_nonsyn	star	msi_lt_3.5	purity_krt18_krt19	271	-0.179859	0.179859	0.00312887	-0.292742	-0.0620309	True	0.0218896
+mut_nonsyn	rsem	msi_lt_3.5	purity	194	-0.179573	0.179573	0.0124596	-0.312544	-0.0397003	True	0.0502813
+mut_nonsyn	rsem	msi_lt_3.5	purity_ploidy	194	-0.179384	0.179384	0.0127881	-0.312368	-0.039505	True	0.050759
+mut_all	star	msi_lt_3.5	purity_krt18_krt19	271	-0.179297	0.179297	0.00322534	-0.292211	-0.0614527	True	0.0218896
+mut_all	rsem	count_le_500	purity	195	-0.179085	0.179085	0.0124729	-0.311755	-0.0395656	True	0.0502813
+tmb	star	msi_lt_3.5	purity_krt18_krt19	271	-0.177892	0.177892	0.00347857	-0.290883	-0.0600064	True	0.0218896
+tmb	rsem	msi_lt_3.5	purity_ploidy	194	-0.1777	0.1777	0.0136682	-0.310797	-0.0377684	True	0.0526328
+tmb	rsem	msi_lt_3.5	purity	194	-0.177468	0.177468	0.0135461	-0.310581	-0.0375289	True	0.0526328
+mut_all	rsem	brca_nonsyn_absent	purity_ploidy	180	-0.17713	0.17713	0.0180157	-0.315229	-0.031685	True	0.0611586
+mut_nonsyn	star	all_paired	krt18_krt19	284	-0.175794	0.175794	0.00305569	-0.28633	-0.0606414	True	0.0218896
+mut_all	star	all_paired	krt18_krt19	284	-0.175213	0.175213	0.00315589	-0.285779	-0.0600438	True	0.0218896
+mut_nonsyn	star	brca_nonsyn_absent	none	262	-0.174557	0.174557	0.00460089	-0.28962	-0.0545202	True	0.0247671
+tmb	star	all_paired	krt18_krt19	284	-0.174235	0.174235	0.00333131	-0.284852	-0.0590381	True	0.0218896
+mut_nonsyn	star	brca_nonsyn_absent	purity	252	-0.174179	0.174179	0.00565895	-0.29148	-0.0517166	True	0.0275473
+mut_nonsyn	star	all_paired	purity_krt18_krt19	274	-0.174069	0.174069	0.00404957	-0.286658	-0.0567377	True	0.0237452
+mut_nonsyn	star	count_le_500	krt18_krt19	283	-0.173876	0.173876	0.00345551	-0.284704	-0.058462	True	0.0218896
+mut_nonsyn	rsem	all_paired	purity_ploidy	196	-0.17359	0.17359	0.0154945	-0.306293	-0.0342685	True	0.0571084
+mut_all	protein	all_paired	purity	80	-0.173443	0.173443	0.126354	-0.378731	0.0481108	True	0.189531
+mut_all	protein	msi_lt_3.5	purity	80	-0.173443	0.173443	0.126354	-0.378731	0.0481108	True	0.189531
+mut_all	protein	count_le_500	purity	80	-0.173443	0.173443	0.126354	-0.378731	0.0481108	True	0.189531
+mut_all	star	count_le_500	krt18_krt19	283	-0.173239	0.173239	0.00357825	-0.2841	-0.0578072	True	0.0219807
+tmb	star	brca_nonsyn_absent	none	262	-0.172696	0.172696	0.00506223	-0.287861	-0.0526067	True	0.0261211
+mut_all	star	all_paired	purity_krt18_krt19	274	-0.172475	0.172475	0.0044059	-0.285149	-0.0550987	True	0.0247114
+mut_nonsyn	rsem	all_paired	purity	196	-0.172419	0.172419	0.0159397	-0.305198	-0.0330623	True	0.0571173
+tmb	star	tmb_le_10	krt18_krt19	283	-0.172309	0.172309	0.00376458	-0.283218	-0.0568511	True	0.0225875
+tmb	star	all_paired	purity_krt18_krt19	274	-0.171622	0.171622	0.00460784	-0.284341	-0.0542224	True	0.0247671
+tmb	star	brca_nonsyn_absent	purity	252	-0.171433	0.171433	0.00647635	-0.288888	-0.0488936	True	0.0303725
+tmb	rsem	all_paired	purity_ploidy	196	-0.171153	0.171153	0.0170273	-0.304016	-0.03176	True	0.0593654
+mut_nonsyn	star	count_le_500	purity_krt18_krt19	273	-0.170714	0.170714	0.00491147	-0.283684	-0.0530705	True	0.0258604
+tmb	rsem	all_paired	purity	196	-0.169471	0.169471	0.0178618	-0.302442	-0.0300287	True	0.0611586
+mut_all	protein	all_paired	purity_ploidy	80	-0.1692	0.1692	0.13863	-0.374981	0.0524712	True	0.193333
+mut_all	protein	msi_lt_3.5	purity_ploidy	80	-0.1692	0.1692	0.13863	-0.374981	0.0524712	True	0.193333
+mut_all	protein	count_le_500	purity_ploidy	80	-0.1692	0.1692	0.13863	-0.374981	0.0524712	True	0.193333
+mut_nonsyn	rsem	count_le_500	purity_ploidy	195	-0.169195	0.169195	0.0186601	-0.302518	-0.0293789	True	0.0625235
+mut_all	star	count_le_500	purity_krt18_krt19	273	-0.169063	0.169063	0.00534991	-0.28212	-0.0513747	True	0.0270642
+tmb	star	tmb_le_10	purity_krt18_krt19	273	-0.168244	0.168244	0.00558009	-0.281344	-0.050534	True	0.0275473
+mut_all	rsem	brca_nonsyn_absent	purity	180	-0.167897	0.167897	0.0246694	-0.306633	-0.0221754	True	0.0748789
+tmb	protein	all_paired	purity	80	-0.167391	0.167391	0.140343	-0.373379	0.054328	True	0.193628
+tmb	protein	msi_lt_3.5	purity	80	-0.167391	0.167391	0.140343	-0.373379	0.054328	True	0.193628
+mut_nonsyn	rsem	count_le_500	purity	195	-0.167129	0.167129	0.0198487	-0.300585	-0.0272538	True	0.0656532
+tmb	rsem	tmb_le_10	purity_ploidy	195	-0.166721	0.166721	0.0204842	-0.300203	-0.0268347	True	0.0668979
+tmb	rsem	tmb_le_10	purity	195	-0.16414	0.16414	0.0221979	-0.297787	-0.0241829	True	0.069702
+mut_nonsyn	protein	all_paired	purity	80	-0.162852	0.162852	0.151578	-0.369356	0.0589792	True	0.202129
+mut_nonsyn	protein	msi_lt_3.5	purity	80	-0.162852	0.162852	0.151578	-0.369356	0.0589792	True	0.202129
+mut_nonsyn	protein	count_le_500	purity	80	-0.162852	0.162852	0.151578	-0.369356	0.0589792	True	0.202129
+tmb	protein	all_paired	purity_ploidy	80	-0.162338	0.162338	0.155601	-0.368901	0.0595052	True	0.202539
+tmb	protein	msi_lt_3.5	purity_ploidy	80	-0.162338	0.162338	0.155601	-0.368901	0.0595052	True	0.202539
+mut_all	rsem	msi_lt_3.5	purity_krt18_krt19	194	-0.161316	0.161316	0.0257857	-0.295479	-0.0209143	True	0.077357
+mut_nonsyn	rsem	brca_nonsyn_absent	purity_ploidy	180	-0.160578	0.160578	0.032258	-0.299802	-0.0146563	True	0.0935119
+mut_all	rsem	msi_lt_3.5	none	203	-0.160196	0.160196	0.0224235	-0.291478	-0.0229912	True	0.069702
+mut_all	star	brca_nonsyn_absent	krt18_krt19	262	-0.159751	0.159751	0.00987757	-0.275605	-0.0393224	True	0.0435499
+tmb	rsem	brca_nonsyn_absent	purity_ploidy	180	-0.15928	0.15928	0.0336978	-0.29859	-0.0133247	True	0.0955388
+mut_nonsyn	protein	all_paired	purity_ploidy	80	-0.158141	0.158141	0.166715	-0.365173	0.0637963	True	0.210846
+mut_nonsyn	protein	msi_lt_3.5	purity_ploidy	80	-0.158141	0.158141	0.166715	-0.365173	0.0637963	True	0.210846
+mut_nonsyn	protein	count_le_500	purity_ploidy	80	-0.158141	0.158141	0.166715	-0.365173	0.0637963	True	0.210846
+mut_nonsyn	star	brca_nonsyn_absent	krt18_krt19	262	-0.157819	0.157819	0.0108192	-0.273773	-0.0373433	True	0.0457601
+tmb	star	brca_nonsyn_absent	krt18_krt19	262	-0.15634	0.15634	0.0115931	-0.272369	-0.0358285	True	0.0482423
+mut_nonsyn	rsem	msi_lt_3.5	purity_krt18_krt19	194	-0.155652	0.155652	0.0315427	-0.290167	-0.0151061	True	0.0935119
+mut_nonsyn	rsem	brca_nonsyn_absent	purity	180	-0.155019	0.155019	0.0382627	-0.294605	-0.00895641	True	0.103904
+mut_all	star	brca_nonsyn_absent	purity_krt18_krt19	252	-0.154853	0.154853	0.0144445	-0.2732	-0.0318881	True	0.054804
+tmb	rsem	msi_lt_3.5	purity_krt18_krt19	194	-0.154347	0.154347	0.0330148	-0.288941	-0.0137687	True	0.0946424
+mut_nonsyn	star	brca_nonsyn_absent	purity_krt18_krt19	252	-0.153578	0.153578	0.0152818	-0.271991	-0.0305832	True	0.0571084
+tmb	rsem	brca_nonsyn_absent	purity	180	-0.1531	0.1531	0.0407492	-0.292809	-0.00699103	True	0.104092
+mut_all	protein	purity_ge_0.7	none	64	-0.151842	0.151842	0.231013	-0.383347	0.0976152	True	0.282471
+tmb	star	brca_nonsyn_absent	purity_krt18_krt19	252	-0.151159	0.151159	0.0169876	-0.269696	-0.0281088	True	0.0593654
+mut_all	rsem	all_paired	none	205	-0.149845	0.149845	0.031996	-0.28111	-0.0130762	True	0.0935119
+mut_all	rsem	all_paired	purity_krt18_krt19	196	-0.14893	0.14893	0.0387239	-0.283175	-0.00896224	True	0.103904
+mut_all	star	purity_ge_0.7	none	202	-0.1489	0.1489	0.0344355	-0.281173	-0.0110739	True	0.0965692
+mut_nonsyn	protein	purity_ge_0.7	none	64	-0.147716	0.147716	0.244082	-0.379741	0.101793	True	0.297043
+mut_nonsyn	rsem	all_paired	purity_krt18_krt19	196	-0.146736	0.146736	0.0417185	-0.28111	-0.00671914	True	0.104805
+mut_all	star	purity_ge_0.7	purity	202	-0.146058	0.146058	0.0385538	-0.278496	-0.00816882	True	0.103904
+mut_all	rsem	count_le_500	none	204	-0.145702	0.145702	0.0375839	-0.277521	-0.00849855	True	0.103904
+tmb	protein	purity_ge_0.7	none	64	-0.145276	0.145276	0.252048	-0.377605	0.104261	True	0.30387
+tmb	rsem	all_paired	purity_krt18_krt19	196	-0.144514	0.144514	0.0449466	-0.279018	-0.0044493	True	0.107372
+mut_nonsyn	rsem	msi_lt_3.5	none	203	-0.144086	0.144086	0.0402727	-0.276315	-0.00650228	True	0.103904
+mut_all	rsem	count_le_500	purity_krt18_krt19	195	-0.143567	0.143567	0.0469632	-0.278464	-0.00311464	True	0.107568
+mut_all	star	purity_ge_0.7	purity_ploidy	202	-0.143511	0.143511	0.0426279	-0.276095	-0.00556787	True	0.105218
+tmb	rsem	msi_lt_3.5	none	203	-0.142984	0.142984	0.0418409	-0.275276	-0.00537772	True	0.104805
+mut_nonsyn	star	purity_ge_0.7	none	202	-0.142646	0.142646	0.0428509	-0.275278	-0.00468429	True	0.105218
+mut_all	rsem	brca_nonsyn_absent	none	189	-0.142054	0.142054	0.0511931	-0.279127	0.000693385	True	0.111499
+mut_nonsyn	rsem	count_le_500	purity_krt18_krt19	195	-0.141294	0.141294	0.0505998	-0.276323	-0.000794675	True	0.111499
+tmb	star	purity_ge_0.7	none	202	-0.14061	0.14061	0.0459376	-0.273357	-0.00260692	True	0.107568
+mut_nonsyn	star	purity_ge_0.7	purity	202	-0.139692	0.139692	0.0479469	-0.272491	-0.00167118	True	0.107568
+tmb	rsem	tmb_le_10	purity_krt18_krt19	195	-0.139054	0.139054	0.05441	-0.274211	0.00149033	True	0.11466
+tmb	star	purity_ge_0.7	purity	202	-0.137598	0.137598	0.0514276	-0.270513	0.000464513	True	0.111499
+mut_nonsyn	rsem	all_paired	none	205	-0.136905	0.136905	0.0502974	-0.268898	0.000134703	True	0.111499
+mut_nonsyn	star	purity_ge_0.8	purity	144	-0.136144	0.136144	0.10495	-0.293194	0.0280596	True	0.167142
+mut_all	rsem	msi_lt_3.5	krt18_krt19	203	-0.135754	0.135754	0.0546635	-0.268447	0.001996	True	0.11466
+tmb	rsem	all_paired	none	205	-0.135107	0.135107	0.0534244	-0.267197	0.00196692	True	0.113913
+tmb	star	purity_ge_0.8	purity	144	-0.134902	0.134902	0.10819	-0.292036	0.0293243	True	0.169169
+mut_nonsyn	star	purity_ge_0.7	purity_ploidy	202	-0.133929	0.133929	0.0586655	-0.267045	0.00420254	True	0.121086
+mut_nonsyn	rsem	count_le_500	none	204	-0.132625	0.132625	0.0586269	-0.265167	0.00483717	True	0.121086
+mut_nonsyn	star	purity_ge_0.8	none	144	-0.131974	0.131974	0.114842	-0.289308	0.0323017	True	0.177421
+tmb	star	purity_ge_0.7	purity_ploidy	202	-0.131912	0.131912	0.0626075	-0.265137	0.00625543	True	0.127187
+tmb	star	purity_ge_0.8	none	144	-0.130845	0.130845	0.11801	-0.288254	0.0334499	True	0.181229
+tmb	rsem	tmb_le_10	none	204	-0.13081	0.13081	0.0621988	-0.263449	0.00668415	True	0.127187
+mut_all	star	purity_ge_0.8	purity	144	-0.130511	0.130511	0.12027	-0.287943	0.0337892	True	0.183608
+mut_nonsyn	rsem	msi_lt_3.5	krt18_krt19	203	-0.129309	0.129309	0.0673206	-0.26235	0.00855559	True	0.135693
+mut_nonsyn	rsem	brca_nonsyn_absent	none	189	-0.128978	0.128978	0.0769288	-0.2668	0.0140125	True	0.152549
+tmb	rsem	msi_lt_3.5	krt18_krt19	203	-0.128904	0.128904	0.068191	-0.261966	0.00896788	True	0.136382
+mut_nonsyn	star	purity_ge_0.8	purity_ploidy	144	-0.128304	0.128304	0.128084	-0.285883	0.0360312	True	0.190336
+tmb	rsem	brca_nonsyn_absent	none	189	-0.12779	0.12779	0.0797121	-0.265677	0.0152205	True	0.152549
+mut_all	star	purity_ge_0.8	none	144	-0.127308	0.127308	0.128366	-0.284953	0.0370422	True	0.190336
+tmb	star	purity_ge_0.8	purity_ploidy	144	-0.12711	0.12711	0.131703	-0.284768	0.0372435	True	0.191462
+mut_all	rsem	purity_ge_0.7	purity	143	-0.126982	0.126982	0.132094	-0.285189	0.0379606	True	0.191462
+mut_all	rsem	purity_ge_0.7	purity_ploidy	143	-0.126611	0.126611	0.134637	-0.284842	0.0383376	True	0.192573
+mut_all	rsem	brca_nonsyn_absent	purity_krt18_krt19	180	-0.126466	0.126466	0.0934747	-0.267779	0.0201727	True	0.15559
+mut_all	star	purity_ge_0.8	purity_ploidy	144	-0.126162	0.126162	0.13463	-0.283882	0.0382054	True	0.192573
+mut_all	rsem	all_paired	krt18_krt19	205	-0.123496	0.123496	0.0791901	-0.256198	0.0137748	True	0.152549
+mut_nonsyn	rsem	brca_nonsyn_absent	purity_krt18_krt19	180	-0.122382	0.122382	0.104642	-0.263924	0.0243193	True	0.167142
+mut_all	protein	purity_ge_0.7	purity	64	-0.122075	0.122075	0.340536	-0.35717	0.127567	True	0.385325
+tmb	rsem	brca_nonsyn_absent	purity_krt18_krt19	180	-0.121248	0.121248	0.107922	-0.262852	0.0254699	True	0.169169
+mut_nonsyn	rsem	all_paired	krt18_krt19	205	-0.12002	0.12002	0.0880761	-0.252898	0.0173019	True	0.15545
+mut_all	rsem	count_le_500	krt18_krt19	204	-0.119684	0.119684	0.0897755	-0.2529	0.0179849	True	0.15545
+mut_all	protein	purity_ge_0.7	purity_ploidy	64	-0.119152	0.119152	0.356319	-0.35458	0.130483	True	0.397967
+tmb	rsem	all_paired	krt18_krt19	205	-0.118838	0.118838	0.0912736	-0.251775	0.0185006	True	0.15559
+mut_nonsyn	protein	purity_ge_0.7	purity	64	-0.117404	0.117404	0.359468	-0.353029	0.132226	True	0.399754
+mut_nonsyn	rsem	purity_ge_0.7	purity	143	-0.117256	0.117256	0.164616	-0.276093	0.047816	True	0.210846
+mut_nonsyn	rsem	count_le_500	krt18_krt19	204	-0.116223	0.116223	0.099522	-0.249611	0.0214938	True	0.163803
+tmb	rsem	purity_ge_0.7	purity	143	-0.115602	0.115602	0.170692	-0.274544	0.0494882	True	0.214822
+tmb	rsem	tmb_le_10	krt18_krt19	204	-0.115034	0.115034	0.103056	-0.248481	0.022698	True	0.167142
+mut_nonsyn	protein	purity_ge_0.7	purity_ploidy	64	-0.113919	0.113919	0.377982	-0.349934	0.135694	True	0.41675
+tmb	protein	purity_ge_0.7	purity	64	-0.11388	0.11388	0.374169	-0.349899	0.135733	True	0.414315
+mut_nonsyn	rsem	purity_ge_0.7	purity_ploidy	143	-0.112927	0.112927	0.182444	-0.272036	0.0521918	True	0.228497
+mut_all	rsem	purity_ge_0.8	purity_ploidy	99	-0.112753	0.112753	0.271506	-0.303414	0.0865901	True	0.321324
+mut_all	rsem	purity_ge_0.8	purity	99	-0.112511	0.112511	0.270021	-0.303192	0.0868333	True	0.321038
+tmb	rsem	purity_ge_0.7	purity_ploidy	143	-0.111436	0.111436	0.188324	-0.270637	0.0536977	True	0.234723
+tmb	protein	purity_ge_0.7	purity_ploidy	64	-0.110324	0.110324	0.393315	-0.346734	0.139267	True	0.431809
+mut_all	rsem	brca_nonsyn_absent	krt18_krt19	189	-0.109471	0.109471	0.135846	-0.248324	0.03379	True	0.192573
+mut_nonsyn	rsem	brca_nonsyn_absent	krt18_krt19	189	-0.105172	0.105172	0.151988	-0.244239	0.0381329	True	0.202129
+tmb	rsem	brca_nonsyn_absent	krt18_krt19	189	-0.104678	0.104678	0.153934	-0.243769	0.038632	True	0.202539
+mut_nonsyn	rsem	purity_ge_0.8	purity	99	-0.103714	0.103714	0.309495	-0.295087	0.0956604	True	0.361311
+tmb	rsem	purity_ge_0.8	purity	99	-0.103399	0.103399	0.310971	-0.294797	0.0959752	True	0.361399
+mut_all	star	purity_ge_0.7	krt18_krt19	202	-0.1031	0.1031	0.14628	-0.23777	0.0354577	True	0.200747
+mut_all	star	purity_ge_0.7	purity_krt18_krt19	202	-0.102115	0.102115	0.151234	-0.23683	0.0364526	True	0.202129
+mut_nonsyn	star	purity_ge_0.7	krt18_krt19	202	-0.102032	0.102032	0.150529	-0.236751	0.0365358	True	0.202129
+mut_nonsyn	star	purity_ge_0.7	purity_krt18_krt19	202	-0.101072	0.101072	0.155474	-0.235835	0.0375045	True	0.202539
+mut_nonsyn	rsem	purity_ge_0.8	purity_ploidy	99	-0.100747	0.100747	0.32616	-0.292348	0.0986303	True	0.3732
+tmb	star	purity_ge_0.7	krt18_krt19	202	-0.100636	0.100636	0.156222	-0.235419	0.0379445	True	0.202539
+tmb	rsem	purity_ge_0.8	purity_ploidy	99	-0.100591	0.100591	0.326912	-0.292204	0.098786	True	0.3732
+tmb	star	purity_ge_0.7	purity_krt18_krt19	202	-0.0996458	0.0996458	0.161421	-0.234474	0.0389434	True	0.208233
+mut_all	rsem	purity_ge_0.7	none	143	-0.0967556	0.0967556	0.25032	-0.256828	0.0684837	True	0.303204
+mut_all	rsem	purity_ge_0.8	none	99	-0.094938	0.094938	0.349924	-0.286975	0.104435	True	0.392523
+tmb	star	purity_ge_0.8	purity_krt18_krt19	144	-0.0942518	0.0942518	0.26627	-0.253916	0.0704127	True	0.319524
+mut_nonsyn	star	purity_ge_0.8	purity_krt18_krt19	144	-0.0935329	0.0935329	0.269951	-0.253237	0.0711343	True	0.321038
+tmb	star	purity_ge_0.8	krt18_krt19	144	-0.0917428	0.0917428	0.277536	-0.251547	0.0729306	True	0.326961
+mut_nonsyn	star	purity_ge_0.8	krt18_krt19	144	-0.0909384	0.0909384	0.281789	-0.250787	0.0737374	True	0.330461
+mut_nonsyn	rsem	purity_ge_0.7	none	143	-0.0849007	0.0849007	0.31337	-0.245629	0.0803709	True	0.362554
+tmb	rsem	purity_ge_0.7	none	143	-0.0836099	0.0836099	0.32081	-0.244407	0.0816624	True	0.369505
+mut_all	star	purity_ge_0.8	purity_krt18_krt19	144	-0.0823782	0.0823782	0.331483	-0.242687	0.0823099	True	0.376752
+tmb	rsem	purity_ge_0.8	none	99	-0.080909	0.080909	0.425964	-0.273949	0.118398	True	0.465673
+mut_nonsyn	rsem	purity_ge_0.8	none	99	-0.0805732	0.0805732	0.427893	-0.273636	0.118731	True	0.465808
+mut_all	star	purity_ge_0.8	krt18_krt19	144	-0.0803196	0.0803196	0.342013	-0.240736	0.0843678	True	0.385325
+mut_nonsyn	rsem	purity_ge_0.7	purity_krt18_krt19	143	-0.0622325	0.0622325	0.465114	-0.224095	0.102971	True	0.502753
+tmb	rsem	purity_ge_0.7	purity_krt18_krt19	143	-0.062147	0.062147	0.465729	-0.224013	0.103056	True	0.502753
+mut_all	rsem	purity_ge_0.7	purity_krt18_krt19	143	-0.058983	0.058983	0.488785	-0.220995	0.106197	True	0.525444
+tmb	rsem	purity_ge_0.7	krt18_krt19	143	-0.0387651	0.0387651	0.648114	-0.201634	0.126189	True	0.692738
+mut_nonsyn	rsem	purity_ge_0.7	krt18_krt19	143	-0.0385688	0.0385688	0.649777	-0.201445	0.126383	True	0.692738
+mut_all	protein	purity_ge_0.8	purity_ploidy	42	-0.037954	0.037954	0.816139	-0.337992	0.269087	True	0.862966
+mut_all	rsem	purity_ge_0.7	krt18_krt19	143	-0.036615	0.036615	0.66643	-0.199567	0.128308	True	0.707567
+mut_all	protein	purity_ge_0.8	purity	42	-0.0346831	0.0346831	0.829552	-0.335087	0.272122	True	0.873569
+mut_all	protein	purity_ge_0.8	none	42	-0.0319287	0.0319287	0.840911	-0.332637	0.274673	True	0.878361
+tmb	rsem	purity_ge_0.8	purity_krt18_krt19	99	-0.0211847	0.0211847	0.837673	-0.21769	0.176971	True	0.878361
+mut_nonsyn	rsem	purity_ge_0.8	purity_krt18_krt19	99	-0.0183673	0.0183673	0.859022	-0.215003	0.1797	True	0.89366
+mut_nonsyn	protein	purity_ge_0.8	purity_ploidy	42	-0.0179361	0.0179361	0.912529	-0.320128	0.287568	True	0.945512
+mut_nonsyn	protein	purity_ge_0.8	purity	42	-0.0156517	0.0156517	0.922626	-0.318075	0.289663	True	0.95215
+mut_nonsyn	protein	purity_ge_0.8	none	42	-0.0129696	0.0129696	0.935029	-0.315662	0.292118	True	0.960793
+tmb	protein	purity_ge_0.8	purity_ploidy	42	-0.0112548	0.0112548	0.945048	-0.314117	0.293686	True	0.960793
+tmb	protein	purity_ge_0.8	purity	42	-0.00866053	0.00866053	0.957142	-0.311776	0.296055	True	0.968402
+mut_all	rsem	purity_ge_0.8	purity_krt18_krt19	99	-0.00709178	0.00709178	0.945327	-0.204221	0.19059	True	0.960793
+tmb	rsem	purity_ge_0.8	krt18_krt19	99	-0.00698057	0.00698057	0.945897	-0.204115	0.190698	True	0.960793
+tmb	protein	purity_ge_0.8	none	42	-0.00583468	0.00583468	0.970746	-0.309223	0.298631	True	0.970986
+mut_all	rsem	purity_ge_0.8	krt18_krt19	99	0.00457253	0.00457253	0.964545	-0.193017	0.201806	True	0.970986
+mut_nonsyn	rsem	purity_ge_0.8	krt18_krt19	99	-0.00374143	0.00374143	0.970986	-0.201008	0.193817	True	0.970986
+mut_all	protein	brca_nonsyn_present	purity_krt18_krt19	5	-1	1				False	
+mut_nonsyn	protein	brca_nonsyn_present	purity_krt18_krt19	5	-1	1				False	
+tmb	protein	brca_nonsyn_present	purity_krt18_krt19	5	-1	1				False	
+mut_all	protein	brca_nonsyn_present	krt18_krt19	5	-0.686406	0.686406	0.518374	-0.977006	0.496613	False	
+tmb	protein	brca_nonsyn_present	krt18_krt19	5	-0.613526	0.613526	0.579501	-0.97048	0.585882	False	
+mut_nonsyn	protein	brca_nonsyn_present	krt18_krt19	5	-0.484832	0.484832	0.677762	-0.957521	0.694526	False	
+mut_all	rsem	brca_nonsyn_present	purity	16	-0.398594	0.398594	0.141121	-0.746757	0.121034	False	
+mut_all	rsem	brca_nonsyn_present	purity_ploidy	16	-0.39626	0.39626	0.160721	-0.745528	0.123764	False	
+mut_nonsyn	star	brca_nonsyn_present	purity_krt18_krt19	22	-0.395005	0.395005	0.0941766	-0.700036	0.0319273	False	
+mut_nonsyn	star	brca_nonsyn_present	krt18_krt19	22	-0.393351	0.393351	0.0861972	-0.699036	0.0338841	False	
+mut_nonsyn	rsem	brca_nonsyn_present	purity	16	-0.385362	0.385362	0.156041	-0.73976	0.136408	False	
+mut_nonsyn	rsem	brca_nonsyn_present	purity_ploidy	16	-0.382665	0.382665	0.176891	-0.738324	0.139513	False	
+mut_all	star	brca_nonsyn_present	purity_krt18_krt19	22	-0.380991	0.380991	0.107543	-0.691525	0.048399	False	
+mut_all	star	brca_nonsyn_present	krt18_krt19	22	-0.380121	0.380121	0.098284	-0.690994	0.0494136	False	
+mut_silent	rsem	brca_nonsyn_present	purity_ploidy	16	-0.378876	0.378876	0.181577	-0.736302	0.143854	False	
+mut_silent	rsem	brca_nonsyn_present	purity	16	-0.378757	0.378757	0.163868	-0.736238	0.143991	False	
+mut_silent	protein	brca_nonsyn_present	purity_ploidy	8	0.377428	0.377428	0.460741	-0.445828	0.854769	False	
+tmb	star	brca_nonsyn_present	purity_krt18_krt19	22	-0.374937	0.374937	0.113719	-0.687822	0.0554431	False	
+tmb	rsem	brca_nonsyn_present	purity	16	-0.374557	0.374557	0.168977	-0.733988	0.148781	False	
+tmb	star	brca_nonsyn_present	krt18_krt19	22	-0.373122	0.373122	0.105156	-0.686709	0.0575457	False	
+tmb	rsem	brca_nonsyn_present	purity_ploidy	16	-0.371673	0.371673	0.190706	-0.732439	0.152055	False	
+mut_nonsyn	star	brca_nonsyn_present	none	22	-0.353008	0.353008	0.107076	-0.674269	0.0806042	False	
+mut_nonsyn	star	brca_nonsyn_present	purity_ploidy	22	-0.351343	0.351343	0.128765	-0.673232	0.0824913	False	
+mut_all	star	brca_nonsyn_present	purity_ploidy	22	-0.351187	0.351187	0.128947	-0.673134	0.0826689	False	
+mut_nonsyn	star	brca_nonsyn_present	purity	22	-0.349569	0.349569	0.120349	-0.672124	0.0845004	False	
+mut_all	star	brca_nonsyn_present	none	22	-0.34952	0.34952	0.110833	-0.672094	0.0845556	False	
+mut_all	rsem	brca_nonsyn_present	none	16	-0.347059	0.347059	0.187834	-0.719063	0.179543	False	
+mut_all	star	brca_nonsyn_present	purity	22	-0.346564	0.346564	0.12379	-0.670245	0.0878945	False	
+tmb	star	brca_nonsyn_present	none	22	-0.336628	0.336628	0.125555	-0.664003	0.0990443	False	
+mut_nonsyn	protein	brca_nonsyn_present	purity_ploidy	8	0.336382	0.336382	0.514459	-0.482725	0.841574	False	
+tmb	star	brca_nonsyn_present	purity_ploidy	22	-0.33631	0.33631	0.147112	-0.663802	0.0993999	False	
+tmb	star	brca_nonsyn_present	purity	22	-0.333012	0.333012	0.140187	-0.66172	0.103075	False	
+mut_silent	protein	brca_nonsyn_present	purity	8	0.332994	0.332994	0.465506	-0.485646	0.840458	False	
+mut_silent	protein	brca_nonsyn_present	none	8	0.323359	0.323359	0.434639	-0.493854	0.837258	False	
+mut_nonsyn	rsem	brca_nonsyn_present	none	16	-0.317647	0.317647	0.230573	-0.70271	0.211344	False	
+mut_nonsyn	protein	brca_nonsyn_present	none	8	0.309524	0.309524	0.455645	-0.505391	0.832602	False	
+tmb	rsem	brca_nonsyn_present	none	16	-0.306108	0.306108	0.248888	-0.696181	0.223523	False	
+mut_silent	star	brca_nonsyn_present	purity_krt18_krt19	22	-0.30359	0.30359	0.206388	-0.642913	0.13535	False	
+mut_silent	star	brca_nonsyn_present	krt18_krt19	22	-0.298286	0.298286	0.201461	-0.639479	0.141071	False	
+mut_silent	star	brca_nonsyn_present	purity_ploidy	22	-0.292914	0.292914	0.210091	-0.635987	0.146835	False	
+mut_silent	star	brca_nonsyn_present	none	22	-0.286603	0.286603	0.19596	-0.631866	0.153569	False	
+mut_silent	rsem	brca_nonsyn_present	none	16	-0.285926	0.285926	0.283027	-0.684605	0.244432	False	
+mut_nonsyn	protein	brca_nonsyn_present	purity	8	0.284559	0.284559	0.536236	-0.525496	0.824007	False	
+mut_silent	star	brca_nonsyn_present	purity	22	-0.281648	0.281648	0.216136	-0.628617	0.158828	False	
+tmb	protein	brca_nonsyn_present	purity_ploidy	8	0.266968	0.266968	0.609062	-0.53914	0.817799	False	
+tmb	protein	brca_nonsyn_present	none	8	0.251502	0.251502	0.547943	-0.550796	0.812232	False	
+mut_silent	rsem	brca_nonsyn_present	purity_krt18_krt19	16	-0.248803	0.248803	0.412392	-0.662773	0.281647	False	
+mut_all	rsem	brca_nonsyn_present	purity_krt18_krt19	16	-0.239799	0.239799	0.430049	-0.65737	0.290438	False	
+mut_all	protein	purity_ge_0.7	purity_krt18_krt19	37	-0.226697	0.226697	0.197301	-0.513036	0.105043	False	
+tmb	protein	brca_nonsyn_present	purity	8	0.225726	0.225726	0.626484	-0.569551	0.802722	False	
+mut_nonsyn	protein	purity_ge_0.7	purity_krt18_krt19	37	-0.223151	0.223151	0.204591	-0.510279	0.108736	False	
+tmb	protein	purity_ge_0.7	purity_krt18_krt19	37	-0.216584	0.216584	0.218578	-0.505157	0.11555	False	
+mut_nonsyn	rsem	brca_nonsyn_present	purity_krt18_krt19	16	-0.216435	0.216435	0.477565	-0.643145	0.312843	False	
+mut_all	rsem	brca_nonsyn_present	krt18_krt19	16	-0.216144	0.216144	0.457979	-0.642966	0.313118	False	
+mut_silent	star	msi_lt_3.5	purity_ploidy	271	-0.213742	0.213742	0.000415263	-0.324631	-0.0970567	False	
+mut_silent	star	all_paired	purity_ploidy	274	-0.207186	0.207186	0.000584637	-0.317883	-0.0909157	False	
+tmb	rsem	brca_nonsyn_present	purity_krt18_krt19	16	-0.206383	0.206383	0.498731	-0.636934	0.322303	False	
+mut_silent	star	msi_lt_3.5	none	281	-0.205375	0.205375	0.000531474	-0.314824	-0.0905364	False	
+mut_silent	star	count_le_500	purity_ploidy	273	-0.205144	0.205144	0.000679575	-0.316163	-0.0885818	False	
+mut_silent	star	msi_lt_3.5	purity	271	-0.201244	0.201244	0.000882521	-0.312898	-0.0841037	False	
+mut_all	protein	brca_nonsyn_present	purity_ploidy	8	0.198246	0.198246	0.706526	-0.588673	0.79225	False	
+mut_silent	star	all_paired	none	284	-0.196579	0.196579	0.000866083	-0.305972	-0.0820632	False	
+mut_silent	star	brca_nonsyn_absent	purity_ploidy	252	-0.195526	0.195526	0.00189581	-0.311573	-0.0737329	False	
+mut_all	protein	purity_ge_0.7	krt18_krt19	37	-0.195343	0.195343	0.260772	-0.48845	0.137377	False	
+mut_silent	star	count_le_500	none	283	-0.1945	0.1945	0.00100551	-0.304201	-0.0797081	False	
+mut_silent	star	all_paired	purity	274	-0.19233	0.19233	0.00140753	-0.303906	-0.0755503	False	
+mut_silent	rsem	msi_lt_3.5	purity_ploidy	194	-0.191274	0.191274	0.0078689	-0.323436	-0.051792	False	
+mut_all	protein	brca_nonsyn_present	none	8	0.190476	0.190476	0.651401	-0.593924	0.789224	False	
+mut_silent	star	count_le_500	purity	273	-0.189373	0.189373	0.00170529	-0.301318	-0.0722785	False	
+mut_nonsyn	protein	purity_ge_0.7	krt18_krt19	37	-0.188834	0.188834	0.277303	-0.483288	0.144001	False	
+mut_silent	star	msi_lt_3.5	krt18_krt19	281	-0.187665	0.187665	0.00164069	-0.298133	-0.072237	False	
+mut_nonsyn	rsem	brca_nonsyn_present	krt18_krt19	16	-0.185579	0.185579	0.525306	-0.623897	0.341555	False	
+mut_silent	rsem	msi_lt_3.5	purity	194	-0.184861	0.184861	0.0100615	-0.31747	-0.0451595	False	
+mut_silent	protein	brca_nonsyn_absent	none	74	-0.182834	0.182834	0.11895	-0.394841	0.04766	False	
+mut_silent	star	brca_nonsyn_absent	none	262	-0.182656	0.182656	0.00300319	-0.297266	-0.0628575	False	
+mut_silent	star	msi_lt_3.5	purity_krt18_krt19	271	-0.182554	0.182554	0.00270138	-0.295288	-0.0648067	False	
+tmb	protein	purity_ge_0.7	krt18_krt19	37	-0.181343	0.181343	0.297157	-0.47732	0.151589	False	
+mut_silent	star	brca_nonsyn_absent	purity	252	-0.179841	0.179841	0.00425878	-0.296819	-0.0575443	False	
+mut_silent	star	all_paired	krt18_krt19	284	-0.17682	0.17682	0.00288592	-0.287301	-0.0616958	False	
+mut_silent	rsem	all_paired	purity_ploidy	196	-0.176478	0.176478	0.0138352	-0.30899	-0.0372436	False	
+mut_all	protein	purity_ge_0.8	purity_krt18_krt19	24	-0.176102	0.176102	0.445115	-0.541068	0.244683	False	
+mut_all	protein	purity_ge_0.8	krt18_krt19	24	-0.175933	0.175933	0.433528	-0.540945	0.244847	False	
+mut_silent	protein	brca_nonsyn_present	purity_krt18_krt19	5	-0.175017	0.175017		-0.915868	0.836407	False	
+mut_silent	star	count_le_500	krt18_krt19	283	-0.174741	0.174741	0.00329505	-0.285523	-0.0593508	False	
+mut_silent	rsem	count_le_500	purity_ploidy	195	-0.172014	0.172014	0.0167555	-0.305153	-0.0322793	False	
+mut_silent	star	all_paired	purity_krt18_krt19	274	-0.171847	0.171847	0.0045538	-0.284554	-0.0544535	False	
+tmb	rsem	brca_nonsyn_present	krt18_krt19	16	-0.170253	0.170253	0.560625	-0.614135	0.355459	False	
+mut_silent	star	count_le_500	purity_krt18_krt19	273	-0.168279	0.168279	0.00557009	-0.281377	-0.0505699	False	
+mut_silent	rsem	all_paired	purity	196	-0.167006	0.167006	0.0196205	-0.300136	-0.027494	False	
+mut_all	protein	brca_nonsyn_present	purity	8	0.166272	0.166272	0.721613	-0.609866	0.779607	False	
+mut_silent	star	brca_nonsyn_absent	krt18_krt19	262	-0.163301	0.163301	0.00833494	-0.27897	-0.0429612	False	
+mut_nonsyn	protein	purity_ge_0.8	krt18_krt19	24	-0.162466	0.162466	0.470065	-0.531064	0.257836	False	
+mut_nonsyn	protein	purity_ge_0.8	purity_krt18_krt19	24	-0.161878	0.161878	0.483279	-0.53063	0.258399	False	
+mut_silent	rsem	count_le_500	purity	195	-0.161618	0.161618	0.0243629	-0.295424	-0.0215939	False	
+mut_silent	rsem	brca_nonsyn_absent	purity_ploidy	180	-0.161429	0.161429	0.0313421	-0.300598	-0.0155301	False	
+mut_silent	rsem	brca_nonsyn_present	krt18_krt19	16	-0.15894	0.15894	0.587321	-0.606841	0.365576	False	
+mut_silent	star	brca_nonsyn_absent	purity_krt18_krt19	252	-0.156017	0.156017	0.0137154	-0.274304	-0.0330798	False	
+mut_silent	rsem	msi_lt_3.5	purity_krt18_krt19	194	-0.155119	0.155119	0.0321376	-0.289666	-0.0145593	False	
+mut_silent	rsem	msi_lt_3.5	none	203	-0.153529	0.153529	0.0287476	-0.285212	-0.0161587	False	
+mut_silent	star	purity_ge_0.7	purity_ploidy	202	-0.152461	0.152461	0.0311441	-0.284526	-0.0147174	False	
+mut_silent	star	purity_ge_0.7	none	202	-0.150092	0.150092	0.0330015	-0.282296	-0.0122934	False	
+mut_silent	rsem	brca_nonsyn_absent	purity	180	-0.14958	0.14958	0.0456646	-0.289512	-0.00338806	False	
+mut_silent	star	purity_ge_0.7	purity	202	-0.147326	0.147326	0.0368813	-0.27969	-0.00946453	False	
+tmb	protein	purity_ge_0.8	krt18_krt19	24	-0.144618	0.144618	0.520799	-0.517813	0.274818	False	
+tmb	protein	purity_ge_0.8	purity_krt18_krt19	24	-0.144566	0.144566	0.531828	-0.517774	0.274867	False	
+mut_silent	rsem	all_paired	none	205	-0.136979	0.136979	0.0501721	-0.268968	5.93381e-05	False	
+mut_silent	rsem	all_paired	purity_krt18_krt19	196	-0.134631	0.134631	0.061941	-0.269698	0.00562999	False	
+mut_silent	rsem	msi_lt_3.5	krt18_krt19	203	-0.132768	0.132768	0.0602576	-0.265624	0.00503601	False	
+mut_silent	protein	all_paired	none	82	-0.132646	0.132646	0.234843	-0.339873	0.0868657	False	
+mut_silent	protein	msi_lt_3.5	none	82	-0.132646	0.132646	0.234843	-0.339873	0.0868657	False	
+mut_silent	protein	count_le_500	none	82	-0.132646	0.132646	0.234843	-0.339873	0.0868657	False	
+mut_silent	rsem	count_le_500	none	204	-0.132582	0.132582	0.058708	-0.265127	0.00488009	False	
+mut_silent	rsem	count_le_500	purity_krt18_krt19	195	-0.128943	0.128943	0.0746737	-0.264662	0.0117858	False	
+mut_silent	rsem	brca_nonsyn_absent	none	189	-0.128289	0.128289	0.0785344	-0.266148	0.0147136	False	
+mut_silent	protein	all_paired	krt18_krt19	50	-0.123503	0.123503	0.402981	-0.3885	0.160362	False	
+mut_silent	protein	msi_lt_3.5	krt18_krt19	50	-0.123503	0.123503	0.402981	-0.3885	0.160362	False	
+mut_silent	protein	count_le_500	krt18_krt19	50	-0.123503	0.123503	0.402981	-0.3885	0.160362	False	
+mut_silent	rsem	brca_nonsyn_absent	purity_krt18_krt19	180	-0.113806	0.113806	0.131486	-0.255814	0.0330095	False	
+mut_silent	rsem	all_paired	krt18_krt19	205	-0.113173	0.113173	0.107906	-0.246389	0.0242405	False	
+mut_silent	rsem	purity_ge_0.7	purity_ploidy	143	-0.112513	0.112513	0.184065	-0.271647	0.0526106	False	
+mut_silent	protein	all_paired	purity_krt18_krt19	48	-0.112249	0.112249	0.462875	-0.384136	0.177554	False	
+mut_silent	protein	msi_lt_3.5	purity_krt18_krt19	48	-0.112249	0.112249	0.462875	-0.384136	0.177554	False	
+mut_silent	protein	count_le_500	purity_krt18_krt19	48	-0.112249	0.112249	0.462875	-0.384136	0.177554	False	
+mut_silent	star	purity_ge_0.8	purity_ploidy	144	-0.111209	0.111209	0.187642	-0.269878	0.0533401	False	
+mut_silent	protein	brca_nonsyn_absent	purity	72	-0.110725	0.110725	0.357961	-0.333834	0.124132	False	
+mut_silent	rsem	count_le_500	krt18_krt19	204	-0.109144	0.109144	0.122052	-0.242876	0.0286597	False	
+mut_silent	star	purity_ge_0.8	purity	144	-0.10872	0.10872	0.196177	-0.26754	0.0558526	False	
+mut_silent	star	purity_ge_0.7	krt18_krt19	202	-0.107919	0.107919	0.128238	-0.242362	0.0305901	False	
+mut_silent	protein	brca_nonsyn_absent	krt18_krt19	45	-0.10749	0.10749	0.492664	-0.388762	0.192111	False	
+mut_silent	star	purity_ge_0.7	purity_krt18_krt19	202	-0.106957	0.106957	0.132678	-0.241445	0.0315625	False	
+mut_silent	protein	brca_nonsyn_absent	purity_ploidy	72	-0.106476	0.106476	0.380322	-0.330009	0.128363	False	
+mut_silent	star	purity_ge_0.8	none	144	-0.106061	0.106061	0.205797	-0.265041	0.0585336	False	
+mut_silent	rsem	purity_ge_0.7	purity	143	-0.104216	0.104216	0.217105	-0.263854	0.0609789	False	
+mut_silent	rsem	brca_nonsyn_absent	krt18_krt19	189	-0.10086	0.10086	0.169599	-0.240136	0.0424847	False	
+mut_silent	protein	purity_ge_0.7	purity_krt18_krt19	37	-0.0911961	0.0911961	0.607993	-0.403303	0.239918	False	
+mut_silent	rsem	purity_ge_0.7	none	143	-0.0800793	0.0800793	0.34174	-0.241062	0.0851921	False	
+mut_silent	protein	purity_ge_0.7	krt18_krt19	37	-0.0761261	0.0761261	0.663821	-0.390518	0.254168	False	
+mut_silent	protein	all_paired	purity	80	-0.0743393	0.0743393	0.514974	-0.289334	0.147796	False	
+mut_silent	protein	msi_lt_3.5	purity	80	-0.0743393	0.0743393	0.514974	-0.289334	0.147796	False	
+mut_silent	protein	count_le_500	purity	80	-0.0743393	0.0743393	0.514974	-0.289334	0.147796	False	
+mut_silent	protein	purity_ge_0.8	krt18_krt19	24	-0.0702719	0.0702719	0.755991	-0.460618	0.342851	False	
+mut_silent	star	purity_ge_0.8	purity_krt18_krt19	144	-0.0676308	0.0676308	0.425547	-0.22868	0.0970215	False	
+mut_silent	rsem	purity_ge_0.8	purity_ploidy	99	-0.0669823	0.0669823	0.514479	-0.260947	0.132181	False	
+mut_silent	protein	all_paired	purity_ploidy	80	-0.0663514	0.0663514	0.563821	-0.281962	0.155638	False	
+mut_silent	protein	msi_lt_3.5	purity_ploidy	80	-0.0663514	0.0663514	0.563821	-0.281962	0.155638	False	
+mut_silent	protein	count_le_500	purity_ploidy	80	-0.0663514	0.0663514	0.563821	-0.281962	0.155638	False	
+mut_silent	protein	brca_nonsyn_absent	purity_krt18_krt19	43	-0.0663038	0.0663038	0.684381	-0.359494	0.238801	False	
+mut_silent	star	purity_ge_0.8	krt18_krt19	144	-0.0658962	0.0658962	0.435891	-0.227028	0.0987471	False	
+mut_silent	protein	purity_ge_0.7	none	64	-0.0626404	0.0626404	0.622911	-0.303776	0.186038	False	
+mut_silent	rsem	purity_ge_0.8	purity	99	-0.0594757	0.0594757	0.560741	-0.25391	0.139578	False	
+mut_silent	protein	purity_ge_0.8	purity_krt18_krt19	24	-0.0548999	0.0548999	0.813157	-0.448373	0.356396	False	
+mut_silent	rsem	purity_ge_0.8	krt18_krt19	99	0.0482945	0.0482945	0.638531	-0.150556	0.243389	False	
+mut_silent	rsem	purity_ge_0.8	none	99	-0.0465224	0.0465224	0.647483	-0.241718	0.152292	False	
+mut_silent	rsem	purity_ge_0.8	purity_krt18_krt19	99	0.0403133	0.0403133	0.696557	-0.158362	0.235852	False	
+mut_silent	rsem	purity_ge_0.7	purity_krt18_krt19	143	-0.0397249	0.0397249	0.641215	-0.202556	0.125243	False	
+mut_silent	protein	purity_ge_0.7	purity	64	-0.0268323	0.0268323	0.834645	-0.270859	0.220435	False	
+mut_silent	rsem	purity_ge_0.7	krt18_krt19	143	-0.0229225	0.0229225	0.787313	-0.186373	0.141762	False	
+mut_silent	protein	purity_ge_0.7	purity_ploidy	64	-0.0198638	0.0198638	0.878209	-0.264386	0.227059	False	
+mut_silent	protein	purity_ge_0.8	none	42	0.0190693	0.0190693	0.904591	-0.286528	0.321145	False	
+mut_silent	protein	purity_ge_0.8	purity	42	0.0168974	0.0168974	0.916489	-0.288521	0.319195	False	
+mut_silent	protein	purity_ge_0.8	purity_ploidy	42	0.00164978	0.00164978	0.991939	-0.302438	0.305433	False	
+mut_silent	protein	brca_nonsyn_present	krt18_krt19	5	-5.27649e-16	5.27649e-16	1	-0.882272	0.882272	False	
