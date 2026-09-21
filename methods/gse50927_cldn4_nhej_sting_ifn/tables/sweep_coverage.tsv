@@ -1,0 +1,23 @@
+set	label	n_listed	n_in_rank	n_missing	missing	symbols_used
+H2AFX_MRNA	H2afx mRNA	1	1	0		H2afx
+DDR_TXN_CORE	DDR transcript core	10	10	0		Cdkn1a,Gadd45a,Gadd45b,Gadd45g,Bbc3,Pmaip1,Mdm2,Ccng1,Trp53,Ddb2
+HALLMARK_P53_PATHWAY	Hallmark p53	200	191	9	Coq8a,Elp1,H1f2,H2ac25,H2aj,Hras,Irag2,Pidd1,Rack1	
+GO_P53_MEDIATOR_0030330	GO p53 mediator	36	34	2	PIDD1,TP53	
+KEGG_P53_mmu04115	KEGG p53	71	68	3	PIDD1,ADGRB1,COP1	
+HALLMARK_DNA_REPAIR	Hallmark DNA repair	148	145	3	Eloa,Gsdme,Polr1h	
+DSB_CHROMATIN_CORE	DSB chromatin core	10	10	0		H2afx,Mdc1,Rnf8,Rnf168,Trp53bp1,Kat5,Ube2n,Brca1,Bard1,Atm
+GO_DSB_CHROMATIN_0140861	GO DSB chromatin	16	14	2	HDGFL2,HPF1	Asf1a,Babam1,Depdc1b,Dtx3l,Kat5,Kdm1a,Parp2,Phf1,Rnf168,Rnf8,Sirt7,Trip12,Ubr5,Usp3
+REACTOME_DSB_SENSING_R-HSA-5693548	Reactome DSB sensing	6	6	0		Artn,Atm,Kat5,Kpna2,Mre11a,Rad50
+HR_CORE	HR core	18	18	0		Rad51,Brca1,Brca2,Rad54l,Xrcc2,Xrcc3,Rad52,Palb2,Rpa1,Rpa2,Rpa3,Nbn,Rbbp8,Atm,Atr,Chek1,Chek2,Exo1
+KEGG_HR_mmu03440	KEGG HR	41	38	3	SEM1,ABRAXAS1,BABAM2	
+GO_HR_0000724	GO HR	111	102	9	FBH1,NSMCE3,RAD21L1,RPA4,SEM1,SLF1,SLF2,SLX1A,SPIDR	
+REACTOME_HDR_R-HSA-5685942	Reactome HDR	67	63	4	SEM1,SERPINA2,SLX1A,SPIDR	
+NHEJ_CORE	NHEJ core	9	9	0		Xrcc6,Xrcc5,Prkdc,Dclre1c,Lig4,Xrcc4,Nhej1,Poll,Polm
+STING_CORE	STING core	6	6	0		Mb21d1,Tmem173,Tbk1,Ikbke,Irf3,Ddx41
+CYTOSOLIC_SENSORS_BEYOND	Sensors beyond cGAS/STING	11	11	0		Aim2,Zbp1,Ifi202b,Ifi203,Ifi204,Pycard,Casp1,Trex1,Ddx58,Mavs,Adar
+KEGG_CYTOSOLIC_BEYOND_CGAS_STING	KEGG cytosolic DNA minus cGAS/STING/IFN	23	23	0		Zbp1,Polr3gl,Ripk3,Polr3a,Polr3b,Polr3c,Polr3d,Polr3e,Polr3f,Polr3g,Polr3h,Polr3k,Adar,Pycard,Casp1,Ripk1,Ddx58,Ifi202b,Aim2,Mavs,Polr1c,Polr1d,Trex1
+AIM2_CORE	AIM2 core	3	3	0		Aim2,Pycard,Casp1
+ZBP1_CORE	ZBP1 core	3	3	0		Zbp1,Ripk1,Ripk3
+POLR3_CYTOSOLIC	RNA pol III cytosolic	12	12	0		Polr3a,Polr3b,Polr3c,Polr3d,Polr3e,Polr3f,Polr3g,Polr3h,Polr3k,Polr3gl,Polr1c,Polr1d
+MICRONUCLEUS_ENVELOPE	Micronucleus envelope proxy	8	8	0		Lmnb1,Lmnb2,Banf1,Lemd3,Tmpo,Sun1,Sun2,Emd
+GO_HOMOLOGOUS_CHROMOSOME_SEGREGATION_0045143	GO chromosome segregation	22	11	11	CENPC,IHO1,KASH5,MAJIN,MEIKIN,PTTG2,PTTG3P,RNF212,RNF212B,TERB1,TERB2	Fancd2,Fmn2,Mei4,Meiob,Mnd1,Prdm9,Psmc3ip,Pttg1,Sirt7,Sycp1,Zcwpw1

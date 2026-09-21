@@ -1,0 +1,76 @@
+{
+  "n": "1 vs 1 GSM",
+  "slice_rule": "NHEJ mean<=-0.25 and STING mean>=0.25 on KO-minus-WT logFC",
+  "gene_rule": "at least 3 NHEJ genes and 3 STING genes with |logFC|>=0.5 in the matching direction",
+  "bridge_slice_found": false,
+  "panel_slices": [
+    {
+      "contrast": "naive_KO_vs_WT",
+      "kind": "genotype_panel",
+      "NHEJ_mean_KO_minus_WT": -0.02935399177777778,
+      "STING_mean_KO_minus_WT": 0.06087839766666666,
+      "meets_NHEJ_down_STING_up": false
+    },
+    {
+      "contrast": "VILI_KOhigh_vs_WT",
+      "kind": "genotype_panel",
+      "NHEJ_mean_KO_minus_WT": -0.06167040388888886,
+      "STING_mean_KO_minus_WT": 0.21102922249999997,
+      "meets_NHEJ_down_STING_up": false
+    },
+    {
+      "contrast": "VILI_KOlow_vs_WT",
+      "kind": "genotype_panel",
+      "NHEJ_mean_KO_minus_WT": -0.057697557222222216,
+      "STING_mean_KO_minus_WT": 0.05768668400000001,
+      "meets_NHEJ_down_STING_up": false
+    }
+  ],
+  "interaction_slices": [
+    {
+      "contrast": "interaction_high",
+      "kind": "panel_interaction",
+      "NHEJ_interaction_mean": -0.0323164121111111,
+      "STING_interaction_mean": 0.15015082483333334,
+      "meets_NHEJ_down_STING_up": false
+    },
+    {
+      "contrast": "interaction_low",
+      "kind": "panel_interaction",
+      "NHEJ_interaction_mean": -0.028343565444444448,
+      "STING_interaction_mean": -0.00319171366666667,
+      "meets_NHEJ_down_STING_up": false
+    }
+  ],
+  "gene_slices_meeting_rule": [],
+  "naive_nonflat_sets": [
+    {
+      "set": "H2AFX_MRNA",
+      "mean_KO_minus_WT": 0.500512179,
+      "wilcoxon_p": null,
+      "gsea_fdr": null
+    },
+    {
+      "set": "KEGG_P53_mmu04115",
+      "mean_KO_minus_WT": 0.17413287230303032,
+      "wilcoxon_p": 0.021992637738666266,
+      "gsea_fdr": 0.43656343656343655
+    },
+    {
+      "set": "HALLMARK_DNA_REPAIR",
+      "mean_KO_minus_WT": 0.05568558404166665,
+      "wilcoxon_p": 0.003301846690745003,
+      "gsea_fdr": 0.5272505272505272
+    },
+    {
+      "set": "ZBP1_CORE",
+      "mean_KO_minus_WT": 0.45122784000000005,
+      "wilcoxon_p": null,
+      "gsea_fdr": null
+    }
+  ],
+  "H2afx_naive_logFC": 0.500512179,
+  "H2afx_naive_FDR": 0.223636169,
+  "H2afx_naive_logCPM": 4.029364228,
+  "final_call": "FINAL: non-cancer lung supports IFN after Cldn4 loss but not NHEJ\u2013STING mRNA bridge"
+}

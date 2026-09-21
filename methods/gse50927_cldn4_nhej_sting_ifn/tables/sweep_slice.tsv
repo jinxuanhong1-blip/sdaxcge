@@ -1,0 +1,11 @@
+contrast	kind	NHEJ_mean_KO_minus_WT	STING_mean_KO_minus_WT	meets_NHEJ_down_STING_up	NHEJ_genes_down	n_NHEJ_down	STING_genes_up	n_STING_up	meets_gene_slice	NHEJ_interaction_mean	STING_interaction_mean
+naive_KO_vs_WT	genotype_panel	-0.02935399177777778	0.06087839766666666	False							
+VILI_KOhigh_vs_WT	genotype_panel	-0.06167040388888886	0.21102922249999997	False							
+VILI_KOlow_vs_WT	genotype_panel	-0.057697557222222216	0.05768668400000001	False							
+naive_KO_vs_WT	genes_|logFC|>=0.5					0.0		0.0	False		
+VILI_KOhigh_vs_WT	genes_|logFC|>=0.5				Lig4	1.0	Tmem173,Ikbke	2.0	False		
+VILI_KOlow_vs_WT	genes_|logFC|>=0.5				Prkdc	1.0	Tmem173	1.0	False		
+interaction_high	genes_|logFC|>=0.5				Lig4	1.0	Tmem173,Ikbke	2.0	False		
+interaction_low	genes_|logFC|>=0.5				Prkdc,Lig4	2.0		0.0	False		
+interaction_high	panel_interaction			False						-0.0323164121111111	0.15015082483333334
+interaction_low	panel_interaction			False						-0.028343565444444448	-0.00319171366666667

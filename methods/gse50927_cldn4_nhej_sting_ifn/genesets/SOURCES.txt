@@ -1,0 +1,78 @@
+Frozen gene lists in panels.json.
+
+NHEJ_CORE
+  Canonical c-NHEJ enzymes from KEGG mmu03450: Xrcc6, Xrcc5, Prkdc,
+  Dclre1c, Lig4, Xrcc4, Nhej1, Poll, Polm.
+  MRN (Mre11a, Rad50), Fen1 and Dntt stay in the KEGG set only.
+
+STING_CORE
+  cGAS–STING machinery on the 2014 mm9 symbols in this table:
+  Mb21d1 (Cgas), Tmem173 (Sting), Tbk1, Ikbke, Irf3, Ddx41.
+  DNA-PK subunits are left in NHEJ. ISGs are left in IFN_COMPACT.
+  Trex1 and Ifnb1 are reported gene-by-gene (both undetected here).
+
+IFN_COMPACT
+  Same 26-gene list as methods/gse50927_mouse_cldn4.
+  Compact means drop logCPM < 0 (Ifng, Cxcl11 on the naive table).
+
+KEGG_NHEJ_mmu03450, KEGG_CYTOSOLIC_DNA_SENSING_mmu04623
+  Enrichr KEGG_2019_Mouse (symbols upper-case; mapped by mouse-case).
+
+REACTOME_NHEJ_R-HSA-5693571, REACTOME_STING_R-HSA-1834941,
+REACTOME_CYTOSOLIC_DNA_R-HSA-3134975
+  Enrichr Reactome_2022, human symbols mapped to this table.
+  REACTOME_STING_NO_NHEJ drops PRKDC, XRCC5, XRCC6 at runtime.
+
+GO_NHEJ_0006303
+  Enrichr GO_Biological_Process_2023, GO:0006303.
+
+HALLMARK_INTERFERON_ALPHA_RESPONSE, HALLMARK_INTERFERON_GAMMA_RESPONSE
+  MSigDB mh.all.v2023.2.Mm.symbols.gmt (same file as the earlier
+  GSE50927 IFN/MHC folder).
+
+Sweep sets in sweep_panels.json, scored by sweep.py (separate FDR family).
+
+H2AFX_MRNA
+  H2afx transcript only. This is not a gamma-H2AX measurement.
+
+DDR_TXN_CORE
+  Cdkn1a, Gadd45a, Gadd45b, Gadd45g, Bbc3, Pmaip1, Mdm2, Ccng1, Trp53, Ddb2.
+
+HR_CORE
+  Rad51, Brca1, Brca2, Rad54l, Xrcc2, Xrcc3, Rad52, Palb2, Rpa1, Rpa2, Rpa3,
+  Nbn, Rbbp8, Atm, Atr, Chek1, Chek2, Exo1.
+
+DSB_CHROMATIN_CORE
+  H2afx, Mdc1, Rnf8, Rnf168, Trp53bp1, Kat5, Ube2n, Brca1, Bard1, Atm.
+
+CYTOSOLIC_SENSORS_BEYOND
+  Aim2, Zbp1, Ifi202b, Ifi203, Ifi204, Pycard, Casp1, Trex1, Ddx58, Mavs, Adar.
+  Excludes Mb21d1, Tmem173, Tbk1, Ikbke, Irf3, Ddx41.
+  Ifi203 and Ifi204 are mouse PYHIN genes on this table; human IFI16 has no row.
+
+AIM2_CORE, ZBP1_CORE, POLR3_CYTOSOLIC, MICRONUCLEUS_ENVELOPE
+  Small pre-specified proxies. MICRONUCLEUS_ENVELOPE is Lmnb1, Lmnb2, Banf1,
+  Lemd3, Tmpo, Sun1, Sun2, Emd. There is no micronucleus count in GSE50927.
+
+KEGG_HR_mmu03440, KEGG_P53_mmu04115, KEGG_CYTOSOLIC_BEYOND_CGAS_STING
+  Enrichr KEGG_2019_Mouse. The beyond-cGAS set drops cGAS, STING, TBK1, IKKε,
+  IRF3/7, IFN genes, chemokines, NF-kB subunits, and interleukins from mmu04623.
+
+GO_P53_MEDIATOR_0030330, GO_DSB_CHROMATIN_0140861, GO_HR_0000724,
+GO_HOMOLOGOUS_CHROMOSOME_SEGREGATION_0045143
+  Enrichr GO_Biological_Process_2023.
+
+REACTOME_HDR_R-HSA-5685942, REACTOME_DSB_SENSING_R-HSA-5693548
+  Enrichr Reactome_2022.
+
+HALLMARK_DNA_REPAIR, HALLMARK_P53_PATHWAY
+  MSigDB mh.all.v2023.2.Mm.symbols.gmt.
+
+Slice rule
+  NHEJ-core mean logFC (KO minus WT) <= -0.25 and STING-core mean >= +0.25,
+  or at least three genes on each side with |logFC| >= 0.5.
+
+Alias map used at runtime (this mm9 table):
+  CGAS/MB21D1 -> Mb21d1, STING1/TMEM173 -> Tmem173,
+  MRE11 -> Mre11a, TP53BP1 -> Trp53bp1, H2AX -> H2afx.
+  IFI16, PAXX, CYREN and the H2BC histone symbols have no row here.

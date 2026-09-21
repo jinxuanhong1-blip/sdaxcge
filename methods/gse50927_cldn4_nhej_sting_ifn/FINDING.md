@@ -1,0 +1,195 @@
+# GSE50927 mouse VILI — Cldn4 NHEJ, STING, and IFN panels
+
+**FINAL: non-cancer lung supports IFN after Cldn4 loss but not NHEJ–STING mRNA bridge.**
+
+The IFN compact result below is unchanged. A second sweep (DNA-damage transcripts, H2afx mRNA, micronucleus proxies, cytosolic sensors other than Cgas/Sting, HR versus NHEJ, and a descriptive injury × genotype contrast) does not produce a NHEJ-down / STING-up panel. Details are in the sweep section. Honest n remains **1 vs 1 GSM**.
+
+**Additive public mouse. Non-cancer.** Kage / Borok *Am J Physiol Lung Cell Mol Physiol* 2014, PMID [25106430](https://pubmed.ncbi.nlm.nih.gov/25106430/); GEO [GSE50927](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50927). Whole lung after ventilator-induced lung injury, Illumina HiSeq 2000 (GPL13112), author EdgeR on mm9. This folder scores three pre-specified panels on the four deposited contrasts. It does not replace the earlier IFN/MHC/TJ result in `methods/gse50927_mouse_cldn4`.
+
+Cldn4-high = WT (Cldn4-intact). Cldn4-low = Cldn4 KO. **KOlow / KOhigh are BAL-protein injury strata, not Cldn4-expression strata.**
+
+## Honest n
+
+| Item | n | Note |
+|---|---:|---|
+| Author EdgeR tables | 4 | naive KO vs WT; WT VILI vs naive WT; KO VILIhigh vs WT VILI; KO VILIlow vs WT VILI |
+| GSM per arm | **1 vs 1** | design text says duplicates; 2 SRA runs per GSM; no count matrix |
+| Series-matrix expression rows | 0 | `Sample_data_row_count=0` |
+| Tumour / LUAD / ICI | 0 | mixed-background whole lung |
+
+Do not write n=5 or n=10. Prerank GSEA is gene-set permutation on the deposited logFC (1000 perms, seed 42, minimum set size 6, BH FDR within the 12 sets of that contrast). The Wilcoxon test asks whether the panel’s logFC values sit away from zero. Neither is a mouse-level test. Author FDR on an unreplicated design is reported gene-by-gene and is not used as a sample-size claim.
+
+Author logFC is KO minus WT, or VILI minus naive. Compact means for genotype contrasts are flipped to **Cldn4-high minus Cldn4-low**. Positive NES means the set is enriched at the **second** group (KO, or VILI on the induction contrast).
+
+## Panels
+
+| panel | genes used | what it is |
+|---|---:|---|
+| NHEJ core | 9/9 | Ku70/80, DNA-PKcs, Artemis, Lig4, XRCC4, XLF, Pol λ, Pol μ |
+| KEGG NHEJ (mmu03450) | 13/13 | core plus Mre11a, Rad50, Fen1, Dntt |
+| STING core | 6/6 | Mb21d1 (Cgas), Tmem173 (Sting), Tbk1, Ikbke, Irf3, Ddx41 |
+| Reactome STING minus DNA-PK | 11/13 | official R-HSA-1834941 without Prkdc / Xrcc5 / Xrcc6 |
+| IFN compact | 24/26 on the naive table | same list as the earlier folder; logCPM < 0 dropped |
+| Hallmark IFN-γ / IFN-α | 181/188, 89/94 | MSigDB 2023.2 mouse |
+
+KEGG cytosolic DNA-sensing (60/61) is reported as a mixed companion. It contains Cxcl10, Ccl5, Il6 and Il1b together with the sensors, so it is not a STING-machinery score. Sources and the alias map are in `genesets/SOURCES.txt`.
+
+## One-row table
+
+Mean is Cldn4-high minus low, except the WT VILI row, which is VILI minus naive. NES is on the deposited rank (positive = up in KO, or up in VILI).
+
+| contrast | n | Cldn4 logFC | NHEJ core mean (p) | STING core mean (p) | IFN compact mean (p) | KEGG NHEJ NES (FDR) | STING core NES (FDR) | IFN-γ NES (FDR) | IFN-α NES (FDR) |
+|---|---|---:|---|---|---|---|---|---|---|
+| naive KO vs WT (**primary**) | 1 vs 1 | **−6.061** | +0.029 (0.82) | −0.061 (0.84) | **−0.797 (5.1×10⁻⁶)** | −0.75 (0.50) | +0.52 (0.50) | **+1.488 (0.006)** | **+1.601 (0.008)** |
+| WT VILI vs naive WT | 1 vs 1 | **+3.959** | −0.015 (0.91) | −0.168 (0.44) | −0.181 (0.038) | +0.64 (0.54) | −0.87 (0.53) | −0.897 (0.53) | **−1.582 (0.012)** |
+| KO VILIhigh vs WT VILI | 1 vs 1 | **−10.16** | +0.062 (1.00) | −0.211 (0.56) | **−0.322 (0.018)** | −0.68 (0.46) | +0.95 (0.46) | **+1.670 (0.012)** | +1.229 (0.20) |
+| KO VILIlow vs WT VILI | 1 vs 1 | **−12.69** | +0.058 (0.73) | −0.058 (1.00) | +0.046 (0.43) | −0.97 (0.50) | +0.75 (0.50) | +1.092 (0.50) | +0.613 (0.50) |
+
+## Primary: naive Cldn4-intact vs Cldn4-null
+
+`GSE50927_Cldn4lungWTvsKOgenes.csv.gz`. Cldn4 logFC = **−6.061** (logCPM 2.25; submitter FDR 4.1×10⁻²⁶).
+
+**IFN.** Compact mean (high − low) = **−0.797** on 24 genes (Ifng and Cxcl11 have logCPM < 0 and are dropped). 21 of 24 genes are lower in WT. Wilcoxon p = 5.1×10⁻⁶. This is the same compact number as the earlier folder. Hallmark enrichment scores match that folder exactly (IFN-γ ES 0.506, IFN-α ES 0.591; 181 and 89 genes). NES in this run is +1.488 (FDR 0.006) and +1.601 (FDR 0.008). The earlier folder, which permuted Hallmark first from the same seed, reported NES +1.508 and +1.587. Same genes, same ES, same call: IFN is higher after Cldn4 loss. Lead genes include Cxcl9 (+2.88), Ccl5 (+2.71), Cxcl10 (+2.54), Isg15 (+1.08, FDR 0.0031).
+
+**NHEJ.** The nine core enzymes do not move. Mean high − low = +0.029 (5 higher in WT, 4 higher in KO; Wilcoxon p = 0.82; background MWU p = 0.76). KEGG NHEJ NES = −0.75 (FDR 0.50). Deposited logFC (KO − WT): Xrcc6 +0.31, Xrcc5 −0.01, Prkdc +0.05, Lig4 +0.27, Xrcc4 −0.17, Nhej1 +0.21, Dclre1c −0.36, Poll −0.09, Polm −0.47. Every core gene has submitter FDR ≥ 0.21. GO NHEJ (38 genes) and Reactome NHEJ (32 genes; 19 histone symbols have no row) are also flat (NES +0.46 and +0.49, FDR 0.50).
+
+**STING.** The six machinery genes do not move. Mean high − low = −0.061 (2 higher in WT, 4 higher in KO; Wilcoxon p = 0.84). STING-core NES = +0.52 (FDR 0.50). Reactome STING with DNA-PK removed: NES +0.76 (FDR 0.50). Deposited logFC: Mb21d1 +0.50 (FDR 0.67), Tmem173 +0.13, Tbk1 +0.12, Ikbke −0.27, Irf3 +0.05, Ddx41 −0.15. Trex1 and Ifnb1 are undetected (logCPM −2.07, logFC 0).
+
+KEGG cytosolic DNA-sensing NES = +1.35 (nominal p = 0.028, FDR 0.084). That lean tracks the chemokine / cytokine members of the set. It is not a cGAS–STING transcript result.
+
+Reading on this contrast: Cldn4-high lung is IFN-low, which agrees with the locked IFN result. The NHEJ enzyme panel and the STING machinery panel stay put. The ISG rise is present with Ifnb1 and Trex1 below detection.
+
+## Companion: WT VILI induces Cldn4
+
+`GSE50927_VILIwtGenes.csv.gz`. Cldn4 logFC = **+3.959** (FDR 7.2×10⁻⁹¹). This is injury versus the naive WT lung, not a genotype split.
+
+NHEJ core mean (VILI − naive) = −0.015 (p = 0.91). STING core mean = −0.168 (p = 0.44); Irf3 −0.42 (FDR 0.071), Tbk1 +0.32 (FDR 0.25). Hallmark IFN-α ES = −0.548, NES = −1.582 (FDR 0.012), the same ES as the earlier folder. IFN compact mean = −0.181 on 23 genes (p = 0.038). Tnf (+3.27), Il1b (+1.64) and Egr1 (+0.73) rise with the injury program and are not used as the STING or IFN score. Ifnb1 and Trex1 remain undetected.
+
+When WT lung induces Cldn4, IFN-α goes down and the NHEJ and STING machinery panels do not.
+
+## Companion: VILI, Cldn4-null vs Cldn4-intact
+
+Both KO arms are Cldn4-null (logFC −10.16 and −12.69).
+
+**KO VILIhigh** (higher BAL leak). IFN compact mean high − low = −0.322 (p = 0.018), matching the earlier folder. Hallmark IFN-γ ES = 0.559, NES = +1.670 (FDR 0.012). NHEJ core mean = +0.062 (5 vs 4; p = 1.00). Lig4 is the largest core shift (KO − WT −1.06, FDR 0.11) and the other eight core genes stay within about ±0.5. STING core mean = −0.211 (p = 0.56). Tmem173 is +0.86 in the KO (FDR 0.22); Mb21d1 is −0.18. Paper injury genes are up (Tnf +2.01, FDR 3.8×10⁻⁸; Il1b +1.73, FDR 2.6×10⁻⁷; Egr1 +2.13, FDR 3.3×10⁻¹⁷).
+
+**KO VILIlow** (WT-like leak). NHEJ, STING and IFN are all flat (IFN compact +0.046, p = 0.43; Hallmark FDR 0.50). Tnf, Il1b and Egr1 are not FDR-significant versus WT VILI.
+
+The high-injury Cldn4-null lung is IFN-γ–high. The WT-like-injury Cldn4-null lung is not. NHEJ and STING machinery stay flat on both arms.
+
+## Sweep: DNA damage, micronuclei, HR, and injury × genotype
+
+This pass asks whether any neighboring mRNA set carries a NHEJ-down / STING-up bridge after the core panels were flat. Slice rule, fixed in `sweep.py`: NHEJ-core mean deposited logFC ≤ −0.25 and STING-core mean ≥ +0.25, or at least three genes on each side with |logFC| ≥ 0.5 in that direction. GSVA was not computed (`tables/gsva_status.tsv`). The series matrix is 2,328 bytes and has zero expression rows. The ten SRA runs are two FASTQ pieces of five libraries (SRX352050–SRX352054, one experiment per GSM). A recount would still be 1 library vs 1 library.
+
+### Naive KO versus WT
+
+| set | n | mean logFC (KO − WT) | gene-set p | prerank NES (FDR) |
+|---|---:|---:|---:|---|
+| H2afx mRNA | 1 | +0.501 | — | — (author FDR 0.22, logCPM 4.03) |
+| DDR transcript core | 10 | +0.188 | 0.65 | +1.13 (0.53) |
+| KEGG p53 | 66 | +0.174 | 0.022 | +1.35 (0.44) |
+| Hallmark DNA repair | 144 | +0.056 | 0.0033 | +0.86 (0.53) |
+| DSB chromatin core | 10 | +0.208 | 0.23 | +1.20 (0.53) |
+| HR core | 18 | +0.147 | 0.25 | +1.01 (0.53) |
+| NHEJ core | 9 | −0.029 | 0.82 | −0.50 (0.53) |
+| STING core | 6 | +0.061 | 0.84 | +0.53 (0.53) |
+| Sensors beyond cGAS/STING | 10 | +0.146 | 0.16 | +0.81 (0.53) |
+| Micronucleus-envelope proxy | 8 | +0.142 | 0.11 | +0.95 (0.53) |
+| GO chromosome segregation, detectable genes | 9 | −0.110 | 0.43 | — |
+
+H2afx mRNA is the transcript, not γH2AX. It does not clear the author FDR. No micronucleus count exists in this series. The envelope proxy (Lmnb1, Lmnb2, Banf1, Lemd3, Tmpo, Sun1, Sun2, Emd) is flat. On the naive table the detectable chromosome-segregation mean is −0.11 (p = 0.43).
+
+HR minus NHEJ on this contrast is +0.18. Both means sit inside ±0.25.
+
+Hallmark DNA repair’s Wilcoxon p = 0.003 is a shift of +0.056 across 144 genes. One gene in that set has author FDR < 0.05 (Polh +0.76, FDR 0.041). Prerank FDR is 0.53. KEGG p53’s Wilcoxon p = 0.022 is a mean of +0.174, and its prerank FDR is 0.44. Six of those genes have author FDR < 0.05, including Cdkn1a (+0.92), Pmaip1 (+1.11) and Bbc3 (+0.78). The ten-gene DDR core that contains those three does not move as a set (p = 0.65), because Gadd45a, Mdm2, Ccng1, Trp53 and Ddb2 do not follow.
+
+Zbp1 is the one cytosolic-sensor gene with author FDR < 0.05 (+1.00, FDR 0.046, logCPM 2.57). It is a leading-edge gene of Hallmark IFN-γ on this same rank. Ripk1 (+0.26, FDR 0.46) and Ripk3 (+0.10, FDR 1) do not follow, Aim2 is −0.69 (FDR 0.26), and Trex1 is undetected (logCPM −2.07, logFC 0). The ten-gene sensor panel mean is +0.15 (p = 0.16).
+
+No naive gene in the NHEJ core has |logFC| ≥ 0.5. No STING-core gene does either. The panel slice rule is not met.
+
+### Injury × genotype
+
+Subtracting the naive KO-versus-WT logFC from the VILI KO-versus-WT logFC is a contrast of two separately fit EdgeR tables. It has no standard error. n is still 1 vs 1.
+
+| panel | KOhigh effect − naive KO effect | p | KOlow effect − naive KO effect | p |
+|---|---:|---:|---:|---:|
+| NHEJ core | −0.032 | 0.91 | −0.028 | 1.00 |
+| STING core | +0.150 | 0.56 | −0.003 | 1.00 |
+| HR core | −0.295 | 0.014 | −0.325 | 0.071 |
+| Sensors beyond cGAS/STING | +0.043 | 0.85 | −0.121 | 0.56 |
+| DDR transcript core | +0.076 | 0.43 | −0.036 | 1.00 |
+| Micronucleus envelope | +0.079 | 0.64 | −0.059 | 0.55 |
+
+The NHEJ and STING interaction means miss the ±0.25 slice cutoff. HR’s KO-versus-WT mean is +0.15 at baseline and −0.15 in KOhigh; the difference is −0.30. No HR-core gene has author FDR < 0.05 on the KOhigh table (the most negative are Rpa3 −0.67 and Chek1 −0.61, both FDR 1). NHEJ on that same table stays at −0.06.
+
+On KO VILIhigh, the unfiltered GO chromosome-segregation mean is −0.72 because meiosis genes are below detection (Mei4 logFC −3.17, logCPM −1.05, FDR 1; Meiob logFC −2.32, logCPM −1.20). The detectable mean is −0.14 (p = 0.84). That is not a micronucleus signal.
+
+Genes that individually cross |logFC| ≥ 0.5 in the NHEJ-down / STING-up direction:
+
+| contrast | NHEJ gene (logFC, author FDR) | STING gene (logFC, author FDR) |
+|---|---|---|
+| KO VILIhigh vs WT VILI | Lig4 −1.06, FDR 0.11 | Tmem173 +0.86, FDR 0.22; Ikbke +0.52, FDR 0.87 |
+| KO VILIlow vs WT VILI | Prkdc −0.58, FDR 0.36 | Tmem173 +0.52, FDR 0.64 |
+
+On the KOhigh table, Xrcc6 is +0.51 and Nhej1 is +0.80, so the rest of the NHEJ core does not go down with Lig4. These single genes are below three-per-panel and below author FDR 0.05. They are not a slice.
+
+### What the sweep leaves in place
+
+IFN after Cldn4 loss stands (compact mean −0.797). NHEJ mRNA, STING machinery mRNA, H2afx mRNA, micronucleus-envelope mRNA, and the HR-versus-NHEJ balance do not supply a bridge. Zbp1’s single FDR < 0.05 call sits inside the IFN-γ leading edge already reported.
+
+## What this adds
+
+On the only public Cldn4-null mouse lung RNA-seq series, the IFN panel repeats the earlier result and the NHEJ and STING machinery panels do not move with genotype or with Cldn4 induction. That is additive public evidence from a non-cancer, whole-lung injury experiment. It cannot be written as a tumour NHEJ or STING law, and it cannot be written as n>1.
+
+## What this does not test
+
+- A tumour, LUAD, KL/KP, or ICI comparison.
+- Sample-level Spearman or Cldn4 quartiles (no per-sample matrix).
+- NHEJ repair activity, DNA-PK kinase activity, micronuclei, or cGAS/STING protein.
+- Ifnb1 induction (the gene is below detection on all four tables).
+- KOlow / KOhigh as Cldn4-expression classes.
+- A failed audit of the IFN result. The naive IFN compact mean is −0.797, as before.
+
+## Reproduce
+
+```bash
+python3 -m pip install -r methods/gse50927_cldn4_nhej_sting_ifn/requirements.txt
+python3 methods/gse50927_cldn4_nhej_sting_ifn/analyze.py
+python3 methods/gse50927_cldn4_nhej_sting_ifn/sweep.py
+```
+
+Downloads (not committed) go to `$GSE50927_NHEJ_DATA` (default `/tmp/gse50927_nhej`):
+
+- `https://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_Cldn4lungWTvsKOgenes.csv.gz`
+- `https://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_VILIwtGenes.csv.gz`
+- `https://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_VILIwtkohiGenes.csv.gz`
+- `https://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_VILIwtkoloGenes.csv.gz`
+
+## Files
+
+- `analyze.py` — download, map panels, prerank GSEA, compact means, figures
+- `sweep.py` — DNA-damage, micronucleus, HR-versus-NHEJ, and injury × genotype sweep
+- `genesets/sweep_panels.json`
+- `gsea_core.py` — same weighted-KS prerank engine as the earlier GSE50927 folder
+- `genesets/panels.json` — frozen NHEJ, STING, and IFN lists
+- `genesets/SOURCES.txt`
+- `tables/one_row.tsv`
+- `tables/compact_panel_scores.tsv`
+- `tables/gsea_panels.tsv`
+- `tables/gene_level.tsv`
+- `tables/gene_coverage.tsv`
+- `tables/cldn4_logfc.tsv`
+- `tables/summary.json`
+- `figures/fig1_compact_panels.png`
+- `figures/fig2_gsea_nes.png`
+- `figures/fig3_focal_logfc.png`
+- `tables/sweep_compact.tsv`
+- `tables/sweep_gsea.tsv`
+- `tables/sweep_gene_level.tsv`
+- `tables/sweep_interaction.tsv`
+- `tables/sweep_slice.tsv`
+- `tables/sweep_hr_nhej_balance.tsv`
+- `tables/sweep_verdict.json`
+- `tables/gsva_status.tsv`
+- `figures/fig4_sweep_naive_means.png`
+- `figures/fig5_interaction.png`
