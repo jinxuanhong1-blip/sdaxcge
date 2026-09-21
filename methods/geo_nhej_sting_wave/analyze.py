@@ -266,6 +266,8 @@ def norm_symbol(raw):
         if not token:
             continue
         token = token.split()[0]
+        if re.fullmatch(r"\d+\.0", token):
+            token = token[:-2]
         if token.upper().startswith("ENS"):
             token = token.split(".")[0]
             canon = ID_TO_CANON.get(token)
@@ -479,21 +481,28 @@ def score_expr(expr, names, design):
     row["n_pairs"] = len(pairs)
     row["pair_stems"] = ";".join(stem for stem, _h, _l in pairs)
 
-    if design == "log_ratio":
+    # A short log-ratio table is one contrast. A one-column logFC table is too,
+    # even when the target-gene slice is too small for the ratio heuristic.
+    one_logfc = len(names) == 1 and bool(re.search(r"log2?fc|logfc", str(names[0]), re.I))
+    short_ratio = (design == "log_ratio" and len(names) < MIN_N) or one_logfc
+    if one_logfc:
+        row["design"] = "log_ratio"
+        design = "log_ratio"
+    if short_ratio:
         sign = orient_ratio(expr)
         row["ratio_orient"] = sign
         if sign is None:
             row["contrast_note"] = "log-ratio orientation ambiguous (CLDN4 mean near 0)"
         else:
             def module_mean(genes):
-                vals = [float(np.nanmean(expr[g])) for g in genes if g in expr]
+                vals = [float(np.nanmean(expr[g])) for g in genes if g in expr and np.isfinite(np.nanmean(expr[g]))]
                 return float(sign * np.mean(vals)) if vals else np.nan
 
             row["delta_nhej"] = module_mean(NHEJ)
             row["delta_ifn"] = module_mean(IFN)
             row["delta_cgas"] = module_mean(["CGAS"]) if "CGAS" in expr else np.nan
             row["delta_sting"] = module_mean(["STING1"]) if "STING1" in expr else np.nan
-            row["contrast_note"] = "two-channel log ratio, oriented CLDN4-high minus CLDN4-low"
+            row["contrast_note"] = "short log-ratio or logFC table, oriented CLDN4-high minus CLDN4-low"
     elif pairs and ok:
         d_n, pos_n, neg_n, _ = paired_gene_deltas(expr, NHEJ, pairs)
         d_i, pos_i, neg_i, _ = paired_gene_deltas(expr, IFN, pairs)
@@ -513,8 +522,8 @@ def score_expr(expr, names, design):
         row["delta_cldn4"] = d_c4
         row["contrast_note"] = "paired titles, high arm minus low arm, mean across genes of log values"
 
-    # Spearman on single-channel profiles with enough samples
-    if design != "log_ratio":
+    # Spearman across samples, including multi-sample log-ratio series.
+    if not short_ratio:
         nhej_score = module_vector(expr, NHEJ, zscore=True)
         ifn_score = module_vector(expr, IFN, zscore=True)
         if nhej_score is not None and ifn_score is not None and ok:
@@ -540,13 +549,20 @@ def score_expr(expr, names, design):
     return row
 
 
-def joint_from_signs(nhej_delta, ifn_delta):
+def joint_from_signs(nhej_delta, ifn_delta, flat=0.0):
     if nhej_delta is None or ifn_delta is None:
         return ""
-    if not (isinstance(nhej_delta, (int, float)) and isinstance(ifn_delta, (int, float))):
+    try:
+        nhej_delta = float(nhej_delta)
+        ifn_delta = float(ifn_delta)
+    except (TypeError, ValueError):
         return ""
     if not (math.isfinite(nhej_delta) and math.isfinite(ifn_delta)):
         return ""
+    if abs(nhej_delta) <= flat and abs(ifn_delta) <= flat:
+        return "flat"
+    if abs(nhej_delta) <= flat or abs(ifn_delta) <= flat:
+        return "mixed"
     nhej_down = nhej_delta < 0
     ifn_up = ifn_delta > 0
     if nhej_down and ifn_up:
@@ -701,6 +717,21 @@ def apply_probe_map(ids, matrix, probe_map):
     return collapse_rows(symbols, matrix)
 
 
+def _symbolish(values):
+    def ok(value):
+        text = str(value).strip()
+        if re.fullmatch(r"\d+(\.0)?", text):
+            return True
+        if text.upper().startswith("ENS"):
+            return True
+        return bool(re.match(r"^[A-Za-z][A-Za-z0-9_.-]*$", text))
+
+    sample = list(values)[:40]
+    if not sample:
+        return 0.0
+    return sum(ok(v) for v in sample) / len(sample)
+
+
 def gene_column(df):
     lowered = {str(c).strip().lower(): c for c in df.columns}
     for key in (
@@ -709,26 +740,41 @@ def gene_column(df):
         "gene_symbol",
         "hgnc_symbol",
         "external_gene_name",
+        "marker.symbol",
+        "marker_symbol",
         "symbol",
+        "geneid",
+        "gene_id",
+        "entrezid",
+        "entrez_id",
+        "ensembl_gene_id",
+        "ensembl",
+        "ensg",
         "gene",
     ):
         if key in lowered:
             return lowered[key]
     first = df.columns[0]
-    sample = df[first].astype(str).head(30)
-    ok = sample.map(lambda v: bool(re.match(r"^[A-Za-z][A-Za-z0-9_.-]*$", v.strip()))).mean()
-    if ok > 0.6:
+    if str(first).startswith("Unnamed") or str(first).strip() == "":
         return first
+    if _symbolish(df[first].tolist()) > 0.6:
+        return first
+    if "name" in lowered and _symbolish(df[lowered["name"]].tolist()) > 0.6:
+        return lowered["name"]
     return None
 
 
 def numeric_sample_columns(df, gene_col):
     drop_name = re.compile(
         r"\b(locus|refseq|tracking|tss|chromosome|chrom|start|end|strand|length|"
-        r"gc|entrez|gene_id|description|biotype|uniprot)\b",
+        r"gc|entrez|gene_id|description|biotype|uniprot|marker\.name)\b",
         re.I,
     )
-    cols = []
+    stat_name = re.compile(
+        r"(log2?fc|logfc|logcpm|pvalue|p[\._-]?value|padj|adj[\._-]?p|fdr|qvalue|q[\._-]?value)",
+        re.I,
+    )
+    numeric = []
     for col in df.columns:
         if col == gene_col:
             continue
@@ -736,8 +782,19 @@ def numeric_sample_columns(df, gene_col):
             continue
         series = pd.to_numeric(df[col], errors="coerce")
         if series.notna().mean() > 0.8:
-            cols.append(col)
-    return cols
+            numeric.append(col)
+    stat = [col for col in numeric if stat_name.search(str(col))]
+    samples = [col for col in numeric if col not in stat]
+    norm = [col for col in samples if re.search(r"(cpm|tpm|fpkm|rpkm|norm)", str(col), re.I)]
+    raw = [col for col in samples if re.search(r"(rawcount|count)", str(col), re.I)]
+    if len(norm) >= 2 and len(raw) >= 2:
+        samples = [col for col in samples if col not in raw]
+    if len(samples) >= 2:
+        return samples
+    logfc = [col for col in stat if re.search(r"log2?fc|logfc", str(col), re.I)]
+    if len(logfc) == 1:
+        return logfc
+    return samples
 
 
 def table_to_expr(df):
@@ -745,7 +802,7 @@ def table_to_expr(df):
     if gcol is None:
         return None
     scols = numeric_sample_columns(df, gcol)
-    if len(scols) < 2:
+    if len(scols) < 1:
         return None
     symbols = [norm_symbol(v) for v in df[gcol].tolist()]
     matrix = df[scols].apply(pd.to_numeric, errors="coerce").to_numpy(dtype=float)
@@ -756,8 +813,40 @@ def table_to_expr(df):
     return names, expr
 
 
+def _peek_two(path):
+    opener = gzip.open if str(path).endswith(".gz") else open
+    with opener(path, "rt", errors="replace") as handle:
+        return handle.readline(), handle.readline()
+
+
+def _read_shifted_header(path, sep):
+    """First column is a gene id and the header row omitted its name."""
+    opener = gzip.open if str(path).endswith(".gz") else open
+    rows = []
+    with opener(path, "rt", errors="replace") as handle:
+        for line in handle:
+            rows.append(line.rstrip("\n").split(sep))
+    if len(rows) < 2:
+        return None
+    width = max(len(row) for row in rows[:50])
+    header = rows[0]
+    if len(header) != width - 1:
+        return None
+    header = ["gene_id"] + header
+    body = [row + [""] * (width - len(row)) for row in rows[1:]]
+    return pd.DataFrame([row[:width] for row in body], columns=header[:width])
+
+
 def read_delimited(path):
     compression = "gzip" if str(path).endswith(".gz") else None
+    line1, line2 = _peek_two(path)
+    sep_guess = "\t" if line1.count("\t") >= line1.count(",") else ","
+    if len(line2.rstrip("\n").split(sep_guess)) == len(line1.rstrip("\n").split(sep_guess)) + 1:
+        df = _read_shifted_header(path, sep_guess)
+        if df is not None and df.shape[1] >= 3:
+            got = table_to_expr(df)
+            if got:
+                return got
     for sep in ("\t", ",", None):
         try:
             df = pd.read_csv(
@@ -769,7 +858,7 @@ def read_delimited(path):
             )
         except Exception:
             continue
-        if df.shape[1] < 3:
+        if df.shape[1] < 2:
             continue
         got = table_to_expr(df)
         if got:
@@ -803,17 +892,24 @@ def prepare_expr(expr_raw):
 def score_loaded(names, expr_raw, file_name):
     expr, scale, design = prepare_expr(expr_raw)
     row = score_expr(expr, names, design)
+    design = row.get("design", design)
     row["scale"] = scale
     row["file_used"] = file_name
-    row["joint_paired"] = joint_from_signs(row.get("delta_nhej"), row.get("delta_ifn"))
-    row["joint_spearman"] = joint_from_signs(row.get("rho_nhej"), row.get("rho_ifn"))
-    # Preferred call: paired contrast when the titles define arms, else Spearman.
-    if row.get("n_pairs"):
-        row["joint_call"] = row["joint_paired"]
-        row["call_basis"] = "paired_delta"
-    elif design != "log_ratio" and row.get("spearman_n", 0) >= MIN_N and row.get("coverage_ok"):
+    row["joint_paired"] = joint_from_signs(row.get("delta_nhej"), row.get("delta_ifn"), flat=0.10)
+    # |rho| <= 0.20 is too small to call that limb up or down.
+    row["joint_spearman"] = joint_from_signs(row.get("rho_nhej"), row.get("rho_ifn"), flat=0.20)
+    # Census uses Spearman once there are 6 samples. Paired and short-ratio
+    # calls need both limbs to clear 0.10 log2 so a near-zero mean is not a hit.
+    if row.get("spearman_n", 0) >= MIN_N and row.get("coverage_ok") and design != "log_ratio":
         row["joint_call"] = row["joint_spearman"]
         row["call_basis"] = "spearman"
+    elif design == "log_ratio" and len(names) >= MIN_N and row.get("coverage_ok"):
+        row["joint_call"] = row["joint_spearman"]
+        row["call_basis"] = "spearman"
+        row["contrast_note"] = "multi-sample log ratios; Spearman across samples, not one collapsed contrast"
+    elif row.get("n_pairs"):
+        row["joint_call"] = row["joint_paired"]
+        row["call_basis"] = "paired_delta"
     elif design == "log_ratio" and row.get("joint_paired"):
         row["joint_call"] = row["joint_paired"]
         row["call_basis"] = "log_ratio"
@@ -852,16 +948,20 @@ def eligible_suppl(files):
         kept.append(item)
     def rank(item):
         name = item["name"].lower()
-        if "tpm" in name:
+        if "vili" in name:
+            base = 8
+        elif "cldn" in name:
             base = 0
-        elif "fpkm" in name:
+        elif "tpm" in name:
             base = 1
-        elif "norm" in name or "expression" in name:
+        elif "fpkm" in name:
             base = 2
-        elif "count" in name:
+        elif "norm" in name or "expression" in name:
             base = 3
-        else:
+        elif "count" in name:
             base = 4
+        else:
+            base = 5
         return (item["weak"], base, item["size"] or 0)
 
     kept.sort(key=rank)
@@ -988,15 +1088,15 @@ def score_gse(rec):
 def is_expression(rec):
     gdstype = (rec.get("gdstype") or "").lower()
     title = rec.get("title") or ""
-    if SKIP_TITLE.search(title):
+    if "non-coding rna" in gdstype:
         return False
-    if "non-coding rna" in gdstype or "genome binding" in gdstype:
-        return False
-    if "methylation" in gdstype or "genome variation" in gdstype or "snp" in gdstype:
-        return False
-    if "third-party reanalysis" in gdstype and "expression" not in gdstype:
+    if re.search(r"\b(mirna|microrna|small rna)\b", title, re.I) and "mrna" not in title.lower():
         return False
     if "expression profiling" in gdstype:
+        return True
+    if any(token in gdstype for token in ("genome binding", "methylation", "genome variation", "snp")):
+        return False
+    if re.search(r"(rna-?seq|transcriptom|expression profil|mrna)", title, re.I):
         return True
     if not gdstype and not SKIP_TITLE.search(title):
         return True
@@ -1223,34 +1323,46 @@ def write_figure(spearman):
     df = spearman.dropna(subset=["rho_nhej", "rho_ifn"]).copy()
     if df.empty:
         return
-    df = df.sort_values("rho_composite")
-    colors = []
-    for call in df["joint_call"]:
+    queries = df["queries"].fillna("") if "queries" in df.columns else ""
+    focus = df[queries.str.contains("cldn4_text|brute_token")].copy()
+    focus = focus.sort_values("rho_nhej")
+    if focus.empty:
+        focus = df.sort_values("rho_nhej").head(20)
+
+    def color_for(call):
         if call == "NHEJ_down_IFN_up":
-            colors.append("#0072B2")
-        elif call == "NHEJ_up_IFN_down":
-            colors.append("#D55E00")
-        else:
-            colors.append("#7F7F7F")
-    y = np.arange(len(df))
-    fig_h = max(3.2, 0.32 * len(df) + 1.2)
-    fig, axes = plt.subplots(1, 2, figsize=(9.2, fig_h), sharey=True)
-    axes[0].scatter(df["rho_nhej"], y, c=colors, s=28, zorder=3)
-    axes[1].scatter(df["rho_ifn"], y, c=colors, s=28, zorder=3)
+            return "#0072B2"
+        if call == "NHEJ_up_IFN_down":
+            return "#D55E00"
+        return "#7F7F7F"
+
+    colors = [color_for(c) for c in focus["joint_call"]]
+    y = np.arange(len(focus))
+    fig, axes = plt.subplots(
+        1, 2, figsize=(9.4, max(3.8, 0.38 * len(focus) + 1.4)), sharey=True,
+        gridspec_kw={"wspace": 0.08},
+    )
+    axes[0].scatter(focus["rho_nhej"], y, c=colors, s=36, zorder=3)
+    axes[1].scatter(focus["rho_ifn"], y, c=colors, s=36, zorder=3)
     for ax, title in (
-        (axes[0], "CLDN4 vs NHEJ score"),
-        (axes[1], "CLDN4 vs IFN score"),
+        (axes[0], "CLDN4 vs NHEJ"),
+        (axes[1], "CLDN4 vs IFN"),
     ):
         ax.axvline(0, color="#444444", lw=0.8)
+        ax.axvline(-0.2, color="#bbbbbb", lw=0.6, ls="--")
+        ax.axvline(0.2, color="#bbbbbb", lw=0.6, ls="--")
         ax.set_xlabel("Spearman rho")
         ax.set_title(title)
         ax.set_xlim(-1.05, 1.05)
-        ax.grid(axis="x", color="#dddddd")
+        ax.grid(axis="x", color="#eeeeee")
     axes[0].set_yticks(y)
-    axes[0].set_yticklabels(df["accession"].tolist(), fontsize=8)
-    fig.suptitle("Open GEO matrices with n ≥ 6: blue is NHEJ down and IFN up", fontsize=11)
+    axes[0].set_yticklabels(focus["accession"].tolist(), fontsize=8)
+    fig.suptitle(
+        "CLDN4-text and brute-token series with n ≥ 6. Blue: NHEJ down and IFN up (|rho| > 0.20)",
+        fontsize=10,
+    )
     fig.tight_layout()
-    fig.savefig(FIGS / "fig_spearman_nhej_ifn.png", dpi=160)
+    fig.savefig(FIGS / "fig_spearman_nhej_ifn.png", dpi=140)
     fig.savefig(FIGS / "fig_spearman_nhej_ifn.pdf")
     plt.close(fig)
 
@@ -1275,7 +1387,7 @@ def self_test():
     assert abs(d_n - (-0.05125600234633107)) < 1e-6
     assert abs(d_i - 0.550370460757852) < 1e-6
     row = score_loaded(names, expr_raw, dest.name)
-    assert row["joint_call"] == "NHEJ_down_IFN_up", row["joint_call"]
+    assert row["joint_call"] == "mixed", row["joint_call"]
     assert row["n_nhej"] == 8
     assert row["n_ifn"] == 10
     print("self-test ok", row["joint_call"], "IFN genes", row["n_ifn"])

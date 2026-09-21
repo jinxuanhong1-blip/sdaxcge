@@ -1,0 +1,27 @@
+{
+  "n_inventory_rows": 3236,
+  "status_counts": {
+    "skipped": 1161,
+    "scored": 1056,
+    "not_expression": 973,
+    "low_coverage": 41,
+    "error": 5
+  },
+  "spearman_n_series": 923,
+  "spearman_joint": {
+    "mixed": 641,
+    "flat": 126,
+    "NHEJ_down_IFN_up": 91,
+    "NHEJ_up_IFN_down": 41,
+    "": 24
+  },
+  "paired_n_series": 18,
+  "paired_joint": {
+    "mixed": 12,
+    "flat": 3,
+    "NHEJ_up_IFN_down": 2,
+    "NHEJ_down_IFN_up": 1
+  },
+  "spearman_fdr05_nhej_neg": 33,
+  "spearman_fdr05_ifn_pos": 148
+}

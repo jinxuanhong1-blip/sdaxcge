@@ -26,10 +26,8 @@ Direction is CLDN4-high minus CLDN4-low.
 - IFN ISGs: ISG15, MX1, MX2, OAS1, OAS2, OAS3, IFIT1, IFIT2, IFIT3, IFI44, IFI44L, EIF2AK2, IRF7, STAT1, RSAD2, BST2, ISG20, CXCL10. Need at least 8.
 - cGAS (MB21D1), STING1 (TMEM173), TBK1, and IRF3 are reported beside the score and are not inside the IFN mean.
 
-Continuous series with at least 6 samples: Spearman of CLDN4 versus the mean gene-wise z-score. Positive composite is IFN z minus NHEJ z.
+Continuous series with at least 6 samples: Spearman of CLDN4 versus the mean gene-wise z-score. This includes multi-sample two-channel log-ratio series. Positive composite is IFN z minus NHEJ z. A limb counts toward the joint call only when |rho| > 0.20.
 
-Paired titles (WT/control/overexpression versus KO/knockdown/silencing): mean log2 difference, high arm minus low arm, averaged across genes. A joint NHEJ-down IFN-up call is the sign pair, including when the NHEJ limb is near zero.
+Paired titles (WT/control/overexpression versus KO/knockdown/silencing), one-column logFC tables, and two-channel series with fewer than 6 columns: mean log difference, oriented CLDN4-high minus CLDN4-low. A limb counts only when |mean log2| > 0.10, so a near-zero NHEJ mean is not a joint hit.
 
-Two-channel log-ratio series: one contrast, oriented so the CLDN4 probe mean is the high-minus-low direction. No Spearman on replicate ratios.
-
-A series enters the Spearman census only when coverage, sample size, CLDN4 variance, and a single-channel design all pass. BH-FDR is computed inside that census.
+A series enters the Spearman census only when coverage and sample size pass. BH-FDR is computed inside that census.
