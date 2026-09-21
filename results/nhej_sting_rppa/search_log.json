@@ -1,0 +1,107 @@
+{
+  "paper": {
+    "citation": "Yamamoto TM, Webb P, Davis DM, Baumgartner HK, Woodruff ER, Guntupalli SR, Neville M, Behbakht K, Bitler BG. Loss of Claudin-4 Reduces DNA Damage Repair and Increases Sensitivity to PARP Inhibitors. Mol Cancer Ther. 2022;21(4):647-657.",
+    "doi": "10.1158/1535-7163.MCT-21-0827",
+    "pmcid": "PMC8988515",
+    "data_availability": "Data are available upon request from the corresponding author.",
+    "rppa": {
+      "platform": "MD Anderson RPPA Core (Yiling Lu; NCI CA16672, R50CA221675)",
+      "contrast": "OVCAR3 shCtrl (n=3) vs shCLDN4#1 (n=3)",
+      "call": "proteins with p<0.05 and FDR<15% (Figure 3A heatmap)",
+      "validation": "53BP1 and XRCC1 immunoblot, shCtrl / shCLDN4#1 / shCLDN4#2 (Figure 3B-C)"
+    }
+  },
+  "pride": [
+    {
+      "keyword": "CLDN4",
+      "n": 0
+    },
+    {
+      "keyword": "claudin-4",
+      "n": 0
+    },
+    {
+      "keyword": "claudin 4",
+      "n": 0
+    },
+    {
+      "keyword": "shCLDN4",
+      "n": 0
+    },
+    {
+      "keyword": "Bitler",
+      "n": 0
+    },
+    {
+      "keyword": "claudin",
+      "n": 30
+    },
+    {
+      "keyword": "OVCAR3",
+      "n": 22
+    }
+  ],
+  "ebi_pride_phrase": [
+    {
+      "query": "\"CLDN4\"",
+      "hitCount": 0
+    },
+    {
+      "query": "\"claudin-4\"",
+      "hitCount": 0
+    },
+    {
+      "query": "\"claudin 4\"",
+      "hitCount": 0
+    },
+    {
+      "query": "shCLDN4",
+      "hitCount": 0
+    },
+    {
+      "query": "Bitler",
+      "hitCount": 9
+    }
+  ],
+  "omicsdi": [
+    {
+      "query": "(source:pride OR source:massive) AND (CLDN4 OR \"claudin-4\" OR shCLDN4)",
+      "count": 0,
+      "top": []
+    },
+    {
+      "query": "(source:pride) AND (CLDN4 OR \"claudin-4\")",
+      "count": 0,
+      "top": []
+    },
+    {
+      "query": "(source:massive) AND (CLDN4 OR claudin OR shCLDN4)",
+      "count": 0,
+      "top": []
+    },
+    {
+      "query": "shCLDN4",
+      "count": 0,
+      "top": []
+    },
+    {
+      "query": "RPPA AND (CLDN4 OR \"claudin-4\" OR OVCAR3)",
+      "count": 2,
+      "top": [
+        {
+          "source": "biostudies-literature",
+          "id": "S-EPMC12481673",
+          "title": "VDX-111, a novel small molecule, induces necroptosis to inhibit ovarian cancer progression."
+        },
+        {
+          "source": "biostudies-literature",
+          "id": "S-EPMC10874890",
+          "title": "CASC4/GOLM2 drives high grade serous carcinoma anoikis resistance through the recycling of EGFR."
+        }
+      ]
+    }
+  ],
+  "cldn4_kd_rppa_accession": null,
+  "accession_found": false,
+  "conclusion": "No PRIDE or MassIVE accession for the OVCAR3 shCLDN4 RPPA. Phrase search of PRIDE for CLDN4 / claudin-4 / shCLDN4 is empty. OmicsDI restricted to source:pride or source:massive is empty for those terms. The paper states data are available on request. Supplement tables were digitized instead."
+}
