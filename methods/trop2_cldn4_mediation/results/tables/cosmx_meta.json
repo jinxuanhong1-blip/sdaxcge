@@ -1,0 +1,12 @@
+{
+  "cd8_labels": [
+    "T CD8 memory",
+    "T CD8 naive"
+  ],
+  "nk_labels": [
+    "NK"
+  ],
+  "n_malignant": 295877,
+  "expression": "log1p(count / n_counts * 10000) in author-matched malignant cells",
+  "neighbor": "count of CD8 or NK cells within the radius; trees are within section"
+}
