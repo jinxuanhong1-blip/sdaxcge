@@ -1,0 +1,14 @@
+record	venue	year	doi	cldn4_crispr_or_kd	omics_accession_for_that_contrast	disposition
+AACR abstract B072 ovarian23	AACR abstract	2023	10.1158/1538-7445.ovarian23-b072	yes, CRISPRi	10.1158/2767-9764.28688934 on the later paper	hit lineage; abstract itself cites no repository
+bioRxiv Villagomez autophagy	bioRxiv	2024	10.1101/2024.01.18.576263	yes, CRISPRi	10.1158/2767-9764.28688934	hit; preprint points at supplement, figshare is the stable ID
+bioRxiv Villagomez nucleus-cell cycle	bioRxiv	2024	10.1101/2024.09.04.611120	yes, CRISPRi downregulation	none	near miss; data in manuscript/supplement or upon request
+AACR annual meeting abstract LB387	AACR abstract	2025	10.1158/1538-7445.am2025-lb387	CRISPR not in retrieved abstract text; CMP and disruption are	none	near miss; companion Sci Rep raw data upon request
+bioRxiv CLDN4 P74L kidney stone	bioRxiv	2026	10.64898/2026.02.10.705174	no; doxycycline-inducible WT/P74L expression	none found	exclude; not a knockout or knockdown
+bioRxiv CPE–CLDN4 cryo-EM	bioRxiv	2024	10.1101/2024.07.11.603128	no	none	exclude; structure
+bioRxiv CLDN4 polymerization	bioRxiv	2023	10.1101/2023.12.15.571691	no	none	exclude
+bioRxiv EPEC Map depletes occludin and claudin-4	bioRxiv	2024	10.1101/2024.02.12.579967	no; bacterial effector, not CLDN4 CRISPR/KD	none	exclude
+bioRxiv anti-CLDN4 Fab cryo-EM	bioRxiv	2023	10.1101/2023.06.12.544689	no	none	exclude
+AACR abstract 4153 PDAC CLDN4 PET peptide	AACR abstract	2024	10.1158/1538-7445.am2024-4153	no	spatial transcriptomics used to nominate the target, not a KD deposit	exclude; imaging ligand
+GSE207704 Murakami breast CLDN4 CRISPR	journal, not AACR abstract or bioRxiv	2023	10.1186/s13058-023-01646-z	yes, CRISPR knockout	GSE207704	outside wave; already scored in PR 193
+CNP0006650 Xu HCC	journal, not bioRxiv	2025	10.1016/j.xcrm.2025.102208	paper has CLDN4 shRNA; deposit is not that experiment	CNP0006650 is patient scRNA	exclude; wrong experiment on the accession
+PRJNA1424384 White Nature BFT	journal, not AACR abstract or bioRxiv	2026	10.1038/s41586-026-10375-0	genome-wide CRISPR screen that identified CLDN4; KO cells used in assays	PRJNA1424384 and 10.5281/zenodo.18557106 are the screen	exclude; not a CLDN4-KD omics matrix
