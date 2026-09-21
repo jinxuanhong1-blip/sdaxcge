@@ -1,0 +1,25 @@
+collection,in_live_api,gate,note
+4D-Lung,True,IMAGING_NO_RNA,4D CT. No transcriptome.
+ACRIN-NSCLC-FDG-PET,True,IMAGING_NO_RNA,PET imaging trial. No transcriptome.
+Anti-PD-1_Lung,True,ICI_IMAGING_NO_RNA,"Human lung, anti-PD-1, n=46. Modalities PT/CT/SC only. No expression file. Expression-like hrefs on the collection page: 0."
+CMB-LCA,True,IMAGING_NO_RNA,Cancer Moonshot Biobank lung imaging plus clinical. No RNA matrix on the collection page.
+CPTAC-LSCC,True,NOT_ICI,Resection proteogenomics cohort. External genomics. Not ICI. Not scored.
+CPTAC-LUAD,True,NOT_ICI,Resection proteogenomics cohort. External genomics. Not ICI. Not scored.
+LIDC-IDRI,True,IMAGING_NO_RNA,Lung nodule CT. No transcriptome.
+Lung Phantom,True,UNREVIEWED,Lung-named collection was not in the curated gate.
+Lung-Fused-CT-Pathology,True,IMAGING_NO_RNA,CT/pathology fusion. No transcriptome.
+Lung-PET-CT-Dx,True,IMAGING_NO_RNA,PET/CT diagnosis. No transcriptome.
+LungCT-Diagnosis,True,IMAGING_NO_RNA,CT diagnosis. No transcriptome.
+NLST,True,IMAGING_NO_RNA,Screening CT. No transcriptome.
+NSCLC Radiogenomics,True,SCORED_NOT_ICI,"Open RNA-seq GSE103584, n=130, surgically excised tumors (2008–2014). Scored as NOT_ICI."
+NSCLC-Radiomics,True,IMAGING_NO_RNA,Imaging and outcomes. No gene-expression matrix.
+NSCLC-Radiomics-Genomics,True,NOT_ICI_CLDN4_ABSENT,"Open microarray GSE58661 Lung3, n=89, surgery, not ICI. Deposited IDs are merck-EST probes. CLDN4 RefSeq probe is absent, so programs were not scored."
+NSCLC-Radiomics-Interobserver1,True,IMAGING_NO_RNA,Contouring subset. No gene expression.
+QIN LUNG CT,True,IMAGING_NO_RNA,Quantitative imaging. No transcriptome.
+RIDER Lung CT,True,IMAGING_NO_RNA,Repeat CT. No transcriptome.
+RIDER Lung PET-CT,True,IMAGING_NO_RNA,Repeat PET/CT. No transcriptome.
+S0819,True,NOT_ICI_IMAGING,Phase III carboplatin/paclitaxel ± cetuximab. Imaging. Cetuximab is not PD-1/PD-L1.
+SPIE-AAPM Lung CT Challenge,True,IMAGING_NO_RNA,CT challenge. No transcriptome.
+TCGA-LUAD,True,NOT_ICI,"TCGA imaging collection. Treatment-naive surgical TCGA, not an ICI transcriptome."
+TCGA-LUSC,True,NOT_ICI,TCGA imaging collection. Not an ICI transcriptome.
+_api,True,META,getCollectionValues HTTP 200; n_collections=156; expression_hrefs_anti_pd1=[]

@@ -1,0 +1,304 @@
+{
+  "immunotherapy_open_matrices": 0,
+  "immport": {
+    "n_studies": 86,
+    "filePath_SDY901_http": 401
+  },
+  "immport_lung_or_ici_titles": [
+    {
+      "id": "SDY1064",
+      "title": "An Arntl2-Driven Secretome Enables Lung Adenocarcinoma Metastatic Self-Sufficiency",
+      "gate": "Mouse LUAD metastasis model. Not human ICI RNA."
+    },
+    {
+      "id": "SDY1079",
+      "title": "A targetable CD109-Janus kinase-Stat axis in metastatic lung cancer.",
+      "gate": "Mouse metastatic lung cancer model. Not human ICI RNA."
+    },
+    {
+      "id": "SDY1298",
+      "title": "EZH2 as an Therapy Target in Lung Cancer",
+      "gate": "Mouse EZH2 lung cancer model. Not human ICI RNA."
+    },
+    {
+      "id": "SDY1733",
+      "title": "Single-Cell immune signature for detecting early-stage HCC and early assessing PD-1 immunotherapy efficacy",
+      "gate": "HCC, not NSCLC."
+    },
+    {
+      "id": "SDY1821",
+      "title": "MDA5 Governs the Innate Immune Response to SARS-CoV-2 in Lung Epithelial Cells",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY1917",
+      "title": "Impaired neutralizing antibody response to COVID-19 mRNA vaccines in cancer patients",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY2012",
+      "title": "Longitudinal COVID-19-vaccination-induced antibody responses and Omicron neutralization in patients with lung cancer",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY2281",
+      "title": "JAX CCHI-Modulation of Lung Responses to Viral Infection \u2013 Microbiome",
+      "gate": "Lung mentioned. Title is not a human NSCLC ICI tumor transcriptome."
+    },
+    {
+      "id": "SDY2282",
+      "title": "JAX CCHI-Modulation of Lung Responses to Viral Infection- ALI SARS-CoV-2",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY2310",
+      "title": "Immune characterization of lung tumors by flow cytometry",
+      "gate": "Flow cytometry of lung tumors. Not a transcriptome."
+    },
+    {
+      "id": "SDY2561",
+      "title": "Longitudinal nucleocapsid antibody testing reveals undocumented SARS-CoV-2 infections in patients with lung cancer",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY2686",
+      "title": "Antibody Response to COVID-19 mRNA Vaccine in Patients With Lung Cancer After Primary Immunization and Booster: Reactivity to the SARS-CoV-2 WT Virus and Omicron Variant",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY3001",
+      "title": "BA.5 bivalent booster vaccination enhances neutralization of XBB.1.5, XBB.1.16 and XBB.1.9 variants in patients with lung cancer",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY3003",
+      "title": "Time-Dependent Effects of Clinical Interventions on SARS-CoV-2 Immunity in Patients with Lung Cancer",
+      "gate": "COVID or SARS-CoV-2 study that mentions lung. Not an NSCLC immunotherapy transcriptome."
+    },
+    {
+      "id": "SDY3359",
+      "title": "CyTOF data of MC38 tumor-bearing mice treated with aPD-1-mEry",
+      "gate": "Mouse MC38 colorectal. Not NSCLC."
+    },
+    {
+      "id": "SDY3403",
+      "title": "CyTOF analysis of HER2 expression in PC9 EGFR mutant NSCLC preclinical model following osimertinib treatments.",
+      "gate": "CyTOF of PC9 cells after osimertinib. Not ICI RNA-seq."
+    },
+    {
+      "id": "SDY3506",
+      "title": "Polyfunctional T Helper Cells in Checkpoint-Induced Diabetes",
+      "gate": "Checkpoint word in a non-lung study. Not scored."
+    },
+    {
+      "id": "SDY901",
+      "title": "Activation of the PD-1 Pathway Contributes to Immune Escape in EGFR-Driven Lung Tumors",
+      "gate": "Mouse EGFR lung tumors (PD-1 pathway paper). Not human NSCLC on ICI. Files not public (401)."
+    }
+  ],
+  "gse103584": {
+    "scale": "log2(x+1) of deposited linear values; NA left missing",
+    "clinical": {
+      "n_clinical_rows": 211,
+      "n_rna": 130,
+      "n_overlap": 130,
+      "n_rna_missing_clinical": 0,
+      "histology": {
+        "Adenocarcinoma": 96,
+        "NSCLC NOS (not otherwise specified)": 3,
+        "Squamous cell carcinoma": 31
+      },
+      "adjuvant_yes": 37,
+      "chemotherapy_yes": 37,
+      "radiation_yes": 14,
+      "surgery_interval_recorded": 130,
+      "ici_token_hits": {
+        "pembro": 0,
+        "nivol": 0,
+        "atezo": 0,
+        "durva": 0,
+        "ipilimumab": 0,
+        "avelumab": 0,
+        "cemiplimab": 0,
+        "sintilimab": 0,
+        "tislelizumab": 0,
+        "toripalimab": 0,
+        "camrelizumab": 0,
+        "immuno": 0,
+        "pd-1": 0,
+        "pd1": 0,
+        "checkpoint": 0,
+        "opdivo": 0,
+        "keytruda": 0,
+        "tecentriq": 0,
+        "imfinzi": 0
+      },
+      "ici_token_sum": 0
+    },
+    "cldn4_finite": 128,
+    "cldn4_median_log2": 4.493853965243417,
+    "krt_eligible": [
+      "KRT8",
+      "KRT18",
+      "KRT19"
+    ],
+    "tests": [
+      {
+        "program": "NHEJ",
+        "eligible": [
+          "XRCC6",
+          "XRCC5",
+          "PRKDC",
+          "LIG4",
+          "XRCC4",
+          "NHEJ1",
+          "DCLRE1C"
+        ],
+        "reason": "",
+        "raw": {
+          "n": 128,
+          "rho": 0.3274411737776963,
+          "p": 0.0001614340545505515
+        },
+        "partial_krt": {
+          "n": 128,
+          "rho": 0.0531372705241846,
+          "p": 0.552963530815941
+        }
+      },
+      {
+        "program": "IFN",
+        "eligible": [
+          "STAT1",
+          "IRF1",
+          "CXCL9",
+          "CXCL10",
+          "IDO1",
+          "GBP4",
+          "GBP5",
+          "CXCR6",
+          "IL2RG"
+        ],
+        "reason": "",
+        "raw": {
+          "n": 128,
+          "rho": -0.0020314502838308,
+          "p": 0.9818434718453263
+        },
+        "partial_krt": {
+          "n": 128,
+          "rho": -0.07733359381906964,
+          "p": 0.38748705932382677
+        }
+      },
+      {
+        "program": "APM",
+        "eligible": [
+          "HLA-A",
+          "HLA-B",
+          "HLA-C",
+          "B2M",
+          "PSMB10",
+          "NLRC5",
+          "ERAP1"
+        ],
+        "reason": "",
+        "raw": {
+          "n": 128,
+          "rho": 0.27933299761948355,
+          "p": 0.00140754573053615
+        },
+        "partial_krt": {
+          "n": 128,
+          "rho": 0.16083093248565591,
+          "p": 0.07086681336234374
+        }
+      }
+    ]
+  },
+  "gse58661": {
+    "scale": "as_deposited",
+    "n": 89,
+    "cldn4_finite": 0,
+    "cldn4_median": null,
+    "krt_eligible": [],
+    "tests": [
+      {
+        "program": "NHEJ",
+        "eligible": [],
+        "reason": "eligible 0 < 4",
+        "raw": {
+          "n": 0,
+          "rho": null,
+          "p": null
+        },
+        "partial_krt": {
+          "n": 0,
+          "rho": null,
+          "p": null
+        }
+      },
+      {
+        "program": "IFN",
+        "eligible": [],
+        "reason": "eligible 0 < 4",
+        "raw": {
+          "n": 0,
+          "rho": null,
+          "p": null
+        },
+        "partial_krt": {
+          "n": 0,
+          "rho": null,
+          "p": null
+        }
+      },
+      {
+        "program": "APM",
+        "eligible": [],
+        "reason": "eligible 0 < 4",
+        "raw": {
+          "n": 0,
+          "rho": null,
+          "p": null
+        },
+        "partial_krt": {
+          "n": 0,
+          "rho": null,
+          "p": null
+        }
+      }
+    ],
+    "verdict": "NOT_ICI_CLDN4_ABSENT",
+    "cldn4_probes_in_matrix": {
+      "n_exact_probes": 2,
+      "n_in_matrix": 0,
+      "probe": ""
+    }
+  },
+  "primary_bh": [
+    {
+      "cohort": "GSE103584",
+      "program": "NHEJ",
+      "q": 0.00048430216365165455
+    },
+    {
+      "cohort": "GSE103584",
+      "program": "IFN",
+      "q": 0.9818434718453263
+    },
+    {
+      "cohort": "GSE103584",
+      "program": "APM",
+      "q": 0.002111318595804225
+    }
+  ],
+  "rules": {
+    "min_gene_frac": 0.8,
+    "min_genes": 4,
+    "min_sample_frac": 0.5,
+    "na_imputed_as_zero": false,
+    "multi_gene_probes": "excluded",
+    "ici_response_tested": false
+  }
+}
