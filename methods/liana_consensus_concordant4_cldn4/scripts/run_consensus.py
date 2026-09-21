@@ -431,7 +431,7 @@ def load_gse189357(edges: pd.DataFrame) -> list[dict]:
     return out
 
 
-def qc_against_cellchat(units: list[dict]) -> pd.DataFrame:
+def qc_against_cellchat(units: list[dict], require_all: bool = True) -> pd.DataFrame:
     rows = []
     for u in units:
         comp = u["comp"]
@@ -473,7 +473,7 @@ def qc_against_cellchat(units: list[dict]) -> pd.DataFrame:
     if int(d_mal.max()) > 0 or int(d_tnk.max()) > 0:
         raise RuntimeError("malignant/T/NK counts do not match the locked CellChat inventory")
     missing = set(zip(ref.cohort, ref.patient.astype(str))) - set(zip(inv.cohort, inv.patient.astype(str)))
-    if missing:
+    if require_all and missing:
         raise RuntimeError(f"missing locked units: {sorted(missing)[:8]}")
     return inv
 
@@ -885,13 +885,19 @@ def fmt_n(x: float, digits: int = 3) -> str:
 def plot_consensus(summary: pd.DataFrame, path_png: Path, path_pdf: Path) -> None:
     methods = [("q_cpdb", "mean_d_cpdb", "CellPhoneDB"), ("q_conn", "mean_d_conn", "Connectome"), ("q_liana", "mean_d_liana", "LIANA+")]
     receivers = [("TNK", "T/NK"), ("MYE", "Myeloid")]
-    fig, axes = plt.subplots(1, 2, figsize=(11.2, 11.4), sharex=True)
+    class_color = {
+        "barrier_exclusion": "#7f2704",
+        "recruit_effector": "#08519c",
+        "recruit_myeloid": "#54278f",
+    }
+    fig, axes = plt.subplots(1, 2, figsize=(11.6, 12.2), sharex=True)
     cmap = plt.cm.RdBu_r.copy()
     cmap.set_bad("#e6e6e6")
     last_im = None
     for ax, (receiver, title) in zip(axes, receivers):
         blocks = []
         ylabels = []
+        ycolors = []
         seams = []
         sub = summary[summary["receiver"] == receiver]
         for lr_class in RANK_CLASSES:
@@ -908,12 +914,9 @@ def plot_consensus(summary: pd.DataFrame, path_png: Path, path_pdf: Path) -> Non
                         mat[i, j] = np.sign(mean) * min(6.0, -math.log10(q))
                     elif math.isfinite(q) and q == 0 and math.isfinite(mean):
                         mat[i, j] = np.sign(mean) * 6.0
-                tag = ""
-                if rec.consensus_call == "high>low":
-                    tag = " *"
-                elif rec.consensus_call == "low>high":
-                    tag = " *"
-                ylabels.append(f"{rec.axis}{tag}")
+                star = "*" if rec.consensus_call in ("high>low", "low>high") else ""
+                ylabels.append(f"{rec.axis}{star}")
+                ycolors.append(class_color[lr_class])
             if blocks:
                 seams.append(sum(b.shape[0] for b in blocks))
             blocks.append(mat)
@@ -924,42 +927,100 @@ def plot_consensus(summary: pd.DataFrame, path_png: Path, path_pdf: Path) -> Non
         masked = np.ma.masked_invalid(data)
         last_im = ax.imshow(masked, aspect="auto", cmap=cmap, vmin=-6, vmax=6, interpolation="nearest")
         ax.set_yticks(np.arange(data.shape[0]))
-        ax.set_yticklabels(ylabels, fontsize=7.5)
+        ax.set_yticklabels(ylabels, fontsize=7.4)
+        for tick, color in zip(ax.get_yticklabels(), ycolors):
+            tick.set_color(color)
         ax.set_xticks(np.arange(3))
         ax.set_xticklabels([m[2] for m in methods], fontsize=9)
         ax.set_title(title, fontsize=12, pad=8)
         for y in seams:
             ax.axhline(y - 0.5, color="#222222", lw=0.8)
-        for i in range(data.shape[0]):
-            for j in range(3):
-                if not np.isfinite(data[i, j]):
-                    continue
-                if abs(data[i, j]) >= -math.log10(0.05):
-                    ax.text(j, i, "·", ha="center", va="center", color="black", fontsize=8)
         ax.tick_params(length=0)
         for sp in ax.spines.values():
             sp.set_visible(False)
     if last_im is not None:
-        cbar = fig.colorbar(last_im, ax=axes, fraction=0.03, pad=0.04)
-        cbar.set_label("signed −log10 BH q   (red: higher from CLDN4-high)", fontsize=8)
+        cbar = fig.colorbar(last_im, ax=axes, fraction=0.028, pad=0.03)
+        cbar.set_label("signed −log10 BH q\nred = higher from CLDN4-high", fontsize=8)
         cbar.ax.tick_params(labelsize=8)
-    fig.suptitle(
-        "Concordant-4  ·  malignant CLDN4 Q4 vs Q1 outgoing LR",
-        fontsize=13,
-        y=0.98,
-    )
+    fig.suptitle("Concordant-4 malignant CLDN4 Q4 vs Q1 outgoing LR", fontsize=13, y=1.02)
     fig.text(
         0.5,
-        0.005,
-        "Rows within each class are ranked by support for that class.  * = ≥2 methods BH q<0.05, same sign, no contradicting method.  Gray = not tested (n<8).",
+        -0.02,
+        "Brown: barrier.  Blue: effector recruitment.  Purple: myeloid recruitment.\n"
+        "Star: ≥2 methods, BH q<0.05, same sign.  Gray: not tested.  Red: higher from CLDN4-high.",
         ha="center",
-        fontsize=7.5,
-        color="#333333",
+        va="top",
+        fontsize=8,
+        color="#222222",
+        transform=fig.transFigure,
     )
     path_png.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path_png, dpi=160, bbox_inches="tight")
-    fig.savefig(path_pdf, bbox_inches="tight")
+    fig.subplots_adjust(left=0.20, right=0.90, bottom=0.08, top=0.90, wspace=0.55)
+    fig.savefig(path_png, dpi=170, bbox_inches="tight", pad_inches=0.35)
+    fig.savefig(path_pdf, bbox_inches="tight", pad_inches=0.35)
     plt.close(fig)
+
+
+def _one(summary: pd.DataFrame, receiver: str, axis: str) -> pd.Series | None:
+    m = summary[(summary["receiver"] == receiver) & (summary["axis"] == axis)]
+    if m.empty:
+        return None
+    return m.iloc[0]
+
+
+def _qbrief(row: pd.Series | None) -> str:
+    if row is None:
+        return "absent"
+    return (
+        f"n={int(row.n)}, Δ CPDB {fmt_n(row.mean_d_cpdb)} (q={fmt_p(row.q_cpdb)}), "
+        f"Connectome {fmt_n(row.mean_d_conn)} (q={fmt_p(row.q_conn)}), "
+        f"LIANA+ {fmt_n(row.mean_d_liana)} (q={fmt_p(row.q_liana)}), call={row.consensus_call}"
+    )
+
+
+def reading_lines(summary: pd.DataFrame) -> list[str]:
+    """Short, number-backed reading of the rank. Not a spatial claim."""
+    lines = [
+        "Barrier/exclusion is the class that replicates across methods and receivers.",
+        "Effector chemokines CXCL9/10/11–CXCR3 and CCL5 do not.",
+        "The effector-family mean on T/NK is pulled by CXCL16–CXCR6, which is higher from CLDN4-high.",
+        "Myeloid-recruitment edges do not clear the two-method bar one by one; the family mean toward myeloid is higher from CLDN4-high.",
+        "",
+    ]
+    for receiver, label in (("TNK", "T/NK"), ("MYE", "myeloid")):
+        hits = summary[(summary.receiver == receiver) & (summary.supports == "barrier_exclusion")]
+        lines.append(
+            f"- {label} barrier hits (high>low, ≥2 methods): {hits.shape[0]} "
+            f"({', '.join(hits.sort_values('support_score', ascending=False).axis.astype(str).tolist()) or 'none'})."
+        )
+    for axis in ("CXCL9-CXCR3", "CXCL10-CXCR3", "CXCL11-CXCR3", "CCL5-CCR5", "CXCL16-CXCR6"):
+        row = _one(summary, "TNK", axis)
+        lines.append(f"- T/NK {axis}: {_qbrief(row)}.")
+    row = _one(summary, "MYE", "CSF1-CSF1R")
+    lines.append(f"- Myeloid CSF1–CSF1R: {_qbrief(row)}.")
+    row = _one(summary, "TNK", "PDL1-PD1")
+    lines.append(f"- T/NK PD-L1–PD-1 is not a barrier hit: {_qbrief(row)}.")
+    row = _one(summary, "TNK", "TGFB-TGFBR")
+    lines.append(
+        "- T/NK TGFB1–TGFBR is not counted as barrier support. "
+        f"{_qbrief(row)}."
+    )
+    for axis in ("HLA-A-CD8A", "HLA-B-CD8A", "HLA-C-CD8A"):
+        row = _one(summary, "TNK", axis)
+        lines.append(
+            f"- T/NK {axis} is outside the support ranks (MHC continuity, not recruitment): {_qbrief(row)}."
+        )
+    mixed = []
+    barrier_hits = summary[summary["supports"] == "barrier_exclusion"]
+    for rec in barrier_hits.itertuples(index=False):
+        sign = str(rec.cohort_sign_cpdb)
+        if "-" in sign:
+            mixed.append(f"{rec.receiver} {rec.axis} ({sign})")
+    if mixed:
+        lines.append(
+            "- CellPhoneDB is not the same sign in every cohort with ≥3 units for: " + "; ".join(mixed) + "."
+        )
+    return lines
 
 
 def write_finding(inv: pd.DataFrame, summary: pd.DataFrame, families: pd.DataFrame, versions: dict) -> None:
@@ -1055,6 +1116,8 @@ def write_finding(inv: pd.DataFrame, summary: pd.DataFrame, families: pd.DataFra
         for lr_class in ("barrier_exclusion", "recruit_effector", "recruit_myeloid"):
             for method in ("cpdb", "conn", "liana"):
                 lines.append(fam_line(receiver, lr_class, method))
+    lines += ["", "## How to read the ranks", ""]
+    lines.extend(reading_lines(summary))
     lines += [
         "",
         "## Consensus hits",
@@ -1138,23 +1201,55 @@ def main() -> None:
         "anndata": anndata.__version__,
         "scipy": scipy.__version__,
     }
+    import sys
+
+    if "--redraw" in sys.argv:
+        tab = HERE / "results" / "tables"
+        fig = HERE / "results" / "figures"
+        summary = pd.read_csv(tab / "consensus_ranked.tsv", sep="\t")
+        families = pd.read_csv(tab / "family_tests.tsv", sep="\t")
+        inv = pd.read_csv(tab / "patient_inventory.tsv", sep="\t")
+        plot_consensus(
+            summary,
+            fig / "consensus_barrier_vs_recruitment.png",
+            fig / "consensus_barrier_vs_recruitment.pdf",
+        )
+        write_finding(inv, summary, families, versions)
+        log("redraw done")
+        return
+    only = None
+    if "--only" in sys.argv:
+        only = sys.argv[sys.argv.index("--only") + 1]
+    update = "--update-tables" in sys.argv
     log("versions " + " ".join(f"{k}={v}" for k, v in versions.items()))
     edges = load_edges()
+    loaders = {
+        "GSE123902": load_gse123902,
+        "GSE131907": load_gse131907,
+        "GSE205335": load_gse205335,
+        "GSE189357": load_gse189357,
+    }
+    if only and only not in loaders:
+        raise RuntimeError(f"unknown cohort {only}")
+    use = [only] if only else list(loaders)
     units = []
-    units += load_gse123902(edges)
-    units += load_gse131907(edges)
-    units += load_gse205335(edges)
-    units += load_gse189357(edges)
-    inv = qc_against_cellchat(units)
+    for name in use:
+        units += loaders[name](edges)
+    inv = qc_against_cellchat(units, require_all=not only)
     rng = np.random.default_rng(SEED)
     per_rows: list[dict] = []
-    # stable order
     units = sorted(units, key=lambda u: (u["cohort"], u["patient"]))
     for unit in units:
         per_rows.extend(score_unit(unit, edges, rng))
     if not per_rows:
         raise RuntimeError("no per-patient edge rows")
     per = pd.DataFrame(per_rows)
+    tab = HERE / "results" / "tables"
+    if update:
+        prev = pd.read_csv(tab / "per_patient_edges.tsv", sep="\t")
+        prev = prev[~prev["cohort"].isin(per["cohort"].unique())]
+        per = pd.concat([prev, per], ignore_index=True)
+        inv = pd.read_csv(tab / "patient_inventory.tsv", sep="\t")
     summary = summarize_edges(per)
     families = summarize_families(per)
     spec = specificity_summary(per)
@@ -1164,7 +1259,6 @@ def main() -> None:
         ascending=[True, True, False],
         na_position="last",
     )
-    tab = HERE / "results" / "tables"
     fig = HERE / "results" / "figures"
     tab.mkdir(parents=True, exist_ok=True)
     fig.mkdir(parents=True, exist_ok=True)
