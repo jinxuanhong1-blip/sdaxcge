@@ -1,0 +1,5 @@
+contrast	geneset	source	n_genes_in_matrix	n_background	median_log2FC	mean_log2FC	fraction_log2FC_gt_0	mw_p_vs_other_protein_coding	universe
+IMMU132_vs_control	HALLMARK_INTERFERON_GAMMA_RESPONSE	MSigDB 2024.1.Hs hallmark	196	19740	0.13144	0.242297	0.755102	1.98743e-17	protein_coding symbols, one row each
+IMMU132_vs_control	HALLMARK_INTERFERON_ALPHA_RESPONSE	MSigDB 2024.1.Hs hallmark	96	19840	0.321228	0.374287	0.8125	7.65835e-17	protein_coding symbols, one row each
+combination_vs_control	HALLMARK_INTERFERON_GAMMA_RESPONSE	MSigDB 2024.1.Hs hallmark	196	19740	0.241034	0.319367	0.75	1.75293e-19	protein_coding symbols, one row each
+combination_vs_control	HALLMARK_INTERFERON_ALPHA_RESPONSE	MSigDB 2024.1.Hs hallmark	96	19840	0.455629	0.452309	0.833333	4.23247e-19	protein_coding symbols, one row each
