@@ -2,4 +2,4 @@
 
 Public-data analyses.
 
-- GSE274940 EpH4 Cldn-null (not a CLDN4-only knockout; Cldn4 mRNA is not depleted): [`results/gse274940/WRITEUP.md`](results/gse274940/WRITEUP.md)
+- GSE274940 EpH4 multi-claudin null (not CLDN4-only; Cldn4 mRNA is not depleted; pathway sweep): [`results/gse274940/WRITEUP.md`](results/gse274940/WRITEUP.md)
