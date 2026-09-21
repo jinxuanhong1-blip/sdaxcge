@@ -1,0 +1,118 @@
+{
+  "series": "GSE50927",
+  "contrast": "naive whole lung, Cldn4 KO minus WT",
+  "gsm_ko": "GSM1232581",
+  "gsm_wt": "GSM1232580",
+  "n": "1 vs 1",
+  "n_note": "One deposited edgeR column. Design-text duplicates are not in this table and are not used.",
+  "logFC_sign": "author edgeR logFC is KO minus WT; Cldn4 = -6.061296179 confirms the sign",
+  "cldn4_logFC": -6.061296179,
+  "cldn4_logCPM": 2.250629984,
+  "cldn4_author_FDR": 4.0673e-26,
+  "selection_rule": "Locked panels only. No gene added or removed for its logFC. max_joint maximizes mean_logFC * (n_up/n). max_joint_module applies that rule to panels with at least 20 detected genes. max_concordance maximizes n_up/n, tie-broken by mean logFC. max_mean_sign_concordant maximizes mean logFC among panels whose gene-level sign test (fraction up > 1/2) has p < 0.05.",
+  "inference_unit": "genes on one KO-vs-WT edgeR column; not mice",
+  "winners": {
+    "max_joint": {
+      "panel": "ayers_ifng6",
+      "n_detected": 6,
+      "n_up": 5,
+      "n_down": 1,
+      "mean_logFC_KO_minus_WT": 1.5653555996666666,
+      "concordance_frac_up": 0.8333333333333334,
+      "joint_mean_x_concordance": 1.3044629997222221,
+      "genes_down": "H2-Aa"
+    },
+    "max_joint_module_n_ge_20": {
+      "panel": "compact26",
+      "n_detected": 26,
+      "n_up": 23,
+      "n_down": 3,
+      "mean_logFC_KO_minus_WT": 1.0237861997692308,
+      "concordance_frac_up": 0.8846153846153846,
+      "joint_mean_x_concordance": 0.905657022872781,
+      "genes_down": "Ifit2,Ifit3,Eif2ak2"
+    },
+    "max_concordance": {
+      "panel": "fable_isg",
+      "n_detected": 25,
+      "n_up": 23,
+      "n_down": 2,
+      "mean_logFC_KO_minus_WT": 0.54220847048,
+      "concordance_frac_up": 0.92,
+      "joint_mean_x_concordance": 0.4988317928416,
+      "genes_down": "Ifit2,Ifit3"
+    },
+    "max_mean": {
+      "panel": "ayers_ifng6",
+      "n_detected": 6,
+      "n_up": 5,
+      "n_down": 1,
+      "mean_logFC_KO_minus_WT": 1.5653555996666666,
+      "concordance_frac_up": 0.8333333333333334,
+      "joint_mean_x_concordance": 1.3044629997222221,
+      "genes_down": "H2-Aa"
+    },
+    "max_mean_sign_concordant": {
+      "panel": "compact26",
+      "n_detected": 26,
+      "n_up": 23,
+      "n_down": 3,
+      "mean_logFC_KO_minus_WT": 1.0237861997692308,
+      "concordance_frac_up": 0.8846153846153846,
+      "joint_mean_x_concordance": 0.905657022872781,
+      "genes_down": "Ifit2,Ifit3,Eif2ak2"
+    }
+  },
+  "pareto_detected": [
+    {
+      "panel": "ayers_ifng6",
+      "n_detected": 6,
+      "n_up": 5,
+      "n_down": 1,
+      "mean_logFC_KO_minus_WT": 1.5653555996666666,
+      "concordance_frac_up": 0.8333333333333334,
+      "joint_mean_x_concordance": 1.3044629997222221,
+      "genes_down": "H2-Aa"
+    },
+    {
+      "panel": "compact26",
+      "n_detected": 26,
+      "n_up": 23,
+      "n_down": 3,
+      "mean_logFC_KO_minus_WT": 1.0237861997692308,
+      "concordance_frac_up": 0.8846153846153846,
+      "joint_mean_x_concordance": 0.905657022872781,
+      "genes_down": "Ifit2,Ifit3,Eif2ak2"
+    },
+    {
+      "panel": "fable_isg",
+      "n_detected": 25,
+      "n_up": 23,
+      "n_down": 2,
+      "mean_logFC_KO_minus_WT": 0.54220847048,
+      "concordance_frac_up": 0.92,
+      "joint_mean_x_concordance": 0.4988317928416,
+      "genes_down": "Ifit2,Ifit3"
+    }
+  ],
+  "compact26_logCPM_gt_0": {
+    "panel": "compact26",
+    "n_detected": 24,
+    "n_up": 21,
+    "n_down": 3,
+    "mean_logFC_KO_minus_WT": 0.7970525930000001,
+    "concordance_frac_up": 0.875,
+    "joint_mean_x_concordance": 0.6974210188750001,
+    "genes_down": "Ifit2,Ifit3,Eif2ak2"
+  },
+  "ayers_ifng6_logCPM_gt_0": {
+    "panel": "ayers_ifng6",
+    "n_detected": 5,
+    "n_up": 4,
+    "n_down": 1,
+    "mean_logFC_KO_minus_WT": 1.389469751,
+    "concordance_frac_up": 0.8,
+    "joint_mean_x_concordance": 1.1115758008,
+    "genes_down": "H2-Aa"
+  }
+}
