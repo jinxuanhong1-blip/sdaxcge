@@ -1,0 +1,51 @@
+geneset	metric	contrast	n_a	n_b	diff	p_two	mean_a	mean_b	n_perm
+a_priori_cytotoxicity	aupr_corrected	core_barrier_minus_core_ifn	4	1.0					
+a_priori_cytotoxicity	aupr_corrected	core_barrier_vs_random	4			0.8170457385653587	0.004880679717609001		4000.0
+a_priori_cytotoxicity	aupr_corrected	core_ifn_recruit_vs_random	1						4000.0
+a_priori_cytotoxicity	aupr_corrected	ext_barrier_vs_random	10			0.08697825543614096	0.030374901361304656		4000.0
+a_priori_cytotoxicity	aupr_corrected	mhci_vs_random	2			0.04123969007748063	0.06529815081855514		4000.0
+a_priori_cytotoxicity	priority	core_barrier_minus_core_ifn	4	1.0					
+a_priori_cytotoxicity	priority	core_barrier_vs_random	4			0.020494876280929768	1.8253815131714015		4000.0
+a_priori_cytotoxicity	priority	core_ifn_recruit_vs_random	1						4000.0
+a_priori_cytotoxicity	priority	ext_barrier_vs_random	10			0.0284928767808048	1.0497190278370976		4000.0
+a_priori_cytotoxicity	priority	mhci_vs_random	2			0.0007498125468632841	4.005992241890437		4000.0
+a_priori_exhaustion	aupr_corrected	core_barrier_minus_core_ifn	4	1.0					
+a_priori_exhaustion	aupr_corrected	core_barrier_vs_random	4			0.45863534116470883	-8.113732381746189e-05		4000.0
+a_priori_exhaustion	aupr_corrected	core_ifn_recruit_vs_random	1						4000.0
+a_priori_exhaustion	aupr_corrected	ext_barrier_vs_random	10			0.015496125968507872	0.0013270086137486701		4000.0
+a_priori_exhaustion	aupr_corrected	mhci_vs_random	2			0.7355661084728817	-0.0002672967711458		4000.0
+a_priori_exhaustion	priority	core_barrier_minus_core_ifn	4	1.0					
+a_priori_exhaustion	priority	core_barrier_vs_random	4			0.019245188702824295	2.0957573030375176		4000.0
+a_priori_exhaustion	priority	core_ifn_recruit_vs_random	1						4000.0
+a_priori_exhaustion	priority	ext_barrier_vs_random	10			0.003749062734316421	1.628455760412687		4000.0
+a_priori_exhaustion	priority	mhci_vs_random	2			0.05098725318670332	2.059784996234562		4000.0
+a_priori_ifn	aupr_corrected	core_barrier_minus_core_ifn	4	1.0					
+a_priori_ifn	aupr_corrected	core_barrier_vs_random	4			0.905023744063984	0.015179908781278275		4000.0
+a_priori_ifn	aupr_corrected	core_ifn_recruit_vs_random	1						4000.0
+a_priori_ifn	aupr_corrected	ext_barrier_vs_random	10			0.28142964258935266	0.030595543297333983		4000.0
+a_priori_ifn	aupr_corrected	mhci_vs_random	2			0.0614846288427893	0.06419312735235985		4000.0
+a_priori_ifn	priority	core_barrier_minus_core_ifn	4	1.0					
+a_priori_ifn	priority	core_barrier_vs_random	4			0.027243189202699324	1.790684796262313		4000.0
+a_priori_ifn	priority	core_ifn_recruit_vs_random	1						4000.0
+a_priori_ifn	priority	ext_barrier_vs_random	10			0.0947263184203949	0.7458837091279262		4000.0
+a_priori_ifn	priority	mhci_vs_random	2			0.0032491877030742314	3.8196212559345213		4000.0
+empirical_high	aupr_corrected	core_barrier_minus_core_ifn	4	1.0					
+empirical_high	aupr_corrected	core_barrier_vs_random	4			0.46688327918020495	0.003090469064801925		4000.0
+empirical_high	aupr_corrected	core_ifn_recruit_vs_random	1						4000.0
+empirical_high	aupr_corrected	ext_barrier_vs_random	10			0.2786803299175206	0.00339167316851567		4000.0
+empirical_high	aupr_corrected	mhci_vs_random	2			0.3436640839790053	0.00329993795932395		4000.0
+empirical_high	priority	core_barrier_minus_core_ifn	4	1.0					
+empirical_high	priority	core_barrier_vs_random	4			0.02174456385903524	2.138541230228598		4000.0
+empirical_high	priority	core_ifn_recruit_vs_random	1						4000.0
+empirical_high	priority	ext_barrier_vs_random	10			0.10847288177955511	0.6423140166746644		4000.0
+empirical_high	priority	mhci_vs_random	2			0.03299175206198451	2.3619533421588956		4000.0
+empirical_low	aupr_corrected	core_barrier_minus_core_ifn	4	1.0					
+empirical_low	aupr_corrected	core_barrier_vs_random	4			0.7278180454886278	-0.001113819654943425		4000.0
+empirical_low	aupr_corrected	core_ifn_recruit_vs_random	1						4000.0
+empirical_low	aupr_corrected	ext_barrier_vs_random	10			0.24293926518370407	-0.000622079264509525		4000.0
+empirical_low	aupr_corrected	mhci_vs_random	2			0.5043739065233691	-0.00097159326915015		4000.0
+empirical_low	priority	core_barrier_minus_core_ifn	4	1.0					
+empirical_low	priority	core_barrier_vs_random	4			0.02424393901524619	1.986742628903644		4000.0
+empirical_low	priority	core_ifn_recruit_vs_random	1						4000.0
+empirical_low	priority	ext_barrier_vs_random	10			0.09622594351412148	0.6872765937438221		4000.0
+empirical_low	priority	mhci_vs_random	2			0.03524118970257436	2.206519422365295		4000.0
