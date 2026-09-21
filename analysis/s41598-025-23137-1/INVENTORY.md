@@ -32,7 +32,7 @@ Published directions, with no numeric fold-change in the text:
 - CLDN4 knockdown in OVCAR3 and OVCA429 raised the pSTING confocal signal (Fig. 2b, c). The paper describes this as a noticeable increase. Total STING protein also changed on immunoblot (Supplementary Fig. 4d–f).
 - The ISRE luciferase reporter moved the other way. Overexpression raised the basal type I interferon response in OVCAR8 (Fig. 3a). Knockdown produced a dramatic reduction of that response in OVCAR3 (Fig. 3c). cGAMP did not bring the knockdown cells back to the wild-type ISRE level (Fig. 3e).
 
-The knockdown phenotype in this paper is higher pSTING staining with a lower ISRE reporter. The reporter is the functional interferon readout. It is not an RNA-seq gene score.
+The knockdown phenotype in this paper is higher pSTING staining with a lower ISRE reporter. The reporter is the functional interferon readout. It is not an RNA-seq gene score. Assay-by-assay wording, including the Fig. 2a versus Fig. 2e overexpression sentences and the pTBK1 blots, is in `RESULTS.md`. No CRISPRi count matrix was added there.
 
 ## Scores that are computable
 
