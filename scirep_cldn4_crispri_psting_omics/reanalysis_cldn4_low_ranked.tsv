@@ -1,0 +1,10 @@
+table	feature	feature_printed_gene1	feature_printed_gene2	cldn4_state	direction_printed	direction_class	log2_effect_printed	log2_effect_numeric	effect_censored	p_printed	q_printed	paper_set	cldn4_low_positive_isg_sting	sign_matches_printed_direction	rank_within_table_by_q
+MOESM5_protein	COL6A1	COL6A1	CLDN4: EXP<-1	low	CLDN4: EXP<-1	higher_in_cldn4_low	-0.42	-0.42	no	1.22E-04	8.77E-03	none	no	yes	1
+MOESM5_protein	YWHAE	YWHAE	CLDN4: EXP<-1	low	CLDN4: EXP<-1	higher_in_cldn4_low	-0.11	-0.11	no	1.01E-03	0.0241	none	no	yes	2
+MOESM5_protein	YAP1	YAP1	CLDN4: EXP<-1	low	CLDN4: EXP<-1	higher_in_cldn4_low	-0.24	-0.24	no	1.46E-03	0.0314	none	no	yes	3
+MOESM5_protein	CDH2	CDH2	CLDN4: EXP<-1	low	CLDN4: EXP<-1	higher_in_cldn4_low	-0.2	-0.2	no	2.54E-03	0.0389	none	no	yes	4
+MOESM5_protein	MS4A1	MS4A1	CLDN4: EXP<-1	low	CLDN4: EXP<-1	higher_in_cldn4_low	-0.1	-0.1	no	3.14E-03	0.0389	none	no	yes	5
+MOESM5_protein	CHEK1	CHEK1	CLDN4: EXP<-1	low	CLDN4: EXP<-1	higher_in_cldn4_low	-0.16	-0.16	no	3.22E-03	0.0389	none	no	yes	6
+MOESM5_protein	YAP1_PS127	YAP1_PS127	CLDN4: EXP<-1	low	CLDN4: EXP<-1	higher_in_cldn4_low	-0.46	-0.46	no	3.24E-03	0.0389	none	no	yes	7
+MOESM2_ISG	BST2	BST2 (high)	CLDN4(low)	low	Mutual exclusivity	mutual exclusivity	<-3		yes	0.029	0.042	isg10	no	yes	1
+MOESM2_ISG	IFI44	IFI44(high)	CLDN4(low)	low	Co-ocurrence	co-occurrence	1.571	1.571	no	0.036	0.050	isg10	yes	yes	2

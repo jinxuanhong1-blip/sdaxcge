@@ -1,0 +1,17 @@
+source	query	result
+paper data availability	PMID 41214101 / PMC12603150 / DOI 10.1038/s41598-025-23137-1	All materials and raw data available upon request of the corresponding author. All data presented in the manuscript.
+GEO gds	Villagomez[Author]	11 series. None are this paper: GSE268078, GSE229517, GSE240726, GSE240725, GSE240555, GSE220936, GSE225338 (EHMT/PRMT5 ovarian or MCL), GSE119834/GSE119776/GSE119774/GSE119755 (GBM chromatin).
+GEO gds	CLDN4 AND (CRISPRi OR CRISPR) AND (ovarian OR OVCAR)	0
+GEO gds	Bitler[Author] AND (CLDN4 OR claudin OR STING OR CRISPRi OR OVCAR OR CMP)	4, all unrelated after MeSH expansion: GSE186619, GSE186618 (colorectal ERV RNA-seq), GSE182197, GSE182089 (SETDB1-TRIM28 CRISPR/RNA-seq).
+GEO gds elink	pubmed 41214101 -> gds	no linked GEO records
+SRA	41214101[pubmed] and Villagomez[ORGN] and Bitler[ORGN] AND (claudin OR CLDN4 OR STING OR CRISPRi)	0
+BioProject	Villagomez FR[Author] AND claudin	0
+PRIDE v2	keyword DOI, Bitler, Villagomez, claudin-4	0 projects. Smoke test keyword=ovarian returns PXD083384, so the endpoint is live.
+MassIVE ProXI	filter=claudin-4	404, no datasets
+BioStudies	S-EPMC12603150	literature record only. 0 GSE/SRP/PRJNA/PXD. Sister records S-EPMC11705808 and S-EPMC11218812 also 0 accessions.
+OmicsDI	DOI 10.1038/s41598-025-23137-1	1 hit: BioStudies literature S-EPMC12603150, omicsType Unknown. No GEO/PRIDE dataset.
+Figshare API	s41598-025-23137-1 and Villagomez claudin-4	0 articles
+Zenodo API	doi search	HTTP 403 from this environment. Web search did not surface a Zenodo record for this DOI.
+excluded near-miss	GSE22493	2010/12/15 SKOV-3 CLDN4 siRNA microarray. Not this 2025 OVCAR3/OVCA429 CRISPRi paper.
+Springer MOESM probe	MOESM0 and MOESM6-10 pdf/docx/xlsx/csv/zip/txt	HTTP 403 (missing object). MOESM1 pdf remains HTTP 200. Nature article lists exactly five supplementary materials.
+Europe PMC	PMC12603150/supplementaryFiles zip	21 files. The five MOESM hashes match the Springer downloads. The other 16 files are Fig1-8 HTML gif/jpg renders, not tables.

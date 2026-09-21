@@ -1,0 +1,5 @@
+table	feature	feature_printed_gene1	feature_printed_gene2	cldn4_state	direction_printed	direction_class	log2_effect_printed	log2_effect_numeric	effect_censored	p_printed	q_printed	paper_set	cldn4_low_positive_isg_sting	sign_matches_printed_direction	rank_within_table_by_q
+MOESM2_ISG	IRF7	IRF7 (high)	CLDN4(high)	high	Co-ocurrence	co-occurrence	1.991	1.991	no	0.004	0.007	isg10	no	yes	
+MOESM2_ISG	BST2	BST2 (high)	CLDN4(low)	low	Mutual exclusivity	mutual exclusivity	<-3		yes	0.029	0.042	isg10	no	yes	1
+MOESM2_ISG	OAS1	OAS1 (high)	CLDN4 (high)	high	Co-occurrence	co-occurrence	1.194	1.194	no	0.035	0.049	isg10	no	yes	
+MOESM2_ISG	IFI44	IFI44(high)	CLDN4(low)	low	Co-ocurrence	co-occurrence	1.571	1.571	no	0.036	0.050	isg10	yes	yes	2
