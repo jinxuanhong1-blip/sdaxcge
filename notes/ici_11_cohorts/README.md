@@ -49,10 +49,82 @@ Open NSCLC bulk: Jung is null for CLDN4. Cho is the only open NSCLC cohort with 
 
 Sade-Feldman GSE120575 is CD45-sorted. CLDN4 is nonzero in 48/16,291 cells (median 0). That is not a tumor CLDN4 measurement.
 
+## FINAL open-ICI status versus slide OR 0.42
+
+The slide quantity is a median-split odds ratio of objective response (CR/PR) for CLDN4-high versus CLDN4-low. OR below 1 is the claimed direction. High means strictly above the cohort median; values tied at the median stay in the low arm. A zero cell uses the Haldane–Anscombe 0.5 correction for the odds ratio and its interval; Fisher exact p is the uncorrected 2×2 table. The comparison with 0.42 is a two-sided normal test on the log odds ratio.
+
+Seven open cohorts enter the pool. Hugo, Jung, VanAllen, Liu, and Mariathasan stay on this primary cut. Their rank tests were null (Hugo AUC 0.48, p=0.86; Jung 0.48, p=0.90; VanAllen 0.55, p=0.63), a weak null at large n (Liu 0.57, p=0.18, n=119), or opposite the claim (Mariathasan 0.45, p=0.22, n=298). Those five did not get a label flip, a continuous refit, or a keratin residual.
+
+| Cohort | n | high R/NR | low R/NR | OR (95% CI) | Fisher p | p vs 0.42 |
+|---|---|---|---|---|---|---|
+| Hugo GSE78220 | 27 | 8/5 | 7/7 | 1.60 (0.35–7.40) | 0.70 | 0.087 |
+| Jung GSE135222 | 27 | 4/9 | 4/10 | 1.11 (0.21–5.80) | 1.00 | 0.25 |
+| Cho GSE126044 | 16 | 0/8 | 4/4 | 0.059 (0.0026–1.36) | 0.077 | 0.22 |
+| Liu DFCI 2019 | 119 | 20/39 | 27/33 | 0.63 (0.30–1.32) | 0.26 | 0.29 |
+| VanAllen DFCI 2015 | 40 | 6/14 | 7/13 | 0.80 (0.21–3.00) | 1.00 | 0.34 |
+| Gide pretreatment | 73 | 17/19 | 23/14 | 0.54 (0.21–1.38) | 0.24 | 0.58 |
+| Mariathasan IMvigor210, iAtlas | 298 | 40/109 | 28/121 | 1.59 (0.92–2.74) | 0.13 | 2.0×10⁻⁶ |
+
+Cho’s odds ratio uses the 0.5 correction because the high-CLDN4 responder cell is 0.
+
+Inverse-variance pool of those seven log odds ratios (`results/ici_11_cohorts/forest_pool.tsv`):
+
+| Model | OR (95% CI) | z vs 0.42 | p vs 0.42 |
+|---|---|---|---|
+| Fixed | 0.98 (0.68–1.40) | 4.60 | 4.2×10⁻⁶ |
+| Random (DerSimonian–Laird) | 0.88 (0.53–1.47) | 2.82 | 0.0049 |
+
+Q = 9.48 on 6 df, I² = 37%, τ² = 0.16. The random-effects interval includes 1 and excludes 0.42. The open cohorts do not support high CLDN4 as a marker of non-response at the slide value.
+
+The figure is `results/ici_11_cohorts/figures/cldn4_or_forest.png`. The gray point (Cho GEO label) and the Gide pre+on row below are drawn or tabulated outside the diamond.
+
+Mariathasan in this forest is the iAtlas profile `blca_iatlas_imvigor210_2017`, OR 1.59 (0.92–2.74). PR #250 reported the Nature 2018 count matrix for the same trial as OR 1.47 (0.82–2.64), p=0.214, and a locked three-cohort urothelial pool of OR 1.31 (0.82–2.10), z=4.74, p=2.1×10⁻⁶. Both IMvigor210 estimates sit above 1. This script does not replace that official-matrix number.
+
+### Left out of the pool
+
+Gide pre+on (91 samples, 19/26 high and 30/16 low) has OR 0.39 (0.17–0.91), Fisher p=0.036, p vs 0.42 = 0.86. That row mixes on-treatment RNA, and a patient can appear twice, so the forest point is pretreatment only.
+
+Cho with the GEO label on GSM3589680 (one high-CLDN4 sample moved from non-responder to responder) has OR 0.14 (0.012–1.76), Fisher p=0.28. The Data S9 label remains the pooled point.
+
+### Extra cuts, mixed or underpowered only
+
+Cho (4 responders, and GEO disagrees on GSM3589680) and Gide pretreatment (rank p=0.070) are the only cohorts with these cuts. Full rows: `results/ici_11_cohorts/mixed_underpowered_extras.tsv`.
+
+Cho, Data S9 labels:
+
+| Spec | Estimate (95% CI) | p |
+|---|---|---|
+| CLDN4, log2(count+1), OR per SD | 0.24 (0.050–1.11) | 0.068 |
+| TACSTD2, log2(count+1), OR per SD | 0.29 (0.071–1.16) | 0.080 |
+| TACSTD2 median split | 1.00 (0.10–9.61) | 1.00 |
+| CLDN4 median split, GEO label | 0.14 (0.012–1.76) | 0.28 |
+| CLDN4 log2 per SD, GEO label | 0.39 (0.12–1.34) | 0.14 |
+| CLDN4 residual on log2 KRT18 + KRT19, median split | 0.059 (0.0026–1.36) | 0.077 |
+| CLDN4 residual on log2 KRT18 + KRT19, OR per SD | 0.45 (0.13–1.51) | 0.20 |
+
+The Cho keratin residual leaves the median-split 2×2 unchanged (0/8 vs 4/4). The per-SD residual odds ratio moves from 0.24 to 0.45, and the interval still covers 1. Calling GSM3589680 a responder moves the median-split OR from 0.059 to 0.14 and the per-SD OR from 0.24 to 0.39. Cho stays a small, label-sensitive cohort. It does not set the pooled estimate.
+
+Gide pretreatment, deposited log2 upper-quartile values:
+
+| Spec | Estimate (95% CI) | p |
+|---|---|---|
+| CLDN4, OR per SD | 0.65 (0.40–1.05) | 0.079 |
+| TACSTD2, OR per SD | 0.72 (0.45–1.16) | 0.18 |
+| TACSTD2 median split | 0.68 (0.27–1.72) | 0.48 |
+| CLDN4 residual on KRT18 + KRT19, median split | 0.54 (0.21–1.38) | 0.24 |
+| CLDN4 residual on KRT18 + KRT19, OR per SD | 0.71 (0.44–1.15) | 0.17 |
+
+The Gide pretreatment keratin residual also leaves the median-split 2×2 unchanged (17/19 vs 23/14). The per-SD residual OR is 0.71. Every Gide pretreatment interval covers 1.
+
+### Closed cohorts
+
+POPLAR and OAK stay under controlled access (study EGAS00001005013, DAC EGAC00001002120). They are absent from `per_sample_open.tsv` and from this forest. No OAK or POPLAR value was imputed. BIP (NCT02534649) is also closed. This page does not re-test Bessede et al. on OAK.
+
 ## Reproduce
 
 ```bash
 python3 scripts/ici_11_cohorts/recompute_open.py
+python3 scripts/ici_11_cohorts/forest_or.py
 ```
 
-Needs pandas, scipy, and openpyxl. Downloads land in `/tmp/ici11` (override with `ICI11_CACHE`). cBioPortal is queried live for VanAllen, Liu, Gide, and IMvigor210.
+Needs pandas, scipy, openpyxl, matplotlib, and statsmodels. Downloads land in `/tmp/ici11` (override with `ICI11_CACHE`). cBioPortal is queried live for VanAllen, Liu, Gide, IMvigor210, and the Gide KRT18/KRT19 residual.
