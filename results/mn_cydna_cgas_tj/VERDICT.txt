@@ -1,0 +1,32 @@
+Micronuclei / cytosolic DNA / cGAS public GEO, scored on a pre-specified claudin and tight-junction panel.
+
+One series states both mechanisms. Several landmark series were tested for the same genes and do not support a general CLDN4 shift. No lung ICI claim is made here. No private matrices were used.
+
+Call rule: UP or DOWN means PyDESeq2 log2 fold-change at least 0.5 in absolute value and Benjamini-Hochberg q < 0.05 inside the pre-specified panel for that contrast. SIG_SMALL_FC is q < 0.05 with a smaller fold-change. LOW means the two group means sum to less than 1 count. n=1 rows have no p-value.
+
+1. Direct series: GSE279172, T84, n=3. PMID 40890487.
+   High density vs low density turns the interferon program on (MX1 log2FC +2.99, ISG15 +2.00, both q under 1e-100). CLDN2 moves only modestly (log2FC -0.34, q=0.022, means 6623 vs 7413), below the 0.5 cutoff. CLDN4 is slightly lower at high density (log2FC -0.52, q=2.1e-46, means 23300 vs 30000) and remains abundant.
+   Removing IFNL2/3 at high density raises CLDN2 (log2FC +1.12, q=2.7e-16, means 9903 vs 6623) and lowers CLDN1 (log2FC -1.16, q=4.0e-77, means 931 vs 3005). MX1 falls (log2FC -7.96), so the knockout is active. IFNL2/3 mRNA itself is near the floor (WT means about 3–7).
+   IFNLR knockout at high density repeats the CLDN2 rise (log2FC +0.89, q=2.3e-9, means 12311 vs 6623) and the MX1 collapse (log2FC -5.79). It does not repeat the CLDN1 drop (log2FC -0.19).
+   CLDN4 stays high (about 1.4e4 to 3.0e4). It is slightly lower, not higher, after either knockout at high density (log2FC -0.26 and -0.27).
+   TACSTD2 falls when IFNL2/3 or IFNLR is removed (log2FC -2.97 and -5.17 at high density; means 19.7 and 6.3 vs 220). That drop is also present at low density, so it is not specific to the high-density cGAS-STING state.
+   GSE296527 IFNL1 knockout vs the same high-density WT libraries does not raise CLDN2 (log2FC -0.29, q=0.083). TACSTD2 moves the other way (log2FC +0.75, q=2.4e-6). These are not an independent cohort.
+
+2. cGAS knockout in esophageal lines: GSE315942, n=3. PMID 41811963.
+   SK-GT-4 cGAS KO vs Cas9 raises CLDN4 whether or not reversine is present (DMSO log2FC +4.64, q=4.4e-26, means 1693 vs 86; reversine log2FC +4.28, q=1.5e-18). CDH1, OCLN, and TACSTD2 rise with it. CGAS itself falls (log2FC -1.95 and -2.57), so the knockout is present.
+   Reversine vs DMSO does not move CLDN4 in Cas9 cells (log2FC +0.24, q=0.83) or in cGAS KO cells (log2FC -0.12, q=0.98). The acute micronucleus inducer is not what separates CLDN4.
+   OE33 CLDN4 is already high and does not pass the call (cGAS KO vs Cas9, DMSO, log2FC +0.34, q=0.66). OE33 CLDN2 log2FC is about +5 on means of 24 vs 0.7, a low-count shift.
+
+3. Other micronucleus or cytosolic-DNA series.
+   GSE237615 KPC tumors, 53BP1 KO vs control, n=5: Cldn4 log2FC +1.79, q=1.5e-12, means 1009 vs 297; Cldn3 +1.50; Cldn7 +1.75; Ocln -1.02. This is bulk tumor RNA after a perturbation that also raises ISGs in the ID8 arm. ID8 Cldn4 is about 0–1 count, so the KPC claudin shift is not repeated there.
+   GSE313807 micronuclei vs free cytosolic DNA, n=8 vs 8: Cldn4 log2FC -0.04, q=1.0. MSI vs CIN tumors: Cldn1 log2FC +2.72, q=3.0e-10, means 214 vs 32; Cldn4 log2FC +0.22, q=0.78.
+   GSE316127 CP-A dnMCAK vs p53 KO, n=3 clones: CLDN4 log2FC +0.13, q=0.99.
+   GSE100771 MEFs, MN+ vs MN-, one dish: Cldn4 symbol absent. Isg15 is detected in 3/21 MN+ cells and 0/14 MN- cells (q=0.75).
+   GSE100102 MEF cGAS KO: Mb21d1 falls at every time point. Cldn4 stays near zero. Cldn1 changes sign across time points. Tacstd2 means are 0 vs about 4–7.
+   GSE99028, n=2: MB21D1 log2FC -1.64, q=0.019, means 20.5 vs 61. CLDN4 log2FC +0.01, q=0.99.
+   GSE98183 MKH vs control, n=1, no test: CLDN4 log2 ratio -0.07 (11270 vs 11800). CLDN2 and CDH1 ratios are lower in the single CIN-high library.
+
+4. Claudin-4 micronucleus papers with no public expression matrix.
+   PMID 38867360 (Cancer Res Commun 2024), PMID 39625235, PMID 41214101, and the preprint PMID 38293054 are not linked to a GEO series from PubMed. 41214101 cites TCGA. Nothing in this PR re-tests those ovarian experiments.
+
+Bottom line: the public RNA-seq that actually joins cGAS-STING cytosolic DNA to a tight junction is T84 GSE279172, and the concordant junction gene there is CLDN2, up when IFNL2/3 or IFNLR is removed at high density. CLDN4 does not rise in that knockout. A separate SK-GT-4 cGAS-null clone shifts a whole epithelial program, including CLDN4, while reversine does not. That is not a micronucleus-to-CLDN4 rule across the other series.
