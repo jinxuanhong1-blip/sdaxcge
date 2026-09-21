@@ -1,0 +1,7 @@
+pair_id	metabolite	sensor	hmdb	annotation	family	thesis_expect	note
+Adenosine_ADORA2A	Adenosine	ADORA2A	HMDB0000050	Receptor	immunosuppressive_metabolite	high>low	A2A receptor on T/NK
+Adenosine_ADORA2B	Adenosine	ADORA2B	HMDB0000050	Receptor	immunosuppressive_metabolite	high>low	A2B receptor
+PGE2_PTGER2	Prostaglandin E2	PTGER2	HMDB0001220	Receptor	immunosuppressive_metabolite	high>low	EP2
+PGE2_PTGER4	Prostaglandin E2	PTGER4	HMDB0001220	Receptor	immunosuppressive_metabolite	high>low	EP4
+DLactate_HCAR1	D-Lactic acid	HCAR1	HMDB0001311	Receptor	immunosuppressive_metabolite	high>low	MEBOCOST attaches HCAR1/GPR81 to D-lactic acid
+LLactate_SLC16A1	L-Lactic acid	SLC16A1	HMDB0000190	Transporter	immunosuppressive_metabolite	high>low	Only L-lactate sensor in this MEBOCOST DB (MCT1)
