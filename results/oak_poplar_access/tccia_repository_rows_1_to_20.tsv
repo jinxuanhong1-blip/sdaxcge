@@ -1,0 +1,24 @@
+# Live TCCIA Repository table, rows 1-20 of 25, read 2026-09-21 from https://shiny.hiplot.cn/TCCIA/
+# This is the cohort catalog text, not expression. The ID column is the accession TCCIA displays; for OAK and POPLAR those IDs are the controlled clinical datasets, not open TPM files.
+# Rows 21-25 were not captured in this session.
+cancer	name	id	size	treatment	drug	sampling	surv	year	doi
+KIRC	Motzer et al 2020 (RCC) - IMmotion151	EGAD00001006619	823	anti-PD-L1 + anti-VEGF; anti-RTK	Atezolizumab; Bevacizumab; Sunitinib	Pre	PFS	2020	10.1016/j.ccell.2020.10.011
+BLCA	Bellmunt et al 2021 (BLCA) - IMvigor010	EGAD00001007575	728	anti–PD-L1	Atezolizumab	Pre	OS,DFS	2021	10.1016/S1470-2045(21)00004-8
+NSCLC	Patil et al 2022 (NSCLC) - OAK	EGAD00001008549	699	anti-PD-L1; Chemotherapy	Atezolizumab	Pre	OS,PFS	2022	10.1016/j.ccell.2022.02.002
+BLCA	Mariathasan et al 2018 (metastatic BLCA) - IMvigor210	EGAD00001003977	348	anti–PD-L1	Atezolizumab	Pre	OS	2018	10.1038/nature25501
+KIRC	McDermott et al 2018 (metastatic RCC) - IMmotion150	EGAD00001004183	263	anti-PD-1; anti-PD-1 + anti-VEGF	Atezolizumab; Bevacizumab	Pre		2018	10.1038/s41591-018-0053-3
+NSCLC	Patil et al 2022 (NSCLC) - POPLAR	EGAD00001008548	192	anti-PD-L1; Chemotherapy	Atezolizumab	Pre	OS,PFS	2022	10.1016/j.ccell.2022.02.002
+SKCM	Berger et al 2012 (metastatic melanoma, anti-PD-1)	PHS000452_PD1	122	anti-PD-1	Nivolumab; Pembrolizumab	Pre/On	OS,PFS	2012	10.1038/nature11071
+SKCM	Riaz et al 2017 (metastatic melanoma)	PRJNA356761	109	anti-PD-1	Nivolumab	Pre/On	OS	2017	10.1016/j.cell.2017.09.028
+SKCM	Gide et al 2019 (metastatic melanoma)	PRJEB23709	91	anti-PD-1; anti-PD-1 + anti-CTLA-4	Nivolumab; Pembrolizumab; Ipilimumab	Pre/On	OS,PFS	2019	10.1016/j.ccell.2019.01.003
+STAD	Kim et al 2018 (metastatic GC)	PRJEB25780	78	anti-PD-1	Pembrolizumab	Pre	OS,PFS	2018	10.1038/s41591-018-0101-z
+SARC	Rosenbaum et al 2023 (advanced sarcoma)	PHS003284	64	anti-PD-1 + IL-2 agonist; anti-PD-1 + anti-IDO1; anti-PD-1 + T-VEC	Nivolumab + Bempegaldesleukin; Pembrolizumab + Epacadostat; Pembrolizumab + T-VEC	Pre		2023	10.1158/2767-9764.CRC-22-0140
+SKCM	Tumeh et al 2014 (metastatic melanoma)	PHS001919	60	anti-PD-1	Pembrolizumab	Pre	OS	2014	10.1038/nature13954
+SKCM	Cui et al 2021 (melanoma)	HRA000524	59	anti-PD-1		Pre	OS	2021	10.1038/s41525-021-00169-w
+SKCM	Grasso et al 2020 (advanced melanoma)	EGAD00001006282	54	anti-PD-1; anti-PD-1 + anti-CTLA-4	Nivolumab; Ipilimumab	Pre/On	OS,PFS	2020	10.1016/j.ccell.2020.08.005
+SCLC	Roper et al 2021 (relapsed SCLC)	PHS002176	46	anti-PD-L1 + anti-PARP; anti-PD-1	Durvalumab + Olaparib; Nivolumab	Pre		2021	10.1038/s41467-021-24164-y
+SGC	Vos et al 2023 (advanced SGC)	PRJNA940989	45	anti-PD-1 + anti-CTLA-4	Nivolumab + Ipilimumab	Pre/On	PFS	2023	10.1038/s41591-023-02518-x
+SKCM	Berger et al 2012 (metastatic melanoma, anti-CTLA-4)	PHS000452_CTLA4	42	anti-CTLA-4	Ipilimumab	Pre	OS,PFS	2012	10.1038/nature11071
+SKCM	Auslander N et al 2018 (metastatic melanoma)	PRJNA476140	37	anti-PD-1; anti-CTLA-4		Pre/On		2018	10.1038/s41591-018-0247-8
+KIRC	Miao Diano et al 2018 (RCC)	PHS001493	33	anti-PD-1	Nivolumab	Pre		2018	10.1126/science.aan5951
+SKCM	Hugo W et al 2016 (metastatic melanoma)	PRJNA312948	28	anti-PD-1	Nivolumab; Pembrolizumab	Pre/On	OS	2016	10.1016/j.cell.2016.02.065
