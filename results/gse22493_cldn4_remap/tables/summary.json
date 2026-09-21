@@ -1,0 +1,57 @@
+{
+  "accession": "GSE22493",
+  "platform": "GPL10555",
+  "contrast": "CLDN4 lentiviral siRNA (Cy5) / CLDN4 overexpression control (Cy3)",
+  "value": "deposited series-matrix VALUE, treated as log2(siRNA/OE) because GEO says normalized sample-to-control ratios and CLDN4 is the orientation check",
+  "n_platform_rows": 36288,
+  "n_probes_in_matrix": 36284,
+  "n_probes_with_token": 24986,
+  "n_mapped_current": 15650,
+  "n_mapped_prev_symbol": 3937,
+  "n_mapped_alias": 3930,
+  "n_ambiguous": 339,
+  "n_unmapped_token": 1130,
+  "n_no_token": 11302,
+  "n_legacy_token_not_current_hgnc": 9334,
+  "n_genes_fixed_ge2": 14738,
+  "n_genes_legacy_ge2": 15768,
+  "hgnc_rows": 45083,
+  "cldn4": {
+    "n_probes": 1,
+    "n_arrays": 2,
+    "GSM558700": null,
+    "GSM558701": -1.737,
+    "GSM558702": -0.7131,
+    "median_log2": -1.22505,
+    "mean_log2": -1.22505
+  },
+  "array_diagnostics": {
+    "spearman_complete_genes": {
+      "GSM558700_vs_GSM558701": {
+        "rho": -0.23767101273335986,
+        "p": 1.690138844723453e-156,
+        "n": 12219
+      },
+      "GSM558700_vs_GSM558702": {
+        "rho": 0.24404361353096768,
+        "p": 3.724434510725341e-165,
+        "n": 12219
+      },
+      "GSM558701_vs_GSM558702": {
+        "rho": -0.19737634432490908,
+        "p": 1.398404901548349e-107,
+        "n": 12219
+      }
+    },
+    "array_median_log2": {
+      "GSM558700": -0.0589,
+      "GSM558701": 0.0704,
+      "GSM558702": -0.1047
+    },
+    "n_genes_ge2": 14738
+  },
+  "primary_stat": "median across arrays of per-array probe median; genes need >=2 arrays",
+  "primary_test": "one-sided Mann-Whitney vs other mapped genes; BH across 4 panels",
+  "tacstd2_on_platform": false,
+  "epcam_on_platform": true
+}
