@@ -1,5 +1,9 @@
 # RESULTS — public TACSTD2 knockdown and sacituzumab RNA-seq
 
+**FINAL.** Trop2/TACSTD2 knockdown and sacituzumab versus NHEJ, STING, and IFN is **mixed**. E-MTAB-16433, E-MTAB-16843, and E-MTAB-16849 were retried; `ftp.ebi.ac.uk` TLS still fails (`SSL_ERROR_SYSCALL`), so those single-cell matrices were not scored and no values were filled in for them.
+
+**Usable co-regulation note:** SKOV3 shTACSTD2 (GSE245459, n=3 vs 3) co-drops CLDN4 with TACSTD2. TACSTD2 log2FC −2.63 (p=5.3×10⁻⁵); CLDN4 log2FC −1.92 (p=3.3×10⁻⁵), from log2(FPKM+1) 2.05 to 0.14. CLDN3 (−1.48) and CLDN7 (−1.39) move with it.
+
 Question: in open RNA-seq, do CLDN4, classical NHEJ, cGAS–STING, and IFN/ISG genes move after TACSTD2/Trop2 knockdown or sacituzumab govitecan (IMMU-132)?
 
 Cell-intrinsic answers come from three lines. SKOV3 shTACSTD2 lowers CLDN4 (and CLDN3/CLDN7), lowers STING1 and a pre-specified ISG set, and raises XRCC5/XRCC6/PRKDC/PAXX inside an otherwise split NHEJ list. Acute sacituzumab moves CLDN4 in both cell lines, down in CX-1 and up in KYSE30, and raises STING1 in both. The 8-gene NHEJ mean and the 14-gene ISG mean do not share one direction across those SG arms. Bulk 4T1 Trop2-KO tumors and day-29 CRC PDXs are reported separately because immune cells are in the RNA.
@@ -103,7 +107,7 @@ Under cisplatin, the SKOV3 knockdown ISG mean flips to +0.41 (p=0.016). That arm
 
 Full table: `tables/inventory.tsv`.
 
-- E-MTAB-16433, E-MTAB-16843, E-MTAB-16849 are real sacituzumab single-cell RNA-seq (CRC PDOX; organoid SG vs IgG1-SN-38 time course; liver-metastasis models). Processed counts are public (about 0.93 GB, 5.9 GB, and 5.0 GB). The EBI file host did not complete TLS from this run, so those matrices were not scored.
+- E-MTAB-16433, E-MTAB-16843, E-MTAB-16849 are real sacituzumab single-cell RNA-seq (CRC PDOX; organoid SG vs IgG1-SN-38 time course; liver-metastasis models). Processed counts are public (about 0.93 GB, 5.9 GB, and 5.0 GB). A second attempt still failed TLS to `ftp.ebi.ac.uk` (`SSL_ERROR_SYSCALL`, HTTP code 000). Those matrices were not scored. The NHEJ–STING–IFN call is final on the GEO matrices above.
 - GSE15212 is SW480 siTACSTD2 on GPL4133 microarray, not RNA-seq.
 - GSE278664 discusses sacituzumab in the series text. The matrix is pre-treatment HGSOC biopsies (15 BRCAmut, 20 BRCAwt) from NCT02203513, not an SG-versus-control contrast.
 - GSE309617 / GSE309616 are carboplatin-resistant TNBC PDXs. GSE303323 and related accessions are KRAS-MAPK inhibitor profiles. GSE292860 is Q901 ± topotecan. GSE302284 is osimertinib-versus-vehicle scRNA from a TROP2 CAR-T paper. GSE235812 is tumor-versus-PDX TACSTD2 correlation. None of these is a TACSTD2 knockdown or sacituzumab treatment arm.
@@ -117,6 +121,8 @@ GEO supplementary matrices were read from the NCBI FTP. Sample columns were matc
 - `figures/fig1_log2fc_heatmap.png` — gene-level log2FC for every contrast, including the two combination arms.
 - `figures/fig2_set_mean_log2fc.png` — CLDN4, NHEJ, STING, and IFN mean log2FC.
 
-## 10. What a paper can use
+## 10. Final call
 
-In SKOV3 RNA-seq (GSE245459, n=3 vs 3), shTACSTD2 drops TACSTD2 (log2FC −2.63, p=5.3×10⁻⁵) and CLDN4 (−1.92, p=3.3×10⁻⁵), with CLDN3 and CLDN7 alongside it, and it lowers a 14-gene ISG set (mean −0.80, 14/14 down, p=0.0013) and STING1 (−1.30, q=0.0069). XRCC5, XRCC6, PRKDC, and PAXX rise (log2FC +0.67 to +0.98); the full 8-gene NHEJ mean stays at +0.37 (p=0.18). In 4T1 bulk tumors (GSE334497, n=5 vs 5) Tacstd2 falls (log2FC −3.82, p=0.0011) and CLDN4’s mean is lower (−0.82, p=0.25). Acute sacituzumab (CDKN1A up) lowers CLDN4 in CX-1 at 2 days (−0.86, p=1.7×10⁻⁵; GSE312098) and raises it in KYSE30 at 1 day (+0.91, p=3.9×10⁻⁵; GSE304294, SG n=2). STING1 rises in both of those cell lines (+0.50 and +1.22). The ISG set is partial in CX-1 (mean +0.30, p=0.053) and mixed in KYSE30 (mean +0.13, p=0.16). Day-29 CRC PDXs (GSE311016, 5 pairs) have lower CLDN4 in 5/5 models (mean −0.44, paired p=0.060) without a shared NHEJ or IFN shift.
+**NHEJ, STING, and IFN: mixed.** SKOV3 knockdown lowers STING1 and the ISG set and raises XRCC5/XRCC6/PRKDC/PAXX while the 8-gene NHEJ mean stays +0.37 (p=0.18). Acute sacituzumab raises STING1 in CX-1 and KYSE30, with a partial ISG rise only in CX-1 (mean +0.30, p=0.053) and a mixed ISG mean in KYSE30 (+0.13, p=0.16). Bulk 4T1 and day-29 PDX do not supply a shared NHEJ or IFN shift. No E-MTAB number is included.
+
+**CLDN4 co-regulation that can be used:** SKOV3 shTACSTD2 co-drops CLDN4 with TACSTD2 (log2FC −1.92 and −2.63). Other CLDN4 contrasts stay in the tables (4T1 mean −0.82, p=0.25; CX-1 −0.86; KYSE30 +0.91; PDX 5/5 negative, mean −0.44, paired p=0.060) and are not the co-regulation note.

@@ -5,9 +5,9 @@ GSE312098	RNA-seq FPKM	human CX-1 CRC line	IMMU132, GSK2606414, combination, con
 GSE304294	RNA-seq FPKM	human KYSE30 ESCC line	IMMU132 (n=2), IACS-010759, combination, control (n=3); 1 day	yes	Sacituzumab monotherapy is OX2 vs OX1. n=2 on the SG arm.
 GSE311016	RNA-seq FPKM	human CRC PDX	IMMU132 10 mg/kg weekly vs matched control, day 29, 5 models	yes	Paired by PDX. Bulk tumor. Day-29 residual, not an acute damage snapshot.
 GSE15212	microarray GPL4133	human SW480	siTACSTD2 vs negative siRNA, 72 h	no	TACSTD2 silencing exists, but the assay is an array, not RNA-seq.
-E-MTAB-16433	scRNA-seq	human CRC PDOX	sacituzumab vs vehicle	no	Public log1p counts (~0.93 GB) plus metadata. ftp.ebi.ac.uk did not complete TLS here, so the matrix was not scored.
-E-MTAB-16843	scRNA-seq	human CRC organoid	SG vs IgG1-SN-38 time course	no	Public log1p counts (~5.9 GB). Same EBI host failure. Not scored.
-E-MTAB-16849	scRNA-seq	human CRC liver-met models	SG vs untargeted control time course	no	Public counts (~5.0 GB) plus a larger MAGIC file. Not scored.
+E-MTAB-16433	scRNA-seq	human CRC PDOX	sacituzumab vs vehicle	no	Public log1p counts (~0.93 GB). TLS to ftp.ebi.ac.uk failed again (SSL_ERROR_SYSCALL). Not scored. FINAL mixed call does not use this matrix.
+E-MTAB-16843	scRNA-seq	human CRC organoid	SG vs IgG1-SN-38 time course	no	Public log1p counts (~5.9 GB). Same TLS failure on recheck. Not scored.
+E-MTAB-16849	scRNA-seq	human CRC liver-met models	SG vs untargeted control time course	no	Public counts (~5.0 GB). Same TLS failure on recheck. Not scored.
 GSE278664	RNA-seq	human HGSOC biopsies	BRCAmut n=15, BRCAwt n=20, NCT02203513	no	Series text is about sacituzumab and berzosertib. Deposited samples are pre-treatment biopsies, not an SG-versus-control contrast.
 GSE309617	bulk RNA-seq	human TNBC PDX	carboplatin-resistant vs sensitive	no	Keyword hit. Design is platinum resistance, not TACSTD2 KD or sacituzumab.
 GSE309616	scRNA-seq	human TNBC PDX	same carboplatin study	no	Not a TACSTD2 KD or sacituzumab contrast.
