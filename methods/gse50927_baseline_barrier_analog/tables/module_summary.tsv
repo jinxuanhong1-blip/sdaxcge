@@ -1,0 +1,7 @@
+module,n_panel,n_in_table,n_absent,n_detected_logCPM_gt_0,n_baseline_only,n_baseline_only_logCPM_ge_1,n_injury_shared,n_injury_shared_low_baseline_cpm,n_injury_only,n_baseline_down,n_baseline_down_and_injury_up,n_baseline_only_down_in_VILI,n_baseline_low_cpm_only,n_haplotype_risk_excluded,median_logFC_detected,n_up_detected,n_nonzero_detected,wilcoxon_p_detected,binom_p_detected,median_logFC_excluding_injury,wilcoxon_p_excluding_injury,role
+IFN_ISG,62,60,2,52,17,17,0,0,1,0,0,8,2,0,0.45241540550000003,46,52,1.9210186068833346e-08,1.0325821975243343e-08,0.4589508,2.5791748859076058e-08,baseline KO vs WT match module
+chemokine,32,32,0,22,4,2,2,1,6,0,0,0,0,0,0.324651421,14,22,0.010324478149414062,0.28627872467041016,0.2610450105,0.083251953125,baseline KO vs WT match module
+MHC_I_classical,10,10,0,10,2,2,0,0,0,0,0,1,0,0,0.3611015845,8,10,0.009765625,0.109375,0.3611015845,0.009765625,baseline KO vs WT match module
+MHC_II,11,10,1,10,0,0,0,0,0,2,0,0,0,0,0.24566772599999998,7,10,0.4921875,0.34375,0.24566772599999998,0.4921875,baseline KO vs WT match module
+MHC_haplotype_risk,12,11,1,11,0,0,0,0,0,0,0,0,0,11,1.19062939,10,11,0.0048828125,0.01171875,nan,,"haplotype bin, not a match numerator"
+injury_mediator,4,4,0,3,0,0,0,0,3,0,1,0,0,0,0.005943139,2,3,,,-2.14137574,,"injury confound control, not a match module"
