@@ -1,6 +1,8 @@
 # GSE207704 breast CLDN4 KO — c-NHEJ, STING, Hallmark IFN / APM
 
-Public cufflinks table only (T47D and MCF7, CLDN4 CRISPR KO vs parental WT). The question is the direction against **KD → NHEJ down, STING/IFN up**.
+**FINAL discordant cancer-line KD.** The cufflinks directions below were re-checked from the open SRA runs (kallisto on Ensembl 90, both replicates). No c-NHEJ set was down. T47D Hallmark IFN stayed down (IFN-α NES −1.745, FDR 0.0077). MCF7 IFN NES became weakly positive and was not FDR < 0.05, and the c-NHEJ panel there was up. STING1/TMEM173 is quantified and essentially unexpressed. The sweep, the sets, and the count tables are in `SWEEP.md`.
+
+Public cufflinks table (T47D and MCF7, CLDN4 CRISPR KO vs parental WT). The question is the direction against **KD → NHEJ down, STING/IFN up**.
 
 c-NHEJ transcripts stay flat to slightly higher (0/7 consensus down). The four measured STING-core genes stay flat, and STING1 is absent from the deposit. Hallmark IFN-α and IFN-γ are lower after knockout in T47D (both BH-FDR < 0.05) and are not higher in MCF7. MHC-I/APM is mostly missing from the file; the eight genes that remain are not higher together.
 
