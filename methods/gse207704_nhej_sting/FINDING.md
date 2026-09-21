@@ -8,7 +8,7 @@ c-NHEJ transcripts stay flat to slightly higher (0/7 consensus down). The four m
 
 ## Design
 
-Murakami et al., Breast Cancer Research 2023 (GEO [GSE207704](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207704)). Two breast lines, CLDN4−/− vs WT. GEO lists 2 biological replicates per genotype (GSM6310640–GSM6310647). The only expression file collapses each genotype to one FPKM. Ranks below are those group means. There is no gene-level sample FDR and no FASTQ re-quantification.
+Murakami et al., Breast Cancer Research 2023 (GEO [GSE207704](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207704)). Two breast lines, CLDN4−/− vs WT. GEO lists 2 biological replicates per genotype (GSM6310640–GSM6310647). The only GEO expression file collapses each genotype to one FPKM. Ranks below are those group means, so this file has no gene-level sample FDR. The open SRA runs were re-quantified separately; that result is in `SWEEP.md`.
 
 log2FC = log2((KO + 0.5) / (WT + 0.5)). One symbol can have more than one cufflinks locus; the reported value is the locus with the higher mean FPKM. A second column in `gene_panel.tsv` sums loci. UP / DOWN requires |log2FC| > 0.25 and max FPKM ≥ 1; otherwise FLAT. Consensus UP requires one line UP and the other not DOWN (same rule in the other direction).
 
@@ -81,7 +81,7 @@ The “mean of the two lines” rank averages the two group-mean log2FC vectors.
 
 Relative to KD → NHEJ down and STING/IFN up, GSE207704’s breast CLDN4 KO is not a supporting public example. NHEJ is flat to slightly higher (LIG4 and PRKDC up in T47D only). STING core is flat where it is measured. Hallmark interferon moves down in T47D. APM cannot be scored for classical MHC-I genes because they are absent, and the genes that remain are not up.
 
-Numbers are descriptive directions on pooled FPKM. They are not a replicate-level DESeq2/edgeR result.
+Numbers in this file are descriptive directions on pooled FPKM. The replicate-level kallisto and PyDESeq2 result is in `SWEEP.md`.
 
 ## Reproduce
 
