@@ -39,6 +39,8 @@ FPKM_URL = (
     "GSE137244_counts.fpkm.csv.gz"
 )
 FPKM_NAME = "GSE137244_counts.fpkm.csv.gz"
+# sha256 of GSE137244_counts.fpkm.csv.gz as downloaded from the NCBI FTP.
+EXPECTED_SHA256 = "8facc78cc4f1160c6527db273231734ed76d046575063403e66e5ff9a1f4345a"
 
 # GEO series matrix sample titles. The last library is normal lung, not a line.
 KP_LIBS = [
@@ -491,8 +493,8 @@ That five-gene mean (TJ_EPCAM) is Δ = {fmt(tje['delta'])}, Welch t = {fmt(tje['
 
 Leave-one gene on TJ_EPCAM, with the choice made on these labels:
 
-- Maximum |t|: drop {maxt['dropped']}. Genes {maxt['genes']}. Δ = {fmt(maxt['delta'])}, Welch t = {fmt(maxt['welch_t'])}. Still n = 5 vs 5 and completely separated. The parametric Welch p ({maxt['welch_p']:.3g}) is not adjusted for the search. The exact randomization p that re-picks the drop under every 5-vs-5 labeling is {p_maxt['n_ge']}/{p_maxt['n_perm']} = {p_maxt['p']:.5f}.
-- Maximum Δ: drop {maxd['dropped']}. Genes {maxd['genes']}. Δ = {fmt(maxd['delta'])}, Welch t = {fmt(maxd['welch_t'])}. Randomization p for that maximized Δ is {p_maxd['n_ge']}/{p_maxd['n_perm']} = {p_maxd['p']:.5f}.
+- Maximum |t|: drop {maxt['dropped']}. Genes {maxt['genes'].replace(',', ', ')}. Δ = {fmt(maxt['delta'])}, Welch t = {fmt(maxt['welch_t'])}. Still n = 5 vs 5 and completely separated. The parametric Welch p ({maxt['welch_p']:.3g}) is not adjusted for the search. The randomization p that re-picks the drop under every 5-vs-5 labeling is {p_maxt['n_ge']}/{p_maxt['n_perm']} = {p_maxt['p']:.5f}. The two labelings that reach it are the observed KL set and the full swap. That is the same floor as a two-sided Mann–Whitney test on a fixed score.
+- Maximum Δ: drop {maxd['dropped']}. Genes {maxd['genes'].replace(',', ', ')}. Δ = {fmt(maxd['delta'])}, Welch t = {fmt(maxd['welch_t'])}. The upper-tail randomization p for that maximized Δ is {p_maxd['n_ge']}/{p_maxd['n_perm']} = {p_maxd['p']:.5f}: only the observed labeling produces a re-selected Δ at least this large. This is one-sided. It is not a two-sided Mann–Whitney p, and it does not replace the 2/252 floor.
 
 Both leave-one rows are above TJ7 and above TJ_EPCAM on the metric they optimize, and each also improves the other metric relative to TJ_EPCAM. They are the two Pareto rows of a six-candidate grid (the filtered mean, plus one drop for each of its five genes). They are not a second external cohort.
 
@@ -507,6 +509,8 @@ def main() -> None:
     FIGURES.mkdir(parents=True, exist_ok=True)
     path = download_fpkm()
     digest = sha256(path)
+    if digest != EXPECTED_SHA256:
+        raise SystemExit(f"FPKM sha256 {digest} != {EXPECTED_SHA256}")
     fpkm = load_fpkm(path)
     log = np.log2(fpkm + 1.0)
 
@@ -696,6 +700,36 @@ def main() -> None:
         raise SystemExit("Dropping B6AL10-3 did not lower the Cldn4 delta; update the finding")
     if float(ctx["drop3_tacstd2"]["delta"]) >= float(ctx["tacstd2_raw"]["delta"]):
         raise SystemExit("Dropping B6AL10-3 did not lower the Tacstd2 delta; update the finding")
+    loo_primary = loo_lib[
+        loo_lib["endpoint"].isin(["Cldn4", "Tacstd2", "TJ7", "TJ_EPCAM"])
+        & (loo_lib["dropped"] != "none")
+    ]
+    if (loo_primary["delta"] <= 0).any():
+        raise SystemExit("A leave-one-library delta is not positive; update the finding")
+    for endpoint in ("Cldn4", "Tacstd2", "TJ7", "TJ_EPCAM"):
+        part = loo_primary.loc[loo_primary["endpoint"] == endpoint]
+        winner = part.loc[part["abs_t"].idxmax()]
+        if winner["dropped"] != "B6AL10-3-RNA" or int(winner["n_kp"]) != 4:
+            raise SystemExit(f"{endpoint} max leave-one |t| is not the B6AL10-3 drop")
+    records = loo_gene.to_dict(orient="records")
+
+    def _dominated(a: dict, b: dict) -> bool:
+        return (
+            float(b["delta"]) >= float(a["delta"])
+            and float(b["abs_t"]) >= float(a["abs_t"])
+            and (
+                float(b["delta"]) > float(a["delta"])
+                or float(b["abs_t"]) > float(a["abs_t"])
+            )
+        )
+
+    pareto = [
+        rec["dropped"]
+        for rec in records
+        if not any(_dominated(rec, other) for other in records)
+    ]
+    if set(pareto) != {ctx["loo_maxt"]["dropped"], ctx["loo_maxd"]["dropped"]}:
+        raise SystemExit(f"Pareto drops are {pareto}; update the finding")
     best_sweep = sweep.sort_values(["abs_t", "delta"], ascending=False).iloc[0]
     if abs(float(best_sweep["tau"]) - TAU) > 1e-9 and set(str(best_sweep["genes"]).split(",")) != set(kept):
         raise SystemExit("tau=0.5 is not the sweep maximum; update the finding")
