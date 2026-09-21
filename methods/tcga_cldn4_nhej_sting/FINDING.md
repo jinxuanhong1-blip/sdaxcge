@@ -122,6 +122,10 @@ The primary contrast is Q1 vs Q4, matching earlier TCGA quartile cuts. Q1 versus
 - **Correlation.** Spearman. Partial = first-order partial Spearman given ImmuneScore (df = n−3). Fisher z intervals use 1/(n−3) unadjusted and 1/(n−4) partial. Keratin mean and MKI67 partials use the same formula and are labeled sensitivities.
 - **FDR.** Benjamini–Hochberg within the families named above. Families are not pooled with each other.
 
+## Specification sweep
+
+An exploratory grid over cutoffs, gene sets, ssGSEA / GSVA / AUCell / z-mean, covariates, and cohort strata is in `SWEEP.md`. It does not replace the pre-specified tests above. No quadruple in that grid is significant in the thesis direction for NHEJ together with IFN, STING, and APM.
+
 ## Files
 
 - `tables/correlations.tsv` — Spearman, partials, CI, q
