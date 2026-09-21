@@ -8,8 +8,9 @@ Pre-specified before looking at the knockout hits:
 - Primary KO test is a two-sided Wilcoxon of meta-Z (Stouffer across cohorts) for family vs other genes
   in the shared universe (gene in at least two cohorts).
 - Signed agreement uses the denoised outgoing edge WT[CLDN4, target], not the manifold distance.
-- A ribosomal control knockout (first of RPL13A, RPLP0, RPS18 present in the GSE131907 universe
-  and outside IFN/MHC/TJ) is compared on that cohort only.
+- A ribosomal control knockout on GSE131907 uses the same count matrix as the CLDN4 run.
+  Preference order: RPL13A, RPLP0, RPS18 if that gene is in the analyzed universe and outside
+  IFN/MHC/TJ. If none are, the alphabetically first background gene matching ^RPL or ^RPS.
 """
 from __future__ import annotations
 
@@ -260,16 +261,62 @@ def main():
         tp, na, nb, odds, p = fisher(hi, mask)
         tests.append({"test": f"fisher_ko_top_decile_vs_{label}", "n": int(finite.sum()), "stat": odds, "p": p, "n_overlap": tp, "n_ko": na, "n_observed": nb})
 
-    # control knockout, GSE131907 only
-    ctrl_name = None
+    # Sensitivity: family genes at least as variable as the least-variable background gene.
+    # Force-added low-variance family members would otherwise lower the family Z.
+    sens_rows = []
+    for ds in args.cohorts:
+        uni = pd.read_csv(args.work / ds / "gene_universe.tsv", sep="\t")
+        dr = pd.read_csv(out / f"knk_diffregulation_{ds}.tsv", sep="\t")
+        merged = uni.merge(dr, on="gene", how="inner")
+        merged = merged.loc[merged["gene"] != "CLDN4"]
+        cutoff = float(merged.loc[merged["role"] == "background", "variance"].min())
+        background_z = merged.loc[merged["role"] == "background", "Z"]
+        for fam, (col, _sign) in FAMILIES.items():
+            fam_z = merged.loc[merged[col] & (merged["variance"] >= cutoff), "Z"]
+            w = wilcox(fam_z, background_z)
+            w.update({
+                "dataset": ds,
+                "family": fam,
+                "n_family_all": int(merged[col].sum()),
+                "variance_cutoff": cutoff,
+                "test": "wilcoxon_Z_family_variance_at_least_background_min",
+            })
+            sens_rows.append(w)
+    pd.DataFrame(sens_rows).to_csv(out / "knk_family_wilcoxon_variance_matched.tsv", sep="\t", index=False)
+
+    fdr_rows = []
+    for ds in args.cohorts:
+        dr = pd.read_csv(out / f"knk_diffregulation_{ds}.tsv", sep="\t")
+        sig = dr.loc[dr["p.adj"] < 0.05].copy()
+        sig["dataset"] = ds
+        fdr_rows.append(sig)
+    fdr = pd.concat(fdr_rows, ignore_index=True)
+    fdr = fdr.merge(observed, on="gene", how="left")
+    fdr = fdr.merge(flags, on="gene", how="left")
+    fdr.to_csv(out / "knk_fdr05_genes.tsv", sep="\t", index=False)
+
+    # control knockout, GSE131907 only, same analyzed universe as CLDN4
     uni131 = pd.read_csv(args.work / "GSE131907" / "gene_universe.tsv", sep="\t")
-    present = set(uni131["gene"])
     blocked = set(uni131.loc[uni131["in_family"], "gene"]) | {"CLDN4"}
+    present = set(uni131["gene"])
+    ctrl_name = None
+    ctrl_rule = None
     for cand in CONTROL_CANDIDATES:
         if cand in present and cand not in blocked:
             ctrl_name = cand
+            ctrl_rule = "named_candidate"
             break
-    ctrl_dir = args.work / "GSE131907" / f"knk_{ctrl_name}" if ctrl_name else None
+    if ctrl_name is None:
+        ribo = uni131.loc[
+            (uni131["role"] == "background")
+            & uni131["gene"].str.match(r"^(RPL|RPS)")
+            & ~uni131["gene"].isin(blocked)
+        ].sort_values("gene")
+        if ribo.empty:
+            raise SystemExit("no RPL/RPS control gene in the GSE131907 background universe")
+        ctrl_name = str(ribo.iloc[0]["gene"])
+        ctrl_rule = "alphabetical_RPL_or_RPS_background"
+    ctrl_dir = args.work / "GSE131907" / f"knk_{ctrl_name}"
     if ctrl_dir is not None and (ctrl_dir / "diffregulation.tsv").exists():
         dr_c, _, meta_c = load_ko(ctrl_dir, ctrl_name)
         meta_c = meta_c.copy()
@@ -286,8 +333,13 @@ def main():
             tests.append({"test": f"control_{ctrl_name}_GSE131907_{fam}_wilcoxon", "n": wc["n_family"], "stat": wc["rank_biserial"], "p": wc["p"], "median_family": wc["median_family"], "median_background": wc["median_background"]})
             wcl = wilcox(cl_merged.loc[cl_merged[col], "Z"], cl_merged.loc[~cl_merged["in_family"], "Z"])
             tests.append({"test": f"CLDN4_GSE131907_{fam}_wilcoxon", "n": wcl["n_family"], "stat": wcl["rank_biserial"], "p": wcl["p"], "median_family": wcl["median_family"], "median_background": wcl["median_background"]})
+        both = dr_c.merge(dr_cl[["gene", "Z"]], on="gene", suffixes=("_control", "_CLDN4"))
+        both = both.loc[~both["gene"].isin([ctrl_name, "CLDN4"])]
+        rho, rp = stats.spearmanr(both["Z_control"], both["Z_CLDN4"])
+        tests.append({"test": f"spearman_Z_{ctrl_name}_vs_CLDN4_GSE131907", "n": int(len(both)), "stat": float(rho), "p": float(rp)})
+        dr_c.to_csv(out / f"knk_diffregulation_GSE131907_{ctrl_name}.tsv", sep="\t", index=False)
     else:
-        tests.append({"test": "control_knockout", "n": 0, "stat": np.nan, "p": np.nan, "note": "control output not found"})
+        tests.append({"test": "control_knockout", "n": 0, "stat": np.nan, "p": np.nan, "note": f"{ctrl_name} via {ctrl_rule}: output not found"})
 
     pd.DataFrame(per_cohort_tests).to_csv(out / "knk_family_wilcoxon_by_cohort.tsv", sep="\t", index=False)
     pd.DataFrame(tests).to_csv(out / "comparison_tests.tsv", sep="\t", index=False)
@@ -317,6 +369,7 @@ def main():
     summary = {
         "n_primary_genes": int(len(primary)),
         "control_gene": ctrl_name,
+        "control_rule": ctrl_rule,
         "families": family_rows,
         "tests": tests,
         "run_meta": [m.to_dict() for m in metas],

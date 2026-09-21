@@ -74,7 +74,7 @@ if (!"CLDN4" %in% rownames(mat)) stop("CLDN4 missing after symbol collapse")
 tumor <- ident2[ident2$patient %in% keep & !ident2$is_normal, ]
 tumor <- tumor[!is.na(tumor$patient), ]
 message("tumor cells in locked patients ", nrow(tumor))
-message("lineage.sub malignant ", sum(tumor$author_malignant))
+message("lineage.sub malignant ", sum(tumor$author_malignant, na.rm = TRUE))
 
 n_cells <- as.integer(table(factor(tumor$patient, levels = keep)))
 names(n_cells) <- keep
@@ -98,6 +98,7 @@ cl <- as.numeric(mat_mal["CLDN4", ])
 pct <- tapply(cl > 0, fac, function(z) 100 * mean(z))
 meanlog <- tapply(log1p(cl), fac, mean)
 n_mal <- as.integer(table(fac))
+names(n_mal) <- keep
 
 ncount <- Matrix::colSums(mat_mal)
 nfeat <- Matrix::colSums(mat_mal > 0)
@@ -105,6 +106,7 @@ mt <- grep("^MT-", rownames(mat_mal), value = TRUE)
 mt_pct <- if (length(mt)) 100 * Matrix::colSums(mat_mal[mt, , drop = FALSE]) / pmax(ncount, 1) else rep(0, ncol(mat_mal))
 qc <- (nfeat >= 200) & (ncount >= 500) & (mt_pct < 20)
 n_qc <- as.integer(tapply(qc, fac, sum))
+names(n_qc) <- keep
 
 set.seed(1)
 keep_cells <- integer(0)
