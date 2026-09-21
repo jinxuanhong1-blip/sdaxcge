@@ -1,0 +1,256 @@
+{
+  "checked_at_utc": "2026-09-21T16:41:37.203223+00:00",
+  "linear_tpm_public": false,
+  "association_tests_run": false,
+  "reason": "EGA metadata access_type is controlled for the POPLAR and OAK TPM and clinical datasets. No sample-level CLDN4 or TACSTD2 values were downloaded, and no ORR/DCR/OS contrast was computed.",
+  "dac": {
+    "accession": "EGAC00001002120",
+    "title": "Genentech DAC",
+    "contacts": [
+      {
+        "email": "devsci-dac-d@gene.com",
+        "is_main": true,
+        "surname": "d-list",
+        "first_name": "DevSci DAC",
+        "institution_name": "Genentech"
+      }
+    ]
+  },
+  "policy": {
+    "accession": "EGAP00001002123",
+    "title": "Genentech Data Access Agreement for Academic Institutions",
+    "dac_accession_id": "EGAC00001002120"
+  },
+  "datasets": [
+    {
+      "dataset": "EGAD00001008390",
+      "role": "POPLAR log2(TPM+1)",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "Log2 normalized TPM matrix for POPLAR (GO28753)",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2021-11-30T19:32:59+01:00",
+      "files_http_status": 200,
+      "n_files": 1,
+      "files": [
+        {
+          "accession_id": "EGAF00005797825",
+          "extension": "csv",
+          "filesize": 50248881,
+          "checksum_type": "MD5",
+          "checksum": "a9cd3bb4fadd7cefd7bf4ebea90c107e"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008391",
+      "role": "OAK log2(TPM+1)",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "Log2 normalized TPM matrix for OAK (GO28915)",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2021-11-30T19:33:14+01:00",
+      "files_http_status": 200,
+      "n_files": 1,
+      "files": [
+        {
+          "accession_id": "EGAF00005797824",
+          "extension": "csv",
+          "filesize": 283985625,
+          "checksum_type": "MD5",
+          "checksum": "2aede0f2800ec0ab6bcc5fe935497e43"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008548",
+      "role": "POPLAR clinical",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "POPLAR clinical data",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2022-02-08T03:19:33+01:00",
+      "files_http_status": 200,
+      "n_files": 3,
+      "files": [
+        {
+          "accession_id": "EGAF00005797821",
+          "extension": "csv",
+          "filesize": 28009,
+          "checksum_type": "MD5",
+          "checksum": "52d525fe3a905e163a2286b024991ac6"
+        },
+        {
+          "accession_id": "EGAF00006143195",
+          "extension": "csv",
+          "filesize": 44439,
+          "checksum_type": "MD5",
+          "checksum": "c51e2309f816541fb9208504fb6dc7f0"
+        },
+        {
+          "accession_id": "EGAF50000088676",
+          "extension": null,
+          "filesize": 29943,
+          "checksum_type": "SHA256",
+          "checksum": "ef2af4de54a4320445f35e3b845af3bc65dc08e47dfaa4014c384952afa75fa6"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008549",
+      "role": "OAK clinical",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "OAK clinical data",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2022-02-08T03:19:44+01:00",
+      "files_http_status": 200,
+      "n_files": 2,
+      "files": [
+        {
+          "accession_id": "EGAF00005797822",
+          "extension": "csv",
+          "filesize": 94237,
+          "checksum_type": "MD5",
+          "checksum": "5f87a62fe8742ce020485f536283c591"
+        },
+        {
+          "accession_id": "EGAF00006143195",
+          "extension": "csv",
+          "filesize": 44439,
+          "checksum_type": "MD5",
+          "checksum": "c51e2309f816541fb9208504fb6dc7f0"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008550",
+      "role": "OAK biomarker",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "OAK biomarker data",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2022-02-08T03:19:48+01:00",
+      "files_http_status": 200,
+      "n_files": 2,
+      "files": [
+        {
+          "accession_id": "EGAF00007237036",
+          "extension": "txt",
+          "filesize": 146254,
+          "checksum_type": "MD5",
+          "checksum": "d15e047ede0b443811e14bd1ccfab862"
+        },
+        {
+          "accession_id": "EGAF50000086634",
+          "extension": null,
+          "filesize": 26338,
+          "checksum_type": "SHA256",
+          "checksum": "530d268f4180447a4b1f68bfb9fef2ffa55a145e2102b0ec5d30b70a6da0e359"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008628",
+      "role": "OAK counts",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "Count table for OAK (GO28915)",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2022-03-07T19:09:51+01:00",
+      "files_http_status": 200,
+      "n_files": 1,
+      "files": [
+        {
+          "accession_id": "EGAF00006072294",
+          "extension": "csv",
+          "filesize": 103943096,
+          "checksum_type": "MD5",
+          "checksum": "7b05115d00c606935853b942f9c9e99b"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008629",
+      "role": "OAK CPM",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "CPM table for OAK (GO28915)",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2022-03-07T19:09:53+01:00",
+      "files_http_status": 200,
+      "n_files": 1,
+      "files": [
+        {
+          "accession_id": "EGAF00006072295",
+          "extension": "csv",
+          "filesize": 103943096,
+          "checksum_type": "MD5",
+          "checksum": "7b05115d00c606935853b942f9c9e99b"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008630",
+      "role": "POPLAR counts",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "Count table for POPLAR (GO28753)",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2022-03-07T19:09:55+01:00",
+      "files_http_status": 200,
+      "n_files": 1,
+      "files": [
+        {
+          "accession_id": "EGAF00006072292",
+          "extension": "csv",
+          "filesize": 29410443,
+          "checksum_type": "MD5",
+          "checksum": "f55bd9d912a225e740ca9fa579f86f3b"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001008631",
+      "role": "POPLAR CPM",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "CPM table for POPLAR (GO28953)",
+      "num_samples": 0,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2022-03-07T19:10:01+01:00",
+      "files_http_status": 200,
+      "n_files": 1,
+      "files": [
+        {
+          "accession_id": "EGAF00006072293",
+          "extension": "csv",
+          "filesize": 29410443,
+          "checksum_type": "MD5",
+          "checksum": "f55bd9d912a225e740ca9fa579f86f3b"
+        }
+      ]
+    },
+    {
+      "dataset": "EGAD00001007703",
+      "role": "OAK+POPLAR FASTQ",
+      "http_status": 200,
+      "access_type": "controlled",
+      "title": "Tumor transcriptome profiling from the OAK and POPLAR randomized clinical trials of atezolizumab in 2L NSCLC",
+      "num_samples": 891,
+      "policy_accession_id": "EGAP00001002123",
+      "released_date": "2021-05-20T00:32:56+02:00",
+      "files_http_status": 200,
+      "n_files": 1782,
+      "files": "omitted; see n_files"
+    }
+  ]
+}
