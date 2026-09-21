@@ -1,0 +1,21 @@
+contrast	set	role	n_set_genes	n_detected	mean_log2fc	median_log2fc	frac_positive	rank_p	q_bh_primary
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	KEGG_NHEJ	primary	13	12	-0.0287	-0.0576	0.417	0.869333	0.877183
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Hallmark_IFN_alpha	primary	97	58	-0.0956	-0.0471	0.431	0.672729	0.877183
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Hallmark_IFN_gamma	primary	200	115	0.0046	-0.0246	0.478	0.877183	0.877183
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Reactome_NHEJ_no_histone	sensitivity	35	34	-0.0537	-0.0307	0.441	0.777055	
+GSE207704_deposited_FPKM_MCF7_WT_over_KO	Reactome_IFN_ab_no_ligand	sensitivity	59	37	0.1588	0.0873	0.541	0.0593462	
+GSE207704_deposited_FPKM_T47D_WT_over_KO	KEGG_NHEJ	primary	13	12	-0.0666	-0.0270	0.333	0.723326	0.723326
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Hallmark_IFN_alpha	primary	97	63	0.3618	0.2108	0.683	0.00101109	0.00303327
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Hallmark_IFN_gamma	primary	200	118	0.2198	0.0921	0.610	0.0183608	0.0275412
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Reactome_NHEJ_no_histone	sensitivity	35	34	-0.0580	-0.0467	0.324	0.233351	
+GSE207704_deposited_FPKM_T47D_WT_over_KO	Reactome_IFN_ab_no_ligand	sensitivity	59	38	0.3144	0.0121	0.500	0.25374	
+GSE207704_salmon_MCF7_WT_over_KO	KEGG_NHEJ	primary	13	12	-0.0616	-0.0227	0.417	0.525926	0.570014
+GSE207704_salmon_MCF7_WT_over_KO	Hallmark_IFN_alpha	primary	97	70	0.0150	0.0082	0.500	0.570014	0.570014
+GSE207704_salmon_MCF7_WT_over_KO	Hallmark_IFN_gamma	primary	200	141	0.0390	0.0543	0.525	0.20863	0.570014
+GSE207704_salmon_MCF7_WT_over_KO	Reactome_NHEJ_no_histone	sensitivity	35	35	-0.0520	-0.0128	0.457	0.791831	
+GSE207704_salmon_MCF7_WT_over_KO	Reactome_IFN_ab_no_ligand	sensitivity	59	48	0.0990	0.1196	0.562	0.0925804	
+GSE207704_salmon_T47D_WT_over_KO	KEGG_NHEJ	primary	13	12	0.0317	-0.0092	0.417	0.687199	0.687199
+GSE207704_salmon_T47D_WT_over_KO	Hallmark_IFN_alpha	primary	97	74	0.2851	0.1371	0.662	0.00100745	0.00292005
+GSE207704_salmon_T47D_WT_over_KO	Hallmark_IFN_gamma	primary	200	143	0.1696	0.0943	0.608	0.0019467	0.00292005
+GSE207704_salmon_T47D_WT_over_KO	Reactome_NHEJ_no_histone	sensitivity	35	35	-0.0207	-0.0243	0.371	0.651732	
+GSE207704_salmon_T47D_WT_over_KO	Reactome_IFN_ab_no_ligand	sensitivity	59	50	0.2343	0.0639	0.600	0.0515584	

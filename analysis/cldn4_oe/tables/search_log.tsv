@@ -1,0 +1,13 @@
+source	query	result	decision
+GEO_gds	CLDN4[All Fields] AND gse[Entry Type]	21 series	screened titles
+GEO_gds	Cldn4[All Fields] AND gse[Entry Type]	21 series	screened titles
+GEO_gds	"claudin-4"[All Fields] AND gse[Entry Type]	10 series	screened titles
+GEO_gds	claudin 4 AND (overexpress* OR knockdown OR knockout OR silencing OR shRNA OR siRNA) AND gse	5 records	only GSE22493 is a CLDN4 perturbation series plus its three GSMs
+GEO_gds	CLDN4 AND expression profiling by high throughput sequencing AND gse	10 series	none is a cDNA overexpression RNA-seq
+SRA	CLDN4 overexpression	0 runs	no deposited OE RNA-seq
+SRA	Cldn4 overexpression	0 runs	no deposited OE RNA-seq
+GEO	GSE22493	two-color microarray, n=3, parental SKOV3 labeled "CLDN4 overexpression (control)" versus CLDN4 siRNA	analyzed as knockdown, not as cDNA OE RNA-seq
+GEO	GSE207704	RNA-seq, MCF7 and T47D, parental versus CLDN4 knockout, 2 replicates	analyzed as CLDN4-high versus CLDN4-low; rescue lines from the paper are not in this series
+GEO	GSE50927	mouse lung RNA-seq, Cldn4 knockout plus ventilator injury, one library per group	excluded: knockout, injury confound, n=1
+GEO	GSE274940	EpH4 wild type versus all-claudin-null RNA-seq	excluded: not a CLDN4 overexpression contrast
+GEO	GSE99416	gastric tumor versus adjacent lncRNA-seq	excluded: not a CLDN4 perturbation
