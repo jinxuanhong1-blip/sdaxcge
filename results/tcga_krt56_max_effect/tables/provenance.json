@@ -1,0 +1,183 @@
+{
+  "cohorts": [
+    {
+      "cohort": "CESC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-CESC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/CESC.primary01.tsv.gz",
+      "sha256": "0bc2f7cf29e3f45b32618dd25935ef1c420a4952c67ee691cee7cc742920dad1",
+      "n_patients": 304,
+      "from_cache": false
+    },
+    {
+      "cohort": "LUAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/LUAD.primary01.tsv.gz",
+      "sha256": "ab8efabdd5dc9a2fbf9455361d4d8ba5b66f0f047d2c00b6636f8c31e19d62da",
+      "n_patients": 516,
+      "from_cache": false
+    },
+    {
+      "cohort": "LUSC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUSC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/LUSC.primary01.tsv.gz",
+      "sha256": "d8419af14fe8578baeee7029653dda373b54ddcccb48658cc84a034aeb24d145",
+      "n_patients": 501,
+      "from_cache": false
+    },
+    {
+      "cohort": "BLCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BLCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/BLCA.primary01.tsv.gz",
+      "sha256": "83ab6e74ada74bec74df185a9b115fd15e4185dd50a4af04ce6673d760e11340",
+      "n_patients": 406,
+      "from_cache": false
+    },
+    {
+      "cohort": "KIRC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-KIRC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/KIRC.primary01.tsv.gz",
+      "sha256": "f24d0ce153235b55e45d2f21026a0862e71c11b8b41f93f146a7c35752932fec",
+      "n_patients": 533,
+      "from_cache": false
+    },
+    {
+      "cohort": "BRCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BRCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/BRCA.primary01.tsv.gz",
+      "sha256": "b8c17417acaeee530bfc74fc2489d75b0e65f2235d74752cffae6ca2dcc47eb3",
+      "n_patients": 1095,
+      "from_cache": false
+    },
+    {
+      "cohort": "STAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-STAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/STAD.primary01.tsv.gz",
+      "sha256": "ac0f7eaa678879f0520614af5fcf764696cac1666df5b9713ed678f8551d6991",
+      "n_patients": 412,
+      "from_cache": false
+    },
+    {
+      "cohort": "PAAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-PAAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_krt56/PAAD.primary01.tsv.gz",
+      "sha256": "90292fb29c0f9e3da7e2e847f148b7129c521125317143a13c7b1f4d93464da4",
+      "n_patients": 178,
+      "from_cache": false
+    }
+  ],
+  "sample_counts": [
+    {
+      "cohort": "LUAD",
+      "n_patients": 516,
+      "n_with_ESTIMATE": 515
+    },
+    {
+      "cohort": "LUSC",
+      "n_patients": 501,
+      "n_with_ESTIMATE": 501
+    },
+    {
+      "cohort": "BRCA",
+      "n_patients": 1095,
+      "n_with_ESTIMATE": 1093
+    },
+    {
+      "cohort": "CESC",
+      "n_patients": 304,
+      "n_with_ESTIMATE": 304
+    },
+    {
+      "cohort": "KIRC",
+      "n_patients": 533,
+      "n_with_ESTIMATE": 533
+    },
+    {
+      "cohort": "STAD",
+      "n_patients": 412,
+      "n_with_ESTIMATE": 411
+    },
+    {
+      "cohort": "BLCA",
+      "n_patients": 406,
+      "n_with_ESTIMATE": 406
+    },
+    {
+      "cohort": "PAAD",
+      "n_patients": 178,
+      "n_with_ESTIMATE": 178
+    }
+  ],
+  "gene_ids": {
+    "CD2": "ENSG00000116824.5",
+    "CD247": "ENSG00000198821.11",
+    "CD28": "ENSG00000178562.18",
+    "CD3D": "ENSG00000167286.10",
+    "CD3E": "ENSG00000198851.10",
+    "CD3G": "ENSG00000160654.11",
+    "CD6": "ENSG00000013725.14",
+    "CD68": "ENSG00000129226.14",
+    "CD8A": "ENSG00000153563.16",
+    "CD8B": "ENSG00000172116.23",
+    "CLDN4": "ENSG00000189143.9",
+    "CLDN7": "ENSG00000181885.18",
+    "COL1A1": "ENSG00000108821.14",
+    "EPCAM": "ENSG00000119888.11",
+    "FAP": "ENSG00000078098.14",
+    "GPR171": "ENSG00000174946.7",
+    "GZMK": "ENSG00000113088.6",
+    "ICOS": "ENSG00000163600.13",
+    "ITK": "ENSG00000113263.13",
+    "KLRB1": "ENSG00000111796.4",
+    "KRT13": "ENSG00000171401.15",
+    "KRT14": "ENSG00000186847.6",
+    "KRT16": "ENSG00000186832.9",
+    "KRT17": "ENSG00000128422.17",
+    "KRT18": "ENSG00000111057.11",
+    "KRT19": "ENSG00000171345.13",
+    "KRT5": "ENSG00000186081.12",
+    "KRT6A": "ENSG00000205420.11",
+    "KRT6B": "ENSG00000185479.6",
+    "KRT6C": "ENSG00000170465.10",
+    "KRT8": "ENSG00000170421.12",
+    "LCK": "ENSG00000182866.17",
+    "MKI67": "ENSG00000148773.14",
+    "PYHIN1": "ENSG00000163564.15",
+    "S100A8": "ENSG00000143546.10",
+    "S100A9": "ENSG00000163220.11",
+    "SH2D1A": "ENSG00000183918.17",
+    "TACSTD2": "ENSG00000184292.7",
+    "TIGIT": "ENSG00000181847.12",
+    "TP63": "ENSG00000073282.14",
+    "TRAT1": "ENSG00000163519.14",
+    "TRBC1": "ENSG00000211751.9"
+  },
+  "anchor_max_abs_diff": 4.897049520613539e-07,
+  "anchor_min_abs_cd8": 0.11249396369030254,
+  "anchor_pooled_cd8": {
+    "TACSTD2": -0.1168710846169451,
+    "CLDN4": -0.11249396369030254,
+    "CLDN7": -0.14210115514241228
+  },
+  "n_continuous_specs": 9483,
+  "n_quantile_specs": 56898,
+  "continuous_distribution": {
+    "n_eligible": 2590,
+    "median_min_abs": 0.09992446249595835,
+    "p90_min_abs": 0.1203110810511413,
+    "p95_min_abs": 0.12785171101586779,
+    "max_min_abs": 0.15169781847583694
+  },
+  "quantile_distribution": {
+    "n_eligible": 9171,
+    "median_min_abs": 0.1600843298969334,
+    "p90_min_abs": 0.20265082687938574,
+    "p95_min_abs": 0.2118863190868986,
+    "max_min_abs": 0.2661497591982707
+  },
+  "winners": {
+    "cont_all": "CD3CD8_z | KRT5_6_14_TP63 | all | spearman",
+    "cont_max": "CD8A | KRT5_6_14_stroma | krt_bot_tertile | pearson_winsor",
+    "quant_quartile": "CD8_mean | KRT5_6_14_TP63 | all | spearman | cut 0.25 | residual",
+    "quant_max": "CD3D | KRT5_6_14_S100A8_A9 | krt_low | spearman | cut 0.10 | residual"
+  }
+}
