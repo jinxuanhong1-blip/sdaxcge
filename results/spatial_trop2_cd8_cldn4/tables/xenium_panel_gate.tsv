@@ -1,0 +1,14 @@
+platform	dataset	source	scored	reason	n_features	TACSTD2	CLDN4	CD8A	CLDN_present
+Xenium	10x Xenium lung preview + add-on (cancer)	https://cf.10xgenomics.com/samples/xenium/1.3.0/Xenium_Preview_Human_Lung_Cancer_With_Add_on_2_FFPE/Xenium_Preview_Human_Lung_Cancer_With_Add_on_2_FFPE_gene_panel.json	no	CLDN4 absent; mediator cannot be residualized	390	1	0	1	CLDN5
+Xenium	10x Xenium lung preview + add-on (non-diseased)	https://cf.10xgenomics.com/samples/xenium/1.3.0/Xenium_Preview_Human_Non_diseased_Lung_With_Add_on_FFPE/Xenium_Preview_Human_Non_diseased_Lung_With_Add_on_FFPE_gene_panel.json	no	CLDN4 absent; mediator cannot be residualized	390	1	0	1	CLDN5
+Xenium	10x Xenium hLung cancer multi-tissue preview	https://cf.10xgenomics.com/samples/xenium/1.5.0/Xenium_V1_hLung_cancer_section/Xenium_V1_hLung_cancer_section_gene_panel.json	no	CLDN4 absent; mediator cannot be residualized	371	0	0	1	
+Xenium	10x Xenium FFPE LUAD multimodal	https://cf.10xgenomics.com/samples/xenium/2.0.0/Xenium_V1_humanLung_Cancer_FFPE/Xenium_V1_humanLung_Cancer_FFPE_gene_panel.json	no	CLDN4 absent; mediator cannot be residualized	371	0	0	1	
+Xenium	10x Xenium FFPE NSCLC IO + add-on	https://cf.10xgenomics.com/samples/xenium/2.0.0/Xenium_V1_Human_Lung_Cancer_Addon_FFPE/Xenium_V1_Human_Lung_Cancer_Addon_FFPE_gene_panel.json	no	CLDN4 absent; mediator cannot be residualized	479	0	0	1	
+Xenium	10x Xenium v1 lung panel post-Xenium LUAD	https://cf.10xgenomics.com/samples/xenium/3.0.0/Xenium_V1_Human_Lung_Cancer_FFPE/Xenium_V1_Human_Lung_Cancer_FFPE_gene_panel.json	no	CLDN4 absent; mediator cannot be residualized	289	1	0	1	CLDN5
+Xenium	10x Xenium Prime 5K post-Xenium LUAD	https://cf.10xgenomics.com/samples/xenium/3.0.0/Xenium_Prime_Human_Lung_Cancer_FFPE/Xenium_Prime_Human_Lung_Cancer_FFPE_gene_panel.json	no	CLDN4 absent; mediator cannot be residualized	5001	0	0	1	CLDN1,CLDN18,CLDN5,CLDN7
+Xenium	GSE300007 LUAD TMA2 unimodal/multimodal	GSM9052317_Lung_Adenocarcinoma_TMA2_Xenium_unimodal_features.tsv.gz	no	CLDN4 absent on the downloaded features.tsv; LUAD TMA not scored	541	1	0	1	CLDN5
+Xenium	GSE319755 tumor core	tumor_core.h5	no	CLDN4 absent; cell coordinates not used	568	1	0	1	
+Xenium	GSE319755 adjacent lung	adjacent.h5	no	CLDN4 absent; cell coordinates not used	568	1	0	1	
+Xenium	GSE319755 invasive front	front.h5	no	CLDN4 absent; cell coordinates not used	568	1	0	1	
+Xenium	GSE311609 NSCLC Prime 5K L1	nsclc5k_L1.h5	no	TACSTD2 and CLDN4 both absent	10029	0	0	1	CLDN1,CLDN18,CLDN5,CLDN7
+Xenium	GSE343063 SCLC p2	p2.h5	no	TACSTD2 and CLDN4 both absent	10029	0	0	1	CLDN1,CLDN18,CLDN5,CLDN7
