@@ -1,0 +1,32 @@
+{
+  "pitch_um": 220.0,
+  "min_tumor": 8,
+  "target": "CD8+NK fraction of cells in the bin",
+  "krt_genes": [
+    "KRT8",
+    "KRT18",
+    "KRT19",
+    "KRT7",
+    "KRT5",
+    "KRT17"
+  ],
+  "folds": "5-fold GroupKFold on FOV, model fit within section",
+  "cldn4_terms": [
+    "bin mean log-normalized CLDN4",
+    "fraction of tumor cells >= training-FOV 75th percentile"
+  ],
+  "n_bins": 2921,
+  "fov_holdout_r2_krt": 0.10604161895850439,
+  "fov_holdout_r2_full": 0.15692528295968966,
+  "fov_holdout_delta_r2": 0.05088366400118527,
+  "median_section_delta_r2": 0.058078647254112103,
+  "n_sections_delta_pos": 8,
+  "loso_r2_krt": 0.07314136040585839,
+  "loso_r2_full": 0.02741244345674476,
+  "loso_delta_r2": -0.04572891694911363,
+  "permutation_n": 30,
+  "permutation_null_mean": -0.005280541303647516,
+  "permutation_null_p95": -0.001224418715532132,
+  "permutation_p_greater": 0.03225806451612903,
+  "cell_level_sample_fold_delta_r2": 0.0218
+}
