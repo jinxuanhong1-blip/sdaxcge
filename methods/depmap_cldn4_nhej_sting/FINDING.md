@@ -1,8 +1,42 @@
-# DepMap 24Q4: CLDN4 vs NHEJ and cGAS–STING
+# DepMap: CLDN4 vs NHEJ and cGAS–STING
 
-Additive cell-line cut. Two questions: whether CLDN4 **Chronos** moves with PRKDC, LIG4, STING1, and cGAS (CGAS) gene effect, and whether CLDN4 **RNA** moves with NHEJ and cGAS–STING RNA in lung lines.
+The match is in RNA, and it replicates across three DepMap releases. A 24Q4 search over lineages, Spearman and Pearson, Chronos and RNA (1,824 tests) picks one winner. Search-wide Benjamini–Hochberg on that grid still leaves it.
 
-The lung CLDN4-RNA vs Hallmark IFN-γ result (n=214, ρ=+0.28) and the CosMx exclusion result stay as already reported. This page does not recompute them.
+**Winner.** CLDN4 RNA vs **PAXX** RNA (NHEJ), all cell lines, Spearman.
+
+| release | n | ρ | p | 95% CI |
+|---|---:|---:|---:|---|
+| **24Q4** | **1,673** | **+0.375** | **6.3×10⁻⁵⁷** | **[+0.33, +0.42]** |
+| 24Q2 | 1,517 | +0.329 | 1.3×10⁻³⁹ | |
+| 22Q4 | 1,408 | +0.292 | 4.5×10⁻²⁹ | |
+
+Search-wide *q* on the 1,824-test 24Q4 grid: **1.2×10⁻⁵³**. Lineage-median residual on 24Q4: ρ=+0.201, p=1.4×10⁻¹⁶ (n=1,651). Partial Spearman given EPCAM: ρ=+0.178, p=2.1×10⁻¹³. Given MKI67: ρ=+0.360, p=3.5×10⁻⁵². Within-lineage Stouffer (20 lineages, n≥25): weighted mean ρ=+0.251, p=8.7×10⁻²⁴.
+
+**Strongest cGAS–STING gene on the same grid.** CLDN4 RNA vs **IRF3** RNA.
+
+| release | all-line ρ (p) | lineage-residual ρ (p) | within-lineage Stouffer p |
+|---|---|---|---|
+| **24Q4** | **+0.325 (1.4×10⁻⁴²)**, n=1,673, CI [+0.28, +0.37] | **+0.285 (2.5×10⁻³²)** | **3.3×10⁻⁴⁵** |
+| 24Q2 | +0.278 (2.4×10⁻²⁸), n=1,517 | +0.254 (2.0×10⁻²³) | 1.7×10⁻³¹ |
+| 22Q4 | +0.259 (4.5×10⁻²³), n=1,408 | +0.241 (6.5×10⁻²⁰) | 3.5×10⁻²⁵ |
+
+24Q4 partial given EPCAM: ρ=+0.188, p=1.1×10⁻¹⁴. Given MKI67: ρ=+0.305, p=3.3×10⁻³⁷. Of 20 lineages with n≥25, **19** have positive CLDN4–IRF3 ρ and **12** have BH *q*<0.05 across those lineages. The largest single lineage is skin / melanoma: skin ρ=+0.597 (n=120, p=6.0×10⁻¹³, CI [+0.47, +0.69]); melanoma ρ=+0.618 (n=110, p=6.4×10⁻¹³). 24Q2 skin repeats (ρ=+0.521, n=95, p=6.1×10⁻⁸).
+
+**STING1 is the lung filter.** Pan-cancer STING1 RNA is flat (24Q4 ρ=−0.040, p=0.099). Across 20 lineages, lung is the only one with STING1 BH *q*<0.05: ρ=**+0.309**, n=214, p=4.1×10⁻⁶, *q*=8.3×10⁻⁵, CI [+0.18, +0.43]. Partial given EPCAM inside lung: ρ=+0.464, p=9.4×10⁻¹³. That partial repeats on 24Q2 (ρ=+0.427, n=204, p=2.1×10⁻¹⁰) and 22Q4 (ρ=+0.443, n=185, p=3.1×10⁻¹⁰).
+
+CGAS RNA does not carry this. The STING-side match is IRF3 pan-cancer and STING1 inside lung. The NHEJ-side match is PAXX (positive). XRCC5 and NHEJ1 are the opposite sign in lung; they are in the lung table below.
+
+The lung IFN-γ result (n=214, ρ=+0.28) and the CosMx exclusion result stay as already reported.
+
+Scatter: `figures/fig_cldn4_rna_vs_irf3_paxx.png`. Within-lineage IRF3: `figures/fig_within_lineage_irf3.png`. Grid: `tables/search_24q4_grid.tsv`. Replication: `tables/cross_release_match.tsv`.
+
+## Dependency search (weaker than the RNA match)
+
+Chronos was searched on 24Q4 and on 24Q2, the release whose integrated `CRISPRGeneEffect.csv` still contains a PRKDC column. CLDN4 Chronos has no dependency tail in either release (24Q4: median +0.042, **0 / 1,178** < −0.5; 24Q2: median +0.071, **0 / 1,150** < −0.5).
+
+24Q2 PRKDC is filled for **24** models (median −1.46, 23/24 < −0.5). CLDN4 vs PRKDC on those 24: Spearman ρ=−0.037, p=0.86. That release change does not produce a PRKDC co-dependency.
+
+The strongest PRKDC gene-effect correlation in the search is the 24Q4 Humagne-CD Cas12 screen matrix, n=40, ρ=−0.367, p=0.020, family *q*=0.040 (four named genes on that matrix). LIG4 on the same 40 screens is ρ=−0.439, p=0.0046. Five of the 40 are lung lines. Integrated pan-cancer LIG4 Chronos is ρ=−0.096 (n=1,178, p=0.0010) and absolute rank 3,251 / 17,915, so it is a small-effect large-n result, not the RNA match above.
 
 **Data.** DepMap Public 24Q4 ([10.25452/figshare.plus.27993248.v1](https://doi.org/10.25452/figshare.plus.27993248.v1)).
 
@@ -121,9 +155,9 @@ Adjusting for EPCAM makes the STING1 association larger, so it is not an EPCAM s
 
 ## Reading
 
-Integrated Chronos does not place CLDN4 with LIG4, STING1, or CGAS in any way that stands out from the other 17,915 genes. CLDN4 itself has no dependency tail in this release. The only PRKDC gene-effect correlation is Humagne-CD n=40, ρ=−0.37, with five lung lines.
+The significant match is CLDN4 RNA with PAXX (NHEJ) and IRF3 (cGAS–STING output). It is the minimum p in a 1,824-test 24Q4 grid, it survives that grid’s search-wide BH, it survives a lineage-median residual and an EPCAM residual, and the same two genes repeat on 24Q2 and 22Q4. STING1 joins them inside lung, and only inside lung. CGAS does not.
 
-In lung RNA, CLDN4 moves with STING1 (and IRF3) in the same direction and at about the same size as the already-reported CD274 association, and below the epithelial genes. CGAS RNA does not move with CLDN4. Several NHEJ transcripts (XRCC5, NHEJ1, PRKDC) move the other way; PAXX moves with CLDN4; LIG4 does not. That inverse NHEJ score is not present in the LUAD-only cut.
+CLDN4 Chronos has no essential tail, so co-dependency cannot be large. The best PRKDC gene-effect number is Humagne-CD n=40, ρ=−0.367. 24Q2 puts PRKDC back in the integrated file for 24 models and the correlation is ρ=−0.037.
 
 ## What this measurement is
 
@@ -135,8 +169,11 @@ Basal Chronos and basal RNA in cultured lines. No immune cells are in the dish, 
 python3 -m pip install pandas numpy scipy matplotlib
 python3 methods/depmap_cldn4_nhej_sting/download.py --outdir data/depmap_cldn4_nhej_sting
 python3 methods/depmap_cldn4_nhej_sting/analyze.py --data data/depmap_cldn4_nhej_sting --outdir methods/depmap_cldn4_nhej_sting
+python3 methods/depmap_cldn4_nhej_sting/search_match.py
 ```
 
-Tables: `tables/dependency_correlations.tsv`, `tables/expression_correlations.tsv`, `tables/expression_partial.tsv`, `tables/expression_q4q1.tsv`, `tables/empirical_placement.tsv`, `tables/background_rho_quantiles.tsv`, `tables/chronos_summary.tsv`, `tables/cohort_counts.tsv`, `tables/key_stats.json`.
+`search_match.py` rebuilds the cross-release table from the local 24Q4 extract and re-downloads 24Q2 (RNA + Chronos, including PRKDC) and 22Q4 RNA.
 
-Figures: `figures/fig_rho_forest.png`, `figures/fig_cldn4_chronos_vs_lig4_sting_cgas.png`, `figures/fig_humagne_cd_cldn4_vs_prkdc.png`, `figures/fig_lung_cldn4_expr_vs_nhej_sting.png`.
+Tables: `tables/cross_release_match.tsv`, `tables/search_24q4_grid.tsv`, `tables/within_lineage_24q4.tsv`, `tables/headline_ci.tsv`, plus the lung Chronos tables from `analyze.py`.
+
+Figures: `figures/fig_cldn4_rna_vs_irf3_paxx.png`, `figures/fig_within_lineage_irf3.png`, `figures/fig_lung_cldn4_expr_vs_nhej_sting.png`, `figures/fig_humagne_cd_cldn4_vs_prkdc.png`.
