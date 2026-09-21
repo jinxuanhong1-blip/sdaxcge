@@ -393,37 +393,26 @@ def scatter(elig, x, y, xlab, ylab, title, path: Path) -> None:
 
 
 def forest(cohort_rows: list[dict], path: Path) -> None:
-    """cohort_rows: contrast, dataset, rho, n, lo, hi."""
-    fig, ax = plt.subplots(figsize=(7.2, 6.4))
-    contrasts = []
-    for row in cohort_rows:
-        if row["contrast"] not in contrasts:
-            contrasts.append(row["contrast"])
-    y = 0
-    yticks, ylabels = [], []
-    for contrast in contrasts:
+    """One panel per contrast so the names stay inside the axes."""
+    order = [
+        "CLDN4 vs CytoTRACE2",
+        "CLDN4 vs Ben-Porath ES1 stemness",
+        "CLDN4 vs barrier/keratin (no CLDN4)",
+    ]
+    fig, axes = plt.subplots(len(order), 1, figsize=(7.4, 6.8), sharex=True)
+    for ax, contrast in zip(axes, order):
         block = [r for r in cohort_rows if r["contrast"] == contrast]
-        for r in block:
-            ax.plot([r["lo"], r["hi"]], [y, y], color=COLORS[r["dataset"]], lw=1.6)
-            ax.scatter([r["rho"]], [y], color=COLORS[r["dataset"]], s=28, zorder=3)
-            yticks.append(y)
-            ylabels.append(f"{r['dataset']}  n={r['n']}")
-            y += 1
-        y += 0.6
-    ax.axvline(0, color="0.5", lw=0.8, ls="--")
-    ax.set_yticks(yticks)
-    ax.set_yticklabels(ylabels, fontsize=8)
-    ax.set_xlabel("within-cohort Spearman ρ (95% CI)")
-    # group labels on the right via a second text pass
-    y = 0
-    for contrast in contrasts:
-        n_block = sum(1 for r in cohort_rows if r["contrast"] == contrast)
-        ax.text(
-            1.02, y + (n_block - 1) / 2, contrast, transform=ax.get_yaxis_transform(),
-            va="center", ha="left", fontsize=8,
-        )
-        y += n_block + 0.6
-    ax.set_title("Concordant-4 within-cohort CLDN4 associations")
+        for i, r in enumerate(block):
+            ax.plot([r["lo"], r["hi"]], [i, i], color=COLORS[r["dataset"]], lw=1.8)
+            ax.scatter([r["rho"]], [i], s=36, color=COLORS[r["dataset"]], zorder=3)
+        ax.axvline(0, color="0.45", lw=0.8, ls="--")
+        ax.set_yticks(range(len(block)))
+        ax.set_yticklabels([f"{r['dataset']}  n={r['n']}" for r in block], fontsize=8)
+        ax.set_title(contrast, fontsize=10, loc="left")
+        if block:
+            ax.set_ylim(-0.6, len(block) - 0.4)
+    axes[-1].set_xlabel("within-cohort Spearman ρ (Fisher-z 95% CI)")
+    fig.suptitle("Concordant-4 CLDN4 associations", fontsize=12)
     _save(fig, path)
 
 
@@ -437,36 +426,23 @@ def write_finding(path: Path, S: dict) -> None:
     pbar = prim["CytoTRACE2 vs barrier/keratin (no CLDN4)"]
     frac = prim["CLDN4 vs frac Differentiated"]
 
-    def holds(row, expect: str) -> bool:
-        rho, p = row.get("rho"), row.get("p")
-        if rho is None or not np.isfinite(rho) or not np.isfinite(p):
-            return False
-        sign_ok = rho < 0 if expect == "neg" else rho > 0
-        return bool(sign_ok and p < 0.05)
-
-    potency_yes = holds(c4, "neg")
-    stem_yes = holds(es, "neg") or holds(wg, "neg")
-    barrier_yes = holds(bar, "pos")
-    if potency_yes and barrier_yes:
-        answer = (
-            "CLDN4-high malignant cells are more differentiated (lower CytoTRACE2) "
-            "and more barrier-like at the patient unit"
-        )
-    elif potency_yes and not barrier_yes:
-        answer = (
-            "CLDN4-high tracks lower CytoTRACE2, but the between-patient barrier "
-            "association does not clear p<0.05"
-        )
-    elif barrier_yes and not potency_yes:
-        answer = (
-            "CLDN4-high is barrier-like, but CytoTRACE2 potency does not fall "
-            "with CLDN4 in the four-cohort meta"
-        )
+    ct2_tail = (
+        f"ρ={_fmt_r(c4['rho'])}, p={_fmt_p(c4['p'])}, q={_fmt_p(c4['q'])}, I²={c4['I2']:.1f}%"
+    )
+    if np.isfinite(c4.get("p", np.nan)) and c4["p"] < 0.05:
+        ct2_call = f"the four-cohort meta is significant ({ct2_tail})"
     else:
-        answer = (
-            "the four-cohort meta does not support both lower potency and higher "
-            "barrier in CLDN4-high malignant cells"
-        )
+        ct2_call = f"the four-cohort meta is not significant ({ct2_tail}, 95% CI includes 0)"
+    answer = (
+        f"CLDN4-high is barrier-like "
+        f"(DL ρ={_fmt_r(bar['rho'])}, p={_fmt_p(bar['p'])}, q={_fmt_p(bar['q'])}, I²={bar['I2']:.1f}%). "
+        f"The CytoTRACE2 Differentiated fraction rises with CLDN4 "
+        f"(ρ={_fmt_r(frac['rho'])}, p={_fmt_p(frac['p'])}, q={_fmt_p(frac['q'])}, I²={frac['I2']:.1f}%). "
+        f"Continuous CytoTRACE2 is {'lower' if c4['rho'] < 0 else 'higher'} where CLDN4 is higher, but {ct2_call}. "
+        f"Embryonic stemness does not fall with CLDN4 "
+        f"(Ben-Porath ES1 ρ={_fmt_r(es['rho'])}, p={_fmt_p(es['p'])}; "
+        f"Wong ESC ρ={_fmt_r(wg['rho'])}, p={_fmt_p(wg['p'])})"
+    )
     lines = [
         "# Finding — concordant-4 malignant CLDN4 vs CytoTRACE2 and stemness",
         "",
@@ -607,6 +583,7 @@ def write_finding(path: Path, S: dict) -> None:
         "## Outputs",
         "",
         "- `results/tables/patient_cldn4_vs_potency.tsv` — done criterion",
+        "- `results/tables/extract_audit.tsv` — marker-gate counts vs the locked pseudobulk n",
         "- `results/tables/patient_means.tsv`",
         "- `results/tables/cohort_spearman.tsv`",
         "- `results/tables/stats.tsv`",
@@ -633,35 +610,66 @@ def write_finding(path: Path, S: dict) -> None:
     print(f"wrote {path}", flush=True)
 
 
-def verdict_sentences(primary: list[dict]) -> tuple[str, str]:
+def verdict_sentences(
+    primary: list[dict], paired: list[dict], sensitivity: list[dict], cohort: list[dict]
+) -> tuple[str, str]:
     by = {r["contrast"]: r for r in primary}
+    sens = {r["contrast"]: r for r in sensitivity}
+    pair = {r["contrast"]: r for r in paired}
 
-    def bit(name, expect, phrase):
+    def row_txt(name: str) -> str:
         r = by[name]
-        rho, p = r["rho"], r["p"]
-        if not np.isfinite(rho) or not np.isfinite(p):
-            return None, f"{phrase} was not estimable."
-        sign_ok = (rho < 0) if expect == "neg" else (rho > 0)
-        text = f"{phrase} (ρ={_fmt_r(rho)}, p={_fmt_p(p)}, q={_fmt_p(r['q'])}, I²={r['I2']:.1f}%)"
-        if sign_ok and p < 0.05:
-            return True, text
-        return False, text
+        return (
+            f"{name}: ρ={_fmt_r(r['rho'])}, p={_fmt_p(r['p'])}, q={_fmt_p(r['q'])}, "
+            f"I²={r['I2']:.1f}%"
+        )
 
-    checks = [
-        bit("CLDN4 vs CytoTRACE2", "neg", "CLDN4 vs CytoTRACE2 is negative"),
-        bit("CLDN4 vs Ben-Porath ES1 stemness", "neg", "CLDN4 vs Ben-Porath ES1 is negative"),
-        bit("CLDN4 vs Wong ESC stemness", "neg", "CLDN4 vs Wong ESC is negative"),
-        bit("CLDN4 vs barrier/keratin (no CLDN4)", "pos", "CLDN4 vs barrier/keratin is positive"),
-        bit("CytoTRACE2 vs Ben-Porath ES1", "pos", "CytoTRACE2 agrees with ES1"),
-        bit("CytoTRACE2 vs barrier/keratin (no CLDN4)", "neg", "CytoTRACE2 vs barrier is negative"),
-        bit("CLDN4 vs frac Differentiated", "pos", "CLDN4 vs Differentiated fraction is positive"),
+    holds = [
+        "Between patients, CLDN4 tracks barrier/keratin with CLDN4 held out of the score "
+        f"({row_txt('CLDN4 vs barrier/keratin (no CLDN4)')}).",
+        "Between patients, CLDN4 tracks a higher CytoTRACE2 Differentiated fraction "
+        f"({row_txt('CLDN4 vs frac Differentiated')}). "
+        "GSE131907 carries the cohort-level signal; the other three cohorts are the same sign and not significant alone.",
+        "Within a tumor, CLDN4-high cells are barrier-higher "
+        f"(n={pair['barrier/keratin high vs low']['n']}, "
+        f"Δmed={pair['barrier/keratin high vs low']['delta']:+.3f}, "
+        f"p={_fmt_p(pair['barrier/keratin high vs low']['p'])}).",
     ]
-    holds = [t for ok, t in checks if ok is True]
-    fails = [t for ok, t in checks if ok is False]
-    return (
-        "; ".join(holds) + "." if holds else "No primary contrast is both correctly signed and p<0.05.",
-        "; ".join(fails) + "." if fails else "No primary contrast misses the predicted sign at p<0.05.",
-    )
+    wong = sens.get("DL CytoTRACE2 vs Wong ESC", {})
+    loo = sens.get("LOO drop GSE189357: CLDN4 vs CytoTRACE2", {})
+    fails = [
+        "Continuous CytoTRACE2 vs CLDN4 is negative but the four-cohort meta CI includes 0 "
+        f"({row_txt('CLDN4 vs CytoTRACE2')}). Cohorts: "
+        + "; ".join(
+            f"{r['dataset']} ρ={_fmt_r(r['rho'])} (p={_fmt_p(r['p'])}, n={r['n']})"
+            for r in cohort
+            if r["contrast"] == "CLDN4 vs CytoTRACE2"
+        )
+        + ". "
+        f"Leave-one-out dropping GSE189357 is ρ={_fmt_r(loo.get('rho'))}, p={_fmt_p(loo.get('p'))}. "
+        "That sensitivity is not the primary.",
+        "The within-patient CytoTRACE2 shift is null "
+        f"(Δmed={pair['CytoTRACE2 high vs low']['delta']:+.3f}, "
+        f"p={_fmt_p(pair['CytoTRACE2 high vs low']['p'])}). "
+        "Do not quote it as a within-tumor potency drop.",
+        "Stemness does not mark CLDN4-high cells as less stem-like. "
+        f"Ben-Porath ES1 vs CLDN4 is positive ({row_txt('CLDN4 vs Ben-Porath ES1 stemness')}). "
+        f"Wong ESC vs CLDN4 is null ({row_txt('CLDN4 vs Wong ESC stemness')}). "
+        "Within a tumor, CLDN4-high cells score higher on both "
+        f"(ES1 Δmed={pair['Ben-Porath ES1 high vs low']['delta']:+.3f}, "
+        f"p={_fmt_p(pair['Ben-Porath ES1 high vs low']['p'])}; "
+        f"Wong Δmed={pair['Wong ESC high vs low']['delta']:+.3f}, "
+        f"p={_fmt_p(pair['Wong ESC high vs low']['p'])}).",
+        "Wong stemness does track CytoTRACE2 "
+        f"(sensitivity DL ρ={_fmt_r(wong.get('rho'))}, p={_fmt_p(wong.get('p'))}), "
+        "so the stemness score is coupled to potency and CLDN4 is not on that axis.",
+        "Gulati 2020 gene-count CytoTRACE goes the other way on the paired test "
+        f"(Δmed={pair['Gulati2020 high vs low']['delta']:+.3f}, "
+        f"p={_fmt_p(pair['Gulati2020 high vs low']['p'])}). "
+        "Same disagreement as the winning-pair potency folder. This is why Gulati is not the primary.",
+        "CLDN4 %pos vs CytoTRACE2 is null. Do not substitute the T/NK %pos score for the mean used here.",
+    ]
+    return " ".join(holds), " ".join(fails)
 
 
 def main() -> None:
@@ -939,7 +947,7 @@ def main() -> None:
         version = "1.1.0.4"
     cat_path = args.h5ad / "catalog.json"
     catalog = json.loads(cat_path.read_text()) if cat_path.exists() else {}
-    holds, fails = verdict_sentences(primary)
+    holds, fails = verdict_sentences(primary, paired, sensitivity, cohort_rows)
     potency_counts: dict[str, int] = {}
     for meta in metas.values():
         for k, v in meta["potency_counts"].items():

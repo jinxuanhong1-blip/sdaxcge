@@ -19,7 +19,7 @@ Not used: GSE148071, GSE127465, GSE154826, GSE200563, E-MTAB-13526, dual-high TA
 
 | Score | Definition |
 | --- | --- |
-| CytoTRACE2 | `cytotrace2-py` 1.1.0.4, human, raw UMI, **per dataset**. 0 = differentiated, 1 = totipotent. Smoothed score is primary. preKNN score is sensitivity. |
+| CytoTRACE2 | `cytotrace2-py` 1.1.0.4, `species=human`, raw UMI, **per dataset**. 0 = differentiated, 1 = totipotent. The human run maps symbols onto the model's ortholog feature space; that is the published human mode. Smoothed score is primary. preKNN score is sensitivity. |
 | Gulati 2020 | Top-200 gene-count correlates, KNN smooth, rank to [0,1], per dataset. Sensitivity only. |
 | Ben-Porath ES1 | MSigDB c2.cgp v2023.2.Hs `BENPORATH_ES_1`. Mean z of log1p(CP10k) inside the dataset. |
 | Wong ESC | `WONG_EMBRYONIC_STEM_CELL_CORE`, same z-score. |
