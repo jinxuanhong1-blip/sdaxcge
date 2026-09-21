@@ -1,0 +1,49 @@
+loo	dropped	biased_toward_up	set	n	median_effect	n_up	n_down	sign_positive
+none		False	C4_panel	6	-0.5714133202056344	0	6	False
+none		False	APM	18	-0.44786951415647225	3	15	False
+none		False	APM_noHLA	17	-0.4016755331913764	3	14	False
+none		False	IFN_custom	44	-0.5314868475825778	2	42	False
+none		False	H_IFNA	83	-0.5415749703773274	11	72	False
+none		False	H_IFNG	146	-0.46519635805283477	33	113	False
+drop_shNC1	shNC1	False	C4_panel	6	-0.5685697565528907	0	6	False
+drop_shNC1	shNC1	False	APM	18	-0.4212154378821804	3	15	False
+drop_shNC1	shNC1	False	APM_noHLA	17	-0.39781864202857253	3	14	False
+drop_shNC1	shNC1	False	IFN_custom	44	-0.49603428070038197	2	42	False
+drop_shNC1	shNC1	False	H_IFNA	83	-0.52756451261541	11	72	False
+drop_shNC1	shNC1	False	H_IFNG	146	-0.46007695694798184	33	113	False
+drop_shNC2	shNC2	False	C4_panel	6	-0.6093165596795018	0	6	False
+drop_shNC2	shNC2	False	APM	18	-0.47926467864426514	3	15	False
+drop_shNC2	shNC2	False	APM_noHLA	17	-0.4486134937317394	3	14	False
+drop_shNC2	shNC2	False	IFN_custom	44	-0.5970467188860797	2	42	False
+drop_shNC2	shNC2	False	H_IFNA	83	-0.5844904406769951	11	72	False
+drop_shNC2	shNC2	False	H_IFNG	146	-0.4976095417027492	34	112	False
+drop_shNC3	shNC3	False	C4_panel	6	-0.5519613355449815	0	6	False
+drop_shNC3	shNC3	False	APM	18	-0.44502345218339057	3	15	False
+drop_shNC3	shNC3	False	APM_noHLA	17	-0.38385677437460997	3	14	False
+drop_shNC3	shNC3	False	IFN_custom	44	-0.5248416723770601	2	42	False
+drop_shNC3	shNC3	False	H_IFNA	83	-0.5323579399361507	11	72	False
+drop_shNC3	shNC3	False	H_IFNG	146	-0.4649936650935026	34	112	False
+drop_sh1	sh1	False	C4_panel	6	-0.6009544833347585	0	6	False
+drop_sh1	sh1	False	APM	18	-0.446087621039831	3	15	False
+drop_sh1	sh1	False	APM_noHLA	17	-0.44004636616770565	3	14	False
+drop_sh1	sh1	False	IFN_custom	44	-0.5145422119153887	3	41	False
+drop_sh1	sh1	False	H_IFNA	83	-0.5391062432298606	11	72	False
+drop_sh1	sh1	False	H_IFNG	146	-0.4522052582006899	36	110	False
+drop_sh2	sh2	False	C4_panel	6	-0.5718232892385673	0	6	False
+drop_sh2	sh2	False	APM	18	-0.45315780061729605	3	15	False
+drop_sh2	sh2	False	APM_noHLA	17	-0.3871665393025676	3	14	False
+drop_sh2	sh2	False	IFN_custom	44	-0.5522299301784581	2	42	False
+drop_sh2	sh2	False	H_IFNA	83	-0.546207882628742	10	73	False
+drop_sh2	sh2	False	H_IFNG	146	-0.47470319163297836	32	114	False
+drop_sh3	sh3	False	C4_panel	6	-0.541462188043577	0	6	False
+drop_sh3	sh3	False	APM	18	-0.4030812896543735	3	15	False
+drop_sh3	sh3	False	APM_noHLA	17	-0.3841477037519838	3	14	False
+drop_sh3	sh3	False	IFN_custom	44	-0.541462188043577	1	43	False
+drop_sh3	sh3	False	H_IFNA	83	-0.5616815770667394	11	72	False
+drop_sh3	sh3	False	H_IFNG	146	-0.4522178216970094	33	113	False
+drop_highest_IFN_shNC_and_lowest_IFN_sh	shNC1,sh1	True	C4_panel	6	-0.5981109196820147	0	6	False
+drop_highest_IFN_shNC_and_lowest_IFN_sh	shNC1,sh1	True	APM	18	-0.424823548805096	3	15	False
+drop_highest_IFN_shNC_and_lowest_IFN_sh	shNC1,sh1	True	APM_noHLA	17	-0.4134576226052902	3	14	False
+drop_highest_IFN_shNC_and_lowest_IFN_sh	shNC1,sh1	True	IFN_custom	44	-0.5018675315914294	2	42	False
+drop_highest_IFN_shNC_and_lowest_IFN_sh	shNC1,sh1	True	H_IFNA	83	-0.5149065088638749	11	72	False
+drop_highest_IFN_shNC_and_lowest_IFN_sh	shNC1,sh1	True	H_IFNG	146	-0.4448500812238141	35	111	False

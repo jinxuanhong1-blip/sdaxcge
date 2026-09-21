@@ -1,0 +1,34 @@
+{
+  "perturbation": "TACSTD2/TROP2 shRNA in SKOV3. Not a CLDN4 knockdown.",
+  "n_sweep_rows": 920,
+  "n_thesis_IFN_APM_tests": 312,
+  "n_untreated_IFN_APM_tests": 104,
+  "n_untreated_IFN_APM_median_up": 0,
+  "n_thesis_aligned_up_panels": 170,
+  "untreated_IFN_custom_log2p1_median": -0.5314868475825778,
+  "loo_any_core_median_positive": false,
+  "loo_biased_double_drop_any_positive": false,
+  "loo_on_ddp_any_core_median_negative": false,
+  "best_direct_up_log2p1": {
+    "normalization": "log2_fpkm_p1",
+    "estimand": "KD_on_DDP",
+    "label": "TACSTD2 sh vs scramble, both on cisplatin 10 \u00b5g/ml 48 h. Not CLDN4 KD. Not the untreated contrast.",
+    "set": "H_IFNA",
+    "n": 79,
+    "median_effect": 0.40557741760207344,
+    "n_up": 60,
+    "n_down": 19,
+    "wilcoxon_p_up": 3.6992238359720067e-07,
+    "sample_p_up": 0.003083957019737856,
+    "mw_p_gt_background": 1.9516922952951211e-07,
+    "q_wilcoxon_thesis_IFN_APM": 2.3252264111824043e-06
+  },
+  "smallest_p_in_full_sweep_including_interaction": {
+    "normalization": "log2_p1_minus_HK",
+    "estimand": "interaction",
+    "set": "H_IFNG",
+    "median_effect": 0.9317056803918737,
+    "wilcoxon_p_up": 5.174666676628591e-19,
+    "note": "Interaction contrasts subtract the untreated decrease. EMT shows a similar interaction. Not used as the IFN level call."
+  }
+}
