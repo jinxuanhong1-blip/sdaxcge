@@ -1,0 +1,20 @@
+accession	gene	role	assay	scored	reason
+GSE312708	CLDN1	CRISPR knockout, HuCC-A1 in vitro	RNA-seq counts	yes	Scored. CLDN1 mRNA is not lost (log2 difference -0.30), so it is not a confirmed CLDN1-loss contrast.
+GSE312711	CLDN1	CRISPR knockout, HuCC-A1 xenograft	RNA-seq counts	yes	Scored. CLDN1 counts stay high in knockout tumors (log2 difference -0.28, p=0.20).
+GSE312713	CLDN1	shRNA, CCA organoid PDM217	RNA-seq counts	yes	Confirmed knockdown. IFN-alpha up, NHEJ flat.
+GSE234513	CLDN1	shRNA, DLD-1 and LoVo liver tumors	RNA-seq TPM	yes	Hairpins scored separately. Hairpin 1 lowers CLDN1; hairpin 2 does not.
+GSE296175	CLDN1	siRNA, imatinib-resistant GIST	RNA-seq counts	yes	Confirmed siRNA. PDS-0330 arm scored separately as antibody, not knockdown.
+GSE10309	CLDN1	overexpression in CL1-5	microarray	no	Gain of CLDN1, not knockdown.
+GSE262166	CLDN1	superseries, includes knockout subseries and antibody treatment	mixed	partial	Knockout subseries GSE312708 and GSE312711 were scored. Antibody treatment subseries were not treated as knockdowns.
+GSE298420	CLDN1	anti-CLDN1 antibody in HuCC-A1 xenografts	RNA-seq	no	Antibody treatment, not a genetic knockdown.
+GSE159914	CLDN3	germline knockout, liver, baseline and after hepatectomy, plus aged cohort	RNA-seq counts	yes	Only public CLDN3-loss RNA-seq found. Not a cancer knockdown.
+GSE274940	all claudins	EpH4 claudin-null line	RNA-seq counts	yes	Cldn4 mRNA is not reduced. Held out of the CLDN4-loss claim. Cldn3 and Cldn7 transcripts fall.
+GSE273512	CLDN7	two shRNAs, MMTV-Neu mammary organoids	RNA-seq counts	yes	Confirmed knockdown. NHEJ flat. IFN-alpha not significant.
+GSE26055	CLDN7	siRNA, OVCA420 and OVCAR-2	Illumina HumanRef-8	yes	Confirmed knockdown. Series-matrix table is empty; non-normalized signal was used. n=2.
+GSE256329	CLDN7	germline knockout, postnatal intestine	Agilent mouse array	yes	Whole tissue, n=2. Not a cancer knockdown.
+GSE67164	CLDN7	genome-wide CRISPR screen in dendritic cells	screen	no	CLDN7 is not a dedicated knockdown transcriptome.
+GSE244629	CLDN7	miR-155 and epithelial barrier	expression	no	CLDN7 is a downstream gene, not the perturbation.
+GSE180418	CLDN7	keratinocyte expression	expression	no	Not a knockdown.
+GSE207704	CLDN4	CRISPR knockout, T47D and MCF7	RNA-seq group-mean FPKM	yes	Public CLDN4 contrast. No replicate-level p. NHEJ not down. T47D IFN-alpha down.
+GSE50927	CLDN4	germline knockout, naive lung	author edgeR	yes	Public CLDN4 contrast. IFN up, as previously reported. NHEJ core flat (0/12 genes FDR<0.05).
+GSE22493	CLDN4	siRNA versus CLDN4 overexpression	two-color microarray	yes	Confounded contrast (knockdown versus overexpression), not knockdown versus parental cells.

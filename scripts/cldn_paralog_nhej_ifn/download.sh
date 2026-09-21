@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Processed matrices only. FASTQ and SRA are not required.
+set -euo pipefail
+DEST="${1:-/tmp/cldn_kd}"
+mkdir -p "$DEST/annot"
+cd "$DEST"
+curl -fsSL -o GSE312708_gene_count.tsv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE312nnn/GSE312708/suppl/GSE312708_gene_count.tsv.gz"
+curl -fsSL -o GSE312711_gene_count.tsv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE312nnn/GSE312711/suppl/GSE312711_gene_count.tsv.gz"
+curl -fsSL -o GSE312713_gene_count.tsv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE312nnn/GSE312713/suppl/GSE312713_gene_count.tsv.gz"
+curl -fsSL -o GSE273512_fc.txt.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE273nnn/GSE273512/suppl/GSE273512_MMTVNeu_Collagen_Cldn7_sh1_sh2_KD_featurecounts.txt.gz"
+curl -fsSL -o GSE234513_tpms.csv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE234nnn/GSE234513/suppl/GSE234513_tpms_per_sample_genes.csv.gz"
+curl -fsSL -o GSE159914_data.csv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE159nnn/GSE159914/suppl/GSE159914_data.csv.gz"
+curl -fsSL -o GSE207704_CLDN4_RNAseq.txt.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE207nnn/GSE207704/suppl/GSE207704_CLDN4_RNAseq.txt.gz"
+curl -fsSL -o GSE50927_naive.csv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE50nnn/GSE50927/suppl/GSE50927_Cldn4lungWTvsKOgenes.csv.gz"
+curl -fsSL -o GSE26055_non-normalized.txt.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE26nnn/GSE26055/suppl/GSE26055_non-normalized.txt.gz"
+curl -fsSL -o GSE22493_series_matrix.txt.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE22nnn/GSE22493/matrix/GSE22493_series_matrix.txt.gz"
+curl -fsSL -o GSE256329_series_matrix.txt.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE256nnn/GSE256329/matrix/GSE256329_series_matrix.txt.gz"
+curl -fsSL -o GSE274940_raw_counts.csv.gz "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE274nnn/GSE274940/suppl/GSE274940_raw_counts.csv.gz"
+curl -fsSL -o GSE296175.xlsx "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE296nnn/GSE296175/suppl/GSE296175_Gencode43_tr._counts_and_FPKM.xlsx"
+curl -fsSL -o annot/GPL6104.annot.gz "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPL6nnn/GPL6104/annot/GPL6104.annot.gz"
+curl -fsSL -o annot/GPL10555_family.soft.gz "https://ftp.ncbi.nlm.nih.gov/geo/platforms/GPL10nnn/GPL10555/soft/GPL10555_family.soft.gz"
+echo "GPL10787 gene symbols are streamed by analyze.py from the GEO platform table into annot/GPL10787_symbols.tsv (column GENE_SYMBOL)."
+echo "Downloaded to $DEST"
