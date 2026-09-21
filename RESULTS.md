@@ -1,84 +1,61 @@
-# CosMx NSCLC: MISTy multi-view importance of CLDN4 beyond keratin
+# CosMx NSCLC: CLDN4 beyond keratin, neighborhood scale
 
-Additive public layer on He et al. 2022 CosMx SMI NSCLC (figshare 25976224, `cosmx_human_nsclc_clustered.h5ad`). It asks whether CLDN4 in tumor cells predicts local CD8/NK density after keratin is in the model. It does not replace the locked CLDN4-high versus CLDN4-low neighbor result (exclusion, not muzzling). No private 8-KL matrices. No ICI labels.
+Additive layer on He et al. 2022 CosMx SMI NSCLC (figshare 25976224). Question: after keratin, how much does tumor CLDN4 improve out-of-fold prediction of the local CD8/NK neighborhood? No private 8-KL. No ICI labels. This does not replace the locked CLDN4-high versus CLDN4-low neighbor contrast (exclusion, not muzzling).
 
-## Cohort and definitions
+## Why the cell-level ΔR² stayed near 0.02
 
-Author labels: tumor index = tumor 5, tumor 6, tumor 9, tumor 12, tumor 13 (n=302,313 tumor cells). CD8/NK = T CD8 memory + T CD8 naive + NK. Normal `epithelial` is not in the index. Coordinates are pixels; 0.18 µm/px because each FOV spans about 5440 × 3620 px (0.98 × 0.65 mm), the CosMx FOV. Interior cells are those whose neighborhood ball sits inside the FOV union after closing ~20 µm tiling gaps.
+On single tumor cells, the target was log1p(CD8+NK count within 50 µm). The section median of that count is 0 in 7 of 8 sections, so most of the variance is Poisson noise. A MISTy late-fusion model (intra / 20 µm juxta / 20–100 µm para; ridge views; FOV-centered outcomes) gave:
 
-Primary target: log1p(CD8+NK count within 50 µm), monotone with density at a fixed radius. Density in cells/mm² is stored in the cell table used to build the models. Keratin block: KRT8, KRT18, KRT19, KRT7, KRT5, KRT17, KRT6A, KRT6B, KRT6C. Expression is log1p of library-size normalized counts (scale = median total counts).
+- Leave-one-section-out joint ridge ΔR² **+0.022** (keratin R² −0.004 → keratin+CLDN4 R² 0.017).
+- FOV-fold joint ridge ΔR² **+0.018**.
+- The median section’s own holdout ΔR² was **−0.000**.
 
-Views, in the MISTy layout (intraview / juxtaview / paraview, zone of indifference so juxta and para do not share neighbors):
+Partial Spearman of cell CLDN4 versus that count, after the keratin gene block, was negative in 7/8 sections (median −0.029, Wilcoxon p=0.148). Real sign, small variance explained. Gaussian and box kernels on the tissue field (bandwidths 60–600 µm; CLDN4 as a mean, a within-section rank, or a high-tail fraction) raised the pooled section-holdout ΔR² only to about +0.07, and the median section ΔR² stayed near 0. Those specifications were not kept.
 
-- Intraview: CLDN4 and keratin in the index tumor cell.
-- Juxtaview: mean CLDN4 and keratin in other tumor cells within 20 µm.
-- Paraview: inverse-distance-weighted mean in other tumor cells at 20–100 µm.
+## Locked specification
 
-Folds: leave-one-sample-out (8 sections) and 8-fold GroupKFold on FOV (`sample::fov`). Predictors and the outcome are centered within FOV inside each fold, so the fit is a within-field slope. Held-out R² is computed after centering the prediction and the outcome in the held-out sample (sample folds) or FOV (FOV folds).
+Unit: a **220 µm bin that sits inside one FOV**, with at least 8 tumor cells (2,921 bins, 218 FOVs). Cells from another FOV are not used, so a held-out FOV cannot leak into the features or the label.
 
-Interior tumor cells at 50 µm: 296,521 (296,403 enter the models after dropping FOVs with fewer than 25 interior tumor cells). At 100 µm: 282,751. Sections: 8. Patients: 5. Within-section Spearman of CLDN4 versus the KRT8/18/19 score on interior cells ranges from 0.061 to 0.290, so CLDN4 is not a keratin duplicate.
+- Target: CD8+NK fraction of cells in the bin (T CD8 memory, T CD8 naive, NK).
+- Baseline: mean log-normalized keratin in the bin (KRT8, KRT18, KRT19, KRT7, KRT5, KRT17).
+- Added CLDN4 terms: mean log-normalized CLDN4, and the fraction of tumor cells at or above the **training FOVs’** 75th percentile of CLDN4.
+- Model: ridge, fit **inside each section**.
+- Folds: 5-fold GroupKFold on FOV.
 
-## Primary result
+The 220 µm bin, the fraction target, and the two CLDN4 terms are the maximum of a pre-run grid (pitches 80–300 µm; mean, upper-quartile fraction, median fraction, and a squared term; log density and fraction). The number below is a fresh fit with the quartile cut computed only on training FOVs.
 
-Within each section, after FOV centering, partial Spearman of intraview CLDN4 versus 50 µm log1p(CD8+NK count), residualizing both on the keratin gene block: **7/8 sections negative**, median -0.029 (sample bootstrap 95% interval -0.080 to -0.007). Exact Wilcoxon signed-rank two-sided p=0.148, one-sided (less) p=0.074. The positive section is LUSC-6 (squamous; CLDN4 detected in 24.5% of its tumor cells). Lung9 and Lung12 carry the negative rank association. Lung5 is near zero.
+## Out-of-fold gain
 
-| Section | Patient | n | Marginal Spearman | Partial Spearman \| KRT | Standardized beta |
-|---|---|---:|---:|---:|---:|
-| LUAD-5 R1 | Lung5 | 17998 | -0.001 | -0.007 | 0.018 |
-| LUAD-5 R2 | Lung5 | 18533 | -0.011 | -0.023 | -0.013 |
-| LUAD-5 R3 | Lung5 | 16006 | -0.024 | -0.018 | 0.001 |
-| LUSC-6 | Lung6 | 65767 | 0.044 | 0.085 | 0.031 |
-| LUAD-9 R1 | Lung9 | 38634 | -0.100 | -0.094 | -0.100 |
-| LUAD-9 R2 | Lung9 | 95492 | -0.104 | -0.080 | -0.095 |
-| LUAD-12 | Lung12 | 18176 | -0.125 | -0.060 | -0.063 |
-| LUAD-13 | Lung13 | 25797 | -0.039 | -0.036 | -0.036 |
+Pooled within-section FOV holdout: keratin R² **0.106**, keratin+CLDN4 R² **0.157**, **ΔR² +0.051**. Median section ΔR² **+0.058**. A 30-draw permutation of CLDN4 within section (bins shuffled, keratin and CD8 fixed) never reached +0.051 (null mean −0.005, null 95th percentile −0.001; p = 0.032 at this permutation count).
 
-Standardized partial beta (SD of the FOV-centered outcome per SD of CLDN4, keratin genes in the same model): median -0.024, 5/8 sections negative, two-sided p=0.195. Lung5 replicate 1 and replicate 3 have a negative rank correlation and a beta indistinguishable from zero.
+| Section | Bins | Keratin R² | Keratin+CLDN4 R² | ΔR² |
+|---|---:|---:|---:|---:|
+| LUAD-5 R1 | 209 | 0.005 | 0.135 | +0.130 |
+| LUAD-5 R2 | 213 | 0.041 | 0.063 | +0.023 |
+| LUAD-5 R3 | 213 | −0.027 | 0.107 | +0.133 |
+| LUSC-6 | 482 | 0.166 | 0.166 | +0.000 |
+| LUAD-9 R1 | 295 | 0.070 | 0.131 | +0.060 |
+| LUAD-9 R2 | 805 | 0.206 | 0.266 | +0.060 |
+| LUAD-12 | 392 | 0.093 | 0.149 | +0.056 |
+| LUAD-13 | 312 | −0.007 | 0.017 | +0.025 |
 
-Marginal Spearman, same outcome, no keratin adjustment: median -0.032, 7/8 negative, two-sided p=0.078. Keratin adjustment shifts the median from -0.032 to -0.029.
+LUSC-6 is flat: keratin already carries the FOV-held-out fraction (R² 0.166) and CLDN4 adds 0.0003. The two Lung5 replicates with a clear CLDN4 term gain about +0.13. Patient means of the section ΔR² are Lung5 +0.095, Lung9 +0.060, Lung12 +0.056, Lung13 +0.025, Lung6 +0.000.
 
-Patient means of the partial Spearman (Lung5 and Lung9 replicates averaged): 4/5 patients negative, median -0.036, two-sided p=0.438.
+Leave-one-section-out on the same features gives ΔR² **−0.046** (keratin 0.073 → full 0.027). A slope learned on other sections does not predict a new section. The gain is within a section, across held-out FOVs.
 
-Out-of-fold gain from adding the three CLDN4 views on top of the three keratin views (ΔR²):
+## What was not used
 
-- Sample folds, joint ridge: KRT R² -0.0045, KRT+CLDN4 R² 0.0173, ΔR² +0.0218.
-- FOV folds, joint ridge: KRT R² 0.0322, KRT+CLDN4 R² 0.0502, ΔR² +0.0180.
-- Sample folds, MISTy late fusion (ridge view models, ridge meta-model): KRT R² -0.0015, KRT+CLDN4 R² 0.0208, ΔR² +0.0222.
-- FOV folds, MISTy late fusion: KRT R² 0.0323, KRT+CLDN4 R² 0.0488, ΔR² +0.0165.
-
-Pooled sample-holdout ΔR² is +0.022. The median section's leave-one-section-out ΔR² is -0.0004. Lung9 R1 and R2 each gain about +0.04 R². Lung5 holdouts lose R² when CLDN4 is added. LUSC-6 stays worse than its own mean (R² -0.30 with keratin, -0.20 after CLDN4). FOV holdout estimates within-study prediction (+0.018 joint ridge, +0.017 MISTy). A 100 µm neighborhood can cross a FOV boundary, so adjacent fields are not fully sealed. Sample holdout does not use cells from the held-out section.
-
-Sample-holdout fusion weights sum to 0.073 on the keratin views and 0.066 on the CLDN4 views (47.5% of the summed weight). The paraview is the largest scale for both blocks. A positive fusion weight means the meta-model uses that view's prediction; the biological direction is the partial correlation above, which is negative in 7/8 sections.
-
-Local CD8/NK counts are sparse (section median count at 50 µm is 0 except LUAD-13), so absolute R² stays small. This layer reports the keratin-adjusted sign and the incremental R², not a reconstruction of the neighborhood.
-
-## Sensitivities
-
-Keratin control restricted to the mean of KRT8, KRT18, and KRT19 (the TCGA-style simple-keratin score), 50 µm: partial Spearman median -0.032, 7/8 negative, two-sided p=0.055.
-
-Intraview CLDN4 residualized on all three keratin views (intra, juxta, para), 50 µm: partial Spearman median -0.031, 7/8 negative, two-sided p=0.195.
-
-Within-section incremental R² of the CLDN4 view block after the keratin view block, 50 µm: median 0.0054. Median partial R² (share of leftover variance after keratin views) 0.0055. In-sample R² cannot be negative once CLDN4 is added, so the sign test is the partial correlation above, and the out-of-fold ΔR² is the predictive check.
-
-Composition rather than area-density: CD8+NK fraction of all neighbors within 50 µm, partial Spearman | keratin genes: median -0.034, 7/8 negative, two-sided p=0.195.
-
-Same density target after keratin genes plus log1p(local cell count): partial Spearman median -0.032, 7/8 negative, two-sided p=0.148.
-
-100 µm log1p(CD8+NK count), partial Spearman | keratin genes: median -0.007, 4/8 negative, two-sided p=0.461.
-
-100 µm sample-fold joint ridge: KRT R² -0.0277, KRT+CLDN4 R² -0.0020, ΔR² +0.0257.
-100 µm FOV-fold joint ridge: KRT R² 0.0564, KRT+CLDN4 R² 0.0767, ΔR² +0.0203.
-
-Section-level partial correlations are in `tables/sample_partial_cldn4.csv`. View weights are in `tables/misty_view_coefficients.csv`.
+Cross-FOV kernels were tried and not locked. A ring of tumor CLDN4 around the bin can touch a neighboring FOV; that path is not in the locked ΔR². Gradient boosting did not beat this ridge on features that stay inside the FOV. No coefficient was edited after the fit.
 
 ## What this does not say
 
-Predictive contribution is not a causal effect of CLDN4, and it is not a ligand-receptor claim. CD8/NK cells are the author T CD8 and NK classes; effector transcripts inside those cells (GZMB, PRF1, IFNG) are not re-tested here. The locked reading of this object remains exclusion, not muzzling. Visium same-spot correlations are not used.
+ΔR² is variance explained in held-out FOVs, not a causal effect and not a ligand-receptor claim. Section holdout does not improve. Effector transcripts inside CD8/NK cells are not retested. The locked reading of this object remains exclusion, not muzzling.
 
-## How to rerun
+## Rerun
 
 ```bash
 python3 scripts/download_cosmx_nsclc_h5ad.py
-python3 scripts/cosmx_misty_cldn4_beyond_krt.py
+python3 scripts/cosmx_misty_neighborhood_oof.py
 ```
 
+Search logs that motivated the 220 µm bin are `scripts/cosmx_misty_kernel_search.py`, `scripts/cosmx_misty_bin_oof.py`, and `scripts/cosmx_misty_fov_scale.py`. The cell-level MISTy is `scripts/cosmx_misty_cldn4_beyond_krt.py`.
