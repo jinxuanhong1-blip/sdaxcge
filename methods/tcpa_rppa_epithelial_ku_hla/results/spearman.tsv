@@ -1,0 +1,27 @@
+n_pairwise	rho	p	tested	note	cohort	family	predictor	endpoint	predictor_gene	endpoint_gene	tcpa_stored_rho	tcpa_stored_p	rho_minus_stored	q_bh	bh_family_n
+365	-0.029795077635960857	0.5704372622405449	True	two-sided Spearman, pairwise complete	LUAD	primary	CLAUDIN7	KU80	CLDN7	XRCC5	-0.02979508	0.5704373	2.3640391449974985e-09	0.7809284167059256	3.0
+0			False	endpoint protein_id is on the TCPA catalog but every tumor in this histology is NA; Spearman not computed	LUAD	primary	CLAUDIN7	HLADQA1	CLDN7	HLA-DQA1					
+365	0.23601498434195495	5.160684317215595e-06	True	two-sided Spearman, pairwise complete	LUAD	primary	ECADHERIN	KU80	CDH1	XRCC5	0.236015	5.495858e-06	-1.5658045054989245e-08	1.5482052951646782e-05	3.0
+0			False	endpoint protein_id is on the TCPA catalog but every tumor in this histology is NA; Spearman not computed	LUAD	primary	ECADHERIN	HLADQA1	CDH1	HLA-DQA1					
+354	-0.014832993737138346	0.7809284167059256	True	two-sided Spearman, pairwise complete	LUAD	primary	EMA	KU80	MUC1	XRCC5	-0.01483299	0.7808239	-3.737138345311086e-09	0.7809284167059256	3.0
+0			False	endpoint protein_id is on the TCPA catalog but every tumor in this histology is NA; Spearman not computed	LUAD	primary	EMA	HLADQA1	MUC1	HLA-DQA1					
+354	0.06662302523065604	0.21113118453646276	True	two-sided Spearman, pairwise complete	LUAD	sensitivity_zmean	EPITHELIAL_ZMEAN	KU80	CLDN7+CDH1+MUC1 z-mean	XRCC5					
+0			False	n=0; Spearman not computed	LUAD	sensitivity_zmean	EPITHELIAL_ZMEAN	HLADQA1	CLDN7+CDH1+MUC1 z-mean	HLA-DQA1					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUAD	absent	epithelial_or_CLDN4	CLDN4		Claudin-4 / CLDN4					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUAD	absent	epithelial_or_CLDN4	PRKDC		DNA-PKcs / PRKDC					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUAD	absent	epithelial_or_CLDN4	XRCC6		Ku70 / XRCC6					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUAD	absent	epithelial_or_CLDN4	STAT1		STAT1					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUAD	absent	epithelial_or_CLDN4	HLA-I		HLA class I (HLA-A/B/C or B2M)					
+328	0.03547318163705793	0.5220455002034244	True	two-sided Spearman, pairwise complete	LUSC	primary	CLAUDIN7	KU80	CLDN7	XRCC5	0.03547318	0.5220455	1.6370579267177554e-09	0.5220455002034244	3.0
+0			False	endpoint protein_id is on the TCPA catalog but every tumor in this histology is NA; Spearman not computed	LUSC	primary	CLAUDIN7	HLADQA1	CLDN7	HLA-DQA1					
+328	0.5284778422921567	5.416306127762592e-25	True	two-sided Spearman, pairwise complete	LUSC	primary	ECADHERIN	KU80	CDH1	XRCC5	0.5284778	0.0	4.229215666562425e-08	1.6248918383287778e-24	3.0
+0			False	endpoint protein_id is on the TCPA catalog but every tumor in this histology is NA; Spearman not computed	LUSC	primary	ECADHERIN	HLADQA1	CDH1	HLA-DQA1					
+318	-0.16030785598483746	0.004156954804390086	True	two-sided Spearman, pairwise complete	LUSC	primary	EMA	KU80	MUC1	XRCC5	-0.1603079	0.004194558	4.401516254248783e-08	0.006235432206585128	3.0
+0			False	endpoint protein_id is on the TCPA catalog but every tumor in this histology is NA; Spearman not computed	LUSC	primary	EMA	HLADQA1	MUC1	HLA-DQA1					
+318	0.21679650729850947	9.728670500870136e-05	True	two-sided Spearman, pairwise complete	LUSC	sensitivity_zmean	EPITHELIAL_ZMEAN	KU80	CLDN7+CDH1+MUC1 z-mean	XRCC5					
+0			False	n=0; Spearman not computed	LUSC	sensitivity_zmean	EPITHELIAL_ZMEAN	HLADQA1	CLDN7+CDH1+MUC1 z-mean	HLA-DQA1					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUSC	absent	epithelial_or_CLDN4	CLDN4		Claudin-4 / CLDN4					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUSC	absent	epithelial_or_CLDN4	PRKDC		DNA-PKcs / PRKDC					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUSC	absent	epithelial_or_CLDN4	XRCC6		Ku70 / XRCC6					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUSC	absent	epithelial_or_CLDN4	STAT1		STAT1					
+0			False	antibody absent from TCPA disease L4 panel; not replaced	LUSC	absent	epithelial_or_CLDN4	HLA-I		HLA class I (HLA-A/B/C or B2M)					
