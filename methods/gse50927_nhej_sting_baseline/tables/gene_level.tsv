@@ -1,0 +1,56 @@
+module	symbol	alias	entrez	name	logFC	logCPM	PValue	FDR	in_table	expressed	used_in_mean	direction	fdr_lt_0.05
+c-NHEJ	Xrcc6	Ku70	14375	X-ray repair complementing defective repair in Chinese hamster cells 6	0.311004126	4.050235406	0.138977949	0.689804798	yes	yes	yes	up	no
+c-NHEJ	Xrcc5	Ku80	22596	X-ray repair complementing defective repair in Chinese hamster cells 5	-0.010716447	4.02145903	0.978102693	1	yes	yes	yes	down	no
+c-NHEJ	Prkdc	DNA-PKcs	19090	protein kinase, DNA activated, catalytic polypeptide	0.048992655	4.72798351	0.80814238	1	yes	yes	yes	up	no
+c-NHEJ	Dclre1c	Artemis	227525	DNA cross-link repair 1C, PSO2 homolog (S. cerevisiae)	-0.355693541	3.597586873	0.167361291	0.755702197	yes	yes	yes	down	no
+c-NHEJ	Nhej1	XLF	75570	nonhomologous end-joining factor 1	0.207941265	1.195488429	0.6833627	1	yes	yes	yes	up	no
+c-NHEJ	Xrcc4	XRCC4	108138	X-ray repair complementing defective repair in Chinese hamster cells 4	-0.172875573	3.272997797	0.495029916	1	yes	yes	yes	down	no
+c-NHEJ	Lig4	LIG4	319583	ligase IV, DNA, ATP-dependent	0.266300102	3.752069129	0.200599861	0.815970762	yes	yes	yes	up	no
+c-NHEJ	Poll	Pol-lambda	56626	polymerase (DNA directed), lambda	-0.092431287	3.384029109	0.718190679	1	yes	yes	yes	down	no
+c-NHEJ	Polm	Pol-mu	54125	polymerase (DNA directed), mu	-0.466707226	4.096120035	0.015457365	0.213288054	yes	yes	yes	down	no
+c-NHEJ	1110057K04Rik	Paxx	68832	RIKEN cDNA 1110057K04 gene	-0.027735465	5.444401727	0.862888911	1	yes	yes	yes	down	no
+NHEJ-extended	Trp53bp1	53BP1	27223	transformation related protein 53 binding protein 1	-0.012359853	6.122227249	0.936209863	1	yes	yes	yes	down	no
+NHEJ-extended	Rnf8	RNF8	58230	ring finger protein 8	0.154696484	4.890151583	0.365270036	1	yes	yes	yes	up	no
+NHEJ-extended	Rnf168	RNF168	70238	ring finger protein 168	-0.007795737	5.4678607	0.969153601	1	yes	yes	yes	down	no
+NHEJ-extended	Rif1	RIF1	51869	Rap1 interacting factor 1 homolog (yeast)	-0.45026976	5.795980628	0.006390202	0.121644079	yes	yes	yes	down	no
+NHEJ-extended	Mad2l2	REV7	71890	MAD2 mitotic arrest deficient-like 2	0.207308094	3.460083349	0.354124982	1	yes	yes	yes	up	no
+NHEJ-extended	Atm	ATM	11920	ataxia telangiectasia mutated homolog (human)	-0.147208945	5.638647269	0.311393578	0.961422135	yes	yes	yes	down	no
+NHEJ-extended	H2afx	H2AX	15270	H2A histone family, member X	0.500512179	4.029364228	0.016701877	0.223636169	yes	yes	yes	up	no
+NHEJ-extended	Mre11a	MRE11	17535	meiotic recombination 11 homolog A (S. cerevisiae)	0.064368819	3.611696472	0.795456067	1	yes	yes	yes	up	no
+NHEJ-extended	Rad50	RAD50	19360	RAD50 homolog (S. cerevisiae)	-0.365031133	5.402407638	0.013861375	0.200223881	yes	yes	yes	down	no
+NHEJ-extended	Nbn	NBS1	27354	nibrin	0.281562005	4.350766655	0.136654218	0.683901271	yes	yes	yes	up	no
+NHEJ-extended	Parp1	PARP1	11545	poly (ADP-ribose) polymerase family, member 1	0.006779196	5.668482499	0.971359723	1	yes	yes	yes	up	no
+NHEJ-extended	Pnkp	PNKP	59047	polynucleotide kinase 3'- phosphatase	0.084819561	4.204826294	0.668466828	1	yes	yes	yes	up	no
+NHEJ-extended	Aplf	APLF	72103	aprataxin and PNKP like factor	-0.019332886	3.186089731	0.968301761	1	yes	yes	yes	down	no
+NHEJ-extended	Aptx	APTX	66408	aprataxin	-0.115687784	4.627406556	0.534067221	1	yes	yes	yes	down	no
+STING-pair	Mb21d1	Cgas	214763	Mab-21 domain containing 1	0.497757629	2.138155254	0.129557715	0.672042639	yes	yes	yes	up	no
+STING-pair	Tmem173	Sting1	72512	transmembrane protein 173	0.12918648	4.333843352	0.478751364	1	yes	yes	yes	up	no
+STING-neighbor	Tbk1	TBK1	56480	TANK-binding kinase 1	0.116735721	5.586020338	0.46538505	1	yes	yes	yes	up	no
+STING-neighbor	Irf3	IRF3	54131	interferon regulatory factor 3	0.045368535	5.511784656	0.762608164	1	yes	yes	yes	up	no
+STING-neighbor	Ifnb1	IFNB1	15977	interferon beta 1, fibroblast	0	-2.071298111	1	1	yes	no	no	zero	no
+STING-neighbor	Zbp1	ZBP1	58203	Z-DNA binding protein 1	0.997190466	2.572558079	0.001493068	0.046295608	yes	yes	yes	up	yes
+STING-neighbor	Aim2	AIM2	383619	absent in melanoma 2	-0.686161223	2.543411733	0.02189077	0.261065477	yes	yes	yes	down	no
+STING-neighbor	Trex1	TREX1	22040	three prime repair exonuclease 1	0	-2.071298111	1	1	yes	no	no	zero	no
+IFN-chemokine	Ccl5	CCL5	20304	chemokine (C-C motif) ligand 5	2.710310881	4.955225331	1.18618e-05	0.001144781	yes	yes	yes	up	yes
+IFN-chemokine	Cxcl9	CXCL9	17329	chemokine (C-X-C motif) ligand 9	2.883303775	1.338092825	0.002282902	0.06232753	yes	yes	yes	up	no
+IFN-chemokine	Cxcl10	CXCL10	15945	chemokine (C-X-C motif) ligand 10	2.542898441	0.761591903	0.004257013	0.093900892	yes	yes	yes	up	no
+IFN-chemokine	Cxcl11	CXCL11	56066	chemokine (C-X-C motif) ligand 11	5.044394119	-1.071298111	0.010305774	0.167807069	yes	no	no	up	no
+IFN-chemokine	Ifnb1	IFNB1	15977	interferon beta 1, fibroblast	0	-2.071298111	1	1	yes	no	no	zero	no
+IFN-chemokine	Ifng	IFNG	15978	interferon gamma	2.444784843	-0.611866493	0.100971434	0.590157829	yes	no	no	up	no
+IFN-chemokine	Isg15	ISG15	100038882	ISG15 ubiquitin-like modifier	1.075372735	2.786682884	3.92718e-05	0.003095569	yes	yes	yes	up	yes
+IFN-chemokine	Ifit1	IFIT1	15957	interferon-induced protein with tetratricopeptide repeats 1	0.57577684	4.616952198	0.000719541	0.02824166	yes	yes	yes	up	yes
+IFN-chemokine	Ifit2	IFIT2	15958	interferon-induced protein with tetratricopeptide repeats 2	-0.369023039	5.378882136	0.012872714	0.19255841	yes	yes	yes	down	no
+IFN-chemokine	Ifit3	IFIT3	15959	interferon-induced protein with tetratricopeptide repeats 3	-0.206965942	6.490944313	0.315638468	0.967196558	yes	yes	yes	down	no
+IFN-chemokine	Rsad2	RSAD2	58185	radical S-adenosyl methionine domain containing 2	1.198246334	2.615202416	0.016139179	0.218459763	yes	yes	yes	up	no
+IFN-chemokine	Stat1	STAT1	20846	signal transducer and activator of transcription 1	0.390851313	6.948292617	0.026232231	0.29079192	yes	yes	yes	up	no
+IFN-chemokine	Irf7	IRF7	54123	interferon regulatory factor 7	0.227316665	3.975825801	0.329109646	0.983132036	yes	yes	yes	up	no
+IFN-chemokine	Oasl2	OASL2	23962	2'-5' oligoadenylate synthetase-like 2	0.542098814	5.242718593	0.000371281	0.017868407	yes	yes	yes	up	yes
+IFN-chemokine	Mx1	MX1	17857	myxovirus (influenza virus) resistance 1	0.626672753	1.371645385	0.11907033	0.648233013	yes	yes	yes	up	no
+IFN-chemokine	Gbp4	GBP4	17472	guanylate binding protein 4	2.385050193	6.968306407	1.59806e-09	4.75148e-07	yes	yes	yes	up	yes
+TJ-control	Cldn3	CLDN3	12739	claudin 3	0.091112223	7.125918582	0.523842584	1	yes	yes	yes	up	no
+TJ-control	Cldn5	CLDN5	12741	claudin 5	0.208424808	8.807902207	0.135865801	0.683571603	yes	yes	yes	up	no
+TJ-control	Cldn7	CLDN7	53624	claudin 7	0.112854612	5.420554985	0.473673217	1	yes	yes	yes	up	no
+TJ-control	Cldn18	CLDN18	56492	claudin 18	-0.452490177	9.995127489	0.041302892	0.376994602	yes	yes	yes	down	no
+TJ-control	Tjp1	TJP1	21872	tight junction protein 1	-0.103722846	9.291946899	0.459751347	1	yes	yes	yes	down	no
+TJ-control	Ocln	OCLN	18260	occludin	-0.045588289	6.309162954	0.764313783	1	yes	yes	yes	down	no
+anchor	Cldn4	CLDN4	12740	claudin 4	-6.061296179	2.250629984	1.7663e-29	4.0673e-26	yes	yes	yes	down	yes

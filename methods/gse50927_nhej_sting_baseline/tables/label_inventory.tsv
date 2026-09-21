@@ -1,0 +1,9 @@
+item	n	used	note
+GEO series	1	yes	GSE50927 Kage/Borok 2014 PMID 25106430
+baseline GSM WT no VILI	1	yes	GSM1232580; Cldn4-intact
+baseline GSM Cldn4 KO no VILI	1	yes	GSM1232581; Cldn4-null
+deposited pairwise n	1 vs 1	yes	author EdgeR collapses the design-text duplicates
+SRA runs for these two GSM	4	no	SRX352050 and SRX352051; not a processed count matrix
+VILI GSM	3	no	WT VILI, KO VILIlow, KO VILIhigh; out of this wave
+series-matrix expression rows	0	no	no per-sample matrix
+tumour / LUAD / ICI	0	no	whole lung, mixed 129S6 / C57BL/6 / BALB/c
