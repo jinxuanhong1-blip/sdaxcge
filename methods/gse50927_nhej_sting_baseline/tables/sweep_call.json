@@ -1,0 +1,20 @@
+{
+  "contrast": "naive Cldn4 KO vs WT, no VILI",
+  "n": "1 vs 1",
+  "logFC": "KO minus WT",
+  "Cldn4_logFC": -6.061296179,
+  "ifn_gamma_nes_lock": 1.5081012020314446,
+  "n_ifn_genes_used_for_decontamination": 205,
+  "gsva": "not run",
+  "ssgsea": "not run",
+  "bridge_called_at_fdr_0.05": false,
+  "best_non_proliferation_set": "KEGG_p53_signaling_pathway",
+  "best_non_proliferation_decontam_nes": 1.33198438202701,
+  "best_non_proliferation_decontam_fdr": 0.5154845154845155,
+  "best_non_proliferation_decontam_mean": 0.16565148409677416,
+  "best_non_proliferation_loo_flip": "no",
+  "best_proliferation_set": "custom_chromosome_missegregation",
+  "best_proliferation_nes": 1.7275940847953555,
+  "best_proliferation_mean": 0.7281037356666666,
+  "rule": "Upstream bridge candidates are repair, damage_signal, sensor, and nuclear-envelope sets after Hallmark IFN-\u03b1/\u03b3 and the phospho-proxy ISG list are removed. A call requires decontaminated NES > 0, leave-one-out mean staying positive, and BH FDR < 0.05 inside that family. Proliferation sets are reported beside the bridge, not as the bridge."
+}

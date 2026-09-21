@@ -1,0 +1,4 @@
+method	ran	reason
+GSVA	no	Needs a genes-by-sample matrix. GSE50927 series matrix Sample_data_row_count is 0 for all 5 GSM. Deposited object is one EdgeR logFC per gene, n=1 vs 1.
+ssGSEA	no	ssGSEA scores each sample. This contrast has no sample expression column. A score built from the logFC rank would be preranked GSEA with a different name.
+preranked GSEA	yes	Subramanian 2005 weighted KS on the deposited logFC rank. 1000 gene-set permutations, seed 42, independent stream per set. Positive NES = KO-up. Gene-set permutation, not a mouse-level test.
