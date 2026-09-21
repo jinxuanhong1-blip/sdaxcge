@@ -31,8 +31,28 @@ The ovarian CLDN4 siRNA series PRJNA128653 is GSE22493. It is an expression micr
 
 Two 2025 papers still have no BioProject, SRA, ENA, DDBJ/GEA, or GSA accession for a CLDN4-loss transcriptome.
 
-- PMID 41016339 (Kashiwagi et al., BBRC). CRISPR CLDN4 knockout RNA-seq in NCI-H1688 small-cell lung cancer cells, with SAA1 reported as an upregulated effector. Europe PMC data links for this paper are only RRID:Addgene_98293 and RRID:Addgene_52961. No sequence study was found under the author, Dokkyo, H1688 plus CLDN4, or SAA1 plus SCLC.
+- PMID 41016339 (Kashiwagi et al., BBRC). CRISPR CLDN4 knockout RNA-seq in NCI-H1688 small-cell lung cancer cells, with SAA1 reported as an upregulated effector. Europe PMC data links for this paper are only RRID:Addgene_98293 and RRID:Addgene_52961. A second pass on 2026-09-21 (author site, Dryad, lab GitHub, WeChat/CN supplements) also found no matrix. See below.
 - PMID 40892111 (Zheng et al.). The RNA-seq in the abstract is cerulein acute pancreatitis versus control, used to nominate CLDN4. Knockdown is the later functional assay. Europe PMC lists zero data links. GSA-Human and OMIX searches for CLDN4 returned no study.
+
+## PMID 41016339 second pass: final negative
+
+Checked 2026-09-21. Corresponding author Korehito Kashiwagi, Dokkyo Medical University pathology (k-kore@dokkyomed.ac.jp), with Takuya Yazawa and Hideki Chiba (Fukushima). Nothing open was downloaded.
+
+| Place | Result |
+|---|---|
+| Lab site https://dept.dokkyomed.ac.jp/dep-m/pathology/ | Citation only. No data, GitHub, or download link on the research, publications, or members pages. |
+| researchmap https://researchmap.jp/ayakore0303/published_papers/51267947 | DOI only. The 資料公開 section lists no files. |
+| Dokkyo repository https://dmu.repo.nii.ac.jp/records/2000795 | One-page conference abstract (Dokkyo Journal of Medical Sciences 52(2), K-4, 2025-12-25). It restates the H1688 knockout RNA-seq and SAA1 result. No accession and no count table. |
+| KAKEN JP18K15958 final report (2022-01-27) and JP21K08164 | Claudin-4 in SCLC is described. No RNA-seq accession and no repository URL. |
+| Dryad API | DOI search: 0. "H1688": 0. "Yazawa CLDN4": 0. The "CLDN4" hit is doi:10.5061/dryad.47d7wm3pc (unrelated lung epithelium). The "Kashiwagi" hit is Xenopus strain data, doi:10.5061/dryad.m6f93. |
+| Zenodo DOI search and Figshare "Kashiwagi CLDN4" | 0 records. |
+| GitHub | No dokkyomed, fmu-chiba, or hidchiba user. `poojascis/CLDN4_Data` is SNP tables (nsSNV and UTR), not this RNA-seq. |
+| Elsevier supplements | Crossref `relation` is empty. Unpaywall: closed. `mmc1`–`mmc5` probes for PII S0006291X25014263 returned no file. |
+| WeChat (Sogou) | "CLDN4 H1688 SAA1 RNA-seq 柏木": no articles. "CLDN4 小细胞肺癌 SAA1": two unrelated posts (cell-therapy news; RET-fusion investment note). |
+| CNCB GSA | Kashiwagi, "H1688 CLDN4", and "SAA1 H1688": 0. |
+| DDBJ | Kashiwagi: 0 studies. H1688 studies are KLF9 knockdown, FOXM1 knockdown, and drug treatment, not CLDN4 knockout. |
+
+Final inventory for this paper: the H1688 CLDN4 knockout RNA-seq is described in the article and in a one-page Dokkyo abstract, and it is not in a public archive, author site, Dryad, lab GitHub, or Chinese/WeChat supplement.
 
 ## Open records that are not CLDN4 knockdown RNA-seq
 
