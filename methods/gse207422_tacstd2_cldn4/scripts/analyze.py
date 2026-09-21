@@ -468,12 +468,24 @@ def continuous_rows(df: pd.DataFrame, gene: str, expr_col: str, cohort: str, exp
     return rows
 
 
-def run_block(df: pd.DataFrame, cohort: str, expr_def: str, tac_col: str, cldn_col: str, tumor_col: str, cd8_col: str, tnk_col: str) -> tuple[pd.DataFrame, list[dict], list[dict]]:
+def run_block(
+    df: pd.DataFrame,
+    cohort: str,
+    expr_def: str,
+    tac_col: str,
+    cldn_col: str,
+    tumor_col: str,
+    cd8_col: str,
+    tnk_col: str,
+    tumor_label: str = "A3-malignant fraction",
+) -> tuple[pd.DataFrame, list[dict], list[dict]]:
     """Score one cohort. Tumor/immune columns may be swapped for a sensitivity."""
     use = df.dropna(subset=[tac_col, cldn_col]).copy()
     use["frac_tumor"] = use[tumor_col]
     use["frac_cd8nk"] = use[cd8_col]
     use["frac_tnk"] = use[tnk_col]
+    use["expr_tac"] = use[tac_col]
+    use["expr_cldn"] = use[cldn_col]
     use = annotate_splits(use, tac_col, cldn_col)
     tests: list[dict] = []
     tests += group_rows(use, "tacstd2_group", "high", "TACSTD2", cohort, expr_def)
@@ -484,6 +496,10 @@ def run_block(df: pd.DataFrame, cohort: str, expr_def: str, tac_col: str, cldn_c
     cont = []
     cont += continuous_rows(use, "TACSTD2", tac_col, cohort, expr_def)
     cont += continuous_rows(use, "CLDN4", cldn_col, cohort, expr_def)
+    for bucket in (tests, cont):
+        for rec in bucket:
+            if rec.get("endpoint") == "A3-malignant fraction":
+                rec["endpoint"] = tumor_label
     return use, tests, cont
 
 
@@ -576,7 +592,7 @@ def _group_panel(ax, df: pd.DataFrame, group_col: str, ycol: str, title: str, yl
     ax.set_ylabel(ylabel)
 
 
-def make_figures(primary: pd.DataFrame, outdir: Path) -> None:
+def _save_composition(df: pd.DataFrame, outdir: Path, stem: str, tumor_ylabel: str, suptitle: str) -> None:
     fig, axes = plt.subplots(2, 3, figsize=(11.2, 6.6), constrained_layout=True)
     specs = [
         (0, "tacstd2_group", False, "TACSTD2"),
@@ -584,20 +600,22 @@ def make_figures(primary: pd.DataFrame, outdir: Path) -> None:
         (2, "dual_high", True, "dual-high"),
     ]
     for col, group_col, dual, name in specs:
-        _group_panel(axes[0, col], primary, group_col, "frac_tumor", f"{name}: tumor fraction", "A3-malignant fraction", dual)
-        _group_panel(axes[1, col], primary, group_col, "frac_cd8nk", f"{name}: CD8 T + NK", "CD8 T + NK fraction", dual)
-    fig.suptitle("GSE207422 post-treatment. Blue = MPR (pCR included). Red = NMPR.", fontsize=11)
-    fig.savefig(outdir / "fig_high_low_tumor_cd8nk.png", dpi=180)
-    fig.savefig(outdir / "fig_high_low_tumor_cd8nk.pdf")
+        _group_panel(axes[0, col], df, group_col, "frac_tumor", f"{name}: tumor fraction", tumor_ylabel, dual)
+        _group_panel(axes[1, col], df, group_col, "frac_cd8nk", f"{name}: CD8 T + NK", "CD8 T + NK fraction", dual)
+    fig.suptitle(suptitle, fontsize=11)
+    fig.savefig(outdir / f"{stem}.png", dpi=180)
+    fig.savefig(outdir / f"{stem}.pdf")
     plt.close(fig)
 
+
+def _save_mpr(df: pd.DataFrame, outdir: Path, stem: str, tac_col: str, cldn_col: str, ylabel: str, suptitle: str) -> None:
     fig, axes = plt.subplots(1, 2, figsize=(8.2, 4.2), constrained_layout=True)
     order = ["MPR", "NMPR"]
     colors = {"MPR": "#2166ac", "NMPR": "#b2182b"}
     rng = np.random.default_rng(2)
-    for ax, col, name in [(axes[0], "tacstd2_mal_mean", "TACSTD2"), (axes[1], "cldn4_mal_mean", "CLDN4")]:
+    for ax, col, name in [(axes[0], tac_col, "TACSTD2"), (axes[1], cldn_col, "CLDN4")]:
         for i, grp in enumerate(order):
-            sub = primary[primary["response_paper"] == grp]
+            sub = df[df["response_paper"] == grp]
             y = sub[col].to_numpy(dtype=float)
             x = rng.normal(i, 0.04, size=len(y))
             ax.scatter(x, y, c=colors[grp], s=42, zorder=3)
@@ -605,26 +623,57 @@ def make_figures(primary: pd.DataFrame, outdir: Path) -> None:
                 ax.annotate(row["Patient"], (i, row[col]), fontsize=7, xytext=(4, 0), textcoords="offset points")
             if len(y):
                 ax.hlines(np.median(y), i - 0.22, i + 0.22, color="black", lw=1.6)
-        nmpr = primary.loc[primary["response_paper"] == "NMPR", col]
-        mpr = primary.loc[primary["response_paper"] == "MPR", col]
+        nmpr = df.loc[df["response_paper"] == "NMPR", col]
+        mpr = df.loc[df["response_paper"] == "MPR", col]
         rec = mannwhitney(nmpr, mpr)
         ax.set_xticks([0, 1])
         ax.set_xticklabels([f"MPR\nn={len(mpr)}", f"NMPR\nn={len(nmpr)}"])
-        ax.set_ylabel("mean log1p(CP10k) in A3-malignant cells")
+        ax.set_ylabel(ylabel)
         ax.set_title(f"{name}: NMPR vs MPR\nexact MW P={fmt_p(rec['p'])}", fontsize=10)
-    fig.suptitle("Post-treatment GSE207422. pCR is counted as MPR.", fontsize=11)
-    fig.savefig(outdir / "fig_mpr_nmpr_expression.png", dpi=180)
-    fig.savefig(outdir / "fig_mpr_nmpr_expression.pdf")
+    fig.suptitle(suptitle, fontsize=11)
+    fig.savefig(outdir / f"{stem}.png", dpi=180)
+    fig.savefig(outdir / f"{stem}.pdf")
     plt.close(fig)
 
+
+def _save_scatter(df: pd.DataFrame, outdir: Path, stem: str, tac_col: str, cldn_col: str, tumor_label: str, expr_label: str) -> None:
     fig, axes = plt.subplots(2, 2, figsize=(9.4, 7.2), constrained_layout=True)
-    _scatter_panel(axes[0, 0], primary, "tacstd2_mal_mean", "frac_tumor", "TACSTD2 vs tumor fraction", "TACSTD2 malignant mean", "tumor fraction")
-    _scatter_panel(axes[0, 1], primary, "tacstd2_mal_mean", "frac_cd8nk", "TACSTD2 vs CD8/NK", "TACSTD2 malignant mean", "CD8 T + NK fraction")
-    _scatter_panel(axes[1, 0], primary, "cldn4_mal_mean", "frac_tumor", "CLDN4 vs tumor fraction", "CLDN4 malignant mean", "tumor fraction")
-    _scatter_panel(axes[1, 1], primary, "cldn4_mal_mean", "frac_cd8nk", "CLDN4 vs CD8/NK", "CLDN4 malignant mean", "CD8 T + NK fraction")
-    fig.savefig(outdir / "fig_spearman_malignant.png", dpi=180)
-    fig.savefig(outdir / "fig_spearman_malignant.pdf")
+    _scatter_panel(axes[0, 0], df, tac_col, "frac_tumor", f"TACSTD2 vs {tumor_label}", expr_label, tumor_label)
+    _scatter_panel(axes[0, 1], df, tac_col, "frac_cd8nk", "TACSTD2 vs CD8/NK", expr_label, "CD8 T + NK fraction")
+    _scatter_panel(axes[1, 0], df, cldn_col, "frac_tumor", f"CLDN4 vs {tumor_label}", expr_label.replace("TACSTD2", "CLDN4"), tumor_label)
+    _scatter_panel(axes[1, 1], df, cldn_col, "frac_cd8nk", "CLDN4 vs CD8/NK", expr_label.replace("TACSTD2", "CLDN4"), "CD8 T + NK fraction")
+    fig.savefig(outdir / f"{stem}.png", dpi=180)
+    fig.savefig(outdir / f"{stem}.pdf")
     plt.close(fig)
+
+
+def make_figures(epi: pd.DataFrame, a3: pd.DataFrame, outdir: Path) -> None:
+    _save_composition(
+        epi, outdir, "fig_epithelial_high_low",
+        "epithelial fraction",
+        "All 12 post-treatment samples. Expression = epithelial mean. Blue = MPR (pCR included). Red = NMPR.",
+    )
+    _save_mpr(
+        epi, outdir, "fig_epithelial_mpr",
+        "expr_tac", "expr_cldn",
+        "mean log1p(CP10k) in epithelial cells",
+        "All 12 post-treatment samples. pCR is counted as MPR.",
+    )
+    _save_scatter(
+        epi, outdir, "fig_epithelial_spearman",
+        "expr_tac", "expr_cldn", "epithelial fraction", "epithelial mean log1p(CP10k)",
+    )
+    _save_composition(
+        a3, outdir, "fig_a3_high_low",
+        "A3-malignant fraction",
+        "A3 subset only (samples with ≥10 A3-malignant cells). Three of four MPR samples are absent.",
+    )
+    _save_mpr(
+        a3, outdir, "fig_a3_mpr",
+        "expr_tac", "expr_cldn",
+        "mean log1p(CP10k) in A3-malignant cells",
+        "A3 subset. Only one MPR sample still has ≥10 A3-malignant cells.",
+    )
 
 
 def lookup(tests: pd.DataFrame, **kwargs) -> pd.Series | None:
@@ -638,7 +687,13 @@ def lookup(tests: pd.DataFrame, **kwargs) -> pd.Series | None:
 
 def prose_composition(tests: pd.DataFrame, gene: str, cohort: str, expr: str) -> str:
     bits = []
-    for endpoint in ["A3-malignant fraction", "CD8 T + NK fraction", "all T + NK fraction"]:
+    for endpoint in [
+        "A3-malignant fraction",
+        "epithelial fraction",
+        "PTPRC-negative malignant fraction",
+        "CD8 T + NK fraction",
+        "all T + NK fraction",
+    ]:
         row = lookup(tests, gene=gene, cohort=cohort, expression=expr, test="high_vs_low_composition", endpoint=endpoint)
         if row is None:
             continue
@@ -675,33 +730,45 @@ def prose_spearman(cont: pd.DataFrame, gene: str, cohort: str, expr: str) -> str
     return "; ".join(bits)
 
 
+def _membership_lines(balance: pd.DataFrame) -> list[str]:
+    lines = []
+    for _, row in balance.iterrows():
+        lines.append(
+            f"- {row['gene']} {row['group']}: n={int(row['n'])}, MPR={int(row['n_MPR'])}, NMPR={int(row['n_NMPR'])}, "
+            f"Adeno={int(row['n_Adeno'])}, Squamous={int(row['n_Squamous'])} ({row['patients']})"
+        )
+    return lines
+
+
 def write_finding(
     path: Path,
     summary: dict,
     tests: pd.DataFrame,
     cont: pd.DataFrame,
-    primary: pd.DataFrame,
-    balance: pd.DataFrame,
+    balance_epi: pd.DataFrame,
+    balance_a3: pd.DataFrame,
     restrict: pd.DataFrame,
 ) -> None:
-    cohort = "post_ge10_A3"
-    expr = "A3_malignant_mean_log1p_cp10k"
+    epi_cohort = "post_epithelial_n12"
+    epi_expr = "epithelial_mean_log1p_cp10k"
+    a3_cohort = "post_ge10_A3"
+    a3_expr = "A3_malignant_mean_log1p_cp10k"
     lines = [
         "# GSE207422: TACSTD2 and CLDN4, scored separately",
         "",
         "Public neoadjuvant PD-1 plus chemotherapy NSCLC scRNA-seq (Hu et al., Genome Medicine 2023, PMID 36869384).",
-        "Slide 5–6 use this cohort for a TROP2-high state: higher tumor fraction (stated P=0.047), lower CD8 T/NK (stated P=0.015), and an MPR association.",
-        "This note reports TACSTD2, CLDN4, and dual-high on those endpoints. The two genes are not required to agree.",
+        "Slide 5–6 use this cohort for a TROP2-high state: higher tumor fraction (stated P=0.047), lower CD8 T/NK (stated P=0.015), and lower TROP2 in MPR than in NMPR.",
+        "This note scores TACSTD2, CLDN4, and dual-high with the same rules. CLDN4 is not required to match TACSTD2.",
         "",
         "## Data",
         "",
         f"- GEO processed UMI matrix re-downloaded ({summary['matrix_bytes']:,} bytes, sha256 `{summary['matrix_sha256']}`).",
-        f"- {summary['n_genes_matrix']:,} genes × {summary['n_cells']:,} cells. The slide text says 90,652 cells; the deposited matrix has {summary['n_cells']:,} (paper: 92,330). No cells were dropped to force the slide count.",
+        f"- {summary['n_genes_matrix']:,} genes × {summary['n_cells']:,} cells. The slide text says 90,652 cells; the deposited matrix has {summary['n_cells']:,}, which matches the paper. No cells were dropped to force the slide count.",
         f"- Median genes/cell = {summary['median_genes_per_cell']:.0f} (paper 1,256).",
-        "- Sample metadata: 15 patients, one sample each. 12 post-treatment surgery samples and 3 pre-treatment biopsies.",
-        "- GEO does not deposit author barcode labels or CopyKAT calls. Lineages here are reconstructed from canonical markers. A3-malignant = epithelial call and zero UMI for SFTPA2, AGER, SCGB1A1, SCGB3A1, TPPP3. TACSTD2 and CLDN4 are not used to call a cell.",
-        f"- Primary cohort: post-treatment samples with ≥{MIN_MALIGNANT} A3-malignant cells (n={summary['n_primary']}). Dropped for low malignant count: {summary['dropped_post'] or 'none'}.",
-        "- pCR (P06) is counted as MPR.",
+        "- Sample metadata: 15 patients, one sample each. 12 post-treatment surgery samples (MPR n=4, including pCR P06; NMPR n=8) and 3 pre-treatment biopsies.",
+        "- GEO does not deposit author barcode labels or CopyKAT calls. Lineages are reconstructed from canonical markers. TACSTD2 and CLDN4 are not used to call a cell.",
+        "- Epithelial: highest lineage score is epithelial. A3-malignant: epithelial and zero UMI for SFTPA2, AGER, SCGB1A1, SCGB3A1, TPPP3.",
+        f"- A3 leaves fewer than 10 malignant cells in {len(summary['dropped_post'])} of 12 post-treatment samples ({', '.join(summary['dropped_post'])}), including 3 of 4 MPR samples (P06 pCR, P11, P14). An MPR contrast on the A3 subset is 1 MPR vs 6 NMPR. The cohort that still contains every post-treatment sample is the epithelial mean (n=12).",
         "",
         "## Where each gene is expressed (post-treatment)",
         "",
@@ -715,53 +782,81 @@ def write_finding(
         )
     lines += [
         "",
-        "A whole-sample average of either gene mostly tracks how many epithelial cells are in the sample. The primary expression value is therefore the mean inside A3-malignant cells. All-cell means are in the sensitivity table and are labeled as not independent of tumor fraction.",
+        "Both genes are epithelial-restricted (about 1% of CD8/NK cells positive, under 1% of T/NK-lineage cells). A whole-sample average therefore moves with epithelial fraction. That all-cell contrast is reported below and is not an independent test of tumor content. The expression values in the main tests are means inside epithelial cells, or inside A3-malignant cells.",
         "",
-        "## Primary result (post-treatment, malignant-cell mean, median split)",
+        "## Post-treatment samples that still contain the MPR cases (epithelial mean, n=12)",
         "",
-        f"Cuts: TACSTD2 median = {fmt_num(summary['tac_median'])}, CLDN4 median = {fmt_num(summary['cldn_median'])} (mean log1p CP10k).",
+        f"Median cuts on the epithelial mean log1p(CP10k): TACSTD2 = {fmt_num(summary['epi_tac_median'])}, CLDN4 = {fmt_num(summary['epi_cldn_median'])}. High = at or above that median. Dual-high = both.",
         "",
-        f"- **TACSTD2 high vs low.** {prose_composition(tests, 'TACSTD2', cohort, expr)}.",
-        f"- **CLDN4 high vs low.** {prose_composition(tests, 'CLDN4', cohort, expr)}.",
-        f"- **Dual-high vs not.** Dual-high means both genes are at or above their own medians (n={summary['n_dual']}). {prose_composition(tests, 'dual-high', cohort, expr)}.",
+        f"- **TACSTD2 high vs low.** {prose_composition(tests, 'TACSTD2', epi_cohort, epi_expr)}.",
+        f"- **CLDN4 high vs low.** {prose_composition(tests, 'CLDN4', epi_cohort, epi_expr)}.",
+        f"- **Dual-high vs not** (n dual-high = {summary['n_dual_epi']}). {prose_composition(tests, 'dual-high', epi_cohort, epi_expr)}.",
         "",
-        "Continuous Spearman of the malignant-cell mean versus the same fractions (same patients):",
+        "Continuous Spearman, same 12 samples:",
         "",
-        f"- TACSTD2: {prose_spearman(cont, 'TACSTD2', cohort, expr)}.",
-        f"- CLDN4: {prose_spearman(cont, 'CLDN4', cohort, expr)}.",
+        f"- TACSTD2: {prose_spearman(cont, 'TACSTD2', epi_cohort, epi_expr)}.",
+        f"- CLDN4: {prose_spearman(cont, 'CLDN4', epi_cohort, epi_expr)}.",
         "",
-        "### MPR / NMPR",
+        "Expression itself, NMPR versus MPR (pCR counted as MPR). A positive NMPR−MPR difference is higher expression in NMPR, which is the direction stated for TROP2 on the slide.",
         "",
-        "Expression in A3-malignant cells, post-treatment. The slide states that MPR tumors have lower TROP2, which would appear here as a positive NMPR−MPR difference.",
+        f"- TACSTD2: {prose_mpr_expr(tests, 'TACSTD2', epi_cohort, epi_expr)}.",
+        f"- CLDN4: {prose_mpr_expr(tests, 'CLDN4', epi_cohort, epi_expr)}.",
         "",
-        f"- TACSTD2: {prose_mpr_expr(tests, 'TACSTD2', cohort, expr)}.",
-        f"- CLDN4: {prose_mpr_expr(tests, 'CLDN4', cohort, expr)}.",
+        "The TACSTD2 MPR values sit inside the NMPR range (see `figures/fig_epithelial_mpr.png`). The median split puts all 4 MPR samples on the TACSTD2-low side; the continuous test still overlaps. CLDN4 MPR values cover the same span as NMPR.",
         "",
-        "The high-vs-low MPR counts are in the composition bullets above (Fisher exact). Residual-tumor fraction is the continuous form of the same clinical endpoint and is the last Spearman item.",
-        "",
-        "### Group membership",
+        "Group membership:",
         "",
     ]
-    for _, row in balance.iterrows():
-        lines.append(
-            f"- {row['gene']} {row['group']}: n={int(row['n'])}, MPR={int(row['n_MPR'])}, NMPR={int(row['n_NMPR'])}, "
-            f"Adeno={int(row['n_Adeno'])}, Squamous={int(row['n_Squamous'])} ({row['patients']})"
-        )
+    lines += _membership_lines(balance_epi)
+    allcell_bits = []
+    for gene in ("TACSTD2", "CLDN4"):
+        hit = cont[
+            (cont["gene"] == gene)
+            & (cont["cohort"] == "post_all12_allcell_mean")
+            & (cont["endpoint"] == "epithelial fraction")
+            & (cont["test"] == "spearman")
+        ]
+        if not hit.empty:
+            row = hit.iloc[0]
+            allcell_bits.append(f"{gene} ρ={fmt_num(row['rho'], 2)} (P={fmt_p(row['p'])})")
     lines += [
         "",
-        "Patient-level numbers are in `tables/per_sample_primary.tsv`.",
+        "Whole-sample mean versus epithelial fraction, same 12 samples: " + "; ".join(allcell_bits) + ". "
+        "That correlation is the epithelial restriction above. It is not an independent test of tumor content, and it is not used as the tumor-fraction result.",
         "",
-        "## How to read the two genes",
+        "## A3-malignant subset (not an MPR test)",
+        "",
+        f"Samples with ≥10 A3-malignant cells: n={summary['n_primary']}. Cuts: TACSTD2 = {fmt_num(summary['tac_median'])}, CLDN4 = {fmt_num(summary['cldn_median'])}. One MPR sample remains (P03).",
+        "",
+        f"- **TACSTD2.** {prose_composition(tests, 'TACSTD2', a3_cohort, a3_expr)}.",
+        f"- **CLDN4.** {prose_composition(tests, 'CLDN4', a3_cohort, a3_expr)}.",
+        f"- **Dual-high** (n={summary['n_dual']}). {prose_composition(tests, 'dual-high', a3_cohort, a3_expr)}.",
+        "",
+        f"- TACSTD2 expression: {prose_mpr_expr(tests, 'TACSTD2', a3_cohort, a3_expr)}.",
+        f"- CLDN4 expression: {prose_mpr_expr(tests, 'CLDN4', a3_cohort, a3_expr)}.",
+        "",
+        "Spearman on this subset:",
+        "",
+        f"- TACSTD2: {prose_spearman(cont, 'TACSTD2', a3_cohort, a3_expr)}.",
+        f"- CLDN4: {prose_spearman(cont, 'CLDN4', a3_cohort, a3_expr)}.",
+        "",
+        "Membership:",
+        "",
+    ]
+    lines += _membership_lines(balance_a3)
+    lines += [
+        "",
+        "## How the two genes compare",
         "",
         summary["reading"],
         "",
-        "## Sensitivity (same tests, other definitions)",
+        "## Other cuts",
         "",
-        "These were specified with the primary test. They are not a search for a CLDN4 match to the slide.",
+        "Same tests under other pre-specified definitions. Not used to pick a CLDN4 result.",
         "",
     ]
-    sens = tests[tests["cohort"] != cohort]
-    # compact: only composition tumor and cd8 and MPR expression
+    shown_cohorts = {"post_epithelial_n12", "post_ge10_A3"}
+    sens = tests[~tests["cohort"].isin(shown_cohorts)]
     keep_tests = {"high_vs_low_composition", "high_vs_low_MPR", "NMPR_vs_MPR_expression"}
     shown = sens[sens["test"].isin(keep_tests)]
     for _, row in shown.iterrows():
@@ -792,70 +887,38 @@ def write_finding(
             )
     lines += [
         "",
-        "Full rows: `tables/tests.tsv` and `tables/spearman.tsv`.",
+        "All-cell means versus epithelial fraction are in `tables/spearman.tsv` under cohort `post_all12_allcell_mean`. Full test rows: `tables/tests.tsv`.",
         "",
         "## Caveats",
         "",
-        "- Barcode labels are reconstructed. The authors' CopyKAT malignant calls were not deposited, so this is not a cell-for-cell replay of the slide.",
-        "- n=12 post-treatment samples. A median split is one cut. The Spearman column is the continuous version of the same contrast and does not depend on that cut.",
-        "- CD8/NK here is marker-defined: CD3+ and CD8A UMI > 0, or CD3-negative with NCR1, KLRF1, or GNLY+NKG7. The all-T/NK column uses the lineage score instead, which is the endpoint the earlier CLDN4 box summarized.",
-        "- Pathology (adenocarcinoma vs squamous) is not balanced inside every split. Counts are listed above; there is no multivariable adjustment at this n.",
-        "- Dual-high is the intersection of the two median groups. It is not a reason to treat CLDN4 as if it had TACSTD2's result.",
+        "- Barcode labels are reconstructed. This is not a cell-for-cell replay of the slide, and the slide's stated P values are not copied forward as results.",
+        "- n=12 post-treatment samples. A median split is one cut; the Spearman column does not depend on that cut. With 4 MPR samples, a Fisher P near 0.06 is a small-sample count.",
+        "- P07 (squamous, NMPR) is an epithelial-fraction outlier (about half the cells). Medians, not means, are the high-vs-low summaries.",
+        "- CD8/NK is marker-defined: CD3+ and CD8A UMI > 0, or CD3-negative with NCR1, KLRF1, or GNLY together with NKG7. The all-T/NK column is the lineage-score compartment used in the earlier CLDN4-only run.",
+        "- Adenocarcinoma versus squamous is unbalanced inside some splits. Counts are listed; there is no multivariable model at this n.",
+        "- Dual-high is the intersection of the two median groups. A dual-high count is not a CLDN4 result.",
         "",
     ]
-    path.write_text("\n".join(lines))
+    path.write_text("\n".join(lines) + "\n")
 
 
 def reading_paragraph(tests: pd.DataFrame, cont: pd.DataFrame) -> str:
     """Factual comparison. Does not require CLDN4 to follow TACSTD2."""
-    cohort = "post_ge10_A3"
-    expr = "A3_malignant_mean_log1p_cp10k"
+    cohort = "post_epithelial_n12"
+    expr = "epithelial_mean_log1p_cp10k"
 
     def delta(gene, endpoint):
         row = lookup(tests, gene=gene, cohort=cohort, expression=expr, test="high_vs_low_composition", endpoint=endpoint)
         if row is None or row["delta_median_high_minus_low"] is None:
             return None, None
-        return float(row["delta_median_high_minus_low"]), float(row["p"]) if row["p"] is not None else None
+        return float(row["delta_median_high_minus_low"]), float(row["p"]) if pd.notna(row["p"]) else None
 
     def expr_delta(gene):
         row = lookup(tests, gene=gene, cohort=cohort, expression=expr, test="NMPR_vs_MPR_expression")
         if row is None:
             return None, None
-        return float(row["delta_median_nmpr_minus_mpr"]), float(row["p"]) if row["p"] is not None else None
+        return float(row["delta_median_nmpr_minus_mpr"]), float(row["p"]) if pd.notna(row["p"]) else None
 
-    t_tumor, t_tumor_p = delta("TACSTD2", "A3-malignant fraction")
-    c_tumor, c_tumor_p = delta("CLDN4", "A3-malignant fraction")
-    t_cd8, t_cd8_p = delta("TACSTD2", "CD8 T + NK fraction")
-    c_cd8, c_cd8_p = delta("CLDN4", "CD8 T + NK fraction")
-    t_mpr, t_mpr_p = expr_delta("TACSTD2")
-    c_mpr, c_mpr_p = expr_delta("CLDN4")
-
-    def dir_word(value, up, down):
-        if value is None:
-            return "unavailable"
-        if abs(value) < 1e-12:
-            return "no median difference"
-        return up if value > 0 else down
-
-    sentences = [
-        (
-            f"On the post-treatment median split, TACSTD2-high samples "
-            f"{dir_word(t_tumor, 'have a higher', 'have a lower')} A3-malignant fraction "
-            f"(Δ={fmt_num(t_tumor)}, P={fmt_p(t_tumor_p)}) and "
-            f"{dir_word(t_cd8, 'a higher', 'a lower')} CD8 T/NK fraction "
-            f"(Δ={fmt_num(t_cd8)}, P={fmt_p(t_cd8_p)}). "
-            f"CLDN4-high samples {dir_word(c_tumor, 'have a higher', 'have a lower')} tumor fraction "
-            f"(Δ={fmt_num(c_tumor)}, P={fmt_p(c_tumor_p)}) and "
-            f"{dir_word(c_cd8, 'a higher', 'a lower')} CD8 T/NK fraction "
-            f"(Δ={fmt_num(c_cd8)}, P={fmt_p(c_cd8_p)})."
-        ),
-        (
-            f"Malignant-cell expression, NMPR minus MPR: TACSTD2 Δ={fmt_num(t_mpr)} (P={fmt_p(t_mpr_p)}); "
-            f"CLDN4 Δ={fmt_num(c_mpr)} (P={fmt_p(c_mpr_p)}). "
-            "A positive difference is higher expression in NMPR."
-        ),
-    ]
-    # Spearman signs, one clause, so a median-split wobble is not the whole story.
     def rho(gene, endpoint):
         hit = cont[
             (cont["gene"] == gene)
@@ -868,15 +931,30 @@ def reading_paragraph(tests: pd.DataFrame, cont: pd.DataFrame) -> str:
             return None, None
         return hit.iloc[0]["rho"], hit.iloc[0]["p"]
 
+    t_tumor, t_tumor_p = delta("TACSTD2", "epithelial fraction")
+    c_tumor, c_tumor_p = delta("CLDN4", "epithelial fraction")
+    t_cd8, t_cd8_p = delta("TACSTD2", "CD8 T + NK fraction")
+    c_cd8, c_cd8_p = delta("CLDN4", "CD8 T + NK fraction")
+    t_mpr, t_mpr_p = expr_delta("TACSTD2")
+    c_mpr, c_mpr_p = expr_delta("CLDN4")
     tr, tp = rho("TACSTD2", "CD8 T + NK fraction")
     cr, cp = rho("CLDN4", "CD8 T + NK fraction")
-    sentences.append(
-        f"Continuous malignant TACSTD2 vs CD8/NK ρ={fmt_num(tr, 2)} (P={fmt_p(tp)}); "
-        f"malignant CLDN4 vs CD8/NK ρ={fmt_num(cr, 2)} (P={fmt_p(cp)}). "
-        "The earlier CLDN4-only box called the T/NK association flat; that description is kept if this ρ stays near zero, "
-        "and it is revised only if this table shows otherwise. TACSTD2 is not used to edit the CLDN4 number."
+    tt, ttp = rho("TACSTD2", "all T + NK fraction")
+    ct, ctp = rho("CLDN4", "all T + NK fraction")
+    return (
+        f"On all 12 post-treatment samples, a higher epithelial TACSTD2 does not bring a higher epithelial fraction "
+        f"(high−low Δ={fmt_num(t_tumor)}, P={fmt_p(t_tumor_p)}) or a lower CD8 T/NK fraction "
+        f"(Δ={fmt_num(t_cd8)}, P={fmt_p(t_cd8_p)}; Spearman ρ={fmt_num(tr, 2)}, P={fmt_p(tp)}). "
+        f"The same is true for CLDN4 (tumor-fraction Δ={fmt_num(c_tumor)}, P={fmt_p(c_tumor_p)}; "
+        f"CD8/NK Δ={fmt_num(c_cd8)}, P={fmt_p(c_cd8_p)}; Spearman ρ={fmt_num(cr, 2)}, P={fmt_p(cp)}). "
+        f"CLDN4 versus the lineage T/NK fraction is ρ={fmt_num(ct, 2)} (P={fmt_p(ctp)}); "
+        f"TACSTD2 versus that fraction is ρ={fmt_num(tt, 2)} (P={fmt_p(ttp)}). "
+        f"The MPR contrast is where the genes differ. Epithelial TACSTD2 is higher in NMPR than in MPR "
+        f"(Δ={fmt_num(t_mpr)}, P={fmt_p(t_mpr_p)}), and the TACSTD2-high half contains no MPR sample. "
+        f"Epithelial CLDN4 does not shift between NMPR and MPR (Δ={fmt_num(c_mpr)}, P={fmt_p(c_mpr_p)}), "
+        f"and the CLDN4 median split is 2 MPR versus 2 MPR. "
+        "Dual-high is reported as its own row; it is not used to rewrite the CLDN4 estimate."
     )
-    return " ".join(sentences)
 
 
 def sanity(cells: pd.DataFrame) -> dict:
@@ -900,8 +978,9 @@ def sanity(cells: pd.DataFrame) -> dict:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--matrix", type=Path, required=True)
-    ap.add_argument("--metadata", type=Path, required=True)
+    ap.add_argument("--matrix", type=Path)
+    ap.add_argument("--metadata", type=Path)
+    ap.add_argument("--per-sample", type=Path, help="Skip the matrix stream and reuse per_sample_all.tsv")
     ap.add_argument("--outdir", type=Path, required=True)
     args = ap.parse_args()
     args.outdir.mkdir(parents=True, exist_ok=True)
@@ -910,22 +989,54 @@ def main() -> None:
     figdir.mkdir(exist_ok=True)
     tabdir.mkdir(exist_ok=True)
 
-    meta = load_metadata(args.metadata)
-    meta.to_csv(tabdir / "sample_metadata.tsv", sep="\t", index=False)
-    wanted = marker_universe()
-    print(f"streaming matrix; extracting {len(wanted)} genes", flush=True)
-    cell_ids, expr, n_umi, n_genes, n_gene_rows = stream_matrix(args.matrix, wanted)
-    missing = sorted(wanted - set(expr))
-    print(f"cells={len(cell_ids)} missing_markers={missing}", flush=True)
+    prior_summary = {}
+    summary_path = args.outdir / "summary.json"
+    if summary_path.exists():
+        prior_summary = json.loads(summary_path.read_text())
 
-    cells = build_cells(cell_ids, expr, n_umi, n_genes, meta)
-    checks = sanity(cells)
-    print(json.dumps({k: checks[k] for k in ["n_epithelial", "n_malignant", "n_cd8nk", "n_tnk_lineage", "PTPRC_pct_malignant", "unmatched_samples"]}), flush=True)
-    if checks["unmatched_samples"]:
-        raise SystemExit(f"barcodes did not match metadata: {checks['unmatched_samples']}")
+    if args.per_sample:
+        per = pd.read_csv(args.per_sample, sep="\t")
 
-    per = per_sample_table(cells)
-    per.to_csv(tabdir / "per_sample_all.tsv", sep="\t", index=False)
+        def as_bool(series: pd.Series) -> pd.Series:
+            if series.dtype == bool:
+                return series
+            return series.astype(str).str.strip().str.lower().isin(["true", "1"])
+
+        per["is_post"] = as_bool(per["is_post"])
+        per["is_pre"] = as_bool(per["is_pre"])
+        restrict = pd.read_csv(tabdir / "expression_by_compartment.tsv", sep="\t")
+        checks = prior_summary.get("sanity", {})
+        missing = prior_summary.get("missing_markers", [])
+        n_gene_rows = int(prior_summary["n_genes_matrix"])
+        n_cells = int(prior_summary["n_cells"])
+        median_genes = float(prior_summary["median_genes_per_cell"])
+        matrix_bytes = int(prior_summary["matrix_bytes"])
+        matrix_sha = prior_summary["matrix_sha256"]
+        cells = None
+    else:
+        if args.matrix is None or args.metadata is None:
+            raise SystemExit("pass --matrix and --metadata, or --per-sample")
+        meta = load_metadata(args.metadata)
+        meta.to_csv(tabdir / "sample_metadata.tsv", sep="\t", index=False)
+        wanted = marker_universe()
+        print(f"streaming matrix; extracting {len(wanted)} genes", flush=True)
+        cell_ids, expr, n_umi, n_genes, n_gene_rows = stream_matrix(args.matrix, wanted)
+        missing = sorted(wanted - set(expr))
+        print(f"cells={len(cell_ids)} missing_markers={missing}", flush=True)
+        cells = build_cells(cell_ids, expr, n_umi, n_genes, meta)
+        checks = sanity(cells)
+        print(json.dumps({k: checks[k] for k in ["n_epithelial", "n_malignant", "n_cd8nk", "n_tnk_lineage", "PTPRC_pct_malignant", "unmatched_samples"]}), flush=True)
+        if checks["unmatched_samples"]:
+            raise SystemExit(f"barcodes did not match metadata: {checks['unmatched_samples']}")
+        per = per_sample_table(cells)
+        per.to_csv(tabdir / "per_sample_all.tsv", sep="\t", index=False)
+        restrict = restriction_table(cells)
+        restrict.to_csv(tabdir / "expression_by_compartment.tsv", sep="\t", index=False)
+        pd.crosstab(cells["Sample"], cells["lineage"]).to_csv(tabdir / "lineage_by_sample.tsv", sep="\t")
+        n_cells = int(len(cells))
+        median_genes = float(np.median(n_genes))
+        matrix_bytes = args.matrix.stat().st_size
+        matrix_sha = __import__("hashlib").sha256(args.matrix.read_bytes()).hexdigest()
 
     post = per[(per["is_post"]) & (per["n_malignant"] >= MIN_MALIGNANT)].copy()
     dropped_post = sorted(per.loc[per["is_post"] & (per["n_malignant"] < MIN_MALIGNANT), "Patient"].astype(str))
@@ -942,67 +1053,79 @@ def main() -> None:
         known, "response_known_ge10_A3", "A3_malignant_mean_log1p_cp10k",
         "tacstd2_mal_mean", "cldn4_mal_mean", "frac_tumor", "frac_cd8nk", "frac_tnk",
     )
-    _, t3, c3 = run_block(
-        epi_post, "post_ge10_epithelial", "epithelial_mean_log1p_cp10k",
+    epi, t3, c3 = run_block(
+        epi_post, "post_epithelial_n12", "epithelial_mean_log1p_cp10k",
         "tacstd2_epi_mean", "cldn4_epi_mean", "frac_epithelial", "frac_cd8nk", "frac_tnk",
+        tumor_label="epithelial fraction",
     )
-    # Epithelial-definition tumor fraction is stored under frac_tumor inside run_block via tumor_col.
-    # Relabel those endpoint names so the finding does not call an epithelial fraction "A3-malignant".
-    for rec in t3:
-        if rec.get("endpoint") == "A3-malignant fraction":
-            rec["endpoint"] = "epithelial fraction"
     _, t4, c4 = run_block(
         strict_post, "post_ge10_A3_PTPRCneg", "A3_PTPRCneg_mean_log1p_cp10k",
         "tacstd2_strict_mean", "cldn4_strict_mean", "frac_tumor_strict", "frac_cd8nk", "frac_tnk",
+        tumor_label="PTPRC-negative malignant fraction",
     )
-    for rec in t4:
-        if rec.get("endpoint") == "A3-malignant fraction":
-            rec["endpoint"] = "PTPRC-negative malignant fraction"
-    # All-cell mean vs composition. The tumor-fraction contrast is not independent
-    # of epithelial content, because both genes are epithelial-restricted.
+    # All-cell mean on every post-treatment sample. Tumor-fraction contrasts from
+    # this average are not independent of epithelial content.
+    post_all = per[per["is_post"]].copy()
     _, t5, c5 = run_block(
-        post, "post_allcell_mean", "all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction",
+        post_all, "post_all12_allcell_mean", "all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction",
         "tacstd2_all_mean", "cldn4_all_mean", "frac_tumor", "frac_cd8nk", "frac_tnk",
     )
+    for gene, col in [("TACSTD2", "tacstd2_all_mean"), ("CLDN4", "cldn4_all_mean")]:
+        rec = spearman(post_all[col], post_all["frac_epithelial"])
+        c5.append(
+            {
+                "gene": gene,
+                "cohort": "post_all12_allcell_mean",
+                "expression": "all_cell_mean_log1p_cp10k_NOT_independent_of_tumor_fraction",
+                "test": "spearman",
+                "endpoint": "epithelial fraction",
+                "endpoint_col": "frac_epithelial",
+                "n": rec["n"],
+                "rho": rec["rho"],
+                "p": rec["p"],
+            }
+        )
 
     tests = pd.DataFrame(t1 + t2 + t3 + t4 + t5)
     cont = pd.DataFrame(c1 + c2 + c3 + c4 + c5)
     tests.to_csv(tabdir / "tests.tsv", sep="\t", index=False)
     cont.to_csv(tabdir / "spearman.tsv", sep="\t", index=False)
-    primary.to_csv(tabdir / "per_sample_primary.tsv", sep="\t", index=False)
-    balance = balance_table(primary)
-    balance.to_csv(tabdir / "group_balance.tsv", sep="\t", index=False)
-    restrict = restriction_table(cells)
-    restrict.to_csv(tabdir / "expression_by_compartment.tsv", sep="\t", index=False)
+    epi.to_csv(tabdir / "per_sample_epithelial.tsv", sep="\t", index=False)
+    primary.to_csv(tabdir / "per_sample_a3.tsv", sep="\t", index=False)
+    balance_epi = balance_table(epi)
+    balance_a3 = balance_table(primary)
+    balance_epi.insert(0, "cohort", "post_epithelial_n12")
+    balance_a3.insert(0, "cohort", "post_ge10_A3")
+    pd.concat([balance_epi, balance_a3], ignore_index=True).to_csv(tabdir / "group_balance.tsv", sep="\t", index=False)
 
-    # Compact per-cell audit is large; keep lineage counts only plus a sample composition.
-    comp = pd.crosstab(cells["Sample"], cells["lineage"])
-    comp.to_csv(tabdir / "lineage_by_sample.tsv", sep="\t")
-
-    make_figures(primary, figdir)
+    make_figures(epi, primary, figdir)
 
     summary = {
         "dataset": "GSE207422",
         "citation": "Hu et al. Genome Medicine 2023 PMID 36869384",
-        "matrix_bytes": args.matrix.stat().st_size,
-        "matrix_sha256": __import__("hashlib").sha256(args.matrix.read_bytes()).hexdigest(),
-        "n_cells": int(len(cells)),
+        "matrix_bytes": matrix_bytes,
+        "matrix_sha256": matrix_sha,
+        "n_cells": n_cells,
         "n_genes_matrix": int(n_gene_rows),
-        "median_genes_per_cell": float(np.median(n_genes)),
+        "median_genes_per_cell": median_genes,
         "missing_markers": missing,
         "n_primary": int(len(primary)),
+        "n_epithelial_post": int(len(epi)),
         "dropped_post": dropped_post,
         "n_dual": int(primary["dual_high"].sum()),
+        "n_dual_epi": int(epi["dual_high"].sum()),
         "tac_median": float(primary["tacstd2_median_cut"].iloc[0]),
         "cldn_median": float(primary["cldn4_median_cut"].iloc[0]),
+        "epi_tac_median": float(epi["tacstd2_median_cut"].iloc[0]),
+        "epi_cldn_median": float(epi["cldn4_median_cut"].iloc[0]),
         "sanity": checks,
         "primary_patients": primary["Patient"].tolist(),
+        "epithelial_patients": epi["Patient"].tolist(),
     }
     summary["reading"] = reading_paragraph(tests, cont)
-    # sha256 of a 175 MB file is already computed; don't keep the bytes in the json twice.
     with (args.outdir / "summary.json").open("w") as handle:
         json.dump(summary, handle, indent=2)
-    write_finding(args.outdir / "FINDING.md", summary, tests, cont, primary, balance, restrict)
+    write_finding(args.outdir / "FINDING.md", summary, tests, cont, balance_epi, balance_a3, restrict)
     print(summary["reading"])
     print("wrote", args.outdir)
 
