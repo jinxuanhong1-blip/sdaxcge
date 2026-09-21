@@ -1,0 +1,8 @@
+cohort	n_joined	TACSTD2_min	TACSTD2_max	CLDN4_min	CLDN4_max	note	endpoint
+IMvigor210	348	4.960838399553932	14.514458648452614	2.2951877917238552	11.495447346268062	mUC, atezolizumab, single arm. binaryResponse, not durable clinical benefit. Not NSCLC and not a treatment-by-biomarker interaction.	CR/PR vs SD/PD
+GSE218989	355	0.0	12.502548240018514	0.0	8.742841162525337	Lung, PD-1/PD-L1 inhibitor, n deposited as responder/non-responder. Pre versus post is not in the sample fields.	GEO responder vs non-responder
+GSE190265	43	0.0	9.136055491371243	2.1591802918856193	7.4969378853550905	Dijon anti-PD-1 monotherapy, tumor at diagnosis. Benefit is time >= 6. Early censoring (time < 6, event 0) is excluded. Not RECIST ORR.	PFS >= 6 (deposited units)
+GSE135222	27	0.6040713236688608	8.942309229246362	0.16349873228287956	9.047369340298761	NSCLC anti-PD-1/PD-L1. GEO pfs=1 is the progression event because those times are shorter. Benefit is PFS time >= 180 days. Not author-assigned DCB and not RECIST ORR.	PFS >= 180 days
+GSE207422	24	0.315086218173547	8.86565689413185	0.158989711938759	7.79659487301582	Pretreatment bulk only. Neoadjuvant anti-PD-1 plus chemotherapy, not ICI monotherapy. MPR includes pCR.	pathologic MPR vs NMPR
+GSE166449	22	0.0840642647884745	5.44757919654888	0.250961573533219	3.13422093976063	Pretreatment advanced lung. Response is the sample title. Expression is already on a log scale (CLDN4 max about 3) and was not logged again.	GEO title responder vs non-responder
+GSE126044	16	2.4671526047401064	7.73481306351147	0.12631917148644894	4.685879548620477	Pretreatment anti-PD-1 NSCLC. Counts converted to log2(CPM+1). FFPE samples were kept.	GEO responder vs non-responder
