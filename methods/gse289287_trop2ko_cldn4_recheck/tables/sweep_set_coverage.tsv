@@ -1,0 +1,20 @@
+set	axis	n_listed	n_in_table	n_missing	aliased
+Interferon Alpha Response	IFN	97	95	2	
+Interferon Gamma Response	IFN	200	186	14	
+Interferon Alpha/Beta Signaling R-HSA-909733	IFN	72	58	14	
+Interferon Gamma Signaling R-HSA-877300	IFN	89	78	11	
+Response To Type I Interferon (GO:0034340)	IFN	9	8	1	
+Type I Interferon-Mediated Signaling Pathway (GO:0060337)	IFN	37	22	15	
+Antigen processing and presentation	APM	78	56	22	
+Antigen Processing And Presentation Of Peptide Antigen Via MHC Class I (GO:0002474)	APM	18	17	1	
+STING Mediated Induction Of Host Immune Responses R-HSA-1834941	STING	16	15	1	CGAS->MB21D1;STING1->TMEM173
+Cytosolic Sensors Of Pathogen-Associated DNA R-HSA-1834949	STING	63	61	2	CGAS->MB21D1;STING1->TMEM173
+Regulation Of Innate Immune Responses To Cytosolic DNA R-HSA-3134975	STING	15	14	1	STING1->TMEM173
+IRF3-mediated Induction Of Type I IFN R-HSA-3270619	STING	13	12	1	STING1->TMEM173
+Cytosolic DNA-sensing pathway	STING	63	44	19	CGAS->MB21D1;STING1->TMEM173
+Non-homologous end-joining	NHEJ	13	12	1	
+Double-Strand Break Repair Via Nonhomologous End Joining (GO:0006303)	NHEJ	41	39	2	
+Double-Strand Break Repair Via Classical Nonhomologous End Joining (GO:0097680)	NHEJ	5	5	0	
+Nonhomologous End-Joining (NHEJ) R-HSA-5693571	NHEJ	51	35	16	H2AX->H2AFX
+HDR Thru MMEJ (alt-NHEJ) R-HSA-5685939	NHEJ	12	12	0	
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	APM	21	21	0	

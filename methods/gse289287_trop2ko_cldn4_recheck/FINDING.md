@@ -1,26 +1,67 @@
-# FINDING — GSE289287 Trop-2 KO T-47D: CLDN4 padj recheck, IFN and APM
+# FINDING — GSE289287 Trop-2 KO T-47D: IFN holds; STING and NHEJ do not
 
-Additive public check on the deposited author DESeq2 table. Human gene symbol is **CLDN4** (the earlier “Cldn4” note is this gene). Not lung. Not SKB264. Does not replace the prerank GSEA in `methods/gse289287_trop2ko_gsea`.
+Additive public check on the deposited author DESeq2 table for T-47D Trop-2 KO xenografts (4 vs 3, NRG). Not lung. Not SKB264. Human symbol **CLDN4**. The single-gene CLDN4 padj is recorded below and is not the collateral result.
 
-Reproduce: `python3 methods/gse289287_trop2ko_cldn4_recheck/analyze.py`
+Reproduce:
+
+```bash
+python3 methods/gse289287_trop2ko_cldn4_recheck/analyze.py
+python3 methods/gse289287_trop2ko_cldn4_recheck/sweep.py
+```
+
+Panel: `figures/fig_sweep_collateral.png`.
 
 ---
 
 ## TL;DR
 
-Trop-2 KO RNA-seq in this series exists **only as xenografts** (4 KO vs 3 WT, NRG mammary fat pad). There is no Trop-2 KO cell-line library and no `Trop2KO_cells` DESeq2 file on the GEO FTP.
+The collateral that survives the sweep is **type I / type II IFN on the author ranking**. It does not depend on one ISG. It does not separate the seven samples. STING is not opened. Core NHEJ is not opened. CLDN4 stays non-significant on the author genome-wide test.
 
-**CLDN4 padj is non-significant.** That is not an FDR-only result: the author nominal p is already 0.129.
+Primary test, locked before looking: prerank GSEA on the author Wald statistic, same engine as the earlier xenograft GSEA (weighted KS, 1,000 gene-set permutations, seed 42). Positive NES = up in Trop-2 KO. Family = 19 public IFN, APM, STING/cytosolic-DNA, and NHEJ sets (`gene_sets_sweep.json`). BH is inside that family.
 
-| Test on CLDN4 | Result |
-|---|---|
-| Author DESeq2 | log2FC **+0.284**, p **0.129**, padj **0.466** |
-| Welch t on log2(norm+1), then BH across 16,258 protein-coding symbols | unadjusted p 0.041, padj **0.407** |
-| Exact label permutation, all 35 assignments of 3 vs 4 | p **0.086** (3/35) |
+| Set | NES | nominal p | family FDR |
+|---|---:|---:|---:|
+| Hallmark IFN-α | **+2.211** | <0.001 | **0.0063** |
+| Reactome IFN-α/β | **+1.990** | <0.001 | **0.0063** |
+| Hallmark IFN-γ | **+1.844** | <0.001 | **0.0063** |
 
-KO control: TACSTD2 log2FC **−3.263**, padj **1.95×10⁻⁶¹**.
+Nominal p is the floor of 1,000 permutations, (0+1)/1001. No APM, STING, or NHEJ set passes this FDR. TACSTD2 log2FC **−3.263**, padj **1.95×10⁻⁶¹**.
 
-IFN collateral is a short author-significant ISG list, not a sample-separating score. APM has **no** gene at padj < 0.05.
+---
+
+## Sweep (methods, ranks, thresholds, leave-one-out)
+
+Ranks: author Wald, author log2FC, and a Welch t on log2(x+1) after three normalizations (author size-factor counts, CPM, DESeq2 median-of-ratios recomputed from the raw counts in the same file). Sample scores use the mean of log2(x+1) and all 35 label permutations. Thresholds are author padj 0.05 / 0.10 / 0.20 and nominal p 0.05 / 0.10. Symbol aliases, applied only when the current symbol is absent and the previous symbol is present: STING1→TMEM173, CGAS→MB21D1, H2AX→H2AFX. TREX1 is absent from the table.
+
+**IFN, author ranks.** Wald and log2FC agree. The same three sets are the only FDR < 0.05 hits on both ranks (log2FC NES +2.061, +2.014, +1.619). Across the 95 rank×set tests, those three Wald rows have sweep FDR **0.016**.
+
+**IFN, Welch ranks.** The sign stays positive (Hallmark IFN-α NES about **+1.61** on all three normalizations) but the within-rank FDR rises to **0.11**. Re-ranking by a per-gene Welch t does not carry the set at FDR < 0.05.
+
+**Leave-one-out ISG.** Dropping each of the 95 Hallmark IFN-α genes in the Wald rank leaves NES between **2.176 and 2.270**. All 95 drops stay at the permutation floor. Dropping each of 186 Hallmark IFN-γ genes leaves NES between **1.836 and 1.902**. The enrichment is not IFI44L, ISG15, or any other single gene. The sample-mean score is a different question: Hallmark IFN-α KO−WT is +0.29 on author-norm counts, exact two-sided p **0.40** (one-sided 0.17). CPM moves it to +0.38, two-sided p **0.26**. n = 4 vs 3 does not separate.
+
+**Thresholds.** At author padj < 0.05 the IFN calls are still the five genes from the first pass (IFI44L, ISG15, IFI44, IFITM3, STAT2). Relaxing to padj < 0.10 adds IFIT3, OAS1, UBE2L6, MOV10 on the Hallmark IFN-α list (9 up, 1 down). That is a threshold choice, not a new test.
+
+**STING.** Not up. Reactome STING NES **−1.113**, nominal p 0.144, family FDR 0.195. The IRF3 / type I IFN Reactome set is the strongest STING-family row and it is negative on every rank (Wald NES **−1.454**, p 0.029, family FDR **0.092**). STING1 (TMEM173) log2FC **+0.076**, p 0.816, baseMean 5.2, no padj. cGAS (MB21D1) baseMean **0.18**. The only author-significant gene in the Reactome STING set is **PRKDC**, which is down (log2FC **−0.490**, p 0.0015, padj **0.039**) and is also an NHEJ gene. Leave-one-out of the STING set never produces a positive NES.
+
+**NHEJ.** Not a core-machinery result. KEGG NHEJ Wald NES **+1.295**, p 0.076, family FDR 0.154. The genes that clear padj < 0.05 point in opposite directions: POLM **+1.102**, padj **0.018**; PRKDC **−0.490**, padj **0.039**. XRCC4/5/6 and LIG4 do not. The classical GO set (5 genes) has Wald NES **−0.61**, p 0.47. The CPM mean score for KEGG NHEJ hits the permutation floor (two-sided p **0.029**, 1/35). BH across the 57 set×normalization sample tests gives FDR **0.27**. A floor p-value in one normalization is not a called NHEJ program.
+
+**APM.** Custom 21-gene MHC-I set: Wald NES **+1.107**, p 0.156, family FDR 0.195. Zero genes at padj < 0.05. KEGG antigen processing (MHC I and II mixed) leans the other way (NES **−1.198**, p 0.078). HLA-F is the closest single gene (log2FC +0.893, padj 0.074).
+
+Tables: `sweep_gsea.tsv`, `sweep_sample_scores.tsv`, `sweep_thresholds.tsv`, `sweep_loo.tsv`, `sweep_focus_genes.tsv`, `sweep_cldn4_norms.tsv`, `sweep_set_coverage.tsv`.
+
+---
+
+## CLDN4, recorded
+
+Author DESeq2 is unchanged by the sweep: log2FC **+0.284**, p **0.129**, padj **0.466**. The groups overlap.
+
+| Normalization | Welch p on log2(x+1) | Exact two-sided p |
+|---|---:|---:|
+| Author normalized counts | 0.041 | 0.086 |
+| CPM | 0.0087 | 0.057 |
+| Median-of-ratios | 0.038 | 0.057 |
+
+CPM is the strongest unadjusted row. The exact two-sided permutation does not go below 0.057, and there is no new genome-wide padj. CLDN4 is not called.
 
 ---
 
@@ -111,22 +152,20 @@ Competitive rank p = 0.031. Sample-score permutation p = 0.46. Direction of the 
 
 ---
 
-## Figure
+## Figures
 
-`figures/fig_cldn4_ifn_apm.png`
+`figures/fig_sweep_collateral.png` is the sweep panel: Wald NES, the five-rank heatmap, IFN-α leave-one-out, and the sensor genes next to the genes that actually move.
 
-- A: TACSTD2 and CLDN4 per xenograft, log2(normalized count + 1)
-- B: count of author padj < 0.05 genes in IFN-γ, IFN-α, and APM
-- C: author log2FC ± 1.96×lfcSE. Red marks padj < 0.05
+`figures/fig_cldn4_ifn_apm.png` is the first-pass gene plot (TACSTD2, CLDN4, author IFN/APM calls).
 
-Tables: `tables/cldn4_recheck.tsv`, `key_genes.tsv`, `ifn_genes.tsv`, `apm_genes.tsv`, `geneset_summary.tsv`, `sample_inventory.tsv`.
+Tables from the first pass: `cldn4_recheck.tsv`, `key_genes.tsv`, `ifn_genes.tsv`, `apm_genes.tsv`, `geneset_summary.tsv`, `sample_inventory.tsv`.
 
 ---
 
 ## 中文
 
-GSE289287 里 Trop-2 KO 的 RNA-seq **只有移植瘤**（4 vs 3，NRG）。GEO 没有 Trop-2 KO 细胞系文库，也没有对应的 DESeq2 表。体外文库是 WT 和 DSG2 KO。
+扫过的是锁定的 19 个 IFN / APM / STING / NHEJ 基因集，不是全库。主检验是作者 Wald 秩的 prerank GSEA（1000 次置换，seed 42）。过家族 FDR 的只有三个 IFN 集：Hallmark IFN-α NES +2.211，Reactome IFN-α/β +1.990，Hallmark IFN-γ +1.844，FDR 都是 0.0063。丢掉任意一个 IFN-α 基因，NES 仍在 2.176–2.270。样本均值分不开（IFN-α 精确双侧 p = 0.40）。
 
-CLDN4（人源，不是小鼠 Cldn4）作者 DESeq2：log2FC +0.284，p = 0.129，padj = 0.466。名义 p 已经不显著，不是“只被 FDR 压掉”。Welch 的未校正 p = 0.041，但在 16,258 个蛋白编码基因上 BH 后 padj = 0.407；7 个样本标签的精确置换 p = 0.086。**padj 仍然不显著。** TACSTD2 log2FC −3.263，padj 1.95×10⁻⁶¹，敲除成立。
+STING 不是打开的：STING1 log2FC +0.076（p = 0.82），cGAS 几乎不表达。Reactome STING NES −1.113（p = 0.14）。集合里唯一 padj < 0.05 的是 PRKDC 下调（−0.490，padj 0.039）。NHEJ 核心（XRCC4/5/6、LIG4）不动；POLM 上调（padj 0.018）和 PRKDC 下调方向相反。KEGG NHEJ 的 NES +1.295，家族 FDR 0.15。CPM 样本分的置换 p 落到 1/35，但 57 次样本检验的 FDR 是 0.27。APM 自定义集 NES +1.107，p = 0.16，没有基因过 padj < 0.05。
 
-IFN：作者表里显著上调的只有 IFI44L、ISG15、IFI44、IFITM3、STAT2（padj 1.1×10⁻⁴ 到 0.031）。基因排序检验偏 KO 上调，但样本均值的精确置换不分开（IFN-γ p = 0.66，IFN-α p = 0.40）。APM 21 个基因没有一个 padj < 0.05（B2M p = 0.049，padj = 0.30）。
+CLDN4 作者 padj 仍是 0.466（p = 0.129）。CPM 上 Welch p = 0.0087，精确双侧 p = 0.057，不构成基因组范围的显著调用。
