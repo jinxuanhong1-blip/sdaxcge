@@ -1,0 +1,483 @@
+{
+  "soft_power": {
+    "n_kl_libraries": 5,
+    "n_kp_libraries": 5,
+    "n_assignments": 252,
+    "two_sided_floor_p": 0.007936507936507936,
+    "one_sided_floor_p": 0.003968253968253968,
+    "attainable_p_still_below_0.05": 0.031746031746031744,
+    "min_cliffs_delta_to_reject_0.05": 0.84,
+    "u_equals_22_p": 0.05555555555555555,
+    "n_genes_max_fpkm_ge1": 16218,
+    "n_genes_at_mw_floor": 4544,
+    "n_genes_complete_separation": 4544,
+    "bh_k_needed_for_floor_to_pass_fdr_0.05": 2575,
+    "n_genes_bh_fdr_0.05": 5778,
+    "floor_passes_bh": true,
+    "corr_threshold": 0.98,
+    "kp_clusters": [
+      "B6AL10-1+B6AL10-2+B6AL10-4+B6AL10-5",
+      "B6AL10-3"
+    ],
+    "kl_clusters": [
+      "KL155",
+      "KL47",
+      "KLC+KLE",
+      "KLD"
+    ],
+    "n_kp_clusters": 2,
+    "n_kl_clusters": 4,
+    "cluster_two_sided_floor_p": 0.13333333333333333,
+    "n_welch_nonfinite_dropped": 0,
+    "ifn_cold_complete_separation": false
+  },
+  "locked": [
+    {
+      "gene": "Tacstd2",
+      "delta_log2": 3.2382274886828935,
+      "mw_p": 0.007936507936507936,
+      "cliffs_delta": 1.0,
+      "complete_separation": true,
+      "hits_floor": true
+    },
+    {
+      "gene": "Cldn4",
+      "delta_log2": 5.569627161932762,
+      "mw_p": 0.007936507936507936,
+      "cliffs_delta": 1.0,
+      "complete_separation": true,
+      "hits_floor": true
+    },
+    {
+      "gene": "Stk11",
+      "delta_log2": -2.5229243787086806,
+      "mw_p": 0.007936507936507936,
+      "cliffs_delta": -1.0,
+      "complete_separation": true,
+      "hits_floor": true
+    },
+    {
+      "gene": "Trp53",
+      "delta_log2": 2.432799008397029,
+      "mw_p": 0.007936507936507936,
+      "cliffs_delta": 1.0,
+      "complete_separation": true,
+      "hits_floor": true
+    }
+  ],
+  "cluster_genes": [
+    {
+      "gene": "Tacstd2",
+      "U": 8.0,
+      "p": 0.13333333333333333,
+      "n_kl_gt_kp": 8,
+      "n_kl_lt_kp": 0,
+      "n_tie_pairs": 0,
+      "cliffs_delta": 1.0,
+      "complete_separation": true,
+      "hits_floor": false,
+      "delta_mean": 4.208555008069605,
+      "mean_kl": 5.844420674321493,
+      "mean_kp": 1.6358656662518882
+    },
+    {
+      "gene": "Cldn4",
+      "U": 8.0,
+      "p": 0.13333333333333333,
+      "n_kl_gt_kp": 8,
+      "n_kl_lt_kp": 0,
+      "n_tie_pairs": 0,
+      "cliffs_delta": 1.0,
+      "complete_separation": true,
+      "hits_floor": false,
+      "delta_mean": 6.173310240554148,
+      "mean_kl": 8.811434836320952,
+      "mean_kp": 2.638124595766804
+    },
+    {
+      "gene": "Stk11",
+      "U": 0.0,
+      "p": 0.13333333333333333,
+      "n_kl_gt_kp": 0,
+      "n_kl_lt_kp": 8,
+      "n_tie_pairs": 0,
+      "cliffs_delta": -1.0,
+      "complete_separation": true,
+      "hits_floor": false,
+      "delta_mean": -2.3835818519071275,
+      "mean_kl": 2.1858419222345358,
+      "mean_kp": 4.569423774141663
+    },
+    {
+      "gene": "Trp53",
+      "U": 8.0,
+      "p": 0.13333333333333333,
+      "n_kl_gt_kp": 8,
+      "n_kl_lt_kp": 0,
+      "n_tie_pairs": 0,
+      "cliffs_delta": 1.0,
+      "complete_separation": true,
+      "hits_floor": false,
+      "delta_mean": 3.0040072492684384,
+      "mean_kl": 5.497718406013873,
+      "mean_kp": 2.4937111567454346
+    }
+  ],
+  "ifn_alpha": {
+    "set": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+    "ssgsea_delta_kl_minus_kp": -1958.0985370195267,
+    "ssgsea_p": 0.031746031746031744,
+    "ssgsea_complete_kl_lower": false,
+    "ssgsea_hits_floor": false,
+    "meanlog_delta": -0.6626992422184506,
+    "meanlog_p": 0.031746031746031744,
+    "meanlog_complete_kl_lower": false,
+    "kl_max_es": 18621.20117344254,
+    "kp_min_es": 16736.66122532539
+  },
+  "ifn_gamma": {
+    "set": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    "ssgsea_delta_kl_minus_kp": -3209.912455693837,
+    "ssgsea_p": 0.007936507936507936,
+    "ssgsea_complete_kl_lower": true,
+    "ssgsea_hits_floor": true,
+    "meanlog_delta": -0.6642967311072314,
+    "meanlog_p": 0.031746031746031744,
+    "meanlog_complete_kl_lower": false,
+    "kl_max_es": 15886.648032482091,
+    "kp_min_es": 16030.061387497979
+  },
+  "ifn_cold": false,
+  "mean_signatures": [
+    {
+      "set": "EPITHELIAL_TJ_CORE",
+      "n_genes_in_matrix": 18,
+      "library_delta": 1.6266264627956226,
+      "library_p": 0.007936507936507936,
+      "library_hits_floor": true,
+      "library_complete": true,
+      "cluster_delta": 1.9998694790858051,
+      "cluster_p": 0.13333333333333333,
+      "cluster_complete": true
+    },
+    {
+      "set": "GO_BICELLULAR_TIGHT_JUNCTION",
+      "n_genes_in_matrix": 76,
+      "library_delta": 0.43008918401640717,
+      "library_p": 0.007936507936507936,
+      "library_hits_floor": true,
+      "library_complete": true,
+      "cluster_delta": 0.5590678600028864,
+      "cluster_p": 0.13333333333333333,
+      "cluster_complete": true
+    },
+    {
+      "set": "KEGG_TIGHT_JUNCTION",
+      "n_genes_in_matrix": 167,
+      "library_delta": 0.21861135361531492,
+      "library_p": 0.007936507936507936,
+      "library_hits_floor": true,
+      "library_complete": true,
+      "cluster_delta": 0.2957060505466407,
+      "cluster_p": 0.13333333333333333,
+      "cluster_complete": true
+    },
+    {
+      "set": "GOCC_GAP_JUNCTION",
+      "n_genes_in_matrix": 32,
+      "library_delta": -0.27696956387294236,
+      "library_p": 0.15079365079365079,
+      "library_hits_floor": false,
+      "library_complete": false,
+      "cluster_delta": -0.1313671954066904,
+      "cluster_p": 1.0,
+      "cluster_complete": false
+    },
+    {
+      "set": "GOCC_ADHERENS_JUNCTION",
+      "n_genes_in_matrix": 150,
+      "library_delta": 0.12319880363317282,
+      "library_p": 0.007936507936507936,
+      "library_hits_floor": true,
+      "library_complete": true,
+      "cluster_delta": 0.1595469920803585,
+      "cluster_p": 0.13333333333333333,
+      "cluster_complete": true
+    },
+    {
+      "set": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "n_genes_in_matrix": 92,
+      "library_delta": -0.6626992422184506,
+      "library_p": 0.031746031746031744,
+      "library_hits_floor": false,
+      "library_complete": false,
+      "cluster_delta": -0.315989229320051,
+      "cluster_p": 0.5333333333333333,
+      "cluster_complete": false
+    },
+    {
+      "set": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "n_genes_in_matrix": 184,
+      "library_delta": -0.6642967311072314,
+      "library_p": 0.031746031746031744,
+      "library_hits_floor": false,
+      "library_complete": false,
+      "cluster_delta": -0.3935711992873059,
+      "cluster_p": 0.5333333333333333,
+      "cluster_complete": false
+    },
+    {
+      "set": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "n_genes_in_matrix": 192,
+      "library_delta": -0.8427120004689272,
+      "library_p": 0.007936507936507936,
+      "library_hits_floor": true,
+      "library_complete": true,
+      "cluster_delta": -0.5779917117931719,
+      "cluster_p": 0.13333333333333333,
+      "cluster_complete": true
+    },
+    {
+      "set": "HALLMARK_APICAL_JUNCTION",
+      "n_genes_in_matrix": 196,
+      "library_delta": -0.11568094031799436,
+      "library_p": 0.15079365079365079,
+      "library_hits_floor": false,
+      "library_complete": false,
+      "cluster_delta": 0.02093650928314217,
+      "cluster_p": 1.0,
+      "cluster_complete": false
+    },
+    {
+      "set": "COMPACT_ISG",
+      "n_genes_in_matrix": 15,
+      "library_delta": -0.8707747110531279,
+      "library_p": 0.031746031746031744,
+      "library_hits_floor": false,
+      "library_complete": false,
+      "cluster_delta": -0.43261171966346557,
+      "cluster_p": 0.5333333333333333,
+      "cluster_complete": false
+    }
+  ],
+  "gsea_headline": [
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "welch_t",
+      "Term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "NES": -1.9161678689723092,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.01190278469800144,
+      "ES": -0.4551218500857804,
+      "Tag %": "66/164"
+    },
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "welch_t",
+      "Term": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "NES": -1.647810116780904,
+      "NOM p-val": 0.0026109660574412533,
+      "FDR q-val": 0.028649725959143002,
+      "ES": -0.3948353075929658,
+      "Tag %": "56/159"
+    },
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "welch_t",
+      "Term": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "NES": -1.4074299036832298,
+      "NOM p-val": 0.055232558139534885,
+      "FDR q-val": 0.09378633117422355,
+      "ES": -0.37260180258157294,
+      "Tag %": "35/81"
+    },
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "welch_t",
+      "Term": "HALLMARK_APICAL_JUNCTION",
+      "NES": -1.1476310731295833,
+      "NOM p-val": 0.21045918367346939,
+      "FDR q-val": 0.3077863840195679,
+      "ES": -0.27385334819743895,
+      "Tag %": "43/161"
+    },
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "delta_log2",
+      "Term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "NES": -2.132776187167385,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0,
+      "ES": -0.5871840970148775,
+      "Tag %": "70/164"
+    },
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "delta_log2",
+      "Term": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "NES": -1.9136640811160823,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0006209522885487666,
+      "ES": -0.5322326639469871,
+      "Tag %": "71/159"
+    },
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "delta_log2",
+      "Term": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "NES": -1.8223424576523493,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0008870746979268094,
+      "ES": -0.555809887258965,
+      "Tag %": "32/81"
+    },
+    {
+      "collection": "hallmark_50",
+      "rank_metric": "delta_log2",
+      "Term": "HALLMARK_APICAL_JUNCTION",
+      "NES": -1.0928114369212614,
+      "NOM p-val": 0.29377880184331795,
+      "FDR q-val": 0.359893597238056,
+      "ES": -0.3042813109106617,
+      "Tag %": "47/161"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "welch_t",
+      "Term": "EPITHELIAL_TJ_CORE",
+      "NES": 2.137522521322339,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0,
+      "ES": 0.6990382290696356,
+      "Tag %": "11/18"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "welch_t",
+      "Term": "KEGG_TIGHT_JUNCTION",
+      "NES": 1.759779302913126,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.010775862068965516,
+      "ES": 0.36570195118029447,
+      "Tag %": "36/132"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "welch_t",
+      "Term": "GO_BICELLULAR_TIGHT_JUNCTION",
+      "NES": 1.7219824417404885,
+      "NOM p-val": 0.009900990099009901,
+      "FDR q-val": 0.014367816091954023,
+      "ES": 0.4145146324719694,
+      "Tag %": "24/63"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "welch_t",
+      "Term": "GOCC_GAP_JUNCTION",
+      "NES": 0.9209256315255355,
+      "NOM p-val": 0.5714285714285714,
+      "FDR q-val": 0.604064039408867,
+      "ES": 0.29600801381988556,
+      "Tag %": "4/18"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "delta_log2",
+      "Term": "EPITHELIAL_TJ_CORE",
+      "NES": 2.2075919453232036,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0,
+      "ES": 0.7819158103050164,
+      "Tag %": "14/18"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "delta_log2",
+      "Term": "GO_BICELLULAR_TIGHT_JUNCTION",
+      "NES": 1.8637144458672605,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.00156128024980484,
+      "ES": 0.4797621781903953,
+      "Tag %": "26/63"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "delta_log2",
+      "Term": "KEGG_TIGHT_JUNCTION",
+      "NES": 1.6046258831975968,
+      "NOM p-val": 0.00625,
+      "FDR q-val": 0.020817069997397866,
+      "ES": 0.3751982145208065,
+      "Tag %": "45/132"
+    },
+    {
+      "collection": "junction_focused",
+      "rank_metric": "delta_log2",
+      "Term": "GOCC_GAP_JUNCTION",
+      "NES": -1.1179120023832143,
+      "NOM p-val": 0.3296,
+      "FDR q-val": 0.2963162140360312,
+      "ES": -0.44398121859147677,
+      "Tag %": "4/18"
+    }
+  ],
+  "gsea_cluster": [
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "EPITHELIAL_TJ_CORE",
+      "NES": 2.3745118317617497,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0
+    },
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "GO_BICELLULAR_TIGHT_JUNCTION",
+      "NES": 2.1133657232335414,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0
+    },
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "NES": -2.002084956207826,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0
+    },
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "KEGG_TIGHT_JUNCTION",
+      "NES": 1.905808211745248,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.0006329915179136599
+    },
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "NES": -1.7028614169933505,
+      "NOM p-val": 0.0,
+      "FDR q-val": 0.002198837757185488
+    },
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "HALLMARK_APICAL_JUNCTION",
+      "NES": 1.4202433786639213,
+      "NOM p-val": 0.00819672131147541,
+      "FDR q-val": 0.037599696164071404
+    },
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "NES": -1.4095506432778047,
+      "NOM p-val": 0.02949438202247191,
+      "FDR q-val": 0.04523323386210146
+    },
+    {
+      "rank_metric": "cluster_delta",
+      "Term": "GOCC_GAP_JUNCTION",
+      "NES": -0.9420134191180771,
+      "NOM p-val": 0.5333333333333333,
+      "FDR q-val": 0.5757813727029999
+    }
+  ]
+}
