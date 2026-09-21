@@ -1,5 +1,7 @@
 # GSE22493 NHEJ / STING / IFN / APM
 
+**FINAL for this accession** (`accession_status` = `FINAL_DISCORDANT` in `key_stats.json`). The method sweep is in `method_sweep.tsv`. Do not add another analysis of GSE22493.
+
 SKOV-3-IP-Luc ovarian arrays (GSM558700–702). Deposited series-matrix VALUE, read as log2(CLDN4 siRNA / CLDN4-overexpression control).
 
 Primary panels are pre-specified. IFN and APM use the same gene lists as the earlier C4 slice of this accession. Set tests use genes measured on at least two arrays.

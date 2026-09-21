@@ -2,15 +2,17 @@
 
 # GSE22493 ovarian CLDN4: NHEJ / STING / IFN / APM
 
+**STATUS: FINAL for GSE22493.** One method sweep is in `method_sweep.tsv`. The primary deposited analysis and the three-array replicate test stay null. Alternate summaries that cross p < 0.05 disagree with that replicate test, and the STING set median flips sign between the deposited ratio and ScanArray. This accession stops here.
+
 Additive public slice of **GSE22493 only** (SKOV-3-IP-Luc; lentiviral CLDN4 siRNA vs CLDN4-overexpression control; three two-color Operon arrays). IFN and APM use the same gene lists as the earlier C4 slice of this accession. NHEJ and STING are new pre-specified panels. This file does not revise CosMx, concordant-4, GSE137244, TCGA, or TISMO.
 
-> **一句话**
+> **一句话 / FINAL**
 >
-> 这张 2010 年卵巢癌双色芯片上，NHEJ、STING、IFN、APM 四个预定面板都没有面板内 q < 0.05 的基因。NHEJ 集合中位 log2 −0.30（6/8 可测，Mann–Whitney p = 0.36）。STING 轴缺 STING1 和 TBK1，剩下 3 个基因的集合中位 +0.58（p = 0.36），而且 IKBKE 在原始强度上反号。IFN（58/73，中位 −0.23，p = 0.29）和 APM（12/16，中位 −0.45，p = 0.16）与先前 C4 切片同一套数字。CLDN4 敲低在阵列上不能确认，对照是过表达。
+> GSE22493 到此为止。主分析（作者沉积 log2，探针中位数再对阵列取均值）上 NHEJ / STING / IFN / APM 都没有 p < 0.05 的集合检验，也没有面板内 q < 0.05 的基因。以三张芯片为重复单位的 t 检验同样是空的（四个主面板 p = 0.28–0.75）。换汇总方式后出现的名义 p < 0.05 与这个重复单位检验不一致；STING 集合中位数在沉积值上是 +0.58，在 ScanArray 上是 −0.79。唯一 q < 0.05 的基因是 ScanArray 上的 HLA-B（q = 0.033），而沉积值在 GSM558701 上是 +2.33，与原始强度 −2.02 反号。
 >
-> **Bottom line**
+> **Bottom line / FINAL**
 >
-> On this 2010 ovarian two-color array, no gene in the pre-specified NHEJ, STING, IFN, or APM panels reaches within-panel q < 0.05. The NHEJ set median log2 is −0.30 (6/8 genes measured, Mann–Whitney p = 0.36). The STING axis is missing STING1 and TBK1; the remaining three genes have set median +0.58 (p = 0.36), and IKBKE reverses on raw intensities. IFN (58/73, median −0.23, p = 0.29) and APM (12/16, median −0.45, p = 0.16) reproduce the earlier C4 slice. CLDN4 knockdown is not confirmed on the array, and the control is overexpression.
+> GSE22493 stops here. On the primary analysis (deposited log2, probe median, then the mean across arrays) the NHEJ, STING, IFN, and APM set tests are all p ≥ 0.16, and no panel gene has q < 0.05. The three-array replicate test is also null (primary-panel p = 0.28–0.75). Nominal p < 0.05 values from other summaries disagree with that replicate test. The STING set median is +0.58 on the deposited ratios and −0.79 on ScanArray. The only gene with q < 0.05 is HLA-B on ScanArray (q = 0.033); its deposited value on GSM558701 is +2.33 against a ScanArray value of −2.02.
 
 ---
 
@@ -128,11 +130,56 @@ Limits that stay attached to every number:
 6. NHEJ1 and PAXX are absent. PRKDC probes disagree with each other.
 7. IFN and APM here reproduce the earlier C4 table. They do not add a second cohort.
 
+## Method sweep (then stop)
+
+`method_sweep.py` reruns the same gene lists under seven summaries. The gene lists do not change. `PRE_VALUE` in the SOFT sample tables is the linear ratio: |VALUE − log2(PRE_VALUE)| has maximum 5.0×10⁻⁵ on every array (`value_equals_log2_pre.tsv`), which is the rounding of VALUE. The log2 reading is the deposited scale.
+
+Primary deposited result, reproduced by the sweep:
+
+| Panel | Median of gene means | Mann–Whitney p | Min gene q |
+|---|---:|---:|---:|
+| NHEJ | −0.298 | 0.36 | 0.58 |
+| STING | +0.575 | 0.36 | 0.39 |
+| IFN | −0.232 | 0.29 | 0.90 |
+| APM | −0.454 | 0.16 | 0.79 |
+
+Treating each array as the replicate (mean of the panel on that array, one-sample t, n = 3), from `method_sweep_array_level.tsv`:
+
+| Panel | Array means (700 / 701 / 702) | p | p after subtracting the array-wide median |
+|---|---|---:|---:|
+| NHEJ | −1.14 / +0.18 / −0.55 | 0.32 | 0.31 |
+| STING | +0.37 / −0.05 / +0.98 | 0.28 | 0.31 |
+| IFN | −0.47 / +0.58 / −0.50 | 0.75 | 0.78 |
+| APM | −0.90 / +0.91 / −0.79 | 0.70 | 0.71 |
+
+GSM558701 is the array that sits on the other side of zero for NHEJ, IFN, and APM. Transcriptome-wide medians on the three arrays are −0.059, +0.070, and −0.118.
+
+Summaries that cross 0.05 somewhere, all from `method_sweep.tsv`:
+
+| Summary | What crosses 0.05 | What stays null next to it |
+|---|---|---|
+| Deposited, gene median instead of gene mean | APM set p = 0.028 (median −0.91, still down) | APM min gene q = 0.79. Array-level APM p = 0.70 |
+| ScanArray log2(Cy5/Cy3) | IFN set p = 0.036 (median −0.83). HLA-B q = 0.033 | IFN min gene q = 0.053. APM set p = 0.54. Array-level IFN p = 0.75 |
+| Vendor Ch2 Log Ratio, \|value\| > 15 dropped | NHEJ set p = 0.043. IFN set p = 0.0098. HLA-B q = 0.034 | No NHEJ or IFN gene has q < 0.05 (IFN min q = 0.085). APM set p = 0.39. Array-level tests unchanged |
+
+ScanArray and the capped vendor log ratio are almost the same column (median absolute difference about 0.003 on the bulk of spots). The vendor file keeps a few spots the background-subtracted log2 drops, which is why the IFN and NHEJ set p-values move. Seven methods times four primary panels is 28 set tests. The smallest of those p-values is 0.0098.
+
+HLA-B is the only gene with within-panel q < 0.05 in the whole sweep, and only on the raw channel ratios. Deposited HLA-B is −1.56 / +2.33 / −2.12. ScanArray HLA-B is −1.68 / −2.02 / −1.90. The q = 0.033 call uses the raw ratios and conflicts with the deposited ratio on GSM558701.
+
+STING set median by summary: deposited primary +0.58 (p = 0.36), ScanArray −0.79 (p = 0.76). Same genes, opposite sign. STING1 and TBK1 are absent in every method.
+
+Adding the two empty-ORF spots (probe 25010 onto XRCC5, probe 8697 onto DCLRE1C) moves the NHEJ median from −0.30 to −0.57 and the set p from 0.36 to 0.24. Still null.
+
+Secondary STING-regulator array means are −0.49 / −0.34 / −0.27, one-sample p = 0.029. After subtracting each array’s transcriptome-wide median the p is 0.065. The regulator set versus background remains flat (median −0.025, Mann–Whitney p = 0.50). That row is not a cGAS–STING result, and it is not a reason to keep scoring this accession.
+
+`key_stats.json` field `accession_status` is `FINAL_DISCORDANT`.
+
 ## Rerun
 
 ```bash
 python3 scripts/w200/GSE22493_nhej_sting_ifn_apm/download_data.py
 python3 scripts/w200/GSE22493_nhej_sting_ifn_apm/run_analysis.py
+python3 scripts/w200/GSE22493_nhej_sting_ifn_apm/method_sweep.py
 ```
 
 Cache directory: `W200_GSE22493_PANEL_DATA` (default `/tmp/gse22493`).

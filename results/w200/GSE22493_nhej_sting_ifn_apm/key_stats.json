@@ -383,5 +383,45 @@
         "PSMB8"
       ]
     }
+  },
+  "accession_status": "FINAL_DISCORDANT",
+  "method_sweep": {
+    "accession": "GSE22493",
+    "status": "FINAL_DISCORDANT",
+    "rule": "FINAL_NULL if every method and the three-array t stay at p>=0.05 and q>=0.05 for NHEJ, STING, IFN, and APM. FINAL_DISCORDANT if the primary deposited method and the three-array t are both null, while some other summary produces p<0.05 or q<0.05 or the ScanArray set median flips sign versus deposited. NOT_FINAL only if the primary deposited method or the three-array t itself is p<0.05 or q<0.05.",
+    "primary_panel_hits_p_or_q_lt_0.05": [
+      "deposited_probe_median_gene_median:APM",
+      "scanarray_log2:IFN",
+      "scanarray_log2:APM",
+      "vendor_ch2_logratio_abs_le_15:NHEJ",
+      "vendor_ch2_logratio_abs_le_15:IFN",
+      "vendor_ch2_logratio_abs_le_15:APM"
+    ],
+    "genes_with_q_lt_0.05": {
+      "scanarray_log2": {
+        "APM": [
+          "HLA-B"
+        ]
+      },
+      "vendor_ch2_logratio_abs_le_15": {
+        "APM": [
+          "HLA-B"
+        ]
+      }
+    },
+    "array_level_primary_p_lt_0.05": [],
+    "scanarray_set_median_sign_flips_vs_deposited": [
+      "STING"
+    ],
+    "value_is_log2_of_PRE_VALUE": true,
+    "methods": [
+      "deposited_probe_median_gene_mean",
+      "deposited_probe_mean_gene_mean",
+      "deposited_probe_median_gene_median",
+      "deposited_lowest_probe_id",
+      "scanarray_log2",
+      "vendor_ch2_logratio_abs_le_15",
+      "deposited_plus_freetext_ku_artemis"
+    ]
   }
 }
