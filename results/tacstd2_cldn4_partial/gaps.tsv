@@ -1,0 +1,15 @@
+item	why_it_is_not_in_the_call_table
+No double TACSTD2+CLDN4 knockout or knockdown transcriptome	GEO, SRA, and PubMed searches above did not return a factorial co-perturbation. Partial dependence of the pair therefore cannot be tested by a double-loss arm.
+Nakatsukasa et al. 2010 Am J Pathol, PMID 20651236, PMC2928967	TACSTD2 shRNA and separate CLDN1/4/7 shRNA in HCE-T cells. No GEO series. The paper's HeLa coexpression experiment says the CLDN4 protein level was almost unchanged and that CLDN4 did not share the TACSTD2 dependence of CLDN1 and CLDN7. No IFN transcriptome, so no immune/IFN call.
+Brierley and Fish, J Interferon Cytokine Res 2007, PMID 17651017	CLDN4 siRNA reduced type I IFN antiviral and antiproliferative responses. TACSTD2 was not measured. PMID search returned no GEO series.
+Lenkala et al., PMID 35688908	TACSTD2 knockout in Calu-3 changed barrier flux. PMID search returned no GEO transcriptome, so CLDN4 and IFN genes were not scored.
+GSE22493	CLDN4 siRNA versus CLDN4 overexpression, three two-color arrays. GPL10555 has no annotation file on the GEO FTP tree used here, so TACSTD2 could not be confirmed on the platform and the dye direction was not scored.
+GSE312098	IMMU132 RNA-seq in CX-1. FPKM columns are X_1 through X_12 with no treatment labels. Submission order was not used as a sample key.
+GSE185306	A549 IFN-γ factorial with AX0085. Count columns are A1–A4 and B1–B4 and are not labeled with the four conditions.
+GSE234424	Three GSM records (control, IFN-α, IFN-γ) but the normalized-count file has twelve unlabeled resub columns.
+GSE297630	LLC anti-PD-1 array. The deposited comparison table is labeled Clariom S Mouse but the gene symbols and RefSeq accessions are human (OR4F5, NM_001005484). TACSTD2 and CLDN4 were not taken from it.
+GSE302284	Osimertinib versus vehicle and a tumor-versus-node pair. Not a TACSTD2 or CLDN4 perturbation.
+GSE235812	Breast explant passages. Not an IFN or gene perturbation.
+GSE78736	Four libraries of Huh7.5 and HepG2. Not a TACSTD2 knockdown contrast.
+GSE150255	IFN-γ time course, one library per time. TACSTD2 is absent from the gene_name column. CLDN4 is present. Not a dual readout. Row is not_evaluable.
+GSE215771 IRF1KO and NF2KO	Only the WT IFN-γ versus control arm was scored. The knockout arms are a different perturbation.

@@ -1,0 +1,12 @@
+source	query	count	what_the_count_is
+GEO DataSets	(TACSTD2 OR TROP2 OR Trop-2 OR Tacstd2) AND (CLDN4 OR Cldn4) AND gse[ETYP]	2	Series whose GEO text mentions both names. Neither is a double knockdown.
+GEO DataSets	(TACSTD2 OR TROP2 OR Trop-2 OR Tacstd2) AND (knockdown OR knockout OR shRNA OR siRNA OR CRISPR OR gene silencing) AND gse[ETYP]	157	Mostly library screens. Title-level Trop2/TACSTD2 perturbation series were opened individually.
+GEO DataSets	(CLDN4 OR Cldn4 OR claudin-4 OR claudin 4) AND (knockdown OR knockout OR shRNA OR siRNA OR CRISPR) AND gse[ETYP]	7	Opened. True CLDN4-loss RNA sets used here are GSE207704, GSE50927, and the already-known GSE22493, which was not scored.
+GEO DataSets	(Trop2 OR TROP2 OR TACSTD2 OR Trop-2)[Title] AND gse[ETYP]	26	Used to find GSE334497, GSE289287, GSE245459, GSE304294, GSE312098, GSE311016, GSE15212.
+SRA	(CLDN4 OR Cldn4 OR claudin-4) AND (knockout OR knockdown OR CRISPR OR shRNA)	3	All three are 4C-seq at the CLDN4 locus in MSH2-knockout cells, not CLDN4-loss RNA-seq.
+PubMed	(TACSTD2 OR TROP2 OR Trop-2 OR Trop2 OR Tacstd2) AND (CLDN4 OR Cldn4 OR claudin-4 OR claudin 4)	4	PMID 41508276, 38629624, 17541031, 15305371. None is a dual genetic perturbation with an IFN transcriptome.
+PubMed title/abstract	both gene names AND (interferon OR IFN OR immune OR knockdown OR knockout OR siRNA OR CRISPR)	0	No title/abstract hit.
+Europe PMC	(TACSTD2 OR TROP2 OR Trop-2) AND (CLDN4 OR claudin-4 OR claudin 4) AND (interferon OR IFN OR knockdown OR knockout OR siRNA OR CRISPR)	121	Title list inspected. No double TACSTD2+CLDN4 knockout transcriptome.
+PubMed	TACSTD2 upregulation is an early reaction to lung infection	1	PMID 35688908. GEO link search returned 0 series.
+PubMed PMID link	17651017[All Fields] AND gse[ETYP]	0	CLDN4 siRNA / IFN paper has no GEO series link.
+PubMed PMID link	35688908[All Fields] AND gse[ETYP]	0	No deposited series linked from the PMID.
