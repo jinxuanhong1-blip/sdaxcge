@@ -1,0 +1,44 @@
+{
+  "release": "DepMap Public 24Q4",
+  "doi": "10.6084/m9.figshare.27993248",
+  "n_lung_models": 260,
+  "n_lung_rna_any": 214,
+  "n_lung_rna": 214,
+  "n_nsclc": 143,
+  "n_luad": 80,
+  "n_lusc": 27,
+  "n_sclc": 60,
+  "n_other": 11,
+  "n_other_nsclc": 36,
+  "n_crispr_lung": 123,
+  "n_crispr_nsclc": 95,
+  "expression_missing": [],
+  "crispr_missing": [
+    "PRKDC"
+  ],
+  "n_prkdc_humagne_lung": 5,
+  "crispr_genes": [
+    "CLDN4",
+    "XRCC4",
+    "LIG4",
+    "TP53BP1",
+    "STING1",
+    "CGAS",
+    "STAT1"
+  ],
+  "partial_cldn4_sting_given_nhej": {
+    "n": 214,
+    "rho": 0.1736435276985979,
+    "p": 0.010938134482699964
+  },
+  "partial_cldn4_nhej_given_sting": {
+    "n": 214,
+    "rho": -0.259281378491192,
+    "p": 0.0001247685020575459
+  },
+  "partial_cldn4_sensor_given_nhej": {
+    "n": 214,
+    "rho": 0.22615537615331505,
+    "p": 0.0008614060582733873
+  }
+}
