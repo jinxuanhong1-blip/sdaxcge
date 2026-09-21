@@ -1,0 +1,305 @@
+{
+  "calibration_max_abs_diff": 0.0004957629795443452,
+  "keratin_funnel7|CD3_score|diff|CLDN4 minus CLDN7": {
+    "ci_high": 3.183318406328834,
+    "ci_low": -1.226592028617416,
+    "difference": 0.4236525236412201
+  },
+  "keratin_funnel7|CD3_score|diff|CLDN4 minus EPCAM": {
+    "ci_high": 4.774488198332755,
+    "ci_low": -1.5754813208721532,
+    "difference": 0.5969884573199988
+  },
+  "keratin_funnel7|CD3_score|incremental_CLDN4": {
+    "share": -0.04049156087092718,
+    "share_hi": 0.9185476088309442,
+    "share_lo": -1.040828762143034
+  },
+  "keratin_funnel7|CD3_score|keratin": {
+    "I2": 0.6000482438495707,
+    "ci_high": 0.01904109748608213,
+    "ci_low": -0.09221610205686699,
+    "n_negative": 5,
+    "n_patients": 3444,
+    "p": 0.19684174010295075,
+    "rho": -0.036701228457954836
+  },
+  "keratin_funnel7|CD3_score|keratin_CLDN4": {
+    "I2": 0.6647623172359917,
+    "ci_high": 0.05998944628446274,
+    "ci_low": -0.06175814201129903,
+    "n_negative": 4,
+    "n_patients": 3444,
+    "p": 0.9772282332522411,
+    "rho": -0.0008876371107778107
+  },
+  "keratin_funnel7|CD3_score|keratin_CLDN7": {
+    "I2": 0.5791067700214085,
+    "ci_high": 0.03796552930022854,
+    "ci_low": -0.07074079961077888,
+    "n_negative": 5,
+    "n_patients": 3444,
+    "p": 0.553853536586157,
+    "rho": -0.016436205167723338
+  },
+  "keratin_funnel7|CD3_score|keratin_EPCAM": {
+    "I2": 0.68296097647639,
+    "ci_high": 0.03983059254547679,
+    "ci_low": -0.08524786208970392,
+    "n_negative": 4,
+    "n_patients": 3444,
+    "p": 0.47566033957317755,
+    "rho": -0.022797846869641106
+  },
+  "keratin_funnel7|CD3_score|share|CLDN4": {
+    "delta_rho": 0.03581359134717703,
+    "rho_after": -0.0008876371107778107,
+    "rho_before": -0.036701228457954836,
+    "share": 0.9758145122636783,
+    "share_hi": 7.261294971328219,
+    "share_lo": -2.7009536597408697
+  },
+  "keratin_funnel7|CD3_score|share|CLDN7": {
+    "delta_rho": 0.0202650232902315,
+    "rho_after": -0.016436205167723338,
+    "rho_before": -0.036701228457954836,
+    "share": 0.5521619886224582,
+    "share_hi": 3.688679088542939,
+    "share_lo": -1.3934990617304128
+  },
+  "keratin_funnel7|CD3_score|share|EPCAM": {
+    "delta_rho": 0.01390338158831373,
+    "rho_after": -0.022797846869641106,
+    "rho_before": -0.036701228457954836,
+    "share": 0.37882605494367944,
+    "share_hi": 2.490245628321317,
+    "share_lo": -0.49062174066771974
+  },
+  "keratin_funnel7|CD8_score|diff|CLDN4 minus CLDN7": {
+    "ci_high": 1.6782492545026848,
+    "ci_low": -0.027800336583261333,
+    "difference": 0.3292485490337391
+  },
+  "keratin_funnel7|CD8_score|diff|CLDN4 minus EPCAM": {
+    "ci_high": 1.7338350783146426,
+    "ci_low": -0.09856072827790462,
+    "difference": 0.31946260882675515
+  },
+  "keratin_funnel7|CD8_score|incremental_CLDN4": {
+    "share": 0.027782565245516953,
+    "share_hi": 0.5975283490117661,
+    "share_lo": -0.4128701988910594
+  },
+  "keratin_funnel7|CD8_score|keratin": {
+    "I2": 0.6314157109732378,
+    "ci_high": 0.010865559062441495,
+    "ci_low": -0.10490199755643859,
+    "n_negative": 5,
+    "n_patients": 3444,
+    "p": 0.11110044540545107,
+    "rho": -0.04717663746784059
+  },
+  "keratin_funnel7|CD8_score|keratin_CLDN4": {
+    "I2": 0.664020575924048,
+    "ci_high": 0.04551385170170444,
+    "ci_low": -0.076072621635283,
+    "n_negative": 5,
+    "n_patients": 3444,
+    "p": 0.6214858388450726,
+    "rho": -0.01533607759721365
+  },
+  "keratin_funnel7|CD8_score|keratin_CLDN7": {
+    "I2": 0.6285050420680706,
+    "ci_high": 0.027037480461319253,
+    "ci_low": -0.08856883965588343,
+    "n_negative": 5,
+    "n_patients": 3444,
+    "p": 0.29608785614891253,
+    "rho": -0.0308689170317909
+  },
+  "keratin_funnel7|CD8_score|keratin_EPCAM": {
+    "I2": 0.6548330616815671,
+    "ci_high": 0.029649592556905108,
+    "ci_low": -0.09024534059686556,
+    "n_negative": 4,
+    "n_patients": 3444,
+    "p": 0.3210255776137587,
+    "rho": -0.03040724927836405
+  },
+  "keratin_funnel7|CD8_score|share|CLDN4": {
+    "delta_rho": 0.03184055987062694,
+    "rho_after": -0.01533607759721365,
+    "rho_before": -0.04717663746784059,
+    "share": 0.6749221983515048,
+    "share_hi": 2.9534046523404363,
+    "share_lo": 0.2812799378555741
+  },
+  "keratin_funnel7|CD8_score|share|CLDN7": {
+    "delta_rho": 0.016307720436049694,
+    "rho_after": -0.0308689170317909,
+    "rho_before": -0.04717663746784059,
+    "share": 0.3456736493177657,
+    "share_hi": 1.3437601244084612,
+    "share_lo": 0.13070476411820972
+  },
+  "keratin_funnel7|CD8_score|share|EPCAM": {
+    "delta_rho": 0.016769388189476542,
+    "rho_after": -0.03040724927836405,
+    "rho_before": -0.04717663746784059,
+    "share": 0.35545958952474965,
+    "share_hi": 1.4726346431910096,
+    "share_lo": 0.07821569487565572
+  },
+  "lung_funnel8|CD3_score|diff|CLDN4 minus CLDN7": {
+    "ci_high": 0.8031385185007546,
+    "ci_low": -0.06575422590701072,
+    "difference": 0.22511868431277526
+  },
+  "lung_funnel8|CD3_score|diff|CLDN4 minus EPCAM": {
+    "ci_high": 1.3960139230247914,
+    "ci_low": 0.08948783528199532,
+    "difference": 0.4287145658951867
+  },
+  "lung_funnel8|CD3_score|incremental_CLDN4": {
+    "share": -0.04562802467439634,
+    "share_hi": 0.21930035005238624,
+    "share_lo": -0.45397742080518044
+  },
+  "lung_funnel8|CD3_score|keratin": {
+    "I2": 0.6718409118673488,
+    "ci_high": 0.004302016518695882,
+    "ci_low": -0.1092620187979349,
+    "n_negative": 6,
+    "n_patients": 3945,
+    "p": 0.06998010941025812,
+    "rho": -0.0526502262150726
+  },
+  "lung_funnel8|CD3_score|keratin_CLDN4": {
+    "I2": 0.7524332922477818,
+    "ci_high": 0.044263559829181,
+    "ci_low": -0.08661676152514583,
+    "n_negative": 5,
+    "n_patients": 3945,
+    "p": 0.5248568556422812,
+    "rho": -0.021267719076938113
+  },
+  "lung_funnel8|CD3_score|keratin_CLDN7": {
+    "I2": 0.674571712417405,
+    "ci_high": 0.024168475991021794,
+    "ci_low": -0.09019219693758747,
+    "n_negative": 6,
+    "n_patients": 3945,
+    "p": 0.2571331092980771,
+    "rho": -0.033120268731245246
+  },
+  "lung_funnel8|CD3_score|keratin_EPCAM": {
+    "I2": 0.7725345761671885,
+    "ci_high": 0.024473727178100976,
+    "ci_low": -0.11174548649370412,
+    "n_negative": 5,
+    "n_patients": 3945,
+    "p": 0.20839447264472744,
+    "rho": -0.04383963795301634
+  },
+  "lung_funnel8|CD3_score|share|CLDN4": {
+    "delta_rho": 0.03138250713813449,
+    "rho_after": -0.021267719076938113,
+    "rho_before": -0.0526502262150726,
+    "share": 0.5960564539635419,
+    "share_hi": 1.6520759257636344,
+    "share_lo": 0.2929817754635571
+  },
+  "lung_funnel8|CD3_score|share|CLDN7": {
+    "delta_rho": 0.019529957483827354,
+    "rho_after": -0.033120268731245246,
+    "rho_before": -0.0526502262150726,
+    "share": 0.37093776965076664,
+    "share_hi": 1.0259136661490995,
+    "share_lo": 0.17539611472731542
+  },
+  "lung_funnel8|CD3_score|share|EPCAM": {
+    "delta_rho": 0.00881058826205626,
+    "rho_after": -0.04383963795301634,
+    "rho_before": -0.0526502262150726,
+    "share": 0.1673418880683552,
+    "share_hi": 0.533708923343144,
+    "share_lo": -0.1202689315840778
+  },
+  "lung_funnel8|CD8_score|diff|CLDN4 minus CLDN7": {
+    "ci_high": 0.5166737115231934,
+    "ci_low": -0.02697944889882435,
+    "difference": 0.19665371337127754
+  },
+  "lung_funnel8|CD8_score|diff|CLDN4 minus EPCAM": {
+    "ci_high": 0.6196055212132358,
+    "ci_low": -0.039333862288638034,
+    "difference": 0.2157999647258207
+  },
+  "lung_funnel8|CD8_score|incremental_CLDN4": {
+    "share": 0.01781339751276362,
+    "share_hi": 0.2328415099426178,
+    "share_lo": -0.20988862339739506
+  },
+  "lung_funnel8|CD8_score|keratin": {
+    "I2": 0.760774295707346,
+    "ci_high": -0.002253568195206586,
+    "ci_low": -0.13462438061203186,
+    "n_negative": 6,
+    "n_patients": 3945,
+    "p": 0.04273532567896686,
+    "rho": -0.06874152054225229
+  },
+  "lung_funnel8|CD8_score|keratin_CLDN4": {
+    "I2": 0.8074681143272903,
+    "ci_high": 0.03378885265460592,
+    "ci_low": -0.11404337660634727,
+    "n_negative": 6,
+    "n_patients": 3945,
+    "p": 0.2860783673700188,
+    "rho": -0.04034806483268148
+  },
+  "lung_funnel8|CD8_score|keratin_CLDN7": {
+    "I2": 0.7776604745458008,
+    "ci_high": 0.015195367837831347,
+    "ci_low": -0.12241653649519897,
+    "n_negative": 6,
+    "n_patients": 3945,
+    "p": 0.12625928349982823,
+    "rho": -0.05386634011010335
+  },
+  "lung_funnel8|CD8_score|keratin_EPCAM": {
+    "I2": 0.8006747371756355,
+    "ci_high": 0.01768041731067101,
+    "ci_low": -0.12746236753120851,
+    "n_negative": 5,
+    "n_patients": 3945,
+    "p": 0.1376230772777514,
+    "rho": -0.0551824825408988
+  },
+  "lung_funnel8|CD8_score|share|CLDN4": {
+    "delta_rho": 0.028393455709570803,
+    "rho_after": -0.04034806483268148,
+    "rho_before": -0.06874152054225229,
+    "share": 0.41304666358258163,
+    "share_hi": 0.860915647962532,
+    "share_lo": 0.19756516520123513
+  },
+  "lung_funnel8|CD8_score|share|CLDN7": {
+    "delta_rho": 0.014875180432148936,
+    "rho_after": -0.05386634011010335,
+    "rho_before": -0.06874152054225229,
+    "share": 0.21639295021130409,
+    "share_hi": 0.46735866108714264,
+    "share_lo": 0.08545236138048093
+  },
+  "lung_funnel8|CD8_score|share|EPCAM": {
+    "delta_rho": 0.013559038001353482,
+    "rho_after": -0.0551824825408988,
+    "rho_before": -0.06874152054225229,
+    "share": 0.19724669885676094,
+    "share_hi": 0.45695362183937915,
+    "share_lo": 0.034614340844949805
+  },
+  "n_boot": 2000,
+  "seed": 20260921
+}

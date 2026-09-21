@@ -1,0 +1,150 @@
+{
+  "created_utc": "2026-09-21T18:30:00.269468+00:00",
+  "n_boot": 2000,
+  "seed": 20260921,
+  "cohort_seed": {
+    "LUAD": 20261921,
+    "LUSC": 20262921,
+    "BRCA": 20263921,
+    "CESC": 20264921,
+    "KIRC": 20265921,
+    "STAD": 20266921,
+    "BLCA": 20267921,
+    "PAAD": 20268921
+  },
+  "lusc_squamous_seed": 20269921,
+  "gene_ids": {
+    "TACSTD2": "ENSG00000184292.7",
+    "CLDN4": "ENSG00000189143.9",
+    "CLDN7": "ENSG00000181885.18",
+    "EPCAM": "ENSG00000119888.11",
+    "KRT8": "ENSG00000170421.12",
+    "KRT18": "ENSG00000111057.11",
+    "KRT19": "ENSG00000171345.13",
+    "KRT5": "ENSG00000186081.12",
+    "KRT6A": "ENSG00000205420.11",
+    "KRT14": "ENSG00000186847.6",
+    "CD8A": "ENSG00000153563.16",
+    "CD8B": "ENSG00000172116.23",
+    "CD3D": "ENSG00000167286.10",
+    "CD3E": "ENSG00000198851.10",
+    "CD3G": "ENSG00000160654.11"
+  },
+  "agreement_max_abs_gap": 1.1102230246251565e-16,
+  "calibration_max_abs_diff": 0.0004957629795443452,
+  "python": "3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0]",
+  "numpy": "2.4.4",
+  "pandas": "3.0.6",
+  "scipy": "1.18.1",
+  "script_sha256": {
+    "run_analysis.py": "e5614d5d7792da2dc7ad5b52053ac11f45ff06d8f42655239b9bf4d6e07040a4",
+    "stats.py": "3e156dddf52a5c7ed7b72897d7ddd843dadf6e1a29d9e74dd9fdc6809a70b24c",
+    "bootstrap.py": "9caa1cc48a92212ec7886d85e9036722a37811304d929a613f3859a906c0728d",
+    "io_tcga.py": "f7adf322e1c7c1d28f75a555cf544955da8f89c0032ed93740fd9e40b732fd65"
+  },
+  "extracts": [
+    {
+      "cohort": "LUAD",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/LUAD.primary01.tsv.gz",
+      "sha256": "baefd67495f123da54ebb6b2c2fe4134a1094c173607d2f666010592dec65993",
+      "n_patients": 516,
+      "n_01_columns": 528,
+      "from_cache": true
+    },
+    {
+      "cohort": "LUSC",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/LUSC.primary01.tsv.gz",
+      "sha256": "7ac2342e542c68c94270280fa3462ec699d01486732b05ae96e444feded285b2",
+      "n_patients": 501,
+      "n_01_columns": 501,
+      "from_cache": true
+    },
+    {
+      "cohort": "BRCA",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/BRCA.primary01.tsv.gz",
+      "sha256": "9a583ae8413115ae857e703a7286f98c9824caf1ee0d5ee4ffee4dec2ee62ae7",
+      "n_patients": 1095,
+      "n_01_columns": 1106,
+      "from_cache": true
+    },
+    {
+      "cohort": "CESC",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/CESC.primary01.tsv.gz",
+      "sha256": "6912a29cb6e972f453898a288bd846a527163d84f21cb010469f1d09786b2d91",
+      "n_patients": 304,
+      "n_01_columns": 304,
+      "from_cache": true
+    },
+    {
+      "cohort": "KIRC",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/KIRC.primary01.tsv.gz",
+      "sha256": "9733ff41c445e3c7f737de7cb1fac273e2d3e043624a6a83430dfe9b33fdc4ad",
+      "n_patients": 533,
+      "n_01_columns": 537,
+      "from_cache": true
+    },
+    {
+      "cohort": "STAD",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/STAD.primary01.tsv.gz",
+      "sha256": "d9bac623e3d5fb65c1913511f8ca68a2371479d7e1fb9df5c14b771e95983780",
+      "n_patients": 412,
+      "n_01_columns": 412,
+      "from_cache": true
+    },
+    {
+      "cohort": "BLCA",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/BLCA.primary01.tsv.gz",
+      "sha256": "dc676a0d41dba1ff0975ad61a5cfdb1359ea1795e8978d2e04629293440e24ab",
+      "n_patients": 406,
+      "n_01_columns": 409,
+      "from_cache": true
+    },
+    {
+      "cohort": "PAAD",
+      "url": "cache",
+      "cache": "/tmp/tcga_trop2_cldn4_mediation/PAAD.primary01.tsv.gz",
+      "sha256": "794007a39e7e958fb7b2b634c91987290223dcc2764d2e9cd0ec43b04c080b49",
+      "n_patients": 178,
+      "n_01_columns": 178,
+      "from_cache": true
+    }
+  ],
+  "definition": {
+    "cd8_score": "mean(CD8A, CD8B)",
+    "cd3_score": "mean(CD3D, CD3E, CD3G)",
+    "keratin": [
+      "KRT8",
+      "KRT18",
+      "KRT19"
+    ],
+    "mediation_percent": "(rho_keratin - rho_added) / rho_keratin",
+    "pools": {
+      "lung_funnel8": [
+        "LUAD",
+        "LUSC",
+        "BRCA",
+        "CESC",
+        "KIRC",
+        "STAD",
+        "BLCA",
+        "PAAD"
+      ],
+      "keratin_funnel7": [
+        "LUAD",
+        "BRCA",
+        "CESC",
+        "KIRC",
+        "STAD",
+        "BLCA",
+        "PAAD"
+      ]
+    }
+  }
+}
