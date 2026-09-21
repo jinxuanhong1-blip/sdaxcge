@@ -1,0 +1,65 @@
+{
+  "anchor": {
+    "definition": "nonsynonymous MAF count vs PanCan RSEM CLDN4, all paired primary samples",
+    "n": 205,
+    "mut_min": 5.0,
+    "mut_median": 69.0,
+    "mut_max": 1844.0,
+    "n_low_le_median": 105,
+    "n_high_gt_median": 100,
+    "median_rsem_low": 9999.76312385774,
+    "median_rsem_high": 8673.080451441609,
+    "mannwhitney_p": 0.007535861738456539,
+    "spearman_rho": -0.136905324102182,
+    "spearman_p": 0.0502973604285616,
+    "direction": "high mutation count has lower CLDN4"
+  },
+  "count_summaries": {
+    "mut_all": {
+      "n_with_rsem": 205,
+      "min": 2.0,
+      "median": 101.0,
+      "max": 2926.0,
+      "median_on_rsem_overlap": 102.0,
+      "max_on_rsem_overlap": 2926.0
+    },
+    "mut_nonsyn": {
+      "n_with_rsem": 205,
+      "min": 2.0,
+      "median": 68.0,
+      "max": 1844.0,
+      "median_on_rsem_overlap": 69.0,
+      "max_on_rsem_overlap": 1844.0
+    },
+    "mut_silent": {
+      "n_with_rsem": 205,
+      "min": 0.0,
+      "median": 19.0,
+      "max": 857.0,
+      "median_on_rsem_overlap": 19.0,
+      "max_on_rsem_overlap": 857.0
+    }
+  },
+  "winner": {
+    "predictor": "mut_all",
+    "expression": "protein",
+    "filter": "brca_nonsyn_absent",
+    "adjustment": "none",
+    "n": 74,
+    "rho": -0.26792855382597547,
+    "abs_rho": 0.26792855382597547,
+    "p": 0.021002482205798836,
+    "ci95_lo": -0.46779198641097897,
+    "ci95_hi": -0.04199691556561975,
+    "eligible": true,
+    "q_grid": 0.06773300511370126,
+    "is_anchor": false,
+    "unadjusted": true,
+    "expr_rank": 2,
+    "pred_rank": 0
+  },
+  "n_grid": 420,
+  "n_eligible": 258,
+  "min_n": 40,
+  "note": "RPPA has Claudin-7 and no CLDN4 antibody, so protein is the CPTAC quantification. Spearman rho does not change if either margin is transformed monotonically, so log10(count) is not a separate test."
+}
