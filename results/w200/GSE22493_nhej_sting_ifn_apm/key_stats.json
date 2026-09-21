@@ -1,0 +1,427 @@
+{
+  "accession": "GSE22493",
+  "platform": "GPL10555",
+  "model": "SKOV-3-IP-Luc ovarian cancer cell line",
+  "contrast": "CLDN4 lentiviral siRNA (Cy5) / CLDN4 overexpression control (Cy3)",
+  "n_arrays": 3,
+  "primary_metric": "deposited series-matrix VALUE read as log2(KD/control); gene = median of ORF-mapped probes per array; set test uses the mean of arrays with a value, genes with >=2 arrays",
+  "n_background_genes": 15853,
+  "background_median_mean_log2": "-0.0265",
+  "cldn4_deposited_per_array": [
+    "",
+    "-1.7370",
+    "-0.7131"
+  ],
+  "cldn4_median_log2": "-1.2250",
+  "cldn4_n_arrays": 2,
+  "cldn4_knockdown_confirmed_on_array": false,
+  "aliases_applied": {
+    "G22P1": "XRCC6",
+    "C6ORF150": "CGAS",
+    "G1P2": "ISG15",
+    "IFI15": "ISG15",
+    "G1P3": "IFI6"
+  },
+  "excluded_freetext_probes": [
+    {
+      "probe": "8697",
+      "why_not_used": "empty ORF; description names Artemis / DNA cross-link repair 1C",
+      "would_have_been": "DCLRE1C"
+    },
+    {
+      "probe": "25010",
+      "why_not_used": "empty ORF; description names Ku80 / Ku86 / ATP-dependent DNA helicase II 80 kDa",
+      "would_have_been": "XRCC5"
+    }
+  ],
+  "panels": {
+    "NHEJ": {
+      "role": "primary",
+      "n_in_list": 8,
+      "n_measured": 6,
+      "n_median_up": 2,
+      "n_median_down": 3,
+      "genes_median_up": [
+        "PRKDC",
+        "XRCC4"
+      ],
+      "genes_median_down": [
+        "XRCC6",
+        "XRCC5",
+        "DCLRE1C"
+      ],
+      "genes_absent": [
+        "NHEJ1",
+        "PAXX"
+      ],
+      "n_ge2_arrays": 6,
+      "n_mean_up": 2,
+      "n_mean_down": 4,
+      "median_of_gene_means": "-0.2977",
+      "delta_vs_background": "-0.2711",
+      "mannwhitney_p_vs_background": "0.3613",
+      "wilcoxon_vs0_p": "0.4375",
+      "shift_vs_background": "DOWN",
+      "any_within_panel_q_lt_0.05": false
+    },
+    "STING": {
+      "role": "primary",
+      "n_in_list": 5,
+      "n_measured": 3,
+      "n_median_up": 2,
+      "n_median_down": 1,
+      "genes_median_up": [
+        "IRF3",
+        "IKBKE"
+      ],
+      "genes_median_down": [
+        "CGAS"
+      ],
+      "genes_absent": [
+        "STING1",
+        "TBK1"
+      ],
+      "n_ge2_arrays": 3,
+      "n_mean_up": 2,
+      "n_mean_down": 1,
+      "median_of_gene_means": "0.5752",
+      "delta_vs_background": "0.6018",
+      "mannwhitney_p_vs_background": "0.3646",
+      "wilcoxon_vs0_p": "",
+      "shift_vs_background": "UP",
+      "any_within_panel_q_lt_0.05": false
+    },
+    "IFN": {
+      "role": "primary",
+      "n_in_list": 73,
+      "n_measured": 60,
+      "n_median_up": 25,
+      "n_median_down": 35,
+      "genes_median_up": [
+        "ISG15",
+        "MX1",
+        "OAS1",
+        "OAS2",
+        "OAS3",
+        "IFITM2",
+        "IFI6",
+        "HERC5",
+        "USP18",
+        "STAT1",
+        "IRF7",
+        "JAK2",
+        "SOCS3",
+        "PSMB8",
+        "PSMB9",
+        "HLA-E",
+        "CXCL10",
+        "CXCL11",
+        "CCL2",
+        "RELA",
+        "IL15",
+        "IFNB1",
+        "IFNAR2",
+        "IFNGR1",
+        "IFNGR2"
+      ],
+      "genes_median_down": [
+        "OASL",
+        "IFIT1",
+        "IFIT2",
+        "IFIT3",
+        "IFIT5",
+        "IFI27",
+        "IFI35",
+        "IFI44",
+        "IFI16",
+        "DDX58",
+        "IFIH1",
+        "BST2",
+        "GBP1",
+        "GBP2",
+        "GBP4",
+        "GBP5",
+        "ZBP1",
+        "STAT2",
+        "IRF1",
+        "SOCS1",
+        "B2M",
+        "TAP1",
+        "TAP2",
+        "HLA-A",
+        "HLA-B",
+        "HLA-C",
+        "HLA-F",
+        "TAPBP",
+        "CXCL9",
+        "CCL5",
+        "IL6",
+        "TNF",
+        "NFKB1",
+        "IFNG",
+        "IFNAR1"
+      ],
+      "genes_absent": [
+        "MX2",
+        "RSAD2",
+        "IFITM1",
+        "IFITM3",
+        "IFI44L",
+        "DDX60",
+        "XAF1",
+        "CMPK2",
+        "EIF2AK2",
+        "IRF9",
+        "NLRC5",
+        "IL32",
+        "IFNL1"
+      ],
+      "n_ge2_arrays": 58,
+      "n_mean_up": 25,
+      "n_mean_down": 33,
+      "median_of_gene_means": "-0.2320",
+      "delta_vs_background": "-0.2055",
+      "mannwhitney_p_vs_background": "0.2946",
+      "wilcoxon_vs0_p": "0.1767",
+      "shift_vs_background": "DOWN",
+      "any_within_panel_q_lt_0.05": false
+    },
+    "APM": {
+      "role": "primary",
+      "n_in_list": 16,
+      "n_measured": 12,
+      "n_median_up": 3,
+      "n_median_down": 9,
+      "genes_median_up": [
+        "PSMB8",
+        "PSMB9",
+        "CALR"
+      ],
+      "genes_median_down": [
+        "HLA-A",
+        "HLA-B",
+        "HLA-C",
+        "B2M",
+        "TAP1",
+        "TAP2",
+        "TAPBP",
+        "PSMB10",
+        "CANX"
+      ],
+      "genes_absent": [
+        "NLRC5",
+        "ERAP1",
+        "ERAP2",
+        "PDIA3"
+      ],
+      "n_ge2_arrays": 12,
+      "n_mean_up": 3,
+      "n_mean_down": 9,
+      "median_of_gene_means": "-0.4536",
+      "delta_vs_background": "-0.4271",
+      "mannwhitney_p_vs_background": "0.1574",
+      "wilcoxon_vs0_p": "0.1099",
+      "shift_vs_background": "DOWN",
+      "any_within_panel_q_lt_0.05": false
+    },
+    "NHEJ_ACCESSORY": {
+      "role": "secondary",
+      "n_in_list": 7,
+      "n_measured": 6,
+      "n_median_up": 4,
+      "n_median_down": 2,
+      "genes_median_up": [
+        "PNKP",
+        "APTX",
+        "POLL",
+        "DNTT"
+      ],
+      "genes_median_down": [
+        "POLM",
+        "WRN"
+      ],
+      "genes_absent": [
+        "APLF"
+      ],
+      "n_ge2_arrays": 5,
+      "n_mean_up": 4,
+      "n_mean_down": 1,
+      "median_of_gene_means": "0.5839",
+      "delta_vs_background": "0.6104",
+      "mannwhitney_p_vs_background": "0.1366",
+      "wilcoxon_vs0_p": "",
+      "shift_vs_background": "UP",
+      "any_within_panel_q_lt_0.05": false
+    },
+    "STING_REG": {
+      "role": "secondary",
+      "n_in_list": 8,
+      "n_measured": 6,
+      "n_median_up": 2,
+      "n_median_down": 4,
+      "genes_median_up": [
+        "TREX1",
+        "DDX41"
+      ],
+      "genes_median_down": [
+        "ENPP1",
+        "IFI16",
+        "SAMHD1",
+        "RNASEH2A"
+      ],
+      "genes_absent": [
+        "RNASEH2B",
+        "RNASEH2C"
+      ],
+      "n_ge2_arrays": 6,
+      "n_mean_up": 3,
+      "n_mean_down": 3,
+      "median_of_gene_means": "-0.0250",
+      "delta_vs_background": "0.0015",
+      "mannwhitney_p_vs_background": "0.5025",
+      "wilcoxon_vs0_p": "0.5625",
+      "shift_vs_background": "FLAT",
+      "any_within_panel_q_lt_0.05": false
+    }
+  },
+  "honesty": [
+    "Ovarian SKOV-3-IP-Luc, not lung.",
+    "Control is CLDN4 overexpression, not scramble or WT.",
+    "CLDN4 knockdown is not cleanly confirmed on the array.",
+    "n=3 two-color Operon arrays from 2010. GEO text mentions dye-swap, but all three GSMs label Cy3 as overexpression and Cy5 as knockdown.",
+    "STING1/TMEM173 and TBK1 are not annotated on GPL10555, so the STING axis is incomplete.",
+    "NHEJ1/XLF and PAXX are not annotated on GPL10555.",
+    "XRCC6 is present only as historical ORF G22P1. CGAS is present only as C6orf150.",
+    "TTBK1, KUB3, DNTTIP1, and WRNIP1 were not remapped onto TBK1, XRCC6, DNTT, or WRN.",
+    "Empty-ORF free-text Ku80 (probe 25010) and Artemis (probe 8697) were not used.",
+    "One-sample t tests at n=2-3 and set Wilcoxon tests are descriptive.",
+    "IFN and APM lists match the earlier C4 slice of this accession. This file does not replace that slice and does not claim a lung or ICI result."
+  ],
+  "verdict": "null_to_discordant_on_this_array: no within-panel q<0.05 in NHEJ, STING, IFN, or APM; STING1 and TBK1 are absent; CLDN4 knockdown is not confirmed; control is overexpression",
+  "scanarray_sign_agreement": {
+    "NHEJ": {
+      "n_with_both": 5,
+      "n_agree": 3,
+      "n_disagree": 2,
+      "agree_down": [
+        "XRCC6",
+        "XRCC5",
+        "DCLRE1C"
+      ],
+      "agree_up": [],
+      "disagree": [
+        "PRKDC",
+        "XRCC4"
+      ]
+    },
+    "STING": {
+      "n_with_both": 3,
+      "n_agree": 2,
+      "n_disagree": 1,
+      "agree_down": [
+        "CGAS"
+      ],
+      "agree_up": [
+        "IRF3"
+      ],
+      "disagree": [
+        "IKBKE"
+      ]
+    },
+    "NHEJ_ACCESSORY": {
+      "n_with_both": 5,
+      "n_agree": 1,
+      "n_disagree": 4,
+      "agree_down": [
+        "POLM"
+      ],
+      "agree_up": [],
+      "disagree": [
+        "PNKP",
+        "APTX",
+        "POLL",
+        "WRN"
+      ]
+    },
+    "STING_REG": {
+      "n_with_both": 6,
+      "n_agree": 4,
+      "n_disagree": 2,
+      "agree_down": [
+        "ENPP1",
+        "IFI16",
+        "RNASEH2A"
+      ],
+      "agree_up": [
+        "TREX1"
+      ],
+      "disagree": [
+        "DDX41",
+        "SAMHD1"
+      ]
+    },
+    "APM": {
+      "n_with_both": 12,
+      "n_agree": 11,
+      "n_disagree": 1,
+      "agree_down": [
+        "HLA-A",
+        "HLA-B",
+        "HLA-C",
+        "B2M",
+        "TAP1",
+        "TAP2",
+        "TAPBP",
+        "PSMB10",
+        "CANX"
+      ],
+      "agree_up": [
+        "PSMB9",
+        "CALR"
+      ],
+      "disagree": [
+        "PSMB8"
+      ]
+    }
+  },
+  "accession_status": "FINAL_DISCORDANT",
+  "method_sweep": {
+    "accession": "GSE22493",
+    "status": "FINAL_DISCORDANT",
+    "rule": "FINAL_NULL if every method and the three-array t stay at p>=0.05 and q>=0.05 for NHEJ, STING, IFN, and APM. FINAL_DISCORDANT if the primary deposited method and the three-array t are both null, while some other summary produces p<0.05 or q<0.05 or the ScanArray set median flips sign versus deposited. NOT_FINAL only if the primary deposited method or the three-array t itself is p<0.05 or q<0.05.",
+    "primary_panel_hits_p_or_q_lt_0.05": [
+      "deposited_probe_median_gene_median:APM",
+      "scanarray_log2:IFN",
+      "scanarray_log2:APM",
+      "vendor_ch2_logratio_abs_le_15:NHEJ",
+      "vendor_ch2_logratio_abs_le_15:IFN",
+      "vendor_ch2_logratio_abs_le_15:APM"
+    ],
+    "genes_with_q_lt_0.05": {
+      "scanarray_log2": {
+        "APM": [
+          "HLA-B"
+        ]
+      },
+      "vendor_ch2_logratio_abs_le_15": {
+        "APM": [
+          "HLA-B"
+        ]
+      }
+    },
+    "array_level_primary_p_lt_0.05": [],
+    "scanarray_set_median_sign_flips_vs_deposited": [
+      "STING"
+    ],
+    "value_is_log2_of_PRE_VALUE": true,
+    "methods": [
+      "deposited_probe_median_gene_mean",
+      "deposited_probe_mean_gene_mean",
+      "deposited_probe_median_gene_median",
+      "deposited_lowest_probe_id",
+      "scanarray_log2",
+      "vendor_ch2_logratio_abs_le_15",
+      "deposited_plus_freetext_ku_artemis"
+    ]
+  }
+}

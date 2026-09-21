@@ -1,0 +1,7 @@
+gene_set,role,n_in_list,n_measured_ge2_arrays,n_missing_or_lt2,missing_or_lt2,n_mean_up,n_mean_down,median_set_mean_log2,mean_set_mean_log2,median_background_mean_log2,delta_vs_background,mannwhitney_U,mannwhitney_p,wilcoxon_vs0_p,set_shift_vs_background
+NHEJ,primary,8,6,2,"NHEJ1,PAXX",2,4,-0.2977,-0.5032,-0.0265,-0.2711,37309.5,0.3613,0.4375,DOWN
+STING,primary,5,3,2,"STING1,TBK1",2,1,0.5752,0.3826,-0.0265,0.6018,30961.0,0.3646,,UP
+IFN,primary,73,58,15,"MX2,RSAD2,IFITM1,IFITM3,IFI44L,DDX60,XAF1,CMPK2,EIF2AK2,IRF9,NLRC5,CXCL9,CCL5,IL32,IFNL1",25,33,-0.2320,-0.1304,-0.0265,-0.2055,421591.0,0.2946,0.1767,DOWN
+APM,primary,16,12,4,"NLRC5,ERAP1,ERAP2,PDIA3",3,9,-0.4536,-0.2609,-0.0265,-0.4271,72639.5,0.1574,0.1099,DOWN
+NHEJ_ACCESSORY,secondary,7,5,2,"APLF,DNTT",4,1,0.5839,0.4111,-0.0265,0.6104,54853.0,0.1366,,UP
+STING_REG,secondary,8,6,2,"RNASEH2B,RNASEH2C",3,3,-0.0250,-0.3017,-0.0265,0.0015,40025.0,0.5025,0.5625,FLAT
