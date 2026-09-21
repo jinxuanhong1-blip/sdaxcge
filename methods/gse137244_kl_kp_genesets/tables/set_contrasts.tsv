@@ -1,0 +1,11 @@
+set_name	role	n_genes_used	n_genes_requested	n_genes_unmatched	mean_kp	mean_kl	delta	separation	U_kl	p_exact	n_permutations	rank_biserial_kl	q_bh_primary4	note
+Cldn4	primary_gene	1	1	0	3.305358	8.874985	5.569627	KL>KP	25.000000	0.007937	252	1.000000		locked single gene
+Tacstd2	primary_gene	1	1	0	2.617385	5.855613	3.238227	KL>KP	25.000000	0.007937	252	1.000000		locked single gene
+Cldn4_Tacstd2	primary	2	2	0	2.961372	7.365299	4.403927	KL>KP	25.000000	0.007937	252	1.000000	0.015873	mean of Cldn4 and Tacstd2
+TJ_TISMO	secondary	7	7	0	4.079883	7.348401	3.268518	KL>KP	25.000000	0.007937	252	1.000000		TISMO TJ list: Cldn3/4/6/7, Cdh1, F11r, Ocln
+NHEJ_KEGG	primary	13	13	0	2.371538	2.673311	0.301772	overlap	24.000000	0.015873	252	0.920000	0.021164	KEGG 2019 Mouse Non-homologous end-joining
+STING_core	primary	5	5	0	2.830191	3.305543	0.475351	KL>KP	25.000000	0.007937	252	1.000000	0.015873	Mb21d1, Tmem173, Tbk1, Ikbke, Irf3
+IFN_compact	primary	15	15	0	2.096912	1.226137	-0.870775	overlap	2.000000	0.031746	252	-0.840000	0.031746	mouse epithelial IFN list
+Hallmark_IFN_alpha	secondary	89	97	8	3.127111	2.493602	-0.633510	overlap	2.000000	0.031746	252	-0.840000		MSigDB Hallmark 2020 interferon alpha response
+Hallmark_IFN_gamma	secondary	185	200	15	2.842667	2.243130	-0.599537	overlap	2.000000	0.031746	252	-0.840000		MSigDB Hallmark 2020 interferon gamma response
+KEGG_cytosolic_DNA	secondary	60	61	1	2.436555	2.235970	-0.200584	overlap	2.000000	0.031746	252	-0.840000		KEGG 2019 Mouse cytosolic DNA-sensing; CGAS symbol unmatched
