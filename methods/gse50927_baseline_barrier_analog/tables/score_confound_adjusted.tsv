@@ -1,0 +1,17 @@
+question,definition,contrast_math,n_perm,seed,n_a,n_b,score_a,score_b,gap,null_mean,null_sd,z,perm_p_greater,status
+Q1_adj_baseline_minus_VILI,mean_logFC_detected,baseline_statistic minus WT_VILI_statistic,1000,42,60,3,0.54509276,-1.83153094,2.3766237,-0.00380690969,0.358496751,6.640034,0.000999000999,ok
+Q2_adj_baseline_minus_VILI,mean_logFC_detected,baseline_statistic minus WT_VILI_statistic,1000,42,2,3,1.52105091,-1.83153094,,,,,,n_below_3
+Q1_adj_baseline_minus_VILI,median_logFC_detected,baseline_statistic minus WT_VILI_statistic,1000,42,60,3,0.363857563,-1.57716454,1.94102211,0.00847068269,0.308947482,6.25527488,0.000999000999,ok
+Q2_adj_baseline_minus_VILI,median_logFC_detected,baseline_statistic minus WT_VILI_statistic,1000,42,2,3,1.52105091,-1.57716454,,,,,,n_below_3
+Q1_adj_baseline_minus_VILI,mean_logFC_all,baseline_statistic minus WT_VILI_statistic,1000,42,60,8,0.54509276,-1.74756201,2.29265477,0.00204578191,0.360928797,6.34642903,0.000999000999,ok
+Q2_adj_baseline_minus_VILI,mean_logFC_all,baseline_statistic minus WT_VILI_statistic,1000,42,4,8,3.21106721,-1.74756201,4.95862922,0.0234135961,0.604290476,8.16695915,0.000999000999,ok
+Q1_adj_baseline_minus_VILI,mean_logFC_cpm_gt_1,baseline_statistic minus WT_VILI_statistic,1000,42,59,1,0.493399743,-1.57716454,,,,,,n_below_3
+Q2_adj_baseline_minus_VILI,mean_logFC_cpm_gt_1,baseline_statistic minus WT_VILI_statistic,1000,42,1,1,2.394506,-1.57716454,,,,,,n_below_3
+Q1_adj_baseline_minus_VILI,frac_up_detected,baseline_statistic minus WT_VILI_statistic,1000,42,60,3,0.55,0,0.55,0.00343333333,0.385180215,1.41898946,0.0889110889,ok
+Q2_adj_baseline_minus_VILI,frac_up_detected,baseline_statistic minus WT_VILI_statistic,1000,42,2,3,0,0,,,,,,n_below_3
+Q1_adj_baseline_minus_VILI,frac_fdr_up_detected,baseline_statistic minus WT_VILI_statistic,1000,42,60,3,0.0833333333,-0.333333333,0.416666667,0.0024,0.168496185,2.45861155,0.015984016,ok
+Q2_adj_baseline_minus_VILI,frac_fdr_up_detected,baseline_statistic minus WT_VILI_statistic,1000,42,2,3,0.5,-0.333333333,,,,,,n_below_3
+Q1_adj_baseline_minus_VILI,mean_signed_neglog10P_detected,baseline_statistic minus WT_VILI_statistic,1000,42,60,3,2.09440806,-5.94681951,8.04122757,0.0497523497,1.31045728,6.09823405,0.000999000999,ok
+Q2_adj_baseline_minus_VILI,mean_signed_neglog10P_detected,baseline_statistic minus WT_VILI_statistic,1000,42,2,3,2.26929761,-5.94681951,,,,,,n_below_3
+Q1_adj_baseline_minus_VILI,mean_rank_pct_detected,baseline_statistic minus WT_VILI_statistic,1000,42,60,3,36.6179899,-5.1641344,41.7821243,-1.03191024,21.2951185,2.01050933,0.025974026,ok
+Q2_adj_baseline_minus_VILI,mean_rank_pct_detected,baseline_statistic minus WT_VILI_statistic,1000,42,2,3,10.6864925,-5.1641344,,,,,,n_below_3

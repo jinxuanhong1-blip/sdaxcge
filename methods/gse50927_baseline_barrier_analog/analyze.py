@@ -28,6 +28,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from scipy.stats import binomtest, wilcoxon
 
+from scores import run_scores
+
 ROOT = Path(__file__).resolve().parent
 DATA = Path(os.environ.get("GSE50927_BASELINE_DATA", "/tmp/gse50927_baseline_barrier"))
 TABLES = ROOT / "tables"
@@ -497,6 +499,7 @@ def main() -> None:
     }
     (TABLES / "summary.json").write_text(json.dumps(payload, indent=2) + "\n")
     plot(gene_rows)
+    run_scores(tables, ROOT)
 
     print("Cldn4 baseline", cldn4["logFC"], cldn4["FDR"])
     for row in summary_rows:

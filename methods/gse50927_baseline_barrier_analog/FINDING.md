@@ -106,12 +106,62 @@ Downloads go to `$GSE50927_BASELINE_DATA` (default `/tmp/gse50927_baseline_barri
 
 The script checks that baseline Cldn4 logFC is −6.061296179.
 
+## Refined sets and alternate scores
+
+The first section used one broad IFN list and one hit rule. This section keeps that result and adds fixed sets plus eight score definitions. The largest permutation z inside a predeclared question is marked. A larger z is not a license to drop the definitions that go the other way. Permutations reshuffle genes on the deposited baseline ranking (1000 draws, seed 42). The smallest p those draws can return is 0.001. They are not a mouse-level test. n is still **1 vs 1**.
+
+### Sets
+
+| Set | How it was fixed | n scored at baseline (logCPM > 0) |
+|---|---|---:|
+| IFN core | MSigDB mouse Hallmark IFN-α ∩ IFN-γ, then chemokines and MHC/APM symbols removed | 60 (4 symbols absent: C1s1, Cmtr1, Ifi27, Wars1) |
+| IFN chemokines | Cxcl9, Cxcl10, Cxcl11, Ccl5 | 3 (Cxcl11 logCPM −1.07, not scored) |
+| Inflammatory chemokines | Cxcl1, Cxcl2, Cxcl3, Cxcl5, Ccl2, Ccl3, Ccl4, Ccl7 | 3 (Cxcl1, Ccl3, Ccl4). The other five are logCPM ≤ 0 at baseline |
+| MHC-I haplotype-safe | B2m, TAP, immunoproteasome, Psme1/2, Nlrc5, Erap1, Calr, Canx, Pdia3. No H2 symbol | 15 |
+| Same, no ER chaperones | drops Calr, Canx, Pdia3 | 12 |
+| Classical heavy chain | H2-K1, H2-D1 only | 2 |
+| Haplotype-risk H2 | H2-K2 / Q / T / M / Bl | 11. Reported so it is not used |
+| Injury mediators | Tnf, Il1b, Il6, Egr1 | 3 at baseline (Il6 logCPM ≤ 0); 4 under VILI |
+
+### Baseline KO vs WT, mean logFC
+
+| Set | Mean logFC | What VILI does to the same mean |
+|---|---:|---:|
+| IFN core | **+0.215** (median +0.190) | **−0.330** |
+| IFN chemokines | **+2.71** | +1.11 on the 2 genes still above logCPM 0 |
+| Inflammatory chemokines | **+1.50** | **+3.91** |
+| MHC-I haplotype-safe | **+0.358** | **−0.302** |
+| Haplotype-safe, no chaperones | **+0.371** | **−0.395** |
+| H2-K1 and H2-D1 | +0.142 | −0.645 |
+| Haplotype-risk H2 | +1.81 | −0.47 |
+| Tnf / Il1b / Il6 / Egr1 | **−0.63** | **+2.57** |
+
+The IFN core is up versus a random 60-gene draw (mean-logFC permutation z = **3.90**, p = 0.001). The largest core z in the grid is the mean rank percentile (68.5, z = **4.91**), not a bigger fold-change. Five of the 60 detected core genes are FDR < 0.05: Isg15, Ifi44, Gbp3, Ly6e, Ifitm3. All five are down or flat in WT VILI. The broad-panel count of 17 FDR genes above includes mouse GBP / IRG / OAS members that sit in only one Hallmark list, so they are outside this core.
+
+### Where the definitions separate, and where they do not
+
+**IFN core versus inflammatory chemokines, baseline only.** Inflammatory logFC is larger. Mean-logFC gap = 0.215 − 1.50 = **−1.28** (z = −4.94). Median, rank, signed −log10 P, and the FDR fraction agree. The least negative definition is the fraction up (0.82 versus 1.00, gap −0.18, z = −0.63). Removing VILI-induced genes empties the inflammatory side (n = 0), so that score is not used. No baseline-only definition puts the IFN core above Cxcl1 / Ccl3 / Ccl4.
+
+**IFN chemokines versus inflammatory chemokines, baseline only.** This split does favor the IFN ligands on the logFC scores. Detected means are +2.71 versus +1.50 (gap **+1.21**, z = **3.35**, p = 0.009). The largest z is the median (gap **+1.08**, z = **3.74**, p = 0.001). The FDR fraction goes the other way: 1/3 (Ccl5 only) versus 2/3 (Cxcl1 and Ccl4), gap −0.33, z = −2.81. Cxcl9 (logFC +2.88, FDR 0.062) and Cxcl10 (logFC +2.54, FDR 0.094) move the mean and are not FDR hits. Cxcl11 (logFC +5.04, logCPM −1.07) is out of the detected mean; putting it back is what lifts `mean_logFC_all` to +3.30, so that definition is not the one used.
+
+**Confound-adjusted score** = the same statistic at baseline minus the same statistic in WT VILI. For mean logFC, the IFN core is +0.545 and the inflammatory chemokines are −1.83 (gap **+2.38**, z = **6.64**, p = 0.001). That is the largest z for this predeclared question, and it is in logFC units. It says the core is higher at rest than under ventilation, while the inflammatory chemokines are a VILI program. It does not say the core has a larger baseline fold-change than Cxcl1.
+
+**MHC-I, haplotype-safe.** Mean logFC **+0.358** on 15 genes with no H2 symbol (14/15 up; Tap2 is −0.009). Versus random genes, z = **3.34** (p = 0.003). The largest z in that grid is the FDR fraction, 3/15 = 0.20 (z = 4.80): B2m, Psmb9, and Calr. Dropping the three ER chaperones leaves mean logFC **+0.371** and FDR hits **2/12** (B2m, Psmb9). H2-K1 stays −0.071. The haplotype-risk set mean is +1.81 and is excluded. Under VILI the haplotype-safe mean is −0.30, so the resting tilt is not the ventilator program.
+
 ## Files
 
 - `analyze.py` — download, classify, gene-wise tests, figure
+- `scores.py` — Hallmark IFN core, haplotype-safe MHC-I, chemokine families, score grid
+- `genesets/hallmark_ifn_mm.tsv` — mouse Hallmark IFN-α and IFN-γ symbols
 - `tables/gene_level.tsv` — every panel gene across the four contrasts
 - `tables/module_summary.tsv`
+- `tables/score_by_set.tsv` — every definition × set × contrast
+- `tables/score_gaps.tsv` — baseline gaps and permutation z
+- `tables/score_confound_adjusted.tsv` — baseline statistic minus VILI statistic
+- `tables/score_enrichment.tsv` — set versus random genes
+- `tables/score_membership.tsv`
 - `tables/cldn4_qc.tsv`
 - `tables/label_inventory.tsv`
 - `tables/summary.json`
 - `figures/fig_baseline_vs_injury.png`
+- `figures/fig_score_definitions.png`
