@@ -1,0 +1,22 @@
+{
+  "question": "Do concordant-4 epithelial cells have an RNA-velocity flow toward a CLDN4-high barrier state?",
+  "method": "scVelo (steady-state or dynamical) if spliced and unspliced counts are public",
+  "scvelo_run": false,
+  "reason": "no_public_spliced_unspliced_layers",
+  "velocity_named_supplement_files": [],
+  "aligned_bam_in_public_sra_paths": false,
+  "public_fastq_bioproject": {
+    "GSE123902": true,
+    "GSE131907": false,
+    "GSE205335": false,
+    "GSE189357": true
+  },
+  "substitutes_not_used": [
+    "graph pseudotime is not RNA velocity",
+    "expression-only vector fields (scTour) are not splicing kinetics",
+    "realigning public FASTQ would drop the two accessions with no public reads and would not be an available layer"
+  ],
+  "biological_answer": "not_estimable",
+  "locked_tnk_result_retouched": false,
+  "retrieved_at_utc": "2026-09-21T16:35:41Z"
+}
