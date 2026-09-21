@@ -1,0 +1,16 @@
+# Installable spatial CCC stack used by scripts/cosmx_cldn4_spatial_ccc.py
+# commot 0.0.3 still references numpy.Inf; the analysis script aliases np.inf
+# before import so this stack can stay on NumPy 2.
+# squidpy 1.6.5 imports a private scanpy 1.10 symbol removed in scanpy 1.11+.
+# setuptools>=81 dropped pkg_resources, which spatialdata/xarray_schema still import.
+commot==0.0.3
+SpatialDM==0.3.1
+squidpy==1.6.5
+scanpy==1.10.4
+setuptools<81
+anndata>=0.8
+numpy>=1.26
+pandas>=2.1
+scipy>=1.10
+matplotlib>=3.6
+statsmodels>=0.13
