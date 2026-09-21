@@ -1,0 +1,9 @@
+perturbation	endpoint	n_pairs	n_kl	n_kp	median_delta	mean_delta	n_up	wilcoxon_p	note
+IFNB	Cldn4	6	3	3	0.2222747954802493	0.3426203482119794	4	0.5625	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.
+IFNB	NHEJ	6	3	3	-0.08823911105934767	-0.12395286778654017	1	0.15625	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.
+IFNB	STING_core	6	3	3	0.39096499831314935	0.39248752571493073	5	0.0625	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.
+IFNB	Sting1	6	3	3	0.7417468353582208	0.8809754835011135	6	0.03125	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.
+STING_V154M	Cldn4	4	2	2	0.251538774453147	0.33857462954302964	4	0.125	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.
+STING_V154M	NHEJ	4	2	2	-0.0506778509604664	-0.04402792392050214	2	0.625	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.
+STING_V154M	STING_core	4	2	2	0.11627904419981983	0.11754109198140572	3	0.375	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.
+STING_V154M	Sting1	4	2	2	0.5260535024541118	0.4350338188878301	3	0.25	Paired within line on mean log2. Two-sided Wilcoxon at n=4 cannot go below 0.125.

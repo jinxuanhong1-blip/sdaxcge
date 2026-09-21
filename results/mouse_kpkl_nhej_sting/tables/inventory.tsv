@@ -1,0 +1,27 @@
+accession	what	kp_arm	kl_arm	open_matrix	scored_here	note
+GSE137244	KP vs KL GEMM cell lines	yes	yes	yes	no	Locked baseline. Cldn4 KL−KP +5.57, MW p=0.00794, n=5 vs 5. Not re-opened.
+GSE137396	KP vs KL autochthonous nodules	yes	yes	yes	yes	In vivo sister of the GSE137244 study. Scored.
+GSE274351	K/KP/KL LCM adenomas	yes	yes	yes	yes	Scored KL vs KP and KL vs K. Normals excluded.
+GSE274352	KP/KL lines ± IFN-β or STING-V154M	yes	yes	yes	yes	Empty-vector genotype contrast plus paired STING and IFN-β.
+GSE164758	K/KP/KL/KPL primary GEMM tumors	yes	yes	yes	yes	Largest open in vivo n. KPL not pooled into KL.
+GSE6135	Ji et al. K/KP/KL primary tumors, microarray	yes	yes	yes	yes	Mouse-level. Lkb1 L/+ and metastases excluded.
+GSE69552	KL papillary and adenosquamous vs KP papillary	yes	yes	yes	yes	Primary = all KL vs KP. Sensitivity = papillary only.
+GSE244452	Syngeneic subcutaneous KP vs KL tumors	yes	yes	yes	yes	3 vs 3. Per-sample values were in the all-gene table.
+GSE322570	sgLkb1 vs sgNeo sorted KP tumor cells	KP background	sgLkb1	yes	yes	Isogenic on KP. n=3. CD45− tumor cells.
+GSE338923	Lacun3 parental vs Stk11 KO, in vitro	parental LUAD line	Stk11 KO	yes	yes	Isogenic cell line. Not called a KP GEMM.
+GSE175479	K vs KL vs AMPK bulk lung	no	yes	yes	yes	KL vs K only. KAA arm excluded.
+GSE21581	K vs KL primary and KL metastases	no	yes	yes	yes	Primary tumors only. Metastases excluded.
+GSE133895	KT vs KT;Lkb1 ex vivo	no	yes	yes	yes	Sik arms excluded. No KP.
+GSE193895	Kras/Lkb1 vs Kras/Keap1 tumors	no	yes	yes	yes	Mouse-level. Comparator is Keap1, not p53.
+GSE133714	Kras ± Lkb1 ± Keap1 microarray	no	yes	yes	no	No KP arm. GPL18233 has no standalone annot file (634 MB family soft). Not scored.
+GSE165640	Whole-lung KL/KP plus Il1-family knockouts	yes	yes	no full matrix	no	Depositor files are pairwise compare tables, not a sample-by-gene matrix.
+GSE118246	Sox2;Lkb1 and Pten;Lkb1 squamous plus KP LUAD	yes	no classic KL	yes	no	Lkb1 models are not Kras;Lkb1. Not a KL vs KP contrast.
+GSE277929	KL GEMM tumors ± entinostat/trametinib	no	yes	yes	no	KL only. No KP comparator.
+GSE253613	KL ± G6pd	no	yes	yes	no	KL only.
+GSE182228	Lkb1-deficient LUAD ± anti-PD-1	no	yes	yes	no	KL only, and Cldn4 is near the floor in the prior slice.
+GSE180963	scRNA K vs KL	no	yes	yes	no	n=1 per arm. Not merged with private 8 KL.
+GSE165641	scRNA KL only	no	yes	yes	no	n=2 KL. Not merged with private 8 KL.
+GSE154977	scRNA KP ± cisplatin	yes	no	yes	no	No KL. Not merged with private 8 KL.
+GSE194166	KL vs KP immune-sorted scRNA	yes	yes	yes	no	CD45-sorted. Cldn4 is the wrong compartment.
+GSE179500	Lkb1-restorable bulk	mixed	restorable	DE tables	no	Not a clean KP vs KL matrix. Not re-scored.
+user_private_8KL	Private 8 KL mice	no	private	not public	no	Not used. Not merged with any public series.

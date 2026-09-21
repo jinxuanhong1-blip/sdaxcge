@@ -1,0 +1,73 @@
+accession	design	family	x	y	n	spearman_r	spearman_p	note	fdr_bh	fdr_family
+GSE137396	autochthonous_nodule	kl_vs_kp	Cldn4	NHEJ	10	0.0303030303030303	0.9337729580941466	within contrast samples only; not a cross-dataset merge	0.9867429111949892	kl_vs_kp_spearman
+GSE137396	autochthonous_nodule	kl_vs_kp	Cldn4	STING_core	10	0.4424242424242424	0.20042268671194213	within contrast samples only; not a cross-dataset merge	0.4437333333333333	kl_vs_kp_spearman
+GSE137396	autochthonous_nodule	kl_vs_kp	Cldn4	Sting1	10	-0.006060606060606061	0.9867429111949892	within contrast samples only; not a cross-dataset merge	0.9867429111949892	kl_vs_kp_spearman
+GSE137396	autochthonous_nodule	kl_vs_kp	Cldn4	STING_ISG	10	0.35757575757575755	0.31037609170568026	within contrast samples only; not a cross-dataset merge	0.5836341858933656	kl_vs_kp_spearman
+GSE274351	lcm_adenoma	kl_vs_kp	Cldn4	NHEJ	10	0.19019836693335312	0.5986683040717657	within contrast samples only; not a cross-dataset merge	0.828681905414845	kl_vs_kp_spearman
+GSE274351	lcm_adenoma	kl_vs_kp	Cldn4	STING_core	10	0.16565664216775916	0.6474077386053476	within contrast samples only; not a cross-dataset merge	0.828681905414845	kl_vs_kp_spearman
+GSE274351	lcm_adenoma	kl_vs_kp	Cldn4	Sting1	10	0.5969485095907019	0.06845289608576557	within contrast samples only; not a cross-dataset merge	0.30144934021393444	kl_vs_kp_spearman
+GSE274351	lcm_adenoma	kl_vs_kp	Cldn4	STING_ISG	10	0.04294801833978941	0.9062243097567703	within contrast samples only; not a cross-dataset merge	0.9867429111949892	kl_vs_kp_spearman
+GSE274351	lcm_adenoma	kl_vs_k	Cldn4	NHEJ	9	-0.03390317518104052	0.9309991405662561	within contrast samples only; not a cross-dataset merge		
+GSE274351	lcm_adenoma	kl_vs_k	Cldn4	STING_core	9	-0.06780635036208103	0.8623941918367143	within contrast samples only; not a cross-dataset merge		
+GSE274351	lcm_adenoma	kl_vs_k	Cldn4	Sting1	9	-0.35598333940092547	0.3470801223983502	within contrast samples only; not a cross-dataset merge		
+GSE274351	lcm_adenoma	kl_vs_k	Cldn4	STING_ISG	9	0.30512857662936466	0.4246269982624868	within contrast samples only; not a cross-dataset merge		
+GSE274352	cell_line_empty_vector	kl_vs_kp	Cldn4	NHEJ	6	0.6	0.208	within contrast samples only; not a cross-dataset merge	0.4437333333333333	kl_vs_kp_spearman
+GSE274352	cell_line_empty_vector	kl_vs_kp	Cldn4	STING_core	6	-0.08571428571428573	0.8717434402332361	within contrast samples only; not a cross-dataset merge	0.9867429111949892	kl_vs_kp_spearman
+GSE274352	cell_line_empty_vector	kl_vs_kp	Cldn4	Sting1	6	-0.028571428571428574	0.9571545189504373	within contrast samples only; not a cross-dataset merge	0.9867429111949892	kl_vs_kp_spearman
+GSE274352	cell_line_empty_vector	kl_vs_kp	Cldn4	STING_ISG	6	-0.2	0.7040000000000001	within contrast samples only; not a cross-dataset merge	0.8664615384615385	kl_vs_kp_spearman
+GSE164758	autochthonous_primary_tumor	kl_vs_kp	Cldn4	NHEJ	17	0.232843137254902	0.368459654854376	within contrast samples only; not a cross-dataset merge	0.6205636292284227	kl_vs_kp_spearman
+GSE164758	autochthonous_primary_tumor	kl_vs_kp	Cldn4	STING_core	17	0.32598039215686275	0.20163694355296405	within contrast samples only; not a cross-dataset merge	0.4437333333333333	kl_vs_kp_spearman
+GSE164758	autochthonous_primary_tumor	kl_vs_kp	Cldn4	Sting1	17	0.3504901960784314	0.16781533363739962	within contrast samples only; not a cross-dataset merge	0.4437333333333333	kl_vs_kp_spearman
+GSE164758	autochthonous_primary_tumor	kl_vs_kp	Cldn4	STING_ISG	17	0.36274509803921573	0.15242989215413402	within contrast samples only; not a cross-dataset merge	0.4437333333333333	kl_vs_kp_spearman
+GSE164758	autochthonous_primary_tumor	kl_vs_k	Cldn4	NHEJ	18	0.18885448916408668	0.4529458223784956	within contrast samples only; not a cross-dataset merge		
+GSE164758	autochthonous_primary_tumor	kl_vs_k	Cldn4	STING_core	18	0.7915376676986584	9.10340755405878e-05	within contrast samples only; not a cross-dataset merge		
+GSE164758	autochthonous_primary_tumor	kl_vs_k	Cldn4	Sting1	18	0.6140350877192982	0.0067107587733592385	within contrast samples only; not a cross-dataset merge		
+GSE164758	autochthonous_primary_tumor	kl_vs_k	Cldn4	STING_ISG	18	0.6305469556243549	0.005025142219255446	within contrast samples only; not a cross-dataset merge		
+GSE164758	autochthonous_primary_tumor	kpl_vs_kp	Cldn4	NHEJ	23	-0.19960474308300394	0.3611775346501445	within contrast samples only; not a cross-dataset merge		
+GSE164758	autochthonous_primary_tumor	kpl_vs_kp	Cldn4	STING_core	23	0.7262845849802372	8.714737703174314e-05	within contrast samples only; not a cross-dataset merge		
+GSE164758	autochthonous_primary_tumor	kpl_vs_kp	Cldn4	Sting1	23	0.6136363636363635	0.0018445825485394886	within contrast samples only; not a cross-dataset merge		
+GSE164758	autochthonous_primary_tumor	kpl_vs_kp	Cldn4	STING_ISG	23	0.66699604743083	0.0005086234424408882	within contrast samples only; not a cross-dataset merge		
+GSE244452	syngeneic_subcutaneous	kl_vs_kp	Cldn4	NHEJ	6	-1.0	0.0	within contrast samples only; not a cross-dataset merge	0.0	kl_vs_kp_spearman
+GSE244452	syngeneic_subcutaneous	kl_vs_kp	Cldn4	STING_core	6	0.942857142857143	0.004804664723032055	within contrast samples only; not a cross-dataset merge	0.07687463556851289	kl_vs_kp_spearman
+GSE244452	syngeneic_subcutaneous	kl_vs_kp	Cldn4	Sting1	6	0.7714285714285715	0.07239650145772594	within contrast samples only; not a cross-dataset merge	0.30144934021393444	kl_vs_kp_spearman
+GSE244452	syngeneic_subcutaneous	kl_vs_kp	Cldn4	STING_ISG	6	0.7714285714285715	0.07239650145772594	within contrast samples only; not a cross-dataset merge	0.30144934021393444	kl_vs_kp_spearman
+GSE322570	isogenic_sglkb1_on_KP	kl_vs_kp	Cldn4	NHEJ	6	0.8285714285714287	0.04156268221574335	within contrast samples only; not a cross-dataset merge	0.30144934021393444	kl_vs_kp_spearman
+GSE322570	isogenic_sglkb1_on_KP	kl_vs_kp	Cldn4	STING_core	6	0.7714285714285715	0.07239650145772594	within contrast samples only; not a cross-dataset merge	0.30144934021393444	kl_vs_kp_spearman
+GSE322570	isogenic_sglkb1_on_KP	kl_vs_kp	Cldn4	Sting1	6	0.6	0.208	within contrast samples only; not a cross-dataset merge	0.4437333333333333	kl_vs_kp_spearman
+GSE322570	isogenic_sglkb1_on_KP	kl_vs_kp	Cldn4	STING_ISG	6	0.2571428571428572	0.6227871720116619	within contrast samples only; not a cross-dataset merge	0.828681905414845	kl_vs_kp_spearman
+GSE338923	isogenic_cellline_stk11ko	isogenic_stk11	Cldn4	NHEJ	8	-0.6190476190476191	0.10173303745426478	within contrast samples only; not a cross-dataset merge		
+GSE338923	isogenic_cellline_stk11ko	isogenic_stk11	Cldn4	STING_core	8	0.7380952380952381	0.03655276105286081	within contrast samples only; not a cross-dataset merge		
+GSE338923	isogenic_cellline_stk11ko	isogenic_stk11	Cldn4	Sting1	8	0.5714285714285715	0.13895995716070672	within contrast samples only; not a cross-dataset merge		
+GSE338923	isogenic_cellline_stk11ko	isogenic_stk11	Cldn4	STING_ISG	8	-0.04761904761904763	0.9108491685195836	within contrast samples only; not a cross-dataset merge		
+GSE175479	autochthonous_bulk_lung	kl_vs_k	Cldn4	NHEJ	8	0.19047619047619052	0.6514014957024814	within contrast samples only; not a cross-dataset merge		
+GSE175479	autochthonous_bulk_lung	kl_vs_k	Cldn4	STING_core	8	0.09523809523809526	0.8225054302036114	within contrast samples only; not a cross-dataset merge		
+GSE175479	autochthonous_bulk_lung	kl_vs_k	Cldn4	Sting1	8	-0.6190476190476191	0.10173303745426478	within contrast samples only; not a cross-dataset merge		
+GSE175479	autochthonous_bulk_lung	kl_vs_k	Cldn4	STING_ISG	8	-0.023809523809523815	0.9553740118158806	within contrast samples only; not a cross-dataset merge		
+GSE133895	exvivo_sorted	kl_vs_k	Cldn4	NHEJ	7	0.7142857142857144	0.07134356146753766	within contrast samples only; not a cross-dataset merge		
+GSE133895	exvivo_sorted	kl_vs_k	Cldn4	STING_core	7	0.6785714285714287	0.09375025395983135	within contrast samples only; not a cross-dataset merge		
+GSE133895	exvivo_sorted	kl_vs_k	Cldn4	Sting1	7	0.5714285714285715	0.18020198891152767	within contrast samples only; not a cross-dataset merge		
+GSE133895	exvivo_sorted	kl_vs_k	Cldn4	STING_ISG	7	0.5714285714285715	0.18020198891152767	within contrast samples only; not a cross-dataset merge		
+GSE193895	autochthonous_tumor_fragments	kl_vs_keap1	Cldn4	NHEJ	10	-0.006060606060606061	0.9867429111949892	within contrast samples only; not a cross-dataset merge		
+GSE193895	autochthonous_tumor_fragments	kl_vs_keap1	Cldn4	STING_core	10	0.7212121212121211	0.01857315508946023	within contrast samples only; not a cross-dataset merge		
+GSE193895	autochthonous_tumor_fragments	kl_vs_keap1	Cldn4	Sting1	10	0.7212121212121211	0.01857315508946023	within contrast samples only; not a cross-dataset merge		
+GSE193895	autochthonous_tumor_fragments	kl_vs_keap1	Cldn4	STING_ISG	10	-0.5636363636363636	0.0897240283170912	within contrast samples only; not a cross-dataset merge		
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_kp	Cldn4	NHEJ	12	0.2517482517482518	0.4299187850328841	within contrast samples only; not a cross-dataset merge	0.6878700560526145	kl_vs_kp_spearman
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_kp	Cldn4	STING_core	12	-0.16783216783216784	0.6020994277865379	within contrast samples only; not a cross-dataset merge	0.828681905414845	kl_vs_kp_spearman
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_kp	Cldn4	Sting1	12	-0.5314685314685316	0.07536233505348361	within contrast samples only; not a cross-dataset merge	0.30144934021393444	kl_vs_kp_spearman
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_kp	Cldn4	STING_ISG	12	0.5034965034965035	0.09515736659412467	within contrast samples only; not a cross-dataset merge	0.3383373034457766	kl_vs_kp_spearman
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	NHEJ	12	-0.1258741258741259	0.696683109395766	within contrast samples only; not a cross-dataset merge		
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	STING_core	12	-0.21678321678321683	0.49855598552418845	within contrast samples only; not a cross-dataset merge		
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	Sting1	12	-0.3426573426573427	0.2755674509567803	within contrast samples only; not a cross-dataset merge		
+GSE6135	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	STING_ISG	12	0.39860139860139865	0.19933549461780897	within contrast samples only; not a cross-dataset merge		
+GSE69552	autochthonous_histology_microarray	kl_vs_kp	Cldn4	NHEJ	17	-0.08578431372549021	0.7433950261372769	within contrast samples only; not a cross-dataset merge	0.8810607717182541	kl_vs_kp_spearman
+GSE69552	autochthonous_histology_microarray	kl_vs_kp	Cldn4	STING_core	17	0.2524509803921569	0.32829422956501814	within contrast samples only; not a cross-dataset merge	0.5836341858933656	kl_vs_kp_spearman
+GSE69552	autochthonous_histology_microarray	kl_vs_kp	Cldn4	Sting1	17	-0.28186274509803927	0.2730598973799546	within contrast samples only; not a cross-dataset merge	0.5461197947599092	kl_vs_kp_spearman
+GSE69552	autochthonous_histology_microarray	kl_vs_kp	Cldn4	STING_ISG	17	-0.16176470588235298	0.5350755062766513	within contrast samples only; not a cross-dataset merge	0.8153531524215639	kl_vs_kp_spearman
+GSE69552	autochthonous_histology_microarray	kl_vs_kp_papillary	Cldn4	NHEJ	11	0.009090909090909092	0.9788365001441937	within contrast samples only; not a cross-dataset merge		
+GSE69552	autochthonous_histology_microarray	kl_vs_kp_papillary	Cldn4	STING_core	11	-0.17272727272727276	0.6115423848512369	within contrast samples only; not a cross-dataset merge		
+GSE69552	autochthonous_histology_microarray	kl_vs_kp_papillary	Cldn4	Sting1	11	-0.17272727272727276	0.6115423848512369	within contrast samples only; not a cross-dataset merge		
+GSE69552	autochthonous_histology_microarray	kl_vs_kp_papillary	Cldn4	STING_ISG	11	-0.18181818181818182	0.5926152128455	within contrast samples only; not a cross-dataset merge		
+GSE21581	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	NHEJ	18	-0.2260061919504644	0.3671777255550172	within contrast samples only; not a cross-dataset merge		
+GSE21581	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	STING_core	18	0.4324045407636739	0.07310819207072548	within contrast samples only; not a cross-dataset merge		
+GSE21581	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	Sting1	18	-0.0608875128998968	0.8103299008966292	within contrast samples only; not a cross-dataset merge		
+GSE21581	autochthonous_primary_tumor_microarray	kl_vs_k	Cldn4	STING_ISG	18	-0.3065015479876161	0.2160637946112576	within contrast samples only; not a cross-dataset merge		
