@@ -1110,6 +1110,39 @@ def _fmt_p(x):
     return f"{float(x):.3f}"
 
 
+def _pair_row(summary: pd.DataFrame, pair_id: str) -> pd.Series:
+    hit = summary.loc[summary["pair_id"] == pair_id]
+    if hit.empty:
+        raise KeyError(pair_id)
+    return hit.iloc[0]
+
+
+def _slide_phrase(row: pd.Series, ep: str) -> str:
+    n = int(row[f"{ep}_n_slides"])
+    n_pos = int(row[f"{ep}_n_pos"])
+    p = _fmt_p(row[f"{ep}_p"])
+    q = _fmt_p(row[f"{ep}_q"]) if f"{ep}_q" in row.index and np.isfinite(row[f"{ep}_q"]) else None
+    pt_pos = int(row[f"{ep}_n_patients_pos"])
+    pt_n = int(row[f"{ep}_n_patients"])
+    qbit = f", BH q={q}" if q else ""
+    return (
+        f"{n_pos}/{n} slides Δ>0 (median {_fmt_signed(row[f'{ep}_median'])}, "
+        f"Wilcoxon p={p}{qbit}; {pt_pos}/{pt_n} tissues)"
+    )
+
+
+def _fmt_signed(x, nd=3):
+    if x is None or not np.isfinite(x):
+        return "NA"
+    ax = abs(float(x))
+    body = f"{ax:.2e}" if ax != 0 and ax < 1e-3 else f"{ax:.{nd}f}"
+    if float(x) > 0:
+        return "+" + body
+    if float(x) < 0:
+        return "−" + body
+    return "0"
+
+
 def write_results_md(path: Path, summary: pd.DataFrame, sanity: pd.DataFrame, inventory: dict) -> None:
     def line_for(ep: str, family: str) -> str:
         sub = summary[summary["family"] == family]
@@ -1117,9 +1150,12 @@ def write_results_md(path: Path, summary: pd.DataFrame, sanity: pd.DataFrame, in
             return "no pairs"
         bits = []
         for r in sub.itertuples(index=False):
+            qv = getattr(r, f"{ep}_q", np.nan)
+            qbit = f", BH q={_fmt_p(qv)}" if np.isfinite(qv) else ""
             bits.append(
-                f"{r.pair_id} {int(getattr(r, f'{ep}_n_neg'))}/{int(getattr(r, f'{ep}_n_slides'))} slides Δ<0, "
-                f"median Δ={_fmt(getattr(r, f'{ep}_median'))}, Wilcoxon p={_fmt_p(getattr(r, f'{ep}_p'))}"
+                f"{r.pair_id} {int(getattr(r, f'{ep}_n_pos'))}/{int(getattr(r, f'{ep}_n_slides'))} slides Δ>0, "
+                f"median Δ={_fmt_signed(getattr(r, f'{ep}_median'))}, Wilcoxon p={_fmt_p(getattr(r, f'{ep}_p'))}{qbit}, "
+                f"tissues {int(getattr(r, f'{ep}_n_patients_pos'))}/{int(getattr(r, f'{ep}_n_patients'))} Δ>0"
             )
         return "; ".join(bits)
 
@@ -1181,7 +1217,44 @@ def write_results_md(path: Path, summary: pd.DataFrame, sanity: pd.DataFrame, in
     lines.append(f"Barrier pairs with SpatialDM proximity ΔI lower on at least 6 slides: **{k_neg}/{n_b}**. Higher on at least 6 slides: **{k_pos}/{n_b}**.")
     lines.append(f"Barrier pairs with COMMOT per-sender transport lower on at least 6 slides: **{c_neg}/{n_b}**. Higher on at least 6 slides: **{c_pos}/{n_b}**.")
     lines.append("")
-    lines.append("A high-side increase that is consistent across slides would be the spatial-CCC version of a contact ligand difference. A high-side decrease on the geometry run, especially for the HLA–CD8 control, restates exclusion (fewer CD8 next to CLDN4-high tumor) and is not a new inhibitory mechanism. The proximity run is the one that asks about coupling **given** a neighbor within 40 µm.")
+    lines.append("### Reading")
+    lines.append("")
+    lines.append("CLDN4-high tumor is not a ligand–receptor desert next to CD8, and the galectin-9–TIM-3 and PD-L1–PD-1 pairs are not the pairs that move. Where a COMMOT per-sender increase survives BH within the barrier family, dividing that mass by ligand supply removes it. The increase tracks extra ligand on the CLDN4-high tumor cells that already have a CD8 neighbor, which is the same kind of result as the earlier contact-level CDH1 abundance contrast, not a higher delivery fraction and not evidence that CD8 cells next to CLDN4-high tumor are transcriptionally shut down.")
+    lines.append("")
+    if len(summary):
+        cdh = _pair_row(summary, "CDH1|CDH1")
+        cdh_int = _pair_row(summary, "CDH1|ITGA2_ITGB1")
+        icam = _pair_row(summary, "ICAM1|ITGAL_ITGB2")
+        icam1 = _pair_row(summary, "ICAM1|ITGAL")
+        mif = _pair_row(summary, "MIF|CD74_CD44")
+        lg = _pair_row(summary, "LGALS9|HAVCR2")
+        pdl1 = _pair_row(summary, "CD274|PDCD1")
+        pdl2 = _pair_row(summary, "PDCD1LG2|PDCD1")
+        tgfb = _pair_row(summary, "TGFB1|TGFBR1_TGFBR2")
+        ifng = _pair_row(summary, "IFNG|IFNGR1_IFNGR2")
+        cx9 = _pair_row(summary, "CXCL9|CXCR3")
+        cx16 = _pair_row(summary, "CXCL16|CXCR6")
+        hla = _pair_row(summary, "HLA-A|CD8A")
+        lines.append(f"**CDH1 abundance, not homophilic transport.** On tumor cells within 40 µm of CD8, CLDN4-high minus CLDN4-low CDH1 is {_slide_phrase(cdh, 'd_expr')}. Squidpy, which reduces to that ligand contrast, agrees ({_slide_phrase(cdh, 'd_squidpy')}). COMMOT CDH1–CDH1 transport per sender does not ({_slide_phrase(cdh, 'd_commot')}). COMMOT CDH1–ITGA2/ITGB1 per sender does ({_slide_phrase(cdh_int, 'd_commot')}), and the supply-normalized version does not ({_slide_phrase(cdh_int, 'd_commot_supply')}).")
+        lines.append("")
+        lines.append(f"**ICAM1–LFA-1 and MIF–CD74/CD44 are the COMMOT hits inside the barrier family.** ICAM1–ITGAL/ITGB2 per sender {_slide_phrase(icam, 'd_commot')}; ICAM1–ITGAL {_slide_phrase(icam1, 'd_commot')}; MIF–CD74/CD44 {_slide_phrase(mif, 'd_commot')}. BH q-values are within the 12 barrier pairs. SpatialDM proximity is in the same direction for ICAM1 (ITGAL/ITGB2 {_slide_phrase(icam, 'd_sdm_prox')}; ITGAL {_slide_phrase(icam1, 'd_sdm_prox')}) but those q-values stay above 0.05. MIF SpatialDM proximity does not ({_slide_phrase(mif, 'd_sdm_prox')}). MIF ligand abundance is higher ({_slide_phrase(mif, 'd_expr')}). ICAM1 abundance is only a trend ({_slide_phrase(icam, 'd_expr')}). Supply-normalized COMMOT is not significant for these pairs (ICAM1–ITGAL/ITGB2 {_slide_phrase(icam, 'd_commot_supply')}; MIF–CD74/CD44 {_slide_phrase(mif, 'd_commot_supply')}).")
+        lines.append("")
+        lines.append(f"**Checkpoint pairs do not mark CLDN4-high contacts.** LGALS9–HAVCR2 SpatialDM proximity {_slide_phrase(lg, 'd_sdm_prox')}; COMMOT {_slide_phrase(lg, 'd_commot')}; LGALS9 abundance {_slide_phrase(lg, 'd_expr')}. CD274–PDCD1 SpatialDM {_slide_phrase(pdl1, 'd_sdm_prox')}; CD274 abundance {_slide_phrase(pdl1, 'd_expr')}. PDCD1LG2–PDCD1 is the barrier pair that leans lower (SpatialDM {_slide_phrase(pdl2, 'd_sdm_prox')}; abundance {_slide_phrase(pdl2, 'd_expr')}) and is not significant. TGFB1 abundance {_slide_phrase(tgfb, 'd_expr')}; COMMOT {_slide_phrase(tgfb, 'd_commot')}.")
+        lines.append("")
+        lines.append(f"**CD8 IFNG next to CLDN4-high tumor is flat.** IFNG on CD8 within 40 µm of CLDN4-high tumor minus CD8 within 40 µm of CLDN4-low tumor: {_slide_phrase(ifng, 'd_expr')}. SpatialDM {_slide_phrase(ifng, 'd_sdm_prox')}. COMMOT {_slide_phrase(ifng, 'd_commot')}.")
+        lines.append("")
+        lines.append(f"**HLA–CD8 is a proximity control, and the two spatial tools disagree.** SpatialDM proximity HLA-A–CD8A is higher around CLDN4-high tumor ({_slide_phrase(hla, 'd_sdm_prox')}). COMMOT transport per sender is lower ({_slide_phrase(hla, 'd_commot')}), as is the supply-normalized mass ({_slide_phrase(hla, 'd_commot_supply')}). CD8A/CD8B are part of the CD8 definition, so this is not a checkpoint result. Lower COMMOT mass is what a distance-limited transporter does when fewer CD8 cells sit in range. Higher Moran I is a correlation among the cells that were kept, not a delivered-mass estimate.")
+        lines.append("")
+        lines.append(f"**Chemokines are not one sign.** Tumor CXCL9 is lower ({_slide_phrase(cx9, 'd_expr')}) without a significant CXCL9–CXCR3 COMMOT or SpatialDM contrast ({_slide_phrase(cx9, 'd_commot')}; {_slide_phrase(cx9, 'd_sdm_prox')}). Tumor CXCL16 is higher ({_slide_phrase(cx16, 'd_expr')}); CXCL16–CXCR6 COMMOT per sender {_slide_phrase(cx16, 'd_commot')} and does not survive BH inside the chemokine family (q above). Supply normalization removes it ({_slide_phrase(cx16, 'd_commot_supply')}).")
+        lines.append("")
+    lines.append("A high-side increase that remains after supply normalization would be the spatial-CCC version of more delivery, not just more ligand. That is not what the barrier pairs do. A high-side decrease on the geometry run, especially for HLA–CD8, would have restated exclusion as missing coupling. SpatialDM does not show that decrease. The proximity run asks about coupling given a neighbor within 40 µm.")
+    lines.append("")
+    lines.append("![Slides with a lower CLDN4-high score](results/cosmx_cldn4_spatial_ccc/figures/barrier_slides_delta_negative.png)")
+    lines.append("")
+    lines.append("![SpatialDM proximity slide deltas](results/cosmx_cldn4_spatial_ccc/figures/spatialdm_prox_delta_heatmap.png)")
+    lines.append("")
+    lines.append("![COMMOT slide deltas](results/cosmx_cldn4_spatial_ccc/figures/commot_delta_heatmap.png)")
+    lines.append("")
     lines.append("")
     lines.append("### Barrier family — SpatialDM proximity (I high − I low)")
     lines.append("")
@@ -1234,7 +1307,7 @@ def write_results_md(path: Path, summary: pd.DataFrame, sanity: pd.DataFrame, in
     lines.append("## What is not claimed")
     lines.append("")
     lines.append("- No CellChat `computeCommunProb` and no causal barrier.")
-    lines.append("- No F11R– or NECTIN2–TIGIT result; those genes are absent from the 960-plex.")
+    lines.append("- No F11R result and no NECTIN2–TIGIT result. F11R, NECTIN2, PVR, and CD226 are absent. TIGIT is on the panel without those partners.")
     lines.append("- Squidpy high-vs-low is not a distance-weighted communication probability.")
     lines.append("- HLA–CD8 scores are not evidence of a CD8-receptor checkpoint. CD8A/CD8B define the receiver class.")
     lines.append("- Slide Wilcoxon n=8. Patient signs are 5 tissues, with Lung5 and Lung9 replicates averaged.")
@@ -1403,14 +1476,18 @@ def main() -> None:
         stamp_path = out / "checkpoints" / f"{sample}.{CODE_STAMP}.fov.tsv.gz"
         geo_path = out / "checkpoints" / f"{sample}.{CODE_STAMP}.geo.tsv"
         sq_path = out / "checkpoints" / f"{sample}.{CODE_STAMP}.squidpy.tsv"
+        nqc_path = out / "checkpoints" / f"{sample}.nqc"
         if stamp_path.exists() and geo_path.exists() and sq_path.exists() and not args.force and args.max_fovs is None:
             log(f"{sample}: resume checkpoint")
             fov_parts.append(pd.read_csv(stamp_path, sep="\t"))
             geo_parts.append(pd.read_csv(geo_path, sep="\t"))
             squid_parts.append(pd.read_csv(sq_path, sep="\t"))
+            if nqc_path.exists():
+                n_qc += int(nqc_path.read_text().strip())
             continue
         df, X, genes = load_sample(sample, args.data, want, panel)
         n_qc += len(df)
+        nqc_path.write_text(str(len(df)))
         gmap = {g: i for i, g in enumerate(genes)}
         df = add_classes_and_distances(df)
         # Positional alignment: load_sample returns reset index; distances keep it.
@@ -1445,7 +1522,7 @@ def main() -> None:
         sanity.to_csv(out / "distance_sanity.tsv", sep="\t", index=False)
     inventory = {
         "n_qc": int(n_qc) if n_qc else None,
-        "n_fov": int(fov["fov"].nunique()) if len(fov) else 0,
+        "n_fov": int(fov.groupby(["sample", "fov"]).ngroups) if len(fov) else 0,
         "n_slides": int(fov["sample"].nunique()) if len(fov) else 0,
         "n_pairs": int(len(pairs)),
         "n_pairs_in_db": int(pairs["in_cellchat_human"].sum()),
@@ -1461,9 +1538,6 @@ def main() -> None:
             "squidpy": sq.__version__,
         },
     }
-    # QC total is only for samples computed this process. If resumed, leave null rather than a partial count.
-    if any(p.exists() for p in (out / "checkpoints").glob(f"*.{CODE_STAMP}.fov.tsv.gz")) and n_qc == 0:
-        inventory["n_qc"] = None
     (out / "stats.json").write_text(json.dumps(inventory, indent=2))
     if len(summary):
         write_results_md(out / "RESULTS.md", summary, sanity, inventory)

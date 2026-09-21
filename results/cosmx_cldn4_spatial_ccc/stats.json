@@ -1,0 +1,24 @@
+{
+  "n_qc": 766334,
+  "n_fov": 225,
+  "n_slides": 8,
+  "n_pairs": 27,
+  "n_pairs_in_db": 27,
+  "code_stamp": "v1-prox40-sdm30-commot50-niter1000",
+  "prox_um": 40.0,
+  "commot_dis_um": 50.0,
+  "sdm_l_um": 30.0,
+  "commot_niter": 1000,
+  "absent_genes": [
+    "F11R",
+    "NECTIN2",
+    "PVR",
+    "SIRPA",
+    "CD226"
+  ],
+  "versions": {
+    "commot": "0.0.3",
+    "spatialdm": "0.3.1",
+    "squidpy": "1.6.5"
+  }
+}
