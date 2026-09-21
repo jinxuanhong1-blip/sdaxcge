@@ -19,7 +19,7 @@ ADDITIVE, **CLDN4-only**, He et al. 2022 CosMx 960-plex (figshare 25976224; 8 se
 | OAS1 sum | 0.512 | 0.556 | 0.920 | 8/8 | 0.0078 | 5/5 | 146/211 | 2.8×10⁻¹¹ |
 | CXCL10 sum | 0.475 | 0.526 | 0.903 | 8/8 | 0.0078 | 5/5 | 124/211 | 1.6×10⁻⁴ |
 
-The immune-cell fraction is the most significant result in the search. CLDN4-positive malignant cells have about **0.38×** the immune-cell fraction of CLDN4-negative malignant cells inside 10 µm. The IFN piece that is cold on the same contrast is the **neighborhood sum** (total log1p CP10k, not the per-neighbor mean) of CCL5, CD274, OAS1, and CXCL10: about **0.89×**, 8/8 sections, FOV p = 1.0×10⁻¹⁷. CCL5 alone is 0.85×.
+The immune-cell fraction is the most significant result in the search. CLDN4-positive malignant cells have about **0.38×** the immune-cell fraction of CLDN4-negative malignant cells inside 10 µm. The IFN piece that is cold on the same contrast is the **neighborhood sum** (total log1p CP10k, not the per-neighbor mean) of CCL5, CD274, OAS1, and CXCL10: about **0.89×**, 8/8 sections, FOV p = 9.96×10⁻¹⁸. CCL5 alone is 0.85×.
 
 Per-section immune-cell fraction (CLDN4>0 / CLDN4=0):
 
