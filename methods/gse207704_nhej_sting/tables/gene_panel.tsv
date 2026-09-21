@@ -1,0 +1,15 @@
+group	symbol	mapped_symbol	entrez	mapping	n_loci	consensus	vs_thesis	note	MCF7_WT	MCF7_KO	T47D_WT	T47D_KO	log2FC_MCF7	log2FC_T47D	log2FC_mean	dir_MCF7	dir_T47D	sum_loci_log2FC_MCF7	sum_loci_log2FC_T47D	sum_loci_log2FC_mean
+cNHEJ	PRKDC	PRKDC	5591	symbol	2	UP	not decreased (up in one line)	descriptive; group-mean FPKM, no gene-level sample FDR	45.4075	38.1347	47.0476	59.036	-0.248833	0.32439	0.0377786	FLAT	UP	-0.273062	0.308247	0.0175922
+cNHEJ	XRCC4	XRCC4	7518	symbol	1	FLAT	not decreased	descriptive; group-mean FPKM, no gene-level sample FDR	18.843	22.3152	17.825	17.3546	0.238184	-0.0375174	0.100333	FLAT	FLAT	0.238184	-0.0375174	0.100333
+cNHEJ	LIG4	LIG4	3981	symbol	1	UP	not decreased (up in one line)	descriptive; group-mean FPKM, no gene-level sample FDR	4.90257	4.73464	3.11745	6.92803	-0.0455555	1.03801	0.496226	FLAT	UP	-0.0455555	1.03801	0.496226
+cNHEJ	RIF1	RIF1	55183	symbol	1	FLAT	not decreased	descriptive; group-mean FPKM, no gene-level sample FDR	29.9759	35.5141	33.9646	38.228	0.240893	0.168262	0.204577	FLAT	FLAT	0.240893	0.168262	0.204577
+cNHEJ	TP53BP1	TP53BP1	7158	symbol	1	FLAT	not decreased	descriptive; group-mean FPKM, no gene-level sample FDR	9.8155	10.9892	7.81499	9.05343	0.155465	0.200304	0.177884	FLAT	FLAT	0.155465	0.200304	0.177884
+cNHEJ	XRCC5	XRCC5	7520	symbol	1	FLAT	not decreased	descriptive; group-mean FPKM, no gene-level sample FDR	77.472	87.1284	81.4203	91.31	0.168442	0.16443	0.166436	FLAT	FLAT	0.168442	0.16443	0.166436
+cNHEJ	XRCC6	XRCC6	2547	symbol	1	FLAT	not decreased	descriptive; group-mean FPKM, no gene-level sample FDR	450.729	485.682	441.698	389.464	0.107637	-0.181352	-0.0368574	FLAT	FLAT	0.107637	-0.181352	-0.0368574
+STING	CGAS	MB21D1	115004	alias:MB21D1	1	FLAT	not increased	descriptive; group-mean FPKM, no gene-level sample FDR	8.60214	9.93231	10.3282	11.4136	0.196781	0.137816	0.167298	FLAT	FLAT	0.196781	0.137816	0.167298
+STING	STING1		340061	absent	0	ABSENT	unmeasured	symbol and Entrez absent from GSE207704_CLDN4_RNAseq.txt												
+STING	TBK1	TBK1	29110	symbol	2	FLAT	not increased	descriptive; group-mean FPKM, no gene-level sample FDR	46.5068	48.555	44.395	44.5696	0.0615307	0.00559987	0.0335653	FLAT	FLAT	0.09684	0.0545961	0.075718
+STING	IRF3	IRF3	3661	symbol	1	FLAT	not increased	descriptive; group-mean FPKM, no gene-level sample FDR	31.7074	34.3925	30.408	28.2823	0.115525	-0.102798	0.00636317	FLAT	FLAT	0.115525	-0.102798	0.00636317
+STING	STAT1	STAT1	6772	symbol	1	FLAT	not increased	descriptive; group-mean FPKM, no gene-level sample FDR	34.9779	33.6943	24.152	25.9968	-0.0531648	0.104113	0.0254743	FLAT	FLAT	-0.0531648	0.104113	0.0254743
+QC	CLDN4	CLDN4	1364	symbol	2	DOWN	opposite (down)	descriptive; group-mean FPKM, no gene-level sample FDR	85.8545	50.8495	42.5059	20.4365	-0.749921	-1.03851	-0.894218	DOWN	DOWN	-0.721707	-1.05865	-0.890176
+QC	TACSTD2	TACSTD2	4070	symbol	1	DOWN	opposite (down)	descriptive; group-mean FPKM, no gene-level sample FDR	59.9174	29.539	59.6053	38.5188	-1.00813	-0.623323	-0.815725	DOWN	DOWN	-1.00813	-0.623323	-0.815725

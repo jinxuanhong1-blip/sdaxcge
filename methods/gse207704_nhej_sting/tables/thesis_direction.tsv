@@ -1,0 +1,16 @@
+axis	thesis_after_KO	contrast	call	detail	sign_p	wilcoxon_p
+c-NHEJ (7 genes)	down	T47D	not decreased	mean log2FC 0.240; UP 2, DOWN 0, of 7 measured	0.453125	0.15625
+c-NHEJ (7 genes)	down	MCF7	not decreased	mean log2FC 0.088; UP 0, DOWN 0, of 7 measured	0.453125	0.375
+c-NHEJ (7 genes)	down	mean	not decreased	mean log2FC 0.164; 6/7 genes > 0; consensus UP 2, DOWN 0, FLAT 5, ABSENT 0	0.125	0.03125
+STING core (5 genes)	up	T47D	not increased; STING1 absent	mean log2FC 0.036; UP 0, DOWN 0, of 4 measured	0.625	0.375
+STING core (5 genes)	up	MCF7	not increased; STING1 absent	mean log2FC 0.080; UP 0, DOWN 0, of 4 measured	0.625	0.25
+STING core (5 genes)	up	mean	not increased; STING1 absent	mean log2FC 0.058; 4/4 genes > 0; consensus UP 0, DOWN 0, FLAT 4, ABSENT 1	0.125	0.125
+Hallmark IFN-γ	up	T47D	decreased (opposite of up)	NES -1.567 nominal p 0.0080 FDR 0.0120; 115 genes in rank; mean log2FC -0.192		
+Hallmark IFN-α	up	T47D	decreased (opposite of up)	NES -1.829 nominal p 0.0010 FDR 0.0030; 60 genes in rank; mean log2FC -0.339		
+MHC-I / APM	up	T47D	not increased (NES<0, FDR>=0.05)	NES -1.232 nominal p 0.1439 FDR 0.1439; 8 genes in rank; mean log2FC -0.187		
+Hallmark IFN-γ	up	MCF7	not increased (NES<0, FDR>=0.05)	NES -1.110 nominal p 0.1109 FDR 0.3012; 115 genes in rank; mean log2FC -0.012		
+Hallmark IFN-α	up	MCF7	not increased (NES<0, FDR>=0.05)	NES -1.008 nominal p 0.2008 FDR 0.3012; 60 genes in rank; mean log2FC 0.017		
+MHC-I / APM	up	MCF7	not increased (NES>0, FDR>=0.05)	NES 0.868 nominal p 0.3347 FDR 0.3347; 8 genes in rank; mean log2FC 0.062		
+Hallmark IFN-γ	up	mean	decreased (opposite of up)	NES -1.542 nominal p 0.0070 FDR 0.0105; 115 genes in rank; mean log2FC -0.102		
+Hallmark IFN-α	up	mean	decreased (opposite of up)	NES -1.637 nominal p 0.0020 FDR 0.0060; 60 genes in rank; mean log2FC -0.161		
+MHC-I / APM	up	mean	not increased (NES<0, FDR>=0.05)	NES -0.819 nominal p 0.3357 FDR 0.3357; 8 genes in rank; mean log2FC -0.063		
