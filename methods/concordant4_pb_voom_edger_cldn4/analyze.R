@@ -182,8 +182,9 @@ fit_engines <- function(counts, group, tag) {
   qlf <- glmQLFit(y, design, robust = TRUE)
   qt <- glmQLFTest(qlf, coef = "groupQ4")
   et <- qt$table
-  se_e <- abs(et$logFC) / sqrt(et$F)
-  se_e[!is.finite(et$F) | et$F <= 0] <- NA_real_
+  se_e <- rep(NA_real_, nrow(et))
+  ok_f <- is.finite(et$F) & et$F > 0
+  se_e[ok_f] <- abs(et$logFC[ok_f]) / sqrt(et$F[ok_f])
   edger_df <- data.frame(
     gene = rownames(et),
     logFC = et$logFC,
@@ -235,8 +236,9 @@ fit_stacked <- function(counts, meta, tag) {
   y <- estimateDisp(y, design, robust = TRUE)
   qlf <- glmQLFit(y, design, robust = TRUE)
   et <- glmQLFTest(qlf, coef = coef)$table
-  se_e <- abs(et$logFC) / sqrt(et$F)
-  se_e[!is.finite(et$F) | et$F <= 0] <- NA_real_
+  se_e <- rep(NA_real_, nrow(et))
+  ok_f <- is.finite(et$F) & et$F > 0
+  se_e[ok_f] <- abs(et$logFC[ok_f]) / sqrt(et$F[ok_f])
   edger_df <- data.frame(
     gene = rownames(et), logFC = et$logFC, se = se_e, t = et$logFC / se_e,
     p = et$PValue, fdr = bh(et$PValue), AveExpr = et$logCPM,
@@ -309,16 +311,21 @@ dl_mat <- function(yi, sei) {
   p_t[k < 2] <- NA
   I2[k < 2] <- NA
   # Dominant cohort, for an honesty check on whether one study carries the gene.
-  wre_share <- wre / swre
-  wre_share[!is.finite(wre_share)] <- -Inf
-  dom <- max.col(wre_share, ties.method = "first")
-  max_w <- apply(replace(wre / swre, !is.finite(wre), NA), 1, max, na.rm = TRUE)
-  max_w[!is.finite(max_w)] <- NA
+  share <- wre / swre
+  share[!is.finite(share)] <- NA
+  max_w <- apply(share, 1, function(x) {
+    x <- x[is.finite(x)]
+    if (!length(x)) NA_real_ else max(x)
+  })
+  share[!is.finite(share)] <- -Inf
+  dom <- max.col(share, ties.method = "first")
+  cn <- colnames(yi)
+  if (is.null(cn)) cn <- paste0("c", seq_len(ncol(yi)))
   data.frame(
-    k = k, logFC = b, se = se, p_z = p_z, p_t = p_t,
+    k = as.integer(k), logFC = b, se = se, p_z = p_z, p_t = p_t,
     tau2 = tau2, I2 = I2, Q = Q,
-    max_weight_share = max_w,
-    dominant_cohort = colnames(yi)[dom],
+    max_weight_share = as.numeric(max_w),
+    dominant_cohort = cn[dom],
     stringsAsFactors = FALSE
   )
 }
@@ -372,16 +379,23 @@ note("genes with count>=10 in >=2 DE samples of every cohort:", length(common_ge
 score_genes <- lapply(families, function(g) intersect(g, common_genes))
 note("family score panel:", paste(sprintf("%s=%d", names(score_genes), lengths(score_genes)), collapse = ", "))
 
-# Per-unit family scores on cohort-specific edgeR logCPM.
+# Per-unit family scores. One shared gene panel per family, TMM logCPM
+# from the full Q1/Q4 matrix (not the DE filter), so cohorts are scored
+# on the same genes.
 score_long <- list()
 for (co in COHORTS) {
   u <- de_units(co)
-  lc <- cohort_fit[[co]]$logcpm
+  mat <- counts[[co]][, u$patient, drop = FALSE]
+  y_sc <- calcNormFactors(DGEList(mat))
+  lc <- cpm(y_sc, log = TRUE, prior.count = 1)
   for (fn in FAM_ORDER) {
     genes <- intersect(score_genes[[fn]], rownames(lc))
     if (length(genes) < 3) {
       note("skip score", fn, co, "n_genes", length(genes))
       next
+    }
+    if (length(genes) != length(score_genes[[fn]])) {
+      note("score panel shrunk", fn, co, length(genes), "of", length(score_genes[[fn]]))
     }
     sc <- colMeans(lc[genes, u$patient, drop = FALSE])
     score_long[[paste(co, fn)]] <- data.frame(
@@ -711,7 +725,14 @@ gene_family <- function(gene) {
   paste(hit, collapse = "|")
 }
 
+as_gene_table <- function(df) {
+  if (!"p" %in% names(df)) df$p <- df$p_t
+  if (!"fdr" %in% names(df)) df$fdr <- df$fdr_kge3
+  df
+}
+
 direction_block <- function(df, contrast, method) {
+  df <- as_gene_table(df)
   rows <- lapply(FAM_ORDER, function(fn) {
     genes <- intersect(families[[fn]], df$gene)
     sub <- df[match(genes, df$gene), ]
@@ -809,13 +830,13 @@ comp_tab <- comp_tab[comp_tab$n > 0, ]
 # --- key genes -------------------------------------------------------------
 
 pull_key <- function(df, contrast, method) {
+  df <- as_gene_table(df)
   sub <- df[df$gene %in% KEY, ]
   if (!nrow(sub)) return(NULL)
   data.frame(
     contrast = contrast, method = method, gene = sub$gene,
     family = vapply(sub$gene, gene_family, character(1)),
-    logFC = sub$logFC, se = sub$se, p = sub$p,
-    fdr = if ("fdr" %in% names(sub)) sub$fdr else sub$fdr_kge3,
+    logFC = sub$logFC, se = sub$se, p = sub$p, fdr = sub$fdr,
     stringsAsFactors = FALSE
   )
 }
@@ -943,7 +964,7 @@ draw_forest <- function() {
   xlim <- range(c(d$ci_low, d$ci_high), finite = TRUE)
   xlim <- c(min(xlim[1], -1.5), max(xlim[2], 1.2))
   plot(NA, xlim = xlim, ylim = c(0.5, nrow(d) + 0.5), yaxt = "n",
-       xlab = "Family-score log2 difference (Q4 − Q1)", ylab = "",
+       xlab = "Family-score log2 difference (Q4 - Q1)", ylab = "",
        main = "Malignant family score, CLDN4 Q4 vs Q1")
   abline(v = 0, lty = 2, col = "grey40")
   cols <- ifelse(grepl("^cohort_", d$estimator), COH_COLS[sub("^cohort_", "", d$estimator)], "black")
@@ -952,7 +973,7 @@ draw_forest <- function() {
   points(d$logFC, d$row, pch = pch, col = cols, cex = ifelse(pch == 18, 1.4, 0.9))
   labs <- sprintf("%s  %s", d$family, gsub("_", " ", d$estimator))
   axis(2, at = d$row, labels = labs, las = 1, cex.axis = 0.62)
-  mtext("Positive = higher in CLDN4-high. Diamonds: RE meta (Knapp–Hartung), mixed model, stacked OLS.",
+  mtext("Positive = higher in CLDN4-high. Diamonds: RE meta (Knapp-Hartung), mixed model, stacked OLS.",
         side = 1, line = 3.6, cex = 0.7)
 }
 save_both(file.path(FIG, "forest_family_score"), 9, 11, draw_forest)
@@ -971,7 +992,7 @@ draw_volcano <- function(df, pcol, title, path) {
     }
     par(mar = c(5, 5, 4, 1))
     plot(x, y, pch = 16, cex = 0.35, col = col,
-         xlab = "logFC (Q4 − Q1)", ylab = "-log10 p", main = title)
+         xlab = "logFC (Q4 - Q1)", ylab = "-log10 p", main = title)
     abline(v = 0, lty = 2, col = "grey40")
     # Label CLDN4 and the strongest gene in each family.
     lab_genes <- "CLDN4"
@@ -995,7 +1016,7 @@ draw_volcano <- function(df, pcol, title, path) {
 mv <- meta_voom[meta_voom$k >= 3, ]
 mv$family <- vapply(mv$gene, gene_family, character(1))
 draw_volcano(stacked$voom, "p", "Stacked limma-voom, cohort-adjusted (n = 18 vs 16)", file.path(FIG, "volcano_stacked_voom"))
-draw_volcano(mv, "p_t", "Random-effects meta of cohort limma-voom logFCs (k ≥ 3)", file.path(FIG, "volcano_re_meta"))
+draw_volcano(mv, "p_t", "Random-effects meta of cohort limma-voom logFCs (k >= 3)", file.path(FIG, "volcano_re_meta"))
 
 draw_heat <- function() {
   # Median limma-voom logFC. Columns: 4 cohorts, stacked, meta.
@@ -1009,7 +1030,7 @@ draw_heat <- function() {
       if (!any(hit)) next
       r <- dir_rows[hit, ][1, ]
       mat[i, j] <- r$median_logFC
-      ann[i, j] <- sprintf("%.2f\n%d↓ %d↑", r$median_logFC, r$n_down, r$n_up)
+      ann[i, j] <- sprintf("%.2f\n%d down / %d up", r$median_logFC, r$n_down, r$n_up)
     }
   }
   draw <- function() {
@@ -1032,7 +1053,7 @@ draw_heat <- function() {
     }
     axis(1, at = seq_len(ncol(z)), labels = colnames(z), las = 2, cex.axis = 0.75)
     axis(2, at = seq_len(nrow(z)), labels = rownames(z), las = 1)
-    mtext("Red = higher in CLDN4 Q4. Counts are genes down / up.", side = 1, line = 6.5, cex = 0.75)
+    mtext("Red = higher in CLDN4 Q4. Cell text is median logFC and genes down / up.", side = 1, line = 6.5, cex = 0.75)
   }
   save_both(file.path(FIG, "heatmap_family_median_logfc"), 8.5, 5.2, draw)
 }
@@ -1048,7 +1069,7 @@ draw_key <- function() {
     ci_l <- d$logFC - 1.96 * d$se
     ci_h <- d$logFC + 1.96 * d$se
     plot(NA, xlim = range(c(ci_l, ci_h)), ylim = c(0.5, nrow(d) + 0.5),
-         yaxt = "n", xlab = "Stacked voom logFC (Q4 − Q1)", ylab = "",
+         yaxt = "n", xlab = "Stacked voom logFC (Q4 - Q1)", ylab = "",
          main = "Key genes, cohort-adjusted limma-voom")
     abline(v = 0, lty = 2, col = "grey40")
     primary <- sub("\\|.*", "", d$family)

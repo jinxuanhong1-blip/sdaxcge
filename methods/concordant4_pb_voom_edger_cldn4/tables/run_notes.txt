@@ -1,0 +1,20 @@
+DL meta matches metafor on the toy example
+GSE123902 DE n_Q1=4 n_Q4=3 (unit=donor). Thin arm=no
+GSE123902 tested genes voom=10694 edger=10694
+GSE131907 DE n_Q1=6 n_Q4=5 (unit=sample). Thin arm=no
+GSE131907 tested genes voom=12856 edger=12856
+GSE205335 DE n_Q1=5 n_Q4=6 (unit=patient). Thin arm=no
+GSE205335 tested genes voom=15769 edger=15769
+GSE189357 DE n_Q1=3 n_Q4=2 (unit=patient). Thin arm=YES
+GSE189357 tested genes voom=14529 edger=14529
+genes with count>=10 in >=2 DE samples of every cohort: 11889
+family score panel: IFN=203, MHC-I/APM=21, chemokine=14, TJ=168, keratin=9
+LMM IFN logFC=-0.665 SE=0.235 p=0.00832 cohort_SD=0.247
+LMM MHC-I/APM logFC=-0.782 SE=0.317 p=0.0199 cohort_SD=0.010
+LMM chemokine logFC=-1.398 SE=0.349 p=0.000398 cohort_SD=1.130
+LMM TJ logFC=0.129 SE=0.096 p=0.191 cohort_SD=0.296
+LMM keratin logFC=-0.152 SE=0.637 p=0.813 cohort_SD=0.013
+stacked voom genes=12193 edger genes=12193 coef=groupQ4
+voom meta genes k>=3: 11856; k=4: 9729
+CLDN4 voom RE logFC=1.058 (metafor match) p_t=0.043 k=4
+DE units with n_malignant<50: LX699
