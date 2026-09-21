@@ -1,10 +1,29 @@
 # Cell painting and DNA-damage morphology: CLDN4 inventory
 
-Exploratory public catalog. No same-well CLDN4 RNA or protein measurement sits next to a DNA-damage morphology assay in the sets checked here. Private 8-KL matrices were not used.
+**FINAL dead-end for Cell Painting–CLDN4–DNA-damage.** Named nuclear and DNA-channel features are in the JUMP interpretable profiles and were scored. They do not support a CLDN4 DNA-damage claim. RxRx3 embeddings have no DNA or nuclear feature names, so they were not scored as that proxy. There is no γH2AX in either set. Private 8-KL matrices were not used.
 
-Cell Painting’s DNA channel (Hoechst or DAPI) is nuclear morphology. It is not a γH2AX or comet readout. Feature counts from that channel are not a DNA-damage call.
+Cell Painting’s DNA channel (Hoechst) is nuclear morphology. It is not a γH2AX or comet readout.
 
-## Where CLDN4 is a named perturbation
+## Scored this pass
+
+JUMP interpretable well profiles (well-position corrected, MAD-scaled, feature names intact):
+
+- CRISPR `JCP2022_801379`, 5 wells, all well G18, source_13 plates `CP-CC9-R1-06`–`R5-06`
+- ORF `JCP2022_905637`, 5 wells, all well B05, source_4 plates `BR00123512`–`BR00123516`
+
+Nineteen features were fixed before the same-well test: nuclear area and shape, nuclear DNA intensity (mean, median, MAD, integrated, std), one scale of DNA texture (contrast, entropy, variance, InfoMeas1), DNA granularity 1 and 3, and cell/cytoplasm DNA intensity. Same-well controls are the other genes in that well (CRISPR 143, ORF 215). Plate controls are the documented negcons on those five plates (CRISPR no-guide and non-targeting, 101 wells; ORF BFP, HcRed, luciferase, and LacZ, 80 wells). Bonferroni threshold for 19 tests is 0.00263.
+
+**Same-well result: no survivor.** The smallest CRISPR p-value is `Nuclei_Texture_InfoMeas1_DNA_5_00_256`, median 1.676 vs −0.072, Mann–Whitney p = 0.0060. Nuclear DNA mean intensity is −0.574 vs 0.096, p = 0.092. ORF nuclear DNA mean intensity is 1.304 vs 0.977, p = 0.50. ORF DNA texture p-values in this panel are 0.23–0.62. Two ORF shape features are nominal only (form factor p = 0.036, compactness p = 0.044).
+
+**Plate-negcon shape gaps are not a CLDN4 effect.** CRISPR compactness is 0.129 in CLDN4 versus 5.606 in the 101 negcon wells (p = 1.4×10⁻⁷), but the median of all 1,720 wells on those plates is 0. The negcon wells sit far from the plate center. Against other G18 genes, compactness is 0.129 vs −0.398, p = 0.52.
+
+JUMPrr’s own gene-level call, from `crispr_interpretable_features.parquet` / `orf_interpretable_features.parquet` (Zenodo 10.5281/zenodo.14861664), is a multivariate profile versus negcons, not a DNA-damage test. CRISPR corrected p = 1.81×10⁻⁴, phenotypic activity 0.885 (49 rows in the browser feature table). ORF corrected p = 0.300, phenotypic activity 0.378. In the full CRISPR feature-significance matrix, 288 of 3,651 features tie at the minimum 0.00844 (RNA 93, Mito 90, ER 52, AGP 24, DNA 23). None of the tied features are nuclear DNA intensity. The ORF minimum is 0.0457, shared by 106 features, many of them repeated angles and scales of the same cytoplasm DNA texture; that does not override the gene-level p of 0.30 or the null same-well DNA-intensity test.
+
+RxRx3-core CLDN4 (89 HUVEC CRISPR wells) is an OpenPhenom embedding. Those vectors are not CellProfiler DNA or nuclear features. They were not scored.
+
+Tables: `results/tables/jump_cldn4_nuclear_proxies.tsv`, `jump_cldn4_official_phenotype.tsv`, `jump_cldn4_significance_floor.tsv`. Rebuild with `python3 scripts/score_jump_cldn4_nuclear.py`.
+
+## Inventory
 
 Three public Cell Painting resources name CLDN4 as a genetic reagent. None of them measure CLDN4 expression in the imaged wells.
 
