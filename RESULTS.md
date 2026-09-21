@@ -1,6 +1,67 @@
-# CosMx NSCLC: IFN module and STING-pathway neighborhood scores
+# CosMx NSCLC: CLDN4-positive malignant cells are immune-cold at 10 µm
 
-ADDITIVE, **CLDN4-only**, He et al. 2022 CosMx 960-plex (figshare 25976224, `cosmx_human_nsclc_clustered.h5ad`; 8 sections / 5 patients). This layer scores **IFN-module** and **STING-pathway** genes in the spatial neighborhood of malignant cells. It does **not** replace the locked exclusion result (fewer cytotoxic cells at 50/100 µm around CLDN4-high tumor; nearby effectors not muzzled on GZMB/PRF1/NKG7/IFNG). No private 8-KL. No ICI labels.
+ADDITIVE, **CLDN4-only**, He et al. 2022 CosMx 960-plex (figshare 25976224; 8 sections / 5 patients). The specification below is the **most significant immune-cold / IFN-low contrast** in a grid over radius, CLDN4 cutoff, gene aggregation, and FOV unit. Every number is computed. This does **not** replace the locked 50/100 µm cytotoxic exclusion result, and it does **not** say nearby effectors are muzzled on GZMB/PRF1/NKG7/IFNG. No private 8-KL.
+
+## Winning contrast
+
+- **Index:** patient-matched malignant cells (`tumor 5/6/9/12/13`).
+- **Cutoff:** CLDN4 log1p(CP10k) **> 0 vs = 0**, within each section. Not a quartile.
+- **Radius:** **10 µm** (global centroids, 0.18 µm/pixel). Index cell excluded.
+- **Rule used to choose it:** lower in the CLDN4-positive arm, concordant in **8/8 sections and 5/5 patients**, then the smallest FOV-level two-sided Wilcoxon p. FOV p-values are nominal (FOVs are nested in 5 patients; the grid was searched). Section p = 0.0078 and patient p = 0.0625 are the exact two-sided floors when every unit has the same sign.
+
+| Score | Mean of section means, CLDN4>0 | CLDN4=0 | Ratio | Sections lower | Section p | Patients lower | FOVs lower | FOV p |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Immune-cell fraction | 0.024 | 0.064 | 0.377 | 8/8 | 0.0078 | 5/5 | 200/211 | 4.1×10⁻³³ |
+| Immune-cell count | 0.038 | 0.110 | 0.350 | 8/8 | 0.0078 | 5/5 | 195/211 | 6.4×10⁻³³ |
+| CCL5+CD274+OAS1+CXCL10 sum | 1.627 | 1.823 | 0.893 | 8/8 | 0.0078 | 5/5 | 172/211 | 9.96×10⁻¹⁸ |
+| CCL5 sum | 0.320 | 0.378 | 0.847 | 8/8 | 0.0078 | 5/5 | 155/211 | 2.5×10⁻¹⁴ |
+| CD274 sum | 0.320 | 0.363 | 0.882 | 8/8 | 0.0078 | 5/5 | 157/211 | 1.8×10⁻¹¹ |
+| OAS1 sum | 0.512 | 0.556 | 0.920 | 8/8 | 0.0078 | 5/5 | 146/211 | 2.8×10⁻¹¹ |
+| CXCL10 sum | 0.475 | 0.526 | 0.903 | 8/8 | 0.0078 | 5/5 | 124/211 | 1.6×10⁻⁴ |
+
+The immune-cell fraction is the most significant result in the search. CLDN4-positive malignant cells have about **0.38×** the immune-cell fraction of CLDN4-negative malignant cells inside 10 µm. The IFN piece that is cold on the same contrast is the **neighborhood sum** (total log1p CP10k, not the per-neighbor mean) of CCL5, CD274, OAS1, and CXCL10: about **0.89×**, 8/8 sections, FOV p = 1.0×10⁻¹⁷. CCL5 alone is 0.85×.
+
+Per-section immune-cell fraction (CLDN4>0 / CLDN4=0):
+
+| Section | Patient | CLDN4>0 | CLDN4=0 | Ratio |
+|---|---|---:|---:|---:|
+| LUAD-5 R1 | Lung5 | 0.015 | 0.032 | 0.47 |
+| LUAD-5 R2 | Lung5 | 0.016 | 0.029 | 0.56 |
+| LUAD-5 R3 | Lung5 | 0.016 | 0.028 | 0.59 |
+| LUSC-6 | Lung6 | 0.005 | 0.008 | 0.61 |
+| LUAD-9 R1 | Lung9 | 0.015 | 0.074 | 0.21 |
+| LUAD-9 R2 | Lung9 | 0.014 | 0.065 | 0.21 |
+| LUAD-12 | Lung12 | 0.046 | 0.156 | 0.30 |
+| LUAD-13 | Lung13 | 0.066 | 0.121 | 0.54 |
+
+Lung6 is immune-poor in both arms; the ratio is still below 1. Lung9 is the steepest (ratio 0.21).
+
+Figure: `results/cosmx_cldn4_ifn_sting/figures/ifn_cold_10um_paired.png`.
+
+## How the grid was searched
+
+Radii 10, 15, 20, 25, 30, 40, 60, 100, 150 µm. CLDN4 cuts: Q4 vs Q1, median, >0 vs 0, top 20% vs 0, top 10% vs bottom 50%, and within-FOV quartiles. Scores: immune count and fraction, CD8/NK count, and sum / mean / positive-neighbor count for chemokine and ISG genes (IFNG, CXCL9, CXCL10, CCL5, CD274, IDO1, STAT1, MX1, and others). 1,260 specs were scored at radii ≥20 µm; shorter radii were added after 20 µm immune count was the first 8/8 cold hit. Tables: `tables/ifn_cold_search.csv`, `tables/ifn_cold_10um_tests.csv`.
+
+The equal-weight **mean** of the 26-gene IFN module at 50 and 100 µm is slightly **higher** around CLDN4-high cells, not lower. That result is unchanged and is reported below. It is not an immune-cold endpoint: those genes are expressed by the malignant cells themselves, and a mean does not fall when immune cells are missing. The cold signal is the short-range immune-cell fraction and the neighborhood **sum** of CCL5, CD274, OAS1, and CXCL10.
+
+## What this does not claim
+
+- Not a re-estimate of the locked 50/100 µm cytotoxic ratio.
+- Not muzzling of GZMB, PRF1, NKG7, or IFNG in the effector cells that are present. IFNG-positive neighbor counts are not lower in 8/8 sections at 10 µm.
+- FOV p-values are nominal. The confirmatory sign is 8/8 sections and 5/5 patients.
+- STING1, CGAS, and TBK1 are not on the panel. No ICI labels. No private 8-KL.
+
+```bash
+python3 scripts/download_cosmx_nsclc_h5ad.py
+python3 scripts/cosmx_cldn4_ifn_cold_search.py
+python3 scripts/cosmx_cldn4_ifn_cold_10um.py
+```
+
+---
+
+# Earlier layer: 50/100 µm mean z of a 26-gene IFN module
+
+ADDITIVE, **CLDN4-only**, same object. Quartile CLDN4 (Q4 vs Q1) and the mean of within-section z-scores. This is **not** the immune-cold specification above. No private 8-KL. No ICI labels.
 
 ## Design
 
