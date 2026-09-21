@@ -1,0 +1,23 @@
+pr	title	already_covers	this_wave
+331	DepMap CLDN4 Chronos vs IFN/MHC/CD274 (n=123)	Chronos vs IFN on CRISPR∩RNA; median +0.050; 0/123 < -0.5	reproduced the overlap median; did not recompute IFN
+304	DepMap lung CLDN4 vs Hallmark IFN-γ / MHC-I / CD274	CLDN4 RNA vs IFN, n=214	expression n=214 reused only as the Expression Public cohort
+388	CCLE/DepMap lung protein CLDN4 vs CD274/IFN	baseline Gygi protein	not a knockout proteome
+575	DepMap lung TROP2 vs CLDN1/4/7 protein and RNA	baseline RNA and Gygi; blank 26Q1 expression URLs	catalog re-queried; Chronos distribution is new
+120	DepMap 24Q4 lung CRISPR: TACSTD2 and CLDN4 vs IFN/MHC-I	CRISPR gene effect vs IFN	not re-estimated
+106	Rework DepMap IFN: PRISM, CRISPR gene effects, MHC-I protein	TACSTD2-centered	not re-estimated
+59	DepMap lung TACSTD2 vs IFN/MHC-I/APM and CLDN4	RNA co-expression	not re-estimated
+144	DepMap lung TACSTD2 and interferon	TACSTD2 RNA	not re-estimated
+43	CLDN4 loss meta-analysis	GSE207704, GSE50927, GSE22493 IFN panels	cited, not re-run
+98	GSE207704 IFN/MHC after CLDN4 KO	breast CRISPR RNA	cited, not re-run
+104	GSE22493 CLDN4 siRNA	ovarian array	cited, not re-run
+131	KD/KO RNA-seq playbook	GSE207704 plus TACSTD2 series	cited, not re-run
+155	true KD-KO public transcriptomes	GSE207704, GSE50927, GSE22493	cited, not re-run
+287	public CLDN4-loss prerank GSEA	same three series	cited, not re-run
+310	GSE50927 extra figures	mouse lung KO RNA	cited, not re-run
+512	mouse Cldn4 KO RNA-seq hunt	GSE50927	cited, not re-run
+517	GSE50927 Cldn4-high vs low	mouse lung KO RNA	cited, not re-run
+580	GSE50927 baseline no VILI	mouse lung KO RNA	cited, not re-run
+585	GSE50927 baseline NHEJ/STING	mouse lung KO RNA	cited, not re-run
+592	CLDN4 knockdown RNA-seq outside GEO	no open non-GSE deposit; H1688 has no accession	PRIDE and DepMap catalog added
+586	Sci Rep 2025 CLDN4 CRISPRi	no open raw RNA-seq or proteomics	not re-downloaded
+558	spatial proteomics CLDN4 + CD8	empty spatial protein hunt	not a knockout

@@ -1,0 +1,15 @@
+accession_or_pmid	system	perturbation	rna_public	proteomics_public	paired	already_analyzed_pr	note
+GSE207704	human breast MCF7 and T47D	CRISPR CLDN4-/-	yes	no	no	43, 98, 131, 155	RNA-seq FPKM. Not a lung line. No PRIDE companion.
+GSE50927	mouse whole lung, germline Cldn4 KO, ventilator injury	germline knockout	yes	no	no	43, 155, 512	RNA-seq. BAL protein leak in the paper is not a mass-spec proteome.
+GSE22493	human ovarian SKOV-3	CLDN4 siRNA vs overexpression arrays	yes_microarray	no	no	43, 155	Low-confidence array contrast already catalogued. Not lung.
+PMID:41016339	human SCLC NCI-H1688	CLDN4 knockout, RNA-seq reported	not_found	not_described	no		EuropePMC hasData=N, no PMCID. GEO/SRA queries returned no H1688 CLDN4-KO accession. Abstract does not describe proteomics.
+PMID:41697223	mouse germline Cldn4 deletion, abdominal sepsis	germline deletion	not_in_abstract	not_in_abstract	no		Gut permeability and flow cytometry. Not a lung-cancer KO transcriptome or proteome.
+PXD066158	germ cell tumor cells	CLDN6-deficient	not_this_record	yes_other_gene	no		PRIDE hit for claudin, not a CLDN4 knockout.
+PXD031094	pan-claudin family	interactome	no	yes_interactome	no		Shared/specific claudin interactions. Not a CLDN4 KO differential proteome.
+GSE174462	human SCLC NCI-H1688	shFOXM1	yes_other_gene	no	no		Only GEO series returned by H1688 AND (CLDN4 OR SAA1 OR knockout). Perturbation is FOXM1, not CLDN4.
+PMID:33006362	A549 and H1299	CRAD knockdown	microarray_other_gene	western_blot_only	no		PubMed lung RNA query hit. CLDN4 is a downstream readout of CRAD knockdown, not the perturbed gene.
+PMID:36840413	neuroendocrine carcinoma including SCLC	ELF3 knockdown	yes_other_gene	no	no		PubMed lung RNA query hit. Not a CLDN4 knockout.
+PMID:38345099	intestinal epithelium	MUC13 deletion	no	not_CLDN4_KO	no		PubMed proteome/knockout query hit. Claudin proteins change after MUC13 loss. Not a CLDN4 knockout proteome.
+PMID:37889067	claudin-low breast cell lines	none (subtype comparison)	CCLE_baseline	no	no		PubMed proteome/knockout query hit. Claudin-low subtype, not CLDN4 knockout.
+PMID:19318328	hepatocellular carcinoma FFPE	none	no	no	no		PubMed proteome/knockout query hit. Claudin-4 immunohistochemistry, not a knockout proteome.
+DepMap Expression Public 24Q4	cancer cell lines, including lung	genome-wide CRISPR screen (viability), separate baseline RNA-seq	yes_baseline	not_in_24Q4_file_set	no	304, 331, 388	OmicsExpressionProteinCodingGenesTPMLogp1.csv is baseline log2(TPM+1), not expression after CLDN4 knockout. 24Q4 file set has no proteomics matrix.
