@@ -228,7 +228,7 @@ def wilcoxon_pair(a: np.ndarray, b: np.ndarray) -> dict:
         return out
     res = stats.wilcoxon(a[m], b[m], alternative="two-sided", zero_method="wilcox")
     out["stat"] = float(res.statistic)
-    out["p_two"] = float(res.p_value)
+    out["p_two"] = float(res.pvalue)
     return out
 
 
@@ -445,14 +445,34 @@ def nanmean(xs: list[float]) -> float:
 
 
 def perm_p(obs: float, null: np.ndarray) -> dict:
+    """Tails are versus the permutation distribution, which is not centered at 0.
+
+    Absolute gaps are larger where counts are higher, so a label shuffle already
+    expects a more negative delta at the margin. p_two is recentered on the
+    null median. p_one_core_stronger is the lower tail (core minus margin).
+    """
+    null = np.asarray(null, dtype=float)
     null = null[np.isfinite(null)]
     if not np.isfinite(obs) or null.size == 0:
-        return {"p_one_core_stronger": np.nan, "p_two": np.nan, "n": int(null.size)}
-    # one-sided: more negative interaction (stronger drop in core) 
-    p_one = (1 + np.sum(null <= obs)) / (1 + null.size)
-    p_two = (1 + np.sum(np.abs(null) >= abs(obs))) / (1 + null.size)
-    return {"p_one_core_stronger": float(p_one), "p_two": float(p_two), "n": int(null.size),
-            "null_mean": float(null.mean()), "null_sd": float(null.std())}
+        return {
+            "p_one_core_stronger": np.nan,
+            "p_one_margin_stronger": np.nan,
+            "p_two": np.nan,
+            "n": int(null.size),
+        }
+    p_low = (1 + np.sum(null <= obs)) / (1 + null.size)
+    p_high = (1 + np.sum(null >= obs)) / (1 + null.size)
+    center = float(np.median(null))
+    p_two = (1 + np.sum(np.abs(null - center) >= abs(obs - center))) / (1 + null.size)
+    return {
+        "p_one_core_stronger": float(p_low),
+        "p_one_margin_stronger": float(p_high),
+        "p_two": float(p_two),
+        "n": int(null.size),
+        "null_mean": float(null.mean()),
+        "null_median": center,
+        "null_sd": float(null.std()),
+    }
 
 
 def run_definition(bundle: dict, rich_names: tuple[str, ...], label: str) -> dict:
@@ -633,20 +653,20 @@ def paired_tests(df: pd.DataFrame, definition: str, radius: float, stratum_a: st
         w_inter = {"n": int(m.sum()), "p_two": np.nan, "n_core_stronger": int(np.sum(inter[m] < 0))}
         if m.sum() >= 5 and not np.allclose(inter[m], 0):
             res = stats.wilcoxon(inter[m], alternative="two-sided", zero_method="wilcox")
-            w_inter["p_two"] = float(res.p_value)
+            w_inter["p_two"] = float(res.pvalue)
             w_inter["stat"] = float(res.statistic)
         w_a = {"n": int(np.isfinite(delta).sum()), "p_two": np.nan,
                "n_exclusion": int(np.sum(delta[np.isfinite(delta)] < 0))}
         dfin = delta[np.isfinite(delta)]
         if dfin.size >= 5 and not np.allclose(dfin, 0):
             res = stats.wilcoxon(dfin, alternative="two-sided", zero_method="wilcox")
-            w_a["p_two"] = float(res.p_value)
+            w_a["p_two"] = float(res.pvalue)
         dfin_b = delta_b[np.isfinite(delta_b)]
         w_b = {"n": int(dfin_b.size), "p_two": np.nan,
                "n_exclusion": int(np.sum(dfin_b < 0))}
         if dfin_b.size >= 5 and not np.allclose(dfin_b, 0):
             res = stats.wilcoxon(dfin_b, alternative="two-sided", zero_method="wilcox")
-            w_b["p_two"] = float(res.p_value)
+            w_b["p_two"] = float(res.pvalue)
         ratio_a = a[col_ratio].to_numpy(dtype=float)
         ratio_b = b[col_ratio].to_numpy(dtype=float)
         rinter = ratio_a - ratio_b
@@ -654,7 +674,7 @@ def paired_tests(df: pd.DataFrame, definition: str, radius: float, stratum_a: st
         w_r = {"n": int(rm.sum()), "p_two": np.nan, "n_core_stronger": int(np.sum(rinter[rm] < 0))}
         if rm.sum() >= 5 and not np.allclose(rinter[rm], 0):
             res = stats.wilcoxon(rinter[rm], alternative="two-sided", zero_method="wilcox")
-            w_r["p_two"] = float(res.p_value)
+            w_r["p_two"] = float(res.pvalue)
         # patient: unweighted mean of sections
         pat_rows = []
         for patient, g_idx in a.groupby("patient").groups.items():
@@ -712,7 +732,7 @@ def paired_tests(df: pd.DataFrame, definition: str, radius: float, stratum_a: st
         w = {"n": int(m.sum()), "p_two": np.nan, "n_core_stronger": int(np.sum(inter[m] < 0))}
         if m.sum() >= 5 and not np.allclose(inter[m], 0):
             res = stats.wilcoxon(inter[m], alternative="two-sided", zero_method="wilcox")
-            w["p_two"] = float(res.p_value)
+            w["p_two"] = float(res.pvalue)
         tests["contact_log_or"] = {
             "mh_or_a": mh_or(a.to_dict(orient="records")),
             "mh_or_b": mh_or(b.to_dict(orient="records")),
@@ -741,7 +761,7 @@ def auc_tests(auc_df: pd.DataFrame, definition: str) -> dict:
     }
     if m.sum() >= 5 and not np.allclose(diff, 0):
         res = stats.wilcoxon(h[m], low[m], alternative="two-sided", zero_method="wilcox")
-        out["p_two"] = float(res.p_value)
+        out["p_two"] = float(res.pvalue)
     # patient
     pat_hi = []
     for patient, g in sub.groupby("patient"):
@@ -852,18 +872,35 @@ def plot_deltas(df: pd.DataFrame, path: str) -> None:
     plt.close(fig)
 
 
-def plot_curves(curve: pd.DataFrame, path: str) -> None:
+def plot_curves(curve: pd.DataFrame, auc_df: pd.DataFrame, path: str) -> None:
     sub = curve[curve.definition == "immune_rich"]
     if sub.empty:
         return
     g = sub.groupby("distance_um")[["count_high", "count_low"]].mean()
-    fig, ax = plt.subplots(figsize=(5.6, 4.0), constrained_layout=True)
+    fig, axes = plt.subplots(1, 2, figsize=(8.6, 4.0), constrained_layout=True)
+    ax = axes[0]
     ax.plot(g.index, g["count_high"], color="#b2182b", marker="o", ms=4, label="CLDN4-high")
     ax.plot(g.index, g["count_low"], color="#2166ac", marker="o", ms=4, label="CLDN4-low")
     ax.set_xlabel("Distance to immune-rich niche (µm)")
     ax.set_ylabel("Mean cytotoxic neighbors in 50 µm")
-    ax.set_title("Depth curve (section-mean)")
+    ax.set_title("Section-mean depth curve")
     ax.legend(frameon=False)
+    ax = axes[1]
+    auc = auc_df[auc_df.definition == "immune_rich"].set_index("sample")
+    for nm in SAMPLE_ORDER:
+        if nm not in auc.index:
+            continue
+        y0 = float(auc.loc[nm, "auc_low"])
+        y1 = float(auc.loc[nm, "auc_high"])
+        if not (np.isfinite(y0) and np.isfinite(y1)):
+            continue
+        ax.plot([0, 1], [y0, y1], color="#4d4d4d", lw=1.0)
+        ax.scatter([0], [y0], color="#2166ac", s=36, zorder=2)
+        ax.scatter([1], [y1], color="#b2182b", s=36, zorder=2)
+    ax.set_xticks([0, 1], ["CLDN4-low", "CLDN4-high"])
+    ax.set_ylabel("AUC of 50 µm cytotoxic count\nfrom 0 to 200 µm")
+    ax.set_title("Section AUC (not a primary claim)")
+    ax.set_xlim(-0.35, 1.35)
     fig.savefig(path, dpi=160)
     fig.savefig(path.replace(".png", ".pdf"))
     plt.close(fig)
@@ -967,7 +1004,7 @@ def main() -> None:
         w = {"n": int(m.sum()), "p_two": np.nan, "n_exclusion": int(np.sum(delta[m] < 0))}
         if m.sum() >= 5 and not np.allclose(delta[m], 0):
             res = stats.wilcoxon(delta[m], alternative="two-sided", zero_method="wilcox")
-            w["p_two"] = float(res.p_value)
+            w["p_two"] = float(res.pvalue)
         # patient
         pat = block.groupby("patient")["count_delta"].mean()
         n_pat = int(len(pat))
@@ -996,7 +1033,7 @@ def main() -> None:
 
     plot_paired(df, os.path.join(FIG, "paired_ratio_core_margin.png"))
     plot_deltas(df, os.path.join(FIG, "section_delta_50um.png"))
-    plot_curves(curve, os.path.join(FIG, "depth_curve_50um.png"))
+    plot_curves(curve, auc_df, os.path.join(FIG, "depth_curve_50um.png"))
     # map: sample with the largest balanced core and margin
     best, best_score = None, -1
     for name, prep in primary["preps"].items():
