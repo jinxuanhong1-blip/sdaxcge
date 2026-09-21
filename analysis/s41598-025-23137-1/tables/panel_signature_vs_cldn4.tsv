@@ -1,0 +1,7 @@
+profile	panel	n_genes_in_mean	n_samples	rho_signature_vs_CLDN4	p	q_bh	transform
+ov_tcga_pan_can_atlas_2018_rna_seq_v2_mrna	IFN_ISG	30	300	0.0367	0.526589	0.526589	mean of per-gene z-scores of log2(RSEM+1)
+ov_tcga_pan_can_atlas_2018_rna_seq_v2_mrna	NHEJ	17	300	-0.201928	0.000432812	0.00129844	mean of per-gene z-scores of log2(RSEM+1)
+ov_tcga_pan_can_atlas_2018_rna_seq_v2_mrna	STING	12	300	0.0624576	0.280885	0.421327	mean of per-gene z-scores of log2(RSEM+1)
+ov_tcga_pan_can_atlas_2018_protein_quantification	IFN_ISG	23	104	0.164494	0.0951915	0.142787	mean of per-gene z-scores of CPTAC protein values
+ov_tcga_pan_can_atlas_2018_protein_quantification	NHEJ	11	104	-0.00253921	0.979591	0.979591	mean of per-gene z-scores of CPTAC protein values
+ov_tcga_pan_can_atlas_2018_protein_quantification	STING	10	104	-0.247551	0.01129	0.03387	mean of per-gene z-scores of CPTAC protein values
