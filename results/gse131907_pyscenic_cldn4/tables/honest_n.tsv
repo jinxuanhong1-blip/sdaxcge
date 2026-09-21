@@ -1,0 +1,16 @@
+item	n	note
+cells_in_matrix	208506	GSE131907 UMI header
+author_malignant	31136	Cell_subtype in {Malignant cells, tS1, tS2, tS3}
+malignant_UMI_ge_200	31136	QC cells scored by AUCell
+genes_aucell_universe	15075	detected in ≥1% of QC malignant cells
+grn_cells_subsample	3000	stratified by sample, seed 131907
+grn_genes	3067	HVG + TFs detected in ≥5% + program genes
+tf_regulators_grnboost2	1060	Lambert/Aerts TF list, detection ≥0.05
+cistarget_regulons_NES3	253	activating modules kept by pySCENIC defaults
+samples_ge20_malignant	31	before the high/low tail rule
+samples_paired_ge20_each_tail	29	unit inside each patient
+samples_split_by_gt0	4	median CLDN4 log1p was 0
+patients_paired	29	primary Wilcoxon unit
+paired_patients_single_sample	29	one sample supplied both tails
+paired_patients_one_sample_gt_70pct_cells	29	cell-weighted mean can follow that sample
+patients_tLung_paired	10	primary-tumor cells only; split recomputed
