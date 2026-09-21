@@ -1,0 +1,65 @@
+spec	family	kind	n	hit	joint_sign	reliable	ifn_median	ifn_n_thesis	ifn_n_opposite	ifn_sign_ok	sting_median	sting_n_thesis	sting_n_opposite	sting_sign_ok	nhej_median	nhej_n_thesis	nhej_n_opposite	nhej_sign_ok	n_modules_thesis_sign
+bulk_pre_nmpr_sample_q4q1	bulk	bulk_split	8	False	False	False	0.09725719919349363	0.0	1.0	False	-0.011872965743863872	1.0	0.0	True	0.07124277038653348	1.0	0.0	True	2
+post_a3_pos_median	q_split	paired	6	False	False	False	-0.017371080003593997	6.0	0.0	True	-0.002660083148422615	4.0	2.0	True	-0.04832956863914484	0.0	6.0	False	2
+post_a3_pos_q4q1	q_split	paired	6	False	False	False	-0.04149880484240483	5.0	1.0	True	-0.013056776566099798	5.0	1.0	True	-0.08310258574780957	0.0	6.0	False	2
+all_a3_q4q1	pre_vs_post	paired	8	False	False	False	0.062217194441771304	0.0	8.0	False	0.06368241036244693	1.0	7.0	False	0.02853216318288314	5.0	3.0	True	1
+bulk_double_low_vs_double_high	double_low	bulk_split	20	False	False	False	0.3183729855842543	0.0	1.0	False	0.048014560577471777	0.0	1.0	False	0.33749316967711307	1.0	0.0	True	1
+bulk_pre_adeno	bulk	correlation	8	False	False	False	0.4285714285714286			False	0.4285714285714286			False	0.7380952380952381			True	1
+bulk_pre_adeno_partial_epcam	bulk	correlation	8	False	False	False	-0.006054493496205978			False	-0.5499999999999999			True	-0.4437500000000002			False	1
+bulk_pre_all_sample_q4q1	bulk	bulk_split	12	False	False	False	0.5955677134154209	0.0	1.0	False	0.25003417700446384	0.0	1.0	False	0.40884336110615793	1.0	0.0	True	1
+bulk_pre_mpr	bulk	correlation	9	False	False	False	0.6666666666666667			False	0.7			False	0.6333333333333333			True	1
+post_a3_adeno_like_q4q1	subtype	paired	2	False	False	False	0.1061060957536994	0.0	2.0	False	0.10299934154354236	0.0	2.0	False	0.02364246548728091	2.0	0.0	True	1
+post_a3_adeno_q4q1	response	paired	2	False	False	False	0.1270803419732079	0.0	2.0	False	0.12837611993817588	0.0	2.0	False	0.03165689447213832	2.0	0.0	True	1
+post_a3_cycling_q4q1	subtype	paired	5	False	False	False	0.04674170074763759	2.0	3.0	False	0.011566422189483255	2.0	3.0	False	0.017420799350264915	3.0	2.0	True	1
+post_a3_decile	q_split	paired	5	False	False	False	0.054171047713396314	0.0	5.0	False	0.04316619506654604	1.0	4.0	False	0.003933163461170147	3.0	2.0	True	1
+post_a3_detected	q_split	paired	6	False	False	False	0.09580421136666753	0.0	6.0	False	0.08165093364463055	1.0	5.0	False	0.0465470273871129	6.0	0.0	True	1
+post_a3_double_low_vs_double_high	double_low	paired	6	False	False	False	0.08247176477650289	0.0	6.0	False	0.07291728998281041	1.0	5.0	False	0.02549363625647874	4.0	2.0	True	1
+post_a3_epcam_high_q4q1	subtype	paired	5	False	False	False	0.07741043512616219	2.0	3.0	False	0.06296316327962741	1.0	4.0	False	0.01950551303794143	3.0	2.0	True	1
+post_a3_keratin_high_q4q1	subtype	paired	5	False	False	False	0.037260949224726614	1.0	4.0	False	0.07145151119386745	1.0	4.0	False	2.5083939124342924e-05	3.0	2.0	True	1
+post_a3_keratin_low_q4q1	subtype	paired	5	False	False	False	0.05436011971563498	0.0	5.0	False	0.04550898549019801	1.0	4.0	False	0.0019545216726373216	3.0	2.0	True	1
+post_a3_mpr_q4q1	response	paired	1	False	False	False	0.09934153032688015	0.0	1.0	False	0.07848857918662507	0.0	1.0	False	0.10742389339620578	1.0	0.0	True	1
+post_a3_nmpr_q4q1	response	paired	5	False	False	False	0.05506765952870388	0.0	5.0	False	0.05815746293560713	1.0	4.0	False	0.02206873303099588	3.0	2.0	True	1
+post_a3_nmpr_within_spearman	continuous	paired	5	False	False	False	0.12569308868412013	1.0	4.0	False	0.2298722984693695	1.0	4.0	False	0.0993329703106146	3.0	2.0	True	1
+post_a3_noncycling_q4q1	subtype	paired	6	False	False	False	0.0851601798812351	0.0	6.0	False	0.05658570550600964	0.0	6.0	False	0.016685449279649066	4.0	2.0	True	1
+post_a3_nonribo_lib_q4q1	ribo	paired	6	False	False	False	0.06015582486491469	0.0	6.0	False	0.0737976194077474	1.0	5.0	False	0.022465200838735766	4.0	2.0	True	1
+post_a3_nonribo_scores_on_raw_cldn4	ribo	paired	6	False	False	False	0.06015582486491469	0.0	6.0	False	0.07267890595784011	1.0	5.0	False	0.029596427779640277	4.0	2.0	True	1
+post_a3_q4q1	q_split	paired	6	False	False	False	0.06182143126485019	0.0	6.0	False	0.06504477712315189	1.0	5.0	False	0.028963021973508432	4.0	2.0	True	1
+post_a3_recist_pr_q4q1	response	paired	4	False	False	False	0.08395836666393833	0.0	4.0	False	0.0683230210611161	0.0	4.0	False	0.028963021973508432	3.0	1.0	True	1
+post_a3_resid_ribo_frac	ribo	paired	6	False	False	False	0.039450039781173514	2.0	4.0	False	0.05007076148084816	2.0	4.0	False	0.021181800562272313	4.0	2.0	True	1
+post_a3_tertile	q_split	paired	6	False	False	False	0.06271926108387997	0.0	6.0	False	0.06515545549687352	1.0	5.0	False	0.041454215114479304	4.0	2.0	True	1
+post_a3_top20	q_split	paired	6	False	False	False	0.07460897151402143	0.0	6.0	False	0.07294754769201106	1.0	5.0	False	0.018663380457613774	4.0	2.0	True	1
+post_a3_within_spearman	continuous	paired	6	False	False	False	0.14688685618164857	1.0	5.0	False	0.2257908770306014	1.0	5.0	False	0.137742858946672	4.0	2.0	True	1
+post_a3_within_tacstd2_low_q4q1	double_low	paired	5	False	False	False	0.03024345922876659	1.0	4.0	False	0.022976612946249114	0.0	5.0	False	0.05456503336710408	3.0	2.0	True	1
+post_epi_double_low_vs_double_high	double_low	paired	12	False	False	False	0.05596785087641201	2.0	10.0	False	0.03971032884272614	5.0	7.0	False	0.017637319689463665	8.0	4.0	True	1
+post_epi_median	q_split	paired	12	False	False	False	0.011334907199570504	2.0	10.0	False	0.029643775455778246	5.0	7.0	False	0.011657298929410032	8.0	4.0	True	1
+post_epi_q4q1	q_split	paired	11	False	False	False	0.058260694499048554	2.0	9.0	False	0.06964051355703016	3.0	8.0	False	0.030788163646865846	7.0	4.0	True	1
+post_epi_within_spearman	continuous	paired	12	False	False	False	0.1672185762501584	1.0	11.0	False	0.12413484144774728	5.0	7.0	False	0.09208708769801574	8.0	4.0	True	1
+all_a3_patientmean_spearman	continuous	correlation	8	False	False	False	0.2380952380952381			False	0.28571428571428575			False	0.04761904761904763			False	0
+bulk_pre_all	bulk	correlation	24	False	False	False	0.1695652173913043			False	0.1695652173913043			False	0.25217391304347825			False	0
+bulk_pre_all_partial_epcam	bulk	correlation	24	False	False	False	0.0587081230832467			False	0.06644918963645774			False	-0.21475328190668028			False	0
+bulk_pre_mpr_partial_epcam	bulk	correlation	9	False	False	False	0.4267499029960792			False	0.4847453598018883			False	0.274487345872056			False	0
+bulk_pre_nmpr	bulk	correlation	15	False	False	False	0.09999999999999999			False	0.06785714285714285			False	0.0035714285714285704			False	0
+bulk_pre_nmpr_partial_epcam	bulk	correlation	15	False	False	False	-0.10620016899406433			False	0.021141677631014683			False	-0.38765302655105427			False	0
+bulk_pre_squamous	bulk	correlation	12	False	False	False	-0.16083916083916086			False	0.14685314685314685			False	-0.055944055944055944			False	0
+bulk_pre_squamous_partial_epcam	bulk	correlation	12	False	False	False	-0.030790666882836406			False	0.19970499014510582			False	-0.36405898562634403			False	0
+post_a3_caliper_logumi_0.10	umi_match	paired	6	False	False	False	0.022222479097022435	2.0	4.0	False	0.011532326605557058	2.0	4.0	False	-0.02966558970149101	3.0	3.0	False	0
+post_a3_caliper_logumi_0.25	umi_match	paired	6	False	False	False	0.01943627763699783	2.0	4.0	False	0.018776367199656294	2.0	4.0	False	-0.038277658000206924	3.0	3.0	False	0
+post_a3_caliper_logumi_0.50	umi_match	paired	6	False	False	False	0.022079749397480836	2.0	4.0	False	0.016051005801250066	3.0	3.0	False	-0.03895431352814906	3.0	3.0	False	0
+post_a3_drop_high_ribo	ribo	paired	4	False	False	False	0.042093593019555245	2.0	2.0	False	0.02411896255625394	2.0	2.0	False	-0.023973396152259005	2.0	2.0	False	0
+post_a3_median	q_split	paired	6	False	False	False	0.03653350189422673	1.0	5.0	False	0.053824491974026833	2.0	4.0	False	0.01997293544515423	3.0	3.0	False	0
+post_a3_nmpr_median	response	paired	5	False	False	False	0.0349340986741726	1.0	4.0	False	0.06800449156879498	2.0	3.0	False	-0.0018040057410766697	2.0	3.0	False	0
+post_a3_nmpr_patientmean_spearman	continuous	correlation	5	False	False	False	0.8999999999999998			False	0.49999999999999994			False	0.19999999999999998			False	0
+post_a3_patientmean_spearman	continuous	correlation	6	False	False	False	0.942857142857143			False	0.6			False	0.08571428571428573			False	0
+post_a3_recist_sd_q4q1	response	paired	2	False	False	False	0.02680892797597846	0.0	2.0	False	0.03222212055917623	1.0	1.0	False	-0.015393089070534313	1.0	1.0	False	0
+post_a3_resid_logumi	umi_match	paired	6	False	False	False	0.015320708922106577	0.0	6.0	False	0.012340428456007064	2.0	4.0	False	-0.028700167778247743	1.0	5.0	False	0
+post_a3_resid_logumi_and_ribo	ribo	paired	6	False	False	False	0.004372770832113897	2.0	4.0	False	0.00849829793052812	2.0	4.0	False	-0.026640608107473027	0.0	6.0	False	0
+post_a3_squamous_like_q4q1	subtype	paired	4	False	False	False	0.07598320141457834	1.0	3.0	False	0.01990778228490024	2.0	2.0	False	-0.013528230899616855	2.0	2.0	False	0
+post_a3_squamous_median	response	paired	4	False	False	False	0.024104207251407536	1.0	3.0	False	0.017690539396894495	2.0	2.0	False	-0.0017217777222611474	2.0	2.0	False	0
+post_a3_squamous_patientmean_spearman	continuous	correlation	4	False	False	False	0.7999999999999999			False	0.39999999999999997			False	0.19999999999999998			False	0
+post_a3_squamous_q4q1	response	paired	4	False	False	False	0.06182143126485019	0.0	4.0	False	0.03698010294278597	1.0	3.0	False	-0.010276010164264118	2.0	2.0	False	0
+post_a3_umi_decile	umi_match	paired	5	False	False	False	0.0044684660096802	1.0	4.0	False	0.014669899719269713	2.0	3.0	False	-0.008756699529798568	1.0	4.0	False	0
+post_a3_umi_quintile	umi_match	paired	5	False	False	False	0.010408173273979637	1.0	4.0	False	0.009481796549814077	2.0	3.0	False	-0.004695229485898613	0.0	5.0	False	0
+pre_a3_median	pre_vs_post	paired	2	False	False	False	0.08771326069251999	0.0	2.0	False	0.036975457187962066	0.0	2.0	False	0.009150405371768297	1.0	1.0	False	0
+pre_a3_patientmean_spearman	continuous	correlation	2	False	False	False				False				False				False	0
+pre_a3_q4q1	pre_vs_post	paired	2	False	False	False	0.11433253431669312	0.0	2.0	False	0.0453766794546598	0.0	2.0	False	-0.0028718811548473916	1.0	1.0	False	0
+pre_a3_within_spearman	continuous	paired	2	False	False	False	0.25380374045687654	0.0	2.0	False	0.1442870212445904	0.0	2.0	False	-0.001554822267870959	1.0	1.0	False	0
