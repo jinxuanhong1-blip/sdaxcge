@@ -1,0 +1,70 @@
+query_date	archive	query	n_series_or_records	note
+2026-09-21	GEO gds	"sacituzumab"[All Fields] AND gse[ETYP]	11	Name hits; IMMU132 series are not in this set
+2026-09-21	GEO gds	"sacituzumab govitecan"[All Fields] AND gse[ETYP]	11	Same 11 as sacituzumab
+2026-09-21	GEO gds	"Trodelvy"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	Trodelvy[All Fields] AND gse[ETYP]	11	Unquoted token overlaps the sacituzumab set
+2026-09-21	GEO gds	"IMMU-132"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"IMMU132"[All Fields] AND gse[ETYP]	3	GSE304294, GSE312098, GSE311016
+2026-09-21	GEO gds	IMMU132[All Fields] AND gse[ETYP]	14	Adds papers that mention IMMU132 or sacituzumab in text
+2026-09-21	GEO gds	"govitecan"[All Fields] AND gse[ETYP]	11	Same set as sacituzumab
+2026-09-21	GEO gds	"sacituzumab tirumotecan"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"tirumotecan"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"SKB264"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"SKB-264"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"sac-TMT"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"MK-2870"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"MK2870"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"MK 2870"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"datopotamab"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"datopotamab deruxtecan"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"Dato-DXd"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"Datroway"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"DS-1062"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"DS1062"[All Fields] AND gse[ETYP]	2	GSE173065 and GSE141884, yeast Pol delta
+2026-09-21	GEO gds	"DS-1062a"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	"hRS7"[All Fields] AND gse[ETYP]	0	
+2026-09-21	GEO gds	(drug names) AND (lung OR NSCLC OR LUAD OR LUSC) AND gse[ETYP]	1	GSE302284 only
+2026-09-21	GEO gds	(sacituzumab OR govitecan OR IMMU132 OR datopotamab OR SKB264) AND gse[ETYP] AND 2026/08/18:2026/09/21[PDAT]	0	No new Series since the August hunts
+2026-09-21	SRA	"sacituzumab"[All Fields]	75	Experiments; grouped into a handful of studies
+2026-09-21	SRA	"Trodelvy"[All Fields]	4	Subset of the SG colorectal PDOX study
+2026-09-21	SRA	"IMMU-132"[All Fields]	0	
+2026-09-21	SRA	"IMMU132"[All Fields]	10	GSE312098, GSE311016, GSE304294
+2026-09-21	SRA	"govitecan"[All Fields]	75	Same experiments as sacituzumab
+2026-09-21	SRA	"tirumotecan"[All Fields]	0	
+2026-09-21	SRA	"SKB264"[All Fields]	0	
+2026-09-21	SRA	"SKB-264"[All Fields]	0	
+2026-09-21	SRA	"sac-TMT"[All Fields]	0	
+2026-09-21	SRA	"MK-2870"[All Fields]	0	
+2026-09-21	SRA	"MK2870"[All Fields]	0	
+2026-09-21	SRA	"datopotamab"[All Fields]	24	All PRJNA1169861
+2026-09-21	SRA	"Dato-DXd"[All Fields]	0	
+2026-09-21	SRA	"DS-1062"[All Fields]	0	
+2026-09-21	SRA	"DS1062"[All Fields]	9	Yeast Pol delta
+2026-09-21	SRA	"DS-1062a"[All Fields]	0	
+2026-09-21	SRA	"hRS7"[All Fields]	2	16S amplicon, gut and soil
+2026-09-21	SRA	"Datroway"[All Fields]	0	
+2026-09-21	SRA	"sacituzumab tirumotecan"[All Fields]	0	
+2026-09-21	SRA	(drug names) AND (lung OR NSCLC)	1	PRJNA754211 WXS record, TNBC SG study
+2026-09-21	BioProject	sacituzumab OR datopotamab OR SKB264 OR IMMU132 OR govitecan	21	Includes text mentions and the studies below
+2026-09-21	ArrayExpress	sacituzumab	3	E-MTAB-16433, E-MTAB-16843, E-MTAB-16849
+2026-09-21	ArrayExpress	Trodelvy	1	E-MTAB-16433
+2026-09-21	ArrayExpress	IMMU132	0	
+2026-09-21	ArrayExpress	govitecan	3	Same three colorectal SG studies
+2026-09-21	ArrayExpress	SKB264	0	
+2026-09-21	ArrayExpress	tirumotecan	0	
+2026-09-21	ArrayExpress	datopotamab	0	
+2026-09-21	ArrayExpress	Dato-DXd	0	
+2026-09-21	ArrayExpress	DS-1062	0	
+2026-09-21	PRIDE	sacituzumab	0	
+2026-09-21	PRIDE	Trodelvy	0	
+2026-09-21	PRIDE	IMMU132	0	
+2026-09-21	PRIDE	IMMU-132	0	
+2026-09-21	PRIDE	govitecan	0	
+2026-09-21	PRIDE	SKB264	0	
+2026-09-21	PRIDE	tirumotecan	0	
+2026-09-21	PRIDE	MK-2870	0	
+2026-09-21	PRIDE	datopotamab	0	
+2026-09-21	PRIDE	Dato-DXd	0	
+2026-09-21	PRIDE	DS-1062	0	
+2026-09-21	PRIDE	TACSTD2	0	
+2026-09-21	PRIDE	TROP2	1	PXD065965 prostate TROP2 shedding, not an ADC treatment
