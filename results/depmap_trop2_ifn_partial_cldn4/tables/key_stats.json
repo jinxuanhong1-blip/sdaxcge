@@ -1,0 +1,237 @@
+{
+  "question": "Does CLDN4 attenuate TACSTD2 association with IFN/MHC/immune scores?",
+  "partial_definition": "Pearson r of residuals of ranks after OLS on covariate ranks; df=n-2-k",
+  "n_boot": 5000,
+  "n_rna_lung": 214,
+  "n_rna_nsclc": 143,
+  "n_rna_luad": 80,
+  "n_rna_lusc": 27,
+  "n_rna_sclc": 60,
+  "rna_score_coverage_lung": {
+    "ifng_n_used": 198,
+    "ifng_n_gmt": 200,
+    "ifng_missing": [
+      "RIGI",
+      "TMT1B"
+    ],
+    "mhc1_used": [
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "B2M"
+    ],
+    "immune_used": [
+      "CD274",
+      "PDCD1LG2",
+      "CXCL9",
+      "CXCL10",
+      "CXCL11",
+      "HLA-E",
+      "IDO1"
+    ],
+    "isg_used": [
+      "STAT1",
+      "STAT2",
+      "IRF1",
+      "IRF9",
+      "MX1",
+      "ISG15",
+      "IFIT1",
+      "IFIT3",
+      "OAS1",
+      "OAS2",
+      "OAS3",
+      "EIF2AK2",
+      "IFI35",
+      "BST2",
+      "SAMHD1",
+      "TRIM25",
+      "ADAR",
+      "TAP1",
+      "TAP2",
+      "PSMB8",
+      "PSMB9",
+      "PSMB10"
+    ]
+  },
+  "rna_nsclc_chemokine_expression": {
+    "CD274": {
+      "n": 143,
+      "frac_gt_0": 1.0,
+      "median": 2.0840642647884744
+    },
+    "PDCD1LG2": {
+      "n": 143,
+      "frac_gt_0": 0.8811188811188811,
+      "median": 0.4646682670034443
+    },
+    "CXCL9": {
+      "n": 143,
+      "frac_gt_0": 0.3006993006993007,
+      "median": 0.0
+    },
+    "CXCL10": {
+      "n": 143,
+      "frac_gt_0": 0.7622377622377622,
+      "median": 0.0565835283663675
+    },
+    "CXCL11": {
+      "n": 143,
+      "frac_gt_0": 0.7902097902097902,
+      "median": 0.070389327891398
+    },
+    "HLA-E": {
+      "n": 143,
+      "frac_gt_0": 1.0,
+      "median": 6.13709360897494
+    },
+    "IDO1": {
+      "n": 143,
+      "frac_gt_0": 0.9370629370629371,
+      "median": 0.0840642647884745
+    }
+  },
+  "protein_checksum_lung_suffix_columns": {
+    "definition": "Gygi TenPx columns with _LUNG_ in the name; both proteins non-missing; replicates not collapsed",
+    "n_lung_tenpx_columns": 77,
+    "n_complete": 45,
+    "spearman_rho": 0.6931488801054019,
+    "p": 1.3117431950020398e-07,
+    "rounds_to_0.69": true,
+    "protein_ids": {
+      "CLDN4": "sp|O14493|CLD4_HUMAN",
+      "TACSTD2": "sp|P09758|TACD2_HUMAN"
+    }
+  },
+  "covariate_correlations": {
+    "rna_lung_TACSTD2_CLDN4": {
+      "rho": 0.6074923026927191,
+      "p": 5.636455165585778e-23,
+      "n": 214
+    },
+    "protein_model_lung_TACSTD2_CLDN4": {
+      "rho": 0.703875968992248,
+      "p": 9.813589251845172e-08,
+      "n": 44
+    }
+  },
+  "n_protein_lung_any": 76,
+  "n_protein_both": 44,
+  "n_protein_nsclc_both": 35,
+  "protein_score_coverage_lung": {
+    "ifng_n_used": 147,
+    "ifng_n_gmt": 200,
+    "mhc1_used": [
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "B2M"
+    ],
+    "immune_used": [
+      "CD274",
+      "HLA-E"
+    ],
+    "isg_n_used": 22,
+    "isg_used": [
+      "STAT1",
+      "STAT2",
+      "IRF1",
+      "IRF9",
+      "MX1",
+      "ISG15",
+      "IFIT1",
+      "IFIT3",
+      "OAS1",
+      "OAS2",
+      "OAS3",
+      "EIF2AK2",
+      "IFI35",
+      "BST2",
+      "SAMHD1",
+      "TRIM25",
+      "ADAR",
+      "TAP1",
+      "TAP2",
+      "PSMB8",
+      "PSMB9",
+      "PSMB10"
+    ]
+  },
+  "rppa_mentions_CLDN4": false,
+  "rppa_mentions_TACSTD2": false,
+  "crispr_dependency": {
+    "n_lung": 126,
+    "n_nsclc": 98,
+    "n_overlap_rna": 123,
+    "n_overlap_nsclc": 95,
+    "genes": {
+      "TACSTD2": {
+        "n": 126,
+        "mean_effect": -0.028691648127222642,
+        "sd_effect": 0.1213576044361605,
+        "n_dependent": 0,
+        "n_dependency": 126,
+        "min_effect": -0.4084657757889403,
+        "max_effect": 0.3312778779890857
+      },
+      "CLDN4": {
+        "n": 126,
+        "mean_effect": 0.03415974240194301,
+        "sd_effect": 0.13160389400098357,
+        "n_dependent": 0,
+        "n_dependency": 126,
+        "min_effect": -0.2944077449381274,
+        "max_effect": 0.3939579674136731
+      },
+      "KRAS": {
+        "n": 126,
+        "mean_effect": -0.7038999216353452,
+        "sd_effect": 0.6033284507544814,
+        "n_dependent": 69,
+        "n_dependency": 126,
+        "min_effect": -2.836598215096883,
+        "max_effect": 0.027391129236351
+      },
+      "EEF2": {
+        "n": 126,
+        "mean_effect": -2.276407724055525,
+        "sd_effect": 0.5496501912135152,
+        "n_dependent": 125,
+        "n_dependency": 126,
+        "min_effect": -3.204752831622778,
+        "max_effect": -0.225587041065113
+      }
+    },
+    "dependent_definition": "CRISPRGeneDependency probability > 0.5"
+  },
+  "headline_calls": [
+    "rna NSCLC Hallmark IFN-\u03b3: TROP2|CLDN4 call=retained, partial r=0.251",
+    "rna NSCLC MHC-I (HLA-A/B/C+B2M): TROP2|CLDN4 call=no_unadjusted_association, partial r=0.058",
+    "rna NSCLC Immune-ligand score: TROP2|CLDN4 call=retained, partial r=0.347",
+    "rna lung Hallmark IFN-\u03b3: TROP2|CLDN4 call=retained, partial r=0.407",
+    "rna lung MHC-I (HLA-A/B/C+B2M): TROP2|CLDN4 call=retained, partial r=0.234",
+    "rna lung Immune-ligand score: TROP2|CLDN4 call=retained, partial r=0.551",
+    "protein lung Hallmark IFN-\u03b3: TROP2|CLDN4 call=ns_after_adjustment_point_estimate_still_half_or_more, partial r=0.225",
+    "protein lung MHC-I (HLA-A/B/C+B2M): TROP2|CLDN4 call=no_unadjusted_association, partial r=0.117",
+    "protein lung Immune-ligand score: TROP2|CLDN4 call=attenuated, partial r=0.132",
+    "protein NSCLC Hallmark IFN-\u03b3: TROP2|CLDN4 call=attenuated, partial r=0.111",
+    "protein NSCLC MHC-I (HLA-A/B/C+B2M): TROP2|CLDN4 call=no_unadjusted_association, partial r=-0.028",
+    "protein NSCLC Immune-ligand score: TROP2|CLDN4 call=no_unadjusted_association, partial r=0.077",
+    "crispr lung Hallmark IFN-\u03b3: TROP2|CLDN4 call=no_unadjusted_association, partial r=-0.037",
+    "crispr lung MHC-I (HLA-A/B/C+B2M): TROP2|CLDN4 call=no_unadjusted_association, partial r=-0.065",
+    "crispr lung Immune-ligand score: TROP2|CLDN4 call=no_unadjusted_association, partial r=-0.100",
+    "NSCLC RNA Hallmark IFN-\u03b3 residual comparison: |TROP2|CLDN4|=0.251 (retained), |CLDN4|TROP2|=0.015 (attenuated); larger absolute partial is TROP2.",
+    "NSCLC RNA MHC-I (HLA-A/B/C+B2M) residual comparison: |TROP2|CLDN4|=0.058 (no_unadjusted_association), |CLDN4|TROP2|=0.086 (ns_after_adjustment_point_estimate_still_half_or_more); larger absolute partial is CLDN4.",
+    "NSCLC RNA Immune-ligand score residual comparison: |TROP2|CLDN4|=0.347 (retained), |CLDN4|TROP2|=0.059 (attenuated); larger absolute partial is TROP2."
+  ],
+  "answer": [
+    "In NSCLC RNA, CLDN4 does not attenuate the TROP2 associations that clear p < 0.05. Hallmark IFN-\u03b3 is +0.339 (n=143, p=3.38e-05, q=0.0001) unadjusted and +0.251 (n=143, p=0.0026, q=0.0079, |partial|/|unadj|=0.74; retained) after CLDN4. The immune-ligand score is +0.405 (n=143, p=5.09e-07, q=3.05e-06) unadjusted and +0.347 (n=143, p=2.31e-05, q=0.0001, |partial|/|unadj|=0.86; retained) after CLDN4. MHC-I has no unadjusted TROP2 association (+0.154 (n=143, p=0.0671, q=0.0671)), so there is nothing there for CLDN4 to attenuate.",
+    "On the same NSCLC RNA rows, CLDN4's own positive associations are the ones that shrink. CLDN4 vs Hallmark IFN-\u03b3 given TROP2 is +0.015 (n=143, p=0.8637, q=0.8637, |partial|/|unadj|=0.06; attenuated). CLDN4 vs the immune-ligand score given TROP2 is -0.059 (n=143, p=0.4871, q=0.5898, |partial|/|unadj|=0.25; attenuated).",
+    "All-lung RNA (n includes SCLC/NET) agrees that TROP2's IFN-\u03b3 and immune-ligand associations are retained after CLDN4. All-lung TROP2 vs MHC-I is retained after CLDN4 alone, and is attenuated once a binary NSCLC indicator is added (+0.113 (n=214, p=0.1000, |partial|/|unadj|=0.36; attenuated)). CLDN4 vs the immune-ligand score reverses sign after TROP2 adjustment: -0.203 (n=214, p=0.0029, q=0.0044, |partial|/|unadj|=1.02; sign_reversed). Adding a binary NSCLC indicator leaves that residual -0.188 (n=214, p=0.0062, |partial|/|unadj|=0.94; sign_reversed).",
+    "LUAD-only RNA is exploratory and is outside the FDR family. TROP2 vs Hallmark IFN-\u03b3 is +0.268 (n=80, p=0.0161) unadjusted and +0.126 (n=80, p=0.2678, |partial|/|unadj|=0.47; attenuated) after CLDN4. TROP2 vs the immune-ligand score after CLDN4 is +0.254 (n=80, p=0.0236, |partial|/|unadj|=0.72; retained). The IFN-\u03b3 retention above is an NSCLC result, not a LUAD-only result.",
+    "Protein partials do not decide the question. Primary protein partials with BH q < 0.05: 0. All-lung TROP2 vs Hallmark IFN-\u03b3 protein is +0.408 (n=44, p=0.0060, q=0.0359) unadjusted and +0.225 (n=44, p=0.1477, q=0.5000, |partial|/|unadj|=0.55; ns_after_adjustment_point_estimate_still_half_or_more) after CLDN4. The protein immune-ligand score uses only CD274, HLA-E (CXCL9/CXCL10/CXCL11 are absent). Its unadjusted TROP2 association is +0.356 (n=38, p=0.0283, q=0.0424); the bootstrap interval is in the table.",
+    "CRISPR is available. Lung lines with Chronos: n=126. TACSTD2 mean gene effect -0.0287, dependent 0/126. CLDN4 mean +0.0342, dependent 0/126. On the same lines, KRAS is dependent in 69/126 and EEF2 in 125/126. TROP2 Chronos is not associated with the three RNA scores, before or after CLDN4 Chronos, so there is no CRISPR association for CLDN4 to attenuate."
+  ],
+  "release": "DepMap Public 24Q4",
+  "doi": "10.25452/figshare.plus.27993248.v1"
+}
