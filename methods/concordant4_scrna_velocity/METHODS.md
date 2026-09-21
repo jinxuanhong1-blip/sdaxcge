@@ -2,36 +2,35 @@
 
 ## Question
 
-Do epithelial cells in the concordant-4 pool flow, in the RNA-velocity sense, toward a CLDN4-high barrier state?
+Do concordant-4 epithelial cells move toward a CLDN4-high barrier state and away from IFN / antigen-presentation programs?
 
-## What would have counted as a velocity analysis
+## Object
 
-scVelo (Bergen et al., Nature Biotechnology 2020), steady-state or dynamical, on cells that already carry spliced and unspliced counts (velocyto / kallisto bus / STARsolo velocity). Labeled new/total counts would also qualify. A single gene-by-cell UMI matrix does not.
+Tumor epithelial cells from the locked 65 units, capped at 160 cells per unit (seed 4). Root-pool cells are GSE123902 NORMAL epithelium and GSE131907 nLung epithelium. They orient pseudotime and are excluded from the Spearman n.
 
-The test, had those layers been public:
+Gates: GSE131907 and GSE205335, author epithelial label. GSE123902 and GSE189357, PTPRC = 0 and at least one of EPCAM, KRT8, KRT18, KRT19 detected. Counts are log1p of CP10k on the genes shared by all four matrices (11,805 genes).
 
-- Epithelium only. Not a tissue UMAP that mixes immune and stroma.
-- Direction is not defined by CLDN4. A CLDN4-high terminal is circular.
-- Where an external root exists (GSE123902 uninvolved lung, GSE131907 nLung AT2), that root sets orientation.
-- The reported unit would have been the patient or sample (catalog n = 65), not a cell-level p-value.
-- Velocity QC (shared spliced and unspliced counts, gene-wise kinetics) can still turn the estimator off. A failed QC is a result.
+Barrier score, CLDN4 excluded: KRT8, KRT18, KRT19, KRT7, CDKN1A, PLAUR. TJ score, CLDN4 excluded: OCLN, TJP1, TJP2, TJP3, CLDN3, CLDN7, CDH1, F11R, MARVELD2, CGN, CRB3. IFN: Hallmark IFNα ∪ IFNγ (211 genes present). APM: HLA-A/B/C, B2M, TAP1, TAP2, TAPBP, PSMB8/9/10, NLRC5.
 
-## What was actually available
+Scores: gene-wise z-mean, UCell-like relative rank, AUCell-like recovery in the top 5% of genes, and Seurat-style AddModuleScore (24 expression bins).
 
-`inventory.py` checks three public surfaces.
+## Clocks (expression only)
 
-1. GEO series supplementary file names for loom, h5ad, spliced, unspliced, velocyto, or intron.
-2. A short prefix of each deposited matrix: SEQC dense CSV (GSE123902), raw UMI text (GSE131907), Cell Ranger `features.tsv` plus `matrix.mtx` (GSE189357), and the RDS header (GSE205335).
-3. SRA experiment counts and runinfo for the linked BioProjects. Aligned BAM in the download path is recorded separately from sralite reads.
+Neighbors on PCA of 1,000 or 2,000 HVGs, with or without CLDN4 in the HVG list, 20 or 40 PCs, 15 or 30 neighbors, Harmony on dataset or not.
 
-GSE205335 raw reads are not in SRA. The BioProject description states EGA accession EGAD00001008703. That controlled archive was not opened.
+- Palantir 1.4.5 (400 waypoints) on the Harmony multiscale diffusion map, early cell = the IFN-high root. One run, not the full grid.
+- DPT from a root cell.
+- PAGA shortest-path distance from the root cell's Leiden cluster (resolution 0.5). This is the principal-graph ordering. R / Monocle3 was not installed.
+- MST on the cluster graph. One leaf is the highest-barrier cluster. Another leaf is the highest-CLDN4 cluster (that choice makes the CLDN4 endpoint partly circular). Units with no cells on the path are dropped.
+- CytoTRACE-like: pseudotime = −(genes detected), smoothed on the kNN.
+- Absorption probability of a random walk onto one terminal cluster.
 
-## What was not substituted
+Roots: (1) highest AT2 in the uninvolved-lung pool, (2) highest IFN among cells with CLDN4 at or below the tumor median, (3) lowest CLDN4 among cells with AT2 at or above the median.
 
-Graph orderings (Slingshot, Palantir, DPT) and expression-only vector fields (scTour) do not use splicing kinetics. They stay out of this folder so a pseudotime trend is not reported as velocity.
+The reported test is Spearman of unit means, n up to 65, not a cell-level p-value. A row matches the thesis when ρ(CLDN4, PT) > 0, ρ(barrier, PT) > 0, and ρ(IFN, PT) < 0. The headline is the matching row with all 65 units and the smallest Fisher combination of the three one-sided p-values, excluding leaves that were defined as CLDN4-high. BH q-values are computed inside the 1,920-row grid.
 
-Rebuilding a loom from FASTQ is a new quantification. Public sralite reads exist for GSE123902 and GSE189357 only. GSE131907 (PRJNA545296) and GSE205335 (PRJNA844398) have zero public SRA runs. A two-cohort realignment would no longer be concordant-4.
+Within-unit contrasts split each unit at median, tertile, quartile, and the outer 20/25/30% of CLDN4 and test the paired median difference with a one-sided Wilcoxon.
 
-## Locked result that this folder does not touch
+## Splicing
 
-Malignant CLDN4-positive fraction versus T/NK on these 65 units is an existing patient-level result. It is not recomputed here and it is not a velocity result.
+`inventory.py` records that GEO supplements are single total-count matrices. scVelo needs spliced and unspliced layers. Those layers are not deposited. GSE131907 (PRJNA545296) and GSE205335 (PRJNA844398; authors cite EGA EGAD00001008703) have zero public SRA runs.
