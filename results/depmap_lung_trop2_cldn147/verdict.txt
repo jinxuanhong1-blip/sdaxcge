@@ -1,0 +1,31 @@
+SLIDE: CCLE protein coexpression TACSTD2-CLDN4 Spearman 0.69, n=118, labeled NSCLC.
+CLDN4 protein _LUNG reproduces prior Gygi complete-case result: True (n=45, rho=0.693149).
+PRIMARY protein cohort is CCLE name suffix _LUNG, pairwise complete cases.
+PRIMARY RNA cohort is DepMap 24Q4 OncotreeLineage==Lung and ModelType==Cell Line.
+No imputation. BH q is across the 6 primary unadjusted tests only.
+Partial correlations are a different statistic and are not used to match ρ=0.69.
+Protein keratin partial not estimated: KRT18/KRT19 absent; KRT8 fragment n=11/77, overlap with CLDN4 n=6.
+Protein genes absent from Gygi: ['CLDN5', 'KRT18', 'KRT19'].
+PARTIAL protein lung_suffix CLDN1 adj=EPCAM: n=70 partial=0.005
+PARTIAL protein lung_suffix CLDN4 adj=EPCAM: n=45 partial=0.553
+PARTIAL protein lung_suffix CLDN7 adj=EPCAM: n=65 partial=0.467
+PARTIAL protein lung_suffix CLDN3 adj=EPCAM: n=65 partial=-0.004
+PARTIAL RNA lung_cell_lines CLDN1 adj=EPCAM: n=214 partial=0.532
+PARTIAL RNA lung_cell_lines CLDN1 adj=KRT8+KRT18+KRT19: n=214 partial=0.237
+PARTIAL RNA lung_cell_lines CLDN1 adj=EPCAM+KRT8+KRT18+KRT19: n=214 partial=0.260
+PARTIAL RNA lung_cell_lines CLDN4 adj=EPCAM: n=214 partial=0.506
+PARTIAL RNA lung_cell_lines CLDN4 adj=KRT8+KRT18+KRT19: n=214 partial=0.087
+PARTIAL RNA lung_cell_lines CLDN4 adj=EPCAM+KRT8+KRT18+KRT19: n=214 partial=0.081
+PARTIAL RNA lung_cell_lines CLDN7 adj=EPCAM: n=214 partial=0.503
+PARTIAL RNA lung_cell_lines CLDN7 adj=KRT8+KRT18+KRT19: n=214 partial=0.192
+PARTIAL RNA lung_cell_lines CLDN7 adj=EPCAM+KRT8+KRT18+KRT19: n=214 partial=0.234
+PARTIAL RNA lung_cell_lines CLDN3 adj=EPCAM: n=214 partial=-0.149
+PARTIAL RNA lung_cell_lines CLDN3 adj=KRT8+KRT18+KRT19: n=214 partial=-0.120
+PARTIAL RNA lung_cell_lines CLDN3 adj=EPCAM+KRT8+KRT18+KRT19: n=214 partial=-0.174
+PARTIAL protein lung_suffix CLDN4 adj=KRT8+KRT18+KRT19: n=6 partial=NA
+protein CLDN1: n=70 Spearman=0.1144 p=3.456e-01 q=3.456e-01 rounds_to_0.69=False n_is_118=False
+protein CLDN4: n=45 Spearman=0.6931 p=1.312e-07 q=1.574e-07 rounds_to_0.69=True n_is_118=False
+protein CLDN7: n=65 Spearman=0.7017 p=7.476e-11 q=1.121e-10 rounds_to_0.69=False n_is_118=False
+RNA CLDN1: n=214 Spearman=0.4670 p=5.480e-13 q=1.096e-12 rounds_to_0.69=False n_is_118=False
+RNA CLDN4: n=214 Spearman=0.6075 p=5.636e-23 q=3.382e-22 rounds_to_0.69=False n_is_118=False
+RNA CLDN7: n=214 Spearman=0.5948 p=7.290e-22 q=2.187e-21 rounds_to_0.69=False n_is_118=False

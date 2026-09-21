@@ -1,0 +1,107 @@
+{
+  "portal_catalog": "https://depmap.org/portal/api/no-captcha/download/files",
+  "newest_depmap_public_release_in_catalog": "DepMap Public 26Q1",
+  "rna_release_used": "DepMap Public 24Q4",
+  "why_not_newer_rna": "DepMap Public 25Q2, 25Q3, and 26Q1 expression rows are in the catalog, but the url column is blank. 24Q4 is the newest public release with direct file URLs.",
+  "newer_release_expression_urls_published": [
+    {
+      "release": "DepMap Public 26Q1",
+      "filename": "Model.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 26Q1",
+      "filename": "OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 26Q1",
+      "filename": "OmicsExpressionTPMLogp1HumanProteinCodingGenesStranded.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q3",
+      "filename": "Model.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q3",
+      "filename": "OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q3",
+      "filename": "OmicsExpressionTPMLogp1HumanProteinCodingGenesStranded.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q2",
+      "filename": "Model.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q2",
+      "filename": "OmicsExpressionProteinCodingGenesTPMLogp1.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q2",
+      "filename": "OmicsExpressionProteinCodingGenesTPMLogp1Stranded.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q2",
+      "filename": "OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv",
+      "url_published": false
+    },
+    {
+      "release": "DepMap Public 25Q2",
+      "filename": "OmicsExpressionTPMLogp1HumanProteinCodingGenesStranded.csv",
+      "url_published": false
+    }
+  ],
+  "any_25q_26q_expression_url": false,
+  "expression_scale": "log2(TPM+1)",
+  "files": {
+    "Model.csv": {
+      "release": "DepMap Public 24Q4",
+      "url": "https://ndownloader.figshare.com/files/51065297",
+      "catalog_md5": "675210d17675f3517b0ce39a3c274f16",
+      "sha256": "b7a0c1385e6cef30132b56aff61f1261d11e3f490490b355c430d32ee0dbdcfa",
+      "bytes": 645696
+    },
+    "OmicsExpressionProteinCodingGenesTPMLogp1.csv": {
+      "release": "DepMap Public 24Q4",
+      "url": "https://ndownloader.figshare.com/files/51065489",
+      "catalog_md5": "71794802b750ce77c422dad0720a40af",
+      "sha256": "2a71dc94110efcc0221eae821bb93a9f03b54bea16f005818911a09d33383d56",
+      "bytes": 506628654
+    },
+    "protein_quant_current_normalized.csv.gz": {
+      "release": "Proteomics",
+      "portal_filename": "protein_quant_current_normalized.csv",
+      "portal_url": "https://gygi.hms.harvard.edu/publications/ccle.html",
+      "file_url": "https://gygi.hms.harvard.edu/data/ccle/protein_quant_current_normalized.csv.gz",
+      "sha256": "b72a9ff39b123c801249ea212844ac1f500c3f38fa0f399ec6ad08ee1be2a7ed",
+      "bytes": 30916232,
+      "note": "Portal catalog links the Gygi publications page. This is the gzip served from that site."
+    }
+  },
+  "rna_extract": {
+    "n_models": 1673,
+    "columns": {
+      "TACSTD2": "TACSTD2 (4070)",
+      "CLDN1": "CLDN1 (9076)",
+      "CLDN3": "CLDN3 (1365)",
+      "CLDN4": "CLDN4 (1364)",
+      "CLDN5": "CLDN5 (7122)",
+      "CLDN7": "CLDN7 (1366)",
+      "CLDN18": "CLDN18 (51208)",
+      "EPCAM": "EPCAM (4072)",
+      "KRT8": "KRT8 (3856)",
+      "KRT18": "KRT18 (3875)",
+      "KRT19": "KRT19 (3880)"
+    },
+    "id_header": ""
+  }
+}

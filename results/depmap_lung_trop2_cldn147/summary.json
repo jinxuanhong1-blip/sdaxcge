@@ -1,0 +1,119 @@
+{
+  "slide_claim": {
+    "text": "CCLE protein coexpression of TROP2 (TACSTD2) with CLDN4: Spearman 0.69, n=118, labeled NSCLC",
+    "rho": 0.69,
+    "n": 118,
+    "source_note": "Project slide number previously traced in PRs 54 and 111. This script does not tune filters to that number."
+  },
+  "gygi_protein_ids": {
+    "KRT8": "tr|F8W1U3|F8W1U3_HUMAN",
+    "TACSTD2": "sp|P09758|TACD2_HUMAN",
+    "EPCAM": "sp|P16422|EPCAM_HUMAN",
+    "CLDN7": "sp|O95471|CLD7_HUMAN",
+    "CLDN18": "sp|P56856-2|CLD18_HUMAN",
+    "CLDN1": "sp|O95832|CLD1_HUMAN",
+    "CLDN4": "sp|O14493|CLD4_HUMAN",
+    "CLDN3": "sp|O15551|CLD3_HUMAN"
+  },
+  "n_gygi_columns": 378,
+  "n_gygi_lung_suffix": 77,
+  "n_gygi_lung_mapped_to_depmap24q4": 77,
+  "n_duplicate_ccle_names_dropped": 0,
+  "n_rna_models": 1673,
+  "n_rna_lung_cell_lines": 214,
+  "cldn4_lung_protein_reproduces_prior_0.693_n45": true,
+  "protein_genes_absent": [
+    "CLDN5",
+    "KRT18",
+    "KRT19"
+  ],
+  "protein_krt8_lung_n": 11,
+  "protein_cldn4_and_krt8_n": 6,
+  "partial_note": "Partial correlations are not the slide statistic. Slide reconciliation uses unadjusted protein TACSTD2\u2013CLDN4 Spearman only.",
+  "primary": [
+    {
+      "layer": "protein",
+      "cohort": "lung_suffix",
+      "partner": "CLDN1",
+      "n": 70,
+      "spearman_rho": 0.11440818825999474,
+      "spearman_p": 0.34564316133457335,
+      "spearman_q_bh_primary6": 0.34564316133457335,
+      "spearman_ci95_low": -0.11551855942598685,
+      "spearman_ci95_high": 0.33398575094377975,
+      "pearson_r": 0.09083313400297748,
+      "rounds_to_slide_0.69": false,
+      "n_equals_slide_118": false
+    },
+    {
+      "layer": "protein",
+      "cohort": "lung_suffix",
+      "partner": "CLDN4",
+      "n": 45,
+      "spearman_rho": 0.6931488801054019,
+      "spearman_p": 1.3117431950020398e-07,
+      "spearman_q_bh_primary6": 1.5740918340024475e-07,
+      "spearman_ci95_low": 0.4833291593279783,
+      "spearman_ci95_high": 0.8222327111970432,
+      "pearson_r": 0.6871878120527255,
+      "rounds_to_slide_0.69": true,
+      "n_equals_slide_118": false
+    },
+    {
+      "layer": "protein",
+      "cohort": "lung_suffix",
+      "partner": "CLDN7",
+      "n": 65,
+      "spearman_rho": 0.7016608391608391,
+      "spearman_p": 7.47564064337753e-11,
+      "spearman_q_bh_primary6": 1.1213460965066295e-10,
+      "spearman_ci95_low": 0.5219235047106827,
+      "spearman_ci95_high": 0.8252199946882589,
+      "pearson_r": 0.6860684248778224,
+      "rounds_to_slide_0.69": false,
+      "n_equals_slide_118": false
+    },
+    {
+      "layer": "RNA",
+      "cohort": "lung_cell_lines",
+      "partner": "CLDN1",
+      "n": 214,
+      "spearman_rho": 0.4669611859380081,
+      "spearman_p": 5.480139911560395e-13,
+      "spearman_q_bh_primary6": 1.096027982312079e-12,
+      "spearman_ci95_low": 0.35115520338439327,
+      "spearman_ci95_high": 0.5713879980884868,
+      "pearson_r": 0.46453559206679146,
+      "rounds_to_slide_0.69": false,
+      "n_equals_slide_118": false
+    },
+    {
+      "layer": "RNA",
+      "cohort": "lung_cell_lines",
+      "partner": "CLDN4",
+      "n": 214,
+      "spearman_rho": 0.6074923026927191,
+      "spearman_p": 5.636455165585778e-23,
+      "spearman_q_bh_primary6": 3.3818730993514673e-22,
+      "spearman_ci95_low": 0.5133482836771316,
+      "spearman_ci95_high": 0.6871859820977054,
+      "pearson_r": 0.5624370891915033,
+      "rounds_to_slide_0.69": false,
+      "n_equals_slide_118": false
+    },
+    {
+      "layer": "RNA",
+      "cohort": "lung_cell_lines",
+      "partner": "CLDN7",
+      "n": 214,
+      "spearman_rho": 0.5947691792090892,
+      "spearman_p": 7.289729573166664e-22,
+      "spearman_q_bh_primary6": 2.1869188719499992e-21,
+      "spearman_ci95_low": 0.4901717407614792,
+      "spearman_ci95_high": 0.6854471154356284,
+      "pearson_r": 0.53580587164442,
+      "rounds_to_slide_0.69": false,
+      "n_equals_slide_118": false
+    }
+  ]
+}
