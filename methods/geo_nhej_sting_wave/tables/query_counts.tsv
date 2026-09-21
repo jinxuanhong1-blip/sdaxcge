@@ -1,0 +1,12 @@
+query	term	count	ids_fetched
+strict_user	"(CLDN4 OR Cldn4) AND (""DNA repair"" OR NHEJ OR PRKDC OR STING OR cGAS OR interferon) AND gse[Entry Type]"	0	0
+brute_token	"(CLDN4 OR Cldn4 OR ""claudin-4"" OR ""claudin 4"" OR claudin OR CLDN) AND (NHEJ OR PRKDC OR STING1 OR TMEM173 OR ""stimulator of interferon genes"" OR ""cGAS"" OR ""cyclic GMP-AMP"" OR ""cGAS-STING"" OR ""DNA repair"" OR interferon) AND gse[Entry Type]"	7	7
+cldn4_text	"(CLDN4 OR Cldn4 OR ""claudin-4"" OR ""claudin 4"") AND gse[Entry Type]"	25	25
+nhej	NHEJ AND gse[Entry Type]	149	149
+prkdc	PRKDC AND gse[Entry Type]	67	67
+sting1	"(STING1 OR TMEM173 OR ""stimulator of interferon genes"" OR ""cGAS-STING"") AND gse[Entry Type]"	506	506
+cgas_title	"(""cGAS""[Title] OR ""cyclic GMP-AMP synthase""[Title] OR ""cyclic GMP-AMP""[Title] OR MB21D1[Title]) AND gse[Entry Type]"	199	199
+dna_repair	"""DNA repair"" AND gse[Entry Type]"	2525	2525
+dna_repair_title	"""DNA repair""[Title] AND gse[Entry Type]"	296	296
+interferon_gse	interferon AND gse[Entry Type]	6219	0
+sting_mesh	STING AND gse[Entry Type]	969	0
