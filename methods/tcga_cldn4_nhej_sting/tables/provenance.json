@@ -1,0 +1,96 @@
+{
+  "expression": "UCSC Xena HiSeqV2 log2(RSEM norm_count+1)",
+  "estimate": "MD Anderson official RNAseqV2 ImmuneScore (Yoshihara 2013)",
+  "ssgsea": {
+    "package": "gseapy 1.3.1",
+    "sample_norm_method": "rank",
+    "weight": 0.25,
+    "permutation_num": 0,
+    "min_size": 5
+  },
+  "cldn4_low": "Q1 of CLDN4 within cohort after barcode-sorted rank(method=first)",
+  "partial": "first-order partial Spearman | ImmuneScore; keratin and MKI67 are sensitivities",
+  "sting1_symbol_on_hiseqv2": "TMEM173",
+  "cgas_on_hiseqv2": false,
+  "ifn_alias_to_hiseqv2": {
+    "WARS1": "WARS",
+    "MARCHF1": "MARCH1",
+    "HELZ2": "PRIC285",
+    "CMTR1": "FTSJD2"
+  },
+  "sources": {
+    "LUAD": {
+      "expr": [
+        "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap/HiSeqV2.gz",
+        "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUAD.sampleMap%2FHiSeqV2.gz"
+      ],
+      "expr_file": "TCGA.LUAD.HiSeqV2.gz",
+      "estimate": [
+        "https://ibl.mdanderson.org/estimate/tables/lung_adenocarcinoma_RNAseqV2.txt",
+        "https://bioinformatics.mdanderson.org/estimate/tables/lung_adenocarcinoma_RNAseqV2.txt"
+      ],
+      "estimate_file": "ESTIMATE_LUAD_RNAseqV2.txt"
+    },
+    "LUSC": {
+      "expr": [
+        "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUSC.sampleMap/HiSeqV2.gz",
+        "https://tcga-xena-hub.s3.us-east-1.amazonaws.com/download/TCGA.LUSC.sampleMap%2FHiSeqV2.gz"
+      ],
+      "expr_file": "TCGA.LUSC.HiSeqV2.gz",
+      "estimate": [
+        "https://ibl.mdanderson.org/estimate/tables/lung_squamous_cell_carcinoma_RNAseqV2.txt",
+        "https://bioinformatics.mdanderson.org/estimate/tables/lung_squamous_cell_carcinoma_RNAseqV2.txt"
+      ],
+      "estimate_file": "ESTIMATE_LUSC_RNAseqV2.txt"
+    }
+  },
+  "sanity_prior_hla_rho": {
+    "LUAD": {
+      "n": 515,
+      "HLA-A": 0.059,
+      "HLA-B": 0.035,
+      "HLA-C": 0.023
+    },
+    "LUSC": {
+      "n": 501,
+      "HLA-A": 0.032,
+      "HLA-B": 0.007,
+      "HLA-C": 0.023
+    }
+  },
+  "counts": [
+    {
+      "cohort": "TCGA-LUAD",
+      "n_hiseqv2_primary": 515,
+      "n_estimate_primary": 515,
+      "n_complete": 515,
+      "n_q1": 129,
+      "n_q4": 129,
+      "expr_sha256": "5432e5a67fc4c4fd6ca22f76f18494756f0e8409a8969df3157935f39947aa00",
+      "estimate_sha256": "366690f98235ab85a7b0c8eea16f2ce055c4bd61466879a6dc0fda96dd05fda4",
+      "expr_bytes": 30884695,
+      "estimate_bytes": 19985,
+      "gseapy": "1.3.1"
+    },
+    {
+      "cohort": "TCGA-LUSC",
+      "n_hiseqv2_primary": 502,
+      "n_estimate_primary": 501,
+      "n_complete": 501,
+      "n_q1": 126,
+      "n_q4": 125,
+      "expr_sha256": "baa2b486d38cb68be6921b72dd798dd71a08a560ce3d4b5e690aa8c2a77bfa0d",
+      "estimate_sha256": "5844aaad93eba1081899c0900ff1ccd6eb315c0d0e9eb5fadad628608333cc35",
+      "expr_bytes": 30037912,
+      "estimate_bytes": 19605,
+      "gseapy": "1.3.1"
+    }
+  ],
+  "gene_set_sizes": {
+    "NHEJ": 13,
+    "IFNg": 200,
+    "STING": 11,
+    "APM": 19,
+    "APM_nonIFN": 8
+  }
+}
