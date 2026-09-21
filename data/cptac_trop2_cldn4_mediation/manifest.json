@@ -1,0 +1,74 @@
+{
+  "freeze": "data_freeze_v1.2_reorganized",
+  "freeze_base": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized",
+  "linkedomics_luad": "https://www.linkedomics.org/data_download/CPTAC-pancan-LUAD/",
+  "linkedomics_lscc": "https://www.linkedomics.org/data_download/CPTAC-pancan-LSCC/",
+  "scope": "TROP2 (TACSTD2) protein vs CD8A and MHC-I protein; partial correlation given CLDN4; mediation TACSTD2\u2192CLDN4\u2192CD8A/MHC-I; EPCAM through the same paths. LUAD and LSCC kept separate.",
+  "downloaded_at_utc": "2026-09-21T18:18:34.699232+00:00",
+  "files": [
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "name": "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "content_length": 20132337,
+      "status": "downloaded",
+      "local_bytes": 20132337,
+      "sha256": "746900f54072198481207ea13f8a7ba14dcabd52345bace0bef7438120c03845",
+      "sha256_matches_prior_manifest": true,
+      "cohort": "LUAD",
+      "path": "/workspace/data/cptac_trop2_cldn4_mediation/LUAD/LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_phenotype.txt",
+      "name": "LUAD_phenotype.txt",
+      "content_length": 210137,
+      "status": "downloaded",
+      "local_bytes": 210137,
+      "sha256": "9f777402f7d7d53856a5adfc73c8291136430ddfad85641584426921609b349a",
+      "sha256_matches_prior_manifest": true,
+      "cohort": "LUAD",
+      "path": "/workspace/data/cptac_trop2_cldn4_mediation/LUAD/LUAD_phenotype.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LUAD/LUAD_meta.txt",
+      "name": "LUAD_meta.txt",
+      "content_length": 12232,
+      "status": "downloaded",
+      "local_bytes": 12232,
+      "sha256": "f9facf713af130ad097c56794f1fbc9107334e02ad9bf0df3958b40d68b6af10",
+      "cohort": "LUAD",
+      "path": "/workspace/data/cptac_trop2_cldn4_mediation/LUAD/LUAD_meta.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "name": "LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+      "content_length": 20631271,
+      "status": "downloaded",
+      "local_bytes": 20631271,
+      "sha256": "fd9f9cc0aed40942fd33d750d1d207bcdf9ea231fcddeff3cc8ac8fdf3e1384d",
+      "sha256_matches_prior_manifest": true,
+      "cohort": "LSCC",
+      "path": "/workspace/data/cptac_trop2_cldn4_mediation/LSCC/LSCC_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_phenotype.txt",
+      "name": "LSCC_phenotype.txt",
+      "content_length": 212329,
+      "status": "downloaded",
+      "local_bytes": 212329,
+      "sha256": "34f17a653dd5ebce0cdf1257c4498fe6579e314d18d435d333e4bcc4db22ef8d",
+      "sha256_matches_prior_manifest": true,
+      "cohort": "LSCC",
+      "path": "/workspace/data/cptac_trop2_cldn4_mediation/LSCC/LSCC_phenotype.txt"
+    },
+    {
+      "url": "https://cptac-pancancer-data.s3.us-west-2.amazonaws.com/data_freeze_v1.2_reorganized/LSCC/LSCC_meta.txt",
+      "name": "LSCC_meta.txt",
+      "content_length": 12051,
+      "status": "downloaded",
+      "local_bytes": 12051,
+      "sha256": "6c334bbd8c9c4acfc94709a7fea5fd0181efa0881cee8ce1793085a5281a9d99",
+      "cohort": "LSCC",
+      "path": "/workspace/data/cptac_trop2_cldn4_mediation/LSCC/LSCC_meta.txt"
+    }
+  ]
+}
