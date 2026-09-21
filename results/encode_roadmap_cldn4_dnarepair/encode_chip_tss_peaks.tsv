@@ -1,0 +1,71 @@
+biosample	assay	target	n_released	n_baseline	picked	file	output_type	file_size	error	peaks_overlapping_both_promoters	peaks_overlapping_both_promoters_le_50kb	CLDN4_promoter	RFC2_promoter	CLDN4_body	RFC2_body
+A549	Histone ChIP-seq	H3K27ac	20	1	ENCSR783SNV	ENCFF660AJK	replicated peaks	1581149		0	0	0	1	6	1
+A549	Histone ChIP-seq	H3K4me3	15	2	ENCSR000DPD	ENCFF982HNO	replicated peaks	912992		0	0	0	1	2	1
+A549	Histone ChIP-seq	H3K4me1	14	1	ENCSR636PIN	ENCFF966DXR	replicated peaks	2974758		0	0	1	2	6	1
+A549	Histone ChIP-seq	H3K27me3	2	0					no_baseline_experiment						
+A549	TF ChIP-seq	CTCF	19	4	ENCSR000DYD	ENCFF005MCX	IDR thresholded peaks	792705		0	0	0	0	2	0
+A549	TF ChIP-seq	POLR2A	3	1	ENCSR000DMZ	ENCFF681MRC	IDR thresholded peaks	329184		0	0	0	1	1	1
+A549	TF ChIP-seq	RAD21	14	3	ENCSR000BUC	ENCFF695MMQ	IDR thresholded peaks	757679		0	0	0	1	2	0
+NCI-H460	Histone ChIP-seq	H3K27ac	0	0					no_baseline_experiment						
+NCI-H460	Histone ChIP-seq	H3K4me3	0	0					no_baseline_experiment						
+NCI-H460	Histone ChIP-seq	H3K4me1	0	0					no_baseline_experiment						
+NCI-H460	Histone ChIP-seq	H3K27me3	0	0					no_baseline_experiment						
+NCI-H460	TF ChIP-seq	CTCF	0	0					no_baseline_experiment						
+NCI-H460	TF ChIP-seq	POLR2A	0	0					no_baseline_experiment						
+NCI-H460	TF ChIP-seq	RAD21	0	0					no_baseline_experiment						
+HCT116	Histone ChIP-seq	H3K27ac	2	2	ENCSR000EUT	ENCFF083ADY	replicated peaks	1104154		0	0	1	1	7	1
+HCT116	Histone ChIP-seq	H3K4me3	2	2	ENCSR000DTQ	ENCFF187LLD	replicated peaks	667514		0	0	2	1	7	1
+HCT116	Histone ChIP-seq	H3K4me1	2	2	ENCSR000EUS	ENCFF963BLP	replicated peaks	1907470		0	0	2	2	15	1
+HCT116	Histone ChIP-seq	H3K27me3	1	1	ENCSR810BDB	ENCFF806AYM	replicated peaks	2246621		0	0	0	0	0	0
+HCT116	TF ChIP-seq	CTCF	19	19	ENCSR000DTO	ENCFF832INR	IDR thresholded peaks	818786		0	0	0	0	3	0
+HCT116	TF ChIP-seq	POLR2A	1	1	ENCSR000EUU	ENCFF848IHI	IDR thresholded peaks	264286		0	0	0	0	4	0
+HCT116	TF ChIP-seq	RAD21	1	1	ENCSR000BSB	ENCFF391AAM	IDR thresholded peaks	868329		0	0	0	0	2	0
+HepG2	Histone ChIP-seq	H3K27ac	1	1	ENCSR000AMO	ENCFF331LJV	replicated peaks	1157654		0	0	0	2	1	2
+HepG2	Histone ChIP-seq	H3K4me3	3	3	ENCSR000AMP	ENCFF497CNS	replicated peaks	1241342		0	0	0	1	2	1
+HepG2	Histone ChIP-seq	H3K4me1	1	1	ENCSR000APV	ENCFF532AGT	replicated peaks	4036339		0	0	1	2	4	5
+HepG2	Histone ChIP-seq	H3K27me3	2	2	ENCSR000DUE	ENCFF982CSD	replicated peaks	1132517		0	0	0	0	0	0
+HepG2	TF ChIP-seq	CTCF	5	5	ENCSR000DLS	ENCFF240MUS	IDR thresholded peaks	660864		0	0	0	0	2	0
+HepG2	TF ChIP-seq	POLR2A	5	3	ENCSR000EEM	ENCFF354VWZ	IDR thresholded peaks	547143		0	0	0	1	2	1
+HepG2	TF ChIP-seq	RAD21	4	4	ENCSR000BLS	ENCFF304NRB	IDR thresholded peaks	950246		0	0	0	0	3	0
+MCF-7	Histone ChIP-seq	H3K27ac	2	2	ENCSR000EWR	ENCFF040YMD	replicated peaks	1113154		0	0	0	2	10	1
+MCF-7	Histone ChIP-seq	H3K4me3	2	2	ENCSR000DWJ	ENCFF514BKI	replicated peaks	1076466		0	0	0	1	5	1
+MCF-7	Histone ChIP-seq	H3K4me1	1	1	ENCSR493NBY	ENCFF583NFB	replicated peaks	3884407		0	0	0	2	8	2
+MCF-7	Histone ChIP-seq	H3K27me3	2	2	ENCSR000EWP	ENCFF947ABI	replicated peaks	957024		0	0	0	0	0	0
+MCF-7	TF ChIP-seq	CTCF	8	4	ENCSR000AHD	ENCFF596MGE	IDR thresholded peaks	947719		0	0	0	1	1	1
+MCF-7	TF ChIP-seq	POLR2A	3	1	ENCSR000DMT	ENCFF235UTX	IDR thresholded peaks	394742		0	0	0	2	4	1
+MCF-7	TF ChIP-seq	RAD21	2	2	ENCSR000BTQ	ENCFF728MPA	IDR thresholded peaks	847782		0	0	0	0	1	0
+MCF 10A	Histone ChIP-seq	H3K27ac	0	0					no_baseline_experiment						
+MCF 10A	Histone ChIP-seq	H3K4me3	0	0					no_baseline_experiment						
+MCF 10A	Histone ChIP-seq	H3K4me1	0	0					no_baseline_experiment						
+MCF 10A	Histone ChIP-seq	H3K27me3	0	0					no_baseline_experiment						
+MCF 10A	TF ChIP-seq	CTCF	1	1	ENCSR193SZD	ENCFF132JHE	IDR thresholded peaks	658084		0	0	0	0	2	0
+MCF 10A	TF ChIP-seq	POLR2A	2	0					no_baseline_experiment						
+MCF 10A	TF ChIP-seq	RAD21	0	0					no_baseline_experiment						
+HeLa-S3	Histone ChIP-seq	H3K27ac	1	1	ENCSR000AOC	ENCFF495VDP	replicated peaks	1188040		0	0	0	1	3	1
+HeLa-S3	Histone ChIP-seq	H3K4me3	3	3	ENCSR000DUA	ENCFF469OXD	replicated peaks	586991		0	0	0	2	3	2
+HeLa-S3	Histone ChIP-seq	H3K4me1	1	1	ENCSR000APW	ENCFF360CQR	replicated peaks	2611670		0	0	0	2	10	1
+HeLa-S3	Histone ChIP-seq	H3K27me3	2	2	ENCSR000APB	ENCFF512TQI	replicated peaks	2200553		0	0	0	0	0	0
+HeLa-S3	TF ChIP-seq	CTCF	3	3	ENCSR000DLO	ENCFF548ARU	IDR thresholded peaks	936374		0	0	0	0	3	0
+HeLa-S3	TF ChIP-seq	POLR2A	3	3	ENCSR000DLM	ENCFF607OBG	IDR thresholded peaks	408217		0	0	0	2	5	1
+HeLa-S3	TF ChIP-seq	RAD21	1	1	ENCSR000EDE	ENCFF239FBO	IDR thresholded peaks	863687		0	0	0	0	3	0
+keratinocyte	Histone ChIP-seq	H3K27ac	1	1	ENCSR000ALK	ENCFF397SDI	replicated peaks	1382707		0	0	0	1	2	1
+keratinocyte	Histone ChIP-seq	H3K4me3	3	3	ENCSR970FPM	ENCFF154WIQ	replicated peaks	725942		0	0	0	1	1	1
+keratinocyte	Histone ChIP-seq	H3K4me1	1	1	ENCSR000ALI	ENCFF328XUM	replicated peaks	2150763		0	0	1	1	5	0
+keratinocyte	Histone ChIP-seq	H3K27me3	2	2	ENCSR000DWU	ENCFF197KIU	replicated peaks	817913		0	0	0	0	0	1
+keratinocyte	TF ChIP-seq	CTCF	3	3	ENCSR000DNC	ENCFF380TKV	IDR thresholded peaks	595328		0	0	0	0	1	0
+keratinocyte	TF ChIP-seq	POLR2A	0	0					no_baseline_experiment						
+keratinocyte	TF ChIP-seq	RAD21	0	0					no_baseline_experiment						
+mammary epithelial cell	Histone ChIP-seq	H3K27ac	1	1	ENCSR000ALW	ENCFF547WSF	replicated peaks	1701416		0	0	0	1	7	1
+mammary epithelial cell	Histone ChIP-seq	H3K4me3	4	4	ENCSR000AML	ENCFF486ACA	replicated peaks	887241		0	0	0	2	0	2
+mammary epithelial cell	Histone ChIP-seq	H3K4me1	2	2	ENCSR000AMJ	ENCFF810PYC	replicated peaks	3481487		0	0	1	1	7	1
+mammary epithelial cell	Histone ChIP-seq	H3K27me3	3	3	ENCSR000DUT	ENCFF168DBV	pseudoreplicated peaks	1001614		0	0	1	0	1	1
+mammary epithelial cell	TF ChIP-seq	CTCF	2	2	ENCSR000DUS	ENCFF757DFM	IDR thresholded peaks	648639		0	0	0	0	1	0
+mammary epithelial cell	TF ChIP-seq	POLR2A	0	0					no_baseline_experiment						
+mammary epithelial cell	TF ChIP-seq	RAD21	0	0					no_baseline_experiment						
+Panc1	Histone ChIP-seq	H3K27ac	1	1	ENCSR000EXK	ENCFF396BLZ	replicated peaks	1920089		0	0	2	2	10	1
+Panc1	Histone ChIP-seq	H3K4me3	2	2	ENCSR000DXB	ENCFF540FNZ	replicated peaks	973375		0	0	0	1	4	1
+Panc1	Histone ChIP-seq	H3K4me1	1	1	ENCSR000EXJ	ENCFF124YNL	replicated peaks	1864172		0	0	2	3	9	1
+Panc1	Histone ChIP-seq	H3K27me3	1	1	ENCSR000FCO	ENCFF722WLN	replicated peaks	1378876		0	0	0	0	0	0
+Panc1	TF ChIP-seq	CTCF	1	1	ENCSR203QEB	ENCFF504IUB	IDR thresholded peaks	1422418		0	0	0	0	1	0
+Panc1	TF ChIP-seq	POLR2A	0	0					no_baseline_experiment						
+Panc1	TF ChIP-seq	RAD21	0	0					no_baseline_experiment						
