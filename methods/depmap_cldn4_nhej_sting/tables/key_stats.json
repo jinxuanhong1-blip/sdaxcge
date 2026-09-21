@@ -1,0 +1,680 @@
+{
+  "release": "DepMap Public 24Q4",
+  "doi": "10.25452/figshare.plus.27993248.v1",
+  "missing_from_integrated_chronos": [
+    "PRKDC"
+  ],
+  "cd_libraries": [
+    "Humagne-CD"
+  ],
+  "cohort_counts": [
+    {
+      "cohort": "lung_models_Model_csv",
+      "n": 260
+    },
+    {
+      "cohort": "integrated_CRISPR_models",
+      "n": 1178
+    },
+    {
+      "cohort": "integrated_CRISPR_lung",
+      "n": 126
+    },
+    {
+      "cohort": "integrated_CRISPR_NSCLC",
+      "n": 98
+    },
+    {
+      "cohort": "HumagneCD_screens_with_PRKDC",
+      "n": 40
+    },
+    {
+      "cohort": "HumagneCD_lung",
+      "n": 5
+    },
+    {
+      "cohort": "HumagneCD_NSCLC",
+      "n": 2
+    },
+    {
+      "cohort": "lung_RNA_with_CLDN4",
+      "n": 214
+    },
+    {
+      "cohort": "NSCLC_RNA_with_CLDN4",
+      "n": 143
+    },
+    {
+      "cohort": "LUAD_RNA_with_CLDN4",
+      "n": 80
+    },
+    {
+      "cohort": "lung_RNA_LUAD",
+      "n": 80
+    },
+    {
+      "cohort": "lung_RNA_SCLC_NET",
+      "n": 60
+    },
+    {
+      "cohort": "lung_RNA_other_NSCLC",
+      "n": 36
+    },
+    {
+      "cohort": "lung_RNA_LUSC",
+      "n": 27
+    },
+    {
+      "cohort": "lung_RNA_other_lung",
+      "n": 11
+    }
+  ],
+  "chronos_cldn4_all": {
+    "n": 1178,
+    "median": 0.0415923064182723,
+    "q25": -0.035730461569878025,
+    "q75": 0.11265817331176547,
+    "min": -0.3897429696845428,
+    "max": 0.4791193189113059,
+    "n_lt_neg0.5": 0,
+    "n_lt_neg1.0": 0,
+    "frac_lt_neg0.5": 0.0
+  },
+  "chronos_cldn4_lung": {
+    "n": 126,
+    "median": 0.04730662378672555,
+    "q25": -0.03702259950324955,
+    "q75": 0.10907972419833292,
+    "min": -0.2944077449381274,
+    "max": 0.3939579674136731,
+    "n_lt_neg0.5": 0,
+    "n_lt_neg1.0": 0,
+    "frac_lt_neg0.5": 0.0
+  },
+  "named_dependency": {
+    "LIG4_all": {
+      "n": 1178,
+      "rho": -0.09572730918554864,
+      "p": 0.0010032200337211502,
+      "q_bh": 0.003009660101163451,
+      "ci95": [
+        -0.15259365964769436,
+        -0.03593800309113423
+      ],
+      "pearson_r": -0.13913732051813305
+    },
+    "STING1_all": {
+      "n": 1178,
+      "rho": 0.06831296134946697,
+      "p": 0.019032783589354396,
+      "q_bh": 0.028549175384031594,
+      "ci95": [
+        0.009008925891140164,
+        0.12656732101283266
+      ],
+      "pearson_r": 0.043590512222272004
+    },
+    "CGAS_all": {
+      "n": 1178,
+      "rho": -0.020506585486679385,
+      "p": 0.4819598773145726,
+      "q_bh": 0.4819598773145726,
+      "ci95": [
+        -0.07948611685488426,
+        0.03894953270271694
+      ],
+      "pearson_r": -0.0423866432125927
+    },
+    "LIG4_lung": {
+      "n": 126,
+      "rho": -0.07699137607799025,
+      "p": 0.3915079860439206,
+      "q_bh": 0.4055732457137902,
+      "ci95": [
+        -0.261548449763104,
+        0.1272437750338489
+      ],
+      "pearson_r": -0.12523546658651458
+    },
+    "STING1_lung": {
+      "n": 126,
+      "rho": 0.07954105736782903,
+      "p": 0.3759669774830883,
+      "q_bh": 0.4055732457137902,
+      "ci95": [
+        -0.10551699345548558,
+        0.26463782237666617
+      ],
+      "pearson_r": 0.05091475704243714
+    },
+    "CGAS_lung": {
+      "n": 126,
+      "rho": -0.07473565804274465,
+      "p": 0.4055732457137902,
+      "q_bh": 0.4055732457137902,
+      "ci95": [
+        -0.2715431561563217,
+        0.12198013701100606
+      ],
+      "pearson_r": -0.04662392630079188
+    },
+    "LIG4_resid": {
+      "n": 1164,
+      "rho": -0.0824557755030958,
+      "p": 0.004878446659846516,
+      "q_bh": 0.014635339979539547,
+      "ci95": [
+        -0.1401060130600197,
+        -0.022126749204162525
+      ],
+      "pearson_r": -0.13369518907415642
+    },
+    "STING1_resid": {
+      "n": 1164,
+      "rho": 0.06779049446667061,
+      "p": 0.020721835170289426,
+      "q_bh": 0.031082752755434137,
+      "ci95": [
+        0.008948913804293983,
+        0.12597857286178787
+      ],
+      "pearson_r": 0.04445963427643101
+    },
+    "CGAS_resid": {
+      "n": 1164,
+      "rho": -0.018031705645040527,
+      "p": 0.5388290199689556,
+      "q_bh": 0.5388290199689556,
+      "ci95": [
+        -0.07771063326784948,
+        0.040812536132465174
+      ],
+      "pearson_r": -0.030645217907032132
+    },
+    "PRKDC_HumagneCD": {
+      "n": 40,
+      "rho": -0.3666041275797374,
+      "p": 0.0199787423813123,
+      "q_bh": 0.0399574847626246,
+      "ci95": [
+        -0.6001920127749469,
+        -0.07935314027830011
+      ],
+      "pearson_r": -0.30478719805316196
+    },
+    "PRKDC_HumagneCD_lung": {
+      "n": 5,
+      "rho": null,
+      "p": null,
+      "q_bh": null,
+      "ci95": [
+        null,
+        null
+      ],
+      "pearson_r": null
+    }
+  },
+  "signatures_dependency": {
+    "NHEJ_all": {
+      "n": 1178,
+      "rho": -0.05708124307077578,
+      "p": 0.05015263222943885,
+      "q_bh": 0.1003052644588777,
+      "ci95": [
+        -0.11349458740791081,
+        0.0008830024105392251
+      ],
+      "pearson_r": -0.08450750596424457
+    },
+    "STING_all": {
+      "n": 1178,
+      "rho": -0.040731836996571555,
+      "p": 0.1623853290922042,
+      "q_bh": 0.1623853290922042,
+      "ci95": [
+        -0.09809705146385517,
+        0.016803156453050378
+      ],
+      "pearson_r": -0.061266168720485625
+    },
+    "NHEJ_lung": {
+      "n": 126,
+      "rho": -0.02243419572553431,
+      "p": 0.80309401782919,
+      "q_bh": 0.80309401782919,
+      "ci95": [
+        -0.1988929455912714,
+        0.16105897305966196
+      ],
+      "pearson_r": -0.023172082967441058
+    },
+    "STING_lung": {
+      "n": 126,
+      "rho": 0.049994750656167986,
+      "p": 0.5782487343802212,
+      "q_bh": 0.80309401782919,
+      "ci95": [
+        -0.1352789114736198,
+        0.23393260198448304
+      ],
+      "pearson_r": 0.03586947538465664
+    }
+  },
+  "expression_lung": {
+    "PRKDC": {
+      "n": 214,
+      "rho": -0.21842968517545297,
+      "p": 0.0013019306101351813,
+      "q_bh": 0.0026038612202703626,
+      "ci95": [
+        -0.3516145832400192,
+        -0.08378269997052216
+      ],
+      "pearson_r": -0.16174902908584915
+    },
+    "LIG4": {
+      "n": 214,
+      "rho": -0.10520911967950437,
+      "p": 0.12495000423948396,
+      "q_bh": 0.1666000056526453,
+      "ci95": [
+        -0.23368061729121825,
+        0.028498619540799384
+      ],
+      "pearson_r": -0.06578063143007756
+    },
+    "STING1": {
+      "n": 214,
+      "rho": 0.3088450838415105,
+      "p": 4.132165461615764e-06,
+      "q_bh": 1.6528661846463057e-05,
+      "ci95": [
+        0.17827612470832072,
+        0.43283297904295
+      ],
+      "pearson_r": 0.2960782678150459
+    },
+    "CGAS": {
+      "n": 214,
+      "rho": 0.05041972048570561,
+      "p": 0.46311705750654075,
+      "q_bh": 0.46311705750654075,
+      "ci95": [
+        -0.07772356383074953,
+        0.18578905434700163
+      ],
+      "pearson_r": 0.02716897723539525
+    }
+  },
+  "expression_lung_signatures": {
+    "NHEJ": {
+      "n": 214,
+      "rho": -0.19292204874146024,
+      "p": 0.004620963623269548,
+      "q_bh": 0.004620963623269548,
+      "ci95": [
+        -0.3151128940073367,
+        -0.06661081118770576
+      ],
+      "pearson_r": -0.14403971905493518
+    },
+    "STING": {
+      "n": 214,
+      "rho": 0.239720844348545,
+      "p": 0.0004031656164091149,
+      "q_bh": 0.0008063312328182298,
+      "ci95": [
+        0.11223287871143668,
+        0.362112223977197
+      ],
+      "pearson_r": 0.1995691251191183
+    }
+  },
+  "expression_nsclc_signatures": {
+    "NHEJ": {
+      "n": 143,
+      "rho": -0.2014433366237058,
+      "p": 0.015841122179190432,
+      "q_bh": 0.031682244358380865,
+      "ci95": [
+        -0.33728852784373103,
+        -0.053526353632457876
+      ],
+      "pearson_r": -0.17567208054334219
+    },
+    "STING": {
+      "n": 143,
+      "rho": 0.12904258397090423,
+      "p": 0.12453569884990709,
+      "q_bh": 0.12453569884990709,
+      "ci95": [
+        -0.039122764519598376,
+        0.2920038225378926
+      ],
+      "pearson_r": 0.16008812609049328
+    }
+  },
+  "empirical": [
+    {
+      "gene": "LIG4",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.0957273091855486,
+      "n_genes_in_null": 17915,
+      "abs_rank": 3251,
+      "empirical_pct_le": 8.629639966508512,
+      "empirical_two_sided_p": 0.18146804353893387,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "STING1",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": 0.0683129613494669,
+      "n_genes_in_null": 17915,
+      "abs_rank": 6143,
+      "empirical_pct_le": 81.69132012280213,
+      "empirical_two_sided_p": 0.34289701367569075,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "CGAS",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.0205065854866793,
+      "n_genes_in_null": 17915,
+      "abs_rank": 13823,
+      "empirical_pct_le": 36.343845939157134,
+      "empirical_two_sided_p": 0.771588054702763,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "LIG4",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.0957273091855486,
+      "n_genes_in_null": 17915,
+      "abs_rank": 3251,
+      "empirical_pct_le": 8.629639966508512,
+      "empirical_two_sided_p": 0.18146804353893387,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "XRCC4",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": 0.0017301219233677,
+      "n_genes_in_null": 17915,
+      "abs_rank": 17564,
+      "empirical_pct_le": 48.59056656433157,
+      "empirical_two_sided_p": 0.9804074797655596,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "XRCC5",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.0157257541022561,
+      "n_genes_in_null": 17915,
+      "abs_rank": 14753,
+      "empirical_pct_le": 38.92269048283561,
+      "empirical_two_sided_p": 0.8234998604521351,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "XRCC6",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": 0.0259673473837501,
+      "n_genes_in_null": 17915,
+      "abs_rank": 12780,
+      "empirical_pct_le": 62.32207647222997,
+      "empirical_two_sided_p": 0.7133686854591125,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "NHEJ1",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.0476949602818227,
+      "n_genes_in_null": 17915,
+      "abs_rank": 9068,
+      "empirical_pct_le": 23.773374267373708,
+      "empirical_two_sided_p": 0.5061680156293609,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "DCLRE1C",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.1084125796152049,
+      "n_genes_in_null": 17915,
+      "abs_rank": 2313,
+      "empirical_pct_le": 6.117778397990511,
+      "empirical_two_sided_p": 0.1291096846218253,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "PAXX",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": 0.0724486798196953,
+      "n_genes_in_null": 17915,
+      "abs_rank": 5595,
+      "empirical_pct_le": 83.38822216020095,
+      "empirical_two_sided_p": 0.3123081216857382,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "CGAS",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.0205065854866793,
+      "n_genes_in_null": 17915,
+      "abs_rank": 13823,
+      "empirical_pct_le": 36.343845939157134,
+      "empirical_two_sided_p": 0.771588054702763,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "STING1",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": 0.0683129613494669,
+      "n_genes_in_null": 17915,
+      "abs_rank": 6143,
+      "empirical_pct_le": 81.69132012280213,
+      "empirical_two_sided_p": 0.34289701367569075,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "TBK1",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": -0.1036993279928217,
+      "n_genes_in_null": 17915,
+      "abs_rank": 2634,
+      "empirical_pct_le": 6.9606475020932175,
+      "empirical_two_sided_p": 0.1470276304772537,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "IRF3",
+      "in_genomewide": true,
+      "n_pair": 1178,
+      "rho": 0.0136750834412042,
+      "n_genes_in_null": 17915,
+      "abs_rank": 15168,
+      "empirical_pct_le": 55.383756628523585,
+      "empirical_two_sided_p": 0.8466648060284677,
+      "matrix": "CRISPRGeneEffect_all_models",
+      "query": "CLDN4_Chronos"
+    },
+    {
+      "gene": "PRKDC",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": -0.218429685175453,
+      "n_genes_in_null": 19172,
+      "abs_rank": 4087,
+      "empirical_pct_le": 9.550385979553516,
+      "empirical_two_sided_p": 0.2131754642186522,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "LIG4",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": -0.1052091196795043,
+      "n_genes_in_null": 19172,
+      "abs_rank": 10351,
+      "empirical_pct_le": 28.18172334654705,
+      "empirical_two_sided_p": 0.5399019403296474,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "XRCC4",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": -0.0018149831465919,
+      "n_genes_in_null": 19172,
+      "abs_rank": 19010,
+      "empirical_pct_le": 52.39933235969122,
+      "empirical_two_sided_p": 0.991550177341957,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "XRCC5",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": -0.2889007186748136,
+      "n_genes_in_null": 19172,
+      "abs_rank": 2017,
+      "empirical_pct_le": 3.5833507197997077,
+      "empirical_two_sided_p": 0.10520550803254747,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "XRCC6",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": -0.1343695243040034,
+      "n_genes_in_null": 19172,
+      "abs_rank": 8356,
+      "empirical_pct_le": 22.199040267056127,
+      "empirical_two_sided_p": 0.4358439390778218,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "NHEJ1",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": -0.2617905865117032,
+      "n_genes_in_null": 19172,
+      "abs_rank": 2678,
+      "empirical_pct_le": 5.398497809305237,
+      "empirical_two_sided_p": 0.13968287085332776,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "DCLRE1C",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": 0.0109573089240246,
+      "n_genes_in_null": 19172,
+      "abs_rank": 18181,
+      "empirical_pct_le": 55.29939495097016,
+      "empirical_two_sided_p": 0.9483100354683914,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "PAXX",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": 0.2301162088048327,
+      "n_genes_in_null": 19172,
+      "abs_rank": 3654,
+      "empirical_pct_le": 89.27602754016274,
+      "empirical_two_sided_p": 0.19059044439808054,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "CGAS",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": 0.0504197204857056,
+      "n_genes_in_null": 19172,
+      "abs_rank": 14691,
+      "empirical_pct_le": 63.95785520550803,
+      "empirical_two_sided_p": 0.7662737325266012,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "STING1",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": 0.3088450838415105,
+      "n_genes_in_null": 19172,
+      "abs_rank": 1629,
+      "empirical_pct_le": 94.10598789901941,
+      "empirical_two_sided_p": 0.0849676611725433,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "TBK1",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": -0.1009819689706154,
+      "n_genes_in_null": 19172,
+      "abs_rank": 10675,
+      "empirical_pct_le": 29.115376590861676,
+      "empirical_two_sided_p": 0.5568015856457333,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    },
+    {
+      "gene": "IRF3",
+      "in_genomewide": true,
+      "n_pair": 214,
+      "rho": 0.2511760321180022,
+      "n_genes_in_null": 19172,
+      "abs_rank": 2987,
+      "empirical_pct_le": 90.74170665553933,
+      "empirical_two_sided_p": 0.1558001251825579,
+      "matrix": "expression_lung_cell_lines",
+      "query": "CLDN4_RNA"
+    }
+  ],
+  "notes": [
+    "Spearman primary; Pearson stored alongside.",
+    "BH q within matrix \u00d7 cohort \u00d7 family.",
+    "Bootstrap 5000 resamples, seed 0.",
+    "Lineage residual = Chronos minus OncotreeLineage median (lineages with n>=8).",
+    "Humagne-CD PRKDC is screen-level Chronos, not the integrated model-level matrix.",
+    "Expression signatures are the mean of within-cohort gene-wise z-scores, complete cases.",
+    "No immune infiltrate and no IFN treatment in these cultured lines."
+  ]
+}
