@@ -1,0 +1,905 @@
+{
+  "audit": {
+    "median_nn_um_one_fov": 9.000899910018074,
+    "n_tumor_labeled": 302313
+  },
+  "summaries": {
+    "rho_stat1_same": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.04583231112390465,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.044079609145274215,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.08853390669736336,
+        "Lung13": 0.0023925203664504433,
+        "Lung5": 0.03712407291391328,
+        "Lung6": 0.05188388392695228,
+        "Lung9": 0.04922717171484389
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "rho_stat1_same_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.11879159481278205,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.11523470747549389,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.11361642320833112,
+        "Lung13": 0.039388567732608855,
+        "Lung5": 0.1036449105823416,
+        "Lung6": 0.21667820796527093,
+        "Lung9": 0.12062986457535771
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_same": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.12925676018237006,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.12070595123658323,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.23809443268271493,
+        "Lung13": 0.08784085226592121,
+        "Lung5": 0.09616688252458853,
+        "Lung6": 0.09715158950698732,
+        "Lung9": 0.12703004393163836
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_same_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.10523262513554425,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.101298917569763,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.17087677345521995,
+        "Lung13": 0.0815059468194159,
+        "Lung5": 0.08205185676020822,
+        "Lung6": 0.07160404728291091,
+        "Lung9": 0.12012450135996633
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_same_krt_lib": {
+      "patient": {
+        "n": 5,
+        "n_neg": 2,
+        "mean": -0.009685569479895321,
+        "sign_p_onesided": 0.8125,
+        "sign_p_twosided": 1.0
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 3,
+        "mean": -0.005871804372954445,
+        "sign_p_onesided": 0.85546875,
+        "sign_p_twosided": 0.7265625
+      },
+      "patient_values": {
+        "Lung12": 0.0008782636059723482,
+        "Lung13": -0.05532732698156678,
+        "Lung5": -0.00113807853630858,
+        "Lung6": 0.0034297250239682135,
+        "Lung9": 0.0037295694884582026
+      },
+      "wilcoxon_section_p_less": 0.52734375,
+      "wilcoxon_patient_p_less": 0.59375
+    },
+    "core_same_imm": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.12119933957265047,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.11659869281069934,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.2192921408362467,
+        "Lung13": 0.09680170796633494,
+        "Lung5": 0.09631264287157977,
+        "Lung6": 0.05942264730990812,
+        "Lung9": 0.13416755887918283
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_delta_high_minus_low": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.08658686464754631,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.07416766962973771,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.1999389725446103,
+        "Lung13": 0.03756589443033228,
+        "Lung5": 0.04861352357095398,
+        "Lung6": 0.08363594603357291,
+        "Lung9": 0.06317998665826213
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_neigh": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.09002092931736624,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.07667373567665159,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.17070061905063916,
+        "Lung13": 0.06560733653170193,
+        "Lung5": 0.032303123519931906,
+        "Lung6": 0.08281457569804075,
+        "Lung9": 0.09867899178651754
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_partial": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.04616512090576941,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.03268845010907099,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.1135625327589192,
+        "Lung13": 0.03889326131763307,
+        "Lung5": 1.3631988482208183e-05,
+        "Lung6": 0.04770144609705616,
+        "Lung9": 0.030654732366756428
+      },
+      "wilcoxon_section_p_less": 0.98828125,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_neigh_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.07257846130373222,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 1,
+        "mean": 0.06428164517544684,
+        "sign_p_onesided": 0.99609375,
+        "sign_p_twosided": 0.0703125
+      },
+      "patient_values": {
+        "Lung12": 0.12050703437306418,
+        "Lung13": 0.05612467046706675,
+        "Lung5": 0.028952662054256683,
+        "Lung6": 0.06385240884787328,
+        "Lung9": 0.09345553077640023
+      },
+      "wilcoxon_section_p_less": 0.99609375,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_partial_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.03818793162911631,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.02788480481234633,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.08924859838617948,
+        "Lung13": 0.03190189016573669,
+        "Lung5": 0.000900028263213661,
+        "Lung6": 0.03855041750368994,
+        "Lung9": 0.030338723826761782
+      },
+      "wilcoxon_section_p_less": 0.98046875,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_same_on_elig_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.10030535408691751,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.09664979106443802,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.16065250506828568,
+        "Lung13": 0.07623781734828997,
+        "Lung5": 0.0781745609507415,
+        "Lung6": 0.07113945088783673,
+        "Lung9": 0.11532243617943369
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_neigh_20": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.05483924299598229,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.053115881380178115,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.06563346384572363,
+        "Lung13": 0.05078787955528464,
+        "Lung5": 0.03504892903041474,
+        "Lung6": 0.042092964547804576,
+        "Lung9": 0.08063297800068392
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_partial_20": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.023486692787945955,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 1,
+        "mean": 0.020748474795460124,
+        "sign_p_onesided": 0.99609375,
+        "sign_p_twosided": 0.0703125
+      },
+      "patient_values": {
+        "Lung12": 0.038200004181485975,
+        "Lung13": 0.02369673427223921,
+        "Lung5": 0.011930963141683232,
+        "Lung6": 0.018913354203736597,
+        "Lung9": 0.024692408140584765
+      },
+      "wilcoxon_section_p_less": 0.9921875,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_neigh_100": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.09660246247398456,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 1,
+        "mean": 0.07818079977259351,
+        "sign_p_onesided": 0.99609375,
+        "sign_p_twosided": 0.0703125
+      },
+      "patient_values": {
+        "Lung12": 0.20963998355164956,
+        "Lung13": 0.07330118624561477,
+        "Lung5": 0.030394000820141303,
+        "Lung6": 0.08803105758197448,
+        "Lung9": 0.08164608417054263
+      },
+      "wilcoxon_section_p_less": 0.99609375,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "core_partial_100": {
+      "patient": {
+        "n": 5,
+        "n_neg": 1,
+        "mean": 0.05366745420129639,
+        "sign_p_onesided": 0.96875,
+        "sign_p_twosided": 0.375
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.03601625584553316,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.14459433183607387,
+        "Lung13": 0.04753322522759231,
+        "Lung5": -0.0015341721546428104,
+        "Lung6": 0.05488276603038969,
+        "Lung9": 0.02286112006706892
+      },
+      "wilcoxon_section_p_less": 0.97265625,
+      "wilcoxon_patient_p_less": 0.96875
+    },
+    "broad_same": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.16365380630511348,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.1534641631553555,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.3015003919715677,
+        "Lung13": 0.12969094000768447,
+        "Lung5": 0.1321017993013393,
+        "Lung6": 0.10973522513037812,
+        "Lung9": 0.14524067511459776
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "hallmark_same": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.1657968234025045,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.15148076748446482,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.3144252789959558,
+        "Lung13": 0.1351922897863825,
+        "Lung5": 0.11793311359859959,
+        "Lung6": 0.11443763896558752,
+        "Lung9": 0.14699579566599702
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "broad_same_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.13975133005312937,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.1357211371225019,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.22218527547159517,
+        "Lung13": 0.13332050018145905,
+        "Lung5": 0.12096158915253041,
+        "Lung6": 0.07720001705075466,
+        "Lung9": 0.14508926840930753
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "hallmark_same_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.1437012633748131,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.1355814451011801,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.24004927489589636,
+        "Lung13": 0.13989916662958607,
+        "Lung5": 0.10978227347100789,
+        "Lung6": 0.08219490488421569,
+        "Lung9": 0.14658069699335946
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "broad_neigh": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.09651805632996492,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.08037525040284325,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.1959652371129489,
+        "Lung13": 0.0884060449274064,
+        "Lung5": 0.037543397326492985,
+        "Lung6": 0.07535067536304085,
+        "Lung9": 0.08532492691993547
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "hallmark_neigh": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.08618992603590077,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.07009160067258909,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.18644907663513727,
+        "Lung13": 0.07585294029275622,
+        "Lung5": 0.020197320170130383,
+        "Lung6": 0.05906175822053192,
+        "Lung9": 0.08938853486094812
+      },
+      "wilcoxon_section_p_less": 0.98828125,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "broad_partial": {
+      "patient": {
+        "n": 5,
+        "n_neg": 1,
+        "mean": 0.02988937742802427,
+        "sign_p_onesided": 0.96875,
+        "sign_p_twosided": 0.375
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.015593604262792927,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.09349286883933,
+        "Lung13": 0.038861913726098964,
+        "Lung5": -0.016749390832031683,
+        "Lung6": 0.02504076678043864,
+        "Lung9": 0.008800728626285437
+      },
+      "wilcoxon_section_p_less": 0.76953125,
+      "wilcoxon_patient_p_less": 0.9375
+    },
+    "hallmark_partial": {
+      "patient": {
+        "n": 5,
+        "n_neg": 1,
+        "mean": 0.019552470924891104,
+        "sign_p_onesided": 0.96875,
+        "sign_p_twosided": 0.375
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.008448038841040853,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.07297834985464234,
+        "Lung13": 0.02026345496121809,
+        "Lung5": -0.028338937757917026,
+        "Lung6": 0.0063596559468067975,
+        "Lung9": 0.02649983161970533
+      },
+      "wilcoxon_section_p_less": 0.76953125,
+      "wilcoxon_patient_p_less": 0.84375
+    },
+    "broad_partial_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 1,
+        "mean": 0.0266204425766778,
+        "sign_p_onesided": 0.96875,
+        "sign_p_twosided": 0.375
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.014867396320234112,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.07494559709105468,
+        "Lung13": 0.0373967332511219,
+        "Lung5": -0.013384942212490411,
+        "Lung6": 0.021537982650238107,
+        "Lung9": 0.012606842103464716
+      },
+      "wilcoxon_section_p_less": 0.84375,
+      "wilcoxon_patient_p_less": 0.9375
+    },
+    "hallmark_partial_krt": {
+      "patient": {
+        "n": 5,
+        "n_neg": 1,
+        "mean": 0.017835824978444836,
+        "sign_p_onesided": 0.96875,
+        "sign_p_twosided": 0.375
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "mean": 0.008527566211246132,
+        "sign_p_onesided": 0.96484375,
+        "sign_p_twosided": 0.2890625
+      },
+      "patient_values": {
+        "Lung12": 0.05965170995902772,
+        "Lung13": 0.01852570540436969,
+        "Lung5": -0.025179623622330356,
+        "Lung6": 0.006780681108751525,
+        "Lung9": 0.029400652042405603
+      },
+      "wilcoxon_section_p_less": 0.76953125,
+      "wilcoxon_patient_p_less": 0.90625
+    },
+    "broad_delta_high_minus_low": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.102798123992488,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.08817796020061994,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.2337843239767112,
+        "Lung13": 0.06041040803682493,
+        "Lung5": 0.06173789589106595,
+        "Lung6": 0.09010072219745036,
+        "Lung9": 0.06795726986038755
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    },
+    "hallmark_delta_high_minus_low": {
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "mean": 0.08275907927633201,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0625
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "mean": 0.06778716090183787,
+        "sign_p_onesided": 1.0,
+        "sign_p_twosided": 0.0078125
+      },
+      "patient_values": {
+        "Lung12": 0.20671039960493948,
+        "Lung13": 0.04597427514321248,
+        "Lung5": 0.03997468029143411,
+        "Lung6": 0.07258351109189935,
+        "Lung9": 0.04855253025017463
+      },
+      "wilcoxon_section_p_less": 1.0,
+      "wilcoxon_patient_p_less": 1.0
+    }
+  },
+  "permutation": {
+    "n_perm": 299,
+    "null": "within_FOV_shuffle_of_IFNscore",
+    "stats": {
+      "neigh": {
+        "observed_patient_mean_rho": 0.09002092931736624,
+        "null_mean": 0.050046013463499885,
+        "null_p05": 0.04580316104579279,
+        "perm_p_onesided_less": 1.0
+      },
+      "partial": {
+        "observed_patient_mean_rho": 0.04616512090576941,
+        "null_mean": 0.030696891803912444,
+        "null_p05": 0.02674086158750905,
+        "perm_p_onesided_less": 1.0
+      },
+      "neigh_krt": {
+        "observed_patient_mean_rho": 0.07257846130373222,
+        "null_mean": 0.03793054392604966,
+        "null_p05": 0.0341105378600333,
+        "perm_p_onesided_less": 1.0
+      },
+      "partial_krt": {
+        "observed_patient_mean_rho": 0.03818793162911631,
+        "null_mean": 0.024188039396019476,
+        "null_p05": 0.020548166487832732,
+        "perm_p_onesided_less": 1.0
+      }
+    }
+  },
+  "inventory": {
+    "n_genes_panel": 960,
+    "nhej_core_present": [],
+    "nhej_core_absent": [
+      "PRKDC",
+      "XRCC4",
+      "XRCC5",
+      "XRCC6",
+      "LIG4",
+      "NHEJ1",
+      "DCLRE1C",
+      "POLL",
+      "POLM",
+      "PAXX",
+      "TP53BP1",
+      "RIF1",
+      "MAD2L2"
+    ],
+    "nhej_adjacent_present": [
+      "DNTT",
+      "ATM",
+      "ATR",
+      "CHEK1",
+      "CHEK2"
+    ],
+    "nhej_adjacent_absent": [
+      "XRCC1",
+      "LIG3"
+    ],
+    "sting_machinery_present": [
+      "IRF3"
+    ],
+    "sting_machinery_absent": [
+      "CGAS",
+      "MB21D1",
+      "STING1",
+      "TMEM173",
+      "TBK1",
+      "MAVS",
+      "IFI16"
+    ],
+    "ifn_stat1_core_present": [
+      "STAT1",
+      "IFIT1",
+      "IFITM1",
+      "IFITM3",
+      "MX1",
+      "OAS1",
+      "OAS2",
+      "OAS3",
+      "OASL",
+      "IFI27",
+      "CXCL9",
+      "CXCL10",
+      "IDO1",
+      "CD274",
+      "DDX58",
+      "IFIH1",
+      "NLRC5"
+    ],
+    "ifn_stat1_core_absent": [],
+    "ifn_broad_present": [
+      "STAT1",
+      "IFIT1",
+      "IFITM1",
+      "IFITM3",
+      "MX1",
+      "OAS1",
+      "OAS2",
+      "OAS3",
+      "OASL",
+      "IFI27",
+      "CXCL9",
+      "CXCL10",
+      "IDO1",
+      "CD274",
+      "DDX58",
+      "IFIH1",
+      "NLRC5",
+      "HLA-A",
+      "HLA-B",
+      "HLA-C",
+      "B2M",
+      "TAP1",
+      "TAP2",
+      "CIITA",
+      "JAK1",
+      "JAK2",
+      "IFNGR1",
+      "IFNGR2",
+      "CCL5"
+    ],
+    "hallmark_ifng_present": [
+      "B2M",
+      "BST2",
+      "BTG1",
+      "CASP3",
+      "CASP8",
+      "CCL2",
+      "CCL5",
+      "CCL7",
+      "CD274",
+      "CD38",
+      "CD40",
+      "CD69",
+      "CD74",
+      "CD86",
+      "CDKN1A",
+      "CIITA",
+      "CMKLR1",
+      "CSF2RB",
+      "CXCL10",
+      "CXCL9",
+      "FAS",
+      "FPR1",
+      "GZMA",
+      "HIF1A",
+      "HLA-A",
+      "HLA-B",
+      "HLA-DQA1",
+      "HLA-DRB1",
+      "ICAM1",
+      "IDO1",
+      "IFI27",
+      "IFIH1",
+      "IFIT1",
+      "IFITM3",
+      "IFNAR2",
+      "IL10RA",
+      "IL15",
+      "IL15RA",
+      "IL2RB",
+      "IL4R",
+      "IL6",
+      "IL7",
+      "IRF4",
+      "JAK2",
+      "KLRK1",
+      "LGALS3BP",
+      "MT2A",
+      "MX1",
+      "NFKB1",
+      "NFKBIA",
+      "NLRC5",
+      "OAS2",
+      "OAS3",
+      "OASL",
+      "PTGS2",
+      "SOD2",
+      "STAT1",
+      "STAT3",
+      "STAT4",
+      "TAP1",
+      "TNFAIP6",
+      "TNFSF10",
+      "VCAM1",
+      "XCL1"
+    ],
+    "hallmark_ifng_n_gmt": 200,
+    "keratin_present": [
+      "KRT8",
+      "KRT18",
+      "KRT19"
+    ],
+    "score_nhej": false,
+    "reason_no_nhej": "Core NHEJ ligation genes (PRKDC, XRCC4, XRCC5, XRCC6, LIG4, NHEJ1, DCLRE1C) are absent from the 960 panel. ATM/ATR/CHEK are inventory-only and are not an NHEJ module."
+  }
+}
