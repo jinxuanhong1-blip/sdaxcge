@@ -1,0 +1,16 @@
+{
+  "n_units": 65,
+  "by_cohort": {
+    "GSE123902": 13,
+    "GSE131907": 21,
+    "GSE189357": 9,
+    "GSE205335": 22
+  },
+  "locked_match_ok": true,
+  "sources": {
+    "GSE123902": "GEO GSE123902_RAW.tar dense UMI CSV; marker malignant",
+    "GSE131907": "GEO raw UMI matrix + author malignant / T/NK labels",
+    "GSE205335": "GEO dgCMatrix RDS + author malignant / T/NK labels",
+    "GSE189357": "GEO 10x MTX; marker malignant"
+  }
+}
