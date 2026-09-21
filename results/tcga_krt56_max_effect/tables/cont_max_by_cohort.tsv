@@ -1,0 +1,25 @@
+family	cohort	stratum	covariates	method	outcome	cut	predictor_cut	predictor	effect	p	aux	n	n_high	n_low
+continuous	LUAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	-0.10410227108819281	0.18195540333724033	6.0	172	0	0
+continuous	LUAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	-0.17328737753394743	0.0255687392896407	6.0	172	0	0
+continuous	LUAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.2016601709466625	0.009176713316712716	6.0	172	0	0
+continuous	LUSC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	-0.21963631807861606	0.005119382301423128	6.0	167	0	0
+continuous	LUSC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	-0.1382313821036306	0.08034325215285819	6.0	167	0	0
+continuous	LUSC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.12794980756207186	0.10576901063297572	6.0	167	0	0
+continuous	BRCA	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	-0.13321478252222674	0.011519638280159327	6.0	365	0	0
+continuous	BRCA	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	0.007012349958981835	0.8946652821400849	6.0	365	0	0
+continuous	BRCA	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.1734789952396054	0.0009649398622334068	6.0	365	0	0
+continuous	CESC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	-0.21483968560476718	0.03555083919553852	6.0	102	0	0
+continuous	CESC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	-0.2654262241946809	0.008958701900545126	6.0	102	0	0
+continuous	CESC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.2284077730666258	0.025202134626931102	6.0	102	0	0
+continuous	KIRC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	-0.14100713094786974	0.0650323198264148	6.0	178	0	0
+continuous	KIRC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	-0.19477427965967717	0.010455664490733338	6.0	178	0	0
+continuous	KIRC	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.15770162186210832	0.03881878121389847	6.0	178	0	0
+continuous	STAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	0.004412573866441085	0.9599513219148065	6.0	138	0	0
+continuous	STAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	-0.12962224603390216	0.1385163339701198	6.0	138	0	0
+continuous	STAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.06235952455925501	0.4774971776010434	6.0	138	0	0
+continuous	BLCA	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	-0.3416104720907961	6.959023487856221e-05	6.0	136	0	0
+continuous	BLCA	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	-0.2204096319767621	0.011740347116828913	6.0	136	0	0
+continuous	BLCA	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.19221951597558895	0.028455693365728403	6.0	136	0	0
+continuous	PAAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			TACSTD2	-0.003849488774836745	0.977960418811136	6.0	60	0	0
+continuous	PAAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN4	-0.2770480508825009	0.04254683359086081	6.0	60	0	0
+continuous	PAAD	krt_bot_tertile	KRT5_6_14_stroma	pearson_winsor	CD8A			CLDN7	-0.3017175535936305	0.026607013382594087	6.0	60	0	0
