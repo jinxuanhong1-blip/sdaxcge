@@ -1,0 +1,10 @@
+arm	n_low	n_high	n	skipped	n_markers_in_matrix	immune_vs_cldn4_spearman	n_genes	n_dropped_from_rank
+q4_drop_panel	18	16	34	False	66	-0.6730328495034378	15713	66
+ref_q4	18	16	34	False	66	-0.6730328495034378	15779	0
+q4_drop_leading_edge	18	16	34	False	66	-0.6730328495034378	15775	4
+q4_immune_covariate	18	16	34	False	66	-0.6730328495034378	15713	66
+q5_drop_panel	15	14	29	False	66	-0.6359605911330048	15318	66
+q5_immune_covariate	15	14	29	False	66	-0.6359605911330048	15318	66
+cont_drop_panel	64	64	64	False	66	-0.6647435897435896	16353	66
+cont_spearman	64	64	64	False	66	-0.6647435897435896	16353	66
+cont_immune_covariate	64	64	64	False	66	-0.6647435897435896	16353	66

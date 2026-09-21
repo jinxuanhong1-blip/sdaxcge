@@ -1,0 +1,4 @@
+dataset	n_patients	n_q1	n_q4	n_cells	spearman_cldn4_vs_ifn_auc	spearman_p	q1_minus_q4_median_ifn_auc	mwu_p_q1_vs_q4	note
+GSE131907	31	8.0	8.0	31131	-0.1274193548387097	0.49455663343179407	0.0013019590103954446	0.5737373737373737	malignant cells only; GSE148071 excluded; not a NES
+GSE205335	22	6.0	6.0	28512	0.09768492377188029	0.6653964075322029	-0.0004329065559228488	0.8181818181818182	malignant cells only; GSE148071 excluded; not a NES
+GSE131907+GSE205335 within-dataset ranks	53			59643	0.012125736421596318	0.9313274375100579			positive rho = IFN AUCell higher when CLDN4 is higher. Thesis wants negative.

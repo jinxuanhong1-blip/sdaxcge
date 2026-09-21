@@ -1,5 +1,7 @@
 # FINDING — concordant-4 CLDN4 quartile GSEA is an observational proxy, not a knockdown
 
+The purification sweep (T/B/NK markers removed, quintiles, continuous CLDN4, malignant-cell AUCell, NHEJ/STING) is in `FINDING_SWEEP.md`. It does not replace the numbers below.
+
 **NOT a true KD.** No CRISPR, no siRNA, no CLDN4-loss culture. The split is the endogenous lowest versus highest malignant CLDN4 %pos quartile in the concordant-4 cohorts (GSE123902, GSE131907, GSE205335, GSE189357). Patient, donor, or sample is the unit. Positive NES means the gene set is higher in the **lowest** CLDN4 quartile.
 
 The private comparator is a direction supplied for this wave, not a statistic recomputed here: **IFN up after CLDN4 loss**. The private knockdown matrix is not in this repository.
