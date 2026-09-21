@@ -123,6 +123,61 @@ Leave-one-cohort-out of the stacked model: dropping GSE205335 leaves STAT1 at �
 
 Continuous CLDN4 %pos (n=64, cohort-adjusted): STAT1 ULM −0.54 per SD (p=0.073); STAT2 −0.69 (p=0.025). The quartile contrast is the primary one.
 
+## Specification sweep
+
+The pre-specified rows above were not replaced. A second script, `scripts/sweep.py`, re-scored the same 64 malignant pseudobulks under the settings listed below and kept every row. Single-cohort specs are in the table and were not eligible to be the reported panel. No cohort was removed to force a sign. All-epithelial pseudobulks are not in the locked count matrices, so that contrast was not invented.
+
+Varied: DoRothEA A, A+B, A+B+C, A–D; CollecTRI; PROGENy top 500; unsigned Hallmark IFN and tight-junction gene sets. Statistics: ULM, MLM, wmean, wsum, and wmean normalized to 100 permutations (NES) for A+B+C and CollecTRI. Cutoffs, within cohort: locked Q4/Q1, equal-count quartile, tertile, median, top/bottom 30%, top/bottom 20%. Scopes: stacked OLS with cohort indicators, and inverse-variance meta of cohorts that had at least 3 units per arm.
+
+A spec is counted as jointly nominal when the IFN-arm feature is lower in CLDN4-high at p<0.05 and at least one barrier feature is higher in CLDN4-high at p<0.05. The IFN arm is STAT1 when the network has it, otherwise the IFN gene set or PROGENy JAK-STAT. The barrier arm is the best of GRHL2, ELF3, KLF4, TFAP2A, the 191-gene TJ set, and Hallmark apical junction.
+
+| network | specs (stacked or meta) | both signs | both nominal p<0.05 | both within-spec FDR<0.05 | of which stacked |
+|---|---:|---:|---:|---:|---:|
+| CollecTRI | 60 | 60 | 47 | 42 | 24 |
+| DoRothEA A | 48 | 43 | 6 | 3 | 3 |
+| DoRothEA A+B | 48 | 36 | 6 | 1 | 2 |
+| DoRothEA A+B+C | 60 | 60 | 6 | 0 | 1 |
+| DoRothEA A–D | 36 | 8 | 0 | 0 | 0 |
+| IFN / TJ gene sets | 24 | 23 | 3 | 1 | 0 |
+
+276 stacked or meta specs. 68 are jointly nominal. Those 68 are overlapping re-cuts of the same patients, not 68 independent cohorts. The minimum p after that search is not a confirmatory p-value. Within-spec FDR is only across the handful of features in that spec.
+
+Of the 68, the barrier feature is GRHL2 in 49, TFAP2A in 14, the 191-gene TJ set in 3, and ELF3 in 2. The 191-gene TJ hits are inverse-variance metas, not the stacked model. Apical junction never clears the joint bar.
+
+### Strongest joint panel
+
+Smallest max(p) among stacked or meta specs with both nominal p<0.05: CollecTRI, wmean NES (100 permutations), locked quartiles, inverse-variance meta of the three cohorts with ≥3 per arm (n=15/14; GSE189357 tails are 3/2 and stay out).
+
+| feature | targets | coef | p | vs thesis |
+|---|---:|---:|---:|---|
+| STAT1 | 284 | −2.520 | 3.9×10⁻⁵ | matches |
+| GRHL2 | 10 | +1.535 | 1.9×10⁻⁶ | matches |
+| IRF1 | 147 | −1.664 | 0.0078 | matches |
+| TFAP2A | 285 | −0.933 | 0.014 | wrong sign |
+| ELF3 | 31 | −0.115 | 0.76 | wrong sign, not significant |
+
+The same network and the same locked quartiles, scored by ULM and tested with the original stacked model (n=18/16, GSE189357 included), is the panel on the original sample size:
+
+| feature | targets | coef | p |
+|---|---:|---:|---:|
+| STAT1 | 284 | −2.486 | 3.9×10⁻⁴ |
+| IRF1 | 147 | −1.896 | 0.0047 |
+| GRHL2 | 10 | +1.461 | 9.6×10⁻⁵ |
+| TFAP2A | 285 | −1.027 | 0.0082 |
+
+GRHL2 is positive in each testable cohort (GSE123902 +2.04, p=0.0080, n=4/3; GSE131907 +1.89, p=0.029, n=6/5; GSE205335 +0.90, p=0.15, n=5/6). STAT1 is not: GSE205335 −4.72 (p=0.0018), GSE123902 −3.26 (p=0.060), GSE131907 −0.31 (p=0.73). The two arms are not carried by the same cohort. CollecTRI GRHL2 has 10 targets. TFAP2A, the large CollecTRI junction TF, is significantly the wrong way. This is not a general barrier-program result.
+
+### What the sweep did not rescue
+
+- Pre-specified DoRothEA A+B+C ULM, locked quartiles, stacked: GRHL2 stays +0.48, p=0.44. In that network GSE205335 GRHL2 is negative (−1.45, p=0.19).
+- DoRothEA A+B+C has one stacked joint nominal hit: MLM, tertiles, STAT1 −0.63 (p=0.037) and TFAP2A +0.33 (p=0.041). Within-spec FDR does not pass. The other five DoRothEA A+B+C joint hits are metas, and none pass within-spec FDR.
+- DoRothEA A–D produces no joint nominal spec. Adding the D-level edges does not create the barrier result.
+- The 191-gene TJ set is significant only in the inverse-variance meta (tail 30% wmean: IFN −0.57, p=0.0023; TJ +0.13, p=0.015). The stacked test of that same cutoff is TJ +0.076, p=0.25. GSE205335’s TJ coefficient is negative.
+- PROGENy has no tight-junction pathway. On the locked quartile stack, JAK-STAT ULM is −3.85 (p=0.0032, n=18/16), which matches the IFN arm only.
+- Four single-cohort specs are jointly nominal. All four are CollecTRI GRHL2, with tail sizes 4/4, 6/6, or 7/7. They were not eligible as the panel.
+
+Full rows: `results/sweep_panel.tsv`, `results/sweep_long.tsv`, `results/sweep_counts.tsv`.
+
 ## What this is not
 
 - Not a re-analysis of within-patient cell Q4 vs Q1, and not a retraction of PR #454.

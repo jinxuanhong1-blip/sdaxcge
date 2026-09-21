@@ -6,6 +6,9 @@ STAT1 / STAT2 / IRF1 activity is lower in CLDN4-high (same sign as IFN-up after 
 
 Writeup: `FINDING.md`. Methods: `METHODS.md`.
 
+A specification sweep (`scripts/sweep.py`) is reported in full. The smallest joint p-value is CollecTRI GRHL2 (10 targets) up in CLDN4-high together with STAT1 down. TFAP2A in that same network is significantly the other way, and the pre-specified DoRothEA GRHL2 test stays null. Those p-values are from a search, not a second primary test.
+
 ```bash
 python3 methods/concordant4_dorothea_decoupler_cldn4/scripts/analyze.py
+python3 methods/concordant4_dorothea_decoupler_cldn4/scripts/sweep.py
 ```

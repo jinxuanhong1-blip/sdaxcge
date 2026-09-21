@@ -55,6 +55,12 @@ Pre-specified. IFN / MHC regulators are labeled against the KD expectation (lowe
 | MHC | RFX5; NLRC5 and CIITA only as transcripts, or CollecTRI when present |
 | junction | GRHL2, ELF3, KLF4, TFAP2A |
 
+## Specification sweep
+
+`scripts/sweep.py` repeats the activity estimation on the same log2(TMM-CPM+1) matrix. Networks are DoRothEA confidence tiers A, A+B, A+B+C, and A–D (D weight = ±1/4), CollecTRI, PROGENy top 500, and unsigned IFN / TJ / apical-junction gene sets. Methods are ULM, MLM, weighted mean, weighted sum, and permutation-normalized weighted mean (`times=100`) for A+B+C and CollecTRI. MLM was not fit on A–D. Cutoffs are within-cohort: the locked Q4/Q1 labels, equal-count quartiles, tertiles, halves, and the top and bottom 30% and 20% (a cohort enters only if each tail has at least 2 units; a test is reported only if each tail has at least 3). Each cutoff is tested as a stacked OLS with cohort indicators and as an inverse-variance meta of the cohorts that clear that floor. The meta treats cohort standard errors as known, so its p-values run smaller than the stacked model and are not a second independent cohort.
+
+The sweep table is the record of that search. The highlighted joint panel is the stacked-or-meta row with both nominal p<0.05 and the smallest max(p). It is not a pre-specified primary test. All-epithelial matrices are not in this folder.
+
 ## Software
 
 Python, decoupler 2.2.0, numpy, pandas, scipy, matplotlib. No R Bioconductor decoupleR. The Python port is the implementation that was run.
