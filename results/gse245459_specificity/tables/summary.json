@@ -1,0 +1,159 @@
+{
+  "dataset": "GSE245459",
+  "contrast_primary": "shTACSTD2 vs shNC, no cisplatin",
+  "contrast_secondary": "shTACSTD2+DDP vs shNC+DDP",
+  "n_per_group": 3,
+  "expression_floor": "specificity tests use genes with mean FPKM >= 0.3 in the treatment group or the control group",
+  "log2FC": "mean log2(FPKM+1) treat minus control",
+  "n_perm": 5000,
+  "seed": 245459,
+  "fpkm_note": "FPKM sums are relative. A global crash here means a broad shift of expressed genes, not a drop in column sums.",
+  "global": [
+    {
+      "contrast": "KD_noDDP",
+      "n_expressed": 17525,
+      "median_log2FC": -0.15203838546502835,
+      "mean_log2FC": -0.15305660789357203,
+      "q25": -0.4432280778056432,
+      "q75": 0.17212720774124546,
+      "frac_lt_0": 0.6308131241084165,
+      "frac_lt_m0_5": 0.21335235378031384,
+      "frac_lt_m1": 0.06008559201141227,
+      "frac_gt_0_5": 0.0997432239657632,
+      "frac_gt_1": 0.02550641940085592,
+      "n_q05_down": 3607,
+      "n_q05_up": 2056,
+      "spearman_expr_vs_lfc": 0.25131055580792766,
+      "spearman_expr_vs_lfc_p": 1.3752449402719903e-250
+    },
+    {
+      "contrast": "KD_DDP",
+      "n_expressed": 18032,
+      "median_log2FC": 0.04160882411484984,
+      "mean_log2FC": 0.06111181970951958,
+      "q25": -0.2703529606721098,
+      "q75": 0.3685508385302243,
+      "frac_lt_0": 0.4653393966282165,
+      "frac_lt_m0_5": 0.12483362910381544,
+      "frac_lt_m1": 0.025122005323868678,
+      "frac_gt_0_5": 0.17696317657497782,
+      "frac_gt_1": 0.04957852706299911,
+      "n_q05_down": 2378,
+      "n_q05_up": 2393,
+      "spearman_expr_vs_lfc": -0.13171095842103522,
+      "spearman_expr_vs_lfc_p": 1.3725513985502478e-70
+    }
+  ],
+  "sample_qc": [
+    {
+      "sample": "shNC1",
+      "fpkm_sum": 296396.15401160106,
+      "n_fpkm_ge_1": 12871,
+      "n_fpkm_gt_0": 25136,
+      "median_fpkm_detected": 1.1145465455
+    },
+    {
+      "sample": "shNC2",
+      "fpkm_sum": 297141.732695167,
+      "n_fpkm_ge_1": 12821,
+      "n_fpkm_gt_0": 25054,
+      "median_fpkm_detected": 1.0990432035
+    },
+    {
+      "sample": "shNC3",
+      "fpkm_sum": 297283.92150054104,
+      "n_fpkm_ge_1": 12569,
+      "n_fpkm_gt_0": 24748,
+      "median_fpkm_detected": 1.0752217185
+    },
+    {
+      "sample": "shNCDDP1",
+      "fpkm_sum": 290301.57774640806,
+      "n_fpkm_ge_1": 12392,
+      "n_fpkm_gt_0": 24437,
+      "median_fpkm_detected": 1.056411214
+    },
+    {
+      "sample": "shNCDDP2",
+      "fpkm_sum": 293443.654622268,
+      "n_fpkm_ge_1": 12101,
+      "n_fpkm_gt_0": 23693,
+      "median_fpkm_detected": 1.088516108
+    },
+    {
+      "sample": "shNCDDP3",
+      "fpkm_sum": 286867.308906711,
+      "n_fpkm_ge_1": 12343,
+      "n_fpkm_gt_0": 24285,
+      "median_fpkm_detected": 1.068437547
+    },
+    {
+      "sample": "sh1",
+      "fpkm_sum": 299615.53231299703,
+      "n_fpkm_ge_1": 11326,
+      "n_fpkm_gt_0": 21459,
+      "median_fpkm_detected": 1.262825494
+    },
+    {
+      "sample": "sh2",
+      "fpkm_sum": 292453.486641725,
+      "n_fpkm_ge_1": 11619,
+      "n_fpkm_gt_0": 22205,
+      "median_fpkm_detected": 1.223022224
+    },
+    {
+      "sample": "sh3",
+      "fpkm_sum": 290821.437167586,
+      "n_fpkm_ge_1": 11639,
+      "n_fpkm_gt_0": 22285,
+      "median_fpkm_detected": 1.208594806
+    },
+    {
+      "sample": "shDDP1",
+      "fpkm_sum": 287149.52082936704,
+      "n_fpkm_ge_1": 12905,
+      "n_fpkm_gt_0": 24275,
+      "median_fpkm_detected": 1.306345113
+    },
+    {
+      "sample": "shDDP2",
+      "fpkm_sum": 287313.37089792703,
+      "n_fpkm_ge_1": 12787,
+      "n_fpkm_gt_0": 24018,
+      "median_fpkm_detected": 1.29741084
+    },
+    {
+      "sample": "shDDP3",
+      "fpkm_sum": 290160.566072081,
+      "n_fpkm_ge_1": 12859,
+      "n_fpkm_gt_0": 24191,
+      "median_fpkm_detected": 1.30109589
+    }
+  ],
+  "prior_median_check": [
+    {
+      "set": "C4_IFN_MHCI",
+      "prior_median": -0.5714133202056344,
+      "this_median": -0.5714133202056344,
+      "abs_diff": 0.0
+    },
+    {
+      "set": "APM",
+      "prior_median": -0.4016755331913764,
+      "this_median": -0.4016755331913764,
+      "abs_diff": 0.0
+    },
+    {
+      "set": "IFN",
+      "prior_median": -0.4445895968539956,
+      "this_median": -0.4445895968539956,
+      "abs_diff": 0.0
+    },
+    {
+      "set": "JUNCTION",
+      "prior_median": -0.22897141224898787,
+      "this_median": -0.22897141224898787,
+      "abs_diff": 0.0
+    }
+  ]
+}
