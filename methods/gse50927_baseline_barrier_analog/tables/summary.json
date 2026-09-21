@@ -1,0 +1,177 @@
+{
+  "label": "barrier-loss analog only",
+  "not": [
+    "cancer",
+    "tumour",
+    "LUAD",
+    "ICI",
+    "CLDN4-high tumor geography"
+  ],
+  "primary_contrast": "naive_KO_vs_WT",
+  "honest_n": "1 vs 1 GSM",
+  "Cldn4_baseline": {
+    "entrez": "12740",
+    "logFC": -6.061296179,
+    "logCPM": 2.250629984,
+    "P": 1.7663e-29,
+    "FDR": 4.0673e-26
+  },
+  "modules": {
+    "IFN_ISG": {
+      "all_detected": {
+        "n_detected": 52,
+        "n_nonzero": 52,
+        "n_up": 46,
+        "median_logFC": 0.45241540550000003,
+        "wilcoxon_stat": 72.0,
+        "wilcoxon_p": 1.9210186068833346e-08,
+        "binom_p": 1.0325821975243343e-08
+      },
+      "excluding_injury_genes": {
+        "n_detected": 51,
+        "n_nonzero": 51,
+        "n_up": 45,
+        "median_logFC": 0.4589508,
+        "wilcoxon_stat": 69.0,
+        "wilcoxon_p": 2.5791748859076058e-08,
+        "binom_p": 1.8323628836469652e-08
+      },
+      "counts": {
+        "not_hit": 40,
+        "injury_only": 1,
+        "baseline_only": 17,
+        "baseline_low_cpm_only": 2
+      }
+    },
+    "chemokine": {
+      "all_detected": {
+        "n_detected": 22,
+        "n_nonzero": 22,
+        "n_up": 14,
+        "median_logFC": 0.324651421,
+        "wilcoxon_stat": 49.0,
+        "wilcoxon_p": 0.010324478149414062,
+        "binom_p": 0.28627872467041016
+      },
+      "excluding_injury_genes": {
+        "n_detected": 16,
+        "n_nonzero": 16,
+        "n_up": 9,
+        "median_logFC": 0.2610450105,
+        "wilcoxon_stat": 34.0,
+        "wilcoxon_p": 0.083251953125,
+        "binom_p": 0.803619384765625
+      },
+      "counts": {
+        "not_hit": 19,
+        "injury_only": 6,
+        "injury_shared": 2,
+        "baseline_only": 4,
+        "injury_shared_low_baseline_cpm": 1
+      }
+    },
+    "MHC_I_classical": {
+      "all_detected": {
+        "n_detected": 10,
+        "n_nonzero": 10,
+        "n_up": 8,
+        "median_logFC": 0.3611015845,
+        "wilcoxon_stat": 3.0,
+        "wilcoxon_p": 0.009765625,
+        "binom_p": 0.109375
+      },
+      "excluding_injury_genes": {
+        "n_detected": 10,
+        "n_nonzero": 10,
+        "n_up": 8,
+        "median_logFC": 0.3611015845,
+        "wilcoxon_stat": 3.0,
+        "wilcoxon_p": 0.009765625,
+        "binom_p": 0.109375
+      },
+      "counts": {
+        "baseline_only": 2,
+        "not_hit": 8
+      }
+    },
+    "MHC_II": {
+      "all_detected": {
+        "n_detected": 10,
+        "n_nonzero": 10,
+        "n_up": 7,
+        "median_logFC": 0.24566772599999998,
+        "wilcoxon_stat": 20.0,
+        "wilcoxon_p": 0.4921875,
+        "binom_p": 0.34375
+      },
+      "excluding_injury_genes": {
+        "n_detected": 10,
+        "n_nonzero": 10,
+        "n_up": 7,
+        "median_logFC": 0.24566772599999998,
+        "wilcoxon_stat": 20.0,
+        "wilcoxon_p": 0.4921875,
+        "binom_p": 0.34375
+      },
+      "counts": {
+        "not_hit": 8,
+        "baseline_down": 2
+      }
+    },
+    "MHC_haplotype_risk": {
+      "all_detected": {
+        "n_detected": 11,
+        "n_nonzero": 11,
+        "n_up": 10,
+        "median_logFC": 1.19062939,
+        "wilcoxon_stat": 3.0,
+        "wilcoxon_p": 0.0048828125,
+        "binom_p": 0.01171875
+      },
+      "excluding_injury_genes": {
+        "n_detected": 0,
+        "n_nonzero": 0,
+        "n_up": 0,
+        "median_logFC": NaN,
+        "wilcoxon_stat": "",
+        "wilcoxon_p": "",
+        "binom_p": ""
+      },
+      "counts": {
+        "haplotype_risk_excluded": 11
+      }
+    },
+    "injury_mediator": {
+      "all_detected": {
+        "n_detected": 3,
+        "n_nonzero": 3,
+        "n_up": 2,
+        "median_logFC": 0.005943139,
+        "wilcoxon_stat": "",
+        "wilcoxon_p": "",
+        "binom_p": ""
+      },
+      "excluding_injury_genes": {
+        "n_detected": 1,
+        "n_nonzero": 1,
+        "n_up": 0,
+        "median_logFC": -2.14137574,
+        "wilcoxon_stat": "",
+        "wilcoxon_p": "",
+        "binom_p": ""
+      },
+      "counts": {
+        "injury_only": 3,
+        "baseline_down_and_injury_up": 1
+      }
+    }
+  },
+  "rules": {
+    "hit": "FDR < 0.05 and logCPM > 0 and logFC in the stated direction",
+    "baseline_only": "up at naive KO vs WT, not up at FDR < 0.05 in WT VILI vs naive WT",
+    "injury_shared": "up in both the baseline genotype contrast and WT VILI",
+    "injury_only": "up in WT VILI, not a baseline hit",
+    "haplotype_risk": "nonclassical H2 genes on the mixed 129/B6/BALB line; excluded from the MHC-I numerator",
+    "gene_set_p": "Wilcoxon / binomial on gene logFC. Genes are not independent. Not a mouse-level p."
+  }
+}

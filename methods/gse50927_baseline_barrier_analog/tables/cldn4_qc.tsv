@@ -1,0 +1,5 @@
+contrast,role,gene,entrez,logFC,logCPM,P,FDR,sign
+naive_KO_vs_WT,primary_baseline,Cldn4,12740,-6.06129618,2.25062998,1.7663e-29,4.0673e-26,KO minus WT
+VILI_WT_vs_naive_WT,injury_confound_not_the_analog,Cldn4,12740,3.95856858,6.21595685,9.90857e-95,7.16885e-91,VILI minus naive WT
+VILI_KOhigh_vs_WT,injury_confound_not_the_analog,Cldn4,12740,-10.1621395,6.12259965,1.33054e-98,2.88795e-94,KO minus WT
+VILI_KOlow_vs_WT,injury_confound_not_the_analog,Cldn4,12740,-12.6928334,6.13314548,1.77e-126,3.84e-122,KO minus WT
