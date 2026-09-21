@@ -473,6 +473,159 @@ def plot_sensitivity(wide: pd.DataFrame, path: Path) -> None:
     plt.close(fig)
 
 
+PARENT = ["A01", "A02", "A03"]
+# Order is the multiplicity family for the parental-contrast FDR.
+UP_TERMS = [
+    "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+    "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    "REACTOME_INTERFERON_SIGNALING",
+    "REACTOME_INTERFERON_ALPHA_BETA_SIGNALING",
+    "REACTOME_INTERFERON_GAMMA_SIGNALING",
+    "REACTOME_ANTIVIRAL_MECHANISM_BY_IFN_STIMULATED_GENES",
+    "REACTOME_STING_MEDIATED_INDUCTION_OF_HOST_IMMUNE_RESPONSES",
+    "KEGG_CYTOSOLIC_DNA_SENSING_PATHWAY",
+    "REACTOME_CYTOSOLIC_SENSORS_OF_PATHOGEN_ASSOCIATED_DNA",
+    "GOBP_POSITIVE_REGULATION_OF_TYPE_I_INTERFERON_PRODUCTION",
+    "GOBP_CELLULAR_RESPONSE_TO_TYPE_I_INTERFERON",
+    "GOBP_TYPE_I_INTERFERON_MEDIATED_SIGNALING_PATHWAY",
+]
+
+
+def parental_up(log_mat: pd.DataFrame, payload: dict) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Full KD versus parental siControl, ranked by mean log2FC.
+
+    XRCC5, XRCC6, and PRKDC are removed from every set so a subunit
+    transcript cannot create the enrichment. FDR is BH within UP_TERMS
+    for that contrast.
+    """
+    sets = {
+        term: [g for g in payload["sets"][term]["genes"] if g not in DROP_FOR_SENSITIVITY]
+        for term in UP_TERMS
+    }
+    gsea_rows = []
+    score_rows = []
+    for contrast in CONTRASTS:
+        kd = contrast["kd"]
+        lfc = log_mat[kd].mean(axis=1) - log_mat[PARENT].mean(axis=1)
+        rank = lfc.replace([np.inf, -np.inf], np.nan).dropna().sort_values(ascending=False)
+        g = gsea_prerank(rank, sets, nperm=NPERM, seed=SEED)
+        g["fdr"] = bh_fdr(g["nom_p"])
+        g.insert(0, "contrast", contrast["id"])
+        g.insert(1, "rank", "log2FC_vs_parental_siControl")
+        gsea_rows.append(g)
+        for term, genes in sets.items():
+            present = [g for g in genes if g in log_mat.index]
+            if len(present) < 8:
+                continue
+            score = log_mat.loc[present].mean(axis=0)
+            a = score[kd].to_numpy(dtype=float)
+            b = score[PARENT].to_numpy(dtype=float)
+            greater = stats.ttest_ind(a, b, equal_var=False, alternative="greater")
+            two = stats.ttest_ind(a, b, equal_var=False)
+            score_rows.append(
+                {
+                    "contrast": contrast["id"],
+                    "term": term,
+                    "n_genes": len(present),
+                    "mean_log2_kd": float(a.mean()),
+                    "mean_log2_parent": float(b.mean()),
+                    "delta_log2": float(a.mean() - b.mean()),
+                    "welch_t": float(two.statistic),
+                    "welch_p_two": float(two.pvalue),
+                    "welch_p_greater": float(greater.pvalue),
+                    "kd_scores": ",".join(f"{v:.4f}" for v in a),
+                    "parent_scores": ",".join(f"{v:.4f}" for v in b),
+                }
+            )
+    gsea = pd.concat(gsea_rows, ignore_index=True)
+    labels = pd.DataFrame(
+        {
+            "term": list(UP_TERMS),
+            "label": [payload["sets"][t]["label"] for t in UP_TERMS],
+            "family": [payload["sets"][t]["family"] for t in UP_TERMS],
+        }
+    )
+    gsea = gsea.merge(labels, on="term", how="left")
+    scores = pd.DataFrame(score_rows)
+    scores["fdr_greater_within_contrast"] = scores.groupby("contrast")["welch_p_greater"].transform(bh_fdr)
+    scores["fdr_greater_across_subunits"] = bh_fdr(scores["welch_p_greater"])
+    return gsea, scores
+
+
+def plot_parental(gsea: pd.DataFrame, scores: pd.DataFrame, path: Path) -> None:
+    show = [
+        "REACTOME_INTERFERON_SIGNALING",
+        "REACTOME_INTERFERON_ALPHA_BETA_SIGNALING",
+        "REACTOME_ANTIVIRAL_MECHANISM_BY_IFN_STIMULATED_GENES",
+        "KEGG_CYTOSOLIC_DNA_SENSING_PATHWAY",
+        "REACTOME_STING_MEDIATED_INDUCTION_OF_HOST_IMMUNE_RESPONSES",
+        "HALLMARK_INTERFERON_ALPHA_RESPONSE",
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+    ]
+    labels = {
+        "REACTOME_INTERFERON_SIGNALING": "Reactome IFN signaling",
+        "REACTOME_INTERFERON_ALPHA_BETA_SIGNALING": "Reactome IFN-α/β",
+        "REACTOME_ANTIVIRAL_MECHANISM_BY_IFN_STIMULATED_GENES": "Reactome antiviral ISGs",
+        "KEGG_CYTOSOLIC_DNA_SENSING_PATHWAY": "KEGG cytosolic DNA-sensing",
+        "REACTOME_STING_MEDIATED_INDUCTION_OF_HOST_IMMUNE_RESPONSES": "Reactome STING, subunits removed",
+        "HALLMARK_INTERFERON_ALPHA_RESPONSE": "Hallmark IFN-α",
+        "HALLMARK_INTERFERON_GAMMA_RESPONSE": "Hallmark IFN-γ",
+    }
+    colors = {"DNA-PKcs": "#3C5488", "Ku70": "#E64B35", "Ku80": "#00A087"}
+    fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.6))
+    ax = axes[0]
+    x = np.arange(len(show))
+    width = 0.24
+    for i, cid in enumerate([c["id"] for c in CONTRASTS]):
+        vals, stars = [], []
+        for term in show:
+            row = gsea[(gsea["contrast"] == cid) & (gsea["term"] == term)].iloc[0]
+            vals.append(float(row["nes"]))
+            stars.append(float(row["fdr"]) < 0.05)
+        bars = ax.bar(x + (i - 1) * width, vals, width, color=colors[cid], label=cid)
+        for bar, val, star in zip(bars, vals, stars):
+            if star:
+                ax.text(bar.get_x() + bar.get_width() / 2, val + (0.04 if val >= 0 else -0.08), "*", ha="center", va="bottom", fontsize=11)
+    ax.axhline(0, color="black", lw=0.6)
+    ax.set_xticks(x)
+    ax.set_xticklabels([labels[t] for t in show], rotation=28, ha="right", fontsize=8)
+    ax.set_ylabel("NES (log2FC rank, KD − parental)")
+    ax.set_title("Versus parental siControl")
+    ax.legend(frameon=False, fontsize=8)
+
+    ax = axes[1]
+    dna = scores[scores["term"] == "KEGG_CYTOSOLIC_DNA_SENSING_PATHWAY"]
+    # parental scores are the same; take from Ku70 row
+    parent_vals = [float(v) for v in dna[dna["contrast"] == "Ku70"].iloc[0]["parent_scores"].split(",")]
+    positions = []
+    labels_x = ["parental"]
+    data = [parent_vals]
+    colors_box = ["#9E9E9E"]
+    for cid in [c["id"] for c in CONTRASTS]:
+        row = dna[dna["contrast"] == cid].iloc[0]
+        data.append([float(v) for v in row["kd_scores"].split(",")])
+        labels_x.append(cid)
+        colors_box.append(colors[cid])
+    bp = ax.boxplot(data, positions=range(len(data)), widths=0.55, patch_artist=True, medianprops={"color": "black"})
+    for patch, color in zip(bp["boxes"], colors_box):
+        patch.set_facecolor(color)
+        patch.set_alpha(0.85)
+    for i, vals in enumerate(data):
+        ax.scatter([i] * len(vals), vals, color="black", s=18, zorder=3)
+    ax.set_xticks(range(len(labels_x)))
+    ax.set_xticklabels(labels_x)
+    ax.set_ylabel("Mean log2(norm+1) of KEGG DNA-sensing genes")
+    ku = dna[dna["contrast"] == "Ku70"].iloc[0]
+    ax.set_title(
+        f"Ku70 vs parental  Δ={ku['delta_log2']:+.3f}\n"
+        f"Welch two-sided p={ku['welch_p_two']:.2e}"
+    )
+    fig.tight_layout()
+    fig.savefig(path, dpi=160, bbox_inches="tight")
+    fig.savefig(path.with_suffix(".pdf"), bbox_inches="tight")
+    plt.close(fig)
+
+
 def main() -> None:
     log("load")
     counts, samples, payload = load_inputs()
@@ -700,6 +853,22 @@ def main() -> None:
     plot_qc(log_mat, samples, focus, FIG / "fig_qc_pca_targets.png")
     plot_focus_heatmap(focus, FIG / "fig_focus_log2fc.png")
     plot_sensitivity(wide, FIG / "fig_subunit_gene_sensitivity.png")
+
+    log("parental-contrast IFN/STING/DNA-sensing")
+    gsea_parent, scores_parent = parental_up(log_mat, payload)
+    gsea_parent.to_csv(TAB / "gsea_vs_parental.tsv", sep="\t", index=False)
+    scores_parent.to_csv(TAB / "sample_scores_vs_parental.tsv", sep="\t", index=False)
+    plot_parental(gsea_parent, scores_parent, FIG / "fig_vs_parental_ifn_dnasensing.png")
+    hit = gsea_parent[(gsea_parent["nes"] > 0) & (gsea_parent["fdr"] < 0.05)]
+    log(f"parental GSEA FDR<0.05 and NES>0: {len(hit)}")
+    if not hit.empty:
+        print(hit[["contrast", "label", "nes", "nom_p", "fdr", "mean_stat"]].to_string(index=False))
+    score_hit = scores_parent[scores_parent["fdr_greater_across_subunits"] < 0.05]
+    print(
+        score_hit[
+            ["contrast", "term", "delta_log2", "welch_p_greater", "welch_p_two", "fdr_greater_across_subunits"]
+        ].to_string(index=False)
+    )
 
     summary = {
         "nperm": NPERM,
