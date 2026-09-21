@@ -1,0 +1,9 @@
+sample,patient,n_tumor,cldn4_median_norm,n_high,n_low,frac_cldn4_zero_tumor,high_rule
+LUAD-5 R1,Lung5,18600,7.949395179748535,9298,9302,0.3128494623655914,CLDN4 > within-sample tumor median
+LUAD-5 R2,Lung5,19110,7.8219499588012695,9545,9565,0.33537414965986395,CLDN4 > within-sample tumor median
+LUAD-5 R3,Lung5,16555,7.780447006225586,8270,8285,0.3898520084566596,CLDN4 > within-sample tumor median
+LUSC-6,Lung6,66981,0.0,16402,50579,0.7551245875696093,"CLDN4 > within-sample tumor median (median is 0, so high = detected)"
+LUAD-9 R1,Lung9,39422,8.270588874816895,19670,19752,0.29199431789356195,CLDN4 > within-sample tumor median
+LUAD-9 R2,Lung9,96822,8.431233406066895,48360,48462,0.3981842969573031,CLDN4 > within-sample tumor median
+LUAD-12,Lung12,18512,0.0,7288,11224,0.6063094209161625,"CLDN4 > within-sample tumor median (median is 0, so high = detected)"
+LUAD-13,Lung13,26311,8.320636749267578,13148,13163,0.2701531678765535,CLDN4 > within-sample tumor median

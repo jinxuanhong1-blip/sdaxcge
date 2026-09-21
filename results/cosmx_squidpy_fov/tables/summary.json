@@ -1,0 +1,1132 @@
+{
+  "squidpy": "1.8.3",
+  "anndata": "0.13.4",
+  "n_obs": 765771,
+  "um_per_px": 0.18,
+  "radii_um": [
+    50.0,
+    100.0
+  ],
+  "n_perms_nhood": 1000,
+  "n_perms_label_shuffle": 999,
+  "seed": 20260921,
+  "min_arm": 30,
+  "min_effector": 10,
+  "tumor_types": [
+    "tumor 5",
+    "tumor 6",
+    "tumor 9",
+    "tumor 12",
+    "tumor 13"
+  ],
+  "cd8_types": [
+    "T CD8 memory",
+    "T CD8 naive"
+  ],
+  "nk_types": [
+    "NK"
+  ],
+  "n_fov_total": 232,
+  "n_fov_ran": 202,
+  "elapsed_sec": 568.4499545097351,
+  "tests": {
+    "section_interaction": [
+      {
+        "radius_um": 50.0,
+        "eff": "cd8",
+        "mean_high": 0.32239925643648953,
+        "mean_low": 0.40779026581506883,
+        "median_ratio": 0.8008689598161236,
+        "ratios": [
+          0.837944,
+          0.803057,
+          0.798681,
+          1.105183,
+          0.69183,
+          0.57742,
+          0.484179,
+          0.90808
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "sign_n": 8,
+        "sign_n_high_lt_low": 7,
+        "sign_n_high_gt_low": 1,
+        "sign_n_tie": 0,
+        "sign_median_delta": -0.08123315932884617,
+        "sign_mean_delta": -0.0853910093785792,
+        "sign_sign_p_one_sided_high_lt_low": 0.03515625,
+        "n": 8,
+        "wilcoxon_stat_less": 1.0,
+        "wilcoxon_p_less": 0.0078125,
+        "wilcoxon_p_two_sided": 0.015625
+      },
+      {
+        "radius_um": 50.0,
+        "eff": "nk",
+        "mean_high": 0.09792532765824699,
+        "mean_low": 0.13889609897861038,
+        "median_ratio": 0.8763429877447231,
+        "ratios": [
+          1.047102,
+          0.890189,
+          1.018866,
+          1.011294,
+          0.50355,
+          0.46688,
+          0.42084,
+          0.862497
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "sign_n": 8,
+        "sign_n_high_lt_low": 5,
+        "sign_n_high_gt_low": 3,
+        "sign_n_tie": 0,
+        "sign_median_delta": -0.012341810500310298,
+        "sign_mean_delta": -0.04097077132036339,
+        "sign_sign_p_one_sided_high_lt_low": 0.36328125,
+        "n": 8,
+        "wilcoxon_stat_less": 7.0,
+        "wilcoxon_p_less": 0.07421875,
+        "wilcoxon_p_two_sided": 0.1484375
+      },
+      {
+        "radius_um": 50.0,
+        "eff": "cd8nk",
+        "mean_high": 0.4203245840947366,
+        "mean_low": 0.546686364793679,
+        "median_ratio": 0.8830556745252063,
+        "ratios": [
+          0.971971,
+          0.859289,
+          0.925317,
+          1.083244,
+          0.647577,
+          0.532711,
+          0.462213,
+          0.906823
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "sign_n": 8,
+        "sign_n_high_lt_low": 7,
+        "sign_n_high_gt_low": 1,
+        "sign_n_tie": 0,
+        "sign_median_delta": -0.09778578563388025,
+        "sign_mean_delta": -0.1263617806989426,
+        "sign_sign_p_one_sided_high_lt_low": 0.03515625,
+        "n": 8,
+        "wilcoxon_stat_less": 2.0,
+        "wilcoxon_p_less": 0.01171875,
+        "wilcoxon_p_two_sided": 0.0234375
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "cd8",
+        "mean_high": 1.7108351664647417,
+        "mean_low": 1.942420008852403,
+        "median_ratio": 0.948254810120484,
+        "ratios": [
+          0.97624,
+          0.941622,
+          0.961467,
+          1.066892,
+          0.80853,
+          0.711487,
+          0.655269,
+          0.954887
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "sign_n": 8,
+        "sign_n_high_lt_low": 7,
+        "sign_n_high_gt_low": 1,
+        "sign_n_tie": 0,
+        "sign_median_delta": -0.18560846526086028,
+        "sign_mean_delta": -0.2315848423876613,
+        "sign_sign_p_one_sided_high_lt_low": 0.03515625,
+        "n": 8,
+        "wilcoxon_stat_less": 4.0,
+        "wilcoxon_p_less": 0.02734375,
+        "wilcoxon_p_two_sided": 0.0546875
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "nk",
+        "mean_high": 0.581688329857108,
+        "mean_low": 0.6661866794553666,
+        "median_ratio": 0.9958224870062823,
+        "ratios": [
+          1.119105,
+          1.07078,
+          1.207151,
+          1.077896,
+          0.662024,
+          0.594867,
+          0.59856,
+          0.920865
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "sign_n": 8,
+        "sign_n_high_lt_low": 4,
+        "sign_n_high_gt_low": 4,
+        "sign_n_tie": 0,
+        "sign_median_delta": -0.002798126057188599,
+        "sign_mean_delta": -0.08449834959825846,
+        "sign_sign_p_one_sided_high_lt_low": 0.63671875,
+        "n": 8,
+        "wilcoxon_stat_less": 13.0,
+        "wilcoxon_p_less": 0.2734375,
+        "wilcoxon_p_two_sided": 0.546875
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "cd8nk",
+        "mean_high": 2.2925234963218495,
+        "mean_low": 2.60860668830777,
+        "median_ratio": 0.987406263736667,
+        "ratios": [
+          1.064056,
+          1.02094,
+          1.09801,
+          1.06909,
+          0.776018,
+          0.664893,
+          0.636373,
+          0.953872
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "sign_n": 8,
+        "sign_n_high_lt_low": 4,
+        "sign_n_high_gt_low": 4,
+        "sign_n_tie": 0,
+        "sign_median_delta": -0.16382417375707226,
+        "sign_mean_delta": -0.3160831919859198,
+        "sign_sign_p_one_sided_high_lt_low": 0.63671875,
+        "n": 8,
+        "wilcoxon_stat_less": 10.0,
+        "wilcoxon_p_less": 0.15625,
+        "wilcoxon_p_two_sided": 0.3125
+      }
+    ],
+    "donor_interaction": [
+      {
+        "radius_um": 50.0,
+        "eff": "cd8",
+        "ratios": [
+          0.811522,
+          1.105183,
+          0.646401,
+          0.484179,
+          0.90808
+        ],
+        "patients": [
+          "Lung5",
+          "Lung6",
+          "Lung9",
+          "Lung12",
+          "Lung13"
+        ],
+        "n": 5,
+        "n_high_lt_low": 4,
+        "n_high_gt_low": 1,
+        "n_tie": 0,
+        "median_delta": -0.14896244319326035,
+        "mean_delta": -0.09989916897823345,
+        "sign_p_one_sided_high_lt_low": 0.1875
+      },
+      {
+        "radius_um": 50.0,
+        "eff": "nk",
+        "ratios": [
+          0.980481,
+          1.011294,
+          0.481813,
+          0.42084,
+          0.862497
+        ],
+        "patients": [
+          "Lung5",
+          "Lung6",
+          "Lung9",
+          "Lung12",
+          "Lung13"
+        ],
+        "n": 5,
+        "n_high_lt_low": 4,
+        "n_high_gt_low": 1,
+        "n_tie": 0,
+        "median_delta": -0.006487095723622237,
+        "mean_delta": -0.044519239260037494,
+        "sign_p_one_sided_high_lt_low": 0.1875
+      },
+      {
+        "radius_um": 50.0,
+        "eff": "cd8nk",
+        "ratios": [
+          0.916296,
+          1.083244,
+          0.594938,
+          0.462213,
+          0.906823
+        ],
+        "patients": [
+          "Lung5",
+          "Lung6",
+          "Lung9",
+          "Lung12",
+          "Lung13"
+        ],
+        "n": 5,
+        "n_high_lt_low": 4,
+        "n_high_gt_low": 1,
+        "n_tie": 0,
+        "median_delta": -0.159441177285641,
+        "mean_delta": -0.14441840823827096,
+        "sign_p_one_sided_high_lt_low": 0.1875
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "cd8",
+        "ratios": [
+          0.959407,
+          1.066892,
+          0.774258,
+          0.655269,
+          0.954887
+        ],
+        "patients": [
+          "Lung5",
+          "Lung6",
+          "Lung9",
+          "Lung12",
+          "Lung13"
+        ],
+        "n": 5,
+        "n_high_lt_low": 4,
+        "n_high_gt_low": 1,
+        "n_tie": 0,
+        "median_delta": -0.33915656332279465,
+        "mean_delta": -0.2689802228761412,
+        "sign_p_one_sided_high_lt_low": 0.1875
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "nk",
+        "ratios": [
+          1.127385,
+          1.077896,
+          0.624403,
+          0.59856,
+          0.920865
+        ],
+        "patients": [
+          "Lung5",
+          "Lung6",
+          "Lung9",
+          "Lung12",
+          "Lung13"
+        ],
+        "n": 5,
+        "n_high_lt_low": 3,
+        "n_high_gt_low": 2,
+        "n_tie": 0,
+        "median_delta": -0.01829421398370265,
+        "mean_delta": -0.11112350282571633,
+        "sign_p_one_sided_high_lt_low": 0.5
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "cd8nk",
+        "ratios": [
+          1.059503,
+          1.06909,
+          0.729974,
+          0.636373,
+          0.953872
+        ],
+        "patients": [
+          "Lung5",
+          "Lung6",
+          "Lung9",
+          "Lung12",
+          "Lung13"
+        ],
+        "n": 5,
+        "n_high_lt_low": 3,
+        "n_high_gt_low": 2,
+        "n_tie": 0,
+        "median_delta": -0.35745077730649744,
+        "mean_delta": -0.38010372570185763,
+        "sign_p_one_sided_high_lt_low": 0.5
+      }
+    ],
+    "muzzling_cpm": [
+      {
+        "radius_um": 50.0,
+        "gene": "GZMB",
+        "ratios": [
+          1.277747,
+          1.079718,
+          0.953513,
+          1.371419,
+          1.206398,
+          1.273116,
+          1.133828,
+          1.171077
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 1,
+        "n_ratio_gt_1": 7,
+        "min_ratio": 0.9535127719743967,
+        "max_ratio": 1.3714191855040554,
+        "median_ratio": 1.1887370408223865
+      },
+      {
+        "radius_um": 50.0,
+        "gene": "PRF1",
+        "ratios": [
+          1.430234,
+          1.105308,
+          1.301186,
+          0.689001,
+          0.944165,
+          1.136174,
+          1.287538,
+          0.856418
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 3,
+        "n_ratio_gt_1": 5,
+        "min_ratio": 0.6890008536714254,
+        "max_ratio": 1.4302339650682416,
+        "median_ratio": 1.1207409429375308
+      },
+      {
+        "radius_um": 50.0,
+        "gene": "NKG7",
+        "ratios": [
+          1.212097,
+          1.097878,
+          0.978098,
+          1.137859,
+          1.121801,
+          0.916354,
+          1.007034,
+          0.923365
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 3,
+        "n_ratio_gt_1": 5,
+        "min_ratio": 0.9163541573604989,
+        "max_ratio": 1.2120974652621113,
+        "median_ratio": 1.0524559759548948
+      },
+      {
+        "radius_um": 50.0,
+        "gene": "IFNG",
+        "ratios": [
+          1.079019,
+          1.255418,
+          1.519319,
+          0.479872,
+          0.954101,
+          0.813517,
+          0.376087,
+          1.123618
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 4,
+        "n_ratio_gt_1": 4,
+        "min_ratio": 0.37608746059815656,
+        "max_ratio": 1.5193191145474898,
+        "median_ratio": 1.0165600067109404
+      },
+      {
+        "radius_um": 100.0,
+        "gene": "GZMB",
+        "ratios": [
+          1.318293,
+          1.111242,
+          1.194888,
+          1.458213,
+          1.11771,
+          1.307012,
+          1.091574,
+          1.172876
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 0,
+        "n_ratio_gt_1": 8,
+        "min_ratio": 1.091573953861746,
+        "max_ratio": 1.4582128670074028,
+        "median_ratio": 1.1838818211493733
+      },
+      {
+        "radius_um": 100.0,
+        "gene": "PRF1",
+        "ratios": [
+          1.318438,
+          0.893126,
+          1.381079,
+          0.741464,
+          1.099795,
+          1.134755,
+          1.319801,
+          0.861823
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 3,
+        "n_ratio_gt_1": 5,
+        "min_ratio": 0.7414638664449427,
+        "max_ratio": 1.3810791506234399,
+        "median_ratio": 1.1172752022935355
+      },
+      {
+        "radius_um": 100.0,
+        "gene": "NKG7",
+        "ratios": [
+          1.12846,
+          0.996405,
+          1.01973,
+          1.207911,
+          1.095374,
+          0.971875,
+          0.999895,
+          0.921089
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 4,
+        "n_ratio_gt_1": 4,
+        "min_ratio": 0.921089169225661,
+        "max_ratio": 1.2079109542606157,
+        "median_ratio": 1.0098121216603486
+      },
+      {
+        "radius_um": 100.0,
+        "gene": "IFNG",
+        "ratios": [
+          0.779707,
+          1.114121,
+          1.170891,
+          0.515166,
+          0.992547,
+          0.865256,
+          0.362682,
+          1.184675
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "n_ratio_lt_1": 5,
+        "n_ratio_gt_1": 3,
+        "min_ratio": 0.3626823390553446,
+        "max_ratio": 1.1846749816923983,
+        "median_ratio": 0.9289015703290933
+      }
+    ],
+    "cooccurrence_fov": [
+      {
+        "radius_um": 50.0,
+        "eff": "cd8",
+        "section_occ_high": [
+          0.173951,
+          0.215956,
+          0.177487,
+          0.439698,
+          0.380892,
+          0.49741,
+          0.466137,
+          0.800486
+        ],
+        "section_occ_low": [
+          0.222831,
+          0.292549,
+          0.343258,
+          0.397074,
+          0.517547,
+          0.793378,
+          0.718992,
+          0.851863
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "section_sign": {
+          "n": 8,
+          "n_high_lt_low": 7,
+          "n_high_gt_low": 1,
+          "n_tie": 0,
+          "median_delta": -0.10662436236171881,
+          "mean_delta": -0.12318432375623012,
+          "sign_p_one_sided_high_lt_low": 0.03515625
+        },
+        "donor_sign": {
+          "n": 5,
+          "n_high_lt_low": 4,
+          "n_high_gt_low": 1,
+          "n_tie": 0,
+          "median_delta": -0.09708085027880252,
+          "mean_delta": -0.11500023045185515,
+          "sign_p_one_sided_high_lt_low": 0.1875
+        },
+        "donor_delta": {
+          "Lung12": -0.25285455910675636,
+          "Lung13": -0.051377290432613895,
+          "Lung5": -0.09708085027880252,
+          "Lung6": 0.04262328479185729,
+          "Lung9": -0.21631173723296018
+        }
+      },
+      {
+        "radius_um": 50.0,
+        "eff": "nk",
+        "section_occ_high": [
+          0.311424,
+          0.339642,
+          0.386126,
+          0.794984,
+          0.254361,
+          0.440168,
+          0.410372,
+          0.600354
+        ],
+        "section_occ_low": [
+          0.348203,
+          0.42711,
+          0.425899,
+          0.624235,
+          0.517825,
+          0.775642,
+          0.816562,
+          0.919432
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "section_sign": {
+          "n": 8,
+          "n_high_lt_low": 7,
+          "n_high_gt_low": 1,
+          "n_tie": 0,
+          "median_delta": -0.175466562425262,
+          "mean_delta": -0.16468471773214016,
+          "sign_p_one_sided_high_lt_low": 0.03515625
+        },
+        "donor_sign": {
+          "n": 5,
+          "n_high_lt_low": 4,
+          "n_high_gt_low": 1,
+          "n_tie": 0,
+          "median_delta": -0.2994693002138929,
+          "mean_delta": -0.1817323550632699,
+          "sign_p_one_sided_high_lt_low": 0.1875
+        },
+        "donor_delta": {
+          "Lung12": -0.40618975977052657,
+          "Lung13": -0.3190777841306771,
+          "Lung5": -0.054673333163439586,
+          "Lung6": 0.1707484019621868,
+          "Lung9": -0.2994693002138929
+        }
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "cd8",
+        "section_occ_high": [
+          0.36211,
+          0.421618,
+          0.345518,
+          0.654455,
+          0.578133,
+          0.691406,
+          0.643966,
+          0.931724
+        ],
+        "section_occ_low": [
+          0.367007,
+          0.439845,
+          0.420648,
+          0.588052,
+          0.675434,
+          0.88708,
+          0.812309,
+          0.950879
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "section_sign": {
+          "n": 8,
+          "n_high_lt_low": 7,
+          "n_high_gt_low": 1,
+          "n_tie": 0,
+          "median_delta": -0.0471427319357033,
+          "mean_delta": -0.06404072176025502,
+          "sign_p_one_sided_high_lt_low": 0.03515625
+        },
+        "donor_sign": {
+          "n": 5,
+          "n_high_lt_low": 4,
+          "n_high_gt_low": 1,
+          "n_tie": 0,
+          "median_delta": -0.03275143336260274,
+          "mean_delta": -0.06006699157111519,
+          "sign_p_one_sided_high_lt_low": 0.1875
+        },
+        "donor_delta": {
+          "Lung12": -0.16834295368548685,
+          "Lung13": -0.019155622688857475,
+          "Lung5": -0.03275143336260274,
+          "Lung6": 0.06640300138262996,
+          "Lung9": -0.14648794950125882
+        }
+      },
+      {
+        "radius_um": 100.0,
+        "eff": "nk",
+        "section_occ_high": [
+          0.474769,
+          0.5629,
+          0.535819,
+          0.854077,
+          0.419547,
+          0.61394,
+          0.612692,
+          0.883293
+        ],
+        "section_occ_low": [
+          0.472721,
+          0.577992,
+          0.532846,
+          0.793011,
+          0.629288,
+          0.864151,
+          0.861748,
+          1.21172
+        ],
+        "samples": [
+          "LUAD-5 R1",
+          "LUAD-5 R2",
+          "LUAD-5 R3",
+          "LUSC-6",
+          "LUAD-9 R1",
+          "LUAD-9 R2",
+          "LUAD-12",
+          "LUAD-13"
+        ],
+        "section_sign": {
+          "n": 8,
+          "n_high_lt_low": 5,
+          "n_high_gt_low": 3,
+          "n_tie": 0,
+          "median_delta": -0.11241613246926646,
+          "mean_delta": -0.12330478925813218,
+          "sign_p_one_sided_high_lt_low": 0.36328125
+        },
+        "donor_sign": {
+          "n": 5,
+          "n_high_lt_low": 4,
+          "n_high_gt_low": 1,
+          "n_tie": 0,
+          "median_delta": -0.22997553931118742,
+          "mean_delta": -0.1499498124675525,
+          "sign_p_one_sided_high_lt_low": 0.1875
+        },
+        "donor_delta": {
+          "Lung12": -0.24905646380836505,
+          "Lung13": -0.32842653378146686,
+          "Lung5": -0.0033568562080537184,
+          "Lung6": 0.06106633077131046,
+          "Lung9": -0.22997553931118742
+        }
+      }
+    ]
+  },
+  "thresholds": [
+    {
+      "sample": "LUAD-5 R1",
+      "patient": "Lung5",
+      "n_tumor": 18600,
+      "cldn4_median_norm": 7.949395179748535,
+      "n_high": 9298,
+      "n_low": 9302,
+      "frac_cldn4_zero_tumor": 0.3128494623655914,
+      "high_rule": "CLDN4 > within-sample tumor median"
+    },
+    {
+      "sample": "LUAD-5 R2",
+      "patient": "Lung5",
+      "n_tumor": 19110,
+      "cldn4_median_norm": 7.8219499588012695,
+      "n_high": 9545,
+      "n_low": 9565,
+      "frac_cldn4_zero_tumor": 0.33537414965986395,
+      "high_rule": "CLDN4 > within-sample tumor median"
+    },
+    {
+      "sample": "LUAD-5 R3",
+      "patient": "Lung5",
+      "n_tumor": 16555,
+      "cldn4_median_norm": 7.780447006225586,
+      "n_high": 8270,
+      "n_low": 8285,
+      "frac_cldn4_zero_tumor": 0.3898520084566596,
+      "high_rule": "CLDN4 > within-sample tumor median"
+    },
+    {
+      "sample": "LUSC-6",
+      "patient": "Lung6",
+      "n_tumor": 66981,
+      "cldn4_median_norm": 0.0,
+      "n_high": 16402,
+      "n_low": 50579,
+      "frac_cldn4_zero_tumor": 0.7551245875696093,
+      "high_rule": "CLDN4 > within-sample tumor median (median is 0, so high = detected)"
+    },
+    {
+      "sample": "LUAD-9 R1",
+      "patient": "Lung9",
+      "n_tumor": 39422,
+      "cldn4_median_norm": 8.270588874816895,
+      "n_high": 19670,
+      "n_low": 19752,
+      "frac_cldn4_zero_tumor": 0.29199431789356195,
+      "high_rule": "CLDN4 > within-sample tumor median"
+    },
+    {
+      "sample": "LUAD-9 R2",
+      "patient": "Lung9",
+      "n_tumor": 96822,
+      "cldn4_median_norm": 8.431233406066895,
+      "n_high": 48360,
+      "n_low": 48462,
+      "frac_cldn4_zero_tumor": 0.3981842969573031,
+      "high_rule": "CLDN4 > within-sample tumor median"
+    },
+    {
+      "sample": "LUAD-12",
+      "patient": "Lung12",
+      "n_tumor": 18512,
+      "cldn4_median_norm": 0.0,
+      "n_high": 7288,
+      "n_low": 11224,
+      "frac_cldn4_zero_tumor": 0.6063094209161625,
+      "high_rule": "CLDN4 > within-sample tumor median (median is 0, so high = detected)"
+    },
+    {
+      "sample": "LUAD-13",
+      "patient": "Lung13",
+      "n_tumor": 26311,
+      "cldn4_median_norm": 8.320636749267578,
+      "n_high": 13148,
+      "n_low": 13163,
+      "frac_cldn4_zero_tumor": 0.2701531678765535,
+      "high_rule": "CLDN4 > within-sample tumor median"
+    }
+  ],
+  "section_perm_p": [
+    {
+      "sample": "LUAD-5 R1",
+      "patient": "Lung5",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": -0.006249532026802257,
+      "perm_p_high_lt_low_cd8nk": 0.249,
+      "ratio_mean_n_cd8nk": 0.971970517399559,
+      "mean_n_cldn4_high_cd8nk": 0.21671327167132717,
+      "mean_n_cldn4_low_cd8nk": 0.22296280369812943
+    },
+    {
+      "sample": "LUAD-5 R1",
+      "patient": "Lung5",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": 0.08499759902867843,
+      "perm_p_high_lt_low_cd8nk": 0.997,
+      "ratio_mean_n_cd8nk": 1.0640563611897242,
+      "mean_n_cldn4_high_cd8nk": 1.411916541191654,
+      "mean_n_cldn4_low_cd8nk": 1.3269189421629757
+    },
+    {
+      "sample": "LUAD-5 R2",
+      "patient": "Lung5",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": -0.03613039398211951,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.859288591840809,
+      "mean_n_cldn4_high_cd8nk": 0.22063907805133579,
+      "mean_n_cldn4_low_cd8nk": 0.2567694720334553
+    },
+    {
+      "sample": "LUAD-5 R2",
+      "patient": "Lung5",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": 0.029802429792352925,
+      "perm_p_high_lt_low_cd8nk": 0.873,
+      "ratio_mean_n_cd8nk": 1.0209402953767617,
+      "mean_n_cldn4_high_cd8nk": 1.453012048192771,
+      "mean_n_cldn4_low_cd8nk": 1.4232096184004182
+    },
+    {
+      "sample": "LUAD-5 R3",
+      "patient": "Lung5",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": -0.018416099957747678,
+      "perm_p_high_lt_low_cd8nk": 0.034,
+      "ratio_mean_n_cd8nk": 0.9253169906265593,
+      "mean_n_cldn4_high_cd8nk": 0.22817412333736398,
+      "mean_n_cldn4_low_cd8nk": 0.24659022329511165
+    },
+    {
+      "sample": "LUAD-5 R3",
+      "patient": "Lung5",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": 0.12430770780077038,
+      "perm_p_high_lt_low_cd8nk": 1.0,
+      "ratio_mean_n_cd8nk": 1.098010026563512,
+      "mean_n_cldn4_high_cd8nk": 1.3926239419588877,
+      "mean_n_cldn4_low_cd8nk": 1.2683162341581171
+    },
+    {
+      "sample": "LUSC-6",
+      "patient": "Lung6",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": 0.011769267304682501,
+      "perm_p_high_lt_low_cd8nk": 0.99,
+      "ratio_mean_n_cd8nk": 1.083243989792132,
+      "mean_n_cldn4_high_cd8nk": 0.15315205462748446,
+      "mean_n_cldn4_low_cd8nk": 0.14138278732280196
+    },
+    {
+      "sample": "LUSC-6",
+      "patient": "Lung6",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": 0.05638632329370796,
+      "perm_p_high_lt_low_cd8nk": 1.0,
+      "ratio_mean_n_cd8nk": 1.0690899451506204,
+      "mean_n_cldn4_high_cd8nk": 0.8725155468845263,
+      "mean_n_cldn4_low_cd8nk": 0.8161292235908183
+    },
+    {
+      "sample": "LUAD-9 R1",
+      "patient": "Lung9",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": -0.23403889469894412,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.6475767135706683,
+      "mean_n_cldn4_high_cd8nk": 0.430045754956787,
+      "mean_n_cldn4_low_cd8nk": 0.6640846496557311
+    },
+    {
+      "sample": "LUAD-9 R1",
+      "patient": "Lung9",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": -0.7651688203679874,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.7760182797114796,
+      "mean_n_cldn4_high_cd8nk": 2.651042196237926,
+      "mean_n_cldn4_low_cd8nk": 3.416211016605913
+    },
+    {
+      "sample": "LUAD-9 R2",
+      "patient": "Lung9",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": -0.2625041461458687,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.5327109928547938,
+      "mean_n_cldn4_high_cd8nk": 0.2992555831265509,
+      "mean_n_cldn4_low_cd8nk": 0.5617597292724197
+    },
+    {
+      "sample": "LUAD-9 R2",
+      "patient": "Lung9",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": -0.8099353098838897,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.6648929822625028,
+      "mean_n_cldn4_high_cd8nk": 1.6070099255583128,
+      "mean_n_cldn4_low_cd8nk": 2.4169452354422023
+    },
+    {
+      "sample": "LUAD-12",
+      "patient": "Lung12",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": -0.30588326879909994,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.46221274921662003,
+      "mean_n_cldn4_high_cd8nk": 0.2628979143798024,
+      "mean_n_cldn4_low_cd8nk": 0.5687811831789024
+    },
+    {
+      "sample": "LUAD-12",
+      "patient": "Lung12",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": -0.8916046882444939,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.6363732778294321,
+      "mean_n_cldn4_high_cd8nk": 1.5603732162458837,
+      "mean_n_cldn4_low_cd8nk": 2.4519779044903776
+    },
+    {
+      "sample": "LUAD-13",
+      "patient": "Lung13",
+      "radius_um": 50.0,
+      "perm_delta_mean_n_cd8nk": -0.15944117728564078,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.9068227572096035,
+      "mean_n_cldn4_high_cd8nk": 1.5517188926072407,
+      "mean_n_cldn4_low_cd8nk": 1.7111600698928817
+    },
+    {
+      "sample": "LUAD-13",
+      "patient": "Lung13",
+      "radius_um": 100.0,
+      "perm_delta_mean_n_cd8nk": -0.3574507773064983,
+      "perm_p_high_lt_low_cd8nk": 0.001,
+      "ratio_mean_n_cd8nk": 0.9538722320965723,
+      "mean_n_cldn4_high_cd8nk": 7.391694554304837,
+      "mean_n_cldn4_low_cd8nk": 7.749145331611334
+    }
+  ]
+}
