@@ -1,0 +1,22 @@
+source	query	result_on_2026-09-21
+NCBI BioProject	(CLDN4 OR Cldn4 OR "claudin-4" OR "claudin 4") AND (knockdown OR siRNA OR shRNA OR silencing OR CRISPR OR knockout)	7 projects: PRJNA856719, PRJNA330979, PRJNA259741, PRJNA210147, PRJNA135561, PRJNA128653, PRJNA106055. Only PRJNA856719 is CLDN4-loss RNA-seq
+NCBI BioProject	CLDN4 OR Cldn4 OR "claudin-4" OR "claudin 4" OR claudin4	34 projects, read one by one. No additional CLDN4-loss RNA-seq
+NCBI SRA	CLDN4/Cldn4/claudin-4 AND RNA-Seq strategy or transcriptome	23 experiments: PRJDB17476 (6), PRJNA856719 (4), PRJNA273003 (8), PRJNA219385 (5). Only the two GSE-mirrored projects are CLDN4 loss
+NCBI BioSample	CLDN4/Cldn4 AND knockdown/knockout/siRNA/shRNA/CRISPR/silencing	3 records, all 4C-seq at the CLDN4 locus (SAMN15005041, SAMN15005037, SAMN15005036)
+NCBI GEO DataSets	CLDN4/Cldn4/claudin-4 AND knockdown/knockout/siRNA/shRNA/CRISPR/silencing AND RNA-seq	1 series: GSE207704
+NCBI GEO elink from BioProject	PRJNA856719, PRJNA219385, PRJNA128653, PRJDB17476, PRJNA634686	GSE207704, GSE50927, GSE22493, no GSE, no GSE
+ENA study	study description contains CLDN4 and knockdown/knockout/siRNA/shRNA/CRISPR	PRJNA128653, PRJNA856719, PRJNA259741, PRJNA330979
+ENA read_experiment	experiment or sample title contains CLDN4, Cldn4, or claudin-4	16 rows, all from PRJNA856719, PRJNA219385, or PRJNA634686
+ENA read_experiment	shCLDN4, siCLDN4, sgCLDN4, CLDN4KO, CLDN4-KD, CLDN4_KD, Cldn4KO, Cldn4-/-	0
+NCBI SRA	shCLDN4; siCLDN4; sgCLDN4; H1688 CLDN4; "CLDN4 knockdown RNA-seq"	0; 0; 0; 0; 0
+DDBJ Search	keywords CLDN4, types bioproject/sra-study/sra-experiment/gea	47 public records. No GEA experiment. Studies are the known INSDC set plus unrelated title matches
+DDBJ GEA	keywords PRJDB17476	0
+CNCB GSA	term CLDN4	11 INSDC experiments (GSE50927, GSE207704, CLDN4-locus 4C)
+CNCB GSA	term CLDN4 knockdown	0
+CNCB GSA-Human	term CLDN4; claudin-4; CLDN4 knockout	0; 0; 0
+CNCB GSA-Human	term claudin	1: HRA003416, controlled, claudin-low ccRCC
+CNCB OMIX	term CLDN4; claudin-4	0; 0
+Europe PMC datalinks	MED:41016339	3 links, sequence-relevant ones are RRID:Addgene_98293 and RRID:Addgene_52961
+Second pass	author site, researchmap, Dokkyo PDF, KAKEN, Dryad, Zenodo, Figshare, GitHub, Elsevier mmc, WeChat, GSA, DDBJ	no open H1688 CLDN4 knockout matrix; details in pmid41016339_pass2.tsv
+Europe PMC datalinks	MED:40892111	0
+BioStudies	(CLDN4 OR Cldn4 OR claudin-4) AND (knockdown OR knockout OR siRNA OR shRNA)	known mirrors and literature records; no new E-MTAB CLDN4 knockdown RNA-seq
