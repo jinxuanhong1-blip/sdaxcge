@@ -103,6 +103,73 @@ GSE205335 Q4 versus Q1 is histology-imbalanced. In the DE tails, Q1 is 4 adenoca
 
 CLDN3 is the tight-junction gene that survives the stacked model (logFC +1.80, FDR = 0.014). The broad set does not.
 
+## Robustness
+
+Pre-specified in `analyze_robust.R` and run after the numbers above were locked. The Q4-versus-Q1 interferon score in this script matches the cohort-adjusted regression already reported (−0.643, n = 34, Q1 = 18, Q4 = 16). Family-score FDR values in this section are Benjamini–Hochberg across IFN, MHC-I/APM, and chemokine inside that model. They are a smaller family set than the five-family FDR in the pooled table above.
+
+Continuous coefficients are the change in the family score per within-cohort standard deviation of malignant CLDN4 percent-positive. Q4-versus-Q1 coefficients are the group difference. cGAS is MB21D1 in GSE123902 and GSE131907 and CGAS in GSE205335 and GSE189357. STING_core is those eight genes with IRF7 and ZBP1 left out, because those two symbols are already in the Hallmark interferon set. NHEJ is XRCC4, XRCC5, XRCC6, LIG4, PRKDC, NHEJ1, DCLRE1C, APLF, POLL, and POLM. PAXX is missing from two cohorts and is not in the score. NHEJ had no pre-specified direction.
+
+The keratin covariate is the mean log2 CPM of KRT8, KRT18, and KRT19, z-scored inside each cohort. The immune-leak covariate is the mean log2 CPM of PTPRC, CD3D, CD3E, CD68, NKG7, and MS4A1. Malignant fraction is n_malignant / n_cells on the biopsy, which is composition of the biopsy and not purity of an already-malignant UMI sum. GSE123902, GSE131907, and GSE189357 are lung-adenocarcinoma spectrum, so a LUAD cut that also drops GSE205335 is the same 13-versus-10 set as leaving GSE205335 out. Those two labels are one contrast.
+
+### Locked Q1 = 18 versus Q4 = 16, with STING and NHEJ
+
+| Score | Mixed model | Cohort-adjusted OLS |
+|---|---|---|
+| STING_core (8 genes) | **−0.803, p = 0.0094** | −0.797, p = 0.013 |
+| STING plus IRF7 and ZBP1 | −0.762, p = 0.018 | −0.752, p = 0.025 |
+| NHEJ (10 genes) | +0.040, p = 0.66 | +0.037, p = 0.69 |
+
+STING_core moves with the interferon score on the locked contrast. NHEJ sits on zero. Within cohort, STING_core is −2.08 in GSE205335 (p = 0.0025) and −1.25 in GSE123902 (p = 0.046). GSE131907 is +0.51 (p = 0.21).
+
+Adjusting the locked contrast for KRT8/KRT18/KRT19 leaves the three claim scores down and slightly steeper: IFN −0.697 (p = 0.0015, FDR = 0.0022), MHC-I/APM −0.828 (p = 0.0071), chemokine −1.452 (p = 2.9×10⁻⁵). The interferon shift is not a low-keratin artifact of the small-cell cases in Q4.
+
+### Leaving GSE205335 out
+
+Q1 = 13, Q4 = 10, three cohorts. Mixed model:
+
+| Score | logFC | p | Three-family FDR |
+|---|---:|---:|---:|
+| IFN | −0.177 | 0.45 | 0.45 |
+| MHC-I/APM | −0.340 | 0.32 | 0.45 |
+| chemokine | **−0.791** | **0.034** | 0.10 |
+| STING_core | −0.167 | 0.56 |  |
+| NHEJ | +0.063 | 0.46 |  |
+| TJ | **+0.277** | **0.022** |  |
+
+Chemokine is the claim score that stays negative with a unit-level p-value below 0.05. Its FDR across the three claim scores is 0.10. The three cohort slopes are all negative (GSE123902 −1.16, GSE131907 −0.62, GSE189357 −0.62) and none is significant on its own. A voom refit on these 23 units gives chemokine median logFC −1.74, 10 genes down and 4 up, fry p = 0.0070. IFN on that refit is median −0.31, 136 down and 67 up, fry p = 0.14. MHC-I/APM is 17 down and 4 up, fry p = 0.17. The earlier stacked-matrix leave-one-out (IFN fry p = 0.097, 140 versus 65) is a different fit and is unchanged.
+
+The three-cohort Knapp–Hartung meta of the chemokine slopes is −0.78 (p = 0.047, I² = 0). With I² at zero the Knapp–Hartung scale factor drops below 1 and the interval gets narrower than the usual random-effects interval. Flooring that factor at 1 (`test = "adhoc"`) gives p = 0.16. The unit-level mixed-model p-value, 0.034, is the number for this contrast.
+
+The same Q4-versus-Q1 model with the keratin covariate, still without GSE205335: chemokine −0.925 (p = 0.010, FDR = 0.031), MHC-I/APM −0.462 (p = 0.17), IFN −0.254 (p = 0.26).
+
+Continuous percent-positive on the 43 units outside GSE205335 is flat for IFN (+0.005, p = 0.96). MHC-I/APM is −0.083 (p = 0.52) and chemokine is −0.168 (p = 0.33). Voom fry for IFN is p = 0.50 (118 down, 85 up). Chemokine fry is p = 0.065 (9 down, 5 up). edgeR signs on the same continuous design are IFN 109 down / 94 up and chemokine 8 / 6. Spearman meta-analysis of the ranks is IFN rho −0.09 (p = 0.65). GSE123902 alone has a continuous chemokine slope of −0.61 (p = 0.050, 13 donors). GSE131907 and GSE189357 are near zero.
+
+Tight junction is the score that rises once GSE205335 is out: +0.277 on the Q4-versus-Q1 mixed model (p = 0.022) and +0.135 per SD on the continuous model (p = 8.0×10⁻⁴). GSE131907 carries the continuous tight-junction slope (+0.205, p = 2.5×10⁻⁵).
+
+### Histology
+
+Dropping the three small-cell Q4 patients (P1016, P1025, P1115) leaves Q1 = 18 and Q4 = 13. Squamous cases stay, and GSE205335 is still in the fit. Mixed model: chemokine −1.059 (p = 0.0035, FDR = 0.011), IFN −0.423 (p = 0.058, FDR = 0.072), MHC-I/APM −0.596 (p = 0.072). Voom fry: IFN p = 0.0098 (163 down, 40 up), MHC-I/APM p = 0.039, chemokine p = 4.3×10⁻⁴, STING_core p = 0.047. edgeR signs agree (IFN 158 / 45, chemokine 11 / 3).
+
+Restricting GSE205335 to adenocarcinoma and keeping the three adenocarcinoma-spectrum cohorts gives Q1 = 17 and Q4 = 12. Chemokine −0.898 (p = 0.013, FDR = 0.038). IFN −0.350 (p = 0.13) with fry p = 0.033 (160 down, 43 up). MHC-I/APM −0.560 (p = 0.11). Tight junction +0.233 (p = 0.022).
+
+GSE205335 adenocarcinoma only, continuous, n = 13: IFN −0.297 (p = 0.21), MHC-I/APM −0.497 (p = 0.13), chemokine −0.346 (p = 0.32). The sign matches the full GSE205335 slope. Thirteen patients do not separate that slope from the small-cell cases.
+
+### Continuous percent-positive on all 64 units
+
+This includes GSE205335. Mixed model, per within-cohort SD: IFN −0.175 (p = 0.067, FDR = 0.067), MHC-I/APM −0.273 (p = 0.024, FDR = 0.036), chemokine −0.400 (p = 0.014, FDR = 0.036), STING_core −0.238 (p = 0.036), NHEJ +0.002 (p = 0.97). Voom fry: IFN p = 0.0074 (166 down, 37 up), MHC-I/APM p = 0.010, chemokine p = 9.8×10⁻⁴, STING_core p = 0.049.
+
+Keratin adjustment on that full continuous model (cohort-adjusted OLS): IFN −0.269 (p = 0.0013), MHC-I/APM −0.381 (p = 6.2×10⁻⁴), chemokine −0.542 (p = 2.9×10⁻⁴). GSE205335 is inside those three p-values. The same keratin-adjusted slopes fit inside each cohort and then meta-analyzed without GSE205335 are all negative (IFN −0.17, MHC-I/APM −0.25, chemokine −0.42). The Knapp–Hartung p-value for MHC-I/APM is 0.0059 because the scale factor collapses (I² = 0). The floored test is p = 0.17. The unit-level keratin-adjusted mixed model on the same 43 units is MHC-I/APM −0.220 (p = 0.096) and chemokine −0.305 (p = 0.096). Voom fry for that keratin-adjusted continuous model without GSE205335: chemokine p = 0.010 (10 down, 4 up), MHC-I/APM p = 0.049 (17 down, 4 up), IFN p = 0.084 (138 down, 65 up).
+
+### Immune leak and malignant fraction
+
+Adding the six immune-lineage genes to the locked Q4-versus-Q1 model moves the claim scores to IFN −0.261 (p = 0.46), MHC-I/APM −0.497 (p = 0.33), and chemokine −0.157 (p = 0.72). Keratin plus immune leak on the same 34 units: chemokine −0.359 (p = 0.32), IFN −0.426 (p = 0.16). Without GSE205335, keratin plus immune leak gives chemokine +0.006 (p = 0.99). The chemokine association is sensitive to residual immune transcripts in the malignant UMI sum.
+
+Malignant fraction on the locked contrast leaves chemokine at −0.978 (p = 0.055) and IFN at −0.489 (p = 0.15). Without GSE205335, IFN is −0.248 (p = 0.50).
+
+### Reading the grid
+
+Chemokine stays lower in CLDN4-high malignant cells after GSE205335 is removed, on the Q4-versus-Q1 mixed model and on the keratin-adjusted version of that model, and the voom gene set agrees. IFN and MHC-I/APM stay lower on the full four-cohort continuous model and on the histology cuts that still contain GSE205335 adenocarcinoma. Their family scores move to about zero on the continuous model once GSE205335 is removed, with gene signs still mostly negative and fry p-values of 0.14 and 0.17 on the Q4-versus-Q1 refit. STING_core follows interferon on the locked 18-versus-16 contrast and in GSE123902, and it does not survive leaving GSE205335 out. NHEJ does not move. Tight junction is higher in CLDN4-high cells in the fits that are free of the GSE205335 small-cell Q4 arm. Immune-leak adjustment removes the chemokine difference.
+
 ## What this does not say
 
 - The quartile-vector n of 65 is not the DE n.
@@ -121,7 +188,13 @@ CLDN3 is the tight-junction gene that survives the stacked model (logFC +1.80, F
 - `methods/concordant4_pb_voom_edger_cldn4/tables/geneset_fry_camera.tsv`
 - `methods/concordant4_pb_voom_edger_cldn4/tables/sensitivity_loo.tsv`
 - `methods/concordant4_pb_voom_edger_cldn4/tables/gse205335_histology_qtails.tsv`
+- `methods/concordant4_pb_voom_edger_cldn4/tables/robust_models.tsv`
+- `methods/concordant4_pb_voom_edger_cldn4/tables/robust_fry.tsv`
+- `methods/concordant4_pb_voom_edger_cldn4/tables/robust_edger_signs.tsv`
+- `methods/concordant4_pb_voom_edger_cldn4/tables/robust_n.tsv`
 - `methods/concordant4_pb_voom_edger_cldn4/figures/forest_family_score.png`
+- `methods/concordant4_pb_voom_edger_cldn4/figures/forest_ifn_robust.png`
+- `methods/concordant4_pb_voom_edger_cldn4/figures/heatmap_robust_grid.png`
 - `methods/concordant4_pb_voom_edger_cldn4/figures/heatmap_family_median_logfc.png`
 - `methods/concordant4_pb_voom_edger_cldn4/figures/volcano_stacked_voom.png`
 - `methods/concordant4_pb_voom_edger_cldn4/figures/n_honest.png`

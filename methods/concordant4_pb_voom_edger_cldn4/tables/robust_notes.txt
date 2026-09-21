@@ -1,0 +1,24 @@
+GSE123902 q cGAS source MB21D1; STING_core genes 8; NHEJ 10; krt 3; leak 6
+GSE131907 q cGAS source MB21D1; STING_core genes 8; NHEJ 10; krt 3; leak 6
+GSE205335 q cGAS source CGAS; STING_core genes 8; NHEJ 10; krt 3; leak 6
+GSE189357 q cGAS source CGAS; STING_core genes 8; NHEJ 10; krt 3; leak 6
+GSE123902 all cGAS source MB21D1; STING_core genes 8; NHEJ 10; krt 3; leak 6
+GSE131907 all cGAS source MB21D1; STING_core genes 8; NHEJ 10; krt 3; leak 6
+GSE205335 all cGAS source CGAS; STING_core genes 8; NHEJ 10; krt 3; leak 6
+GSE189357 all cGAS source CGAS; STING_core genes 8; NHEJ 10; krt 3; leak 6
+n q4q1=34 drop205=23 dropSCLC=31 luad_q=29 cont=64 cont_drop205=43 cont_luad=56 adc205=13
+q4q1 Q1/Q4 18/16; drop205 13/10; dropSCLC 18/13; luad 17/12
+voom q4q1_drop205335 n 23 coef q4 genes 18080
+voom q4q1_dropSCLC n 31 coef q4 genes 17792
+voom q4q1_luad n 29 coef q4 genes 17792
+voom q4q1_krt n 34 coef q4 genes 17792
+voom q4q1_krt_leak n 34 coef q4 genes 17792
+voom q4q1_krt_leak_drop205335 n 23 coef q4 genes 18080
+voom cont n 64 coef cldn4_z genes 17792
+voom cont_drop205335 n 43 coef cldn4_z genes 18080
+voom cont_krt_drop205335 n 43 coef cldn4_z genes 18080
+voom cont_krt_leak_drop205335 n 43 coef cldn4_z genes 18080
+voom cont_luad n 56 coef cldn4_z genes 17792
+edger q4q1_dropSCLC n 31 coef q4 genes 17792
+edger cont_drop205335 n 43 coef cldn4_z genes 18080
+edger q4q1_krt_leak_drop205335 n 23 coef q4 genes 18080

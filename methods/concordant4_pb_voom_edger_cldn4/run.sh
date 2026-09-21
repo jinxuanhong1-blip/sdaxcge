@@ -4,3 +4,4 @@ set -euo pipefail
 cd "$(dirname "$0")"
 python3 prep_units.py
 Rscript analyze.R
+Rscript analyze_robust.R

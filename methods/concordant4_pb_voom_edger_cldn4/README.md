@@ -22,6 +22,8 @@ Pooled layers:
 
 Families: IFN (Hallmark α ∪ γ), MHC-I/APM, chemokine, tight junction (CLDN4 held out), keratin.
 
+`analyze_robust.R` adds the pre-specified grid on the same units: leave out GSE205335, drop small-cell and restrict GSE205335 to adenocarcinoma, KRT8/KRT18/KRT19 and immune-leak covariates, continuous CLDN4 percent-positive, and NHEJ plus cGAS–STING scores. `run.sh` runs that script after the primary fit.
+
 ```bash
 bash methods/concordant4_pb_voom_edger_cldn4/run.sh
 ```
