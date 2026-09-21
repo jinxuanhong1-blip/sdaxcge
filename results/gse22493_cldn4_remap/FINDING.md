@@ -6,11 +6,13 @@ GSE22493（SKOV-3-IP-Luc，CLDN4 siRNA / CLDN4 过表达，3 张双色芯片）�
 
 符号补上之后，结论没有翻向。以中位 log2(siRNA/OE) 为准，优先级 6 基因 3 升 3 降（中位 −0.744），APM 5/15 升（中位 −0.560），IFN 集 29/64 升（中位 −0.101）。相对背景基因的单侧 Mann-Whitney 都不支持“升高”（p = 0.881、0.973、0.888；四组 BH q = 0.973）。CLDN4 本身中位 −1.225（2 张芯片），方向与标记一致。去掉 CLDN4 后的紧密连接核心 8/14 为负（中位 −0.247），但和背景无差别（p = 0.516），基因均值符号相反。这是卵巢 siRNA 对过表达，不是肺，也不是亲本对照；三张芯片彼此 Spearman 只有 −0.24 到 +0.24。它不支持“CLDN4 敲低打开 IFN/APM”，也不拿来否定别的公共或私有 KD。
 
+最后一轮又查了原始 ScanArray、染料交换符号、三张芯片留一、探针级、效应量分位数、ssGSEA 和 n=3 的 GSVA 式评分。没有任何一个方向正确的实验级处理能让 IFN 和 APM 同时升高且单侧 p<0.05。停在 FINAL discordant。下文表格是这一轮的全部 IFN/APM 结果。
+
 ## Contrast
 
 [GSE22493](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22493) on [GPL10555](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GPL10555) (BWH Human Release 3.0, 60-mer). Three two-colour arrays, GSM558700–GSM558702. GEO labels Cy3 / channel 1 as CLDN4 overexpression (control) and Cy5 / channel 2 as CLDN4 lentiviral siRNA. The series matrix VALUE is the deposited normalized sample-to-control ratio. CLDN4 itself is negative, so the ratio is oriented as siRNA relative to overexpression.
 
-The processing text says a dye swap was done. The deposited channel labels are the same on all three samples. No array was sign-flipped here.
+The processing text says a dye swap was done. The deposited channel labels are the same on all three samples. The primary analysis uses those deposited values as published. The raw ScanArray files show that GSM558701 was already sign-reversed in the deposit; that check is in the final sweep below.
 
 ## What the old symbol map missed
 
@@ -98,3 +100,66 @@ python3 scripts/gse22493_cldn4_remap/analyze.py
 ```
 
 Downloads the GEO series matrix, GPL10555 SOFT, and the HGNC complete set into `/tmp/gse22493` (override with `GSE22493_CACHE`). Needs numpy, pandas, scipy, matplotlib.
+
+The last sweep is below. It is the stopping point.
+
+## FINAL: still discordant
+
+No orientation-valid, experiment-level processing puts both IFN and APM up at p < 0.05. Stop.
+
+The rule was fixed before reading these extra results. A processing counts only if, on that same processing, the IFN set and the APM set each have a positive effect, a one-sided up-test p < 0.05, and CLDN4 is negative on every array where it is measured. One array by itself does not count. Negating GSM558701 back to the raw Ch2/Ch1 sign does not count: that undoes the dye-swap correction already in the GEO matrix.
+
+### What the raw files are
+
+GEO has one supplement, `GSE22493_RAW.tar` (file list dated 2013-01-17): `GSM558700.txt.gz`, `GSM558701.txt.gz`, `GSM558702.txt.gz`. ScanArray Express exports. No other processed table and no author gene list.
+
+Deposited VALUE is rank-identical to the ScanArray normalized Ch2/Ch1 log ratio on GSM558700 and GSM558702 (Spearman +1). On GSM558701 it is rank-identical to the negation of that column (Spearman +1). CLDN4 on that array is raw log2(Ch2/Ch1) = +1.22 and deposited = −1.737. The deposit is the dye-swap-corrected ratio. Flag 3 spots are the quantified spots (median background-subtracted intensity in the hundreds). Flag 1 spots are dim (median about 20–30).
+
+### Sweep table
+
+Effect is the set median log2(siRNA/OE) unless the row says otherwise. `p_up` is one-sided Mann-Whitney against the other genes or probes, except ssGSEA and the n=3 GSVA score, where it is a 999-permutation one-sided p (seed 42). Full rows, including TJ, STING, and NHEJ, are in `tables/sweep_final.tsv`.
+
+| Processing | IFN n (up/down) | IFN effect | IFN p_up | APM n (up/down) | APM effect | APM p_up | CLDN4 negative on measured arrays |
+|---|---|---|---|---|---|---|---|
+| Deposited ratios | 64 (29/35) | −0.101 | 0.888 | 15 (5/10) | −0.560 | 0.973 | yes |
+| Deposited, array median-centered | 64 (31/33) | −0.079 | 0.883 | 15 (4/11) | −0.482 | 0.976 | yes |
+| Deposited, quantile-normalized | 64 (29/35) | −0.125 | 0.888 | 15 (4/11) | −0.551 | 0.975 | yes |
+| Raw Ch2/Ch1, no flip | 62 (13/49) | −0.892 | 0.966 | 15 (3/12) | −0.796 | 0.726 | no (GSM558701 CLDN4 +1.22) |
+| Raw flag 3, no flip | 55 (10/45) | −0.895 | 0.967 | 15 (3/12) | −0.796 | 0.763 | no |
+| Raw, GSM558701 flipped to the deposited sign | 62 (20/42) | −0.589 | 0.724 | 15 (4/11) | −0.559 | 0.588 | yes |
+| Raw flag 3, GSM558701 flipped | 55 (16/39) | −0.412 | 0.761 | 15 (4/11) | −0.559 | 0.586 | yes |
+| Raw flag 3, flipped, median-centered | 55 (29/26) | +0.066 | 0.780 | 15 (8/7) | +0.070 | 0.507 | yes |
+| Leave out GSM558700 | 59 (33/26) | +0.084 | 0.347 | 15 (8/7) | +0.062 | 0.490 | yes |
+| Leave out GSM558701 | 58 (21/37) | −0.351 | 0.972 | 15 (4/11) | −0.959 | 0.966 | yes |
+| Leave out GSM558702 | 57 (31/26) | +0.013 | 0.533 | 15 (7/8) | −0.089 | 0.342 | yes |
+| Probe-level, no gene collapse | 98 (47/51) | −0.037 | 0.901 | 52 (14/38) | −0.850 | 1.000 | yes |
+| \|effect\| ≥ genome q50 (0.600) | 43 (16/27) | −0.713 | 0.902 | 9 (2/7) | −1.252 | 0.972 | yes |
+| \|effect\| ≥ genome q75 (1.104) | 21 (6/15) | −1.434 | 0.818 | 7 (1/6) | −1.472 | 0.869 | yes |
+| \|effect\| ≥ genome q90 (1.711) | 8 (4/4) | −0.159 | 0.589 | 1 (0/1) | −2.556 | not tested | yes |
+| \|effect\| ≥ \|CLDN4\| (1.225) | 20 (6/14) | −1.441 | 0.681 | 7 (1/6) | −1.472 | 0.756 | yes |
+| Within-array percentile (up would be > 0.5) | 64 (31/33) | 0.472 | 0.916 | 15 (4/11) | 0.346 | 0.979 | yes |
+| ssGSEA, α=0.25, median of 3 array ES | 64 | +77.3 | 0.773 | 15 | −936 | 0.955 | yes |
+| GSVA-style KS on n=3 across-sample ranks | 55 | −452 | 0.971 | 15 | −937 | 0.981 | yes |
+
+Two processings have both medians slightly positive. Neither is close to p < 0.05.
+
+- Dropping GSM558700 leaves IFN at +0.084 (p = 0.347) and APM at +0.062 (p = 0.490).
+- Median-centering the flag-3 raw ratios, after putting GSM558701 back on the deposited sign, leaves IFN at +0.066 (p = 0.780) and APM at +0.070 (p = 0.507).
+
+Genes with a large absolute ratio are the ones that go down. Above the CLDN4 bar (\|log2\| ≥ 1.225), IFN is 6 up / 14 down (median −1.441) and APM is 1 up / 6 down (median −1.472).
+
+ssGSEA on the deposited ranking does not rescue this. The IFN enrichment score is positive on GSM558700 (+77) and GSM558701 (+1759) and negative on GSM558702 (−130). The median score is positive and the permutation p on the gene-median ranking is 0.773. APM enrichment is negative on two arrays and the permutation p is 0.955. The n=3 GSVA-style score is negative for both sets.
+
+### The one array that goes up
+
+GSM558701 alone, using the deposited (dye-swap-corrected) ratios, does look like the thesis: IFN median +0.640 (37/24 up, p = 0.021), APM +0.872 (12/3 up, p = 0.011), priority 4/5 up (p = 0.035), CLDN4 −1.737. GSM558702 is the opposite (IFN −0.537, p_up = 0.977; APM −0.644). GSM558700 has no CLDN4 value and its IFN median is −0.360. GSM558701 is the array that anti-correlates with the other two (Spearman about −0.24 and −0.20). Keeping any second array wipes the up-shift out. That replicate is reported. It is not the result of the experiment.
+
+### STING and NHEJ
+
+These were scored. They are not the IFN/APM call.
+
+On deposited gene medians, STING (12/14 genes; STING1 and TBK1 absent) median +0.508, up-test p = 0.127. ssGSEA is positive on all three arrays, permutation p = 0.118. Probe-level STING is the only up-test in this sweep with p < 0.05 (17 probes, 12 up, median +0.526, p = 0.042). That is one probe test among the sweep, and the gene-level test does not agree at p < 0.05. NHEJ (11/12 genes; PAXX absent) median +0.138, p = 0.690.
+
+### Stop
+
+Symbol repair, dye-swap-aware raw ratios, flag filtering, median centering, quantile normalization, within-array ranks, probe-level collapse, leave-one-out of each array, absolute-effect quantiles, ssGSEA, and an n=3 GSVA-style score were all run on the only raw files GEO holds. IFN/APM do not come out up. This accession stays discordant with that thesis. No further cut of these three arrays is planned.
