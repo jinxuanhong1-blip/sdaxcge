@@ -1,0 +1,936 @@
+{
+  "dataset": "He et al. 2022 CosMx SMI NSCLC 960-plex, NanoString public flat files",
+  "n_sections": 8,
+  "n_patients": 5,
+  "px_to_um": 0.18,
+  "n_fov_rows": 232,
+  "n_module_fovs": 232,
+  "n_spatial_fovs": 225,
+  "panel": {
+    "n_panel_genes": 960,
+    "classical_tj_present": [
+      "CLDN4"
+    ],
+    "classical_tj_absent": [
+      "CLDN1",
+      "CLDN3",
+      "CLDN5",
+      "CLDN7",
+      "CLDN18",
+      "OCLN",
+      "TJP1",
+      "TJP2",
+      "TJP3",
+      "F11R",
+      "CGN",
+      "MARVELD2",
+      "MARVELD3",
+      "CRB3",
+      "PARD3",
+      "JAM2",
+      "JAM3"
+    ],
+    "adhesion_present": [
+      "CLDN4",
+      "CDH1",
+      "EPCAM",
+      "TACSTD2"
+    ],
+    "adhesion_absent": [],
+    "keratin_present": [
+      "KRT7",
+      "KRT8",
+      "KRT18",
+      "KRT19"
+    ],
+    "note": "CLDN4 is the only claudin queried that is on this 960-plex. CDH1 is an adherens-junction gene. EPCAM and TACSTD2 are epithelial adhesion genes, not tight-junction genes. A multi-gene claudin/occludin/ZO module cannot be identified on this panel."
+  },
+  "module_classes": {
+    "hs_program": {
+      "module_fovs": {
+        "unassigned": 38,
+        "adhesion_like": 2,
+        "adhesion_and_keratin": 121,
+        "keratin_without_adhesion": 37,
+        "other": 34,
+        "n": 232
+      },
+      "spatial_fovs": {
+        "unassigned": 33,
+        "adhesion_like": 1,
+        "adhesion_and_keratin": 121,
+        "keratin_without_adhesion": 37,
+        "other": 33,
+        "n": 225
+      }
+    },
+    "hs_fine": {
+      "module_fovs": {
+        "unassigned": 17,
+        "adhesion_like": 14,
+        "adhesion_and_keratin": 35,
+        "keratin_without_adhesion": 55,
+        "other": 111,
+        "n": 232
+      },
+      "spatial_fovs": {
+        "unassigned": 16,
+        "adhesion_like": 14,
+        "adhesion_and_keratin": 35,
+        "keratin_without_adhesion": 55,
+        "other": 105,
+        "n": 225
+      }
+    },
+    "hmrf_program": {
+      "module_fovs": {
+        "unassigned": 135,
+        "adhesion_like": 0,
+        "adhesion_and_keratin": 54,
+        "keratin_without_adhesion": 27,
+        "other": 16,
+        "n": 232
+      },
+      "spatial_fovs": {
+        "unassigned": 128,
+        "adhesion_like": 0,
+        "adhesion_and_keratin": 54,
+        "keratin_without_adhesion": 27,
+        "other": 16,
+        "n": 225
+      }
+    },
+    "hmrf_fine": {
+      "module_fovs": {
+        "unassigned": 123,
+        "adhesion_like": 2,
+        "adhesion_and_keratin": 54,
+        "keratin_without_adhesion": 30,
+        "other": 23,
+        "n": 232
+      },
+      "spatial_fovs": {
+        "unassigned": 116,
+        "adhesion_like": 2,
+        "adhesion_and_keratin": 54,
+        "keratin_without_adhesion": 30,
+        "other": 23,
+        "n": 225
+      }
+    }
+  },
+  "endpoints": {
+    "cldn4_50": {
+      "patient_mean_rho": -0.06536345856626011,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 225,
+      "median_fov_rho": -0.0712733555569813,
+      "patients_rho_lt_0": "4/5",
+      "samples_rho_lt_0": "7/8",
+      "sign_test_p_patients": 0.1875,
+      "wilcoxon_p_patients_less": 0.0625,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 89,
+          "mean_rho": -0.15173668670942805
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": 0.02234615528534255
+        },
+        "Lung9": {
+          "n_fov": 65,
+          "mean_rho": -0.042223985542510514
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.12121100196187502
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.033991773902829536
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 30,
+          "mean_rho": -0.14362035076038676
+        },
+        "Lung5_Rep2": {
+          "n_fov": 29,
+          "mean_rho": -0.17338750409356263
+        },
+        "Lung5_Rep3": {
+          "n_fov": 30,
+          "mean_rho": -0.1389238991871392
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": 0.02234615528534255
+        },
+        "Lung9_Rep1": {
+          "n_fov": 20,
+          "mean_rho": -0.06700798808003844
+        },
+        "Lung9_Rep2": {
+          "n_fov": 45,
+          "mean_rho": -0.031208873303609212
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.12121100196187502
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.033991773902829536
+        }
+      }
+    },
+    "hs_fine_50": {
+      "patient_mean_rho": -0.24799998726046182,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 209,
+      "median_fov_rho": -0.3035921911181767,
+      "patients_rho_lt_0": "4/5",
+      "samples_rho_lt_0": "7/8",
+      "sign_test_p_patients": 0.1875,
+      "wilcoxon_p_patients_less": 0.0625,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 80,
+          "mean_rho": -0.45800417274790667
+        },
+        "Lung6": {
+          "n_fov": 20,
+          "mean_rho": 0.029048616108001114
+        },
+        "Lung9": {
+          "n_fov": 64,
+          "mean_rho": -0.18389029478508662
+        },
+        "Lung12": {
+          "n_fov": 25,
+          "mean_rho": -0.38573590183754425
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.24141818303977272
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 27,
+          "mean_rho": -0.444652879175118
+        },
+        "Lung5_Rep2": {
+          "n_fov": 26,
+          "mean_rho": -0.5091774409524313
+        },
+        "Lung5_Rep3": {
+          "n_fov": 27,
+          "mean_rho": -0.4220775043459679
+        },
+        "Lung6": {
+          "n_fov": 20,
+          "mean_rho": 0.029048616108001114
+        },
+        "Lung9_Rep1": {
+          "n_fov": 20,
+          "mean_rho": -0.18636183198767778
+        },
+        "Lung9_Rep2": {
+          "n_fov": 44,
+          "mean_rho": -0.18276686878390883
+        },
+        "Lung12": {
+          "n_fov": 25,
+          "mean_rho": -0.38573590183754425
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.24141818303977272
+        }
+      }
+    },
+    "keratin_50": {
+      "patient_mean_rho": -0.1101787718113808,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 225,
+      "median_fov_rho": -0.0954573045109302,
+      "patients_rho_lt_0": "5/5",
+      "samples_rho_lt_0": "8/8",
+      "sign_test_p_patients": 0.03125,
+      "wilcoxon_p_patients_less": 0.03125,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 89,
+          "mean_rho": -0.25868347989123897
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": -0.026762603247124747
+        },
+        "Lung9": {
+          "n_fov": 65,
+          "mean_rho": -0.06303337584627358
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.1883681509797613
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.014046249092505389
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 30,
+          "mean_rho": -0.2551017094519734
+        },
+        "Lung5_Rep2": {
+          "n_fov": 29,
+          "mean_rho": -0.29903309803200584
+        },
+        "Lung5_Rep3": {
+          "n_fov": 30,
+          "mean_rho": -0.22326061946109643
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": -0.026762603247124747
+        },
+        "Lung9_Rep1": {
+          "n_fov": 20,
+          "mean_rho": -0.04012814822098534
+        },
+        "Lung9_Rep2": {
+          "n_fov": 45,
+          "mean_rho": -0.07321347701306838
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.1883681509797613
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.014046249092505389
+        }
+      }
+    },
+    "resid_50": {
+      "patient_mean_rho": -0.016599117166884527,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 225,
+      "median_fov_rho": -0.0256332627184631,
+      "patients_rho_lt_0": "4/5",
+      "samples_rho_lt_0": "7/8",
+      "sign_test_p_patients": 0.1875,
+      "wilcoxon_p_patients_less": 0.21875,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 89,
+          "mean_rho": -0.03777304404552909
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": 0.03532750355431575
+        },
+        "Lung9": {
+          "n_fov": 65,
+          "mean_rho": -0.027956723194386184
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.02582720536801126
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.02676611678081185
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 30,
+          "mean_rho": -0.038062841337285595
+        },
+        "Lung5_Rep2": {
+          "n_fov": 29,
+          "mean_rho": -0.04886528539343668
+        },
+        "Lung5_Rep3": {
+          "n_fov": 30,
+          "mean_rho": -0.026760746784128594
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": 0.03532750355431575
+        },
+        "Lung9_Rep1": {
+          "n_fov": 20,
+          "mean_rho": -0.05788691443530567
+        },
+        "Lung9_Rep2": {
+          "n_fov": 45,
+          "mean_rho": -0.014654415976199741
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.02582720536801126
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.02676611678081185
+        }
+      }
+    },
+    "adhesion_50": {
+      "patient_mean_rho": -0.099718752041387,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 225,
+      "median_fov_rho": -0.0933100412058359,
+      "patients_rho_lt_0": "5/5",
+      "samples_rho_lt_0": "8/8",
+      "sign_test_p_patients": 0.03125,
+      "wilcoxon_p_patients_less": 0.03125,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 89,
+          "mean_rho": -0.23647594004334904
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": -0.03549339640039228
+        },
+        "Lung9": {
+          "n_fov": 65,
+          "mean_rho": -0.05708285711281235
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.1405983405088397
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.028943226141541618
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 30,
+          "mean_rho": -0.22100960779874662
+        },
+        "Lung5_Rep2": {
+          "n_fov": 29,
+          "mean_rho": -0.2746813069478878
+        },
+        "Lung5_Rep3": {
+          "n_fov": 30,
+          "mean_rho": -0.21501041761356404
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": -0.03549339640039228
+        },
+        "Lung9_Rep1": {
+          "n_fov": 20,
+          "mean_rho": -0.08180044995387689
+        },
+        "Lung9_Rep2": {
+          "n_fov": 45,
+          "mean_rho": -0.04609726029456144
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.1405983405088397
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.028943226141541618
+        }
+      }
+    },
+    "adhesion_wo_50": {
+      "patient_mean_rho": -0.09078924739982162,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 225,
+      "median_fov_rho": -0.075494391869483,
+      "patients_rho_lt_0": "5/5",
+      "samples_rho_lt_0": "8/8",
+      "sign_test_p_patients": 0.03125,
+      "wilcoxon_p_patients_less": 0.03125,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 89,
+          "mean_rho": -0.2300402420097407
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": -0.05018430114430353
+        },
+        "Lung9": {
+          "n_fov": 65,
+          "mean_rho": -0.045113069935866716
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.11775249556148978
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.01085612834770736
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 30,
+          "mean_rho": -0.21695614067780122
+        },
+        "Lung5_Rep2": {
+          "n_fov": 29,
+          "mean_rho": -0.26723495807467434
+        },
+        "Lung5_Rep3": {
+          "n_fov": 30,
+          "mean_rho": -0.20716945114557767
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": -0.05018430114430353
+        },
+        "Lung9_Rep1": {
+          "n_fov": 20,
+          "mean_rho": -0.06585364985712061
+        },
+        "Lung9_Rep2": {
+          "n_fov": 45,
+          "mean_rho": -0.03589503441530944
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.11775249556148978
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.01085612834770736
+        }
+      }
+    },
+    "hs_program_50": {
+      "patient_mean_rho": -0.2539510852235335,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 192,
+      "median_fov_rho": -0.3238013507637787,
+      "patients_rho_lt_0": "4/5",
+      "samples_rho_lt_0": "7/8",
+      "sign_test_p_patients": 0.1875,
+      "wilcoxon_p_patients_less": 0.0625,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 74,
+          "mean_rho": -0.509248235671018
+        },
+        "Lung6": {
+          "n_fov": 13,
+          "mean_rho": 0.06073607339672033
+        },
+        "Lung9": {
+          "n_fov": 61,
+          "mean_rho": -0.16951436783620882
+        },
+        "Lung12": {
+          "n_fov": 24,
+          "mean_rho": -0.3992986067248485
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.2524302892823123
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 25,
+          "mean_rho": -0.4920209980813757
+        },
+        "Lung5_Rep2": {
+          "n_fov": 25,
+          "mean_rho": -0.5576447311027747
+        },
+        "Lung5_Rep3": {
+          "n_fov": 24,
+          "mean_rho": -0.4767802587521484
+        },
+        "Lung6": {
+          "n_fov": 13,
+          "mean_rho": 0.06073607339672033
+        },
+        "Lung9_Rep1": {
+          "n_fov": 19,
+          "mean_rho": -0.1601993218082977
+        },
+        "Lung9_Rep2": {
+          "n_fov": 42,
+          "mean_rho": -0.17372831722978765
+        },
+        "Lung12": {
+          "n_fov": 24,
+          "mean_rho": -0.3992986067248485
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": -0.2524302892823123
+        }
+      }
+    },
+    "hmrf_fine_50": {
+      "patient_mean_rho": NaN,
+      "permutation_p_one_sided_less": NaN,
+      "n_perm": 0,
+      "n_fov": 109,
+      "median_fov_rho": -0.1735884319651441,
+      "patients_rho_lt_0": "4/4",
+      "samples_rho_lt_0": "7/7",
+      "sign_test_p_patients": 0.0625,
+      "wilcoxon_p_patients_less": null,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 43,
+          "mean_rho": -0.4022783680443215
+        },
+        "Lung6": {
+          "n_fov": 0,
+          "mean_rho": null
+        },
+        "Lung9": {
+          "n_fov": 42,
+          "mean_rho": -0.03389826714610137
+        },
+        "Lung12": {
+          "n_fov": 5,
+          "mean_rho": -0.3792987660588335
+        },
+        "Lung13": {
+          "n_fov": 19,
+          "mean_rho": -0.03713568056115957
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 19,
+          "mean_rho": -0.40097282069473583
+        },
+        "Lung5_Rep2": {
+          "n_fov": 11,
+          "mean_rho": -0.4577985373817729
+        },
+        "Lung5_Rep3": {
+          "n_fov": 13,
+          "mean_rho": -0.3572078708851034
+        },
+        "Lung6": {
+          "n_fov": 0,
+          "mean_rho": null
+        },
+        "Lung9_Rep1": {
+          "n_fov": 18,
+          "mean_rho": -0.06308239918439422
+        },
+        "Lung9_Rep2": {
+          "n_fov": 24,
+          "mean_rho": -0.012010168117381738
+        },
+        "Lung12": {
+          "n_fov": 5,
+          "mean_rho": -0.3792987660588335
+        },
+        "Lung13": {
+          "n_fov": 19,
+          "mean_rho": -0.03713568056115957
+        }
+      }
+    },
+    "hmrf_program_50": {
+      "patient_mean_rho": NaN,
+      "permutation_p_one_sided_less": NaN,
+      "n_perm": 0,
+      "n_fov": 97,
+      "median_fov_rho": -0.1881508808475192,
+      "patients_rho_lt_0": "4/4",
+      "samples_rho_lt_0": "7/7",
+      "sign_test_p_patients": 0.0625,
+      "wilcoxon_p_patients_less": null,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 40,
+          "mean_rho": -0.4120618326464306
+        },
+        "Lung6": {
+          "n_fov": 0,
+          "mean_rho": null
+        },
+        "Lung9": {
+          "n_fov": 33,
+          "mean_rho": -0.0313365053182749
+        },
+        "Lung12": {
+          "n_fov": 5,
+          "mean_rho": -0.3792987660588335
+        },
+        "Lung13": {
+          "n_fov": 19,
+          "mean_rho": -0.03713568056115957
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 18,
+          "mean_rho": -0.4063916910178816
+        },
+        "Lung5_Rep2": {
+          "n_fov": 11,
+          "mean_rho": -0.4577985373817729
+        },
+        "Lung5_Rep3": {
+          "n_fov": 11,
+          "mean_rho": -0.37560354148507746
+        },
+        "Lung6": {
+          "n_fov": 0,
+          "mean_rho": null
+        },
+        "Lung9_Rep1": {
+          "n_fov": 17,
+          "mean_rho": -0.05379020138386144
+        },
+        "Lung9_Rep2": {
+          "n_fov": 16,
+          "mean_rho": -0.007479453248589181
+        },
+        "Lung12": {
+          "n_fov": 5,
+          "mean_rho": -0.3792987660588335
+        },
+        "Lung13": {
+          "n_fov": 19,
+          "mean_rho": -0.03713568056115957
+        }
+      }
+    },
+    "cldn4_100": {
+      "patient_mean_rho": -0.04061361884439539,
+      "permutation_p_one_sided_less": 0.005,
+      "n_perm": 199,
+      "n_fov": 225,
+      "median_fov_rho": -0.0490676485569441,
+      "patients_rho_lt_0": "3/5",
+      "samples_rho_lt_0": "6/8",
+      "sign_test_p_patients": 0.5,
+      "wilcoxon_p_patients_less": 0.15625,
+      "per_patient": {
+        "Lung5": {
+          "n_fov": 89,
+          "mean_rho": -0.12389079151546725
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": 0.030387610706033935
+        },
+        "Lung9": {
+          "n_fov": 65,
+          "mean_rho": -0.03221063974315859
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.09750242402673817
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": 0.02014815035735309
+        }
+      },
+      "per_sample": {
+        "Lung5_Rep1": {
+          "n_fov": 30,
+          "mean_rho": -0.12305051842683462
+        },
+        "Lung5_Rep2": {
+          "n_fov": 29,
+          "mean_rho": -0.13376702068775964
+        },
+        "Lung5_Rep3": {
+          "n_fov": 30,
+          "mean_rho": -0.11518404307088388
+        },
+        "Lung6": {
+          "n_fov": 23,
+          "mean_rho": 0.030387610706033935
+        },
+        "Lung9_Rep1": {
+          "n_fov": 20,
+          "mean_rho": -0.049302003692803485
+        },
+        "Lung9_Rep2": {
+          "n_fov": 45,
+          "mean_rho": -0.024614477987760862
+        },
+        "Lung12": {
+          "n_fov": 28,
+          "mean_rho": -0.09750242402673817
+        },
+        "Lung13": {
+          "n_fov": 20,
+          "mean_rho": 0.02014815035735309
+        }
+      }
+    }
+  },
+  "top_positive_partners": [
+    {
+      "gene": "KRT19",
+      "n_fov": 232,
+      "median_lc_z": 11.137022018432617
+    },
+    {
+      "gene": "EPCAM",
+      "n_fov": 232,
+      "median_lc_z": 10.813922882080078
+    },
+    {
+      "gene": "TACSTD2",
+      "n_fov": 232,
+      "median_lc_z": 10.812724113464355
+    },
+    {
+      "gene": "KRT8",
+      "n_fov": 232,
+      "median_lc_z": 10.164624214172363
+    },
+    {
+      "gene": "EZR",
+      "n_fov": 232,
+      "median_lc_z": 9.794498443603516
+    },
+    {
+      "gene": "KRT7",
+      "n_fov": 232,
+      "median_lc_z": 9.345460891723633
+    },
+    {
+      "gene": "GSTP1",
+      "n_fov": 232,
+      "median_lc_z": 8.478995323181152
+    },
+    {
+      "gene": "S100A6",
+      "n_fov": 232,
+      "median_lc_z": 7.843438148498535
+    },
+    {
+      "gene": "DDR1",
+      "n_fov": 232,
+      "median_lc_z": 7.698164939880371
+    },
+    {
+      "gene": "ITGB8",
+      "n_fov": 231,
+      "median_lc_z": 7.604269027709961
+    },
+    {
+      "gene": "CEACAM6",
+      "n_fov": 232,
+      "median_lc_z": 7.001891613006592
+    },
+    {
+      "gene": "TM4SF1",
+      "n_fov": 232,
+      "median_lc_z": 6.941484451293945
+    },
+    {
+      "gene": "MIF",
+      "n_fov": 232,
+      "median_lc_z": 6.732145309448242
+    },
+    {
+      "gene": "RAC1",
+      "n_fov": 232,
+      "median_lc_z": 6.660173416137695
+    },
+    {
+      "gene": "SLPI",
+      "n_fov": 232,
+      "median_lc_z": 6.493237495422363
+    }
+  ],
+  "top_negative_partners": [
+    {
+      "gene": "IL1R1",
+      "n_fov": 232,
+      "median_lc_z": -5.228275299072266
+    },
+    {
+      "gene": "COL1A2",
+      "n_fov": 232,
+      "median_lc_z": -5.246617317199707
+    },
+    {
+      "gene": "COL6A3",
+      "n_fov": 232,
+      "median_lc_z": -5.774287223815918
+    },
+    {
+      "gene": "HLA-DPA1",
+      "n_fov": 232,
+      "median_lc_z": -6.0413360595703125
+    },
+    {
+      "gene": "DCN",
+      "n_fov": 232,
+      "median_lc_z": -6.046091556549072
+    },
+    {
+      "gene": "SRGN",
+      "n_fov": 232,
+      "median_lc_z": -6.152177810668945
+    },
+    {
+      "gene": "COL1A1",
+      "n_fov": 232,
+      "median_lc_z": -6.492528915405273
+    },
+    {
+      "gene": "COL3A1",
+      "n_fov": 232,
+      "median_lc_z": -6.720231056213379
+    },
+    {
+      "gene": "BGN",
+      "n_fov": 232,
+      "median_lc_z": -6.978585243225098
+    },
+    {
+      "gene": "IGFBP7",
+      "n_fov": 232,
+      "median_lc_z": -7.564840793609619
+    }
+  ],
+  "example_fov": {
+    "sample": "Lung12",
+    "patient": "Lung12",
+    "fov": 21,
+    "rho_cldn4_50": -0.0895784362609712,
+    "median_rho_cldn4_50": -0.0895784362609712,
+    "n_epi": 1092,
+    "n_cd8": 107
+  },
+  "primary_endpoint": "cldn4_50",
+  "module_endpoint": "hs_fine_50",
+  "null": "toroidal shift of CD8 coordinates within the FOV bounding box",
+  "n_perm_requested": 199
+}
