@@ -2,6 +2,8 @@
 
 Numbers in this file are written by `scripts/tcga_trop2_cldn_keratin/run_analysis.py`. They are not transcribed by hand.
 
+The immune-specification sweep (gene sets, KRT5/6 versus KRT8/18/19, histology, ESTIMATE and ABSOLUTE purity, CLDN4 quantiles, Spearman versus Pearson residualization, and NHEJ/STING/IFN modules) is in `SWEEP.md`. The locked CLDN4-versus-KRT8 surface-gene screen is not rerun there.
+
 ## 中文摘要
 
 在 TCGA 上皮癌原发灶（Xena GDC STAR log2(TPM+1)，样本类型 01）里，校正 KRT8+KRT18+KRT19 之后，TACSTD2–CLDN4 偏相关正向 19/21，随机效应 meta ρ=0.315 (95% CI 0.251 to 0.376), p=3.82e-20, I²=89.1%, cohorts=21。TACSTD2–CLDN7 偏相关正向 19/21，meta ρ=0.242 (95% CI 0.178 to 0.304), p=4.35e-13, I²=88.1%, cohorts=21。肺加角蛋白漏斗（LUAD、LUSC、BRCA、CESC、KIRC、STAD、BLCA、PAAD）里这两对都是 8/8 与 8/8。不正向的上皮癌队列在英文 Coexpression 一节按表列出（结直肠 COAD、READ）。

@@ -166,9 +166,9 @@ def patient_id(barcode: str) -> str | None:
     return "-".join(parts[:3])
 
 
-def extract_cohort(cohort: str, id_to_gene: dict[str, str]) -> dict:
+def extract_cohort(cohort: str, id_to_gene: dict[str, str], cache_tag: str = "primary01") -> dict:
     """Stream STAR TPM and cache a patient-level gene table. Returns provenance."""
-    cache_path = os.path.join(CACHE, f"{cohort}.primary01.tsv.gz")
+    cache_path = os.path.join(CACHE, f"{cohort}.{cache_tag}.tsv.gz")
     url = f"{GDC}/TCGA-{cohort}.star_tpm.tsv.gz"
     if os.path.exists(cache_path) and os.path.getsize(cache_path) > 0:
         table = pd.read_csv(cache_path, sep="\t")
@@ -554,6 +554,8 @@ def write_results(coexpr, immune, concordance, meta, purity_sens, squamous, prov
     a("# TCGA: TACSTD2 tracks CLDN4 and CLDN7 after keratin adjustment")
     a("")
     a("Numbers in this file are written by `scripts/tcga_trop2_cldn_keratin/run_analysis.py`. They are not transcribed by hand.")
+    a("")
+    a("The immune-specification sweep (gene sets, KRT5/6 versus KRT8/18/19, histology, ESTIMATE and ABSOLUTE purity, CLDN4 quantiles, Spearman versus Pearson residualization, and NHEJ/STING/IFN modules) is in `SWEEP.md`. The locked CLDN4-versus-KRT8 surface-gene screen is not rerun there.")
     a("")
     a("## 中文摘要")
     a("")

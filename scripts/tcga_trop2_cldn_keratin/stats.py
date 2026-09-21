@@ -32,11 +32,8 @@ def bh_fdr(p):
     return q
 
 
-def partial_spearman(x, y, covariates=()):
-    """Spearman rho of x vs y controlling for covariates.
-
-    Returns rho, two-sided p, and the number of complete observations.
-    """
+def _partial_corr(x, y, covariates, rank: bool):
+    """Partial correlation. rank=True is partial Spearman; rank=False is partial Pearson."""
     x = np.asarray(x, dtype=float)
     y = np.asarray(y, dtype=float)
     covs = [np.asarray(z, dtype=float) for z in covariates]
@@ -50,16 +47,18 @@ def partial_spearman(x, y, covariates=()):
     k = len(covs)
     if n < k + 5:
         return np.nan, np.nan, n
-    xr = stats.rankdata(x).astype(float)
-    yr = stats.rankdata(y).astype(float)
+    if rank:
+        x = stats.rankdata(x).astype(float)
+        y = stats.rankdata(y).astype(float)
+        covs = [stats.rankdata(z).astype(float) for z in covs]
     if k:
-        design = np.column_stack([np.ones(n)] + [stats.rankdata(z).astype(float) for z in covs])
-        bx, *_ = np.linalg.lstsq(design, xr, rcond=None)
-        by, *_ = np.linalg.lstsq(design, yr, rcond=None)
-        rx = xr - design @ bx
-        ry = yr - design @ by
+        design = np.column_stack([np.ones(n)] + covs)
+        bx, *_ = np.linalg.lstsq(design, x, rcond=None)
+        by, *_ = np.linalg.lstsq(design, y, rcond=None)
+        rx = x - design @ bx
+        ry = y - design @ by
     else:
-        rx, ry = xr, yr
+        rx, ry = x, y
     if np.std(rx) < 1e-12 or np.std(ry) < 1e-12:
         return np.nan, np.nan, n
     r, _ = stats.pearsonr(rx, ry)
@@ -72,6 +71,19 @@ def partial_spearman(x, y, covariates=()):
     tstat = r * np.sqrt(df / (1.0 - r * r))
     p = float(2 * stats.t.sf(abs(tstat), df))
     return r, p, n
+
+
+def partial_spearman(x, y, covariates=()):
+    """Spearman rho of x vs y controlling for covariates.
+
+    Returns rho, two-sided p, and the number of complete observations.
+    """
+    return _partial_corr(x, y, covariates, rank=True)
+
+
+def partial_pearson(x, y, covariates=()):
+    """Pearson partial correlation on the supplied values (no rank transform)."""
+    return _partial_corr(x, y, covariates, rank=False)
 
 
 def fisher_ci(rho, n, k, alpha=0.05):

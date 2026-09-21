@@ -7,7 +7,7 @@ import unittest
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from stats import bh_fdr, partial_spearman, random_effects_meta
+from stats import bh_fdr, partial_pearson, partial_spearman, random_effects_meta
 
 
 class StatsTests(unittest.TestCase):
@@ -50,6 +50,18 @@ class StatsTests(unittest.TestCase):
         self.assertLessEqual(q[0], q[1] + 1e-15)
         self.assertTrue(np.all(q[:3] <= 1))
         self.assertGreater(q[0], 0)
+
+    def test_partial_pearson_removes_linear_covariate(self):
+        rng = np.random.default_rng(3)
+        z = rng.normal(size=500)
+        x = rng.normal(size=500)
+        y = 0.7 * x + 1.2 * z + rng.normal(scale=0.4, size=500)
+        rho, p, n = partial_pearson(x, y, [z])
+        self.assertGreater(rho, 0.6)
+        self.assertLess(p, 1e-8)
+        self.assertEqual(n, 500)
+        rho_s, _, _ = partial_spearman(x, y, [z])
+        self.assertGreater(rho_s, 0.5)
 
     def test_meta_positive_when_all_positive(self):
         meta = random_effects_meta([0.4, 0.35, 0.5, 0.3], [100, 120, 80, 90], k=0)
