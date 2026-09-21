@@ -867,28 +867,29 @@ def shrink_table(patient: pd.DataFrame) -> pd.DataFrame:
 def ligand_summary(patient: pd.DataFrame) -> pd.DataFrame:
     rows = []
     sub = patient[(patient["split"] == "q4q1") & (patient["contrast"].isin(["crude", "strata_resid", "linear_resid", "matched"]))]
-    for (gate, contrast, score), g in sub.groupby(["gate", "contrast", "score"], sort=False):
-        for lig in LIGANDS:
-            col = f"{score}__{lig}"
-            x = g[col].to_numpy(float)
-            rec = {
-                "gate": gate,
-                "contrast": contrast,
-                "score": score,
-                "ligand": lig,
-                "n": int(np.isfinite(x).sum()),
-                "mean": float(np.nanmean(x)),
-                "frac_pos": float(np.mean(x[np.isfinite(x)] > 0)),
-                "p_wilcox": wilcox_p(x),
-            }
-            n_pos = 0
-            for cohort in COHORTS:
-                part = g.loc[g["cohort"] == cohort, col].to_numpy(float)
-                rec[cohort] = float(np.nanmean(part)) if np.isfinite(part).any() else float("nan")
-                if np.isfinite(part).sum() >= 3 and float(np.nanmean(part)) > 0:
-                    n_pos += 1
-            rec["n_cohorts_pos"] = n_pos
-            rows.append(rec)
+    for score in SCORES:
+        for (gate, contrast), g in sub.groupby(["gate", "contrast"], sort=False):
+            for lig in LIGANDS:
+                col = f"{score}__{lig}"
+                x = g[col].to_numpy(float)
+                rec = {
+                    "gate": gate,
+                    "contrast": contrast,
+                    "score": score,
+                    "ligand": lig,
+                    "n": int(np.isfinite(x).sum()),
+                    "mean": float(np.nanmean(x)),
+                    "frac_pos": float(np.mean(x[np.isfinite(x)] > 0)),
+                    "p_wilcox": wilcox_p(x),
+                }
+                n_pos = 0
+                for cohort in COHORTS:
+                    part = g.loc[g["cohort"] == cohort, col].to_numpy(float)
+                    rec[cohort] = float(np.nanmean(part)) if np.isfinite(part).any() else float("nan")
+                    if np.isfinite(part).sum() >= 3 and float(np.nanmean(part)) > 0:
+                        n_pos += 1
+                rec["n_cohorts_pos"] = n_pos
+                rows.append(rec)
     return pd.DataFrame(rows)
 
 
@@ -1118,6 +1119,8 @@ def main() -> None:
     mean_pp = float(hit["mean"].iloc[0])
     n = int(hit["n"].iloc[0])
     log(f"QC CLDN4 crude expr_prop family mean {mean_pp:.4f} n={n} (PR 713 reported +25.60, n=64)")
+    if n != 64 or abs(mean_pp - 25.60) > 1.0:
+        raise RuntimeError(f"CLDN4 crude QC missed the locked result: {mean_pp:.4f} n={n}")
     head = shrink[(shrink["gate"] == "TACSTD2") & (shrink["score"].isin(COPRIMARY))]
     log(head.to_string(index=False))
     log("done")
