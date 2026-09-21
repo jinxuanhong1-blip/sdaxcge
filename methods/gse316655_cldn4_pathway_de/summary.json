@@ -1,0 +1,44 @@
+{
+  "n_barcodes": 30296,
+  "n_qc": 15566,
+  "n_cldn4_pos": 6,
+  "cldn4_umi_values": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "n_cldn18_pos": 0,
+  "n_mouse_cldn4_pos_in_qc": 0,
+  "cldn4_pos_by_library": {
+    "PB isotype": 1,
+    "Tumor anti-LILRB2": 3,
+    "Tumor isotype": 2
+  },
+  "cldn4_pos_by_lineage": {
+    "B": 2,
+    "T": 2,
+    "melanoma": 2
+  },
+  "genes_missing": [],
+  "matrix_symbol_overrides": [
+    {
+      "symbol": "STING1",
+      "matrix_symbol": "TMEM173"
+    }
+  ],
+  "program_n_genes": {
+    "NHEJ": 8,
+    "STING": 10,
+    "IFN": 40,
+    "APM": 21
+  },
+  "qc": {
+    "min_human_umi": 200,
+    "min_human_genes": 100,
+    "min_human_frac": 0.8,
+    "max_mito_frac": 0.2
+  }
+}
