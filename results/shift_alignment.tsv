@@ -1,0 +1,25 @@
+dataset	contrast	role	compartment	n_ctrl	n_treat	cldn_delta_log2p1	score	score_delta	score_n_genes_used	relation	interpretable_program
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	3	3	-1.915199492201864	ifn_gamma	-0.519515084739647	125	same_direction	True
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	3	3	-1.915199492201864	ifn_alpha	-0.6144072068639361	75	same_direction	True
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	3	3	-1.915199492201864	effector		0	undefined	False
+GSE245459	shTACSTD2_vs_shNC	primary_kd	in_vitro_cell_line	3	3	-1.915199492201864	leukocyte	-0.7910205913142945	1	same_direction	False
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	5	5	-0.8172280353675241	ifn_gamma	0.1277431666444837	187	opposite_direction	True
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	5	5	-0.8172280353675241	ifn_alpha	0.11505674732402937	93	opposite_direction	True
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	5	5	-0.8172280353675241	effector	0.7265153318380744	10	opposite_direction	True
+GSE334497	Trop2KO_vs_WT	primary_ko	bulk_tumor_immunocompetent_mouse	5	5	-0.8172280353675241	leukocyte	0.3547625629840896	9	opposite_direction	True
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	3	4	0.2872251881319965	ifn_gamma	0.10445442778484448	171	same_direction	True
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	3	4	0.2872251881319965	ifn_alpha	0.30590048628015865	90	same_direction	True
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	3	4	0.2872251881319965	effector	-0.6498571986184054	1	opposite_direction	False
+GSE289287	Trop2KO_vs_WT_xenograft	primary_ko	bulk_xenograft_NRG_human_genes	3	4	0.2872251881319965	leukocyte	-0.46231716948500123	4	opposite_direction	False
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	2	0.9105046582431839	ifn_gamma	0.21891384194276764	129	same_direction	False
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	2	0.9105046582431839	ifn_alpha	0.3011541652642933	75	same_direction	False
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	2	0.9105046582431839	effector	0.34707692767041587	1	same_direction	False
+GSE304294	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	2	0.9105046582431839	leukocyte		0	undefined	False
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	3	-0.8611090921796052	ifn_gamma	0.32626672617407015	127	opposite_direction	True
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	3	-0.8611090921796052	ifn_alpha	0.4321706592397647	76	opposite_direction	True
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	3	-0.8611090921796052	effector	-0.6284927837214858	1	same_direction	False
+GSE312098	IMMU132_vs_control	primary_adc	in_vitro_cell_line	3	3	-0.8611090921796052	leukocyte		0	undefined	False
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	5	5	-0.43712087969324465	ifn_gamma	0.028613814397325577	154	opposite_direction	True
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	5	5	-0.43712087969324465	ifn_alpha	0.06216614536307086	92	opposite_direction	True
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	5	5	-0.43712087969324465	effector	0.0045721430263663265	3	opposite_direction	False
+GSE311016	IMMU132_vs_paired_control	primary_adc	bulk_PDX_human_genes	5	5	-0.43712087969324465	leukocyte		0	undefined	False
