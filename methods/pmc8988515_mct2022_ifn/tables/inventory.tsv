@@ -1,0 +1,18 @@
+repository	query	n_hits	accession	role	download_status	scored	note
+GEO	Bitler[Author] AND (CLDN4 OR claudin-4)	0		author + CLDN4	no series	no	esearch db=gds
+GEO	Yamamoto[Author] AND (CLDN4 OR claudin-4) AND ovarian	0		author + CLDN4 + ovarian	no series	no	esearch db=gds
+GEO	PMC8988515 OR MCT-21-0827 OR "Loss of Claudin-4 Reduces DNA Damage"	0		paper title / PMC	no series	no	esearch db=gds
+ArrayExpress	collection:arrayexpress AND (Bitler OR Yamamoto) AND (CLDN4 OR claudin)	0		author + CLDN4 in ArrayExpress	no ArrayExpress study	no	
+ArrayExpress	accession:E-MTAB-8107 OR accession:E-MTAB-6149 OR accession:E-MTAB-6653	3	E-MTAB-8107;E-MTAB-6149;E-MTAB-6653	Qian 2020 blueprint cited as ref 17	listed via BioStudies API; ftp.ebi.ac.uk transfer failed in this environment	no	E-MTAB-8107 Single-cell RNA sequencing of ovarian, colorectal and breast cancer; E-MTAB-6149 Single cell sequencing of lung carcinoma; E-MTAB-6653 Single cell sequencing of 3 lung carcinomas
+PRIDE	Bitler claudin	0		author / paper keyword	no project	no	pride ws archive v2 search/projects
+PRIDE	Yamamoto OVCAR3 CLDN4	0		author / paper keyword	no project	no	pride ws archive v2 search/projects
+PRIDE	PMC8988515	0		author / paper keyword	no project	no	pride ws archive v2 search/projects
+PRIDE	PXD003668 (cited Coscia 2016, ref 22; not an author deposit)	1	PXD003668	cited ovarian cell-line proteome	PRIDE files are RAW; scored the Nature processed LFQ table (MOESM1558)	yes	30 columns of log2 MaxLFQ; OvCa subset drops ME180, ME180C13, IOSE397, IOSE7576
+NODE	CLDN4	0		public browse full text	no record	no	POST /node/api/app/browse/search; lung cancer control query returns hits
+NODE	claudin-4	0		public browse full text	no record	no	POST /node/api/app/browse/search; lung cancer control query returns hits
+NODE	Bitler	0		public browse full text	no record	no	POST /node/api/app/browse/search; lung cancer control query returns hits
+NODE	PMC8988515	0		public browse full text	no record	no	POST /node/api/app/browse/search; lung cancer control query returns hits
+NODE	MCT-21-0827	0		public browse full text	no record	no	POST /node/api/app/browse/search; lung cancer control query returns hits
+NODE	OVCAR3 CLDN4	0		public browse full text	no record	no	POST /node/api/app/browse/search; lung cancer control query returns hits
+figshare (AACR supplement, not GEO/AE/PRIDE/NODE)	10.1158/1535-7163.22522216	1	mct-21-0827 table S1	author transcriptome table of TCGA OV CLDN4 high vs low	downloaded	yes	full gene table with log2(high/low), p, q. S2 BRCA status, S3 drug viability, S4 ex vivo histology. No RPPA matrix.
+UCSC Xena (TCGA OV HiSeqV2; not GEO/AE/PRIDE/NODE)	TCGA.OV.sampleMap/HiSeqV2	1	TCGA-OV Firehose RSEM log2(norm_count+1)	public matrix behind the paper Fig 1 median split	downloaded	yes	paper text Low n=154 High n=153 on cBioPortal Firehose Legacy 2020-12-20; this file is the Xena freeze
