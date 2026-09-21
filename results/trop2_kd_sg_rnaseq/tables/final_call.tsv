@@ -1,0 +1,4 @@
+item	call	evidence
+NHEJ_STING_IFN	FINAL mixed	SKOV3 KD lowers STING1 and the 14-gene ISG set and raises XRCC5/XRCC6/PRKDC/PAXX (8-gene NHEJ mean +0.37, p=0.18). Acute SG raises STING1 in CX-1 and KYSE30; ISG mean +0.30 (p=0.053) in CX-1 and +0.13 (p=0.16) in KYSE30. 4T1 and day-29 PDX do not share an NHEJ or IFN shift. E-MTAB-16433/16843/16849 not scored after a second TLS failure.
+CLDN4_coregulation	usable on SKOV3 KD	GSE245459 shTACSTD2 vs shNC, n=3 vs 3. TACSTD2 log2FC -2.63 (p=5.3e-5); CLDN4 log2FC -1.92 (p=3.3e-5), log2(FPKM+1) 2.05 to 0.14. CLDN3 -1.48 and CLDN7 -1.39 move with it.
+E-MTAB_scRNA	not scored	ftp.ebi.ac.uk TLS recheck returned SSL_ERROR_SYSCALL. No expression values were imputed.

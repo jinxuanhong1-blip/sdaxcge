@@ -1,0 +1,147 @@
+{
+  "contrasts": [
+    {
+      "id": "SKOV3_shTACSTD2",
+      "accession": "GSE245459",
+      "class": "TACSTD2_KD",
+      "system": "SKOV3 ovarian cell line",
+      "contrast": "shTACSTD2 vs shNC (no cisplatin)",
+      "n_pert": 3,
+      "n_ctrl": 3,
+      "test": "unpaired",
+      "matrix": "FPKM",
+      "bulk_tumor": 0,
+      "primary": 1
+    },
+    {
+      "id": "SKOV3_shTACSTD2_DDP",
+      "accession": "GSE245459",
+      "class": "TACSTD2_KD",
+      "system": "SKOV3 ovarian cell line + cisplatin",
+      "contrast": "shTACSTD2+cisplatin vs shNC+cisplatin",
+      "n_pert": 3,
+      "n_ctrl": 3,
+      "test": "unpaired",
+      "matrix": "FPKM",
+      "bulk_tumor": 0,
+      "primary": 0
+    },
+    {
+      "id": "4T1_Trop2KO",
+      "accession": "GSE334497",
+      "class": "TACSTD2_KO",
+      "system": "4T1 mouse mammary tumor, bulk",
+      "contrast": "Trop2 KO vs WT tumor",
+      "n_pert": 5,
+      "n_ctrl": 5,
+      "test": "unpaired",
+      "matrix": "normalized counts",
+      "bulk_tumor": 1,
+      "primary": 1
+    },
+    {
+      "id": "CX1_IMMU132",
+      "accession": "GSE312098",
+      "class": "sacituzumab",
+      "system": "CX-1 CRC cell line, 2 day",
+      "contrast": "IMMU132 vs control",
+      "n_pert": 3,
+      "n_ctrl": 3,
+      "test": "unpaired",
+      "matrix": "FPKM",
+      "bulk_tumor": 0,
+      "primary": 1
+    },
+    {
+      "id": "CX1_IMMU132_GSK",
+      "accession": "GSE312098",
+      "class": "sacituzumab_combo",
+      "system": "CX-1 CRC cell line, 2 day",
+      "contrast": "IMMU132+GSK2606414 vs control",
+      "n_pert": 3,
+      "n_ctrl": 3,
+      "test": "unpaired",
+      "matrix": "FPKM",
+      "bulk_tumor": 0,
+      "primary": 0
+    },
+    {
+      "id": "KYSE30_IMMU132",
+      "accession": "GSE304294",
+      "class": "sacituzumab",
+      "system": "KYSE30 ESCC cell line, 1 day",
+      "contrast": "IMMU132 vs control",
+      "n_pert": 2,
+      "n_ctrl": 3,
+      "test": "unpaired",
+      "matrix": "FPKM",
+      "bulk_tumor": 0,
+      "primary": 1
+    },
+    {
+      "id": "KYSE30_IMMU132_IACS",
+      "accession": "GSE304294",
+      "class": "sacituzumab_combo",
+      "system": "KYSE30 ESCC cell line, 1 day",
+      "contrast": "IMMU132+IACS-010759 vs control",
+      "n_pert": 3,
+      "n_ctrl": 3,
+      "test": "unpaired",
+      "matrix": "FPKM",
+      "bulk_tumor": 0,
+      "primary": 0
+    },
+    {
+      "id": "CRC_PDX_IMMU132",
+      "accession": "GSE311016",
+      "class": "sacituzumab",
+      "system": "CRC PDX, 29 day, paired",
+      "contrast": "IMMU132 vs matched control",
+      "n_pert": 5,
+      "n_ctrl": 5,
+      "test": "paired",
+      "matrix": "FPKM",
+      "bulk_tumor": 1,
+      "primary": 1
+    }
+  ],
+  "sets": {
+    "CLDN4": [
+      "CLDN4"
+    ],
+    "NHEJ": [
+      "XRCC6",
+      "XRCC5",
+      "PRKDC",
+      "LIG4",
+      "XRCC4",
+      "NHEJ1",
+      "DCLRE1C",
+      "PAXX"
+    ],
+    "STING": [
+      "CGAS",
+      "STING1",
+      "TBK1",
+      "IRF3"
+    ],
+    "IFN": [
+      "STAT1",
+      "STAT2",
+      "IRF7",
+      "IRF9",
+      "ISG15",
+      "MX1",
+      "OAS1",
+      "OAS2",
+      "IFIT1",
+      "IFIT3",
+      "CXCL10",
+      "RSAD2",
+      "IFI44",
+      "BST2"
+    ]
+  },
+  "note_oas1_mouse": "Mouse OAS1 ortholog in the 4T1 score is Oas1a (ENSMUSG00000052776).",
+  "note_stats": "Unpaired Welch t and Mann-Whitney on log2(x+1). Paired CRC PDX uses one-sample t and Wilcoxon on within-model deltas. BH q is within the pre-specified panel of each contrast, not genome-wide. n=3 vs 3 Mann-Whitney cannot reach p<0.05."
+}
