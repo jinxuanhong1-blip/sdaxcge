@@ -1,0 +1,39 @@
+{
+  "n_panel_genes": 960,
+  "classical_tj_present": [
+    "CLDN4"
+  ],
+  "classical_tj_absent": [
+    "CLDN1",
+    "CLDN3",
+    "CLDN5",
+    "CLDN7",
+    "CLDN18",
+    "OCLN",
+    "TJP1",
+    "TJP2",
+    "TJP3",
+    "F11R",
+    "CGN",
+    "MARVELD2",
+    "MARVELD3",
+    "CRB3",
+    "PARD3",
+    "JAM2",
+    "JAM3"
+  ],
+  "adhesion_present": [
+    "CLDN4",
+    "CDH1",
+    "EPCAM",
+    "TACSTD2"
+  ],
+  "adhesion_absent": [],
+  "keratin_present": [
+    "KRT7",
+    "KRT8",
+    "KRT18",
+    "KRT19"
+  ],
+  "note": "CLDN4 is the only claudin queried that is on this 960-plex. CDH1 is an adherens-junction gene. EPCAM and TACSTD2 are epithelial adhesion genes, not tight-junction genes. A multi-gene claudin/occludin/ZO module cannot be identified on this panel."
+}
