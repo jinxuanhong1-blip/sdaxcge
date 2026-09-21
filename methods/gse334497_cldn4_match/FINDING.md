@@ -125,3 +125,20 @@ Bulk immune genes:
 Figure: `figures/fig_match.png`.
 
 Reproduce: `python3 scripts/gse334497_cldn4_match/analyze.py`
+
+## Exploratory sweep (not the pre-specified call)
+
+The pre-specified arms above stay as written: *Cldn4* the gene and the epithelial ISG score do not clear 0.05. A separate grid then varied the DE method, the gene set, the sample filter, and a *Cldn4* high/low contrast. Full table: [SWEEP.md](SWEEP.md). This is still **Trop2 KO, not a CLDN4 knockdown**.
+
+On all 10 tumors, sample permutation and gene-rank agree for:
+
+| Program | Mean log2FC | Sample perm *p* | Gene-rank *p* |
+|---|---:|---:|---:|
+| KEGG tight junction down | −0.249 | 0.004 | 5.07×10⁻⁸ |
+| Claudin/TJ core down | −0.675 | 0.016 | 8.34×10⁻⁸ |
+| Keratinization down | −2.066 | 0.004 | 1.92×10⁻¹⁶ |
+| Bulk immune up | +0.648 | 0.008 | 4.99×10⁻⁷ |
+
+Hallmark IFN-γ, IFN-α, and MHC-I/APM are up on the gene-rank test (p = 2.37×10⁻¹², 6.76×10⁻⁶, 3.34×10⁻⁴) and are not up on the sample permutation (p = 0.107, 0.214, 0.175). STING core is a small shift (mean log2FC +0.036, sample p = 0.048, grid FDR about 0.06–0.07); *Cgas* is down and *Irf3* / *Sting1* are up. NHEJ core does not fall.
+
+Figures: `figures/fig_sweep_grid.png`, `figures/fig_sweep_best.png`.
