@@ -8,6 +8,8 @@ Concordant four only: GSE123902, GSE131907, GSE205335, GSE189357. No GSE148071. 
 Rscript methods/cellchat_v2_network_roles_concordant4/scripts/install_packages.R
 bash methods/cellchat_v2_network_roles_concordant4/scripts/download.sh /tmp/concordant4_raw
 Rscript methods/cellchat_v2_network_roles_concordant4/scripts/run_cellchat_v2.R --raw=/tmp/concordant4_raw
+Rscript methods/cellchat_v2_network_roles_concordant4/scripts/run_max_effect_sweep.R --raw=/tmp/concordant4_raw
 ```
 
 Primary numbers are written by the R script into `FINDING.md` and `results/tables/`.
+The max-effect sweep writes `FINDING_MAX_EFFECT.md` and `results/max_effect/`.
