@@ -1,0 +1,30 @@
+accession	gene	organism	material	assay	decision	reason
+GSE135274	XRCC4	human	HeLa	RNA-seq	scored_primary	XRCC4(-/-) versus parental, with and without mirin. Baseline is the primary row.
+GSE154443	LIG4	mouse	CH12F3 B lymphoma	RNA-seq	scored_primary_unreplicated	One FPKM column per genotype. Lig4 mRNA is at the floor in both columns.
+GSE285698	PRKDC	human	HCT116 colon cancer	RNA-seq	scored_primary	DNA-PK knockout versus WT, normoxia and CoCl2. Normoxia is the primary row.
+GSE84986	TP53BP1	human	MCF-7 breast cancer	RNA-seq	scored_primary	Two 53BP1-null clones. Untreated is the primary row. IR is secondary.
+GSE145148	XRCC4	human	MCF10A	RNA-seq	scored_not_cancer	Non-tumorigenic epithelium. XRCC4 mRNA is not reduced in the labeled knockout.
+GSE280049	TP53BP1	human	hTERT-RPE1	RNA-seq	scored_not_cancer	Not a cancer line. Columns named KO have higher TP53BP1 counts than the controls.
+GSE237615	TP53BP1	mouse	ID8 and KPC allograft tumors	RNA-seq	scored_tumor_bulk	Knockout was made in the cancer lines. Sequenced material is bulk tumor.
+GSE293256	LIG4	human	induced neurons	mixed	excluded	LIG4 knockout is in induced neurons, not a cancer line. Superseries mixes RNA-seq with amplicon and END-seq.
+GSE162453	LIG4	mouse	v-Abl pro-B cells	HTGTS DNA	excluded	Lig4-/- libraries are genomic DNA repair products, not RNA-seq.
+GSE106922	LIG4;TP53BP1	mouse	CH12F3	junction sequencing	excluded	Class-switch junction sequencing, not an expression matrix.
+GSE186618	XRCC4	human	HCT116 and other	RNA-seq	excluded	CRISPRi of an LTR10 element at the XRCC4 locus, not an XRCC4 coding knockout.
+GSE180581	PRKDC	human	HEK293T	RNA-seq	excluded	siRNA depletion of DNA-PKcs on a heterozygous background. Not a cancer line and not a knockout.
+GSE242255	PRKDC	human	CWR22Rv1 prostate cancer	RNA-seq	excluded	DNA-PKcs siRNA and DNA-PK inhibitors, not a knockout.
+GSE167956	PRKDC	human	SUM159 breast cancer	RNA-seq	excluded	shDNA-PKcs, not a knockout.
+GSE268415	PRKDC	human	HOS osteosarcoma	RNA-seq	excluded	PRKDC siRNA, not a knockout.
+GSE188875	PRKDC	human	endothelial cells	RNA-seq	excluded	DNAPKcs siRNA in a non-cancer cell.
+GSE116765	PRKDC	human	C4-2 and 22Rv1	RNA-seq	excluded	DNA-PK inhibitors, not a knockout.
+GSE273409	PRKDC	human	SCLC lines	RNA-seq	excluded	NU7441, not a knockout.
+GSE141686	PRKDC	mouse	osteoblasts	RNA-seq	excluded	NU7441 and a conditional mouse, not a cancer line.
+GSE319513	PRKDC	human	8505C thyroid cancer	RNA-seq	excluded	KU-57788 inhibitor, not a knockout.
+GSE338690	PRKDC	human	MLL-r AML lines	RNA-seq	excluded	3-hydroxyflavone, not a PRKDC knockout.
+GSE108115	TP53BP1	human	hESC, neurons, organoids	RNA-seq	excluded	53BP1 knockout during neural differentiation, not a cancer line.
+GSE120333	TP53BP1	mouse	neural progenitors	RNA-seq	excluded	Not a cancer line.
+GSE108116	TP53BP1	human;mouse	superseries of GSE108115 and GSE120333	RNA-seq	excluded	Same non-cancer differentiation models.
+GSE231321	TP53BP1	human	cortical organoids	RNA-seq	excluded	53BP1 phosphorylation-site mutants and ATM knockout, not a cancer-line gene knockout.
+GSE42350	TP53BP1	mouse	activated B cells	RNA-seq	excluded	Primary B cells, not a cancer line. One RNA-seq library per genotype.
+GSE279594	TP53BP1	mouse	53BP1-KO B-cell progenitors	RNA-seq	excluded	Ph+ B-ALL model. The murine BCP samples are all already 53BP1 knockout, so there is no matched wild-type contrast.
+GSE294709	none	human	Ku-depleted cells	RNA-seq	excluded	Ku70/Ku80 depletion. LIG4 and DNA-PKcs are mentioned as NHEJ partners, not knocked out.
+GSE315862	none	human	liposarcoma lines	RNA-seq	excluded	TDP2 knockout and the DNA-PK inhibitor peposertib. Not LIG4, XRCC4, PRKDC, or TP53BP1 knockout.
