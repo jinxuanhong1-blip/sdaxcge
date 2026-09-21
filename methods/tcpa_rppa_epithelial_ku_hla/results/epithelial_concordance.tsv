@@ -1,0 +1,7 @@
+n_pairwise	rho	p	tested	note	cohort	protein_a	protein_b	gene_a	gene_b
+365	0.4630881306766982	8.428648706988304e-21	True	two-sided Spearman, pairwise complete	LUAD	CLAUDIN7	ECADHERIN	CLDN7	CDH1
+354	0.2810332390195858	7.545595669702616e-08	True	two-sided Spearman, pairwise complete	LUAD	CLAUDIN7	EMA	CLDN7	MUC1
+354	0.3015131360496972	7.1177636683099675e-09	True	two-sided Spearman, pairwise complete	LUAD	ECADHERIN	EMA	CDH1	MUC1
+328	0.2868151051056142	1.2496373287419715e-07	True	two-sided Spearman, pairwise complete	LUSC	CLAUDIN7	ECADHERIN	CLDN7	CDH1
+318	0.23357098216938807	2.586673722568015e-05	True	two-sided Spearman, pairwise complete	LUSC	CLAUDIN7	EMA	CLDN7	MUC1
+318	-0.06441828081960341	0.25203983378926825	True	two-sided Spearman, pairwise complete	LUSC	ECADHERIN	EMA	CDH1	MUC1
