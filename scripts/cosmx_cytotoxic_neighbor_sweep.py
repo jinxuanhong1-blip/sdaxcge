@@ -423,17 +423,22 @@ def select_winners(grid: pd.DataFrame) -> dict:
         d["n_don_sign"] = int(row["n_don_neg"] if d["direction"] == "exclusion" else row["n_don_pos"])
         return d
 
+    # Detected/absent does not use a quantile, so section and donor labels match.
+    # Prefer the section summary when the effect is tied.
+    unit_rank = {"section": 0, "fov": 1, "donor": 2}
     ratio_pool = elig[np.isfinite(elig["effect_log_ratio"])].copy()
     if len(ratio_pool):
+        ratio_pool["unit_rank"] = ratio_pool["unit"].map(unit_rank)
         ratio_pool = ratio_pool.sort_values(
-            ["effect_log_ratio", "n_sec_neg", "n_sec_pos", "n_don_neg", "n_don_pos", "cut", "cyto", "unit", "radius_um"],
+            ["effect_log_ratio", "n_sec_neg", "n_sec_pos", "n_don_neg", "n_don_pos", "unit_rank", "cut", "cyto", "radius_um"],
             ascending=[False, False, False, False, False, True, True, True, True],
         )
         out["ratio_winner"] = pack(ratio_pool.iloc[0])
     delta_pool = elig[np.isfinite(elig["effect_abs_delta"])].copy()
     if len(delta_pool):
+        delta_pool["unit_rank"] = delta_pool["unit"].map(unit_rank)
         delta_pool = delta_pool.sort_values(
-            ["effect_abs_delta", "effect_log_ratio", "n_sec_neg", "n_sec_pos", "cut", "cyto", "unit", "radius_um"],
+            ["effect_abs_delta", "effect_log_ratio", "n_sec_neg", "n_sec_pos", "unit_rank", "cut", "cyto", "radius_um"],
             ascending=[False, False, False, False, True, True, True, True],
         )
         out["delta_winner"] = pack(delta_pool.iloc[0])
@@ -599,7 +604,12 @@ def load_cells():
     return cells, meta
 
 
+def count_columns(frame: pd.DataFrame) -> list[str]:
+    return [c for c in frame.columns if len(str(c)) > 1 and str(c)[0] == "c" and str(c)[1:].isdigit()]
+
+
 def save_cache(cells: pd.DataFrame, meta: dict) -> None:
+    cols = count_columns(cells)
     np.savez_compressed(
         CACHE,
         sample=cells["sample"].to_numpy(),
@@ -607,14 +617,14 @@ def save_cache(cells: pd.DataFrame, meta: dict) -> None:
         fov=cells["fov"].to_numpy(),
         cldn4=cells["cldn4"].to_numpy(),
         pos=cells["pos"].to_numpy(),
-        counts=cells[[c for c in cells.columns if c.startswith("c")]].to_numpy(dtype=np.float32),
+        counts=cells[cols].to_numpy(dtype=np.float32),
         meta=json.dumps(meta),
     )
     print(f"cached {CACHE}", flush=True)
 
 
 def load_cache():
-    z = np.load(CACHE, allow_pickle=False)
+    z = np.load(CACHE, allow_pickle=True)
     counts = z["counts"]
     cells = pd.DataFrame(counts, columns=[f"c{i}" for i in range(counts.shape[1])])
     cells.insert(0, "pos", z["pos"].astype(bool))
@@ -640,7 +650,7 @@ def run_sweep(cells: pd.DataFrame):
     fov = cells["fov"].to_numpy()
     cldn4 = cells["cldn4"].to_numpy(dtype=np.float64)
     positive = cells["pos"].to_numpy(dtype=bool)
-    count_mat = cells[[c for c in cells.columns if str(c).startswith("c")]].to_numpy(dtype=np.float64)
+    count_mat = cells[count_columns(cells)].to_numpy(dtype=np.float64)
     names = metric_catalog()
     assert count_mat.shape[1] == len(names)
     sec_rows = []
@@ -956,13 +966,15 @@ def write_report(grid, sec, winners, cont, meta, path: str) -> None:
         c = winners["numeric_max_delta"]
         d = winners["numeric_min_delta"]
         lines.append(
-            f"On the same eligible set, the numerically largest high/low ratio is "
-            f"{fmt(a['pooled_ratio'])} ({spec_name(a)}, {a['direction']}) and the numerically "
-            f"smallest is {fmt(b['pooled_ratio'])} ({spec_name(b)}, {b['direction']}). "
-            f"The numerically largest Δ is {fmt(c['pooled_delta'])} ({spec_name(c)}) and the most "
-            f"negative Δ is {fmt(d['pooled_delta'])} ({spec_name(d)}). "
+            f"Every eligible high/low ratio in this grid is below 1, and every eligible Δ is negative. "
+            f"The numerically largest ratio is {fmt(a['pooled_ratio'])} ({spec_name(a)}) and the numerically "
+            f"smallest is {fmt(b['pooled_ratio'])} ({spec_name(b)}). "
+            f"The least negative Δ is {fmt(c['pooled_delta'])} ({spec_name(c)}) and the most negative Δ is "
+            f"{fmt(d['pooled_delta'])} ({spec_name(d)}). "
             f"Eligible binary specs: {winners['n_eligible']} of {winners['n_binary']}."
         )
+    lines.append("")
+    lines.extend(_extra_context(grid))
     lines.append("")
     if cont.get("winner"):
         w = cont["winner"]
@@ -986,7 +998,7 @@ def write_report(grid, sec, winners, cont, meta, path: str) -> None:
         "The ratio is the equal-weight mean of section high means divided by the equal-weight mean of section low means. "
         "It is left undefined when the low mean is below 0.05. "
         "Ratio effect is |log(ratio)|. Delta effect is |Δ|. "
-        "Ties break on more sections in the majority direction, then the cut name. "
+        "Ties break on more sections in the majority direction, then section over FOV over donor. "
         "P-values describe the winning row. The grid was searched, so they are not a second locked test. "
         "Median split is in the grid as a calibration cut, not as a replacement for Q4/Q1."
     )
@@ -1040,15 +1052,25 @@ def write_report(grid, sec, winners, cont, meta, path: str) -> None:
     lines.append("## Section means for the ratio call")
     lines.append("")
     if ratio_w is not None:
-        sub = sec[
-            (sec["unit"] == ratio_w["unit"])
-            & (sec["cut"] == ratio_w["cut"])
-            & (sec["cyto"] == ratio_w["cyto"])
-            & (sec["radius_um"] == int(ratio_w["radius_um"]))
-        ].copy()
-        # sec from the long table may not yet have cyto/radius. Handle both shapes below.
         lines.append(_section_table(sec, ratio_w))
+        if ratio_w["cut"] == "detected_absent":
+            lines.append("")
+            lines.append(
+                "Detected versus absent does not use a quantile, so a donor-wide threshold labels the same cells as the section threshold. "
+                "The donor-unit row matches this table."
+            )
     lines.append("")
+    if delta_w is not None and (
+        ratio_w is None
+        or delta_w["cut"] != ratio_w["cut"]
+        or delta_w["cyto"] != ratio_w["cyto"]
+        or int(delta_w["radius_um"]) != int(ratio_w["radius_um"])
+        or delta_w["unit"] != ratio_w["unit"]
+    ):
+        lines.append("## Section means for the Δ call")
+        lines.append("")
+        lines.append(_section_table(sec, delta_w))
+        lines.append("")
     lines.append("## Eligible specs with the largest |log ratio|")
     lines.append("")
     lines.append(
@@ -1056,7 +1078,9 @@ def write_report(grid, sec, winners, cont, meta, path: str) -> None:
     )
     lines.append("|---|---|---:|---|---:|---:|---:|---:|---|---|---|")
     elig = _eligible(grid[~grid["continuous"].astype(bool)])
-    elig = elig[np.isfinite(elig["effect_log_ratio"])].sort_values("effect_log_ratio", ascending=False)
+    elig = elig[np.isfinite(elig["effect_log_ratio"])].copy()
+    elig["unit_rank"] = elig["unit"].map({"section": 0, "fov": 1, "donor": 2})
+    elig = elig.sort_values(["effect_log_ratio", "unit_rank"], ascending=[False, True])
     if elig.empty:
         lines.append("| none | | | | | | | | | | |")
     else:
@@ -1076,9 +1100,25 @@ def write_report(grid, sec, winners, cont, meta, path: str) -> None:
             f"{rec['median_nn_um']:.2f} |"
         )
     lines.append("")
+    comp = {}
+    for rec in meta.get("gzmb_composition", {}).values():
+        for name, n in rec.items():
+            comp[name] = comp.get(name, 0) + int(n)
+    gz_total = sum(comp.values())
+    gz_line = ""
+    if gz_total:
+        ranked = sorted(comp.items(), key=lambda kv: kv[1], reverse=True)[:3]
+        bits = ", ".join(f"{name} {n / gz_total:.0%}" for name, n in ranked)
+        cd8_n = sum(n for name, n in comp.items() if "CD8" in name)
+        nk_n = sum(n for name, n in comp.items() if name == "NK" or name.startswith("NK"))
+        gz_line = (
+            f" GZMB+ non-tumor cells: {gz_total}. Largest shares: {bits}. "
+            f"CD8 is {cd8_n / gz_total:.0%} and NK is {nk_n / gz_total:.0%} of that set, "
+            f"so GZMB+ is not a purified cytotoxic class."
+        )
     lines.append(
-        f"Malignant cells in the neighbor table: {meta['n_malignant']}. "
-        "GZMB+ composition by author cell type is in `summary.json`."
+        f"Malignant cells in the neighbor table: {meta['n_malignant']}.{gz_line} "
+        "Full GZMB+ counts are in `summary.json`."
     )
     lines.append("")
     lines.append("## What this does not claim")
@@ -1099,6 +1139,40 @@ def write_report(grid, sec, winners, cont, meta, path: str) -> None:
     alt = os.path.join(OUT, "RESULTS.md")
     with open(alt, "w") as fh:
         fh.write(text)
+
+
+def _extra_context(grid: pd.DataFrame) -> list[str]:
+    """Fully concordant row, and the sparse ratios the 0.05 floor leaves undefined."""
+    binary = grid[~grid["continuous"].astype(bool)].copy()
+    passing = binary[(binary["n_sec_neg"] >= 7) & (binary["n_don_neg"] >= 4)].copy()
+    lines = []
+    full = passing[
+        (passing["n_sec_neg"] == 8)
+        & (passing["n_don_neg"] == 5)
+        & np.isfinite(passing["pooled_ratio"])
+        & (passing["pooled_ratio"] > 0)
+    ]
+    if len(full):
+        row = full.loc[full["pooled_ratio"].idxmin()]
+        lines.append(
+            f"Strongest fully concordant ratio (8/8 sections and 5/5 donors, low-arm mean ≥ {LOW_MEAN_FLOOR}): "
+            f"{fmt(row['pooled_ratio'])} at {spec_name(row.to_dict())}, "
+            f"means {fmt(row['mean_high'])} / {fmt(row['mean_low'])}, Δ {fmt(row['pooled_delta'])}. "
+            f"The call above is a larger fold and is not 8/8."
+        )
+        lines.append("")
+    sparse = passing[(passing["mean_low"] > 0) & (passing["mean_low"] < LOW_MEAN_FLOOR)].copy()
+    if len(sparse):
+        sparse["raw_ratio"] = sparse["mean_high"] / sparse["mean_low"]
+        row = sparse.loc[sparse["raw_ratio"].idxmin()]
+        lines.append(
+            f"Neighborhoods whose equal-weight low-arm mean is below {LOW_MEAN_FLOOR} do not get a ratio in the call. "
+            f"The smallest such high/low ratio with the sign bar is {fmt(row['raw_ratio'])} "
+            f"({spec_name(row.to_dict())}; means {fmt(row['mean_high'], 4)} / {fmt(row['mean_low'], 4)}; "
+            f"{int(row['n_sec_neg'])}/8 sections, {int(row['n_don_neg'])}/5 donors). "
+            f"That is a ratio of rare events, not the reported sensitivity."
+        )
+    return lines
 
 
 def _section_table(sec: pd.DataFrame, winner: dict) -> str:
@@ -1123,10 +1197,10 @@ def _section_table(sec: pd.DataFrame, winner: dict) -> str:
             lines.append(f"| {r['sample']} | {r['patient']} | NA | NA | NA | NA | {int(r['n_high'])} | {int(r['n_low'])} | no |")
             continue
         delta = float(r["mean_high"] - r["mean_low"])
-        ratio = float(r["mean_high"] / r["mean_low"]) if r["mean_low"] >= LOW_MEAN_FLOOR else float("nan")
+        ratio = float(r["mean_high"] / r["mean_low"]) if r["mean_low"] > 0 else float("nan")
         lines.append(
-            f"| {r['sample']} | {r['patient']} | {fmt(r['mean_high'])} | {fmt(r['mean_low'])} | "
-            f"{fmt(delta)} | {fmt(ratio)} | {int(r['n_high'])} | {int(r['n_low'])} | yes |"
+            f"| {r['sample']} | {r['patient']} | {fmt(r['mean_high'], 4)} | {fmt(r['mean_low'], 4)} | "
+            f"{fmt(delta, 4)} | {fmt(ratio, 3)} | {int(r['n_high'])} | {int(r['n_low'])} | yes |"
         )
     return "\n".join(lines)
 
