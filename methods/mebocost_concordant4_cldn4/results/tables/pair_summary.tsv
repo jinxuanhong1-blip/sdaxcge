@@ -1,0 +1,22 @@
+split	pair_id	axis	expect	n	n_gse123902	n_gse131907	n_gse205335	n_gse189357	mean_delta	p_w	observed	agrees
+q4q1	Adenosine_ADORA2A	Adenosine	high>low	27	0	7	12	8	0.004469771773789753	1.4901161193847656e-08	high>low	yes
+q4q1	Adenosine_ADORA2B	Adenosine	high>low	34	9	10	7	8	0.0003294127847805019	1.1641532182693481e-10	high>low	yes
+q4q1	PGE2_PTGER2	Prostaglandin E2	high>low	64	13	21	21	9	0.010864233672776957	3.742180297424629e-11	high>low	yes
+q4q1	PGE2_PTGER4	Prostaglandin E2	high>low	63	13	20	21	9	0.034928912204470905	6.233466638313959e-11	high>low	yes
+q4q1	DLactate_HCAR1	D-Lactic acid	high>low	18	4	3	3	8	0.00022494623427639427	0.00032806396484375	high>low	yes
+q4q1	LLactate_SLC16A1	L-Lactic acid	high>low	0	0	0	0	0			not_scored	not_scored
+q4q1	FAMILY_immunosuppressive_metabolite	family	high>low	64	13	21	21	9	0.015524850331856256	5.129439518699387e-11	high>low	yes
+median	Adenosine_ADORA2A	Adenosine	high>low	26	0	6	12	8	0.0035298841461463737	5.960464477539063e-08	high>low	yes
+median	Adenosine_ADORA2B	Adenosine	high>low	33	9	9	7	8	0.00026732374970107593	4.656612873077393e-10	high>low	yes
+median	PGE2_PTGER2	Prostaglandin E2	high>low	62	12	19	22	9	0.009397588490361567	1.3130851384632883e-10	high>low	yes
+median	PGE2_PTGER4	Prostaglandin E2	high>low	61	12	18	22	9	0.028339234272830884	1.9209569548676254e-10	high>low	yes
+median	DLactate_HCAR1	D-Lactic acid	high>low	16	3	2	3	8	0.00013083383829097566	3.0517578125e-05	high>low	yes
+median	LLactate_SLC16A1	L-Lactic acid	high>low	0	0	0	0	0			not_scored	not_scored
+median	FAMILY_immunosuppressive_metabolite	family	high>low	62	12	19	22	9	0.012309987590743315	1.810968394480771e-10	high>low	yes
+pctpos	Adenosine_ADORA2A	Adenosine	high>low	25	0	6	12	7	0.004470646649879473	6.556510925292969e-06	high>low	yes
+pctpos	Adenosine_ADORA2B	Adenosine	high>low	32	9	9	7	7	0.0003980114610457263	4.656612873077393e-10	high>low	yes
+pctpos	PGE2_PTGER2	Prostaglandin E2	high>low	62	12	19	22	9	0.016822365241985625	3.897140562091583e-11	high>low	yes
+pctpos	PGE2_PTGER4	Prostaglandin E2	high>low	61	12	18	22	9	0.044255187623459466	8.604296668989055e-11	high>low	yes
+pctpos	DLactate_HCAR1	D-Lactic acid	high>low	16	3	2	3	8	0.0002524650326544101	3.0517578125e-05	high>low	yes
+pctpos	LLactate_SLC16A1	L-Lactic acid	high>low	0	0	0	0	0			not_scored	not_scored
+pctpos	FAMILY_immunosuppressive_metabolite	family	high>low	62	12	19	22	9	0.020969350902504638	9.067255129079328e-11	high>low	yes
