@@ -106,10 +106,10 @@ def extract_gse123902(raw: Path, out_root: Path) -> None:
     if missing:
         raise SystemExit(f"GSE123902 missing files for {missing}")
 
-    blocks = []
-    metas = []
-    libs = []
-    gene_ref = None
+    # Dense CSVs do not share a gene universe. Test the intersection so a
+    # missing symbol is not filled in as zero. Library size still uses every
+    # gene measured in that file.
+    stored = []
     for patient in locked:
         fp = chosen[patient]
         print(f"  read {fp.name}", flush=True)
@@ -118,28 +118,34 @@ def extract_gse123902(raw: Path, out_root: Path) -> None:
         barcodes = df.index.astype(str).to_numpy()
         mat = np.asarray(df.to_numpy(), dtype=np.float32)
         del df
-        if gene_ref is None:
-            gene_ref = genes
-        elif not np.array_equal(genes, gene_ref):
-            raise SystemExit(f"gene columns differ in {fp.name}")
         mal = marker_mask(mat, genes)
         sub = mat[mal]
         lib = sub.sum(axis=1).astype(np.float64)
-        Xs = sparse.csr_matrix(sub.T)
-        blocks.append(Xs)
+        Xs, genes_c = collapse_genes(sparse.csr_matrix(sub.T), genes)
+        stored.append((patient, barcodes[mal], Xs, genes_c, lib, int(mal.sum()), int(mat.shape[0])))
+        print(f"    {patient} malignant {int(mal.sum())} / {mat.shape[0]} genes {len(genes_c)}", flush=True)
+        del mat, sub
+    common = set(stored[0][3].tolist())
+    for rec in stored[1:]:
+        common &= set(rec[3].tolist())
+    common_genes = np.array(sorted(common), dtype=object)
+    print(f"  intersection genes {len(common_genes)}", flush=True)
+    blocks = []
+    metas = []
+    libs = []
+    for patient, barcodes, Xs, genes_c, lib, _nmal, _n in stored:
+        pos = {g: i for i, g in enumerate(genes_c.tolist())}
+        rows = [pos[g] for g in common_genes]
+        blocks.append(Xs[rows])
         metas.append(pd.DataFrame({
-            "barcode": [f"{patient}_{b}" for b in barcodes[mal]],
+            "barcode": [f"{patient}_{b}" for b in barcodes],
             "unit_id": patient,
             "dataset": "GSE123902",
         }))
         libs.append(lib)
-        print(f"    {patient} malignant {int(mal.sum())} / {mat.shape[0]}", flush=True)
-        del mat, sub
     X = sparse.hstack(blocks, format="csr")
     meta = pd.concat(metas, ignore_index=True)
-    lib = np.concatenate(libs)
-    X, genes = collapse_genes(X, gene_ref)
-    save_cohort(out_root / "GSE123902", X, genes, meta, lib)
+    save_cohort(out_root / "GSE123902", X, common_genes, meta, np.concatenate(libs))
 
 
 def extract_gse189357(raw: Path, out_root: Path) -> None:
@@ -271,8 +277,17 @@ def extract_gse131907(raw: Path, out_root: Path) -> None:
     subprocess.check_call(["gcc", "-O3", "-o", str(bin_path), str(cc)])
     prefix = str(out / "stream")
     print("  stream matrix", flush=True)
-    with gzip.open(mat, "rb") as src, open(prefix + ".log", "w") as log:
-        subprocess.check_call([str(bin_path), str(keep_path), prefix], stdin=src, stderr=log)
+    # gzip.GzipFile.fileno() is the compressed fd, so spawn gzip -dc instead.
+    with open(prefix + ".log", "w") as log:
+        src = subprocess.Popen(["gzip", "-dc", str(mat)], stdout=subprocess.PIPE)
+        try:
+            subprocess.check_call([str(bin_path), str(keep_path), prefix], stdin=src.stdout, stderr=log)
+        finally:
+            if src.stdout:
+                src.stdout.close()
+            rc = src.wait()
+        if rc != 0:
+            raise SystemExit(f"gzip -dc failed status {rc}")
     print(Path(prefix + ".log").read_text()[-500:], flush=True)
     shape = Path(prefix + ".shape.txt").read_text().strip().split("\t")
     n_genes, n_kept, nnz = int(shape[0]), int(shape[1]), int(shape[2])

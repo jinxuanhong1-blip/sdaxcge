@@ -15,7 +15,10 @@ malignant cells, and which of those genes do so in every cohort.
 | GSE205335 | patient, non-normal tissues pooled | author `lineage.sub == Malignant cells` |
 
 Counts are GEO UMIs. GSE205335 is the double-gzipped RDS. Symbols are
-upper-cased; duplicate symbols are summed.
+upper-cased; duplicate symbols are summed. GSE123902 dense files do not share
+one gene list, so that cohort is scored on the intersection of symbols present
+in every used donor file. A symbol that is absent from a donor is not filled
+with zeros. Library size still sums every gene measured in the file.
 
 ## CLDN4-high versus CLDN4-low
 
