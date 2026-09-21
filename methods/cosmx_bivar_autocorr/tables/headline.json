@@ -1,0 +1,574 @@
+{
+  "n_cells": 765771,
+  "n_fov": 232,
+  "n_samples": 8,
+  "n_patients": 5,
+  "px_to_um": 0.18,
+  "n_perm": 199,
+  "seed": 20260921,
+  "primary_graph": "radius_50um",
+  "coprimary_graph": "knn_k15",
+  "rolls": {
+    "partial_moran_I": {
+      "fov": {
+        "n": 232,
+        "n_neg": 112,
+        "median": 0.00022666896793079998,
+        "wilcoxon_stat": 13641.0,
+        "wilcoxon_p": 0.5493807213842272
+      },
+      "section_values": {
+        "LUAD-12": 0.0012212395249365,
+        "LUAD-13": -0.0007919730748577,
+        "LUAD-5 R1": -2.2148732527086707e-06,
+        "LUAD-5 R2": -0.0010498051376454,
+        "LUAD-5 R3": 0.0003728843426891,
+        "LUAD-9 R1": 6.90154228746e-05,
+        "LUAD-9 R2": 0.0005249996833642,
+        "LUSC-6": 0.00033804902695945
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 3,
+        "median": 0.000203532224917025,
+        "wilcoxon_stat": 22.0,
+        "wilcoxon_p": 0.7265625
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 3,
+        "p": 0.85546875
+      },
+      "patient_values": {
+        "Lung12": 0.0012212395249365,
+        "Lung13": -0.0007919730748577,
+        "Lung5": -0.00022637855606966957,
+        "Lung6": 0.00033804902695945,
+        "Lung9": 0.0002970075531194
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 2,
+        "median": 0.0002970075531194,
+        "wilcoxon_stat": 10.0,
+        "wilcoxon_p": 0.78125
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 2,
+        "p": 0.8125
+      },
+      "meta_fov": {
+        "n": 232,
+        "I_fixed": 0.000118675309514302,
+        "I_random": 0.00010515305456557764,
+        "se_fixed": 0.0002696330364644933,
+        "se_random": 0.00029452726514610727,
+        "z": 0.3570231588352744,
+        "p": 0.7210744685021362,
+        "Q": 264.51454938674135,
+        "tau2": 2.4516488269377077e-06,
+        "I2": 0.1267021018860494
+      },
+      "luad_fov": {
+        "n": 202,
+        "n_neg": 99,
+        "median": 7.375907706409124e-05,
+        "wilcoxon_stat": 10278.0,
+        "wilcoxon_p": 0.5127068204479031
+      },
+      "lusc_median": 0.00033804902695945
+    },
+    "moran_I": {
+      "fov": {
+        "n": 232,
+        "n_neg": 99,
+        "median": 0.0018699702639125501,
+        "wilcoxon_stat": 16861.0,
+        "wilcoxon_p": 0.9994631944283882
+      },
+      "section_values": {
+        "LUAD-12": 0.008922569674953949,
+        "LUAD-13": -0.00069881343324665,
+        "LUAD-5 R1": -0.0009332148131086001,
+        "LUAD-5 R2": -0.0050289725594358,
+        "LUAD-5 R3": -0.0018745579234982499,
+        "LUAD-9 R1": 0.0073924511942767,
+        "LUAD-9 R2": 0.0076268827650597,
+        "LUSC-6": 0.0016101396922418498
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 4,
+        "median": 0.0004556631294975999,
+        "wilcoxon_stat": 24.0,
+        "wilcoxon_p": 0.80859375
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 4,
+        "p": 0.63671875
+      },
+      "patient_values": {
+        "Lung12": 0.008922569674953949,
+        "Lung13": -0.00069881343324665,
+        "Lung5": -0.002612248432014217,
+        "Lung6": 0.0016101396922418498,
+        "Lung9": 0.007509666979668201
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 2,
+        "median": 0.0016101396922418498,
+        "wilcoxon_stat": 11.0,
+        "wilcoxon_p": 0.84375
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 2,
+        "p": 0.8125
+      },
+      "meta_fov": {
+        "n": 232,
+        "I_fixed": 0.0017380069292261841,
+        "I_random": 0.0022501533577584444,
+        "se_fixed": 0.0003511513546848058,
+        "se_random": 0.0005610295318076403,
+        "z": 4.010757420395389,
+        "p": 6.052427082865403e-05,
+        "Q": 502.300570762622,
+        "tau2": 3.3774875929949754e-05,
+        "I2": 0.540115991408725
+      },
+      "luad_fov": {
+        "n": 202,
+        "n_neg": 88,
+        "median": 0.0018699702639125501,
+        "wilcoxon_stat": 12821.0,
+        "wilcoxon_p": 0.9989954850139273
+      },
+      "lusc_median": 0.0016101396922418498
+    },
+    "partial_lee_L": {
+      "fov": {
+        "n": 232,
+        "n_neg": 115,
+        "median": 0.00013466364123595,
+        "wilcoxon_stat": 13965.0,
+        "wilcoxon_p": 0.6702814789462453
+      },
+      "section_values": {
+        "LUAD-12": 0.0017425326758135498,
+        "LUAD-13": -0.00035320486796235,
+        "LUAD-5 R1": -0.0007096307176822,
+        "LUAD-5 R2": -0.0007548503967348,
+        "LUAD-5 R3": -0.00093591433259105,
+        "LUAD-9 R1": 0.0001949354345474363,
+        "LUAD-9 R2": 0.0009442789513112,
+        "LUSC-6": 0.0015448939915970999
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 4,
+        "median": -7.913471670745686e-05,
+        "wilcoxon_stat": 22.0,
+        "wilcoxon_p": 0.7265625
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 4,
+        "p": 0.63671875
+      },
+      "patient_values": {
+        "Lung12": 0.0017425326758135498,
+        "Lung13": -0.00035320486796235,
+        "Lung5": -0.00080013181566935,
+        "Lung6": 0.0015448939915970999,
+        "Lung9": 0.0005696071929293181
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 2,
+        "median": 0.0005696071929293181,
+        "wilcoxon_stat": 11.0,
+        "wilcoxon_p": 0.84375
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 2,
+        "p": 0.8125
+      },
+      "meta_fov": {
+        "n": 232,
+        "I_fixed": 0.0002100533637694567,
+        "I_random": 0.00018793200286533395,
+        "se_fixed": 0.0002129183745232222,
+        "se_random": 0.0002567509887358026,
+        "z": 0.7319621388438603,
+        "p": 0.46419167709800035,
+        "Q": 306.30338013602625,
+        "tau2": 3.43848880041734e-06,
+        "I2": 0.24584573667644405
+      },
+      "luad_fov": {
+        "n": 202,
+        "n_neg": 102,
+        "median": -2.6436359772957637e-05,
+        "wilcoxon_stat": 10365.0,
+        "wilcoxon_p": 0.5542643355254528
+      },
+      "lusc_median": 0.0015448939915970999
+    },
+    "tumor_partial_r": {
+      "fov": {
+        "n": 217,
+        "n_neg": 80,
+        "median": 0.0195886577149504,
+        "wilcoxon_stat": 16086.0,
+        "wilcoxon_p": 0.9999978879394134
+      },
+      "section_values": {
+        "LUAD-12": 0.02467581352277865,
+        "LUAD-13": 0.02712679209679245,
+        "LUAD-5 R1": 0.0320022146100774,
+        "LUAD-5 R2": 0.0202824256288192,
+        "LUAD-5 R3": 0.0244218489868732,
+        "LUAD-9 R1": 0.029844261398767002,
+        "LUAD-9 R2": 0.0105261181242008,
+        "LUSC-6": 0.010192334468582
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "median": 0.024548831254825924,
+        "wilcoxon_stat": 36.0,
+        "wilcoxon_p": 1.0
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 0,
+        "p": 1.0
+      },
+      "patient_values": {
+        "Lung12": 0.02467581352277865,
+        "Lung13": 0.02712679209679245,
+        "Lung5": 0.02556882974192327,
+        "Lung6": 0.010192334468582,
+        "Lung9": 0.020185189761483903
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "median": 0.02467581352277865,
+        "wilcoxon_stat": 15.0,
+        "wilcoxon_p": 1.0
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 0,
+        "p": 1.0
+      },
+      "meta_fov": {
+        "n": 217,
+        "I_fixed": 0.01648373183874438,
+        "I_random": 0.01785680104334683,
+        "se_fixed": 0.0018063186398677889,
+        "se_random": 0.002882863908734145,
+        "z": 6.194118629480393,
+        "p": 5.861207139321617e-10,
+        "Q": 475.2061384009506,
+        "tau2": 0.0008516087571007272,
+        "I2": 0.5454604169743446
+      },
+      "luad_fov": {
+        "n": 188,
+        "n_neg": 68,
+        "median": 0.021399436920639,
+        "wilcoxon_stat": 12241.0,
+        "wilcoxon_p": 0.9999965174592216
+      },
+      "lusc_median": 0.010192334468582
+    },
+    "krt8_moran_I": {
+      "fov": {
+        "n": 232,
+        "n_neg": 89,
+        "median": 0.0031935751015930002,
+        "wilcoxon_stat": 17045.0,
+        "wilcoxon_p": 0.999720001984611
+      },
+      "section_values": {
+        "LUAD-12": 0.0104562865026313,
+        "LUAD-13": 0.00385994761819935,
+        "LUAD-5 R1": -0.00498785264200875,
+        "LUAD-5 R2": -0.007664631776304,
+        "LUAD-5 R3": -0.0022363867696406498,
+        "LUAD-9 R1": 0.0069715006060698005,
+        "LUAD-9 R2": 0.0090767601982597,
+        "LUSC-6": 0.00530742601838665
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 3,
+        "median": 0.004583686818293,
+        "wilcoxon_stat": 26.0,
+        "wilcoxon_p": 0.875
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 3,
+        "p": 0.85546875
+      },
+      "patient_values": {
+        "Lung12": 0.0104562865026313,
+        "Lung13": 0.00385994761819935,
+        "Lung5": -0.004962957062651134,
+        "Lung6": 0.00530742601838665,
+        "Lung9": 0.00802413040216475
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 1,
+        "median": 0.00530742601838665,
+        "wilcoxon_stat": 13.0,
+        "wilcoxon_p": 0.9375
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 1,
+        "p": 0.96875
+      },
+      "meta_fov": {
+        "n": 232,
+        "I_fixed": 0.0033051821833601364,
+        "I_random": 0.003395959601054078,
+        "se_fixed": 0.00037833300660296883,
+        "se_random": 0.000654102089040691,
+        "z": 5.191788343062178,
+        "p": 2.0828370607259155e-07,
+        "Q": 604.9540131588442,
+        "tau2": 5.398444147535864e-05,
+        "I2": 0.6181527934763105
+      },
+      "luad_fov": {
+        "n": 202,
+        "n_neg": 81,
+        "median": 0.00268531208352735,
+        "wilcoxon_stat": 12536.0,
+        "wilcoxon_p": 0.996986278962105
+      },
+      "lusc_median": 0.00530742601838665
+    },
+    "cldn_only_moran_I": {
+      "fov": {
+        "n": 232,
+        "n_neg": 93,
+        "median": 0.0015428336765929,
+        "wilcoxon_stat": 17850.0,
+        "wilcoxon_p": 0.999988667788904
+      },
+      "section_values": {
+        "LUAD-12": 0.00649353946943295,
+        "LUAD-13": -0.00021140799622325002,
+        "LUAD-5 R1": 0.00046261291757354996,
+        "LUAD-5 R2": -0.0013422437410683,
+        "LUAD-5 R3": 0.00026501099443826317,
+        "LUAD-9 R1": 0.00432011938306785,
+        "LUAD-9 R2": 0.0033367268292593,
+        "LUSC-6": 0.0005614005764332
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 2,
+        "median": 0.0005120067470033749,
+        "wilcoxon_stat": 30.0,
+        "wilcoxon_p": 0.9609375
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 2,
+        "p": 0.96484375
+      },
+      "patient_values": {
+        "Lung12": 0.00649353946943295,
+        "Lung13": -0.00021140799622325002,
+        "Lung5": -0.00020487327635216227,
+        "Lung6": 0.0005614005764332,
+        "Lung9": 0.003828423106163575
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 2,
+        "median": 0.0005614005764332,
+        "wilcoxon_stat": 12.0,
+        "wilcoxon_p": 0.90625
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 2,
+        "p": 0.8125
+      },
+      "meta_fov": {
+        "n": 232,
+        "I_fixed": 0.001394763273081047,
+        "I_random": 0.001614481402492843,
+        "se_fixed": 0.00027071753519742985,
+        "se_random": 0.00037098075376763823,
+        "z": 4.35192765688342,
+        "p": 1.3494579261997833e-05,
+        "Q": 401.8649304464028,
+        "tau2": 1.2599510646967595e-05,
+        "I2": 0.4251799983059016
+      },
+      "luad_fov": {
+        "n": 202,
+        "n_neg": 81,
+        "median": 0.00159661712650685,
+        "wilcoxon_stat": 13831.0,
+        "wilcoxon_p": 0.99999157700248
+      },
+      "lusc_median": 0.0005614005764332
+    },
+    "tumor_q_diff": {
+      "fov": {
+        "n": 216,
+        "n_neg": 77,
+        "median": 0.00346540210071005,
+        "wilcoxon_stat": 15747.0,
+        "wilcoxon_p": 0.9999970520092656
+      },
+      "section_values": {
+        "LUAD-12": 0.01586328802818525,
+        "LUAD-13": 0.0040288626133162,
+        "LUAD-5 R1": 0.01108257410967085,
+        "LUAD-5 R2": 0.0052860988699152504,
+        "LUAD-5 R3": 0.00045386617114629997,
+        "LUAD-9 R1": 0.0122770287182141,
+        "LUAD-9 R2": 0.0028466417299385,
+        "LUSC-6": 0.0014197233527081
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 0,
+        "median": 0.004657480741615726,
+        "wilcoxon_stat": 36.0,
+        "wilcoxon_p": 1.0
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 0,
+        "p": 1.0
+      },
+      "patient_values": {
+        "Lung12": 0.01586328802818525,
+        "Lung13": 0.0040288626133162,
+        "Lung5": 0.005607513050244133,
+        "Lung6": 0.0014197233527081,
+        "Lung9": 0.0075618352240763
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 0,
+        "median": 0.005607513050244133,
+        "wilcoxon_stat": 15.0,
+        "wilcoxon_p": 1.0
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 0,
+        "p": 1.0
+      },
+      "meta_fov": {
+        "n": 215,
+        "I_fixed": 0.0016842537476551048,
+        "I_random": 0.005142265076543624,
+        "se_fixed": 0.00030861703929477876,
+        "se_random": 0.0008037637963131008,
+        "z": 6.397731647197118,
+        "p": 1.5770212607537666e-10,
+        "Q": 610.6994009654102,
+        "tau2": 3.999301306822095e-05,
+        "I2": 0.6495821026486959
+      },
+      "luad_fov": {
+        "n": 187,
+        "n_neg": 67,
+        "median": 0.0061452784061123,
+        "wilcoxon_stat": 11851.0,
+        "wilcoxon_p": 0.9999911395134246
+      },
+      "lusc_median": 0.0014197233527081
+    },
+    "tumor_q_diff_partial": {
+      "fov": {
+        "n": 216,
+        "n_neg": 96,
+        "median": 0.0030390008471141497,
+        "wilcoxon_stat": 13888.0,
+        "wilcoxon_p": 0.9936923543453217
+      },
+      "section_values": {
+        "LUAD-12": 0.00523338130494045,
+        "LUAD-13": 0.0041653361173841,
+        "LUAD-5 R1": 0.01597448978899115,
+        "LUAD-5 R2": 0.00378213308791615,
+        "LUAD-5 R3": 0.00692583830312735,
+        "LUAD-9 R1": 0.00938491918544135,
+        "LUAD-9 R2": 0.0007340344083109,
+        "LUSC-6": -0.0040983134720203
+      },
+      "section": {
+        "n": 8,
+        "n_neg": 1,
+        "median": 0.004699358711162276,
+        "wilcoxon_stat": 33.0,
+        "wilcoxon_p": 0.98828125
+      },
+      "section_sign": {
+        "n": 8,
+        "n_neg": 1,
+        "p": 0.99609375
+      },
+      "patient_values": {
+        "Lung12": 0.00523338130494045,
+        "Lung13": 0.0041653361173841,
+        "Lung5": 0.008894153726678218,
+        "Lung6": -0.0040983134720203,
+        "Lung9": 0.005059476796876125
+      },
+      "patient": {
+        "n": 5,
+        "n_neg": 1,
+        "median": 0.005059476796876125,
+        "wilcoxon_stat": 14.0,
+        "wilcoxon_p": 0.96875
+      },
+      "patient_sign": {
+        "n": 5,
+        "n_neg": 1,
+        "p": 0.96875
+      },
+      "meta_fov": {
+        "n": 215,
+        "I_fixed": 0.0018924069674848294,
+        "I_random": 0.003747104690921662,
+        "se_fixed": 0.0007575554994594263,
+        "se_random": 0.0013140188281074178,
+        "z": 2.8516369862969313,
+        "p": 0.004349474077308217,
+        "Q": 520.0918676407865,
+        "tau2": 0.00017739512098262833,
+        "I2": 0.5885342315181055
+      },
+      "luad_fov": {
+        "n": 187,
+        "n_neg": 76,
+        "median": 0.0056257949924858,
+        "wilcoxon_stat": 11070.0,
+        "wilcoxon_p": 0.9993801399531783
+      },
+      "lusc_median": -0.0040983134720203
+    }
+  },
+  "prose": "Primary partial Moran I (radius 50 \u00b5m, both genes residualized on KRT8+EPCAM): median FOV estimate +0.0002 (112/232 FOVs negative; FOV Wilcoxon p=0.5494). Section medians negative in 3/8 (Wilcoxon p=0.7266). Patients negative in 2/5 (one-sided sign p=0.8125).\n\nRaw Moran I on the same graph (no residualization): median FOV estimate +0.0019 (99/232 FOVs negative; FOV Wilcoxon p=0.9995). Section medians negative in 4/8 (Wilcoxon p=0.8086). Patients negative in 2/5 (one-sided sign p=0.8125).\n\nWithin-tumor partial correlation on the same graph: median FOV estimate +0.0196 (80/217 FOVs negative; FOV Wilcoxon p=1.0000). Section medians negative in 0/8 (Wilcoxon p=1.0000). Patients negative in 0/5 (one-sided sign p=1.0000).\n\nOn the primary 50 \u00b5m graph the partial Moran I is centered at zero (median +0.0002, FOV two-sided Wilcoxon p=0.9012). Raw Moran I is a very small positive (median +0.0019, FOV two-sided Wilcoxon p=0.0011). That FOV p-value treats FOVs as independent. Section medians of raw I are split evenly, and the patient sign test is not negative. The raw shift has the same direction as the KRT8 and EPCAM baselines. Co-primary kNN k=15 partial I is also centered at zero (see the graph table). No graph gives a patient-level negative sign test.\n\nWithin tumor cells, CLDN4 and the CD8A lag are weakly positively correlated (median r +0.0196, FOV two-sided Wilcoxon p=4.22e-06; section medians are positive in every section that has enough tumor cells). The top-minus-bottom CLDN4 quartile difference in mean neighbor CD8A is a small positive, not a deficit. CD8A is detected in a similar fraction of tumor cells and other cells, so this transcript field is not a CD8 T-cell mask. The locked result counted cytotoxic cell types around CLDN4-high tumor cells. That count is a different estimand and is not recomputed here."
+}
