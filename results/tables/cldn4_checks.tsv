@@ -1,0 +1,21 @@
+check,n_rows,cldn4_rows,detail
+jump_orf_metadata,15132,1,JCP2022_905637; NM_001305.4; insert 627 nt; prot match 99.5; vector pLX_304
+jump_crispr_metadata,7977,1,JCP2022_801379
+jump_wells,1151808,10,ORF JCP2022_905637 n=5 (source_4:BR00123512:B05; source_4:BR00123513:B05; source_4:BR00123514:B05; source_4:BR00123515:B05; source_4:BR00123516:B05); CRISPR JCP2022_801379 n=5 (source_13:CP-CC9-R1-06:G18; source_13:CP-CC9-R2-06:G18; source_13:CP-CC9-R3-06:G18; source_13:CP-CC9-R4-06:G18; source_13:CP-CC9-R5-06:G18)
+jump_target1_orf_plate,175,0,"384-well target-subset plate, not the genome-scale JUMP ORF library"
+l1000_geneinfo_beta,12328,1,gene_id 1364; feature_space=best inferred; ENSG00000189143
+cell_health_supp_table1,127,0,unique gene_name field n=67; CLDN4 absent
+periscope_depmap21q4_ccle,19177,1,"A549 log2(TPM+1)=2.117695 (TPM=3.34); HeLa log2(TPM+1)=4.144862 (TPM=16.69). Baseline cell-line RNA from DepMap Public 21Q4 CCLE_expression.csv, not RNA measured in the imaging wells."
+periscope_a549_ngs_barcodes,79907,4,TGTCACCTCGCAGACCATCT count=19; CATCTCCCGCTTCTGCCCGG count=19; GCTGATGATGACGAGGGCGC count=14; ACAGGTAATGGGCATCGCGC count=2
+periscope_hit_a549_whole,399,0,A549 1% FDR whole-cell; other CLDN* on this list: none
+periscope_hit_a549_comp,690,0,A549 1% FDR compartment; other CLDN* on this list: none
+periscope_hit_hela_dmem_whole,1039,0,HeLa DMEM 1% FDR whole-cell; other CLDN* on this list: CLDN6
+periscope_hit_hela_hplm_whole,597,0,HeLa HPLM 1% FDR whole-cell; other CLDN* on this list: none
+periscope_hit_hela_dmem_comp,891,0,HeLa DMEM 1% FDR compartment; other CLDN* on this list: none
+periscope_hit_hela_hplm_comp,956,0,"HeLa HPLM 1% FDR compartment; other CLDN* on this list: CLDN20, CLDND1"
+periscope_hela_dmem_sig,16920,1,HeLa DMEM expressed-gene feature counts; Mito=19.0 ConA=9.0 DAPI=14.0 WGA=10.0 Phalloidin=33.0 Sum=88.0; Sum percentile<=0.393; median Sum=99
+periscope_hela_hplm_sig,16920,1,HeLa HPLM expressed-gene feature counts; Mito=29.0 ConA=17.0 DAPI=28.0 WGA=57.0 Phalloidin=31.0 Sum=157.0; Sum percentile<=0.605; median Sum=142
+periscope_hela_dmem_0tpm_table,3472,0,CLDN4 is not in the 0 TPM feature-count table
+rohban_orf_sequence_match_table,302,0,carpenterlab 2017_rohban_elife matching.per.table.csv; Symbol column
+luad_allele_gene_funcs,590,0,unique gene prefixes n=135; CLDN4 absent
+rxrx3_core_metadata,222601,89,"HUVEC CRISPR query guides; experiments {'gene-003': 45, 'gene-176': 44}; guides {'CLDN4_guide_2': 18, 'CLDN4_guide_5': 17, 'CLDN4_guide_1': 18, 'CLDN4_guide_4': 18, 'CLDN4_guide_3': 18}; expression column absent"
