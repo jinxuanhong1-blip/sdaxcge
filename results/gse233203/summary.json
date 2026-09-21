@@ -1,0 +1,38 @@
+{
+  "series": "GSE233203",
+  "tissue": "pleural fluid, stage IV lung adenocarcinoma",
+  "treatment": "atezolizumab + bevacizumab + carboplatin/paclitaxel",
+  "n_samples": 7,
+  "n_usable_malignant_ge_20": 7,
+  "spearman_cldn4_mean_vs_tnk": {
+    "n": 7,
+    "rho": 0.3571428571428572,
+    "p": 0.431611352038328
+  },
+  "spearman_cldn4_pct_vs_tnk": {
+    "n": 7,
+    "rho": 0.21428571428571433,
+    "p": 0.6445115810207203
+  },
+  "cldn4_mean_response_vs_nonresponse": {
+    "n_response": 3,
+    "n_nonresponse": 4,
+    "mean_response": 0.6172616879145304,
+    "mean_nonresponse": 0.0577597925439477,
+    "delta_response_minus_nonresponse": 0.5595018953705827,
+    "U": 12.0,
+    "p_exact": 0.05714285714285714,
+    "n_perm": 35
+  },
+  "cldn4_pct_response_vs_nonresponse": {
+    "n_response": 3,
+    "n_nonresponse": 4,
+    "mean_response": 0.40663561481592114,
+    "mean_nonresponse": 0.06648649817322441,
+    "delta_response_minus_nonresponse": 0.34014911664269676,
+    "U": 11.0,
+    "p_exact": 0.11428571428571428,
+    "n_perm": 35
+  },
+  "not_merged_into_concordant4": true
+}

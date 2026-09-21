@@ -1,0 +1,48 @@
+{
+  "series": "GSE325414",
+  "primary_compartment": "RESRU",
+  "primary_definition": "resection, untreated tumor",
+  "malignant": "author sub.pop.level2 EpithelialCells_TumorCells",
+  "tnk": "author sub.pop.level2 Tcell or NKcell",
+  "expression": "log1p(CP10k) within malignant cells",
+  "gate": {
+    "min_malignant": 50,
+    "min_tnk": 30
+  },
+  "n_cells": 156467,
+  "n_donors": 25,
+  "sanity_epithelial_markers": {
+    "CLDN4": {
+      "tumor_epi_mean_log": 1.690564513206482,
+      "other_mean_log": 0.09815501421689987,
+      "tumor_epi_pct": 0.8822932053175776
+    },
+    "EPCAM": {
+      "tumor_epi_mean_log": 1.8317550420761108,
+      "other_mean_log": 0.0009372849599458277,
+      "tumor_epi_pct": 0.9383770310192023
+    },
+    "KRT8": {
+      "tumor_epi_mean_log": 1.3782107830047607,
+      "other_mean_log": 0.07033039629459381,
+      "tumor_epi_pct": 0.8430114475627769
+    },
+    "TACSTD2": {
+      "tumor_epi_mean_log": 1.6702402830123901,
+      "other_mean_log": 0.10123506188392639,
+      "tumor_epi_pct": 0.8776772525849336
+    }
+  },
+  "primary_spearman_cldn4_mean_vs_tnk": {
+    "compartment": "RESRU",
+    "subset": "all_histology",
+    "x": "cldn4_mean",
+    "y": "tnk_frac",
+    "gate": "tumor_epi>=50, T/NK>=30",
+    "n": 17,
+    "rho": -0.25980392156862747,
+    "p": 0.31391716151942506,
+    "n_donors_present": 20,
+    "n_fail_gate": 3
+  }
+}
