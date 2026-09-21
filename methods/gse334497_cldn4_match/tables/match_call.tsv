@@ -1,0 +1,6 @@
+arm	rule	stat	p	pass
+A_Cldn4_down	log2FC<0 and one-sided Welch p<0.05	-0.8172280353675241	0.12645962879671957	False
+B_epithelial_ISG_up	sample-score delta>0 and one-sided exact perm p<0.05	0.0751192878985911	0.4523809523809524	False
+report_bulk_immune_up	same perm rule; not substituted for arm B	0.9342496526974231	0.011904761904761904	True
+report_hallmark_IFNg_up	same perm rule; not substituted for arm B	0.28655371939589436	0.10714285714285714	False
+JOINT_Cldn4_and_epithelial_ISG	A and B			False
