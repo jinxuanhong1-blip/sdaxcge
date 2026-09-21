@@ -1,0 +1,104 @@
+{
+  "n_patients_paired": 29,
+  "n_samples_paired": 29,
+  "n_regulons": 253,
+  "primary_ifn_board": "STAT_IRF_cistarget_plus_hallmark_program_AUCell",
+  "ifn_rows": [
+    {
+      "score": "IRF1(+)|CLDN4out",
+      "kind": "cistarget_regulon",
+      "delta_median_high_minus_low": 0.016045745226015665,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 1.1175870895385742e-08,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    },
+    {
+      "score": "STAT1(+)|CLDN4out",
+      "kind": "cistarget_regulon",
+      "delta_median_high_minus_low": 0.004809549393448454,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 7.577240467071533e-06,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    },
+    {
+      "score": "STAT2(+)|CLDN4out",
+      "kind": "cistarget_regulon",
+      "delta_median_high_minus_low": 0.0015015609240078484,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 0.0012797452509403229,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    },
+    {
+      "score": "IRF7(+)|CLDN4out",
+      "kind": "cistarget_regulon",
+      "delta_median_high_minus_low": 0.002457791846245526,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 0.0032424964010715485,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    },
+    {
+      "score": "IRF2(+)|CLDN4out",
+      "kind": "cistarget_regulon",
+      "delta_median_high_minus_low": -0.0015290727381624056,
+      "direction": "higher in CLDN4-low",
+      "p_patient": 0.021553177386522293,
+      "vs_kd_like": "SAME",
+      "vs_GSE207704": "OPPOSITE",
+      "vs_GSE50927": "SAME"
+    },
+    {
+      "score": "IRF3(+)|CLDN4out",
+      "kind": "cistarget_regulon",
+      "delta_median_high_minus_low": 0.00019962725977071272,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 0.4946499206125736,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    },
+    {
+      "score": "PROGRAM::IFN_UNION",
+      "kind": "program_AUCell_not_cistarget",
+      "delta_median_high_minus_low": 0.0036394362681889322,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 4.697591066360474e-06,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    },
+    {
+      "score": "PROGRAM::HALLMARK_INTERFERON_GAMMA_RESPONSE",
+      "kind": "program_AUCell_not_cistarget",
+      "delta_median_high_minus_low": 0.0035939652070000397,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 1.5951693058013916e-05,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    },
+    {
+      "score": "PROGRAM::HALLMARK_INTERFERON_ALPHA_RESPONSE",
+      "kind": "program_AUCell_not_cistarget",
+      "delta_median_high_minus_low": 0.004886395587746353,
+      "direction": "higher in CLDN4-high",
+      "p_patient": 0.00015582889318466187,
+      "vs_kd_like": "OPPOSITE",
+      "vs_GSE207704": "SAME",
+      "vs_GSE50927": "OPPOSITE"
+    }
+  ],
+  "n_ifn_opposite_kd_like": 8,
+  "n_ifn_same_kd_like": 1,
+  "hallmark_overlap_not_ifn_tf_n": 24,
+  "hallmark_overlap_opposite_if_compared_to_ifn_kd_like": 17,
+  "hallmark_overlap_same_if_compared_to_ifn_kd_like": 7,
+  "note": "Overlap counts are not IFN transcription factors and are not added to n_ifn_*."
+}

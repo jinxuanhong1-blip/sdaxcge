@@ -1,0 +1,22 @@
+{
+  "note": "Comparator gene sets scored with the same AUCell recovery curve as the cisTarget regulons. They are not cisTarget regulons. CLDN4 is removed at score time because it is the split gene. IFN sets are filled from MSigDB Hallmark at runtime; the lists below are the non-Hallmark comparators.",
+  "MHC1_APM": [
+    "HLA-A", "HLA-B", "HLA-C", "HLA-E", "HLA-F", "HLA-G", "B2M",
+    "TAP1", "TAP2", "TAPBP", "PSMB8", "PSMB9", "PSMB10",
+    "PSME1", "PSME2", "NLRC5", "ERAP1", "ERAP2", "CALR", "PDIA3", "CANX"
+  ],
+  "TJ_STRUCT": [
+    "CLDN1", "CLDN3", "CLDN7", "OCLN", "TJP1", "TJP2", "TJP3",
+    "CGN", "F11R", "MARVELD2", "CDH1", "EPCAM", "CRB3",
+    "PARD3", "PARD6B", "MPDZ", "PATJ", "JAM2", "JAM3", "TACSTD2"
+  ],
+  "KERATIN": [
+    "KRT8", "KRT18", "KRT19", "KRT7", "KRT17", "KRT5", "KRT6A",
+    "KRT14", "KRT15", "KRT80"
+  ],
+  "CTRL_RIBO": [
+    "RPS2", "RPS3", "RPS4X", "RPS5", "RPS6", "RPS8", "RPS9", "RPS11",
+    "RPS14", "RPS18", "RPL3", "RPL4", "RPL5", "RPL7", "RPL8", "RPL10",
+    "RPL11", "RPL13", "RPLP0"
+  ]
+}
