@@ -8,6 +8,10 @@ Sys.setenv(CELLCHAT_SOURCE_ONLY = "1")
 ca <- commandArgs(trailingOnly = FALSE)
 src_file <- sub("^--file=", "", ca[grep("^--file=", ca)])
 source(file.path(dirname(normalizePath(src_file)), "run_cellchat_v2.R"))
+logmsg <- function(...) {
+  cat(format(Sys.time(), "%H:%M:%S"), ..., "\n", sep = " ")
+  flush.console()
+}
 
 SWEEP_VERSION <- "sweep1"
 BENCH <- parse_int("--benchmark", 0L)
@@ -251,6 +255,7 @@ score_prepared <- function(prep, db, lr_map, gene_map, fam_of) {
     old <- readRDS(fp)
     if (identical(old$version, SWEEP_VERSION) && nrow(old$specs) == N_SLOTS) {
       logmsg("  cache", cohort, patient)
+      if (cohort == "GSE189357" && patient == "TD1") validate_td1_edges(old)
       return(old)
     }
   }
@@ -394,6 +399,35 @@ validate_formula <- function(cc_u, lr, fast, n_high_used, n_low_used, n_recv_use
     stop("fast_prob does not match computeCommunProb (raw ", d_raw, ", pop ", d_pop, ")")
   }
   VALID$formula <- TRUE
+}
+
+validate_td1_edges <- function(rec) {
+  sp <- rec$specs
+  hit <- which(
+    sp$universe == "edges14" & sp$split == "q4q1" & sp$receiver == "TNK" &
+      sp$mean_id == "trunc10" & sp$status == "ok"
+  )
+  if (!length(hit)) stop("TD1 reference spec missing")
+  sp1 <- sp[hit[[1]], , drop = FALSE]
+  ed <- rec$edges
+  ed <- ed[
+    ed$universe == "edges14" & ed$split == "q4q1" & ed$receiver == "TNK" & ed$mean_id == "trunc10",
+    , drop = FALSE
+  ]
+  pub <- read.delim(file.path(OUT, "results", "tables", "per_patient_pairs.tsv"), stringsAsFactors = FALSE)
+  pub <- pub[pub$cohort == "GSE189357" & pub$patient == "TD1", , drop = FALSE]
+  Ntot <- sp1$n_high_used + sp1$n_low_used + sp1$n_recv_used
+  scale_h <- (sp1$n_high_used / Ntot) * (sp1$n_recv_used / Ntot)
+  scale_l <- (sp1$n_low_used / Ntot) * (sp1$n_recv_used / Ntot)
+  m <- match(pub$interaction_name, ed$interaction_name)
+  if (anyNA(m)) stop("TD1 cache is missing a published pair")
+  d_h <- max(abs(ed$prob_high[m] * scale_h - pub$prob_high))
+  d_l <- max(abs(ed$prob_low[m] * scale_l - pub$prob_low))
+  logmsg("  TD1 cache vs published max|Δ| high", signif(d_h, 4), "low", signif(d_l, 4))
+  if (!is.finite(d_h) || d_h > 1e-6 || !is.finite(d_l) || d_l > 1e-6) {
+    stop("TD1 cache does not match the published pair table")
+  }
+  VALID$td1 <- TRUE
 }
 
 validate_td1 <- function(fast, n_high_used, n_low_used, n_recv_used) {
@@ -787,6 +821,7 @@ summarize_metric_rows <- function(pat, filters) {
       sub <- pass_filter(base, filter)
       sub <- sub[is.finite(sub$delta), , drop = FALSE]
       k <- k + 1L
+      if (k %% 500L == 0L) logmsg("  summary rows", k)
       nb <- n_by_cohort(sub$cohort)
       means <- tapply(sub$delta, sub$cohort, mean)
       cohort_mean <- function(nm) if (nm %in% names(means)) unname(means[[nm]]) else NA_real_
@@ -1015,7 +1050,7 @@ write_figures_max <- function(summary_df, winner_pts, residual) {
       geom_col(fill = "#2c7fb8") +
       coord_flip() +
       labs(
-        x = NULL, y = "Mean patient Δ (probability)",
+        x = NULL, y = "Mean patient delta (probability)",
         title = "Largest eligible barrier outgoing specs"
       ) +
       theme_bw(base_size = 9)
@@ -1026,7 +1061,7 @@ write_figures_max <- function(summary_df, winner_pts, residual) {
     p2 <- ggplot(winner_pts, aes(x = cohort, y = delta, color = cohort)) +
       geom_hline(yintercept = 0, linewidth = 0.3) +
       geom_jitter(width = 0.15, height = 0, size = 1.6) +
-      labs(x = NULL, y = "Patient Δ", title = "Winning spec, one point per patient") +
+      labs(x = NULL, y = "Patient delta", title = "Winning spec, one point per patient") +
       theme_bw(base_size = 11) +
       theme(legend.position = "none")
     ggsave(file.path(DIR_MAX_FIG, "winner_patient_delta.png"), p2, width = 7, height = 4.5, dpi = 120)
@@ -1040,8 +1075,8 @@ write_figures_max <- function(summary_df, winner_pts, residual) {
         geom_vline(xintercept = 0, linewidth = 0.3) +
         geom_point(size = 1.6) +
         labs(
-          x = "Total overexpressed sender Δ",
-          y = "Barrier-edge Δ (same network)",
+          x = "Total overexpressed sender delta",
+          y = "Barrier-edge delta (same network)",
           title = "Winning split, shared max-normalization"
         ) +
         theme_bw(base_size = 11)
@@ -1105,6 +1140,7 @@ write_max_finding <- function(summary_df, pat, residual, pair_tab, ref_mean, n_p
         fmt_delta(w$cohort_mean_123902), fmt_delta(w$cohort_mean_131907),
         fmt_delta(w$cohort_mean_205335), fmt_delta(w$cohort_mean_189357)
       ),
+      "A cohort mean is the mean of the patients who remain after the filter. One patient makes that cohort mean equal to that patient's delta.",
       sprintf(
         "Signs: %d positive, %d negative, %d zero. Median CellChat expression max in this gene universe = %s.",
         w$n_pos, w$n_neg, w$n_zero, fmt_delta(w$median_expr_max)
@@ -1123,6 +1159,40 @@ write_max_finding <- function(summary_df, pat, residual, pair_tab, ref_mean, n_p
         ""
       )
     }
+    stable <- elig[
+      elig$n_gse123902 >= 3 & elig$n_gse131907 >= 3 &
+        elig$n_gse205335 >= 3 & elig$n_gse189357 >= 3,
+      , drop = FALSE
+    ]
+    if (nrow(stable)) {
+      st <- pick_best(stable)
+      lines <- c(
+        lines,
+        sprintf(
+          "Largest eligible Δ with at least 3 patients in every cohort: mean Δ = %s, Cliff = %s, Cohen's d = %s, n = %d (%d/%d/%d/%d), cohort means %s / %s / %s / %s, spec `%s`.",
+          fmt_delta(st$mean_delta), fmt_delta(st$cliff), fmt_delta(st$cohen_d), st$n,
+          st$n_gse123902, st$n_gse131907, st$n_gse205335, st$n_gse189357,
+          fmt_delta(st$cohort_mean_123902), fmt_delta(st$cohort_mean_131907),
+          fmt_delta(st$cohort_mean_205335), fmt_delta(st$cohort_mean_189357),
+          spec_label(st)
+        ),
+        ""
+      )
+    }
+    all_units <- elig[elig$filter == "all", , drop = FALSE]
+    if (nrow(all_units)) {
+      au <- pick_best(all_units)
+      lines <- c(
+        lines,
+        sprintf(
+          "Largest eligible Δ that keeps every unit passing the cell-count floors (filter = all): mean Δ = %s, Cliff = %s, Cohen's d = %s, n = %d (%d/%d/%d/%d), spec `%s`.",
+          fmt_delta(au$mean_delta), fmt_delta(au$cliff), fmt_delta(au$cohen_d), au$n,
+          au$n_gse123902, au$n_gse131907, au$n_gse205335, au$n_gse189357,
+          spec_label(au)
+        ),
+        ""
+      )
+    }
     top <- head(elig[order(-elig$mean_delta), , drop = FALSE], 8)
     lines <- c(lines, "### Next eligible probability specs", "", "| mean Δ | Cliff | Cohen d | n | spec |", "|---:|---:|---:|---:|---|")
     for (i in seq_len(nrow(top))) {
@@ -1133,33 +1203,49 @@ write_max_finding <- function(summary_df, pat, residual, pair_tab, ref_mean, n_p
       ))
     }
     lines <- c(lines, "")
-    ifn <- summary_df[
-      summary_df$family == "ifn_recruit" & summary_df$metric == "edge_sum" &
-        summary_df$universe == "edges14" & summary_df$split == w$split &
-        summary_df$receiver == w$receiver & summary_df$mean_id == w$mean_id &
-        summary_df$pop %in% w$pop & summary_df$filter == w$filter,
+    lines <- c(lines, "## IFN/recruit on the same patients", "")
+    barrier_pts <- pat[
+      pat$family == "barrier_inhibitory" & pat$metric == w$metric &
+        pat$universe == w$universe & pat$split == w$split &
+        pat$receiver == w$receiver & pat$mean_id == w$mean_id &
+        pat$pop %in% w$pop,
       , drop = FALSE
     ]
-    lines <- c(lines, "## IFN/recruit on the same spec", "")
-    if (!nrow(ifn)) {
-      lines <- c(lines, "IFN/recruit edge sum was not available for this spec.", "")
+    barrier_pts <- pass_filter(barrier_pts, w$filter)
+    barrier_pts <- barrier_pts[is.finite(barrier_pts$delta), , drop = FALSE]
+    ifn_pts <- pat[
+      pat$family == "ifn_recruit" & pat$metric == "edge_sum" & pat$universe == "edges14" &
+        pat$split == w$split & pat$receiver == w$receiver & pat$mean_id == w$mean_id &
+        pat$pop %in% w$pop,
+      , drop = FALSE
+    ]
+    ifn_keys <- paste(barrier_pts$cohort, barrier_pts$patient, sep = "|")
+    ifn_pts <- ifn_pts[paste(ifn_pts$cohort, ifn_pts$patient, sep = "|") %in% ifn_keys, , drop = FALSE]
+    ifn_pts <- ifn_pts[is.finite(ifn_pts$delta), , drop = FALSE]
+    if (!nrow(ifn_pts)) {
+      lines <- c(lines, "IFN/recruit edge sum was not available for these patients.", "")
     } else {
-      f <- ifn[1, ]
-      direction <- if (!is.finite(f$mean_delta)) "NA" else if (f$mean_delta > 0) "high>low" else if (f$mean_delta < 0) "low>high" else "tie"
+      fe <- effect_line(ifn_pts$delta)
+      direction <- if (!is.finite(fe$mean_delta)) "NA" else if (fe$mean_delta > 0) "high>low" else if (fe$mean_delta < 0) "low>high" else "tie"
+      cm <- tapply(ifn_pts$delta, ifn_pts$cohort, mean)
+      pickc <- function(nm) if (nm %in% names(cm)) unname(cm[[nm]]) else NA_real_
+      p_less <- signflip_p(ifn_pts$delta, alternative = "less", seed = 3979L)
       lines <- c(
         lines,
+        "Same patients as the barrier winner. The seven IFN/recruit edges are scored in the 14-pair universe, so an HLA-scale max-normalization is the one used for this arm even when the barrier winner uses the pathway universe.",
+        "",
         sprintf(
-          "IFN/recruit edge sum on the winning split, receiver, mean, population.size, and patient filter: mean Δ = %s (observed %s; thesis expect low>high), n = %d, Cliff = %s, Cohen's d = %s.",
-          fmt_delta(f$mean_delta), direction, f$n, fmt_delta(f$cliff), fmt_delta(f$cohen_d)
+          "IFN/recruit edge sum: mean Δ = %s (observed %s; thesis expect low>high), n = %d, Cliff = %s, Cohen's d = %s.",
+          fmt_delta(fe$mean_delta), direction, fe$n, fmt_delta(fe$cliff), fmt_delta(fe$cohen_d)
         ),
         sprintf(
           "Thesis-direction sign-flip (low>high) p = %s. Two-sided sign-flip p = %s. Wilcoxon p = %s.",
-          fmt_p(f$p_signflip_less), fmt_p(f$p_signflip_two), fmt_p(f$p_wilcox)
+          fmt_p(p_less), fmt_p(fe$p_signflip_two), fmt_p(fe$p_wilcox)
         ),
         sprintf(
           "Cohort mean Δ (123902 / 131907 / 205335 / 189357) = %s / %s / %s / %s.",
-          fmt_delta(f$cohort_mean_123902), fmt_delta(f$cohort_mean_131907),
-          fmt_delta(f$cohort_mean_205335), fmt_delta(f$cohort_mean_189357)
+          fmt_delta(pickc("GSE123902")), fmt_delta(pickc("GSE131907")),
+          fmt_delta(pickc("GSE205335")), fmt_delta(pickc("GSE189357"))
         ),
         ""
       )
@@ -1181,7 +1267,17 @@ write_max_finding <- function(summary_df, pat, residual, pair_tab, ref_mean, n_p
           fmt_p(r$p_signflip_greater)
         ))
       }
-      lines <- c(lines, "")
+      if (identical(w$metric, "pathway_sum")) {
+        lines <- c(
+          lines,
+          "",
+          sprintf(
+            "Sum of these seven pair-mean deltas = %s. The winning pathway sum is %s. Other interactions in the JAM, NECTIN, CDH1, and GALECTIN pathways make up the difference.",
+            fmt_delta(sum(pair_tab$mean_delta)), fmt_delta(w$mean_delta)
+          ),
+          ""
+        )
+      }
     }
   }
   if (nrow(fold)) {
@@ -1375,8 +1471,10 @@ main_sweep <- function() {
   for (prep in preps) {
     recs[[length(recs) + 1]] <- score_prepared(prep, db, lr_map, gene_map, fam_of)
   }
-  if (!VALID$formula) stop("computeCommunProb check never ran")
   logmsg("scored patients", length(recs), "formula", VALID$formula, "td1", VALID$td1)
+  if (!VALID$formula) {
+    logmsg("formula check not repeated: every unit was read from cache. The published-table match is the CellChat check.")
+  }
   if (BENCH == 1L) {
     logmsg("benchmark stop before the full summary")
     return(invisible(recs))
@@ -1386,7 +1484,11 @@ main_sweep <- function() {
   write_tsv(pat, file.path(DIR_MAX_TAB, "per_patient_metrics.tsv"))
   full_cohorts <- all(c("GSE123902", "GSE131907", "GSE205335", "GSE189357") %in% COHORTS) && LIMIT == 0L
   if (full_cohorts) {
-    if (!VALID$td1) stop("TD1 published-probability check never ran")
+    if (!VALID$td1) {
+      td1_rec <- Filter(function(r) identical(r$cohort, "GSE189357") && identical(r$patient, "TD1"), recs)
+      if (!length(td1_rec)) stop("TD1 result missing")
+      validate_td1_edges(td1_rec[[1]])
+    }
     assert_reference(pat)
   }
   # Sign-flip the barrier search and the fold search. IFN is summarized for the winner only,

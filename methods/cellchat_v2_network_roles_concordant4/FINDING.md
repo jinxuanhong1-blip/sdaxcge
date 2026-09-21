@@ -1,5 +1,7 @@
 # FINDING — CellChat v2 full network and sender roles, concordant-four
 
+Max-effect sweep of this same extracted readout: `FINDING_MAX_EFFECT.md`.
+
 ADDITIVE. **Thesis already correct: CLDN4-high malignant cells are the barrier senders.**
 This does not replace the locked 14-pair CellChat table (PR 540).
 CLDN4 only. No dual-high. No TACSTD2 gate.
