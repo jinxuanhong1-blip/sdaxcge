@@ -494,7 +494,7 @@ def main() -> None:
     seen = {(r["dataset"], str(r["unit_id"])) for r in fit_rows}
     for rec in inv.itertuples(index=False):
         key = (rec.dataset, str(rec.unit_id))
-        if key in seen:
+        if key in seen or str(rec.status) == "not_eligible_origin_or_n":
             continue
         fit_rows.append(
             {
@@ -545,6 +545,7 @@ def main() -> None:
 
     plot_before_after(delta_df)
     plot_deltas(delta_df)
+    plot_vs_control(delta_df)
     write_summary_json(summary, fit_df, delta_df)
     print(summary[summary["block"].isin(["ALL"] + COHORT_ORDER)].to_string(index=False), flush=True)
 
@@ -656,6 +657,46 @@ def plot_deltas(delta_df: pd.DataFrame) -> None:
     fig.tight_layout()
     fig.savefig(FIG / "delta_by_cohort.png", dpi=160, bbox_inches="tight")
     fig.savefig(FIG / "delta_by_cohort.pdf", bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_vs_control(delta_df: pd.DataFrame) -> None:
+    fig, axes = plt.subplots(1, 4, figsize=(12.2, 3.6))
+    for ax, name in zip(axes, PRIMARY):
+        sub = delta_df[(delta_df["program"] == name) & (delta_df["stable_sign"])]
+        for ds, part in sub.groupby("dataset"):
+            ax.scatter(
+                part["delta_control"],
+                part["delta_cldn4"],
+                s=16,
+                color=COHORT_COLOR.get(ds, "gray"),
+                alpha=0.85,
+                label=ds,
+            )
+        vals = np.concatenate(
+            [
+                sub["delta_control"].to_numpy(dtype=float),
+                sub["delta_cldn4"].to_numpy(dtype=float),
+            ]
+        )
+        vals = vals[np.isfinite(vals)]
+        if vals.size:
+            lim = float(np.nanmax(np.abs(vals))) * 1.08
+            ax.plot([-lim, lim], [-lim, lim], color="gray", lw=0.7)
+            ax.axhline(0, color="gray", lw=0.4)
+            ax.axvline(0, color="gray", lw=0.4)
+            ax.set_xlim(-lim, lim)
+            ax.set_ylim(-lim, lim)
+        ax.set_title(name, fontsize=10)
+        ax.set_xlabel("housekeeping KO delta")
+        ax.set_aspect("equal", adjustable="box")
+    axes[0].set_ylabel("CLDN4 virtual-KO delta")
+    handles, labels = axes[0].get_legend_handles_labels()
+    uniq = dict(zip(labels, handles))
+    fig.legend(uniq.values(), uniq.keys(), loc="upper center", ncol=4, frameon=False, fontsize=8)
+    fig.tight_layout()
+    fig.savefig(FIG / "cldn4_vs_control.png", dpi=160, bbox_inches="tight")
+    fig.savefig(FIG / "cldn4_vs_control.pdf", bbox_inches="tight")
     plt.close(fig)
 
 

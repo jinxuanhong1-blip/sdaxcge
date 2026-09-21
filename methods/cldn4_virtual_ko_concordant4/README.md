@@ -21,4 +21,4 @@ python3 methods/cldn4_virtual_ko_concordant4/scripts/extract_malignant.py
 python3 methods/cldn4_virtual_ko_concordant4/scripts/virtual_ko.py
 ```
 
-Numbers are written to `results/tables/` and `RESULTS.md`.
+The finished numbers are in `RESULTS.md` and `results/tables/`.
