@@ -1,0 +1,19 @@
+dorothea_hs_ABC.tsv
+  decoupler.op.dorothea(organism="human", levels=["A","B","C"], license="academic")
+  OmniPath interactions, datasets=dorothea, dorothea_levels=A,B,C
+  Garcia-Alonso et al. 2019; weights = mor / {A:1, B:2, C:3}
+
+dorothea_hs_ABCD.tsv
+  Same call with levels A,B,C,D. Level D weight = mor/4.
+  Used only by the specification sweep.
+
+progeny_top500.tsv
+  decoupler.op.progeny(organism="human", top=500)
+  Schubert et al. PROGENy. Pathways, not a tight-junction regulon.
+  JAK-STAT is the IFN-arm readout. No barrier pathway is defined.
+
+collectri.tsv
+  decoupler.op.collectri(organism="human", license="academic")
+  Müller-Dott et al., CollecTRI (Zenodo 8192729)
+  Sensitivity network only. Not pooled with DoRothEA.
+  NLRC5 is absent from both files.
