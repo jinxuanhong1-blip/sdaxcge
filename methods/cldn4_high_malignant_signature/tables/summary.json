@@ -1,0 +1,35 @@
+{
+  "signature_n": 221,
+  "tcga_n": 490,
+  "funnel": {
+    "de_genes": 15779,
+    "fdr_logfc": 272,
+    "after_gene_rules": 270,
+    "tcga_tested": 264,
+    "signature": 221,
+    "tcga_n": 490
+  },
+  "qc": {
+    "CLDN4|CD8A|unadj": -0.41604097260205863,
+    "CLDN4|CD8A|partial": -0.2849848360925362,
+    "CLDN4|ImmuneScore|unadj": -0.431781114812789,
+    "CLDN4|ImmuneScore|partial": -0.30793098211497655
+  },
+  "qc_ok": true,
+  "oncosg_cd8": {
+    "rho": -0.5779846849982597,
+    "p": 1.9033644528966006e-16,
+    "partial_purity": -0.4162752105822282,
+    "partial_cldn4": -0.4719601416089751,
+    "partial_both": -0.3473312826659475
+  },
+  "null_fraction_le_observed": 0.0,
+  "rules": {
+    "c4_logfc": 0.5,
+    "c4_fdr": 0.05,
+    "tcga_fdr": 0.05,
+    "n_floor": 20,
+    "null_draws": 400,
+    "null_seed": 20260921
+  }
+}
