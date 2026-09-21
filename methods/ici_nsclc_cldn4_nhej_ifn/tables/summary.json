@@ -1,0 +1,1070 @@
+[
+  {
+    "cohort": "GSE126044",
+    "role": "response",
+    "n": 16,
+    "n_benefit": 5,
+    "n_other": 11,
+    "missed_keys": [],
+    "endpoint": "GEO ORR responder vs non-responder",
+    "timepoint": "pre-treatment",
+    "treatment": "anti-PD-1",
+    "scale": "log2(CPM+1)",
+    "note": "pretreatment anti-PD-1 NSCLC; GEO responder vs non-responder; 5/16 FFPE kept",
+    "benefit_name": "responder",
+    "other_name": "non-responder",
+    "genes": {
+      "NHEJ": [
+        "RAD50",
+        "DNTT",
+        "FEN1",
+        "XRCC6",
+        "POLL",
+        "POLM",
+        "LIG4",
+        "PRKDC",
+        "DCLRE1C",
+        "XRCC4",
+        "XRCC5",
+        "NHEJ1"
+      ],
+      "NHEJ_core": [
+        "XRCC6",
+        "XRCC5",
+        "PRKDC",
+        "LIG4",
+        "XRCC4",
+        "NHEJ1",
+        "DCLRE1C",
+        "POLL",
+        "POLM"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "IFNG",
+        "EOMES",
+        "CXCL9",
+        "CXCL10",
+        "TBX21"
+      ],
+      "IFN_Hallmark_n": 199,
+      "CLDN4_present": true
+    },
+    "contrast": {
+      "CLDN4": {
+        "n_benefit": 5,
+        "n_other": 11,
+        "delta": -0.5272727272727272,
+        "delta_lo": -0.9636363636363636,
+        "delta_hi": 0.019090909090904128,
+        "p": 0.11492673992673993,
+        "median_benefit": 2.542294564145926,
+        "median_other": 3.7711716113053324
+      },
+      "NHEJ": {
+        "n_benefit": 5,
+        "n_other": 11,
+        "delta": -0.45454545454545453,
+        "delta_lo": -0.9281818181818181,
+        "delta_hi": 0.2,
+        "p": 0.18040293040293043,
+        "median_benefit": -0.29325551211437506,
+        "median_other": 0.2927041399819537
+      },
+      "NHEJ_core": {
+        "n_benefit": 5,
+        "n_other": 11,
+        "delta": -0.38181818181818183,
+        "delta_lo": -0.9272727272727272,
+        "delta_hi": 0.38181818181818183,
+        "p": 0.26739926739926745,
+        "median_benefit": -0.3124593373031981,
+        "median_other": 0.23321884475625898
+      },
+      "IFN_Teff": {
+        "n_benefit": 5,
+        "n_other": 11,
+        "delta": 1.0,
+        "delta_lo": 1.0,
+        "delta_hi": 1.0,
+        "p": 0.0004578754578754579,
+        "median_benefit": 0.6449836093411216,
+        "median_other": -0.40838249077974065
+      },
+      "IFN_Hallmark": {
+        "n_benefit": 5,
+        "n_other": 11,
+        "delta": 0.6727272727272727,
+        "delta_lo": 0.2,
+        "delta_hi": 1.0,
+        "p": 0.03800366300366301,
+        "median_benefit": 0.2966920571031905,
+        "median_other": -0.037140975055325355
+      }
+    },
+    "rho": {
+      "CLDN4_NHEJ": [
+        0.2323529411764706,
+        0.386511349907985,
+        16
+      ],
+      "CLDN4_NHEJ_core": [
+        0.3558823529411765,
+        0.17610373809159305,
+        16
+      ],
+      "CLDN4_IFN_Teff": [
+        -0.6029411764705882,
+        0.013424125397891354,
+        16
+      ],
+      "CLDN4_IFN_Hallmark": [
+        -0.40294117647058825,
+        0.12174576295254301,
+        16
+      ],
+      "NHEJ_IFN_Teff": [
+        -0.2529411764705882,
+        0.344563031337499,
+        16
+      ],
+      "NHEJ_IFN_Hallmark": [
+        -0.2735294117647059,
+        0.30532315630740503,
+        16
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      0.10344628715226813,
+      0.7030212469814532
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      0.28089482269152666,
+      0.2919543208200276
+    ],
+    "rho_CLDN4_MKI67": [
+      0.014705882352941175,
+      0.9568919240316421,
+      16
+    ]
+  },
+  {
+    "cohort": "GSE135222",
+    "role": "response",
+    "n": 27,
+    "n_benefit": 7,
+    "n_other": 20,
+    "missed_keys": [],
+    "endpoint": "DCB (PFS >= 180 days) vs not",
+    "timepoint": "tumor RNA, timing not split in GEO",
+    "treatment": "anti-PD-1/PD-L1",
+    "scale": "log2(deposited expression + 1)",
+    "note": "advanced NSCLC anti-PD-1/PD-L1; DCB = PFS time >= 180 days; GEO pfs=1 is the progression event (all 27 evaluable, no censor before 180 days)",
+    "benefit_name": "DCB",
+    "other_name": "NDB",
+    "genes": {
+      "NHEJ": [
+        "RAD50",
+        "DNTT",
+        "FEN1",
+        "XRCC6",
+        "POLL",
+        "POLM",
+        "LIG4",
+        "MRE11",
+        "PRKDC",
+        "DCLRE1C",
+        "XRCC4",
+        "XRCC5",
+        "NHEJ1"
+      ],
+      "NHEJ_core": [
+        "XRCC6",
+        "XRCC5",
+        "PRKDC",
+        "LIG4",
+        "XRCC4",
+        "NHEJ1",
+        "DCLRE1C",
+        "POLL",
+        "POLM"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "IFNG",
+        "EOMES",
+        "CXCL9",
+        "CXCL10",
+        "TBX21"
+      ],
+      "IFN_Hallmark_n": 196,
+      "CLDN4_present": true
+    },
+    "contrast": {
+      "CLDN4": {
+        "n_benefit": 7,
+        "n_other": 20,
+        "delta": 0.11428571428571428,
+        "delta_lo": -0.38571428571428573,
+        "delta_hi": 0.6285714285714286,
+        "p": 0.6850106415323807,
+        "median_benefit": 7.689369056858228,
+        "median_other": 7.12644010475594
+      },
+      "NHEJ": {
+        "n_benefit": 7,
+        "n_other": 20,
+        "delta": -0.18571428571428572,
+        "delta_lo": -0.6428571428571429,
+        "delta_hi": 0.3,
+        "p": 0.4980011936533676,
+        "median_benefit": 0.07345210870951419,
+        "median_other": 0.16436498344570843
+      },
+      "NHEJ_core": {
+        "n_benefit": 7,
+        "n_other": 20,
+        "delta": -0.1,
+        "delta_lo": -0.5428571428571428,
+        "delta_hi": 0.38571428571428573,
+        "p": 0.7252525252525253,
+        "median_benefit": 0.2329917616123637,
+        "median_other": 0.15814606642965517
+      },
+      "IFN_Teff": {
+        "n_benefit": 7,
+        "n_other": 20,
+        "delta": 0.45714285714285713,
+        "delta_lo": -0.014285714285714285,
+        "delta_hi": 0.8571428571428571,
+        "p": 0.08126752474578562,
+        "median_benefit": 0.6874246750115104,
+        "median_other": -0.14689857672205747
+      },
+      "IFN_Hallmark": {
+        "n_benefit": 7,
+        "n_other": 20,
+        "delta": 0.07142857142857142,
+        "delta_lo": -0.42857142857142855,
+        "delta_hi": 0.5571428571428572,
+        "p": 0.8078600948166165,
+        "median_benefit": -0.12239147921371374,
+        "median_other": 0.047065429974088815
+      }
+    },
+    "rho": {
+      "CLDN4_NHEJ": [
+        0.43956043956043955,
+        0.02178262208890665,
+        27
+      ],
+      "CLDN4_NHEJ_core": [
+        0.5061050061050061,
+        0.007071043012674851,
+        27
+      ],
+      "CLDN4_IFN_Teff": [
+        0.19108669108669107,
+        0.33969429263636514,
+        27
+      ],
+      "CLDN4_IFN_Hallmark": [
+        0.43223443223443225,
+        0.024347584827244126,
+        27
+      ],
+      "NHEJ_IFN_Teff": [
+        -0.27777777777777773,
+        0.16065751401715692,
+        27
+      ],
+      "NHEJ_IFN_Hallmark": [
+        0.15079365079365079,
+        0.45278548108050787,
+        27
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      0.5224490851934991,
+      0.0051797947255238785
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      0.5118462868411426,
+      0.006349561842119865
+    ],
+    "rho_CLDN4_MKI67": [
+      0.038461538461538464,
+      0.8489444428529818,
+      27
+    ]
+  },
+  {
+    "cohort": "GSE166449",
+    "role": "response",
+    "n": 22,
+    "n_benefit": 7,
+    "n_other": 15,
+    "missed_keys": [],
+    "endpoint": "GEO title responder vs non-responder",
+    "timepoint": "pre-treatment",
+    "treatment": "immunotherapy (GEO title)",
+    "scale": "log2(TPM+1)",
+    "note": "pretreatment advanced lung; response taken from GEO sample title (Responder / nonResponder)",
+    "benefit_name": "responder",
+    "other_name": "non-responder",
+    "genes": {
+      "NHEJ": [
+        "RAD50",
+        "DNTT",
+        "FEN1",
+        "XRCC6",
+        "POLL",
+        "POLM",
+        "LIG4",
+        "MRE11",
+        "PRKDC",
+        "DCLRE1C",
+        "XRCC4",
+        "XRCC5",
+        "NHEJ1"
+      ],
+      "NHEJ_core": [
+        "XRCC6",
+        "XRCC5",
+        "PRKDC",
+        "LIG4",
+        "XRCC4",
+        "NHEJ1",
+        "DCLRE1C",
+        "POLL",
+        "POLM"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "IFNG",
+        "EOMES",
+        "CXCL9",
+        "CXCL10",
+        "TBX21"
+      ],
+      "IFN_Hallmark_n": 200,
+      "CLDN4_present": true
+    },
+    "contrast": {
+      "CLDN4": {
+        "n_benefit": 7,
+        "n_other": 15,
+        "delta": 0.02857142857142857,
+        "delta_lo": -0.5047619047619047,
+        "delta_hi": 0.5619047619047619,
+        "p": 0.9452106201332205,
+        "median_benefit": 1.2081052560568217,
+        "median_other": 1.3282401491644622
+      },
+      "NHEJ": {
+        "n_benefit": 7,
+        "n_other": 15,
+        "delta": -0.18095238095238095,
+        "delta_lo": -0.6952380952380952,
+        "delta_hi": 0.3333333333333333,
+        "p": 0.5349118116145979,
+        "median_benefit": -0.023301093454607753,
+        "median_other": 0.28579349031079554
+      },
+      "NHEJ_core": {
+        "n_benefit": 7,
+        "n_other": 15,
+        "delta": -0.10476190476190476,
+        "delta_lo": -0.580952380952381,
+        "delta_hi": 0.3904761904761905,
+        "p": 0.7308612440191385,
+        "median_benefit": 0.07176079369800831,
+        "median_other": 0.25106098349533346
+      },
+      "IFN_Teff": {
+        "n_benefit": 7,
+        "n_other": 15,
+        "delta": 0.4666666666666667,
+        "delta_lo": -0.009523809523809525,
+        "delta_hi": 0.8666666666666667,
+        "p": 0.09108499859273851,
+        "median_benefit": 0.539500252916752,
+        "median_other": 0.046096338246754576
+      },
+      "IFN_Hallmark": {
+        "n_benefit": 7,
+        "n_other": 15,
+        "delta": 0.12380952380952381,
+        "delta_lo": -0.3523809523809524,
+        "delta_hi": 0.6,
+        "p": 0.6796486537198609,
+        "median_benefit": 0.2003991427366376,
+        "median_other": 0.03719082210703345
+      }
+    },
+    "rho": {
+      "CLDN4_NHEJ": [
+        0.08074534161490683,
+        0.7209375060406075,
+        22
+      ],
+      "CLDN4_NHEJ_core": [
+        0.10559006211180126,
+        0.6400256218947229,
+        22
+      ],
+      "CLDN4_IFN_Teff": [
+        -0.1925465838509317,
+        0.3906268281903448,
+        22
+      ],
+      "CLDN4_IFN_Hallmark": [
+        0.08639186900056467,
+        0.7022561610479264,
+        22
+      ],
+      "NHEJ_IFN_Teff": [
+        0.17899491812535295,
+        0.4254382439036578,
+        22
+      ],
+      "NHEJ_IFN_Hallmark": [
+        0.6386222473178995,
+        0.0013800529356872621,
+        22
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      0.11933439425584913,
+      0.5968387447302216
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      0.11913272023924296,
+      0.5974635028560831
+    ],
+    "rho_CLDN4_MKI67": [
+      -0.026538678712591763,
+      0.9066765277008432,
+      22
+    ]
+  },
+  {
+    "cohort": "GSE190266",
+    "role": "response",
+    "n": 69,
+    "n_benefit": 17,
+    "n_other": 52,
+    "missed_keys": [],
+    "endpoint": "6-month PFS landmark (no event vs event)",
+    "timepoint": "diagnosis, before anti-PD-1",
+    "treatment": "anti-PD-1 monotherapy",
+    "scale": "log2(TPM+1)",
+    "note": "Dijon France4, anti-PD-1 monotherapy, tumor at diagnosis. Benefit = no PFS event and time censored at 6 months. No-benefit = PFS event before 6 months. One early censor (time 0.03, event 0) excluded. Deposited TPM is Excel-truncated at 16,384 columns (stops at MTMR14), so NHEJ and Hallmark IFN are not scored",
+    "benefit_name": "no event by 6 mo",
+    "other_name": "event before 6 mo",
+    "genes": {
+      "NHEJ": [
+        "DNTT",
+        "FEN1",
+        "LIG4",
+        "MRE11",
+        "DCLRE1C"
+      ],
+      "NHEJ_core": [
+        "LIG4",
+        "DCLRE1C"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "IFNG",
+        "EOMES",
+        "CXCL9",
+        "CXCL10"
+      ],
+      "IFN_Hallmark_n": 107,
+      "CLDN4_present": true
+    },
+    "contrast": {
+      "CLDN4": {
+        "n_benefit": 17,
+        "n_other": 52,
+        "delta": 0.3167420814479638,
+        "delta_lo": -0.021521493212669683,
+        "delta_hi": 0.6369061085972849,
+        "p": 0.051589467725745984,
+        "median_benefit": 5.829761002587666,
+        "median_other": 4.501789991716127
+      },
+      "NHEJ": null,
+      "NHEJ_core": null,
+      "IFN_Teff": {
+        "n_benefit": 17,
+        "n_other": 52,
+        "delta": 0.22171945701357465,
+        "delta_lo": -0.10975678733031674,
+        "delta_hi": 0.5362556561085969,
+        "p": 0.17367570261198206,
+        "median_benefit": 0.23087050194842054,
+        "median_other": -0.22701469409562394
+      },
+      "IFN_Hallmark": null
+    },
+    "rho": {
+      "CLDN4_NHEJ": [
+        NaN,
+        NaN,
+        0
+      ],
+      "CLDN4_NHEJ_core": [
+        NaN,
+        NaN,
+        0
+      ],
+      "CLDN4_IFN_Teff": [
+        0.4015774027879677,
+        0.000626247270376072,
+        69
+      ],
+      "CLDN4_IFN_Hallmark": [
+        NaN,
+        NaN,
+        0
+      ],
+      "NHEJ_IFN_Teff": [
+        NaN,
+        NaN,
+        0
+      ],
+      "NHEJ_IFN_Hallmark": [
+        NaN,
+        NaN,
+        0
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      NaN,
+      NaN
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      NaN,
+      NaN
+    ],
+    "rho_CLDN4_MKI67": [
+      NaN,
+      NaN,
+      0
+    ]
+  },
+  {
+    "cohort": "GSE207422",
+    "role": "response",
+    "n": 24,
+    "n_benefit": 9,
+    "n_other": 15,
+    "missed_keys": [],
+    "endpoint": "pathologic MPR vs NMPR",
+    "timepoint": "pre-treatment biopsy",
+    "treatment": "anti-PD-1 + chemotherapy",
+    "scale": "deposited log2 TPM",
+    "note": "pretreatment biopsy bulk only (BD Rhapsody single-cell libraries excluded). Neoadjuvant anti-PD-1 plus chemotherapy, not ICI monotherapy. Benefit = pathologic MPR including pCR",
+    "benefit_name": "MPR",
+    "other_name": "NMPR",
+    "genes": {
+      "NHEJ": [
+        "RAD50",
+        "DNTT",
+        "FEN1",
+        "XRCC6",
+        "POLL",
+        "POLM",
+        "LIG4",
+        "MRE11",
+        "PRKDC",
+        "DCLRE1C",
+        "XRCC4",
+        "XRCC5",
+        "NHEJ1"
+      ],
+      "NHEJ_core": [
+        "XRCC6",
+        "XRCC5",
+        "PRKDC",
+        "LIG4",
+        "XRCC4",
+        "NHEJ1",
+        "DCLRE1C",
+        "POLL",
+        "POLM"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "IFNG",
+        "EOMES",
+        "CXCL9",
+        "CXCL10",
+        "TBX21"
+      ],
+      "IFN_Hallmark_n": 200,
+      "CLDN4_present": true
+    },
+    "contrast": {
+      "CLDN4": {
+        "n_benefit": 9,
+        "n_other": 15,
+        "delta": -0.28888888888888886,
+        "delta_lo": -0.7333333333333333,
+        "delta_hi": 0.2,
+        "p": 0.2572389851810263,
+        "median_benefit": 5.8539397241997,
+        "median_other": 6.27200773153137
+      },
+      "NHEJ": {
+        "n_benefit": 9,
+        "n_other": 15,
+        "delta": -0.5555555555555556,
+        "delta_lo": -0.8814814814814815,
+        "delta_hi": -0.14074074074074075,
+        "p": 0.027366238580502796,
+        "median_benefit": -0.48959493784945146,
+        "median_other": 0.2394058388141165
+      },
+      "NHEJ_core": {
+        "n_benefit": 9,
+        "n_other": 15,
+        "delta": -0.4962962962962963,
+        "delta_lo": -0.8518518518518519,
+        "delta_hi": -0.05185185185185185,
+        "p": 0.049097981609265554,
+        "median_benefit": -0.5981287862951875,
+        "median_other": 0.2949559827192135
+      },
+      "IFN_Teff": {
+        "n_benefit": 9,
+        "n_other": 15,
+        "delta": 0.6148148148148148,
+        "delta_lo": 0.2,
+        "delta_hi": 0.9111111111111111,
+        "p": 0.014494548551070822,
+        "median_benefit": 0.6952940474107931,
+        "median_other": -0.3246123865931207
+      },
+      "IFN_Hallmark": {
+        "n_benefit": 9,
+        "n_other": 15,
+        "delta": 0.24444444444444444,
+        "delta_lo": -0.21481481481481482,
+        "delta_hi": 0.7040740740740721,
+        "p": 0.3400554635028641,
+        "median_benefit": 0.2532857296724099,
+        "median_other": 0.09450888838478175
+      }
+    },
+    "rho": {
+      "CLDN4_NHEJ": [
+        0.18956521739130433,
+        0.374980391143915,
+        24
+      ],
+      "CLDN4_NHEJ_core": [
+        0.21826086956521737,
+        0.3055543915844942,
+        24
+      ],
+      "CLDN4_IFN_Teff": [
+        -0.3304347826086956,
+        0.11478470741054941,
+        24
+      ],
+      "CLDN4_IFN_Hallmark": [
+        0.06521739130434781,
+        0.7620689398781237,
+        24
+      ],
+      "NHEJ_IFN_Teff": [
+        -0.23913043478260865,
+        0.2604279368029269,
+        24
+      ],
+      "NHEJ_IFN_Hallmark": [
+        0.46086956521739125,
+        0.023418069813248496,
+        24
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      0.12062708580202594,
+      0.5744843857225059
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      -0.12740303837405859,
+      0.5530128130172071
+    ],
+    "rho_CLDN4_MKI67": [
+      0.41826086956521735,
+      0.041951916181776204,
+      24
+    ]
+  },
+  {
+    "cohort": "GSE218989",
+    "role": "response",
+    "n": 355,
+    "n_benefit": 168,
+    "n_other": 187,
+    "missed_keys": [],
+    "endpoint": "GEO responder vs non-responder",
+    "timepoint": "not stated beyond treatment with PD-1/PD-L1 inhibitor",
+    "treatment": "PD-1/PD-L1 inhibitor",
+    "scale": "log2(TPM+1)",
+    "note": "GEO overall design: bulk RNA-seq of immunotherapy-treated lung cancer. Endpoint is the deposited Responder vs Non-responder label. Series title is the parent pan-cancer paper; the sample records say PD-1/PD-L1 inhibitor",
+    "benefit_name": "responder",
+    "other_name": "non-responder",
+    "genes": {
+      "NHEJ": [
+        "RAD50",
+        "DNTT",
+        "FEN1",
+        "XRCC6",
+        "POLL",
+        "POLM",
+        "LIG4",
+        "MRE11",
+        "PRKDC",
+        "DCLRE1C",
+        "XRCC4",
+        "XRCC5",
+        "NHEJ1"
+      ],
+      "NHEJ_core": [
+        "XRCC6",
+        "XRCC5",
+        "PRKDC",
+        "LIG4",
+        "XRCC4",
+        "NHEJ1",
+        "DCLRE1C",
+        "POLL",
+        "POLM"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "IFNG",
+        "EOMES",
+        "CXCL9",
+        "CXCL10",
+        "TBX21"
+      ],
+      "IFN_Hallmark_n": 200,
+      "CLDN4_present": true
+    },
+    "contrast": {
+      "CLDN4": {
+        "n_benefit": 168,
+        "n_other": 187,
+        "delta": -0.05137509549274255,
+        "delta_lo": -0.16994763814616753,
+        "delta_hi": 0.06703908836261775,
+        "p": 0.403492127146615,
+        "median_benefit": 1.8687400047001002,
+        "median_other": 1.9367025212537252
+      },
+      "NHEJ": {
+        "n_benefit": 168,
+        "n_other": 187,
+        "delta": -0.00789406671759613,
+        "delta_lo": -0.12408326967150496,
+        "delta_hi": 0.1159950343773873,
+        "p": 0.8982079274015788,
+        "median_benefit": 0.1207657096932245,
+        "median_other": 0.08916229828575967
+      },
+      "NHEJ_core": {
+        "n_benefit": 168,
+        "n_other": 187,
+        "delta": -0.03132161955691368,
+        "delta_lo": -0.14975012732365672,
+        "delta_hi": 0.08831168831168824,
+        "p": 0.6106734182890473,
+        "median_benefit": 0.10272598041771491,
+        "median_other": 0.12060680227331917
+      },
+      "IFN_Teff": {
+        "n_benefit": 168,
+        "n_other": 187,
+        "delta": 0.19397759103641457,
+        "delta_lo": 0.0727559205500382,
+        "delta_hi": 0.30541284695696447,
+        "p": 0.001601307923962909,
+        "median_benefit": 0.08731462588069062,
+        "median_other": -0.11641290087346064
+      },
+      "IFN_Hallmark": {
+        "n_benefit": 168,
+        "n_other": 187,
+        "delta": 0.13407181054239878,
+        "delta_lo": 0.0010774764451235042,
+        "delta_hi": 0.24492774382480254,
+        "p": 0.029187220210919667,
+        "median_benefit": 0.12295207665123331,
+        "median_other": 0.05690380964074057
+      }
+    },
+    "rho": {
+      "CLDN4_NHEJ": [
+        0.40437207424756777,
+        2.131167499782932e-15,
+        355
+      ],
+      "CLDN4_NHEJ_core": [
+        0.4487659283986678,
+        5.407564718592489e-19,
+        355
+      ],
+      "CLDN4_IFN_Teff": [
+        0.0009202813952819879,
+        0.9862146128841656,
+        355
+      ],
+      "CLDN4_IFN_Hallmark": [
+        0.29687027881367894,
+        1.1784870115290104e-08,
+        355
+      ],
+      "NHEJ_IFN_Teff": [
+        0.16649840003647864,
+        0.0016438743638310968,
+        355
+      ],
+      "NHEJ_IFN_Hallmark": [
+        0.5245045209363207,
+        1.751404328187195e-26,
+        355
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      0.40994109065126566,
+      8.056901298660913e-16
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      0.4661065055801053,
+      1.509783655995734e-20
+    ],
+    "rho_CLDN4_MKI67": [
+      0.005007097915017926,
+      0.9251021530683441,
+      355
+    ]
+  },
+  {
+    "cohort": "GSE253564",
+    "role": "correlation_only",
+    "n": 32,
+    "n_benefit": "",
+    "n_other": "",
+    "missed_keys": [],
+    "endpoint": "none in GEO",
+    "timepoint": "pre-treatment",
+    "treatment": "durvalumab +/- SBRT (neoadjuvant)",
+    "scale": "log2(FPKM+1)",
+    "note": "pretreatment durvalumab +/- SBRT trial RNA. GEO has arm, not MPR or recurrence, so this is not a response test",
+    "benefit_name": "",
+    "other_name": "",
+    "genes": {
+      "NHEJ": [
+        "RAD50",
+        "DNTT",
+        "FEN1",
+        "XRCC6",
+        "POLL",
+        "POLM",
+        "LIG4",
+        "MRE11",
+        "PRKDC",
+        "DCLRE1C",
+        "XRCC4",
+        "XRCC5",
+        "NHEJ1"
+      ],
+      "NHEJ_core": [
+        "XRCC6",
+        "XRCC5",
+        "PRKDC",
+        "LIG4",
+        "XRCC4",
+        "NHEJ1",
+        "DCLRE1C",
+        "POLL",
+        "POLM"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "IFNG",
+        "EOMES",
+        "CXCL9",
+        "CXCL10",
+        "TBX21"
+      ],
+      "IFN_Hallmark_n": 198,
+      "CLDN4_present": true
+    },
+    "contrast": {},
+    "rho": {
+      "CLDN4_NHEJ": [
+        -0.3885630498533724,
+        0.027965529802641435,
+        32
+      ],
+      "CLDN4_NHEJ_core": [
+        -0.347140762463343,
+        0.05158103699258454,
+        32
+      ],
+      "CLDN4_IFN_Teff": [
+        -0.4248533724340175,
+        0.015359100862949287,
+        32
+      ],
+      "CLDN4_IFN_Hallmark": [
+        -0.22360703812316712,
+        0.21860848865566868,
+        32
+      ],
+      "NHEJ_IFN_Teff": [
+        0.0722140762463343,
+        0.6944928634351774,
+        32
+      ],
+      "NHEJ_IFN_Hallmark": [
+        0.006964809384164223,
+        0.96982181147793,
+        32
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      -0.3963707823419138,
+      0.024710830094238374
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      -0.3755245308093419,
+      0.03417666076952091
+    ],
+    "rho_CLDN4_MKI67": [
+      -0.13049853372434017,
+      0.47653042810790047,
+      32
+    ]
+  },
+  {
+    "cohort": "GSE248378",
+    "role": "correlation_only",
+    "n": 29,
+    "n_benefit": "",
+    "n_other": "",
+    "missed_keys": [],
+    "endpoint": "none in GEO",
+    "timepoint": "post-resection",
+    "treatment": "durvalumab +/- SBRT (neoadjuvant)",
+    "scale": "log2(FPKM+1)",
+    "note": "post-resection RNA from the same durvalumab trial. GEO has arm, not recurrence, so this is not a response test and is not a pre/post pair",
+    "benefit_name": "",
+    "other_name": "",
+    "genes": {
+      "NHEJ": [
+        "RAD50",
+        "FEN1",
+        "XRCC6",
+        "POLL",
+        "POLM",
+        "LIG4",
+        "MRE11",
+        "PRKDC",
+        "DCLRE1C",
+        "XRCC4",
+        "XRCC5",
+        "NHEJ1"
+      ],
+      "NHEJ_core": [
+        "XRCC6",
+        "XRCC5",
+        "PRKDC",
+        "LIG4",
+        "XRCC4",
+        "NHEJ1",
+        "DCLRE1C",
+        "POLL",
+        "POLM"
+      ],
+      "IFN_Teff": [
+        "CD8A",
+        "GZMA",
+        "GZMB",
+        "EOMES",
+        "CXCL9",
+        "CXCL10",
+        "TBX21"
+      ],
+      "IFN_Hallmark_n": 197,
+      "CLDN4_present": true
+    },
+    "contrast": {},
+    "rho": {
+      "CLDN4_NHEJ": [
+        -0.3354679802955664,
+        0.07523231355886319,
+        29
+      ],
+      "CLDN4_NHEJ_core": [
+        -0.22955665024630537,
+        0.23095540753826088,
+        29
+      ],
+      "CLDN4_IFN_Teff": [
+        -0.5216748768472905,
+        0.003704028095768997,
+        29
+      ],
+      "CLDN4_IFN_Hallmark": [
+        -0.18275862068965515,
+        0.3426620181383207,
+        29
+      ],
+      "NHEJ_IFN_Teff": [
+        0.26305418719211815,
+        0.16798673242995976,
+        29
+      ],
+      "NHEJ_IFN_Hallmark": [
+        0.2029556650246305,
+        0.2910080636057823,
+        29
+      ]
+    },
+    "partial_CLDN4_NHEJ_given_Teff": [
+      -0.24084535724501635,
+      0.20818720260492732
+    ],
+    "partial_CLDN4_NHEJ_given_MKI67": [
+      0.11817568499858803,
+      0.5414989967798272
+    ],
+    "rho_CLDN4_MKI67": [
+      -0.6364532019704431,
+      0.000206003690624101,
+      29
+    ]
+  }
+]

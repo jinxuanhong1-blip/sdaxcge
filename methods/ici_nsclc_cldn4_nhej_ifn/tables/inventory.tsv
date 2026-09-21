@@ -1,0 +1,17 @@
+cohort	status	why
+POPLAR/OAK RNA-seq	closed	EGAS00001005013 log2(TPM+1), counts, CPM, and clinical (EGAD00001008390/08391/08548/08549/08628-08631) are Genentech DAC EGAC00001002120. No open per-sample CLDN4, NHEJ, or IFN score joined to atezolizumab response
+POPLAR public IFN summary	published summary only	Fehrenbacher Lancet 2016: Teff/IFNg (CD8A, GZMA, GZMB, IFNG, EOMES, CXCL9, CXCL10, TBX21) high subgroup, atezolizumab vs docetaxel OS HR 0.43 (95% CI 0.24-0.77). This is a treatment-effect subgroup, not a within-arm CLDN4 test, and it is not an NHEJ result
+Bessede 2024 OAK/POPLAR supplements	open but not CLDN4	AACR figshare 10.1158/1078-0432.c.7077754 reports TACSTD2, not CLDN4 or NHEJ, and has no per-sample expression
+TCCIA	circRNA deposit only	Zenodo 10.5281/zenodo.7969298 files are TCCIA_Ensemble_circRNAs.tsv.gz and TCCIA_4_methods_circRNAs.tsv.gz. No linear CLDN4 and no NHEJ/IFN score. OAK/POPLAR inside TCCIA use the same controlled EGA matrices
+GSE136961	CLDN4 absent	Oncomine Immune Response panel, 393 genes. CLDN4 absent. KEGG NHEJ genes XRCC5/XRCC6/PRKDC/LIG4/NHEJ1/DCLRE1C absent. Not scored
+GSE285029	response label absent	234 ICI lung libraries. GEO characteristics have no response, PFS, or DCB field. Deposited matrix contains negative CLDN4 values, so it is not counts or TPM. Not scored
+GSE182328	no ICI response label	GEO label is Akkermansia detectable vs not. That is not ORR, DCB, PFS, or MPR. Not used as a response test
+GSE248249	not an open bulk matrix	Supplementary file is RAW.tar. Not used
+GSE126044	scored	pretreatment anti-PD-1 NSCLC; GEO responder vs non-responder; 5/16 FFPE kept
+GSE135222	scored	advanced NSCLC anti-PD-1/PD-L1; DCB = PFS time >= 180 days; GEO pfs=1 is the progression event (all 27 evaluable, no censor before 180 days)
+GSE166449	scored	pretreatment advanced lung; response taken from GEO sample title (Responder / nonResponder)
+GSE190266	scored	Dijon France4, anti-PD-1 monotherapy, tumor at diagnosis. Benefit = no PFS event and time censored at 6 months. No-benefit = PFS event before 6 months. One early censor (time 0.03, event 0) excluded. Deposited TPM is Excel-truncated at 16,384 columns (stops at MTMR14), so NHEJ and Hallmark IFN are not scored
+GSE207422	scored	pretreatment biopsy bulk only (BD Rhapsody single-cell libraries excluded). Neoadjuvant anti-PD-1 plus chemotherapy, not ICI monotherapy. Benefit = pathologic MPR including pCR
+GSE218989	scored	GEO overall design: bulk RNA-seq of immunotherapy-treated lung cancer. Endpoint is the deposited Responder vs Non-responder label. Series title is the parent pan-cancer paper; the sample records say PD-1/PD-L1 inhibitor
+GSE253564	scored	pretreatment durvalumab +/- SBRT trial RNA. GEO has arm, not MPR or recurrence, so this is not a response test
+GSE248378	scored	post-resection RNA from the same durvalumab trial. GEO has arm, not recurrence, so this is not a response test and is not a pre/post pair
