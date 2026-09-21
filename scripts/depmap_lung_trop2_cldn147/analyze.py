@@ -28,8 +28,16 @@ from scipy import stats
 
 SLIDE_RHO = 0.69
 SLIDE_N = 118
-PARTNERS = ("CLDN1", "CLDN4", "CLDN7")
-GENES = ("TACSTD2",) + PARTNERS
+FOCAL = ("CLDN1", "CLDN4", "CLDN7")
+CONTROLS = ("CLDN3", "CLDN5", "CLDN18")
+PARTNERS = FOCAL
+# Epithelial keratins used as the RNA adjustment set. Protein KRT18/KRT19
+# are not in the Gygi matrix; KRT8 is a fragment with sparse lung coverage.
+KERATIN = ("KRT8", "KRT18", "KRT19")
+RNA_GENES = ("TACSTD2",) + FOCAL + CONTROLS + ("EPCAM",) + KERATIN
+PROTEIN_REQUESTED = ("TACSTD2",) + FOCAL + CONTROLS + ("EPCAM", "KRT8", "KRT18", "KRT19")
+PROTEIN_REQUIRED = ("TACSTD2", "CLDN1", "CLDN3", "CLDN4", "CLDN7", "CLDN18", "EPCAM", "KRT8")
+GENES = RNA_GENES
 RNG_SEED = 0
 N_BOOT = 5000
 
@@ -108,23 +116,74 @@ def load_protein(gz_path: Path) -> pd.DataFrame:
         wanted = {}
         for row in reader:
             sym = row["Gene_Symbol"]
-            if sym in GENES:
+            if sym in PROTEIN_REQUESTED:
                 if sym in wanted:
                     raise SystemExit(f"Duplicate Gygi gene symbol {sym}")
                 wanted[sym] = row
-    missing = [g for g in GENES if g not in wanted]
-    if missing:
-        raise SystemExit(f"Gygi matrix missing {missing}")
+    missing_required = [g for g in PROTEIN_REQUIRED if g not in wanted]
+    if missing_required:
+        raise SystemExit(f"Gygi matrix missing required genes {missing_required}")
+    absent = [g for g in PROTEIN_REQUESTED if g not in wanted]
     frame = pd.DataFrame({"col": quant})
     frame["ccle"] = frame["col"].str.rsplit("_TenPx", n=1).str[0]
-    for g in GENES:
+    for g in PROTEIN_REQUESTED:
+        if g not in wanted:
+            frame[g] = np.nan
+            continue
         vals = []
         for c in quant:
             raw = wanted[g][c]
             vals.append(np.nan if raw in ("", "NA", "NaN", "nan") else float(raw))
         frame[g] = vals
-    frame.attrs["ids"] = {g: wanted[g]["Protein_Id"] for g in GENES}
+    frame.attrs["ids"] = {g: wanted[g]["Protein_Id"] for g in wanted}
+    frame.attrs["absent"] = absent
     return frame
+
+
+def partial_spearman(y, x, covariates: list[pd.Series]) -> dict:
+    """Spearman partial correlation: rank, then Pearson residual correlation.
+
+    p uses df = n - 2 - k. This is not the slide Spearman and is not compared
+    to 0.69 as if it were the same statistic.
+    """
+    pieces = [pd.to_numeric(pd.Series(y), errors="coerce").rename("y"), pd.to_numeric(pd.Series(x), errors="coerce").rename("x")]
+    for i, cov in enumerate(covariates):
+        pieces.append(pd.to_numeric(pd.Series(cov), errors="coerce").rename(f"c{i}"))
+    df = pd.concat(pieces, axis=1).dropna()
+    n = int(len(df))
+    k = len(covariates)
+    out = {
+        "n": n,
+        "partial_spearman": None,
+        "partial_p": None,
+        "unadjusted_spearman_same_n": None,
+        "unadjusted_spearman_p_same_n": None,
+    }
+    if n < k + 8:
+        return out
+    unadj = corr_block(df["y"], df["x"], ci=False)
+    out["unadjusted_spearman_same_n"] = unadj["spearman_rho"]
+    out["unadjusted_spearman_p_same_n"] = unadj["spearman_p"]
+    ranked = df.rank(method="average")
+    z = np.column_stack([np.ones(n), ranked.iloc[:, 2:].to_numpy(float)])
+    yv = ranked["y"].to_numpy(float)
+    xv = ranked["x"].to_numpy(float)
+    beta_y, _, _, _ = np.linalg.lstsq(z, yv, rcond=None)
+    beta_x, _, _, _ = np.linalg.lstsq(z, xv, rcond=None)
+    ry = yv - z @ beta_y
+    rx = xv - z @ beta_x
+    if np.unique(ry).size < 2 or np.unique(rx).size < 2:
+        return out
+    r = float(np.corrcoef(ry, rx)[0, 1])
+    df_res = n - 2 - k
+    if df_res <= 0 or not np.isfinite(r) or abs(r) >= 1:
+        p = None
+    else:
+        tstat = r * np.sqrt(df_res / (1.0 - r * r))
+        p = float(2 * stats.t.sf(abs(tstat), df_res))
+    out["partial_spearman"] = r
+    out["partial_p"] = p
+    return out
 
 
 def disease_group(primary: str) -> str:
@@ -178,7 +237,7 @@ def main() -> int:
     rna_csv = (
         Path(args.rna_csv)
         if args.rna_csv
-        else out / "depmap24q4_tacstd2_cldn1_cldn4_cldn7_all_models.csv"
+        else out / "depmap24q4_selected_genes_all_models.csv"
     )
     for path in (protein_gz, model_csv, rna_csv):
         if not path.exists():
@@ -190,6 +249,7 @@ def main() -> int:
 
     prot = load_protein(protein_gz)
     protein_ids = dict(prot.attrs["ids"])
+    protein_absent = list(prot.attrs["absent"])
     prot = prot.merge(
         model_ccle.drop(columns=["ModelID"]).rename(columns={"CCLEName": "ccle"}),
         on="ccle",
@@ -199,7 +259,7 @@ def main() -> int:
         lambda v: disease_group("" if pd.isna(v) else str(v))
     )
     prot["is_lung_suffix"] = prot["ccle"].str.endswith("_LUNG")
-    prot.to_csv(out / "gygi_all_lines_four_genes.csv", index=False)
+    prot.to_csv(out / "gygi_all_lines_selected_genes.csv", index=False)
 
     rna = pd.read_csv(rna_csv)
     for g in GENES:
@@ -210,14 +270,19 @@ def main() -> int:
     )
     lung_rna_mask = (rna["OncotreeLineage"] == "Lung") & (rna["ModelType"] == "Cell Line")
     lung_rna = rna.loc[lung_rna_mask].copy()
-    lung_rna.to_csv(out / "depmap24q4_lung_cell_lines_four_genes.csv", index=False)
+    lung_rna.to_csv(out / "depmap24q4_lung_cell_lines_selected_genes.csv", index=False)
 
     rows: list[dict] = []
 
-    def protein_cohort(name: str, mask: pd.Series, note: str, primary: bool) -> None:
+    def protein_cohort(name: str, mask: pd.Series, note: str, primary: bool, partners, role: str) -> None:
         sub = prot.loc[mask]
-        for partner in PARTNERS:
+        for partner in partners:
             block = corr_block(sub["TACSTD2"], sub[partner], ci=primary)
+            extra = ""
+            if partner in protein_absent:
+                extra = " Not quantified in the Gygi CCLE MS matrix."
+            elif partner == "CLDN18":
+                extra = " Protein row is isoform A2 only (sp|P56856-2|CLD18_HUMAN)."
             add_row(
                 rows,
                 layer="protein",
@@ -225,13 +290,14 @@ def main() -> int:
                 cohort=name,
                 partner=partner,
                 primary=primary,
-                note=note,
+                role=role,
+                note=note + extra,
                 **block,
             )
 
-    def rna_cohort(name: str, mask: pd.Series, note: str, primary: bool) -> None:
+    def rna_cohort(name: str, mask: pd.Series, note: str, primary: bool, partners, role: str) -> None:
         sub = rna.loc[mask]
-        for partner in PARTNERS:
+        for partner in partners:
             block = corr_block(sub["TACSTD2"], sub[partner], ci=primary)
             add_row(
                 rows,
@@ -240,6 +306,7 @@ def main() -> int:
                 cohort=name,
                 partner=partner,
                 primary=primary,
+                role=role,
                 note=note,
                 **block,
             )
@@ -249,36 +316,56 @@ def main() -> int:
         prot["is_lung_suffix"],
         "PRIMARY protein: CCLE name ends with _LUNG. Pairwise complete cases. No imputation.",
         True,
+        FOCAL,
+        "focal",
+    )
+    protein_cohort(
+        "lung_suffix",
+        prot["is_lung_suffix"],
+        "Specificity controls on the same _LUNG columns. Not the slide pair.",
+        False,
+        CONTROLS,
+        "control",
     )
     protein_cohort(
         "lung_suffix_NSCLC",
         prot["is_lung_suffix"] & (prot["OncotreePrimaryDisease"] == "Non-Small Cell Lung Cancer"),
         "CCLE _LUNG and DepMap 24Q4 OncotreePrimaryDisease == Non-Small Cell Lung Cancer.",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
     protein_cohort(
         "lung_suffix_NET",
         prot["is_lung_suffix"] & (prot["OncotreePrimaryDisease"] == "Lung Neuroendocrine Tumor"),
         "CCLE _LUNG and OncotreePrimaryDisease == Lung Neuroendocrine Tumor (includes SCLC).",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
     protein_cohort(
         "lung_suffix_LUAD",
         prot["is_lung_suffix"] & (prot["OncotreeSubtype"] == "Lung Adenocarcinoma"),
         "CCLE _LUNG and OncotreeSubtype == Lung Adenocarcinoma.",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
     protein_cohort(
         "lung_suffix_LUSC",
         prot["is_lung_suffix"] & (prot["OncotreeSubtype"] == "Lung Squamous Cell Carcinoma"),
         "CCLE _LUNG and OncotreeSubtype == Lung Squamous Cell Carcinoma.",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
     protein_cohort(
         "all_lines",
         prot["TACSTD2"].notna(),
         "All Gygi lines. Context only, not the lung slide.",
         False,
+        FOCAL + CONTROLS,
+        "context",
     )
 
     rna_cohort(
@@ -286,30 +373,48 @@ def main() -> int:
         lung_rna_mask,
         "PRIMARY RNA: OncotreeLineage==Lung and ModelType==Cell Line.",
         True,
+        FOCAL,
+        "focal",
+    )
+    rna_cohort(
+        "lung_cell_lines",
+        lung_rna_mask,
+        "Specificity controls in the same lung cell lines. Not the slide pair.",
+        False,
+        CONTROLS,
+        "control",
     )
     rna_cohort(
         "lung_NSCLC_cell_lines",
         lung_rna_mask & (rna["OncotreePrimaryDisease"] == "Non-Small Cell Lung Cancer"),
         "Lung cell lines, OncotreePrimaryDisease == Non-Small Cell Lung Cancer.",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
     rna_cohort(
         "lung_NET_cell_lines",
         lung_rna_mask & (rna["OncotreePrimaryDisease"] == "Lung Neuroendocrine Tumor"),
         "Lung cell lines, OncotreePrimaryDisease == Lung Neuroendocrine Tumor.",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
     rna_cohort(
         "lung_LUAD_cell_lines",
         lung_rna_mask & (rna["OncotreeSubtype"] == "Lung Adenocarcinoma"),
         "Lung cell lines, OncotreeSubtype == Lung Adenocarcinoma.",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
     rna_cohort(
         "lung_LUSC_cell_lines",
         lung_rna_mask & (rna["OncotreeSubtype"] == "Lung Squamous Cell Carcinoma"),
         "Lung cell lines, OncotreeSubtype == Lung Squamous Cell Carcinoma.",
         False,
+        FOCAL + CONTROLS,
+        "histology",
     )
 
     # Same CCLE names: RNA on the Gygi _LUNG lines that are in the 24Q4 matrix.
@@ -320,6 +425,8 @@ def main() -> int:
         rna_on_gygi,
         "DepMap 24Q4 RNA restricted to CCLE names present in the Gygi _LUNG protein columns.",
         False,
+        FOCAL,
+        "sensitivity",
     )
 
     # Same lines, both layers quantified for that pair.
@@ -351,6 +458,7 @@ def main() -> int:
             cohort="matched_rna_protein_lines",
             partner=partner,
             primary=False,
+            role="sensitivity",
             note=note,
             **block_p,
         )
@@ -361,6 +469,7 @@ def main() -> int:
             cohort="matched_rna_protein_lines",
             partner=partner,
             primary=False,
+            role="sensitivity",
             note=note,
             **block_r,
         )
@@ -379,6 +488,7 @@ def main() -> int:
         "dataset",
         "cohort",
         "partner",
+        "role",
         "primary",
         "n",
         "spearman_rho",
@@ -403,7 +513,157 @@ def main() -> int:
     slide.to_csv(out / "slide_comparison.csv", index=False)
 
     lung_prot = prot.loc[prot["is_lung_suffix"]].copy()
-    lung_prot.to_csv(out / "gygi_lung_four_genes.csv", index=False)
+    lung_prot.to_csv(out / "gygi_lung_selected_genes.csv", index=False)
+
+    # Partial Spearman. Slide ρ=0.69 remains the unadjusted protein CLDN4 Spearman.
+    partial_rows: list[dict] = []
+    rna_adjust = [
+        ("EPCAM", ["EPCAM"]),
+        ("KRT8+KRT18+KRT19", list(KERATIN)),
+        ("EPCAM+KRT8+KRT18+KRT19", ["EPCAM", *KERATIN]),
+    ]
+    protein_adjust = [("EPCAM", ["EPCAM"])]
+    partial_partners = FOCAL + CONTROLS
+
+    def add_partials(frame, layer, dataset, cohort, mask, adjustments, family: str) -> None:
+        sub = frame.loc[mask]
+        for partner in partial_partners:
+            if partner not in sub.columns:
+                continue
+            for adj_name, covars in adjustments:
+                if any(c not in sub.columns for c in covars):
+                    continue
+                if sub[covars].notna().any().sum() < len(covars):
+                    partial_rows.append(
+                        {
+                            "layer": layer,
+                            "dataset": dataset,
+                            "cohort": cohort,
+                            "partner": partner,
+                            "adjustment": adj_name,
+                            "family": family,
+                            "n": 0,
+                            "partial_spearman": None,
+                            "partial_p": None,
+                            "unadjusted_spearman_same_n": None,
+                            "unadjusted_spearman_p_same_n": None,
+                            "note": "Covariate not quantified in this matrix.",
+                        }
+                    )
+                    continue
+                block = partial_spearman(sub["TACSTD2"], sub[partner], [sub[c] for c in covars])
+                note = (
+                    "Spearman partial correlation (rank, then residual Pearson). "
+                    "Not the slide statistic. Slide remains unadjusted protein TACSTD2–CLDN4 Spearman."
+                )
+                if layer == "protein" and partner == "CLDN18":
+                    note += " CLDN18 protein is isoform A2 only."
+                partial_rows.append(
+                    {
+                        "layer": layer,
+                        "dataset": dataset,
+                        "cohort": cohort,
+                        "partner": partner,
+                        "adjustment": adj_name,
+                        "family": family,
+                        "note": note,
+                        **block,
+                    }
+                )
+
+    add_partials(prot, "protein", "Gygi_CCLE_MS", "lung_suffix", prot["is_lung_suffix"], protein_adjust, "primary_partial")
+    add_partials(
+        prot,
+        "protein",
+        "Gygi_CCLE_MS",
+        "lung_suffix_NSCLC",
+        prot["is_lung_suffix"] & (prot["OncotreePrimaryDisease"] == "Non-Small Cell Lung Cancer"),
+        protein_adjust,
+        "histology_partial",
+    )
+    add_partials(
+        prot,
+        "protein",
+        "Gygi_CCLE_MS",
+        "lung_suffix_LUAD",
+        prot["is_lung_suffix"] & (prot["OncotreeSubtype"] == "Lung Adenocarcinoma"),
+        protein_adjust,
+        "histology_partial",
+    )
+    add_partials(
+        prot,
+        "protein",
+        "Gygi_CCLE_MS",
+        "lung_suffix_LUSC",
+        prot["is_lung_suffix"] & (prot["OncotreeSubtype"] == "Lung Squamous Cell Carcinoma"),
+        protein_adjust,
+        "histology_partial",
+    )
+    add_partials(rna, "RNA", "DepMap_Public_24Q4_log2TPM", "lung_cell_lines", lung_rna_mask, rna_adjust, "primary_partial")
+    add_partials(
+        rna,
+        "RNA",
+        "DepMap_Public_24Q4_log2TPM",
+        "lung_NSCLC_cell_lines",
+        lung_rna_mask & (rna["OncotreePrimaryDisease"] == "Non-Small Cell Lung Cancer"),
+        rna_adjust,
+        "histology_partial",
+    )
+    add_partials(
+        rna,
+        "RNA",
+        "DepMap_Public_24Q4_log2TPM",
+        "lung_LUAD_cell_lines",
+        lung_rna_mask & (rna["OncotreeSubtype"] == "Lung Adenocarcinoma"),
+        rna_adjust,
+        "histology_partial",
+    )
+    add_partials(
+        rna,
+        "RNA",
+        "DepMap_Public_24Q4_log2TPM",
+        "lung_LUSC_cell_lines",
+        lung_rna_mask & (rna["OncotreeSubtype"] == "Lung Squamous Cell Carcinoma"),
+        rna_adjust,
+        "histology_partial",
+    )
+    # Protein keratin adjustment is not estimable: KRT18 and KRT19 have no Gygi row,
+    # and KRT8 is a fragment. Record the coverage instead of a partial rho.
+    krt8_lung = int(prot.loc[prot["is_lung_suffix"], "KRT8"].notna().sum())
+    cldn4_and_krt8 = int(
+        (prot["is_lung_suffix"] & prot["CLDN4"].notna() & prot["KRT8"].notna()).sum()
+    )
+    partial_rows.append(
+        {
+            "layer": "protein",
+            "dataset": "Gygi_CCLE_MS",
+            "cohort": "lung_suffix",
+            "partner": "CLDN4",
+            "adjustment": "KRT8+KRT18+KRT19",
+            "family": "not_estimable",
+            "n": cldn4_and_krt8,
+            "partial_spearman": None,
+            "partial_p": None,
+            "unadjusted_spearman_same_n": None,
+            "unadjusted_spearman_p_same_n": None,
+            "note": (
+                f"Not estimated. KRT18 and KRT19 are absent from Gygi. "
+                f"KRT8 fragment is quantified in {krt8_lung}/77 _LUNG columns and in "
+                f"{cldn4_and_krt8} lines that also have CLDN4. No protein keratin partial is reported."
+            ),
+        }
+    )
+    partial_df = pd.DataFrame(partial_rows)
+    bh_idx = [
+        i
+        for i, r in enumerate(partial_rows)
+        if r["family"] == "primary_partial" and r.get("partial_p") is not None and r["partner"] in ("CLDN4", "CLDN7")
+    ]
+    q_partial = bh([partial_rows[i]["partial_p"] for i in bh_idx])
+    partial_df["partial_q_bh_cldn4_cldn7"] = np.nan
+    for i, q in zip(bh_idx, q_partial):
+        partial_df.loc[i, "partial_q_bh_cldn4_cldn7"] = q
+    partial_df.to_csv(out / "partial_correlations.csv", index=False)
 
     # Figures
     disease_colors = {
@@ -501,6 +761,95 @@ def main() -> int:
     fig.savefig(out / "fig_rho_vs_slide.pdf")
     plt.close(fig)
 
+    show_partners = ("CLDN4", "CLDN7", "CLDN1", "CLDN3", "CLDN5", "CLDN18")
+    hist_specs = [
+        ("protein", [("lung_suffix", "All lung"), ("lung_suffix_NSCLC", "NSCLC"), ("lung_suffix_LUAD", "LUAD"), ("lung_suffix_LUSC", "LUSC")]),
+        ("RNA", [("lung_cell_lines", "All lung"), ("lung_NSCLC_cell_lines", "NSCLC"), ("lung_LUAD_cell_lines", "LUAD"), ("lung_LUSC_cell_lines", "LUSC")]),
+    ]
+    hist_colors = ["#2166ac", "#d68910", "#1a9850", "#762a83"]
+    fig, axes = plt.subplots(2, 1, figsize=(11.4, 7.4), sharey=False)
+    for ax, (layer, cohorts) in zip(axes, hist_specs):
+        x = np.arange(len(show_partners))
+        width = 0.18
+        for j, ((cohort, label), color) in enumerate(zip(cohorts, hist_colors)):
+            ys = []
+            ns = []
+            for partner in show_partners:
+                hit = corr_df[(corr_df.layer == layer) & (corr_df.cohort == cohort) & (corr_df.partner == partner)]
+                if hit.empty or pd.isna(hit.iloc[0].spearman_rho):
+                    ys.append(np.nan)
+                    ns.append(0)
+                else:
+                    ys.append(float(hit.iloc[0].spearman_rho))
+                    ns.append(int(hit.iloc[0].n))
+            xpos = x + (j - 1.5) * width
+            bars = ax.bar(xpos, ys, width, color=color, label=label)
+            for bar, n, y in zip(bars, ns, ys):
+                if n and np.isfinite(y):
+                    ax.text(bar.get_x() + bar.get_width() / 2, y + (0.03 if y >= 0 else -0.08), f"{n}", ha="center", va="bottom" if y >= 0 else "top", fontsize=6, color="#333333")
+        ax.axhline(0, color="#666666", lw=0.6)
+        if layer == "protein":
+            ax.axhline(SLIDE_RHO, color="#333333", ls="--", lw=0.8, label="Slide ρ=0.69 (unadjusted protein CLDN4)")
+        ax.set_xticks(x)
+        ax.set_xticklabels(show_partners)
+        ax.set_ylim(-0.55, 1.18)
+        ax.set_ylabel("Spearman ρ with TACSTD2")
+        ax.set_title(layer)
+        ax.grid(True, axis="y", alpha=0.25)
+        ax.legend(frameon=False, fontsize=7, ncol=3, loc="upper right")
+    fig.suptitle("All-lung vs NSCLC vs LUAD vs LUSC. Numbers on bars are n. CLDN5 protein is absent from Gygi.", fontsize=11)
+    fig.tight_layout()
+    fig.savefig(out / "fig_histology_controls.png", dpi=160)
+    fig.savefig(out / "fig_histology_controls.pdf")
+    plt.close(fig)
+
+    fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.8), sharey=True)
+    partial_show = ("CLDN4", "CLDN7", "CLDN1", "CLDN3")
+    # Left: protein unadjusted vs EPCAM. Right: RNA unadjusted vs three adjustments.
+    # Unadjusted values are the cohort Spearmans, not partial correlations.
+    prot_adj_order = [("unadjusted", None), ("EPCAM", "EPCAM")]
+    rna_adj_order = [
+        ("unadjusted", None),
+        ("EPCAM", "EPCAM"),
+        ("keratin", "KRT8+KRT18+KRT19"),
+        ("both", "EPCAM+KRT8+KRT18+KRT19"),
+    ]
+    panel_colors = ["#2166ac", "#d68910", "#1a9850", "#762a83"]
+    for ax, layer, cohort, order in (
+        (axes[0], "protein", "lung_suffix", prot_adj_order),
+        (axes[1], "RNA", "lung_cell_lines", rna_adj_order),
+    ):
+        x = np.arange(len(partial_show))
+        width = 0.18 if layer == "RNA" else 0.32
+        for j, ((label, adj), color) in enumerate(zip(order, panel_colors)):
+            ys = []
+            for partner in partial_show:
+                if adj is None:
+                    hit = corr_df[(corr_df.layer == layer) & (corr_df.cohort == cohort) & (corr_df.partner == partner)]
+                    ys.append(float(hit.iloc[0].spearman_rho) if not hit.empty and pd.notna(hit.iloc[0].spearman_rho) else np.nan)
+                else:
+                    hit = partial_df[
+                        (partial_df.layer == layer)
+                        & (partial_df.cohort == cohort)
+                        & (partial_df.partner == partner)
+                        & (partial_df.adjustment == adj)
+                    ]
+                    ys.append(float(hit.iloc[0].partial_spearman) if not hit.empty and pd.notna(hit.iloc[0].partial_spearman) else np.nan)
+            ax.bar(x + (j - (len(order) - 1) / 2) * width, ys, width, color=color, label=label)
+        ax.axhline(0, color="#666666", lw=0.6)
+        ax.set_xticks(x)
+        ax.set_xticklabels(partial_show)
+        ax.set_ylim(-0.3, 1.05)
+        ax.set_title(f"{layer}, {cohort}")
+        ax.grid(True, axis="y", alpha=0.25)
+        ax.legend(frameon=False, fontsize=7)
+        ax.set_ylabel("Correlation with TACSTD2")
+    fig.suptitle("Unadjusted Spearman vs partial Spearman. The slide ρ=0.69 is the unadjusted protein CLDN4 bar, not a partial.", fontsize=10)
+    fig.tight_layout()
+    fig.savefig(out / "fig_partial_keratin_epcam.png", dpi=160)
+    fig.savefig(out / "fig_partial_keratin_epcam.pdf")
+    plt.close(fig)
+
     # Reproduction check against the prior Gygi lung CLDN4 complete-case result.
     cldn4 = corr_df[
         (corr_df.layer == "protein") & (corr_df.cohort == "lung_suffix") & (corr_df.partner == "CLDN4")
@@ -524,6 +873,10 @@ def main() -> int:
         "n_rna_models": int(len(rna)),
         "n_rna_lung_cell_lines": int(lung_rna_mask.sum()),
         "cldn4_lung_protein_reproduces_prior_0.693_n45": bool(repro_ok),
+        "protein_genes_absent": protein_absent,
+        "protein_krt8_lung_n": krt8_lung,
+        "protein_cldn4_and_krt8_n": cldn4_and_krt8,
+        "partial_note": "Partial correlations are not the slide statistic. Slide reconciliation uses unadjusted protein TACSTD2–CLDN4 Spearman only.",
         "primary": slide[
             [
                 "layer",
@@ -549,8 +902,21 @@ def main() -> int:
         f"(n={int(cldn4.n)}, rho={float(cldn4.spearman_rho):.6f}).",
         "PRIMARY protein cohort is CCLE name suffix _LUNG, pairwise complete cases.",
         "PRIMARY RNA cohort is DepMap 24Q4 OncotreeLineage==Lung and ModelType==Cell Line.",
-        "No imputation. BH q is across the 6 primary tests only.",
+        "No imputation. BH q is across the 6 primary unadjusted tests only.",
+        "Partial correlations are a different statistic and are not used to match ρ=0.69.",
+        f"Protein keratin partial not estimated: KRT18/KRT19 absent; KRT8 fragment n={krt8_lung}/77, overlap with CLDN4 n={cldn4_and_krt8}.",
+        f"Protein genes absent from Gygi: {protein_absent}.",
     ]
+    focus = partial_df[
+        partial_df.partner.isin(["CLDN4", "CLDN7", "CLDN1", "CLDN3"])
+        & partial_df.cohort.isin(["lung_suffix", "lung_cell_lines"])
+    ]
+    for _, rec in focus.iterrows():
+        rho = rec.partial_spearman
+        rho_s = "NA" if pd.isna(rho) else f"{float(rho):.3f}"
+        lines.append(
+            f"PARTIAL {rec.layer} {rec.cohort} {rec.partner} adj={rec.adjustment}: n={rec.n} partial={rho_s}"
+        )
     for rec in summary["primary"]:
         lines.append(
             f"{rec['layer']} {rec['partner']}: n={rec['n']} Spearman={rec['spearman_rho']:.4f} "

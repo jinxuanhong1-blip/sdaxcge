@@ -6,10 +6,14 @@
     "source_note": "Project slide number previously traced in PRs 54 and 111. This script does not tune filters to that number."
   },
   "gygi_protein_ids": {
+    "KRT8": "tr|F8W1U3|F8W1U3_HUMAN",
     "TACSTD2": "sp|P09758|TACD2_HUMAN",
+    "EPCAM": "sp|P16422|EPCAM_HUMAN",
+    "CLDN7": "sp|O95471|CLD7_HUMAN",
+    "CLDN18": "sp|P56856-2|CLD18_HUMAN",
     "CLDN1": "sp|O95832|CLD1_HUMAN",
     "CLDN4": "sp|O14493|CLD4_HUMAN",
-    "CLDN7": "sp|O95471|CLD7_HUMAN"
+    "CLDN3": "sp|O15551|CLD3_HUMAN"
   },
   "n_gygi_columns": 378,
   "n_gygi_lung_suffix": 77,
@@ -18,6 +22,14 @@
   "n_rna_models": 1673,
   "n_rna_lung_cell_lines": 214,
   "cldn4_lung_protein_reproduces_prior_0.693_n45": true,
+  "protein_genes_absent": [
+    "CLDN5",
+    "KRT18",
+    "KRT19"
+  ],
+  "protein_krt8_lung_n": 11,
+  "protein_cldn4_and_krt8_n": 6,
+  "partial_note": "Partial correlations are not the slide statistic. Slide reconciliation uses unadjusted protein TACSTD2\u2013CLDN4 Spearman only.",
   "primary": [
     {
       "layer": "protein",

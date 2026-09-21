@@ -37,9 +37,17 @@ RNA_FILES = {
 GENES = {
     "TACSTD2": "TACSTD2 (4070)",
     "CLDN1": "CLDN1 (9076)",
+    "CLDN3": "CLDN3 (1365)",
     "CLDN4": "CLDN4 (1364)",
+    "CLDN5": "CLDN5 (7122)",
     "CLDN7": "CLDN7 (1366)",
+    "CLDN18": "CLDN18 (51208)",
+    "EPCAM": "EPCAM (4072)",
+    "KRT8": "KRT8 (3856)",
+    "KRT18": "KRT18 (3875)",
+    "KRT19": "KRT19 (3880)",
 }
+NEWER_RELEASES = ("DepMap Public 25Q2", "DepMap Public 25Q3", "DepMap Public 26Q1")
 
 
 def sha256_file(path: Path) -> str:
@@ -102,7 +110,7 @@ def catalog_row(rows: list[dict], release: str, filename: str) -> dict:
 
 
 def extract_rna(expr_path: Path, out_path: Path) -> dict:
-    print(f"Extracting four genes from {expr_path}", flush=True)
+    print(f"Extracting selected genes from {expr_path}", flush=True)
     with expr_path.open("r", newline="") as f:
         reader = csv.reader(f)
         header = next(reader)
@@ -173,8 +181,22 @@ def main() -> int:
         "note": "Portal catalog links the Gygi publications page. This is the gzip served from that site.",
     }
 
-    extract_path = out / "depmap24q4_tacstd2_cldn1_cldn4_cldn7_all_models.csv"
+    extract_path = out / "depmap24q4_selected_genes_all_models.csv"
     extract_meta = extract_rna(cache / "OmicsExpressionProteinCodingGenesTPMLogp1.csv", extract_path)
+    newer = []
+    for row in rows:
+        if row.get("release") not in NEWER_RELEASES:
+            continue
+        name = row.get("filename") or ""
+        if name == "Model.csv" or ("TPMLogp1" in name and "ProteinCoding" in name):
+            url = (row.get("url") or "").strip()
+            newer.append(
+                {
+                    "release": row.get("release"),
+                    "filename": name,
+                    "url_published": bool(url.startswith("http")),
+                }
+            )
 
     catalog_out = out / "portal_catalog_rows_used.csv"
     with catalog_out.open("w", newline="") as f:
@@ -192,6 +214,8 @@ def main() -> int:
             "DepMap Public 25Q2, 25Q3, and 26Q1 expression rows are in the catalog, "
             "but the url column is blank. 24Q4 is the newest public release with direct file URLs."
         ),
+        "newer_release_expression_urls_published": newer,
+        "any_25q_26q_expression_url": any(item["url_published"] for item in newer),
         "expression_scale": "log2(TPM+1)",
         "files": files_meta,
         "rna_extract": extract_meta,
