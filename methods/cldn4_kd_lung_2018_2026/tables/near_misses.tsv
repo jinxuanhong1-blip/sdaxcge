@@ -1,0 +1,17 @@
+record	class	why_not_a_2018_2026_lung_cancer_CLDN4_kd_deposit	url
+GSE50927	known_outside_window	Mouse whole-lung germline Cldn4 knockout RNA-seq, 2014, not a tumour. Already scored in prior PRs. Not re-scored.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50927
+GSE207704	wrong_tissue	MCF7/T47D breast CLDN4 CRISPR RNA-seq. Already scored. Not lung.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207704
+GSE22493	wrong_tissue	SKOV-3 ovarian CLDN4 siRNA microarray. Already scored. Not lung.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22493
+PRJNA1005054	wrong_perturbation	H1688 SCLC RNA-seq (SRR25694432–SRR25694437) is an oridonin study, not CLDN4 knockdown.	https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1005054
+GSM9043561	wrong_gene	NCI-H1688 shKLF9 RNA-seq, not CLDN4.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM9043561
+GSE281782	wrong_gene	Same broader author group (Yazawa). STMN1 polyamide in SCLC, not CLDN4 knockout.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE281782
+GSE310370	wrong_assay	Yazawa. Plasma miRNA after nivolumab in NSCLC. Not CLDN4 perturbation.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE310370
+PMID38338691	wrong_gene	A549 LUAD. siRNA targets are CGN and FOXO1. CLDN4 is a protein readout. Data are in the article and supplement, no GEO.	https://pubmed.ncbi.nlm.nih.gov/38338691/
+PMID36840413	wrong_gene	ELF3 knockdown RNA-seq includes SCLC line DMS53. CLDN4 is an ELF3 target gene, not the perturbation. GSE190618.	https://pubmed.ncbi.nlm.nih.gov/36840413/
+PMID40380298	wrong_gene	Calu-3 airway barrier. Knockdown is connexin 26. Data availability: no datasets generated.	https://pubmed.ncbi.nlm.nih.gov/40380298/
+PMID38629624	not_a_perturbation	NSCLC malignant pleural effusion scRNA of CLDN4-positive cells. CNCB PRJCA023797. CLDN4 was not knocked down.	https://pubmed.ncbi.nlm.nih.gov/38629624/
+PMID34702961	not_cancer	Cldn4-deficient mice were a comparator in a Cryptococcus lung-infection study. The new knockout in the paper is lung-specific Cldn18. Not a 2018–2026 tumour CLDN4 transcriptome.	https://pubmed.ncbi.nlm.nih.gov/34702961/
+PMID39364319	review	States that no mechanistic claudin-4 study in LUAD was known to the authors in 2024. No new data.	https://pubmed.ncbi.nlm.nih.gov/39364319/
+GSA_CLDN4_11	index_only	GSA keyword CLDN4 returned 11 records: GSE50927 runs, GSE207704 MCF7 runs, and 4C-seq at the CLDN4 locus in gastric lines YCC21/SNU16. No lung-cancer CLDN4 KD.	https://ngdc.cncb.ac.cn/gsa/search?searchTerm=CLDN4
+GSA-Human	empty	CNCB specific search db=gsa-human q=CLDN4 returned recordsTotal=0.	https://ngdc.cncb.ac.cn/search/specific?db=gsa-human&q=CLDN4
+NODE_via_OmicsDI	empty	OmicsDI query CLDN4 AND source:node returned 0 datasets. NODE JSON APIs tried returned 404.	https://www.omicsdi.org/ws/dataset/search?query=CLDN4%20AND%20source:node&size=5
