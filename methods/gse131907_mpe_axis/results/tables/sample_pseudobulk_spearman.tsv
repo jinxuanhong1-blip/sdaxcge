@@ -1,0 +1,16 @@
+compartment	site_group	gene	min_comp_cells	n_samples	rho	p	method	x	y
+MPE_epithelial	MPE	TACSTD2	20	4	0.4	0.75	exact_permutation	CLDN4_mean_log	TACSTD2_mean_log
+MPE_epithelial	MPE	ELF3	20	4	1	0.0833333	exact_permutation	CLDN4_mean_log	ELF3_mean_log
+MPE_epithelial	MPE	EPCAM	20	4	0.8	0.333333	exact_permutation	CLDN4_mean_log	EPCAM_mean_log
+MPE_carcinoma_like	MPE	TACSTD2	20	3			undefined	CLDN4_mean_log	TACSTD2_mean_log
+MPE_carcinoma_like	MPE	ELF3	20	3			undefined	CLDN4_mean_log	ELF3_mean_log
+MPE_carcinoma_like	MPE	EPCAM	20	3			undefined	CLDN4_mean_log	EPCAM_mean_log
+primary_tS	primary	TACSTD2	20	10	0.769697	0.00922195	spearmanr_asymptotic	CLDN4_mean_log	TACSTD2_mean_log
+primary_tS	primary	ELF3	20	10	0.0545455	0.881036	spearmanr_asymptotic	CLDN4_mean_log	ELF3_mean_log
+primary_tS	primary	EPCAM	20	10	0.527273	0.117308	spearmanr_asymptotic	CLDN4_mean_log	EPCAM_mean_log
+epithelial_same_gate	MPE	TACSTD2	20	4	0.4	0.75	exact_permutation	CLDN4_mean_log	TACSTD2_mean_log
+epithelial_same_gate	MPE	ELF3	20	4	1	0.0833333	exact_permutation	CLDN4_mean_log	ELF3_mean_log
+epithelial_same_gate	MPE	EPCAM	20	4	0.8	0.333333	exact_permutation	CLDN4_mean_log	EPCAM_mean_log
+epithelial_same_gate	primary	TACSTD2	20	11	0.790909	0.00374608	spearmanr_asymptotic	CLDN4_mean_log	TACSTD2_mean_log
+epithelial_same_gate	primary	ELF3	20	11	0.445455	0.169733	spearmanr_asymptotic	CLDN4_mean_log	ELF3_mean_log
+epithelial_same_gate	primary	EPCAM	20	11	0.7	0.016471	spearmanr_asymptotic	CLDN4_mean_log	EPCAM_mean_log

@@ -1,0 +1,6 @@
+set	n_samples	rho_cldn4_pct_vs_frac_tnk	p_cldn4_pct_vs_frac_tnk	method_pct	rho_cldn4_mean_vs_frac_tnk	p_cldn4_mean_vs_frac_tnk	method_mean	median_frac_tnk	min_frac_tnk	max_frac_tnk	median_cldn4_pct
+epithelial_all_MPE_samples	5	-0.2	0.783333	exact_permutation	0.1	0.95	exact_permutation	0.674242	0.493608	0.728489	76
+epithelial_n_ge_20	4	-0.8	0.333333	exact_permutation	-0.8	0.333333	exact_permutation	0.668076	0.493608	0.713353	67.1667
+carcinoma_like_n_comp_gt_0	4	-0.6	0.416667	exact_permutation	0.4	0.75	exact_permutation	0.668076	0.493608	0.728489	86.3889
+carcinoma_like_n_ge_20	3			undefined			undefined	0.66191	0.493608	0.674242	95
+primary_tS_n_ge_20	10	-0.381818	0.276255	spearmanr_asymptotic	-0.187879	0.603218	spearmanr_asymptotic	0.37907	0.111585	0.665651	87.788

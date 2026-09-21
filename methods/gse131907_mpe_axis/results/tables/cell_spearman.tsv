@@ -1,0 +1,25 @@
+compartment	gene	n_cells	spearman_log_all_rho	spearman_log_all_p	spearman_log_all_method	n_double_pos	spearman_log_double_pos_rho	spearman_log_double_pos_p	spearman_log_double_pos_method
+MPE_epithelial	TACSTD2	396	0.456359	9.13888e-22	spearmanr_asymptotic	207	0.0101349	0.884761	spearmanr_asymptotic
+MPE_epithelial	ELF3	396	0.521408	5.48903e-29	spearmanr_asymptotic	211	0.155602	0.0237837	spearmanr_asymptotic
+MPE_epithelial	EPCAM	396	0.486643	6.17472e-25	spearmanr_asymptotic	221	0.207738	0.0019049	spearmanr_asymptotic
+MPE_epithelial_EPCAM_pos	TACSTD2	269	0.0817243	0.181427	spearmanr_asymptotic	196	-0.0183363	0.798656	spearmanr_asymptotic
+MPE_epithelial_EPCAM_pos	ELF3	269	0.298215	6.28865e-07	spearmanr_asymptotic	201	0.154074	0.0289768	spearmanr_asymptotic
+MPE_epithelial_EPCAM_pos	EPCAM	269	0.0614004	0.315717	spearmanr_asymptotic	221	0.207738	0.0019049	spearmanr_asymptotic
+MPE_carcinoma_like	TACSTD2	259	0.0466566	0.454676	spearmanr_asymptotic	191	-0.0245522	0.73601	spearmanr_asymptotic
+MPE_carcinoma_like	ELF3	259	0.266411	1.38935e-05	spearmanr_asymptotic	196	0.142738	0.0459583	spearmanr_asymptotic
+MPE_carcinoma_like	EPCAM	259	0.029573	0.63569	spearmanr_asymptotic	216	0.200703	0.00304851	spearmanr_asymptotic
+MPE_mesothelial_like	TACSTD2	76	0.292058	0.0104677	spearmanr_asymptotic	1			undefined
+MPE_mesothelial_like	ELF3	76	0.2715	0.0176728	spearmanr_asymptotic	2			undefined
+MPE_mesothelial_like	EPCAM	76			undefined	0			undefined
+primary_tS	TACSTD2	6352	0.383019	4.55704e-221	spearmanr_asymptotic	5142	0.40202	4.84105e-199	spearmanr_asymptotic
+primary_tS	ELF3	6352	0.327797	5.51583e-159	spearmanr_asymptotic	5354	0.33603	1.83656e-141	spearmanr_asymptotic
+primary_tS	EPCAM	6352	0.162441	8.1988e-39	spearmanr_asymptotic	5065	0.152624	8.90359e-28	spearmanr_asymptotic
+primary_epithelial_all	TACSTD2	7270	0.406534	1.82125e-287	spearmanr_asymptotic	5677	0.429069	4.58921e-253	spearmanr_asymptotic
+primary_epithelial_all	ELF3	7270	0.368159	3.41579e-232	spearmanr_asymptotic	5918	0.374691	1.26017e-196	spearmanr_asymptotic
+primary_epithelial_all	EPCAM	7270	0.191352	6.54482e-61	spearmanr_asymptotic	5592	0.188317	8.36151e-46	spearmanr_asymptotic
+normal_AT2	TACSTD2	2020	0.149025	1.68116e-11	spearmanr_asymptotic	958	0.211499	3.77537e-11	spearmanr_asymptotic
+normal_AT2	ELF3	2020	0.178862	5.52911e-16	spearmanr_asymptotic	1264	0.175097	3.66863e-10	spearmanr_asymptotic
+normal_AT2	EPCAM	2020	0.0456972	0.040011	spearmanr_asymptotic	1100	0.0759316	0.0117642	spearmanr_asymptotic
+author_malignant_advanced	TACSTD2	24784	0.282202	0	spearmanr_asymptotic	16779	0.288994	0	spearmanr_asymptotic
+author_malignant_advanced	ELF3	24784	0.31092	0	spearmanr_asymptotic	19221	0.267292	0	spearmanr_asymptotic
+author_malignant_advanced	EPCAM	24784	0.11956	1.40182e-79	spearmanr_asymptotic	19008	0.112685	9.27551e-55	spearmanr_asymptotic

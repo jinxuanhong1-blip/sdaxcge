@@ -1,0 +1,34 @@
+{
+  "dataset": "GSE131907",
+  "citation": "Kim et al. Nat Commun 2020",
+  "primary_dataset_attempt": {
+    "accession": "HRA006761",
+    "repository": "GSA-Human",
+    "bioproject": "PRJCA023797",
+    "accessibility": "controlled",
+    "dac": "HDAC002197",
+    "analyzed": false,
+    "reason": "GSA-Human page states controlled access / request data. No public matrix."
+  },
+  "normalization": "log1p(UMI / full_library_size * 10000)",
+  "min_compartment_cells_for_sample_tests": 20,
+  "annotation_checks": {
+    "n_cells": 208506,
+    "n_pe_epithelial": 396,
+    "n_author_malignant_in_pe": 0,
+    "n_author_malignant_in_tlung": 0,
+    "n_primary_ts": 6352,
+    "n_author_malignant": 24784,
+    "n_at2": 2020
+  },
+  "n_mpe_samples": 5,
+  "n_mpe_samples_ge_20_epi": 4,
+  "n_primary_ts_samples_ge_20": 10,
+  "author_malignant_cells_in_mpe": 0,
+  "mpe_carcinoma_like_gate": "PE epithelial AND EPCAM>0 AND WT1==0 AND CALB2==0",
+  "mpe_mesothelial_like_gate": "PE epithelial AND EPCAM==0 AND (WT1>0 OR CALB2>0)",
+  "n_mpe_carcinoma_like_cells": 259,
+  "n_mpe_mesothelial_like_cells": 76,
+  "n_mpe_carcinoma_like_samples_ge_20": 3,
+  "note": "MPE epithelial Cell_subtype is NA. They are not the author Malignant cells label used in the locked GSE131907 n=21 analysis. Carcinoma-like vs mesothelial-like is a marker gate on that unlabeled epithelial set."
+}
