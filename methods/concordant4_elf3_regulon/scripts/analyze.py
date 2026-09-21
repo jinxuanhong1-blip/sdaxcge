@@ -968,7 +968,7 @@ def md_table(headers, rows) -> str:
 
 
 def write_finding(patient, co_df, within_df, copos_sum, mem, coh, spec, tnk, qdf):
-    n = patient.groupby("dataset").size().to_dict()
+    n_by = patient.groupby("dataset").size().to_dict()
     check = tnk[tnk.score == "pct_CLDN4"].iloc[0]
     qcheck = qdf[qdf.score == "pct_CLDN4"].iloc[0]
 
@@ -1014,7 +1014,8 @@ def write_finding(patient, co_df, within_df, copos_sum, mem, coh, spec, tnk, qdf
     mem_md = md_table(
         ["TF", "gene", "in DoRothEA ABC", "confidence", "targets in ABC"],
         [[r.tf, r.gene, "yes" if r.in_ABC else "no", r.confidence or "—", str(int(r.n_targets_ABC))]
-         for r in mem.itertuples() if r.gene in {"TACSTD2", "CLDN4", "CLDN7", "CDH1", "GRHL2", "KRT8"}],
+         for r in mem.itertuples()
+         if r.gene in {"TACSTD2", "CLDN4", "CLDN7", "CDH1", "GRHL2", "KRT8"} and r.tf != r.gene],
     )
     coh_md = md_table(
         ["TF", "cohort", "targets with a correlation", "median ρ vs TF", "fraction ρ>0"],
@@ -1040,8 +1041,8 @@ def write_finding(patient, co_df, within_df, copos_sum, mem, coh, spec, tnk, qdf
     singles = []
     for ds in COHORTS:
         d = patient[patient.dataset == ds]
-        rho, p, n = spearman_pair(d.pct_CLDN4, d.frac_tnk)
-        singles.append(f"| {ds} | {n} | {rho:.3f} | {fmt_p(p)} |")
+        rho, p, n_units = spearman_pair(d.pct_CLDN4, d.frac_tnk)
+        singles.append(f"| {ds} | {n_units} | {rho:.3f} | {fmt_p(p)} |")
     text = f"""# Concordant-4 ELF3–TACSTD2–CLDN4–CLDN7
 
 ADDITIVE. Malignant cells in the locked concordant-4 only:
@@ -1069,7 +1070,7 @@ This matches the locked concordant-4 result and is not a new claim.
 
 ## Honest n
 
-- **n_units = {len(patient)}** ({n.get('GSE123902',0)} donors + {n.get('GSE131907',0)} samples + {n.get('GSE205335',0)} patients + {n.get('GSE189357',0)} patients).
+- **n_units = {len(patient)}** ({n_by.get('GSE123902',0)} donors + {n_by.get('GSE131907',0)} samples + {n_by.get('GSE205335',0)} patients + {n_by.get('GSE189357',0)} patients).
 - Malignant cells in those units: {int(patient.n_malignant.sum())}. Not the test n.
 - Within-cell Spearman uses units with at least 30 malignant cells (P4001 is out of that layer only).
 
@@ -1124,6 +1125,29 @@ pipeline check. Q4 versus Q1 is the stacked within-cohort quartile
 contrast (rank-biserial r).
 
 {tnk_md}
+
+Within malignant cells, the four genes are coexpressed: every primary pair
+has a positive Spearman in essentially every unit, with median ρ about
+0.65–0.77 (63–64 units; P4001 is already out). The same pairs stay
+positive on the patient pseudobulk (DL ρ 0.43–0.82). GRHL2 RNA sits
+with them, more strongly across patients than inside a single cell
+(within-cell median ρ about 0.3). GRHL1 is weaker. GRHL3 is near the
+background.
+
+Against T/NK, malignant ELF3 %pos is negative (ρ = −0.459, p = 0.0053),
+in the same direction as the locked CLDN4 check. The four-gene %pos
+module is also negative (ρ = −0.449, p = 0.032). Dropping CLDN4, the
+continuous pool is −0.412 (p = 0.063, CI crosses zero) and the stacked
+Q4 versus Q1 contrast is r = −0.480 (p = 0.016). TACSTD2 %pos, GRHL2
+%pos, and both DoRothEA wmeans have intervals that include zero.
+GSE205335 changes sign for several of those non-CLDN4 scores, which is
+why their I² is high. ELF3's own detection tracks low T/NK more clearly
+than the average of its DoRothEA targets (52 or 53 symbols, depending on the matrix).
+
+CLDN4 is at the top of the malignant ELF3 correlation list (median
+percentile about 99.7), with EPCAM and KRT8. TACSTD2 is in the upper
+tail (about the 86th percentile) and is the stronger GRHL2 neighbor
+(about the 97th). KRT5 and PTPRC sit in the lower tail of the ELF3 list.
 
 ## What this does not say
 
