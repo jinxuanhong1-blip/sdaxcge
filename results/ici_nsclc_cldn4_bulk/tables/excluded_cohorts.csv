@@ -1,0 +1,13 @@
+accession,role,reason,cldn4,n_genes
+GSE136961,excluded,"NSCLC anti-PD-1 DCB in sample titles, but CLDN4 is not on the Oncomine Immune Response panel",False,393
+GSE161537,excluded,"Advanced NSCLC 2L PD-1/PD-L1 with RECIST and PFS, HTG Oncology Biomarker Panel; CLDN4 absent (KRT8/18/19 present)",False,2559
+GSE253564,excluded,"Pre-treatment bulk FPKM from durvalumab ± SBRT (Weill Cornell). GEO has arm and histology, not MPR/RECIST/PFS. Response is not joinable from the open matrix.",not re-scored; FPKM file is whole transcriptome,
+GSE248378,excluded,Post-neoadjuvant resected-tumor FPKM (same trial as GSE253564). Not a pre-treatment R/NR matrix.,,
+GSE248249,excluded,Acquired-resistance NSCLC FFPE pre/post immunotherapy. GEO sample records do not carry RECIST or R/NR.,,
+GSE182328,excluded,"NSCLC tumor RNA-seq on PD-1 blockade, but the deposited label is fecal Akkermansia detectable vs not, not RECIST or PFS.",,
+GSE208858,excluded,"Utomilumab (4-1BB agonist), not PD-1/PD-L1 checkpoint blockade; melanoma and NSCLC mixed.",,
+GSE93157,excluded,"NanoString PanCancer Immune 730. NSCLC RECIST and PFS exist; CLDN4 is not on the panel (prior panel audit, not re-downloaded).",False,730
+GSE309652,excluded,"Author R/NR on GEO, but CLDN4 is absent from the targeted panel (prior open of GPL31904).",False,
+GSE202417,excluded,"Blood CD8 microarray, not tumor bulk.",,
+GSE260770,excluded,"Plasma exosome RNA, not tumor bulk.",,
+ArrayExpress,excluded,"No open ArrayExpress NSCLC ICI cohort with a processed tumor matrix and R/NR or PFS was added. Prior accession-level search (E-MTAB leftovers) found none; clinical trial RNA (POPLAR/OAK, CheckMate, KEYNOTE, IMpower) is not in open ArrayExpress.",,
