@@ -1,0 +1,7 @@
+module	n_panel	n_in_table	n_expressed_logCPM_ge_0	n_low_count_excluded	n_missing	n_up	n_down	n_fdr_lt_0.05	fdr_hits	mean_logFC_KO_minus_WT	median_logFC_KO_minus_WT	mannwhitney_p_vs_expressed_background	wilcoxon_p_vs_0	gene_label_perm_p	gene_label_perm_n	note
+c-NHEJ	10	10	10	0	0	4	6	0		-0.0291921391	-0.019225956	0.7515361747	0.76953125	0.8062193781	10000	gene-label tests on one deposited contrast; n_mice = 1 vs 1
+NHEJ-extended	14	14	14	0	0	7	7	0		0.01302573143	-0.0005082705	0.9216284931	0.8552246094	0.9062093791	10000	gene-label tests on one deposited contrast; n_mice = 1 vs 1
+STING-pair	2	2	2	0	0	2	0	0		0.3134720545	0.3134720545	0.1331906303		0.2059794021	10000	gene-label tests on one deposited contrast; n_mice = 1 vs 1
+STING-neighbor	6	6	4	2	0	3	1	1	ZBP1	0.1182833748	0.081052128	0.6768808941		0.501049895	10000	gene-label tests on one deposited contrast; n_mice = 1 vs 1
+IFN-chemokine	16	16	13	3	0	11	2	5	CCL5,ISG15,IFIT1,OASL2,GBP4	1.121685366	0.626672753	2.850607237e-05	0.001708984375	9.9990001e-05	10000	gene-label tests on one deposited contrast; n_mice = 1 vs 1
+TJ-control	6	6	6	0	0	3	3	0		-0.03156827817	0.022761967	0.8669080097	1	0.8250174983	10000	gene-label tests on one deposited contrast; n_mice = 1 vs 1
