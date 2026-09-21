@@ -1,0 +1,6 @@
+panel,role,symbol,measured,n_probes_annotated,n_arrays_with_value,probe_ids,GSM558700,GSM558701,GSM558702,mean_log2_KD_over_ctrl,median_log2_KD_over_ctrl,t_1samp,p_1samp,q_BH_within_panel,direction_median,direction_mean,mapping_note
+STING,primary,CGAS,yes,1,2,30704,-0.6439,,-0.3401,-0.4920,-0.4920,-3.2390,0.1906,0.3863,DOWN,DOWN,C6ORF150->CGAS;ORF
+STING,primary,STING1,no,0,0,,,,,,,,,,NA,NA,
+STING,primary,TBK1,no,0,0,,,,,,,,,,NA,NA,
+STING,primary,IRF3,yes,2,3,"23666,29714",1.8806,-1.1844,2.4974,1.0645,1.8806,0.9351,0.4485,0.4485,UP,UP,ORF
+STING,primary,IKBKE,yes,2,3,"29817,35865",-0.1361,1.0874,0.7744,0.5752,0.7744,1.5676,0.2575,0.3863,UP,UP,ORF
