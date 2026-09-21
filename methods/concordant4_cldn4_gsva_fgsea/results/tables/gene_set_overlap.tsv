@@ -1,0 +1,9 @@
+set	family	n_frozen	contains_CLDN4	n_after_holdout	n_in_shared_logcpm	n_in_pooled_q4_rank	label
+HALLMARK_INTERFERON_ALPHA_RESPONSE	primary	97	FALSE	97	93	96	Hallmark IFN-alpha
+HALLMARK_INTERFERON_GAMMA_RESPONSE	primary	200	FALSE	200	185	198	Hallmark IFN-gamma
+CUSTOM_MHC_I_ANTIGEN_PRESENTATION	primary	21	FALSE	21	21	21	MHC-I antigen presentation
+HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION	primary	200	FALSE	200	167	199	Hallmark EMT
+HALLMARK_APICAL_JUNCTION	primary	200	TRUE	199	151	189	Hallmark apical junction
+KEGG_TIGHT_JUNCTION	primary	169	TRUE	168	130	149	KEGG tight junction
+GOBP_TIGHT_JUNCTION_ORGANIZATION	secondary	82	TRUE	81	59	71	GO TJ organization
+GOBP_BICELLULAR_TIGHT_JUNCTION_ASSEMBLY	secondary	47	TRUE	46	33	39	GO bicellular TJ assembly
