@@ -1,0 +1,11 @@
+SLIDE: CCLE protein coexpression TACSTD2-CLDN4 Spearman 0.69, n=118, labeled NSCLC.
+CLDN4 protein _LUNG reproduces prior Gygi complete-case result: True (n=45, rho=0.693149).
+PRIMARY protein cohort is CCLE name suffix _LUNG, pairwise complete cases.
+PRIMARY RNA cohort is DepMap 24Q4 OncotreeLineage==Lung and ModelType==Cell Line.
+No imputation. BH q is across the 6 primary tests only.
+protein CLDN1: n=70 Spearman=0.1144 p=3.456e-01 q=3.456e-01 rounds_to_0.69=False n_is_118=False
+protein CLDN4: n=45 Spearman=0.6931 p=1.312e-07 q=1.574e-07 rounds_to_0.69=True n_is_118=False
+protein CLDN7: n=65 Spearman=0.7017 p=7.476e-11 q=1.121e-10 rounds_to_0.69=False n_is_118=False
+RNA CLDN1: n=214 Spearman=0.4670 p=5.480e-13 q=1.096e-12 rounds_to_0.69=False n_is_118=False
+RNA CLDN4: n=214 Spearman=0.6075 p=5.636e-23 q=3.382e-22 rounds_to_0.69=False n_is_118=False
+RNA CLDN7: n=214 Spearman=0.5948 p=7.290e-22 q=2.187e-21 rounds_to_0.69=False n_is_118=False
