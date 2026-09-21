@@ -133,3 +133,7 @@ python3 scripts/cosmx_cldn4_spatial_ccc.py
 ```
 
 Tables: `results/cosmx_cldn4_spatial_ccc/`. Machine summary: `stats.json`.
+
+## Effect-size sweep
+
+`SWEEP.md` is a separate grid (CLDN4 split, radius, FOV filter). It does not replace the contrasts above. The large absolute effects in that grid are neighborhood percentages and ligand folds, not raw COMMOT mass. Full table: `results/cosmx_cldn4_spatial_ccc/sweep/sweep_table.tsv`.

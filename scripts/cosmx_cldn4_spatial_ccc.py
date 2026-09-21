@@ -701,7 +701,14 @@ def commot_fov(
 ) -> dict[str, dict[str, float]]:
     pair_ids = pairs_used["pair_id"].tolist()
     out = {
-        pid: {"per_sender_hi": np.nan, "per_sender_lo": np.nan, "per_supply_hi": np.nan, "per_supply_lo": np.nan}
+        pid: {
+            "per_sender_hi": np.nan,
+            "per_sender_lo": np.nan,
+            "per_supply_hi": np.nan,
+            "per_supply_lo": np.nan,
+            "frac_pos_hi": np.nan,
+            "frac_pos_lo": np.nan,
+        }
         for pid in pair_ids
     }
     tumor = df_fov["is_tumor"].to_numpy()
@@ -784,10 +791,13 @@ def commot_fov(
                 receivers = ix["tumor_hi"] if arm == "hi" else ix["tumor_lo"]
             if len(senders) == 0 or len(receivers) == 0:
                 continue
-            mass = float(S[senders][:, receivers].sum())
+            block = S[senders][:, receivers]
+            mass = float(block.sum())
             out[r.pair_id][f"per_sender_{arm}"] = mass / float(len(senders))
             supply = float(L[senders].sum())
             out[r.pair_id][f"per_supply_{arm}"] = mass / supply if supply > 0 else np.nan
+            row_sum = np.asarray(block.sum(axis=1)).ravel()
+            out[r.pair_id][f"frac_pos_{arm}"] = float((row_sum > 0).mean()) if len(row_sum) else np.nan
     return out
 
 
