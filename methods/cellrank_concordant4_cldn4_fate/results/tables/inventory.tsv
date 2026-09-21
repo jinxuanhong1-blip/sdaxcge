@@ -1,0 +1,5 @@
+dataset	unit	n_units	n_cells_raw	n_cells_qc	n_cells_epi_qc	n_cells_used	cap_per_unit	note	n_files_tumor
+GSE123902	donor	13	30126	26056	4208	3090	400	Laughney 2020 tumor/met donors; NORMAL dropped; marker epithelium (EPCAM|KRT8|18|19)>0 and PTPRC==0	13.0
+GSE131907	sample	21	24784	24783	24783	6533	400	Kim 2020 author Malignant cells in tumor-bearing samples with n>=20; nLung AT2 not included	
+GSE205335	patient	22	28512	28512	28512	7552	400	Ahn/Lee; author Malignant cells; normal tissue dropped; patients with n>=20	
+GSE189357	patient	9	122373	119264	13789	3600	400	Zhu 2022 TD1–TD9; no author cell type; marker epithelium; normal not in this matrix	

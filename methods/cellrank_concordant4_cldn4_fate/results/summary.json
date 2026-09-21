@@ -1,0 +1,476 @@
+{
+  "versions": {
+    "cellrank": "2.3.3",
+    "scanpy": "1.12.4",
+    "anndata": "0.13.4",
+    "numpy": "2.4.4",
+    "pandas": "3.0.6",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.9.1",
+    "harmonypy": "2.0.2"
+  },
+  "meta": {
+    "k": 4,
+    "mu": 0.04510231312146231,
+    "se": 0.04787040771575702,
+    "z": 0.942175245075601,
+    "p": 0.3461029256686293,
+    "I2": 0.7925948348057278,
+    "tau2": 0.007109660571111078,
+    "Q": 14.46444208460267,
+    "datasets": [
+      "GSE123902",
+      "GSE131907",
+      "GSE205335",
+      "GSE189357"
+    ]
+  },
+  "summaries": [
+    {
+      "dataset": "GSE123902",
+      "n_cells": 3090,
+      "n_units": 13,
+      "genes_used": {
+        "at2": [
+          "SFTPB",
+          "NAPSA",
+          "SLC34A2"
+        ],
+        "barrier_wo": [
+          "CLDN3",
+          "CLDN7",
+          "CDH1",
+          "OCLN",
+          "TJP1",
+          "EPCAM",
+          "TACSTD2",
+          "KRT8",
+          "KRT19"
+        ],
+        "cycle": [
+          "MKI67",
+          "TOP2A",
+          "STMN1",
+          "PCNA",
+          "HMGB2"
+        ],
+        "airway": [
+          "FOXJ1",
+          "CAPS",
+          "PIFO",
+          "TPPP3"
+        ]
+      },
+      "states": {
+        "cldn4_q80": 1.6731261968612672,
+        "cldn4_q50": 0.4914977252483368,
+        "barrier_median": 0.0892736905190839,
+        "cycle_q80": 0.1310743733406067,
+        "at2_q75": 1.5003374565129328,
+        "airway_q75": -0.013344057798385621,
+        "cycle_relaxed": 0,
+        "airway_filter_relaxed": 0,
+        "estimable": 1,
+        "reason": "",
+        "n_barrier_before_airway": 550,
+        "n_airway_removed": 206,
+        "n_barrier": 344,
+        "n_cycle": 397,
+        "n_at2": 169,
+        "n_intermediate": 2180,
+        "root_ok": 1
+      },
+      "estimable": 1,
+      "orientation": {
+        "orientation_ok": 0,
+        "root_mode": "none",
+        "frac_dpt_finite": 1.0,
+        "dpt_at2": 0.04616719669198821,
+        "dpt_intermediate": 0.11249462834880057,
+        "dpt_barrier": 0.03161140368235444,
+        "dpt_cycle": 0.18864446649348693,
+        "reason": "barrier terminal is not downstream of the AT2-like root"
+      },
+      "primary_kernel": "connectivity",
+      "kernel_note": "barrier terminal is not downstream of the AT2-like root",
+      "gpcca": {
+        "ok": 1,
+        "n_macrostates": 4,
+        "top_cldn4_macrostate": "3",
+        "macrostates": [
+          {
+            "macrostate": "0",
+            "wmean_cldn4": 0.09069855369778812,
+            "wmean_barrier_wo": -0.47909422783793953
+          },
+          {
+            "macrostate": "1",
+            "wmean_cldn4": 0.13567769899870777,
+            "wmean_barrier_wo": -0.251860688482383
+          },
+          {
+            "macrostate": "2",
+            "wmean_cldn4": 0.23640775503376354,
+            "wmean_barrier_wo": -0.258322782933073
+          },
+          {
+            "macrostate": "3",
+            "wmean_cldn4": 0.8955119029153461,
+            "wmean_barrier_wo": 0.16955788407029518
+          }
+        ],
+        "mean_fate_nonmember": 0.6329388886021297
+      },
+      "contact_absorption": {
+        "at2_like": 0.4963173535039866,
+        "intermediate": 0.4917567200677077
+      },
+      "within_unit_n": 8,
+      "mean_cldn4_barrier": 2.190045087143432,
+      "mean_cldn4_cycle": 0.01102772467682884,
+      "mean_barrier_score_barrier": 0.5787653982870571,
+      "mean_barrier_score_rest": 0.04539600006396102,
+      "airway_removed_frac": 0.37454545454545457,
+      "airway_filter_relaxed": 0,
+      "airway_frac_in_barrier": 0.0
+    },
+    {
+      "dataset": "GSE131907",
+      "n_cells": 6533,
+      "n_units": 21,
+      "genes_used": {
+        "at2": [
+          "SFTPC",
+          "SFTPB",
+          "SFTPA1",
+          "SFTPA2",
+          "NAPSA",
+          "SLC34A2"
+        ],
+        "barrier_wo": [
+          "CLDN3",
+          "CLDN7",
+          "CDH1",
+          "OCLN",
+          "TJP1",
+          "EPCAM",
+          "TACSTD2",
+          "KRT8",
+          "KRT19"
+        ],
+        "cycle": [
+          "MKI67",
+          "TOP2A",
+          "STMN1",
+          "PCNA",
+          "HMGB2"
+        ],
+        "airway": [
+          "FOXJ1",
+          "CAPS",
+          "PIFO",
+          "TPPP3",
+          "KRT5"
+        ]
+      },
+      "states": {
+        "cldn4_q80": 2.185280990600586,
+        "cldn4_q50": 1.5023642778396606,
+        "barrier_median": 0.3467766877376671,
+        "cycle_q80": 0.19373678388595597,
+        "at2_q75": 0.3791458066304524,
+        "airway_q75": 0.0631330120563507,
+        "cycle_relaxed": 0,
+        "airway_filter_relaxed": 0,
+        "estimable": 1,
+        "reason": "",
+        "n_barrier_before_airway": 979,
+        "n_airway_removed": 348,
+        "n_barrier": 631,
+        "n_cycle": 816,
+        "n_at2": 788,
+        "n_intermediate": 4298,
+        "root_ok": 1
+      },
+      "estimable": 1,
+      "orientation": {
+        "orientation_ok": 0,
+        "root_mode": "none",
+        "frac_dpt_finite": 1.0,
+        "dpt_at2": 0.016724956382614405,
+        "dpt_intermediate": 0.03308968488418438,
+        "dpt_barrier": 0.02436163224987966,
+        "dpt_cycle": 0.02767182345954044,
+        "reason": "barrier terminal is not downstream of the AT2-like root"
+      },
+      "primary_kernel": "connectivity",
+      "kernel_note": "barrier terminal is not downstream of the AT2-like root",
+      "gpcca": {
+        "ok": 1,
+        "n_macrostates": 4,
+        "top_cldn4_macrostate": "0",
+        "macrostates": [
+          {
+            "macrostate": "0",
+            "wmean_cldn4": 1.6904632619260098,
+            "wmean_barrier_wo": 0.28774810256593825
+          },
+          {
+            "macrostate": "1",
+            "wmean_cldn4": 1.354787442529677,
+            "wmean_barrier_wo": 0.3275889144695575
+          },
+          {
+            "macrostate": "2",
+            "wmean_cldn4": 1.5399114119151287,
+            "wmean_barrier_wo": 0.37631322670951545
+          },
+          {
+            "macrostate": "3",
+            "wmean_cldn4": 1.2932518755040514,
+            "wmean_barrier_wo": 0.3054724365825937
+          }
+        ],
+        "mean_fate_nonmember": 0.015718000330338922
+      },
+      "contact_absorption": {
+        "at2_like": 0.5718369757492476,
+        "intermediate": 0.5564420363414377
+      },
+      "within_unit_n": 16,
+      "mean_cldn4_barrier": 2.660463777850434,
+      "mean_cldn4_cycle": 0.3864811465290247,
+      "mean_barrier_score_barrier": 0.7219176985576636,
+      "mean_barrier_score_rest": 0.27830295978016667,
+      "airway_removed_frac": 0.355464759959142,
+      "airway_filter_relaxed": 0,
+      "airway_frac_in_barrier": 0.0
+    },
+    {
+      "dataset": "GSE205335",
+      "n_cells": 7552,
+      "n_units": 22,
+      "genes_used": {
+        "at2": [
+          "SFTPC",
+          "SFTPB",
+          "SFTPA1",
+          "SFTPA2",
+          "NAPSA",
+          "SLC34A2"
+        ],
+        "barrier_wo": [
+          "CLDN3",
+          "CLDN7",
+          "CDH1",
+          "OCLN",
+          "TJP1",
+          "EPCAM",
+          "TACSTD2",
+          "KRT8",
+          "KRT19"
+        ],
+        "cycle": [
+          "MKI67",
+          "TOP2A",
+          "STMN1",
+          "PCNA",
+          "HMGB2"
+        ],
+        "airway": [
+          "FOXJ1",
+          "CAPS",
+          "PIFO",
+          "TPPP3",
+          "KRT5"
+        ]
+      },
+      "states": {
+        "cldn4_q80": 2.339582866560053,
+        "cldn4_q50": 1.3009101715160152,
+        "barrier_median": 0.4839340649186703,
+        "cycle_q80": 0.5783833162265722,
+        "at2_q75": -0.14000340349900048,
+        "airway_q75": 0.025759861972325368,
+        "cycle_relaxed": 0,
+        "airway_filter_relaxed": 0,
+        "estimable": 1,
+        "reason": "",
+        "n_barrier_before_airway": 1198,
+        "n_airway_removed": 419,
+        "n_barrier": 779,
+        "n_cycle": 792,
+        "n_at2": 630,
+        "n_intermediate": 5351,
+        "root_ok": 1
+      },
+      "estimable": 1,
+      "orientation": {
+        "orientation_ok": 0,
+        "root_mode": "none",
+        "frac_dpt_finite": 1.0,
+        "dpt_at2": 0.1138513371363164,
+        "dpt_intermediate": 0.18718977963722966,
+        "dpt_barrier": 0.09949829041556155,
+        "dpt_cycle": 0.22588429425730172,
+        "reason": "barrier terminal is not downstream of the AT2-like root"
+      },
+      "primary_kernel": "connectivity",
+      "kernel_note": "barrier terminal is not downstream of the AT2-like root",
+      "gpcca": {
+        "ok": 1,
+        "n_macrostates": 4,
+        "top_cldn4_macrostate": "1",
+        "macrostates": [
+          {
+            "macrostate": "0",
+            "wmean_cldn4": 1.102992120697224,
+            "wmean_barrier_wo": 0.2385883863580165
+          },
+          {
+            "macrostate": "1",
+            "wmean_cldn4": 1.7950947481928479,
+            "wmean_barrier_wo": 0.6646586475016044
+          },
+          {
+            "macrostate": "2",
+            "wmean_cldn4": 1.4187359567126971,
+            "wmean_barrier_wo": 0.30010915174353564
+          },
+          {
+            "macrostate": "3",
+            "wmean_cldn4": 1.2093420439949585,
+            "wmean_barrier_wo": 0.519691376263025
+          }
+        ],
+        "mean_fate_nonmember": 0.1783915881700647
+      },
+      "contact_absorption": {
+        "at2_like": 0.5463124621732521,
+        "intermediate": 0.5231264031256281
+      },
+      "within_unit_n": 21,
+      "mean_cldn4_barrier": 2.8934374521271837,
+      "mean_cldn4_cycle": 0.2703428236114379,
+      "mean_barrier_score_barrier": 1.073410753420429,
+      "mean_barrier_score_rest": 0.41091609345269126,
+      "airway_removed_frac": 0.34974958263772954,
+      "airway_filter_relaxed": 0,
+      "airway_frac_in_barrier": 0.0
+    },
+    {
+      "dataset": "GSE189357",
+      "n_cells": 3600,
+      "n_units": 9,
+      "genes_used": {
+        "at2": [
+          "SFTPC",
+          "SFTPB",
+          "SFTPA1",
+          "SFTPA2",
+          "NAPSA",
+          "SLC34A2"
+        ],
+        "barrier_wo": [
+          "CLDN3",
+          "CLDN7",
+          "CDH1",
+          "OCLN",
+          "TJP1",
+          "EPCAM",
+          "TACSTD2",
+          "KRT8",
+          "KRT19"
+        ],
+        "cycle": [
+          "MKI67",
+          "TOP2A",
+          "STMN1",
+          "PCNA",
+          "HMGB2"
+        ],
+        "airway": [
+          "FOXJ1",
+          "CAPS",
+          "PIFO",
+          "TPPP3",
+          "KRT5"
+        ]
+      },
+      "states": {
+        "cldn4_q80": 1.9689747095108032,
+        "cldn4_q50": 0.0,
+        "barrier_median": 0.041165494521458956,
+        "cycle_q80": 0.14611963558197022,
+        "at2_q75": 1.7875379007689807,
+        "airway_q75": -0.15989506244659424,
+        "cycle_relaxed": 0,
+        "airway_filter_relaxed": 0,
+        "estimable": 1,
+        "reason": "",
+        "n_barrier_before_airway": 624,
+        "n_airway_removed": 214,
+        "n_barrier": 410,
+        "n_cycle": 488,
+        "n_at2": 164,
+        "n_intermediate": 2538,
+        "root_ok": 1
+      },
+      "estimable": 1,
+      "orientation": {
+        "orientation_ok": 0,
+        "root_mode": "none",
+        "frac_dpt_finite": 1.0,
+        "dpt_at2": 0.07047367684909416,
+        "dpt_intermediate": 0.19629301121031373,
+        "dpt_barrier": 0.08908255933301251,
+        "dpt_cycle": 0.19926183421897595,
+        "reason": "barrier terminal is not downstream of the AT2-like root"
+      },
+      "primary_kernel": "connectivity",
+      "kernel_note": "barrier terminal is not downstream of the AT2-like root",
+      "gpcca": {
+        "ok": 1,
+        "n_macrostates": 4,
+        "top_cldn4_macrostate": "1",
+        "macrostates": [
+          {
+            "macrostate": "0",
+            "wmean_cldn4": 0.6387180150319653,
+            "wmean_barrier_wo": 0.023878597102541373
+          },
+          {
+            "macrostate": "1",
+            "wmean_cldn4": 1.5901408681669347,
+            "wmean_barrier_wo": 0.32506546464188923
+          },
+          {
+            "macrostate": "2",
+            "wmean_cldn4": 0.3616424542347498,
+            "wmean_barrier_wo": -0.18625272658373415
+          },
+          {
+            "macrostate": "3",
+            "wmean_cldn4": 1.025393396350245,
+            "wmean_barrier_wo": 0.16596727294140284
+          }
+        ],
+        "mean_fate_nonmember": 0.14730979443994707
+      },
+      "contact_absorption": {
+        "at2_like": 0.4663116389625546,
+        "intermediate": 0.44785867113997074
+      },
+      "within_unit_n": 8,
+      "mean_cldn4_barrier": 2.4844293443168084,
+      "mean_cldn4_cycle": 0.0,
+      "mean_barrier_score_barrier": 0.6126836828740874,
+      "mean_barrier_score_rest": 0.023823172767676783,
+      "airway_removed_frac": 0.34294871794871795,
+      "airway_filter_relaxed": 0,
+      "airway_frac_in_barrier": 0.0
+    }
+  ],
+  "cap": 400,
+  "seed": 1
+}
