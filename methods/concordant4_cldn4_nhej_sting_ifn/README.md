@@ -11,6 +11,9 @@ from PR #503.
 
 ```bash
 python3 methods/concordant4_cldn4_nhej_sting_ifn/analyze.py
+python3 methods/concordant4_cldn4_nhej_sting_ifn/search_mediation.py
 ```
+
+`analyze.py` is the pre-specified KEGG NHEJ model. `search_mediation.py` changes the CLDN4 cutoff, the NHEJ definition, the IFN score, and the covariates (16,560 specifications) and re-estimates the shortlist with a case bootstrap and pingouin.
 
 Writeup: `FINDING.md`.

@@ -1155,8 +1155,10 @@ instead of %pos; leave-one-cohort-out.
 - Not a serial CLDN4 → NHEJ → cGAS-STING → IFN structural model.
 - Not GSE148071 / GSE127465 / GSE207422 / GSE154826.
 - Not a dual-high TACSTD2 score.
-- Genome-wide FDR is not the claim. Module scores and the pre-specified
-  mediation are the claim.
+- Genome-wide FDR is not the claim. The pre-specified mediation is the
+  KEGG model. The specification search is a sensitivity analysis; its
+  smallest p-value is not a confirmatory test.
+- Not a rebranding of Hallmark DNA repair as NHEJ.
 
 ## Files
 
@@ -1175,6 +1177,22 @@ python3 methods/concordant4_cldn4_nhej_sting_ifn/analyze.py
 ```
 """
     (HERE / "FINDING.md").write_text(text)
+
+
+def _splice_search_section() -> None:
+    """Keep the specification-search writeup if analyze.py regenerates FINDING.md."""
+    section_path = HERE / "SEARCH_SECTION.md"
+    finding = HERE / "FINDING.md"
+    if not section_path.exists() or not finding.exists():
+        return
+    text = finding.read_text()
+    if "## 3. Specification search" in text:
+        return
+    marker = "## What this is not"
+    section = section_path.read_text().rstrip() + "\n\n"
+    if marker not in text:
+        return
+    finding.write_text(text.replace(marker, section + marker, 1))
 
 
 def main() -> None:
@@ -1269,6 +1287,7 @@ def main() -> None:
     plot_genes(genes, FIGS / "gene_logfc_nhej_sting")
 
     write_finding(meta, contrasts, sp, meds, genes, membership, cal)
+    _splice_search_section()
     print("WROTE", HERE / "FINDING.md")
     show = contrasts[(contrasts["cohort"] == COMBO) & (contrasts["split"] == "q4q1")]
     print(show[["module", "n", "n_q1", "n_q4", "logFC", "p", "r_rb"]].to_string(index=False))
