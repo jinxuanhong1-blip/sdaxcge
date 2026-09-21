@@ -1,0 +1,185 @@
+{
+  "train": {
+    "scvi_version": "1.3.3",
+    "n_cells": 28643,
+    "n_genes": 2000,
+    "n_batches": 65,
+    "n_latent": 20,
+    "n_layers": 2,
+    "gene_likelihood": "nb",
+    "batch_key": "patient (dataset|unit_id)",
+    "hvg_batch": "dataset",
+    "forced_genes": [
+      "CLDN4",
+      "TACSTD2"
+    ],
+    "seed": 1,
+    "epochs_scvi": 200,
+    "early_stopping_patience": 15,
+    "max_epochs": 200,
+    "sample": "stable 10% of QC-pass cells; not the 220/140/40 cap"
+  },
+  "n_cells": 28643,
+  "n_tested": 2158,
+  "n_units_in_graph": 65,
+  "embed_vs_full_tnk_rho": 0.992940971728929,
+  "edger_version": "4.0.16",
+  "joint_rank": 6,
+  "joint_n_coef": 6,
+  "joint_n_samples": 65,
+  "patient_level": {
+    "n_units": 65,
+    "n_tacstd2_high": 31,
+    "n_cldn4_high": 31,
+    "n_both_high": 22,
+    "n_tacstd2_only": 9,
+    "n_cldn4_only": 9,
+    "n_neither": 25,
+    "spearman_genes_pooled": {
+      "rho": 0.6198863636363636,
+      "p": 3.665544109465325e-08,
+      "n": 65
+    },
+    "spearman_genes_dl": {
+      "rho": 0.5345059199554321,
+      "p": 0.005829909525383323,
+      "I2": 0.5628293689797423,
+      "ci_lo": 0.17075904984767584,
+      "ci_hi": 0.77003589875585,
+      "k": 4,
+      "N": 65,
+      "tau2": 0.10296900521139161
+    },
+    "tacstd2_vs_tnk_dl": {
+      "score": "mal_TACSTD2_pct",
+      "dataset": "DL_meta",
+      "n": 65,
+      "rho": -0.1115981379180405,
+      "p": 0.46033442477857567,
+      "level": "meta",
+      "I2": 0.15381992904963515,
+      "ci_lo": -0.3881079036942132,
+      "ci_hi": 0.18334380720553678
+    },
+    "cldn4_vs_tnk_dl": {
+      "score": "mal_CLDN4_pct_new",
+      "dataset": "DL_meta",
+      "n": 65,
+      "rho": -0.531167804568999,
+      "p": 1.6462232944573955e-05,
+      "level": "meta",
+      "I2": 0.0,
+      "ci_lo": -0.6967711225150762,
+      "ci_hi": -0.3118052568209761
+    },
+    "tacstd2_partial_dl": {
+      "rho": 0.1950649209576587,
+      "p": 0.15028416627022553,
+      "I2": 0.0,
+      "ci_lo": -0.0715073688913168,
+      "ci_hi": 0.43562942565024454,
+      "k": 4,
+      "N": 65,
+      "tau2": 0.0
+    },
+    "cldn4_partial_dl": {
+      "rho": -0.542895993973554,
+      "p": 9.504618566486824e-06,
+      "I2": 0.0,
+      "ci_lo": -0.7051543479859681,
+      "ci_hi": -0.32660760879138356,
+      "k": 4,
+      "N": 65,
+      "tau2": 0.0
+    },
+    "vif_tacstd2_on_cldn4_and_dataset": 1.2476014371471291,
+    "r2_tacstd2_on_cldn4_and_dataset": 0.1984619685220269,
+    "crosstab": {
+      "0": {
+        "0": 25,
+        "1": 9
+      },
+      "1": {
+        "0": 9,
+        "1": 22
+      }
+    }
+  },
+  "shrink_binary_tnk": {
+    "class": "T/NK",
+    "hits_down": {
+      "n": 1,
+      "median_logFC_alone": -1.41479841368319,
+      "median_logFC_cond": -0.934796751713415,
+      "median_delta_cond_minus_alone": 0.4800016619697749,
+      "frac_abs_smaller": 1.0,
+      "shrink_frac_of_medians": 0.3392721233834093,
+      "n_still_down": 0,
+      "wilcoxon_p": 1.0,
+      "wilcoxon_stat": 0.0
+    },
+    "all_tested": {
+      "n": 977,
+      "median_logFC_alone": 0.260793203032795,
+      "median_logFC_cond": 0.631507571082072,
+      "median_delta_cond_minus_alone": 0.42023763598958597,
+      "frac_abs_smaller": 0.2937563971340839,
+      "shrink_frac_of_medians": -1.4214878445381083,
+      "n_still_down": 0,
+      "wilcoxon_p": 1.3683971677711797e-141,
+      "wilcoxon_stat": 15376.0
+    }
+  },
+  "shrink_binary_cldn4_on_tnk": {
+    "class": "T/NK",
+    "hits_down": {
+      "n": 56,
+      "median_logFC_alone": -1.58470958930895,
+      "median_logFC_cond": -1.7155854222736249,
+      "median_delta_cond_minus_alone": -0.06941798452900505,
+      "frac_abs_smaller": 0.44642857142857145,
+      "shrink_frac_of_medians": -0.08258663533534016,
+      "n_still_down": 36,
+      "wilcoxon_p": 0.45790881221792645,
+      "wilcoxon_stat": 707.0
+    },
+    "all_tested": {
+      "n": 977,
+      "median_logFC_alone": -0.470231163066407,
+      "median_logFC_cond": -0.799926350721808,
+      "median_delta_cond_minus_alone": -0.34778486481908,
+      "frac_abs_smaller": 0.2569089048106448,
+      "shrink_frac_of_medians": -0.7011342793732298,
+      "n_still_down": 97,
+      "wilcoxon_p": 3.1672048584426203e-115,
+      "wilcoxon_stat": 37584.0
+    }
+  },
+  "shrink_continuous_tnk": {
+    "class": "T/NK",
+    "hits_down": {
+      "n": 5,
+      "median_logFC_alone": -0.325269440382009,
+      "median_logFC_cond": -0.125645999255178,
+      "median_delta_cond_minus_alone": 0.173124169751045,
+      "frac_abs_smaller": 0.8,
+      "shrink_frac_of_medians": 0.6137171721154792,
+      "n_still_down": 1,
+      "wilcoxon_p": 0.125,
+      "wilcoxon_stat": 1.0
+    },
+    "all_tested": {
+      "n": 977,
+      "median_logFC_alone": 0.0342050473551941,
+      "median_logFC_cond": 0.152216561624598,
+      "median_delta_cond_minus_alone": 0.10193105188372299,
+      "frac_abs_smaller": 0.27226202661207777,
+      "shrink_frac_of_medians": -3.450119891486823,
+      "n_still_down": 3,
+      "wilcoxon_p": 1.3181793065666272e-141,
+      "wilcoxon_stat": 15363.0
+    }
+  },
+  "interpretation": "TACSTD2-high calls 1 T/NK neighbourhood down at SpatialFDR < 0.05. A shrinkage fraction is not a result when the unadjusted set has fewer than 5 neighbourhoods. The CLDN4 T/NK-down median log2FC does not move toward 0 when TACSTD2 is added.",
+  "tac_hit_min_patients": 5
+}

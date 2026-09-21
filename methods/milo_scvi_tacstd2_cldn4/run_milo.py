@@ -389,9 +389,10 @@ def shrinkage(alone: pd.DataFrame, cond: pd.DataFrame, annot: pd.DataFrame, cls:
 
 
 def fmt_rho(d: dict) -> str:
+    n = d["n"] if "n" in d else d["N"]
     return (
-        f"ρ={d['rho']:.3f} (p={d['p']:.3g}, I²={100 * float(d['I2']):.1f}%, "
-        f"{d['ci_lo']:.3f} to {d['ci_hi']:.3f}, N={int(d['n'])})"
+        f"ρ={float(d['rho']):.3f} (p={float(d['p']):.3g}, I²={100 * float(d['I2']):.1f}%, "
+        f"{float(d['ci_lo']):.3f} to {float(d['ci_hi']):.3f}, N={int(n)})"
     )
 
 
@@ -410,6 +411,20 @@ def interpret(tac_hits: dict, cld_hits: dict) -> str:
 
     t = shrunk(tac_hits)
     c = shrunk(cld_hits)
+    if tac_hits.get("n", 0) < 5:
+        a = cld_hits.get("median_logFC_alone")
+        c = cld_hits.get("median_logFC_cond")
+        if a is not None and c is not None and a < 0 and c <= a:
+            cld_sentence = "The CLDN4 T/NK-down median log2FC does not move toward 0 when TACSTD2 is added."
+        elif a is not None and c is not None and a < 0 and abs(c) < 0.8 * abs(a):
+            cld_sentence = "The CLDN4 T/NK-down median |log2FC| falls below 80% of its unadjusted value when TACSTD2 is added."
+        else:
+            cld_sentence = "The CLDN4 T/NK-down median is reported above."
+        return (
+            f"TACSTD2-high calls {tac_hits.get('n', 0)} T/NK neighbourhood down at SpatialFDR < 0.05. "
+            "A shrinkage fraction is not a result when the unadjusted set has fewer than 5 neighbourhoods. "
+            + cld_sentence
+        )
     if t is None:
         return "No TACSTD2 T/NK-down neighbourhoods at SpatialFDR < 0.05, so there is no set whose coefficient can shrink."
     if t and c is False:
@@ -510,6 +525,12 @@ def write_finding(summary: dict, class_tab: pd.DataFrame, units: pd.DataFrame) -
     if hits.get("n", 0) == 0:
         lines.append("No T/NK neighbourhood was down at SpatialFDR < 0.05 in the TACSTD2-only model.")
     else:
+        extra = ""
+        if hits["n"] >= 5:
+            extra = (
+                f" Wilcoxon signed-rank on the paired log2FC, two-sided p={hits['wilcoxon_p']:.3g}. "
+                "That p describes this selected set. It is not an independent test."
+            )
         lines.append(
             f"TACSTD2-only T/NK-down neighbourhoods: n={hits['n']}, "
             f"median log2FC {hits['median_logFC_alone']:.3f}. "
@@ -517,8 +538,7 @@ def write_finding(summary: dict, class_tab: pd.DataFrame, units: pd.DataFrame) -
             f"(median paired change {hits['median_delta_cond_minus_alone']:.3f}). "
             f"{hits['frac_abs_smaller'] * 100:.1f}% have a smaller absolute coefficient. "
             f"{hits['n_still_down']} remain down at SpatialFDR < 0.05. "
-            f"Wilcoxon signed-rank on the paired log2FC, two-sided p={hits['wilcoxon_p']:.3g}. "
-            "That p describes this selected set. It is not an independent test."
+            f"Fewest units in that set: {summary.get('tac_hit_min_patients')}.{extra}"
         )
     lines.append("")
     if allc.get("n", 0):
@@ -527,15 +547,24 @@ def write_finding(summary: dict, class_tab: pd.DataFrame, units: pd.DataFrame) -
             f"median TACSTD2 log2FC {allc['median_logFC_alone']:.3f} alone and "
             f"{allc['median_logFC_cond']:.3f} conditional on CLDN4 "
             f"(median paired change {allc['median_delta_cond_minus_alone']:.3f}, "
-            f"Wilcoxon p={allc['wilcoxon_p']:.3g})."
+            f"Wilcoxon p={allc['wilcoxon_p']:.3g}). "
+            "That p is the paired shift across every tested T/NK neighbourhood. The median change is the quantity."
         )
         lines.append("")
     if sym.get("n", 0):
+        joint_down = class_tab.loc[
+            (class_tab["model"] == "CLDN4 | TACSTD2") & (class_tab["class_group"] == "T/NK"),
+            "n_down",
+        ]
+        joint_n = int(joint_down.iloc[0]) if len(joint_down) else None
         lines.append(
             f"Symmetric set, CLDN4-only T/NK-down neighbourhoods: n={sym['n']}, "
             f"median log2FC {sym['median_logFC_alone']:.3f} alone and "
             f"{sym['median_logFC_cond']:.3f} conditional on TACSTD2 "
-            f"({sym['n_still_down']} still down)."
+            f"({sym['n_still_down']} of those {sym['n']} still down; "
+            f"Wilcoxon p={sym['wilcoxon_p']:.3g}). "
+            f"The CLDN4 coefficient in the joint model calls {joint_n} T/NK neighbourhoods down, "
+            f"against {sym['n']} in the CLDN4-only model."
         )
         lines.append("")
     cont = summary.get("shrink_continuous_tnk", {}).get("hits_down", {})
@@ -719,6 +748,7 @@ def main() -> None:
         "shrink_binary_cldn4_on_tnk": sh_cld,
         "shrink_continuous_tnk": sh_cont,
         "interpretation": interpret(sh_tac["hits_down"], sh_cld["hits_down"]),
+        "tac_hit_min_patients": int(hits["n_patients"].min()) if len(hits) else None,
     }
     (TABLES / "summary.json").write_text(json.dumps(summary, indent=2, default=_json))
     write_finding(summary, class_tab, units)
