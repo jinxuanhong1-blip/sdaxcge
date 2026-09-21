@@ -1,0 +1,19 @@
+{
+  "seed": 20260921,
+  "n_boot": 2000,
+  "numpy": "2.4.4",
+  "pandas": "3.0.6",
+  "scipy": "1.18.1",
+  "mechanism_rule_met_n": 0,
+  "shared_n": {
+    "LUAD_CD8A": 79,
+    "LUAD_MHC1": 79,
+    "LSCC_CD8A": 78,
+    "LSCC_MHC1": 78
+  },
+  "treat_cols": {
+    "LUAD": [],
+    "LSCC": []
+  },
+  "reproduction_all_match": true
+}
