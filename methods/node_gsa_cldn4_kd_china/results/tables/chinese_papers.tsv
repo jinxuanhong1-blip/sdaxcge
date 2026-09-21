@@ -1,0 +1,7 @@
+pmid	year	organ	perturbation	cldn4_knockdown	affiliation	omics_accession	in_node_or_gsa	note
+26058359	2015	breast	CLDN4 shRNA and overexpression in MCF-7	yes	Affiliated Hospital of Guangdong Medical College, Zhanjiang, China		no	Functional assays and xenografts. No GEO, HRA, OMIX, or OEP in the PubMed record.
+25871476	2015	breast	CLDN4 monoclonal antibody blockade of channel formation	no	Academy of Military Medical Sciences, Beijing, China		no	Vasculogenic mimicry in MDA-MB-231. Antibody blockade, not a deposited knockdown transcriptome.
+30808546	2019	breast	PAK4 knockdown; CLDN4 restoration	no	China Medical University, Shenyang, China		no	CLDN4 is the downstream gene, not the silenced gene.
+33006362	2020	lung	CRAD knockdown in A549 and H1299; microarray readout	no	Jining Medical University, Shandong, China		no	Abstract says Claudin 4 rose after CRAD silencing. GEO has no CRAD-knockdown lung series. NODE query CRAD is recorded in node_queries.tsv.
+32779991	2020	ovarian	ELFN1-AS1 knockdown; CLDN4 is the miR-497-3p target	no	Jiangxi Maternal and Child Health Hospital, Nanchang, China		no	PMC8291874. Rescue experiments around the axis. No omics accession.
+38629624	2024	lung	none; baseline MPE scRNA-seq, CLDN4 used as a tumor-cell marker	no	Shanghai Pulmonary Hospital, Tongji University, Shanghai, China	HRA006761 / PRJCA023797	GSA-Human, controlled	Not a knockdown. FASTQ not downloaded.
