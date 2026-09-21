@@ -352,6 +352,244 @@ def run_detection_block(df: pd.DataFrame, cohort: str, genes: list[str]) -> list
     return rows
 
 
+def pearson(x: pd.Series, y: pd.Series) -> dict:
+    d = pd.concat([x, y], axis=1).dropna()
+    n = int(len(d))
+    rec = {"n_pairwise": n, "rho": np.nan, "p": np.nan, "tested": False, "note": "not tested"}
+    if n < 4 or d.iloc[:, 0].nunique() < 2 or d.iloc[:, 1].nunique() < 2:
+        rec["note"] = f"n={n}; Pearson not computed"
+        return rec
+    r, p = stats.pearsonr(d.iloc[:, 0], d.iloc[:, 1])
+    rec.update(
+        {
+            "rho": float(r),
+            "p": float(p),
+            "tested": True,
+            "note": "two-sided Pearson, same complete cases as the Spearman",
+        }
+    )
+    return rec
+
+
+def tukey_mask(s: pd.Series, k: float = 1.5) -> pd.Series:
+    q1 = s.quantile(0.25)
+    q3 = s.quantile(0.75)
+    iqr = q3 - q1
+    return (s < q1 - k * iqr) | (s > q3 + k * iqr)
+
+
+def cooks_flag(y: pd.Series, x: pd.Series) -> pd.Series:
+    """Cook's distance from OLS y ~ x. Flag if D > 4/n. Index follows y/x after dropna alignment."""
+    d = pd.concat([y, x], axis=1).dropna()
+    d.columns = ["y", "x"]
+    n = len(d)
+    flag = pd.Series(False, index=d.index)
+    if n < 6:
+        return flag
+    X = np.column_stack([np.ones(n), d["x"].to_numpy(dtype=float)])
+    yy = d["y"].to_numpy(dtype=float)
+    beta, *_ = np.linalg.lstsq(X, yy, rcond=None)
+    resid = yy - X @ beta
+    pdim = 2
+    dof = n - pdim
+    if dof <= 0:
+        return flag
+    mse = float(np.sum(resid**2) / dof)
+    if mse <= 0:
+        return flag
+    hat = np.diag(X @ np.linalg.pinv(X.T @ X) @ X.T)
+    cook = resid**2 / (pdim * mse) * (hat / np.maximum(1 - hat, 1e-12) ** 2)
+    flag.loc[:] = cook > (4.0 / n)
+    return flag
+
+
+def luad_dnapk_sweep(luad: pd.DataFrame, clin: pd.DataFrame) -> pd.DataFrame:
+    """One sweep of the LUAD CLDN4–DNA-PK trend. Does not impute.
+
+    Pre-specified tests that decide the call (counts_toward_final_call):
+    complete-case Spearman, complete-case Pearson, Tukey 1.5-IQR deletion,
+    Cook's D > 4/n deletion, and within-label Spearman only when that label
+    has n>=10. Smaller subtype cells and leave-one-out minima are written
+    out and do not decide the call.
+    """
+    clin = clin.copy()
+    clin["phlcid"] = clin["phlcid"].astype(str).str.strip()
+    clin = clin.set_index("phlcid")
+    partners = DNA_PK + ["DNAPK_score"]
+    cc = luad.dropna(subset=["CLDN4", *DNA_PK]).copy()
+    cc["transcriptome_subtype"] = clin.reindex(cc.index.astype(str))["Transcriptome subtype"]
+    rows: list[dict] = []
+
+    def add(rec: dict, **extra) -> None:
+        rec = dict(rec)
+        rec.update(extra)
+        rows.append(rec)
+
+    # WHO histologic pattern is not in this workbook. Record the absence.
+    add(
+        {
+            "n_pairwise": 0,
+            "rho": np.nan,
+            "p": np.nan,
+            "tested": False,
+            "note": "WHO growth pattern (lepidic/acinar/papillary/micropapillary/solid) is not a column in Supplementary Data 1; not tested",
+        },
+        sweep="histology_subtype",
+        partner="",
+        stratum="WHO_pattern",
+        n_stratum=0,
+        n_dropped=0,
+        dropped_models="",
+        counts_toward_final_call=False,
+    )
+
+    for partner in partners:
+        sp = spearman(cc["CLDN4"], cc[partner])
+        add(
+            sp,
+            sweep="complete_case_spearman",
+            partner=partner,
+            stratum="LUAD",
+            n_stratum=int(len(cc)),
+            n_dropped=0,
+            dropped_models="",
+            counts_toward_final_call=True,
+        )
+        pe = pearson(cc["CLDN4"], cc[partner])
+        add(
+            pe,
+            sweep="complete_case_pearson",
+            partner=partner,
+            stratum="LUAD",
+            n_stratum=int(len(cc)),
+            n_dropped=0,
+            dropped_models="",
+            counts_toward_final_call=True,
+        )
+
+        flag = tukey_mask(cc["CLDN4"]) | tukey_mask(cc[partner])
+        dropped = cc.index[flag].astype(str).tolist()
+        kept = cc.loc[~flag]
+        sp = spearman(kept["CLDN4"], kept[partner])
+        sp["note"] = sp["note"] + "; dropped Tukey 1.5 IQR outliers on CLDN4 or the partner"
+        add(
+            sp,
+            sweep="outlier_tukey",
+            partner=partner,
+            stratum="LUAD",
+            n_stratum=int(len(cc)),
+            n_dropped=int(flag.sum()),
+            dropped_models=",".join(dropped),
+            counts_toward_final_call=True,
+        )
+
+        cflag = cooks_flag(cc["CLDN4"], cc[partner])
+        dropped = cflag.index[cflag].astype(str).tolist()
+        kept = cc.drop(index=cflag.index[cflag])
+        sp = spearman(kept["CLDN4"], kept[partner])
+        sp["note"] = sp["note"] + "; Cook's D > 4/n from OLS CLDN4 ~ partner, none imputed"
+        add(
+            sp,
+            sweep="outlier_cook",
+            partner=partner,
+            stratum="LUAD",
+            n_stratum=int(len(cc)),
+            n_dropped=int(cflag.sum()),
+            dropped_models=",".join(dropped),
+            counts_toward_final_call=True,
+        )
+
+        loo = []
+        for model in cc.index:
+            sub = cc.drop(index=model)
+            rec = spearman(sub["CLDN4"], sub[partner])
+            loo.append((rec["p"], rec["rho"], str(model)))
+        loo_ok = [t for t in loo if np.isfinite(t[0])]
+        loo_ok.sort()
+        n_under = int(sum(t[0] <= 0.05 for t in loo_ok))
+        min_p, min_rho, min_model = loo_ok[0]
+        add(
+            {
+                "n_pairwise": int(len(cc) - 1),
+                "rho": float(min_rho),
+                "p": float(min_p),
+                "tested": True,
+                "note": (
+                    f"minimum leave-one-out Spearman p across {len(loo_ok)} deletions; "
+                    f"{n_under} deletions have p<=0.05. This minimum is not a test and does not decide the call."
+                ),
+            },
+            sweep="leave_one_out_min_p",
+            partner=partner,
+            stratum="LUAD",
+            n_stratum=int(len(cc)),
+            n_dropped=1,
+            dropped_models=min_model,
+            counts_toward_final_call=False,
+            n_loo_p_le_005=n_under,
+        )
+
+    # Published within-LUAD labels. n>=10 counts; smaller cells are disclosed only.
+    for col, sweep_name in (
+        ("proteotype", "proteotype"),
+        ("transcriptome_subtype", "transcriptome_subtype"),
+    ):
+        for level, sub in cc.groupby(cc[col].fillna("NA").astype(str)):
+            counts = int(len(sub)) >= 10
+            for partner in DNA_PK:
+                sp = spearman(sub["CLDN4"], sub[partner])
+                sp["note"] = sp["note"] + (
+                    "; within-LUAD label, n>=10, counts toward the call"
+                    if counts
+                    else "; within-LUAD label, n<10, disclosed and not used to decide the call"
+                )
+                add(
+                    sp,
+                    sweep=sweep_name,
+                    partner=partner,
+                    stratum=str(level),
+                    n_stratum=int(len(sub)),
+                    n_dropped=0,
+                    dropped_models="",
+                    counts_toward_final_call=counts,
+                )
+
+    out = pd.DataFrame(rows)
+    # BH within each disclosed subtype family, proteins only.
+    for sweep_name in ("proteotype", "transcriptome_subtype"):
+        mask = out["sweep"] == sweep_name
+        if mask.any():
+            out.loc[mask, "q_bh"] = bh(out.loc[mask, "p"].tolist())
+    if "q_bh" not in out.columns:
+        out["q_bh"] = np.nan
+    out["q_bh"] = out["q_bh"].astype(float)
+    return out
+
+
+def final_null_from_sweep(sweep: pd.DataFrame) -> dict:
+    deciding = sweep[sweep["counts_toward_final_call"] & sweep["tested"]].copy()
+    if deciding.empty:
+        return {"final_call": "not called", "n_deciding_tests": 0, "min_p": None}
+    min_row = deciding.loc[deciding["p"].idxmin()]
+    all_above = bool((deciding["p"] > 0.05).all())
+    return {
+        "final_call": "FINAL null" if all_above else "not null",
+        "n_deciding_tests": int(len(deciding)),
+        "min_p": float(min_row["p"]),
+        "min_p_sweep": str(min_row["sweep"]),
+        "min_p_partner": str(min_row["partner"]),
+        "min_p_stratum": str(min_row["stratum"]),
+        "min_p_n": int(min_row["n_pairwise"]),
+        "min_p_rho": float(min_row["rho"]),
+        "rule": (
+            "FINAL null only if every pre-specified deciding test has p>0.05: "
+            "LUAD complete-case Spearman, complete-case Pearson, Tukey outlier deletion, "
+            "Cook outlier deletion, and within-LUAD label Spearman with n>=10. "
+            "Leave-one-out minima and n<10 subtype cells are disclosed and do not decide."
+        ),
+    }
+
+
 def plot(models: pd.DataFrame, pairs: pd.DataFrame, path: Path) -> None:
     panels = [
         ("DNAPK_score", "DNA-PK score"),
@@ -580,6 +818,11 @@ def main() -> None:
     ]
     sample_out[keep_cols].to_csv(outdir / "sample_scores.tsv", sep="\t", index=False)
 
+    luad_scored = with_cohort_scores(models[models["histology"] == "LUAD"].copy())
+    sweep = luad_dnapk_sweep(luad_scored, clin)
+    verdict = final_null_from_sweep(sweep)
+    sweep.to_csv(outdir / "luad_dnapk_sweep.tsv", sep="\t", index=False)
+
     primary = spearman_df[spearman_df.analysis == "primary_histology"]
     plot(pd.concat([
         with_cohort_scores(models[models.histology == "LUAD"].copy()),
@@ -617,10 +860,14 @@ def main() -> None:
         "n_models_LUAD": int((models.histology == "LUAD").sum()),
         "n_models_LUSC": int((models.histology == "LUSC").sum()),
         "primary_spearman": pack(primary),
+        "luad_dnapk_final": verdict,
         "rule": "No RNA stand-in. No mouse-stroma stand-in. No imputation of CLDN4 NA. LUAD and LUSC not pooled in the primary test.",
     }
     (outdir / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     print(json.dumps({k: summary[k] for k in summary if k != "primary_spearman"}, indent=2))
+    deciding = sweep[sweep["counts_toward_final_call"] & sweep["tested"]]
+    print(deciding[["sweep", "partner", "stratum", "n_pairwise", "rho", "p"]].to_string(index=False))
+    print("VERDICT", verdict["final_call"], "min_p", verdict.get("min_p"))
     show = primary[primary.partner.isin(PRIMARY + ["DNAPK_score", "STING_score"])][
         ["cohort", "partner", "n_pairwise", "rho", "p", "q_bh"]
     ]

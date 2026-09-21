@@ -6,7 +6,9 @@ LUAD and LUSC are the primary cohorts. Technical replicate pairs were averaged t
 
 ## Verdict
 
-Human CLDN4 protein is quantified in a minority of models. Among those models, the three DNA-PK subunits are **positive in LUAD and near zero in LUSC**, and none clear a nominal 0.05 or the within-histology BH threshold. The four STING-core proteins are **mixed in sign** in both histologies. A LUAD+LUSC pool (n=47) does not create a correlation that the separate histologies lack.
+**FINAL null** for a CLDN4 protein correlation with DNA-PK subunits or STING-core proteins on this public PDX TMT matrix.
+
+Human CLDN4 protein is quantified in a minority of models. Among those models, the three DNA-PK subunits are positive in LUAD and near zero in LUSC, and none clear a nominal 0.05 or the within-histology BH threshold. The four STING-core proteins are mixed in sign in both histologies. A LUAD+LUSC pool (n=47) does not create a correlation that the separate histologies lack. The LUAD DNA-PK sign was rechecked as complete-case Spearman, complete-case Pearson, Tukey and Cook outlier deletion, and within-LUAD subtype (below). Every pre-specified deciding test has p>0.05. The closest is Pearson CLDN4 vs XRCC5, r=0.401, p=0.0519, n=24.
 
 **What is present:** Human CLDN4 (O14493), PRKDC (P78527), XRCC5/Ku80 (P13010), XRCC6/Ku70 (P12956), STING1 (Q86WV6), CGAS (Q8N884), TBK1 (Q9UHD2), and IRF3 (Q14653) all have a human row. DNA-PK subunits and TBK1 are quantified in every model. The limiting count is CLDN4.
 
@@ -65,6 +67,33 @@ BH q is within histology, across the 7 pre-specified proteins. Scores are compos
 
 IRF3 is the thin pair (missing in part of the CLDN4-quantified set). A null at n=17–18 is underpowered relative to n=24/23. It is still the tested n.
 
+## LUAD DNA-PK sweep — FINAL null
+
+The only positive-looking block in the primary table is LUAD DNA-PK at n=24. One further sweep, same 24 models, no imputation. The 24 are a complete case: CLDN4, PRKDC, XRCC5, and XRCC6 are all non-missing, and none of the three technical-replicate models (PHLC113, PHLC116, PHLC277) is in this set.
+
+Deciding tests, all of which have p>0.05 (19 tests):
+
+| Sweep | PRKDC | XRCC5 (Ku80) | XRCC6 (Ku70) | DNA-PK score |
+|---|---|---|---|---|
+| Complete-case Spearman | ρ=0.245, p=0.25, n=24 | ρ=0.347, p=0.097, n=24 | ρ=0.341, p=0.10, n=24 | ρ=0.357, p=0.087, n=24 |
+| Complete-case Pearson | r=0.329, p=0.12, n=24 | r=0.401, p=**0.0519**, n=24 | r=0.357, p=0.086, n=24 | r=0.395, p=0.056, n=24 |
+| Drop Tukey 1.5 IQR outliers, Spearman | ρ=0.140, p=0.56, n=20 | ρ=0.211, p=0.35, n=22 | ρ=0.208, p=0.35, n=22 | ρ=0.258, p=0.26, n=21 |
+| Drop Cook's D > 4/n, Spearman | no point flagged; same as complete-case | no point flagged | no point flagged | no point flagged |
+
+Tukey deletion removes the low-CLDN4 model PHLC181 and makes the coefficients smaller. It does not sharpen the trend. Cook's distance flags nothing at 4/n.
+
+**Proteome subtype, the only within-LUAD label with n≥10.** LUAD3, n=10: PRKDC ρ=0.067, p=0.85; XRCC5 ρ=0.261, p=0.47; XRCC6 ρ=0.224, p=0.53. WHO growth pattern (lepidic, acinar, papillary, micropapillary, solid) is not a column in Supplementary Data 1 and was not tested. Transcriptome subtype and the smaller proteotypes are all n≤9.
+
+Disclosed, and not used to decide the call:
+
+- Leave-one-out minimum: deleting PHLC154 moves XRCC5 to ρ=0.452, p=0.031, n=23; XRCC6 to ρ=0.444, p=0.034; DNA-PK score to ρ=0.437, p=0.037. That is 2 of 24 deletions for each Ku subunit and 3 of 24 for the score. PRKDC never crosses 0.05 under leave-one-out (minimum p=0.11, deleting PHLC243). The minimum is the most favorable deletion, not a test. The full n=24 stays above 0.05.
+- LUAD2 proteotype, n=7: PRKDC ρ=0.786, p=0.036, BH q=0.33 across the 9 proteotype cells. In those same 7 models Ku80 and Ku70 are ρ=0.321, p=0.48.
+- Terminal respiratory unit, n=5: Ku80 and Ku70 ρ=0.900, p=0.037, BH q=0.22 across the 12 transcriptome cells. PRKDC in those 5 models is ρ=0.10, p=0.87.
+
+Those three nominal p-values are real and they are small-n or single-model deletions. None is a complete-case result on the 24, and none has q≤0.05 inside its own family. They do not reverse the call.
+
+**Call:** public PDX TMT is **FINAL null** for CLDN4 protein versus DNA-PK subunits and versus STING-core proteins. The LUAD DNA-PK sign at n=24 remains p>0.05 after complete-case Pearson, outlier deletion, and the only subtype bin with n≥10.
+
 ## Sensitivities (not a second primary)
 
 **Pooled LUAD+LUSC, n=47** (IRF3 n=35). DNA-PK ρ=0.141–0.167 (score 0.168, p=0.26). STING1 ρ=0.094, CGAS ρ=−0.156, TBK1 ρ=0.196 (p=0.19), IRF3 ρ=−0.157. STING score ρ=0.115, p=0.44. All 7 protein q≥0.43. The pool is reported so a combined n is on the record; it is not the primary test, because LUAD and LUSC DNA-PK coefficients are not the same.
@@ -90,6 +119,8 @@ IRF3 is the thin pair (missing in part of the CLDN4-quantified set). A null at n
 
 ## What this does not claim
 
+- Public PDX TMT is **FINAL null** on this question. Pearson XRCC5 p=0.0519 is above 0.05. It is not reported as p≤0.05.
+- Leave-one-out deletion of PHLC154, LUAD2 PRKDC at n=7, and terminal-respiratory-unit Ku proteins at n=5 have nominal p<0.05. They are in `luad_dnapk_sweep.tsv` and they are not the complete-case result.
 - It does not report a significant public correlation between CLDN4 protein and DNA-PK subunits.
 - It does not report a positive correlation between CLDN4 protein and STING1, CGAS, TBK1, or IRF3.
 - It does not impute the 32 LUAD / 38 LUSC models with no CLDN4 protein as zero, and it does not call that missingness a correlation.
@@ -107,7 +138,8 @@ IRF3 is the thin pair (missing in part of the CLDN4-quantified set). A null at n
 - `results/stroma_contrast.tsv` — mouse protein vs human CLDN4
 - `results/replicate_audit.tsv` — the three averaged pairs
 - `results/sample_scores.tsv` — per-model values
-- `results/summary.json`
+- `results/luad_dnapk_sweep.tsv` — complete-case, outlier, and subtype sweep; `counts_toward_final_call` marks the deciding rows
+- `results/summary.json` — `luad_dnapk_final` is `FINAL null`
 - `results/fig_cldn4_vs_dnapk_sting.png`
 
 ```bash

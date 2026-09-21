@@ -273,5 +273,16 @@
       "q_bh": null
     }
   ],
+  "luad_dnapk_final": {
+    "final_call": "FINAL null",
+    "n_deciding_tests": 19,
+    "min_p": 0.05188766509417761,
+    "min_p_sweep": "complete_case_pearson",
+    "min_p_partner": "XRCC5",
+    "min_p_stratum": "LUAD",
+    "min_p_n": 24,
+    "min_p_rho": 0.4013878127337244,
+    "rule": "FINAL null only if every pre-specified deciding test has p>0.05: LUAD complete-case Spearman, complete-case Pearson, Tukey outlier deletion, Cook outlier deletion, and within-LUAD label Spearman with n>=10. Leave-one-out minima and n<10 subtype cells are disclosed and do not decide."
+  },
   "rule": "No RNA stand-in. No mouse-stroma stand-in. No imputation of CLDN4 NA. LUAD and LUSC not pooled in the primary test."
 }
