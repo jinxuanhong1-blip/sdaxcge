@@ -1,0 +1,29 @@
+{
+  "n_cell_lines": 92,
+  "n_vivo_annotation_rows": 345,
+  "cellLineMeta_mentions_stk11": false,
+  "cellLineMeta_mentions_lkb1": false,
+  "vivoMeta_mentions_stk11": false,
+  "vivoMeta_mentions_lkb1": false,
+  "lung_lines_in_catalog": [
+    {
+      "cellLine": "LLC",
+      "cancerType": "Lung carcinoma",
+      "background": "C57BL/6"
+    },
+    {
+      "cellLine": "CMT-167",
+      "cancerType": "Lung carcinoma",
+      "background": "C57BL/lcrf"
+    },
+    {
+      "cellLine": "MLE12",
+      "cancerType": "Lung adenocarcinoma",
+      "background": "FVB/N"
+    }
+  ],
+  "kpb25l_cancer": "Mammary cancer, NOS",
+  "kpc_cancer": "Pancreatic ductal adenocarcinoma",
+  "llc_cancer": "Lung carcinoma",
+  "note": "No STK11/LKB1 annotation in TISMO cellLineMeta or vivoMeta. LLC is lung carcinoma, not KL. KPB25L is mammary. KPC is pancreatic."
+}
