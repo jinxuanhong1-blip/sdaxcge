@@ -1,0 +1,19 @@
+{
+  "concordant4_primary_winner": "M1",
+  "concordant4_primary_bic_gap": 14.662509251978918,
+  "concordant4_sum_winner": "M1",
+  "tcga_sum_winner": "M1",
+  "tcga_sum_bic_gap": 11.596176469647617,
+  "tcga_pooled_winner": "M1",
+  "tcga_votes": {
+    "LUAD": "M1",
+    "BRCA": "M2",
+    "CESC": "M2",
+    "KIRC": "M2",
+    "STAD": "M1",
+    "BLCA": "M1",
+    "PAAD": "M3"
+  },
+  "n_boot": 2000,
+  "seed": 20260921
+}

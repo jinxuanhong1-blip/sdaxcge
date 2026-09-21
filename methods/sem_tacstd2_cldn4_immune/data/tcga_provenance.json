@@ -1,0 +1,86 @@
+{
+  "source": "UCSC Xena GDC hub STAR log2(TPM+1), GENCODE v36 Ensembl IDs",
+  "probemap": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/gencode.v36.annotation.gtf.gene.probemap",
+  "ensembl_ids": {
+    "TACSTD2": "ENSG00000184292.7",
+    "CLDN4": "ENSG00000189143.9",
+    "CD8A": "ENSG00000153563.16",
+    "CD8B": "ENSG00000172116.23",
+    "CD3D": "ENSG00000167286.10",
+    "CD3E": "ENSG00000198851.10",
+    "CD3G": "ENSG00000160654.11",
+    "NKG7": "ENSG00000105374.10",
+    "GZMA": "ENSG00000145649.8",
+    "GZMB": "ENSG00000100453.13",
+    "PRF1": "ENSG00000180644.8",
+    "KRT8": "ENSG00000170421.12",
+    "KRT18": "ENSG00000111057.11",
+    "KRT19": "ENSG00000171345.13",
+    "KRT5": "ENSG00000186081.12",
+    "KRT6A": "ENSG00000205420.11",
+    "KRT6B": "ENSG00000185479.6",
+    "KRT14": "ENSG00000186847.6"
+  },
+  "sample_type": "primary solid tumor, barcode field 4 startswith 01; replicate aliquots averaged",
+  "cohorts": [
+    {
+      "cohort": "CESC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-CESC.star_tpm.tsv.gz",
+      "n_patients": 304,
+      "n_01_columns": 304,
+      "from_cache": false
+    },
+    {
+      "cohort": "LUAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUAD.star_tpm.tsv.gz",
+      "n_patients": 516,
+      "n_01_columns": 528,
+      "from_cache": false
+    },
+    {
+      "cohort": "LUSC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUSC.star_tpm.tsv.gz",
+      "n_patients": 501,
+      "n_01_columns": 501,
+      "from_cache": false
+    },
+    {
+      "cohort": "KIRC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-KIRC.star_tpm.tsv.gz",
+      "n_patients": 533,
+      "n_01_columns": 537,
+      "from_cache": false
+    },
+    {
+      "cohort": "STAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-STAD.star_tpm.tsv.gz",
+      "n_patients": 412,
+      "n_01_columns": 412,
+      "from_cache": false
+    },
+    {
+      "cohort": "BLCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BLCA.star_tpm.tsv.gz",
+      "n_patients": 406,
+      "n_01_columns": 409,
+      "from_cache": false
+    },
+    {
+      "cohort": "BRCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BRCA.star_tpm.tsv.gz",
+      "n_patients": 1095,
+      "n_01_columns": 1106,
+      "from_cache": false
+    },
+    {
+      "cohort": "PAAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-PAAD.star_tpm.tsv.gz",
+      "n_patients": 178,
+      "n_01_columns": 178,
+      "from_cache": false
+    }
+  ],
+  "n_rows": 3945,
+  "sha256": "3f41d59c14d65a9aa0063007eaaa4df3050a5d69fe06c2aa3d72e61c8d18d5ea",
+  "output": "/workspace/methods/sem_tacstd2_cldn4_immune/data/tcga_primary01_genes.tsv.gz"
+}
