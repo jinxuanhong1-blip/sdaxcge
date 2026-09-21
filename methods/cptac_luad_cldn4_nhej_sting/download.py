@@ -23,6 +23,7 @@ MAX_BYTES = 2 * 1024 * 1024 * 1024
 
 FILES = [
     "LUAD_proteomics_gene_abundance_log2_reference_intensity_normalized_Tumor.txt",
+    "LUAD_phospho_site_abundance_log2_reference_intensity_normalized_Tumor.txt",
     "LUAD_phenotype.txt",
 ]
 

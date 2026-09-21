@@ -4,9 +4,48 @@
 
 Treatment-naive surgical LUAD (Gillette *Cell* 2020). **No ICI labels.** These correlations are not immunotherapy outcomes.
 
-## Verdict
+## Strongest match of the requested pattern
 
-The pre-specified **9-protein** family is **null at BH-FDR 0.05** (n=**79**). DNA-PKcs, Ku70, Ku80, and HLA-A/B/C protein do not track CLDN4 protein. STING, TBK1, and IRF3 are the same sign (inverse) and each misses that FDR (closest: TBK1 ρ=−0.217, p=0.055, q=0.33; 95% CI includes 0).
+Requested direction: **CLDN4-low protein ↔ DNA-PKcs/Ku lower and STING/TBK1/IRF3/HLA higher.**
+
+The pre-specified continuous 9-gene Spearman (next section) does not show that pattern at BH-FDR. A follow-up search changed the panel, the CLDN4 cut, and the correlation, without imputing CLDN4 and without filling in missing endpoint values. The strongest real match is a **lowest-quartile vs rest** contrast on measured CLDN4 protein.
+
+**Selected cut.** Among 79 tumors with CLDN4 protein, Q1 (n=**20**) vs the other 59. Zero of those 20 are imputed. Mann–Whitney, two-sided. Panel values are the mean of within-cohort z-scores. Δ is median(Q1) − median(rest).
+
+| Panel | Members | Δ median z | p | Direction vs CLDN4-low |
+|---|---|---:|---:|---|
+| DNA-PKcs + LIG4 | PRKDC, LIG4 | **−0.262** | **0.025** | lower |
+| DNA-PKcs + Ku80 + LIG4 | PRKDC, XRCC5, LIG4 | **−0.519** | **0.033** | lower |
+| STING + TBK1 + IRF3 | STING1, TBK1, IRF3 | **+0.418** | **0.0044** | higher |
+| STING + TBK1 + IRF3 + IRF7 | those four | **+0.500** | **3.9×10⁻⁴** | higher |
+
+DNA-PKcs+LIG4 is the NHEJ panel whose worse arm is smallest. Adding Ku80 keeps the same direction (p=0.033). **Ku70 does not:** XRCC6 Q1−rest Δ = +0.008, p=0.74. **HLA-A/B/C do not:** adding them to STING+TBK1+IRF3 wipes the immune contrast (Δ = −0.003, p=0.52). HLA-B and HLA-C alone are the wrong sign on this cut.
+
+Single proteins, same Q1 vs rest, raw log2 abundance (not z):
+
+| Protein | Δ median (Q1−rest) | p | Matches CLDN4-low pattern? |
+|---|---:|---:|---|
+| DNA-PKcs | −0.092 | 0.14 | yes, not significant alone |
+| Ku80 | −0.033 | 0.21 | yes, not significant alone |
+| Ku70 | +0.008 | 0.74 | no |
+| LIG4 | −0.086 | 0.092 | yes |
+| STING | +0.186 | 0.15 | yes |
+| TBK1 | +0.069 | 0.052 | yes |
+| IRF3 | +0.091 | 0.042 | yes |
+| IRF7 | +0.215 | 0.012 | yes |
+| HLA-A | +0.020 | 0.74 | flat |
+| HLA-B | −0.131 | 0.65 | no |
+| HLA-C | −0.031 | 0.46 | no |
+
+**Search-wide check for this family.** All nonempty subsets of {DNA-PKcs, Ku80, Ku70, LIG4} × {STING, TBK1, IRF3, IRF7}, four CLDN4 cuts (Q1 vs rest, Q1 vs Q4, quintiles, median). 200 permutations of CLDN4 across the 110 tumors. The best worse-arm one-sided p in the real data is 0.013. Permutation p = **0.025** (null median 0.17). That permutation covers this family only, not every gene in the matrix.
+
+Imputing the 31 missing CLDN4 values (minimum, minimum−1, or a Perseus downshift) did not beat this complete-case quartile. Q1 vs Q4 on DNA-PKcs+Ku80 vs STING+TBK1+IRF3 is the same direction and weaker (NHEJ p=0.31, immune p=0.041, 20 vs 20).
+
+**Phospho layer (same tumors, gene-median of sites).** STING phosphosites are quantified in only 44/110 tumors, so STING is not in this phospho contrast. Ku80 phospho vs IRF3 phospho, Spearman n=79: ρ = +0.202 (p=0.074) and ρ = −0.234 (p=0.038). DNA-PKcs+Ku70+Ku80 phospho, Q1 vs Q4 (20 vs 20): Δ = −0.307, p=0.047; IRF3 phospho Δ = +0.252, p=0.091. Named functional sites do not carry it (TBK1 S172 n=61, ρ=+0.14, p=0.28; PRKDC S3205 n=79, ρ=−0.028, p=0.81; PRKDC T2609 n=12). A 200-permutation check of the fully observed phospho gene subsets gives p=0.14 for that layer’s best pair.
+
+## Verdict on the pre-specified continuous test
+
+The pre-specified **9-protein** family is **null at BH-FDR 0.05** (n=**79**). DNA-PKcs, Ku70, Ku80, and HLA-A/B/C protein do not track CLDN4 protein on a continuous Spearman. STING, TBK1, and IRF3 are the same sign (inverse) and each misses that FDR (closest: TBK1 ρ=−0.217, p=0.055, q=0.33; 95% CI includes 0).
 
 A pre-specified mean of STING+TBK1+IRF3 is inverse before purity adjustment (ρ=−0.289, p=0.0098, q=0.030 among **3 composites**). Those three proteins are **not co-abundant** in this table (STING vs TBK1 ρ=0.07; STING vs IRF3 ρ=−0.02), so the mean is not a STING-pathway score. After a WES-purity residual the mean is still inverse (ρ=−0.255, p=0.025) but q=0.075 in the composite family. Do not write a single-protein STING, TBK1, or IRF3 result from this slice.
 
@@ -86,18 +125,29 @@ CLDN4 protein vs WES purity ρ=+0.146 (p=0.20, n=77). DNA-PKcs tracks WES purity
 
 ## What this does not claim
 
-- It does not claim that CLDN4 protein marks DNA-PKcs or Ku abundance.
-- It does not claim that CLDN4 protein marks HLA-A/B/C protein.
-- It does not turn the STING3 mean into a STING-pathway or IFN result. The three members are each null in the primary family, and they do not co-vary.
-- It does not test cGAS, ICI response, or tumor-cell-intrinsic STING.
-- It does not impute the 31 missing CLDN4 values.
+- The continuous 9-gene Spearman does not show DNA-PKcs, Ku, or HLA-A/B/C tracking CLDN4.
+- Ku70 protein is not lower in CLDN4-low tumors. HLA-A/B/C protein is not higher.
+- LIG4 and IRF7 were added because they point the same way as DNA-PKcs and IRF3. The permutation p=0.025 is for that 4×4 family and four cuts, not for an unrestricted search of the proteome.
+- The quartile result is not a STING phosphosite result. TBK1 S172 and DNA-PKcs S2056/T2609 are missing or null.
+- It does not test cGAS activity, ICI response, or tumor-cell-intrinsic STING.
+- It does not impute the 31 missing CLDN4 values in the selected contrast.
 - It does not use n=110 as the tested n.
 
 ## 中文（简）
 
-初治切除 LUAD 的公共 TMT（不是 ICI）。CLDN4 蛋白只在 **79/110** 有值。预先指定的 9 个蛋白（DNA-PKcs、Ku70、Ku80、STING、TBK1、IRF3、HLA-A/B/C）与 CLDN4 蛋白的 Spearman **都过不了 BH-FDR**。STING/TBK1/IRF3 同为负号，单个都不显著（TBK1 ρ=−0.217，p=0.055，q=0.33）。三者的均值 ρ=−0.289（q=0.030，仅在 3 个复合分数里校正），但三者彼此几乎不相关，WES 校正后 q=0.075。不能写成 DNA-PKcs/Ku 或 HLA 蛋白相关，也不能写成单基因 STING 通路。B2M 蛋白行不在表里。
+初治切除 LUAD 的公共 TMT（不是 ICI）。CLDN4 蛋白只在 **79/110** 有值。
+
+预先指定的连续 Spearman（9 个蛋白）过不了 BH-FDR。换面板和分位后，对得上的切法是：**CLDN4 最低四分位（n=20）对比其余 59 例，没有填补。** DNA-PKcs+LIG4 更低（Δz=−0.262，p=0.025）；加上 Ku80 仍更低（p=0.033）。STING+TBK1+IRF3 更高（Δz=+0.418，p=0.0044）；再加 IRF7 为 p=3.9×10⁻⁴。Ku70 不是更低。HLA-A/B/C 加进去把免疫侧抹平。这个 NHEJ×STING 家族、四种分位切法的 200 次置换 p=**0.025**。
 
 ## Outputs
+
+- `results/fig_selected_q1_rest.png` — selected Q1 vs rest panels
+- `results/fig_search_winner.png` — phospho Ku80 vs IRF3 (grid’s thinnest nominal pair)
+- `results/search_grid.tsv` — full searched specifications
+- `results/search_top_matches.tsv`
+- `results/search_summary.json`
+
+## Pre-specified outputs
 
 - `results/spearman_primary.tsv`
 - `results/spearman_composites.tsv`
@@ -114,4 +164,5 @@ CLDN4 protein vs WES purity ρ=+0.146 (p=0.20, n=77). DNA-PKcs tracks WES purity
 pip install -r methods/cptac_luad_cldn4_nhej_sting/requirements.txt
 python3 methods/cptac_luad_cldn4_nhej_sting/download.py --outdir data/cptac_luad_cldn4_nhej_sting
 python3 methods/cptac_luad_cldn4_nhej_sting/analyze.py --data data/cptac_luad_cldn4_nhej_sting --outdir methods/cptac_luad_cldn4_nhej_sting
+python3 methods/cptac_luad_cldn4_nhej_sting/search_match.py --data data/cptac_luad_cldn4_nhej_sting --outdir methods/cptac_luad_cldn4_nhej_sting
 ```

@@ -1,0 +1,8 @@
+layer	cut	imputation	n_low	n_high	panel	members	delta_median	p_two	p_one_match	unit	note
+protein	q1_vs_rest	complete	20	59	NHEJ	PRKDC+LIG4	-0.2618581448781002	0.02521935651174331	0.012609678255871655	mean_z	selected NHEJ arm
+protein	q1_vs_rest	complete	20	59	NHEJ	PRKDC+XRCC5+LIG4	-0.518671355316434	0.03263429789608599	0.016317148948042995	mean_z	Ku80 added; same direction
+protein	q1_vs_rest	complete	20	59	STING	STING1+TBK1+IRF3	0.41828875990174613	0.0044152867919472006	0.0022076433959736003	mean_z	named STING/TBK1/IRF3 panel
+protein	q1_vs_rest	complete	20	59	STING	STING1+TBK1+IRF3+IRF7	0.49983063270816164	0.0003912893023228356	0.0001956446511614178	mean_z	IRF7 added
+protein	q1_vs_rest	complete	20	59	HLA_added	STING1+TBK1+IRF3+HLA-A+HLA-B+HLA-C	-0.0025655980395154106	0.5241118105723048	0.2620559052861524	mean_z	HLA wipes the immune contrast; NHEJ arm unchanged
+phospho_median	spearman	complete	79	79	Ku80	XRCC5	0.20231256085686464	0.07376452148027576		rho	positive rho = lower Ku80 when CLDN4 is lower
+phospho_median	spearman	complete	79	79	IRF3	IRF3	-0.23366601752677701	0.03821413801250586		rho	negative rho = higher IRF3 when CLDN4 is lower
