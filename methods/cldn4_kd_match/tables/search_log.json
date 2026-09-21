@@ -1,0 +1,306 @@
+{
+  "searches": [
+    {
+      "db": "gds",
+      "term": "(CLDN4 OR Cldn4) AND (knockout OR \"knock-out\" OR CRISPR OR knockdown OR silencing OR siRNA OR shRNA)",
+      "count": 15,
+      "ids": [
+        "200207704",
+        "200084742",
+        "200060885",
+        "200022493",
+        "306310647",
+        "306310646",
+        "306310645",
+        "306310644",
+        "306310643",
+        "306310642",
+        "306310641",
+        "306310640",
+        "300558702",
+        "300558701",
+        "300558700"
+      ]
+    },
+    {
+      "db": "gds",
+      "term": "Cldn4 OR \"claudin 4\" OR \"claudin-4\" OR CLDN4",
+      "count": 43,
+      "ids": [
+        "200310539",
+        "200309751",
+        "200330007",
+        "200309894",
+        "200279689",
+        "200282371",
+        "200244820",
+        "200268909",
+        "200247271",
+        "200247130",
+        "200264098",
+        "200207704",
+        "200196005",
+        "200108417",
+        "200099417",
+        "200099416",
+        "200099415",
+        "200084742",
+        "200065107",
+        "200060885",
+        "200050927",
+        "200048443",
+        "4961",
+        "200026055",
+        "200022493",
+        "200011759",
+        "5284",
+        "306310647",
+        "306310646",
+        "306310645",
+        "306310644",
+        "306310643",
+        "306310642",
+        "306310641",
+        "306310640",
+        "301232584",
+        "301232583",
+        "301232582",
+        "301232581",
+        "301232580",
+        "300558702",
+        "300558701",
+        "300558700"
+      ]
+    },
+    {
+      "db": "gds",
+      "term": "SAA1 AND CLDN4 AND (knockout OR CRISPR OR H1688)",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "db": "gds",
+      "term": "H1688 AND (CLDN4 OR SAA1 OR knockout)",
+      "count": 1,
+      "ids": [
+        "200174462"
+      ]
+    },
+    {
+      "db": "sra",
+      "term": "CLDN4 AND (knockout OR CRISPR) AND (lung OR H1688 OR SCLC)",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "db": "sra",
+      "term": "H1688 AND (CLDN4 OR SAA1)",
+      "count": 0,
+      "ids": []
+    },
+    {
+      "db": "pubmed",
+      "term": "(CLDN4 OR Cldn4 OR \"claudin-4\") AND (knockout OR CRISPR) AND (proteome OR proteomics OR \"mass spectrometry\" OR PRIDE OR ProteomeXchange)",
+      "count": 3,
+      "ids": [
+        "38345099",
+        "37889067",
+        "19318328"
+      ]
+    },
+    {
+      "db": "pubmed",
+      "term": "(CLDN4 OR Cldn4) AND (knockout OR CRISPR OR knockdown) AND (lung OR H1688 OR SCLC) AND (\"RNA-seq\" OR RNA-seq OR transcriptome)",
+      "count": 4,
+      "ids": [
+        "41016339",
+        "36840413",
+        "33006362",
+        "25106430"
+      ]
+    }
+  ],
+  "gds_titles": {
+    "(CLDN4 OR Cldn4) AND (knockout OR \"knock-out\" OR CRISPR OR knockdown OR silencing OR siRNA OR shRNA)": [
+      {
+        "accession": "GSE207704",
+        "n_samples": 8,
+        "title": "Claudin-4\u2013adhesion signaling drives breast cancer metabolism and progression via liver X receptor \u03b2"
+      },
+      {
+        "accession": "GSE84742",
+        "n_samples": 8,
+        "title": "Claudin-based barrier differentiation in the colonic epithelial crypt niche involves Hopx/Klf4 and Tcf7l2/Hnf4-alpha cascades"
+      },
+      {
+        "accession": "GSE60885",
+        "n_samples": 17,
+        "title": "Genome-wide DNA methylation identifies trophoblast invasion-related genes: Claudin-4 and Fucosyltransferase IV control mobility via altering matrix metalloproteinase activity"
+      },
+      {
+        "accession": "GSE22493",
+        "n_samples": 3,
+        "title": "Comparisons of the global gene profile between CLDN4-overexpressing and CLDN4-silencing ovarian cancer cells."
+      }
+    ],
+    "Cldn4 OR \"claudin 4\" OR \"claudin-4\" OR CLDN4": [
+      {
+        "accession": "GSE310539",
+        "n_samples": 8,
+        "title": "AP-1 mediated chromatin changes govern alveolar type 2 cell transition in lung injury-repair [multiome]"
+      },
+      {
+        "accession": "GSE309751",
+        "n_samples": 14,
+        "title": "AP-1 mediated chromatin changes govern alveolar type 2 cell transition in lung injury-repair"
+      },
+      {
+        "accession": "GSE330007",
+        "n_samples": 19,
+        "title": "Transcriptomic Analysis Reveals Molecular Signatures Distinguishing Vocal Fold Leukoplakia from Benign Lesions: Synergistic Dysregulation of Chronic Inflammation, Immune Dysfunction, and Epithelial Barrier Disruption"
+      },
+      {
+        "accession": "GSE309894",
+        "n_samples": 34,
+        "title": "Clinical Characteristics and Spatial transcriptome analysis of Early Resistance to Alectinib in ALK-Positive non-small cell lung cancer: A Retrospective OLCSG Study"
+      },
+      {
+        "accession": "GSE279689",
+        "n_samples": 15,
+        "title": "Gonadotropins regulate cell adhesion and spermiation through a cross-talk between oxytocin and relaxin pathways in Senegalese sole"
+      },
+      {
+        "accession": "GSE282371",
+        "n_samples": 26,
+        "title": "Combined Th2 and Th17/22 cytokines models atopic dermatitis pathophysiology in vitro"
+      },
+      {
+        "accession": "GSE244820",
+        "n_samples": 10,
+        "title": "Activation of alveolar epithelial ER stress by b-coronavirus infection disrupts surfactant homeostasis in mice: implications for COVID-19 respiratory failure"
+      },
+      {
+        "accession": "GSE268909",
+        "n_samples": 26,
+        "title": "Effects of hyperglycemia on airway epithelial barrier function in WT and CF 16HBE cells"
+      },
+      {
+        "accession": "GSE247271",
+        "n_samples": 30,
+        "title": "CEBPA restricts alveolar type 2 cell plasticity during development and injury-repair [ChIP-seq]"
+      },
+      {
+        "accession": "GSE247130",
+        "n_samples": 12,
+        "title": "CEBPA restricts alveolar type 2 cell plasticity during development and injury-repair [1]"
+      },
+      {
+        "accession": "GSE264098",
+        "n_samples": 4,
+        "title": "CEBPA restricts alveolar type 2 cell plasticity during development and injury-repair [scATAC-seq]"
+      },
+      {
+        "accession": "GSE207704",
+        "n_samples": 8,
+        "title": "Claudin-4\u2013adhesion signaling drives breast cancer metabolism and progression via liver X receptor \u03b2"
+      },
+      {
+        "accession": "GSE196005",
+        "n_samples": 22,
+        "title": "CD90 marks a mesenchymal program in human thymic epithelial cells in vitro and in vivo"
+      },
+      {
+        "accession": "GSE108417",
+        "n_samples": 12,
+        "title": "Airway epithelial barrier, mucins and inflammasome in distinct eosinophilic, neutrophilic and mixed inflammatory phenotypes of asthma"
+      },
+      {
+        "accession": "GSE99417",
+        "n_samples": 24,
+        "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion"
+      },
+      {
+        "accession": "GSE99416",
+        "n_samples": 12,
+        "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion (lncRNA)"
+      },
+      {
+        "accession": "GSE99415",
+        "n_samples": 12,
+        "title": "Non-coding RNAs participate in the regulatory network of CLDN4 via ceRNA-mediated miRNA evasion (miRNA)"
+      },
+      {
+        "accession": "GSE84742",
+        "n_samples": 8,
+        "title": "Claudin-based barrier differentiation in the colonic epithelial crypt niche involves Hopx/Klf4 and Tcf7l2/Hnf4-alpha cascades"
+      },
+      {
+        "accession": "GSE65107",
+        "n_samples": 8,
+        "title": "Diarrhea in lymphocytic colitis: ERK1/2-dependent ENaC dysregulation and claudin-4-, -5- and -8-related barrier defects"
+      },
+      {
+        "accession": "GSE60885",
+        "n_samples": 17,
+        "title": "Genome-wide DNA methylation identifies trophoblast invasion-related genes: Claudin-4 and Fucosyltransferase IV control mobility via altering matrix metalloproteinase activity"
+      },
+      {
+        "accession": "GSE50927",
+        "n_samples": 5,
+        "title": "RNAseq on lungs from WT vs claudin 4 KO mice that underwent ventilator-induced lung injury"
+      },
+      {
+        "accession": "GSE48443",
+        "n_samples": 7,
+        "title": "Knockout mice reveal key roles for claudin-18 in alveolar fluid homeostasis."
+      },
+      {
+        "accession": "GSE26055",
+        "n_samples": 8,
+        "title": "Claudin-7 is frequently overexpressed in ovarian cancer and promotes invasion"
+      },
+      {
+        "accession": "GSE22493",
+        "n_samples": 3,
+        "title": "Comparisons of the global gene profile between CLDN4-overexpressing and CLDN4-silencing ovarian cancer cells."
+      },
+      {
+        "accession": "GSE11759",
+        "n_samples": 6,
+        "title": "Role of HNF4alpha in the adult colon"
+      }
+    ],
+    "SAA1 AND CLDN4 AND (knockout OR CRISPR OR H1688)": [],
+    "H1688 AND (CLDN4 OR SAA1 OR knockout)": [
+      {
+        "accession": "GSE174462",
+        "n_samples": 6,
+        "title": "Studying the gene expression of FOXM1- depleted SCLC cell lines by RNA-seq"
+      }
+    ]
+  },
+  "pride": [
+    {
+      "keyword": "CLDN4",
+      "count": 0,
+      "accessions": []
+    },
+    {
+      "keyword": "claudin-4",
+      "count": 0,
+      "accessions": []
+    },
+    {
+      "keyword": "Cldn4",
+      "count": 0,
+      "accessions": []
+    }
+  ],
+  "europepmc_41016339": {
+    "pmid": "41016339",
+    "doi": "10.1016/j.bbrc.2025.152710",
+    "pmcid": null,
+    "hasData": "N",
+    "title": "CLDN4 regulates cell proliferation in small cell lung cancer cells via SAA1 inhibition."
+  }
+}
