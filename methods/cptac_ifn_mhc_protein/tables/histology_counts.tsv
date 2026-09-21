@@ -1,0 +1,40 @@
+cohort	axis	level	n_tumors	n_cldn4
+LUAD	dominant_histological_subtype	acinar	76	53
+LUAD	dominant_histological_subtype	solid	9	8
+LUAD	dominant_histological_subtype	papillary	9	7
+LUAD	dominant_histological_subtype	micropapillary	4	4
+LUAD	dominant_histological_subtype	sarcomatoid	4	2
+LUAD	dominant_histological_subtype	invasive-mucinous	3	2
+LUAD	dominant_histological_subtype	lepidic	3	2
+LUAD	dominant_histological_subtype	intestinal	2	1
+LUAD	histologic_grade	G2 Moderately differentiated	58	41
+LUAD	histologic_grade	G3 Poorly differentiated	39	27
+LUAD	histologic_grade	G1 Well differentiated	7	6
+LUAD	histologic_grade	NA	6	5
+LUAD	tested_stratum	grade_G2	58	41
+LUAD	tested_stratum	grade_G3	39	27
+LUAD	tested_stratum	acinar	76	53
+LUAD	tested_stratum	non_acinar	34	26
+LSCC	pathology_text	classical SqCC	29	21
+LSCC	pathology_text	SqCC	20	10
+LSCC	pathology_text	SqCC with myxoid stroma, fibroblasts	16	13
+LSCC	pathology_text	MD SqCC with focal basaloid features	13	10
+LSCC	pathology_text	Basaloid SqCC	12	11
+LSCC	pathology_text	MD SqCC	4	4
+LSCC	pathology_text	PD SqCC with basaloid features	4	3
+LSCC	pathology_text	MD-PD SqCC  with basaloid features	2	1
+LSCC	pathology_text	PD SqCC	2	0
+LSCC	pathology_text	MD-PD SqCC  with clear cell features	1	1
+LSCC	pathology_text	Adenosquamous? With dominate SqCC	1	1
+LSCC	pathology_text	PD SqCC with basaloid and sarcomatoid features	1	1
+LSCC	pathology_text	MD SqCC with basaloid features	1	1
+LSCC	pathology_text	MD-PD SqCC	1	1
+LSCC	pathology_text	MD  SqCC	1	0
+LSCC	histologic_grade	G2 Moderately differentiated	58	46
+LSCC	histologic_grade	G3 Poorly differentiated	46	28
+LSCC	histologic_grade	NA	3	3
+LSCC	histologic_grade	G1 Well differentiated	1	1
+LSCC	tested_stratum	grade_G2	58	46
+LSCC	tested_stratum	grade_G3	46	28
+LSCC	tested_stratum	basaloid	33	27
+LSCC	tested_stratum	not_basaloid	75	51
