@@ -1,4 +1,77 @@
-# GSE245459 SKOV3 shTACSTD2 — is the IFN/APM shift specific?
+# GSE245459 SKOV3 TACSTD2 shRNA — IFN/APM direction
+
+**This is TACSTD2/TROP2 shRNA in SKOV3, not a CLDN4 knockdown.** Ovarian line, author FPKM, n = 3. The thesis wants IFN/APM up after barrier-gene loss. The search below asks where that increase exists.
+
+---
+
+## Search for an IFN/APM increase
+
+Script: `scripts/gse245459_specificity/sweep_thesis_up.py`.
+Eight transforms (log2(FPKM+1), pseudocount 0.1 and 0.01, positive-only log2, upper-quartile log2, CLR, housekeeping-centered log2, within-sample rank). Three thesis estimands (untreated knockdown, knockdown on cisplatin, their interaction). Thirteen IFN/APM sets (C4 panel, APM and its HLA / peptide-loading / immunoproteasome splits, a custom ISG list, Hallmark IFN-α, Hallmark IFN-γ, their overlap, IFN-α with APM genes removed, CXCL9/10/11). That is 312 IFN/APM tests. Wilcoxon signed-rank p-values for an increase were BH-adjusted across the 264 tests with at least 5 genes. The search was run after the untreated decrease was already known, so a small p here is the best hit inside that search, not a pre-registered confirmation.
+
+Context sets (E2F, G2/M, EMT, apoptosis, TNFα, IL-6, inflammatory, allograft rejection, epithelial identity, housekeeping) were scored on the same contrasts and were not entered in the IFN/APM FDR.
+
+### Untreated knockdown — no IFN/APM increase
+
+**0 of 104** untreated IFN/APM tests have a positive median effect. On the reference transform log2(FPKM+1):
+
+| Set | n | median log2FC | up/down | one-sided Wilcoxon p for an increase |
+|---|---:|---:|---|---:|
+| C4 panel | 6 | −0.571 | 0/6 | 1 |
+| APM | 18 | −0.448 | 3/15 | 0.998 |
+| APM without HLA-A | 17 | −0.402 | 3/14 | 0.997 |
+| Custom IFN/ISG | 44 | −0.531 | 2/42 | 1 |
+| Hallmark IFN-α | 83 | −0.542 | 11/72 | 1 |
+| Hallmark IFN-γ | 146 | −0.465 | 33/113 | 1 |
+
+Sample-level one-sided p-values for an increase are > 0.998. BH q for an increase is 1. Leave-one-out of each untreated library keeps every core median negative. Dropping, together, the scramble sample with the highest IFN score and the knockdown sample with the lowest IFN score still leaves Hallmark IFN-α at −0.52 and the custom IFN set at −0.50. Within-group Pearson r on genes with mean FPKM ≥ 1 is 0.986–0.990. Replicates sit together on PC1/PC2.
+
+Held-out co-regulation does not rescue the sign. IFN/APM genes with Spearman ρ ≤ −0.4 or ≥ 0.4 versus CLDN4, or versus TACSTD2, on the six cisplatin libraries are still down when the knockdown is tested on the untreated libraries (anti-CLDN4 median −0.53, n = 110; co-CLDN4 median −0.25, n = 58).
+
+CD274 is down (−0.10). STAT1 −0.49, IRF1 −0.29, HLA-A −4.17, IFIT1 −1.89, ISG15 −0.62, B2M −0.51.
+
+**Untreated call.** There is no TACSTD2-shRNA normalization, gene set, sample drop, or CLDN4/TACSTD2 co-regulation subset in this search that puts IFN/APM up. The untreated decrease stands. What that decrease is, relative to the rest of the transcriptome, is in the section below.
+
+### Knockdown on cisplatin — the IFN/APM increase
+
+Estimand: shTACSTD2+DDP versus shNC+DDP (cisplatin 10 µg/ml, 48 h). Both sides are TACSTD2 shRNA versus scramble. CLDN4 is not the perturbed gene, and on this arm it is not further reduced (PR #97: log2FC −0.14, p = 0.099).
+
+Every one of the 104 knockdown-on-cisplatin IFN/APM tests has a positive median, in all eight transforms. Reference transform:
+
+| Set | n | median log2FC | up/down | Wilcoxon p (up) | sample p (up) | BH q inside the 264-test search |
+|---|---:|---:|---|---:|---:|---:|
+| Hallmark IFN-α | 79 | **+0.406** | 60/19 | 3.7×10⁻⁷ | 0.0031 | **2.3×10⁻⁶** |
+| Hallmark IFN-α without APM genes | 72 | +0.393 | 54/18 | 1.6×10⁻⁶ | 0.0034 | 8.7×10⁻⁶ |
+| Custom IFN/ISG | 37 | **+0.504** | 30/7 | 4.9×10⁻⁶ | 0.0053 | 2.4×10⁻⁵ |
+| Hallmark IFN-α ∩ IFN-γ | 57 | +0.356 | 41/16 | 9.6×10⁻⁵ | 0.0029 | 3.8×10⁻⁴ |
+| Hallmark IFN-γ | 134 | +0.188 | 80/54 | 7.1×10⁻⁴ | 0.0044 | 0.0023 |
+| APM without HLA-A | 17 | +0.397 | 14/3 | 0.0064 | 0.0070 | 0.017 |
+| APM | 18 | +0.397 | 14/4 | 0.033 | 0.017 | 0.060 |
+| C4 six-gene panel | 4 | +0.410 | 3/1 | fewer than 5 genes | 0.071 | — |
+
+The C4 genes on this arm: IFIT1 +2.29, ISG15 +0.50, IFI27 +0.32, MX1 +0.24, OAS2 +0.009, HLA-A **−2.11**. HLA-A stays down, which is why the six-gene score is not a sample-level increase (p = 0.071) and why full APM loses the search FDR (q = 0.060) until HLA-A is removed. CD274 is down (−0.22). STAT1 is +0.09. IRF1 is −0.03. NLRC5 is +0.95. B2M is +0.44.
+
+On the same contrast the context sets do not rise: E2F median −0.30, G2/M −0.21, TNFα −0.45, epithelial identity −0.16, housekeeping −0.14, EMT +0.15 (Wilcoxon p for an increase 0.19). Leaving out any one cisplatin library keeps Hallmark IFN-α, the custom IFN set, and APM positive (IFN-α medians +0.36 to +0.45).
+
+**Cisplatin-arm call.** The strongest thesis-aligned IFN/APM increase in the reference normalization is Hallmark IFN-α, median log2FC +0.41, 60/79 genes up, search q = 2.3×10⁻⁶. It is a TACSTD2-shRNA effect on a cisplatin background. It is not an untreated effect and it is not a CLDN4 knockdown.
+
+### Interaction
+
+(KD effect on cisplatin) − (KD effect off cisplatin) is positive for the IFN sets (Hallmark IFN-α median +0.90 on log2(FPKM+1)). That number is large because the untreated effect is negative. EMT’s interaction median is +0.87 and epithelial identity’s is +1.03, while E2F’s is −1.20. The interaction is the arithmetic consequence of a decrease off drug and an increase on drug. It is not an IFN-specific level increase, and it is not reported as one.
+
+### Co-regulation, held out
+
+Genes were split by Spearman correlation with CLDN4 or TACSTD2 on one arm and tested on the other. Anti-correlated genes (ρ ≤ −0.4) are down on both tests. Genes that move with CLDN4 on the untreated arm (ρ ≥ 0.4, 130 genes after the expression floor) are up on the cisplatin knockdown (median +0.37, 96/130 up). That subset is most of the IFN/APM universe, because most of those genes fall together with CLDN4 off drug. It restates the cisplatin-arm increase. It does not create an untreated increase.
+
+### 中文（这次搜索）
+
+扰动是 SKOV3 的 **TACSTD2/TROP2 shRNA**，不是 CLDN4 敲低。未加药的 104 个 IFN/APM 检验中位数全部为负（0/104 上升）。留一法、连最有利于“上升”的双样本剔除、以及用顺铂臂定义的 CLDN4/TACSTD2 共调控子集，都不能把未加药方向改成上升。
+
+上升只出现在两边都加顺铂时：Hallmark IFN-α 中位 log2FC **+0.41**（79 个基因，60 升 / 19 降，搜索内 BH q = 2.3×10⁻⁶）。自定义 IFN 集 +0.50。去掉 HLA-A 的 APM +0.40（q = 0.017）。C4 六基因里 IFIT1 +2.29、ISG15 +0.50，但 HLA-A 仍为 −2.11，六基因样本检验 p = 0.071。同一对比里 E2F、G2/M、上皮身份基因不升。交互项很大，是因为未加药降幅被减掉了，EMT 的交互同样为正，不把它当成 IFN 水平上升。
+
+---
+
+# Earlier slice — is the untreated IFN/APM decrease specific?
 
 **Slice:** `scripts/gse245459_specificity/` and `results/gse245459_specificity/`
 **Dataset:** [GSE245459](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245459) (Han et al., *J Cancer* 2024). Author FPKM, SKOV3, n = 3 per group.
@@ -102,6 +175,7 @@ Ovarian SKOV3, not lung. The perturbation is TACSTD2 shRNA, not CLDN4 KD. Author
 
 ```
 python3 scripts/gse245459_specificity/analyze.py
+python3 scripts/gse245459_specificity/sweep_thesis_up.py
 ```
 
 The script downloads `GSE245459_fpkm.anno.txt.gz` from GEO if `results/gse245459_specificity/raw/` is empty. Tables are in `results/gse245459_specificity/tables/`. Figure: `results/gse245459_specificity/figures/ifn_vs_global_epithelial.png`.
