@@ -1,0 +1,12 @@
+DoRothEA human TF–target weights, confidence A, B, and C.
+
+Downloaded 2026-08-17 from OmniPath for the winning-pair analysis and reused here unchanged:
+
+  https://omnipathdb.org/interactions?datasets=dorothea&organisms=9606&genesymbols=1&fields=dorothea_level&dorothea_levels=A,B,C
+
+Columns in dorothea_hs_ABC.tsv: source, target, mor, confidence.
+mor is +1 (activation) or −1 (repression). Unsigned edges were stored as +1,
+the decoupleR convention (Badia-i-Mompel et al., Bioinformatics Advances, 2022).
+
+References: Garcia-Alonso et al., Genome Research 2019; Türei et al., OmniPath.
+This is a curated regulon, not a lung ChIP-seq track and not a SCENIC/cisTarget inference.
