@@ -1,0 +1,19 @@
+record	class	public_CLDN4_KD_or_OE_matrix	assay	already_cataloged	call	url
+GSE50927	known_CLDN4_KO	yes	mouse lung Cldn4 KO RNA-seq	yes_PR43_PR88_PR116	IFN opens in uninjured lung. Not re-scored in this wave.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50927
+GSE207704	known_CLDN4_KO	yes	MCF7/T47D CRISPR CLDN4-/- collapsed FPKM	yes_PR43_PR98	NHEJ set flat (median log2FC -0.027). STING set median -0.17. TP53BP1 mRNA up in both lines.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE207704
+GSE22493	known_CLDN4_KD_and_OE	yes	SKOV-3 two-color array, KD vs CLDN4-OE control	yes_PR43_PR104	Only public CLDN4 overexpression transcriptome, and it is the control channel of the siRNA experiment. STING median log2FC -0.18. NHEJ median -0.06.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22493
+GSE245459	known_wrong_gene	no	SKOV3 shTACSTD2	yes_PR97	Not a CLDN4 perturbation.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE245459
+GSE274940	known_wrong_perturbation	no	EpH4 complete Cldn-null	yes_PR116	All claudins removed.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE274940
+GSE22421	known_ligand	no	SKOV-3 C-CPE microarray	yes_PR116	Ligand, not genetic KD/OE.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22421
+GSE252340	positive_STING_control	no	H1944 BAY1217389 vs DMSO RNA-seq counts, n=2+2	no	STING/IFN panel median log2FC +2.45 (45/46 up). TREX1 +2.56. Not a CLDN4 experiment.	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE252340
+PMID35373300	Bitler_RPPA_request_only	no	OVCAR3 shCLDN4 RPPA n=3 vs 3	no	Yamamoto 2022 MCT. Matrix is on request. Paper reports 53BP1 and XRCC1 protein down and NHEJ down.	https://pubmed.ncbi.nlm.nih.gov/35373300/
+PMID41214101	Bitler_OE_KD_no_matrix	no	OVCAR8 CLDN4 OE; OVCAR3 and OVCA429 CRISPRi	no	Villagomez 2025 Sci Rep. ISRE reporter and pSTING blots. Raw data on request. No RNA-seq or RPPA deposit.	https://pubmed.ncbi.nlm.nih.gov/41214101/
+PMID39625235	Bitler_OE_KD_no_matrix	no	OVCAR8 OE; OVCAR3/OVCA429 KD	no	Villagomez 2025 CRC. Imaging and cell cycle. TCGA only; other data on request.	https://pubmed.ncbi.nlm.nih.gov/39625235/
+PMID38867360	Bitler_CRISPRi_no_matrix	no	CLDN4 CRISPRi	no	Villagomez 2024 CRC autophagy. No RNA-seq or RPPA.	https://pubmed.ncbi.nlm.nih.gov/38867360/
+PMID30606772	Bitler_shRNA_no_matrix	no	ovarian shCLDN4	no	Breed 2019 MCR paclitaxel. No transcriptome. Uses observational GSE18521.	https://pubmed.ncbi.nlm.nih.gov/30606772/
+DOI_10.1158/1557-3265.ovca19-a30	Bitler_abstract_RNAseq	no	OVCAR3 CLDN4 KD RNA-seq claimed	no	2019 AACR abstract (Webb, Neville, Bitler). EMT RNA-seq described. No GSE assigned.	https://doi.org/10.1158/1557-3265.ovca19-a30
+PMID41016339	reported_RNAseq_no_accession	no	H1688 CRISPR CLDN4 KO RNA-seq	yes_PR116	Kashiwagi 2025. Still no GSE/SRA.	https://pubmed.ncbi.nlm.nih.gov/41016339/
+PMID40892111	reported_RNAseq_no_accession	no	pancreatitis CLDN4 shRNA RNA-seq	yes_PR116	Zheng 2025. Still no GSE/SRA.	https://pubmed.ncbi.nlm.nih.gov/40892111/
+PMID38477100	OE_no_transcriptome	no	lentiviral Cldn4 OE in penile smooth muscle	no	qPCR and immunofluorescence of the OE. No perturbation RNA-seq deposited.	https://pubmed.ncbi.nlm.nih.gov/38477100/
+SRP263109	SRA_not_expression	no	4C-seq at the CLDN4 locus after MSH2 KO	yes_PR116_as_4C	Not a CLDN4 KD/OE transcriptome.	https://www.ncbi.nlm.nih.gov/sra?term=SRP263109
+GEO_RPPA_query	empty	no	CLDN4 AND (RPPA OR reverse phase) in GEO	no	0 GDS hits on 2026-09-21.	https://www.ncbi.nlm.nih.gov/gds
