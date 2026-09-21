@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import argparse
 import gzip
+import json
 import math
 import re
 from pathlib import Path
@@ -82,7 +83,8 @@ def load_alias_groups() -> dict[str, set[str]]:
 def resolve(symbol: str, available: set[str], groups: dict[str, set[str]]) -> str | None:
     if symbol in available:
         return symbol
-    for alt in groups.get(symbol, ()):
+    # Set order is hash-randomized; sort so a synonym collision is stable.
+    for alt in sorted(groups.get(symbol, ())):
         if alt in available:
             return alt
     return None
@@ -419,6 +421,23 @@ def main() -> None:
         tx2gene = load_tx2gene(fasta)
         counts = load_salmon_counts(quant_dir, tx2gene)
         cpm = counts_to_cpm(counts)
+        map_rows = []
+        for meta_path in sorted(quant_dir.glob("*/aux_info/meta_info.json")):
+            meta = json.loads(meta_path.read_text())
+            map_rows.append(
+                {
+                    "sample": meta_path.parent.parent.name,
+                    "percent_mapped": f"{float(meta.get('percent_mapped', float('nan'))):.2f}",
+                    "num_mapped": meta.get("num_mapped", ""),
+                    "num_processed": meta.get("num_processed", ""),
+                }
+            )
+        if map_rows:
+            write_tsv(
+                TABLES / "gse207704_salmon_mapping.tsv",
+                map_rows,
+                ["sample", "percent_mapped", "num_mapped", "num_processed"],
+            )
         cldn4_cpm = cpm.get("CLDN4", {})
         with (TABLES / "gse207704_cldn4_salmon_cpm.tsv").open("w") as fh:
             fh.write("sample\tcpm\tnumreads\n")
@@ -429,6 +448,8 @@ def main() -> None:
             "T47D": (["T47D_WT_rep1", "T47D_WT_rep2"], ["T47D_KO_rep1", "T47D_KO_rep2"]),
         }
         for line, (high_s, low_s) in designs.items():
+            if any(s not in next(iter(cpm.values())) for s in high_s + low_s):
+                continue
             logfc = mean_cpm_logfc(cpm, high_s, low_s)
             srows, grows = score_logfc(logfc, sets, groups, f"GSE207704_salmon_{line}_WT_over_KO")
             set_rows.extend(srows)

@@ -1,6 +1,6 @@
 contrast	set	role	n_set_genes	n_detected	mean_log2fc	median_log2fc	frac_positive	rank_p	q_bh_primary	array_means	array_mean	array_t_p	array_q_bh_primary
 GSE22493_parental_over_siRNA	KEGG_NHEJ	primary	13	11	0.1578	-0.0473	0.455	0.993859	0.993859	0.7187,-0.5349,0.2897	0.1578	0.709702	0.987898
 GSE22493_parental_over_siRNA	Hallmark_IFN_alpha	primary	97	80	-0.0065	-0.0266	0.463	0.790241	0.993859	0.2626,-0.4086,0.1567	0.0036	0.987898	0.987898
-GSE22493_parental_over_siRNA	Hallmark_IFN_gamma	primary	200	171	0.0930	0.0571	0.520	0.758172	0.993859	0.4363,-0.5701,0.4104	0.0922	0.80681	0.987898
-GSE22493_parental_over_siRNA	Reactome_NHEJ_no_histone	sensitivity	35	32	-0.0779	-0.0951	0.469	0.282804		0.0065,-0.3184,0.0766	-0.0784	0.585276	
+GSE22493_parental_over_siRNA	Hallmark_IFN_gamma	primary	200	171	0.0878	0.0170	0.515	0.873948	0.993859	0.4258,-0.5645,0.3988	0.0867	0.814988	0.987898
+GSE22493_parental_over_siRNA	Reactome_NHEJ_no_histone	sensitivity	35	32	-0.0854	-0.0951	0.469	0.254904		-0.0021,-0.3193,0.0775	-0.0813	0.571533	
 GSE22493_parental_over_siRNA	Reactome_IFN_ab_no_ligand	sensitivity	59	47	0.0775	0.0137	0.553	0.84678		0.2193,-0.1420,0.1516	0.0763	0.562388	

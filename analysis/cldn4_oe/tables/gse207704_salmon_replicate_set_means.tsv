@@ -1,0 +1,11 @@
+cell_line	set	role	n_detected	mean_log2cpm_high	mean_log2cpm_low	delta_high_minus_low	MCF7_KO_rep1	MCF7_KO_rep2	MCF7_WT_rep1	MCF7_WT_rep2	T47D_KO_rep1	T47D_KO_rep2	T47D_WT_rep1	T47D_WT_rep2
+MCF7	KEGG_NHEJ	primary	12	6.0340	6.0937	-0.0596	6.0438	6.1435	6.0424	6.0257				
+MCF7	Hallmark_IFN_alpha	primary	71	3.9682	3.9647	0.0035	3.9630	3.9664	3.9763	3.9601				
+MCF7	Hallmark_IFN_gamma	primary	146	3.9191	3.8820	0.0371	3.8637	3.9002	3.9239	3.9142				
+MCF7	Reactome_NHEJ_no_histone	sensitivity	35	5.7131	5.7669	-0.0538	5.7500	5.7838	5.6988	5.7274				
+MCF7	Reactome_IFN_ab_no_ligand	sensitivity	49	3.8813	3.7969	0.0844	3.7879	3.8060	3.9007	3.8619				
+T47D	KEGG_NHEJ	primary	12	6.0085	5.9776	0.0309					5.9623	5.9929	6.0152	6.0018
+T47D	Hallmark_IFN_alpha	primary	78	3.9135	3.6424	0.2711					3.6571	3.6278	3.9364	3.8906
+T47D	Hallmark_IFN_gamma	primary	146	4.0722	3.8950	0.1772					3.8924	3.8975	4.0859	4.0584
+T47D	Reactome_NHEJ_no_histone	sensitivity	35	5.8934	5.9147	-0.0213					5.9095	5.9200	5.8978	5.8891
+T47D	Reactome_IFN_ab_no_ligand	sensitivity	50	4.0709	3.8375	0.2335					3.8338	3.8411	4.1086	4.0333
