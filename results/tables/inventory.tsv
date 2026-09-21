@@ -1,0 +1,14 @@
+accession	match	system	open_de	cldn4	url	note
+GSE166209	direct STING agonist	Calu-3 lung adenocarcinoma line, diABZI 6 h and 12 h vs DMSO, n=2	author DESeq2 CSV	tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE166209	
+GSE166209	same series, not a cancer line	K18-hACE2 mouse lung tissue, diABZI vs PBS, 6 h and 12 h, n=5	author DESeq2 CSV	tested, reported separately	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE166209	
+GSE271679	STING knockout, lung cancer line	NCI-H596 WT vs CRISPR STING KO, unstimulated, n=4. Same series also has SCC25, OE21, Detroit 562 (not lung) and Calu-3 WT only.	featureCounts in RAW.tar; PyDESeq2 run here for H596 only	tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE271679	
+GSE244945	STING knockout, SCLC lines	NCI-H82 and CORL88 STING KO, crossed with NOTCH activation (dox or TAS1440). TAS1440 is a NOTCH activator, not a STING agonist.	author log2 RPKM matrix	tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE244945	
+GSE288796	cGAS ligand, not a CDN STING agonist	HT-DNA vs untreated in HCC827, H2228, H1650, H596, H1975, H358. n=2.	author TPM workbook	tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE288796	
+GSE252340	adjacent, not agonist or knockout	NCI-H1944 (KL) BAY1217389 MPS1 inhibitor 48 h vs DMSO, n=2. Authors use it to drive micronuclei and cGAS-STING.	per-sample read-count xlsx; PyDESeq2 run here	tested, labeled adjacent	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE252340	
+GSE134129	in vivo LLC tumors, cGAMP, not cultured-line RNA-seq	NanoString PanCancer panel, 750 genes, cGAMP-treated LLC tumors in WT mice vs tumors from STING KO mice. Cldn4 is not on the panel.	normalized matrix; CLDN4 test not possible	absent	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE134129	"{""cldn4_on_panel"": false, ""n_genes"": 750}"
+GSE254174	excluded, not lung cancer	U2OS and BJ fibroblasts, cGAMP or DMXAA, including STING KO	TPM available; not used	not tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE254174	
+GSE269551	excluded, not a STING perturbation	H2122 parental vs SMARCA4 KO. STING is in the paper's mechanism, not the contrast.	htseq counts; not used	not tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE269551	
+GSE305239	excluded, not lung	H4 glioblastoma, diABZI	not downloaded	not tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE305239	
+GSE308610	excluded, not lung	THP-1 and RPMI-8226, ADU-S100	not downloaded	not tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE308610	
+GSE147085	excluded, not lung	FaDu HNSCC STING KO	not downloaded	not tested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE147085	
+GSE137244	excluded, different contrast already reported	Mouse KL vs KP cell lines. Baseline genotype, not STING agonist or STING KO.	not reanalyzed	not retested	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE137244	
