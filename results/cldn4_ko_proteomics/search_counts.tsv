@@ -1,0 +1,22 @@
+search_date	source	name	domain	query	hitCount	n_fetched
+2026-09-21	ebisearch	pride_quoted_CLDN4	pride	"""CLDN4"""	0	0
+2026-09-21	ebisearch	pride_quoted_Cldn4	pride	"""Cldn4"""	0	0
+2026-09-21	ebisearch	pride_quoted_claudin4	pride	"""claudin-4"""	0	0
+2026-09-21	ebisearch	pride_quoted_phrase_knockdown	pride	"""claudin-4 knockdown"""	0	0
+2026-09-21	ebisearch	pride_quoted_phrase_knockout	pride	"""claudin-4 knockout"""	0	0
+2026-09-21	ebisearch	pride_unquoted_CLDN4	pride	CLDN4	2	2
+2026-09-21	ebisearch	pride_CLDN4_AND_ko_language	pride	CLDN4 AND (knockout OR knockdown OR siRNA OR shRNA OR CRISPR)	0	0
+2026-09-21	ebisearch	ae_CLDN4	biostudies-arrayexpress	CLDN4	7	7
+2026-09-21	ebisearch	ae_quoted_CLDN4	biostudies-arrayexpress	"""CLDN4"""	7	7
+2026-09-21	ebisearch	ae_CLDN4_AND_proteomics	biostudies-arrayexpress	CLDN4 AND proteomics	0	0
+2026-09-21	ebisearch	ae_CLDN4_AND_ko	biostudies-arrayexpress	CLDN4 AND (knockout OR knockdown OR siRNA OR CRISPR)	4	4
+2026-09-21	ebisearch	bs_quoted_CLDN4_AND_proteomics	biostudies	"""CLDN4"" AND proteomics"	3	3
+2026-09-21	ebisearch	bs_quoted_CLDN4_AND_proteome	biostudies	"""CLDN4"" AND proteome"	1	1
+2026-09-21	ebisearch	bs_CLDN4_AND_ko	biostudies	CLDN4 AND (knockout OR knockdown OR siRNA OR CRISPR)	15	15
+2026-09-21	ebisearch	bs_CLDN4	biostudies	CLDN4	116	116
+2026-09-21	pride_v2_keyword	keyword:CLDN4	pride	CLDN4	0	0
+2026-09-21	pride_v2_keyword	keyword:Cldn4	pride	Cldn4	0	0
+2026-09-21	pride_v2_keyword	keyword:claudin-4	pride	claudin-4	0	0
+2026-09-21	pride_v2_keyword	keyword:claudin	pride	claudin	30	30
+2026-09-21	omicsdi	omicsdi_CLDN4	omicsdi	CLDN4	166	0
+2026-09-21	biostudies_arrayexpress_api	arrayexpress_api_CLDN4	arrayexpress	CLDN4	4	4
