@@ -13,3 +13,5 @@ OmicsDI	DOI 10.1038/s41598-025-23137-1	1 hit: BioStudies literature S-EPMC126031
 Figshare API	s41598-025-23137-1 and Villagomez claudin-4	0 articles
 Zenodo API	doi search	HTTP 403 from this environment. Web search did not surface a Zenodo record for this DOI.
 excluded near-miss	GSE22493	2010/12/15 SKOV-3 CLDN4 siRNA microarray. Not this 2025 OVCAR3/OVCA429 CRISPRi paper.
+Springer MOESM probe	MOESM0 and MOESM6-10 pdf/docx/xlsx/csv/zip/txt	HTTP 403 (missing object). MOESM1 pdf remains HTTP 200. Nature article lists exactly five supplementary materials.
+Europe PMC	PMC12603150/supplementaryFiles zip	21 files. The five MOESM hashes match the Springer downloads. The other 16 files are Fig1-8 HTML gif/jpg renders, not tables.
