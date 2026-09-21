@@ -121,7 +121,20 @@ def ssgsea_from_pos(ranks: np.ndarray, pos: np.ndarray, gene_idx: np.ndarray, al
     return out
 
 
+def measured_genes(expr: pd.DataFrame) -> pd.DataFrame:
+    """Drop genes that are missing in any sample.
+
+    rankdata propagates a single NaN across the whole sample, which made
+    OncoSG ssGSEA undefined (583 genes are blank in every sample). GEO
+    matrices have no missing values, so this filter does not change them.
+    """
+    mat = expr.to_numpy(dtype=float)
+    keep = np.isfinite(mat).all(axis=1)
+    return expr.loc[keep]
+
+
 def ssgsea_fast(expr: pd.DataFrame, genes: list[str], alpha: float = 0.25) -> np.ndarray:
+    expr = measured_genes(expr)
     mat = expr.to_numpy(dtype=float)
     ranks, pos = prepare_ranks(mat)
     index = {g: i for i, g in enumerate(expr.index)}
@@ -146,6 +159,12 @@ def self_test() -> None:
     short = ssgsea_fast(expr, chosen[:4], alpha=0.25)
     if np.isfinite(short).any():
         raise SystemExit("sets smaller than 5 genes must be missing")
+    broken = expr.copy()
+    broken.iloc[0, :] = np.nan
+    with_hole = ssgsea_fast(broken, chosen, alpha=0.25)
+    without = ssgsea_fast(expr.iloc[1:], chosen, alpha=0.25)
+    if not np.allclose(with_hole, without, rtol=1e-10, atol=1e-8):
+        raise SystemExit("dropping an all-missing gene changed ssGSEA")
     print("ssGSEA self-test ok", flush=True)
 
 
@@ -271,6 +290,7 @@ def zmean_prefixes(expr: pd.DataFrame, ranked: list[str]) -> dict[int, np.ndarra
 
 
 def ssgsea_prefixes(expr: pd.DataFrame, ranked: list[str], alphas=ALPHAS) -> dict[tuple[float, int], np.ndarray]:
+    expr = measured_genes(expr)
     mat = expr.to_numpy(dtype=float)
     ranks, pos = prepare_ranks(mat)
     index = {gene: i for i, gene in enumerate(expr.index)}
@@ -350,6 +370,10 @@ def high_tumor_columns(cohort: Cohort) -> list[str]:
 
 
 def correlate(score: np.ndarray, endpoint: np.ndarray, cov: np.ndarray | None, mode: str):
+    score = np.asarray(score, dtype=float)
+    finite = np.isfinite(score)
+    if int(finite.sum()) < 6 or np.nanstd(score[finite]) == 0:
+        return {"n": int(finite.sum()), "rho": np.nan, "p": np.nan, "ci_low": np.nan, "ci_high": np.nan, "k": 1 if mode == "partial" else 0}
     if mode == "partial":
         return A.partial_spearman(score, endpoint, [cov])
     return A.spearman_pair(score, endpoint)
@@ -510,15 +534,24 @@ def spec_meta(grid: pd.DataFrame, method: str, alpha: float, size: int, purity: 
     return full, geo, hit
 
 
+REQUIRED = ("OncoSG", "GSE273377 discovery", "GSE273377 validation", "GSE282774", "GSE233774 tumor")
+
+
+def strata_complete(hit: pd.DataFrame) -> bool:
+    ok = set(hit.loc[np.isfinite(hit.rho), "cohort"])
+    return all(name in ok for name in REQUIRED)
+
+
 def enumerate_metas(grid: pd.DataFrame, subset: str) -> pd.DataFrame:
     records = []
     sub = grid[grid.subset == subset]
     keys = sub.groupby(["method", "alpha", "size", "purity", "endpoint"], sort=False).size().reset_index()
     for rec in keys.itertuples(index=False):
-        full, geo, _hit = spec_meta(sub, rec.method, rec.alpha, int(rec.size), rec.purity, rec.endpoint, subset)
-        # spec_meta filters subset again; sub already has one subset, and cohort field is intact.
+        full, geo, hit = spec_meta(sub, rec.method, rec.alpha, int(rec.size), rec.purity, rec.endpoint, subset)
+        eligible = strata_complete(hit)
         records.append({
             "subset": subset,
+            "eligible": eligible,
             "method": rec.method,
             "alpha": rec.alpha,
             "size": int(rec.size),
@@ -544,8 +577,10 @@ def enumerate_metas(grid: pd.DataFrame, subset: str) -> pd.DataFrame:
 
 
 def pick_max(metas: pd.DataFrame, endpoint: str, column: str = "abs_meta") -> pd.Series:
-    hit = metas[metas.endpoint == endpoint].copy()
+    hit = metas[(metas.endpoint == endpoint) & (metas.eligible)].copy()
     hit = hit[np.isfinite(hit[column])]
+    if hit.empty:
+        raise SystemExit(f"no eligible spec for {endpoint} {column}")
     # Tie-break only when |ρ| is equal: ESTIMATE alpha, then the longer prefix.
     hit["alpha_rank"] = np.where(hit.method == "z-mean", 0, np.where(hit.alpha == PRIMARY_ALPHA, 0, 1))
     hit = hit.sort_values([column, "alpha_rank", "size"], ascending=[False, True, False])
@@ -562,10 +597,10 @@ def fmt_rho(r) -> str:
 
 def spec_label(row) -> str:
     alpha = ""
-    if row.method == "ssGSEA":
-        alpha = f", α={row.alpha:g}"
-    purity = {"none": "unadjusted", "partial": "partial | purity/stroma", "residual": "gene residual | purity/stroma"}[row.purity]
-    return f"{row.method}{alpha}, size {int(row.size)}, {purity}"
+    if row["method"] == "ssGSEA":
+        alpha = f", α={float(row['alpha']):g}"
+    purity = {"none": "unadjusted", "partial": "partial | purity/stroma", "residual": "gene residual | purity/stroma"}[row["purity"]]
+    return f"{row['method']}{alpha}, size {int(row['size'])}, {purity}"
 
 
 def write_figures(grid: pd.DataFrame, winner, immune_at_winner, transfer_oncosg):
@@ -611,7 +646,7 @@ def write_figures(grid: pd.DataFrame, winner, immune_at_winner, transfer_oncosg)
     ns = []
     for cohort in cohorts:
         _full, _geo, hit = spec_meta(
-            grid, winner.method, float(winner.alpha), int(winner.size), winner.purity, "CD8A", "all"
+            grid, winner["method"], float(winner["alpha"]), int(winner["size"]), winner["purity"], "CD8A", "all"
         )
         row = hit[hit.cohort == cohort]
         if row.empty:
@@ -632,7 +667,7 @@ def write_figures(grid: pd.DataFrame, winner, immune_at_winner, transfer_oncosg)
     fig, ax = plt.subplots(figsize=(7.2, 3.8))
     y = np.arange(len(cohorts))[::-1]
     ax.axvline(0, color="#888888", lw=0.6)
-    ax.axvline(winner.meta_rho, color="#1b4f72", lw=0.8, ls="--")
+    ax.axvline(winner["meta_rho"], color="#1b4f72", lw=0.8, ls="--")
     ax.errorbar(
         rhos, y, xerr=[np.array(rhos) - np.array(los), np.array(his) - np.array(rhos)],
         fmt="o", color="#1b4f72", ms=5, lw=1,
@@ -642,7 +677,7 @@ def write_figures(grid: pd.DataFrame, winner, immune_at_winner, transfer_oncosg)
     ax.set_yticks(y)
     ax.set_yticklabels(cohorts)
     ax.set_xlabel("Spearman ρ vs CD8A")
-    ax.set_title(f"Winning CD8A spec: {spec_label(winner)}")
+    ax.set_title(f"Winning CD8A spec: {spec_label(winner)}", fontsize=10)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
     fig.tight_layout()
@@ -669,7 +704,9 @@ def write_figures(grid: pd.DataFrame, winner, immune_at_winner, transfer_oncosg)
 
 
 def cohort_line(grid, spec, endpoint: str) -> str:
-    _full, _geo, hit = spec_meta(grid, spec.method, float(spec.alpha), int(spec.size), spec.purity, endpoint, spec.subset)
+    _full, _geo, hit = spec_meta(
+        grid, spec["method"], float(spec["alpha"]), int(spec["size"]), spec["purity"], endpoint, spec["subset"]
+    )
     bits = []
     for cohort in ("OncoSG", "GSE273377 discovery", "GSE273377 validation", "GSE282774", "GSE233774 tumor"):
         row = hit[hit.cohort == cohort]
@@ -678,6 +715,65 @@ def cohort_line(grid, spec, endpoint: str) -> str:
         else:
             bits.append(f"{cohort} {fmt_rho(row.iloc[0].rho)} (p={fmt_p(row.iloc[0].p)}, n={int(row.iloc[0].n)})")
     return "; ".join(bits)
+
+
+def _plateau(metas: pd.DataFrame) -> list[str]:
+    hit = metas[(metas.endpoint == "CD8A") & (metas.eligible) & (metas.subset == "all")].nlargest(8, "abs_meta")
+    methods = ", ".join(
+        f"{row.method} α={float(row.alpha):g} size {int(row.size)} {row.purity} {fmt_rho(row.meta_rho)}"
+        for row in hit.itertuples()
+    )
+    return [
+        "The eight largest eligible CD8A meta |ρ| values are "
+        + methods
+        + ". The maximum is not a one-prefix spike."
+    ]
+
+
+def _purity_at_winner(grid: pd.DataFrame, metas: pd.DataFrame, winner) -> list[str]:
+    lines = ["## Purity at the winning score", ""]
+    lines.append(
+        "Unadjusted correlation had the largest |meta ρ|. "
+        "Partial correlation uses published PURITY on OncoSG and ESTIMATE StromalScore on GEO. "
+        "Residual mode builds the score from gene-level linear residuals on that covariate and then correlates it with the raw endpoint."
+    )
+    lines.append("")
+    for mode, label in (
+        ("none", "unadjusted"),
+        ("partial", "partial | purity/stroma"),
+        ("residual", "gene residual | purity/stroma"),
+    ):
+        meta = metas[
+            (metas.subset == "all")
+            & (metas.method == winner["method"])
+            & (metas.alpha == winner["alpha"])
+            & (metas["size"] == winner["size"])
+            & (metas.purity == mode)
+            & (metas.endpoint == "CD8A")
+        ].iloc[0]
+        stub = winner.copy()
+        stub["purity"] = mode
+        lines.append(
+            f"{label}: meta ρ {fmt_rho(meta.meta_rho)} ({meta.meta_model}, p={fmt_p(meta.meta_p)}, I²={meta.meta_i2:.0%}). "
+            + cohort_line(grid, stub, "CD8A")
+        )
+        lines.append("")
+    return lines
+
+
+def _cohort_peaks(grid: pd.DataFrame) -> str:
+    sub = grid[(grid.subset == "all") & np.isfinite(grid.rho) & (grid.endpoint == "CD8A")]
+    lines = ["| cohort | n | ρ | p | spec |", "|---|---:|---:|---:|---|"]
+    order = ["OncoSG", "GSE273377 discovery", "GSE273377 validation", "GSE282774", "GSE233774 tumor"]
+    for cohort in order:
+        hit = sub[sub.cohort == cohort]
+        row = hit.loc[hit.rho.abs().idxmax()]
+        alpha = f", α={float(row.alpha):g}" if row.method == "ssGSEA" else ""
+        spec = f"{row.method}{alpha}, size {int(row['size'])}, {row.purity}"
+        lines.append(
+            f"| {cohort} | {int(row.n)} | {fmt_rho(row.rho)} | {fmt_p(row.p)} | {spec} |"
+        )
+    return "\n".join(lines)
 
 
 def write_finding(ctx: dict) -> None:
@@ -695,7 +791,7 @@ def write_finding(ctx: dict) -> None:
     lines.append("")
     lines.append("## Objective")
     lines.append("")
-    lines.append("Primary number: absolute DerSimonian–Laird meta-analytic Spearman versus CD8A on all QC-passing tumors. Studies are OncoSG, GSE273377 (discovery and validation inverse-variance combined first), GSE282774, and GSE233774 tumors. The search is method (z-mean or ssGSEA), ssGSEA α in {0, 0.25, 0.75, 1}, prefix size 5 through 221, and purity mode {unadjusted, partial correlation on published PURITY or ESTIMATE StromalScore, gene-level residual on that same covariate}. The high-tumor median split is not in this objective.")
+    lines.append("Primary number: absolute DerSimonian–Laird meta-analytic Spearman versus CD8A on all QC-passing tumors. Studies are OncoSG, GSE273377 (discovery and validation inverse-variance combined first), GSE282774, and GSE233774 tumors. A spec is eligible only when all five strata have a finite correlation, so a cohort cannot be dropped to raise the meta |ρ|. The search is method (z-mean or ssGSEA), ssGSEA α in {0, 0.25, 0.75, 1}, prefix size 5 through 221, and purity mode {unadjusted, partial correlation on published PURITY or ESTIMATE StromalScore, gene-level residual on that same covariate}. The high-tumor median split is not in this objective.")
     lines.append("")
     lines.append("The selected spec was chosen on these same cohorts, so its meta p-value is the p-value of a maximized |ρ|, not a single pre-specified test. The pre-specified 221-gene z-mean from PR 590 is the baseline row. The OncoSG correlation at the GEO-only winning spec was not used to pick that spec.")
     lines.append("")
@@ -716,6 +812,10 @@ def write_finding(ctx: dict) -> None:
     same_imm = ctx["immune_at_cd8_spec"]
     lines.append(f"ImmuneScore meta ρ at the CD8A spec: {fmt_rho(same_imm.meta_rho)} ({same_imm.meta_model}, p={fmt_p(same_imm.meta_p)}, I²={same_imm.meta_i2:.0%}).")
     lines.append("")
+    lines.extend(_plateau(ctx["metas"]))
+    lines.append("")
+    lines.extend(_purity_at_winner(ctx["grid"], ctx["metas"], w))
+    lines.append("")
     lines.append("## ImmuneScore maximum")
     lines.append("")
     lines.append(f"Repeating the objective for ImmuneScore gives meta ρ **{fmt_rho(imm.meta_rho)}** ({imm.meta_model}, p={fmt_p(imm.meta_p)}, I²={imm.meta_i2:.0%}, n sum={int(imm.meta_n)}). Spec: **{spec_label(imm)}**.")
@@ -728,15 +828,20 @@ def write_finding(ctx: dict) -> None:
     lines.append("")
     lines.append(f"Applied to OncoSG versus CD8A: ρ={fmt_rho(held['rho'])} (p={fmt_p(held['p'])}, n={int(held['n'])}). Versus ImmuneScore: ρ={fmt_rho(held['immune_rho'])} (p={fmt_p(held['immune_p'])}, n={int(held['immune_n'])}).")
     lines.append("")
-    lines.append("## Largest single-cohort |ρ|")
+    lines.append("## Largest |ρ| inside one cohort")
     lines.append("")
     lines.append(
         f"Inside the primary search space (all tumors), the largest |ρ| is {fmt_rho(peak.rho)} "
         f"in {peak.cohort} versus {peak.endpoint} (p={fmt_p(peak.p)}, n={int(peak.n)}). "
         f"Spec: {peak.method}"
-        + (f" α={peak.alpha:g}" if peak.method == "ssGSEA" else "")
-        + f", size {int(peak['size'])}, purity={peak.purity}."
+        + (f" α={float(peak.alpha):g}" if peak.method == "ssGSEA" else "")
+        + f", size {int(peak['size'])}, purity={peak.purity}. "
+        "That cell was not required to be the same spec in the other cohorts."
     )
+    lines.append("")
+    lines.append("Largest |ρ| for CD8A inside each cohort, same rule:")
+    lines.append("")
+    lines.append(_cohort_peaks(ctx["grid"]))
     lines.append("")
     lines.append("## High-tumor subset")
     lines.append("")
@@ -793,18 +898,18 @@ def main():
     baseline = baseline_rows.iloc[0]
     immune_at = metas[
         (metas.method == winner.method)
-        & (metas.alpha == winner.alpha)
-        & (metas["size"] == winner.size)
-        & (metas.purity == winner.purity)
+        & (metas.alpha == winner["alpha"])
+        & (metas["size"] == winner["size"])
+        & (metas.purity == winner["purity"])
         & (metas.endpoint == "ImmuneScore")
     ].iloc[0]
 
     _full, _geo, held_hit = spec_meta(
-        grid, geo_winner.method, float(geo_winner.alpha), int(geo_winner.size), geo_winner.purity, "CD8A", "all"
+        grid, geo_winner["method"], float(geo_winner["alpha"]), int(geo_winner["size"]), geo_winner["purity"], "CD8A", "all"
     )
     held_row = held_hit[held_hit.cohort == "OncoSG"].iloc[0]
     _f2, _g2, held_imm = spec_meta(
-        grid, geo_winner.method, float(geo_winner.alpha), int(geo_winner.size), geo_winner.purity, "ImmuneScore", "all"
+        grid, geo_winner["method"], float(geo_winner["alpha"]), int(geo_winner["size"]), geo_winner["purity"], "ImmuneScore", "all"
     )
     held_imm_row = held_imm[held_imm.cohort == "OncoSG"].iloc[0]
     held = {
@@ -822,17 +927,19 @@ def main():
     onco = next(c for c in cohorts if c.name == "OncoSG")
     expr = onco.expr
     cov = onco.purity
-    if geo_winner.purity == "residual":
+    if geo_winner["purity"] == "residual":
         finite = np.isfinite(cov)
         expr = residualize(expr.loc[:, np.asarray(onco.samples)[finite]], cov[finite])
         cov = cov[finite]
-    if geo_winner.method == "z-mean":
-        score, _used = A.zmean(expr, ranked[: int(geo_winner.size)], list(expr.columns))
+    if geo_winner["method"] == "z-mean":
+        score, _used = A.zmean(expr, ranked[: int(geo_winner["size"])], list(expr.columns))
         score = score.to_numpy(dtype=float)
     else:
-        score = ssgsea_fast(expr, ranked[: int(geo_winner.size)], alpha=float(geo_winner.alpha))
+        score = ssgsea_fast(expr, ranked[: int(geo_winner["size"])], alpha=float(geo_winner["alpha"]))
     cd8 = onco.expr.loc["CD8A", expr.columns].to_numpy(dtype=float)
-    if geo_winner.purity == "partial":
+    if not np.isfinite(held["rho"]):
+        raise SystemExit("held-out OncoSG correlation is not finite")
+    if geo_winner["purity"] == "partial":
         plotted = A.partial_spearman(score, cd8, [cov])
         x_plot = stats.rankdata(score)
         y_plot = stats.rankdata(cd8)
@@ -870,6 +977,7 @@ def main():
         "peak_cell": peak,
         "high_winner": high_plot,
         "n_locked": int(len(locked)),
+        "metas": metas,
     }
     write_finding(ctx)
     summary = {
@@ -898,7 +1006,8 @@ def main():
         if isinstance(value, dict):
             return {str(k): _plain(v) for k, v in value.items()}
         if isinstance(value, (np.floating, float)):
-            return float(value)
+            number = float(value)
+            return number if np.isfinite(number) else None
         if isinstance(value, (np.integer, int)) and not isinstance(value, bool):
             return int(value)
         if isinstance(value, (np.bool_, bool)):
