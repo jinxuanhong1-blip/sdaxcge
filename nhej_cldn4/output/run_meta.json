@@ -1,0 +1,21 @@
+{
+  "table_s1_genes": 19834,
+  "table_s1_q_lt_0.05": 1582,
+  "signed_nhej_genes": [
+    "ATM",
+    "MDC1",
+    "MRE11",
+    "PRKDC",
+    "RNF168",
+    "SHLD2",
+    "TDP1"
+  ],
+  "gse207704_genes": 12634,
+  "gse22493_genes_ge2reps": 15549,
+  "gse22493_probes": 36284,
+  "gse22493_probes_with_symbol": 32312,
+  "fpkm_floor": 1.0,
+  "fpkm_pseudo": 0.1,
+  "n_perm": 10000,
+  "seed": 20220401
+}
