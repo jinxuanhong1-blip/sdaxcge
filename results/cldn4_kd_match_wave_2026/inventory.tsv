@@ -1,0 +1,38 @@
+accession	repository	public_or_paper_date	organism	design	in_catalog	new_expression_kd	ifn_apm_scored	disposition
+GSE22493	GEO / ArrayExpress E-GEOD-22493	2010-12-15	Homo sapiens	SKOV-3 CLDN4 siRNA vs CLDN4-overexpressing; microarray	yes	no	no	catalog; not re-scored
+GSE50927	GEO / ArrayExpress E-GEOD-50927 / SRA SRX352051 and siblings	2014-11-04	Mus musculus	germline Cldn4 KO lung ± VILI RNA-seq	yes	no	no	catalog; not re-scored
+GSE207704	GEO / SRA SRX16067609 and siblings / PRJNA856719	2023-04-19	Homo sapiens	MCF7 and T47D CLDN4 CRISPR knockout RNA-seq	yes	no	no	catalog; not re-scored
+GSE274940	GEO	2025-09-24	Mus musculus	EpH4 WT vs pan-claudin-null bulk RNA-seq	yes	no	no	catalog exclusion; not Cldn4-specific; not re-scored
+E-GEOD-60885	ArrayExpress / GEO GSE60885	2015-04-07	Homo sapiens	DNA methylation of trophoblast; CLDN4 is a named gene, not a knockdown transcriptome	no	no	no	excluded; wrong assay and year
+E-GEOD-84742	ArrayExpress / GEO GSE84742	2016-07-23	Mus musculus	colonic crypt claudin gradients; not Cldn4 knockout	no	no	no	excluded
+SRX8386834	SRA / GSA mirror	pre-2024	Homo sapiens	4C-seq at the CLDN4 locus	no	no	no	excluded; not expression, knockout is MSH2
+SRX8386835	SRA / GSA mirror	pre-2024	Homo sapiens	4C-seq at the CLDN4 locus	no	no	no	excluded
+SRX8386836	SRA	pre-2024	Homo sapiens	4C-seq YCC21 MSH2KO at CLDN4 locus	no	no	no	excluded
+SRX8386837	SRA	pre-2024	Homo sapiens	4C-seq YCC21 MSH2KO at CLDN4 locus	no	no	no	excluded
+SRX8386841	SRA / GSA mirror	pre-2024	Homo sapiens	4C-seq SNU16 at CLDN4 locus	no	no	no	excluded
+SRX8386842	SRA	pre-2024	Homo sapiens	4C-seq SNU16 MSH2KO at CLDN4 locus	no	no	no	excluded
+HRA003416	GSA-Human	2022-11-15	Homo sapiens	claudin-low subtype label in ccRCC	no	no	no	excluded; not CLDN4 knockdown
+PRJCA023797	NGDC BioProject	not a 2024-2026 KD	Homo sapiens	scRNA of CLDN4-positive effusion cancer cells	no	no	no	excluded; observational
+PRJNA1424384	SRA (paper data availability)	2026	Homo sapiens	genome-wide CRISPR screen for the BFT receptor	no	no	no	excluded; screen counts, not a CLDN4-KO transcriptome. Zenodo 18557106
+CNP0006650	CNGB CNSA (not GEO/ArrayExpress/SRA/GSA)	2025	Homo sapiens	HCC scRNA-seq and CPP-S4 peptide RNA-seq (PMID 40592346)	no	no	no	out of repository scope; not genetic CLDN4 loss
+PMID:41016339	none	2025-10-20	Homo sapiens	H1688 CLDN4 CRISPR knockout; RNA-seq claimed, SAA1 reported up	no	no	no	reported RNA-seq has no public accession; not scored
+PMID:40892111	none	2025	Mus musculus / 266-6	CLDN4 shRNA in cerulein AP; RNA-seq is the discovery contrast	no	no	no	no KD expression deposit
+PMID:41214101	none	2025	Homo sapiens	HGSC CLDN4 overexpression and knockdown	no	no	no	data on request; OA text has no accession
+PMID:38867360	none	2024-07-01	Homo sapiens	ovarian CRISPRi of claudin-4	no	no	no	no transcriptome accession
+PMID:41697223	none	2026	Mus musculus	germline Cldn4 deletion in abdominal sepsis	no	no	no	no expression deposit
+PMID:42159105	none	2026	Homo sapiens / rat	CLDN4 shRNA under oxidative stress and AP	no	no	no	no expression deposit
+PMID:42691479	none	2026	Homo sapiens	sAC knockdown changes claudin-4 protein	no	no	no	not a CLDN4-targeting expression dataset
+GSE310539	GEO	2026-07-01	Mus musculus	AT2 multiome, lung injury-repair	no	no	no	string hit only
+GSE309751	GEO	2026-07-01	Mus musculus	AT2 lung injury-repair	no	no	no	string hit only
+GSE330007	GEO	2026-05-10	Homo sapiens	vocal-fold leukoplakia RNA-seq	no	no	no	string hit only
+GSE309894	GEO	2026-01-08	Homo sapiens	ALK NSCLC spatial transcriptome	no	no	no	string hit only
+GSE279689	GEO	2025-06-25	Solea senegalensis	gonadotropin / spermiation	no	no	no	string hit only
+GSE282371	GEO	2025-06-24	Homo sapiens	atopic dermatitis cytokine model	no	no	no	string hit only
+GSE244820	GEO	2024-06-27	Mus musculus	coronavirus AT2 ER stress	no	no	no	string hit only
+GSE268909	GEO	2024-06-03	Homo sapiens	hyperglycemia in 16HBE cells	no	no	no	string hit only
+GSE247271	GEO	2024-04-19	Mus musculus	CEBPA ChIP-seq	no	no	no	string hit only
+GSE247130	GEO	2024-04-18	Mus musculus	CEBPA lung injury-repair	no	no	no	string hit only
+GSE264098	GEO	2024-04-16	Mus musculus	CEBPA scATAC-seq	no	no	no	string hit only
+GSE303714	GEO	2026-02-17	Mus musculus	METTL18 in pancreas; 266-6 mentioned	no	no	no	not Cldn4 knockdown
+GSE297058	GEO	2025-12-20	Mus musculus	hereditary pancreatitis	no	no	no	not Cldn4 knockdown
+GSE174462	GEO	2022-05-01	Homo sapiens	H1688 shFOXM1	no	no	no	wrong gene; before the window

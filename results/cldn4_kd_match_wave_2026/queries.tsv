@@ -1,0 +1,36 @@
+source	query	result_count	result_note	searched_on
+GEO/GDS	(CLDN4 OR Cldn4 OR "claudin 4" OR "claudin-4") AND (knockdown OR knockout OR CRISPR OR shRNA OR siRNA OR "gene silencing" OR "loss-of-function" OR "loss of function")	20	IDs include GSE207704 and GSE22493 plus older non-KD claudin series and their GSM/GDS children	2026-09-21
+GEO/GDS	(CLDN4[All Fields] OR Cldn4[All Fields]) AND ("2024/01/01"[PDAT] : "2026/12/31"[PDAT])	11	GSE310539 GSE309751 GSE330007 GSE309894 GSE279689 GSE282371 GSE244820 GSE268909 GSE247271 GSE247130 GSE264098; none is CLDN4/Cldn4 genetic loss	2026-09-21
+GEO/GDS	(CLDN4 OR Cldn4 OR "claudin-4") AND (shRNA OR siRNA OR CRISPR OR knockout OR knockdown) AND ("2024"[PDAT] : "2027"[PDAT])	0	no series	2026-09-21
+GEO/GDS	"CLDN4 knockout" OR "CLDN4 knockdown" OR "Cldn4 knockout" OR "Cldn4 knockdown" OR "claudin-4 knockout" OR "claudin-4 knockdown" OR "claudin 4 knockout"	9	GSE207704, GSE22493, and their GSM/GPL children	2026-09-21
+GEO/GDS	(CLDN4 OR Cldn4) AND CRISPR[All Fields]	9	GSE207704 only	2026-09-21
+GEO/GDS	"CLDN4-/-" OR "CLDN4 knockout" OR "shCLDN4" OR "siCLDN4" OR "sgCLDN4"	5	GSE207704 and four GSM children	2026-09-21
+GEO/GDS	"Cldn4 KO" OR "Cldn4 knockout" OR "Cldn4-null" OR "shCldn4"	5	same GSE207704 records; GSE50927 uses the phrase "claudin 4 KO"	2026-09-21
+GEO/GDS	(CLDN4[Title] OR Cldn4[Title] OR "claudin-4"[Title] OR "claudin 4"[Title]) AND ("2024"[PDAT] : "2026"[PDAT])	0	no title hit	2026-09-21
+GEO/GDS	(CLDN4 OR Cldn4 OR "claudin-4" OR "claudin 4") AND ("2024/01/01"[EDAT] : "2026/12/31"[EDAT]) AND gse[ETYP]	0	entry-date field returned no series	2026-09-21
+GEO/GDS	ferroptosis AND (CLDN4 OR Cldn4) AND gse[ETYP]	0	PMID 40892111 not deposited under this text	2026-09-21
+GEO/GDS	SAA1 AND (H1688 OR CLDN4) AND PDAT 2024-2026 AND gse[ETYP]	0	PMID 41016339 not deposited	2026-09-21
+GEO/GDS	H1688 AND (knockout OR CRISPR OR CLDN4)	1	GSE174462 shFOXM1, public 2022-05-01	2026-09-21
+GEO/GDS	"266-6" AND (CLDN4 OR Cldn4 OR cerulein OR pancreatitis)	2	GSE303714 and GSE297058; not Cldn4 knockdown	2026-09-21
+GEO/GDS	"claudin 4" AND sepsis	0	PMID 41697223 not deposited	2026-09-21
+GEO/GDS	Sato-Yazawa[Author] AND (CLDN4 OR SAA1 OR RNA-seq)	0	corresponding-side author of PMID 41016339 has no matching series	2026-09-21
+SRA	CLDN4 AND (knockout OR knockdown OR CRISPR OR shRNA)	3	SRX8386842 SRX8386837 SRX8386836; 4C-seq, MSH2 KO, CLDN4 locus	2026-09-21
+SRA	(CLDN4 OR Cldn4 OR "claudin-4") AND (knockdown OR knockout OR CRISPR OR shRNA OR siRNA) AND PDAT 2024-2026	0	no runs	2026-09-21
+SRA	"CLDN4 knockout" OR "CLDN4-/-" OR "Cldn4 KO"	0	phrase not in SRA	2026-09-21
+SRA	H1688 AND (CLDN4 OR knockout)	0	no H1688 CLDN4 KO runs	2026-09-21
+BioStudies	CLDN4 AND (knockdown OR knockout OR CRISPR OR shRNA OR siRNA)	84	experiment accessions only E-GEOD-22493, E-GEOD-50927, E-GEOD-60885, E-GEOD-84742	2026-09-21
+BioStudies	"claudin-4" AND (knockdown OR knockout OR CRISPR)	30	includes S-EPMC11218812 and S-EPMC12603150 (papers, not new expression accessions)	2026-09-21
+OmicsDI	CLDN4 AND (knockdown OR knockout OR CRISPR OR shRNA OR siRNA)	29	expression IDs resolve to GSE22493, GSE50927, GSE207704	2026-09-21
+GSA	CLDN4	11	INSDC mirrors of GSE50927, GSE207704, and 4C-seq	2026-09-21
+GSA	Cldn4	11	same 11	2026-09-21
+GSA-Human/HRA	CLDN4	0	API recordsTotal 0	2026-09-21
+GSA-Human/HRA	Cldn4	0	API recordsTotal 0	2026-09-21
+GSA-Human/HRA	claudin	1	HRA003416 claudin-low ccRCC subtype, updated 2022-11-15	2026-09-21
+CRA	CLDN4	0	recordsTotal 0	2026-09-21
+CRA	Cldn4	0	recordsTotal 0	2026-09-21
+OMIX	CLDN4	0	recordsTotal 0	2026-09-21
+OMIX	Cldn4	0	recordsTotal 0	2026-09-21
+NGDC BioProject	CLDN4	16	loss-of-function expression projects are the catalog mirrors only	2026-09-21
+PubMed	CLDN4/Cldn4/"claudin-4"/"claudin 4" AND (knockdown OR knockout OR CRISPR OR shRNA OR siRNA) AND (RNA-seq OR transcriptome OR microarray OR "gene expression") AND PDAT 2024-2026	11	abstracts opened; only PMID 41016339 is a CLDN4-KO RNA-seq claim	2026-09-21
+PubMed	title CLDN4/"claudin-4"/"claudin 4"/Cldn4 AND (knockout OR knockdown OR CRISPR OR shRNA OR siRNA) AND PDAT 2024-2026	8	42691479, 42159105, 42020735, 41697223, 41214101, 41016339, 40892111, 38867360	2026-09-21
+PubMed DataBank	41016339,40892111,41697223,42159105,41214101,38867360,40592346,42020735	0	no GEO/SRA/BioProject tags on the PubMed records	2026-09-21
