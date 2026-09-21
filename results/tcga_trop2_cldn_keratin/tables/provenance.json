@@ -1,0 +1,263 @@
+{
+  "probemap_url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/gencode.v36.annotation.gtf.gene.probemap",
+  "probemap_sha256": "f027752d663b1da74f4113998bf008e6ebecfa3732607513e027bb6eb1f635b5",
+  "purity_url": "https://api.gdc.cancer.gov/data/4f277128-f793-4354-a13d-30cc7fe9f6b5",
+  "purity_sha256": "f430a975433d82e0098d7405619d4f12a0c765fcd97e7d63cc9b1de7f2d763cd",
+  "gene_ids": {
+    "TACSTD2": "ENSG00000184292.7",
+    "CLDN4": "ENSG00000189143.9",
+    "CLDN7": "ENSG00000181885.18",
+    "CLDN1": "ENSG00000163347.6",
+    "CLDN3": "ENSG00000165215.6",
+    "F11R": "ENSG00000158769.18",
+    "EPCAM": "ENSG00000119888.11",
+    "MUC1": "ENSG00000185499.16",
+    "KRT8": "ENSG00000170421.12",
+    "KRT18": "ENSG00000111057.11",
+    "KRT19": "ENSG00000171345.13",
+    "KRT5": "ENSG00000186081.12",
+    "KRT6A": "ENSG00000205420.11",
+    "KRT14": "ENSG00000186847.6",
+    "CD8A": "ENSG00000153563.16",
+    "CD8B": "ENSG00000172116.23",
+    "CD3D": "ENSG00000167286.10",
+    "CD3E": "ENSG00000198851.10",
+    "GZMA": "ENSG00000145649.8",
+    "GZMB": "ENSG00000100453.13",
+    "PRF1": "ENSG00000180644.8",
+    "NKG7": "ENSG00000105374.10"
+  },
+  "keratin_funnel": [
+    "LUAD",
+    "BRCA",
+    "CESC",
+    "KIRC",
+    "STAD",
+    "BLCA",
+    "PAAD"
+  ],
+  "immune_cohorts": [
+    "LUAD",
+    "LUSC",
+    "BRCA",
+    "CESC",
+    "KIRC",
+    "STAD",
+    "BLCA",
+    "PAAD"
+  ],
+  "epithelial": [
+    "BLCA",
+    "BRCA",
+    "CESC",
+    "CHOL",
+    "COAD",
+    "ESCA",
+    "HNSC",
+    "KICH",
+    "KIRC",
+    "KIRP",
+    "LIHC",
+    "LUAD",
+    "LUSC",
+    "OV",
+    "PAAD",
+    "PRAD",
+    "READ",
+    "STAD",
+    "THCA",
+    "UCEC",
+    "UCS"
+  ],
+  "cohorts": [
+    {
+      "cohort": "BLCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BLCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/BLCA.primary01.tsv.gz",
+      "sha256": "9f400dd772372885226db309e3b9e499743d3e4f44aa4f43e6469a372bcfce90",
+      "n_patients": 406,
+      "n_01_columns": 409,
+      "from_cache": true
+    },
+    {
+      "cohort": "BRCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BRCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/BRCA.primary01.tsv.gz",
+      "sha256": "7e8fa7b91ca2be1ff4fabd7bb33d0acda016a79be7fa36c2799f1fc0825ef3b5",
+      "n_patients": 1095,
+      "n_01_columns": 1106,
+      "from_cache": true
+    },
+    {
+      "cohort": "CESC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-CESC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/CESC.primary01.tsv.gz",
+      "sha256": "28a349acf57e103d40d7ceb41c6d72e287c64b8b41588c97d863c4ddf64be478",
+      "n_patients": 304,
+      "n_01_columns": 304,
+      "from_cache": true
+    },
+    {
+      "cohort": "CHOL",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-CHOL.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/CHOL.primary01.tsv.gz",
+      "sha256": "50892c3049c5cb30b7580bee3c30f5ae3983015e7193868df450bcc1505806a9",
+      "n_patients": 35,
+      "n_01_columns": 35,
+      "from_cache": true
+    },
+    {
+      "cohort": "COAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-COAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/COAD.primary01.tsv.gz",
+      "sha256": "64fd3c2ed076a883451e946613ff60cc03e05b611bd8c191e5acb21689e3eb25",
+      "n_patients": 458,
+      "n_01_columns": 471,
+      "from_cache": true
+    },
+    {
+      "cohort": "ESCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-ESCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/ESCA.primary01.tsv.gz",
+      "sha256": "ff28dae449459ddf1fbb46a7393caab2815041ce4634394f375ba2bf2b462f42",
+      "n_patients": 184,
+      "n_01_columns": 184,
+      "from_cache": true
+    },
+    {
+      "cohort": "HNSC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-HNSC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/HNSC.primary01.tsv.gz",
+      "sha256": "648695d1bc5459a66b7288ab14c9e3d66a4b260d57e2a7462b87c63c92526995",
+      "n_patients": 520,
+      "n_01_columns": 520,
+      "from_cache": true
+    },
+    {
+      "cohort": "KICH",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-KICH.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/KICH.primary01.tsv.gz",
+      "sha256": "7313afdea2a659b884b842232e58654348f66ef15749679b8146f94aa636cf04",
+      "n_patients": 66,
+      "n_01_columns": 66,
+      "from_cache": true
+    },
+    {
+      "cohort": "KIRC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-KIRC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/KIRC.primary01.tsv.gz",
+      "sha256": "7a6f5a5f0668d5347021126a9f1f913911f3e8b236c9e99464914c4e301b67c2",
+      "n_patients": 533,
+      "n_01_columns": 537,
+      "from_cache": true
+    },
+    {
+      "cohort": "KIRP",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-KIRP.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/KIRP.primary01.tsv.gz",
+      "sha256": "326f7f72b9f30b240aa06f541f7b58994271493a3b1fec108ef413233653ab49",
+      "n_patients": 290,
+      "n_01_columns": 290,
+      "from_cache": true
+    },
+    {
+      "cohort": "LIHC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LIHC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/LIHC.primary01.tsv.gz",
+      "sha256": "34e5f8ca13c38db2402025ae85f33437bb9144639f0adb336b8020f9cd7bb13a",
+      "n_patients": 371,
+      "n_01_columns": 371,
+      "from_cache": true
+    },
+    {
+      "cohort": "LUAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/LUAD.primary01.tsv.gz",
+      "sha256": "b8ac557267e03dca94d6907eee1a6c9f3d91f23687e5e7d066690587509d5afe",
+      "n_patients": 516,
+      "n_01_columns": 528,
+      "from_cache": true
+    },
+    {
+      "cohort": "LUSC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUSC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/LUSC.primary01.tsv.gz",
+      "sha256": "29feb6e5492f0574d558bf52bccccd7f788d29d12558aafb19b94e74911531f6",
+      "n_patients": 501,
+      "n_01_columns": 501,
+      "from_cache": true
+    },
+    {
+      "cohort": "OV",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-OV.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/OV.primary01.tsv.gz",
+      "sha256": "a62184471437da8bc41fe8805b8229080cef002122e488660cfd048b46dfbf0d",
+      "n_patients": 421,
+      "n_01_columns": 422,
+      "from_cache": true
+    },
+    {
+      "cohort": "PAAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-PAAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/PAAD.primary01.tsv.gz",
+      "sha256": "03125e540809c0589bae3331f095f220ad2731a61d2784e5fe9db83a656080ae",
+      "n_patients": 178,
+      "n_01_columns": 178,
+      "from_cache": true
+    },
+    {
+      "cohort": "PRAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-PRAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/PRAD.primary01.tsv.gz",
+      "sha256": "bd6f707404504109d7867b9672b31212e03026c5792b8336e0efd0f35fc22868",
+      "n_patients": 497,
+      "n_01_columns": 501,
+      "from_cache": true
+    },
+    {
+      "cohort": "READ",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-READ.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/READ.primary01.tsv.gz",
+      "sha256": "e36e46768744f6238ae4f4ecf45994938f7077d8ea9b858394b5d22678f1e520",
+      "n_patients": 166,
+      "n_01_columns": 166,
+      "from_cache": true
+    },
+    {
+      "cohort": "STAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-STAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/STAD.primary01.tsv.gz",
+      "sha256": "9371e228871a6e4520f49c8da96d3796e3c441fd6159e81f0e74ded925a93580",
+      "n_patients": 412,
+      "n_01_columns": 412,
+      "from_cache": true
+    },
+    {
+      "cohort": "THCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-THCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/THCA.primary01.tsv.gz",
+      "sha256": "2c0eddaabd0af12ecca91322526ebb873ff257376264457a28a22ac79e708f5b",
+      "n_patients": 505,
+      "n_01_columns": 505,
+      "from_cache": true
+    },
+    {
+      "cohort": "UCEC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-UCEC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/UCEC.primary01.tsv.gz",
+      "sha256": "041d1437b759e4d64c9edaba979bdf8d8866dca285d3aa45d4b389dafebc9e11",
+      "n_patients": 545,
+      "n_01_columns": 549,
+      "from_cache": true
+    },
+    {
+      "cohort": "UCS",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-UCS.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_trop2/UCS.primary01.tsv.gz",
+      "sha256": "5e02313964e0e6952bde5c279489d9d5d51b8b2a15bb7022cf948c84d6af6381",
+      "n_patients": 57,
+      "n_01_columns": 57,
+      "from_cache": true
+    }
+  ]
+}
