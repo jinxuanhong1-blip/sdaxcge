@@ -1,0 +1,144 @@
+{
+  "title": "PAPER FUNNEL CosMx spatial corroboration: TACSTD2 cold neighbors + CLDN4/TJ program cold",
+  "rule": "Numbers copied from cited PRs / public handoff lock only; no h5ad re-fit; no fabrication; locked 0.36/0.52 not replaced",
+  "dataset": {
+    "name": "He et al. 2022 CosMx NSCLC FFPE 960-plex",
+    "figshare": 25976224,
+    "file": "cosmx_human_nsclc_clustered.h5ad",
+    "n_cells": 765771,
+    "n_sections": 8,
+    "n_patients": 5
+  },
+  "sources": [
+    {
+      "row": "L",
+      "label": "locked_cldn4_cytotoxic_ratios",
+      "values": {"ratio_50um": 0.36, "ratio_100um": 0.52, "sections": "8/8", "patients": "5/5", "sign_p": 0.031},
+      "pr_citations": [698, 629, 726, 643],
+      "note": "Public handoff lock. This PR does not recompute. Cited PRs restate the lock without replacement."
+    },
+    {
+      "row": "L2",
+      "label": "exclusion_not_muzzling",
+      "values": {"effector_gene_hi_lo": "1.11-1.22", "sections_decreased": "0/8"},
+      "pr": 629,
+      "branch": "cursor/cosmx-squidpy-fov-cldn4-b1f1",
+      "paths": ["RESULTS.md"]
+    },
+    {
+      "row": 1,
+      "pr": 726,
+      "branch": "cursor/cosmx-tacstd2-cldn4-depend-4c49",
+      "paths": [
+        "results/cosmx_tacstd2_cldn4/tables/marginal_summary.csv",
+        "results/cosmx_tacstd2_cldn4/RESULTS.md"
+      ],
+      "fields": {
+        "cut": "tac median",
+        "metric": "cd8nk_n",
+        "ratio_10um": 0.4554204032877236,
+        "ratio_20um": 0.6701650389566283,
+        "ratio_50um": 0.8539970605381685,
+        "ratio_100um": 0.9470626232548771,
+        "sections_10_20um": "8/8",
+        "patients_10_20um": "5/5",
+        "sign_p_patients": 0.03125
+      }
+    },
+    {
+      "row": 2,
+      "pr": 726,
+      "branch": "cursor/cosmx-tacstd2-cldn4-depend-4c49",
+      "paths": ["results/cosmx_tacstd2_cldn4/tables/marginal_summary.csv"],
+      "fields": {
+        "metric": "imm_frac",
+        "ratio_10um": 0.5187696657271683,
+        "ratio_20um": 0.6425503685602719,
+        "sections": "8/8",
+        "patients": "5/5"
+      }
+    },
+    {
+      "row": 3,
+      "pr": 726,
+      "branch": "cursor/cosmx-tacstd2-cldn4-depend-4c49",
+      "paths": ["results/cosmx_tacstd2_cldn4/summary.json"],
+      "fields": {
+        "imm_frac_10um_in_cldn4_low_ratio": 0.507,
+        "imm_frac_20um_in_cldn4_low_ratio": 0.587,
+        "attenuation_rank_10um": 0.12416311446879824,
+        "attenuation_rank_20um": 0.10305864826171501
+      }
+    },
+    {
+      "row": 4,
+      "pr": 643,
+      "branch": "cursor/cosmx-hotspot-hmrf-cd8-473c",
+      "paths": [
+        "results/cosmx_hotspot_hmrf/program_exclusion_stats.json",
+        "results/cosmx_hotspot_hmrf/RESULTS.md"
+      ],
+      "fields": {
+        "spec": "program_ceacam|hs60|mean|quartile|count50",
+        "patient_mean_rho": -0.227648033696476,
+        "n_fov": 225,
+        "patients_neg": "5/5",
+        "sections_neg": "8/8",
+        "toroidal_shift_p": 0.005,
+        "sign_p_patients": 0.03125
+      }
+    },
+    {
+      "row": 5,
+      "pr": 643,
+      "paths": ["results/cosmx_hotspot_hmrf/program_exclusion_stats.json"],
+      "fields": {
+        "quartile_cd8_count_ratio_approx": 0.61,
+        "tertile_cd8_count_ratio_patient_mean": 0.6234906533113531
+      }
+    },
+    {
+      "row": 6,
+      "pr": 643,
+      "paths": ["results/cosmx_hotspot_hmrf/program_exclusion_stats.json"],
+      "fields": {
+        "adhesion_patient_mean_rho": -0.2132598964564373,
+        "keratin_residual_patient_mean_rho": -0.081,
+        "continuous_cldn4_patient_mean_rho": -0.065
+      }
+    },
+    {
+      "row": 7,
+      "pr": 567,
+      "branch": "cursor/cosmx-cldn4-contact-lr-024d",
+      "paths": [
+        "results/cosmx_cldn4_contact_lr/stats.json",
+        "RESULTS.md"
+      ],
+      "fields": {
+        "pooled_OR": 0.584,
+        "MH_OR": 0.560,
+        "perm_p": 0.0002,
+        "slides_OR_lt_1": "8/8",
+        "tissues_OR_lt_1": "5/5"
+      }
+    },
+    {
+      "row": 8,
+      "pr": 629,
+      "branch": "cursor/cosmx-squidpy-fov-cldn4-b1f1",
+      "paths": ["RESULTS.md"],
+      "fields": {
+        "median_ratio_50um_cd8nk": 0.883,
+        "sections_lower_50um": "7/8",
+        "median_ratio_100um_cd8nk": 0.987,
+        "donors_cd8_lower": "4/5",
+        "replaces_lock": false
+      }
+    }
+  ],
+  "figures": {
+    "note": "PNG/PDF in figures/ replot copied numbers for PPT; not a new CosMx analysis",
+    "primary_slide": "figures/fig0_ppt_combined_strip.png"
+  }
+}
