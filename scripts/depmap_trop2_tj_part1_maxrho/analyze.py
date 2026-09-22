@@ -838,18 +838,20 @@ def run_rna(data: Path, out: Path) -> tuple[list[dict], dict, dict]:
     for cohort, partner, fname in (
         ("RNA_NSCLC", "CLDN4_TJ_EDGE", "fig_rna_nsclc_cldn4_edge_scatter.png"),
         ("RNA_LUAD", "CLDN4", "fig_rna_luad_cldn4_scatter.png"),
+        ("RNA_LUAD_Primary", "CLDN4", "fig_rna_luad_primary_cldn4_scatter.png"),
         ("RNA_NSCLC", "TJ_EPITHELIAL", "fig_rna_nsclc_tj_epi_scatter.png"),
     ):
         pair = pairs[cohort].dropna(subset=["TACSTD2", partner])
+        title_cohort = cohort.replace("RNA_", "").replace("_", " ")
         scatter_pair(
             pair,
             "TACSTD2",
             partner,
-            f"RNA {cohort.replace('RNA_', '')} vs {TJ_LABEL.get(partner, partner)}",
+            f"RNA {title_cohort} vs {TJ_LABEL.get(partner, partner)}",
             "TACSTD2 / TROP2 RNA (log2 TPM+1)",
             TJ_LABEL.get(partner, partner),
             out / fname,
-            hue="OncotreeSubtype" if cohort != "RNA_LUAD" else None,
+            hue="OncotreeSubtype" if cohort.startswith("RNA_NSCLC") else None,
         )
 
     # Forest: one partner panel for CLDN4_TJ_EDGE + LUAD CLDN4 + keratin control
