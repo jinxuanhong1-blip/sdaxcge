@@ -1,0 +1,7 @@
+cohort	ppt_claim	ppt_text	call	detail	n
+OncoSG_LUAD	A1	TACSTD2 vs immune negative after purity (CD8A + ImmuneScore)	PASS	TACSTD2–CD8A unadj ρ=-0.380 p=3.38e-07; partial ρ=-0.309 p=4.69e-05. TACSTD2–ImmuneScore unadj ρ=-0.387 p=1.98e-07; partial ρ=-0.318 p=2.70e-05.	169
+OncoSG_LUAD	A8	TACSTD2-high: keratin/TJ up; Hallmark EMT down (GSEA)	PARTIAL	KEGG_TJ NES=-1.00 FDR_prim=0.318; HALLMARK_APICAL_JUNCTION NES=-1.48 FDR_prim=0.0045; GOBP_KERATINIZATION NES=1.92 FDR_prim=0.002; HALLMARK_EMT NES=-2.33 FDR_prim=0.002.	169
+OncoSG_LUAD	CLDN4_immune_companion	CLDN4 vs CD8A / ImmuneScore negative (requested companion)	PASS	CLDN4–CD8A unadj ρ=-0.416 p=1.85e-08; partial ρ=-0.285 p=0.000181. CLDN4–ImmuneScore unadj ρ=-0.432 p=4.59e-09; partial ρ=-0.308 p=4.90e-05.	169
+GSE31210_LUAD	A1	TACSTD2 vs immune negative after purity (CD8A + ImmuneScore)	PARTIAL	TACSTD2–CD8A unadj ρ=-0.289 p=9.76e-06; partial ρ=-0.107 p=0.108. TACSTD2–ImmuneScore unadj ρ=-0.306 p=2.75e-06; partial ρ=-0.023 p=0.735.	226
+GSE31210_LUAD	A8	TACSTD2-high: keratin/TJ up; Hallmark EMT down (GSEA)	PASS	KEGG_TJ NES=2.00 FDR_prim=0.00183; HALLMARK_APICAL_JUNCTION NES=-1.16 FDR_prim=0.0989; GOBP_KERATINIZATION NES=1.91 FDR_prim=0.00183; HALLMARK_EMT NES=-2.15 FDR_prim=0.00183.	226
+GSE31210_LUAD	CLDN4_immune_companion	CLDN4 vs CD8A / ImmuneScore negative (requested companion)	PARTIAL	CLDN4–CD8A unadj ρ=-0.341 p=1.45e-07; partial ρ=-0.127 p=0.0574. CLDN4–ImmuneScore unadj ρ=-0.366 p=1.50e-08; partial ρ=-0.031 p=0.639.	226
