@@ -1,0 +1,55 @@
+Figure. Barrier and inhibitory ligand–receptor shifts and family differential expression.
+
+a, Mean Δ for seven barrier/inhibitory ligand–receptor pairs and the family aggregate (family_barrier_inhibitory.tsv; split q4q1). Circles (pairs) and the diamond (family aggregate) are mean_delta; horizontal bars are ± 1 SE (column se); vertical ticks are median_delta. Positive mean_delta matches the tabulated direction high > low (observed_direction; thesis_expect high>low). The axis is labeled Q4 − Q1 because the split is q4q1. Meta P is the tabulated meta_p (not recomputed). Row color is the ligand axis (F11R, NECTIN2–TIGIT, CDH1, LGALS9). n is n_units; pos/neg are n_pos/n_neg. Cohort unit counts sum to n_units but are not plotted, because the table has no per-cohort mean_delta. For LGALS9–HAVCR2, n_pos + n_neg = 26 and n_units = 27. Tabulated I² is 0 or < 10⁻¹³ on every row.
+
+b, c, Family logFC (family_de.tsv) for the Q4-versus-Q1 split and the continuous split. Point is logFC; bars are ± 1 SE (column se). Fill denotes the tabulated FDR: filled, FDR < 0.05; open, FDR ≥ 0.05. Cohort colors: GSE123902, GSE131907, GSE205335, GSE189357. Diamonds are the pooled row whose cohort field is GSE123902+GSE131907+GSE205335+GSE189357. GSE189357 has continuous rows and no separate Q4-versus-Q1 rows. The three Q4-versus-Q1 cohort rows have n = 7, 11 and 11 (sum 29); the pooled Q4-versus-Q1 row has n = 34. Continuous cohort n sums to the pooled n (13 + 21 + 21 + 9 = 64). n_genes is constant within a family: chemokine 25, MHC-I/APM 21, IFN 221, TJ 194. No confidence intervals, effect sizes, or cohort-level ligand Δ values were imputed.
+
+Source files: data/family_barrier_inhibitory.tsv, data/family_de.tsv.
+
+Plotted barrier rows (mean_delta, se, median_delta, meta_p, n_units, n_pos, n_neg):
+  F11R–ITGAL/ITGB2: 0.187791, 0.0235223, 0.135888, 1.42213e-15, 44, 44, 0
+  NECTIN2–TIGIT: 0.126736, 0.0162663, 0.0928357, 6.6285e-15, 55, 55, 0
+  LGALS9–PTPRC: 0.12386, 0.0222731, 0.128909, 2.68304e-08, 48, 39, 9
+  CDH1–ITGAE/ITGB7: 0.100745, 0.0139689, 0.0875573, 5.51073e-13, 42, 42, 0
+  LGALS9–CD44: 0.0969754, 0.0183151, 0.111882, 1.19133e-07, 49, 40, 9
+  CDH1–KLRG1: 0.0823854, 0.0134963, 0.0573646, 1.0326e-09, 32, 32, 0
+  LGALS9–HAVCR2: 0.0228673, 0.0105632, 0.00318401, 0.0304031, 27, 21, 5
+  Family aggregate: 0.0987157, 0.0101733, 0.0833604, 2.91553e-22, 61, 57, 4
+
+Plotted family logFC (split, cohort, logFC, se, fdr, n):
+  chemokine | q4q1 | GSE123902: -1.35458, 0.693216, 0.144268, 7
+  chemokine | q4q1 | GSE131907: -0.424064, 0.210734, 0.150093, 11
+  chemokine | q4q1 | GSE205335: -1.37667, 0.313313, 0.00351894, 11
+  chemokine | q4q1 | GSE123902+GSE131907+GSE205335+GSE189357: -0.963653, 0.209558, 0.000309257, 34
+  MHC-I/APM | q4q1 | GSE123902: -0.751052, 0.384489, 0.144268, 7
+  MHC-I/APM | q4q1 | GSE131907: -0.168362, 0.544692, 0.970832, 11
+  MHC-I/APM | q4q1 | GSE205335: -1.60497, 0.543011, 0.0214289, 11
+  MHC-I/APM | q4q1 | GSE123902+GSE131907+GSE205335+GSE189357: -0.779135, 0.282167, 0.0131776, 34
+  IFN | q4q1 | GSE123902: -0.679459, 0.340045, 0.144268, 7
+  IFN | q4q1 | GSE131907: -0.0110702, 0.294465, 0.970832, 11
+  IFN | q4q1 | GSE205335: -1.24341, 0.28359, 0.00351894, 11
+  IFN | q4q1 | GSE123902+GSE131907+GSE205335+GSE189357: -0.584327, 0.175975, 0.00486886, 34
+  TJ | q4q1 | GSE123902: 0.128581, 0.243487, 0.62003, 7
+  TJ | q4q1 | GSE131907: 0.185229, 0.0682051, 0.0950876, 11
+  TJ | q4q1 | GSE205335: -0.114807, 0.121176, 0.368157, 11
+  TJ | q4q1 | GSE123902+GSE131907+GSE205335+GSE189357: 0.0427521, 0.0687005, 0.53861, 34
+  chemokine | continuous | GSE123902: -0.636086, 0.239531, 0.0894554, 13
+  chemokine | continuous | GSE131907: -0.00749624, 0.131433, 0.955113, 21
+  chemokine | continuous | GSE205335: -0.468393, 0.147081, 0.00939802, 21
+  chemokine | continuous | GSE189357: -0.146817, 0.2403, 0.745595, 9
+  chemokine | continuous | GSE123902+GSE131907+GSE205335+GSE189357: -0.30673, 0.0995911, 0.0125694, 64
+  MHC-I/APM | continuous | GSE123902: -0.284504, 0.170121, 0.163497, 13
+  MHC-I/APM | continuous | GSE131907: -0.0324983, 0.190633, 0.955113, 21
+  MHC-I/APM | continuous | GSE205335: -0.609669, 0.201902, 0.00939802, 21
+  MHC-I/APM | continuous | GSE189357: -0.0506055, 0.149918, 0.745595, 9
+  MHC-I/APM | continuous | GSE123902+GSE131907+GSE205335+GSE189357: -0.272529, 0.113247, 0.0385126, 64
+  IFN | continuous | GSE123902: -0.230508, 0.103509, 0.0955635, 13
+  IFN | continuous | GSE131907: 0.069921, 0.126013, 0.955113, 21
+  IFN | continuous | GSE205335: -0.422914, 0.138729, 0.00939802, 21
+  IFN | continuous | GSE189357: -0.0725424, 0.0928662, 0.745595, 9
+  IFN | continuous | GSE123902+GSE131907+GSE205335+GSE189357: -0.160978, 0.0775, 0.0562022, 64
+  TJ | continuous | GSE123902: 0.0641148, 0.0818481, 0.449965, 13
+  TJ | continuous | GSE131907: 0.0818272, 0.0258647, 0.0204552, 21
+  TJ | continuous | GSE205335: -0.0277799, 0.045362, 0.547531, 21
+  TJ | continuous | GSE189357: -0.0364571, 0.0321634, 0.745595, 9
+  TJ | continuous | GSE123902+GSE131907+GSE205335+GSE189357: 0.0368398, 0.0263901, 0.167954, 64
