@@ -1,0 +1,12 @@
+set	n
+#741 UP list (p<0.01, logFC>0.25, TACSTD2 out)	274
+nominal UP (p<0.05, logFC>0, TACSTD2 out)	966
+TJ family defined (TACSTD2 out)	224
+TJ family genes in the expression matrix	206
+#741 UP ∩ TJ	11
+#741 UP ∩ classical TJ (KEGG ∪ GO)	8
+#741 UP ∩ TJ ∩ predicts low T/NK	0
+nominal UP ∩ TJ	27
+nominal UP ∩ TJ ∩ predicts low T/NK	0
+TJ family with nominal low T/NK (ρ<0, p<0.05)	9
+of those, also on the #741 UP list	0
