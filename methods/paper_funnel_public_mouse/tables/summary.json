@@ -1,0 +1,156 @@
+{
+  "ppt_narrative": "TROP2-high \u2192 resistance \u2192 TJ \u2192 immune-cold (public mouse step)",
+  "private_8kl_used": false,
+  "q1": {
+    "gse137244": {
+      "Tacstd2_delta": 3.2382274886828935,
+      "Cldn4_delta": 5.569627161932762,
+      "TJ7_delta": 3.268517770884415,
+      "TJ_CORE18_delta": 1.6266264627956226,
+      "mw_p_floor": 0.007936507936507936,
+      "handoff_Tacstd2": 3.24,
+      "handoff_Cldn4": 5.57,
+      "handoff_TJ": 3.03,
+      "note_TJ": "TJ7 (+3.27) is the closest honest published-scale mean; locked handoff TJ +3.03 used a different average and is left as published."
+    },
+    "public_scrna_kl_vs_kp": "No open matrix has both KL and KP with usable n on both arms."
+  },
+  "q2": [
+    {
+      "accession": "GSE165641+GSE180963_descriptive",
+      "n_mice": 4,
+      "groups": "K,KL",
+      "rho_tacstd2_pct_vs_t_frac": -1.0,
+      "p": 0.08333333333333333,
+      "tacstd2_pct_range": "0.0204-0.2640",
+      "t_frac_range": "0.0197-0.5178",
+      "eligible_n_ge4": true,
+      "note": "DESCRIPTIVE cross-study; within-study orders agree; not a pooled model; exact perm p floor 0.083"
+    },
+    {
+      "accession": "GSE165641",
+      "n_mice": 2,
+      "groups": "KL",
+      "rho_tacstd2_pct_vs_t_frac": -0.9999999999999999,
+      "p": 1.0,
+      "tacstd2_pct_range": "0.1284-0.2640",
+      "t_frac_range": "0.0197-0.0923",
+      "eligible_n_ge4": false,
+      "note": "exact permutation p"
+    },
+    {
+      "accession": "GSE180963",
+      "n_mice": 2,
+      "groups": "K,KL",
+      "rho_tacstd2_pct_vs_t_frac": -0.9999999999999999,
+      "p": 1.0,
+      "tacstd2_pct_range": "0.0204-0.0597",
+      "t_frac_range": "0.4763-0.5178",
+      "eligible_n_ge4": false,
+      "note": "exact permutation p"
+    },
+    {
+      "accession": "GSE179501",
+      "n_mice": 4,
+      "groups": "Non-Restored,Restored",
+      "rho_tacstd2_pct_vs_t_frac": -0.39999999999999997,
+      "p": 0.75,
+      "tacstd2_pct_range": "0.0689-0.1105",
+      "t_frac_range": "0.1922-0.3561",
+      "eligible_n_ge4": true,
+      "note": "exact permutation p"
+    },
+    {
+      "accession": "GSE264739",
+      "n_mice": 6,
+      "groups": "KP,KPP",
+      "rho_tacstd2_pct_vs_t_frac": 0.8285714285714287,
+      "p": 0.058333333333333334,
+      "tacstd2_pct_range": "0.0295-0.0687",
+      "t_frac_range": "0.0116-0.1891",
+      "eligible_n_ge4": true,
+      "note": "exact permutation p"
+    }
+  ],
+  "q3": {
+    "gse137244_top_positive": "EPITHELIAL_TJ_CORE",
+    "gse137244_top_NES": 2.336567608891913,
+    "gse137244_best_junction": "EPITHELIAL_TJ_CORE",
+    "gse137244_best_junction_NES": 2.336567608891913,
+    "gse137244_best_junction_rank": 1,
+    "gse137244_junction_is_top": true,
+    "scrna": [
+      {
+        "accession": "GSE165641",
+        "n_epi": 2364,
+        "n_high": 432,
+        "n_low": 1932,
+        "split": "pos_vs_zero",
+        "top_positive_term": "EPITHELIAL_TJ_CORE",
+        "top_positive_NES": 2.1719600357832824,
+        "best_junction_term": "EPITHELIAL_TJ_CORE",
+        "best_junction_NES": 2.1719600357832824,
+        "best_junction_rank_among_positive": 1.0,
+        "junction_is_top_positive": true,
+        "note": "cell-level ranks; pseudoreplication; enrichment is the PPT question"
+      },
+      {
+        "accession": "GSE180963",
+        "n_epi": 11379,
+        "n_high": 470,
+        "n_low": 10909,
+        "split": "pos_vs_zero",
+        "top_positive_term": "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
+        "top_positive_NES": 2.7352928896560527,
+        "best_junction_term": null,
+        "best_junction_NES": null,
+        "best_junction_rank_among_positive": null,
+        "junction_is_top_positive": false,
+        "note": "cell-level ranks; pseudoreplication; enrichment is the PPT question"
+      },
+      {
+        "accession": "GSE179501",
+        "n_epi": 5327,
+        "n_high": 462,
+        "n_low": 4865,
+        "split": "pos_vs_zero",
+        "top_positive_term": "HALLMARK_OXIDATIVE_PHOSPHORYLATION",
+        "top_positive_NES": 2.3396703204655953,
+        "best_junction_term": "TJ_CORE18",
+        "best_junction_NES": 1.377581998411696,
+        "best_junction_rank_among_positive": 12.0,
+        "junction_is_top_positive": false,
+        "note": "cell-level ranks; pseudoreplication; enrichment is the PPT question"
+      },
+      {
+        "accession": "GSE264739",
+        "n_epi": 35235,
+        "n_high": 1595,
+        "n_low": 33640,
+        "split": "pos_vs_zero",
+        "top_positive_term": "GOCC_ADHERENS_JUNCTION",
+        "top_positive_NES": 2.2053838504055245,
+        "best_junction_term": "EPITHELIAL_TJ_CORE",
+        "best_junction_NES": 2.0694222815446253,
+        "best_junction_rank_among_positive": 4.0,
+        "junction_is_top_positive": false,
+        "note": "cell-level ranks; pseudoreplication; enrichment is the PPT question"
+      },
+      {
+        "accession": "GSE154977",
+        "n_epi": 11017,
+        "n_high": 2990,
+        "n_low": 8027,
+        "split": "pos_vs_zero",
+        "top_positive_term": "HALLMARK_IL2_STAT5_SIGNALING",
+        "top_positive_NES": 1.921687620814837,
+        "best_junction_term": "EPITHELIAL_TJ_CORE",
+        "best_junction_NES": 1.729687435927959,
+        "best_junction_rank_among_positive": 7.0,
+        "junction_is_top_positive": false,
+        "note": "cell-level ranks; pseudoreplication; enrichment is the PPT question"
+      }
+    ]
+  },
+  "n_mice_scored": 18
+}
