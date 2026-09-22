@@ -1,0 +1,389 @@
+{
+  "n_units": 65,
+  "n_expression": 64,
+  "n_genes": 24083,
+  "n_q4": 15,
+  "n_q1": 19,
+  "n_sets_universe": 68,
+  "tacstd2_q4q1_logFC": 3.9040230854753455,
+  "tacstd2_q4q1_t": 6.265485246688949,
+  "n_gsea_specs": 36,
+  "n_gsea_eligible": 35,
+  "n_ora_specs": 126,
+  "n_ora_eligible": 125,
+  "input_md5": {
+    "GSE123902_malignant_counts.tsv.gz": "1ae2ff114f4dae1c5a76444197014ce9",
+    "GSE131907_malignant_counts.tsv.gz": "65216caacd9f523a51ac38c16cea8fe7",
+    "GSE205335_malignant_counts.tsv.gz": "93f078f39f509a1d609cb6c4c2f3eb91",
+    "GSE189357_malignant_counts.tsv.gz": "e93a99d0eafab6605ef4f21a273fb70f"
+  },
+  "gsea_winner": {
+    "spec": "q4q1_stouffer_z__w1",
+    "note": "Equal-weight Stouffer combination of within-cohort Welch z (Q4 vs Q1, \u22652 per side). GSEA weight p=1.",
+    "weight": 1.0,
+    "verdict": "no TJ/junction term is rank 1; best is HALLMARK_APICAL_JUNCTION at rank 4",
+    "n_sets": 67,
+    "strict_tj_term": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+    "strict_tj_rank": 20,
+    "strict_tj_effect": 2.130804951247582,
+    "keratin_term": "GOBP_KERATINOCYTE_DIFFERENTIATION",
+    "keratin_rank": 3,
+    "keratin_effect": 2.626299699627505,
+    "adhesion_term": "CUSTOM_EPITHELIAL_ADHESION",
+    "adhesion_rank": 5,
+    "adhesion_effect": 2.5555055384520924,
+    "top3": [
+      {
+        "rank": 1,
+        "term": "HALLMARK_TNFA_SIGNALING_VIA_NFKB",
+        "family": "other",
+        "nes": 3.1851770114150235,
+        "nom_p": 0.0009990009990009,
+        "fdr": 0.0014874014874014,
+        "n_set_in_rank": 199,
+        "lead_genes": "TNC,ICAM1,ZFP36,TRIP10,HBEGF,JUN,G0S2,CCL2,IER3,DUSP1,OLR1,SDC4"
+      },
+      {
+        "rank": 2,
+        "term": "HALLMARK_INFLAMMATORY_RESPONSE",
+        "family": "other",
+        "nes": 2.780737449926141,
+        "nom_p": 0.0009990009990009,
+        "fdr": 0.0014874014874014,
+        "n_set_in_rank": 194,
+        "lead_genes": "LY6E,ICAM1,AHR,ADORA2B,ICAM4,TNFSF15,GNA15,HBEGF,SCARF1,CCL2,OLR1,EDN1"
+      },
+      {
+        "rank": 3,
+        "term": "GOBP_KERATINOCYTE_DIFFERENTIATION",
+        "family": "keratin",
+        "nes": 2.626299699627505,
+        "nom_p": 0.0009990009990009,
+        "fdr": 0.0014874014874014,
+        "n_set_in_rank": 39,
+        "lead_genes": "EVPL,EPHA2,ADAM9,ST14,ANXA1,SCEL,IVL,CFLAR,JAG1,WNT5A,UGCG,KRT16"
+      }
+    ]
+  },
+  "ora_winner": {
+    "spec": "q4q1_moderated_t||top100 positive stat",
+    "rule": "top100 positive stat",
+    "n_hits": 100,
+    "verdict": "HALLMARK_APICAL_JUNCTION is rank 1; best strict TJ is KEGG_TIGHT_JUNCTION at rank 25",
+    "strict_tj_term": "KEGG_TIGHT_JUNCTION",
+    "strict_tj_rank": 25,
+    "strict_tj_effect": 3.127532467532468,
+    "keratin_term": "GOBP_KERATINIZATION",
+    "keratin_rank": 3,
+    "adhesion_term": "GOBP_CELL_CELL_ADHESION",
+    "adhesion_rank": 2,
+    "top3": [
+      {
+        "rank": 1,
+        "term": "HALLMARK_APICAL_JUNCTION",
+        "family": "junction",
+        "n_overlap": 9,
+        "enrichment": 11.172061855670103,
+        "p": 1.2001715884734008e-07,
+        "fdr": 8.161166801619124e-06,
+        "overlap_genes": "ADAM9,CDH3,ICAM1,ICAM4,LAMC2,MPZL2,NECTIN4,PTK2,TGFBI"
+      },
+      {
+        "rank": 2,
+        "term": "GOBP_CELL_CELL_ADHESION",
+        "family": "adhesion",
+        "n_overlap": 15,
+        "enrichment": 3.871704180064309,
+        "p": 6.953717403767197e-06,
+        "fdr": 0.0002364263917280847,
+        "overlap_genes": "ADAM8,ADAM9,BMP4,CDH3,DSC2,DSG2,ERBB2,ICAM1,ICAM4,MPZL2,NECTIN4,NT5E,PTK2,RAP2B,TRPV4"
+      },
+      {
+        "rank": 3,
+        "term": "GOBP_KERATINIZATION",
+        "family": "keratin",
+        "n_overlap": 4,
+        "enrichment": 21.892727272727274,
+        "p": 3.344448099753782e-05,
+        "fdr": 0.0007580749026108572,
+        "overlap_genes": "CDH3,EVPL,KRT86,PPL"
+      }
+    ]
+  },
+  "gsea_reference": {
+    "spec": "q4q1_ols_t__w1",
+    "strict_tj_term": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+    "strict_tj_rank": 24,
+    "strict_tj_effect": 2.0963140942669125,
+    "junction_term": "HALLMARK_APICAL_JUNCTION",
+    "junction_rank": 9,
+    "top3": [
+      {
+        "rank": 1,
+        "term": "HALLMARK_TNFA_SIGNALING_VIA_NFKB",
+        "family": "other",
+        "nes": 3.200101178736927,
+        "nom_p": 0.0009990009990009,
+        "fdr": 0.0015565829519317,
+        "n_set_in_rank": 199,
+        "lead_genes": "ICAM1,TRIP10,G0S2,CLCF1,TNC,SDC4,CCL2,ZFP36,EDN1,HBEGF,EHD1,CSF2"
+      },
+      {
+        "rank": 2,
+        "term": "GOBP_KERATINIZATION",
+        "family": "keratin",
+        "nes": 2.941179455540865,
+        "nom_p": 0.0009990009990009,
+        "fdr": 0.0015565829519317,
+        "n_set_in_rank": 44,
+        "lead_genes": "KRT86,EVPL,PPL,CDH3,TMEM79,SHARPIN,KRT80,SPRR2D,KRT17,SFN,KRT16,IVL"
+      },
+      {
+        "rank": 3,
+        "term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+        "family": "other",
+        "nes": 2.832752160121138,
+        "nom_p": 0.0009990009990009,
+        "fdr": 0.0015565829519317,
+        "n_set_in_rank": 199,
+        "lead_genes": "TGFBI,SERPINH1,LAMC2,NT5E,QSOX1,TNC,SDC4,SDC1,ANPEP,IGFBP3,COL1A1,CAPG"
+      }
+    ]
+  },
+  "families": [
+    {
+      "term": "REACTOME_TIGHT_JUNCTION_INTERACTIONS",
+      "family": "strict_tj",
+      "n_genes": 27,
+      "effect": 0.321618641025038,
+      "effect_name": "mean_cohort_delta",
+      "stat": 2.353109423776765,
+      "p": 0.10002305475873571,
+      "mean_gene_logFC": 0.32161864102503807,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "KEGG_TIGHT_JUNCTION",
+      "family": "strict_tj",
+      "n_genes": 154,
+      "effect": 0.17208027211324817,
+      "effect_name": "mean_cohort_delta",
+      "stat": 2.388694255487616,
+      "p": 0.09685527556911123,
+      "mean_gene_logFC": 0.17208027211324797,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+      "family": "strict_tj",
+      "n_genes": 74,
+      "effect": 0.2667914627122736,
+      "effect_name": "mean_cohort_delta",
+      "stat": 2.1037530942913945,
+      "p": 0.12611394795652944,
+      "mean_gene_logFC": 0.26679146271227355,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "HALLMARK_APICAL_JUNCTION",
+      "family": "junction",
+      "n_genes": 194,
+      "effect": 0.3104605464810186,
+      "effect_name": "mean_cohort_delta",
+      "stat": 2.057651855806726,
+      "p": 0.13179240431364148,
+      "mean_gene_logFC": 0.3104605464810187,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "GOBP_APICAL_JUNCTION_ASSEMBLY",
+      "family": "junction",
+      "n_genes": 62,
+      "effect": 0.2784608819092952,
+      "effect_name": "mean_cohort_delta",
+      "stat": 1.9305262142039397,
+      "p": 0.14908933846608485,
+      "mean_gene_logFC": 0.27846088190929474,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "GOBP_KERATINIZATION",
+      "family": "keratin",
+      "n_genes": 44,
+      "effect": 0.7813759356449828,
+      "effect_name": "mean_cohort_delta",
+      "stat": 2.4700707172797034,
+      "p": 0.09005876821005837,
+      "mean_gene_logFC": 0.7813759356449824,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "KRT_EPITHELIAL",
+      "family": "keratin",
+      "n_genes": 17,
+      "effect": 1.219660204039191,
+      "effect_name": "mean_cohort_delta",
+      "stat": 2.9504902719225536,
+      "p": 0.06000097527570912,
+      "mean_gene_logFC": 1.2196602040391917,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "CUSTOM_EPITHELIAL_ADHESION",
+      "family": "adhesion",
+      "n_genes": 23,
+      "effect": 0.6612488363613929,
+      "effect_name": "mean_cohort_delta",
+      "stat": 3.8785942659249137,
+      "p": 0.03035199509778073,
+      "mean_gene_logFC": 0.6612488363613934,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "GOBP_CELL_CELL_ADHESION",
+      "family": "adhesion",
+      "n_genes": 933,
+      "effect": 0.1860378003286689,
+      "effect_name": "mean_cohort_delta",
+      "stat": 1.554367146141243,
+      "p": 0.21793165984072968,
+      "mean_gene_logFC": 0.18603780032866898,
+      "fdr": 0.23774362891715964
+    },
+    {
+      "term": "HALLMARK_TNFA_SIGNALING_VIA_NFKB",
+      "family": "other",
+      "n_genes": 199,
+      "effect": 0.4967515488938643,
+      "effect_name": "mean_cohort_delta",
+      "stat": 2.3708603616165127,
+      "p": 0.09842735766661768,
+      "mean_gene_logFC": 0.49675154889386425,
+      "fdr": 0.17890720615930183
+    },
+    {
+      "term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "family": "other",
+      "n_genes": 199,
+      "effect": 0.4416153520991424,
+      "effect_name": "mean_cohort_delta",
+      "stat": 1.1499500544536598,
+      "p": 0.33351937937231935,
+      "mean_gene_logFC": 0.44161535209914204,
+      "fdr": 0.3335193793723194
+    },
+    {
+      "term": "HALLMARK_INFLAMMATORY_RESPONSE",
+      "family": "other",
+      "n_genes": 194,
+      "effect": 0.3647303983677036,
+      "effect_name": "mean_cohort_delta",
+      "stat": 1.934670455157197,
+      "p": 0.14848487446642833,
+      "mean_gene_logFC": 0.3647303983677038,
+      "fdr": 0.17890720615930183
+    }
+  ],
+  "focal": [
+    {
+      "gene": "TACSTD2",
+      "logFC": 3.555873738041132,
+      "stat": 5.406611584661377,
+      "p": 6.422821934434299e-08
+    },
+    {
+      "gene": "CLDN1",
+      "logFC": 1.3529190818626837,
+      "stat": 1.8347991862405824,
+      "p": 0.06653544925125177
+    },
+    {
+      "gene": "CLDN3",
+      "logFC": 0.684608464458224,
+      "stat": 1.3427844743695758,
+      "p": 0.17934177207959046
+    },
+    {
+      "gene": "CLDN4",
+      "logFC": 1.5453101530912212,
+      "stat": 3.0878899147157686,
+      "p": 0.0020158313001535752
+    },
+    {
+      "gene": "CLDN7",
+      "logFC": 0.7067081512269078,
+      "stat": 2.145469901538728,
+      "p": 0.03191529541296689
+    },
+    {
+      "gene": "OCLN",
+      "logFC": 0.9916196935716466,
+      "stat": 2.4001309303418954,
+      "p": 0.01638920852346577
+    },
+    {
+      "gene": "F11R",
+      "logFC": 0.3758922265818019,
+      "stat": 1.6469066433693471,
+      "p": 0.09957723619105055
+    },
+    {
+      "gene": "TJP1",
+      "logFC": 0.4599336261847011,
+      "stat": 1.9485612460336341,
+      "p": 0.051347844004114004
+    },
+    {
+      "gene": "CDH1",
+      "logFC": 0.9170737249702552,
+      "stat": 2.458414993802955,
+      "p": 0.013955180968400782
+    },
+    {
+      "gene": "EPCAM",
+      "logFC": 0.5491953935863234,
+      "stat": 1.6439163135297583,
+      "p": 0.100193489929223
+    },
+    {
+      "gene": "KRT5",
+      "logFC": 1.8370859528984869,
+      "stat": 1.122561931635921,
+      "p": 0.2616235908999831
+    },
+    {
+      "gene": "KRT6A",
+      "logFC": 1.5629917328860339,
+      "stat": 0.8572277548622637,
+      "p": 0.3913190263522385
+    },
+    {
+      "gene": "KRT8",
+      "logFC": 1.00283820362663,
+      "stat": 2.046186268682815,
+      "p": 0.04073804779968468
+    },
+    {
+      "gene": "KRT17",
+      "logFC": 2.463961219207291,
+      "stat": 1.9046972296360358,
+      "p": 0.05681943933499137
+    },
+    {
+      "gene": "KRT18",
+      "logFC": 0.8063892372185739,
+      "stat": 1.3755574940674318,
+      "p": 0.16895867410236542
+    },
+    {
+      "gene": "KRT19",
+      "logFC": 1.9551504721799886,
+      "stat": 3.5842808131159747,
+      "p": 0.00033800827721165456
+    }
+  ],
+  "answer": {
+    "headline": "A junction term leads ORA when the hit contains occludin, ZO-1, CLDN4, or E-cadherin. GSEA does not put any junction term at rank 1.",
+    "body": "Junction-led ORA whose rank-1 overlap contains a tight-junction structural gene (CDH1, OCLN, TJP1): **tercile_ols_t||p<0.01 & logFC>0.25**.\n\nTop 3: 1. GOBP_CELL_CELL_JUNCTION_ORGANIZATION (enrichment 7.28, p 4.59e-13, FDR 3.12e-11); 2. HALLMARK_APICAL_JUNCTION (enrichment 6.82, p 1.79e-11, FDR 6.10e-10); 3. GOBP_CELL_JUNCTION_ORGANIZATION (enrichment 3.19, p 1.92e-10, FDR 4.36e-09).\n\nRank-1 overlap: CDH1,CDH3,DLG5,DSG2,EPHA2,EPHB2,GJB2,GJB6,GRHL1,GRHL2,HOPX,INAVA,JUP,LSR,OCLN,PARD6B,PKP3,PLEC,PLEKHA7,RHOC,TJP1,TRPV4.\n\nThe pre-specified score (lowest junction rank, then more story terms in the top 3, then higher enrichment) picks a different ORA, **q4q1_moderated_t||top100 positive stat**. Top 3 there: 1. HALLMARK_APICAL_JUNCTION (enrichment 11.17, FDR 8.16e-06); 2. GOBP_CELL_CELL_ADHESION (enrichment 3.87, FDR 2.36e-04); 3. GOBP_KERATINIZATION (enrichment 21.89, FDR 7.58e-04). Rank-1 overlap: ADAM9,CDH3,ICAM1,ICAM4,LAMC2,MPZL2,NECTIN4,PTK2,TGFBI. That list has no CLDN, OCLN, or TJP gene, so it is not a claudin result.\n\nGSEA top 3 under the spec with the best junction rank (q4q1_stouffer_z__w1): 1. HALLMARK_TNFA_SIGNALING_VIA_NFKB (NES +3.185, FDR 0.001); 2. HALLMARK_INFLAMMATORY_RESPONSE (NES +2.781, FDR 0.001); 3. GOBP_KERATINOCYTE_DIFFERENTIATION (NES +2.626, FDR 0.001). Strict TJ in that spec: GOBP_TIGHT_JUNCTION_ORGANIZATION at rank 20 (NES +2.131). Best adhesion in that spec: CUSTOM_EPITHELIAL_ADHESION at rank 5 (NES +2.556).\n\nQuery size for the structural-gene ORA: 364 genes. Best strict tight-junction set on this same table: GOBP_TIGHT_JUNCTION_ORGANIZATION at rank 13, enrichment 7.15, FDR 8.34e-05, overlap CLDN4,EPHA2,EPHB2,GRHL2,LSR,OCLN,PLEC,TJP1."
+  }
+}
