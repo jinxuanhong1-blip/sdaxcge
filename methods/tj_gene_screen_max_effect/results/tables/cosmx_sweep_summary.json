@@ -1,0 +1,46 @@
+{
+  "n_grid": 16,
+  "n_eligible_cldn4_coldest": 5,
+  "on_panel_tj": [
+    "CLDN4",
+    "CDH1"
+  ],
+  "off_panel_tj": [
+    "CLDN3",
+    "CLDN7",
+    "OCLN",
+    "F11R"
+  ],
+  "anchor_q4q1_50": {
+    "mode": "q4_q1",
+    "radius_um": 50,
+    "n_genes_scored": 2,
+    "lead_gene": "CDH1",
+    "lead_ratio": 0.7861748514986647,
+    "cldn4_ratio": 0.8003842158088572,
+    "cldn4_n_neg": 4,
+    "cldn4_8of8_5of5": false,
+    "runner_gene": "CLDN4",
+    "runner_ratio": 0.8003842158088572,
+    "margin_runner_minus_cldn4": NaN,
+    "eligible_cldn4_coldest": false,
+    "rank_table": "CDH1=0.7862;CLDN4=0.8004"
+  },
+  "primary": {
+    "mode": "detected_absent",
+    "radius_um": 25,
+    "n_genes_scored": 2,
+    "lead_gene": "CLDN4",
+    "lead_ratio": 0.6231856219598869,
+    "cldn4_ratio": 0.6231856219598869,
+    "cldn4_n_neg": 7,
+    "cldn4_8of8_5of5": false,
+    "runner_gene": "CDH1",
+    "runner_ratio": 0.6952013204784695,
+    "margin_runner_minus_cldn4": 0.07201569851858258,
+    "eligible_cldn4_coldest": true,
+    "rank_table": "CLDN4=0.6232;CDH1=0.6952"
+  },
+  "locked_note": "Locked CLDN4 0.36/0.52 not recomputed or replaced.",
+  "part2_note": "If CDH1 stays colder on every eligible row, do not force CosMx into Part1 as CLDN4-unique."
+}

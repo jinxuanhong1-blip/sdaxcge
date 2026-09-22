@@ -1,0 +1,25 @@
+{
+  "n_grid": 60,
+  "n_eligible": 0,
+  "anchor_pr748_like": {
+    "y": "CD8",
+    "krt": "KRT8_18_19",
+    "cohort_set": "lung_plus_funnel",
+    "min_neg_required": 7,
+    "cldn4_rho": -0.08059054921697954,
+    "cldn4_p": 0.006189723216631122,
+    "cldn4_I2": 0.6812344273656753,
+    "cldn4_n_neg": 7,
+    "cldn4_n_cohorts": 8,
+    "lead_gene": "F11R",
+    "runner_gene": "CDH1",
+    "runner_rho": -0.12565366606662376,
+    "margin_runner_minus_cldn4": NaN,
+    "abs_cldn4_rho": 0.08059054921697954,
+    "eligible_cldn4_lead": false,
+    "rank_table": "F11R=-0.1306;CDH1=-0.1257;CLDN7=-0.1094;OCLN=-0.1007;CLDN4=-0.0806;CLDN3=-0.0598"
+  },
+  "primary_preferred": null,
+  "absolute_max_margin": null,
+  "note": "Part2. If eligible empty or CLDN4 not lead on anchor, do not promote to Part1."
+}
