@@ -1,0 +1,51 @@
+{
+  "concordant4": {
+    "dataset": "ALL",
+    "n_units": 65,
+    "n_units_ge30": 63,
+    "median_ratio_vs_indep": 1.306901513041864,
+    "median_odds_ratio": 13.65262946607788,
+    "median_p_both": 0.4797687861271676,
+    "median_p_tac": 0.5859375,
+    "median_p_cld": 0.6329743164871583,
+    "median_spearman": 0.7464548653218389,
+    "frac_spearman_pos": 1.0,
+    "wilcoxon_ratio_gt1_p": 2.58419740681613e-12,
+    "wilcoxon_spearman_p": 2.58419740681613e-12,
+    "dual_vs_tnk_spearman": -0.25446428571428575,
+    "dual_vs_tnk_p": 0.044160510829611886
+  },
+  "cosmx": {
+    "n_sections": 8,
+    "n_patients": 5,
+    "n_tumor_total": 295877,
+    "median_spearman": 0.17982737710358757,
+    "min_spearman": 0.0927494361405444,
+    "max_spearman": 0.2568801080077569,
+    "all_spearman_pos": true,
+    "median_ratio_vs_indep": 1.174374285089591,
+    "median_odds_ratio": 2.8701773050204995,
+    "sections_ratio_gt1": 8,
+    "sections_or_gt1": 8,
+    "wilcoxon_ratio_gt1_p": 0.00390625,
+    "wilcoxon_spearman_p": 0.00390625,
+    "spearman_matches_pr726_inventory": true
+  },
+  "depmap": {
+    "layer": "protein",
+    "cohort": "Gygi_CCLE_MS_LUNG",
+    "n": 45,
+    "spearman_rho": 0.6931488801054019,
+    "spearman_p": 1.3117431950020398e-07,
+    "ci95_low": 0.47946842455561717,
+    "ci95_high": 0.8229458887808234,
+    "rounds_to_0_69": true,
+    "note": "Pairwise complete cases. Slide n=118 is not reproduced (CLDN4 quantified in 45/77 lung columns)."
+  },
+  "framing": "BRIDGE_ONLY_NOT_MEDIATION",
+  "locked_not_recomputed": [
+    "CosMx CLDN4 cytotoxic 0.36/0.52",
+    "concordant-4 CLDN4 %pos vs T/NK rho=-0.531"
+  ],
+  "mediation_null_citation": "PR #718"
+}
