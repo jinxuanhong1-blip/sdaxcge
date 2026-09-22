@@ -1,0 +1,761 @@
+{
+  "cohorts": [
+    "GSE123902",
+    "GSE131907",
+    "GSE205335",
+    "GSE189357"
+  ],
+  "n_units_locked": 65,
+  "n_in_expression": 64,
+  "de_n_q1": 19,
+  "de_n_q4": 15,
+  "de_n": 34,
+  "n_genes_de": 24083,
+  "tacstd2_logFC": 3.9040230854753495,
+  "tacstd2_p": 7.708786908785916e-07,
+  "ora_rule": "p<0.01 & |logFC|>0.25 (FDR arm too thin)",
+  "n_up": 274,
+  "n_down": 79,
+  "ora_top5": [
+    {
+      "term": "HALLMARK_APICAL_JUNCTION",
+      "n_overlap": 13,
+      "enrichment": 5.889814884490932,
+      "p": 3.791543538606091e-07,
+      "fdr": 1.2835588851559693e-05
+    },
+    {
+      "term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+      "n_overlap": 13,
+      "enrichment": 5.7418295858856325,
+      "p": 5.071937364104496e-07,
+      "fdr": 1.2835588851559693e-05
+    },
+    {
+      "term": "GOBP_KERATINIZATION",
+      "n_overlap": 7,
+      "enrichment": 13.98316191108162,
+      "p": 6.112185167409378e-07,
+      "fdr": 1.2835588851559693e-05
+    },
+    {
+      "term": "HALLMARK_INFLAMMATORY_RESPONSE",
+      "n_overlap": 12,
+      "enrichment": 5.436752201068553,
+      "p": 2.476936567691499e-06,
+      "fdr": 3.6603191141370054e-05
+    },
+    {
+      "term": "HALLMARK_KRAS_SIGNALING_UP",
+      "n_overlap": 12,
+      "enrichment": 5.353959020341621,
+      "p": 2.905015169950004e-06,
+      "fdr": 3.6603191141370054e-05
+    }
+  ],
+  "ora_best_barrier": {
+    "term": "GOBP_KERATINIZATION",
+    "n_overlap": 7,
+    "enrichment": 13.98316191108162,
+    "p": 6.112185167409378e-07,
+    "fdr": 1.2835588851559693e-05,
+    "rank_among_all_ora": 3
+  },
+  "ora_top_barrier_by_rank": {
+    "term": "HALLMARK_APICAL_JUNCTION",
+    "n_overlap": 13,
+    "enrichment": 5.889814884490932,
+    "p": 3.791543538606091e-07,
+    "fdr": 1.2835588851559693e-05,
+    "rank_among_all_ora": 1
+  },
+  "gsea_q4q1": {
+    "available": true,
+    "n_sets_positive_nes": 36,
+    "n_sets_tested": 41,
+    "top5_positive": [
+      {
+        "term": "HALLMARK_TNFA_SIGNALING_VIA_NFKB",
+        "nes": 3.1996540224182937,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "n_set_in_rank": 199
+      },
+      {
+        "term": "GOBP_KERATINIZATION",
+        "nes": 2.8254679785709143,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "n_set_in_rank": 44
+      },
+      {
+        "term": "HALLMARK_EPITHELIAL_MESENCHYMAL_TRANSITION",
+        "nes": 2.8182282990489513,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "n_set_in_rank": 199
+      },
+      {
+        "term": "HALLMARK_INFLAMMATORY_RESPONSE",
+        "nes": 2.8034412363152263,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "n_set_in_rank": 194
+      },
+      {
+        "term": "GOBP_KERATINOCYTE_DIFFERENTIATION",
+        "nes": 2.7165708258272603,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "n_set_in_rank": 39
+      }
+    ],
+    "barrier_rows": [
+      {
+        "term": "GOBP_KERATINIZATION",
+        "nes": 2.8254679785709143,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 2,
+        "n_set_in_rank": 44,
+        "lead_genes": "KRT86,EVPL,PPL,CDH3,TMEM79,SHARPIN,KRT80,SPRR2D,KRT17,SFN,KRT16,IVL,KRT7,SPRR1B,KRT5,SPRR1A,CERS3,KRT6C,KRT6A,KLK5,SPRR3,KRT77,KRT6B,TGM1,LIPK"
+      },
+      {
+        "term": "GOBP_KERATINOCYTE_DIFFERENTIATION",
+        "nes": 2.7165708258272603,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 5,
+        "n_set_in_rank": 39,
+        "lead_genes": "EVPL,EPHA2,ADAM9,SCEL,ST14,KRT16,ANXA1,IVL,SPRR1B,SPRR1A,CERS3,CFLAR,SPRR3,TGM1,EREG,WNT5A,CSTA,UGCG,JAG1,DSP,ASAH1,EXPH5,CDSN,SPRR2F"
+      },
+      {
+        "term": "CUSTOM_EPITHELIAL_ADHESION",
+        "nes": 2.5852538898752195,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 7,
+        "n_set_in_rank": 23,
+        "lead_genes": "NECTIN4,DSG2,JUP,CLDN4,OCLN,CDH1,NECTIN2,TJP1,CLDN1,NECTIN1,F11R,CLDN7,CTNNA1,TJP3,CGN,DSP,EPCAM,MARVELD2,CLDN3,CTNNB1,PKP2"
+      },
+      {
+        "term": "HALLMARK_APICAL_JUNCTION",
+        "nes": 2.554582030951699,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 8,
+        "n_set_in_rank": 194,
+        "lead_genes": "ICAM1,TGFBI,MPZL2,PTK2,ICAM4,NECTIN4,CDH3,ADAM9,CTNND1,LAMC2,WASL,BAIAP2,JUP,ADAM15,CRAT,CLDN4,COL17A1,LAMB3,ICAM5,NEXN,DSC3,MSN,CDH1,ITGA3,SDC3"
+      },
+      {
+        "term": "KRT_EPITHELIAL",
+        "nes": 2.516949730222767,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 10,
+        "n_set_in_rank": 17,
+        "lead_genes": "KRT19,KRT14,KRT13,KRT17,KRT16,KRT7,KRT8,KRT5,KRT6C,KRT15,KRT6A,KRT6B,KRT18,KRT4"
+      },
+      {
+        "term": "GOBP_ESTABLISHMENT_OF_SKIN_BARRIER",
+        "nes": 2.297004600592882,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 15,
+        "n_set_in_rank": 17,
+        "lead_genes": "TP63,TMEM79,LSR,CLDN4,SFN,KRT16,KDF1,MET,CLDN1,IL18,ALOX12,UGCG"
+      },
+      {
+        "term": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+        "nes": 2.1183986729464768,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 20,
+        "n_set_in_rank": 74,
+        "lead_genes": "EPHA2,CLDN23,GRHL2,LSR,PLEC,CLDN4,OCLN,MICALL2,TJP1,CLDN1,CLDN16,EPHB2,F11R,CLDN7,MPP7,ILDR1,CLDN6,PARD3,CLDN9,MARVELD3,POF1B,EXT1,SNAI2,PDCD6IP,MYO1C"
+      },
+      {
+        "term": "KEGG_TIGHT_JUNCTION",
+        "nes": 2.0402357910089237,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 22,
+        "n_set_in_rank": 154,
+        "lead_genes": "SYNPO,ERBB2,CLDN23,AMOTL2,PRKCZ,CLDN4,OCLN,PRKCE,JUN,MICALL2,MSN,CCND1,TJP1,CLDN1,PARD6B,SCRIB,CLDN16,EZR,CTTN,MYH14,LLGL2,MYL9,ARHGEF18,CRB3,F11R"
+      },
+      {
+        "term": "GOBP_BICELLULAR_TIGHT_JUNCTION_ASSEMBLY",
+        "nes": 1.9552142531332304,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.00146282289139432,
+        "rank_among_positive_nes": 24,
+        "n_set_in_rank": 42,
+        "lead_genes": "CLDN23,GRHL2,CLDN4,OCLN,MICALL2,CLDN1,CLDN16,CLDN7,CLDN6,PARD3,CLDN9,MARVELD3,POF1B,PDCD6IP,ARL2,MARVELD2,RAB13,CLDN3,CLDN8"
+      },
+      {
+        "term": "CUSTOM_CLAUDIN_PANEL",
+        "nes": 1.7099268345799108,
+        "nom_p": 0.004995004995004995,
+        "fdr": 0.00639985014985015,
+        "rank_among_positive_nes": 27,
+        "n_set_in_rank": 19,
+        "lead_genes": "CLDN23,CLDN4,CLDN1,CLDN16,CLDN7,CLDN6,CLDN9,CLDN3,CLDN8"
+      },
+      {
+        "term": "HALLMARK_APICAL_SURFACE",
+        "nes": 1.6933911375188802,
+        "nom_p": 0.004995004995004995,
+        "fdr": 0.00639985014985015,
+        "rank_among_positive_nes": 28,
+        "n_set_in_rank": 43,
+        "lead_genes": "EPHB4,HSPB1,AFAP1L2,CX3CL1,PLAUR,ATP6V0A4,ATP8B1,LYPD3,B4GALT1,CRYBG1,DCBLD2,RTN4RL1,RHCG,NTNG1,SHROOM2,CROCC,ADAM10"
+      }
+    ],
+    "best_barrier": {
+      "term": "GOBP_KERATINIZATION",
+      "nes": 2.8254679785709143,
+      "fdr": 0.00146282289139432,
+      "rank_among_positive_nes": 2
+    },
+    "tj_is_top": false,
+    "tj_is_near_top": true
+  },
+  "gsea_continuous": {
+    "available": true,
+    "n_sets_positive_nes": 32,
+    "n_sets_tested": 41,
+    "top5_positive": [
+      {
+        "term": "HALLMARK_TNFA_SIGNALING_VIA_NFKB",
+        "nes": 3.089952879648115,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "n_set_in_rank": 199
+      },
+      {
+        "term": "GOBP_KERATINIZATION",
+        "nes": 2.899097270332935,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "n_set_in_rank": 44
+      },
+      {
+        "term": "HALLMARK_P53_PATHWAY",
+        "nes": 2.8777010924337163,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "n_set_in_rank": 195
+      },
+      {
+        "term": "CUSTOM_EPITHELIAL_ADHESION",
+        "nes": 2.8152331825648425,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "n_set_in_rank": 23
+      },
+      {
+        "term": "HALLMARK_INTERFERON_GAMMA_RESPONSE",
+        "nes": 2.7791371041818373,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "n_set_in_rank": 198
+      }
+    ],
+    "barrier_rows": [
+      {
+        "term": "GOBP_KERATINIZATION",
+        "nes": 2.899097270332935,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 2,
+        "n_set_in_rank": 44,
+        "lead_genes": "EVPL,PPL,CDH3,KRT80,SFN,TMEM79,KRT7,KRT86,KRT16,SPRR2D,KRT17,SPRR1B,IVL,SPRR3,ABCA12,KRT5,SPRR1A,CERS3,SHARPIN,KRT6C,KRT77,KRT78,SPRR2E,KRT4,LIPK"
+      },
+      {
+        "term": "CUSTOM_EPITHELIAL_ADHESION",
+        "nes": 2.8152331825648425,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 4,
+        "n_set_in_rank": 23,
+        "lead_genes": "NECTIN4,CDH1,CLDN4,JUP,DSG2,OCLN,F11R,CLDN7,CLDN1,TJP3,CGN,CTNNB1,NECTIN2,EPCAM,TJP1,MARVELD2,CLDN3,TJP2,CTNNA1,DSP"
+      },
+      {
+        "term": "KRT_EPITHELIAL",
+        "nes": 2.5389112232359357,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 9,
+        "n_set_in_rank": 17,
+        "lead_genes": "KRT19,KRT8,KRT7,KRT18,KRT15,KRT13,KRT14,KRT16,KRT17,KRT5,KRT6C,KRT10,KRT4,KRT6A,KRT6B"
+      },
+      {
+        "term": "GOBP_KERATINOCYTE_DIFFERENTIATION",
+        "nes": 2.5099658195478094,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 12,
+        "n_set_in_rank": 39,
+        "lead_genes": "EVPL,ST14,EPHA2,SCEL,CFLAR,KRT16,EXPH5,ADAM9,ANXA1,SPRR1B,IVL,SPRR3,CSTA,WNT5A,SPRR1A,CERS3,KRT10,PPP3CA,DSP,TGM1,CDSN,SPRR2F,POU2F3"
+      },
+      {
+        "term": "HALLMARK_APICAL_JUNCTION",
+        "nes": 2.2197021613617323,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 15,
+        "n_set_in_rank": 194,
+        "lead_genes": "MPZL2,NECTIN4,CDH1,CLDN4,CTNND1,JUP,CDH3,CRB3,LAMC2,ADAM15,ICAM1,ICAM4,LAMB3,CLDN7,ITGB4,MSN,EGFR,CNN2,SHC1,PCDH1,TGFBI,BAIAP2,ITGA2,LDLRAP1,CRAT"
+      },
+      {
+        "term": "KEGG_TIGHT_JUNCTION",
+        "nes": 2.212372419786614,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 16,
+        "n_set_in_rank": 154,
+        "lead_genes": "CCND1,CLDN4,ERBB2,CRB3,OCLN,F11R,CLDN7,MYH14,MSN,CLDN1,MARVELD3,CLDN23,LLGL2,TJP3,RUNX1,PRKCE,CGN,AMOTL2,ACTN4,PRKCZ,JUN,SYNPO,MICALL2,PARD6B,SLC9A3R1"
+      },
+      {
+        "term": "GOBP_TIGHT_JUNCTION_ORGANIZATION",
+        "nes": 2.1868449144208864,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 18,
+        "n_set_in_rank": 74,
+        "lead_genes": "CLDN4,EPHA2,GRHL2,OCLN,F11R,LSR,CLDN7,CLDN1,MARVELD3,CLDN23,ILDR1,PLEC,MPP7,MICALL2,MYO1C,PRKCH,CLDN16,TJP1,MARVELD2,CLDN3,POF1B,EPHB2"
+      },
+      {
+        "term": "GOBP_BICELLULAR_TIGHT_JUNCTION_ASSEMBLY",
+        "nes": 2.1434404462348766,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 19,
+        "n_set_in_rank": 42,
+        "lead_genes": "CLDN4,GRHL2,OCLN,CLDN7,CLDN1,MARVELD3,CLDN23,MICALL2,CLDN16,MARVELD2,CLDN3,POF1B,SLC39A9,CLDN9,PDCD6IP,CLDN8,RAB13,ESAM"
+      },
+      {
+        "term": "GOBP_ESTABLISHMENT_OF_SKIN_BARRIER",
+        "nes": 2.0907318676572566,
+        "nom_p": 0.000999000999000999,
+        "fdr": 0.0015753477291938832,
+        "rank_among_positive_nes": 22,
+        "n_set_in_rank": 17,
+        "lead_genes": "CLDN4,LSR,TP63,SFN,CLDN1,TMEM79,KDF1,KRT16,IL18,MET,ALOX12"
+      },
+      {
+        "term": "CUSTOM_CLAUDIN_PANEL",
+        "nes": 1.9256297031384169,
+        "nom_p": 0.001998001998001998,
+        "fdr": 0.0028247614454511008,
+        "rank_among_positive_nes": 25,
+        "n_set_in_rank": 19,
+        "lead_genes": "CLDN4,CLDN7,CLDN1,CLDN23,CLDN16,CLDN3"
+      },
+      {
+        "term": "HALLMARK_APICAL_SURFACE",
+        "nes": 1.752088202678736,
+        "nom_p": 0.002997002997002997,
+        "fdr": 0.003963778157326544,
+        "rank_among_positive_nes": 27,
+        "n_set_in_rank": 43,
+        "lead_genes": "ATP8B1,EPHB4,HSPB1,B4GALT1,LYN,CX3CL1,PLAUR,CRYBG1,AFAP1L2,ATP6V0A4,ADAM10,RHCG,LYPD3,RTN4RL1,SHROOM2"
+      }
+    ],
+    "best_barrier": {
+      "term": "GOBP_KERATINIZATION",
+      "nes": 2.899097270332935,
+      "fdr": 0.0015753477291938832,
+      "rank_among_positive_nes": 2
+    },
+    "tj_is_top": false,
+    "tj_is_near_top": true
+  },
+  "family_score_q4q1": [
+    {
+      "family": "TJ",
+      "n_q1": 19,
+      "n_q4": 15,
+      "n": 34,
+      "n_genes": 206,
+      "logFC": 0.22327298873016335,
+      "t": 3.6025472198664477,
+      "p": 0.0011629734404364491,
+      "se": 0.06197642254316946,
+      "fdr": 0.004186809044320767
+    },
+    {
+      "family": "CLAUDIN_PANEL",
+      "n_q1": 19,
+      "n_q4": 15,
+      "n": 34,
+      "n_genes": 19,
+      "logFC": 0.4258650779039873,
+      "t": 3.115474478003309,
+      "p": 0.004114043868317752,
+      "se": 0.13669348951846397,
+      "fdr": 0.0061710658024766284
+    },
+    {
+      "family": "EPITHELIAL_ADHESION",
+      "n_q1": 19,
+      "n_q4": 15,
+      "n": 34,
+      "n_genes": 23,
+      "logFC": 0.7343338617511933,
+      "t": 3.533549803417098,
+      "p": 0.001395603014773589,
+      "se": 0.20781760626129003,
+      "fdr": 0.004186809044320767
+    },
+    {
+      "family": "KERATIN",
+      "n_q1": 19,
+      "n_q4": 15,
+      "n": 34,
+      "n_genes": 52,
+      "logFC": 0.929202466632764,
+      "t": 3.2768001490562955,
+      "p": 0.0027251267467869843,
+      "se": 0.28357007579493987,
+      "fdr": 0.0054502534935739685
+    },
+    {
+      "family": "IFN",
+      "n_q1": 19,
+      "n_q4": 15,
+      "n": 34,
+      "n_genes": 222,
+      "logFC": 0.34774701740646347,
+      "t": 1.6376431971874035,
+      "p": 0.11230315482264218,
+      "se": 0.21234602140668196,
+      "fdr": 0.1347637857871706
+    },
+    {
+      "family": "MHC-I/APM",
+      "n_q1": 19,
+      "n_q4": 15,
+      "n": 34,
+      "n_genes": 21,
+      "logFC": 0.18907526363675875,
+      "t": 0.5791443668521373,
+      "p": 0.5669635672850177,
+      "se": 0.32647345715275167,
+      "fdr": 0.5669635672850177
+    }
+  ],
+  "tj_vs_tnk_meta": {
+    "rho": 0.13659205274036734,
+    "p": 0.6048341834046363,
+    "I2": 70.51342184537923,
+    "n": 64,
+    "ci95": [
+      -0.3654622795453007,
+      0.5770830017687937
+    ],
+    "n_tj_genes": 206,
+    "member_rhos": "GSE123902:-0.330,GSE131907:-0.208,GSE205335:0.583,GSE189357:0.433"
+  },
+  "tj_vs_tnk_stacked_q4q1": {
+    "r_rb": 0.11578947368421044,
+    "p": 0.5789286004329155,
+    "n_q1": 19,
+    "n_q4": 15,
+    "delta_median": 0.030993483791100396
+  },
+  "tj_core_vs_tnk_meta": {
+    "genes": [
+      "CLDN1",
+      "CLDN3",
+      "CLDN4",
+      "CLDN7",
+      "OCLN",
+      "F11R",
+      "TJP1"
+    ],
+    "rho": -0.19064726749030786,
+    "p": 0.4061999489174193,
+    "I2": 61.49221727310271,
+    "n": 64,
+    "ci95": [
+      -0.5706320382808623,
+      0.25657822495124716
+    ],
+    "member_rhos": "GSE123902:-0.275,GSE131907:-0.587,GSE205335:0.234,GSE189357:0.000"
+  },
+  "tj_core_vs_tnk_stacked_q4q1": {
+    "r_rb": -0.2912280701754386,
+    "p": 0.15500873195985132,
+    "n_q1": 19,
+    "n_q4": 15,
+    "delta_median": -0.14168309843463547
+  },
+  "tacstd2_vs_tnk_meta": {
+    "rho": 0.1546739089658554,
+    "p": 0.26084590482107894,
+    "I2": 0.0,
+    "n": 64
+  },
+  "cldn4_pct_vs_tnk_meta_recomputed": {
+    "rho": -0.5228600495638758,
+    "p": 2.859572051598e-05,
+    "I2": 0.0,
+    "n": 64,
+    "note": "sanity check on this page; locked primary remains PR #503/#539 n=65"
+  },
+  "enrichr": {
+    "ok": true,
+    "n_terms": 1847,
+    "n_barrier_terms": 29,
+    "top15": [
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Regulation Of Cell Migration (GO:0030334)",
+        "Adjusted P-value": 0.0040941550476336,
+        "Odds Ratio": 3.67301913347788,
+        "Overlap": "20/434"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Positive Regulation Of Cell Differentiation (GO:0045597)",
+        "Adjusted P-value": 0.00648737186704,
+        "Odds Ratio": 4.204892525788048,
+        "Overlap": "15/283"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Positive Regulation Of Cell Motility (GO:2000147)",
+        "Adjusted P-value": 0.00648737186704,
+        "Odds Ratio": 4.673850574712644,
+        "Overlap": "13/221"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Epidermis Development (GO:0008544)",
+        "Adjusted P-value": 0.0080544239601144,
+        "Odds Ratio": 7.6746411483253585,
+        "Overlap": "8/85"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Bundle Of His cell-Purkinje Myocyte Adhesion Involved In Cell Communication (GO:0086073)",
+        "Adjusted P-value": 0.0080544239601144,
+        "Odds Ratio": 109.17343173431736,
+        "Overlap": "3/5"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Cardiac Muscle Cell-Cardiac Muscle Cell Adhesion (GO:0086042)",
+        "Adjusted P-value": 0.0132878605794891,
+        "Odds Ratio": 72.77859778597787,
+        "Overlap": "3/6"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Regulation Of Epidermal Cell Differentiation (GO:0045604)",
+        "Adjusted P-value": 0.0208865997249183,
+        "Odds Ratio": 20.85925925925926,
+        "Overlap": "4/18"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Positive Regulation Of Cell Migration (GO:0030335)",
+        "Adjusted P-value": 0.0208865997249183,
+        "Odds Ratio": 3.743709226467847,
+        "Overlap": "13/272"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Bundle Of His Cell To Purkinje Myocyte Communication (GO:0086069)",
+        "Adjusted P-value": 0.0243036962115878,
+        "Odds Ratio": 43.662730627306274,
+        "Overlap": "3/8"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Lung Epithelium Development (GO:0060428)",
+        "Adjusted P-value": 0.0312554741246575,
+        "Odds Ratio": 36.38376383763838,
+        "Overlap": "3/9"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Regulation Of Epithelial Cell Proliferation (GO:0050678)",
+        "Adjusted P-value": 0.0312554741246575,
+        "Odds Ratio": 6.130461922596754,
+        "Overlap": "7/91"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Canonical Wnt Signaling Pathway (GO:0060070)",
+        "Adjusted P-value": 0.0312554741246575,
+        "Odds Ratio": 7.462813053377181,
+        "Overlap": "6/65"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Ephrin Receptor Signaling Pathway (GO:0048013)",
+        "Adjusted P-value": 0.0312554741246575,
+        "Odds Ratio": 9.630209352377223,
+        "Overlap": "5/43"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Positive Regulation Of Osteoblast Differentiation (GO:0045669)",
+        "Adjusted P-value": 0.0312554741246575,
+        "Odds Ratio": 9.382804308454864,
+        "Overlap": "5/44"
+      },
+      {
+        "Gene_set": "GO_Biological_Process_2023",
+        "Term": "Intermediate Filament Organization (GO:0045109)",
+        "Adjusted P-value": 0.0312554741246575,
+        "Odds Ratio": 7.100625902744343,
+        "Overlap": "6/68"
+      }
+    ]
+  },
+  "focal": [
+    {
+      "gene": "TACSTD2",
+      "logFC": 3.9040230854753495,
+      "t": 6.265485246688957,
+      "p": 7.708786908785916e-07,
+      "fdr": 0.018565071512429122
+    },
+    {
+      "gene": "KRT19",
+      "logFC": 2.230115563553126,
+      "t": 2.983438049745587,
+      "p": 0.005730964479751759,
+      "fdr": 0.6137299886412189
+    },
+    {
+      "gene": "CLDN4",
+      "logFC": 1.6323196517230478,
+      "t": 2.6610407618603027,
+      "p": 0.012564175272030588,
+      "fdr": 0.6711980170910399
+    },
+    {
+      "gene": "OCLN",
+      "logFC": 0.9887514069680698,
+      "t": 2.65991284827632,
+      "p": 0.012597887019181667,
+      "fdr": 0.6711980170910399
+    },
+    {
+      "gene": "CDH1",
+      "logFC": 1.0320721566926687,
+      "t": 2.3557544844138425,
+      "p": 0.025459163386915555,
+      "fdr": 0.7284247192609234
+    },
+    {
+      "gene": "TJP1",
+      "logFC": 0.5934675800137582,
+      "t": 2.1822816631078954,
+      "p": 0.03733489816853552,
+      "fdr": 0.7498709732140547
+    },
+    {
+      "gene": "CLDN1",
+      "logFC": 1.6026729302334533,
+      "t": 2.164476500127502,
+      "p": 0.03879952217676667,
+      "fdr": 0.7498709732140547
+    },
+    {
+      "gene": "KRT8",
+      "logFC": 1.1434925958294129,
+      "t": 1.945243075115557,
+      "p": 0.06149815699508198,
+      "fdr": 0.75358511497591
+    },
+    {
+      "gene": "ELF3",
+      "logFC": 1.1918963582410929,
+      "t": 1.7996843790719264,
+      "p": 0.08232359075982323,
+      "fdr": 0.7698297039561116
+    },
+    {
+      "gene": "F11R",
+      "logFC": 0.4466727176764604,
+      "t": 1.7710705204425992,
+      "p": 0.08706000668628368,
+      "fdr": 0.7751599103930769
+    },
+    {
+      "gene": "CLDN7",
+      "logFC": 0.7132242287751218,
+      "t": 1.7594499425818952,
+      "p": 0.08904861155633727,
+      "fdr": 0.7751599103930769
+    },
+    {
+      "gene": "KRT18",
+      "logFC": 0.8645980033340043,
+      "t": 1.247131522622854,
+      "p": 0.222327664859101,
+      "fdr": 0.8044704889826619
+    },
+    {
+      "gene": "EPCAM",
+      "logFC": 0.551557196368558,
+      "t": 1.054352258548919,
+      "p": 0.3004272174802894,
+      "fdr": 0.8241310575177803
+    },
+    {
+      "gene": "CLDN3",
+      "logFC": 0.6519718104601685,
+      "t": 0.9783378532597216,
+      "p": 0.3359986839013902,
+      "fdr": 0.8351341886918701
+    },
+    {
+      "gene": "HLA-B",
+      "logFC": 0.5605690289583541,
+      "t": 0.8950437776922676,
+      "p": 0.3781327693116884,
+      "fdr": 0.8504455998630361
+    },
+    {
+      "gene": "CXCL10",
+      "logFC": 0.6578848161750038,
+      "t": 0.8319260774776533,
+      "p": 0.4122490171840051,
+      "fdr": 0.8625650264724178
+    },
+    {
+      "gene": "B2M",
+      "logFC": 0.23931724039379512,
+      "t": 0.615223430541648,
+      "p": 0.5432053024864003,
+      "fdr": 0.9002982719359163
+    },
+    {
+      "gene": "STAT1",
+      "logFC": 0.10487398383630883,
+      "t": 0.3602376576636673,
+      "p": 0.7212799431632942,
+      "fdr": 0.9436847369631356
+    },
+    {
+      "gene": "IRF1",
+      "logFC": -0.10549729626194657,
+      "t": -0.31360508617276567,
+      "p": 0.7560656522357818,
+      "fdr": 0.9502311399015935
+    },
+    {
+      "gene": "HLA-A",
+      "logFC": 0.1264265789436035,
+      "t": 0.22694444204666914,
+      "p": 0.8220591649033178,
+      "fdr": 0.9651740867963438
+    }
+  ]
+}
