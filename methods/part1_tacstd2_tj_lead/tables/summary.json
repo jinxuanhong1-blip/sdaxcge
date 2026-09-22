@@ -1,0 +1,65 @@
+{
+  "task": "PART1_polish_Tacstd2_high_TJ_junction_lead",
+  "rule": "never fabricate; ranks recomputed from frozen PR #741/#736 tables only",
+  "no_cldn4_pin": true,
+  "user_ok_tj_first": true,
+  "provenance": {
+    "concordant4": "PR #741 methods/concordant4_tacstd2_malignant_deg",
+    "bulk_luad": "PR #736 methods/paper_funnel_luad_tacstd2_tj"
+  },
+  "best_ranks": [
+    {
+      "layer": "concordant-4_ORA",
+      "universe": "A8+custom ORA UP terms (n=63)",
+      "best_tj_term": "HALLMARK_APICAL_JUNCTION",
+      "best_tj_rank": 1,
+      "n_universe_or_pos": 63,
+      "stat": "enrichment",
+      "stat_value": 5.889814884490932,
+      "fdr": 1.2835588851559693e-05,
+      "lead_claim": true,
+      "note": "Apical junction is rank 1 among all tested ORA UP terms.",
+      "source_pr": 741
+    },
+    {
+      "layer": "concordant-4_GSEA",
+      "universe": "positive-NES sets (n=36)",
+      "best_tj_term": "HALLMARK_APICAL_JUNCTION",
+      "best_tj_rank": 8,
+      "n_universe_or_pos": 36,
+      "stat": "NES",
+      "stat_value": 2.554582030951699,
+      "fdr": 0.00146282289139432,
+      "lead_claim": false,
+      "note": "Apical junction rank 8; epithelial adhesion rank 7; KEGG TJ rank 22. Keratinization is NES-rank 2.",
+      "source_pr": 741
+    },
+    {
+      "layer": "GSE31210_GSEA",
+      "universe": "positive-NES sets (n=31 of 59)",
+      "best_tj_term": "KEGG_TIGHT_JUNCTION",
+      "best_tj_rank": 3,
+      "n_universe_or_pos": 31,
+      "stat": "NES",
+      "stat_value": 1.9953797882313595,
+      "fdr": 0.0023576423576423576,
+      "lead_claim": true,
+      "note": "KEGG Tight Junction is rank 3 among all positive-NES sets.",
+      "source_pr": 736
+    },
+    {
+      "layer": "OncoSG_GSEA",
+      "universe": "positive-NES sets (n=26 of 60)",
+      "best_tj_term": "GOBP_BICELLULAR_TIGHT_JUNCTION_ASSEMBLY",
+      "best_tj_rank": 16,
+      "n_universe_or_pos": 26,
+      "stat": "NES",
+      "stat_value": 1.489805315551775,
+      "fdr": 0.02724548179093634,
+      "lead_claim": false,
+      "note": "Best strict TJ term is bicellular TJ assembly (rank 16). KEGG TJ NES=-1.00 (not UP); Hallmark apical junction NES=-1.48 (DOWN). Skin-barrier / keratin lead OncoSG positives \u2014 report, do not hide.",
+      "source_pr": 736
+    }
+  ],
+  "part1_ending_verdict": "Tacstd2-high \u2192 TJ/junction is the lead enrichment where the public human ranks support it: concordant-4 ORA apical junction rank 1/63; GSE31210 KEGG TJ rank 3/31. OncoSG does not put KEGG TJ / apical junction UP; its best strict TJ term is bicellular TJ assembly rank 16."
+}
