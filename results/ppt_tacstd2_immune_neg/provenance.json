@@ -1,0 +1,145 @@
+{
+  "title": "PPT corrected: TACSTD2/TROP2-high ↔ immune NEGATIVE (not drug resistance)",
+  "rule": "Numbers copied from cited PRs only; no re-fit; no fabrication",
+  "claim": "TACSTD2-high associates with fewer T/NK or lower CD8/ImmuneScore",
+  "not_claim": "drug resistance / ICB non-response / Tacstd2 up after ICB",
+  "required_cohorts": [
+    "CosMx",
+    "concordant-4",
+    "TCGA",
+    "OncoSG",
+    "CPTAC",
+    "mouse public"
+  ],
+  "sources": [
+    {
+      "row": "1 / 1b",
+      "pr": 726,
+      "branch": "cursor/cosmx-tacstd2-cldn4-depend-4c49",
+      "paths": [
+        "results/cosmx_tacstd2_cldn4/tables/marginal_summary.csv",
+        "results/cosmx_tacstd2_cldn4/RESULTS.md"
+      ],
+      "fields": {
+        "cd8nk_n_10um_ratio": 0.4554204032877236,
+        "cd8nk_n_20um_ratio": 0.6701650389566283,
+        "imm_frac_10um_ratio": 0.5187696657271683,
+        "imm_frac_20um_ratio": 0.6425503685602719,
+        "sections_high_lt_low": "8/8",
+        "patients_high_lt_low": "5/5",
+        "sign_p_patients": 0.03125
+      }
+    },
+    {
+      "row": "2 / 2b",
+      "pr": [718, 638],
+      "branches": [
+        "cursor/trop2-cldn4-immune-mediation-4639",
+        "cursor/concordant4-elf3-module-tnk-9b4c"
+      ],
+      "paths": [
+        "methods/trop2_cldn4_mediation/results/tables/concordant4_meta.tsv"
+      ],
+      "fields": {
+        "TACSTD2_pct_vs_TNK_rho": -0.1115981379180405,
+        "TACSTD2_pct_p": 0.46033442477857556,
+        "TACSTD2_pct_I2": 0.15381992904963504,
+        "CLDN4_pct_vs_TNK_rho": -0.5311678045689989,
+        "CLDN4_pct_p": 1.6462232944573955e-05,
+        "N": 65,
+        "k": 4
+      }
+    },
+    {
+      "row": "3 / 3b",
+      "pr": 107,
+      "branch": "cursor/a1-histology-luad-lusc-c3e8",
+      "paths": [
+        "results/rework/A1_histology/REPORT.md",
+        "results/rework/A1_histology/correlations.tsv"
+      ],
+      "fields": {
+        "pooled_CD8_partial_rho": -0.191,
+        "LUAD_CD8_partial_rho": -0.104,
+        "LUSC_CD8_partial_rho": -0.244,
+        "pooled_ImmuneScore_partial_rho": -0.107,
+        "LUAD_ImmuneScore_partial_rho": 0.072,
+        "LUSC_ImmuneScore_partial_rho": -0.131,
+        "n_pooled": 995
+      }
+    },
+    {
+      "row": "3c",
+      "pr": 593,
+      "branch": "cursor/tcga-trop2-cldn-keratin-5472",
+      "paths": [
+        "results/tcga_trop2_cldn_keratin/tables/meta_summary.tsv",
+        "results/tcga_trop2_cldn_keratin/tables/immune_exclusion.tsv"
+      ],
+      "fields": {
+        "endpoint": "TACSTD2 vs CD8_score partial on KRT8+KRT18+KRT19",
+        "pooled_rho": -0.0687415205422523,
+        "p": 0.04273532567896686,
+        "I2": 0.7607742957073461,
+        "negative_cohorts": "6/8"
+      }
+    },
+    {
+      "row": "4 / 4b",
+      "pr": 139,
+      "branch": "cursor/oncosg-a1-cd8-gep-c2f6",
+      "paths": ["results/rework/OncoSG_A1/correlations.tsv"],
+      "fields": {
+        "CD8_partial_rho": -0.3086576419,
+        "CD8_partial_p": 4.688545063e-05,
+        "immune_tcell_effector_partial_rho": -0.3177689433,
+        "IMSIG_T_CELLS_partial_rho": -0.4041324583,
+        "IMSIG_NK_CELLS_partial_rho": -0.421335571,
+        "n": 169
+      }
+    },
+    {
+      "row": "5 / 5b",
+      "pr": [99, 84],
+      "branches": [
+        "cursor/hunt-cptac-partial-b291",
+        "cursor/cptac-lscc-xcell-purity-bcc4"
+      ],
+      "paths": ["results/hunt_cptac_partial/tables/primary_focus.tsv"],
+      "fields": {
+        "LUAD_protein_xCell_CD8_rho": -0.28904629073608734,
+        "LUAD_WES_partial_CD8_rho": -0.2606308080888176,
+        "LUAD_protein_xCell_immune_rho": -0.3094335369564728,
+        "LUAD_WES_partial_immune_rho": -0.27158453845718405,
+        "LSCC_protein_xCell_CD8_rho": -0.07950341046898066,
+        "LSCC_protein_xCell_immune_rho": -0.1334324120914192,
+        "LSCC_CD8_p": 0.4134112267807988
+      }
+    },
+    {
+      "row": "6 / 6b",
+      "pr": 724,
+      "branch": "cursor/tacstd2-cldn4-mouse-mediation-d6f0",
+      "paths": [
+        "methods/mouse_tacstd2_cldn4_mediation/tables/pooled_mediation.tsv",
+        "methods/mouse_tacstd2_cldn4_mediation/tables/within_study.tsv",
+        "methods/mouse_tacstd2_cldn4_mediation/FINDING.md"
+      ],
+      "fields": {
+        "pooled_c_Tacstd2_pct_vs_T_frac": -0.27702115328890176,
+        "pooled_perm_p": 0.13717256548690263,
+        "n_mice": 34,
+        "k_studies": 5,
+        "GSE295824_spearman": -0.611764705882353,
+        "GSE295824_p": 0.012397520495900819,
+        "GSE264739_spearman": 0.8285714285714287
+      }
+    },
+    {
+      "row": "X excluded",
+      "pr": [152, 173, 735],
+      "note": "TISMO 49/64 Tacstd2 up after ICB is drug/ICB induction, not immune-negative. Prior paper-funnel PR #735 included it; this corrected table removes it from the claim frame."
+    }
+  ],
+  "relation_to_pr_735": "PR #735 had CosMx/TCGA/OncoSG/CPTAC/TISMO but omitted concordant-4 and mouse public, and framed TISMO ICB induction. This table adds those two cohorts and drops drug-resistance framing."
+}
