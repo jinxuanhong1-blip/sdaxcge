@@ -1,0 +1,39 @@
+arm	cohort	material	endpoint	statistic	n	call	source_pr	note
+Tacstd2_KL_gt_KP	GSE137244	bulk cell-line RNA-seq; log2(FPKM+1)	Tacstd2 mean(KL)-mean(KP)	delta=+3.238; handoff rounding +3.24; exact MW p=0.00794; complete separation	5 vs 5 libraries	LOCKED reference	#606 #685 #743	Not single-cell. p is the 5-vs-5 floor (2/252). Libraries: KL155, KL47, KLC, KLD, KLE vs B6AL10-1..5.
+Tacstd2_KL_gt_KP	GSE164758	primary tumor bulk	Tacstd2 KL-KP	delta=+0.858; MW p=8.227e-05	9 vs 8	separates	#743	In vivo corroboration of the locked cell-line direction.
+Tacstd2_KL_gt_KP	GSE6135	mouse array, all histologies	Tacstd2 KL-KP	delta=+1.795; MW p=0.002525	7 vs 5	separates	#743	
+Tacstd2_KL_gt_KP	GSE6135	adenocarcinoma only	Tacstd2 KL-KP	delta=+0.989; MW p=0.01587	4 vs 5	sensitivity, separates	#743	
+Tacstd2_KL_gt_KP	GSE137396	in vivo nodule	Tacstd2 KL-KP	delta=+1.144; MW p=0.09524	5 vs 5	same sign, ns	#743	Do not drop from the table.
+Tacstd2_KL_gt_KP	GSE244452	syngeneic bulk tumor	Tacstd2 KL-KP	delta=+7.228; MW p=0.1	3 vs 3	n=3 floor	#743	
+Tacstd2_KL_gt_KP	GSE274352	cultured cells, empty vector	Tacstd2 KL-KP	delta=-1.543; MW p=0.1	3 vs 3	n=3 floor, opposite	#743	
+Tacstd2_KL_gt_KP	GSE274351	LCM early adenoma	Tacstd2 KL-KP	delta=-0.860; MW p=0.5476	5 vs 5	opposite	#743	
+immune_neg	CosMx He2022 NSCLC	spatial, figshare 25976224	CD8+NK neighbor ratio, section-median TACSTD2 split	0.455 at 10 µm; 0.670 at 20 µm; 8/8 sections and 5/5 patients; sign P=0.03125	8 sections; 5 patients	YES short-range	#739 citing #726	50 µm ratio 0.854 (7/8); 100 µm 0.947 (4/8). Not the CLDN4 50/100 µm ratios.
+immune_neg	CosMx He2022	same	immune-neighbor fraction	0.519 at 10 µm; 0.643 at 20 µm; 8/8 and 5/5; sign P=0.03125	same	YES	#739 citing #726	CD8-only count ratios 0.502 / 0.726 at 10 / 20 µm, also 8/8 and 5/5.
+immune_neg	concordant-4	scRNA malignant % detected	TACSTD2 %pos vs T/NK	DL rho=-0.112; 95% CI -0.388 to +0.183; p=0.460; I2=15%	N=65; k=4	NULL	#739 citing #718 #638	Do not substitute another gene's rho.
+immune_neg	TCGA LUAD+LUSC	bulk RNA, ABSOLUTE	TACSTD2 vs CD8A partial	pooled rho=-0.191; p=1.31e-9; LUAD -0.104 (p=0.020); LUSC -0.244 (p=4.3e-8)	995; LUAD 502; LUSC 493	YES	#739 citing #107	LUSC stronger (Fisher p=0.023). Not ICI.
+immune_neg	TCGA LUAD+LUSC	same	TACSTD2 vs ESTIMATE ImmuneScore partial	pooled rho=-0.107; p=7.4e-4; LUAD +0.072 (p=0.109); LUSC -0.131 (p=0.003)	995	PARTIAL LUSC-only	#739 citing #107	
+immune_neg	TCGA 8 cohorts	GDC STAR log2 TPM+1	TACSTD2 vs CD8 after KRT8/18/19	pooled rho=-0.069; 95% CI -0.135 to -0.002; p=0.043; I2=76%; 6/8 negative	see note	WEAK	#739 citing #593	LUAD 516; LUSC 501; BRCA 1095; CESC 304; KIRC 533; STAD 412; BLCA 406; PAAD 178. CESC +0.118; PAAD +0.029 after keratin.
+immune_neg	OncoSG LUAD	cBioPortal luad_oncosg_2020 z-score	TACSTD2 vs CD8A after PURITY	partial rho=-0.309; 95% CI -0.440 to -0.165; p=4.69e-5	169	YES	#739 citing #139	Portal lists 181; public matrix has 169 columns.
+immune_neg	OncoSG LUAD	same	immune / IMSIG T / IMSIG NK after PURITY	-0.318 (p=2.7e-5) / -0.404 / -0.421	169	YES	#739 citing #139	
+immune_neg	CPTAC LUAD protein	TMT freeze v1.2, treatment-naive	TROP2 protein vs xCell CD8	rho=-0.289; n=110; p=0.0022; WES partial -0.261 (n=108, p=0.0067). Immune rho=-0.309; WES partial -0.272	110	YES LUAD protein	#739 citing #99	RNA TACSTD2 vs xCell is null on this freeze.
+immune_neg	CPTAC LSCC protein	same freeze	TROP2 protein vs xCell CD8	rho=-0.080; n=108; p=0.41; immune rho=-0.133; p=0.17	108	NULL	#739 citing #99 #84	
+immune_neg	public mouse GEMM pool	scRNA, not private 8KL	Tacstd2 % epithelium vs T fraction	pooled c=-0.277; perm p=0.137; k=5	34 mice	WEAK / ns	#739 citing #724	GSE295824 16; GSE264739 6; GSE201247 4; GSE266323 4; GSE179501 4. Not a KL-vs-KP test.
+immune_neg	GSE295824	Sox2-GEMM	Tacstd2 % vs T	rho=-0.612; p=0.012	16	study-level YES, not the pool	#739 citing #724	GSE264739 is opposite (rho=+0.829, p=0.058).
+DEG_to_TJ	concordant-4 malignant	pseudobulk log2 TMM-CPM+1	ORA Hallmark apical junction, TACSTD2 Q4-up	rank 1; overlap 13; enrichment 5.89; p=3.79e-07; FDR 1.28e-05	DE 19 vs 15; query n_up=274	TOP pathway in this ORA	#741	p<0.01 and |logFC|>0.25; TACSTD2 held out. Not an NES rank.
+DEG_to_TJ	concordant-4 malignant	same	ORA Hallmark EMT	rank 2; overlap 13; enrichment 5.74; FDR 1.28e-05	same	next ORA term	#741	
+DEG_to_TJ	concordant-4 malignant	same	ORA GO keratinization	rank 3; overlap 7; enrichment 13.98; FDR 1.28e-05	same	rank 3	#741	
+DEG_to_TJ	concordant-4 malignant	same	family score TJ (206 genes, TACSTD2 held out)	logFC=+0.223; p=0.001163; FDR=0.004187	19 vs 15	program up	#741	
+DEG_to_TJ	concordant-4 malignant	same	family score epithelial adhesion (23)	logFC=+0.734; p=0.001396; FDR=0.004187	19 vs 15	program up	#741	
+DEG_to_TJ	concordant-4 malignant	same	family score keratin (52)	logFC=+0.929; p=0.002725; FDR=0.00545	19 vs 15	program up	#741	
+DEG_to_TJ	concordant-4 malignant	same	GSEA Hallmark apical junction	NES=+2.554582; FDR=0.001463; positive-NES rank 8	1000 perms; seed 42	enriched, not NES #1	#741	
+DEG_to_TJ	concordant-4 malignant	same	GSEA KEGG tight junction	NES=+2.040236; FDR=0.001463; positive-NES rank 22	same	enriched, not NES #1	#741	
+DEG_to_TJ	concordant-4 malignant	same	GSEA GO tight junction organization	NES=+2.118399; FDR=0.001463; positive-NES rank 20	same	enriched, not NES #1	#741	
+DEG_to_TJ	concordant-4 malignant	same	GSEA GO keratinization	NES=+2.825468; FDR=0.001463; positive-NES rank 2	same	near-top NES	#741	
+DEG_to_TJ	concordant-4 malignant	same	GSEA leading positive term	Hallmark TNFA signaling via NFKB; NES=+3.199654; FDR=0.001463; rank 1	same	not a junction term	#741	Do not relabel as TJ.
+DEG_to_TJ	concordant-4	patient/donor/sample	broad TJ score vs T/NK	DL rho=+0.137; 95% CI -0.365 to +0.577; p=0.605; I2=70.5%	N=64	NULL	#741	Do not write TJ-high excludes T/NK.
+DEG_to_TJ	public mouse epithelium	GSE154977 + GSE180963 + GSE165641	TJ_TISMO module, Tacstd2 count >0 vs =0	7/7 mice delta>0; mean delta=+0.2608; binomial p=0.007812; rank MW p=3.601e-09	7 mice scored	module up	#743	Epithelium called without Tacstd2. Private 8KL not merged. GSE180963_K below the high-cell floor and not scored.
+DEG_to_TJ	GSE31210	bulk primary LUAD, GPL570 MAS5	KEGG tight junction, TACSTD2 Q4 vs Q1	NES=+2.00; FDR=0.0018	226 tumors	bulk enrichment	#736	Not the malignant-cell ORA. Keratinization NES=+1.91; Hallmark EMT NES=-2.15.
+DEG_to_TJ	OncoSG LUAD	bulk z-score RSEM	KEGG tight junction, TACSTD2 Q4 vs Q1	NES=-1.00; FDR=0.32	169	not enriched	#736	Do not cite OncoSG KEGG TJ as the top pathway. Keratinization NES=+1.92; Hallmark EMT NES=-2.33.
+not_a_top_pathway_claim	GSE137244	bulk cell-line RNA-seq	Hallmark apical junction, KL vs KP prerank	NES=-1.15; FDR=0.31 inside 50 hallmarks	5 vs 5 libraries	not KL-high	#606	Hallmark G2M checkpoint is the top hallmark (NES 2.31).
+not_a_top_pathway_claim	GSE137244	bulk	epithelial TJ core	mean delta=+1.627; exact p=0.00794; prerank NES=+2.14 inside a 5-set junction collection	5 vs 5	module up; not genome-wide rank 1	#606 #685	Do not quote handoff TJ +3.03 for this set. TJ7 mean delta=+3.269 is a different list and is not relabeled +3.03.
+not_a_top_pathway_claim	GSE137244, GSE164758, GSE137396	bulk Tacstd2-high vs low GSEA	TJ / adhesion / claudin family inside 589 sets	no highlight in ranks 1-3	three cohorts	not top-3	#744	GSE137244 best TJ rank 21 (GOBP TJ organization NES +1.99, FDR 0.086).
