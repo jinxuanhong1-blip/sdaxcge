@@ -1,0 +1,163 @@
+{
+  "title": "STORY GAP FILL: KL/STK11 cold + Tacstd2/Cldn4 high disease context",
+  "rule": "Numbers copied from cited PRs / published Skoulidis 2018 only; no re-fit; no fabrication; bulk vs scRNA labeled",
+  "slide_claim": "KL/STK11 cold tumor + Tacstd2/Cldn4 high as disease context",
+  "locks_not_replaced": {
+    "GSE137244": {
+      "Tacstd2_delta": 3.238,
+      "Cldn4_delta": 5.57,
+      "MW_exact_p": 0.00794,
+      "n": "5 vs 5 cell-line libraries",
+      "source": "handoff + PR #606"
+    },
+    "do_not_overwrite": [
+      "CosMx CLDN4 cytotoxic ratios 0.36/0.52",
+      "TISMO Tacstd2 49/64",
+      "concordant-4 CLDN4 vs T/NK"
+    ]
+  },
+  "sources": [
+    {
+      "row": 1,
+      "type": "literature",
+      "citation": "Skoulidis et al. Cancer Discov 2018",
+      "pmid": 29773717,
+      "fields": {
+        "KL_ORR": 0.074,
+        "KP_ORR": 0.357,
+        "K_only_ORR": 0.286,
+        "cohort": "SU2C KRAS-mut LUAC n=174"
+      }
+    },
+    {
+      "row": 2,
+      "type": "literature",
+      "citation": "Skoulidis et al. Cancer Discov 2018 PROSPECT IHC",
+      "pmid": 29773717,
+      "fields": {
+        "CD3_p": 0.0019,
+        "CD8_p": 0.0072
+      }
+    },
+    {
+      "row": 3,
+      "pr": 49,
+      "branch": "cursor/fable-stk11-tacstd2-cldn4-e5df",
+      "paths": [
+        "results/fable_stk11/tables/ici_kras_restricted_dcb.csv",
+        "results/fable_stk11/tables/ici_genotype_dcb_pooled_MH.csv",
+        "notes/fable_stk11/WRITEUP.md"
+      ],
+      "fields": {
+        "Hellmann2018_STK11_OR": 0.24,
+        "Rizvi2018_STK11_OR": 0.38095238095238093,
+        "note_pooled_MH_file": "whole-cohort STK11 MH OR=0.6868; KRAS-restricted rates are the story numbers",
+        "KRAS_restricted_pooled_MH_OR_quoted_in_writeup": 0.36
+      }
+    },
+    {
+      "row": 4,
+      "pr": 606,
+      "branch": "cursor/gse137244-kl-kp-gsea-3033",
+      "paths": [
+        "methods/gse137244_kl_kp_deep/FINDING.md"
+      ],
+      "also": ["PR #617 gene-set scores", "PUBLIC_HANDOFF lock"],
+      "fields": {
+        "Tacstd2_delta": 3.238,
+        "Cldn4_delta": 5.57,
+        "MW_exact_p": 0.00794,
+        "TJ_delta_handoff": 3.03
+      }
+    },
+    {
+      "row": 5,
+      "pr": 113,
+      "branch": "cursor/kl-real-lung-rework-84b9",
+      "paths": [
+        "results/rework/KL_real/README.md",
+        "results/rework/KL_real/tables/GSE179500_Tacstd2_contrasts_p53WT.csv"
+      ],
+      "fields": {
+        "author_padj": 0.032,
+        "reanalysis_MW_p": 0.003,
+        "n_off_vs_restored": "10 vs 7"
+      }
+    },
+    {
+      "row": 6,
+      "pr": 530,
+      "branch": "cursor/seurat-gse179502-cldn4-f199",
+      "paths": [
+        "methods/seurat_gse179502_cldn4/FINDING.md"
+      ],
+      "fields": {
+        "Cldn4_NonRestored_mean": 0.3,
+        "Cldn4_Restored_mean": 0.143,
+        "Welch_p": 0.036
+      }
+    },
+    {
+      "row": 7,
+      "pr": 113,
+      "branch": "cursor/kl-real-lung-rework-84b9",
+      "paths": ["results/rework/KL_real/README.md"],
+      "fields": {
+        "pct_Tacstd2_positive": 0.547,
+        "pct_high_subset": 0.137,
+        "mouse_MW_p": 0.1
+      }
+    },
+    {
+      "row": 8,
+      "pr": [137, 113],
+      "branches": [
+        "cursor/w200-gse180963-kl-cold-tme-268e",
+        "cursor/kl-real-lung-rework-84b9"
+      ],
+      "paths": [
+        "results/w200/GSE180963/README.md",
+        "results/rework/KL_real/README.md"
+      ],
+      "fields": {
+        "n_mice_per_genotype": 1,
+        "immune_fraction_both": "~0.82",
+        "KL_epi_Tacstd2_positive": "0.628-0.647"
+      }
+    },
+    {
+      "row": 9,
+      "pr": 49,
+      "branch": "cursor/fable-stk11-tacstd2-cldn4-e5df",
+      "paths": [
+        "results/fable_stk11/tables/tcga_genotype_vs_expression.csv",
+        "results/fable_stk11/tables/tcga_kras_comutation_vs_expression.csv"
+      ],
+      "fields": {
+        "TACSTD2_log2FC_median": -0.512766982673849,
+        "TACSTD2_FDR": 0.00010160313249562642,
+        "CLDN4_log2FC_median": -0.4655627506817943,
+        "CLDN4_FDR": 4.635183826102144e-05,
+        "KRAS_STK11_TACSTD2_log2FC": -0.7107341850623392,
+        "KRAS_STK11_CLDN4_log2FC": -0.6797321419868787
+      }
+    },
+    {
+      "row": 10,
+      "pr": 113,
+      "branch": "cursor/kl-real-lung-rework-84b9",
+      "paths": ["results/rework/KL_real/README.md"],
+      "fields": {
+        "STK11mut_epi_TACSTD2_pct": "0.851-0.853",
+        "STK11wt_epi_TACSTD2_pct_rich": 0.721,
+        "note": "not a powered genotype contrast"
+      }
+    }
+  ],
+  "honest_gap": {
+    "wanted": "human STK11 = Tacstd2/Cldn4 high",
+    "public_bulk_reality": "TCGA-LUAD STK11mut has significantly LOWER TACSTD2 and CLDN4",
+    "where_high_locks": "mouse GSE137244 KL vs KP cell-line bulk",
+    "do_not_fabricate_human_high": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "task": "story_gap_stk11_cold_tacstd2_disease_context",
+  "headline": "Cold = human STK11/KL literature+MSK; antigen-high = mouse GSE137244 lock; human TCGA bulk antigen is reverse",
+  "locks": {
+    "GSE137244_Tacstd2_delta": 3.238,
+    "GSE137244_Cldn4_delta": 5.57,
+    "GSE137244_MW_p": 0.00794
+  },
+  "human_bulk_antigen": {
+    "TCGA_LUAD_STK11_TACSTD2_log2FC": -0.51,
+    "TCGA_LUAD_STK11_CLDN4_log2FC": -0.47,
+    "direction": "lower_not_higher"
+  },
+  "fabricated": false,
+  "private_8kl_used": false
+}
