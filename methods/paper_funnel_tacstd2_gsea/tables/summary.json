@@ -1,0 +1,189 @@
+{
+  "seed": 49901,
+  "n_perm": 2000,
+  "min_size": 10,
+  "max_size": 500,
+  "n_sets_in_universe": 589,
+  "cohorts": [
+    {
+      "cohort": "GSE137244_epithelium_cell_lines",
+      "n_samples": 10,
+      "n_high": 5,
+      "n_low": 5,
+      "tacstd2_split_threshold": 4.296348484074529,
+      "tacstd2_high_min": 5.189429245809757,
+      "tacstd2_low_max": 3.403267722339301,
+      "tacstd2_vs_arm_complete_separation": true,
+      "n_sets_tested": 537,
+      "n_positive_NES": 175,
+      "any_highlight_in_top3": false,
+      "cross_tab": {
+        "Tacstd2_high": {
+          "KL": 5,
+          "KP": 0
+        },
+        "Tacstd2_low": {
+          "KL": 0,
+          "KP": 5
+        }
+      }
+    },
+    {
+      "cohort": "GSE164758_GEMM_KL_KP_primary",
+      "n_samples": 17,
+      "n_high": 8,
+      "n_low": 9,
+      "tacstd2_split_threshold": 6.235689798106391,
+      "tacstd2_high_min": 6.260834874257272,
+      "tacstd2_low_max": 6.210544721955508,
+      "tacstd2_vs_arm_complete_separation": false,
+      "n_sets_tested": 534,
+      "n_positive_NES": 312,
+      "any_highlight_in_top3": false,
+      "cross_tab": {
+        "Tacstd2_high": {
+          "KL": 8,
+          "KP": 0
+        },
+        "Tacstd2_low": {
+          "KL": 1,
+          "KP": 8
+        }
+      }
+    },
+    {
+      "cohort": "GSE137396_GEMM_KL_KP_nodules",
+      "n_samples": 10,
+      "n_high": 5,
+      "n_low": 5,
+      "tacstd2_split_threshold": 6.221920000000001,
+      "tacstd2_high_min": 6.27359,
+      "tacstd2_low_max": 6.17025,
+      "tacstd2_vs_arm_complete_separation": false,
+      "n_sets_tested": 538,
+      "n_positive_NES": 349,
+      "any_highlight_in_top3": false,
+      "cross_tab": {
+        "Tacstd2_high": {
+          "KL_nodule": 4,
+          "KP_nodule": 1
+        },
+        "Tacstd2_low": {
+          "KL_nodule": 1,
+          "KP_nodule": 4
+        }
+      }
+    }
+  ],
+  "highlight_checks": [
+    {
+      "cohort": "GSE137244_epithelium_cell_lines",
+      "family": "tight_junction",
+      "best_term": "GOFOCUS__GOBP_TIGHT_JUNCTION_ORGANIZATION",
+      "rank_pos_NES": 21,
+      "NES": 1.9898006451740315,
+      "FDR_q": 0.0856469624013933,
+      "NOM_p": 0.0089485458612975,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 175
+    },
+    {
+      "cohort": "GSE137244_epithelium_cell_lines",
+      "family": "cell_adhesion",
+      "best_term": "GOFOCUS__REACTOME_APOPTOTIC_CLEAVAGE_OF_CELL_ADHESION_PROTEINS",
+      "rank_pos_NES": 24,
+      "NES": 1.936816502476556,
+      "FDR_q": 0.0448724515930744,
+      "NOM_p": 0.0013037809647979,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 175
+    },
+    {
+      "cohort": "GSE137244_epithelium_cell_lines",
+      "family": "claudin_family",
+      "best_term": "CURATED__CLAUDIN_FAMILY",
+      "rank_pos_NES": 123,
+      "NES": 1.23095915031447,
+      "FDR_q": 0.1853448275862069,
+      "NOM_p": 0.1853448275862069,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 175
+    },
+    {
+      "cohort": "GSE164758_GEMM_KL_KP_primary",
+      "family": "tight_junction",
+      "best_term": "GOFOCUS__GOBP_REGULATION_OF_BICELLULAR_TIGHT_JUNCTION_ASSEMBLY",
+      "rank_pos_NES": null,
+      "NES": -1.0780612751337322,
+      "FDR_q": 0.9387411517122632,
+      "NOM_p": 0.3395348837209302,
+      "in_top3": false,
+      "direction": "not_positive",
+      "n_positive_sets_total": 312
+    },
+    {
+      "cohort": "GSE164758_GEMM_KL_KP_primary",
+      "family": "cell_adhesion",
+      "best_term": "KEGG__Cell adhesion molecules (CAMs)",
+      "rank_pos_NES": 10,
+      "NES": 2.0628744633034817,
+      "FDR_q": 0.0005733949905657,
+      "NOM_p": 0.0,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 312
+    },
+    {
+      "cohort": "GSE164758_GEMM_KL_KP_primary",
+      "family": "claudin_family",
+      "best_term": "CURATED__CLAUDIN_FAMILY",
+      "rank_pos_NES": 296,
+      "NES": 0.6865777405895483,
+      "FDR_q": 0.9049657534246576,
+      "NOM_p": 0.9049657534246576,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 312
+    },
+    {
+      "cohort": "GSE137396_GEMM_KL_KP_nodules",
+      "family": "tight_junction",
+      "best_term": "GOFOCUS__GOBP_TIGHT_JUNCTION_ORGANIZATION",
+      "rank_pos_NES": 23,
+      "NES": 2.025397619074248,
+      "FDR_q": 0.0254292545098891,
+      "NOM_p": 0.0,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 349
+    },
+    {
+      "cohort": "GSE137396_GEMM_KL_KP_nodules",
+      "family": "cell_adhesion",
+      "best_term": "GOFOCUS__GOBP_CELL_CELL_ADHESION_MEDIATED_BY_INTEGRIN",
+      "rank_pos_NES": 51,
+      "NES": 1.7679454533115824,
+      "FDR_q": 0.0547707020212997,
+      "NOM_p": 0.0108303249097472,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 349
+    },
+    {
+      "cohort": "GSE137396_GEMM_KL_KP_nodules",
+      "family": "claudin_family",
+      "best_term": "CURATED__CLAUDIN_FAMILY",
+      "rank_pos_NES": 222,
+      "NES": 1.0998779212257033,
+      "FDR_q": 0.324582338902148,
+      "NOM_p": 0.324582338902148,
+      "in_top3": false,
+      "direction": "positive",
+      "n_positive_sets_total": 349
+    }
+  ],
+  "any_cohort_highlight_in_top3": false
+}

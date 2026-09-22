@@ -1,0 +1,160 @@
+Building ranking universe ...
+  589 sets
+
+=== GSE137244_epithelium_cell_lines ===
+/home/ubuntu/.local/lib/python3.12/site-packages/scipy/stats/_axis_nan_policy.py:644: RuntimeWarning: Precision loss occurred in moment calculation due to catastrophic cancellation. This occurs when the data are nearly identical. Results may be unreliable.
+  res = hypotest_fun_out(*samples, axis=axis, **kwds)
+2026-09-22 13:12:58,733 [WARNING] Duplicated values found in preranked stats: 19.15% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+Highlight ranks (positive NES):
+  tight_junction: rank=21 NES=1.9898006451740313 FDR=0.0856469624013933 top3=False term=GOFOCUS__GOBP_TIGHT_JUNCTION_ORGANIZATION
+  cell_adhesion: rank=24 NES=1.936816502476556 FDR=0.04487245159307448 top3=False term=GOFOCUS__REACTOME_APOPTOTIC_CLEAVAGE_OF_CELL_ADHESION_PROTEINS
+  claudin_family: rank=123 NES=1.23095915031447 FDR=0.1853448275862069 top3=False term=CURATED__CLAUDIN_FAMILY
+Top 10 positive NES:
+ rank_pos_NES                                 Term      NES  NOM p-val  FDR q-val
+            1 WIKI__Cholesterol Biosynthesis WP103 2.594707   0.000000   0.334035
+            2                     KEGG__Proteasome 2.539287   0.006932   1.000000
+            3    KEGG__Aminoacyl-tRNA biosynthesis 2.466110   0.005051   0.541531
+            4    HALLMARK__HALLMARK_G2M_CHECKPOINT 2.381279   0.036667   0.360090
+            5     KEGG__Nucleotide excision repair 2.360837   0.005025   0.361021
+            6  HALLMARK__HALLMARK_MTORC1_SIGNALING 2.344218   0.038869   0.180045
+            7                  KEGG__RNA transport 2.331612   0.021341   0.270766
+            8   WIKI__Proteasome Degradation WP519 2.328827   0.006981   0.167604
+            9       HALLMARK__HALLMARK_E2F_TARGETS 2.271005   0.024845   0.120030
+           10    HALLMARK__HALLMARK_MYC_TARGETS_V1 2.227385   0.047782   0.090023
+
+=== GSE164758_GEMM_KL_KP_primary ===
+2026-09-22 13:13:46,249 [WARNING] Duplicated values found in preranked stats: 4.74% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+Highlight ranks (positive NES):
+  tight_junction: rank=None NES=None FDR=None top3=False term=None
+  cell_adhesion: rank=10 NES=2.0628744633034817 FDR=0.0005733949905657525 top3=False term=KEGG__Cell adhesion molecules (CAMs)
+  claudin_family: rank=296 NES=0.6865777405895483 FDR=0.9049657534246576 top3=False term=CURATED__CLAUDIN_FAMILY
+Top 10 positive NES:
+ rank_pos_NES                                               Term      NES  NOM p-val  FDR q-val
+            1                    KEGG__Graft-versus-host disease 2.442464        0.0   0.000000
+            2                          KEGG__Allograft rejection 2.430521        0.0   0.000000
+            3                   KEGG__Autoimmune thyroid disease 2.395836        0.0   0.000000
+            4 KEGG__Intestinal immune network for IgA production 2.333995        0.0   0.000000
+            5                     KEGG__Primary immunodeficiency 2.306805        0.0   0.000000
+            6                    KEGG__Oxidative phosphorylation 2.236477        0.0   0.000000
+            7                     KEGG__Type I diabetes mellitus 2.201905        0.0   0.000061
+            8               WIKI__Electron Transport Chain WP295 2.192313        0.0   0.000470
+            9                            KEGG__Parkinson disease 2.183955        0.0   0.000054
+           10               KEGG__Cell adhesion molecules (CAMs) 2.062874        0.0   0.000573
+
+=== GSE137396_GEMM_KL_KP_nodules ===
+2026-09-22 13:14:10,389 [WARNING] Duplicated values found in preranked stats: 12.51% of genes
+The order of those genes will be arbitrary, which may produce unexpected results.
+Highlight ranks (positive NES):
+  tight_junction: rank=23 NES=2.025397619074248 FDR=0.025429254509889157 top3=False term=GOFOCUS__GOBP_TIGHT_JUNCTION_ORGANIZATION
+  cell_adhesion: rank=51 NES=1.7679454533115824 FDR=0.05477070202129972 top3=False term=GOFOCUS__GOBP_CELL_CELL_ADHESION_MEDIATED_BY_INTEGRIN
+  claudin_family: rank=222 NES=1.0998779212257033 FDR=0.324582338902148 top3=False term=CURATED__CLAUDIN_FAMILY
+Top 10 positive NES:
+ rank_pos_NES                                                                                     Term      NES  NOM p-val  FDR q-val
+            1                                                     WIKI__Cholesterol Biosynthesis WP103 2.616502        0.0   0.000000
+            2                                               HALLMARK__HALLMARK_CHOLESTEROL_HOMEOSTASIS 2.508318        0.0   0.000000
+            3 WIKI__Cholesterol metabolism (includes both Bloch and Kandutsch-Russell pathways) WP4346 2.491888        0.0   0.000000
+            4                                                   KEGG__Mucin type O-glycan biosynthesis 2.387471        0.0   0.003309
+            5                                                              KEGG__N-Glycan biosynthesis 2.375317        0.0   0.002068
+            6                                                    KEGG__Terpenoid backbone biosynthesis 2.369887        0.0   0.001655
+            7                                                       HALLMARK__HALLMARK_HEME_METABOLISM 2.326066        0.0   0.000000
+            8                                                               WIKI__p53 signaling WP2902 2.321091        0.0   0.001419
+            9                                                     HALLMARK__HALLMARK_PROTEIN_SECRETION 2.305679        0.0   0.000000
+           10                                                              KEGG__p53 signaling pathway 2.292706        0.0   0.002068
+
+DONE {
+  "any_top3": false,
+  "checks": [
+    {
+      "cohort": "GSE137244_epithelium_cell_lines",
+      "family": "tight_junction",
+      "best_term": "GOFOCUS__GOBP_TIGHT_JUNCTION_ORGANIZATION",
+      "rank_pos_NES": 21,
+      "NES": 1.9898006451740313,
+      "FDR_q": 0.0856469624013933,
+      "in_top3": false,
+      "n_positive_sets_total": 175
+    },
+    {
+      "cohort": "GSE137244_epithelium_cell_lines",
+      "family": "cell_adhesion",
+      "best_term": "GOFOCUS__REACTOME_APOPTOTIC_CLEAVAGE_OF_CELL_ADHESION_PROTEINS",
+      "rank_pos_NES": 24,
+      "NES": 1.936816502476556,
+      "FDR_q": 0.04487245159307448,
+      "in_top3": false,
+      "n_positive_sets_total": 175
+    },
+    {
+      "cohort": "GSE137244_epithelium_cell_lines",
+      "family": "claudin_family",
+      "best_term": "CURATED__CLAUDIN_FAMILY",
+      "rank_pos_NES": 123,
+      "NES": 1.23095915031447,
+      "FDR_q": 0.1853448275862069,
+      "in_top3": false,
+      "n_positive_sets_total": 175
+    },
+    {
+      "cohort": "GSE164758_GEMM_KL_KP_primary",
+      "family": "tight_junction",
+      "best_term": null,
+      "rank_pos_NES": null,
+      "NES": null,
+      "FDR_q": null,
+      "in_top3": false,
+      "n_positive_sets_total": 312
+    },
+    {
+      "cohort": "GSE164758_GEMM_KL_KP_primary",
+      "family": "cell_adhesion",
+      "best_term": "KEGG__Cell adhesion molecules (CAMs)",
+      "rank_pos_NES": 10,
+      "NES": 2.0628744633034817,
+      "FDR_q": 0.0005733949905657525,
+      "in_top3": false,
+      "n_positive_sets_total": 312
+    },
+    {
+      "cohort": "GSE164758_GEMM_KL_KP_primary",
+      "family": "claudin_family",
+      "best_term": "CURATED__CLAUDIN_FAMILY",
+      "rank_pos_NES": 296,
+      "NES": 0.6865777405895483,
+      "FDR_q": 0.9049657534246576,
+      "in_top3": false,
+      "n_positive_sets_total": 312
+    },
+    {
+      "cohort": "GSE137396_GEMM_KL_KP_nodules",
+      "family": "tight_junction",
+      "best_term": "GOFOCUS__GOBP_TIGHT_JUNCTION_ORGANIZATION",
+      "rank_pos_NES": 23,
+      "NES": 2.025397619074248,
+      "FDR_q": 0.025429254509889157,
+      "in_top3": false,
+      "n_positive_sets_total": 349
+    },
+    {
+      "cohort": "GSE137396_GEMM_KL_KP_nodules",
+      "family": "cell_adhesion",
+      "best_term": "GOFOCUS__GOBP_CELL_CELL_ADHESION_MEDIATED_BY_INTEGRIN",
+      "rank_pos_NES": 51,
+      "NES": 1.7679454533115824,
+      "FDR_q": 0.05477070202129972,
+      "in_top3": false,
+      "n_positive_sets_total": 349
+    },
+    {
+      "cohort": "GSE137396_GEMM_KL_KP_nodules",
+      "family": "claudin_family",
+      "best_term": "CURATED__CLAUDIN_FAMILY",
+      "rank_pos_NES": 222,
+      "NES": 1.0998779212257033,
+      "FDR_q": 0.324582338902148,
+      "in_top3": false,
+      "n_positive_sets_total": 349
+    }
+  ]
+}
