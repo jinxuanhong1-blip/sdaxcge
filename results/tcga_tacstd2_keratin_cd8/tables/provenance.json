@@ -1,0 +1,187 @@
+{
+  "source": "UCSC Xena GDC hub STAR log2(TPM+1), primary tumor sample type 01",
+  "probemap": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/gencode.v36.annotation.gtf.gene.probemap",
+  "probemap_sha256": "f027752d663b1da74f4113998bf008e6ebecfa3732607513e027bb6eb1f635b5",
+  "genes": {
+    "CD3D": "ENSG00000167286.10",
+    "CD3E": "ENSG00000198851.10",
+    "CD3G": "ENSG00000160654.11",
+    "CD8A": "ENSG00000153563.16",
+    "CD8B": "ENSG00000172116.23",
+    "KRT13": "ENSG00000171401.15",
+    "KRT14": "ENSG00000186847.6",
+    "KRT16": "ENSG00000186832.9",
+    "KRT17": "ENSG00000128422.17",
+    "KRT18": "ENSG00000111057.11",
+    "KRT19": "ENSG00000171345.13",
+    "KRT20": "ENSG00000171431.4",
+    "KRT5": "ENSG00000186081.12",
+    "KRT6A": "ENSG00000205420.11",
+    "KRT6B": "ENSG00000185479.6",
+    "KRT6C": "ENSG00000170465.10",
+    "KRT7": "ENSG00000135480.16",
+    "KRT8": "ENSG00000170421.12",
+    "TACSTD2": "ENSG00000184292.7",
+    "TP63": "ENSG00000073282.14"
+  },
+  "cohorts": [
+    {
+      "cohort": "LUAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/LUAD.primary01.tsv.gz",
+      "sha256": "e4fdf97e30d5ed3fd98b3d69de262b56754ac066c8ca0673374f4890f77a6f5c",
+      "n_patients": 516,
+      "from_cache": true
+    },
+    {
+      "cohort": "CESC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-CESC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/CESC.primary01.tsv.gz",
+      "sha256": "65b13bfd0374483551a79cd17dcb8759aa7222c5106b0175e17111c3cdb4f7a8",
+      "n_patients": 304,
+      "from_cache": true
+    },
+    {
+      "cohort": "LUSC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-LUSC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/LUSC.primary01.tsv.gz",
+      "sha256": "0b8f01355632f44d40efc450bdd74f1e7684a2dddebcbd3500ff2a89232d8396",
+      "n_patients": 501,
+      "from_cache": true
+    },
+    {
+      "cohort": "BRCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BRCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/BRCA.primary01.tsv.gz",
+      "sha256": "eadb79acc5693c754a38760585ebf772e3f5a6ae4d3af10f1c3761f91d78bc88",
+      "n_patients": 1095,
+      "from_cache": true
+    },
+    {
+      "cohort": "KIRC",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-KIRC.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/KIRC.primary01.tsv.gz",
+      "sha256": "66eee5ae8e9b4bb1201ce41c7d91f480b653141ac0dfb0c5aef767f0a9eaa61e",
+      "n_patients": 533,
+      "from_cache": true
+    },
+    {
+      "cohort": "STAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-STAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/STAD.primary01.tsv.gz",
+      "sha256": "45b55b98835e73745b8a4da93e965cf427809c885769fc3053859a34d3c396d6",
+      "n_patients": 412,
+      "from_cache": true
+    },
+    {
+      "cohort": "BLCA",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-BLCA.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/BLCA.primary01.tsv.gz",
+      "sha256": "d91629faf8d9506a9969a369e3ee322fb8884bc5b1c508180e80cb316f10efca",
+      "n_patients": 406,
+      "from_cache": true
+    },
+    {
+      "cohort": "PAAD",
+      "url": "https://gdc-hub.s3.us-east-1.amazonaws.com/download/TCGA-PAAD.star_tpm.tsv.gz",
+      "cache": "/tmp/tcga_tacstd2/PAAD.primary01.tsv.gz",
+      "sha256": "11caa9183fa1ddb5e2edfd24d858add4aab8b219ad3673f81662615e2e3e8fcd",
+      "n_patients": 178,
+      "from_cache": true
+    }
+  ],
+  "estimate": [
+    {
+      "cohort": "LUAD",
+      "file": "lung_adenocarcinoma_RNAseqV2.txt",
+      "sha256": "366690f98235ab85a7b0c8eea16f2ce055c4bd61466879a6dc0fda96dd05fda4",
+      "n": 515
+    },
+    {
+      "cohort": "LUSC",
+      "file": "lung_squamous_cell_carcinoma_RNAseqV2.txt",
+      "sha256": "5844aaad93eba1081899c0900ff1ccd6eb315c0d0e9eb5fadad628608333cc35",
+      "n": 501
+    },
+    {
+      "cohort": "BRCA",
+      "file": "breast_cancer_RNAseqV2.txt",
+      "sha256": "df869da7b5e7b548cba20a710a2224473f11db8f304992e96a93ceeb8d2ad1b7",
+      "n": 1093
+    },
+    {
+      "cohort": "CESC",
+      "file": "cervical_carcinoma_RNAseqV2.txt",
+      "sha256": "82f09a53dd83700a73db663987b4288bef1e1c23e10bc8b8118b0c0de3a0dff3",
+      "n": 304
+    },
+    {
+      "cohort": "KIRC",
+      "file": "kidney_renal_clear_cell_carcinoma_RNAseqV2.txt",
+      "sha256": "8439283efd373d1bdfe89679394b9edc4065f0be7427b5896bcf7b92e506dae6",
+      "n": 533
+    },
+    {
+      "cohort": "STAD",
+      "file": "stomach_adenocarcinoma_RNAseqV2.txt",
+      "sha256": "b4e2fd436832c0e63be53430e75337ec7038801ecf2e6d4fa90fb9b0bb17d90d",
+      "n": 415
+    },
+    {
+      "cohort": "BLCA",
+      "file": "bladder_urothelial_carcinoma_RNAseqV2.txt",
+      "sha256": "28fcbdc00d0d4cd18035bd50bfd3d90f08853479dc06d193f264960a530d77ac",
+      "n": 408
+    },
+    {
+      "cohort": "PAAD",
+      "file": "pancreatic_ductal_adenocarcinoma_RNAseqV2.txt",
+      "sha256": "46004731c2bc4479931ec19e50e12ce5f1656c890ba09e16a4e166316d59fce1",
+      "n": 178
+    }
+  ],
+  "estimate_transform": "clip(cos(0.6049872018 + 0.0001467884 * ESTIMATE_score), 0, 1)",
+  "objective": "maximize |pooled rho| and |Cliff delta| for TACSTD2 vs CD8/CD3 after keratin, pooled effect negative, >=6/8 cohorts negative",
+  "counts": [
+    {
+      "cohort": "LUAD",
+      "n_patients": 516,
+      "n_with_ESTIMATE": 515
+    },
+    {
+      "cohort": "LUSC",
+      "n_patients": 501,
+      "n_with_ESTIMATE": 501
+    },
+    {
+      "cohort": "BRCA",
+      "n_patients": 1095,
+      "n_with_ESTIMATE": 1093
+    },
+    {
+      "cohort": "CESC",
+      "n_patients": 304,
+      "n_with_ESTIMATE": 304
+    },
+    {
+      "cohort": "KIRC",
+      "n_patients": 533,
+      "n_with_ESTIMATE": 533
+    },
+    {
+      "cohort": "STAD",
+      "n_patients": 412,
+      "n_with_ESTIMATE": 411
+    },
+    {
+      "cohort": "BLCA",
+      "n_patients": 406,
+      "n_with_ESTIMATE": 406
+    },
+    {
+      "cohort": "PAAD",
+      "n_patients": 178,
+      "n_with_ESTIMATE": 178
+    }
+  ]
+}

@@ -860,15 +860,20 @@ def forest_plot(cohort_rows, spec, family, path_name, title):
     lo = []
     hi = []
     for row in cohort_rows:
-        if not np.isfinite(row["effect"]):
-            continue
         arm = ""
-        if family == "quantile" and row["n_low"] != "":
+        if family == "quantile" and row["n_low"] != "" and np.isfinite(row["n"]):
             arm = f" ({int(row['n_low'])}/{int(row['n_high'])})"
-        labels.append(f"{row['cohort']} n={int(row['n'])}{arm}")
-        effects.append(row["effect"])
-        lo.append(row["ci_low"])
-        hi.append(row["ci_high"])
+        if np.isfinite(row["effect"]):
+            n_label = int(row["n"]) if np.isfinite(row["n"]) else "NA"
+            labels.append(f"{row['cohort']} n={n_label}{arm}")
+            effects.append(row["effect"])
+            lo.append(row["ci_low"])
+            hi.append(row["ci_high"])
+        else:
+            labels.append(f"{row['cohort']} untested")
+            effects.append(np.nan)
+            lo.append(np.nan)
+            hi.append(np.nan)
     labels.append("pooled")
     effects.append(float(spec["effect"]))
     lo.append(float(spec["ci_low"]))
@@ -877,18 +882,20 @@ def forest_plot(cohort_rows, spec, family, path_name, title):
     effects = np.asarray(effects, dtype=float)
     lo = np.asarray(lo, dtype=float)
     hi = np.asarray(hi, dtype=float)
-    fig, ax = plt.subplots(figsize=(8.2, 4.8))
+    fig, ax = plt.subplots(figsize=(8.4, 5.2))
     ax.axvline(0, color="#888888", lw=0.8)
+    finite = np.isfinite(effects) & np.isfinite(lo) & np.isfinite(hi)
     ax.errorbar(
-        effects, y,
-        xerr=[effects - lo, hi - effects],
+        effects[finite], y[finite],
+        xerr=[effects[finite] - lo[finite], hi[finite] - effects[finite]],
         fmt="o", color="#1f4e79", ecolor="#1f4e79", capsize=2, markersize=5,
     )
     ax.set_yticks(y)
     ax.set_yticklabels(labels, fontsize=8)
     xlabel = "partial correlation" if family == "continuous" else "Cliff's delta"
     ax.set_xlabel(xlabel)
-    ax.set_title(title, fontsize=10)
+    wrapped = "\n".join(__import__("textwrap").wrap(title, 78))
+    ax.set_title(wrapped, fontsize=9)
     fig.tight_layout()
     save_fig(fig, path_name)
 
@@ -1090,6 +1097,10 @@ def reading_paragraph(context):
         f"The same CD8_mean score on KRT8+KRT18+KRT19 is pooled ρ {fmt(s['effect'])} ({int(s['neg'])}/8 negative, p={fmt_p(s['p'])}).",
         f"The largest eligible all-patient Spearman |ρ| is {fmt(abs(rs['effect']))} at `{spec_label(rs)}` (pooled ρ {fmt(rs['effect'])}, 95% CI {fmt(rs['ci_low'])} to {fmt(rs['ci_high'])}, p={fmt_p(rs['p'])}, q={fmt_p(rs['q'])}, {int(rs['neg'])}/8 negative).",
         f"The keratin-adjusted continuous maximum is |ρ| {fmt(abs(r['effect']))} at `{spec_label(r)}` (pooled ρ {fmt(r['effect'])}, 95% CI {fmt(r['ci_low'])} to {fmt(r['ci_high'])}, p={fmt_p(r['p'])}, q={fmt_p(r['q'])}, {int(r['neg'])}/8 negative, I²={fmt(r['I2'])}).",
+        (
+            f"The same outcome, covariates, and stratum without winsorization are Spearman pooled ρ {fmt(context['rho_twin_spearman']['effect'])} "
+            f"and Pearson pooled ρ {fmt(context['rho_twin_pearson']['effect'])}, both with {int(context['rho_twin_spearman']['neg'])}/8 and {int(context['rho_twin_pearson']['neg'])}/8 cohorts negative."
+        ),
         f"The all-patient Spearman residual quartile maximum is |δ| {fmt(abs(dq['effect']))} at `{spec_label(dq)}` (pooled δ {fmt(dq['effect'])}, {int(dq['neg'])}/8 negative, p={fmt_p(dq['p'])}).",
         f"The keratin-adjusted Cliff maximum is |δ| {fmt(abs(d['effect']))} at `{spec_label(d)}` (pooled δ {fmt(d['effect'])}, 95% CI {fmt(d['ci_low'])} to {fmt(d['ci_high'])}, p={fmt_p(d['p'])}, q={fmt_p(d['q'])}, {int(d['neg'])}/8 negative).",
     ]
@@ -1251,6 +1262,20 @@ def main():
     context["delta_q_cohort"] = cohort_effects(detail, delta_q, "quantile")
     context["delta_max_cohort"] = cohort_effects(detail, delta_max, "quantile")
     context["delta_max8_cohort"] = cohort_effects(detail, delta_max8, "quantile")
+    context["rho_twin_spearman"] = find_spec(
+        cont,
+        outcome=rho_max["outcome"],
+        covariates=rho_max["covariates"],
+        stratum=rho_max["stratum"],
+        method="spearman",
+    )
+    context["rho_twin_pearson"] = find_spec(
+        cont,
+        outcome=rho_max["outcome"],
+        covariates=rho_max["covariates"],
+        stratum=rho_max["stratum"],
+        method="pearson",
+    )
     context["reading"] = reading_paragraph(context)
 
     forest_plot(context["rho_all_s_cohort"], rho_all_s, "continuous", "rho_all_spearman_forest.png", spec_label(rho_all_s))
