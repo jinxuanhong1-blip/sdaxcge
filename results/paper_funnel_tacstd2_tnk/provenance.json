@@ -1,0 +1,105 @@
+{
+  "title": "PAPER FUNNEL Tacstd2-high fewer T/NK public corroboration",
+  "rule": "Numbers copied from cited PRs only; no re-fit; no fabrication",
+  "sources": [
+    {
+      "row": 1,
+      "pr": 726,
+      "branch": "cursor/cosmx-tacstd2-cldn4-depend-4c49",
+      "paths": [
+        "results/cosmx_tacstd2_cldn4/tables/marginal_summary.csv",
+        "results/cosmx_tacstd2_cldn4/RESULTS.md"
+      ],
+      "fields": {
+        "cd8nk_n_10um_ratio": 0.4554204032877236,
+        "cd8nk_n_20um_ratio": 0.6701650389566283,
+        "sections_high_lt_low": "8/8",
+        "patients_high_lt_low": "5/5",
+        "sign_p_patients": 0.03125
+      }
+    },
+    {
+      "row": 3,
+      "pr": 593,
+      "branch": "cursor/tcga-trop2-cldn-keratin-5472",
+      "paths": [
+        "results/tcga_trop2_cldn_keratin/tables/meta_summary.tsv",
+        "results/tcga_trop2_cldn_keratin/tables/immune_exclusion.tsv"
+      ],
+      "fields": {
+        "endpoint": "TACSTD2 vs CD8_score partial on KRT8+KRT18+KRT19",
+        "pooled_rho": -0.0687415205422523,
+        "p": 0.04273532567896686,
+        "I2": 0.7607742957073461,
+        "negative_cohorts": "6/8"
+      }
+    },
+    {
+      "row": 4,
+      "pr": 705,
+      "branch": "cursor/tcga-krt56-max-effect-dc4f",
+      "paths": ["results/tcga_krt56_max_effect/RESULTS.md"],
+      "fields": {
+        "note": "all-patient continuous maximum of declared sweep; not pre-specified primary",
+        "pooled_rho_TACSTD2_CD3CD8_z": -0.119,
+        "negative_cohorts": "7/8"
+      }
+    },
+    {
+      "row": 5,
+      "pr": 139,
+      "branch": "cursor/oncosg-a1-cd8-gep-c2f6",
+      "paths": ["results/rework/OncoSG_A1/correlations.tsv"],
+      "fields": {
+        "CD8_partial_rho": -0.3086576419,
+        "CD8_partial_p": 4.688545063e-05,
+        "IMSIG_T_CELLS_partial_rho": -0.4041324583,
+        "IMSIG_NK_CELLS_partial_rho": -0.421335571,
+        "n": 169
+      }
+    },
+    {
+      "row": 6,
+      "pr": 99,
+      "branch": "cursor/hunt-cptac-partial-b291",
+      "paths": ["results/hunt_cptac_partial/tables/primary_focus.tsv"],
+      "fields": {
+        "LUAD_protein_xCell_CD8_rho": -0.28904629073608734,
+        "LUAD_WES_partial_rho": -0.2606308080888176,
+        "LSCC_protein_xCell_CD8_rho": -0.07950341046898066,
+        "LSCC_p": 0.4134112267807988
+      }
+    },
+    {
+      "row": 7,
+      "pr": 721,
+      "branch": "cursor/cptac-trop2-cldn4-mediation-82fa",
+      "paths": ["methods/cptac_trop2_cldn4_mediation/FINDING.md"],
+      "fields": {
+        "LUAD_TROP2_vs_CD8A_protein_rho": -0.038,
+        "LSCC_TROP2_vs_CD8A_protein_rho": -0.103,
+        "CIs_cross_zero": true
+      }
+    },
+    {
+      "row": 8,
+      "pr": [152, 173, 727],
+      "branches": [
+        "cursor/claim-a4-tismo-c4b3",
+        "cursor/a4-tismo-tacstd2-1bcb",
+        "cursor/tismo-partial-cldn4-3a61"
+      ],
+      "paths": [
+        "results/claim_A4/tables/summary.tsv",
+        "results/rework/A4_TISMO/REPORT.md"
+      ],
+      "fields": {
+        "tacstd2_up": "49/64",
+        "wilcoxon_p": 5.8398482923347564e-05,
+        "lung_groups": 2,
+        "supports_fewer_T_NK": false,
+        "baseline_CD8_note": "study CIBERSORT Tacstd2–CD8 positive before/after Cldn4 partial (PR #727); not exclusion"
+      }
+    }
+  ]
+}
