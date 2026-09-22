@@ -1,0 +1,53 @@
+{
+  "title": "Reviewer-prebuttal FAQ: four story gaps",
+  "compile_only": true,
+  "questions": {
+    "why_not_trop2_drives_cold": {
+      "lead_prs": [718, 726, 733, 735, 738, 739, 542, 747],
+      "locked_numbers": [
+        "concordant-4 TACSTD2 %pos vs T/NK rho=-0.112 (null)",
+        "concordant-4 CLDN4 %pos vs T/NK rho=-0.531",
+        "mediation matrix null (#718)",
+        "CosMx TACSTD2 CD8+NK 0.455/0.670 at 10/20 um",
+        "CosMx CLDN4 cytotoxic 0.36/0.52 at 50/100 um (do not swap)"
+      ]
+    },
+    "why_cldn4_not_whole_tj": {
+      "lead_prs": [741, 289, 712, 737, 644, 167],
+      "locked_numbers": [
+        "broad TJ vs T/NK rho=+0.137 p=0.60",
+        "CLDN4 %pos rho=-0.531 / recomputed ~-0.52 on same panel",
+        "CPTAC LSCC CLDN4 vs ImmuneScore rho=-0.432; TJ-15 rho=-0.082"
+      ]
+    },
+    "why_gse137244_bulk": {
+      "lead_prs": [606, 612, 685, 694, 744, 746, 542, 543],
+      "locked_numbers": [
+        "Tacstd2 Delta=+3.238",
+        "Cldn4 Delta=+5.570",
+        "exact MW p=0.00794 (5 vs 5)",
+        "no open scRNA with both KL and KP usable n",
+        "in vivo Tacstd2 separates without fair raw Cldn4"
+      ]
+    },
+    "why_private_tj1": {
+      "lead_prs": [744, 741, 746, 747, 749, 750],
+      "definition": "TJ#1 = Tacstd2-high catalog GSEA ranks TJ/adhesion/Claudin #1 or #1-3",
+      "locked_numbers": [
+        "any_cohort_highlight_in_top3=false (#744)",
+        "human ORA apical junction rank 1 / keratin GSEA rank 2 allowed (#741)",
+        "private 8KL TJ#1 only if labeled PRIVATE (#750)"
+      ]
+    }
+  },
+  "siblings": {
+    "forbidden_vs_allowed": 747,
+    "elevator_pitch": 749,
+    "figure_plan": 750
+  },
+  "files": [
+    "results/reviewer_prebuttal_faq/REVIEWER_PREBUTTAL_FAQ.md",
+    "results/reviewer_prebuttal_faq/RESULTS.md",
+    "results/reviewer_prebuttal_faq/provenance.json"
+  ]
+}
