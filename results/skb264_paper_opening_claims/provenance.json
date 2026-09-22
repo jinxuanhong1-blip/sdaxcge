@@ -1,0 +1,31 @@
+{
+  "purpose": "One-page forbidden vs allowed claims for SKB264 paper opening",
+  "prevents": ["mediation", "scRNA-merge", "TJ-GSEA#1"],
+  "source_prs": {
+    "712": {
+      "title": "Concordant-4 CLDN4 vs T/NK: locked %pos stays the joint maximum",
+      "locks": "CLDN4 %pos vs T/NK ρ=-0.531, N=65, I2=0%; joint max of 6435-panel sweep; no extra GSE merge"
+    },
+    "718": {
+      "title": "TROP2–immune vs CLDN4: CosMx and concordant-4 mediation matrix is null",
+      "locks": "mediation call=null; 0/12 support; mean-log1p meta opposite"
+    },
+    "726": {
+      "title": "CosMx He2022: TACSTD2 immune exclusion at 10–20 µm is not accounted for by CLDN4",
+      "locks": "10/20 µm TACSTD2 immune-fraction 8/8; CLDN4-low stratum still 8/8; rank attenuation 0.124/0.103"
+    },
+    "735": {
+      "title": "PAPER FUNNEL: Tacstd2-high → fewer T/NK public evidence table (PPT)",
+      "locks": "CosMx YES; OncoSG YES; TCGA WEAK; CPTAC PARTIAL/NO; TISMO not T/NK exclusion"
+    },
+    "741": {
+      "title": "PAPER FUNNEL: concordant-4 TACSTD2 Q4 vs Q1 DEG → TJ/adhesion → T/NK",
+      "locks": "ORA apical junction rank1; GSEA keratin rank2 not KEGG-TJ#1; TJ score vs T/NK null; DE n=19vs15 not 65"
+    },
+    "744": {
+      "title": "PAPER FUNNEL: Tacstd2-high vs low GSEA — TJ/adhesion/Claudin do not rank #1–3",
+      "locks": "any_cohort_highlight_in_top3=false on GSE137244/GSE164758/GSE137396"
+    }
+  },
+  "not_in_repo": ["private 8KL scRNA", "SKB264 wet-lab matrices", "CLDN1/4/7 KD coculture"]
+}
