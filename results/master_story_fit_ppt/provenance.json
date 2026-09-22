@@ -1,0 +1,218 @@
+{
+  "rule": "Numbers are copied from existing PR bodies or the public handoff. No new fits.",
+  "n_limbs": 41,
+  "n_yes": 29,
+  "n_partial": 12,
+  "parts": {
+    "part1_cold": "Tacstd2 / TROP2 immune-cold. Concordant-4 TACSTD2 composition is NULL and is not included.",
+    "part1_tj": "Tacstd2-high tracks CLDN4 / tight junction / keratin. Broad GSEA does not rank TJ #1\u20133.",
+    "part2_cldn4_pin": "CLDN4, not TACSTD2 and not structural TJ-15 protein, carries the immune-cold association. Uniqueness versus CLDN7 is PARTIAL."
+  },
+  "limbs": [
+    {
+      "id": "P1-C1",
+      "fit": "YES",
+      "pr": "#726 (table in #735, #738, #739)"
+    },
+    {
+      "id": "P1-C2",
+      "fit": "YES",
+      "pr": "#139 (restated #735, #736, #739)"
+    },
+    {
+      "id": "P1-C3",
+      "fit": "YES",
+      "pr": "#107 (restated #739)"
+    },
+    {
+      "id": "P1-C4",
+      "fit": "PARTIAL",
+      "pr": "#107"
+    },
+    {
+      "id": "P1-C5",
+      "fit": "PARTIAL",
+      "pr": "#593 primary; #705 largest all-patient sweep"
+    },
+    {
+      "id": "P1-C6",
+      "fit": "PARTIAL",
+      "pr": "#99 (restated #735, #739)"
+    },
+    {
+      "id": "P1-C7",
+      "fit": "PARTIAL",
+      "pr": "#736"
+    },
+    {
+      "id": "P1-C8",
+      "fit": "PARTIAL",
+      "pr": "#724 (study call in #739)"
+    },
+    {
+      "id": "P1-C9",
+      "fit": "PARTIAL",
+      "pr": "#685"
+    },
+    {
+      "id": "P1-C10",
+      "fit": "YES",
+      "pr": "#745; tumor-site gap #230"
+    },
+    {
+      "id": "P1-T1",
+      "fit": "YES",
+      "pr": "#685 (deltas restated #746, #743, #724)"
+    },
+    {
+      "id": "P1-T2",
+      "fit": "YES",
+      "pr": "#741"
+    },
+    {
+      "id": "P1-T3",
+      "fit": "YES",
+      "pr": "#736"
+    },
+    {
+      "id": "P1-T4",
+      "fit": "PARTIAL",
+      "pr": "#736"
+    },
+    {
+      "id": "P1-T5",
+      "fit": "YES",
+      "pr": "#200"
+    },
+    {
+      "id": "P1-T6",
+      "fit": "YES",
+      "pr": "#230"
+    },
+    {
+      "id": "P1-T7",
+      "fit": "PARTIAL",
+      "pr": "#746 focused rank; #744 broad rank"
+    },
+    {
+      "id": "P1-T8",
+      "fit": "YES",
+      "pr": "#743"
+    },
+    {
+      "id": "P1-T9",
+      "fit": "YES",
+      "pr": "#745"
+    },
+    {
+      "id": "P1-T10",
+      "fit": "YES",
+      "pr": "#740 RNA and n=45 protein; #697 protein grid maximum"
+    },
+    {
+      "id": "P1-T11",
+      "fit": "YES",
+      "pr": "#593"
+    },
+    {
+      "id": "P1-T12",
+      "fit": "YES",
+      "pr": "#635 (MPE OR also in #745)"
+    },
+    {
+      "id": "P1-T13",
+      "fit": "YES",
+      "pr": "#90"
+    },
+    {
+      "id": "P1-T14",
+      "fit": "YES",
+      "pr": "#643 (restated #738)"
+    },
+    {
+      "id": "P2-1",
+      "fit": "YES",
+      "pr": "#539 / #503 locked; #712 joint max; #703 largest |\u03c1|"
+    },
+    {
+      "id": "P2-2",
+      "fit": "YES",
+      "pr": "#541"
+    },
+    {
+      "id": "P2-3",
+      "fit": "YES",
+      "pr": "Locked ratios in the public handoff and #698; largest 8/8 fold #696"
+    },
+    {
+      "id": "P2-4",
+      "fit": "YES",
+      "pr": "Public handoff; restated #629 and #738"
+    },
+    {
+      "id": "P2-5",
+      "fit": "YES",
+      "pr": "#567"
+    },
+    {
+      "id": "P2-6",
+      "fit": "YES",
+      "pr": "#561"
+    },
+    {
+      "id": "P2-7",
+      "fit": "YES",
+      "pr": "#709 largest NES; #691 fgsea; #503 family OLS"
+    },
+    {
+      "id": "P2-8",
+      "fit": "YES",
+      "pr": "#708 largest composite; #289 ImmuneScore and TJ-15; #596 MHC-I and CD8A protein"
+    },
+    {
+      "id": "P2-9",
+      "fit": "YES",
+      "pr": "#693"
+    },
+    {
+      "id": "P2-10",
+      "fit": "YES",
+      "pr": "#713 largest proportion; #711 score \u0394; #579 consensus q"
+    },
+    {
+      "id": "P2-11",
+      "fit": "YES",
+      "pr": "#701"
+    },
+    {
+      "id": "P2-12",
+      "fit": "YES",
+      "pr": "#736"
+    },
+    {
+      "id": "P2-13",
+      "fit": "PARTIAL",
+      "pr": "#736"
+    },
+    {
+      "id": "P2-14",
+      "fit": "PARTIAL",
+      "pr": "#593 primary; #705 all-patient maximum"
+    },
+    {
+      "id": "P2-15",
+      "fit": "YES",
+      "pr": "#733 and #718; residual #725"
+    },
+    {
+      "id": "P2-16",
+      "fit": "PARTIAL",
+      "pr": "#644"
+    },
+    {
+      "id": "P2-17",
+      "fit": "PARTIAL",
+      "pr": "#725"
+    }
+  ]
+}
