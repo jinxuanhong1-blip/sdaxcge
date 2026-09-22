@@ -1,0 +1,6 @@
+layer	objective	spec	cldn4_metric	cldn4_value	lead_gene	runner_gene	margin	cldn4_clearly_wins	part1_ok	part2_ok	note
+concordant4	max_|rho|_among_CLDN4_lead	all4|full7|pct|none	rho	-0.5311678045689989	CLDN4	CLDN7	0.12243603098404332	point_estimate_yes;perm_vs_CLDN7_no	False	True	Locked-scale |ρ|=0.531; I2=0%; n=65. Separable from CLDN1/OCLN/F11R/CDH1, not from CLDN7/CLDN3.
+concordant4	max_margin_among_CLDN4_lead	all4|tj6|pct|KRT1819	rho	-0.4818552969045918	CLDN4	CLDN3	0.14445126279144826	point_estimate_yes;perm_vs_CLDN3_no	False	True	Largest margin among eligible; |ρ| smaller than locked unadj. Searched maximum.
+tcga	max_margin_CLDN4_lead	none_eligible	rho	-0.08059054921697954	F11R			False	False	True	0/60 specs have CLDN4 as lead. Anchor CD8/KRT8-19/lung+funnel: lead=F11R -0.131; CLDN4 ρ=-0.081 (rank 5/6).
+cosmx	anchor_q4q1_50	q4_q1@50um	ratio	0.8003842158088572	CDH1			False	False	True	Only CLDN4+CDH1 on 960 panel; CLDN3/7/OCLN/F11R OFF. CDH1 colder. Locked 0.36/0.52 not replaced.
+cosmx	max_margin_CLDN4_coldest_vs_CDH1	detected_absent@25um	ratio	0.6231856219598869	CLDN4	CDH1	0.07201569851858258	vs_CDH1_point_estimate_only;not_8of8;sister_claudins_OFF	False	True	5/16 specs CLDN4 colder than CDH1; none 8/8 & 5/5 for CLDN4 on those cuts.
