@@ -1,0 +1,22 @@
+key	value	source
+n_cells_not_inferential	208506	summary.json n_cells_not_inferential
+tj_sweep_rows	6624	summary.json tj_n_rows
+tj_sweep_eligible	4080	summary.json tj_n_eligible
+spearman_family_n	1932	summary.json t_n_spearman
+spearman_family_nominal_p05	12	summary.json t_n_spearman_p05_eligible
+bonferroni_0.05	2.587991718426501e-05	0.05 / 1932 Spearman tests
+permutation_p_searched	0.0406	t_robustness.tsv winner, 4999 shuffles
+permutation_n	4999	t_robustness.tsv
+partial_rho_author_T	-0.012915633968006107	t_robustness.tsv prespec_author_pct_T
+partial_p_author_T	0.9556885886176895	t_robustness.tsv prespec_author_pct_T
+partial_rho_ts_T	0.3597049891579726	t_robustness.tsv prespec_ts_pct_T
+partial_p_ts_T	0.30729440041656686	t_robustness.tsv prespec_ts_pct_T
+partial_rho_searched	-0.536710464594558	t_robustness.tsv winner
+partial_p_searched	0.10969860517951059	t_robustness.tsv winner
+prespec_author_rho	-0.15714285714285717	t_prespecified.tsv author tac_pct T_frac
+prespec_author_p	0.4963338454232182	t_prespecified.tsv
+prespec_ts_rho	-0.18787878787878787	t_prespecified.tsv ts tac_pct T_frac
+prespec_ts_p	0.6032176100292089	t_prespecified.tsv
+searched_rho	-0.6626170426112704	summary.json t_winner
+searched_p	0.03680640234866448	summary.json t_winner
+calibration_patient_rho_cldn4_tnk	-0.47792207792207797	calibration_cldn4_tnk.tsv; not plotted (different predictor)
