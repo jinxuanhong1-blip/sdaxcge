@@ -1,0 +1,230 @@
+{
+  "pr744": {
+    "verdict": "any_cohort_highlight_in_top3 = false",
+    "note": "PR #744 stands: across GSE137244 / GSE164758 / GSE137396, TJ / adhesion / Claudin do not rank #1\u20133 among positive NES in a 589-set mouse universe. This page does not re-run mouse and does not claim #744 false."
+  },
+  "n_barrier_sets": 38,
+  "n_context_sets": 88,
+  "seed": 42,
+  "nperm": 1000,
+  "cohorts": [
+    {
+      "cohort": "concordant4_malignant",
+      "n_rank_genes": 24082,
+      "n_high": null,
+      "n_low": null,
+      "n_barrier_tested": 29,
+      "n_context_tested": 79,
+      "barrier_top3": [
+        {
+          "term": "GOBP_KERATINIZATION",
+          "nes": 2.871034934328754,
+          "fdr": 0.0016095016095016095,
+          "fdr_context": 0.0016791718919378495,
+          "rank_pos_barrier": 1,
+          "rank_pos_all": 2,
+          "n_set_in_rank": 44,
+          "lead_genes": "KRT86,EVPL,PPL,CDH3,TMEM79,SHARPIN,KRT80,SPRR2D,KRT17,SFN,KRT16,IVL,KRT7,SPRR1B,KRT5,SPRR1A,CERS3,KRT6C,KRT6A,KLK5,SPRR3,KRT77,KRT6B,TGM1,LIPK"
+        },
+        {
+          "term": "GOBP_KERATINOCYTE_DIFFERENTIATION",
+          "nes": 2.6719602484336336,
+          "fdr": 0.0016095016095016095,
+          "fdr_context": 0.0016791718919378495,
+          "rank_pos_barrier": 2,
+          "rank_pos_all": 5,
+          "n_set_in_rank": 39,
+          "lead_genes": "EVPL,EPHA2,ADAM9,SCEL,ST14,KRT16,ANXA1,IVL,SPRR1B,SPRR1A,CERS3,CFLAR,SPRR3,TGM1,EREG,WNT5A,CSTA,UGCG,JAG1,DSP,ASAH1,EXPH5,CDSN,SPRR2F"
+        },
+        {
+          "term": "CUSTOM_EPITHELIAL_ADHESION",
+          "nes": 2.6349685162312158,
+          "fdr": 0.0016095016095016095,
+          "fdr_context": 0.0016791718919378495,
+          "rank_pos_barrier": 3,
+          "rank_pos_all": 6,
+          "n_set_in_rank": 23,
+          "lead_genes": "NECTIN4,DSG2,JUP,CLDN4,OCLN,CDH1,NECTIN2,TJP1,CLDN1,NECTIN1,F11R,CLDN7,CTNNA1,TJP3,CGN,DSP,EPCAM,MARVELD2,CLDN3,CTNNB1,PKP2"
+        }
+      ],
+      "kegg_tj": {
+        "present": true,
+        "nes": 2.048374215645325,
+        "fdr": 0.0016791718919378495,
+        "rank_pos_all": 27,
+        "rank_pos_barrier": 12,
+        "is_positive": true
+      },
+      "meta": {
+        "cohort": "concordant4_malignant",
+        "n_genes_ranked": 24083,
+        "rank_metric": "OLS_t_Q4_vs_Q1_stacked_within_cohort",
+        "source_table": "data/de_q4q1_stacked.tsv.gz (PR #741)",
+        "de_n_high_vs_low": "19 vs 15",
+        "note": "Locked cohorts GSE123902+GSE131907+GSE205335+GSE189357 only"
+      }
+    },
+    {
+      "cohort": "OncoSG_LUAD",
+      "n_rank_genes": 18069,
+      "n_high": 43,
+      "n_low": 43,
+      "n_barrier_tested": 31,
+      "n_context_tested": 81,
+      "barrier_top3": [
+        {
+          "term": "KRT_EPITHELIAL",
+          "nes": 2.3200426908430867,
+          "fdr": 0.007742257742257742,
+          "fdr_context": 0.003518220909525257,
+          "rank_pos_barrier": 1,
+          "rank_pos_all": 4,
+          "n_set_in_rank": 17,
+          "lead_genes": "KRT10,KRT19,KRT16,KRT18,KRT7,KRT14,KRT8,KRT6A,KRT17,KRT15,KRT6B,KRT6C"
+        },
+        {
+          "term": "GOBP_ESTABLISHMENT_OF_SKIN_BARRIER",
+          "nes": 2.234800758831178,
+          "fdr": 0.007742257742257742,
+          "fdr_context": 0.003518220909525257,
+          "rank_pos_barrier": 2,
+          "rank_pos_all": 6,
+          "n_set_in_rank": 19,
+          "lead_genes": "KDF1,SFN,CLDN4,LSR,MET,KRT16,CLDN1,STMN1,TMEM79,TP63,FA2H"
+        },
+        {
+          "term": "CUSTOM_EPITHELIAL_ADHESION",
+          "nes": 2.019400694222785,
+          "fdr": 0.007742257742257742,
+          "fdr_context": 0.005580626270281442,
+          "rank_pos_barrier": 3,
+          "rank_pos_all": 9,
+          "n_set_in_rank": 22,
+          "lead_genes": "NECTIN4,CLDN4,JUP,CLDN7,EPCAM,CDH1,CLDN1,CLDN3,DSG2,NECTIN2,CGN,TJP3"
+        }
+      ],
+      "kegg_tj": {
+        "present": true,
+        "nes": -0.999711126794403,
+        "fdr": 0.3357048357048357,
+        "rank_pos_all": null,
+        "rank_pos_barrier": null,
+        "is_positive": false
+      },
+      "meta": {
+        "cohort": "OncoSG_LUAD",
+        "n": 169,
+        "matrix": "z-score RSEM (all-sample ref)",
+        "expression_sha256": "44093dbc6633e5280d0fcd18fb07f5c6ee5c2cff175cd76b48b3665c3d4ff54f",
+        "datahub_sha": "165bd77077b03038f9c2ee104959eb474770b2a9",
+        "note": "honest n=169; do not write portal RNA list 181",
+        "n_high": 43,
+        "n_low": 43,
+        "tacstd2_q3": 0.6293,
+        "tacstd2_q1": -0.5474,
+        "rank_metric": "Welch_t_Q4_vs_Q1"
+      }
+    },
+    {
+      "cohort": "GSE31210_LUAD",
+      "n_rank_genes": 21752,
+      "n_high": 57,
+      "n_low": 57,
+      "n_barrier_tested": 30,
+      "n_context_tested": 80,
+      "barrier_top3": [
+        {
+          "term": "CUSTOM_EPITHELIAL_ADHESION",
+          "nes": 2.7648189710720974,
+          "fdr": 0.004995004995004995,
+          "fdr_context": 0.00333000333000333,
+          "rank_pos_barrier": 1,
+          "rank_pos_all": 1,
+          "n_set_in_rank": 22,
+          "lead_genes": "CLDN4,CDH1,CGN,F11R,OCLN,CLDN3,CLDN1,NECTIN4,EPCAM,MARVELD2,CTNNA1,DSG2,CLDN7,JUP,TJP3"
+        },
+        {
+          "term": "KRT_EPITHELIAL",
+          "nes": 2.0723436770532424,
+          "fdr": 0.004995004995004995,
+          "fdr_context": 0.00333000333000333,
+          "rank_pos_barrier": 2,
+          "rank_pos_all": 3,
+          "n_set_in_rank": 17,
+          "lead_genes": "KRT19,KRT7,KRT18,KRT8,KRT10,KRT16,KRT4,KRT15,KRT6B,KRT17,KRT13,KRT6A,KRT6C"
+        },
+        {
+          "term": "KEGG_TIGHT_JUNCTION",
+          "nes": 1.99000662308878,
+          "fdr": 0.004995004995004995,
+          "fdr_context": 0.00333000333000333,
+          "rank_pos_barrier": 3,
+          "rank_pos_all": 4,
+          "n_set_in_rank": 160,
+          "lead_genes": "CLDN4,CGN,F11R,OCLN,EZR,CLDN3,CTTN,CLDN1,ERBB2,LLGL2,MARVELD2,AMOT,CRB3,MARVELD3,MYH14,PATJ,CDC42,RAC1,CLDN23,EPB41L4B,MICALL2,PARD6B,AFDN,CLDN7,DLG3"
+        }
+      ],
+      "kegg_tj": {
+        "present": true,
+        "nes": 1.99000662308878,
+        "fdr": 0.00333000333000333,
+        "rank_pos_all": 4,
+        "rank_pos_barrier": 3,
+        "is_positive": true
+      },
+      "meta": {
+        "cohort": "GSE31210_LUAD",
+        "n": 226,
+        "matrix": "GPL570 MAS5 series matrix, max-mean probe collapse",
+        "matrix_sha256": "6d74024711fcb64ce6a6db3565682045e140b60ecdc8c214302e25b8f92847fb",
+        "note": "primary lung tumors only",
+        "n_high": 57,
+        "n_low": 57,
+        "tacstd2_q3": 20864.63375,
+        "tacstd2_q1": 14695.183,
+        "rank_metric": "Welch_t_Q4_vs_Q1"
+      }
+    }
+  ],
+  "best_honest_global": [
+    {
+      "term": "CUSTOM_EPITHELIAL_ADHESION",
+      "rationale": "barrier-universe top-3 in 3/3 cohorts (GSE31210_LUAD, OncoSG_LUAD, concordant4_malignant); mean NES=2.47; best full-universe positive rank=1",
+      "n_cohorts_top3": 3,
+      "cohorts": [
+        "GSE31210_LUAD",
+        "OncoSG_LUAD",
+        "concordant4_malignant"
+      ],
+      "mean_nes": 2.4730627271753662,
+      "best_all_rank": 1
+    },
+    {
+      "term": "KRT_EPITHELIAL",
+      "rationale": "barrier-universe top-3 in 2/3 cohorts (GSE31210_LUAD, OncoSG_LUAD); mean NES=2.20; best full-universe positive rank=3",
+      "n_cohorts_top3": 2,
+      "cohorts": [
+        "GSE31210_LUAD",
+        "OncoSG_LUAD"
+      ],
+      "mean_nes": 2.1961931839481643,
+      "best_all_rank": 3
+    },
+    {
+      "term": "GOBP_KERATINIZATION",
+      "rationale": "barrier-universe top-3 in 1/3 cohorts (concordant4_malignant); mean NES=2.87; best full-universe positive rank=2",
+      "n_cohorts_top3": 1,
+      "cohorts": [
+        "concordant4_malignant"
+      ],
+      "mean_nes": 2.871034934328754,
+      "best_all_rank": 2
+    }
+  ],
+  "paper_sentence": "In human Tacstd2-high DEG ranks (concordant-4, OncoSG, GSE31210), barrier-supporting programs that honestly reach #1\u20133 within a junction/keratin/barrier gene-set universe are CUSTOM_EPITHELIAL_ADHESION, KRT_EPITHELIAL, GOBP_KERATINIZATION. KEGG Tight Junction is sometimes enriched (e.g. GSE31210) but is not a universal #1, and PR #744 correctly shows it is outside #1\u20133 in public mouse Tacstd2-high GSEA.",
+  "claims": {
+    "kegg_tj_universal_number_one": false,
+    "pr744_false": false,
+    "barrier_story_supported_by_honest_top3": true
+  }
+}
