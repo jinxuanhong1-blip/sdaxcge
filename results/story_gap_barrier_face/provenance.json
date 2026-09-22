@@ -1,0 +1,33 @@
+{
+  "task": "One PPT sentence for the shared barrier-ligand face of TACSTD2-high and CLDN4-high malignant cells. Crude deltas only.",
+  "cohorts": ["GSE123902", "GSE131907", "GSE205335", "GSE189357"],
+  "unit": "patient",
+  "sender": "malignant",
+  "receiver": "T/NK",
+  "ligands": ["F11R", "NECTIN2", "CDH1", "LGALS9"],
+  "copied_from": [
+    {
+      "pr": 716,
+      "url": "https://github.com/jinxuanhong1-blip/sdaxcge/pull/716",
+      "sha": "50108f59a004136fb1465798e07108b84ab4e1dc",
+      "files": [
+        "methods/concordant4_barrier_partial_tacstd2/FINDING.md",
+        "methods/concordant4_barrier_partial_tacstd2/METHODS.md",
+        "methods/concordant4_barrier_partial_tacstd2/results/tables/summary_contrasts.tsv",
+        "methods/concordant4_barrier_partial_tacstd2/results/tables/summary_ligands.tsv"
+      ],
+      "rows_used": "contrast == crude only"
+    },
+    {
+      "pr": 711,
+      "url": "https://github.com/jinxuanhong1-blip/sdaxcge/pull/711",
+      "sha": "b1020ec13ce674a57184421d460fc2e84c9c31d7",
+      "files": [
+        "methods/liana_max_barrier_family_cldn4/FINDING.md"
+      ],
+      "rows_used": "winner pos_vs_neg, expr_prop 0.10, T/NK"
+    }
+  ],
+  "not_recomputed": true,
+  "slide_sentence_uses": "PR 716 crude Q4 vs Q1 expression-proportion and CellChat Hill family means"
+}
