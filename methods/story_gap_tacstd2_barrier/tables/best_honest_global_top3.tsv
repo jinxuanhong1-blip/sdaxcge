@@ -1,0 +1,4 @@
+term	rationale	n_cohorts_top3	cohorts	mean_nes	best_all_rank
+CUSTOM_EPITHELIAL_ADHESION	barrier-universe top-3 in 3/3 cohorts (GSE31210_LUAD, OncoSG_LUAD, concordant4_malignant); mean NES=2.47; best full-universe positive rank=1	3	['GSE31210_LUAD', 'OncoSG_LUAD', 'concordant4_malignant']	2.4730627271753662	1
+KRT_EPITHELIAL	barrier-universe top-3 in 2/3 cohorts (GSE31210_LUAD, OncoSG_LUAD); mean NES=2.20; best full-universe positive rank=3	2	['GSE31210_LUAD', 'OncoSG_LUAD']	2.1961931839481643	3
+GOBP_KERATINIZATION	barrier-universe top-3 in 1/3 cohorts (concordant4_malignant); mean NES=2.87; best full-universe positive rank=2	1	['concordant4_malignant']	2.871034934328754	2
