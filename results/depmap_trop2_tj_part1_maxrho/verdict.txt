@@ -1,0 +1,8 @@
+PART1_BRIDGE_MAX_RHO
+protein baseline S1 Lung rho=0.6931 n=45
+protein max: NSCLC Primary | OncotreeSubtype rho=0.8457 n=17 p=7.127e-05
+rna NSCLC CLDN4 rho=0.6674 n=143
+rna NSCLC CLDN4_TJ_EDGE rho=0.6951 n=143
+rna TJ max: LUAD Primary vs CLDN4 rho=0.7905 n=45 p=1.052e-10
+n_equals_118 anywhere: False
+No value was imputed. No line was removed to raise rho.

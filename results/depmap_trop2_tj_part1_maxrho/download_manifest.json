@@ -1,0 +1,94 @@
+{
+  "release": "DepMap Public 24Q4",
+  "doi": "10.25452/figshare.plus.27993248.v1",
+  "core_genes": [
+    "CDH1",
+    "CGN",
+    "CGNL1",
+    "CLDN1",
+    "CLDN3",
+    "CLDN4",
+    "CLDN6",
+    "CLDN7",
+    "CRB3",
+    "EPCAM",
+    "F11R",
+    "ILDR1",
+    "JAM2",
+    "JAM3",
+    "KRT18",
+    "KRT19",
+    "KRT8",
+    "LSR",
+    "MARVELD2",
+    "MARVELD3",
+    "OCLN",
+    "TACSTD2",
+    "TJP1",
+    "TJP2",
+    "TJP3",
+    "VIM"
+  ],
+  "files": {
+    "Model.csv": {
+      "url": "https://ndownloader.figshare.com/files/51065297",
+      "sha256": "b7a0c1385e6cef30132b56aff61f1261d11e3f490490b355c430d32ee0dbdcfa",
+      "bytes": 645696,
+      "role": "DepMap Public 24Q4 Model.csv",
+      "citation": "DepMap Public 24Q4, Figshare+ 10.25452/figshare.plus.27993248.v1 file 51065297"
+    },
+    "Table_S1_Sample_Information.xlsx": {
+      "url": "https://gygi.hms.harvard.edu/data/ccle/Table_S1_Sample_Information.xlsx",
+      "sha256": "53946743f232f9f123b0d6092d14789ead7ab9d36bc2aeac76f75426be8398cb",
+      "bytes": 28246,
+      "role": "Nusinow 2020 Table S1 sample information",
+      "citation": "Nusinow et al. Cell 2020;180:387-402.e16"
+    },
+    "protein_quant_current_normalized.csv.gz": {
+      "url": "https://gygi.hms.harvard.edu/data/ccle/protein_quant_current_normalized.csv.gz",
+      "sha256": "b72a9ff39b123c801249ea212844ac1f500c3f38fa0f399ec6ad08ee1be2a7ed",
+      "bytes": 30916232,
+      "role": "Nusinow 2020 / Gygi normalized protein quantitation",
+      "citation": "Nusinow et al. Cell 2020;180:387-402.e16"
+    },
+    "expression": {
+      "url": "https://ndownloader.figshare.com/files/51065489",
+      "sha256": "2a71dc94110efcc0221eae821bb93a9f03b54bea16f005818911a09d33383d56",
+      "extract": {
+        "n_models": 1673,
+        "n_genes_kept": 26,
+        "n_genes_wanted": 26,
+        "genes_kept": [
+          "CDH1",
+          "CGN",
+          "CGNL1",
+          "CLDN1",
+          "CLDN3",
+          "CLDN4",
+          "CLDN6",
+          "CLDN7",
+          "CRB3",
+          "EPCAM",
+          "F11R",
+          "ILDR1",
+          "JAM2",
+          "JAM3",
+          "KRT18",
+          "KRT19",
+          "KRT8",
+          "LSR",
+          "MARVELD2",
+          "MARVELD3",
+          "OCLN",
+          "TACSTD2",
+          "TJP1",
+          "TJP2",
+          "TJP3",
+          "VIM"
+        ],
+        "missing_genes": []
+      },
+      "role": "DepMap 24Q4 OmicsExpressionProteinCodingGenesTPMLogp1 slim extract"
+    }
+  }
+}
