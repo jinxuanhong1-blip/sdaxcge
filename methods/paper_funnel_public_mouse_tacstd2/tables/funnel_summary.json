@@ -1,0 +1,37 @@
+{
+  "title": "paper_funnel_public_mouse_tacstd2",
+  "private_8kl_mice": 0,
+  "merged_with_private_8kl": false,
+  "arms": {
+    "kl_gt_kp_tacstd2": {
+      "locked_gse137244_Tacstd2_delta": 3.2382274887,
+      "locked_mwu_p": 0.0079365079,
+      "fair_p_lt_05": [
+        "GSE164758",
+        "GSE6135"
+      ]
+    },
+    "tacstd2_pct_vs_T_frac": {
+      "locked_rho": -1.0,
+      "locked_p_exact": 0.0833333333,
+      "max_abs_rho": -1.0,
+      "n_eligible_T_frac": 1800
+    },
+    "tacstd2_high_deg_to_tj": {
+      "set": "TJ_TISMO",
+      "n_mice": 7,
+      "n_delta_pos": 7,
+      "n_p_lt_05_and_pos": 7,
+      "mean_delta": 0.2607643645089538,
+      "median_delta": 0.17451198146893276,
+      "binomial_p_direction": 0.0078125
+    }
+  },
+  "scrna_cohorts": [
+    "GSE154977",
+    "GSE180963",
+    "GSE165641"
+  ],
+  "n_cells_qc": 31970,
+  "n_mice_scrna": 8
+}
