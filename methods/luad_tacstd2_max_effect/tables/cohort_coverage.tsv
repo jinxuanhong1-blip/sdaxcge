@@ -1,0 +1,10 @@
+cohort	n	strict_luad	platform	composition	tumor_axis	estimate_immune_n	estimate_stromal_n	endpoints
+OncoSG	169	True	cBioPortal z-score RSEM	published_PURITY	published_PURITY			CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean
+GSE31210	226	True	GPL570 MAS5	ESTIMATE_StromalScore	ESTIMATE_StromalScore	138.0	136.0	CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
+GSE72094	442	True	GPL15048 HuRSTA	ESTIMATE_StromalScore	ESTIMATE_StromalScore	141.0	141.0	CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
+GSE68465	443	True	GPL96 U133A	ESTIMATE_StromalScore	ESTIMATE_StromalScore	138.0	136.0	CD8A,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
+GSE19804	60	False	GPL570 MAS5	ESTIMATE_StromalScore	ESTIMATE_StromalScore	138.0	136.0	CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
+GSE273377_discovery	103	True	RNA-seq log2 CPM	stromal9_zmean	stromal9_zmean	140.0	136.0	CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
+GSE273377_validation	60	True	RNA-seq log2 CPM	stromal9_zmean	stromal9_zmean	140.0	136.0	CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
+GSE233774_tumor	30	True	RNA-seq log2 FPKM	stromal9_zmean	stromal9_zmean	139.0	135.0	CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
+GSE282774	58	True	RNA-seq log2 FPKM	stromal9_zmean	stromal9_zmean	140.0	136.0	CD8A,CD8B,CD8A_CD8B_zmean,cytotoxic6_zmean,immune8_zmean,immune8_deposited_mean,ayers_gep18_zmean,estimate_immune141
