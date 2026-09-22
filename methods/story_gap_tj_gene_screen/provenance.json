@@ -1,0 +1,47 @@
+{
+  "task": "STORY GAP FILL: rank each TJ/junction gene vs T/NK/CD8 across concordant-4 + TCGA + CosMx; PPT why-CLDN4-wins table",
+  "mode": "compile_only_quoted",
+  "never_fabricate": true,
+  "sources": [
+    {
+      "pr": 748,
+      "branch": "cursor/tj-cldn4-immune-cold-lead-d91b",
+      "use": "C4 KRT-partial ranks CLDN4/3/7/OCLN/F11R/CDH1; CosMx Q4/Q1 CLDN4 vs CDH1; TCGA KRT-partial CD8 ranks; CosMx 960 panel ON/OFF"
+    },
+    {
+      "pr": 644,
+      "branch": "cursor/concordant4-cldn-surface-tnk-dbff",
+      "use": "C4 KRT-partial CLDN1 ρ=+0.225; CLDN4 vs CLDN1 label-swap Δ; locked unadjusted CLDN4 ρ=-0.531"
+    },
+    {
+      "pr": 741,
+      "branch": "cursor/paper-funnel-tacstd2-tj-b66d",
+      "use": "Tacstd2 Q4 vs Q1 DEG focal logFC for CLDN4/OCLN/CDH1/TJP1/CLDN1/F11R/CLDN7/CLDN3; broad TJ vs T/NK null ρ=+0.137"
+    },
+    {
+      "pr": 685,
+      "use": "GSE137244 KL>KP Tacstd2/Cldn4/TJ entry (locked cell-line DEG)"
+    },
+    {
+      "pr": 698,
+      "use": "Locked CosMx CLDN4 cytotoxic ratios 0.36/0.52 — not replaced"
+    },
+    {
+      "pr": 643,
+      "use": "CosMx 960: CLDN4 only classical claudin on panel"
+    },
+    {
+      "pr": 69,
+      "use": "TCGA-LUAD TJ_15 module vs CD8 ρ=-0.291 (module only; not per-gene TJP1)"
+    },
+    {
+      "pr": 90,
+      "use": "7-gene module (incl. TJP1) claim context; not individual TJP1 rank"
+    }
+  ],
+  "not_invented": [
+    "No CosMx numbers for CLDN1/3/5/7/OCLN/F11R/TJP1 (off 960 panel)",
+    "No individual C4 or TCGA CD8 rank for CLDN5 (no prior PR score found)",
+    "No individual C4/TCGA/CosMx rank for TJP1 (module-only priors)"
+  ]
+}
