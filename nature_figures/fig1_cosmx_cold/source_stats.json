@@ -1,0 +1,125 @@
+{
+  "tacstd2_median_cd8nk": {
+    "10": {
+      "n_sections": 8,
+      "sections_high_lt_low": 8,
+      "n_patients": 5,
+      "patients_high_lt_low": 5,
+      "ratio_of_means": 0.45542,
+      "patient_ratio_of_means": 0.455373,
+      "sign_p_patients": 0.03125,
+      "sign_p_sections": 0.003906,
+      "median_section_ratio": 0.353459
+    },
+    "20": {
+      "n_sections": 8,
+      "sections_high_lt_low": 8,
+      "n_patients": 5,
+      "patients_high_lt_low": 5,
+      "ratio_of_means": 0.670165,
+      "patient_ratio_of_means": 0.671788,
+      "sign_p_patients": 0.03125,
+      "sign_p_sections": 0.003906,
+      "median_section_ratio": 0.726059
+    }
+  },
+  "cldn4_median_cd8nk": {
+    "10": {
+      "n_sections": 8,
+      "sections_high_lt_low": 8,
+      "n_patients": 5,
+      "patients_high_lt_low": 5,
+      "ratio_of_means": 0.493732,
+      "patient_ratio_of_means": 0.51235,
+      "sign_p_patients": 0.03125,
+      "sign_p_sections": 0.003906,
+      "median_section_ratio": 0.428768
+    },
+    "20": {
+      "n_sections": 8,
+      "sections_high_lt_low": 5,
+      "n_patients": 5,
+      "patients_high_lt_low": 3,
+      "ratio_of_means": 0.641904,
+      "patient_ratio_of_means": 0.638586,
+      "sign_p_patients": 0.5,
+      "sign_p_sections": 0.363281,
+      "median_section_ratio": 0.823777
+    },
+    "50": {
+      "n_sections": 8,
+      "sections_high_lt_low": 4,
+      "n_patients": 5,
+      "patients_high_lt_low": 3,
+      "ratio_of_means": 0.810267,
+      "patient_ratio_of_means": 0.80281,
+      "sign_p_patients": 0.5,
+      "sign_p_sections": 0.636719,
+      "median_section_ratio": 1.012474
+    },
+    "100": {
+      "n_sections": 8,
+      "sections_high_lt_low": 4,
+      "n_patients": 5,
+      "patients_high_lt_low": 3,
+      "ratio_of_means": 0.911636,
+      "patient_ratio_of_means": 0.893466,
+      "sign_p_patients": 0.5,
+      "sign_p_sections": 0.636719,
+      "median_section_ratio": 1.028843
+    }
+  },
+  "cldn4_q4q1_cd8nk": {
+    "20": {
+      "n_sections": 8,
+      "sections_high_lt_low": 8,
+      "n_patients": 5,
+      "patients_high_lt_low": 5,
+      "ratio_of_means": 0.459808,
+      "patient_ratio_of_means": 0.46668,
+      "sign_p_patients": 0.03125,
+      "sign_p_sections": 0.003906,
+      "median_section_ratio": 0.456107
+    },
+    "40": {
+      "n_sections": 8,
+      "sections_high_lt_low": 8,
+      "n_patients": 5,
+      "patients_high_lt_low": 5,
+      "ratio_of_means": 0.57429,
+      "patient_ratio_of_means": 0.592062,
+      "sign_p_patients": 0.03125,
+      "sign_p_sections": 0.003906,
+      "median_section_ratio": 0.599226
+    }
+  },
+  "cldn4_q4q1_cd8nk_60_80": {
+    "60": {
+      "n_sections": 8,
+      "sections_high_lt_low": 8,
+      "n_patients": 5,
+      "patients_high_lt_low": 5,
+      "ratio_of_means": 0.648602,
+      "patient_ratio_of_means": 0.675191,
+      "sign_p_patients": 0.03125,
+      "sign_p_sections": 0.003906,
+      "median_section_ratio": 0.654054
+    },
+    "80": {
+      "n_sections": 8,
+      "sections_high_lt_low": 8,
+      "n_patients": 5,
+      "patients_high_lt_low": 5,
+      "ratio_of_means": 0.7033,
+      "patient_ratio_of_means": 0.73649,
+      "sign_p_patients": 0.03125,
+      "sign_p_sections": 0.003906,
+      "median_section_ratio": 0.696614
+    }
+  },
+  "cited_handoff_not_plotted": {
+    "ratio_50um": 0.36,
+    "ratio_100um": 0.52,
+    "reason": "No section-level rows for this summary are in the repository tables."
+  }
+}
