@@ -1,0 +1,25 @@
+set	x	y	n_samples	rho	p	method	samples
+carcinoma_like|site=MPE|min_cells=20	TACSTD2_pct_pos	tnk_fraction_sample	3			undefined	EFFUSION_06,EFFUSION_11,EFFUSION_12
+carcinoma_like|site=MPE|min_cells=20	TACSTD2_mean	tnk_fraction_sample	3			undefined	EFFUSION_06,EFFUSION_11,EFFUSION_12
+carcinoma_like|site=MPE|min_cells=20	TACSTD2_mean	TJ_core_mean	3			undefined	EFFUSION_06,EFFUSION_11,EFFUSION_12
+carcinoma_like|site=MPE|min_cells=20	TACSTD2_mean	TJ_core_no_CLDN4_mean	3			undefined	EFFUSION_06,EFFUSION_11,EFFUSION_12
+carcinoma_like|site=MPE|min_cells=20	TACSTD2_mean	CLDN4_mean	3			undefined	EFFUSION_06,EFFUSION_11,EFFUSION_12
+carcinoma_like|site=MPE|min_cells=20	CLDN4_pct_pos	tnk_fraction_sample	3			undefined	EFFUSION_06,EFFUSION_11,EFFUSION_12
+carcinoma_like|site=MPE|min_cells=1	TACSTD2_pct_pos	tnk_fraction_sample	4	0.4	0.75	exact_permutation	EFFUSION_06,EFFUSION_11,EFFUSION_12,EFFUSION_64
+carcinoma_like|site=MPE|min_cells=1	TACSTD2_mean	tnk_fraction_sample	4	0.4	0.75	exact_permutation	EFFUSION_06,EFFUSION_11,EFFUSION_12,EFFUSION_64
+carcinoma_like|site=MPE|min_cells=1	TACSTD2_mean	TJ_core_mean	4	-0.8	0.3333333333333333	exact_permutation	EFFUSION_06,EFFUSION_11,EFFUSION_12,EFFUSION_64
+carcinoma_like|site=MPE|min_cells=1	TACSTD2_mean	TJ_core_no_CLDN4_mean	4	-0.8	0.3333333333333333	exact_permutation	EFFUSION_06,EFFUSION_11,EFFUSION_12,EFFUSION_64
+carcinoma_like|site=MPE|min_cells=1	TACSTD2_mean	CLDN4_mean	4	0.4	0.75	exact_permutation	EFFUSION_06,EFFUSION_11,EFFUSION_12,EFFUSION_64
+carcinoma_like|site=MPE|min_cells=1	CLDN4_pct_pos	tnk_fraction_sample	4	-0.6	0.4166666666666667	exact_permutation	EFFUSION_06,EFFUSION_11,EFFUSION_12,EFFUSION_64
+primary_tS|site=primary|min_cells=20	TACSTD2_pct_pos	tnk_fraction_sample	10	-0.18787878787878787	0.6032176100292089	spearmanr_asymptotic	LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34
+primary_tS|site=primary|min_cells=20	TACSTD2_mean	tnk_fraction_sample	10	0.10303030303030303	0.7769984634438898	spearmanr_asymptotic	LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34
+primary_tS|site=primary|min_cells=20	TACSTD2_mean	TJ_core_mean	10	0.309090909090909	0.38484123026128353	spearmanr_asymptotic	LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34
+primary_tS|site=primary|min_cells=20	TACSTD2_mean	TJ_core_no_CLDN4_mean	10	0.01818181818181818	0.9602404181286242	spearmanr_asymptotic	LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34
+primary_tS|site=primary|min_cells=20	TACSTD2_mean	CLDN4_mean	10	0.7696969696969697	0.009221952722215994	spearmanr_asymptotic	LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34
+primary_tS|site=primary|min_cells=20	CLDN4_pct_pos	tnk_fraction_sample	10	-0.38181818181818183	0.2762553333854362	spearmanr_asymptotic	LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34
+author_malignant|site=any|min_cells=20	TACSTD2_pct_pos	tnk_fraction_sample	21	-0.15064935064935067	0.5145138644694079	spearmanr_asymptotic	BRONCHO_58,EBUS_06,EBUS_28,EBUS_49,BRONCHO_11,EBUS_10,EBUS_12,EBUS_13,EBUS_15,EBUS_19,EBUS_51,NS_02,NS_03,NS_04,NS_06,NS_07,NS_12,NS_13,NS_16,NS_17,NS_19
+author_malignant|site=any|min_cells=20	TACSTD2_mean	tnk_fraction_sample	21	0.012987012987012986	0.9554439323134464	spearmanr_asymptotic	BRONCHO_58,EBUS_06,EBUS_28,EBUS_49,BRONCHO_11,EBUS_10,EBUS_12,EBUS_13,EBUS_15,EBUS_19,EBUS_51,NS_02,NS_03,NS_04,NS_06,NS_07,NS_12,NS_13,NS_16,NS_17,NS_19
+author_malignant|site=any|min_cells=20	TACSTD2_mean	TJ_core_mean	21	0.4584415584415585	0.03660450993249761	spearmanr_asymptotic	BRONCHO_58,EBUS_06,EBUS_28,EBUS_49,BRONCHO_11,EBUS_10,EBUS_12,EBUS_13,EBUS_15,EBUS_19,EBUS_51,NS_02,NS_03,NS_04,NS_06,NS_07,NS_12,NS_13,NS_16,NS_17,NS_19
+author_malignant|site=any|min_cells=20	TACSTD2_mean	TJ_core_no_CLDN4_mean	21	0.34155844155844156	0.12967786415595978	spearmanr_asymptotic	BRONCHO_58,EBUS_06,EBUS_28,EBUS_49,BRONCHO_11,EBUS_10,EBUS_12,EBUS_13,EBUS_15,EBUS_19,EBUS_51,NS_02,NS_03,NS_04,NS_06,NS_07,NS_12,NS_13,NS_16,NS_17,NS_19
+author_malignant|site=any|min_cells=20	TACSTD2_mean	CLDN4_mean	21	0.3155844155844156	0.16345354043341237	spearmanr_asymptotic	BRONCHO_58,EBUS_06,EBUS_28,EBUS_49,BRONCHO_11,EBUS_10,EBUS_12,EBUS_13,EBUS_15,EBUS_19,EBUS_51,NS_02,NS_03,NS_04,NS_06,NS_07,NS_12,NS_13,NS_16,NS_17,NS_19
+author_malignant|site=any|min_cells=20	CLDN4_pct_pos	tnk_fraction_sample	21	-0.5220779220779221	0.015195754492505785	spearmanr_asymptotic	BRONCHO_58,EBUS_06,EBUS_28,EBUS_49,BRONCHO_11,EBUS_10,EBUS_12,EBUS_13,EBUS_15,EBUS_19,EBUS_51,NS_02,NS_03,NS_04,NS_06,NS_07,NS_12,NS_13,NS_16,NS_17,NS_19
