@@ -1,0 +1,112 @@
+{
+  "figure_id": "fig2_gse137244",
+  "title": "GSE137244 bulk KL vs KP: Tacstd2, Cldn4, and epithelial tight junction",
+  "assay": "bulk RNA-seq, mouse lung-cancer cell lines",
+  "not": [
+    "single-cell RNA-seq",
+    "private 8KL",
+    "methods schematic",
+    "normal lung"
+  ],
+  "accession": "GSE137244",
+  "pmid": "34142094",
+  "transform": "log2(FPKM+1)",
+  "contrast": "mean(KL) - mean(KP)",
+  "test": "two-sided exact Mann-Whitney U",
+  "n_libraries": {
+    "KP": 5,
+    "KL": 5
+  },
+  "kp_note": "Five libraries of B6AL10 (KrasG12D;Trp53), not five independent lines.",
+  "held_out": "GSM4073826 normal lung",
+  "panels": [
+    {
+      "letter": "a",
+      "title": "Tacstd2",
+      "geom": "library dots and mean line",
+      "n": "5 vs 5",
+      "delta_display": "+3.24",
+      "p_display": "P = 0.00794",
+      "source": "source_data/watch_genes_log2.tsv"
+    },
+    {
+      "letter": "b",
+      "title": "Cldn4",
+      "geom": "library dots and mean line",
+      "n": "5 vs 5",
+      "delta_display": "+5.57",
+      "p_display": "P = 0.00794",
+      "source": "source_data/watch_genes_log2.tsv"
+    },
+    {
+      "letter": "c",
+      "title": "Epithelial TJ core (18-gene mean)",
+      "geom": "library dots and mean line",
+      "n": "5 vs 5",
+      "genes": [
+        "Cldn1",
+        "Cldn3",
+        "Cldn4",
+        "Cldn7",
+        "Ocln",
+        "Marveld2",
+        "Marveld3",
+        "Tjp1",
+        "Tjp2",
+        "Tjp3",
+        "F11r",
+        "Jam2",
+        "Jam3",
+        "Cgn",
+        "Cgnl1",
+        "Crb3",
+        "Ildr1",
+        "Lsr"
+      ],
+      "delta_display": "+1.63",
+      "p_display": "P = 0.00794",
+      "source": "source_data/mean_signature_scores.tsv row EPITHELIAL_TJ_CORE",
+      "not_recomputed": "Score is the published per-library mean. Genes without per-library rows are not imputed."
+    },
+    {
+      "letter": "d",
+      "title": "Per-library log2(FPKM+1)",
+      "geom": "heatmap of published per-library values",
+      "higher_in_kl": [
+        "Cldn6",
+        "Cldn4",
+        "Cldn7",
+        "Cldn3",
+        "Cldn1",
+        "Tacstd2",
+        "Ocln",
+        "Tjp1"
+      ],
+      "higher_in_kp": [
+        "Cldn5",
+        "Cldn18",
+        "Cldn2"
+      ],
+      "omitted_core_genes_without_per_library_values": [
+        "Marveld2",
+        "Marveld3",
+        "Tjp2",
+        "Tjp3",
+        "F11r",
+        "Jam2",
+        "Jam3",
+        "Cgn",
+        "Cgnl1",
+        "Crb3",
+        "Ildr1",
+        "Lsr"
+      ],
+      "source": "source_data/watch_genes_log2.tsv"
+    }
+  ],
+  "outputs": [
+    "fig2_gse137244.pdf",
+    "fig2_gse137244.svg",
+    "fig2_gse137244.png"
+  ]
+}
