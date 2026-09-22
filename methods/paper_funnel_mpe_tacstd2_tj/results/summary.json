@@ -1,0 +1,193 @@
+{
+  "paper_funnel": "Human MPE/scRNA TACSTD2-high malignant vs immune; TJ enrichment; CLDN4 coexpression",
+  "ppt_middle_slides_target": [
+    "TACSTD2 high in malignant / low in immune",
+    "TJ program enriched in TACSTD2-high malignant cells",
+    "CLDN4 coexpressed with TACSTD2"
+  ],
+  "hra006761": {
+    "accession": "HRA006761",
+    "bioproject": "PRJCA023797",
+    "dac": "HDAC002197",
+    "accessibility": "controlled",
+    "analyzed": false,
+    "reason": "GSA-Human page: Controlled access / Request Data. No public matrix downloaded.",
+    "publication_claim_not_recomputed": "Clin Transl Med 2024 e1649: CLDN4 correlates with ELF3, EpCAM, TACSTD2 in recurrent MPE (authors' statement)."
+  },
+  "public_dataset": {
+    "accession": "GSE131907",
+    "citation": "Kim et al. Nat Commun 2020",
+    "normalization": "log1p(UMI / full_library_size * 10000)",
+    "n_cells": 208506,
+    "n_pe_samples": 5,
+    "n_mpe_carcinoma_like_cells": 259,
+    "n_mpe_mesothelial_like_cells": 76,
+    "n_primary_ts_cells": 6352,
+    "n_author_malignant_cells": 24784,
+    "author_malignant_in_pe": 0,
+    "note": "Author Cell_subtype Malignant cells = 0 in PE and tLung. MPE malignant-like = EPCAM+ WT1\u2212 CALB2\u2212 PE epithelial."
+  },
+  "verdicts": {
+    "tacstd2_malignant_vs_immune": {
+      "supported": true,
+      "scope": "compartment detection / expression, not sample-level cold neighborhood in MPE",
+      "mpe_carcinoma_like_vs_T": {
+        "n_a": 259,
+        "n_b": 11974,
+        "median_a": 1.8626993471908553,
+        "median_b": 0.0,
+        "mean_a": 1.6479366796071722,
+        "mean_b": 0.019534616524048344,
+        "U": 2836103.5,
+        "p": 0.0,
+        "gene": "TACSTD2",
+        "compartment_a": "MPE_carcinoma_like",
+        "compartment_b": "MPE_immune_T",
+        "pct_pos_a": 83.78378378378379,
+        "pct_pos_b": 1.4113913479204943
+      }
+    },
+    "tj_enrichment_in_tacstd2_high": {
+      "supported": true,
+      "mpe_q4q1_TJ_core": {
+        "compartment": "MPE_carcinoma_like",
+        "contrast": "TACSTD2_Q4_vs_Q1",
+        "score": "TJ_core",
+        "n_high": 65.0,
+        "n_low": 65.0,
+        "q1": 0.7611800541475333,
+        "q3": 2.4187167341444096,
+        "median_score_high": 0.4810783519100715,
+        "median_score_low": 0.2958812063075873,
+        "mean_score_high": 0.44168021065207275,
+        "mean_score_low": 0.2792738419833864,
+        "delta_mean": 0.16240636866868635,
+        "U": 3259.0,
+        "p": 9.493714441512572e-08,
+        "pct_pos_high": NaN,
+        "pct_pos_low": NaN,
+        "odds_ratio": NaN,
+        "n_cells": NaN,
+        "rho": NaN,
+        "method": NaN
+      },
+      "mpe_q4q1_TJ_core_no_CLDN4": {
+        "compartment": "MPE_carcinoma_like",
+        "contrast": "TACSTD2_Q4_vs_Q1",
+        "score": "TJ_core_no_CLDN4",
+        "n_high": 65.0,
+        "n_low": 65.0,
+        "q1": 0.7611800541475333,
+        "q3": 2.4187167341444096,
+        "median_score_high": 0.4230107307304423,
+        "median_score_low": 0.2338575666316481,
+        "mean_score_high": 0.3877047638187152,
+        "mean_score_low": 0.22796632013031304,
+        "delta_mean": 0.15973844368840218,
+        "U": 3286.0,
+        "p": 4.6883175487772006e-08,
+        "pct_pos_high": NaN,
+        "pct_pos_low": NaN,
+        "odds_ratio": NaN,
+        "n_cells": NaN,
+        "rho": NaN,
+        "method": NaN
+      },
+      "primary_sample_TACSTD2_vs_TJ": {
+        "set": "primary_tS|site=primary|min_cells=20",
+        "x": "TACSTD2_mean",
+        "y": "TJ_core_mean",
+        "n_samples": 10,
+        "rho": 0.309090909090909,
+        "p": 0.38484123026128353,
+        "method": "spearmanr_asymptotic",
+        "samples": "LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34"
+      }
+    },
+    "cldn4_coexpression": {
+      "supported": true,
+      "mpe_codetect": {
+        "compartment": "MPE_carcinoma_like",
+        "anchor": "TACSTD2",
+        "partner": "CLDN4",
+        "codetect_n_anchor_pos": 217,
+        "codetect_n_anchor_neg": 42,
+        "codetect_pct_partner_in_anchor_pos": 88.0184331797235,
+        "codetect_pct_partner_in_anchor_neg": 59.523809523809526,
+        "codetect_odds_ratio": 4.995384615384616,
+        "codetect_fisher_p": 3.734879403350465e-05,
+        "spearman_all_rho": 0.04665662501471414,
+        "spearman_all_p": 0.45467574408453837,
+        "spearman_all_n": 259.0,
+        "spearman_doublepos_rho": -0.024552218241939924,
+        "spearman_doublepos_p": 0.7360099668936284,
+        "spearman_doublepos_n": 191.0
+      },
+      "primary_sample_TACSTD2_vs_CLDN4": {
+        "set": "primary_tS|site=primary|min_cells=20",
+        "x": "TACSTD2_mean",
+        "y": "CLDN4_mean",
+        "n_samples": 10,
+        "rho": 0.7696969696969697,
+        "p": 0.009221952722215994,
+        "method": "spearmanr_asymptotic",
+        "samples": "LUNG_T06,LUNG_T08,LUNG_T18,LUNG_T19,LUNG_T20,LUNG_T25,LUNG_T28,LUNG_T30,LUNG_T31,LUNG_T34"
+      }
+    },
+    "mpe_tacstd2_vs_tnk_sample": {
+      "supported": false,
+      "reason": "Only 3\u20134 PE samples with carcinoma-like cells; Spearman underpowered",
+      "min_cells_20": {
+        "set": "carcinoma_like|site=MPE|min_cells=20",
+        "x": "TACSTD2_pct_pos",
+        "y": "tnk_fraction_sample",
+        "n_samples": 3,
+        "rho": NaN,
+        "p": NaN,
+        "method": "undefined",
+        "samples": "EFFUSION_06,EFFUSION_11,EFFUSION_12"
+      },
+      "min_cells_1": {
+        "set": "carcinoma_like|site=MPE|min_cells=1",
+        "x": "TACSTD2_pct_pos",
+        "y": "tnk_fraction_sample",
+        "n_samples": 4,
+        "rho": 0.4,
+        "p": 0.75,
+        "method": "exact_permutation",
+        "samples": "EFFUSION_06,EFFUSION_11,EFFUSION_12,EFFUSION_64"
+      }
+    }
+  },
+  "tj_genes_used": [
+    "AMOT",
+    "AMOTL1",
+    "CGN",
+    "CGNL1",
+    "CLDN1",
+    "CLDN3",
+    "CLDN4",
+    "CLDN7",
+    "CLDN8",
+    "CRB3",
+    "F11R",
+    "INADL",
+    "JAM2",
+    "JAM3",
+    "MAGI1",
+    "MAGI3",
+    "MARVELD2",
+    "MPDZ",
+    "OCLN",
+    "PARD3",
+    "PARD6A",
+    "PARD6B",
+    "TJP1",
+    "TJP2",
+    "TJP3"
+  ],
+  "related_prs": {
+    "cldn4_first_mpe_coexpression": 635,
+    "atlas_epithelial_vs_immune_and_TJ_gsea": 230
+  }
+}
