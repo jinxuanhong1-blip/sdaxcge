@@ -1,0 +1,150 @@
+{
+  "title": "PAPER FUNNEL TJ/CLDN4/junction vs T/NK/CD8/IFN public corroboration",
+  "rule": "Numbers copied from cited PRs only; no re-fit; no fabrication",
+  "funnel_position": "After Tacstd2-high TJ enrichment (A8), corroborate TJ/CLDN4 inverse with T/NK/CD8/IFN at patient/mouse unit",
+  "primary_human_call": {
+    "dataset": "concordant-4",
+    "rho": -0.531,
+    "p": 1.65e-05,
+    "I2": 0.0,
+    "N": 65,
+    "Cliff_delta_Q4Q1": -0.724,
+    "source_prs": [503, 539, 712]
+  },
+  "largest_abs_rho": {
+    "human_I2_0": {"rho": -0.533, "note": "partial KRT18; third-decimal over locked", "pr": 712},
+    "human_sign_only": {"rho": -0.552, "I2": 0.665, "note": "heterogeneous; do not promote", "pr": 712},
+    "human_locked_joint_max": {"rho": -0.531, "Cliff_delta": -0.724, "note": "primary", "pr": 712},
+    "mouse_maxrho_T_frac": {"rho": -1.0, "n": 4, "exact_p": 0.0833, "note": "exploratory ceiling", "pr": 700},
+    "mouse_gemm_primary_TNK": {"rho": 0.477, "p": 0.302, "note": "opposite sign; honest null", "pr": 677}
+  },
+  "pathway_level_scores": {
+    "fgsea_Q4Q1_NES": {
+      "Hallmark_IFNG": -3.85,
+      "Hallmark_IFNA": -3.42,
+      "MHC_I_APM": -2.75,
+      "Hallmark_EMT": -3.42,
+      "Hallmark_apical_junction": -1.62,
+      "KEGG_tight_junction": 1.13,
+      "note": "apical junction and KEGG TJ bootstrap CIs cross zero",
+      "pr": 691
+    },
+    "gsva_DL_spearman_vs_pct": {
+      "Hallmark_IFNG": -0.399,
+      "Hallmark_IFNA": -0.319,
+      "MHC_I": -0.249,
+      "N": 64,
+      "pr": 691
+    },
+    "family_median_logFC_Q4Q1": {
+      "IFN": -0.513,
+      "MHC_I_APM": -0.686,
+      "TJ_CLDN4_out": 0.109,
+      "chemokine": -0.923,
+      "n_Q1_Q4": "18/16",
+      "pr": 503
+    }
+  },
+  "sources": [
+    {
+      "row": 1,
+      "pr": [503, 539, 712],
+      "branches": [
+        "cursor/concordant4-cldn4-tnk-muscat-f40c",
+        "cursor/seurat-concordant4-cldn4-802a",
+        "cursor/concordant4-cldn4-maxrho-a160"
+      ],
+      "fields": {
+        "rho": -0.531,
+        "p": 1.65e-05,
+        "I2": 0.0,
+        "N": 65,
+        "cohort_rho": [-0.659, -0.522, -0.435, -0.600],
+        "Cliff_delta": -0.724
+      }
+    },
+    {
+      "row": 2,
+      "pr": 712,
+      "branch": "cursor/concordant4-cldn4-maxrho-a160",
+      "fields": {"rho": -0.533, "I2": 0.0, "panel": "pct_gt0|partial|KRT18_cp10k|all|min20"}
+    },
+    {
+      "row": 3,
+      "pr": 712,
+      "branch": "cursor/concordant4-cldn4-maxrho-a160",
+      "fields": {"rho": -0.552, "I2": 0.665, "panel": "pct_ge2|partial|KRT8_raw|all|min100", "promote": false}
+    },
+    {
+      "row": 4,
+      "pr": 541,
+      "branch": "cursor/seurat-gse131907-cldn4-2d19",
+      "fields": {"rho_pct": -0.477922077922078, "p_pct": 0.0284330242896609, "n_patients": 21, "ifn_logfc": -0.00135564216851636, "mhc_logfc": -0.163660412158826, "tj_logfc": 0.182125731856059}
+    },
+    {
+      "row": 5,
+      "pr": 691,
+      "branch": "cursor/concordant4-cldn4-gsva-fgsea-e083",
+      "paths": ["methods/concordant4_cldn4_gsva_fgsea/results/tables/nes_fgsea.tsv"],
+      "fields": {"IFNG_NES": -3.85226448251674, "IFNA_NES": -3.42225882737857, "MHC_NES": -2.74632613488671, "KEGG_TJ_NES": 1.12858064019162}
+    },
+    {
+      "row": 6,
+      "pr": 691,
+      "branch": "cursor/concordant4-cldn4-gsva-fgsea-e083",
+      "paths": ["methods/concordant4_cldn4_gsva_fgsea/results/tables/score_tests.tsv"],
+      "fields": {"gsva_IFNG_DL_rho": -0.39918080034373, "gsva_IFNA_DL_rho": -0.319230471975368, "gsva_MHC_DL_rho": -0.249242457767653}
+    },
+    {
+      "row": 7,
+      "pr": 503,
+      "branch": "cursor/concordant4-cldn4-tnk-muscat-f40c",
+      "paths": ["methods/concordant4_123902_131907_205335_189357_cldn4/tables/family_summary.tsv"],
+      "fields": {"IFN_median_logFC": -0.5130337969875419, "MHC_median_logFC": -0.6864147534292884, "TJ_median_logFC": 0.1085678560414774}
+    },
+    {
+      "row": 8,
+      "pr": 698,
+      "branch": "cursor/cosmx-max-effect-sweep-c0ec",
+      "fields": {"cytotoxic_ratio_50um": 0.36, "cytotoxic_ratio_100um": 0.52, "sections": "8/8", "patients": "5/5", "sign_p": 0.031}
+    },
+    {
+      "row": 9,
+      "pr": [90, 69],
+      "branches": ["cursor/claims-b3-b4-tj-signature-6840", "cursor/b3-luad-tj-cd8-purity-8cf0"],
+      "fields": {"TJ15_vs_CD8_rho": -0.29, "p": 1.6e-11, "purity_partial_rho": -0.26}
+    },
+    {
+      "row": 10,
+      "pr": 677,
+      "branch": "cursor/gemm-cldn4-pos-forest-e8ea",
+      "paths": ["methods/gemm_mouse_cldn4_forest/tables/summary.json"],
+      "fields": {"rho": 0.4772520340262677, "p_hk": 0.3020633635297282, "I2": 0.7170914463259431, "n_mice": 34, "k": 5}
+    },
+    {
+      "row": 11,
+      "pr": 677,
+      "branch": "cursor/gemm-cldn4-pos-forest-e8ea",
+      "fields": {"rho": 0.09172370757794483, "p_hk": 0.7961505982049958, "n_mice": 56}
+    },
+    {
+      "row": 12,
+      "pr": 700,
+      "branch": "cursor/public-mouse-cldn4-maxrho-c944",
+      "paths": ["methods/public_mouse_cldn4_maxrho/tables/winners.tsv"],
+      "fields": {"T_frac_rho": -1.0, "n": 4, "exact_p": 0.08333333333333333, "IFN_APM_max_rho": 1.0}
+    },
+    {
+      "row": 13,
+      "pr": [200, 46],
+      "branches": ["cursor/user-align-trop2-tj-1b3b", "cursor/hunt-tj-gsea-da87"],
+      "fields": {"LUAD_KEGG_TJ_NES": 2.09, "LUAD_FDR": 0.005, "LUSC_TJ_assembly_NES": 2.18, "LUSC_FDR": 0.004}
+    },
+    {
+      "row": 14,
+      "pr": [715, 638],
+      "branches": ["cursor/elf3-module-max-tnk-9d3f", "cursor/concordant4-elf3-module-tnk-9b4c"],
+      "fields": {"four_gene_rho": -0.448, "plus_KRT19_rho": -0.483, "below_CLDN4_locked": true}
+    }
+  ]
+}
