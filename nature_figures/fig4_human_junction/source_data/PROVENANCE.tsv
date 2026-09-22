@@ -1,0 +1,9 @@
+file	role	source
+de_q4q1_stacked.tsv.gz	Panel a volcano and panel c OLS logFC	PR #741 methods/concordant4_tacstd2_malignant_deg/tables/de_q4q1_stacked.tsv.gz
+ora_up.tsv	Panel b bubbles, rank order, apical-junction overlap genes	PR #741 tables/ora_up.tsv
+ora_barrier_subset.tsv	GO and KEGG tight-junction ranks and overlap genes	PR #741 tables/ora_barrier_subset.tsv
+de_focal_genes.tsv	Focal junction gene list checked against this table	PR #741 tables/de_focal_genes.tsv
+n_honest.tsv	Q1/Q4 counts printed on the heatmap	PR #741 tables/n_honest.tsv
+gsea_prerank_q4q1.tsv	Caption and footer GSEA NES ranks; not a drawn GSEA panel	PR #741 tables/gsea_prerank_q4q1.tsv
+units_tacstd2.tsv	Published quartile labels and TACSTD2 values used to lock the heatmap matrix	PR #741 tables/units_tacstd2.tsv
+tj_gene_log2_tmm_cpm_q1q4.tsv	Panel c expression. log2(TMM-CPM+1) from the PR #741 malignant UMI sums using that page's TMM function. TACSTD2 matches units_tacstd2.tsv to <1e-6. Quartiles are the published labels. Medians are descriptive.	Derived display matrix from PR #741 counts; not a new differential-expression test
