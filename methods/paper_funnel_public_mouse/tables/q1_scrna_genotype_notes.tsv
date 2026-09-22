@@ -1,0 +1,6 @@
+accession	contrast	feature	n_high_arm	n_low_arm	value_KL_or_high	value_K_or_low	delta	mw_p	note
+GSE180963	KL_vs_K	tacstd2_pct	1	1	0.05972865651886168	0.020431115276476102	0.039297541242385575		n=1 vs 1; genotype=mouse=library; no test
+GSE180963	KL_vs_K	cldn4_pct	1	1	0.0038054268696227664	0.00018744142455482662	0.0036179854450679397		n=1 vs 1; genotype=mouse=library; no test
+GSE180963	KL_vs_K	tj7_mean	1	1	0.08947452906179909	0.07444975423644211	0.015024774825356982		n=1 vs 1; genotype=mouse=library; no test
+GSE180963	KL_vs_K	tj_core_mean	1	1	0.0638253412748872	0.062215587419414436	0.0016097538554727675		n=1 vs 1; genotype=mouse=library; no test
+ALL_PUBLIC_SCRNA	KL_vs_KP	NA	0	0					No open public scRNA matrix contains both KL and KP with usable mouse n on both arms. Do not invent a scRNA KL>KP Δ.
