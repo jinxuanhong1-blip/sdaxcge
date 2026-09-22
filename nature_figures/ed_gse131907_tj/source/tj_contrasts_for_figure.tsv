@@ -1,0 +1,9 @@
+id	label	role	n_patients	mean_delta	median_delta	frac_pos	wilcoxon_p	patient_tag	value_col	gate	site	split	note
+cldn4_gene	CLDN4 alone	single_gene	21	0.851188097681318	0.834895133972168	1.0	9.5367431640625e-07		delta	epi	no_mBrain	q4q1	One gene, not a module. Epithelial cells, brain metastasis excluded. Patient-level vector was not in the released table.
+claudins	CLDN1/3/4/7	module	10	0.5419839859008789	0.5562744736671448	1.0	0.001953125	winner	delta	epi	met_lung	q4q1	Winning multi-gene module. Epithelial cells in tL/B, mLN and pleural effusion. TACSTD2 Q4 vs Q1.
+ctrl_epi	EPCAM/KRT control	control	10	0.5135294675827027	0.5672925710678101	1.0	0.001953125		delta	epi	met_lung	q4q1	EPCAM, KRT8, KRT18, KRT19. Epithelial coexpression control; not eligible as a TJ module.
+ctrl_krt	KRT8/18/19	control	10	0.48922340869903563	0.5225343704223633	1.0	0.001953125		delta	epi	met_lung	q4q1	Keratin-only epithelial control at the winning contrast.
+claudins_no4	CLDN1/3/7	module	10	0.4170176848769188	0.4033839702606201	1.0	0.001953125		delta	epi	met_lung	q4q1	Same contrast without CLDN4.
+residual	Residual on EPCAM/KRT	residual	10	0.39787852401852264	0.3793806728692903	1.0	0.001953125	winner	delta_resid_epi	epi	met_lung	q4q1	Claudin score after a cell-level linear residual on EPCAM/KRT8/18/19.
+pre_core_q4	12-gene core	module	10	0.2922197014093399	0.28282806277275085	1.0	0.001953125		delta	epi	met_lung	q4q1	CLDN1/3/4/7, OCLN, TJP1/2/3, F11R, CGN, MARVELD2, CRB3. Same winning contrast.
+pre_core_author	12-gene core, median	prespec	20	0.13130335062742232	0.1236700564622879	0.9	9.5367431640625e-06	prespec_author_median_pre_core	delta	author	all	median	Pre-specified core, author-malignant cells, median split. Two of 20 paired differences are negative.
