@@ -1,0 +1,16 @@
+Panel-score deltas co-move with the CLDN4/TACSTD2 'sanity' offset:
+     panel  n_pairs  pearson_r_vs_sanity  pearson_p  spearman_rho_vs_sanity  spearman_p
+  core_APM        9               0.7870     0.0118                  0.5000      0.1705
+  core_IFN        9               0.3903     0.2990                  0.2000      0.6059
+STING_axis        9               0.4168     0.2645                  0.2500      0.5165
+
+0h PRE-DOSE negative control (cell level) vs post-dose timepoints:
+            delta_0h_PREDOSE  cohens_d_0h_PREDOSE  mean_delta_postdose  min_delta_postdose  max_delta_postdose  abs_0h_exceeds_mean_postdose
+panel                                                                                                                                       
+core_APM              0.3075               0.1855               0.0874             -0.4875              0.4149                          True
+core_IFN              0.2339               0.1869              -0.0590             -0.5871              0.2357                          True
+STING_axis            0.3491               0.2210              -0.0584             -0.2717              0.0540                          True
+sanity                0.6177               0.2610               0.1270             -0.2432              0.4684                          True
+
+If the 0h row is as large as the post-dose rows, the apparent effects
+are arm-level offsets, not SG pharmacology.
