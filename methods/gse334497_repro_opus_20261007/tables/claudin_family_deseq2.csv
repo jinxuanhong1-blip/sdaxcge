@@ -1,0 +1,36 @@
+ensembl_gene_id,gene_name,gene_biotype,chrom,in_deposited_matrix,baseMean,log2FC_KO_vs_WT,lfcSE,pvalue,padj_BH,mean_norm_WT,mean_norm_KO,n_WT,n_KO,test
+ENSMUSG00000047501,Cldn4,protein_coding,5,True,2139.309270988,-0.638531997804127,0.495236564261378,0.197277324201113,0.892662517308608,2604.829025055698,1673.7895169202948,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000046798,Cldn12,protein_coding,5,True,450.659260844435,-0.249976817162412,0.153794524525976,0.104078467723132,0.779300211781333,489.6089224769512,411.70959921191934,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000018569,Cldn7,protein_coding,11,True,212.520126027978,-1.03647697136364,0.37569703305783,0.005801214002219,0.254767422179018,285.616921305738,139.42333075021799,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000070473,Cldn3,protein_coding,5,True,200.45370699927,-1.34812459324122,0.536736822802679,0.0120149459063909,0.353888477148412,287.58800392237345,113.31941007616724,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000041378,Cldn5,protein_coding,16,True,93.236407143081,0.397884716409017,0.403686287457266,0.324315439487446,0.957684675223144,80.57077379108792,105.9020404950741,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000022512,Cldn1,protein_coding,16,True,57.575404840079,-2.4803651998944,0.669473561387603,0.0002114335211302,0.0372744860486627,97.64550013111764,17.50530954904041,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000047230,Cldn2,protein_coding,X,True,52.1477330317735,-0.425583861931893,0.520429331491052,0.413496907169207,0.9809636922443,59.54747488150732,44.74799118203964,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000001739,Cldn15,protein_coding,5,True,18.2560206345593,-0.655659312505143,0.531121483075055,0.21702376941886,0.903412099967794,22.263119710396303,14.24892155872234,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000055976,Cldn23,protein_coding,8,True,16.8466622856469,-0.830718265215292,0.444807722859992,0.061819300915002,0.672912901330235,21.53633047486216,12.156994096431557,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000091530,Cldn20,protein_coding,17,True,12.8264181805339,0.0391845202881012,0.528792207309953,0.940929283844729,0.9981548633932,12.55744180013381,13.0953945609341,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000022132,Cldn10,protein_coding,14,True,10.3658973016686,0.784166506379694,0.52568174726765,0.135774294802208,0.826636005744821,7.700929837004617,13.03086476633261,5,5,"DESeq2 Wald, ~genotype, recovered counts"
+ENSMUSG00000071738,Cldn34b3,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000073085,Cldn34b4,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000079525,Cldn34d,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000087152,Cldn34-ps,processed_pseudogene,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000079450,Cldn34c1,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000095474,Cldn34c2,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000118430,Cldn34c3,unprocessed_pseudogene,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000043569,Cldn34c4,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000091863,Cldn34a,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000072100,Cldn34b1,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000057402,Cldn34b2,protein_coding,X,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000037625,Cldn11,protein_coding,3,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000066058,Cldn19,protein_coding,4,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000008843,Cldn13,protein_coding,5,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000061974,Cldn24,protein_coding,8,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000038064,Cldn22,protein_coding,8,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000105298,Cldn25-ps,processed_pseudogene,9,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000032473,Cldn18,protein_coding,9,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000038148,Cldn16,protein_coding,16,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000055811,Cldn17,protein_coding,16,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000050520,Cldn8,protein_coding,16,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000047109,Cldn14,protein_coding,16,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000023906,Cldn6,protein_coding,17,False,,,,,,,,5,5,not in GEO matrix
+ENSMUSG00000066720,Cldn9,protein_coding,17,False,,,,,,,,5,5,not in GEO matrix
